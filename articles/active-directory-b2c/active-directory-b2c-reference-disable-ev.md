@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 2/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c1bebe46832226e822d9eeb002cb555b72a1d7fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e008fb87b57b92f8f7e914e6b4344b52d42f9ef8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441608"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263930"
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: disabilitare la verifica tramite posta elettronica durante l'iscrizione dell'utente
 Quando è abilitato, Azure Active Directory (Azure AD) B2C permette all'utente di iscriversi alle applicazioni specificando un indirizzo di posta elettronica e creando un account locale. Azure AD B2C garantisce la validità degli indirizzi di posta elettronica richiedendone la verifica agli utenti durante il processo di iscrizione. Impedisce anche a processi dannosi automatizzati di generare account fittizi per le applicazioni.
@@ -26,13 +26,14 @@ Per impostazione predefinita, nei criteri di iscrizione la verifica tramite post
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Fare clic su **Criteri di iscrizione** o su **Criteri di iscrizione o di accesso**, a seconda della configurazione usata per l'iscrizione.
-3. Fare clic sul criterio, ad esempio "B2C_1_SiUp", per aprirlo. Fare clic su **Modifica** nella parte superiore del pannello.
-4. Fare clic su **Personalizzazione dell'interfaccia utente della pagina**.
-5. Fare clic su **Pagina di iscrizione dell'account locale**.
-6. Fare clic su **Indirizzo di posta elettronica** nella colonna **Nome** sotto la sezione **Attributi di iscrizione**.
-7. Impostare l'opzione **Richiedi la verifica** su **No**.
-8. Fare clic su **OK** nella parte inferiore fino a raggiungere il pannello **Modifica criterio**.
-9. Fare clic su **Salva** nella parte superiore del pannello. L'operazione è completata.
+3. Fare clic sul criterio, ad esempio "B2C_1_SiUp", per aprirlo. 
+4. Fare clic su **Modifica** nella parte superiore del pannello.
+5. Fare clic su **Personalizzazione dell'interfaccia utente della pagina**.
+6. Fare clic su **Pagina di iscrizione dell'account locale**.
+7. Fare clic su **Indirizzo di posta elettronica** nella colonna **Nome** sotto la sezione **Attributi di iscrizione**.
+8. Impostare l'opzione **Richiedi la verifica** su **No**.
+9. Fare clic su **OK** nella parte inferiore fino a raggiungere il pannello **Modifica criterio**.
+10. Fare clic su **Salva** nella parte superiore del pannello. L'operazione è completata.
 
 > [!NOTE]
 > Disabilitando la verifica tramite posta elettronica nel processo di iscrizione si potrebbe ricevere posta indesiderata. Se si disabilita il sistema di verifica predefinito, è consigliabile aggiungerne uno personalizzato.

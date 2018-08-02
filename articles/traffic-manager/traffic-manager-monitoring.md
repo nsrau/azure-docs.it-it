@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211719"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398836"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
 
@@ -156,7 +156,7 @@ Per altre informazioni su come risolvere i problemi relativi ai controlli di int
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md)
+Informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-it-works.md)
 
 Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 

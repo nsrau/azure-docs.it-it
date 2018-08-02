@@ -3,24 +3,23 @@ title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con Ru
 description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di archiviazione per Ruby per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 7ef74fe59400ff38a96e7b1b652393eef60eac81
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9b0a7047cf7e5eab55c8a56acae42dd95fd61d94
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606627"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398071"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Ruby
 
 Questa guida rapida mostra come usare Ruby per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva: 
 * Installare [Ruby](https://www.ruby-lang.org/en/downloads/)
@@ -138,7 +137,7 @@ puts "\nUploading to Blob storage as blob" + local_file_name
 blob_client.create_block_blob(container.name, local_file_name, full_path_to_file)
 ```
 
-Per eseguire un aggiornamento parziale del contenuto di un BLOB in blocchi, usare il metodo **create\_block\_list()**. I BLOB in blocchi possono avere dimensioni pari a 4,7 TB e possono essere qualsiasi tipo di file, da fogli di calcolo di Excel ai file video di grandi dimensioni. I BLOB di pagine vengono usati principalmente per i file VHD usati per tornare alle macchine virtuali IaaS. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si vuole scrivere in un file e poi continuare ad aggiungere altre informazioni. Il BLOB di accodamento deve essere usato in un modello a singolo writer. La maggior parte degli oggetti presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
+Per eseguire un aggiornamento parziale del contenuto di un BLOB in blocchi, usare il metodo **create\_block\_list()**. I BLOB in blocchi possono avere dimensioni pari a 4,7 TB e possono essere qualsiasi tipo di file, da fogli di calcolo di Excel ai file video di grandi dimensioni. I BLOB di pagine vengono usati principalmente per i file VHD usati per tornare alle macchine virtuali IaaS. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si desidera scrivere in un file e poi continuare ad aggiungere altre informazioni. Il BLOB di accodamento deve essere usato in un modello a singolo writer. La maggior parte degli oggetti presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
 
 ### <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
 

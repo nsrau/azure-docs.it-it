@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa689e9556e57560138d9629c616bd3a284f9b6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0050613f4a92380f48a93cdf1f82ed91dc34f6a4
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222308"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Esercitazione: Integrazione di Azure Active Directory con LinkedIn Learning
 
@@ -33,7 +33,7 @@ L'integrazione di LinkedIn Learning con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con LinkedIn Learning sono necessari gli elementi seguenti:
 
@@ -210,11 +210,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>Creare un utente test di LinkedIn Learning
 
-L'applicazione LinkedIn Learning supporta il provisioning dell'utente just-in-time e dopo l'autenticazione gli utenti sono automaticamente creati nell'applicazione. Nella pagina delle impostazioni di amministrazione del portale di LinkedIn Learning spostare il selettore dell'opzione **Automatically Assign licenses** (Assegna automaticamente le licenze) per attivareil provisioning just-in-time, assegnando una licenza all'utente. LinkedIn Learning supporta anche il provisioning utenti automatico; [qui](linkedinlearning-provisioning-tutorial.md) è possibile trovare altre informazioni su come configurare il provisioning utenti automatico.
+L'applicazione LinkedIn Learning supporta il provisioning dell'utente just-in-time e dopo l'autenticazione gli utenti sono automaticamente creati nell'applicazione. Nella pagina delle impostazioni di amministrazione del portale di LinkedIn Learning spostare il selettore dell'opzione **Automatically Assign licenses** (Assegna automaticamente le licenze) per attivareil provisioning just-in-time, assegnando una licenza all'utente.
 
    ![Creazione di un utente test di Azure AD](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
 
@@ -258,7 +258,6 @@ Quando si fa clic sul riquadro LinkedIn Learning nel Pannello di accesso, viene 
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura provisioning utenti](linkedinlearning-provisioning-tutorial.md)
 
 <!--Image references-->
 

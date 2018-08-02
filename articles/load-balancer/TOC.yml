@@ -40,7 +40,7 @@
   items:
     - name: Informazioni su Load Balancer Standard
       href: load-balancer-standard-overview.md
-    - name: Probe del servizio di bilanciamento del carico
+    - name: Probe di integrità
       href: load-balancer-custom-probe-overview.md
     - name: Porte a disponibilità elevata
       href: load-balancer-ha-ports-overview.md
@@ -137,7 +137,7 @@
               href: load-balancer-get-started-internet-classic-cloud.md
             - name: Configurare un servizio di bilanciamento del carico pubblico (interfaccia della riga di comando classica)
               href: load-balancer-get-started-internet-classic-cli.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer'

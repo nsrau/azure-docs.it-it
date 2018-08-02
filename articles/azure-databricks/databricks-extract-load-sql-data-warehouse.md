@@ -10,13 +10,13 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2018
-ms.openlocfilehash: 7f0354413932aef8a27b09ebac542ad1b8f375e1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.date: 07/26/2018
+ms.openlocfilehash: 11046089bd25e1ca9e117d5d8908471858450e6d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223831"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308797"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati tramite Azure Databricks
 
@@ -344,7 +344,7 @@ I dati di esempio non elaborati del file **small_radio_json.json** sono relativi
 2.  È possibile trasformare ulteriormente questi dati per rinominare la colonna **level** in **subscription_type**.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-        renamedColumnsDF.show()
+        renamedColumnsDf.show()
 
     L'output visualizzato sarà simile al frammento di codice seguente.
 
@@ -387,7 +387,7 @@ Come indicato in precedenza, il connettore di SQL Data Warehouse usa l'Archiviaz
 
 2. Specificare una cartella temporanea che verrà usata durante lo spostamento dei dati tra Azure Databricks e Azure SQL Data Warehouse.
 
-        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
 
 3. Eseguire il frammento di codice seguente per archiviare le chiavi di accesso dell'Archiviazione BLOB di Azure nella configurazione. In questo modo si assicura che non sia necessario mantenere la chiave di accesso nel notebook in testo normale.
 

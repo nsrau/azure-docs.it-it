@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 92e476d38e6e56edca19afe78bed2705feadd0bb
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a895f21bc061763b1d5d45b2bedb44fc932190dc
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040909"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345223"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare ed eseguire il debug di moduli C# per Azure IoT Edge
 
@@ -24,7 +24,7 @@ ms.locfileid: "39040909"
 Questo articolo presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico. In alternativa, si può simulare il dispositivo IoT Edge nel computer di sviluppo.
 
 > [!NOTE]
-> Questo articolo sul debug illustra come collegare un processo a un contenitore di modulo ed eseguirne il debug con VS Code. È possibile eseguire il debug di funzioni C# solo in contenitori Linux amd64. Se non si ha ancora familiarità con le funzionalità di debug di Visual Studio Code, vedere le [informazioni sul debug](https://code.visualstudio.com/Docs/editor/debugging). 
+> Questo articolo sul debug illustra come collegare un processo a un contenitore di modulo ed eseguirne il debug con VS Code. È possibile eseguire il debug di moduli C# solo in contenitori Linux amd64. Se non si ha ancora familiarità con le funzionalità di debug di Visual Studio Code, vedere le [informazioni sul debug](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Poiché questo articolo usa Visual Studio Code come strumento di sviluppo principale, installare VS Code. Aggiungere quindi le estensioni necessarie:
 * [Visual Studio Code](https://code.visualstudio.com/) 

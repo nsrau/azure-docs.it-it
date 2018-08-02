@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238006"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308970"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Esercitazione: 7. Aggiungere un'entità semplice e un elenco di frasi
 In questa esercitazione si crea un'app che illustra come estrarre dati di Machine Learning da un'espressione usando l'entità **semplice**.
@@ -29,7 +29,7 @@ In questa esercitazione si crea un'app che illustra come estrarre dati di Machin
 > * Aggiungere un elenco di frasi per aumentare il segnale per le parole relative alle mansioni
 > * Eseguire il training dell'app, pubblicarla ed eseguire di nuovo la query sull'endpoint
 
-Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità composta](luis-tutorial-composite-entity.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
@@ -69,9 +69,7 @@ Questa app LUIS include nomi di mansioni per diverse finalità. Assegnando etich
 
 ## <a name="create-job-simple-entity"></a>Creare un'entità mansione semplice
 
-1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
-
-    [ ![Screenshot dell'app LUIS con il pulsante relativo alla compilazione evidenziato in alto a destra sulla barra di spostamento](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** (Compila) nella barra dei menu in alto a destra. 
 
 2. Nella pagina **Intents** (Finalità) selezionare la finalità **ApplyForJob**. 
 
@@ -139,22 +137,14 @@ Language Understanding non rileva le modifiche a finalità ed entità (il modell
     ![Notifica di training completato](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
-Per ottenere una previsione di Language Understanding in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
 
-1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Publish** (Pubblica). 
-
-2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
-
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Screenshot della pagina Publish (Pubblica) con il pulsante Publish to production slot (Pubblica in slot di produzione) evidenziato")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
-3. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
-Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. 
 
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Schermata della pagina Publish (Pubblica) con l'endpoint evidenziato")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. Passare alla fine dell'URL nell'indirizzo e immettere `Here is my c.v. for the programmer job`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire le espressioni `ApplyForJob`.
+2. Andare alla fine dell'URL nell'indirizzo e immettere `Here is my c.v. for the programmer job`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire le espressioni `ApplyForJob`.
 
 ```JSON
 {

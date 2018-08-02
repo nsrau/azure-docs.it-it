@@ -3,7 +3,7 @@ title: Associazioni di Archiviazione code di Azure per Funzioni di Azure
 description: Informazioni su come usare il trigger di archiviazione code di Azure e l'associazione di output in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 71adccabc0778e2765c574f3714aab0ed0179deb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 04502e80cea096ce384f97559bc7bad95ee2bcd8
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724470"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344100"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione code di Azure per Funzioni di Azure
 
@@ -494,7 +494,7 @@ Nelle funzioni JavaScript usare `context.bindings.<name>` per accedere al messag
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione |  Riferimenti |
+| Associazione |  riferimento |
 |---|---|
 | Coda | [Codici di errore della coda](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob, Table, Queue | [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

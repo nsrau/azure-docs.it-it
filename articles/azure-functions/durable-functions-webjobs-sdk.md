@@ -2,7 +2,7 @@
 title: Come eseguire funzioni durevoli come processi Web - Azure
 description: Imparare a codificare e configurare Funzioni durevoli per l'esecuzione in processi Web tramite WebJobs SDK.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3fc84d1492d2855ffa3bb5538226da049a928339
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 90100461d7db93ece23bf2420a1b7e8c43da915b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766693"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343050"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Come eseguire funzioni durevoli come processi Web
 
@@ -27,7 +27,7 @@ ms.locfileid: "33766693"
 
 L'esempio di Funzioni durevoli di concatenamento è disponibile in una versione di WebJobs SDK: scaricare o clonare il [repository Funzioni durevoli](https://github.com/azure/azure-functions-durable-extension/) e andare alla cartella *samples\\webjobssdk\\chaining*.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che si abbia familiarità con le nozioni di base relative a WebJobs SDK, allo sviluppo della libreria di classi C# per Funzioni di Azure e a Funzioni durevoli. Per un'introduzione a questi argomenti, vedere le risorse seguenti:
 

@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 8e3cc261576e38cc304dc740f89582f7fd857e1a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4ce76f1156d4d8d85f5e10bb750b012f93ba7afb
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293035"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366681"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 
@@ -42,7 +42,7 @@ Questo diagramma illustra il flusso quando un utente tenta di accedere a un'appl
 7. Il connettore invia la richiesta originale al server dell'applicazione, usando il token Kerberos ricevuto da Active Directory.
 8. L'applicazione invia la risposta al connettore, che viene quindi restituita al servizio proxy di applicazione e infine all'utente.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare a usare SSO per le applicazioni IWA, verificare che l'ambiente sia pronto con le impostazioni e configurazioni seguenti:
 
 * Le app, ad esempio le app Web SharePoint, devono essere impostate per usare l'autenticazione integrata di Windows. Per altre informazioni, vedere [Attivare il supporto per l'autenticazione Kerberos](https://technet.microsoft.com/library/dd759186.aspx). Per SharePoint, vedere [Pianificare l'autenticazione Kerberos in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).

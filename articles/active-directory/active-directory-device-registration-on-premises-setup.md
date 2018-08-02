@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: de5ccd62a9624ad463a51fa204c0b5dca19992ef
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226170"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390348"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory
 Quando si chiede agli utenti di aggiungere i dispositivi personali all'area di lavoro con il servizio Registrazione dispositivo di Azure Active Directory (Azure AD), i dispositivi possono essere contrassegnati come noti all'organizzazione. Di seguito è riportata una guida dettagliata all'abilitazione dell'accesso condizionale alle applicazioni locali con Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -165,7 +165,7 @@ In questo caso `yourdomainname` è il nome di dominio configurato con Azure Acti
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Aggiungere un dispositivo Windows 7 con Registrazione dispositivo di Azure Active Directory
 Per registrare dispositivi Windows 7 aggiunti a un dominio, è necessario distribuire il [pacchetto software di registrazione dispositivo](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Per istruzioni su come usare il pacchetto, vedere [Pacchetti di Windows Installer per i computer non Windows 10](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
+Per istruzioni su come usare il pacchetto, vedere [Pacchetti di Windows Installer per i computer non Windows 10](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Verificare che venga eseguito il writeback dei dispositivi registrati in Active Directory
 È possibile verificare che sia stato eseguito il writeback degli oggetti dispositivo in Active Directory usando LDP.exe o ADSI Edit. Entrambi sono disponibili con gli strumenti dell'amministratore di Active Directory.

@@ -55,8 +55,10 @@
           href: log-analytics-log-search-portals.md
 - name: Guide alle procedure
   items:
-    - name: Creare un'area di lavoro di Log Analytics
-      href: log-analytics-quick-create-workspace.md
+    - name: Creare un'area di lavoro
+      items:
+        - name: Usare il portale di Azure
+          href: log-analytics-quick-create-workspace.md
     - name: Raccogliere i dati
       items:
         - name: Origini connesse
@@ -277,7 +279,7 @@
           href: log-analytics-template-workspace-configuration.md
         - name: API degli avvisi
           href: log-analytics-api-alerts.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Informazioni di riferimento sul linguaggio
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

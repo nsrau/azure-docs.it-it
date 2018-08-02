@@ -12,24 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: d70eb1a329b2d1ba560aecbbb4132d2a8e2b7df1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a5151d1f9498b29c79638445a58a8337abff8961
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160128"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281923"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer che non hanno Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. Esempi di tali dati sono: tipo e versione del sistema operativo, log del sistema operativo (registri eventi di Windows), processi in esecuzione, nome computer, indirizzi IP, utente connesso, eventi AppLocker e ID tenant. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
+
+> [!NOTE]
+> Per abilitare la raccolta dei dati per i [controlli applicazione adattivi](security-center-adaptive-application.md), Centro sicurezza consente di configurare criteri AppLocker locali in modalità di controllo per consentire tutte le applicazioni. In questo modo AppLocker genererà eventi che vengono poi raccolti e sfruttati dal Centro sicurezza. È importante notare che questi criteri non saranno configurati nei computer in cui è già configurato un criterio AppLocker. 
+>
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Abilitare il provisioning automatico di Microsoft Monitoring Agent     
 Il provisioning automatico è disattivato per impostazione predefinita. Dopo aver abilitato il provisioning automatico, il Centro sicurezza effettua il provisioning di Microsoft Monitoring Agent in tutte le macchine virtuali di Azure supportate e in quelle nuove che vengono create. Il provisioning automatico è fortemente consigliato, ma è disponibile anche l'installazione manuale dell'agente. [Informazioni sull'installazione dell'estensione Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
 > - La disabilitazione automatica del provisioning limita il monitoraggio delle risorse. Per altre informazioni, vedere [Disabilitare il provisioning automatico](security-center-enable-data-collection.md#disable-automatic-provisioning) in questo articolo. Gli snapshot del disco della macchina virtuale e la raccolta di elementi resteranno abilitati anche se il provisioning automatico viene disabilitato.
-> - Per abilitare la raccolta dei dati per i [controlli applicazione adattivi](security-center-adaptive-application.md), Centro sicurezza consente di configurare criteri AppLocker locali in modalità di controllo per consentire tutte le applicazioni. In questo modo AppLocker genererà eventi che vengono poi raccolti e sfruttati dal Centro sicurezza. È importante notare che questi criteri non saranno configurati nei computer in cui è già configurato un criterio AppLocker. 
 >
 
 Per abilitare il provisioning automatico di Microsoft Monitoring Agent:

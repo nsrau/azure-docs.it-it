@@ -3,20 +3,19 @@ title: Caricare grandi quantità di dati casuali in parallelo in Archiviazione d
 description: Informazioni su come usare Azure SDK per caricare grandi quantità di dati casuali in parallelo in un account di archiviazione di Azure
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 668700cf3ff3d1a90f9639129ef2953ddca016f1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: 557dd1d89fc05d82f1839a7b02356857f41164c6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239899"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399737"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure
 
@@ -26,7 +25,7 @@ Nella seconda parte della serie si apprenderà come:
 
 > [!div class="checklist"]
 > * Configurare la stringa di connessione
-> * Compilare l'applicazione.
+> * Compilare l'applicazione
 > * Eseguire l'applicazione
 > * Convalidare il numero di connessioni
 
@@ -34,7 +33,7 @@ L'archivio BLOB di Azure offre un servizio scalabile per l'archiviazione dei dat
 
 Un altro fattore importante nella progettazione di un'applicazione ad alte prestazioni che usa BLOB è la [denominazione delle partizioni](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47). Per la scalabilità e il bilanciamento del carico, Archiviazione di Azure usa uno schema di partizionamento basato su intervalli. Con questa configurazione, i file con prefissi o convenzioni di denominazione simili vengono inseriti nella stessa partizione. Questa logica include il nome del contenitore in cui i file vengono caricati. In questa esercitazione si usano file con nomi costituiti da GUID e contenuto generato in modo casuale, che vengono quindi caricati in cinque diversi contenitori con nomi casuali.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione è necessario aver completato la precedente esercitazione sull'archiviazione: [Creare una macchina virtuale e un account di archiviazione per un'applicazione scalabile][previous-tutorial].
 
@@ -190,7 +189,7 @@ Nella seconda parte della serie si è appreso come caricare grandi quantità di 
 
 > [!div class="checklist"]
 > * Configurare la stringa di connessione
-> * Compilare l'applicazione.
+> * Compilare l'applicazione
 > * Eseguire l'applicazione
 > * Convalidare il numero di connessioni
 

@@ -3,20 +3,19 @@ title: Verificare le metriche di velocità effettiva e latenza per un account di
 description: Informazioni su come verificare le metriche di velocità effettiva e latenza per un account di archiviazione nel portale.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: e498e44fcda6877aa69ec763e46e7ae7879e5aa9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: 811d653ea090298a9f57b5b0aac4c7b2e7f9f648
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237502"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397690"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificare le metriche di velocità effettiva e latenza per un account di archiviazione
 

@@ -3,24 +3,22 @@ title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con PH
 description: Imparare velocemente come trasferire oggetti da e verso un archivio BLOB di Azure con PHP
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: c97585607a8694840d24f4582f5a850b3d6e11f0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f0d5cba238b9fc026a3bc67dd33dba8427b9b506
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618560"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397142"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Trasferire oggetti da e verso un archivio BLOB di Azure con PHP
 Questa guida introduttiva illustra come usare PHP per caricare, scaricare ed elencare BLOB in blocchi in un contenitore in un archivio BLOB di Azure. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva: 
 * [Installare PHP](http://php.net/downloads.php)
@@ -146,7 +144,7 @@ Il codice di esempio carica un file locale in Azure. Nel codice, il file è arch
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 ```
 
-Per eseguire un aggiornamento parziale del contenuto di un BLOB in blocchi, usare il metodo **createblocklist()**. I BLOB in blocchi possono avere dimensioni pari a 4,7 TB e possono essere qualsiasi tipo di file, da fogli di calcolo di Excel ai file video di grandi dimensioni. I BLOB di pagine vengono usati principalmente per i file VHD usati per tornare alle macchine virtuali IaaS. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si vuole scrivere in un file e poi continuare ad aggiungere altre informazioni. Il BLOB di accodamento deve essere usato in un modello a singolo writer. La maggior parte degli oggetti presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
+Per eseguire un aggiornamento parziale del contenuto di un BLOB in blocchi, usare il metodo **createblocklist()**. I BLOB in blocchi possono avere dimensioni pari a 4,7 TB e possono essere qualsiasi tipo di file, da fogli di calcolo di Excel ai file video di grandi dimensioni. I BLOB di pagine vengono usati principalmente per i file VHD usati per tornare alle macchine virtuali IaaS. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si desidera scrivere in un file e poi continuare ad aggiungere altre informazioni. Il BLOB di accodamento deve essere usato in un modello a singolo writer. La maggior parte degli oggetti presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
 
 ### <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
 

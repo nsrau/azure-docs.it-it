@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: diberry
-ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224263"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282739"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Esercitazione: 8. Aggiungere entità KeyPhrase 
 In questa esercitazione viene usata un'app che illustra come estrarre domini chiave da espressioni.
@@ -27,7 +27,7 @@ In questa esercitazione viene usata un'app che illustra come estrarre domini chi
 > * Eseguire il training e pubblicare l'app
 > * Eseguire una query sull'endpoint dell'app per visualizzare una risposta JSON LUIS che include frasi chiave
 
-Per questo articolo è possibile usare l'account [LUIS](luis-reference-regions.md#publishing-regions) gratuito per creare un'applicazione LUIS personalizzata.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità semplice](luis-quickstart-primary-and-secondary-data.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
@@ -49,9 +49,7 @@ L'applicazione client può usare questi valori, insieme ad altre entità estratt
 ## <a name="add-keyphrase-entity"></a>Aggiungere entità KeyPhrase 
 Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
 
-1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
-
-    [ ![Screenshot dell'app LUIS con il pulsante relativo alla compilazione evidenziato in alto a destra sulla barra di spostamento](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** (Compila) nella barra dei menu in alto a destra. 
 
 2. Selezionare **Entità** nel menu a sinistra.
 
@@ -85,23 +83,14 @@ Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
 
 ## <a name="publish-app-to-endpoint"></a>Pubblicare l'app su endpoint
 
-1. Selezionare **Pubblica** nella barra di spostamento in alto a destra.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Screenshot della pagina Publish (Pubblica) con il pulsante Publish to production slot (Pubblica in slot di produzione) evidenziato")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
-
-2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
-
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Screenshot della pagina Publish (Pubblica) con il pulsante Publish to production slot (Pubblica in slot di produzione) evidenziato")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
-
-3. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Eseguire la query dell'endpoint con un'espressione
 
-1. Nella pagina **Pubblica**, selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-    ![Screenshot della pagina Pubblica con l'URL endpoint evidenziato](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
-
-2. Scorrere alla fine dell'URL nell'indirizzo e immettere `does form hrf-123456 cover the new dental benefits and medical plan`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
+2. Andare alla fine dell'URL nell'indirizzo e immettere `does form hrf-123456 cover the new dental benefits and medical plan`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
 ```
 {

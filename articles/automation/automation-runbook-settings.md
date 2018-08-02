@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 951e59333ab1a1e982386c5c71f79b86f5e62440
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 589df59e02a18629d5f405ff1ce8870333f2228e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194197"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397714"
 ---
 # <a name="runbook-settings"></a>Impostazioni dei runbook
 Ogni runbook in Automazione di Azure dispone di più impostazioni che consentono di identificarlo e di modificarne il comportamento di registrazione. Per ognuna di queste impostazioni, di seguito viene riportata una descrizione e vengono illustrate le procedure di modifica.
@@ -39,7 +39,7 @@ Per modificare le impostazioni di un runbook nel portale di Azure, usare il pann
 3. Fare clic sul nome di un runbook per aprire il pannello delle impostazioni corrispondente. In tale pannello è possibile specificare o modificare i tag e la descrizione del runbook, configurare le impostazioni di traccia e registrazione e accedere agli strumenti di supporto per la risoluzione dei problemi.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Modifica delle impostazioni dei runbook con Windows PowerShell
-Per modificare le impostazioni di un runbook, è possibile usare il cmdlet [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx). Se si intende specificare più tag, è possibile fornire una matrice o una singola stringa con valori delimitati da virgole per il parametro Tags. Per ottenere i tag correnti, usare [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+Per modificare le impostazioni di un runbook, è possibile usare il cmdlet [Set-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/set-azurermautomationrunbook). Se si intende specificare più tag, è possibile fornire una matrice o una singola stringa con valori delimitati da virgole per il parametro Tags. Per ottenere i tag correnti, usare [Get-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/get-azurermautomationrunbook).
 
 I comandi di esempio seguenti illustrano come impostare le proprietà di un runbook. Questo esempio aggiunge tre tag ai tag esistenti e specifica che vengano registrati i record dettagliati.
 

@@ -2,26 +2,22 @@
 title: Configurare dispositivi aggiunti ad Azure Active Directory | Microsoft Docs
 description: Informazioni su come configurare dispositivi aggiunti ad Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: f2d285735b92c3acd67dc741f344b836e791be04
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83eea565cc775a0569015c04d79d627d6ba120e6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058463"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411710"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configurare dispositivi aggiunti ad Azure Active Directory
 
@@ -32,7 +28,7 @@ Per controllare i dispositivi Windows 10 aziendali con Azure AD, è necessario c
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per aggiungere un dispositivo Windows 10, il servizio di registrazione dispositivo deve essere configurato per consentire la registrazione dei dispositivi. Oltre ad avere l'autorizzazione per l'aggiunta di dispositivi nel tenant di Azure AD, è necessario che i dispositivi registrati siano meno del numero massimo configurato. Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](../device-management-azure-portal.md#configure-device-settings).
+Per aggiungere un dispositivo Windows 10, il servizio di registrazione dispositivo deve essere configurato per consentire la registrazione dei dispositivi. Oltre ad avere l'autorizzazione per l'aggiunta di dispositivi nel tenant di Azure AD, è necessario che i dispositivi registrati siano meno del numero massimo configurato. Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](../devices/device-management-azure-portal.md#configure-device-settings).
 
 
 
@@ -120,16 +116,14 @@ Se il dispositivo è stato aggiunto correttamente, **AzureAdJoined** è **Yes**.
 
 ![Connesso](./media/device-management-azuread-joined-devices-setup/15.png)
 
-Per altre informazioni, vedere [Individuare i dispositivi](../device-management-azure-portal.md#locate-devices).
+Per altre informazioni, vedere [Individuare i dispositivi](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere: 
 
-- [Introduzione alla gestione dei dispositivi in Azure Active Directory](../device-management-introduction.md)
-- [Gestione dei dispositivi tramite il portale di Azure](../device-management-azure-portal.md)
-- 
-
+- [Introduzione alla gestione dei dispositivi in Azure Active Directory](../devices/overview.md)
+- [Gestione dei dispositivi tramite il portale di Azure](../devices/device-management-azure-portal.md)
 
 

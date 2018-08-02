@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: b6da8eed16b67db098ceb90079b7da7dfadcd5e3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fde6d5fa2488d86af542f409df7c5b76d2510f08
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302599"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368649"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale in Azure Active Directory
 Rimuovere un utente o un gruppo dalla possibilità di accedere a una delle applicazioni aziendali in Azure Active Directory (Azure AD) è un'operazione facile. È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale ed essere amministratore globale della directory.
@@ -69,7 +69,7 @@ Rimuovere un utente o un gruppo dalla possibilità di accedere a una delle appli
     ``` 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Visualizzare tutti i gruppi personali](../active-directory-groups-view-azure-portal.md)
+- [Visualizzare tutti i gruppi personali](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Assegnare un utente o gruppo a un'app aziendale](assign-user-or-group-access-portal.md)
 - [Disabilitare l'accesso degli utenti per un'app aziendale](disable-user-sign-in-portal.md)
 - [Modificare il nome o il logo di un'app aziendale](change-name-or-logo-portal.md)

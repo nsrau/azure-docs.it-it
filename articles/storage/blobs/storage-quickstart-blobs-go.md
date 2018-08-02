@@ -3,24 +3,23 @@ title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con Go
 description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di archiviazione per Go per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
 author: seguler
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 1ce3debd8b04cf6c799dd7d6a3c87f843f1e0338
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38707564"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398577"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Go
 
 Questa guida rapida mostra come usare il linguaggio di programmazione di Go per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva: 
 * Installare [Go 1.8 o versione successiva](https://golang.org/dl/)

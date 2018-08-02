@@ -1,5 +1,5 @@
 ---
-title: Gestione traffico di Azure - Domande frequenti | Microsoft Docs
+title: Gestione traffico di Azure - Domande frequenti | Documentazione Microsoft
 description: Questo articolo risponde ad alcune domande frequenti su Gestione traffico
 services: traffic-manager
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036922"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399178"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -27,23 +27,23 @@ ms.locfileid: "39036922"
 
 ### <a name="what-ip-address-does-traffic-manager-use"></a>Quale indirizzo IP viene usato da Gestione traffico?
 
-Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestione traffico funziona a livello di DNS. Invia le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico.
+Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), Gestione traffico funziona a livello di DNS. Invia le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico.
 
 Gestione traffico non prevede quindi un endpoint o indirizzo IP per la connessione dei client. Se si intende avere un indirizzo IP statico per un servizio, è necessario configurarlo nel servizio, non in Gestione traffico.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quali tipi di traffico è possibile indirizzare tramite Gestione traffico?
-Come spiegato in [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), un endpoint di Gestione traffico può essere qualsiasi servizio con connessione Internet all'interno o all'esterno di Azure. Di conseguenza, Gestione traffico può indirizzare il traffico che ha origine da Internet pubblico a un set di endpoint anch'esso con connessione Internet. In caso di endpoint presenti all'interno di una rete privata (ad esempio, una versione interna del [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) o di utenti che inviano richieste DNS da tali reti interne, Gestione traffico non può essere usato per tale traffico.
+Come spiegato in [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), un endpoint di Gestione traffico può essere qualsiasi servizio con connessione Internet all'interno o all'esterno di Azure. Di conseguenza, Gestione traffico può indirizzare il traffico che ha origine da Internet pubblico a un set di endpoint anch'esso con connessione Internet. In caso di endpoint presenti all'interno di una rete privata (ad esempio, una versione interna del [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) o di utenti che inviano richieste DNS da tali reti interne, Gestione traffico non può essere usato per tale traffico.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Gestione traffico supporta sessioni "permanenti"?
 
-Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestione traffico funziona a livello di DNS. Usa le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono all'endpoint di servizio in modo diretto, senza passare per Gestione traffico. Gestione traffico non visualizza quindi il traffico HTTP tra il client e il server.
+Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), Gestione traffico funziona a livello di DNS. Usa le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono all'endpoint di servizio in modo diretto, senza passare per Gestione traffico. Gestione traffico non visualizza quindi il traffico HTTP tra il client e il server.
 
 Inoltre l'indirizzo IP di origine della query DNS ricevuta da Gestione traffico appartiene al servizio DNS ricorsivo e non al client. Il servizio Gestione traffico non può quindi tracciare client singoli e non può implementare sessioni "permanenti". Questa limitazione è comune a tutti i sistemi di gestione del traffico basati su DNS e non è specifica di Gestione traffico.
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Quando si usa Gestione traffico, viene visualizzato un errore HTTP. Perché?
 
-Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestione traffico funziona a livello di DNS. Usa le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico. Gestione traffico non vede il traffico HTTP tra client e server. Ogni errore HTTP visualizzato proviene quindi dall'applicazione. Per la connessione del client all'applicazione, è necessario che siano stati completati tutti i passaggi di risoluzione DNS. È inclusa qualsiasi interazione di Gestione traffico con il flusso del traffico dell'applicazione.
+Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), Gestione traffico funziona a livello di DNS. Usa le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico. Gestione traffico non vede il traffico HTTP tra client e server. Ogni errore HTTP visualizzato proviene quindi dall'applicazione. Per la connessione del client all'applicazione, è necessario che siano stati completati tutti i passaggi di risoluzione DNS. È inclusa qualsiasi interazione di Gestione traffico con il flusso del traffico dell'applicazione.
 
 Eventuali verifiche più approfondite dovranno quindi concentrarsi sull'applicazione.
 
@@ -51,7 +51,7 @@ L'intestazione host HTTP inviata dal browser del client è l'origine dei problem
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Qual è l'impatto sulle prestazioni dell'uso di Gestione traffico?
 
-Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestione traffico funziona a livello di DNS. Dal momento che i client si connettono direttamente agli endpoint di servizio, dopo che è stata stabilita la connessione non si verifica alcun impatto sulle prestazioni.
+Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), Gestione traffico funziona a livello di DNS. Dal momento che i client si connettono direttamente agli endpoint di servizio, dopo che è stata stabilita la connessione non si verifica alcun impatto sulle prestazioni.
 
 Poiché Gestione traffico si integra con le applicazioni a livello di DNS, richiede l'inserimento di una ricerca DNS aggiuntiva nella catena di risoluzione DN. L'impatto di Gestione traffico sul tempo di risoluzione DNS è minimo. Gestione traffico usa una rete globale di server dei nomi e reti [Anycast](https://en.wikipedia.org/wiki/Anycast) per garantire che le query DNS vengano sempre indirizzate al server dei nomi più vicino disponibile. Inoltre, la memorizzazione nella cache delle risposte DNS significa che la latenza DNS aggiuntiva associata all'uso di Gestione traffico si applica solo a una frazione di sessioni.
 
@@ -59,7 +59,7 @@ Il metodo Prestazioni instrada il traffico all'endpoint disponibile più vicino.
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Quali protocolli di applicazione possono essere usati con Gestione traffico?
 
-Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestione traffico funziona a livello di DNS. Dopo il completamento della ricerca DNS, i client si connettono all'endpoint dell'applicazione direttamente, non tramite Gestione traffico. La connessione può pertanto usare qualsiasi protocollo dell'applicazione. Se come protocollo di monitoraggio si seleziona TCP, i controlli dell'integrità dell'endpoint eseguiti da Gestione traffico non richiedono l'uso dei protocolli dell'applicazione. Se si sceglie di verificare l'integrità usando un protocollo dell'applicazione, l'endpoint deve poter rispondere alle richieste HTTP o HTTPS GET.
+Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), Gestione traffico funziona a livello di DNS. Dopo il completamento della ricerca DNS, i client si connettono all'endpoint dell'applicazione direttamente, non tramite Gestione traffico. La connessione può pertanto usare qualsiasi protocollo dell'applicazione. Se come protocollo di monitoraggio si seleziona TCP, i controlli dell'integrità dell'endpoint eseguiti da Gestione traffico non richiedono l'uso dei protocolli dell'applicazione. Se si sceglie di verificare l'integrità usando un protocollo dell'applicazione, l'endpoint deve poter rispondere alle richieste HTTP o HTTPS GET.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>È possibile usare Gestione traffico con un nome di dominio di tipo "naked" (senza www)?
 

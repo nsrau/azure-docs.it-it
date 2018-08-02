@@ -1,5 +1,5 @@
 ---
-title: Gestione di applicazioni con Azure Active Directory | Microsoft Docs
+title: Gestione di applicazioni con Azure Active Directory | Documentazione Microsoft
 description: Questo articolo illustra i vantaggi dell'integrazione di Azure Active Directory con le applicazioni locali, cloud e SaaS.
 services: active-directory
 documentationcenter: ''
@@ -8,18 +8,18 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/15/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 1a8db218309eb48650443f1c9d57fe1ecdf04a6a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: bf53829a2d2578132f9a3595c0bac5e8eb588916
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34058199"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366772"
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
 Oltre alla gestione del flusso di lavoro o del contenuto effettivo, in generale le aziende prevedono due requisiti di base per tutte le applicazioni:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: bec2e443b920a1f163b7b328197d3688d207ed35
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301581"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309120"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso in Azure Service Fabric
 Il proxy inverso integrato in Azure Service Fabric consente ai microservizi in esecuzione in un cluster di Service Fabric di rilevare e comunicare con altri servizi che hanno endpoint HTTP.
@@ -158,7 +158,7 @@ Per la configurazione di un proxy inverso sicuro, è possibile specificare un ce
 
 È possibile usare il [modello di Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) per abilitare il proxy inverso in Service Fabric per il cluster.
 
-Per esempi del modello di Azure Resource Manager per la configurazione del proxy inverso sicuro con un certificato e la gestione del rollover dei certificati, vedere [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) (Configurare il proxy inverso HTTPS in un cluster sicuro).
+Per esempi del modello di Azure Resource Manager per la configurazione del proxy inverso sicuro con un certificato e la gestione del rollover dei certificati, vedere [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) (Configurare il proxy inverso HTTPS in un cluster sicuro).
 
 Ottenere prima di tutto il modello per il cluster da distribuire. È possibile usare i modelli di esempio o creare un modello di Resource Manager. È quindi possibile abilitare il proxy inverso seguendo questa procedura:
 

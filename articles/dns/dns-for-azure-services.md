@@ -16,12 +16,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: victorh
-ms.openlocfilehash: 2f5ff425eadc4572f5e109f503c57969ab310f6b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 39fe23d7289dc78736dd5a85d4100af82b1d7b4a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171807"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398216"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Funzionamento del servizio DNS di Azure con altri servizi di Azure
 
@@ -36,7 +36,7 @@ Nella tabella seguente vengono illustrati i tipi di record supportati che è pos
 | --- | --- | --- |
 | Gateway applicazione |[IP pubblico front-end](dns-custom-domain.md#public-ip-address) |È possibile creare un record DNS A o CNAME. |
 | Load Balancer |[IP pubblico front-end](dns-custom-domain.md#public-ip-address)  |È possibile creare un record DNS A o CNAME. Al servizio di bilanciamento del carico può essere assegnato dinamicamente un indirizzo PI pubblico IPv6. Di conseguenza, è necessario creare un record CNAME per un indirizzo IPv6. |
-| Gestione traffico |Nome pubblico |È possibile creare solo un record CNAME che si associa al nome trafficmanager.net assegnato al profilo di Gestione traffico. Per altre informazioni, vedere [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#traffic-manager-example). |
+| Gestione traffico |Nome pubblico |È possibile creare solo un record CNAME che si associa al nome trafficmanager.net assegnato al profilo di Gestione traffico. Per altre informazioni, vedere [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md). |
 | Servizio cloud |[IP pubblico](dns-custom-domain.md#public-ip-address) |Per gli indirizzi IP allocati staticamente, è possibile creare un record DNS A. Per gli indirizzi IP allocati dinamicamente, è necessario creare un record CNAME che si associa al nome *cloudapp.net* .|
 | Servizio app | [IP esterno](dns-custom-domain.md#app-service-web-apps) |Per gli indirizzi IP esterni, è possibile creare un record DNS A. In caso contrario, è necessario creare un record CNAME che viene associato al nome di azurewebsites.net. Per maggiori informazioni, vedere [Eseguire il mapping di un nome di dominio personalizzato in un'app Azure](../app-service/app-service-web-tutorial-custom-domain.md) |
 | VM di Resource Manager |[IP pubblico](dns-custom-domain.md#public-ip-address) |Le VM di Resource Manager possono avere indirizzi IP pubblici. Una VM con un indirizzo IP pubblico può essere anche dietro a un servizio di bilanciamento del carico. È possibile creare un record DNS A o CNAME per l'indirizzo pubblico. Il nome personalizzato può essere usato per aggirare l'indirizzo VIP sul bilanciamento del carico. |

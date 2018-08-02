@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 37b5e5d05559088d7f5aac796f452f2ed83447fc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e7976cf0574952fdafbdc8b40db47af3a5420fd5
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294632"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368819"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -38,7 +38,7 @@ Poiché i connettori del proxy dell'applicazione indirizzano il traffico remoto 
 
 Poiché questo scenario è il risultato di una partnership fra Azure Active Directory e PingAccess, sono necessarie le licenze per entrambi i servizi. Le sottoscrizioni Premium di Azure Active Directory, tuttavia, includono una licenza PingAccess di base che copre fino a 20 applicazioni. Se è necessario pubblicare più di 20 applicazioni basate su intestazione, è possibile acquistare una licenza aggiuntiva da PingAccess. 
 
-Per altre informazioni, vedere [Edizioni di Azure Active Directory](../active-directory-whatis.md).
+Per altre informazioni, vedere [Edizioni di Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="publish-your-application-in-azure"></a>Pubblicare l'applicazione in Azure
 

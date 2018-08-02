@@ -3,24 +3,23 @@ title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con Ja
 description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di archiviazione per Java per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 30d31a7f4b77864549dcb9e27030ba19c4fd84fe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7fc5b164792907644a0a41615436806f998a8b1e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606610"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398710"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Java SDK V7
 
 Questa guida rapida mostra come usare Java per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 

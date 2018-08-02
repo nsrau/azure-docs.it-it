@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 24d453dc705eb2d0ee7cb77f2ec247845247d0a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 6f0d8a3a09ce000ddff078614c4febfc44ac941f
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113632"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264944"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
@@ -59,7 +59,7 @@ Visualizzare i backup conservati per un database specifico con i criteri di cons
 
 6. Sulla barra degli strumenti fare clic sull'icona di notifica per visualizzare lo stato del processo di ripristino.
 
-   ![avanzamento del processo di ripristino dall'insieme di credenziali](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![avanzamento processo di ripristino](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. Al termine del processo di ripristino, aprire la pagina **Database SQL** per visualizzare il database appena ripristinato.
 

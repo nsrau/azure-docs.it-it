@@ -3,7 +3,7 @@ title: Linee guida per lo sviluppo di Funzioni di Azure | Documentazione Microso
 description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure necessari per sviluppare funzioni in Azure in tutti i linguaggi e i binding di programmazione.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: tdykstra
-ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: glenga
+ms.openlocfilehash: 5214a59b6a1aa27c80759c5af3d91ad4711de660
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121747"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343978"
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.

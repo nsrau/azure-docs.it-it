@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7a90a8f05082e2c0731f9f112d3e56ecaf4ea55b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903031"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398802"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usare i set di dati di esempio in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -333,7 +333,7 @@ Si noti anche che il numero di eventi di fondo (h per piogge adroniche) è sotto
 <tr>
   <td>Weather Dataset</td>
   <td>
-Le osservazioni meteo sono su base oraria e al suolo e vengono fornite dalla NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">dati uniti dal mese di aprile al mese di ottobre 2013</a>).
+Le osservazioni meteo sono su base oraria e al suolo e vengono fornite dalla NOAA (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">dati uniti dal mese di aprile al mese di ottobre 2013</a>).
 <p></p>
 I dati relativi al meteo riguardano le osservazioni effettuate dalle stazioni meteo degli aeroporti nel periodo aprile-ottobre 2013. Prima del caricamento in Azure Machine Learning Studio, il set di dati è stato elaborato come segue:
 <ul>

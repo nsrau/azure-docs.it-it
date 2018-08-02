@@ -2,24 +2,18 @@
 title: Uso della rete CDN di Azure per accedere a BLOB con domini personalizzati tramite HTTPS
 description: Informazioni su come integrare la rete CDN di Azure con l'archiviazione BLOB per accedere a BLOB con domini personalizzati tramite HTTPS
 services: storage
-documentationcenter: ''
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: mihauss
-ms.openlocfilehash: b3b1b5064e51b68bb64cb8c4dbec6075705795d6
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: blobs
+ms.openlocfilehash: 7c4acc7d0832442b94735619ea3a01cb319da993
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025408"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398256"
 ---
 # <a name="using-the-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Uso della rete CDN di Azure per accedere a BLOB con domini personalizzati tramite HTTPS
 La rete per la distribuzione di contenuti (rete CDN) di Azure supporta ora HTTPS per i nomi di dominio personalizzati. È possibile sfruttare questa funzionalità per accedere ai BLOB di archiviazione usando il dominio personalizzato tramite HTTPS. A questo scopo, è innanzitutto necessario abilitare la rete CDN di Azure nell'endpoint BLOB o Web ed eseguire il mapping della rete CDN a un nome di dominio personalizzato. Dopo aver completato questi passaggi, l'uso di HTTPS per il dominio personalizzato risulta semplificato grazie all'abilitazione con un solo clic e alla gestione completa dei certificati, il tutto senza costi aggiuntivi rispetto ai normali prezzi della rete CDN.

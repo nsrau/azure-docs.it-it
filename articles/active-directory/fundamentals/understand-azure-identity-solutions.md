@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: b052613161b4fee9a01def966fb02cbf8a7a483c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056937"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398365"
 ---
 # <a name="understand-azure-identity-solutions"></a>Informazioni sulle soluzioni di gestione delle identità di Azure
 Microsoft Azure Active Directory (Azure AD) è una soluzione cloud completa per la gestione delle identità e degli accessi che fornisce servizi di directory, governance delle identità e gestione dell'accesso alle applicazioni. Azure AD [abilita il single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) rapidamente su oltre 1000 applicazioni preintegrate commerciali e personalizzate nella [raccolta di applicazioni Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Molte di queste applicazioni sono già in uso, ad esempio Office 365, Salesforce.com, Box, ServiceNow e Workday.
@@ -103,7 +103,7 @@ Di seguito sono riportati alcuni scenari comuni di gestione delle identità e de
 |La mia organizzazione ha effettuato grandi investimenti in Windows Server Active Directory, ma ora intende estendere la gestione delle identità al cloud.| La soluzione di gestione delle identità di Azure più diffusa è l'[identità ibrida](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). Se sono già stati effettuati investimenti in AD DS locale, Azure AD Connect consente di estendere facilmente le identità nel cloud.|
 |La mia azienda è nata nel cloud e non ha effettuato alcun investimento in soluzioni di gestione delle identità locali.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) è la scelta ideale per le aziende con ambenti esclusivamente cloud senza investimenti in locale.|
 |Ho bisogno di una configurazione semplificata della VM di Azure e di pochi controlli per soddisfare le esigenze di identità locali per attività di sviluppo e test delle applicazioni.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) è un'ottima scelta se è necessario usare AD DS per il controllo di configurazioni semplificate di VM di Azure o se si intende sviluppare o migrare applicazioni locali legacy e compatibili con la directory nel cloud.|  
-|La mia azienda deve supportare poche macchine virtuali in Azure ma ha già investito molto in Active Directory (AD DS) locale.|La soluzione ["fai da te" AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) è l'opzione ideale per usare le macchine virtuali di Azure quando è necessario supportare poche macchine virtuali e sono stati fatti investimenti considerevoli in AD DS locale. |
+|La mia azienda deve supportare poche macchine virtuali in Azure ma ha già investito molto in Active Directory (AD DS) locale.|La soluzione ["fai da te" AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison#do-it-yourself-diy-ad-deployment-options) è l'opzione ideale per usare le macchine virtuali di Azure quando è necessario supportare poche macchine virtuali e sono stati fatti investimenti considerevoli in AD DS locale. |
 
 ## <a name="where-can-i-learn-more"></a>Altre informazioni
 Sono disponibili moltissime risorse utili online, che forniscono tutte le informazioni necessarie su Azure AD. Gli articoli seguenti forniscono informazioni introduttive:
@@ -126,5 +126,3 @@ Dopo aver compreso i concetti di identità di Azure e le opzioni disponibili, è
 [Altre informazioni sulle soluzioni per la gestione delle identità ibride di Azure](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Altre informazioni in un ambiente Azure di prova](https://aka.ms/aad-poc)
-
-[Distribuire Azure AD nell'ambiente di produzione](https://aka.ms/aad-onboard)

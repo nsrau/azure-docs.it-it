@@ -10,16 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c3f07aa0ef4fea773e214e3e161a61e9337dc617
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2321ccf115e3b517bdc593c0c428c61d5dd90968
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367090"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerazioni relative alla topologia di rete quando si usa il proxy applicazione di Azure Active Directory
 
@@ -175,4 +176,4 @@ In questa situazione è anche possibile prendere in considerazione l'uso di un'a
 - [Abilitare il proxy dell'applicazione](application-proxy-enable.md)
 - [Abilitare l'accesso Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md)
-- [Risolvere i problemi che si verificano con il proxy di applicazione](../active-directory-application-proxy-troubleshoot.md)
+- [Risolvere i problemi che si verificano con il proxy di applicazione](application-proxy-troubleshoot.md)

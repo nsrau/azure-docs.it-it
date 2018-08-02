@@ -6,15 +6,15 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81653f9125b9cc4411e5cfe358bd602f92c5bf89
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448367"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264962"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 Questo articolo descrive i passaggi necessari per configurare i report per Backup di Azure usando l'insieme di credenziali di Servizi di ripristino e per accedere a questi report tramite Power BI. Dopo aver seguito questa procedura, è possibile passare direttamente a Power BI per visualizzare tutti i report, personalizzare e creare report. 
@@ -24,9 +24,8 @@ Questo articolo descrive i passaggi necessari per configurare i report per Backu
 2. In questo momento non sono supportati i report per Azure SQL, DPM e il server di Backup di Azure.
 3. È possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni, se per ogni insieme è configurato lo stesso account di archiviazione. L'account di archiviazione selezionato deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
 4. La frequenza di aggiornamento pianificato per il report è 24 ore in Power BI. È anche possibile eseguire un aggiornamento ad hoc dei report in Power BI, nel qual caso i dati più aggiornati nell'account di archiviazione del cliente vengono usati per il rendering dei report. 
-5. I report di Backup di Azure non sono attualmente supportati nei cloud nazionali.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 1. Creare un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
 2. [Creare un account di Power BI](https://powerbi.microsoft.com/landing/signin/) per visualizzare, personalizzare e creare report personalizzati usando il portale di Power BI.
 3. Registrare il provider di risorse **Microsoft.Insights** se non è stato già registrato, con la sottoscrizione dell'account di archiviazione e con la sottoscrizione dell'insieme di credenziali di Servizi di ripristino per consentire il trasferimento dei dati dei report nell'account. A tale scopo, è necessario passare al portale di Azure > Sottoscrizione > Provider di risorse e selezionare questo provider per registrarlo. 
@@ -75,7 +74,7 @@ Usare la procedura seguente per configurare l'account di archiviazione per l'arc
 ## <a name="view-reports-in-power-bi"></a>Visualizzare i report in Power BI 
 Dopo aver configurato l'account di archiviazione per i report usando l'insieme di credenziali di Servizi di ripristino, il trasferimento dei dati dei report inizierà dopo circa 24 ore. Trascorse 24 ore per la configurazione dell'account di archiviazione, usare la procedura seguente per visualizzare i report in Power BI:
 1. [Eseguire l'accesso](https://powerbi.microsoft.com/landing/signin/) a Power BI.
-2. Fare clic su **Recupera dati** e selezionare **Recupera** in **Servizi** nella libreria del pacchetto di contenuto. Usare i passaggi indicati nella [documentazione di Power BI per accedere al pacchetto di contenuto](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Fare clic su **Recupera dati** e selezionare **Recupera** in **Servizi** nella libreria del pacchetto di contenuto. Usare i passaggi indicati nella [documentazione di Power BI per accedere al pacchetto di contenuto](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
      ![Importare il pacchetto di contenuto](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Digitare **Backup di Azure** nella barra di ricerca e fare clic su **Scarica adesso**.

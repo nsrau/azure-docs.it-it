@@ -8,12 +8,12 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 46970d5628df3b46ec88df998a328928f60e15b4
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: e149886e1ade80d7751f58eb1f77031c4e432b75
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090232"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307944"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows
 
@@ -41,7 +41,7 @@ Con il servizio Device Provisioning in esecuzione, copiare il valore di **Ambito
 
 Creare un dispositivo TPM simulato nel computer di sviluppo Windows. Recuperare l'**ID registrazione** e la **chiave di approvazione** per il dispositivo e usarli per creare una singola voce di registrazione nel servizio Device Provisioning. 
 
-Quando si crea una registrazione nel servizio Device Provisioning, si ha la possibilità di dichiarare un valore di **Stato dispositivo gemello iniziale**. Nel dispositivo gemello è possibile impostare tag per raggruppare i dispositivi in base a una qualsiasi metrica necessaria nella propria soluzione, come l'area, l'ambiente, il percorso o il tipo di dispositivo. Questi tag vengono usati per creare [distribuzioni automatiche](how-to-deploy-monitor.md). 
+Quando si crea una registrazione nel servizio Device Provisioning, si ha la possibilità di dichiarare un valore di **Stato dispositivo gemello iniziale**. Nel dispositivo gemello è possibile impostare tag per raggruppare i dispositivi in base a una qualsiasi metrica necessaria nella propria soluzione, come l'area, l'ambiente, la località o il tipo di dispositivo. Questi tag vengono usati per creare [distribuzioni automatiche](how-to-deploy-monitor.md). 
 
 Scegliere il linguaggio di SDK che si vuole usare per creare il dispositivo simulato e seguire i passaggi per creare la singola registrazione. 
 
@@ -80,7 +80,7 @@ Nel computer che esegue il dispositivo simulato, modificare il registro del serv
 
 ## <a name="restart-the-iot-edge-runtime"></a>Riavviare il runtime IoT Edge
 
-Riavviare il runtime IoT Edge in modo da selezionare tutte le modifiche alla configurazione apportate nel dispositivo. 
+Riavviare il runtime IoT Edge in modo che accetti tutte le modifiche alla configurazione apportate nel dispositivo. 
 
 ```powershell
 Stop-Service iotedge -NoWait
@@ -90,7 +90,7 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 
-Se il runtime è stato avviato, è possibile accedere all'hub IoT e verificare se il nuovo dispositivo è stato sottoposto a provisioning automatico e se è pronto per l'esecuzione di moduli IoT Edge. 
+Se il runtime viene avviato correttamente, è possibile accedere all'hub IoT e verificare se è stato eseguito il provisioning automatico del nuovo dispositivo e se è pronto per l'esecuzione di moduli IoT Edge. 
 
 Verificare lo stato del servizio IoT Edge.
 
@@ -107,7 +107,8 @@ Get-WinEvent -ea SilentlyContinue `
   -FilterHashtable @{ProviderName= "iotedged";
     LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
   select TimeCreated, Message |
-  sort-object @{Expression="TimeCreated";Descending=$false}
+  sort-object @{Expression="TimeCreated";Descending=$false} |
+  format-table -autosize -wrap
 ```
 
 Elencare i moduli in esecuzione.
@@ -118,4 +119,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il processo di registrazione del servizio Device Provisioning consente di impostare l'ID dispositivo e i tag del dispositivo gemello mentre si effettua il provisioning del nuovo dispositivo. È possibile usare questi valori per definire singoli dispositivi o gruppi di dispositivi di destinazione usando la gestione automatica dei dispositivi. Sono inoltre disponibili informazioni su come [distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure](how-to-deploy-monitor.md) o [tramite l'interfaccia della riga di comando di Azure](how-to-deploy-monitor-cli.md).
+Il processo di registrazione del servizio Device Provisioning consente di impostare l'ID dispositivo e i tag del dispositivo gemello mentre si effettua il provisioning del nuovo dispositivo. È possibile usare questi valori per identificare come destinazione singoli dispositivi o gruppi di dispositivi usando la gestione automatica dei dispositivi. Informazioni su come [Distribuire e monitorare i moduli IoT Edge su larga scala tramite il portale di Azure](how-to-deploy-monitor.md) o usando l'[interfaccia della riga di comando di Azure](how-to-deploy-monitor-cli.md)

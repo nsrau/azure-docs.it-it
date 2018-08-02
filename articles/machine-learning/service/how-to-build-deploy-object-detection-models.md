@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 62cc37d8c462d0fc1831de7b50a85738d6e63a17
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726682"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295370"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Compilare e distribuire modelli di rilevamento degli oggetti con Azure Machine Learning
 
@@ -34,7 +34,7 @@ In questo esempio viene usato TensorFlow come framework di Deep Learning, il tra
 
 Vedere la [documentazione di riferimento del pacchetto](https://aka.ms/aml-packages/vision) per informazioni dettagliate su ogni modulo e classe.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -68,26 +68,21 @@ La figura seguente illustra la struttura di cartelle consigliata.
 
 I percorsi degli oggetti con annotazioni sono necessari per il training e la valutazione di un rilevatore di oggetti. [LabelImg](https://tzutalin.github.io/labelImg) è uno strumento di annotazione open source che può essere usato per annotare le immagini. LabelImg scrive un file XML per ogni immagine in formato Pascal-VOC, che può essere letto da questo pacchetto. 
 
-## <a name="storage-context"></a>Contesto di archiviazione
-Il contesto di archiviazione viene usato per determinare dove vengono archiviati diversi file di output, ad esempio i file di modello DNN. Per altre informazioni, vedere la [documentazione di StorageContext](https://docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-ml-py-latest). Non è generalmente necessario impostare il contenuto di archiviazione in modo esplicito. Tuttavia, per evitare il limite di dimensioni di 25 MB del progetto Workbench, impostare la directory di output in modo che punti a una posizione all'esterno del progetto AML ("../../../../cvtk_output"). Rimuovere la directory "cvtk_output" quando non è più necessaria.
-
 
 ```python
 import warnings
 warnings.filterwarnings("ignore")
 import os, time
 from cvtk.core import Context, ObjectDetectionDataset, TFFasterRCNN
+from cvtk.evaluation import DetectionEvaluation
+from cvtk.evaluation.evaluation_utils import graph_error_counts
 from cvtk.utils import detection_utils
-from matplotlib import pyplot as plt
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
 
-# Initialize the context object
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
-
+from matplotlib import pyplot as plt
 # Display the images
 %matplotlib inline
 ```
@@ -98,7 +93,7 @@ Creare un set di dati CVTK costituito da un set di immagini, con le rispettive a
 
 
 ```python
-image_folder = "../sample_data/foods/train"
+image_folder = "detection/sample_data/foods/train"
 data_train = ObjectDetectionDataset.create_from_dir(dataset_name='training_dataset', data_dir=image_folder,
                                                     annotations_dir="Annotations", image_subdirectory='JPEGImages')
 
@@ -202,7 +197,7 @@ Il metodo 'evaluate' viene usato per valutare il modello. Questa funzione richie
 
 
 ```python
-image_folder = "../sample_data/foods/test"
+image_folder = "detection/sample_data/foods/test"
 data_val = ObjectDetectionDataset.create_from_dir(dataset_name='val_dataset', data_dir=image_folder)
 eval_result = my_detector.evaluate(dataset=data_val)
 ```
@@ -280,7 +275,7 @@ Dopo aver verificato le prestazioni del modello sottoposto a training, la funzio
 ```python
 image_path = data_val.images[1].storage_path
 detections_dict = my_detector.score(image_path)
-path_save = out_root_path + "/scored_images/scored_image_preloaded.jpg"
+path_save = "./scored_images/scored_image_preloaded.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, image_size=(8, 12))
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
@@ -295,7 +290,7 @@ Il sottoposto a training può essere salvato su disco e caricato nuovamente in m
 
 
 ```python
-save_model_path = out_root_path + "/frozen_model/faster_rcnn.model" # Please save your model to outside of your AML workbench project folder because of the size limit of AML project
+save_model_path = "./frozen_model/faster_rcnn.model"
 my_detector.save(save_model_path)
 ```
 
@@ -355,7 +350,7 @@ Visualizzare i punteggi come in precedenza.
 
 
 ```python
-path_save = out_root_path + "/scored_images/scored_image_frozen_graph.jpg"
+path_save = "./scored_images/scored_image_frozen_graph.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, path_save=path_save, image_size=(8, 12))
 # ax.get_figure() # use this code extract the returned image
 ```
@@ -368,7 +363,7 @@ L'operazionalizzazione è il processo di pubblicazione di modelli e codice come 
 
 Dopo aver eseguito il training del modello, è possibile distribuire tale modello per l'utilizzo come servizio Web tramite l'[interfaccia della riga di comando di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). I modelli possono essere distribuiti nel computer locale o in un cluster del servizio contenitore di Azure (ACS). Con il servizio contenitore di Azure è possibile ridimensionare il servizio Web manualmente oppure usare la funzionalità di scalabilità automatica.
 
-**Accedere con l'interfaccia della riga di comando di Azure**
+**Accedere tramite l'interfaccia della riga di comando di Azure**
 
 Usando un account di [Azure](https://azure.microsoft.com/) con una sottoscrizione valida, accedere con il seguente comando dell'interfaccia della riga di comando:
 <br>`az login`
@@ -596,7 +591,7 @@ print("Parsed result:", parsed_result)
 
 ```python
 ax = detection_utils.visualize(image_path, parsed_result)
-path_save = "../../../cvtk_output/scored_images/scored_image_web.jpg"
+path_save = "./scored_images/scored_image_web.jpg"
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
 ax.get_figure().savefig(path_save)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: cf9ee5339c53eb4f9c74f6b5f251a7963555d676
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 34088440bf723fc65f4ff5c49f62182f405fa35a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928750"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344546"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure nel cloud
 
@@ -297,12 +297,4 @@ In caso di problemi è possibile consultare le [domande frequenti](https://micro
 
 La scheda DevKit di IoT MXChip è stata a questo punto connessa all'hub IoT e i dati acquisiti dai sensori sono stati inviati all'hub IoT.
 
-Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare altri scenari IoT, vedere:
-
-- [Gestire la messaggistica dei dispositivi cloud con iothub-explorer](https://docs.microsoft.com/azure/iot-hub/iot-hub-explorer-cloud-device-messaging)
-- [Salvare i messaggi dell'hub IoT nell'archivio dati di Azure](https://docs.microsoft.com//azure/iot-hub/iot-hub-store-data-in-azure-table-storage)
-- [Usare Power BI per visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-power-bi)
-- [Usare App Web di Azure per visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-web-apps)
-- [Previsioni meteo usando i dati sensore dell'hub IoT in Azure Machine Learning](https://docs.microsoft.com/azure/iot-hub/iot-hub-weather-forecast-machine-learning)
-- [Gestione dei dispositivi con iothub-explorer](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-iothub-explorer)
-- [Monitoraggio remoto e notifiche con App per la logica](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

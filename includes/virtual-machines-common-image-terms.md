@@ -9,11 +9,11 @@ ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 47ef014f31c628fed9d7b2b005e67e8138d3e7e9
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29743368"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38943590"
 ---
 ## <a name="terminology"></a>Terminologia
 

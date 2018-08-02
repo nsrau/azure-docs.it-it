@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d0837787dcac44d2cc43701ac181ec7eac2dfa2c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd32d78987ab8d718c813cf8c47018ac2ecbe823
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687216"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283546"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati nei dispositivi perimetrali con database di SQL Server
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Il dispositivo Azure IoT Edge creato nella guida introduttiva per [dispositivi Linux](quickstart-linux.md) o [Windows](quickstart.md).
 * [Visual Studio Code](https://code.visualstudio.com/). 
@@ -42,9 +42,9 @@ In questa esercitazione si apprenderà come:
 * [Docker CE](https://docs.docker.com/install/) installato nel computer di sviluppo. 
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
-In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo di IoT Edge.  
+In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
 
-È possibile usare qualsiasi registro compatibile con Docker per questa esercitazione. Due servizi molto diffusi per il registro Docker disponibili sul cloud sono il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il registro contenitori di Azure. 
+È possibile usare qualsiasi registro compatibile con Docker per questa esercitazione. Due servizi molto diffusi per il registro Docker disponibili sul cloud sono il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro contenitori di Azure. 
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori**.
 
@@ -53,8 +53,8 @@ In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studi
 2. Assegnare un nome al registro e scegliere una sottoscrizione.
 3. Per il gruppo di risorse, è consigliabile usare lo stesso nome di gruppo di risorse che contiene l'hub IoT. Tenendo tutte le risorse nello stesso gruppo, è possibile gestirle insieme. Ad esempio, con l'eliminazione del gruppo di risorse usato per i test vengono eliminate tutte le risorse di test contenute nel gruppo. 
 4. Impostare lo SKU su **Basic** e impostare **Utente amministratore** su **Abilita**. 
-5. Fare clic su **Crea**.
-6. Dopo aver creato il registro di sistema del contenitore, accedervi e selezionare **Chiavi di accesso**. 
+5. Fare clic su **Create**(Crea).
+6. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**. 
 7. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Questi valori verranno usati più avanti nell'esercitazione. 
 
 ## <a name="create-a-function-project"></a>Creare un progetto per le funzioni
@@ -67,14 +67,14 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
 2. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale integrato**.
 3. Aprire il riquadro comandi di VS Code selezionando **Visualizza** > **Riquadro comandi**.
 4. Nel riquadro comandi digitare ed eseguire il comando **Azure: Sign in** (Azure: Accedi) seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
-3. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi fornire le informazioni seguenti per creare la soluzione: 
+3. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
    1. Selezionare la cartella in cui si vuole creare la soluzione. 
    2. Specificare un nome per la soluzione o accettare quello predefinito **EdgeSolution**.
    3. Scegliere **Azure Functions - C#** (Funzioni di Azure - C#) come modello di modulo. 
    4. Assegnare al modulo il nome **sqlFunction**. 
    5. Specificare il registro contenitori di Azure creato nella sezione precedente come repository di immagini per il primo modulo. Sostituire **localhost:5000** con il valore del server di accesso copiato. La stringa finale è simile a **\<nome registro\>.azurecr.io/sqlFunction**.
 
-4. La finestra VS Code carica l'area di lavoro della soluzione IoT Edge. Sono presenti una cartella **modules**, una cartella **.vscode** e un file modello del manifesto della distribuzione. Aprire **modules** > **sqlFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
+4. La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. Sono presenti una cartella **modules**, una cartella **.vscode** e un file modello del manifesto della distribuzione. Aprire **modules** > **sqlFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
 
 5. Sostituire il contenuto del file con il codice seguente:
 
@@ -284,7 +284,7 @@ Questa sezione descrive come configurare il database SQL per l'archiviazione dei
    * Contenitore Linux: 
 
       ```bash
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Password'
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
       ```
 
 3. Creare il database: 

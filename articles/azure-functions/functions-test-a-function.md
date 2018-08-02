@@ -3,7 +3,7 @@ title: Test di Funzioni di Azure | Documentazione Microsoft
 description: Testare Funzioni di Azure con Postman, cURL e Node.js.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083258"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344699"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -383,7 +383,7 @@ Si è accennato in precedenza che è possibile testare un trigger della coda tra
 Per testare il codice in un'app console è necessario:
 
 * [Configurare la stringa di connessione di archiviazione nel file app.config](../storage/queues/storage-dotnet-how-to-use-queues.md).
-* Passare `name` e `address` come parametri per l'app. Ad esempio, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. Questo codice accetta il nome e l'indirizzo per un nuovo utente come argomenti della riga di comando in fase di esecuzione.
+* Passare `name` e `address` come parametri per l'app. Ad esempio: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. Questo codice accetta il nome e l'indirizzo per un nuovo utente come argomenti della riga di comando in fase di esecuzione.
 
 Codice C# di esempio:
 
@@ -443,4 +443,4 @@ Nella finestra del browser per la funzione coda viene visualizzato ogni messaggi
 
 <!-- URLs. -->
 
-[Portale di Azure]: https://portal.azure.com
+[portale di Azure]: https://portal.azure.com

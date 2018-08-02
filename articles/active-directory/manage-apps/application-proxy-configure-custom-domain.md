@@ -1,5 +1,5 @@
 ---
-title: Domini personalizzati nel proxy di applicazione di Azure AD | Microsoft Docs
+title: Domini personalizzati nel proxy di applicazione di Azure AD | Documentazione Microsoft
 description: Gestire domini personalizzati nel proxy di applicazione di Azure AD in modo che l'URL per l'app resti invariato indipendentemente da dove gli utenti vi accedono.
 services: active-directory
 documentationcenter: ''
@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cb4620babd3a1ba5087ae9ebd2870c1ef404bb58
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156484"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368479"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure
 
@@ -35,10 +35,10 @@ Quando si pubblica un'applicazione tramite il proxy di applicazione di Azure Act
 
 ## <a name="configure-a-custom-domain"></a>Configurare un dominio personalizzato
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Prima di configurare un dominio personalizzato, assicurarsi che siano stati preparati i requisiti seguenti: 
-- Un [dominio verificato aggiunto ad Azure Active Directory](../add-custom-domain.md).
+- Un [dominio verificato aggiunto ad Azure Active Directory](../fundamentals/add-custom-domain.md).
 - Un certificato personalizzato per il dominio, sotto forma di file PFX. 
 - Un'app locale [pubblicata tramite il proxy di applicazione](application-proxy-publish-azure-portal.md).
 
@@ -72,7 +72,7 @@ Non ci sono restrizioni per i metodi di firma del certificato. Sono supportati c
 È possibile usare un certificato con caratteri jolly, purché i caratteri jolly corrispondano all'URL esterno desiderato. 
 
 ### <a name="changing-the-domain"></a>Modifica del dominio
-Tutti i domini verificati vengono visualizzati nell'elenco a discesa URL esterno per l'applicazione. Per modificare il dominio, è sufficiente aggiornare tale campo per l'applicazione. Se il dominio desiderato non è nell'elenco, [aggiungerlo come dominio verificato](../add-custom-domain.md). Se si seleziona un dominio cui non è ancora associato un certificato, seguire i passaggi da 5 a 7 per aggiungere il certificato. Assicurarsi quindi di aggiornare il record DNS per il reindirizzamento dal nuovo URL esterno. 
+Tutti i domini verificati vengono visualizzati nell'elenco a discesa URL esterno per l'applicazione. Per modificare il dominio, è sufficiente aggiornare tale campo per l'applicazione. Se il dominio desiderato non è nell'elenco, [aggiungerlo come dominio verificato](../fundamentals/add-custom-domain.md). Se si seleziona un dominio cui non è ancora associato un certificato, seguire i passaggi da 5 a 7 per aggiungere il certificato. Assicurarsi quindi di aggiornare il record DNS per il reindirizzamento dal nuovo URL esterno. 
 
 ### <a name="certificate-management"></a>Gestione dei certificati
 È possibile usare lo stesso certificato per più applicazioni, a meno che le applicazioni condividano un host esterno. 
@@ -84,6 +84,6 @@ Attualmente la gestione di tutti i certificati avviene tramite singole pagine de
 ## <a name="next-steps"></a>Passaggi successivi
 * [Abilitare l'accesso Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md) alle app pubblicate con l'autenticazione di Azure AD.
 * [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md) alle app pubblicate.
-* [Aggiungere un nome di dominio personalizzato ad Azure AD](../add-custom-domain.md)
+* [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md)
 
 

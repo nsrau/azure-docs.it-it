@@ -3,17 +3,17 @@ title: 'Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione d
 description: Come crittografare e decrittografare un BLOB usando la crittografia lato client per Archiviazione di Microsoft Azure con Azure Key Vault.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.component: blobs
+ms.openlocfilehash: f5382644af7e79234d6c3944cf354a3b2a70cc90
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "27815814"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397622"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure
 ## <a name="introduction"></a>Introduzione
@@ -25,7 +25,7 @@ Per informazioni generali sull'Insieme di credenziali delle chiavi di Azure, ved
 
 Per informazioni generali sulla crittografia lato client per Archiviazione di Azure, vedere l'articolo relativo alla [crittografia lato client e all'Insieme di credenziali delle chiavi di Azure per Archiviazione di Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account di archiviazione Azure

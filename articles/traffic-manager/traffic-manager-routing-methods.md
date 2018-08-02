@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 03f1cc3a34fa8a472dcab9654b65cc97b8473993
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30245363"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398618"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
 
@@ -83,7 +83,7 @@ L'endpoint più vicino non è necessariamente il più vicino in termini di dista
 
 Gestione traffico individua nella tabella la riga relativa all'indirizzo IP di origine della richiesta DNS in ingresso e sceglie quindi nel data center di Azure l'endpoint disponibile con la latenza più bassa per l'intervallo di indirizzi IP specifico, e restituisce quindi l'endpoint nella risposta DNS.
 
-Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manager-overview.md#how-traffic-manager-works), le query DNS non vengono ricevute direttamente dai client, ma dal servizio DNS ricorsivo per il quale sono configurati. Pertanto, l'indirizzo IP usato per determinare l'endpoint più vicino non è l'indirizzo IP del client, ma l'indirizzo IP del servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per il client.
+Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md), le query DNS non vengono ricevute direttamente dai client, ma dal servizio DNS ricorsivo per il quale sono configurati. Pertanto, l'indirizzo IP usato per determinare l'endpoint più vicino non è l'indirizzo IP del client, ma l'indirizzo IP del servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per il client.
 
 
 Per adeguarsi alle modifiche nella rete Internet globale e all'aggiunta di nuove aree di Azure, Gestione traffico aggiorna regolarmente la tabella della latenza di Internet usata. Tuttavia, le prestazioni dell'applicazione variano in base alle variazioni del carico in tempo reale registrate in Internet. Il routing del traffico "Prestazioni" non prende in considerazione il monitoraggio del carico su un determinato endpoint di servizio. Se un endpoint non è più disponibile, non viene incluso nelle risposte alle query DNS.
@@ -122,7 +122,7 @@ Gestione traffico legge l'indirizzo IP di origine della query DNS e decide da qu
 - Se un endpoint si trova nello stato **Disabilitato**, non sarà incluso nel processo di ricerca di corrispondenza dell'area. Questo comportamento si applica anche per i tipi di endpoint annidati quando l'endpoint si trova nello stato **Disabilitato**.
 - Se una query proviene da un'area geografica che non ha alcun mapping in quel profilo, Gestione traffico restituisce una risposta NODATA. Pertanto è consigliabile che i clienti usino il routing geografico con un solo endpoint, idealmente di tipo nidificato con almeno due endpoint all'interno del profilo figlio, con l'area **Mondo** assegnata. Questo garantisce inoltre che vengano gestiti tutti gli indirizzi IP che non sono mappati a un'area.
 
-Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md), le query DNS non vengono ricevute direttamente dai client, ma dal servizio DNS ricorsivo per il quale sono configurati. Pertanto l'indirizzo IP utilizzato per determinare l'area non è l'indirizzo IP del client ma l'indirizzo IP del servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per il client.
+Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md), le query DNS non vengono ricevute direttamente dai client, ma dal servizio DNS ricorsivo per il quale sono configurati. Pertanto l'indirizzo IP utilizzato per determinare l'area non è l'indirizzo IP del client ma l'indirizzo IP del servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per il client.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

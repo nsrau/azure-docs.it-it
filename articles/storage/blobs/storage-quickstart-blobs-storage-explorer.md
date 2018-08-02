@@ -3,18 +3,17 @@ title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con Az
 description: In questa guida introduttiva si usa Azure Storage Explorer con l'archivio oggetti (BLOB). Si usa quindi Storage Explorer per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: 176d2fffa9f9e3c43a4e5c922aed58cebdbe2b1d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 83698abd3006671c5edce37e3cada26d07d25b8f
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416248"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399637"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Azure Storage Explorer
 

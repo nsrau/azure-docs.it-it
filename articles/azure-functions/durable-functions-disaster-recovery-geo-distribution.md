@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8eb42a60045304416ec6aa1099a84b1e264c692d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: bbfbf351b8976f4140b6dd98a9a54ba982c3d865
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206507"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399398"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Ripristino di emergenza e distribuzione geografica
 
@@ -50,7 +50,7 @@ Tuttavia, usando questo scenario, prendere in considerazione quanto segue:
 - Questo scenario riguarda le interruzioni nell'infrastruttura di calcolo, ma l'account di archiviazione continua a essere il singolo punto di guasto per l'app per le funzioni. Se si verifica un'interruzione nell'archiviazione, l'applicazione subirà un tempo di inattività.
 - Se è stato effettuato il failover dell'app per le funzioni, si verificherà un aumento della latenza dal momento che accederà al relativo account di archiviazione tra le diverse aree.
 - L'accesso al servizio di archiviazione da un'area diversa da quella in cui è situato comporta costi più elevati a causa del traffico di rete in uscita.
-- Questo scenario dipende da Gestione traffico. Prendendo in considerazione la [modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), potrebbe passare del tempo prima che un'applicazione client che utilizza una funzione durevole necessiti di eseguire nuovamente una query sull'indirizzo dell'app per le funzioni da Gestione traffico. 
+- Questo scenario dipende da Gestione traffico. Prendendo in considerazione la [modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), potrebbe passare del tempo prima che un'applicazione client che utilizza una funzione durevole necessiti di eseguire nuovamente una query sull'indirizzo dell'app per le funzioni da Gestione traffico. 
 
 
 ## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>Scenario 2 - Calcolo con bilanciamento del carico con archiviazione a livello di area

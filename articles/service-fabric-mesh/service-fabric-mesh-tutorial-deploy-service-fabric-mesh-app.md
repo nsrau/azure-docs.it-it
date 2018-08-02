@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9dea759f6556bc521dda4efbd27176f1e06452b
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126576"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284728"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>Esercitazione: Distribuire un'applicazione Web Service Fabric Mesh
 
@@ -74,7 +74,7 @@ In **Gruppo di risorse** selezionare **\<Crea nuovo gruppo di risorse**. Viene v
 
 ![Finestra di dialogo del nuovo gruppo di risorse di Service Fabric Mesh in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-Nella finestra di dialogo **Pubblica applicazione di Service Fabric** selezionare **Crea nuovo registro contenitori\<** in **Registro contenitori di Azure**. Nella finestra di dialogo **Crea registro contenitori** usare un nome univoco per **Nome del registro contenitori**. Impostare il campo **Località**. In questa esercitazione viene usata l'area **Stati Uniti orientali**. Nell'elenco a discesa selezionare il **gruppo di risorse** creato nel passaggio precedente, ad esempio **sfmeshTutorial1RG**. Impostare **SKU** su **Base** e quindi fare clic su **Crea** per tornare alla finestra di dialogo per la pubblicazione.
+Nella finestra di dialogo **Pubblica applicazione di Service Fabric**, in **Registro contenitori di Azure**, selezionare **\<Crea nuovo registro contenitori**. Nella finestra di dialogo **Crea registro contenitori** usare un nome univoco per **Nome del registro contenitori**. Impostare il campo **Località**. In questa esercitazione viene usata l'area **Stati Uniti orientali**. Nell'elenco a discesa selezionare il **gruppo di risorse** creato nel passaggio precedente, ad esempio **sfmeshTutorial1RG**. Impostare **SKU** su **Base** e quindi fare clic su **Crea** per tornare alla finestra di dialogo per la pubblicazione.
 
 ![Finestra di dialogo del nuovo gruppo di risorse di Service Fabric Mesh in Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -106,26 +106,9 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Aprire un Web browser e passare all'URL visualizzato per visitare il sito Web in esecuzione in Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="set-up-service-fabric-mesh-cli"></a>Configurare l'interfaccia della riga di comando di mesh Service Fabric 
+Per i passaggi rimanenti è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. Per installare il modulo dell'estensione dell'interfaccia della riga di comando di Azure Service Fabric Mesh, seguire queste [istruzioni](service-fabric-mesh-howto-setup-cli.md).
 
-Per i passaggi rimanenti è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure.
-
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.35 o successiva. Eseguire `az --version` per trovare la versione. Per installare o eseguire l'aggiornamento all'ultima versione dell'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure CLI 2.0][azure-cli-install].
-
-## <a name="install-the-az-mesh-cli"></a>Installare l'interfaccia della riga di comando di az mesh
-Al prompt dell'interfaccia della riga di comando:
-
-1) Rimuovere eventuali installazioni precedenti del modulo dell'interfaccia della riga di comando di Azure Service Fabric Mesh.
-
-```cli
-az extension remove --name mesh
-```
-
-2)  Installare il modulo dell'estensione dell'interfaccia della riga di comando di Azure Service Fabric Mesh. Per l'anteprima l'interfaccia della riga di comando di Azure Service Fabric Mesh viene scritta come estensione dell'interfaccia della riga di comando di Azure, ma per l'anteprima pubblica verrà inclusa nell'interfaccia della riga di comando di Azure.
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
 
 ## <a name="check-application-deployment-status"></a>Controllare lo stato di distribuzione applicazione
 

@@ -7,16 +7,16 @@ manager: carmonm
 keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/18/2018
+ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: backup; backup di macchine virtuali
-ms.openlocfilehash: feae4ac83b637588fe0979a82ce05a56c2d339ae
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c3bb198a65f907080023af707080f60c9c1fccbf
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466132"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398890"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino
 

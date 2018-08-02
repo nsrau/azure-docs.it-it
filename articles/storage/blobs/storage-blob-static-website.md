@@ -3,17 +3,17 @@ title: Hosting di siti Web statici in archiviazione di Azure (anteprima) | Micro
 description: Archiviazione di Azure offre ora l'hosting di siti Web statici (anteprima), fornendo una soluzione economica e scalabile per l'hosting di applicazioni Web moderne.
 services: storage
 author: MichaelHauss
-manager: vamshik
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: blobs
+ms.openlocfilehash: e53b573a27f0b1462ccf1170bbde2f8af01d0d3a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131610"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397476"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Hosting di siti Web statici in Archiviazione di Azure (anteprima)
 Archiviazione di Azure offre ora l'hosting di siti Web statici (anteprima), consentendo di distribuire applicazioni Web moderne, economiche e scalabili in Azure. In un sito Web statico, le pagine Web hanno contenuti statici e JavaScript o altro codice lato client. Al contrario, i siti Web dinamici dipendono dal codice lato server e possono essere ospitati usando le [App Web di Azure](/app-service/app-service-web-overview.md).

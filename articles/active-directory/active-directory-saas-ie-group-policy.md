@@ -3,24 +3,24 @@ title: Distribuire l'estensione Pannello di accesso di Azure per Internet Explor
 description: Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
-ms.author: markvi
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 70552e982ff4c21d02b5f52ea48f108ce7f3b97e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308537"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366810"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
 Questa esercitazione illustra come usare Criteri di gruppo per installare l'estensione Pannello di accesso per Internet Explorer nei computer degli utenti in modalità remota. Questa estensione è necessaria per gli utenti di Internet Explorer che devono eseguire l'accesso ad app configurate con l' [accesso Single Sign-On basato su password](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -29,7 +29,7 @@ Si consiglia agli amministratori di automatizzare la distribuzione di questa est
 
 L'estensione Pannello di accesso è disponibile per [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) e [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998). In entrambi i casi l'installazione non richiede autorizzazioni di amministratore.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * [Servizi di dominio Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)è già stato configurato e i computer degli utenti sono stati aggiunti al dominio.
 * Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Questa autorizzazione è assegnata per impostazione predefinita ai membri dei gruppi di sicurezza seguenti: Domain Administrators, Enterprise Administrators e Group Policy Creator Owners. [Altre informazioni.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 

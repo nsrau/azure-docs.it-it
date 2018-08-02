@@ -1,20 +1,19 @@
 ---
-title: Introduzione a Speech Devices SDK | Microsoft Docs
+title: Introduzione a Speech Devices SDK
 description: Prerequisiti e istruzioni per iniziare con Speech Devices SDK.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 32dd295132e26e46d64b01b194b557cae26575ad
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 266315a731eec8a2c0ab0a880ce9e1db58331184
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750796"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283137"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introduzione a Speech Devices SDK
 
@@ -22,7 +21,7 @@ Questo articolo descrive come configurare il PC in uso e Speech Devices SDK per 
 
 Il codice sorgente dell'applicazione di esempio, in dotazione con Speech Devices SDK, è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare lo sviluppo con Speech Devices SDK,procurarsi le informazioni e il software necessari.
 

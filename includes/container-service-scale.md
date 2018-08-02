@@ -48,7 +48,6 @@ Per ulteriori opzioni di comandi, eseguire `az acs scale --help`.
 
 * A seconda dell'agente di orchestrazione distribuito nel cluster, è possibile ridimensionare separatamente il numero di istanze di un contenitore in esecuzione nel cluster. Ad esempio, in un cluster DC/OS, usare l'[interfaccia utente di Marathon](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) per modificare il numero di istanze di un'applicazione contenitore.
 
-* Attualmente, non è supportata la scalabilità automatica dei nodi di agenti in un cluster del servizio contenitore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [altri esempi](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) dell'uso di comandi dell'interfaccia della riga di comando di Azure 2.0 con il servizio contenitore di Azure.

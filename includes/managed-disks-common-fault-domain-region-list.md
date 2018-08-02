@@ -29,12 +29,12 @@
 | Corea del Sud meridionale         | 2                       |
 |                     |                         |
 | Australia orientale      | 2                       |
-| Australia sudorientale | 2                       |
+| Australia sud-orientale | 2                       |
 |                     |                         |
 | Brasile meridionale        | 2                       |
 |                     |                         |
 | US Gov Virginia     | 2                       |
-| Governo degli Stati Uniti - Texas        | 2                       |
-| Governo degli Stati Uniti - Arizona      | 2                       |
-| Dipartimento della difesa Stati Uniti centrali      | 2                       |
-| Dipartimento della difesa Stati Uniti orientali         | 2                       |
+| US Gov Texas        | 2                       |
+| US Gov Arizona      | 2                       |
+| US DoD (area centrale)      | 2                       |
+| US DoD (area orientale)         | 2                       |

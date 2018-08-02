@@ -45,6 +45,8 @@
       href: traffic-manager-metrics-alerts.md
     - name: Ripristino di emergenza con DNS di Azure e Gestione traffico
       href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: Modalità di funzionamento di Gestione traffico
+      href: traffic-manager-how-it-works.md
     - name: Domande frequenti
       href: traffic-manager-FAQs.md
 - name: Procedure
@@ -73,7 +75,7 @@
       items:
         - name: Risolvere i problemi di stato danneggiato in Gestione traffico di Azure
           href: traffic-manager-troubleshooting-degraded.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'

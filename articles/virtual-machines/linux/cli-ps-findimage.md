@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53e5100023fb76b4daf468d3f2027f2b5c7f31d7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f1091b9d252f32086c237e7c62f11c166eb558a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292960"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345158"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Come trovare immagini di macchine virtuali Linux in Azure Marketplace con l'interfaccia della riga di comando di Azure
 Questo argomento descrive come usare l'interfaccia della riga di comando di Azure 2.0 per trovare immagini di VM (Virtual Machine, macchina virtuale) in Azure Marketplace. Usare queste informazioni per specificare un'immagine del Marketplace quando si crea una macchina virtuale a livello di codice mediante l'interfaccia della riga di comando, modelli di Resource Manager o altri strumenti.
@@ -285,16 +285,16 @@ Output:
 Eseguendo un comando analogo per l'immagine RabbitMQ certificata da Bitnami vengono mostrate le proprietà `plan` seguenti: `name`, `product` e `publisher`. (Alcune immagini hanno anche una proprietà `promotion code`.) Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
 
 ```azurecli
-az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1801130730
+az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1807171506
 ```
 Output:
 
 ```
 {
   "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1801130730",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
   "location": "westus",
-  "name": "3.7.1801130730",
+  "name": "3.7.1807171506",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },

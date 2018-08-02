@@ -3,18 +3,17 @@ title: Proteggere l'accesso ai dati di un'applicazione nel cloud con Archiviazio
 description: Usare i token di firma di accesso condiviso, la crittografia e HTTPS per proteggere i dati dell'applicazione nel cloud.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: bfc5085374759290701f49cdf25698827c0779e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650095"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397774"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteggere l'accesso ai dati di un'applicazione nel cloud
 
@@ -29,7 +28,7 @@ Nella terza parte della serie si apprenderà come:
 
 [Archiviazione BLOB di Azure](../common/storage-introduction.md#blob-storage) è un servizio affidabile per l'archiviazione di file per le applicazioni. Questa esercitazione estende [l'argomento precedente][previous-tutorial] e spiega come proteggere l'accesso all'account di archiviazione da un'applicazione Web. Dopo il completamento le immagini vengono crittografate e l'app Web usa i token di firma di accesso condiviso sicuri per accedere alle immagini di anteprima.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione è necessario avere completato l'esercitazione di archiviazione precedente: [Automatizzare il ridimensionamento delle immagini caricate con la Griglia di eventi di Azure][previous-tutorial]. 
 

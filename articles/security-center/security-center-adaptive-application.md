@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6dd971ff8cd51435978ab80db006f6494dff8a94
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161933"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389328"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.
@@ -87,8 +87,7 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
 
 5. Dopo avere selezionato le opzioni desiderate, scegliere **Crea**.
 
-6. Centro sicurezza applica le regole appropriate in ciascuna delle macchine virtuali selezionate usando le funzionalità predefinite di AppLocker per i server Windows. Inoltre, per impostazione predefinita il Centro sicurezza abilita sempre il controllo delle applicazioni in modalità Controllo. Dopo aver verificato che l'elenco elementi consentiti non abbia effetti negativi sul carico di lavoro, è possibile passare alla modalità **Applica**. Per altre informazioni, vedere [How AppLocker works](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref) (Funzionamento di AppLocker).
- 
+
 > [!NOTE]
 > - Il Centro sicurezza si basa su almeno due settimane di dati per creare una baseline e popolare le raccomandazioni univoche per ogni gruppo di VM. In base al comportamento previsto per i nuovi clienti del livello Standard del Centro sicurezza, i gruppi di VM vengono prima visualizzati nella scheda *Nessuna raccomandazione*.
 > - Controlli delle applicazioni adattivi di Centro sicurezza non supporta le macchine virtuali per cui i criteri di AppLocker sono già abilitati da un oggetto Criteri di gruppo o un criterio di sicurezza locale.

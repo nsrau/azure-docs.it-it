@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/04/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: fb29e0a22331ce279d3dc8fc5a0044ae794d260b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226085"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345359"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Tutorial: 5. Aggiungere un'entità gerarchica
 In questa esercitazione si crea un'app che dimostra come trovare dati correlati in base al contesto. 
@@ -27,7 +27,7 @@ In questa esercitazione si crea un'app che dimostra come trovare dati correlati 
 > * Eseguire il training e pubblicare l'app
 > * Eseguire una query dell'endpoint dell'app per visualizzare una risposta JSON di Language Understanding, inclusi gli elementi figlio gerarchici 
 
-Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si ha l'app relativa alle risorse umane dell'esercitazione sulle [entità elenco](luis-quickstart-intent-and-list-entity.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
@@ -55,14 +55,9 @@ Se è presente un solo elemento figlio (di origine o di destinazione) di un'enti
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Rimuovere l'entità numero predefinita dall'app
 Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerarchici, è necessario rimuovere temporaneamente l'entità numero predefinita.
 
-1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
-
-    [ ![Screenshot dell'app LUIS con il pulsante relativo alla compilazione evidenziato in alto a destra sulla barra di spostamento](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** (Compila) nella barra dei menu in alto a destra. 
 
 2. Selezionare **Entità** nel menu a sinistra.
-
-    [ ![Screenshot dell'app LUIS con il pulsante relativo alle entità evidenziato nel menu a sinistra](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
-
 
 3. Selezionare i puntini di sospensione (***...***) a destra dell'entità number nell'elenco. Selezionare **Elimina**. 
 
@@ -72,8 +67,6 @@ Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerar
 ## <a name="add-utterances-to-moveemployee-intent"></a>Aggiungere espressioni alla finalità MoveEmployee
 
 1. Selezionare **Intents** (Finalità) dal menu a sinistra.
-
-    [ ![Screenshot dell'app LUIS con la voce relativa alle finalità evidenziata nel menu a sinistra](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
 2. Selezionare **MoveEmployee** nell'elenco di finalità.
 
@@ -89,10 +82,9 @@ Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerar
     |Begin paperwork to set x12345 **leaving** a-3459 **headed to** f-34567|
     |Displace 425-555-0000 **away from** g-2323 **toward** hh-2345|
 
-    Nell'esercitazione sull'[entità elenco](luis-quickstart-intent-and-list-entity.md) un dipendente può essere designato per nome, indirizzo di posta elettronica, numero di interno, numero di telefono cellulare o codice fiscale federale degli Stati Uniti. Questi numeri dei dipendenti sono usati nelle espressioni. Le espressioni di esempio precedenti includono modi diversi per indicare le posizioni di origine e di destinazione, con formattazione in grassetto. Un paio di espressioni includono intenzionalmente solo le destinazioni. In questo modo, LUIS può comprendere come vengono inserite tali posizioni nell'espressione quando l'origine non è specificata.
-
     [ ![Screenshot di LUIS con nuove espressioni nella finalità MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
-     
+
+    Nell'esercitazione sull'[entità elenco](luis-quickstart-intent-and-list-entity.md) un dipendente può essere designato per nome, indirizzo di posta elettronica, numero di interno, numero di telefono cellulare o codice fiscale federale degli Stati Uniti. Questi numeri dei dipendenti sono usati nelle espressioni. Le espressioni di esempio precedenti includono modi diversi per indicare le posizioni di origine e di destinazione, con formattazione in grassetto. Un paio di espressioni includono intenzionalmente solo le destinazioni. In questo modo, LUIS può comprendere come vengono inserite tali posizioni nell'espressione quando l'origine non è specificata.     
 
 ## <a name="create-a-location-entity"></a>Creare un'entità posizione
 LUIS deve comprendere le posizioni tramite etichette per l'origine e la destinazione nelle espressioni. Se è necessario visualizzare l'espressione nella vista token (non elaborata), selezionare l'interruttore **Entities View** (Vista entità) sulla barra sopra le espressioni. Dopo aver spostato l'interruttore, l'etichetta del controllo diventerà **Tokens View** (Vista token).
@@ -118,8 +110,6 @@ Aggiungere di nuovo l'entità numero predefinita nell'applicazione.
 
 1. Scegliere **Entities** (Entità) dal menu di spostamento a sinistra.
 
-    [ ![Screenshot del pulsante relativo alle entità evidenziato nel riquadro di spostamento a sinistra](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
-
 2. Fare clic sul pulsante **Manage prebuilt entities** (Gestisci entità predefinite).
 
     [ ![Screenshot dell'elenco di entità con il pulsante per la gestione delle entità predefinite evidenziato](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
@@ -140,119 +130,112 @@ Language Understanding non rileva le modifiche a finalità ed entità (il modell
     ![Training completato](./media/luis-quickstart-intent-and-hier-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
-Per ottenere una previsione di Language Understanding in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
 
-1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Publish** (Pubblica). 
-
-2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
-
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot della pagina Publish (Pubblica) con il pulsante Publish to production slot (Pubblica in slot di produzione) evidenziato")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
-
-3. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
-1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "Schermata della pagina Publish (Pubblica) con l'URL endpoint evidenziato")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
 
 2. Passare alla fine dell'URL nella barra degli indirizzi e immettere `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, pertanto rappresenta un buon test e dovrebbe restituire la finalità `MoveEmployee` con l'entità gerarchica estratta.
 
-```JSON
-{
-  "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
-  "topScoringIntent": {
-    "intent": "MoveEmployee",
-    "score": 0.9966052
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
+    "topScoringIntent": {
       "intent": "MoveEmployee",
       "score": 0.9966052
     },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0325253047
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.006137873
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.00462633232
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00415637763
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.00382325822
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00249120337
-    },
-    {
-      "intent": "None",
-      "score": 0.00130756292
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00119622645
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 1.26910036E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "jill - jones @ mycompany . com",
-      "type": "Employee",
-      "startIndex": 18,
-      "endIndex": 41,
-      "resolution": {
-        "values": [
-          "Employee-45612"
-        ]
+    "intents": [
+      {
+        "intent": "MoveEmployee",
+        "score": 0.9966052
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0325253047
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.006137873
+      },
+      {
+        "intent": "GetJobInformation",
+        "score": 0.00462633232
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00415637763
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.00382325822
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.00249120337
+      },
+      {
+        "intent": "None",
+        "score": 0.00130756292
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.00119622645
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 1.26910036E-05
       }
-    },
-    {
-      "entity": "x - 2345",
-      "type": "Locations::Origin",
-      "startIndex": 48,
-      "endIndex": 53,
-      "score": 0.8520272
-    },
-    {
-      "entity": "g - 23456",
-      "type": "Locations::Destination",
-      "startIndex": 58,
-      "endIndex": 64,
-      "score": 0.974032
-    },
-    {
-      "entity": "-2345",
-      "type": "builtin.number",
-      "startIndex": 49,
-      "endIndex": 53,
-      "resolution": {
-        "value": "-2345"
+    ],
+    "entities": [
+      {
+        "entity": "jill - jones @ mycompany . com",
+        "type": "Employee",
+        "startIndex": 18,
+        "endIndex": 41,
+        "resolution": {
+          "values": [
+            "Employee-45612"
+          ]
+        }
+      },
+      {
+        "entity": "x - 2345",
+        "type": "Locations::Origin",
+        "startIndex": 48,
+        "endIndex": 53,
+        "score": 0.8520272
+      },
+      {
+        "entity": "g - 23456",
+        "type": "Locations::Destination",
+        "startIndex": 58,
+        "endIndex": 64,
+        "score": 0.974032
+      },
+      {
+        "entity": "-2345",
+        "type": "builtin.number",
+        "startIndex": 49,
+        "endIndex": 53,
+        "resolution": {
+          "value": "-2345"
+        }
+      },
+      {
+        "entity": "-23456",
+        "type": "builtin.number",
+        "startIndex": 59,
+        "endIndex": 64,
+        "resolution": {
+          "value": "-23456"
+        }
       }
-    },
-    {
-      "entity": "-23456",
-      "type": "builtin.number",
-      "startIndex": 59,
-      "endIndex": 64,
-      "resolution": {
-        "value": "-23456"
-      }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
 ## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Sarebbe stato possibile usare un'espressione regolare per ogni posizione?
 Sì, creare l'espressione regolare con i ruoli di origine e di destinazione e usarla in un modello.

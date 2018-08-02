@@ -3,7 +3,7 @@ title: Reimpostare l'accesso a una macchina virtuale Linux di Azure | Microsoft 
 description: Come gestire gli utenti amministrativi e ripristinare l'accesso nelle macchine virtuali Linux usando l'estensione VMAccess e l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: danis
-ms.openlocfilehash: c023f226894d2fabb90736513e49a1ecca179d4f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: roiyz
+ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165792"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415894"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Informazioni su come gestire utenti amministrativi, SSH e dischi di controllo o di ripristino in macchine virtuali Linux usando l'estensione VMAccess con l'interfaccia della riga di comando di Azure 2.0
 ## <a name="overview"></a>Panoramica
@@ -28,7 +28,7 @@ Il disco della VM Linux genera errori. In qualche modo la password radice della 
 
 Questo articolo illustra come usare l'estensione VMAccess di Azure per controllare o ripristinare un disco, reimpostare l'accesso utente, gestire gli account di utenti amministrativi o aggiornare la configurazione SSH in Linux se in esecuzione come macchine virtuali di Azure Resource Manager. Se è necessario gestire macchine virtuali classiche, è possibile seguire le istruzioni disponibili nella [documentazione sulla VM classica](../linux/classic/reset-access-classic.md). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 ### <a name="operating-system"></a>Sistema operativo
 
 L'estensione di accesso alle VM può essere eseguita in queste distribuzioni di Linux:
@@ -37,7 +37,7 @@ L'estensione di accesso alle VM può essere eseguita in queste distribuzioni di 
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS e 12.04 LTS |
 | Debian | Debian 7,9 +, 8.2 + |
-| RedHat | RHEL 6.7+, 7.1+ |
+| Red Hat | RHEL 6.7+, 7.1+ |
 | Oracle Linux | 6.4+, 7.0+ |
 | SUSE | 11 e 12 |
 | OpenSUSE | openSUSE Leap 42.2+ |

@@ -5,27 +5,27 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/05/2018
+ms.date: 06/28/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: df4765fc92e78dbb5ee43be3cc09c2b96d834080
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 359f0ef4cd402b587f1ed2db9fa41141ab8dff1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683152"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008536"
 ---
 | Categoria | Archivio dati |
 |:--- |:--- |
 | **Azure** |[Archivio BLOB di Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |
-| &nbsp; |[Archivio Data Lake di Azure](../articles/data-factory/connector-azure-data-lake-store.md) |
+| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Database di Azure per MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Database di Azure per PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
-| &nbsp; |[Archiviazione file di Azure](../articles/data-factory/connector-azure-file-storage.md) |
+| &nbsp; |[File di Azure](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Database SQL di Azure](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
-| &nbsp; |[Archiviazione tabelle di Azure](../articles/data-factory/connector-azure-table-storage.md) |
+| &nbsp; |[Archivio tabelle di Azure](../articles/data-factory/connector-azure-table-storage.md) |
 | **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
 | &nbsp; |[Drill (anteprima)](../articles/data-factory/connector-drill.md) |

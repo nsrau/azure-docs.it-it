@@ -3,19 +3,18 @@ title: Applicare la disponibilità elevata ai dati delle applicazioni in Azure |
 description: Usare l'archiviazione con ridondanza geografica e accesso in lettura per applicare la disponibilità elevata ai dati delle applicazioni
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 8cf96059b1bbfbad24bf28fec9ddb0aa930adbad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: blobs
+ms.openlocfilehash: 7abd251751613224d062da5578e9c91a525599c9
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193775"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399033"
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure
 
@@ -29,7 +28,7 @@ Nella prima parte della serie si apprenderà come:
 > * Impostare la stringa di connessione
 > * Eseguire l'applicazione console
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
  
@@ -79,8 +78,8 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
    | **Prestazioni** | Standard | Standard è sufficiente per lo scenario di esempio. |
    | **Replica**| Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). | È necessario ai fini dell'esempio. |
    |**Trasferimento sicuro necessario** | Disabled| Il trasferimento sicuro non è necessario per questo scenario. |
-   |**Sottoscrizione** | sottoscrizione in uso |Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni). |
-   |**ResourceGroup** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Regole di denominazione e restrizioni). |
+   |**Sottoscrizione** | sottoscrizione in uso |Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
+   |**ResourceGroup** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Posizione** | Stati Uniti orientali | Scegliere un paese. |
 
 ![Creare un account di archiviazione](media/storage-create-geo-redundant-storage/createragrsstracct.png)

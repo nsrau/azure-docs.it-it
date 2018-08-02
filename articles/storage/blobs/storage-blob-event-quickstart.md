@@ -2,18 +2,18 @@
 title: Indirizzare gli eventi di archiviazione BLOB di Azure a un endpoint Web personalizzato | Microsoft Docs
 description: Usare la Griglia di eventi di Azure per sottoscrivere eventi di archiviazione BLOB.
 services: storage,event-grid
-keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: storage
-ms.openlocfilehash: a554c3beb9ed0428dd4ccf3c9d8e9490adab9ac5
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: blobs
+ms.openlocfilehash: 8e52c9268af5268ec29d2bee24ad75c8b3107e43
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072181"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263447"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con l'interfaccia della riga di comando di Azure
 

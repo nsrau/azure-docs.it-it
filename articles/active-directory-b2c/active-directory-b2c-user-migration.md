@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f1bb4fed22fd62c4934f841cabf3dbbe1df253de
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3416802aea12e84cf827070ff3a50d73725d5ee3
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441363"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390487"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: migrazione degli utenti
 Quando si esegue la migrazione del provider di identità ad Azure Active Directory B2C (Azure AD B2C) potrebbe essere necessario eseguire anche la migrazione dell'account utente. Questo articolo spiega come eseguire la migrazione degli account utente esistenti da qualsiasi provider di identità ad Azure AD B2C. Questo articolo non fornisce informazioni prescrittive, ma descrive piuttosto alcuni scenari. Lo sviluppatore è responsabile dell'idoneità di ogni approccio.
@@ -64,7 +64,7 @@ Per prima cosa registrare l'applicazione di migrazione in Azure AD. Creare quind
     * Per **Nome** usare **B2CUserMigration** o qualsiasi altro nome.
     * Per **Tipo di applicazione** usare **App Web/API**.
     * Per **URL di accesso** usare **https://localhost** (non pertinente per questa applicazione).
-    * Selezionare **Create**.
+    * Selezionare **Crea**.
 
 7. Dopo aver creato l'applicazione, nell'elenco **Applicazioni** selezionare quella appena creata, **B2CUserMigration**.
 
@@ -355,8 +355,6 @@ Dopo aver definito il profilo tecnico per l'API RESTful, indicare ai criteri di 
 
 6. Controllare l'output dell'API RESTful.
 
-Per altre informazioni, vedere [Log di streaming e console][AppService-Log].
-
 > [!IMPORTANT]
 > Usare i log di diagnostica solo in fase di sviluppo e test. L'output dell'API RESTful può contenere informazioni riservate che non devono essere esposte in produzione.
 >
@@ -367,7 +365,6 @@ Dopo aver completato la procedura [Introduzione ai criteri personalizzati][B2C-G
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
-[AppService-Log]: https://docs.microsoft.com/azure/active-directory-b2c/app-service-web/web-sites-streaming-logs-and-console
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration
 [B2C-GetStarted]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started
 [B2C-GetStartedCustom]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom

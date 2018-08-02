@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 115511d15bc2366e49f6b3d1b89b513ea0ee5e90
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112689"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398029"
 ---
 # <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
-Gestione traffico di Microsoft Azure consente di controllare la distribuzione del traffico di rete a distribuzioni di applicazioni in esecuzione in diversi data center. In Gestione traffico ogni distribuzione di applicazioni viene configurata come "endpoint". Quando Gestione traffico riceve una richiesta DNS, sceglie un endpoint disponibile da restituire nella risposta DNS. Gestione traffico basa la scelta sullo stato dell'endpoint corrente e sul metodo di routing del traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md).
+Gestione traffico di Microsoft Azure consente di controllare la distribuzione del traffico di rete a distribuzioni di applicazioni in esecuzione in diversi data center. In Gestione traffico ogni distribuzione di applicazioni viene configurata come "endpoint". Quando Gestione traffico riceve una richiesta DNS, sceglie un endpoint disponibile da restituire nella risposta DNS. Gestione traffico basa la scelta sullo stato dell'endpoint corrente e sul metodo di routing del traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md).
 
 Gli endpoint supportati da Gestione traffico sono di tre tipi:
 * **Endpoint di Azure** , usati per i servizi ospitati in Azure.
@@ -74,7 +74,7 @@ La disabilitazione di un endpoint in Gestione traffico risulta utile per rimuove
 Per abilitare e disabilitare gli endpoint è possibile usare il portale di Gestione traffico, PowerShell, l'interfaccia della riga di comando o l'API REST, tutti supportati sia in Resource Manager che nel modello di distribuzione classica.
 
 > [!NOTE]
-> La disabilitazione di un endpoint di Azure non ha nulla a che vedere con il relativo stato di distribuzione in Azure. Un servizio di Azure, ad esempio una macchina virtuale o un'app Web, rimane operativo e in grado di ricevere il traffico anche se è disabilitato in Gestione traffico. È possibile indirizzare il traffico direttamente all'istanza del servizio, senza usare il nome DNS del profilo di Gestione traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md).
+> La disabilitazione di un endpoint di Azure non ha nulla a che vedere con il relativo stato di distribuzione in Azure. Un servizio di Azure, ad esempio una macchina virtuale o un'app Web, rimane operativo e in grado di ricevere il traffico anche se è disabilitato in Gestione traffico. È possibile indirizzare il traffico direttamente all'istanza del servizio, senza usare il nome DNS del profilo di Gestione traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md).
 
 L'idoneità corrente di ogni endpoint a ricevere il traffico dipende dai fattori seguenti:
 
@@ -92,6 +92,6 @@ Se tutti gli endpoint di un profilo sono disabilitati o se il profilo stesso è 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md).
+* Informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-it-works.md).
 * Informazioni sul [monitoraggio degli endpoint e sul failover automatico](traffic-manager-monitoring.md)di Gestione traffico.
 * Informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md)di Gestione traffico.
