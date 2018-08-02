@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b89ab77b1cd97fd501a754dbf41d1aa74ef118d9
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126661"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144993"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usare Restrizioni dei tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -97,7 +97,7 @@ Un utente di esempio si trova nella rete Contoso ma tenta di accedere online all
 
 La configurazione di Restrizioni dei tenant viene eseguita nell'infrastruttura del proxy aziendale, ma gli amministratori possono accedere direttamente ai relativi report nel portale di Azure. Per visualizzare i report, passare alla pagina di panoramica di Azure Active Directory e quindi cercare in "Altre funzionalità".
 
-L'amministratore per il tenant specificato come tenant Restricted-Access-Context può usare questo report per visualizzare tutti gli accessi bloccati a causa dei criteri di Restrizioni dei tenant, inclusi l'ID della directory di destinazione e le identità usate.
+L'amministratore per il tenant specificato come tenant Restricted-Access-Context può usare questo report per visualizzare gli accessi bloccati a causa dei criteri di Restrizioni dei tenant, inclusi l'ID della directory di destinazione e le identità usate. Gli accessi sono inclusi se nelle impostazioni del tenant la restrizione di accesso è impostata sul tenant dell'utente o sul tenant della risorsa.
 
 ![Usare il portale di Azure per visualizzare i tentativi di accesso con restrizioni](./media/tenant-restrictions/portal-report.png)
 

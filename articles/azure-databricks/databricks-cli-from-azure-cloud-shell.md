@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: c20ad02f962fbee22bb16653c5eab351d9f3de17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3ea4ebbd95237b50054fb0e344f260120d597ab5
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598726"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225235"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell
 
 Informazioni su come usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell per eseguire operazioni in Databricks.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un'area di lavoro e un cluster Azure Databricks. Per istruzioni, vedere [Introduzione ad Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 
@@ -36,11 +36,11 @@ Informazioni su come usare l'interfaccia della riga di comando di Databricks da 
  
 2. Nell'angolo superiore destro fare clic sull'icona di **Cloud Shell**.
 
-   ![Avviare Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Avviare ODBC da Excel")
+   ![Avviare Azure Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Avviare Azure Cloud Shell")
 
 3. Assicurarsi di selezionare **Bash** per l'ambiente Cloud Shell. È possibile effettuare la selezione dell'opzione nel menu a discesa, come illustrato nello screenshot seguente.
 
-   ![Avviare Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Avviare ODBC da Excel") 
+   ![Selezione Bash per l'ambiente Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Selezionare Bash") 
 
 4. Creare un ambiente virtuale in cui è possibile installare l'interfaccia della riga di comando di Databricks. Nel frammento di codice seguente si crea un ambiente virtuale denominato `databrickscli`.
 
@@ -58,13 +58,11 @@ Informazioni su come usare l'interfaccia della riga di comando di Databricks da 
 
        databricks configure --token
 
-    Si ricevono le richieste seguenti:
+    Si riceveranno le richieste seguenti:
 
-    * Viene chiesto di eseguire l'accesso all'host Databricks. Immettere il valore nel formato `https://eastus2.azuredatabricks.net`. In questo caso, **Stati Uniti orientali 2** è l'area di Azure in cui è stata creata l'area di lavoro di Azure Databricks.
+    * Per prima cosa, viene chiesto di eseguire l'accesso all'host Databricks. Immettere il valore nel formato `https://eastus2.azuredatabricks.net`. In questo caso, **Stati Uniti orientali 2** è l'area di Azure in cui è stata creata l'area di lavoro di Azure Databricks.
 
-    * Viene chiesto di immettere un nome utente. Immettere **token**.
-
-    * Infine, viene chiesto di immettere la password. Immettere il token creato in precedenza.
+    * Successivamente, viene chiesto di immettere un nome utente. Immettere il token creato in precedenza.
 
 Una volta completati questi passaggi, è possibile iniziare a usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell.
 

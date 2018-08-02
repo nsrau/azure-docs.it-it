@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917993"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215085"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Approfondimento di sicurezza sull'autenticazione pass-through di Azure Active Directory
 
@@ -37,14 +37,14 @@ Gli argomenti trattati includono:
 Di seguito sono elencati gli aspetti principali realtivi alla sicurezza di questa funzionalità:
 - È stata progettata su un'architettura sicura multi-tenant che offre l'isolamento delle richieste di accesso tra tenant.
 - Le password locali non vengono mai archiviate nel cloud in alcuna forma.
-- Gli agenti di autenticazione locale, che restano in ascolto e rispondono alle richieste di convalida delle password, creano solo connessioni in uscita dalla rete. Non viene richiesto di installare gli agenti di autenticazione in una rete perimetrale.
+- Gli agenti di autenticazione locale, che restano in ascolto e rispondono alle richieste di convalida delle password, creano solo connessioni in uscita dalla rete. Non viene richiesto di installare gli agenti di autenticazione in una rete perimetrale. Come procedura ottimale, considerare tutti i server che eseguono gli agenti di autenticazione come sistemi di livello 0 (vedere [riferimento](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Solo le porte standard, ovvero le porte 80 e 443, vengono usate per le comunicazioni in uscita dagli agenti di autenticazione ad Azure AD. Non è necessario aprire porte in ingresso nel firewall. 
   - La porta 443 viene usata per tutte le comunicazioni in uscita autenticate.
   - La porta 80 viene usata solo per il download degli elenchi di revoche di certificati per verificare che nessun certificato utilizzato dalla funzionalità sia stato revocato.
   - Per l'elenco completo dei requisiti di rete, vedere [Autenticazione pass-through di Azure Active Directory - Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Le password fornite dagli utenti durante l'accesso vengono crittografate nel cloud prima di essere accettate dagli agenti di autenticazione locale per la convalida con Active Directory.
 - Il canale HTTPS tra Azure AD e un agente di autenticazione locale viene protetto mediante l'autenticazione reciproca.
-- La funzionalità si integra perfettamente con le funzionalità di protezione cloud di Azure AD, ad esempio i criteri di accesso condizionale, che includono Azure Multi-Factor Authentication, la protezione dell'identità e il blocco intelligente.
+- Consente di proteggere gli account utente operando senza problemi con i [criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md), tra cui l'autenticazione a più fattori (MFA)[ e l'autenticazione legacy di blocco](../active-directory-conditional-access-conditions.md), e [impedendo attacchi di forza bruta alle password](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Componenti coinvolti
 
@@ -156,7 +156,7 @@ Per assicurarsi che l'autenticazione pass-through risulti protetta dal punto di 
 
 Per rinnovare l'attendibilità di un agente di autenticazione con Azure AD:
 
-1. L'agente di autenticazione esegue periodicamente il ping di Azure AD, a intervalli di poche ore, per verificare se è necessario rinnovare il certificato. 
+1. L'agente di autenticazione esegue periodicamente il ping di Azure AD, a intervalli di poche ore, per verificare se è necessario rinnovare il certificato. Il certificato viene rinnovato 30 giorni prima della scadenza.
     - Questa verifica viene eseguita in un canale HTTPS autenticato reciprocamente e utilizza lo stesso certificato emesso durante la registrazione.
 2. Se il servizio indica che è necessario eseguire il rinnovo, l'agente di autenticazione genera una nuova coppia di chiavi: una chiave pubblica e una chiave privata.
     - Queste chiavi vengono generate mediante la crittografia standard RSA a 2048 bit.
@@ -208,7 +208,8 @@ Per eseguire l'aggiornamento automatico degli agenti di autenticazione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Limitazioni correnti](active-directory-aadconnect-pass-through-authentication-current-limitations.md): apprendere quali sono gli scenari supportati.
-- [Guida introduttiva](active-directory-aadconnect-pass-through-authentication-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
+- [Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
+- [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
 - [Blocco intelligente](../authentication/howto-password-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
 - [Come funziona](active-directory-aadconnect-pass-through-authentication-how-it-works.md): nozioni di base sul funzionamento dell'autenticazione pass-through di Azure AD.
 - [Domande frequenti](active-directory-aadconnect-pass-through-authentication-faq.md): risposte alle domande più frequenti.

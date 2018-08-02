@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/23/2018
 ms.author: marsma
-ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115796"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216105"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configurazione della rete in Azure Kubernetes Service (AKS)
 
@@ -49,9 +49,10 @@ La rete avanzata offre i vantaggi seguenti:
 
 * La rete virtuale per il cluster AKS deve consentire la connettività Internet in uscita.
 * Non creare più di un cluster AKS nella stessa subnet.
-* Le reti avanzate per AKS non supportano le reti virtuali che usano zone DNS private di Azure.
 * I cluster AKS non possono usare `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16` per l'intervallo di indirizzi del servizio Kubernetes.
-* L'entità di servizio utilizzata per il cluster AKS deve avere autorizzazioni `Contributor` per il gruppo di risorse contenente la rete virtuale esistente.
+* L'entità servizio usata dal cluster AKS deve avere almeno autorizzazioni di [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor) per la subnet all'interno della rete virtuale. Se si vuole definire un [ruolo personalizzato](../role-based-access-control/custom-roles.md) invece di usare il ruolo predefinito Collaboratore di rete, sono necessarie le autorizzazioni seguenti:
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Pianificare l'indirizzamento IP per il cluster
 

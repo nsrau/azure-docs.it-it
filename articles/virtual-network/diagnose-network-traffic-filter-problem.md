@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "34757228"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144935"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
 
@@ -40,38 +40,40 @@ I passaggi che seguono presuppongono la disponibilità di una VM per visualizzar
 2. Nella parte superiore del portale di Azure immettere nella casella di ricerca il nome della VM. Quando il nome della VM viene visualizzato nei risultati della ricerca, selezionarlo.
 3. In **IMPOSTAZIONI** selezionare **Rete**, come illustrato nell'immagine seguente:
 
-    ![Visualizzare le regole di sicurezza](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![Visualizzare le regole di sicurezza](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-    Le regole visualizzate nell'immagine precedente sono per un'interfaccia di rete denominata **myVMVMNic**. Vi sono **Regole porta in ingresso** per l'interfaccia di rete da due gruppi di sicurezza di rete diversi: **mySubnetNSG**, associato alla subnet in cui si trova l'interfaccia di rete.
-        - **myVMNSG**, associato all'interfaccia di rete della VM denominata **myVMVMNic**.
+   Le regole visualizzate nell'immagine precedente sono per un'interfaccia di rete denominata **myVMVMNic**. Sono presenti **Regole porta in ingresso** per l'interfaccia di rete derivanti da due gruppi di sicurezza di rete diversi:
+   
+   - **mySubnetNSG**: associato alla subnet in cui si trova l'interfaccia di rete.
+   - **myVMNSG**: associato all'interfaccia di rete della macchina virtuale denominata **myVMVMNic**.
 
-    È la regola denominata **DenyAllInBound** a impedire la comunicazione con la VM tramite la porta 80, da Internet, come descritto nello [scenario](#scenario). Nella regola è elencato il valore *0.0.0.0/0* per **ORIGINE**, che include anche Internet. Nessun altra regola con priorità più alta (numero più basso) consente le comunicazioni in ingresso dalla porta 80. Per consentire le comunicazioni verso la VM dalla porta 80 da Internet, vedere [Risolvere il problema](#resolve-a-problem). Per altre informazioni sulle regole di sicurezza e su come vengono applicate in Azure, vedere [Gruppi di sicurezza di rete](security-overview.md).
+   È la regola denominata **DenyAllInBound** a impedire la comunicazione con la VM tramite la porta 80, da Internet, come descritto nello [scenario](#scenario). Nella regola è elencato il valore *0.0.0.0/0* per **ORIGINE**, che include anche Internet. Nessun altra regola con priorità più alta (numero più basso) consente le comunicazioni in ingresso dalla porta 80. Per consentire le comunicazioni verso la VM dalla porta 80 da Internet, vedere [Risolvere il problema](#resolve-a-problem). Per altre informazioni sulle regole di sicurezza e su come vengono applicate in Azure, vedere [Gruppi di sicurezza di rete](security-overview.md).
 
-    Nella parte inferiore dell'immagine è anche possibile visualizzare le **Regole porta in uscita**, in cui sono riportate le regole della porta in uscita per l'interfaccia di rete. Anche se l'immagine include solo quattro regole in ingresso per ogni NSG, un NSG può contenerne molte di più. Nell'immagine viene visualizzato **VirtualNetwork** in **ORIGINE** e **DESTINAZIONE** e **AzureLoadBalancer** in  **ORIGINE**. **VirtualNetwork** e **AzureLoadBalancer** sono [tag di servizio](security-overview.md#service-tags). I tag di servizio rappresentano un gruppo di prefissi di indirizzi IP che consentono di ridurre al minimo la complessità della creazione delle regole di sicurezza.
+   Nella parte inferiore dell'immagine è anche possibile visualizzare le **Regole porta in uscita**, in cui sono riportate le regole della porta in uscita per l'interfaccia di rete. Anche se l'immagine include solo quattro regole in ingresso per ogni NSG, un NSG può contenerne molte di più. Nell'immagine viene visualizzato **VirtualNetwork** in **ORIGINE** e **DESTINAZIONE** e **AzureLoadBalancer** in  **ORIGINE**. **VirtualNetwork** e **AzureLoadBalancer** sono [tag di servizio](security-overview.md#service-tags). I tag di servizio rappresentano un gruppo di prefissi di indirizzi IP che consentono di ridurre al minimo la complessità della creazione delle regole di sicurezza.
 
 4. Verificare che la VM sia in esecuzione e selezionare **Regole di sicurezza effettive**, come illustrato nell'immagine precedente, per visualizzare le regole di sicurezza valide, illustrate nell'immagine seguente:
 
-    ![Visualizzare le regole di sicurezza valide](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Visualizzare le regole di sicurezza valide](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-    Le regole elencate sono le stesse illustrate nel passaggio 3, anche se sono presenti diverse schede per il gruppo di sicurezza di rete associato all'interfaccia di rete e alla subnet. Come si può vedere nell'immagine, vengono visualizzate solo le prime 50 regole. Per scaricare un file con estensione csv che contiene tutte le regole, selezionare **Download**.
+   Le regole elencate sono le stesse illustrate nel passaggio 3, anche se sono presenti diverse schede per il gruppo di sicurezza di rete associato all'interfaccia di rete e alla subnet. Come si può vedere nell'immagine, vengono visualizzate solo le prime 50 regole. Per scaricare un file con estensione csv che contiene tutte le regole, selezionare **Download**.
 
-    Per verificare i prefissi rappresentati da ogni tag di servizio, selezionare una regola, ad esempio la regola denominata **AllowAzureLoadBalancerInbound**. La figura seguente illustra i prefissi per il tag di servizio **AzureLoadBalancer**:
+   Per verificare i prefissi rappresentati da ogni tag di servizio, selezionare una regola, ad esempio la regola denominata **AllowAzureLoadBalancerInbound**. La figura seguente illustra i prefissi per il tag di servizio **AzureLoadBalancer**:
 
-    ![Visualizzare le regole di sicurezza valide](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Visualizzare le regole di sicurezza valide](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
-    Anche se il tag di servizio **AzureLoadBalancer** rappresenta solo un prefisso, altri tag di servizio ne rappresentano diversi.
+   Anche se il tag di servizio **AzureLoadBalancer** rappresenta solo un prefisso, altri tag di servizio ne rappresentano diversi.
 
-4. I passaggi precedenti hanno illustrato le regole di sicurezza per l'interfaccia di rete denominata **myVMVMNic**, ma è stato possibile visualizzare anche l'interfaccia di rete denominata **myVMVMNic2** in alcune delle immagini precedenti. La VM di questo esempio ha due interfacce di rete collegate. Le regole di sicurezza valide possono essere diverse per ogni interfaccia di rete.
+5. I passaggi precedenti hanno illustrato le regole di sicurezza per l'interfaccia di rete denominata **myVMVMNic**, ma è stato possibile visualizzare anche l'interfaccia di rete denominata **myVMVMNic2** in alcune delle immagini precedenti. La VM di questo esempio ha due interfacce di rete collegate. Le regole di sicurezza valide possono essere diverse per ogni interfaccia di rete.
 
-    Per visualizzare le regole per l'interfaccia di rete **myVMVMNic2**, selezionarla. Come illustrato nell'immagine che segue, l'interfaccia di rete ha le stesse regole associate alla subnet dell'interfaccia di rete **myVMVMNic** perché entrambe si trovano nella stessa subnet. Quando si associa un gruppo di sicurezza di rete a una subnet, le regole del gruppo vengono applicate a tutte le interfacce di rete presenti nella subnet.
+   Per visualizzare le regole per l'interfaccia di rete **myVMVMNic2**, selezionarla. Come illustrato nell'immagine che segue, l'interfaccia di rete ha le stesse regole associate alla subnet dell'interfaccia di rete **myVMVMNic** perché entrambe si trovano nella stessa subnet. Quando si associa un gruppo di sicurezza di rete a una subnet, le regole del gruppo vengono applicate a tutte le interfacce di rete presenti nella subnet.
 
-    ![Visualizzare le regole di sicurezza](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![Visualizzare le regole di sicurezza](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
-    A differenza dell'interfaccia di rete **myVMVMNic**, l'interfaccia di rete **myVMVMNic2** non ha un gruppo di sicurezza di rete associato. Ogni interfaccia di rete e subnet può avere un NSG associato oppure nessuno. Il gruppo di sicurezza di rete associato a ogni interfaccia di rete o subnet può essere lo stesso o un altro. Lo stesso gruppo di sicurezza di rete può essere associato a un numero qualsiasi di interfacce di rete e subnet.
+   A differenza dell'interfaccia di rete **myVMVMNic**, l'interfaccia di rete **myVMVMNic2** non ha un gruppo di sicurezza di rete associato. Ogni interfaccia di rete e subnet può avere un NSG associato oppure nessuno. Il gruppo di sicurezza di rete associato a ogni interfaccia di rete o subnet può essere lo stesso o un altro. Lo stesso gruppo di sicurezza di rete può essere associato a un numero qualsiasi di interfacce di rete e subnet.
 
-Anche se le regole di sicurezza valide sono state visualizzate tramite la VM, è possibile visualizzarle anche tramite:
+Anche se le regole di sicurezza valide sono state visualizzate tramite la macchina virtuale, è possibile visualizzarle anche tramite:
 - **Una singola interfaccia di rete**: informazioni su come [visualizzare un'interfaccia di rete](virtual-network-network-interface.md#view-network-interface-settings).
-- **Singoli NSG**: informazioni su come [visualizzare un NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
+- **Un singolo gruppo di sicurezza di rete**: informazioni su come [visualizzare un gruppo di sicurezza di rete](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnosi tramite PowerShell
 

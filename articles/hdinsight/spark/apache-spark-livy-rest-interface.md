@@ -1,26 +1,23 @@
 ---
-title: Usare Livy Spark per inviare processi al cluster Spark in Azure HDInsight | Microsoft Docs
+title: Usare Livy Spark per inviare processi al cluster Spark in Azure HDInsight
 description: Informazioni su come usare l'API REST di Apache Spark per inviare i processi in modalità remota a un cluster Azure HDInsight.
-keywords: apache spark rest api,livy spark
 services: hdinsight
-documentationcenter: ''
 author: nitinme
+ms.author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 07/18/2018
+ms.openlocfilehash: f2befaea436c29b43eead63a560836446075c89f
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517778"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144826"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
@@ -37,16 +34,16 @@ Informazioni su come usare Livy, l'API REST di Apache Spark per inviare processi
 ## <a name="submit-a-livy-spark-batch-job"></a>Inviare un processo batch Livy Spark
 Prima di inviare un processo batch, è necessario caricare il file con estensione jar dell'applicazione nell'archivio del cluster associato al cluster. A tale scopo è possibile usare [**AzCopy**](../../storage/common/storage-use-azcopy.md), un'utilità della riga di comando. Sono disponibili molti altri client da usare per caricare i dati. Altre informazioni in merito sono disponibili in [Caricare dati per processi Hadoop in HDInsight](../hdinsight-upload-data.md).
 
-    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
+    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
 **Esempi**:
 
 * Se il file con estensione jar si trova nell'archivio del cluster (WASB)
   
-        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
 * Se si vuole trasferire il nome del file con estensione JAR e il nome della classe come parte di un file di input, in questo esempio input.txt
   
-        curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
 
 ## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>Ottenere informazioni sui batch Livy Spark in esecuzione nel cluster
     curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
@@ -55,7 +52,7 @@ Prima di inviare un processo batch, è necessario caricare il file con estension
 
 * Per recuperare tutti i batch Livy Spark in esecuzione nel cluster:
   
-        curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches" 
 * Se si vuole recuperare un batch specifico con un determinato ID batch
   
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
@@ -101,7 +98,7 @@ Eseguire la procedura seguente:
 
 2. Inviare ora un processo batch. Il frammento di codice seguente usa un file di input (input.txt) per trasferire il nome del file con estensione JAR e il nome della classe come parametri. L'uso di un file di input è l'approccio consigliato se si eseguono questi passaggi da un computer Windows.
    
-        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
    
     I parametri nel file **input.txt** sono definiti come segue:
    

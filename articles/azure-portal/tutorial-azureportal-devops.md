@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164840"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216343"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Esercitazione: DevOps con il portale di Azure
 La piattaforma Azure include diversi flussi di lavoro flessibili di DevOps. Questa esercitazione illustra come sfruttare le funzionalità del portale di Azure per sviluppare, testare, distribuire, risolvere i problemi, monitorare e gestire le applicazioni in esecuzione. L'esercitazione si incentra sugli argomenti seguenti:

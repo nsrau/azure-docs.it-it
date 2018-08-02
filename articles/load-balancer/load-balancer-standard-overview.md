@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1a7f37d3f95701779a16cf5dc6844fb67ee7f956
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261934"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215102"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -49,7 +49,7 @@ Load Balancer Standard consente di ridimensionare le applicazioni e di creare di
 Consultare la tabella seguente per una panoramica delle differenze tra Load Balancer Standard e Load Balancer Basic:
 
 >[!NOTE]
-> Per i nuovi progetti è consigliabile prendere in considerazione l'uso di Load Balancer Standard. 
+> Per i nuovi progetti è consigliabile adottare Load Balancer Standard. 
 
 | | SKU Standard | SKU Basic |
 | --- | --- | --- |
@@ -59,8 +59,9 @@ Consultare la tabella seguente per una panoramica delle differenze tra Load Bala
 | Diagnostica | Monitoraggio di Azure, metriche multidimensionali, inclusi contatori di byte e pacchetti, stato del probe di integrità, tentativi di connessione (TCP SYN), integrità della connessione in uscita (flussi SNAT riusciti e non), misurazioni del piano dati attivo | Log Analytics di Azure solo per il bilanciamento del carico pubblico, avviso di esaurimento SNAT, conteggio integrità del pool back-end |
 | Porte a disponibilità elevata | Load Balancer interno | / |
 | Protezione per impostazione predefinita | è necessario usare endpoint predefiniti chiusi per Load Balancer e indirizzi IP pubblici e un gruppo di sicurezza di rete da inserire nell'elenco elementi consentiti in modo esplicito e consentire il traffico | gruppo di sicurezza di rete aperto predefinito facoltativo |
-| Connessioni in uscita | Front-end multipli con rifiuto esplicito in base alla regola. È _necessario_ creare in modo esplicito uno scenario in uscita affinché la macchina virtuale sia in grado di usare la connettività in uscita.  [Gli endpoint del servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) possono essere raggiunti senza connettività in uscita e non vengono considerati relativamente ai dati elaborati.  Tutti gli indirizzi IP pubblici, inclusi i servizi PaaS di Azure non disponibili come endpoint del servizio di rete virtuale, devono essere raggiunti tramite connettività in uscita e vengono considerati relativamente ai dati elaborati. Quando una macchina virtuale viene servita solo da un Load Balancer interno, le connessioni in uscita tramite SNAT predefinito non sono disponibili. La programmazione SNAT in uscita è il protocollo di trasporto specifico basato sul protocollo della regola di bilanciamento del carico in ingresso. | Front-end singolo selezionato in modo casuale quando sono presenti più front-end.  Quando una macchina virtuale viene servita solo da un Load Balancer interno, viene usato lo SNAT predefinito., viene usato lo SNAT predefinito. |
-| Più front-end | In ingresso e in uscita | Solo in ingresso |
+| [Connessioni in uscita](load-balancer-outbound-connections.md) | Front-end multipli con rifiuto esplicito in base alla regola di bilanciamento del carico. È _necessario_ creare in modo esplicito uno scenario in uscita affinché la macchina virtuale sia in grado di usare la connettività in uscita.  [Gli endpoint del servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) possono essere raggiunti senza connettività in uscita e non vengono considerati relativamente ai dati elaborati.  Tutti gli indirizzi IP pubblici, inclusi i servizi PaaS di Azure non disponibili come endpoint del servizio di rete virtuale, devono essere raggiunti tramite connettività in uscita e vengono considerati relativamente ai dati elaborati. Quando una macchina virtuale viene servita solo da un Load Balancer interno, le connessioni in uscita tramite SNAT predefinito non sono disponibili. La programmazione SNAT in uscita è il protocollo di trasporto specifico basato sul protocollo della regola di bilanciamento del carico in ingresso. | Front-end singolo selezionato in modo casuale quando sono presenti più front-end.  Quando una macchina virtuale viene servita solo da un Load Balancer interno, viene usato lo SNAT predefinito., viene usato lo SNAT predefinito. |
+| [Più front-end](load-balancer-multivip-overview.md) | In ingresso e [in uscita](load-balancer-outbound-connections.md) | Solo in ingresso |
+| [Comportamento in caso di inattività dei probe](load-balancer-custom-probe-overview.md) | Le connessioni TCP restano attive in caso di inattività dei probe dell'istanza __e__ di tutti i probe | Le connessioni TCP restano attive in caso di inattività dei probe dell'istanza. Tutte le connessioni TCP vengono terminate in caso di inattività di tutti i probe |
 | Operazioni di gestione | La maggior parte delle operazioni < 30 secondi | in genere 60-90+ secondi |
 | Contratto di servizio | 99,99% per il percorso dei dati con due macchine virtuali integre | Implicito nel contratto di servizio della macchina virtuale | 
 | Prezzi | Addebito in base al numero di regole e dati elaborati in ingresso o in uscita associati alla risorsa  | Nessun addebito |

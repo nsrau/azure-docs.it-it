@@ -4,18 +4,18 @@ description: Consigli per l'implementazione della reimpostazione password self-s
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e14c51d644a29985e759da7c8a29927680d3891
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048952"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158863"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Come implementare la reimpostazione della password self-service
 
@@ -23,35 +23,32 @@ Per garantire un'implementazione semplice della funzionalità di reimpostazione 
 
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
-1. [Abilitare la reimpostazione della password nella directory](quickstart-sspr.md).
-2. [Configurare le autorizzazioni di Active Directory locali per il writeback delle password](howto-sspr-writeback.md#active-directory-permissions).
-3. [Configurare il writeback delle password](howto-sspr-writeback.md#configure-password-writeback) per riscrivere le password da Azure AD alla directory locale.
-4. [Assegnare e verificare le licenze necessarie](concept-sspr-licensing.md).
-5. Stabilire se si vuole effettuare un'implementazione graduale. Per implementare gradualmente la reimpostazione della password nella directory, è possibile limitare l'accesso a un gruppo di utenti per poter eseguire il programma pilota con un gruppo specifico. Per implementare un gruppo specifico, impostare l'opzione **Reimpostazione delle password self-service abilitata** su **Selezionata** e selezionare il gruppo di sicurezza a cui si vuole consentire la reimpostazione della password.  È supportato l'annidamento dei gruppi di sicurezza.
-6. Immettere i [dati di autenticazione](howto-sspr-authenticationdata.md) necessari agli utenti per la registrazione, ad esempio il telefono dell'ufficio, il telefono cellulare e l'indirizzo di posta elettronica alternativo.
-7. [Personalizzare l'esperienza di accesso di Azure AD per includere le informazioni personalizzate distintive dell'azienda](concept-sspr-customization.md).
-8. Illustrare agli utenti l'uso della reimpostazione password self-service. Inviare istruzioni per la registrazione e la reimpostazione delle password.
-9. Stabilire quando si vuole applicare la registrazione. È possibile scegliere di applicare la registrazione in qualsiasi momento. È anche possibile richiedere agli utenti di riconfermare le informazioni di autenticazione dopo un certo periodo di tempo.
-10. Usare la funzionalità di creazione report. Nel corso del tempo, è possibile riesaminare la registrazione degli utenti e l'utilizzo con la [funzionalità di creazione di report di Azure AD](howto-sspr-reporting.md).
-11. Abilitare la reimpostazione della password. Quando si è pronti, abilitare la reimpostazione della password per tutti gli utenti impostando l'opzione **Reimpostazione delle password self-service abilitata** su **Tutti**. 
+1. Completare l'implementazione di un gruppo pilota con un piccolo sottoinsieme dell'organizzazione.
+   * Informazioni su come eseguire un'installazione pilota sono disponibili nell'articolo [Esercitazione: Completare l'implementazione di un gruppo pilota per la reimpostazione della password self-service di Azure AD](tutorial-sspr-pilot.md).
+1. Provvedere alla formazione del team di supporto tecnico.
+   * Come fornirà l'assistenza necessaria ai clienti?
+   * Si obbligherà gli utenti a usare la reimpostazione della password self-service e non si consentirà al supporto tecnico di fornire assistenza gli utenti?
+   * Sono stati forniti loro gli URL necessari per la registrazione e la reimpostazione?
+      * Registrazione: https://aka.ms/ssprsetup
+      * Reimpostazione: https://aka.ms/sspr
+1. Provvedere alla formazione degli utenti.
+   * Le sezioni seguenti di questo documento contengono comunicazioni di esempio, i portali delle password e le procedure di implementazione della registrazione e di inserimento dei dati di autenticazione.
+   * Il gruppo che si occupa dei prodotti Azure Active Directory ha creato un [piano di distribuzione dettagliato](https://aka.ms/SSPRDeploymentPlan) che le organizzazioni possono usare in parallelo con la documentazione di questo sito per delineare un caso aziendale e un piano per la distribuzione della funzionalità di reimpostazione della password self-service.
+1. Abilitare la reimpostazione della password self-service per l'intera organizzazione.
+   * Quando si è pronti, abilitare la reimpostazione della password per tutti gli utenti impostando l'opzione **Reimpostazione delle password self-service abilitata** su **Tutti**.
 
-   > [!NOTE]
-   > La modifica di questa opzione da un gruppo selezionato a tutti gli utenti non invalida i dati di autenticazione esistenti registrati da un utente come parte di un gruppo di test. Gli utenti configurati e aventi dati di autenticazione validi registrati continuano a funzionare.
+## <a name="sample-communication"></a>Comunicazione di esempio
 
-12. [Consentire agli utenti di Windows 10 di reimpostare la password nella schermata di accesso](tutorial-sspr-windows.md).
-
-   > [!IMPORTANT]
-   > Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo sui criteri delle password](concept-sspr-policy.md#administrator-password-policy-differences).
-
-## <a name="email-based-rollout"></a>Implementazione basata sulla posta elettronica
-
-Molti clienti ritengono che il modo più facile per invitare gli utenti a usare la reimpostazione password self-service sia una campagna di posta elettronica che includa istruzioni semplici. [Sono stati creati tre semplici messaggi di posta elettronica che possono essere usati come modelli per agevolare l'implementazione](https://www.microsoft.com/download/details.aspx?id=56768):
+Molti clienti ritengono che il modo più facile per invitare gli utenti a usare la reimpostazione password self-service sia una campagna di posta elettronica che includa istruzioni semplici. [Sono stati creati semplici messaggi di posta elettronica e altri documenti che è possibile usare come modelli per agevolare l'implementazione](https://www.microsoft.com/download/details.aspx?id=56768):
 
 * **Presto disponibile**: modello di messaggio usato nelle settimane o nei giorni precedenti l'implementazione per informare gli utenti che sarà necessario eseguire alcune operazioni.
 * **Ora disponibile**: modello di messaggio usato il giorno del lancio del programma per invitare gli utenti a eseguire la registrazione e verificare i dati di autenticazione. Se gli utenti si registrano subito, la reimpostazione password self-service sarà disponibile al momento necessario.
 * **Promemoria di registrazione**: modello di messaggio usato per alcuni giorni o settimane dopo la distribuzione per ricordare agli utenti di eseguire la registrazione e verificare i dati di autenticazione.
+* **Poster sulla reimpostazione della password self-service**: poster che è possibile personalizzare e visualizzare all'interno dell'organizzazione nei giorni e nelle settimane che precedono e che seguono la procedura di implementazione.
+* **Table tent sulla reimpostazione della password self-service**: schede da tavolo che è possibile posizionare in sala mensa, in aula riunioni o sulle scrivanie per incoraggiare gli utenti a completare la registrazione.
+* **Adesivi sulla reimpostazione della password self-service**: modelli di adesivi che è possibile personalizzare, stampare e attaccare a computer portatili, monitor, tastiere o telefoni cellulari per ricordare la procedura di accesso alla reimpostazione della password self-service.
 
-![Indirizzo di posta elettronica][Email]
+![Esempi di messaggi di posta elettronica sulla reimpostazione della password self-service][Email]
 
 ## <a name="create-your-own-password-portal"></a>Creare il portale delle password
 
@@ -64,10 +61,6 @@ Molti clienti scelgono di ospitare una pagina Web e di creare una voce DNS radic
 
 In qualsiasi comunicazione cartacea o di posta elettronica inviata è possibile includere un URL personalizzato facile da ricordare al quale gli utenti possono accedere quando devono usare i servizi. È stata creata una [pagina di reimpostazione della password di esempio](https://github.com/ajamess/password-reset-page), che è possibile usare e personalizzare in base alle esigenze dell'organizzazione.
 
-## <a name="step-by-step-deployment-plan"></a>Piano di distribuzione dettagliato
-
-Il gruppo che si occupa dei prodotti Azure Active Directory ha creato un [piano di distribuzione dettagliato](https://aka.ms/SSPRDeploymentPlan) che le organizzazioni possono usare in parallelo con la documentazione di questo sito per delineare un caso aziendale e un piano per la distribuzione della funzionalità di reimpostazione della password self-service.
-
 ## <a name="use-enforced-registration"></a>Usare la registrazione applicata
 
 Se si vuole che gli utenti eseguano la registrazione per la reimpostazione della password, è possibile rendere obbligatoria la registrazione quando accedono tramite Azure AD. È possibile abilitare questa opzione dal riquadro **Reimpostazione password** della directory, selezionando l'opzione **Richiedere agli utenti di registrarsi all'accesso?** nella scheda **Registrazione**.
@@ -78,11 +71,11 @@ Dopo aver abilitato questa opzione, quando gli utenti accedono, visualizzano un 
 
 ## <a name="populate-authentication-data"></a>Popolare i dati di autenticazione
 
-È consigliabile [popolare i dati di autenticazione per gli utenti](howto-sspr-authenticationdata.md). In questo modo non è necessario che gli utenti eseguano registrazione per la reimpostazione della password prima di poter usare la reimpostazione password self-service. Se hanno fornito dati di autenticazione che soddisfano i criteri di reimpostazione della password, potranno reimpostare le proprie password.
+È necessario valutare la possibilità di [prepopolare alcuni dei dati di autenticazione degli utenti](howto-sspr-authenticationdata.md). In questo modo non è necessario che gli utenti eseguano registrazione per la reimpostazione della password prima di poter usare la reimpostazione password self-service. Se hanno fornito dati di autenticazione che soddisfano i criteri di reimpostazione della password, potranno reimpostare le proprie password.
 
 ## <a name="disable-self-service-password-reset"></a>Disabilitare la reimpostazione password self-service
 
-La disabilitazione della reimpostazione password self-service è un'operazione semplice. Aprire il tenant di Azure AD e passare a **Reimpostazione password** > **Proprietà** e scegliere **Nessuno** in **Reimpostazione password self-service abilitata**.
+Se l'organizzazione decide di disabilitare la reimpostazione della password self-service, la procedura da seguire è molto semplice. Aprire il tenant di Azure AD e passare a **Reimpostazione password** > **Proprietà** e scegliere **Nessuno** in **Reimpostazione password self-service abilitata**. Gli utenti manterranno i propri
 
 ## <a name="next-steps"></a>Passaggi successivi
 

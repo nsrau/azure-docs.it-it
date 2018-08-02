@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 07/18/2018
 ms.author: genli
-ms.openlocfilehash: 604e2ee6d2ac7e30813f8b4cd02253407c2b1e3f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0bd0fca54ae5bf4292564a15adf38b7586768450
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067436"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145452"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Annullare la sottoscrizione di Azure
 
@@ -32,7 +32,7 @@ Prima di annullare la sottoscrizione:
 * Arrestare i servizi. Passare alla [pagina delle risorse nel portale di gestione](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) e **arrestare** qualsiasi macchina virtuale, applicazione o altri servizi.
 * Prendere in considerazione la migrazione dei dati. Vedere [Spostare le risorse in un nuovo gruppo o sottoscrizione](../azure-resource-manager/resource-group-move-resources.md).
 
-Se si annulla un [piano di supporto di Azure](https://azure.microsoft.com/support/plans/) a pagamento, verrà comunque emessa una fattura mensile per il resto del semestre.
+Se si annulla un piano di supporto di Azure a pagamento, verrà comunque emessa una fattura per il resto del periodo di validità della sottoscrizione. Per altre informazioni, vedere [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/).
 
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Annullare la sottoscrizione usando il portale di Azure
 

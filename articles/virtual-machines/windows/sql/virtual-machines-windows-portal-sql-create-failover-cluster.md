@@ -14,13 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 13/22/2018
+ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216718"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -71,12 +72,15 @@ Prima di procedere, è necessario conoscere alcuni aspetti ed essere in possesso
 È necessario avere una conoscenza operativa delle tecnologie seguenti:
 
 - [Tecnologie cluster di Windows](http://technet.microsoft.com/library/hh831579.aspx)
--  [Istanze del cluster di failover di SQL Server](http://msdn.microsoft.com/library/ms189134.aspx)
+- [Istanze del cluster di failover di SQL Server](http://msdn.microsoft.com/library/ms189134.aspx)
 
 È anche necessario avere una conoscenza generale delle tecnologie seguenti:
 
 - [Soluzione iperconvergente che usa Spazi di archiviazione diretta in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Gruppi di risorse di Azure](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> A questo punto, l'[Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md) non è supportata per le istanze del cluster di failover di SQL Server in Azure. È consigliabile disinstallare l'estensione dalle macchine virtuali che fanno parte delle istanze del cluster di failover. Questa estensione supporta funzionalità quali Backup automatizzato, Applicazione automatica delle patch e alcune funzionalità del portale per SQL. Queste funzionalità non funzioneranno per le macchine virtuali di SQL dopo la disinstallazione dell'agente.
 
 ### <a name="what-to-have"></a>Elementi necessari
 
@@ -105,7 +109,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
    - Nel portale di Azure fare clic su **+** per aprire Azure Marketplace. Cercare **Set di disponibilità**.
    - Fare clic su **Set di disponibilità**.
-   - Fare clic su **Crea**.
+   - Fare clic su **Create**(Crea).
    - Nel pannello **Crea set di disponibilità** impostare i valori seguenti.
       - **Nome**: nome del set di disponibilità.
       - **Sottoscrizione**: sottoscrizione di Azure.
@@ -278,7 +282,7 @@ Il cloud di controllo è un nuovo tipo di quorum di controllo del cluster archiv
 
 1. Salvare le chiavi di accesso e l'URL del contenitore.
 
-1. Configurare il quorum di controllo del cluster di failover. Vedere, [configurare il quorum di controllo nell'interfaccia utente]. (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) nell'interfaccia utente.
+1. Configurare il quorum di controllo del cluster di failover. Vedere [Configurare il quorum di controllo nell'interfaccia utente](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) nell'interfaccia utente.
 
 ### <a name="add-storage"></a>Aggiungere le risorse di archiviazione
 
@@ -355,7 +359,7 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Fare clic su **+ Aggiungi**. Cercare **Servizio di bilanciamento del carico** nel Marketplace. Fare clic su **Servizio di bilanciamento del carico**.
 
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
 1. Configurare il servizio di bilanciamento del carico con le impostazioni seguenti.
 

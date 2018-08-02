@@ -1,21 +1,21 @@
 ---
-title: Personalizzazione per la reimpostazione della password self-service - Azure Active Directory
+title: Personalizzazione della funzionalità di Azure AD per la reimpostazione della password self-service
 description: Opzioni di personalizzazione per la reimpostazione della password self-service di Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054591"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222789"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service
 
@@ -24,8 +24,9 @@ I professionisti IT che vogliono distribuire la reimpostazione della password se
 ## <a name="customize-the-contact-your-administrator-link"></a>Personalizzare il collegamento "Contatta l'amministratore"
 
 Anche se la reimpostazione della password self-service non è abilitata, gli utenti possono tuttavia usare un collegamento "Contatta l'amministratore" nel portale di reimpostazione della password. Se un utente seleziona il collegamento:
-   * Invia un messaggio di posta elettronica agli amministratori e richiede assistenza nella modifica della password dell'utente. 
-   * Invia gli utenti a un URL specificato per ottenere assistenza. 
+
+   * Invia un messaggio di posta elettronica agli amministratori e richiede assistenza nella modifica della password dell'utente.
+   * Invia gli utenti a un URL specificato per ottenere assistenza.
 
 È consigliabile impostare questo contatto ad esempio per un indirizzo di posta elettronica o un sito Web che gli utenti sono soliti usare per inviare domande al supporto tecnico.
 
@@ -45,9 +46,7 @@ Per altre informazioni sui diversi ruoli di amministratore e su come assegnarli,
 
 Se l'organizzazione non vuole inviare notifiche agli amministratori circa le richieste di reimpostazione della password, è possibile abilitare la configurazione seguente:
 
-* Abilitare la reimpostazione self-service delle password per tutti gli utenti finali. Questa opzione è in **Reimpostazione password** > **Proprietà**.
-  
-  Se non si vuole che gli utenti reimpostino le proprie password, è possibile definire l'ambito di accesso a un gruppo vuoto. *Questa opzione non è consigliata.*
+* Abilitare la reimpostazione self-service delle password per tutti gli utenti finali. Questa opzione è in **Reimpostazione password** > **Proprietà**. Se non si vuole che gli utenti reimpostino le proprie password, è possibile definire l'ambito di accesso a un gruppo vuoto. *Questa opzione non è consigliata.*
 * Personalizzare il collegamento al supporto tecnico per fornire un URL Web o mailto: indirizzo che gli utenti possono usare per ottenere assistenza. Questa opzione si trova in **Reimpostazione password** > **Personalizzazione** > **Indirizzo di posta elettronica o URL del supporto tecnico**.
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Personalizzare la pagina di accesso di AD FS per la reimpostazione della password self-service
@@ -56,7 +55,7 @@ Gli amministratori di Active Directory Federation Services (ADFS) possono aggiun
 
 Per aggiungere un collegamento alla pagina di accesso di AD FS, usare il comando seguente nel server AD FS. Gli utenti possono usare questa pagina per immettere il flusso di lavoro di reimpostazione della password self-service.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Personalizzare l'aspetto della pagina di accesso e del pannello di accesso
 

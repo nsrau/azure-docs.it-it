@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo in Azure | Microsoft Docs
+title: Risolvere i problemi relativi al controllo degli accessi in base al ruolo in Azure | Microsoft Docs
 description: Risolvere i problemi relativi al controllo degli accessi in base al ruolo di Azure.
 services: azure-portal
 documentationcenter: na
@@ -11,29 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437367"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223297"
 ---
-# <a name="troubleshooting-rbac-in-azure"></a>Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo in Azure
+# <a name="troubleshoot-rbac-in-azure"></a>Risolvere i problemi relativi al controllo degli accessi in base al ruolo in Azure
 
-Questo articolo contiene le risposte alle domande comuni sul controllo degli accessi in base al ruolo, per poter sapere che cosa accade quando si usano i ruoli nel portale di Azure e risolvere i problemi di accesso. Questi tre ruoli coprono tutti i tipi di risorsa:
+Questo articolo contiene le risposte alle domande comuni sul controllo degli accessi in base al ruolo, per poter sapere che cosa accade quando si usano i ruoli nel portale di Azure e risolvere i problemi di accesso.
 
-* Proprietario  
-* Collaboratore  
-* Reader  
+## <a name="web-app-features-that-require-write-access"></a>Funzionalità dell'app Web che richiedono l'accesso in scrittura
 
-Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, ma il collaboratore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. Per informazioni su come concedere l'accesso, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md).
-
-## <a name="app-service"></a>Servizio app
-### <a name="write-access-capabilities"></a>Funzionalità di accesso in scrittura
 Se si concede a un utente l'accesso in sola lettura a un'unica app Web, sono disabilitate alcune funzionalità non prevedibili. Per le funzionalità di gestione seguenti è necessario avere accesso **in scrittura** a un'app Web, come Collaboratore o Proprietario. Tali funzionalità non saranno disponibili in uno scenario di sola lettura.
 
 * Comandi (quali avvio, interruzione e così via)
@@ -49,7 +43,8 @@ Se si concede a un utente l'accesso in sola lettura a un'unica app Web, sono dis
 
 Se non è possibile accedere a nessuno di questi titoli, è necessario richiedere all'amministratore l'accesso come Collaboratore per l'app Web.
 
-### <a name="dealing-with-related-resources"></a>Gestione delle risorse correlate
+## <a name="web-app-resources-that-require-write-access"></a>Risorse dell'app Web che richiedono l'accesso in scrittura
+
 La complessità delle app Web è accentuata dalle interazioni tra alcune risorse diverse. Di seguito è illustrato un tipico gruppo di risorse con alcuni siti Web:
 
 ![Gruppo di risorse per app Web](./media/troubleshooting/website-resource-model.png)
@@ -70,14 +65,8 @@ Gli elementi seguenti richiedono accesso **in scrittura** all'intero **gruppo di
 * Componenti di Application Insights  
 * Test Web  
 
-## <a name="azure-functions"></a>Funzioni di Azure
-Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overview.md) richiedono l'accesso in scrittura. Ad esempio un utente, a cui è stato assegnato il ruolo di lettore, non sarà in grado di visualizzare le funzioni all'interno di un'app per le funzioni. Sul portale verrà indicato **(Nessun accesso)**.
+## <a name="virtual-machine-features-that-require-write-access"></a>Funzionalità delle macchine virtuali che richiedono l'accesso in scrittura
 
-![Nessun accesso alle app per le funzioni](./media/troubleshooting/functionapps-noaccess.png)
-
-Un lettore può fare clic sulla scheda **Funzionalità della piattaforma** e quindi su **Tutte le impostazioni** per visualizzare alcune impostazioni correlate a un'app per le funzioni (in modo simile a un'app Web), ma non può modificare nessuna impostazione.
-
-## <a name="virtual-machine"></a>Macchina virtuale
 Analogamente a quanto accade con le app Web, alcune funzionalità del blade della macchina virtuale richiedono l'accesso in scrittura alla macchina virtuale o ad altre risorse del gruppo di risorse.
 
 Le macchine virtuali sono correlate a nomi di dominio, reti virtuali, account di archiviazione e regole di avviso.
@@ -96,6 +85,18 @@ Gli elementi seguenti richiedono accesso **in scrittura** sia alla **macchina vi
 * Regole di avviso  
 
 Se non è possibile accedere a nessuno di questi riquadri, richiedere all'amministratore l'accesso come Collaboratore al gruppo di risorse.
+
+## <a name="azure-functions-and-write-access"></a>Funzioni di Azure e accesso in scrittura
+
+Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overview.md) richiedono l'accesso in scrittura. Ad esempio un utente, a cui è stato assegnato il ruolo di lettore, non sarà in grado di visualizzare le funzioni all'interno di un'app per le funzioni. Sul portale verrà indicato **(Nessun accesso)**.
+
+![Nessun accesso alle app per le funzioni](./media/troubleshooting/functionapps-noaccess.png)
+
+Un lettore può fare clic sulla scheda **Funzionalità della piattaforma** e quindi su **Tutte le impostazioni** per visualizzare alcune impostazioni correlate a un'app per le funzioni (in modo simile a un'app Web), ma non può modificare nessuna impostazione.
+
+## <a name="rbac-changes-are-not-being-detected"></a>Le modifiche del controllo degli accessi in base al ruolo non vengono rilevate
+
+In alcuni casi, Azure Resource Manager memorizza nella cache le configurazioni e i dati per migliorare le prestazioni. Durante la creazione o l'eliminazione delle assegnazioni di ruolo, per l'applicazione delle modifiche possono essere necessari fino a 30 minuti. Se si usa il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile forzare l'aggiornamento delle modifiche alle assegnazioni di ruolo effettuando la disconnessione e quindi di nuovo l'accesso. Se si apportano modifiche alle assegnazioni di ruolo con chiamate all'API REST, è possibile forzare l'aggiornamento semplicemente aggiornando il token di accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md)

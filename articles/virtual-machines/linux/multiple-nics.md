@@ -3,7 +3,7 @@ title: Creare una VM Linux in Azure con più schede di interfaccia di rete | Doc
 description: Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate usando l'interfaccia della riga di comando di Azure 2.0 o i modelli di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -12,19 +12,19 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2017
-ms.author: cynthn
-ms.openlocfilehash: 257b80c30823be41893be8659845d4fcbc922da3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.date: 06/07/2018
+ms.author: iainfou
+ms.openlocfilehash: aae71dafd3685e44975049c4287c083abc2330bc
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932273"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144857"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
 È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. Questo articolo illustra come creare una VM con più schede di interfaccia di rete collegate e come aggiungere o rimuovere le schede di interfaccia di rete da una VM esistente. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
 
-Questo articolo illustra come creare una macchina virtuale con più schede di interfaccia di rete usando l'interfaccia della riga di comando di Azure 2.0. 
+Questo articolo illustra come creare una macchina virtuale con più schede di interfaccia di rete usando l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](multiple-nics-nodejs.md).
 
 
 ## <a name="create-supporting-resources"></a>Creare risorse di supporto
@@ -44,9 +44,9 @@ Creare la rete virtuale con [az network vnet create](/cli/azure/network/vnet#az_
 az network vnet create \
     --resource-group myResourceGroup \
     --name myVnet \
-    --address-prefix 192.168.0.0/16 \
+    --address-prefix 10.0.0.0/16 \
     --subnet-name mySubnetFrontEnd \
-    --subnet-prefix 192.168.1.0/24
+    --subnet-prefix 10.0.1.0/24
 ```
 
 Creare una subnet per il traffico di back-end con il comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). L'esempio seguente crea una subnet denominata *mySubnetBackEnd*:
@@ -56,7 +56,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name mySubnetBackEnd \
-    --address-prefix 192.168.2.0/24
+    --address-prefix 10.0.2.0/24
 ```
 
 Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
@@ -86,7 +86,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Creare una macchina virtuale e collegare le schede di interfaccia di rete
-Quando si crea la macchina virtuale, specificare le schede di interfaccia di rete create con `--nics`. L'utente deve anche fare attenzione quando seleziona la dimensione della macchina virtuale. Esistono dei limiti per quanto riguarda il numero totale di schede di rete che è possibile aggiungere. Ulteriori informazioni sulle [dimensioni delle macchine virtuali di Linux](sizes.md). 
+Quando si crea la macchina virtuale, specificare le schede di interfaccia di rete create con `--nics`. L'utente deve anche fare attenzione quando seleziona la dimensione della macchina virtuale. Esistono dei limiti per quanto riguarda il numero totale di schede di rete che è possibile aggiungere. Ulteriori informazioni sulle [dimensioni delle macchine virtuali di Linux](sizes.md).
 
 Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVM*:
 
@@ -187,75 +187,68 @@ Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../
 Aggiungere le tabelle di routing al sistema operativo guest. A tale scopo, completare i passaggi descritti in [Configurare il sistema operativo guest per più schede di interfaccia di rete](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurare il sistema operativo guest per più schede di rete
-Quando si aggiungono più schede di rete a una macchina virtuale Linux, è necessario creare regole di routing. Queste regole consentono alla VM di inviare e ricevere traffico appartenente a una scheda di rete specifica. In caso contrario, il traffico appartenente a *eth1*, ad esempio, non può essere elaborato correttamente dalla route predefinita specificata.
 
-Per correggere il problema di routing, aggiungere prima di tutto due tabelle di routing a */etc/iproute2/rt_tables*, come illustrato di seguito:
+I passaggi precedenti hanno consentito di creare una rete virtuale e una subnet, collegare le schede di rete e quindi creare una macchina virtuale. Non sono stati creati un indirizzo IP pubblico e le regole del gruppo di sicurezza di rete che consentono il traffico SSH. Per configurare il sistema operativo guest per più schede di rete, è necessario consentire le connessioni remote ed eseguire i comandi in locale nella macchina virtuale.
 
-```bash
-echo "200 eth0-rt" >> /etc/iproute2/rt_tables
-echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+Per consentire il traffico SSH, creare una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create), come indicato di seguito:
+
+```azurecli
+az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name allow_ssh \
+    --priority 101 \
+    --destination-port-ranges 22
 ```
 
-Per applicare e rendere permanente la modifica durante l'attivazione dello stack di rete, modificare */etc/sysconfig/network-scripts/ifcfg-eth0* e */etc/sysconfig/network-scripts/ifcfg-eth1*. Modificare la riga *"NM_CONTROLLED = yes"* in *"NM_CONTROLLED = no"*. Senza questo passaggio, le regole aggiuntive o il routing aggiuntivo non vengono applicati automaticamente.
- 
-Estendere quindi le tabelle di routing. Si supponga che sia disponibile la configurazione seguente:
+Creare un indirizzo IP pubblico con [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) e assegnarla alla prima scheda di rete con [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
 
-*Routing*
+```azurecli
+az network public-ip-address create --resource-group myResourceGroup --name myPublicIP
 
-```bash
-default via 10.0.1.1 dev eth0 proto static metric 100
-10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
-10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
-168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
-169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+az network nic ip-config update \
+    --resource-group myResourceGroup \
+    --nic-name myNic1 \
+    --name ipconfig1 \
+    --public-ip-addres myPublicIP
 ```
 
-*Interfacce*
+Per visualizzare l'indirizzo IP pubblico della macchina virtuale, usare [az vm show](/cli/azure/vm#az-vm-show), come indicato di seguito:
 
-```bash
-lo: inet 127.0.0.1/8 scope host lo
-eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
-eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```azurecli
+az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Creare quindi i file seguenti e aggiungere le regole e le route appropriate a ogni file:
-
-- */etc/sysconfig/network-scripts/rule-eth0*
-
-    ```bash
-    from 10.0.1.4/32 table eth0-rt
-    to 10.0.1.4/32 table eth0-rt
-    ```
-
-- */etc/sysconfig/network-scripts/route-eth0*
-
-    ```bash
-    10.0.1.0/24 dev eth0 table eth0-rt
-    default via 10.0.1.1 dev eth0 table eth0-rt
-    ```
-
-- */etc/sysconfig/network-scripts/rule-eth1*
-
-    ```bash
-    from 10.0.1.5/32 table eth1-rt
-    to 10.0.1.5/32 table eth1-rt
-    ```
-
-- */etc/sysconfig/network-scripts/route-eth1*
-
-    ```bash
-    10.0.1.0/24 dev eth1 table eth1-rt
-    default via 10.0.1.1 dev eth1 table eth1-rt
-    ```
-
-Per applicare le modifiche, riavviare il servizio di *rete*, come indicato di seguito:
+Connettersi all'indirizzo IP pubblico della macchina virtuale tramite SSH. Il nome utente predefinito specificato in un passaggio precedente era *azureuser*. Specificare il proprio nome utente e l'indirizzo IP pubblico:
 
 ```bash
-systemctl restart network
+ssh azureuser@137.117.58.232
 ```
 
-Le regole di routing sono state create correttamente ed è possibile connettersi alle interfacce, in base alle esigenze.
+Per consentire l'invio a o da un'interfaccia di rete secondaria, è necessario aggiungere manualmente route persistenti al sistema operativo per ogni interfaccia di rete secondaria. In questo articolo, *eth1* è l'interfaccia secondaria. Le istruzioni per l'aggiunta di route persistenti al sistema operativo variano in base alla distribuzione. Per istruzioni, vedere la documentazione relativa alla distribuzione.
 
+Quando si aggiunge la route al sistema operativo, è l'indirizzo del gateway è *.1* per qualsiasi subnet in cui è presente l'interfaccia di rete. Se ad esempio all'interfaccia di rete è assegnato l'indirizzo *10.0.2.4*, il gateway specificato per la route è *10.0.2.1*. È possibile definire una rete specifica per la destinazione della route o specificare *0.0.0.0* come destinazione, se si vuole che tutto il traffico per l'interfaccia venga inviato attraverso il gateway specificato. Il gateway per ogni subnet viene gestito dalla rete virtuale.
+
+Dopo aver aggiunto la route per un'interfaccia secondaria, verificare che la route sia presente nella tabella di route con `route -n`. L'output di esempio seguente è relativo alla tabella di route che contiene le due interfacce di rete aggiunte alla macchina virtuale in questo articolo:
+
+```bash
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.1.1        0.0.0.0         UG    0      0        0 eth0
+0.0.0.0         10.0.2.1        0.0.0.0         UG    0      0        0 eth1
+10.0.1.0        0.0.0.0         255.255.255.0   U     0      0        0 eth0
+10.0.2.0        0.0.0.0         255.255.255.0   U     0      0        0 eth1
+168.63.129.16   10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+169.254.169.254 10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+```
+
+Verificare che la route aggiunta sia persistente tra un riavvio e l'altro controllando nuovamente la tabella di route dopo un riavvio. Per testare la connettività, è ad esempio possibile immettere il comando seguente, dove *eth1* è il nome di un'interfaccia di rete secondaria:
+
+```bash
+ping bing.com -c 4 -I eth1
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Quando si cerca di creare una macchina virtuale con più schede di rete, consultare [Dimensioni per le macchine virtuali di Linux](sizes.md). Prestare attenzione al numero massimo di schede di rete supportato per ogni dimensione della macchina virtuale. 
+Quando si cerca di creare una macchina virtuale con più schede di rete, consultare [Dimensioni per le macchine virtuali di Linux](sizes.md). Prestare attenzione al numero massimo di schede di rete supportato per ogni dimensione della macchina virtuale.
+
+Per proteggere ulteriormente le macchine virtuali, usare l'accesso Just-In-Time alle macchine virtuali. Questa funzionalità consente di aprire le regole del gruppo di sicurezza di rete per il traffico SSH quando necessario e per un periodo di tempo definito. Per altre informazioni, vedere [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](../../security-center/security-center-just-in-time.md).

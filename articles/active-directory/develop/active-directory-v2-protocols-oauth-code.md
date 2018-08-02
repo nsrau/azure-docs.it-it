@@ -1,5 +1,5 @@
 ---
-title: Flusso del codice di autorizzazione OAuth 2.0 di Azure AD | Microsoft Docs
+title: Flusso del codice di autorizzazione OAuth 2.0 di Azure AD | Documentazione Microsoft
 description: Creazione di applicazioni Web usando l'implementazione del protocollo di autenticazione OAuth 2.0 definita in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a3e8f8ab1594e992b6a6c9e9530c3b363d6d0346
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0b8471f77fd36b03a74e9312833cc6cb8a8a71ec
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158238"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226578"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolli della versione 2.0: flusso del codice di autorizzazione di OAuth 2.0
 La concessione del codice di autorizzazione OAuth 2.0 può essere utilizzata nelle app che vengono installate su un dispositivo per ottenere l'accesso alle risorse protette, come l'API web. Usando l'implementazione di OAuth 2.0 definita in Modello app 2.0, è possibile aggiungere i criteri e l'API di accesso alle applicazioni desktop e mobili. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle [librerie di autenticazione open source di Azure](active-directory-authentication-libraries.md).
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type         | Obbligatoria    | Deve includere `code` per il flusso del codice di autorizzazione.       |
 | redirect_uri          | Consigliato | URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | scope                 | Obbligatoria    | Elenco separato da spazi di [ambiti](active-directory-v2-scopes.md) a cui si vuole che l'utente dia il consenso.           |
-| response_mode         | Consigliato | Specifica il metodo da usare per restituire il token risultante all'app. Può essere `query` o `form_post`.   |
+| response_mode         | Consigliato | Specifica il metodo da usare per restituire il token risultante all'app. Può essere `query`, `fragment` o `form_post`. `query` fornisce il codice come parametro della stringa di query nell'URI di reindirizzamento. Se si sta richiedendo un token ID usando il flusso implicito, non è possibile usare `query` come indicato nella [specifica OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se si sta richiedendo solo il codice, è possibile usare `query`, `fragment` o `form_post`. `form_post` esegue un POST contenente il codice all'URI di reindirizzamento. Per altre informazioni, vedere [Protocollo OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | state                 | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](http://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Questo valore può essere usato anche per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 | prompt                | Facoltativo    | Indica il tipo di interazione obbligatoria dell'utente. Gli unici valori validi al momento sono "login", "none" e "consent". `prompt=login` forza l'utente a immettere le sue credenziali alla richiesta, negando l'accesso Single Sign-On. `prompt=none` è l'opposto: garantisce che all'utente non venga presentata alcuna richiesta interattiva. Se la richiesta non può essere completata automaticamente tramite Single-Sign-On, l'endpoint 2.0 restituirà un errore `interaction_required`. `prompt=consent` attiverà la finestra di dialogo di consenso di OAuth dopo l'accesso dell'utente, che chiede all'utente di concedere le autorizzazioni all'app. |
 | login_hint            | Facoltativo    | Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente. Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`.                                                                                                                                                                                                                                                                                                    |

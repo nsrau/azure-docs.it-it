@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: 9cf3c9d5df11e19045cd47a41d7ab9ac93bdf700
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ce7b255359c076ddae642ed44f056e444b655e25
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605424"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216411"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Eseguire il backup di un server VMware in Azure
 
@@ -151,8 +151,8 @@ Per aggiungere un ruolo del server vCenter e i relativi privilegi per un amminis
 
   Fare clic su **OK**. Il nuovo ruolo verrà visualizzato nell'elenco del pannello Roles (Ruoli).
 
-|Privilegi per vCenter 6.0| Privilegi per vCenter 5.5|
-|--------------------------|---------------------------|
+|Privilegi per vCenter 6.0 e 6.5| Privilegi per vCenter 5.5|
+|----------------------------------|---------------------------|
 |Datastore.AllocateSpace   | Datastore.AllocateSpace|
 |Global.ManageCustomFields | Global.ManageCustomerFields|
 |Global.SetCustomFields    |   |

@@ -1,5 +1,5 @@
 ---
-title: Distribuire Sincronizzazione file di Azure (anteprima) | Microsoft Docs
+title: Distribuire Sincronizzazione file di Azure | Microsoft Docs
 description: Informazioni complete su come distribuire Sincronizzazione file di Azure.
 services: storage
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 808bc3908790c8d6dedf1d9f00a4c70b42c7c490
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867070"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215146"
 ---
-# <a name="deploy-azure-file-sync-preview"></a>Distribuire Sincronizzazione file di Azure (anteprima)
-È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
+# <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
+Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
 
 È consigliabile leggere [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md) e [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) prima di completare i passaggi descritti in questo articolo.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Un account di archiviazione di Azure e una condivisione file di Azure nella stessa area in cui si vuole distribuire Sincronizzazione file di Azure. Per altre informazioni, vedere:
     - [Aree di disponibilità](storage-sync-files-planning.md#region-availability) per Sincronizzazione file di Azure.
     - [Creare un account di archiviazione](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per una descrizione dettagliata della procedura per la creazione di un account di archiviazione.
@@ -135,7 +135,7 @@ La distribuzione di Sincronizzazione file di Azure inizia con l'inserimento di u
 > Il servizio di sincronizzazione archiviazione eredita le autorizzazioni di accesso dalla sottoscrizione e dal gruppo di risorse in cui viene distribuito. È consigliabile controllare attentamente chi dispone di accesso. Le entità con accesso in scrittura possono avviare la sincronizzazione di nuovi set di file dai server registrati in questo servizio di sincronizzazione archiviazione, causando il flusso dei dati in un archivio di Azure a loro accessibile.
 
 # <a name="portaltabportal"></a>[di Microsoft Azure](#tab/portal)
-Per distribuire un servizio di sincronizzazione archiviazione, accedere al [portale di Azure](https://portal.azure.com/), fare clic su *Nuovo* e cercare Sincronizzazione file di Azure. Nei risultati della ricerca selezionare **Sincronizzazione file di Azure (anteprima)** e quindi selezionare **Crea** per aprire la scheda **Distribuisci sincronizzazione archiviazione**.
+Per distribuire un servizio di sincronizzazione archiviazione, accedere al [portale di Azure](https://portal.azure.com/), fare clic su *Nuovo* e cercare Sincronizzazione file di Azure. Nei risultati della ricerca selezionare **Sincronizzazione file di Azure** e quindi selezionare **Crea** per aprire la scheda **Distribuisci sincronizzazione archiviazione**.
 
 Nel pannello che viene visualizzato immettere le informazioni seguenti:
 

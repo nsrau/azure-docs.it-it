@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151230"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145741"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -35,7 +35,7 @@ Usando Gestione API in modalità interna è possibile implementare gli scenari s
 * Gestire le API ospitate in più aree geografiche usando un singolo endpoint del gateway. 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
@@ -61,6 +61,9 @@ Il servizio Gestione API in una rete virtuale interna viene ospitato dietro un s
 Una volta completata la distribuzione, nel dashboard dovrebbe essere visualizzato l'indirizzo IP virtuale interno del servizio.
 
 ![Dashboard di Gestione API con una rete virtuale interna configurata][api-management-internal-vnet-dashboard]
+
+> [!NOTE]
+> La console di test disponibile nel portale di Azure non funzionerà per il pacchetto distribuito VNET **interno**, poiché l'URL del gateway non è registrato nel DNS pubblico. In questo caso, è necessario usare la console di test disponibile nel **portale per sviluppatori**.
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Abilitare una connessione di rete virtuale tramite i cmdlet di PowerShell
 È possibile abilitare la connettività a una rete virtuale anche usando i cmdlet di PowerShell.

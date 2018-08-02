@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 739ef5423f7b1769fa793f0cac5306efa634b781
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 97836c4160349b8095ba2095176783ae17b46e82
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262974"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216200"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introduzione alla scalabilità automatica in base a una metrica personalizzata in Azure
 Questo articolo descrive come ridimensionare la risorsa in base a una metrica personalizzata nel portale di Azure.

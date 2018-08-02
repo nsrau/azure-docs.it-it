@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: a31f36c144cc449790a4c62e8e4e5efcd4cd325d
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e6c0fc981030b934cd1b8568946344262936e18c
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901076"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215708"
 ---
 # <a name="configure-managed-identity-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurare l'identità gestita in un set di scalabilità di macchine virtuali tramite chiamate all'API REST
 
@@ -32,11 +32,15 @@ Questo articolo illustra come eseguire le seguenti operazioni di identità gesti
 - Abilitare e disattivare l'identità assegnata dal sistema in un set di scalabilità di macchine virtuali di Azure
 - Aggiungere e rimuovere un'identità assegnata dall'utente in un set di scalabilità di macchine virtuali di Azure
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure utilizzare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
+- Per eseguire le operazioni di gestione in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
+    - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare un set di scalabilità di macchine virtuali e abilitare e rimuovere da un set di scalabilità di macchine virtuali l'identità gestita assegnata dal sistema e/o dall'utente.
+    - [Collaboratore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare un'identità assegnata dall'utente.
+    - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare e rimuovere un'identità assegnata dall'utente da e verso un set di scalabilità di macchine virtuali.
+- Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
 - [Installare la console locale di interfaccia della riga di comando di Azure](/azure/install-azure-cli), se si utilizzano i [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) o una [distribuzione Linux del sistema operativo](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Se si usa la console locale di interfaccia della riga di comando di Azure, accedere ad Azure tramite `az login` con un account associato alla sottoscrizione Azure di cui si intende gestire le identità assegnate dal sistema o dall'utente.
 

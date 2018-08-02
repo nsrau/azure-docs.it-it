@@ -1,45 +1,47 @@
 ---
-title: Assegnare la licenza per la reimpostazione della password self-service - Azure Active Directory
+title: Assegnare la licenza per la reimpostazione della password self-service di Azure Active Directory
 description: Requisiti di licenza per la reimpostazione password self-service di Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e185b67ae73b86b5f1c3b6cda884de05eb89c6fd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049085"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158999"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisiti di licenza per la reimpostazione password self-service di Azure AD
 
-Per consentire il funzionamento della reimpostazione password di Azure Active Directory (Azure AD), *è necessario che nell'organizzazione sia presente almeno una licenza assegnata* per l'utente corrispondente. Una licenza appropriata è necessaria se un utente sfrutta direttamente o indirettamente i vantaggi di eventuali funzionalità che rientrano in tale licenza.
+Azure Active Directory (Azure AD) è disponibile in quattro edizioni: Gratuito, Basic, P1 Premium e P2 Premium. Sono diverse le funzionalità che costituiscono la reimpostazione della password self-service, tra cui la modifica, la reimpostazione, lo sblocco e il writeback, tutte disponibili nelle diverse edizioni di Azure AD. Questo articolo tenta di spiegarne le differenze. Informazioni dettagliate sulle funzionalità incluse in ogni edizione di Azure AD sono disponibili nella pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-* **Utenti solo cloud**: Office 365 e SKU a pagamento o Azure AD Basic
-* **Utenti cloud** o **utenti locali**: Azure AD Premium P1 o P2, Enterprise Mobility + Security (EMS) o Microsoft 365
+## <a name="compare-editions-and-features"></a>Confrontare le edizioni e le funzionalità
 
-## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
+La licenza per la reimpostazione della password self-service di Azure AD viene concessa a livello di singolo utente e, per mantenere la conformità, le organizzazioni devono assegnare ai propri utenti le licenze appropriate.
 
-**La reimpostazione, la modifica e lo sblocco self-service della password con writeback locale sono funzionalità Premium di Azure AD**. Per altre informazioni sulle licenze, vedere il sito [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+* Modifica delle password self-service per gli utenti cloud
+   * Sono un **utente solo cloud** e ricordo la password.
+      * Vorrei **modificare** la mia password con una nuova.
+   * Questa funzionalità è inclusa in tutte le edizioni di Azure AD.
 
-Per usare il writeback delle password, è necessario disporre una delle licenze seguenti assegnate nel tenant:
+* Reimpostazione delle password self-service per gli utenti cloud
+   * Sono un **utente solo cloud** e non ricordo la password.
+      * Vorrei **reimpostare** la mia password con una che ricordo più facilmente.
+   * Questa funzionalità è inclusa nelle edizioni Azure AD Basic, Premium P1 o Premium P2.
 
-* Azure AD Premium P1
-* Azure AD Premium P2
-* Enterprise Mobility + Security E3 o A3
-* Enterprise Mobility + Security E5 o A5
-* Microsoft 365 E3 o A3
-* Microsoft 365 E5 o A5
-* Microsoft 365 F1
+* Reimpostazione/modifica/sblocco **con writeback in locale** delle password in modalità self-service
+   * Sono un **utente ibrido**, il mio account utente di Active Directory locale è sincronizzato con il mio account di Azure AD tramite Azure AD Connect. Vorrei modificare la mia password, ho dimenticato la password o è stata bloccata.
+      * Vorrei modificare la mia password o reimpostarla con una che ricordo più facilmente oppure vorrei sbloccare il mio account **e** sincronizzare la modifica con Active Directory locale.
+   * Questa funzionalità è inclusa nelle edizioni Azure AD Premium P1 e Premium P2.
 
 > [!WARNING]
-> I piani di licenza Office 365 autonomi *non supportano il writeback delle password* e richiedono uno dei piani precedenti per l'uso della funzionalità.
+> I piani di licenza Office 365 autonomi **non supportano il writeback delle password** e richiedono l'edizione Azure AD Premium P1 o Premium P2 per l'uso della funzionalità.
 >
 
 Informazioni aggiuntive sulle licenze, ad esempio i costi, sono disponibili nelle pagine seguenti:

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30266139"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224110"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
@@ -39,7 +39,7 @@ Si apprenderà come:
 Se si dispone di Visual Studio Ultimate, è possibile usare anche [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) per il debug. IntelliTrace non è illustrato in questa esercitazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per questa esercitazione si presuppone che siano stati configurati l'ambiente di sviluppo, il progetto Web e il sito Web di Azure come descritto in [Introduzione ad Azure e ASP.NET][GetStarted]. Per le sezioni sui processi Web, sarà necessaria l'applicazione creata in [Introduzione ad Azure WebJobs SDK][GetStartedWJ].
+Per questa esercitazione si presuppone che siano stati configurati l'ambiente di sviluppo, il progetto Web e il sito Web di Azure come descritto in [Introduzione ad Azure e ASP.NET](app-service-web-get-started-dotnet-framework.md). Per le sezioni sui processi Web, sarà necessaria l'applicazione creata in [Introduzione ad Azure WebJobs SDK][GetStartedWJ].
 
 Gli esempi di codice illustrati nell'esercitazione sono relativi ad applicazioni Web MVC scritte in C#, ma le procedure di risoluzione dei problemi sono identiche per le applicazioni di Visual Basic e Web Form.
 
@@ -61,7 +61,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
     Per altre informazioni sul collegamento a risorse di Azure da Visual Studio, vedere [Gestire account, sottoscrizioni e ruoli amministrativi](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. In **Esplora server** espandere **Azure** e quindi **Servizio app**.
-3. Espandere il gruppo di risorse che include l'app Web creata in [Creare un'app Web ASP.NET in Azure][app-service-web-get-started-dotnet.md], quindi fare clic con il pulsante destro sul nodo dell'app Web e selezionare **Visualizza impostazioni**.
+3. Espandere il gruppo di risorse che include l'app Web creata in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet-framework.md) e quindi fare clic con il pulsante destro del mouse sul nodo dell'app Web e selezionare **Visualizza impostazioni**.
 
     ![Visualizza impostazioni in Esplora server](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -118,9 +118,9 @@ Se il messaggio di errore dettagliato non fornisce una quantità sufficiente di 
 
 Il debug remoto non funziona nelle edizioni Express di Visual Studio.
 
-Questa sezione illustra come eseguire il debug in modalità remota usando il progetto creato in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet.md).
+Questa sezione illustra come eseguire il debug in modalità remota usando il progetto creato in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet-framework.md).
 
-1. Aprire il progetto Web creato in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet.md).
+1. Aprire il progetto Web creato in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet-framework.md).
 
 2. Aprire il file *Controllers\HomeController.cs*.
 
@@ -138,7 +138,7 @@ public ActionResult About()
 
 5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
 
-6. Nell'elenco a discesa **Profilo** selezionare lo stesso profilo usato in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet.md). Quindi fare clic su Impostazioni.
+6. Nell'elenco a discesa **Profilo** selezionare lo stesso profilo usato in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet-framework.md). Quindi fare clic su Impostazioni.
 
 7. Nella finestra di dialogo **Pubblica** fare clic sulla scheda **Impostazioni**, sostituire **Configurazione** con **Debug** e quindi fare clic su **Salva**.
 
@@ -273,7 +273,7 @@ I log vengono scritti nei file della cartella *LogFiles* nel file system del sit
 ## <a name="apptracelogs"></a>Creazione e visualizzazione dei log di traccia dell'applicazione
 In questa sezione vengono eseguite le attività seguenti:
 
-* Aggiungere le istruzioni di traccia al progetto Web creato in [Introduzione ad Azure e ASP.NET][GetStarted].
+* Aggiungere le istruzioni di traccia al progetto Web creato in [Introduzione ad Azure e ASP.NET](app-service-web-get-started-dotnet-framework.md).
 * Visualizzazione dei log quando si esegue il progetto in locale.
 * Visualizzazione dei log mentre vengono generati dall'applicazione in esecuzione in Azure.
 

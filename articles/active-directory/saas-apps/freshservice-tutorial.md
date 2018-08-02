@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 28a334cc43f8c14d2bf639b715e891cc6bb8c1cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cccbe2052336012b9ac98b3e28dc6481cbf9aefb
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214451"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144533"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Esercitazione: Integrazione di Azure Active Directory con Freshservice
 
@@ -33,7 +33,7 @@ L'integrazione di Freshservice con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Freshservice sono necessari gli elementi seguenti:
 
@@ -121,7 +121,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 4. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
 
-    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png) 
+    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
 
 5. Fare clic sul pulsante **Salva** .
 
@@ -156,10 +156,6 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     e. Nella casella di testo **Security Certificate Fingerprint** (Impronta digitale certificato di protezione) incollare il valore **IDENTIFICAZIONE PERSONALE** del certificato copiato dal portale di Azure.
 
     f. Fare clic su **Save**
-   
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -190,7 +186,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-freshservice-test-user"></a>Creazione di un utente test di Freshservice
 

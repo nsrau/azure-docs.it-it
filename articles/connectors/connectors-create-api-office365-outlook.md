@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: aa900a486b9b0bd0f570da866f3d0ab78c31bc6e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0355f121a09e1ba89f98a8af5037eb1371db2242
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296153"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215639"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Guida introduttiva al connettore Outlook di Office 365
 Il connettore Office 365 Outlook consente l'interazione con Outlook in Office 365. Usare questo connettore per creare, modificare e aggiornare i contatti e gli elementi del calendario e anche per ottenere, inviare e rispondere ai messaggio di posta elettronica.

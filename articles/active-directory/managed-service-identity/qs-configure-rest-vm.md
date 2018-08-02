@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 9cc645d91bebf07ed7e657ed39c2454254958959
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 825f34d174c37c2ee5d4187048f7a31fbaeef226
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902888"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215930"
 ---
 # <a name="configure-managed-identity-on-an-azure-vm-using-rest-api-calls"></a>Configurare l'identità gestita in una macchina virtuale di Azure usando chiamate API REST
 
@@ -32,11 +32,15 @@ Questo articolo illustra come eseguire le seguenti operazioni di identità gesti
 - Abilitare e disabilitare l'identità assegnata dal sistema in una macchina virtuale di Azure
 - Aggiungere e rimuovere un'identità assegnata dall'utente in una macchina virtuale di Azure
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure utilizzare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
+- Per eseguire le operazioni di gestione in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
+    - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare una macchina virtuale e abilitare e rimuovere da una macchina virtuale di Azure il sistema e/o l'identità gestita assegnata dall'utente.
+    - [Collaboratore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare un'identità assegnata dall'utente.
+    - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare e rimuovere un'identità assegnata dall'utente da e verso una macchina virtuale.
+- Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
 - [Installare la console locale di interfaccia della riga di comando di Azure](/azure/install-azure-cli), se si utilizzano i [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) o una [distribuzione Linux del sistema operativo](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Se si usa la console locale di interfaccia della riga di comando di Azure, accedere ad Azure tramite `az login` con un account associato alla sottoscrizione Azure di cui si intende gestire le identità assegnate dal sistema o dall'utente.
 
@@ -84,7 +88,7 @@ Per abilitare l'identità assegnata dal sistema su una macchina virtuale esisten
    az account get-access-token
    ```
 
-2. Usare il comando CURL seguente per chiamare l'endpoint REST di Azure Resource Manager per abilitare l'identità assegnata dal sistema sulla macchina virtuale, come indicato dal valore `{"identity":{"type":"SystemAssigned"}` nel corpo della richiesta per una macchina virtuale denominata myVM.  Sostituire `<ACCESS TOKEN>` con il valore ricevuto nel passaggio precedente relativo alla richiesta di un token bearer di accesso e il valore `<SUBSCRIPTION ID>` appropriato per l'ambiente.
+2. Usare il comando CURL seguente per chiamare l'endpoint REST di Azure Resource Manager per abilitare l'identità assegnata dal sistema sulla macchina virtuale, come indicato dal valore `{"identity":{"type":"SystemAssigned"}` nel corpo della richiesta per una macchina virtuale denominata *myVM*.  Sostituire `<ACCESS TOKEN>` con il valore ricevuto nel passaggio precedente relativo alla richiesta di un token bearer di accesso e il valore `<SUBSCRIPTION ID>` appropriato per l'ambiente.
    
    > [!IMPORTANT]
    > Per accertarsi di non eliminare tutte le identità gestite assegnate dall'utente che sono associate alla macchina virtuale, è necessario elencare le identità assegnate dall'utente tramite questo comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"`. Se vi sono eventuali identità assegnate dall'utente associate alla macchina virtuale come indicato nel valore `identity` della risposta, passare al passaggio 3 dove viene illustrato come mantenere le identità assegnate dall'utente durante l'abilitazione dell'identità assegnata dal sistema sulla macchina virtuale.

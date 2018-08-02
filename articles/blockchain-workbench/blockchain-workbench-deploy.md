@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 7/13/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294850"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224297"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuire Azure Blockchain Workbench
 
@@ -180,7 +180,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
     ![Risultati della ricerca nel Marketplace](media/blockchain-workbench-deploy/marketplace-search-results.png)
 
-4.  Selezionare **Create**.
+4.  Selezionare **Crea**.
 5.  Completare le impostazioni di base.
 
     ![Creare Azure Blockchain Workbench](media/blockchain-workbench-deploy/blockchain-workbench-settings-basic.png)
@@ -213,9 +213,13 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
 8.  Fare clic su **OK** per completare la sezione di configurazione dei parametri di Azure AD.
 
-9.  Completare la sezione delle impostazioni **Network size and performance** (Dimensioni e prestazioni di rete).
+9.  In **Network Settings and Performance** (Impostazioni di rete e prestazioni) scegliere se si preferisce creare una nuova rete blockchain oppure usare una rete blockchain proof-of-authority esistente.
 
-    ![Impostazioni di rete e per le prestazioni](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
+    Per **Crea nuovo**:
+
+    L'opzione *Crea nuovo* crea un set di nodi Ethereum Proof-of Authority (PoA) nella sottoscrizione di un singolo membro. 
+
+    ![Network Settings and Performance (Impostazioni di rete e prestazioni)](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-new.png)
 
     | Impostazione | DESCRIZIONE  |
     |---------|--------------|
@@ -223,7 +227,23 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
     | Prestazioni dell'archiviazione | Scegliere le prestazioni di archiviazione preferite per le macchine virtuali per la rete blockchain. |
     | Dimensioni della macchina virtuale | Scegliere le dimensioni di macchina virtuale preferite per la rete blockchain. |
 
-10. Fare clic su **OK** per completare la sezione relativa a dimensioni e prestazioni di rete.
+    Per **Usa esistente**:
+
+    L'opzione *Usa esistente* consente di specificare una rete blockchain di tipo Ethereum Proof-of-Authority (PoA). Gli endpoint presentano i requisiti seguenti.
+
+    * L'endpoint deve essere una rete blockchain di tipo Ethereum Proof-of-Authority (PoA).
+    * L'endpoint deve essere pubblicamente accessibile in rete.
+    * La rete blockchain PoA deve essere configurata con il prezzo del gas impostato su zero (nota: gli account di Blockchain Workbench non sono finanziati. Se sono richiesti finanziamenti, le transazioni hanno esito negativo).
+
+    ![Network Settings and Performance (Impostazioni di rete e prestazioni)](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-existing.png)
+
+    | Impostazione | DESCRIZIONE  |
+    |---------|--------------|
+    | Endpoint RPC Ethereum | Fornire l'endpoint RPC di una rete blockchain PoA esistente. L'endpoint inizia con http:// e termina con un numero di porta. Ad esempio: `http://contoso-chain.onmicrosoft.com:8545` |
+    | Prestazioni dell'archiviazione | Scegliere le prestazioni di archiviazione preferite per le macchine virtuali per la rete blockchain. |
+    | Dimensioni della macchina virtuale | Scegliere le dimensioni di macchina virtuale preferite per la rete blockchain. |
+
+10. Selezionare **OK** per completare la sezione relativa alle impostazioni di rete e alle prestazioni.
 
 11. Completare la sezione delle impostazioni **Monitoraggio di Azure**.
 

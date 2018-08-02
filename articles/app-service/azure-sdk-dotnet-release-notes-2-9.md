@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01b8ccc9fe6b5469408131bce68a903f15382998
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150958"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222529"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.9
 
@@ -32,7 +32,7 @@ In questa versione non sono state introdotte modifiche di rilievo ad Azure SDK 2
 
 ### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 Release Candidate
 
-- In Visual Studio 2017 RC, questa versione di Azure SDK per .NET è integrata nel carico di lavoro di Azure. Tutti gli strumenti necessari per lo sviluppo per Azure saranno in futuro parte di Visual Studio 2017 RC. Per Visual Studio 2015 e Visual Studio 2013, l'SDK sarà ancora disponibile tramite WebPI. Le versioni per Visual Studio 2013 di Azure SDK per .NET verranno sospese quando Visual Studio 2017 verrà rilasciato come prodotto finale. Seguire questo collegamento per scaricare Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- In Visual Studio 2017 RC, questa versione di Azure SDK per .NET è integrata per il carico di lavoro di Azure. Tutti gli strumenti necessari per lo sviluppo per Azure saranno in futuro parte di Visual Studio 2017 RC. Per Visual Studio 2015 e Visual Studio 2013, l'SDK sarà ancora disponibile tramite WebPI. Le versioni per Visual Studio 2013 di Azure SDK per .NET verranno sospese quando Visual Studio 2017 verrà rilasciato come prodotto finale. Seguire questo collegamento per scaricare Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 
@@ -86,7 +86,7 @@ Questi aggiornamenti includono quanto segue:
 ## <a name="hdinsight-tools"></a>Strumenti HDInsight
 **Strumenti HDInsight** per Visual Studio ora supporta HDInsight versione 3.3, che include la visualizzazione di grafici Tez e altre correzioni della lingua.
 
-## <a name="azure-resource-manager"></a>Gestione risorse di Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 In questa versione è stato aggiunto il supporto di [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) per i modelli di Resource Manager.
 
 ## <a name="see-also"></a>Vedere anche 

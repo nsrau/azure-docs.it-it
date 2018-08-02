@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441501"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144568"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come iniziare a eseguire diverse azioni che ottimizzano i vantaggi offerti dal Centro sicurezza di Azure. Queste azioni consentono di ottenere visibilità su tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory e di gestire in modo efficiente la sicurezza dell'organizzazione su vasta scala applicando i criteri di sicurezza in più sottoscrizioni secondo una logica aggregativa.
@@ -85,8 +85,20 @@ Un amministratore del tenant di Azure Active Directory non ha accesso diretto al
 
 5. Eseguire le attività necessarie per cui sono richiesti privilegi elevati. Al termine, impostare nuovamente l'opzione su **No**.
 
+### <a name="open-or-refresh-security-center"></a>Aprire o aggiornare il Centro sicurezza
+Dopo avere ottenuto l'accesso con privilegi elevati, aprire o aggiornare il Centro sicurezza di Azure per verificare di avere visibilità su tutte le sottoscrizioni nel tenant di Azure AD. 
+
+1. Accedere al [portale di Azure](https://portal.azure.com). 
+2. Assicurarsi di selezionare nel selettore delle sottoscrizioni tutte le sottoscrizioni da visualizzare nel Centro sicurezza.
+    ![Screenshot del selettore delle sottoscrizioni](./media/security-center-management-groups/subscription-selector.png)
+1. Selezionare **Tutti i servizi** nel menu principale di Azure, quindi selezionare **Centro sicurezza**.
+2. In **Panoramica** è presente un grafico relativo alla copertura delle sottoscrizioni. 
+    ![Screenshot del grafico sulla copertura delle sottoscrizioni](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. Fare clic su **Copertura** per visualizzare l'elenco di sottoscrizioni coperte. 
+    ![Screenshot dell'elenco con la copertura delle sottoscrizioni](./media/security-center-management-groups/security-center-coverage.png)
+
 ### <a name="assign-rbac-roles-to-users"></a>Assegnare ruoli Controllo degli accessi in base al ruolo agli utenti
-Dopo che un amministratore del tenant ha eseguito l'accesso con privilegi elevati, può assegnare un ruolo Controllo degli accessi in base al ruolo agli utenti pertinenti a livello del gruppo di gestione radice. Il ruolo consigliato per l'assegnazione è [**Lettore**](../role-based-access-control/built-in-roles.md#reader). Questo ruolo è necessario per fornire visibilità a livello di tenant. Il ruolo assegnato verrà automaticamente propagato a tutti i gruppi di gestione e a tutte le sottoscrizioni nel gruppo di gestione radice. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Ruoli disponibili](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
+Dopo che un amministratore del tenant ha eseguito l'accesso con privilegi elevati, può assegnare un ruolo Controllo degli accessi in base al ruolo agli utenti pertinenti a livello del gruppo di gestione radice. Il ruolo consigliato per l'assegnazione è [**Lettore**](../role-based-access-control/built-in-roles.md#reader). Questo ruolo è necessario per fornire visibilità a livello di tenant. Il ruolo assegnato verrà automaticamente propagato a tutti i gruppi di gestione e a tutte le sottoscrizioni nel gruppo di gestione radice. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Ruoli disponibili](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles). 
 
 1. Installare [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Eseguire i comandi seguenti: 
@@ -141,15 +153,7 @@ Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati a
 
 4. Fare clic su **Salva** per salvare l'impostazione.
 
-### <a name="open-or-refresh-security-center"></a>Aprire o aggiornare il Centro sicurezza
-Dopo avere assegnato i ruoli Controllo degli accessi in base al ruolo, aprire o aggiornare il Centro sicurezza di Azure per verificare di avere visibilità su tutte le sottoscrizioni nel tenant di Azure AD. 
 
-1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Selezionare **Tutti i servizi** nel menu principale di Azure, quindi selezionare **Centro sicurezza**.
-3. In **Panoramica** è presente un grafico relativo alla copertura delle sottoscrizioni. 
-    ![Screenshot del grafico sulla copertura delle sottoscrizioni](./media/security-center-management-groups/security-center-subscription-coverage.png)
-4. Fare clic su **Copertura** per visualizzare l'elenco di sottoscrizioni coperte. 
-    ![Screenshot dell'elenco con la copertura delle sottoscrizioni](./media/security-center-management-groups/security-center-coverage.png)
 
 ## <a name="adding-subscriptions-to-a-management-groups"></a>Aggiunta di sottoscrizioni a un gruppo di gestione
 È possibile aggiungere le sottoscrizioni al gruppo di gestione creato. Questi passaggi non sono obbligatori per ottenere visibilità a livello di tenant sui criteri globali e sulla gestione dell'accesso.

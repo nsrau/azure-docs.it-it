@@ -2,24 +2,16 @@
 title: Eseguire la replica di applicazioni con SQL Server e Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come eseguire la replica di SQL Server con Azure Site Recovery per ottenere le funzionalità di ripristino di emergenza di SQL Server.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
-ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920832"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216360"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery
 
@@ -48,10 +40,10 @@ Site Recovery può proteggere SQL Server, come riepilogato nella tabella.
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Sì | Sì
-**VMware** | Sì | Sì
-**Server fisico** | Sì | Sì
-**Azure**|ND| Sì
+**Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes
+**Server fisico** | Yes | Yes
+**Azure**|ND| Yes
 
 ### <a name="supported-sql-server-versions"></a>Versioni di SQL Server supportate
 Per gli scenari supportati, sono supportate le versioni di SQL Server seguenti:
@@ -78,7 +70,7 @@ Nella tabella seguente vengono riepilogate le indicazioni per l'integrazione del
 
 | **Versione** | **Edizione** | **Distribuzione** | **Da locale a locale** | **Da locale ad Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 o 2012 |Enterprise |Istanza del cluster di failover |Gruppi di disponibilità AlwaysOn |Gruppi di disponibilità AlwaysOn |
+| SQL Server 2016, 2014 o 2012 |Enterprise |Istanza del cluster di failover |Gruppi di disponibilità AlwaysOn |Gruppi di disponibilità AlwaysOn |
 || Enterprise |Gruppo di disponibilità AlwaysOn per la disponibilità elevata |Gruppi di disponibilità AlwaysOn |Gruppi di disponibilità AlwaysOn | |
 || Standard |Istanza del cluster di failover (FCI) |Replica di Site Recovery con mirror locale |Replica di Site Recovery con mirror locale | |
 || Enterprise o Standard |Autonoma |Replica di Site Recovery |Replica di Site Recovery | |

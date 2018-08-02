@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114317"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215231"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
 Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. Il modello include il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo consente di ottenere facilmente informazioni relative all'integrità e correggere i potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.
@@ -186,8 +186,8 @@ Dopo aver eseguito la valutazione di tutti gli elementi figlio, l'archivio integ
 
 * Se lo stato è OK per tutti gli elementi figlio, lo stato di integrità aggregato di tali elementi sarà OK.
 * Se insieme a elementi figlio con stato OK sono presenti elementi figlio con stato Warning, lo stato di integrità aggregato di tali elementi sarà Warning.
-* Se sono presenti elementi figlio con stato Error che non rientrano nella percentuale massima di elementi figlio non integri consentita, lo stato di integrità aggregato sarà Error.
-* Se gli elementi figlio con stato Error non superano la percentuale massima di elementi figlio non integri consentita, lo stato di integrità aggregato sarà Warning.
+* Se sono presenti elementi figlio con stato Error che non rientrano nella percentuale massima di elementi figlio non integri consentita, lo stato di integrità aggregato dell'elemento padre sarà Error.
+* Se gli elementi figlio con stato Error non superano la percentuale massima di elementi figlio non integri consentita, lo stato di integrità aggregato dell'elemento padre sarà Warning.
 
 ## <a name="health-reporting"></a>Creazione di report sull'integrità
 I componenti di sistema, le applicazioni Fabric di sistema e i watchdog interni/esterni possono generare report in relazione alle entità di Service Fabric. I generatori di report determinano *localmente* l'integrità delle entità monitorate in base alle condizioni sottoposte a monitoraggio. Non considerano alcuno stato globale o dato aggregato Il comportamento desiderato prevede generatori di report semplici e non organismi complessi che devono tenere conto di numerosi aspetti per decidere quali informazioni inviare.

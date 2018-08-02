@@ -1,5 +1,5 @@
 ---
-title: Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure (anteprima) | Microsoft Docs
+title: Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure | Microsoft Docs
 description: Informazioni sugli aspetti da considerare quando si pianifica una distribuzione di File di Azure.
 services: storage
 documentationcenter: ''
@@ -12,27 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 93331dd936a6d7b30ca18743d2079900421b2620
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c8da3f501d03a05ef5490197d4fd38ada01a4997
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738480"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158439"
 ---
-# <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure (anteprima)
-Sincronizzazione file di Azure (anteprima) consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
+# <a name="addremove-an-azure-file-sync-server-endpoint"></a>Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure
+Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
 
 Un *endpoint server* rappresenta una posizione specifica in un *server registrato*, ad esempio una cartella in un volume del server o la radice del volume. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio F:\sync1 e F:\sync2. È possibile configurare i criteri di suddivisione in livelli nel cloud singolarmente per ogni endpoint server. Se si aggiunge a un gruppo di sincronizzazione un percorso del server con un set di file esistente come endpoint server, i file verranno uniti con qualsiasi altro file già presente in altri endpoint del gruppo di sincronizzazione.
 
-Vedere [Come distribuire Sincronizzazione file di Azure (anteprima)](storage-sync-files-deployment-guide.md) per informazioni sulla distribuzione di Sincronizzazione file di Azure end-to-end.
+Vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md) per informazioni sulla distribuzione di Sincronizzazione file di Azure end-to-end.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per creare un endpoint server, è necessario prima verificare che siano soddisfatti i criteri seguenti: 
-- L'agente Sincronizzazione file di Azure è installato nel server e il server è stato registrato. Le istruzioni per l'installazione dell'agente Sincronizzazione file di Azure sono contenute nell'articolo [Registrare e annullare la registrazione di un server con Sincronizzazione file di Azure (anteprima)](storage-sync-files-server-registration.md). 
-- Verificare che sia stato distribuito un servizio di sincronizzazione archiviazione. Per informazioni dettagliate sulla distribuzione di un servizio di sincronizzazione archiviazione, vedere [Come distribuire Sincronizzazione file di Azure (anteprima)](storage-sync-files-deployment-guide.md). 
-- Verificare che sia stato distribuito un gruppo di sincronizzazione. Leggere le informazioni su [come creare un gruppo di sincronizzazione](storage-sync-files-deployment-guide.md#create-a-sync-group).
+- L'agente Sincronizzazione file di Azure è installato nel server e il server è stato registrato. Le istruzioni per l'installazione dell'agente Sincronizzazione file di Azure sono contenute nell'articolo [Registrare e annullare la registrazione di un server con Sincronizzazione file di Azure](storage-sync-files-server-registration.md). 
+- Verificare che sia stato distribuito un servizio di sincronizzazione archiviazione. Per informazioni dettagliate sulla distribuzione di un servizio di sincronizzazione archiviazione, vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md). 
+- Verificare che sia stato distribuito un gruppo di sincronizzazione. Leggere le informazioni su [come creare un gruppo di sincronizzazione](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
 - Verificare che il server sia connesso a Internet e che Azure sia accessibile. Per tutte le comunicazioni tra il server e il servizio viene usata la porta 443.
 
 ## <a name="add-a-server-endpoint"></a>Aggiungere un endpoint server
@@ -74,5 +74,5 @@ Per rimuovere l'endpoint server:
     ![Rimozione di un endpoint server da un gruppo di sincronizzazione](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Registrare e annullare la registrazione di un server con Sincronizzazione file di Azure (anteprima)](storage-sync-files-server-registration.md)
+- [Registrare e annullare la registrazione di un server con Sincronizzazione file di Azure](storage-sync-files-server-registration.md)
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

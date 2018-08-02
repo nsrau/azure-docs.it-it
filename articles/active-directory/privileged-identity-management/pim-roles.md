@@ -10,25 +10,22 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 03/04/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bbc87f529cb70b6f4b21984199ed87427b4e3108
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6553fdba463144c6eda1e35c0967e92a3c44aff6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506411"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225577"
 ---
-# <a name="different-administrative-role-in-azure-active-directory-pim"></a>Ruolo amministrativo differente in Azure AD PIM
+# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>Ruoli della directory che è possibile gestire tramite Azure AD Privileged Identity Management
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 È possibile assegnare gli utenti dell'organizzazione a diversi ruoli amministrativi in Azure AD. Queste assegnazioni di ruolo controllano le attività, ad esempio l'aggiunta o la rimozione di utenti o la modifica delle impostazioni del servizio, che gli utenti possono eseguire in Azure AD, Office 365 e altri Microsoft Online Services e applicazioni connesse.  
 
-> [!IMPORTANT]
-> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure.
-
-Un amministratore globale può aggiornare gli utenti assegnati in modo **permanente** ai ruoli di Azure AD, usando i cmdlet di PowerShell, ad esempio `Add-MsolRoleMember` e `Remove-MsolRoleMember`, o il portale come descritto in [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Un amministratore globale può aggiornare gli utenti assegnati in modo **permanente** ai ruoli di Azure AD tramite il portale, come descritto in [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md), oppure usando i [cmdlet di PowerShell](/powershell/module/azuread#directory_roles).
 
 Azure AD Privileged Identity Management (PIM) gestisce i criteri per l'accesso con privilegi per gli utenti in Azure AD. PIM assegna utenti a uno o più ruoli in Azure AD ed è possibile assegnare un utente in modo che sia permanente nel ruolo o idoneo per il ruolo. Quando a un utente viene assegnato in modo permanente a un ruolo o attiva un'assegnazione di idoneità al ruolo, può gestire Azure Active Directory, Office 365 e altre applicazioni con le autorizzazioni assegnate ai relativi ruoli.
 
@@ -66,7 +63,7 @@ Se si vuole concedere a un altro utente l'accesso per la gestione all'interno de
 ## <a name="roles-not-managed-in-pim"></a>Ruoli non gestiti in PIM
 I ruoli in Exchange Online o SharePoint Online, ad eccezione di quelli indicati in precedenza, non sono rappresentati in Azure AD e quindi non sono visibili in PIM. Per altre informazioni sulla modifica delle assegnazioni di ruolo specifiche in questi servizi di Office 365, vedere [Autorizzazioni in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-In Azure AD non sono rappresentati neanche i gruppi di risorse e le sottoscrizioni di Azure. Per informazioni su come gestire le sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Per altre informazioni su controllo degli accessi in base al ruolo di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md).
+In Azure AD non sono rappresentati neanche i gruppi di risorse e le sottoscrizioni di Azure. Per informazioni su come gestire le sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

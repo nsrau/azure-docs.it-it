@@ -6,14 +6,14 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 02/21/2018
+ms.date: 07/23/2018
 ms.author: babanisa
-ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39bf8df69f491aace546386b1b3aabce9ea6c696
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303318"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226544"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Schema di eventi di Griglia di eventi di Azure per il bus di servizio
 
@@ -93,7 +93,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| nameSpaceName | stringa | Spazio dei nomi del bus di servizio in cui esiste la risorsa. |
+| namespaceName | stringa | Spazio dei nomi del bus di servizio in cui esiste la risorsa. |
 | requestUri | stringa | URI della coda o della sottoscrizione specifica che crea l'evento. |
 | entityType | stringa | Tipo di entità del bus di servizio che crea gli eventi (coda o sottoscrizione). |
 | queueName | stringa | Coda con messaggi attivi in caso di sottoscrizione di una coda. Valore null se si usano argomenti/sottoscrizioni. |
