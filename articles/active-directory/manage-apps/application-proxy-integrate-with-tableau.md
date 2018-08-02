@@ -10,23 +10,23 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 832d37e6c168a7b25adecee967b6523f6cea5554
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7cace1af527c1c7c80bf0e23f7a88aa9ac9f9d03
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302578"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365023"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy e Tableau 
 
 Azure Active Directory Application Proxy e Tableau hanno collaborato per permettere di usare con facilità il proxy di applicazione e fornire l'accesso remoto alla distribuzione Tableau. Questo articolo spiega come configurare questo scenario.  
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 Per configurare lo scenario presentato in questo articolo si presuppone che l'utente abbia:
 
@@ -71,7 +71,7 @@ Per:
 
 5. Compilare i campi obbligatori con le informazioni della nuova app. Usare le seguenti linee guida per le impostazioni: 
 
-    - **URL interno**: questa applicazione deve avere un URL interno, che corrisponde all'URL Tableau. Ad esempio, `https://adventure-works.tableau.com`. 
+    - **URL interno**: questa applicazione deve avere un URL interno, che corrisponde all'URL Tableau. Ad esempio: `https://adventure-works.tableau.com`. 
 
     - **Metodo di autenticazione preliminare**: Azure Active Directory (consigliato ma non obbligatorio). 
 

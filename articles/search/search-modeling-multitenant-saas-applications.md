@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797176"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364275"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con Ricerca di Azure.
@@ -43,9 +43,7 @@ Esistono vari [piani tariffari](https://azure.microsoft.com/pricing/details/sear
 | Massimo numero di repliche per servizio |3 |12 |12 |12 |12 |
 | Massimo numero di partizioni per servizio |1 |12 |12 |12 |3 |
 | Massimo numero di unità di ricerca (repliche * partizioni) per servizio |3 |36 |36 |36 |36 (max 3 partizioni) |
-| Massimo numero di documenti per servizio |1 milione |180 milioni |720 milioni |1,4 miliardi |600 milioni |
 | Massimo spazio di archiviazione per servizio |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
-| Massimo numero di documenti per partizione |1 milione |15 milioni |60 milioni |120 milioni |200 milioni |
 | Massimo spazio di archiviazione per partizione |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Massimo numero di indici per servizio |5 |50 |200 |200 |3000 (max 1000 indici/partizione) |
 

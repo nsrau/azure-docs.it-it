@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: f318c53de073c8f1fa6c3ae11cb335a4a91e137d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ad2140d9d94cc4655043625200d42485b03c719b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334962"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364292"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi di configurazione della delega vincolata Kerberos per il proxy dell'applicazione
 
@@ -40,7 +40,7 @@ L'articolo presuppone quanto segue:
 
 -   L'applicazione oggetto è pubblicata in un tenant di Azure con preautenticazione abilitata. Gli utenti eseguono l'autenticazione in Azure tramite l'autenticazione basata su form. Gli scenari di autenticazione dei rich client non sono trattati in questo articolo, ma verranno aggiunti in futuro.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Il proxy dell'applicazione Azure può essere distribuito in numerosi tipi di infrastrutture o ambienti e le architetture variano da organizzazione a organizzazione. Nella maggior parte dei casi, i problemi relativi alla delega vincolata Kerberos non sono dovuti agli ambienti, ma a semplici errori di configurazione o a errori generici.
 

@@ -11,15 +11,15 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 79fe30fbe0baed9d62e6bc3328e754958516ef70
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 336aa4f671e6d86684664fa5e5d15a03a4beff23
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335408"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366290"
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Come determinare il metodo Single Sign-On da usare
 

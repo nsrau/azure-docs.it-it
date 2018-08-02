@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cf1c39d0270dcb7de3ae8ff487b21874b23db74a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c4ecb812156eae7402065cff4dc4bae3aef1554b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161524"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365176"
 ---
 # <a name="compare-remote-access-solutions"></a>Confrontare le soluzioni di accesso remoto
 
@@ -33,21 +33,21 @@ Usare questa tabella per comprendere come vengono confrontate tra loro Threat Ma
 
 | Funzionalità | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Autenticazione del certificato | Sì | Sì | - | - |
-| Pubblicare in modo selettivo le app del browser | Sì | Sì | Sì | Sì |
-| Preautenticazione e Single Sign-On | Sì | Sì | Sì | Sì | 
-| Firewall di livello 2/3 | Sì | Sì | - | - |
-| Funzionalità proxy di inoltro | Sì | - | - | - |
-| Funzionalità VPN | Sì | Sì | - | - |
-| Supporto dei protocolli rich | - | Sì | Sì, se in esecuzione su HTTP | Sì, se in esecuzione su HTTP o tramite Gateway Desktop remoto |
-| Funge da server proxy ADFS | - | Sì | Sì | - |
-| Un portale per l'accesso all'applicazione | - | Sì | - | Sì |
-| Conversione dei collegamenti al corpo della risposta | Sì | Sì | - | Sì | 
-| Autenticazione con intestazioni | - | Sì | - | Sì, con PingAccess | 
-| Sicurezza a livello di cloud | - | - | - | Sì | 
-| Accesso condizionale | - | Sì | - | Sì |
-| Nessun componente all'interno della zona demilitarizzata (DMZ) | - | - | - | Sì |
-| Nessuna connessione in ingresso | - | - | - | Sì |
+| Autenticazione del certificato | Yes | Yes | - | - |
+| Pubblicare in modo selettivo le app del browser | Yes | Yes | Yes | Yes |
+| Preautenticazione e Single Sign-On | Yes | Yes | Yes | Yes | 
+| Firewall di livello 2/3 | Yes | Yes | - | - |
+| Funzionalità proxy di inoltro | Yes | - | - | - |
+| Funzionalità VPN | Yes | Yes | - | - |
+| Supporto dei protocolli rich | - | Yes | Sì, se in esecuzione su HTTP | Sì, se in esecuzione su HTTP o tramite Gateway Desktop remoto |
+| Funge da server proxy ADFS | - | Yes | Yes | - |
+| Un portale per l'accesso all'applicazione | - | Yes | - | Yes |
+| Conversione dei collegamenti al corpo della risposta | Yes | Yes | - | Yes | 
+| Autenticazione con intestazioni | - | Yes | - | Sì, con PingAccess | 
+| Sicurezza a livello di cloud | - | - | - | Yes | 
+| Accesso condizionale | - | Yes | - | Yes |
+| Nessun componente all'interno della zona demilitarizzata (DMZ) | - | - | - | Yes |
+| Nessuna connessione in ingresso | - | - | - | Yes |
 
 Per la maggior parte degli scenari, è consigliabile l'applicazione Azure AD come soluzione moderna. Il Proxy applicazione Web è preferito esclusivamente in scenari che richiedono un server proxy per il servizio federativo AD e non è possibile usare domini personalizzati in Azure Active Directory. 
 

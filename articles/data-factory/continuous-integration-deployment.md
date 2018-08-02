@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: ee01980229495d9b3f372ec85ee874955c291e5c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868321"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364546"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integrazione e distribuzione continue in Azure Data Factory
 
@@ -865,9 +865,7 @@ L'esempio seguente mostra un file di parametri di esempio. Usare questo esempio 
                     "tenant": "=",
                     "dataLakeStoreUri": "=",
                     "baseUrl": "=",
-                    "connectionString": {
-                        "secretName": "="
-                    }
+                    "connectionString": "|:-connectionString:secureString"
                 }
             }
         }
@@ -884,4 +882,3 @@ L'esempio seguente mostra un file di parametri di esempio. Usare questo esempio 
     }
 }
 ```
-

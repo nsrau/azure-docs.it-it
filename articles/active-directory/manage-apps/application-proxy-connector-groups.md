@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 50f17d7b833874cd15ddc9f2e4f93fa7af1700a2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161594"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364974"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 
@@ -33,7 +33,7 @@ Tutte le applicazioni sono assegnate a un gruppo di connettori. Se non si creano
 >[!TIP] 
 >Nel caso di una distribuzione di proxy di applicazione di grandi dimensioni, non assegnare alcuna applicazione al gruppo di connettori predefinito. In questo caso, i nuovi connettori non riceveranno traffico live finché non vengono assegnati a un gruppo di connettori attivi. Questa configurazione permette anche di applicare ai connettori una modalità inattiva spostandoli di nuovo nel gruppo predefinito, in modo da eseguire operazioni di manutenzione senza alcun impatto sugli utenti.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per raggruppare i connettori è necessario assicurarsi di avere [installato più connettori](application-proxy-enable.md). Quando si installa un nuovo connettore, questo si aggiunge automaticamente al gruppo di connettori **predefinito** .
 
 ## <a name="create-connector-groups"></a>Creare gruppi di connettori
