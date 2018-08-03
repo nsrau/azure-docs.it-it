@@ -1,6 +1,6 @@
 ---
-title: Lingue e paesi supportati dall'API Ricerca Web Bing in Azure | Microsoft Docs
-description: Informazioni su quali paesi e lingue sono supportati dall'API Ricerca Web Bing.
+title: Lingue e paesi/aree supportati dall'API Ricerca Web Bing in Azure | Microsoft Docs
+description: Informazioni su quali paesi/aree e lingue sono supportati dall'API Ricerca Web Bing.
 services: cognitive-services
 author: v-jerkin
 manager: jhubbard
@@ -9,24 +9,24 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 7b62c4a4feb7144662a8fe4d692f11f1efe5db1b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e1994ddf3bf71d01adeac4ff8688bdd1e6eac660
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373305"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001719"
 ---
-# <a name="bing-web-search-countries-and-languages"></a>Lingue e paesi di Ricerca Web Bing
+# <a name="bing-web-search-countriesregions-and-languages"></a>Lingue e paesi/aree di Ricerca Web Bing
 
-L'API Ricerca Web Bing supporta numerosi paesi, molti dei quali con più di una lingua. Specificare un paese con una query serve principalmente per perfezionare i risultati della ricerca in base agli interessi in tale paese. I risultati possono anche contenere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese o alla lingua specifica.
+L'API Ricerca Web Bing supporta numerosi paesi/aree, molti dei quali con più di una lingua. Specificare un paese/un'area con una query serve principalmente per perfezionare i risultati della ricerca in base agli interessi in tale paese/area. I risultati possono anche contenere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese/all'area o alla lingua specifica.
 
-È possibile specificare un paese usando il parametro di query `cc`. Se si specifica un paese, è necessario specificare anche uno o più codici di lingua usando l'intestazione HTTP `Accept-Language`. Le lingue supportate variano in base al paese e sono indicate per ogni paese nella tabella Mercati.
+È possibile specificare un paese/un'area usando il parametro di query `cc`. Se si specifica un paese/un'area, è necessario specificare anche uno o più codici di lingua usando l'intestazione HTTP `Accept-Language`. Le lingue supportate variano in base al paese/all'area e sono indicate per ogni paese nella tabella Mercati.
 
-In alternativa, è possibile specificare il mercato usando il parametro di query `mkt` e un codice della tabella **Mercati**. Specificando un mercato, vengono contemporaneamente specificati un paese e una lingua preferita. Il parametro di query `setLang` in questo caso può essere impostato su un codice della lingua, che corrisponde in genere alla lingua specificata da `mkt` a meno che l'utente non preferisca visualizzare Bing in un'altra lingua.
+In alternativa, è possibile specificare il mercato usando il parametro di query `mkt` e un codice della tabella **Mercati**. Specificando un mercato, vengono contemporaneamente specificati un paese/un'area e una lingua preferita. Il parametro di query `setLang` in questo caso può essere impostato su un codice della lingua, che corrisponde in genere alla lingua specificata da `mkt` a meno che l'utente non preferisca visualizzare Bing in un'altra lingua.
 
 ## <a name="countries"></a>Paesi
 
-|Paese|Codice|
+|Paese/Area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -68,7 +68,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 
 ## <a name="markets"></a>Mercati
 
-|Paese|Linguaggio|Codice di mercato|
+|Paese/Area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|

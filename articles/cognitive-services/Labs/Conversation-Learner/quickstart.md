@@ -1,7 +1,7 @@
 ---
-title: Come creare un'applicazione dello Strumento di apprendimento di conversazioni usando Node.js - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come creare un modello dello Strumento di apprendimento di conversazioni usando Node.js - Servizi cognitivi Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come creare un'applicazione dello Strumento di apprendimento di conversazioni usando Node.js.
+description: Informazioni su come creare un modello dello Strumento di apprendimento di conversazioni usando Node.js.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a3a51aa86a30b060c8dc4113da69462904d7df54
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 68ff9c5402c3fa409999e9933a6c1f7bf6d5a089
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377676"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172331"
 ---
-# <a name="create-a-conversation-learner-application-using-nodejs"></a>Creare un'applicazione dello Strumento di apprendimento di conversazioni usando Node.js
+# <a name="create-a-conversation-learner-model-using-nodejs"></a>Creare un modello dello Strumento di apprendimento di conversazioni usando Node.js
 
-Lo Strumento di apprendimento di conversazioni riduce la complessità della compilazione di bot. Abilita un flusso di lavoro di sviluppo ibrido che consente all'apprendimento automatico e al codice scritto a mano di ridurre la quantità di codice necessaria per scrivere bot. Alcune parti fisse dell'applicazione, come verificare se l'utente ha effettuato l'accesso o effettuare una richiesta API per controllare l'inventario del negozio, possono ancora essere codificate. Tuttavia, altri cambiamenti nello stato e nella selezione delle azioni possono essere appresi dalle finestre di dialogo di esempio fornite dall'esperto o dallo sviluppatore del dominio.
+Lo Strumento di apprendimento di conversazioni riduce la complessità della compilazione di bot. Abilita un flusso di lavoro di sviluppo ibrido che consente all'apprendimento automatico e al codice scritto a mano di ridurre la quantità di codice necessaria per scrivere bot. Alcune parti fisse del modello, come verificare se l'utente ha effettuato l'accesso o effettuare una richiesta API per controllare l'inventario del negozio, possono ancora essere codificate. Tuttavia, altri cambiamenti nello stato e nella selezione delle azioni possono essere appresi dalle finestre di dialogo di esempio fornite dall'esperto o dallo sviluppatore del dominio.
 
 ## <a name="invitation-required"></a>Invito necessario
 
@@ -27,7 +27,7 @@ Lo Strumento di apprendimento di conversazioni riduce la complessità della comp
 
 Il Progetto Strumento di apprendimento di conversazioni è costituito da un SDK aggiunto al bot e da un servizio cloud al quale l'SDK accede per l'apprendimento automatico.  Attualmente, l'accesso al servizio cloud del Progetto Strumento di apprendimento di conversazioni richiede un invito.  Se non è ancora stato ricevuto un invito, [richiedere un invito](https://aka.ms/conversation-learner-request-invite).  Senza un invito non sarà possibile accedere all'API del cloud.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Node 8.5.0 o versione successiva e npm 5.3.0 o versione successiva. Installare da [https://nodejs.org](https://nodejs.org).
   
@@ -96,7 +96,7 @@ Si sta ora usando lo Strumento di apprendimento di conversazioni ed è possibile
 
 Le istruzioni sopra riportate hanno avviato il bot vuoto generico.  Per eseguire invece un'esercitazione o bot demo:
 
-1. Se l'interfaccia utente Web dello Strumento di apprendimento di conversazioni è aperta, tornare all'elenco delle app su http://localhost:5050/home.
+1. Se l'interfaccia utente Web dello Strumento di apprendimento di conversazioni è aperta, tornare all'elenco dei modelli su http://localhost:5050/home.
     
 2. Se un altro bot (ad esempio `npm start` o `npm run demo-pizza`) è in esecuzione, arrestarlo.  Non è necessario arrestare il processo dell'interfaccia utente o chiudere il Web browser.
 
@@ -123,7 +123,7 @@ I file di origine per le demo si trovano in `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Creare un bot che include il codice di back-end
 
-1. Se l'interfaccia utente Web dello Strumento di apprendimento di conversazioni è aperta, tornare all'elenco delle app su http://localhost:5050/home.
+1. Se l'interfaccia utente Web dello Strumento di apprendimento di conversazioni è aperta, tornare all'elenco dei modelli su http://localhost:5050/home.
     
 2. Se un bot (ad esempio `npm run demo-pizza`) è in esecuzione, arrestarlo.  Non è necessario arrestare il processo dell'interfaccia utente o chiudere il Web browser.
 
@@ -138,7 +138,7 @@ I file di origine per le demo si trovano in `cl-bot-01/src/demos`
 
 5. Se non è già aperta, passare all'interfaccia utente Web dello Strumento di apprendimento di conversazioni in Chrome caricando http://localhost:5050/home. 
 
-6. Creare una nuova applicazione dello Strumento di apprendimento di conversazioni nell'interfaccia utente e avviare l'insegnamento.
+6. Creare un nuovo modello dello Strumento di apprendimento di conversazioni nell'interfaccia utente e avviare l'insegnamento.
 
 7. Per apportare modifiche al codice in `cl-bot-01/src/app.ts`, ripetere i passaggi precedenti, partendo dal passaggio 2.
 

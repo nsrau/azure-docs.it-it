@@ -7,36 +7,39 @@ manager: wolmfa61
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: a201cc043f673e2285ea48950804d97b96f881ed
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 11360d163fdba057d373d091d46903cde7789a8b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054906"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071420"
 ---
-# <a name="regions-and-endpoints-of-the-speech-service"></a>Aree ed endpoint del servizio Speech
+# <a name="regions-of-the-speech-service"></a>Aree del servizio Speech
 
-> [!NOTE]
-> I nomi dell'area in [Speech SDK](speech-sdk.md) corrispondono alla prima parte del dominio degli endpoint indicati di seguito.
-> Ad esempio, usare `westus` per specificare l'area Stati Uniti occidentali in Speech SDK.
+Il servizio Speech è disponibile in aree diverse.
+Quando si crea una sottoscrizione è possibile selezionare un'area disponibile, in base alle esigenze.
 
-## <a name="speech-to-text"></a>Riconoscimento vocale
+Quando si usa la sottoscrizione è necessario considerare l'area selezionata.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+## <a name="rest-api"></a>API REST
 
-## <a name="text-to-speech"></a>Sintesi vocale
+Usando l'API REST, selezionare gli endpoint specifici dell'area a destra.
+Vedere [API REST](rest-apis.md) per informazioni dettagliate.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+## <a name="speech-sdk"></a>Speech SDK
 
-## <a name="authentication"></a>Authentication
+In [Speech SDK](speech-sdk.md) le aree vengono specificate sotto forma di stringa (ad esempio, come parametro [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) in Speech SDK per C#).
 
-[!include[](includes/endpoints-token-service.md)]
+Nella tabella seguente sono elencate le aree disponibili per **riconoscimento vocale** e **traduzione**:
 
-Vedere [qui](rest-apis.md#authentication) per altre informazioni su come ottenere e aggiornare i token di autorizzazione.
+Region| Valore per il parametro dell'area in Speech SDK
+-|-
+Stati Uniti occidentali| `westus`
+Asia orientale| `eastasia`
+Europa settentrionale| `northeurope`
 
-## <a name="language-understanding-speech-sdk-only"></a>Language understanding (solo Speech SDK)
-
-Le aree per il servizio Language Understanding sono elencate [qui](/azure/cognitive-services/luis/luis-reference-regions).
-In Speech SDK specificare tali aree per la prima parte del nome di dominio dell'endpoint, ad esempio `westus`.
+Le aree disponibili per **riconoscimento finalità** tramite Speech SDK sono elencate nella [pagina dell'area del servizio Language Understanding](/azure/cognitive-services/luis/luis-reference-regions).
+Per ogni area di pubblicazione elencata, il parametro dell'area Speech SDK corrispondente viene determinato come prima parte del nome di dominio dell'endpoint.
+Ad esempio, usare `westus` per specificare l'area di pubblicazione Stati Uniti occidentali.

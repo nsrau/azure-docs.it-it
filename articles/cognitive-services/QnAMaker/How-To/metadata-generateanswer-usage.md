@@ -9,12 +9,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 94e3632884d7033971ff1c45b455afb9a09ee798
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35378776"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113352"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Uso dei metadati e dell'API GenerateAnswer
 
@@ -57,7 +57,7 @@ Per ottenere i dettagli dell'endpoint:
     - **QnAMaker endpoint** (stringa): nome host dell'endpoint distribuito nella sottoscrizione di Azure.
 - **Intestazioni della richiesta**
     - **Content-Type** (stringa): tipo multimediale del corpo inviato all'API.
-    - **Authorization** (stringa): chiave dell'endpoint.
+    - **Autorizzazione** (stringa): la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Corpo della richiesta**
     - **question** (stringa): domanda dell'utente in base a cui eseguire la query sulla knowledge base.
     - **top** (facoltativo, numero intero): numero di risultati classificati da includere nell'output. Il valore predefinito è 1.
@@ -82,6 +82,7 @@ Per ottenere i dettagli dell'endpoint:
     - **answers**: elenco di risposte per la query utente, in ordine decrescente in base al punteggio di classificazione.
         - **score**: punteggio di classificazione, compreso tra 0 e 100.
         - **questions**: domande fornite dall'utente.
+        - **answer**: la risposta alla domanda.
         - **source**: nome dell'origine da cui la risposta è stata estratta o salvata nella knowledge base.
         - **metadata**: metadati associati alla risposta.
             - name: nome dei metadati. (stringa, lunghezza massima: 100, obbligatorio)

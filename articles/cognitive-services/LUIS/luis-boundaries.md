@@ -3,19 +3,19 @@ title: Limiti del servizio LUIS (Language Understanding) | Microsoft Docs
 titleSuffix: Azure
 description: Questo articolo contiene i limiti noti del servizio LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7f46e55e11c4eb68b515a743b0f51392ffc1269e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: ea4f31094e27f1abbe57c212f262845fd16dd984
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266805"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225279"
 ---
 # <a name="luis-boundaries"></a>Limiti di LUIS
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -35,7 +35,7 @@ LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-b
 | [Criteri](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applicazione, 3 entità pattern.any per criterio |
 | [Elenco di frasi][phrase-list]|10 elenchi di frase, 5.000 elementi per ogni elenco|
-| [Entità predefinite](./Pre-builtEntities.md) | nessun limite|
+| [Entità predefinite](./luis-prebuilt-entities.md) | nessun limite|
 | [Entità di espressione regolare](./luis-concept-entity-types.md)|20 entità<br>È consentito un numero massimo di 500 caratteri. per ogni criterio di entità di espressione regolare|
 | [Ruoli](luis-concept-roles.md)|300 ruoli per ogni applicazione. 10 per entità|
 | **[Simple](./luis-concept-entity-types.md)| 100 entità|
@@ -59,14 +59,14 @@ Non utilizzare i seguenti caratteri nei nomi delle entità e delle finalità:
 |`\`|Barra rovesciata|
 
 ## <a name="key-limits"></a>Limiti delle chiavi
-La chiave di creazione presenta diversi limiti per creazione e endpoint. La chiave di sottoscrizione del servizio LUIS è valida solo per le query di endpoint.
+La chiave di creazione presenta diversi limiti per creazione e endpoint. La chiave endpoint del servizio LUIS è valida solo per le query di endpoint.
 
 |Chiave|Creazione|Endpoint|Scopo|
 |--|--|--|--|
 |Creazione/Starter|1 milione/mese, 5/secondo|1.000/mese, 5/secondo|Creazione di app LUIS|
 |[Sottoscrizione] [ pricing] - F0 - livello gratuito |non valido|10.000/mese, 5/secondo|Esecuzione di query per l'endpoint LUIS|
 |[Sottoscrizione] [ pricing] - S0 - livello Basic|non valido|50/secondo|Esecuzione di query per l'endpoint LUIS|
-|[Integrazione dell'Analisi del sentiment](publishapp.md#enable-sentiment-analysis)|non valido|nessun addebito|Aggiunta di informazioni sentiment inclusa l'estrazione dei dati di frase chiave |
+|[Integrazione dell'Analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)|non valido|nessun addebito|Aggiunta di informazioni sentiment inclusa l'estrazione dei dati di frase chiave |
 |Integrazione riconoscimento vocale|non valido|Richieste di endpoint $5,50 USD/1.000|Converte un'espressione parlata in un espressione di testo e restituisce i risultati LUIS|
 
 ## <a name="keyboard-controls"></a>Controlli tastiera

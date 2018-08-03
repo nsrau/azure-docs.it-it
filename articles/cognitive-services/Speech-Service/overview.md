@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e7c09eee1634c52e78a523a7cc65641ea99f23e6
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: adfc854fc24b9e285c405f3038a21ec84cd2f4c2
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35378872"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989336"
 ---
 # <a name="what-is-the-speech-service-preview"></a>Informazioni sul Servizio di riconoscimento vocale (anteprima)
 
@@ -38,8 +38,8 @@ Il servizio di riconoscimento vocale viene reso disponibile in due modi. [L'SDK]
 
 |<br>Metodo|Sintesi vocale<br>Riconoscimento vocale|Sintesi vocale<br>Sintesi vocale|Sintesi vocale<br>Traduzione|<br>DESCRIZIONE|
 |-|-|-|-|-|
-|[SDK](speech-sdk.md)|Sì|No |Sì|Librerie per determinati linguaggi di programmazione che semplificano lo sviluppo.|
-|[REST](rest-apis.md)|Sì|Sì|No |Un'API semplice basato su HTTP che rende più facile aggiungere comandi vocali all'applicazione.|
+|[SDK](speech-sdk.md)|sì|No |sì|Librerie per determinati linguaggi di programmazione che semplificano lo sviluppo.|
+|[REST](rest-apis.md)|sì|sì|No |Un'API semplice basato su HTTP che rende più facile aggiungere comandi vocali all'applicazione.|
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
@@ -60,7 +60,7 @@ Il servizio consente di personalizzare i modelli di riconoscimento vocale acusti
 
 La [Sintesi vocale](text-to-speech.md) (TTS) converte tramite API il testo normale in parlato dal suono naturale che viene trasmesso all'applicazione in un file audio. Sono disponibili più voci, che variano per genere o accento, per molte lingue supportate.
 
-L'API supporta tag Speech-Synthesis-Markup-Language (SSML) che consentono di specificare la pronuncia fonetica esatta per le parole complesse. Il linguaggio SSML può anche indicare le caratteristiche del parlato (tra cui enfasi, velocità, volume, genere e intonazione) direttamente nel testo.
+L'API supporta tag [Speech-Synthesis-Markup-Language (SSML)](speech-synthesis-markup.md) che consentono di specificare la pronuncia fonetica esatta per le parole complesse. Il linguaggio SSML può anche indicare le caratteristiche del parlato (tra cui enfasi, velocità, volume, genere e intonazione) direttamente nel testo.
 
 Di seguito sono riportati casi d'uso comuni per l'API di Sintesi vocale.
 
@@ -68,7 +68,7 @@ Di seguito sono riportati casi d'uso comuni per l'API di Sintesi vocale.
 * Comandi vocali per le applicazioni usate in auto, come i navigatori
 * Interfacce utente di conversazione che interagiscono con l'API di Riconoscimento vocale
 
-Se è necessario un sottolinguaggio non supportato o una voce univoca per l'applicazione, l’API di sintesi vocale supporta modelli vocali personalizzati.
+Se è necessario un sottolinguaggio non supportato o una voce univoca per l'applicazione, l'API di sintesi vocale supporta [modelli vocali personalizzati](how-to-customize-voice-font.md).
 
 ## <a name="speech-translation"></a>Traduzione vocale
 
@@ -84,6 +84,8 @@ I casi d'uso della traduzione vocale includono:
 Con l'introduzione del Servizio di riconoscimento vocale unificato, Microsoft e i suoi partner offrono una piattaforma hardware/software integrata ottimizzata per lo sviluppo di dispositivi con funzioni vocali, ovvero [Speech Devices SDK](speech-devices-sdk.md). Questo SDK è adatto per lo sviluppo di dispositivi vocali intelligenti per tutti i tipi di applicazioni.
 
 Speech Devices SDK consente di creare dispositivi per il proprio ambiente con una parola di attivazione personalizzata, in modo che la parola chiave che attiva l'acquisizione audio sia esclusiva del proprio marchio. Offre inoltre un'eccellente elaborazione dell'audio di sorgenti multicanale per un riconoscimento vocale più accurato, con soppressione del rumore, voci in campo lontano e beamforming.
+
+L'SDK si basa su Web Socket che usano la porta 443.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

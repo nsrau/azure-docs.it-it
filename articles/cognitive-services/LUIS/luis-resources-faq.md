@@ -1,20 +1,20 @@
 ---
 title: Domande frequenti su LUIS (Language Understanding) in Azure | Microsoft Docs
 description: Risposte alle domande frequenti su LUIS
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333616"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239118"
 ---
 # <a name="language-understanding-faq"></a>Domande frequenti su LUIS
 
@@ -53,21 +53,25 @@ Vedere [entità](luis-concept-entity-types.md) ed [estrazione dei dati](luis-con
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Le variazioni di un'espressione di esempio devono includere la punteggiatura? 
 Aggiungere le variazioni come espressioni di esempio alla finalità o aggiungere il criterio dell'espressione di esempio con la [sintassi per ignorare](luis-concept-patterns.md#pattern-syntax) la punteggiatura. 
 
+### <a name="does-luis-currently-support-cortana"></a>LUIS supporta attualmente Cortana?
+
+Le app Cortana predefinite sono state deprecate nel 2017. Non sono più supportate. 
+
 ## <a name="luis-endpoint"></a>Endpoint LUIS
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Perché LUIS aggiunge spazi alla query attorno o in mezzo alle parole?
 LUIS [suddivide in token](luis-glossary.md#token) l'espressione in base alle [impostazioni cultura](luis-supported-languages.md#tokenization). Il valore originale e il valore in formato token sono entrambi disponibili per l'[estrazione dei dati](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Come è possibile creare e assegnare una chiave di endpoint di LUIS?
-[Creare la chiave di endpoint](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure per il livello di [servizio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Assegnare la chiave](Manage-keys.md#assign-endpoint-key) nella pagina **[Pubblica](publishapp.md)**. Non vi è alcuna API corrispondente per questa azione. È necessario quindi modificare la richiesta HTTP all'endpoint per fare in modo che [usi la nuova chiave dell'endpoint](luis-concept-keys.md#use-endpoint-key-in-query).
+[Creare la chiave di endpoint](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure per il livello di [servizio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Assegnare la chiave](luis-how-to-manage-keys.md#assign-endpoint-key) nella pagina **[Pubblica](luis-how-to-publish-app.md)**. Non vi è alcuna API corrispondente per questa azione. È necessario quindi modificare la richiesta HTTP all'endpoint per fare in modo che [usi la nuova chiave dell'endpoint](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Come si interpretano i punteggi di LUIS? 
 Il sistema deve usare la finalità di punteggio più elevata, indipendentemente dal relativo valore. Ad esempio, un punteggio al di sotto di 0,5 (inferiore al 50%) non significa necessariamente che LUIS disponga di una confidenza bassa. Fornendo più dati di training sarà possibile aumentare il punteggio della finalità più probabile.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Perché non vengono visualizzate le occorrenze degli endpoint nella dashboard dell'app?
-Le occorrenze totali dell'endpoint nel dashboard dell'app vengono aggiornate periodicamente, ma le metriche associate alla chiave della sottoscrizione a LUIS nel portale di Azure vengono aggiornate più di frequente. 
+Le occorrenze totali dell'endpoint nel dashboard dell'app vengono aggiornate periodicamente, ma le metriche associate alla chiave endpoint a LUIS nel portale di Azure vengono aggiornate più di frequente. 
 
-Se non sono presenti occorrenze sull'endpoint aggiornato nel dashboard, accedere al portale di Azure e trovare la risorsa associata alla chiave di sottoscrizione a LUIS, quindi aprire **Metriche** per selezionare la metrica **Chiamate totali**. Se la chiave di sottoscrizione viene usata per più di un'app LUIS, la metrica nel portale di Azure mostra il numero aggregato di chiamate da tutte le app LUIS che la usano.
+Se non sono presenti occorrenze sull'endpoint aggiornato nel dashboard, accedere al portale di Azure e trovare la risorsa associata alla chiave endpoint a LUIS, quindi aprire **Metriche** per selezionare la metrica **Chiamate totali**. Se la chiave endpoint viene usata per più di un'app LUIS, la metrica nel portale di Azure mostra il numero aggregato di chiamate da tutte le app LUIS che la usano.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Ieri l'app LUIS funzionava, mentre oggi si ricevono errori 403. L'app non è stata modificata. Risoluzione 
 Seguire le [istruzioni](#how-do-i-create-and-assign-a-luis-endpoint-key) nella prossima domanda per creare una chiave di endpoint LUIS e assegnarla all'app. È necessario quindi modificare la richiesta HTTP all'endpoint per fare in modo che [usi la nuova chiave dell'endpoint](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -115,8 +119,9 @@ In Azure un tenant rappresenta il client o l'organizzazione associati a un servi
 
 ![ID tenant nel portale di Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Perché sono presenti più chiavi di sottoscrizione di quelle assegnate all'app nella pagina della pubblicazione? 
-Ogni app LUIS dispone di una chiave di creazione/avvio. Le chiavi di sottoscrizione LUIS create durante l'intervallo di tempo GA sono visibili nella pagina di pubblicazione, indipendentemente dal fatto che siano state aggiunte all'app. Tale operazione è stata pensata per facilitare la migrazione GA. Le nuove chiavi di sottoscrizione LUIS non vengono visualizzate nella pagina di pubblicazione. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Perché sono presenti più chiavi endpoint di quelle assegnate all'app nella pagina della pubblicazione? 
+Ogni app LUIS dispone di una chiave di creazione/avvio. Le chiavi endpoint LUIS create durante l'intervallo di tempo GA sono visibili nella pagina di pubblicazione, indipendentemente dal fatto che siano state aggiunte all'app. Tale operazione è stata pensata per facilitare la migrazione GA. Le nuove chiavi endpoint LUIS non vengono visualizzate nella pagina di pubblicazione. 
 
 ## <a name="app-management"></a>Gestione app
 
@@ -153,7 +158,7 @@ Se si usa il log per l'analisi delle stime, non acquisire le espressioni di test
 ## <a name="app-notification"></a>Notifica dell'app
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Perché si riceve un messaggio di posta elettronica che indica che la quota è quasi terminata?
-La chiave di creazione/avvio consente solo 1000 query di endpoint al mese. Creare una chiave di sottoscrizione LUIS (gratuita o a pagamento) e usare tale chiave quando si eseguono le query di endpoint. Se si eseguono query di endpoint da un bot o un'altra applicazione client, è necessario modificare lì la chiave di endpoint LUIS. 
+La chiave di creazione/avvio consente solo 1000 query di endpoint al mese. Creare una chiave endpoint LUIS (gratuita o a pagamento) e usare tale chiave quando si eseguono le query di endpoint. Se si eseguono query di endpoint da un bot o un'altra applicazione client, è necessario modificare lì la chiave di endpoint LUIS. 
 
 ## <a name="integrating-luis"></a>Integrazione di LUIS
 
@@ -167,7 +172,7 @@ Il [priming del riconoscimento vocale](https://docs.microsoft.com/bot-framework/
 
 ## <a name="luis-service"></a>Servizio LUIS 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>LUIS è disponibile in locale o in un cloud privato?
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS è disponibile in locale o in un cloud privato?
 No. 
 
 ## <a name="changes-to-the-docs"></a>Modifiche alla documentazione
@@ -182,7 +187,7 @@ Gli articoli che precedentemente si trovavano nella sezione Esercitazioni si tro
 |Compilare un'app LUIS a livello di codice con [Node.js](luis-tutorial-node-import-utterances-csv.md)|
 |Usare un'[entità composita](luis-tutorial-composite-entity.md) per estrarre i dati raggruppati|
 |Aggiungere un'[entità elenco](luis-tutorial-list-entity.md) per un maggiore rilevamento di entità con Node.js|
-|Migliorare l'accuratezza delle stime con un [elenco di frasi](luis-tutorial-interchangeable-phrase-list.md), [modelli](luis-tutorial-pattern.md), e [test in batch](luis-tutorial-batch-testing.md)|
+|Migliorare l'accuratezza delle stime con un [elenco di frasi](luis-quickstart-primary-and-secondary-data.md), [modelli](luis-tutorial-pattern.md), e [test in batch](luis-tutorial-batch-testing.md)|
 |[Correggere l'ortografia](luis-tutorial-batch-testing.md) con l'API Controllo ortografico Bing v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>In occasione della conferenza Build 2018, è stata menzionata una funzionalità o una dimostrazione di LUIS. Di quale caratteristica si trattava? 
@@ -193,7 +198,7 @@ In occasione della conferenza Build 2018 sono state rilasciate le seguenti funzi
 |--|--|
 |Miglioramenti|Entità [Espressione regolare](luis-concept-data-extraction.md##regular-expression-entity-data) ed entità [Frase chiave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
 |Modelli|Modelli [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>Concetto dell'entità [Patterns.Any](luis-concept-entity-types.md), incluso un [elenco esplicito](luis-concept-patterns.md#explicit-lists) per le eccezioni<br>Concetto [Ruoli](luis-concept-roles.md)|
-|Integrazioni|Integrazione dell'[analisi di testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) per l'[analisi del sentiment](publishapp.md#enable-sentiment-analysis)<br>Integrazione [vocale](https://docs.microsoft.com/azure/cognitive-services/speech) del [priming del riconoscimento vocale](publishapp.md#enable-speech-priming) in combinazione con [Speech SDK](https://aka.ms/SpeechSDK)|
+|Integrazioni|Integrazione dell'[analisi di testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) per l'[analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integrazione [vocale](https://docs.microsoft.com/azure/cognitive-services/speech) del [priming del riconoscimento vocale](luis-how-to-publish-app.md#enable-speech-priming) in combinazione con [Speech SDK](https://aka.ms/SpeechSDK)|
 |Strumento Dispatch|Parte di [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), lo [strumento](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) a riga di comando Dispatch permette di combinare più app LUIS e QnA Maker in una singola app LUIS per migliorare il riconoscimento delle finalità in un bot
 
 Sono state incluse altre [route API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) di creazione. 
@@ -212,5 +217,3 @@ Progetti:
 Per altre informazioni su LUIS, vedere le risorse seguenti:
 * [Domande su Stack Overflow con tag LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [Forum MSDN su LUIS (Language Understanding Intelligent Service)](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

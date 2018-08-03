@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 95f10d8ea7ebe1d40d45231a8ea40df81543fe8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa563d89b1834f5be952f13c31a2451d809709b1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377241"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006530"
 ---
 # <a name="what-is-bing-visual-search-api"></a>Informazioni sull'API Ricerca visiva Bing
 
@@ -71,7 +71,7 @@ Se si invia a Ricerca visiva un URL o un token di immagine, la figura seguente i
 }
 ```
 
-L'oggetto `imageInfo` deve includere il campo `url` e `imageInsightsToken`, ma non entrambi. Impostare il campo `url` sull'URL di un'immagine accessibile in Internet. Le dimensioni massime supportate per l'immagine sono di 1 MB.
+L'oggetto `imageInfo` deve includere il campo `url` o `imageInsightsToken`, ma non entrambi. Impostare il campo `url` sull'URL di un'immagine accessibile in Internet. Le dimensioni massime supportate per l'immagine sono di 1 MB.
 
 L'oggetto `imageInsightsToken` deve essere impostato su un token di informazioni dettagliate. Per ottenerlo, chiamare l'API Ricerca immagini Bing. La risposta contiene un elenco di oggetti `Image`. Ogni oggetto `Image` contiene un `imageInsightsToken` campo, che a sua volta contiene il token.
 
@@ -95,19 +95,19 @@ Le richieste devono essere inviate solo come richieste HTTP POST.
 
 Di seguito vengono indicati i parametri di query da specificare nella richiesta. È necessario includere almeno il parametro d query `mkt`.
 
-|Nome|Valore|Tipo|Obbligatorio|  
+|NOME|Valore|type|Obbligatoria|  
 |----------|-----------|----------|--------------|  
-|<a name="cc" />cc|Codice di 2 caratteri del paese da cui provengono i risultati.<br /><br /> Se si imposta questo parametro, è necessario specificare anche l'intestazione [Accept-Language](#acceptlanguage). Bing usa la prima lingua supportata individuata nell'elenco delle lingue e combina la lingua con il codice paese specificato per determinare il mercato da cui restituire i risultati. Se nell'elenco non è presenta alcuna lingua supportata, Bing rileva la lingua e il mercato più vicini che supportano la richiesta. In alternativa, Bing può usare un mercato aggregato o predefinito per i risultati anziché quello specificato.<br /><br /> È necessario usare questo parametro di query e il parametro di query `Accept-Language` solo se si specificano più lingue. In caso contrario, è necessario usare i parametri di query `mkt` e `setLang`.<br /><br /> Tale parametro e il parametro di query [mkt](#mkt) si escludono a vicenda&mdash;non specificarli entrambi.|Stringa|No |  
-|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br /> **NOTA:** è consigliabile specificare sempre sul mercato, se noto. La specifica del mercato consente a Bing indirizzare la richiesta e di restituire una risposta appropriata e ottimale.<br /><br /> Tale parametro e il parametro di query [cc](#cc) si escludono a vicenda&mdash;non specificarli entrambi.|Stringa|Sì|  
-|<a name="safesearch" />safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono indicati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Off&mdash;Vengono restituite pagine Web con testo o immagini per adulti.<br /><br/></li><li>Moderate&mdash;Vengono restituite pagine Web con testo per adulti, ma non con immagini per adulti.<br /><br/></li><li>Strict&mdash;Non viene restituita alcuna pagina Web con testo o immagini per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostato su Strict, Bing ignora il valore di `safeSearch` e usa il valore Strict.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |Stringa|No |  
-|<a name="setlang" />setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|Stringa|No | 
+|<a name="cc" />cc|Codice di 2 caratteri del paese da cui provengono i risultati.<br /><br /> Se si imposta questo parametro, è necessario specificare anche l'intestazione [Accept-Language](#acceptlanguage). Bing usa la prima lingua supportata individuata nell'elenco delle lingue e combina la lingua con il codice paese specificato per determinare il mercato da cui restituire i risultati. Se nell'elenco non è presenta alcuna lingua supportata, Bing rileva la lingua e il mercato più vicini che supportano la richiesta. In alternativa, Bing può usare un mercato aggregato o predefinito per i risultati anziché quello specificato.<br /><br /> È necessario usare questo parametro di query e il parametro di query `Accept-Language` solo se si specificano più lingue. In caso contrario, è necessario usare i parametri di query `mkt` e `setLang`.<br /><br /> Tale parametro e il parametro di query [mkt](#mkt) si escludono a vicenda&mdash;non specificarli entrambi.|string|No |  
+|<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br /> **NOTA:** è consigliabile specificare sempre sul mercato, se noto. La specifica del mercato consente a Bing indirizzare la richiesta e di restituire una risposta appropriata e ottimale.<br /><br /> Tale parametro e il parametro di query [cc](#cc) si escludono a vicenda&mdash;non specificarli entrambi.|string|sì|  
+|<a name="safesearch" />safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono indicati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Off&mdash;Vengono restituite pagine Web con testo o immagini per adulti.<br /><br/></li><li>Moderate&mdash;Vengono restituite pagine Web con testo per adulti, ma non con immagini per adulti.<br /><br/></li><li>Strict&mdash;Non viene restituita alcuna pagina Web con testo o immagini per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostato su Strict, Bing ignora il valore di `safeSearch` e usa il valore Strict.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |string|No |  
+|<a name="setlang" />setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|string|No | 
 
-### <a name="headers"></a>Intestazioni
+### <a name="headers"></a>Headers
 
 Di seguito vengono indicate le intestazioni che la richiesta deve specificare. Le intestazioni Content-Type e Ocp-Apim-Subscription-Key sono le sole intestazioni richieste, ma è necessario anche includer User-Agent, X-MSEdge-ClientID, X-MSEdge-ClientIP e X-Search-Location.
 
 
-|Intestazione|Descrizione|  
+|Intestazione|DESCRIZIONE|  
 |------------|-----------------|  
 |<a name="acceptlanguage" />Accept-Language|Intestazione di richiesta facoltativa.<br /><br /> Elenco delimitato da virgole di lingue da usare per le stringhe dell'interfaccia utente. L'elenco è in ordine decrescente di preferenza. Per altre informazioni, incluso il formato previsto, vedere [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Questa intestazione e il parametro di query [setLang](#setlang) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Se si imposta questa intestazione, è necessario anche specificare il parametro di query [cc](#cc). Per determinare il mercato per cui restituire i risultati, Bing usa la prima lingua supportata individuata nell'elenco e la combina con il valore del parametro `cc`. Se l'elenco non include una lingua supportata, Bing trova la corrispondenza più vicina della lingua e il mercato che supporta la richiesta oppure usa un mercato aggregato o predefinito per i risultati. Per determinare il mercato usato da Bing, vedere l'intestazione BingAPIs-Market.<br /><br /> Usare questa intestazione e il parametro di query `cc` solo se si specificano più lingue. In caso contrario, usare i parametri di query [mkt](#mkt) e [setLang](#setlang).<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti di risposta si applicano alla lingua specificata.|  
 |<a name="contenttype" />Content-Type|Intestazione della richiesta obbligatoria.<br /><br />Deve essere impostata su multipart/form-data e includere un parametro di limite, ad esempio multipart/form-data; boundary=\<boundary string\>. Per altre informazioni, vedere [Tipi di formato per il contenuto](#content-form-types).
@@ -147,7 +147,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Se si carica un'immagine locale, la figura seguente illustra i dati di formato che è necessario includere nel corpo del POST. I dati di formato devono includere l'intestazione Content-Disposition. Il relativo parametro `name` deve essere impostato su "image" e il parametro `filename` può essere impostato su qualsiasi stringa. L'intestazione Content-Type può essere impostata su qualsiasi tipo MIME di immagine di uso comune. Il contenuto del modulo è il file binario dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB. 
+Se si carica un'immagine locale, la figura seguente illustra i dati di formato che è necessario includere nel corpo del POST. I dati dl modulo devono includere l'intestazione Content-Disposition. Il relativo parametro `name` deve essere impostato su "image" e il parametro `filename` può essere impostato su qualsiasi stringa. L'intestazione Content-Type può essere impostata su qualsiasi tipo MIME di immagine di uso comune. Il contenuto del modulo è il file binario dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB. La larghezza o l'altezza massima deve essere di 1.500 pixel o inferiore.
 
 
 ```
@@ -311,7 +311,7 @@ Se l'immagine contiene testo che il servizio riconosce, un tag contiene un'infor
     }
 ```
 
-Poiché il campo `displayName` del tag contiene ##TextRecognition, non usarlo come titolo di categoria nell'interfaccia utente. La stessa condizione di applica a ogni nome visualizzato che inizia con ##. In alternativa, usare il nome visualizzato dell'azione.
+Poiché il campo `displayName` del tag contiene ##TextRecognition, non usarlo come titolo di categoria nell'esperienza utente. La stessa condizione di applica a ogni nome visualizzato che inizia con ##. In alternativa, usare il nome visualizzato dell'azione.
 
 
 Il riconoscimento di testo è in grado di riconoscere anche le informazioni di contatto nei biglietti da visita, ad esempio il numero di telefono e gli indirizzi di posta elettronica. Il rettangolo di selezione identifica la posizione delle informazioni di contatto sul biglietto. 
@@ -400,7 +400,7 @@ Il riconoscimento di testo è in grado di riconoscere anche le informazioni di c
     }
 ```
 
-Se l'immagine contiene un'entità riconosciuta, ad esempio una persona, un luogo o una cosa, un tag può includere un'informazione Entità. Le entità possono anche includere elementi semplici come illustrato nell'esempio seguente:
+Se l'immagine contiene un'entità riconosciuta, ad esempio una persona, un luogo o una cosa, un tag può includere un'informazione Entità. 
 
 ```json
     {
@@ -428,29 +428,6 @@ Se l'immagine contiene un'entità riconosciuta, ad esempio una persona, un luogo
           "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
           "displayName" : "Statue of Liberty",
           "actionType" : "Entity",
-        },
-        {
-          "_type" : "ImageModuleAction",
-          "actionType" : "Trivia",
-          "data" : {
-            "value" : [
-              {
-                "name" : "Where was the cornerstone of the statue of liberty laid",
-                "text" : "<the answer>",
-                "hostPageUrl" : "http:\/\/contoso.com\/history\/...",
-              },
-              {
-                "name" : "Why Is the Statue of Liberty Green",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/why-statue-of-liberty-is-green",
-              },
-              {
-                "name" : "What is the Statue of Liberty made of",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/art-literature\/statue-liberty-made",
-              }
-            ]
-          }
         }
       ]
     }

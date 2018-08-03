@@ -1,7 +1,7 @@
 ---
-title: Come usare le entità multivalore con un'applicazione di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come usare le entità multivalore con un modello di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come usare le entità multivalore con un'applicazione di Conversation Learner.
+description: Informazioni su come usare le entità multivalore con un modello di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 865b50747b2c9574b5f88d4902bea9e4c8e0e032
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376241"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173102"
 ---
-# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-application"></a>Come usare le entità multivalore con un'applicazione di Conversation Learner
+# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Come usare le entità multivalore con un modello di Conversation Learner
 Questa esercitazione illustra la proprietà "multivalore" dell'entità.
+
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
 ##<a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
@@ -32,9 +36,9 @@ Concretamente, se un'entità è contrassegnata come "multivalore", ogni istanza 
 
 ## <a name="steps"></a>Passaggi
 
-### <a name="create-the-application"></a>Creare l'applicazione
+### <a name="create-the-model"></a>Creare il modello
 
-1. Nell'interfaccia utente Web fare clic su Nuova app
+1. Nell'interfaccia utente Web fare clic su New Model (Nuovo modello)
 2. In Nome immettere MultiValueEntities. Fare quindi clic su Crea.
 
 ### <a name="create-an-entity"></a>Creare un'entità
@@ -76,7 +80,7 @@ Sono ora disponibili due azioni.
 3. Fare clic su 'mushrooms' e selezionare Toppings.
 4. Fare clic su 'cheese' e selezionare Toppings.
 5. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che i due valori sono ora presenti nell'entità Toppings. 
+    - I due valori sono ora presenti nell'entità Toppings. 
 6. Selezionare 'Here are your toppings: $Toppings'.
 
 È possibile aggiungere altro:
@@ -84,7 +88,7 @@ Sono ora disponibili due azioni.
 7. Immettere 'add peppers'.
     - Fare clic su 'peppers' in Entity Detection (Rilevamento entità) e selezionare Toppings.
 3. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che peppers viene ora visualizzato come valore aggiuntivo in Toppings.
+    - "peppers" viene ora visualizzato come valore aggiuntivo in Toppings.
 6. Selezionare 'Here are your toppings: $Toppings'.
 
 È ora possibile rimuovere un condimento e aggiungerne uno:
@@ -93,7 +97,7 @@ Sono ora disponibili due azioni.
 1. Fare clic su 'peppers' e quindi sulla x rossa per rimuoverlo.
 2. Fare clic su 'peppers' e selezionare '-Toppings'.
 3. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che 'peppers' è stato eliminato ed è stato aggiunto 'sausage'.
+    - "peppers" è stato eliminato ed è stato aggiunto "sausage".
 6. Selezionare 'Here are your toppings: $Toppings'.
 
 Provare ora a rimuovere tutti i valori:
@@ -101,7 +105,7 @@ Provare ora a rimuovere tutti i valori:
 6. Immettere 'remove mushrooms, remove cheese, and remove sausage'.
 7. Fare clic su ognuno dei tre e selezionare '-Toppings'.
 7. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che tutti i condimenti vengono cancellati.
+    - Tutti i condimenti vengono cancellati.
 2. Selezionare 'What toppings do you want?'
 3. Fare clic su Done Teaching (Training completato).
 

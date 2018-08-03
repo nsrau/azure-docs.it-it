@@ -3,27 +3,27 @@ title: Compilare un'app LUIS a livello di codice con Node.js | Microsoft Docs
 titleSuffix: Azure
 description: Informazioni su come compilare un'app LUIS a livello di codice a partire da dati preesistenti in formato CSV usando l'API di creazione LUIS.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: 09c9d4da835b7b30fd132770f9d13b33fa80a3f5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 42b9800c94171ecbd2dadf30bb2ce2f342063552
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268312"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238506"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilare un'app LUIS a livello di codice con Node.js
 
-LUIS fornisce un'API a livello di codice che esegue le stesse operazioni del sito Web [LUIS][LUIS]. In questo modo è possibile risparmiare tempo quando si dispone di dati preesistenti e sarebbe più veloce creare un'app LUIS a livello di codice anziché immettere manualmente le informazioni. 
+LUIS fornisce un'API a livello di codice che esegue le stesse operazioni del sito Web [LUIS](luis-reference-regions.md). In questo modo è possibile risparmiare tempo quando si dispone di dati preesistenti e sarebbe più veloce creare un'app LUIS a livello di codice anziché immettere manualmente le informazioni. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* Accedere al sito Web [LUIS][LUIS] e individuare la [chiave di creazione](luis-concept-keys.md#authoring-key) in Account Settings (Impostazioni account). Questa chiave viene usata per chiamare l'API di creazione.
+* Accedere al sito Web [LUIS](luis-reference-regions.md) e individuare la [chiave di creazione](luis-concept-keys.md#authoring-key) in Account Settings (Impostazioni account). Questa chiave viene usata per chiamare l'API di creazione.
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 * Questa esercitazione inizia con un CSV per un file di log di richieste degli utenti di un'ipotetica azienda. Scaricarla [qui](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installare la versione più recente di Node.js con NPM. Scaricarla [qui](https://nodejs.org/en/download/).
@@ -111,7 +111,7 @@ Installare le dipendenze di Node.js da NPM nel terminale/riga di comando.
 ````
 
 ### <a name="change-configuration-settings"></a>Modificare le impostazioni di configurazione
-Per usare questa applicazione, è necessario modificare i valori del file index.js con la propria chiave di sottoscrizione e specificare il nome che si desidera assegnare all'app. È anche possibile definire la lingua dell'app o modificare il numero di versione.
+Per usare questa applicazione, è necessario modificare i valori del file index.js con la propria chiave endpoint e specificare il nome che si desidera assegnare all'app. È anche possibile definire la lingua dell'app o modificare il numero di versione.
 
 Aprire il file index.js e modificare questi valori nella parte superiore del file.
 
@@ -163,7 +163,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>Aprire l'app LUIS
-Al termine dello script è possibile accedere a [LUIS] [ LUIS] e visualizzare l'app LUIS appena creata in **My Apps** (App personali). Le espressioni aggiunte dovrebbero apparire sotto le finalità**TurnOn**, **TurnOff** e **None**.
+Al termine dello script è possibile accedere a [LUIS](luis-reference-regions.md) e visualizzare l'app LUIS appena creata in **My Apps** (App personali). Le espressioni aggiunte dovrebbero apparire sotto le finalità**TurnOn**, **TurnOff** e **None**.
 
 ![Finalità TurnOn](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -171,7 +171,7 @@ Al termine dello script è possibile accedere a [LUIS] [ LUIS] e visualizzare l'
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Test e training dell'app sul sito Web LUIS](interactive-test.md)
+> [Test e training dell'app sul sito Web LUIS](luis-interactive-test.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -179,7 +179,4 @@ Questa applicazione di esempio usa le API LUIS seguenti:
 - [creazione app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [aggiunta finalità](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
 - [aggiunta entità](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [aggiunta espressioni](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
-
+- [aggiunta espressioni](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

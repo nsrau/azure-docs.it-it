@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2214436b193932e5b3b80c190f7754a0436b7ed8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376388"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171018"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Come usare input alternativi
 
 Questa esercitazione illustra come usare il campo degli input alternativi per l'input utente nell'interfaccia di training.
 
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 8](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
 
     npm run tutorial-general
 
@@ -31,9 +35,9 @@ Gli "input alternativi" sono espressioni alternative che potrebbero essere usate
 
 ## <a name="steps"></a>Passaggi
 
-### <a name="create-the-application"></a>Creazione dell'applicazione
+### <a name="create-the-model"></a>Creare il modello
 
-1. Nell'interfaccia utente Web fare clic su New App (Nuova App).
+1. Nell'interfaccia utente Web fare clic su New Model (Nuovo modello)
 2. In Name (Nome) immettere "AlternativeInputs". Fare quindi clic su Create (Crea).
 
 ### <a name="create-an-entity"></a>Creare un'entità
@@ -75,7 +79,7 @@ Sono ora disponibili tre azioni.
 3. Fare doppio clic su "denver" e selezionare "city".
     - La parola viene così contrassegnata come entità city.
 5. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che "denver" è ora presente nell'entità city. 
+    - "denver" è ora presente nell'entità city. 
 6. Selezionare "The weather in $city is probably sunny".
 7. Fare clic su Done Teaching (Training completato).
 
@@ -88,7 +92,7 @@ Aggiungere un altro dialogo di esempio:
 3. Fare doppio clic su "seattle" e selezionare "city".
     - La parola viene così contrassegnata come entità city.
 5. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che "seattle" è ora presente nell'entità city. 
+    - "seattle" è ora presente nell'entità city. 
 6. Selezionare "The weather in $city is probably sunny".
 7. Fare clic su Done Teaching (Training completato).
 
@@ -97,7 +101,7 @@ Si osserverà ora che cosa accade se l'utente usa un'espressione semanticamente 
 1. Fare clic su New Action (Nuova azione) e quindi su New Train Dialog (Nuovo dialogo di training).
 2. Digitare "help".
 3. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che i punteggi per le due potenziali risposte sono molto simili. Questo indica che il modello non individua chiaramente il limite tra le due azioni.
+    - I punteggi per le due potenziali risposte sono molto simili. Questo indica che il modello non individua chiaramente il limite tra le due azioni.
 6. Fare clic su Abandon Teaching (Abbandona training) e confermare.
 
 ![](../media/tutorial8_closescores.png)
@@ -117,7 +121,7 @@ In questo caso sarà utile aggiungere input alternativi ai dialoghi. È possibil
 
 2. Fare ora clic su "What's the weather in seattle".
     1. In Add alternative input (Aggiungi input alternativo) immettere "forecast for seattle".
-    2. Fare doppio clic su "seattle" e selezionare "city". Si noti che le entità per gli input alternativi devono essere presenti e includere lo stesso set di entità. Il contenuto delle entità può però essere diverso.
+    2. Fare doppio clic su "seattle" e selezionare "city". Le entità per gli input alternativi devono essere presenti e includere lo stesso set di entità. Il contenuto delle entità può però essere diverso.
     3. In Add alternative input (Aggiungi input alternativo) immettere "will it rain today in denver".
     4. Fare clic su "denver" e selezionare "city".
     5. Fare clic su Submit Changes (Invia modifiche) e quindi su Done (Fine).
@@ -134,7 +138,7 @@ Si aggiungeranno ora input alternativi al primo dialogo:
 4. Fare clic per selezionare "denver" nel riquadro sinistro:
     1. In Add alternative input (Aggiungi input alternativo) immettere "for denver".
     2. Immettere "forecast for austin".
-        - Si noti che l'intera frase viene evidenziata. Fare clic sulla frase e quindi sulla X rossa. Selezionare quindi "austin" e fare clic su "city".
+        - L'intera frase viene evidenziata. Fare clic sulla frase e quindi sulla X rossa. Selezionare quindi "austin" e fare clic su "city".
         - Fare clic su Submit Changes (Invia modifiche).
     1. Fare clic su Done (Fine) in modo da ripetere il training del modello.
 
@@ -145,7 +149,7 @@ Si proveranno ora le varianti:
 1. Fare clic su New Train Dialog (Nuovo dialogo di training).
 2. Digitare "what are you capabilities".
 3. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che i punteggi sono ora più decisivi per l'azione successiva e questo indica la certezza del modello.
+    - I punteggi sono ora più decisivi per l'azione successiva e questo indica la certezza del modello.
 2. Selezionare "Try asking for weather".
 6. Fare clic su Done Teaching (Training completato).
 

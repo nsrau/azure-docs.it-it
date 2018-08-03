@@ -36,6 +36,9 @@
 #### [Attività 1: Ottenere un certificato per l'accesso LDAP sicuro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Attività 2: Esportare il certificato LDAP sicuro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito tramite il portale di Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Attività 4: Configurare il DNS per l'accesso al dominio gestito da Internet](active-directory-ds-ldaps-configure-dns.md)
+#### [Attività 5: Eseguire l'associazione al dominio gestito e bloccare l'accesso LDAP sicuro](active-directory-ds-ldaps-bind-lockdown.md)
+#### [Risolvere i problemi relativi a LDAP sicuro](active-directory-ds-ldaps-troubleshoot.md)
 
 ### [Creare un'unità organizzativa in un dominio gestito](active-directory-ds-admin-guide-create-ou.md)
 ### [Creare un account del servizio gestito di gruppo in un dominio gestito](active-directory-ds-create-gmsa.md)
@@ -57,7 +60,7 @@
 ### [Domini sospesi](active-directory-ds-suspension.md)
 
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Risorse correlate

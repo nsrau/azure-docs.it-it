@@ -3,19 +3,19 @@ title: Riferimento alle entità predefinite LUIS - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Questo articolo contiene gli elenchi delle entità predefinite incluse in Language Understanding, ovvero LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7ce50e4c0be605e1700a2c18533cb087384f524c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 07/11/2018
+ms.author: diberry
+ms.openlocfilehash: 731ac279b4b0c162809d8e0638b9337924859b3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316885"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238830"
 ---
 # <a name="entities-per-culture"></a>Entità per impostazioni cultura
 
@@ -28,6 +28,7 @@ Entità predefinita   |   Inglese (Stati Uniti)<br>```En-us```   |   Francese (F
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   -   |   ✔   |   -   |   -   |   -   |   -   |   -   |
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   |   ✔   |   ✔   |   ✔   |   -   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
@@ -37,16 +38,19 @@ Entità predefinita   |   Inglese (Stati Uniti)<br>```En-us```   |   Francese (F
 
 Vedere le note in [Entità predefinite deprecate](luis-reference-prebuilt-deprecated.md)
 
-## <a name="examples-of-prebuilt-entities-in-en-us-culture"></a>Esempi di entità predefinite per le impostazioni cultura en-us
-La tabella seguente elenca le entità predefinite con i dati di esempio e i valori restituiti.
+KeyPhrase non è disponibile in tutte le impostazioni cultura secondarie di portoghese (Brasile) - ```pt-BR```.
 
-Entità predefinita   |   Espressione di esempio   |   JSON
+<!--
+## Examples of prebuilt entities in en-us culture
+The following table lists prebuilt entities with example data and the return values.
+
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
  ```builtin.age```   |   ```100 year old```   |```{ "type": "builtin.age", "entity": "100 year old" }```|  
  ```builtin.age```   |   ```19 years old```   |```{ "type": "builtin.age", "entity": "19 years old" }```|
  ```builtin.currency```     |   ```1000.00 US dollars```   |```{ "type": "builtin.currency", "entity": "1000.00 us dollars" }```
  ```builtin.currency```     |   ```$ 67.5 B```   |```{ "type": "builtin.currency", "entity": "$ 67.5" }```|
- ```builtin.datetimeV2``` | Vedere [builtin.datetimeV2](luis-reference-prebuilt-datetimev2.md) | Vedere [builtin.datetimeV2](luis-reference-prebuilt-datetimev2.md) |
+ ```builtin.datetimeV2``` | See [builtin.datetimeV2](luis-reference-prebuilt-datetimev2.md) | See [builtin.datetimeV2](luis-reference-prebuilt-datetimev2.md) |
  ```builtin.dimension```     |   ```2 miles```   |```{ "type": "builtin.dimension", "entity": "2 miles" }```|
  ```builtin.dimension```     |  ```650 square kilometers```   |```{ "type": "builtin.dimension", "entity": "650 square kilometers" }```|
  ```builtin.email```     |  ```patti.owens@microsoft.com```   |```{ "type": "builtin.email", "entity": "patti.owens@microsoft.com" }```|
@@ -59,7 +63,7 @@ Entità predefinita   |   Espressione di esempio   |   JSON
  ```builtin.temperature```     |   ```10 degrees celsius```   | ```{ "type": "builtin.temperature", "entity": "10 degrees celcius" }```|   
  ```builtin.temperature```     |   ```78 F```   |```{ "type": "builtin.temperature", "entity": "78 f" }```|
  ```builtin.url```     |   ```http://www.luis.ai is a great cognitive service```   |```{ "type": "builtin.url", "entity": "http://www.luis.ai" }```|
-
+-->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuire alle impostazioni cultura delle entità predefinite
 Le entità predefinite vengono sviluppate nel progetto open source Recognizers-Text. [Contribuire](https://github.com/Microsoft/Recognizers-Text) al progetto. Questo progetto include esempi di valuta per le impostazioni cultura. 

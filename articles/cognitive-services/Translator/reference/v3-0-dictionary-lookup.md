@@ -9,12 +9,12 @@ ms.technology: microsoft translator
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 31435fcfca61517bfc72d534e911a1dcadbee52b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377529"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868086"
 ---
 # <a name="text-api-30-dictionary-lookup"></a>API Traduzione testuale 3.0: ricerca nei dizionari
 
@@ -22,7 +22,7 @@ Specifica le traduzioni alternative per una parola e un numero ridotto di frasi 
 
 ## <a name="request-url"></a>URL richiesta
 
-Invia una richiesta `POST` a:
+Inviare una richiesta `POST` a:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
@@ -84,7 +84,7 @@ Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un 
 
 Si applicano le limitazioni seguenti:
 
-* La matrice può contenere al massimo 10 elementi.
+* La matrice deve essere composta al massimo da 10 elementi.
 * Il valore di testo di un elemento della matrice non può superare 100 caratteri spazi inclusi.
 
 ## <a name="response-body"></a>Corpo della risposta

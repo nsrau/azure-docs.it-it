@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 15f0415819bc0ae51e8160bb2b4a12c409b13baa
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301336"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866084"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Guida introduttiva per l'API QnA Maker Microsoft con C# 
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Aggiornare una knowledge base esistente.](#Update)
 - [Ottenere lo stato di una richiesta per creare o aggiornare una knowledge base.](#Status)
 - [Pubblicare una knowledge base esistente.](#Publish)
-- [Sostituire il contenuto di una knowledge base esistente.](#Replace)
+- [Sostituire i contenuti di una knowledge base esistente.](#Replace)
 - [Scaricare il contenuto di una knowledge base.](#GetQnA)
 - [Ottenere risposte a una domanda usando una knowledge base.](#GetAnswers)
 - [Ottenere informazioni su una knowledge base.](#GetKB)
@@ -443,7 +443,7 @@ Press any key to continue.
 
 <a name="Publish"></a>
 
-## <a name="publish-knowledge-base"></a>Pubblicare la knowledge base
+## <a name="publish-knowledge-base"></a>Pubblicare una knowledge base
 
 Il codice seguente pubblica una knowledge base esistente usando il metodo [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 

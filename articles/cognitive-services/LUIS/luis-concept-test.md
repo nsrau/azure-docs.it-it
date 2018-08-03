@@ -2,25 +2,25 @@
 title: Eseguire il test dell'app LUIS - Azure | Microsoft Docs
 description: Usare il servizio LUIS (Language Understanding) per lavorare continuamente sull'applicazione allo scopo di perfezionarla e migliorarne l'apprendimento del linguaggio.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8c702d2adbadd2736eed05c7580e8aabf69affbf
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266329"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224348"
 ---
 # <a name="testing-in-luis"></a>Test in LUIS
 
 Il processo di test consiste nel fornire espressioni di esempio a LUIS e nell'ottenere una risposta di finalità ed entità riconosciute da LUIS. 
 
-È possibile [testare](interactive-test.md) LUIS in modo interattivo, un'espressione alla volta, o fornire un [batch](luis-concept-batch-test.md) di espressioni. Attraverso il test, si confronta il modello [attivo](luis-concept-version.md#active-version) corrente al modello pubblicato. 
+È possibile [testare](luis-interactive-test.md) LUIS in modo interattivo, un'espressione alla volta, o fornire un [batch](luis-concept-batch-test.md) di espressioni. Attraverso il test, si confronta il modello [attivo](luis-concept-version.md#active-version) corrente al modello pubblicato. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -35,7 +35,7 @@ I test interattivi vengono eseguiti nel pannello **Test** del sito Web. È possi
 Vedere [Test in batch](luis-concept-batch-test.md) se si testa più di un'espressione alla volta.
 
 ## <a name="endpoint-testing"></a>Test con endpoint
-È possibile eseguire il test con l'[endpoint](luis-glossary.md#endpoint) con un massimo di due versioni dell'app. Con la versione principale o in tempo reale dell'app impostata come endpoint di **produzione**, aggiungere una seconda versione all'endpoint di **staging**. Questo approccio fornisce tre versioni di un'espressione: il modello corrente nel riquadro Test del sito Web [LUIS][LUIS] e le due versioni ai due diversi endpoint. 
+È possibile eseguire il test con l'[endpoint](luis-glossary.md#endpoint) con un massimo di due versioni dell'app. Con la versione principale o in tempo reale dell'app impostata come endpoint di **produzione**, aggiungere una seconda versione all'endpoint di **staging**. Questo approccio fornisce tre versioni di un'espressione: il modello corrente nel riquadro Test del sito Web [LUIS](luis-reference-regions.md) e le due versioni ai due diversi endpoint. 
 
 Tutti i test con endpoint vengono conteggiati ai fini della quota di utilizzo. 
 
@@ -43,9 +43,9 @@ Tutti i test con endpoint vengono conteggiati ai fini della quota di utilizzo.
 Se si esegue il test rispetto a un endpoint e non si desidera registrare l'espressione, ricordarsi di usare la configurazione della stringa di query `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Dove trovare le espressioni
-LUIS archivia tutte le espressioni registrate nel log di query, disponibile per il download nella pagina [Apps][LUIS] (App) del sito Web **LUIS** e nelle [API di creazione](https://aka.ms/luis-authoring-apis) di LUIS. 
+LUIS archivia tutte le espressioni registrate nel log di query, disponibile per il download nella pagina dell'elenco di [App](luis-reference-regions.md) del sito Web **LUIS** e le [API di creazione](https://aka.ms/luis-authoring-apis) LUIS. 
 
-Tutte le espressioni di cui LUIS non è sicuro sono elencate nella pagina **[Review endpoint utterances](label-suggested-utterances.md)** (Esamina espressioni endpoint) del sito Web [LUIS][LUIS]. 
+Tutte le espressioni di cui LUIS non è sicuro sono elencate nella pagina **[Review endpoint utterances](luis-how-to-review-endoint-utt.md)** (Esamina espressioni endpoint) del sito Web [LUIS](luis-reference-regions.md). 
 
 ![Esaminare le espressioni endpoint](./media/luis-concept-test/review-endpoint-utterances.png)
  
@@ -57,6 +57,4 @@ Apprendere le [procedure consigliate](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Ulteriori informazioni sul [test](interactive-test.md) delle espressioni.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+* Ulteriori informazioni sul [test](luis-interactive-test.md) delle espressioni.

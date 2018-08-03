@@ -1,6 +1,6 @@
 ---
-title: Lingue e paesi supportati dall'API Ricerca notizie Bing in Azure | Microsoft Docs
-description: Informazioni su quali paesi e lingue sono supportati dall'API Ricerca immagini Bing.
+title: Lingue e paesi/aree supportati dall'API Ricerca notizie Bing in Azure | Microsoft Docs
+description: Informazioni su quali paesi/aree e lingue sono supportati dall'API Ricerca immagini Bing.
 services: cognitive-services
 author: MikeDodaro
 manager: rosh
@@ -9,26 +9,26 @@ ms.component: bing-news-search
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: v-gedod
-ms.openlocfilehash: 80326d66e509b64efd5d386fe793bc9942b29ae3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1cdacc82b680407814ff2d88e8ed43deacfb17d0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373428"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001661"
 ---
-# <a name="bing-news-search-countries-and-languages"></a>Lingue e paesi di Ricerca notizie Bing
+# <a name="bing-news-search-countriesregions-and-languages"></a>Lingue e paesi/aree di Ricerca notizie Bing
 
-L'API Ricerca notizie Bing supporta numerosi paesi, molti dei quali con più di una lingua. Specificare un paese con una query serve principalmente per perfezionare i risultati della ricerca in base agli interessi in tale paese. I risultati possono anche contenere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese o alla lingua specifica.
+L'API Ricerca notizie Bing supporta numerosi paesi/aree, molti dei quali con più di una lingua. Specificare un paese/un'area con una query serve principalmente per perfezionare i risultati della ricerca in base agli interessi in tale paese/area. I risultati possono anche contenere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese/all'area o alla lingua specifica.
 
-È possibile specificare un paese usando il parametro di query `cc`. Se si specifica un paese, è necessario specificare anche uno o più codici di lingua usando l'intestazione HTTP `Accept-Language`. Le lingue supportate variano in base al paese e sono indicate per ogni paese nella tabella Mercati.
+È possibile specificare un paese/un'area usando il parametro di query `cc`. Se si specifica un paese/un'area, è necessario specificare anche uno o più codici di lingua usando l'intestazione HTTP `Accept-Language`. Le lingue supportate variano in base al paese/all'area e sono indicate per ogni paese nella tabella Mercati.
 
-In alternativa, è possibile specificare il mercato usando il parametro di query `mkt` e un codice della tabella **Mercati**. Specificando un mercato, vengono contemporaneamente specificati un paese e una lingua preferita. Il parametro di query `setLang` in questo caso può essere impostato su un codice della lingua, che corrisponde in genere alla lingua specificata da `mkt` a meno che l'utente non preferisca visualizzare Bing in un'altra lingua.
+In alternativa, è possibile specificare il mercato usando il parametro di query `mkt` e un codice della tabella **Mercati**. Specificando un mercato, vengono contemporaneamente specificati un paese/un'area e una lingua preferita. Il parametro di query `setLang` in questo caso può essere impostato su un codice della lingua, che corrisponde in genere alla lingua specificata da `mkt` a meno che l'utente non preferisca visualizzare Bing in un'altra lingua.
 
 ## <a name="supported-markets-for-news-search-endpoint"></a>Mercati supportati per l'endpoint di Ricerca notizie
 
 Per l'endpoint `/news/search`, la tabella seguente elenca i valori dei codici di mercato che è possibile usare per specificare il parametro di query `mkt`. Bing restituisce il contenuto solo per questi mercati. L'elenco è soggetto a variazioni.  
   
-Per un elenco di codici di paese che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
+Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
   
 |Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------| 
@@ -77,7 +77,7 @@ Per un elenco di codici di paese che è possibile specificare nel parametro di q
 ## <a name="supported-markets-for-news-endpoint"></a>Mercati supportati per l'endpoint delle notizie
 Per l'endpoint `/news`, la tabella seguente elenca i valori dei codici di mercato che è possibile usare per specificare il parametro di query `mkt`. Bing restituisce il contenuto solo per questi mercati. L'elenco è soggetto a variazioni.  
   
-Per un elenco di codici di paese che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
+Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
   
 |Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------| 
@@ -100,7 +100,7 @@ Per un elenco di codici di paese che è possibile specificare nel parametro di q
 ## <a name="supported-markets-for-news-trending-endpoint"></a>Mercati supportati per l'endpoint delle notizie di tendenza
 Per l'endpoint `/news/trendingtopics`, la tabella seguente elenca i valori dei codici di mercato che è possibile usare per specificare il parametro di query `mkt`. Bing restituisce il contenuto solo per questi mercati. L'elenco è soggetto a variazioni.  
   
-Per un elenco di codici di paese che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
+Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
   
 |Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------| 
@@ -119,7 +119,7 @@ Per un elenco di codici di paese che è possibile specificare nel parametro di q
 <a name="countrycodes"></a>   
 ### <a name="country-codes"></a>Codici paese  
 
-I seguenti sono i codici di paese che è possibile specificare nel parametro di query `cc`. L'elenco è soggetto a variazioni.  
+I seguenti sono i codici di paese/area che è possibile specificare nel parametro di query `cc`. L'elenco è soggetto a variazioni.  
   
 |Paese/Area geografica|Codice paese|  
 |---------------------|------------------|  

@@ -2,19 +2,19 @@
 title: Informazioni sul controllo versioni in LUIS - Azure | Microsoft Docs
 description: Informazioni sull'uso delle versioni per gestire le modifiche in LUIS (Language Understanding)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
-ms.author: v-geberr
-ms.openlocfilehash: dabe7def2766770b686be3c43d4af4f331dd9577
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266074"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225728"
 ---
 # <a name="versions"></a>Versioni
 Creare modelli diversi della stessa app con le [versioni](luis-how-to-manage-versions.md). 
@@ -26,7 +26,7 @@ L'ID versione è composto da caratteri, cifre o '.' e non può superare i 10 car
 La versione iniziale (0.1) è la versione attiva predefinita. 
 
 ## <a name="active-version"></a>Versione attiva
-Una [versione](luis-how-to-manage-versions.md#set-active-version) impostata come attiva viene modificata e testata nel sito Web [LUIS][LUIS]. Impostare una versione come attiva per accedere ai relativi dati, eseguire aggiornamenti, sottoporla a test e pubblicarla.
+Una [versione](luis-how-to-manage-versions.md#set-active-version) impostata come attiva viene modificata e testata nel sito Web [LUIS](luis-reference-regions.md). Impostare una versione come attiva per accedere ai relativi dati, eseguire aggiornamenti, sottoporla a test e pubblicarla.
 
 Il nome della versione attualmente attiva viene visualizzato nel riquadro in alto a sinistra dopo il nome dell'app. 
 
@@ -52,7 +52,7 @@ Per eseguire il backup dell'app LUIS, esportare ogni versione nella pagina **[Se
 È possibile eliminare tutte le versioni ad eccezione di quella attiva dall'elenco Versions (Versioni) nella pagina Settings (Impostazioni). 
 
 ## <a name="version-availability-at-the-endpoint"></a>Disponibilità delle versioni in corrispondenza dell'endpoint
-Le versioni sottoposte a training non sono automaticamente disponibili in corrispondenza dell'[endpoint](luis-glossary.md#endpoint) dell'app. È necessario [pubblicare](PublishApp.md) o ripubblicare una versione affinché sia disponibile in corrispondenza dell'endpoint dell'app. È possibile pubblicare in **Staging** e **Produzione** e ottenere due versioni dell'app disponibili in corrispondenza dell'endpoint. Se è necessario che a un endpoint siano disponibili più versioni dell'app, esportare la versione e reimportarla in una nuova app. La nuova app presenta un ID app diverso.
+Le versioni sottoposte a training non sono automaticamente disponibili in corrispondenza dell'[endpoint](luis-glossary.md#endpoint) dell'app. È necessario [pubblicare](luis-how-to-publish-app.md) o ripubblicare una versione affinché sia disponibile in corrispondenza dell'endpoint dell'app. È possibile pubblicare in **Staging** e **Produzione** e ottenere due versioni dell'app disponibili in corrispondenza dell'endpoint. Se è necessario che a un endpoint siano disponibili più versioni dell'app, esportare la versione e reimportarla in una nuova app. La nuova app presenta un ID app diverso.
 
 ## <a name="collaborators"></a>Collaboratori
 Il proprietario e tutti i [collaboratori](luis-how-to-collaborate.md) dispongono dell'accesso completo a tutte le versioni dell'app.
@@ -62,5 +62,3 @@ Il proprietario e tutti i [collaboratori](luis-how-to-collaborate.md) dispongono
 Ulteriori informazioni sul [controllo versioni](luis-how-to-manage-versions.md) nella pagina impostazioni dell'app. 
 
 Informazioni su come progettare [finalità](luis-concept-intent.md) nel modello.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

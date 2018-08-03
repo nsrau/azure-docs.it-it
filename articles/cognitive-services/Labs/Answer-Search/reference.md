@@ -9,12 +9,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 8c95fac0c031ec62a9d98d6c3278bd3b3f345140
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376449"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866985"
 ---
 # <a name="project-answer-search-v7-reference"></a>Riferimento per il progetto Ricerca di risposte v7
 

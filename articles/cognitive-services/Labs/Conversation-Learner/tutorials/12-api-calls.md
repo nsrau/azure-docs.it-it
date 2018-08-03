@@ -1,7 +1,7 @@
 ---
-title: Come usare le chiamate API con un'applicazione di Conversation Learner - Servizi cognitivi Microsoft | Microsoft Docs
+title: Come usare le chiamate API con un modello di Conversation Learner - Servizi cognitivi Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come usare le chiamate API con un'applicazione di Conversation Learner.
+description: Informazioni su come usare le chiamate API con un modello di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ec752cbadfac7a47e08ed7b0ffe8bb475969fac5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d4013d736d8cfcb75874bc0c86d20b86ab4dd62
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376276"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215840"
 ---
-# <a name="how-to-add-api-calls-to-a-conversation-learner-application"></a>Come aggiungere le chiamate API a un'applicazione di Conversation Learner
+# <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Come aggiungere le chiamate API a un modello di Conversation Learner
 
-Questa esercitazione illustra come aggiungere chiamate API all'applicazione. Le chiamate API sono funzioni definite e scritte nel bot e che possono essere chiamate da Conversation Learner.
+Questa esercitazione illustra come aggiungere chiamate API al modello. Le chiamate API sono funzioni definite e scritte nel bot e che possono essere chiamate da Conversation Learner.
+
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 12](http://aka.ms/cl-tutorial-12-preview)](http://aka.ms/blis-tutorial-12)
 
 ## <a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot "tutorialAPICalls.ts" sia in esecuzione.
@@ -34,11 +38,11 @@ Per questa esercitazione è necessario che il bot "tutorialAPICalls.ts" sia in e
 
 ### <a name="open-the-demo"></a>Aprire la demo
 
-Nell'elenco delle app dell'interfaccia utente Web fare clic su Tutorial-12-APICalls. 
+Nell'elenco dei modelli dell'interfaccia utente Web fare clic su Tutorial-12-APICalls. 
 
 ### <a name="entities"></a>Entità
 
-È stata definita un'entità nell'applicazione denominata number.
+È stata definita un'entità nel modello denominata number.
 
 ![](../media/tutorial12_entities.PNG)
 
@@ -81,7 +85,7 @@ Verrà ora esaminato un dialogo di training.
 4. Immettere '8'. Quindi fare clic su Score Actions (Punteggio azioni).
 4. Selezionare 'Multiply $number 12'. Si noti il risultato della moltiplicazione.
 5. Selezionare 'Clear Entities'.
-    - Si noti che il valore dell'entità number è stato cancellato.
+    - Il valore dell'entità `number` è stato cancellato.
 3. Fare clic per selezionare 'What number to do you want to multiply by 12?'
 4. Fare clic su Done Testing (Test completato).
 

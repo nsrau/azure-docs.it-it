@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: f1b87c07d5b56307fd6b3fc68999598aeab6eb82
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377425"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008111"
 ---
 # <a name="what-is-bing-entity-search"></a>Informazioni su Ricerca entità Bing
 
@@ -45,6 +45,8 @@ Per una richiesta di esempio, vedere [Making your first entities request](./quic
 ## <a name="the-response"></a>Risposta
 
 La risposta contiene un oggetto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse). Se Bing rileva un'entità o una località pertinente, l'oggetto include il campo `entities`, il campo `places` o entrambi. In caso contrario, l'oggetto di risposta non include uno dei due campi.
+> [!NOTE]
+> Le risposte Entità supportano più mercati, ma la risposta Località supporta solo sedi aziendali negli Stati Uniti. 
 
 Il campo `entities` è un oggetto [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) che contiene un elenco di oggetti [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (vedere il campo `value`). L'elenco può contenere una singola entità dominante, più entità di disambiguazione o entrambi. 
 
@@ -189,6 +191,8 @@ Le località includono ristoranti, hotel o aziende locali. Il campo [entityPrese
     "Restaurant"]
 }, ...
 ```
+> [!NOTE]
+> Le risposte Entità supportano più mercati, ma la risposta Località supporta solo sedi aziendali negli Stati Uniti. 
 
 Query di entità che tengono conto del luogo, come *ristoranti nelle vicinanze*, richiedono la posizione dell'utente per fornire risultati accurati. Le richieste devono sempre usare le intestazioni X-Search-Location e X-MSEdge-ClientIP per specificare la posizione dell'utente. Se Bing ritiene che la query possa migliorare con la posizione dell'utente, imposta il campo `askUserForLocation` di [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) su **true**. 
 
@@ -268,7 +272,7 @@ L'esempio seguente illustra un'entità che include una regola contrattuale Media
 }]
 ```
 
-Se una regola contrattuale include il campo `targetPropertyName`, la regola si applica solo al campo di destinazione. In caso contrario, la regola di applica all'oggetto padre che contiene il campo `contractualRules`.
+Se una regola contrattuale include il campo `targetPropertyName`, la regola si applica solo al campo di destinazione. In caso contrario, la regola si applica all'oggetto padre che contiene il campo `contractualRules`.
 
 Nell'esempio seguente la regola `LinkAttribution` include il campo `targetPropertyName`, quindi la regola si applica al campo `description`. Per le regole che si applicano a campi specifici, è necessario includere una riga subito dopo i dati di destinazione contenenti un collegamento ipertestuale al sito Web del provider. Ad esempio, per attribuire la descrizione, includere una riga subito dopo il testo della descrizione contenente un collegamento ipertestuale ai dati sul sito Web del provider, in questo caso creare un collegamento a contoso.com.
 

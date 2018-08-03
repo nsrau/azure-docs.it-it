@@ -1,7 +1,7 @@
 ---
-title: Lingue e paesi supportati dall'API Ricerca visiva Bing | Microsoft Docs
+title: Lingue e paesi/le aree supportati dall'API Ricerca visiva Bing | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Informazioni sulle lingue e sui paesi supportati dall'API Ricerca visiva Bing.
+description: Informazioni sulle lingue e sui paesi/le aree supportati dall'API Ricerca visiva Bing.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,20 +10,20 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 4723d028cc22caf8be3eb294b52506ec112cbab5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 068459f4959bf3f8daea8fe949ec324879ee260c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376417"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001229"
 ---
-# <a name="bing-visual-search-countries-and-languages"></a>Lingue e paesi di Ricerca visiva Bing
+# <a name="bing-visual-search-countriesregions-and-languages"></a>Lingue e paesi/le aree di Ricerca visiva Bing
 
-L'API Ricerca visiva Bing supporta numerosi paesi, molti dei quali con più di una lingua. Per ogni richiesta è consigliabile includere paese e lingua dell'utente, poiché la conoscenza del mercato dell'utente consente a Bing di restituire risultati appropriati. Se l'utente non specifica il paese e la lingua, Bing fa del proprio meglio per determinarli. Poiché i risultati possono contenere collegamenti a Bing, se l'utente specifica il paese e la lingua e quindi fa clic sui collegamenti Bing, Bing è in grado di offrire un'esperienza utente localizzata nel modo più appropriato.
+L'API Ricerca visiva Bing supporta numerosi paesi/le aree, molti dei quali con più di una lingua. Per ogni richiesta è consigliabile includere paese/l'area e lingua dell'utente, poiché la conoscenza del mercato dell'utente consente a Bing di restituire risultati appropriati. Se l'utente non specifica il paese/l'area e la lingua, Bing fa del proprio meglio per determinarli. Poiché i risultati possono contenere collegamenti a Bing, se l'utente specifica il paese/l'area e la lingua e quindi fa clic sui collegamenti Bing, Bing è in grado di offrire un'esperienza utente localizzata nel modo più appropriato.
 
-Per specificare la lingua e il paese, impostare il parametro di query `mkt` (mercato) su uno dei codici della tabella **Mercati** riportata di seguito. Il mercato specifica sia un paese che una lingua. Se l'utente preferisce vedere il testo visualizzato in una lingua diversa, impostare il parametro di query `setLang` sul codice lingua appropriato.
+Per specificare la lingua e il paese/l'area, impostare il parametro di query `mkt` (mercato) su uno dei codici della tabella **Mercati** riportata di seguito. Il mercato specifica sia un paese/un'area che una lingua. Se l'utente preferisce vedere il testo visualizzato in una lingua diversa, impostare il parametro di query `setLang` sul codice lingua appropriato.
 
-In alternativa è possibile specificare il paese utilizzando il parametro di query `cc`. Se si specifica un paese, è necessario specificare anche uno o più codici di lingua usando l'intestazione HTTP `Accept-Language`. Le lingue supportate variano in base al paese e sono indicate per ogni paese nella tabella Mercati.
+In alternativa è possibile specificare il paese/l'area usando il parametro di query `cc`. Se si specifica un paese/un'area, è necessario specificare anche uno o più codici di lingua usando l'intestazione HTTP `Accept-Language`. Le lingue supportate variano in base al paese/l'area e sono indicate per ogni paese nella tabella Mercati.
 
 
 
@@ -36,7 +36,7 @@ In alternativa è possibile specificare il paese utilizzando il parametro di que
 
 ## <a name="countries"></a>Paesi
 
-|Paese|Codice|
+|Paese/Area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -78,7 +78,7 @@ In alternativa è possibile specificare il paese utilizzando il parametro di que
 
 ## <a name="markets"></a>Mercati
 
-|Paese|Linguaggio|Codice di mercato|
+|Paese/Area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|

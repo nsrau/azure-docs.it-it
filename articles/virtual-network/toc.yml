@@ -211,6 +211,8 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: Configurare PTR per il controllo del banner SMTP
           href: create-ptr-for-smtp-service.md
+        - name: Elenco di controllo per la risoluzione dei problemi di appliance virtuali
+          href: virtual-network-troubleshoot-nva.md
     - name: Classico
       items:
         - name: Creare e gestire una rete virtuale
@@ -285,7 +287,7 @@
               href: virtual-networks-dmz-nsg-fw-udr-asm.md
             - name: Applicazione di esempio
               href: virtual-networks-sample-app.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/network

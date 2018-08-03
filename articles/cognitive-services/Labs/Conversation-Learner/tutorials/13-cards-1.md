@@ -1,7 +1,7 @@
 ---
-title: "Come usare le schede con un'applicazione di Conversation Learner: parte 1 - Servizi cognitivi Microsoft| Microsoft Docs"
+title: 'Come usare le schede con un modello di Conversation Learner: parte 1 - Servizi cognitivi Microsoft| Microsoft Docs'
 titleSuffix: Azure
-description: Informazioni su come usare le schede con un'applicazione di Conversation Learner.
+description: Informazioni su come usare le schede con un modello di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,21 +10,26 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e90ccd42b21eea6139c402937be7e20513d73c84
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 988a2433f098f41bca4796299825293efd4de44b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376204"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171135"
 ---
-# <a name="how-to-use-cards-part-1-of-2"></a>Come usare le schede (parte 1 di 2)
+# <a name="how-to-use-cards-part-1-of-2"></a>Come usare le schede (parte 2 di 2)
 
 Questa esercitazione illustra come aggiungere e usare una scheda semplice nel bot.
 
-Si noti che Conversation Learner prevede che i file di definizione delle schede si trovino in una directory denominata "cards" presente nella directory in cui viene avviato il bot.
+> [!NOTE]
+> Attualmente Conversation Learner prevede che i file di definizione delle schede si trovino in una directory denominata "cards" presente nella directory in cui viene avviato il bot. Questa impostazione potrà essere configurata in futuro.
+
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 13](http://aka.ms/cl-tutorial-13-preview)](http://aka.ms/blis-tutorial-13)
 
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
 
     npm run tutorial-general
 
@@ -34,7 +39,7 @@ Le schede sono elementi dell'interfaccia utente che consentono all'utente di sel
 
 ### <a name="open-the-demo"></a>Aprire la demo
 
-Nell'elenco delle app dell'interfaccia utente Web fare clic su Tutorial-13-Cards-1. 
+Nell'elenco dei modelli dell'interfaccia utente Web fare clic su Tutorial-13-Cards-1. 
 
 ### <a name="the-card"></a>Scheda
 
@@ -44,8 +49,9 @@ Il sistema prevede che le definizioni delle schede si trovino nella directory ca
 
 ![](../media/tutorial13_prompt.PNG)
 
-- Si notino TextBlock e il modello della domanda.
-- Sono presenti due pulsanti di invio e il testo inviato per ognuno.
+> [!NOTE]
+> Si notino il tipo di corpo `TextBlock` e il segnaposto `{{question}}` nel campo di testo.
+> Sono presenti due pulsanti di invio e il testo inviato per ognuno.
 
 ### <a name="actions"></a>Azioni
 
@@ -57,16 +63,17 @@ L'azione di tipo scheda è stata creata come segue:
 
 ![](../media/tutorial13_cardaction.PNG)
 
-Si notino la domanda di input e i pulsanti 1 e 2, che costituiscono i riferimenti al modello nella scheda in cui si immettono la domanda e le rispettive risposte. È anche possibile fare riferimento a entità o combinazioni di testo ed entità e usarle.
+> [!NOTE]
+> La domanda di input e i pulsanti 1 e 2, che costituiscono i riferimenti al modello nella scheda in cui si immettono la domanda e le rispettive risposte. È anche possibile fare riferimento a entità o combinazioni di testo ed entità e usarle.
 
 L'icona a forma di occhio consente di visualizzare l'aspetto della scheda.
 
 ### <a name="train-dialog"></a>Dialogo di training
 
-Verrà ora illustrato un dialogo di training.
+Verrà ora esaminato un dialogo di training.
 
 1. Fare clic su Train Dialogs (Dialoghi di training) e quindi su New Train Dialog (Nuovo dialogo di training).
-1. Immettere "hi".
+1. Immettere 'hi'.
 2. Fare clic su Score Action (Punteggio azione).
 3. Fare clic per selezionare "Prompt go left or right".
     - Fare clic su "left" o "right" equivale a digitare rispettivamente "left" o "right" in qualità di utente. 

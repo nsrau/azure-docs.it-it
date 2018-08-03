@@ -2,19 +2,19 @@
 title: Eseguire test in batch dell'app LUIS - Azure | Microsoft Docs
 description: Usare test in batch per lavorare continuamente all'applicazione allo scopo di perfezionarla e di migliorarne la comprensione del linguaggio.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3803df32d6431b8413e8df0837ed62b2e4344cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 07/06/2018
+ms.author: diberry
+ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375361"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222654"
 ---
 # <a name="batch-testing-in-luis"></a>Test in batch in LUIS
 
@@ -34,14 +34,99 @@ Inviare un file batch di espressioni, noto come *set di dati*, per i test in bat
 
 *I duplicati sono considerati corrispondenze di stringa esatte, non corrispondenze che vengono prima tokenizzate. 
 
+## <a name="entities-allowed-in-batch-tests"></a>Entità consentite nel test in batch
+Le entità includono elementi padre semplici, gerarchici e compositi. Tutte le entità di questi tipi vengono visualizzate nel filtro del test in batch anche se nel file batch non sono presenti entità corrispondente.
+
+
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## <a name="batch-file-format"></a>Formato file batch
 Il file batch è costituito da espressioni. Ogni espressione deve avere una previsione di finalità e le [entità di Machine Learning](luis-concept-entity-types.md#types-of-entities) che si prevede vengano individuate. 
 
-Di seguito è riportato un file batch di esempio:
+Di seguito è riportato un esempio di un file batch con la sintassi appropriata:
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## <a name="batch-syntax-template"></a>Modello di sintassi di batch
+
+Usare il modello seguente per avviare il file batch:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+Il file batch usare le proprietà **startPos** e **endPos** per notare l'inizio e la fine di un'entità. I valori sono basati su zero e non devono iniziare o terminare in uno spazio. 
+
+Questo è diverso dai log di query, che usano proprietà startIndex ed endIndex. 
 
 
 ## <a name="common-errors-importing-a-batch"></a>Errori comuni nell'importazione di un batch
@@ -49,6 +134,7 @@ Di seguito sono riportati gli errori più comuni.
 
 > * Più di 1.000 espressioni
 > * Un oggetto JSON di espressione che non ha una proprietà di entità
+> * Parole etichettata in più entità
 
 ## <a name="batch-test-state"></a>Stato del test in batch
 Language Understanding tiene traccia dello stato dell'ultimo test di ogni set di dati, con le dimensioni (numero di espressioni nel batch), la data dell'ultima esecuzione e l'ultimo risultato (numero di espressioni previste correttamente).

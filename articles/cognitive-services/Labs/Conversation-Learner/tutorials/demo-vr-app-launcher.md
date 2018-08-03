@@ -1,7 +1,7 @@
 ---
-title: 'Applicazione demo di Conversation Learner: utilità di avvio di app di realtà virtuale - Servizi cognitivi Microsoft| Microsoft Docs'
+title: Modello dimostrativo di apprendimento della conversazione, utilità di avvio di app di realtà virtuale - Servizi cognitivi Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come creare un'applicazione demo di Conversation Learner.
+description: Informazioni su come creare un modello dimostrativo di apprendimento della conversazione.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,26 +10,30 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3e41125bf7da9ee64d666d22cb275af01af54012
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 896ec007c03e30e5c20a5344430be040271bc00b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376324"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171150"
 ---
 # <a name="demo-virtual-reality-app-launcher"></a>Demo: Utilità di avvio di app di realtà virtuale
 
-Questa demo illustra un'utilità di avvio di applicazioni di realtà virtuale che supporta comandi come "start Skype and put in on the wall". Per avviare l'app, un utente deve immettere un nome di app e una posizione. L'avvio dell'app viene gestito da una chiamata API. Quando viene riconosciuto un nome di app proveniente dall'utente, entityDetectionCallback controlla se l'app richiesta corrisponde a una o più app nell'elenco delle app installate e gestisce i casi in cui l'app richiesta non è installata o il nome di app è ambiguo, ossia corrisponde a più app installate.
+Questa demo illustra un'utilità di avvio di un modello di realtà virtuale che supporta comandi come "start Skype and put in on the wall" (avvia Skype e mettilo sul desktop). Per avviare l'app, un utente deve immettere un nome di app e una posizione. L'avvio del modello viene gestito da una chiamata API. Quando viene riconosciuto un nome di app proveniente dall'utente, entityDetectionCallback controlla se l'app richiesta corrisponde a una o più app nell'elenco delle app installate e gestisce i casi in cui l'app richiesta non è installata o il nome di app è ambiguo, ossia corrisponde a più app installate.
+
+## <a name="video"></a>Video
+
+[![Anteprima dell'app di realtà virtuale dimostrativa](http://aka.ms/cl-demo-vrapp-preview)](http://aka.ms/blis-demo-vrapp)
 
 ## <a name="requirements"></a>Requisiti
 
 Per questa esercitazione è necessario che il bot VRAppLauncher sia in esecuzione.
 
     npm run demo-vrapp
-
+    
 ### <a name="open-the-demo"></a>Aprire la demo
 
-Nell'elenco delle app dell'interfaccia utente Web fare clic su VRAppLauncher. 
+Nell'elenco Model (Modello) dell'interfaccia utente Web fare clic su VRAppLauncher. 
 
 ## <a name="entities"></a>Entità
 
@@ -56,7 +60,7 @@ Sono stati definiti diversi dialoghi di training.
 A titolo di esempio, si proverà una sessione di training.
 
 1. Fare clic su Train Dialogs (Dialoghi di training) e quindi su New Train Dialog (Nuovo dialogo di training).
-1. Immettere "hi".
+1. Immettere 'hi'.
 2. Fare clic su Score Action (Punteggio azione).
 3. Fare clic per selezionare "Which app do you want to start?".
 4. Immettere "outlook".
@@ -68,7 +72,7 @@ A titolo di esempio, si proverà una sessione di training.
 2. Passare a Score Actions (Punteggio azioni).
 6. Selezionare "LaunchApp".
 7. Sistema: "starting outlook on the wall".
-    - È stata così attivata una chiamata API. Il codice per la chiamata si trova in C:\<\percorsoinstallazione>\src\demos\demoVRAppLauncher.ts. Il codice, tuttavia, non contiene effettivamente la logica per avviare Outlook per questa demo
+    - Viene così attivata una chiamata API. Il codice per la chiamata si trova in C:\<\percorsoinstallazione>\src\demos\demoVRAppLauncher.ts. Questo file, tuttavia, non contiene effettivamente il codice per avviare Outlook per questa demo
     - e cancella le entità AppName e PlacementLocation. Restituisce quindi la stringa riportata sopra come risposta.
 4. Fare clic su Done Teaching (Training completato).
 
@@ -78,20 +82,20 @@ Avviare un'altra sessione di training per gestire le entità sconosciute o ambig
 
 1. Fare clic su New Train Dialog (Nuovo dialogo di training).
 1. Immettere "start OneNote". 
-    - Ciò viene riconosciuto come nome di app perché il metodo EntityDetectionCallback definito nel codice risolve il nome immesso dall'utente in un nome di app confrontandolo con l'elenco di app definito nel codice. Restituisce quindi il set di tutte le app corrispondenti. 
+    - Il modello riconosce OneNote come nome dell'app. La funzione `EntityDetectionCallback` definita nel codice risolve il nome immesso dall'utente in un nome di app confrontandolo con l'elenco di app definito nel codice. Restituisce quindi il set di tutte le app corrispondenti. 
     - Se l'elenco contiene zero corrispondenze, ciò significa che l'app non è installata e il nome viene inserito in unknownAppName.
-    - Se vengono trovate più app, vengono copiate in DisambigAppNames e viene cancellata l'entità AppName.
+    - Se vengono trovate più app, vengono copiate in `DisambigAppNames` e viene cancellata l'entità AppName.
 2. Fare clic su Score Action (Punteggio azione).
 3. Fare clic per selezionare "Sorry, I don't know the app $UknownAppName".
-4. Immettere "start amazon". Si proverà l'altro percorso.
+4. Immettere "start Amazon". Si proverà l'altro percorso.
 5. Fare clic su Score Actions (Punteggio azioni).
-    - La memoria di DisambigAppNames contiene ora Amazon Video e Amazon Music e OneNote è stato cancellato.
+    - Amazon Video e Amazon Music sono ora nella memoria di `DisambigAppNames` ed è stata cancellata la memoria e OneNote.
 3. Fare clic per selezionare "There are few apps that sound like that...".
-    - Il punteggio non è molto elevato perché al momento sono disponibili pochi dialoghi di training. Ne saranno necessari altri per rendere il modello più decisivo.
+    - Il punteggio non è molto elevato perché al momento sono disponibili pochi dialoghi di training. La definizione di un maggior numero di finestre di dialogo di training renderebbe il modello più determinante.
 2. Passare a Score Actions (Punteggio azioni).
 4. Fare clic su Done Teaching (Training completato).
 
-È stato dimostrato come eseguire la risoluzione delle entità. La demo ha anche illustrato i callback API e un modello per raccogliere le informazioni, verificare presenza e ambiguità ed eseguire l'azione corretta su tale base.
+È stato dimostrato come eseguire la risoluzione delle entità. La demo ha anche illustrato i callback API e un modello per raccogliere le informazioni, verificare presenza e ambiguità ed eseguire la conseguente azione corretta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

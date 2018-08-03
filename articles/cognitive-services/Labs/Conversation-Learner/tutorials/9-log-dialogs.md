@@ -1,7 +1,7 @@
 ---
-title: Come registrare i dialoghi in un'applicazione di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come registrare i dialoghi in un modello di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come registrare i dialoghi in un'applicazione di Conversation Learner.
+description: Informazioni su come registrare i dialoghi in un modello di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 477545c48aeca05d56fdae28ac65a8f381a482fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376380"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171436"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-application"></a>Come registrare i dialoghi in un'applicazione di Conversation Learner
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Informazioni su come registrare i dialoghi in un modello di Conversation Learner
 
 Questa esercitazione illustra come eseguire test per l'utente finale nell'interfaccia di Conversation Learner, come vengono registrati i dialoghi e come apportare correzioni ai dialoghi registrati per migliorare il modello.
 
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 9](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
 
     npm run tutorial-general
 
@@ -31,9 +35,9 @@ Per questa esercitazione è necessario che il bot di esercitazione generale sia 
 
 ## <a name="steps"></a>Passaggi
 
-### <a name="create-the-application"></a>Creazione dell'applicazione
+### <a name="create-the-model"></a>Creare il modello
 
-1. Nell'interfaccia utente Web fare clic su New App (Nuova App).
+1. Nell'interfaccia utente Web fare clic su New Model (Nuovo modello)
 2. In Name (Nome) immettere "LogDialogs". Fare quindi clic su Create (Crea).
 
 ### <a name="create-an-entity"></a>Creare un'entità
@@ -117,7 +121,7 @@ Apportare ora correzioni all'altro dialogo:
 
 1. Fare clic su "hello" in Log Dialogs (Dialoghi di log).
     - Verrà così aperta la conversazione.
-3. Si noti che la risposta a "hello" è "which city". Si vuole tuttavia modificare tale risposta in una più appropriata. Una risposta migliore sarebbe, ad esempio, "hello, I'm the weather bot". Dato che non è disponibile alcuna azione a tale scopo, è necessario crearne una.
+3. La risposta a "hello" è "which city". Si vuole tuttavia modificare tale risposta in una più appropriata. Una risposta migliore sarebbe, ad esempio, "hello, I'm the weather bot". Dato che non è disponibile alcuna azione a tale scopo, è necessario crearne una.
 4. Fare clic su Action (Azione).
     - In Response (Risposta) digitare "I'm the weather bot. I can help with forecasts".
 6. Deselezionare la casella di controllo Wait for Response (Attendi risposta) per impostare l'azione come senza attesa.

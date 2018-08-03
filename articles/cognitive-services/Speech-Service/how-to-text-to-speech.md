@@ -10,22 +10,22 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6c358b5a40b1d8e91c2e1af5eb493b13604cf82e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045059"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213334"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Usare "Sintesi vocale" nel Servizio di riconoscimento vocale
 
 Il Servizio di riconoscimento vocale offre la funzionalità Sintesi vocale attraverso una semplice richiesta HTTP. Dopo aver eseguito il POST del testo da pronunciare nell'endpoint appropriato, l'utente riceve dal servizio un file audio (`.wav`) contenente la sintesi vocale. L'applicazione può quindi usare questo audio nel modo previsto.
 
-Il corpo della richiesta POST per Sintesi vocale può essere costituito da testo normale (ASCII o UTF8) o da un documento [SSML](speech-synthesis-markup.md). Se il testo della richiesta è in formato testo normale, viene pronunciato con una voce predefinita. Nella maggior parte dei casi, è consigliabile usare un corpo in formato SSML. La richiesta HTTP deve includere un token di autorizzazione. 
+Il corpo della richiesta POST per Sintesi vocale può essere costituito da testo normale (ASCII o UTF8) o da un documento [SSML](speech-synthesis-markup.md). Se il testo della richiesta è in formato testo normale, viene pronunciato con una voce predefinita. Nella maggior parte dei casi, è consigliabile usare un corpo in formato SSML. La richiesta HTTP deve includere un token di [autorizzazione](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication). 
 
 Ecco gli endpoint Sintesi vocale per diverse aree. Usare quello appropriato per la sottoscrizione.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Specificare una voce
 
@@ -96,4 +96,6 @@ Per altre informazioni sull'API REST di Sintesi vocale, vedere [API REST](rest-a
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-- [Riconoscimento vocale in C#](quickstart-csharp-windows.md)
+- [Riconoscimento vocale in C++](quickstart-cpp-windows.md)
+- [Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
+- [Riconoscimento vocale in Java](quickstart-java-android.md)

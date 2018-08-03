@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866859"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436710"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Usare i profili delle versioni API con il comando di Azure 2.0 in Azure Stack
 
@@ -38,13 +38,13 @@ Dovrebbe visualizzare la versione della CLI di Azure e altre librerie dipendenti
 
 1. Ottenere il certificato di radice della CA di Azure Stack [l'operatore di Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e attendibile. Per rendere attendibile il certificato radice CA Azure Stack, aggiungerlo al certificato Python esistente.
 
-2. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Dovrai disporre [pip](https://pip.pypa.io) e il [quella ottenibile](https://pypi.org/project/certifi/) modulo installato. È possibile usare il comando Python seguito dal prompt di bash:
+1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Dovrai disporre [pip](https://pip.pypa.io) e il [quella ottenibile](https://pypi.org/project/certifi/) modulo installato. È possibile usare il comando Python seguito dal prompt di bash:
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
   ```
 
-  Prendere nota del percorso di certificati. Ad esempio, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Il percorso specifica varia in base al sistema operativo e la versione di Python installata.
+  Prendere nota del percorso di certificati. Ad esempio: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Il percorso specifica varia in base al sistema operativo e la versione di Python installata.
 
 ### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Impostare il percorso per un computer di sviluppo all'interno di cloud
 
@@ -60,9 +60,9 @@ Se si eseguono CLI da un computer **esterno** l'ambiente Azure Stack:
 
 1. È necessario configurare [connettività VPN ad Azure Stack](azure-stack-connect-azure-stack.md).
 
-2. Copiare il certificato con estensione PEM ottenuto da operatore di Azure Stack e prendere nota del percorso del file (PATH_TO_PEM_FILE).
+1. Copiare il certificato con estensione PEM ottenuto da operatore di Azure Stack e prendere nota del percorso del file (PATH_TO_PEM_FILE).
 
-3. Eseguire i comandi seguenti, a seconda della finale nel sistema operativo della workstation di sviluppo.
+1. Eseguire i comandi seguenti, a seconda della finale nel sistema operativo della workstation di sviluppo.
 
 #### <a name="linux"></a>Linux
 
@@ -140,7 +140,7 @@ Usare la procedura seguente per connettersi ad Azure Stack:
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. Impostare l'ambiente attivo usando i comandi seguenti.
+1. Impostare l'ambiente attivo usando i comandi seguenti.
 
    a. Per il *cloud amministrativi* ambiente, usare:
 
@@ -156,14 +156,14 @@ Usare la procedura seguente per connettersi ad Azure Stack:
         -n AzureStackUser
       ```
 
-3. Aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure. Per aggiornare la configurazione, eseguire il comando seguente:
+1. Aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure. Per aggiornare la configurazione, eseguire il comando seguente:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+1. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Accedere come un *utente*: È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario farlo se l'account è abilitata l'autenticazione a più fattori.
 

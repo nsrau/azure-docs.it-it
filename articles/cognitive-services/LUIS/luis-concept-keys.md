@@ -2,22 +2,22 @@
 title: Informazioni sulle chiavi LUIS - Azure | Microsoft Docs
 description: Usare le chiavi LUIS (Language Understanding) per creare l'app ed eseguire query nell'endpoint.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: v-geberr
-ms.openlocfilehash: 70bca3b181e02f42da50e827154193936544131a
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263819"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225177"
 ---
 # <a name="keys-in-luis"></a>Chiavi in LUIS
-LUIS usa due chiavi: [creazione](#programmatic-key) ed [endpoint](#endpoint-key). La chiave di creazione viene creata automaticamente quando si crea l'account LUIS. Quando si è pronti a pubblicare l'app LUIS, è necessario [creare la chiave endpoint](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [assegnarla](Manage-keys.md#assign-endpoint-key) all'app LUIS e [usarla con la query endpoint](#use-endpoint-key-in-query). 
+LUIS usa due chiavi: [creazione](#programmatic-key) ed [endpoint](#endpoint-key). La chiave di creazione viene creata automaticamente quando si crea l'account LUIS. Quando si è pronti a pubblicare l'app LUIS, è necessario [creare la chiave endpoint](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [assegnarla](luis-how-to-manage-keys.md#assign-endpoint-key) all'app LUIS e [usarla con la query endpoint](#use-endpoint-key-in-query). 
 
 |Chiave|Scopo|
 |--|--|
@@ -31,7 +31,7 @@ LUIS usa due chiavi: [creazione](#programmatic-key) ed [endpoint](#endpoint-key)
 
 Una chiave di creazione, nota anche come chiave di avvio, viene creata automaticamente quando si crea un account LUIS ed è gratuita. È presente una chiave di creazione per tutte le app LUIS per ogni [regione](luis-reference-regions.md) di creazione. La chiave di creazione viene fornita per creare l'app LUIS o per testare le query endpoint. 
 
-Per trovare la chiave di creazione, accedere a [LUIS][LUIS] e fare clic sul nome dell'account nella barra di spostamento superiore destra per aprire **Account Settings** (Impostazioni account).
+Per trovare la chiave di creazione, accedere a [LUIS](luis-reference-regions.md#luis-website) e fare clic sul nome dell'account nella barra di spostamento superiore destra per aprire **Account Settings** (Impostazioni account).
 
 ![chiave di creazione](./media/luis-concept-keys/programatic-key.png)
 
@@ -43,7 +43,7 @@ Per eseguire **query endpoint di produzione**, creare una [sottoscrizione LUIS](
 ## <a name="endpoint-key"></a>Chiave endpoint
  Quando si necessita di **query endpoint di produzione**, creare una [chiave LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nel portale di Azure. Memorizzare il nome usato per creare la chiave perché sarà necessario per aggiungere la chiave all'app.
 
-Al termine del processo di sottoscrizione LUIS, [aggiungere la chiave](Manage-keys.md#assign-endpoint-key) all'app nella pagina **Publish** (Pubblica). 
+Al termine del processo di sottoscrizione LUIS, [aggiungere la chiave](luis-how-to-manage-keys.md#assign-endpoint-key) all'app nella pagina **Publish** (Pubblica). 
 
 La chiave endpoint consente una quota di accessi endpoint in base al piano di utilizzo specificato durante la creazione della chiave. Per informazioni sui prezzi, vedere [Prezzi dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h).
 
@@ -56,24 +56,24 @@ L'endpoint LUIS accetta due stili di query, entrambi usano la chiave endpoint, m
 
 |Verbo|URL di esempio e posizione della chiave|
 |--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn le luci<br><br>valore stringa di query per `subscription-key`<br><br>Modificare il valore della query endpoint per `subscription-key` dalla chiave di creazione (avvio) alla nuova chiave endpoint per usare il limite di quota della chiave endpoint LUIS. Se si crea e si assegna la chiave, ma non si modifica il valore della query endpoint per subscription-key`, non si usa la quota della chiave endpoint.|
-|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a<br><br> valore intestazione per `Ocp-Apim-Subscription-Key`<br><br>Modificare il valore della query endpoint per `Ocp-Apim-Subscription-Key` dalla chiave di creazione (avvio) alla nuova chiave endpoint per usare il limite di quota della chiave endpoint LUIS. Se si crea e si assegna la chiave, ma non si modifica il valore della query endpoint per `Ocp-Apim-Subscription-Key`, non si usa la quota della chiave endpoint.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>valore stringa di query per `subscription-key`<br><br>Modificare il valore della query endpoint per `subscription-key` dalla chiave di creazione (avvio) alla nuova chiave endpoint per usare il limite di quota della chiave endpoint LUIS. Se si crea e si assegna la chiave, ma non si modifica il valore della query endpoint per subscription-key`, non si usa la quota della chiave endpoint.|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> valore intestazione per `Ocp-Apim-Subscription-Key`<br><br>Modificare il valore della query endpoint per `Ocp-Apim-Subscription-Key` dalla chiave di creazione (avvio) alla nuova chiave endpoint per usare il limite di quota della chiave endpoint LUIS. Se si crea e si assegna la chiave, ma non si modifica il valore della query endpoint per `Ocp-Apim-Subscription-Key`, non si usa la quota della chiave endpoint.|
+
+L'ID app usato nell'URL precedente, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, è l'app IoT pubblica usata per la [dimostrazione interattiva](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/). 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Uso API di Ocp-Apim-Subscription-Key
 Le API LUIS usano l'intestazione, `Ocp-Apim-Subscription-Key`. Il nome dell'intestazione non cambia in base alla chiave e al set di API in uso. Impostare l'intestazione sulla chiave di creazione per le API di creazione. Se si utilizza l'endpoint, impostare l'intestazione sulla chiave endpoint. 
 
-Non è possibile passare la chiave endpoint per le API di creazione. Se si tenta questa operazione, si riceve l'errore 401 (accesso negato a causa di una chiave di sottoscrizione non valida). 
+Non è possibile passare la chiave endpoint per le API di creazione. Se si tenta questa operazione, si riceve l'errore 401 (accesso negato a causa di una chiave endpoint non valida). 
 
 ## <a name="key-limits"></a>Limiti delle chiavi
-Vedere [Limiti delle chiavi](luis-boundaries.md#key-limits) e [Regioni di Azure](luis-reference-regions.md). La chiave di creazione è gratuita. La chiave di sottoscrizione LUIS presenta un livello gratuito, ma deve essere creata e associata all'app LUIS nella pagina **Publish** (Pubblica). Non può essere usata per la creazione, ma solo per le query endpoint.
+Vedere [Limiti delle chiavi](luis-boundaries.md#key-limits) e [Regioni di Azure](luis-reference-regions.md). La chiave di creazione è gratuita. La chiave endpoint LUIS presenta un livello gratuito, ma deve essere creata e associata all'app LUIS nella pagina **Publish** (Pubblica). Non può essere usata per la creazione, ma solo per le query endpoint.
 
 Le regioni di pubblicazione sono diverse dalle regioni di creazione. Assicurarsi di creare un'app nella regione di creazione corrispondente alla regione di pubblicazione desiderata.
 
 ## <a name="key-limit-errors"></a>Errori relativi ai limiti delle chiavi
-Se si supera la quota al secondo, viene visualizzato un errore HTTP 429. Se si supera la quota al mese, viene visualizzato un errore HTTP 403. Correggere questi errori ottenendo una chiave [endpoint](#endpoint-key) LUIS, [assegnando](Manage-keys.md#assign-endpoint-key) la chiave all'app nella pagina **Publish** (Pubblica) del sito Web [LUIS][LUIS].
+Se si supera la quota al secondo, viene visualizzato un errore HTTP 429. Se si supera la quota al mese, viene visualizzato un errore HTTP 403. Correggere questi errori ottenendo una chiave [endpoint](#endpoint-key) LUIS, [assegnando](luis-how-to-manage-keys.md#assign-endpoint-key) la chiave all'app nella pagina **Publish** (Pubblica) del sito Web [LUIS](luis-reference-regions.md#luis-website).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Ulteriori informazioni sui [concetti](Manage-Keys.md#assign-endpoint-key) relativi a chiavi di creazione ed endpoint.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Ulteriori informazioni sui [concetti](luis-how-to-manage-keys.md#assign-endpoint-key) relativi a chiavi di creazione ed endpoint.

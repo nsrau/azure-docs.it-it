@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054824"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346445"
 ---
 # <a name="batch-transcription"></a>Trascrizione Batch
 
@@ -31,7 +31,7 @@ L'API di trascrizione Batch rende possibile lo scenario appena descritto. Offre 
 
 L'API di trascrizione Batch aspira a diventare la scelta naturale per tutti gli scenari offline relativi ai call center e a offrire supporto per tutti i formati correlati. Formati attualmente supportati:
 
-Nome| Canale  |
+NOME| Canale  |
 ----|----------|
 mp3 |   Mono   |   
 mp3 |  Stereo  | 
@@ -40,7 +40,7 @@ wav |  Stereo  |
 
 Per i flussi audio stereo, la trascrizione Batch divide i canali sinistro e destro durante la trascrizione. I due file JSON con il risultato vengono creati ognuno da un singolo canale. I timestamp per espressione consentono allo sviluppatore di creare una trascrizione finale ordinata. Nell'esempio JSON seguente viene descritto l'output di un canale.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,10 +53,10 @@ Per i flussi audio stereo, la trascrizione Batch divide i canali sinistro e dest
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
-> L'API di trascrizione Batch usa un servizio REST per richiedere le trascrizioni, lo stato e i risultati associati. Si basa su .NET e non ha dipendenze esterne. Nella prossima sezione ne viene descritta la modalità d'uso.
+> L'API di trascrizione Batch usa un servizio REST per richiedere le trascrizioni, lo stato e i risultati associati. L'API può essere usata da qualsiasi linguaggio. Nella prossima sezione ne viene descritta la modalità d'uso.
 
 ## <a name="authorization-token"></a>Token di autorizzazione
 
@@ -77,7 +77,24 @@ Come per tutte le funzionalità del Servizio di riconoscimento vocale unificato,
 
 ## <a name="sample-code"></a>Codice di esempio
 
-Usare l'API è piuttosto semplice. Il codice di esempio riportato sotto deve essere personalizzato con una chiave di sottoscrizione e una chiave API.
+Usare l'API è piuttosto semplice. Il codice di esempio seguente deve essere personalizzato con una chiave di sottoscrizione e una chiave API, che a sua volta consente allo sviluppatore di ottenere un token di connessione, come mostra il frammento di codice seguente:
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+Dopo aver ottenuto il token lo sviluppatore deve specificare l'URI SAS selezionando il file audio che richiede la trascrizione. Il resto del codice semplicemente scorre lo stato e visualizza i risultati.
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ Usare l'API è piuttosto semplice. Il codice di esempio riportato sotto deve ess
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -139,7 +156,7 @@ Usare l'API è piuttosto semplice. Il codice di esempio riportato sotto deve ess
 > La chiave di sottoscrizione indicata nel frammento di codice precedente è la chiave della risorsa del Servizio di riconoscimento vocale (anteprima) creata nel portale di Azure. Le chiavi ottenute dalla risorsa del Servizio di riconoscimento vocale personalizzato non funzioneranno.
 
 
-Si noti la configurazione asincrona per l'inserimento dell'audio e la ricezione dello stato della trascrizione. Il client creato è un client Http NET. Il metodo `PostTranscriptions` consente di inviare i dettagli del file audio e il metodo `GetTranscriptions` consente di ricevere i risultati. `PostTranscriptions` restituisce un handle e il metodo `GetTranscriptions` usa questo handle per crearne uno per ottenere lo stato della trascrizione.
+Si noti la configurazione asincrona per l'inserimento dell'audio e la ricezione dello stato della trascrizione. Il client creato è un client HTTP NET. Il metodo `PostTranscriptions` consente di inviare i dettagli del file audio e il metodo `GetTranscriptions` consente di ricevere i risultati. `PostTranscriptions` restituisce un handle e il metodo `GetTranscriptions` usa questo handle per crearne uno per ottenere lo stato della trascrizione.
 
 Il codice di esempio attuale non specifica alcun modello personalizzato. Per la trascrizione dei file, il servizio userà i modelli di base. Se l'utente vuole specificare i modelli, è possibile passare sullo stesso metodo gli ID modello per il modello acustico e linguistico. 
 

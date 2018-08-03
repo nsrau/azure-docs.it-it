@@ -3,19 +3,19 @@ title: Riferimento datetimeV2 per le entità predefinite LUIS - Azure | Microsof
 titleSuffix: Azure
 description: Questo articolo contiene informazioni sull'entità predefinita datetimeV2 in Language Understanding, ovvero LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 261f6f27c39c280efdcd070888d735374a473c85
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 13f62e98a33aac51eae86d5ce1b802d4701ef3f6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321573"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236772"
 ---
 # <a name="datetimev2-entity"></a>Entità DatetimeV2
 
@@ -219,7 +219,7 @@ L'esempio seguente illustra come LUIS usa **datetimeV2** per risolvere l'espress
 
 ## <a name="deprecated-prebuilt-datetime"></a>Entità datetime predefinita deprecata
 
-L'entità `datetime` predefinita è deprecata e sostituita da [`datetimeV2`](#builtindatetimev2). 
+L'entità `datetime` predefinita è deprecata e sostituita da **datetimeV2**. 
 
 Per sostituire `datetime` con `datetimeV2` nell'app LUIS, completare i passaggi seguenti:
 

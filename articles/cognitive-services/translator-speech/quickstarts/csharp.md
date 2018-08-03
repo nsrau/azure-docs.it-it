@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6489a0be72cedffdfa4f7021f889b2d39c1c358f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4f12d74aedbcadc311cd9c5ccd12dc1ad3501dbf
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373825"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205103"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Guida introduttiva per l'API Traduzione vocale Microsoft con C# 
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ Questo articolo illustra come usare l'API Traduzione vocale Microsoft per tradur
 
 Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la Community Edition gratuita.
 
-È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file dall'[API Traduzione testuale con sintesi vocale](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file .wav dall'[API sintesi vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 È necessario disporre di un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Traduzione vocale Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -35,7 +35,7 @@ Il codice seguente traduce il parlato da una lingua a un'altra.
 
 1. Creare un nuovo progetto C# nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```csharp

@@ -10,22 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 77cc998227d996a6e52b1b5629204da5dc735ede
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376177"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171477"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Come distribuire un bot di Conversation Learner
 
 Questo documento illustra come distribuire un bot di Conversation Learner, in locale o in Azure.
 
-## <a name="prerequisite-determine-the-application-id"></a>Prerequisito: Determinare l'ID applicazione 
+## <a name="prerequisite-determine-the-model-id"></a>Prerequisito: Determinare l'ID modello 
 
-Per eseguire un bot all'esterno dell'interfaccia utente di Conversation Learner, è necessario impostare l'ID applicazione di Conversation Learner che verrà usato dal bot, ossia l'ID del modello di apprendimento automatico nel cloud Conversation Learner.  Quando il bot viene eseguito tramite l'interfaccia utente di Conversation Learner, invece, l'ID applicazione viene scelto dall'interfaccia utente.  
+Per eseguire un bot all'esterno dell'interfaccia utente di Conversation Learner, è necessario impostare l'ID modello di Conversation Learner che verrà usato dal bot, ossia l'ID del modello di apprendimento automatico nel cloud Conversation Learner.  Quando il bot viene eseguito tramite l'interfaccia utente di Conversation Learner, invece, l'ID modello viene scelto dall'interfaccia utente.  
 
-Ecco come ottenere l'ID applicazione:
+Ecco come ottenere l'ID modello:
 
 1. Avviare il bot e l'interfaccia utente di Conversation Learner.  Per istruzioni complete, vedere la guida introduttiva. Di seguito è riportato un riepilogo.
 
@@ -47,11 +47,11 @@ Ecco come ottenere l'ID applicazione:
 
 2. Aprire il browser alla pagina http://localhost:5050 
 
-3. Fare clic sull'applicazione di Conversation Learner di cui si vuole ottenere l'ID.
+3. Fare clic sul modello di Conversation Learner di cui si vuole ottenere l'ID
 
 4. Fare clic su "Settings" (Impostazioni) nella barra di spostamento a sinistra.
 
-5. Nella parte superiore della pagina viene visualizzato il GUID "App ID" (ID app).
+5. Nella parte superiore della pagina viene visualizzato il GUID "Model ID" (ID modello).
 
 ## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Opzione 1: Distribuzione di un bot di Conversation Learner per l'esecuzione in locale
 
@@ -62,7 +62,7 @@ Questa opzione prevede la distribuzione di un bot nel computer locale e illustra
 Quando si esegue un bot in locale, aggiungere l'ID applicazione al file con estensione `.env` del bot:
 
     ```
-    CONVERSATION_LEARNER_APP_ID=<YOUR_APP_ID>
+    CONVERSATION_LEARNER_MODEL_ID=<YOUR_MODEL_ID>
     ```
 
 Avviare quindi il bot:
@@ -113,11 +113,11 @@ Di seguito sono riportate istruzioni dettagliate per la distribuzione di un bot 
     1. Scorrere verso il basso fino alla sezione "App Settings" (Impostazioni app)
     2. Aggiungere queste impostazioni:
 
-        Variabile di ambiente | Valore
+        Variabile di ambiente | value
         --- | --- 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_APP_ID      | GUID dell'ID applicazione, ottenuto dalle impostazioni dell'app nell'interfaccia utente di Conversation Learner
-        LUIS_AUTHORING_KEY               | Chiave di creazione di LUIS per l'app
+        CONVERSATION_LEARNER_MODEL_ID      | GUID dell'ID applicazione, ottenuto dalle impostazioni del modello nell'interfaccia utente di Conversation Learner
+        LUIS_AUTHORING_KEY               | Chiave di creazione di LUIS per il modello
     
     4. Fare clic su "Save" (Salva) nella parte superiore della pagina
     5. Aprire l'elemento di spostamento "Build" (Compilazione) a sinistra

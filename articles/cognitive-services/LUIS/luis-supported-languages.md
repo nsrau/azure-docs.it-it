@@ -2,19 +2,19 @@
 title: Supportare la localizzazione in Azure usando le app LUIS | Microsoft Docs
 description: Di seguito vengono indicate le lingue supportate da LUIS.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2017
-ms.author: cahann
-ms.openlocfilehash: 1eabc01ee07f8791680738a156471e3efe2c44ff
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35378830"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248418"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>Riconoscimento specifico della cultura nelle applicazioni LUIS
 
@@ -59,7 +59,7 @@ Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-e
      - です non è uguale a だ. 
 
 ### <a name="text-analytics-support-notes"></a>**Note di supporto sull'analisi del testo
-Solo il portoghese è supportato per le impostazioni cultura secondarie: `pt-PT` e `pt-BR`. Tutte le altre lingue sono supportate a livello di impostazioni di cultura primarie. Altre informazioni sulle [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) per Analisi del testo. 
+L'analisi del testo include l'entità predefinita keyPhrase e l'analisi del sentiment. Solo il portoghese è supportato per le impostazioni cultura secondarie: `pt-PT` e `pt-BR`. Tutte le altre lingue sono supportate a livello di impostazioni di cultura primarie. Altre informazioni sulle [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) per Analisi del testo. 
 
 ### <a name="speech-api-supported-languages"></a>Lingue supportate per Speech API
 Vedere [Lingue supportate](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) dal servizio Voce per le lingue della modalità di dettatura vocale.

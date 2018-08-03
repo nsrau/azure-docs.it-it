@@ -47,8 +47,34 @@
   items:
     - name: Interfaccia della riga di comando di Azure
       href: cli-samples.md
+      items:
+        - name: Creare un argomento personalizzato
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: Sottoscrivere eventi per una sottoscrizione di Azure
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: Sottoscrivere eventi per un account di archiviazione BLOB
+          href: scripts/event-grid-cli-blob.md
+        - name: Sottoscrivere eventi per un argomento personalizzato
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: Sottoscrivere eventi per un gruppo di risorse
+          href: scripts/event-grid-cli-resource-group.md
+        - name: Sottoscrivere e filtrare eventi per un gruppo di risorse
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: Creare un argomento personalizzato
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: Sottoscrivere eventi per una sottoscrizione di Azure
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: Sottoscrivere eventi per un account di archiviazione BLOB
+          href: scripts/event-grid-powershell-blob.md
+        - name: Sottoscrivere eventi per un argomento personalizzato
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: Sottoscrivere eventi per un gruppo di risorse
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: Sottoscrivere e filtrare eventi per un gruppo di risorse
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: Modelli di Gestione risorse
       href: template-samples.md
     - name: Esempi di codice
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: Ricevere eventi in un endpoint HTTP
       href: receive-events.md
-    - name: Gestire il recapito di eventi
+    - name: Messaggi non recapitabili e ripetizione dei tentativi
       href: manage-event-delivery.md
     - name: Monitorare il recapito di eventi
       href: monitor-event-delivery.md

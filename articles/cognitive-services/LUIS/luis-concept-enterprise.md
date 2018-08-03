@@ -2,19 +2,19 @@
 title: Concetti aziendali per un'app LUIS - Azure | Microsoft Docs
 description: Informazioni sui concetti di progettazione per app LUIS di grandi dimensioni.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263754"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224861"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Strategie aziendali per un'app LUIS
 Rivedere queste strategie di progettazione per l'app aziendale.
@@ -27,17 +27,17 @@ Esportare l'app LUIS originale, quindi reimportarla in app separate. Ogni app di
 
 Per ottenere la stessa finalità principale in tutte le app, assicurarsi che la stima tra la prima e la seconda finalità sia sufficiente da non confondere LUIS, fornendo risultati diversi tra le app per variazioni minime nelle espressioni. 
 
-Progettare una singola app come master. Qualsiasi espressione suggerita per la revisione deve essere aggiunta all'app master e spostata in tutte le altre app. Si tratta di un'esportazione completa dell'app o del caricamento delle espressioni etichettate dal master agli elementi figlio. Il caricamento può essere effettuato dal sito Web [LUIS][LUIS] o dall'API di creazione per una [singola espressione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) o per un [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
+Progettare una singola app come master. Qualsiasi espressione suggerita per la revisione deve essere aggiunta all'app master e spostata in tutte le altre app. Si tratta di un'esportazione completa dell'app o del caricamento delle espressioni etichettate dal master agli elementi figlio. Il caricamento può essere effettuato dal sito Web [LUIS](luis-reference-regions.md) o dall'API di creazione per una [singola espressione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) o per un [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Pianificare una [revisione periodica delle espressioni endpoint](label-suggested-utterances.md) per l'apprendimento attivo, ad esempio ogni due settimane, rieseguire il training e ripubblicare. 
+Pianificare una [revisione periodica delle espressioni endpoint](luis-how-to-review-endoint-utt.md) per l'apprendimento attivo, ad esempio ogni due settimane, rieseguire il training e ripubblicare. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Assegnare più chiavi LUIS alla stessa app
-Se l'app LUIS riceve più accessi endpoint rispetto a quanto consentito dalla quota della chiave singola, creare e assegnare più chiavi all'app LUIS. Creare un'utilità di gestione del traffico o di bilanciamento del carico per gestire le query endpoint tra le chiavi di sottoscrizione. 
+Se l'app LUIS riceve più accessi endpoint rispetto a quanto consentito dalla quota della chiave singola, creare e assegnare più chiavi all'app LUIS. Creare un'utilità di gestione del traffico o di bilanciamento del carico per gestire le query endpoint tra le chiavi endpoint. 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Quando l'app monolitica restituisce la finalità errata
 Se l'app deve prevedere un'ampia varietà di espressioni utente, è consigliabile implementare il [modello recapito](#dispatch-tool-and-model). La suddivisione di un'app monolitica consente a LUIS di eseguire correttamente il rilevamento delle finalità anziché confondersi tra app padre e app figlio. 
 
-Pianificare una [revisione periodica delle espressioni endpoint](label-suggested-utterances.md) per l'apprendimento attivo, ad esempio ogni due settimane, rieseguire il training e ripubblicare. 
+Pianificare una [revisione periodica delle espressioni endpoint](luis-how-to-review-endoint-utt.md) per l'apprendimento attivo, ad esempio ogni due settimane, rieseguire il training e ripubblicare. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Quando è necessario disporre di più di 500 finalità
 Si supponga, ad esempio, di sviluppare un assistente per ufficio con oltre 500 finalità. Se 200 finalità sono correlate alla pianificazione di riunioni, 200 riguardano i promemoria, 200 il recupero di informazioni sui colleghi e 200 l'invio di messaggi di posta elettronica, raggruppare le finalità in modo che ciascun gruppo si trovi in una singola app, quindi creare un'app di livello superiore contenente ciascuna finalità. Usare l'[architettura e lo strumento recapito](#dispatch-tool-and-model) per compilare l'app di livello superiore. Modificare il bot affinché usi la chiamata a cascata come mostrato nell'[esercitazione sul recapito][dispatcher-application-tutorial]. 
@@ -65,6 +65,5 @@ Al massimo un'applicazione di recapito dispone di 500 origini di recapito, equiv
 
 * Informazioni su come [testare un batch](luis-how-to-batch-test.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
 [dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch

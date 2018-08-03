@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 639fea64fc8eeb2c1f6e6240c4eb26efc68febbd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376188"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170600"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Come eseguire il training con Conversation Learner 
 
@@ -56,9 +56,10 @@ Azioni del sistema prima del turno precedente | 4 |
 Entità presenti nei turni precedenti al turno corrente | 4 | 
 Espressioni dell'utente prima del turno corrente | 5 | 
 
-Si noti che la selezione dell'azione non si basa sul contenuto delle azioni del sistema, come il testo, il contenuto delle schede oppure il nome o il comportamento delle API, ma solo sulla loro identità.  Di conseguenza, la modifica del contenuto di un'azione non influisce sul comportamento del modello di selezione dell'azione.
-
-Si noti inoltre che non viene usato il contenuto/valore delle entità e ne viene usata solo la presenza/assenza.
+> [!NOTE]
+> La selezione dell'azione non si basa sul contenuto delle azioni del sistema, come il testo, il contenuto delle schede oppure il nome o il comportamento delle API, ma solo sulla loro identità.  Di conseguenza, la modifica del contenuto di un'azione non influisce sul comportamento del modello di selezione dell'azione.
+>
+> Inoltre, non viene usato il contenuto/valore delle entità e ne viene usata solo la presenza/assenza.
 
 Se la selezione dell'azione non ha il comportamento previsto, sono disponibili questi possibili rimedi:
 

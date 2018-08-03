@@ -9,24 +9,22 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5783a7a06d75a409969abad011de3bbd31dec292
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374529"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085760"
 ---
 # <a name="text-moderation"></a>Moderazione testo
 
-Usare la moderazione del testo automatica e le funzioni che prevedono l'[intervento umano](Review-Tool-User-Guide/human-in-the-loop.md) di Content Moderator per moderare i contenuti di testo.
+Usare la moderazione del testo automatica e le funzioni che prevedono la [revisione umana](Review-Tool-User-Guide/human-in-the-loop.md) di Content Moderator per moderare i contenuti di testo.
 
-Le aziende usano il servizio di moderazione del testo per bloccare, approvare o revisionare i contenuti in base ai loro criteri e alle loro soglie. Il servizio di moderazione del testo può essere usato per potenziare la moderazione umana degli ambienti che richiedono partner, dipendenti e consumer per generare i contenuti di testo. Tra questi vi sono chat room, forum di discussione, chatbot, cataloghi e-commerce e documenti. 
-
-L'API esegue l'analisi del testo in ingresso (massimo 1024 caratteri) per rilevare eventuali contenuti volgari, esegue la classificazione per possibili testi indesiderati (anteprima), corregge automaticamente il testo e rileva la presenza di potenziali informazioni personali. Fa inoltre riferimento agli elenchi personalizzati delle condizioni. La funzionalità di correzione automatica consente di intercettare errori di ortografia commessi di proposito. Dopo aver elaborato i contenuti, il servizio restituisce una risposta dettagliata. Usare la risposta per creare una revisione umana nello strumento di revisione o per eliminarla, e così via.
+Bloccare, approvare o revisionare il contenuto in base ai propri criteri e alle proprie soglie. Usarlo per estendere la moderazione umana degli ambienti in cui partner, dipendenti e consumer generano contenuto di testo. Tra questi vi sono chat room, forum di discussione, chatbot, cataloghi e-commerce e documenti. 
 
 La risposta del servizio include le informazioni seguenti:
 
-- Contenuto volgare: corrispondenza dei termini all'elenco integrato di termini volgari in più lingue
+- Contenuto volgare: corrispondenza dei termini all'elenco integrato di termini volgari in varie lingue
 - Classificazione: classificazione automatica in tre categorie
 - Informazioni personali
 - Testo corretto automaticamente
@@ -52,12 +50,9 @@ Se l'API rileva eventuali termini volgari in una qualsiasi delle [lingue support
 
 ## <a name="classification"></a>classificazione
 
-La **funzione di classificazione del testo** automatica di Content Moderator supporta **solo la lingua inglese** e consente di rilevare i contenuti potenzialmente indesiderati. Il contenuto contrassegnato può essere ritenuto inappropriato in base al contesto. Oltre a trasmettere la probabilità di ciascuna categoria, può consigliare una revisione umana del contenuto. La funzione usa un modello impostato per identificare un eventuale linguaggio offensivo, dispregiativo o discriminatorio. Sono inclusi termini gergali, parole abbreviate, parole offensive e parole intenzionalmente errate per la revisione. 
+La **funzione di classificazione del testo** automatica di Content Moderator supporta **solo la lingua inglese** e consente di rilevare i contenuti potenzialmente indesiderati. Il contenuto contrassegnato può essere valutato inappropriato in base al contesto. Indica la probabilità di ogni categoria e potrebbe consigliare una revisione umana. La funzione usa un modello impostato per identificare un eventuale linguaggio offensivo, dispregiativo o discriminatorio. Sono inclusi termini gergali, parole abbreviate, parole offensive e parole intenzionalmente errate per la revisione. 
 
 L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
-
-> [!NOTE]
-> La funzionalità "Classification" (Classificazione) automatica è disponibile in anteprima.
 
     "Classification": {
         "ReviewRecommended": true,
@@ -74,9 +69,9 @@ L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 
 ### <a name="explanation"></a>Spiegazione
 
-- `Category1` rappresenta la potenziale presenza di un linguaggio che può essere considerato sessualmente esplicito o per adulti in determinate situazioni.
-- `Category2` rappresenta la potenziale presenza di un linguaggio che può essere considerato sessualmente suggestivo o per maggiorenni in determinate situazioni.
-- `Category3` rappresenta la potenziale presenza di un linguaggio che può essere considerato offensivo in determinate situazioni.
+- `Category1` si riferisce alla potenziale presenza di un linguaggio che può essere considerato sessualmente esplicito o per adulti in determinate situazioni.
+- `Category2` si riferisce alla potenziale presenza di un linguaggio che può essere considerato sessualmente esplicito o per adulti in determinate situazioni.
+- `Category3` si riferisce alla potenziale presenza di un linguaggio che può essere considerato offensivo in determinate situazioni.
 - `Score` è compreso tra 0 e 1. Maggiore è il punteggio, più alto è il modello che prevede che la categoria possa essere applicabile. Questa anteprima si basa su un modello statistico piuttosto che su risultati codificati manualmente. Si consiglia di eseguire i test con i propri contenuti per determinare come ogni categoria si allinei alle proprie esigenze.
 - `ReviewRecommended` è true o false a seconda delle soglie interne del punteggio. I clienti devono valutare se usare questo valore o optare per le soglie personalizzate in base ai propri criteri relativi ai contenuti.
 
@@ -151,7 +146,7 @@ Se si richiede la correzione automatica, la risposta conterrà la versione corre
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Creazione e gestione di elenchi di termini personalizzati
 
-Sebbene l'elenco globale dei termini predefinito funzioni alla perfezione nella maggior parte dei casi, è consigliabile confrontarlo con termini specifici per i propri requisiti aziendali. Ad esempio, si consiglia di filtrare qualsiasi marchio della concorrenza dai messaggi degli utenti. La soglia del contenuto di testo consentito potrebbe essere diversa rispetto all'elenco predefinito.
+Sebbene l'elenco globale dei termini predefinito funzioni alla perfezione nella maggior parte dei casi, è consigliabile confrontarlo con termini specifici per i propri requisiti aziendali. Ad esempio, si consiglia di filtrare qualsiasi marchio della concorrenza dai messaggi degli utenti.
 
 > [!NOTE]
 > È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 termini**.
@@ -171,4 +166,4 @@ Content Moderator fornisce un'[API per elenchi di termini](https://westus.dev.co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire il test drive della [Console dell'API Moderazione testo](try-text-api.md) e usare gli esempi di codice API REST. Estrarre anche la [Avvio rapido per la moderazione del testo .NET](text-moderation-quickstart-dotnet.md) se si ha familiarità con Visual Studio e C#.
+Eseguire il test drive della [Console dell'API Moderazione testo](try-text-api.md) e usare gli esempi di codice API REST. Usare anche [Avvio rapido per la moderazione del testo .NET](text-moderation-quickstart-dotnet.md) se si ha familiarità con Visual Studio e C#.

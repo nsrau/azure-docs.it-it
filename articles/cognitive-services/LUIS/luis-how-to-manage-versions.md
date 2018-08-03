@@ -2,19 +2,19 @@
 title: Gestire versioni nelle app LUIS in Azure | Microsoft Docs
 description: Informazioni su come gestire le versioni nelle applicazioni LUIS (Language Understanding).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: v-geberr
-ms.openlocfilehash: 672f7991be0fc236e39daf7d1ce1d6080b31815b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373164"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226595"
 ---
 # <a name="manage-versions"></a>Gestire le versioni
 
@@ -28,7 +28,7 @@ Per usare le versioni, aprire l'app selezionando il relativo nome nella pagina *
 La pagina **Impostazioni** consente di configurare le impostazioni per l'intera app, inclusi collaboratori e versioni. 
 
 ## <a name="clone-a-version"></a>Clonare una versione
-1. Nella pagina **Impostazioni**, dopo le sezioni relative alle impostazioni dell'app e ai collaboratori, trovare la riga con la versione da clonare. Selezionare i tre punti (...) all'estrema destra. 
+1. Nella pagina **Impostazioni**, dopo le sezioni relative alle impostazioni dell'app e ai collaboratori, trovare la riga con la versione da clonare. Selezionare il pulsante dei puntini di sospensione (***...*** ) all'estrema destra. 
 
     ![Proprietà nella riga della versione](./media/luis-how-to-manage-versions/version-section.png)
 
@@ -51,7 +51,7 @@ La pagina **Impostazioni** consente di configurare le impostazioni per l'intera 
  > Come illustrato nella figura precedente, una versione pubblicata è associata a un contrassegno colorato, che indica il tipo di slot in cui è stata pubblicata: produzione (verde), staging (rosso) ed entrambi (nero). Per ogni versione pubblicata vengono visualizzate le date di training e di pubblicazione.
 
 ## <a name="set-active-version"></a>Impostare la versione attiva
-1. Nella pagina **Impostazioni**, nell'elenco **Versioni**, selezionare i tre punti (...) all'estrema destra.
+1. Nella pagina **Impostazioni**, nell'elenco **Versioni**, selezionare il pulsante dei puntini di sospensione (***...***) all'estrema destra.
 
 2. Nell'elenco popup selezionare **Imposta come attivo**.
 
@@ -82,14 +82,14 @@ La pagina **Impostazioni** consente di configurare le impostazioni per l'intera 
 
 **Per esportare una versione:**
 
-1. Nella pagina **Impostazioni**, nell'elenco **Versioni**, selezionare i tre punti (...) all'estrema destra.
+1. Nella pagina **Impostazioni**, nell'elenco **Versioni**, selezionare il pulsante dei puntini di sospensione (***...***) all'estrema destra.
 
 2. Selezionare **Esporta** nell'elenco popup di azioni e scegliere dove salvare il file.
 
 ## <a name="delete-a-version"></a>Eliminare una versione
 È possibile eliminare le versioni, ma è necessario mantenere almeno una versione dell'app. È possibile eliminare tutte le versioni ad eccezione di quella attiva. 
 
-1. Nella pagina **Impostazioni**, nell'elenco **Versioni**, selezionare i tre punti (...) all'estrema destra.
+1. Nella pagina **Impostazioni**, nell'elenco **Versioni**, selezionare il pulsante dei puntini di sospensione (***...***) all'estrema destra.
 
 2. Selezionare **Elimina** nell'elenco popup di azioni e scegliere dove salvare il file.
 
@@ -99,7 +99,7 @@ La pagina **Impostazioni** consente di configurare le impostazioni per l'intera 
 ## <a name="rename-a-version"></a>Rinominare una versione
 È possibile rinominare le versioni a condizione che il nome della versione non sia già in uso.  
 
-1. Nella pagina **Impostazioni**, nell'elenco **Versioni**, selezionare i tre punti (...) all'estrema destra.
+1. Nella pagina **Impostazioni**, nell'elenco **Versioni**, selezionare il pulsante dei puntini di sospensione (***...***) all'estrema destra.
 
 2. Selezionare **Rinomina** nell'elenco popup di azioni.
 

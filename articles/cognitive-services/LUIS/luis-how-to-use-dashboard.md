@@ -2,19 +2,19 @@
 title: Dashboard dell'applicazione per le app LUIS | Microsoft Docs
 description: Informazioni sulla dashboard dell'applicazione, uno strumento di visualizzazione di report che consente di monitorare le app in un solo momento.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: diberry
+ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35378542"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224501"
 ---
 # <a name="application-dashboard"></a>Dashboard dell'applicazione
 La dashboard dell'app consente di monitorare l'applicazione in un solo momento. La **Dashboard** viene visualizzata quando viene aperta un'app tramite la selezione del nome dell'applicazione nella pagina **App personali**, quindi della **Dashboard** nel riquadro superiore. 
@@ -69,7 +69,7 @@ Per selezionare un periodo da visualizzare nel grafico è necessario:
 2. Selezionare un periodo dall'elenco e quindi fare clic sulla freccia indietro ![Freccia indietro](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) per visualizzare il grafico.
 
 ### <a name="key-usage"></a>Uso della chiave
-Numero di riscontri usati dalla chiave di sottoscrizione dell'applicazione. Per altre informazioni sulle chiavi di sottoscrizione, vedi [Chiavi in LUIS](luis-concept-keys.md). 
+Numero di riscontri usati dalla chiave endpoint dell'applicazione. Per altre informazioni sulle chiavi endpoint, vedi [Chiavi in LUIS](luis-concept-keys.md). 
   
 ## <a name="intent-breakdown"></a>Scomposizione della finalità
 La **Scomposizione delle finalità** consente di visualizzare una suddivisione delle finalità sulla base di espressioni o riscontri di endpoint etichettate/i. Questo grafico di riepilogo mostra l'importanza relativa di ogni finalità nell'app. Quando si passa il puntatore del mouse su una sezione, vengono visualizzati il nome della finalità e la percentuale che rappresenta rispetto al totale delle espressioni/dei riscontri di endpoint etichettate/i. 

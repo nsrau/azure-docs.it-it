@@ -2,19 +2,19 @@
 title: Informazioni sul punteggio di stima restituito da LUIS - Azure | Microsoft Docs
 description: Informazioni sul significato del punteggio di stima in LUIS
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265989"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224587"
 ---
 # <a name="prediction-score"></a>Punteggio di stima
 Il punteggio di stima indica il grado di attendibilità rispetto ai risultati di stima di LUIS. 
@@ -28,7 +28,7 @@ Un punteggio di stima è in genere compreso tra zero (0) e uno (1). Un esempio d
 |0.01|attendibilità bassa|
 |0|nessuna corrispondenza|
 
-Quando un'espressione ottiene un punteggio di bassa attendibilità, LUIS lo evidenzia nella pagina [Intent][LUIS] (Finalità) del sito Web **LUIS**, con la **finalità etichettata** sottolineata in rosso. 
+Quando un'espressione ottiene un punteggio di bassa attendibilità, LUIS lo evidenzia nella pagina [Intent](luis-reference-regions.md) (Finalità) del sito Web **LUIS**, con la **finalità etichettata** sottolineata in rosso. 
 
 ![Discrepanza nel punteggio](./media/luis-concept-score/score-discrepancy.png)
 
@@ -58,8 +58,9 @@ Quando si esegue il training dello stesso modello in un'altra app e i punteggi d
 
 Se il chatbot richiede un punteggio LUIS specifico per indicare l'attentibilità in una finalità, è consigliabile usare la differenza di punteggio tra le due finalità principali. Questo conferisce flessibilità in caso di variazioni nel training. 
 
+## <a name="punctuation"></a>Punteggiatura
+Punteggiatura è un token separato in LUIS. Un'espressione contenente un punto alla fine e un'espressione che non lo contiene sono due espressioni separate e possono ottenere due stime diverse. Assicurarsi che il modello gestisca la punteggiatura nelle [espressioni di esempio](luis-concept-utterance.md) (con e senza punteggiatura) o in [patterns}(luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere [Aggiungere entità](luis-how-to-add-entities.md) per ulteriori informazioni sull'aggiunta di entità all'app LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

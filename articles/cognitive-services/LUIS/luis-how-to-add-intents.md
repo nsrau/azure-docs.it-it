@@ -2,19 +2,19 @@
 title: Pianificare le finalità nelle applicazioni LUIS | Microsoft Docs
 description: Usare Language Understanding (LUIS) per aggiungere le finalità che consentono alle app di comprendere le richieste degli utenti e di risolverle in modo opportuno.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: f004a0a1726ca6c513e2cb4c137f82ae40e31a01
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344328"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225887"
 ---
 # <a name="manage-intents"></a>Gestire le finalità 
 Aggiungi le [finalità](luis-concept-intent.md) all'app LUIS per identificare gruppi di domande o comandi con gli stessi scopi. 
@@ -75,9 +75,9 @@ Vedi [Aggiungi un criterio da un'espressione esistente nella pagina delle entit�
 
 ## <a name="edit-an-utterance-on-intent-page"></a>Modificare un'espressione nella pagina delle finalità
 
-Per modificare un'espressione, seleziona l'icona dei tre punti di sospensione (...) all'estremità destra nella riga di tale espressione, quindi seleziona **Modifica**. Modifica il testo, quindi premi Invio sulla tastiera.
+Per modificare un'espressione, seleziona l'icona del pulsante dei puntini di sospensione (***...***) all'estremità destra nella riga di tale espressione, quindi seleziona **Modifica**. Modifica il testo, quindi premi Invio sulla tastiera.
 
-![Schermata della pagina dei dettagli delle finalità, con i tre punti di sospensione](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Schermata della pagina dei dettagli delle finalità, con il pulsante dei puntini di sospensione evidenziato](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>Riassegnare espressioni nella pagina delle finalità
 È possibile modificare la finalità di una o più espressioni riassegnandole a un'altra finalità. 
@@ -92,7 +92,7 @@ Per modificare la finalità di diverse espressioni, seleziona le caselle di cont
 
 ## <a name="delete-utterances-on-intent-page"></a>Eliminare espressioni nella pagina delle finalità
 
-Per eliminare un'espressione, seleziona l'icona dei tre punti di sospensione (...) all'estremità destra nella riga di tale espressione, quindi seleziona **Elimina**. L'espressione viene rimossa dall'elenco e dall'app LUIS.
+Per eliminare un'espressione, seleziona l'icona del pulsante dei puntini di sospensione (***...***) all'estremità destra nella riga di tale espressione, quindi seleziona **Elimina**. L'espressione viene rimossa dall'elenco e dall'app LUIS.
 
 ![Schermata della pagina dei dettagli delle finalità, con l'opzione Elimina evidenziata](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 

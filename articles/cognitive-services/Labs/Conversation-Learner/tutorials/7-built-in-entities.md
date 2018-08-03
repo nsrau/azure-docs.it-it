@@ -1,7 +1,7 @@
 ---
-title: Come aggiungere entità precompilate a un'applicazione Strumento di apprendimento di conversazioni - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come aggiungere entità precompilate a un modello Strumento di apprendimento di conversazioni - Servizi cognitivi Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come aggiungere entità precompilate a un'applicazione Strumento di apprendimento di conversazioni.
+description: Informazioni su come aggiungere entità precompilate a un modello Strumento di apprendimento di conversazioni.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f014464419bfac39a9e57e679fcd28a737e9ebdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377681"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171368"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Come aggiungere entità precompilate
-Questa esercitazione illustra come aggiungere entità "precompilate" a un'applicazione Strumento di apprendimento di conversazioni.
+Questa esercitazione illustra come aggiungere entità "precompilate" a un modello Strumento di apprendimento di conversazioni.
+
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 7](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
@@ -31,9 +35,9 @@ Le entità precompilate riconoscono tipi di entità comuni, ad esempio numeri, d
 
 ## <a name="steps"></a>Passaggi
 
-### <a name="create-the-application"></a>Creazione dell'applicazione
+### <a name="create-the-model"></a>Creare il modello
 
-1. Nell'interfaccia utente Web fare clic su Nuova app
+1. Nell'interfaccia utente Web fare clic su New Model (Nuovo modello)
 2. In Nome immettere BuiltInEntities. Fare quindi clic su Crea.
 
 ### <a name="create-an-entity"></a>Creare un'entità
@@ -62,7 +66,7 @@ Creare quindi la seconda azione:
 
 ![](../media/tutorial7_actions2.PNG)
 
-Adesso si dispone di due azioni.
+Sono ora disponibili due azioni.
 
 ### <a name="train-the-bot"></a>Eseguire il training del bot
 
@@ -75,7 +79,7 @@ Adesso si dispone di due azioni.
     - Nota: la data viene ora visualizzata nella sezione Entity Memory (Memoria entità). 
     - Se si passa il mouse sulla data, verranno visualizzati i dati aggiuntivi forniti da LUIS, che è possibile usare e modificare ulteriormente nel codice. 
 6. Selezionare 'The date is $luis-datetimev2'.
-7. Fare clic su Done Teaching (Fine insegnamento)
+7. Fare clic su Done Teaching (Training completato).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

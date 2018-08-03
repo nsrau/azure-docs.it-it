@@ -3,19 +3,19 @@ title: Aggiungere modelli di criteri nelle app LUIS | Microsoft Docs
 titleSuffix: Azure
 description: Informazioni su come aggiungere i modelli di criteri in Language Understanding (LUIS) per migliorarne la precisione delle previsioni.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 9dd23fd5f8a0024f127b71160899d10042037a66
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: diberry;
+ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346009"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222597"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Modalità tramite cui aggiungere Criteri per migliorare la precisione delle previsioni
 Dopo che l'app LUIS ha ricevuto le espressioni di endpoint, usa il [concetto](luis-concept-patterns.md) di Criteri per migliorare la precisione della previsione per quelle espressioni che presentano un criterio a livello di ordine delle parole e di scelta lessicale. I criteri usano le [entità](luis-concept-entity-types.md) e i rispettivi ruoli per estrarre i dati tramite la sintassi di un criterio specifico. 
@@ -57,7 +57,7 @@ La ricerca consente di trovare i criteri che contengono un dato testo.
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Modificare un criterio
-1. Per modificare un criterio, seleziona l'icona dei tre punti di sospensione (...) all'estremità destra nella riga di tale criterio, quindi seleziona **Modifica**. 
+1. Per modificare un criterio, seleziona l'icona dei puntini di sospensione (***...***) all'estremità destra nella riga di tale criterio, quindi seleziona **Modifica**. 
 
     ![Schermata della voce di menu Modifica nella riga del criterio](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ Per riassegnare diversi criteri a diverse finalità, seleziona la casella di con
 
 ## <a name="delete-a-single-pattern"></a>Eliminare un criterio singolo
 
-1. Per eliminare un criterio, seleziona l'icona dei tre punti di sospensione (...) all'estremità destra nella riga di tale criterio, quindi seleziona **Elimina**. 
+1. Per eliminare un criterio, seleziona l'icona dei puntini di sospensione (***...***) all'estremità destra nella riga di tale criterio, quindi seleziona **Elimina**. 
 
     ![Schermata dell'espressione Elimina](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ Il filtro viene rimosso e vengono visualizzati tutti i criteri.
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Aggiungi un criterio da un'espressione esistente nella pagina delle entità o finalità
 È possibile creare un criterio da un'espressione esistente in entrambe le pagine **Finalità** oppure **Entità**. Tutti le espressioni in qualsiasi pagina finalità o entità vengono visualizzate in un elenco, la cui colonna a destra fornisce l'accesso alle opzioni a livello di espressione, ad esempio **Modifica**, **Elimina** e **Aggiungi come criterio**.
 
-1. Nella riga selezionata dell'espressione, seleziona i tre puntini di sospensione (...) a destra dell'espressione, quindi **Aggiungi come criterio**.
+1. Nella riga selezionata dell'espressione selezionare i puntini di sospensione (***...***) a destra dell'espressione, quindi **Aggiungi come criterio**.
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Schermata della tabella di espressioni con Aggiungi criterio evidenziato nel menu delle opzioni")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 

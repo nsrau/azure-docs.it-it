@@ -1,7 +1,7 @@
 ---
-title: Come usare le azioni con attesa e senza attesa con un'applicazione di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come usare le azioni con attesa e senza attesa con un modello di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come usare le azioni con attesa e senza attesa con un'applicazione di Conversation Learner.
+description: Informazioni su come usare le azioni con attesa e senza attesa con un modello di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bb2cbd55b6c8be51213095926bb592169613d1fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376156"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173085"
 ---
 # <a name="wait-and-non-wait-actions"></a>Azioni con attesa e senza attesa
 
 Questa esercitazione illustra la differenza tra azioni con attesa e senza attesa in Conversation Learner.
 
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 2](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
+
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
 
     npm run tutorial-general
 
@@ -33,9 +37,9 @@ Per questa esercitazione è necessario che il bot di esercitazione generale sia 
 
 ## <a name="steps"></a>Passaggi
 
-### <a name="create-a-new-app"></a>Creare una nuova app
+### <a name="create-a-new-model"></a>Creare un nuovo modello
 
-1. Nell'interfaccia utente Web fare clic su New App (Nuova App).
+1. Nell'interfaccia utente Web fare clic su New Model (Nuovo modello)
 2. In Name (Nome) immettere "WaitNonWait". Fare quindi clic su Create (Crea).
 
 ### <a name="create-the-first-wait-action"></a>Creare la prima azione con attesa
@@ -43,7 +47,7 @@ Per questa esercitazione è necessario che il bot di esercitazione generale sia 
 1. Fare clic su Actions (Azioni) e quindi su New Action (Nuova azione).
 2. In Response (Risposta) immettere "Which animal do you want?".
     - Dato che questa è un'azione con attesa, lasciare selezionata la casella Wait for Response (Attendi risposta).
-3. Fare clic su Done (Fine).
+3. Fare clic su Crea.
 
 ### <a name="create-a-non-wait-action"></a>Creare un'azione senza attesa
 
@@ -68,14 +72,15 @@ Per questa esercitazione è necessario che il bot di esercitazione generale sia 
 3. Fare clic su Score Actions (Punteggio azioni) e selezionare "Which animal do you want?".
 4. Immettere "cow".
 5. Fare clic su Score Actions (Punteggio azioni) e selezionare "Cows say moo".
-    - Si noti che il bot non attenderà input ed eseguirà l'azione successiva.
+    - Il bot non attenderà input ed eseguirà l'azione successiva.
 2. Selezionare "Which animal do you want?".
 3. Immettere "duck".
 5. Fare clic su Score Actions (Punteggio azioni) e selezionare "Ducks say quack".
 
 ![](../media/tutorial2_dialogs.PNG)
 
-Si noti la sequenza delle risposte del bot in relazione alle azioni con attesa e senza attesa.
+> [!NOTE]
+> La sequenza delle risposte del bot in relazione alle azioni con attesa e senza attesa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

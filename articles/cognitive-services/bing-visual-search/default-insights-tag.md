@@ -10,16 +10,16 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: c0bf51ab86e2ba99aeb859ea415e1afd355a86f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a0ced7076c566c819f9e3f7abc5e2fa3930fa0b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376396"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004302"
 ---
 # <a name="default-insights-tag"></a>Tag informazioni dettagliate predefinite
 
-Il tag delle informazioni dettagliate predefinite è quello con il campo `displayName` impostato su una stringa vuota. L'esempio seguente mostra il possibile elenco di informazioni dettagliate predefinite (azioni).
+Il tag delle informazioni dettagliate predefinite è quello con il campo `displayName` impostato su una stringa vuota. L'esempio seguente mostra il possibile elenco di informazioni dettagliate predefinite (azioni). L'elenco delle azioni incluse nella risposta dipende dall'immagine. E per ogni azione, l'elenco delle proprietà potrebbe variare in base all'immagine, quindi verificare se la proprietà esiste prima di provare a usarla.
 
 ```json
 {
@@ -344,6 +344,9 @@ Le informazioni dettagliate di tipo ProductVisualSearch forniscono un elenco di 
                 "shoppingSourcesCount" : 1,
                 "recipeSourcesCount" : 0,
                 "aggregateOffer" : {
+                  "name":"4-Piece Kitchen Package with...",
+                  "priceCurrency":"USD",
+                  "lowPrice":2756,
                   "offers" : [
                     {
                       "name" : "4-Piece Kitchen Package with...",
@@ -360,7 +363,8 @@ Le informazioni dettagliate di tipo ProductVisualSearch forniscono un elenco di 
                       "availability" : "InStock",
                       "lastUpdated" : "2018-02-20T00:00:00.0000000"
                     }
-                  ]
+                  ],
+                  "offerCount":1
                 },
                 "pagesIncludingCount" : 4,
                 "availableSizesCount" : 2

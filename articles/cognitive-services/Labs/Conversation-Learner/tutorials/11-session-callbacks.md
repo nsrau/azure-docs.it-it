@@ -1,7 +1,7 @@
 ---
-title: Come usare i callback di sessione con un'applicazione di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come usare i callback di sessione con un modello di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come usare i callback di sessione con un'applicazione di Conversation Learner.
+description: Informazioni su come usare i callback di sessione con un modello di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f8970620c1f0f87ccae13d031092a048144ffb19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0f51b232470e4e4da3f25d40d025dd3b09dd1204
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376252"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171916"
 ---
-# <a name="how-to-use-session-callbacks-with-a-conversation-learner-application"></a>Come usare i callback di sessione con un'applicazione di Conversation Learner
+# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Come usare i callback di sessione con un modello di Conversation Learner
 
 Questa esercitazione illustra i callback onSessionStart e onSessionEnd.
 
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 11](http://aka.ms/cl-tutorial-11-preview)](http://aka.ms/blis-tutorial-11)
+
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot "tutorialSessionCallbacks.ts" sia in esecuzione.
+Per questa esercitazione è necessario che il bot `tutorialSessionCallbacks` sia in esecuzione.
 
     npm run tutorial-session-callbacks
 
@@ -35,11 +39,11 @@ In caso di lunghe pause, il bot passerà alla sessione successiva.  All'avvio di
 
 ### <a name="open-the-demo"></a>Aprire la demo
 
-Nell'elenco delle app fare clic su Tutorial-11-SessionCallbacks. 
+Nell'elenco dei modelli fare clic su Tutorial-11-SessionCallbacks. 
 
 ### <a name="entities"></a>Entità
 
-Nell'applicazione sono state definite quattro entità.
+Nel modello vengono definite quattro entità.
 
 ![](../media/tutorial11_entities.PNG)
 
@@ -47,7 +51,7 @@ Un aspetto da rilevare è che BotName è un'entità a livello di codice,  che ve
 
 ### <a name="actions"></a>Azioni
 
-Sono state create quattro azioni. 
+Nel modello vengono definite quattro azioni.
 
 ![](../media/tutorial11_actions.PNG)
 
@@ -70,7 +74,7 @@ Il codice per i metodi di callback si trova nel file c:\<percorsoinstallazione>\
 Entrambi questi metodi sono facoltativi.
 
 - OnSessionStartCallback: questo metodo imposta l'entità BotName.
-- OnSessionEndCallback: è possibile specificare ciò che si vuole cancellare. In questo caso verranno cancellate tutte le entità tranne il nome e il numero di telefono dell'utente.
+- OnSessionEndCallback: è possibile specificare ciò che si vuole conservare. In questo caso verranno cancellate tutte le entità tranne il nome e il numero di telefono dell'utente.
 
 ### <a name="try-the-bot"></a>Provare il bot
 

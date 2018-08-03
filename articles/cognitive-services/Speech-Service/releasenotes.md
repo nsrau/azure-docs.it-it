@@ -8,16 +8,56 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/17/2018
 ms.author: wolfma
-ms.openlocfilehash: 0b1559d288380cf3d0c180a225278cc13d22a5d0
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 50a8c183bd7f2711847ce6d0acade4cb498ef2fc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35378996"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116096"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Speech SDK 0.5.0 di Servizi cognitivi: versione di luglio 2018
+
+**Nuove funzionalità**
+
+* Supporto della piattaforma Android (API 23: Android Marshmallow 6.0 o versione successiva).
+  Consultare la [Guida introduttiva di Android](quickstart-java-android.md).
+* Supporto di .NET Standard 2.0 in Windows.
+  Consultare la [Guida introduttiva di .NET Core](quickstart-csharp-dotnetcore-windows.md).
+* Sperimentale: supporto di UWP in Windows (versione 1709 o successiva)
+  * Consultare la [Guida introduttiva della piattaforma UWP](quickstart-csharp-uwp.md).
+  * Nota: le app UWP compilate con Speech SDK non superano ancora il Kit di certificazione app Windows (WACK).
+* Supporto del riconoscimento a esecuzione prolungata con riconnessione automatica.
+
+**Modifiche funzionali**
+
+* `StartContinuousRecognitionAsync()` supporta il riconoscimento a esecuzione prolungata.
+* Il risultato del riconoscimento contiene più campi: scostamento da inizio audio e durata (entrambi in tick) del testo riconosciuto, valori aggiuntivi che rappresentano lo stato di riconoscimento, ad esempio `InitialSilenceTimeout` e `InitialBabbleTimeout`.
+* Supporto del token di autorizzazione per la creazione di istanze di factory.
+
+**Modifiche di rilievo**
+
+* Eventi di riconoscimento: il tipo di evento NoMatch è stato unito all'evento Error.
+* SpeechOutputFormat in C# è stato rinominato in OutputFormat per coerenza con C++.
+* Il tipo restituito di alcuni metodi dell'interfaccia `AudioInputStream` è stato leggermente modificato:
+   * In Java, il metodo `read` restituisce ora `long` invece di `int`.
+   * In C#, il metodo `Read` restituisce ora `uint` invece di `int`.
+   * In C++, i metodi `Read` e `GetFormat` restituiscono ora `size_t` invece di `int`.
+* C++: le istanze di flussi di input audio possono ora essere passate solo come `shared_ptr`.
+
+**Correzioni di bug**
+
+* Sono stati corretti i valori di risultato errati nel risultato alla scadenza di `RecognizeAsync()`.
+* È stata rimossa la dipendenza dalle librerie di Media Foundation in Windows. L'SDK usa ora le API Audio Core.
+* Correzione della documentazione: è stata aggiunta una pagina per descrivere quali sono le aree supportate.
+
+**Problemi noti**
+
+* Speech SDK per Android non segnala i risultati della sintesi vocale per la traduzione.
+  Questo problema verrà risolto nella prossima versione.
 
 ## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Speech SDK di Servizi cognitivi 0.4.0: versione di giugno 2018
 

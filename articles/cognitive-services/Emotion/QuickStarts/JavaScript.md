@@ -9,12 +9,12 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 2578b0212f9b4a6483402074d7c9eff73e51ca6b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb9cc2335582c4ec75ec45635e519346d65d7e08
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374097"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072093"
 ---
 # <a name="emotion-api-javascript-quick-start"></a>Guida introduttiva all'API Emozioni con JavaScript
 

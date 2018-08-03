@@ -9,18 +9,18 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 48fc234e15ce3b9172d766f6fae11b51a017ce70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35378494"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858460"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>Chiamare l'endpoint di Ricerca personalizzata Bing (Node.js)
 
 Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'istanza di ricerca personalizzata usando Node.js per chiamare l'endpoint di Ricerca personalizzata Bing. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
 - Un'istanza di ricerca personalizzata. Vedere [Create your first Bing Custom Search instance](quick-start.md) (Creare la prima istanza di Ricerca personalizzata Bing).
@@ -34,12 +34,16 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 Per chiamare l'endpoint di Ricerca personalizzata Bing, eseguire queste operazioni:
 
 1. Creare una cartella per il codice.
+
 2. Da un terminale o un prompt dei comandi passare alla cartella appena creata.
+
 3. Installare il modulo Node **request**:
     <pre>
     npm install request
     </pre>
+    
 4. Creare il file BingCustomSearch.js e copiare il codice seguente nel file.
+
 5. Sostituire **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** con la chiave e l'ID configurazione (vedere il passaggio 1).
 
     ``` javascript

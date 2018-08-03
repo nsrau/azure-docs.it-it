@@ -2,19 +2,19 @@
 title: Eseguire test in batch dell'app LUIS - Azure | Microsoft Docs
 description: Eseguire il test in batch dell'app LUIS (Language Understanding) per trovare le espressioni con finalità ed entità errate.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 822fb1e2d5b13941527d242e8501b423bd6b81cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 2c648cdd82f89a9646fa0b311a7f1f68dd4bc4a9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265514"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223582"
 ---
 # <a name="batch-testing"></a>Test in batch
  Il test in batch è un test completo sul modello già sottoposto a training per misurarne le prestazioni in LUIS. 
@@ -26,7 +26,7 @@ ms.locfileid: "36265514"
 
     ![Collegamento Batch Testing (Test in batch)](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Selezionare **Import dataset** (Importa set di dati). Verrà visualizzata la finestra di dialogo **Import new dataset** (Importa nuovo set di dati). Selezionare **Choose File** (Scegli file) e cercare il file [JSON](luis-concept-batch-test.md#batch-file-format) che *non contiene più di 1.000* espressioni da testare.
+2. Selezionare **Import dataset** (Importa set di dati). Verrà visualizzata la finestra di dialogo **Import new dataset** (Importa nuovo set di dati). Selezionare **Choose File** (Scegli file) e cercare il file JSON con il formato [JSON](luis-concept-batch-test.md#batch-file-format) corretto che *non contiene più di 1.000* espressioni da testare.
 
     ![Importare il file di set di dati](./media/luis-how-to-batch-test/batchtest-importset.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "36265514"
 4. Selezionare **Operazione completata**. Il file di set di dati viene aggiunto.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Eseguire, rinominare, esportare o eliminare il set di dati
-Per eseguire, rinominare, esportare o eliminare il set di dati, usare i tre punti (**...** ) alla fine della riga del set di dati.
+Per eseguire, rinominare, esportare o eliminare il set di dati, usare il pulsante dei puntini di sospensione (***...*** ) alla fine della riga del set di dati.
 
 ![Azioni del set di dati](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -77,13 +77,6 @@ Per filtrare il grafico in base a una finalità o entità specifica, selezionare
  
 ![Risultato del test in batch visualizzato](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## <a name="view-single-point-utterance-data"></a>Visualizzare i dati dell'espressione single-point
 Nel grafico passare il mouse su un punto dati per visualizzare il punteggio di certezza della relativa stima. Selezionare un punto dati per recuperare l'espressione corrispondente nell'elenco nella parte inferiore della pagina. 
 
@@ -107,16 +100,7 @@ Le due sezioni del grafico in verde corrispondevano alla stima prevista.
 
 Se il test indica che l'app LUIS non riconosce le finalità e le entità corrette, è possibile migliorare le prestazioni dell'app LUIS etichettando più espressioni o aggiungendo funzionalità. 
 
-* [Etichettare le espressioni suggerite con LUIS](Label-Suggested-Utterances.md) 
+* [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endoint-utt.md) 
 * [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
 * [Comprendere il test in batch con questa esercitazione](luis-tutorial-batch-testing.md)
 * [Informazioni sui concetti del test in batch](luis-concept-batch-test.md).
-
-[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
-[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
-[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
-[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
-[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
-[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
-[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
-

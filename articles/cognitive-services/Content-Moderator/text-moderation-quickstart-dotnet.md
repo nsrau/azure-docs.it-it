@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374484"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049882"
 ---
 # <a name="moderate-text-using-net"></a>Moderare il testo usando .NET
 
@@ -26,10 +26,10 @@ Questo articolo contiene informazioni ed esempi di codice per iniziare a usare C
 
 Questo articolo presuppone che si abbia già familiarità con Visual Studio e C#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Registrarsi nei servizi di Content Moderator
+## <a name="sign-up-for-content-moderator-services"></a>Eseguire la registrazione per i servizi Content Moderator
 
-Prima di poter usare i servizi di Content Moderator tramite l'API REST o l'SDK, è necessario ottenere una chiave di sottoscrizione.
-Consultare l'[Avvio rapido](quick-start.md) per informazioni su come ottenere la chiave.
+Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria una chiave di sottoscrizione.
+Vedere la [guida introduttiva](quick-start.md) per informazioni su come ottenere la chiave.
 
 ## <a name="create-your-visual-studio-project"></a>Creare il progetto di Visual Studio
 
@@ -39,7 +39,7 @@ Consultare l'[Avvio rapido](quick-start.md) per informazioni su come ottenere la
 
 1. Selezionare questo progetto come progetto di avvio singolo per la soluzione.
 
-1. Aggiungere un riferimento all'assembly del progetto **ModeratorHelper** creato in [Content Moderator client helper quickstart](content-moderator-helper-quickstart-dotnet.md) (Avvio rapido helper del client di Content Moderator).
+1. Aggiungere un riferimento all'assembly del progetto **ModeratorHelper** creato nella [guida introduttiva all'helper client di Content Moderator](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Installare i pacchetti necessari
 
@@ -117,9 +117,9 @@ Aggiungere il codice seguente al metodo **Main**.
     }
 
 > [!NOTE]
-> La chiave del servizio Content Moderator ha un limite di frequenza di richieste al secondo (RPS); se questo limite viene superato, l'SDK genera un'eccezione con un codice di errore 429.
+> La chiave del servizio Content Moderator ha un limite di frequenza di richieste al secondo (RPS). Se questo limite viene superato, l'SDK genera un'eccezione con un codice di errore 429.
 >
-> Una chiave di livello gratuito prevede un unico limite di frequenza RPS.
+> Quando si usa una chiave di livello gratuito, la frequenza delle richieste è limitata a una richiesta al secondo.
 
 ## <a name="run-the-program-and-review-the-output"></a>Eseguire il programma ed esaminare l'output
 
@@ -211,4 +211,4 @@ L'esempio di output per il programma, così come scritto nel file di log è:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Scaricare la soluzione Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) per questa e altre soluzioni per l'Avvio rapido di Content Moderator per .NET.
+[Scaricare la soluzione Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) per questa e altre guide introduttive di Content Moderator per .NET e iniziare a implementare l'integrazione.

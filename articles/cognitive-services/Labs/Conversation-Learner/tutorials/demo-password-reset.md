@@ -1,7 +1,7 @@
 ---
-title: 'Applicazione demo di Conversation Learner: reimpostazione della password - Servizi cognitivi Microsoft| Microsoft Docs'
+title: 'Modello demo di Conversation Learner: reimpostazione della password - Servizi cognitivi Microsoft| Microsoft Docs'
 titleSuffix: Azure
-description: Informazioni su come creare un'applicazione demo di Conversation Learner.
+description: Informazioni su come creare un modello dimostrativo di apprendimento della conversazione.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,17 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 24d61787a79ee1a1a9737c417aa966cc8fd75930
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376220"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170634"
 ---
 # <a name="demo-password-reset"></a>Demo: Reimpostazione della password
 Questa demo illustra un semplice bot di supporto tecnico che può offrire assistenza nelle operazioni di reimpostazione della password. 
 
 Viene mostrato come Conversation Learner può apprendere flussi di dialogo non elementari e sequenze di più turni, includendo una classe fuori dominio. Questa dimostrazione non usa codice o entità.
+
+## <a name="video"></a>Video
+
+[![Demo: Anteprima della password](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot di reimpostazione della password sia in esecuzione.
@@ -29,7 +33,7 @@ Per questa esercitazione è necessario che il bot di reimpostazione della passwo
 
 ### <a name="open-the-demo"></a>Aprire la demo
 
-Nell'elenco delle app dell'interfaccia utente Web fare clic su Tutorial Demo Password Reset. 
+Nell'elenco dei modelli dell'interfaccia utente Web fare clic su Tutorial Demo Password Reset. 
 
 ### <a name="actions"></a>Azioni
 

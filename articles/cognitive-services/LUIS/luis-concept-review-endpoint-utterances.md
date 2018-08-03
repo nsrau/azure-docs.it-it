@@ -2,28 +2,31 @@
 title: Esaminare espressioni di endpoint per usare l'apprendimento attivo di Language Understanding (LUIS) - Azure | Microsoft Docs
 description: Usare la funzionalità di apprendimento attivo denominata "Esamina espressioni di endpoint" per migliorare più velocemente le previsioni delle prestazioni.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: b9672e8e63fb601d4411a342b7f3c00e30f9e002
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: diberry
+ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35379132"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222614"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Abilitare l'apprendimento attivo grazie alla revisione delle espressioni di endpoint
 L'apprendimento attivo è una delle tre strategie per migliorare la precisione delle previsioni e fra esse la più facile da attuare. 
 
 ## <a name="what-is-active-learning"></a>Che cos'è l'apprendimento attivo
-L'apprendimento attivo è un processo composto da due passaggi. Nel primo passaggio, LUIS seleziona le espressioni da convalidare che riceve nell'endpoint dell'app. Il secondo passaggio viene eseguito dal proprietario o dal collaboratore dell'applicazione per convalidare l'espressione selezionata per la fase di [revisione](label-suggested-utterances.md), incluse la finalità corretta e tutte le entità interne a quest'ultima. Dopo aver esaminato l'espressione, esegui il training e pubblica di nuovo l'app. 
+L'apprendimento attivo è un processo composto da due passaggi. Nel primo passaggio, LUIS seleziona le espressioni da convalidare che riceve nell'endpoint dell'app. Il secondo passaggio viene eseguito dal proprietario o dal collaboratore dell'applicazione per convalidare l'espressione selezionata per la fase di [revisione](luis-how-to-review-endoint-utt.md), incluse la finalità corretta e tutte le entità interne a quest'ultima. Dopo aver esaminato l'espressione, esegui il training e pubblica di nuovo l'app. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>Quali espressioni sono incluse nell'elenco di revisione
 LUIS aggiunge espressioni all'elenco di revisione quando la finalità di attivazione principale ha un punteggio basso o i due punteggi principali delle finalità sono troppo ravvicinati. 
+
+## <a name="single-pool-for-utterances-per-app"></a>Singolo pool per espressioni per app
+L'elenco **Esaminare le espressioni endpoint** non cambia in base alla versione. È disponibile un singolo pool di espressioni da esaminare, indipendentemente dalla versione dell'espressione che si sta modificando attivamente o dalla versione dell'app pubblicata nell'endpoint. 
 
 ## <a name="where-are-the-utterances-from"></a>Da dove provengono le espressioni
 Le espressioni di endpoint provengono dalle query degli utenti finali sull'endpoint HTTP dell'applicazione. Se l'app non è pubblicata o non ha ancora ricevuto riscontri, non è presente alcuna espressione da esaminare. Se non ricevi alcun riscontro di endpoint per una finalità o un'entità specifica, non è presente alcuna espressione da esaminare che li contenga. 
@@ -36,4 +39,4 @@ Se l'app è grande, è possibile scegliere di esaminare alcune espressioni e di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle modalità di [revisione](Label-Suggested-Utterances.md) delle espressioni di endpoint
+* Informazioni sulle modalità di [revisione](luis-how-to-review-endoint-utt.md) delle espressioni di endpoint

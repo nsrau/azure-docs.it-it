@@ -1,13 +1,13 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Documentazione dell'API del Servizio di riconoscimento vocale
+- name: Documentazione su Servizio di riconoscimento vocale e Speech SDK
   href: index.yml
 - name: Panoramica
   items:
     - name: Scenari di riconoscimento vocale
       href: speech-scenarios.md
-    - name: Informazioni sul Servizio di riconoscimento vocale
-      href: overview.md
       expanded: true
+    - name: Servizio di riconoscimento vocale
+      href: overview.md
     - name: Speech SDK
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'

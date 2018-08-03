@@ -10,28 +10,21 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e0037cc8701c88325c3d55f6b3ab0eccf2fbd28
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9ee7cc2db7ad6e2914d3916ad1aa578a9746e287
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376340"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072232"
 ---
 # <a name="speech-sdk-reference"></a>Informazioni di riferimento su Speech SDK
 
-Speech Software Development Kit (SDK) fornisce alle applicazioni l'accesso alle funzioni del servizio di riconoscimento vocale, rendendo più semplice lo sviluppo di software con funzionalità vocali. Attualmente, gli SDK forniscono l'accesso a **Riconoscimento vocale** e **Traduzione vocale**. La sintesi vocale impiega chiamate [REST] (https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) POST su HTTP.
+Speech Software Development Kit (SDK) fornisce alle applicazioni l'accesso alle funzioni del servizio di riconoscimento vocale, rendendo più semplice lo sviluppo di software con funzionalità vocali. Attualmente, l'SDK consente l'accesso alle funzioni di **riconoscimento vocale**, **traduzione vocale** e **riconoscimento finalità**.
 
-La tabella seguente descrive i linguaggi di programmazione e i sistemi operativi attualmente supportati.
-
-|Linguaggio di programmazione|Piattaforma|Informazioni di riferimento sulle API|
-|-|-|-|
-|C#|Windows|[Browse](https://aka.ms/csspeech/csharpref)
-|C/C++|Windows, Linux|[Browse](https://aka.ms/csspeech/cppref)
-|Java\*|Dispositivi|[Browse](https://aka.ms/csspeech/javaref)
-
-\* *Java SDK fa parte di [Speech Devices SDK](speech-devices-sdk.md).*
+[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md)
 * [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-windows.md)
+* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

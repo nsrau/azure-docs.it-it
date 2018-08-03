@@ -2,19 +2,19 @@
 title: Informazioni sui concetti di estrazione dati in LUIS - Azure | Microsoft Docs
 description: Informazioni sui tipi di dati che è possibile estrarre da Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265253"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225683"
 ---
 # <a name="data-extraction"></a>Estrazione dei dati
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot intervento.
@@ -26,9 +26,9 @@ LUIS fornisce i dati dall'[endpoint](luis-glossary.md#endpoint) pubblicato. La *
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-`appID` è disponibile nella pagina **Settings** (Impostazioni) dell'app LUIS e in parte dell'URL (dopo `/apps/`) quando si modifica quell'app LUIS. `subscription-key` è la chiave endpoint usata per eseguire query nell'app. Sebbene sia possibile usare la chiave di creazione/avvio durante l'apprendimento di LUIS, è importante modificare la chiave di sottoscrizione in una chiave che supporti l'[uso previsto di LUIS](luis-boundaries.md#key-limits). L'unità `timezoneOffset` è in minuti.
+`appID` è disponibile nella pagina **Settings** (Impostazioni) dell'app LUIS e in parte dell'URL (dopo `/apps/`) quando si modifica quell'app LUIS. `subscription-key` è la chiave endpoint usata per eseguire query nell'app. Sebbene sia possibile usare la chiave di creazione/avvio durante l'apprendimento di LUIS, è importante modificare la chiave endpoint in una chiave che supporti l'[uso previsto di LUIS](luis-boundaries.md#key-limits). L'unità `timezoneOffset` è in minuti.
 
-La **risposta HTTPS** contiene tutte le informazioni su finalità ed entità che LUIS è in grado di determinare in base al modello attualmente pubblicato dell'endpoint di staging o produzione. L'URL dell'endpoint è presente nella pagina [Publish][LUIS] (Pubblica) del sito Web **LUIS**. 
+La **risposta HTTPS** contiene tutte le informazioni su finalità ed entità che LUIS è in grado di determinare in base al modello attualmente pubblicato dell'endpoint di staging o produzione. L'URL dell'endpoint è presente nella pagina [Publish](luis-reference-regions.md) (Pubblica) del sito Web **LUIS**. 
 
 ## <a name="data-from-intents"></a>Dati da finalità
 I dati principali sono dati dal **nome della finalità** con il punteggio superiore. Usando l'`MyStore`[avvio rapido](luis-quickstart-intents-only.md), la risposta dell'endpoint è:
@@ -201,7 +201,7 @@ Le entità [composite](luis-concept-entity-types.md) vengono apprese in modo aut
 
 `book 2 tickets to paris`
 
-Si noti che tra `2`, il numero, `paris` e ToLocation sono presenti delle parole che non fanno parte di nessuna delle entità. La sottolineatura verde, usata in un'espressione etichettata nel sito Web [LUIS] [LUIS], indica un'entità composita.
+Si noti che tra `2`, il numero, `paris` e ToLocation sono presenti delle parole che non fanno parte di nessuna delle entità. La sottolineatura verde, usata in un'espressione etichettata nel sito Web [LUIS](luis-reference-regions.md), indica un'entità composita.
 
 ![Entità composita](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -426,13 +426,13 @@ Le entità [espressione regolare](luis-concept-entity-types.md) vengono individu
 Ottenere i nomi da un'espressione è difficile perché un nome può essere qualsiasi combinazione di lettere e parole. Le opzioni disponibili variano a seconda del tipo di nome estratto. Non si tratta di regole, ma di altre linee guida. 
 
 ### <a name="names-of-people"></a>Nomi di persone
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità gerarchica con nomi e cognomi come elementi figlio o usare un'entità semplice con ruoli nome e cognome. Assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse e in espressioni tra tutte le finalità, inclusa la finalità None (Nessuna). [Rivedere](label-suggested-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente. 
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità gerarchica con nomi e cognomi come elementi figlio o usare un'entità semplice con ruoli nome e cognome. Assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse e in espressioni tra tutte le finalità, inclusa la finalità None (Nessuna). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente. 
 
 ### <a name="names-of-places"></a>Nomi di località
-I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Se l'app usa un set noto di località, considerare un'entità elenco. Per trovare tutti i nomi di località, creare un'entità semplice e fornire una varietà di esempi. Aggiungere un elenco di frasi di nomi di località per ribadire come appaiono nell'app i nomi di località. [Rivedere](label-suggested-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente. 
+I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Se l'app usa un set noto di località, considerare un'entità elenco. Per trovare tutti i nomi di località, creare un'entità semplice e fornire una varietà di esempi. Aggiungere un elenco di frasi di nomi di località per ribadire come appaiono nell'app i nomi di località. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente. 
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
-Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Si tratta del tipo più difficile di estrazione dati. Iniziare con un'entità semplice e aggiungere un elenco di frasi. [Rivedere](label-suggested-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente. 
+Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Si tratta del tipo più difficile di estrazione dati. Iniziare con un'entità semplice e aggiungere un elenco di frasi. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente. 
 
 ## <a name="pattern-roles-data"></a>Dati ruoli criterio
 I ruoli sono differenze contestuali di entità. 
@@ -710,5 +710,3 @@ L'endpoint LUIS può individuare gli stessi dati in entità diverse:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere [Aggiungere entità](luis-how-to-add-entities.md) per ulteriori informazioni sull'aggiunta di entità all'app LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

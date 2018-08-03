@@ -2,19 +2,19 @@
 title: Integrare LUIS con un bot usando Bot Builder SDK per Node.js in Azure | Microsoft Docs
 description: Compilare un bot integrato con un'applicazione LUIS usando Bot Framework.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: v-geberr
-ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264974"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224076"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrare LUIS con un bot usando Bot Builder SDK per Node.js
 
@@ -235,10 +235,10 @@ Nel portale di Azure selezionare **Test in Web Chat** (Testa nella chat Web) per
    ![Testare il bot HomeAutomation nella chat Web](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Se si ritiene che il bot non riconosca sempre la finalità o le entità corrette, migliorare le prestazioni dell'app LUIS fornendo un maggior numero di espressioni di esempio per eseguirne il training. È possibile rieseguire il training dell'app LUIS senza alcuna modifica al codice del bot. Vedere [Aggiungere espressioni di esempio](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ed [eseguire il training e il test dell'app LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> Se si ritiene che il bot non riconosca sempre la finalità o le entità corrette, migliorare le prestazioni dell'app LUIS fornendo un maggior numero di espressioni di esempio per eseguirne il training. È possibile rieseguire il training dell'app LUIS senza alcuna modifica al codice del bot. Vedere [Aggiungere espressioni di esempio](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ed [eseguire il training e il test dell'app LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Ulteriori informazioni su Bot Framework
-Ulteriori informazioni su [Bot Framework](https://dev.botframework.com/) e su [3.x](https://github.com/Microsoft/BotBuilder) e [4.x](https://github.com/Microsoft/botbuilder-js) SDK.
+Ulteriori informazioni su [Bot Framework](https://dev.botframework.com/) e [3.x](https://github.com/Microsoft/BotBuilder) e [4.x](https://github.com/Microsoft/botbuilder-js) SDK.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

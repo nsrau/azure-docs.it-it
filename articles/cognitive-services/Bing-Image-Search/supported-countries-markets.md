@@ -1,6 +1,6 @@
 ---
-title: Lingue e paesi supportati dall'API Ricerca immagini Bing in Azure | Microsoft Docs
-description: Informazioni su quali paesi e lingue sono supportati dall'API Ricerca immagini Bing.
+title: Lingue e paesi/aree supportati dall'API Ricerca immagini Bing in Azure | Microsoft Docs
+description: Informazioni su quali paesi/aree e lingue sono supportati dall'API Ricerca immagini Bing.
 services: cognitive-services
 author: v-jerkin
 manager: jhubbard
@@ -9,20 +9,20 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: d0d33ee714ba5cd1ce4e846b96c04f755933bee1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 97e2bed509146172c10aa9ac2658b99ed7610fcc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376897"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004439"
 ---
-# <a name="bing-image-search-countries-and-languages"></a>Lingue e paesi di Ricerca immagini Bing
+# <a name="bing-image-search-countriesregions-and-languages"></a>Lingue e paesi/aree di Ricerca immagini Bing
 
-L'API Ricerca immagini Bing supporta più di una quarantina di paesi, molti dei quali con più di una lingua. Specificare un paese con una query serve principalmente per perfezionare i risultati della ricerca in base agli interessi in tale paese. Inoltre, i risultati possono contenere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese o alla lingua specifica.
+L'API Ricerca immagini Bing supporta più di una quarantina di paesi/aree, molti dei quali con più di una lingua. Specificare un paese/un'area con una query serve principalmente per perfezionare i risultati della ricerca in base agli interessi in tale paese/area. I risultati possono anche contenere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese/all'area o alla lingua specifica.
 
-Per specificare la lingua e il paese, impostare il parametro di query `mkt` (mercato) su uno dei codici della tabella **Mercati** riportata di seguito. Il mercato specifica sia un paese che una lingua. Se l'utente preferisce vedere il testo visualizzato in una lingua diversa, impostare il parametro di query `setLang` sul codice lingua appropriato.
+Per specificare la lingua e il paese/l'area, impostare il parametro di query `mkt` (mercato) su uno dei codici della tabella **Mercati** riportata di seguito. Il mercato specifica sia un paese/un'area che una lingua. Se l'utente preferisce vedere il testo visualizzato in una lingua diversa, impostare il parametro di query `setLang` sul codice lingua appropriato.
 
-In alternativa è possibile specificare il paese utilizzando il parametro di query `cc`. Se si specifica un paese, è necessario specificare anche uno o più codici di lingua utilizzando l'intestazione HTTP `Accept-Language`. Le lingue supportate variano in base al paese e sono indicate per ogni paese nella tabella Mercati.
+In alternativa è possibile specificare il paese/l'area usando il parametro di query `cc`. Se si specifica un paese/un'area, è necessario specificare anche uno o più codici di lingua usando l'intestazione HTTP `Accept-Language`. Le lingue supportate variano in base al paese/all'area e sono indicate per ogni paese nella tabella Mercati.
 
 > [!NOTE]
 > L'API delle immagini di tendenza supporta attualmente solo i mercati seguenti:
@@ -33,7 +33,7 @@ In alternativa è possibile specificare il paese utilizzando il parametro di que
 
 ## <a name="countries"></a>Paesi
 
-|Paese|Codice|
+|Paese/Area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -75,13 +75,13 @@ In alternativa è possibile specificare il paese utilizzando il parametro di que
 
 ## <a name="markets"></a>Mercati
 
-|Paese|Linguaggio|Codice di mercato|
+|Paese/Area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
 |Austria|Tedesco|de-AT|
 |Belgio|Olandese|nl-BE|
-|Belgio|Francese|FR-essere|
+|Belgio|Francese|fr-BE|
 |Brasile|Portoghese|pt-BR|
 |Canada|Inglese|en-CA|
 |Canada|Francese|fr-CA|
@@ -90,7 +90,7 @@ In alternativa è possibile specificare il paese utilizzando il parametro di que
 |Finlandia|Finlandese|fi-FI|
 |Francia|Francese|fr-FR|
 |Germania|Tedesco|de-DE|
-|RAS di Hong Kong|Cinese tradizionale|zh-hk|
+|RAS di Hong Kong|Cinese tradizionale|zh-HK|
 |India|Inglese|en-IN|
 |Indonesia|Inglese|en-ID|
 |Italia|Italiano|it-IT|

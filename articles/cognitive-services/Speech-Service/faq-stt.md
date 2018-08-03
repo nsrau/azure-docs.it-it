@@ -9,22 +9,22 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054893"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223888"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale personalizzato
+# <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul servizio di riconoscimento vocale
 
 Se le risposte alle proprie domande non sono presenti in questo documento, provare a rivolgersi alla community del Servizio di riconoscimento vocale personalizzato in [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) e [UserVoice](https://cognitive.uservoice.com/)
 
 ## <a name="general"></a>Generale
 
-**Domanda**: Qual è la differenza tra i modelli del servizio di riconoscimento vocale di base e personalizzati?
+**Domanda**: Qual è la differenza tra i modelli del servizio di riconoscimento vocale di base e personalizzato?
 
-**Risposta**: I modelli di base sono stati sottoposti a training con dati di proprietà di Microsoft e sono già stati distribuiti nel cloud. I modelli personalizzati consentono all'utente di adattare un modello a un determinato ambiente con una lingua o rumori di fondo particolari. Reparti di produzione aziendali, automobili o strade rumorose richiedono un modello acustico adattato, mentre argomenti specifici come biologia, fisica, radiologia, nomi di prodotti e acronimi personalizzati richiedono un modello linguistico.
+**Risposta**: I modelli di base sono stati sottoposti a training con dati di proprietà di Microsoft e sono già stati distribuiti nel cloud. I modelli personalizzati consentono all'utente di adattare un modello a un determinato ambiente con una lingua o rumori di fondo particolari. Reparti di produzione aziendali, automobili o strade rumorose richiedono un modello acustico adattato, mentre argomenti specifici come biologia, fisica, radiologia, nomi di prodotti e acronimi personalizzati richiedono un modello linguistico adattato.
 
 **Domanda**: Da dove è necessario iniziare per usare un modello di base?
 
@@ -32,29 +32,24 @@ Se le risposte alle proprie domande non sono presenti in questo documento, prova
 
 **Domanda**: È sempre necessario compilare un modello conversione voce/testo personalizzato?
 
-**Risposta**: No, se l'applicazione usa un linguaggio quotidiano generico, senza vocaboli personalizzati e senza termini rari, non è necessario personalizzare un modello. Se l'applicazione deve essere usata in un ambiente in cui il rumore di fondo è scarso o addirittura assente, non è necessario un modello personalizzato. Il portale consente agli utenti di distribuire modelli di base e personalizzati e di sottoporli a test di accuratezza. È possibile usare questa funzionalità per misurare l'accuratezza di un modello di base rispetto a un modello personalizzato.
+**Risposta**: No, se l'applicazione usa un linguaggio quotidiano generico, non è necessario personalizzare un modello. Se inoltre l'applicazione viene usata in un ambiente in cui il rumore di fondo è scarso o addirittura assente, non è necessario usare un modello personalizzato. Il portale consente agli utenti di distribuire modelli di base e personalizzati e di sottoporli a test di accuratezza. È possibile usare questa funzionalità per misurare l'accuratezza di un modello di base rispetto a un modello personalizzato.
 
 **Domanda**: Come è possibile sapere quando l'elaborazione del set di dati o del modello è completa?
 
 **Risposta**: Attualmente l'unica indicazione è lo stato del modello o del set di dati nella tabella.
-Quando l'elaborazione è completata, lo stato è "Pronto".
+Quando l'elaborazione è completata, lo stato è "Succeded" (Operazione completata).
 
-**Domanda**: È possibile creare più modelli alla volta?
+**Domanda**: È possibile creare più modelli?
 
-**Risposta**: Non c'è limite al numero di modelli presenti nella raccolta, ma in ogni pagina può essere creato un solo modello alla volta.
-Non è possibile, ad esempio, avviare un processo di creazione di un modello linguistico se al momento un altro modello linguistico è in fase di elaborazione.
-È tuttavia possibile elaborare un modello acustico e un modello linguistico allo stesso tempo. 
+**Risposta**: Non sono previsti limiti al numero di modelli nella raccolta.
 
 **Domanda**: Se ci si rende conto di aver commesso un errore, come è possibile annullare l'importazione dei dati o la creazione del modello in corso? 
 
-**Risposta**: Al momento non è possibile eseguire il rollback di un processo di adattamento di un modello acustico o linguistico.
-È possibile eliminare i dati dopo il completamento dell'importazione.
+**Risposta**: Al momento non è possibile eseguire il rollback di un processo di adattamento di un modello acustico o linguistico. I modelli e i dati importati possono essere eliminati dopo che sono in uno stato terminale.
 
-**Domanda**: Qual è la differenza tra i modelli di ricerca e dettatura e i modelli di conversazione?
+**Domanda**: Qual è la differenza tra i modelli di ricerca e dettatura e i modelli colloquiali?
 
-**Risposta**: Nel Servizio di riconoscimento vocale personalizzato è possibile scegliere tra due modelli acustici e linguistici di base:
-query di ricerca o dettatura. Il modello acustico di conversazione Microsoft è adatto per il riconoscimento vocale in uno stile di conversazione.
-Questo modo di parlare è solitamente diretto a un'altra persona, come nei call center o nelle riunioni.
+**Risposta**: Sono disponibili più modelli di base tra cui scegliere nel servizio di riconoscimento vocale. Il modello Conversational (Modello colloquiale) è adatto per il riconoscimento vocale di una conversazione. Questo modello sarebbe ideale per la trascrizione di chiamate durante la ricerca e la dettatura è ideale per le app ad attivazione vocale. Universal è un nuovo modello che contribuisce a risolvere entrambi questi scenari.
 
 **Domanda**: È possibile aggiornare il proprio modello esistente (impilamento di modelli)?
 
@@ -62,7 +57,7 @@ Questo modo di parlare è solitamente diretto a un'altra persona, come nei call 
 
 I set di dati nuovo e precedente devono essere combinati in un unico file con estensione zip (in caso di dati acustici) o txt (in caso di dati linguistici). Al termine dell'adattamento, per ottenere un nuovo endpoint è necessario che la distribuzione del nuovo modello aggiornato sia annullata.
 
-**Domanda**: Che cosa è necessario fare se serve una concorrenza più elevata rispetto al valore predefinito o a ciò che viene offerto nel portale? 
+**Domanda**: Che cosa è necessario fare se serve una concorrenza più elevata per il modello distribuito rispetto a ciò che viene offerto nel portale? 
 
 **Risposta**: È possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee. 
 
@@ -109,14 +104,9 @@ La raccolta dei dati deve corrispondere all'applicazione e agli utenti di destin
 
 **Domanda**: È necessario trascrivere personalmente i dati di adattamento? 
 
-**Risposta**: I dati devono essere trascritti. È possibile farlo personalmente o usando un servizio di trascrizione professionale. Alcuni di questi si avvalgono di trascrittori professionisti, altri invece usano il crowdsourcing.
+**Risposta**: Sì. È possibile farlo personalmente o usando un servizio di trascrizione professionale. Alcuni utenti preferiscono usare sistemi di trascrizione professionali, mentre altri usano il crowdsourcing o eseguono le trascrizioni autonomamente.
 
-**Domanda**:Quanto tempo occorre per creare un modello acustico personalizzato?
-
-**Risposta**: Il tempo di elaborazione per creare un modello acustico personalizzato corrisponde circa alla lunghezza del set di dati acustici.
-Di conseguenza, l'elaborazione di un modello acustico personalizzato creato da un set di dati di cinque ore richiederà circa cinque ore. 
-
-## <a name="offline-testing"></a>Testing offline
+## <a name="accuracy-testing"></a>Test di accuratezza
 
 **Domanda**: È possibile eseguire il testing offline del modello acustico personalizzato usando un modello linguistico personalizzato?
 
@@ -126,24 +116,24 @@ Di conseguenza, l'elaborazione di un modello acustico personalizzato creato da u
 
 **Risposta**: Sì, è sufficiente selezionare il modello acustico personalizzato nel menu a discesa durante la configurazione del test offline.
 
-**Domanda**: Che cos'è la frequenza degli errori di parola e come viene calcolata?
+**Domanda**: Che cos'è la frequenza degli errori di parola (WER) e come viene calcolata?
 
-**Risposta**: La frequenza degli errori di parola è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento.
+**Risposta**: La frequenza degli errori di parola (WER) è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento. Altri dettagli sono disponibili [qui](https://en.wikipedia.org/wiki/Word_error_rate).
 
 **Domanda**: Come si determina se i risultati di un test di accuratezza sono positivi?
 
 **Risposta**: I risultati mostrano un confronto tra il modello di base e quello personalizzato.
 Perché la personalizzazione sia proficua, è necessario che sia più efficiente del modello di base.
 
-**Domanda**: Come si può scoprire la frequenza degli errori di parola nei modelli di base, per comprendere se c'è stato un miglioramento? 
+**Domanda**: Come si può scoprire la frequenza degli errori di parola nei modelli di base per comprendere se c'è stato un miglioramento? 
 
-**Risposta**: I risultati del test offline mostrano l'accuratezza di base del modello personalizzato e il miglioramento rispetto al modello di base.
+**Risposta**: I risultati dei test offline mostrano l'accuratezza di base del modello personalizzato e il miglioramento rispetto al modello di base.
 
 ## <a name="creating-lm"></a>Creazione di modelli linguistici
 
 **Domanda**: Quanti dati di testo è necessario caricare?
 
-**Risposta**: Dipende da quanto il vocabolario e le frasi usate nell'applicazione differiscono dai modelli linguistici iniziali. Per tutte le parole nuove è utile specificare il maggior numero possibile di esempi di utilizzo. Per le frasi frequenti usate nell'applicazione, è utile anche includere frasi nei dati linguistici, perché indicano al sistema di rimanere in ascolto anche di questi termini. È frequente che nel seti di dati linguistici siano presenti almeno 100 espressioni. Di solito ce ne sono almeno diverse centinaia. Se inoltre si prevede che alcuni tipi di query siano più comuni di altri, è possibile inserire nel set di dati varie copie delle query più comuni.
+**Risposta**: Dipende da quanto il vocabolario e le frasi usate nell'applicazione differiscono dai modelli linguistici iniziali. Per tutte le parole nuove è utile specificare il maggior numero possibile di esempi di utilizzo. Per le frasi frequenti usate nell'applicazione, è utile anche includere frasi nei dati linguistici, perché indicano al sistema di rimanere in ascolto anche di questi termini. È frequente che nel seti di dati linguistici siano presenti almeno cento espressioni. Di solito ce ne sono almeno diverse centinaia. Se inoltre si prevede che alcuni tipi di query siano più comuni di altri, è possibile inserire nel set di dati varie copie delle query più comuni.
 
 **Domanda**: È possibile caricare semplicemente un elenco di parole?
 

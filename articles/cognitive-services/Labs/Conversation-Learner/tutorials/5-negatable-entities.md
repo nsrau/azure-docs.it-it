@@ -1,7 +1,7 @@
 ---
-title: Come usare le entità negabili con un'applicazione di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come usare le entità negabili con un modello di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come usare le entità negabili con un'applicazione di Conversation Learner.
+description: Informazioni su come usare le entità negabili con un modello di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3d65376c9c43ee1407468f3e8bf3e058048bd556
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376316"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171402"
 ---
-# <a name="how-to-use-negatable-entities-with-a-conversation-learner-application"></a>Come usare le entità negabili con un'applicazione di Conversation Learner
+# <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Informazioni su come usare le entità negabili con un modello di Conversation Learner
 
 Questa esercitazione illustra la proprietà "Negatable" (Negabile) delle entità.
 
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 5](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
+
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
 
     npm run tutorial-general
 
@@ -37,9 +41,9 @@ In concreto, se la proprietà "Negatable" (Negabile) di un'entità è impostata:
 
 ## <a name="steps"></a>Passaggi
 
-### <a name="create-the-application"></a>Creazione dell'applicazione
+### <a name="create-the-model"></a>Creare il modello
 
-1. Nell'interfaccia utente Web fare clic su New App (Nuova App).
+1. Nell'interfaccia utente Web fare clic su New Model (Nuovo modello)
 2. In Name (Nome) immettere "NegatableEntity". Fare quindi clic su Create (Crea).
 
 ### <a name="create-an-entity"></a>Creare un'entità
@@ -47,7 +51,7 @@ In concreto, se la proprietà "Negatable" (Negabile) di un'entità è impostata:
 1. Fare clic su Entities (Entità) e quindi su New Entity (Nuova entità).
 2. In Entity Name (Nome entità) immettere "name".
 3. Selezionare Negatable (Negabile).
-    - Questa impostazione indica che l'utente potrà specificare un valore dell'entità oppure dichiarare che qualcosa *non* è il valore dell'entità. Questo secondo caso determinerà l'eliminazione di un valore corrispondente dell'entità.
+    - Questa proprietà indica che l'utente potrà specificare un valore dell'entità oppure dichiarare che qualcosa *non* è il valore dell'entità. Questo secondo caso determinerà l'eliminazione di un valore corrispondente dell'entità.
 3. Fare clic su Crea.
 
 ![](../media/tutorial5_entities.PNG)
@@ -74,19 +78,19 @@ Sono ora disponibili due azioni.
 1. Fare clic su Train Dialogs (Dialoghi di training) e quindi su New Train Dialog (Nuovo dialogo di training).
 2. Digitare "hello".
 3. Fare clic su Score Actions (Punteggio azioni) e selezionare "I don't know your name".
-    - Si noti che viene assegnato un punteggio del 100% perché è l'unica azione valida.
+    - Il punteggio è 100% perché è l'unica azione valida.
 2. Immettere "my name is david".
 3. Selezionare "david" e scegliere l'etichetta "+name".
-    - Si noti che sono presenti due istanze di "name": "+name" e "-name".  Il segno più indica che si sta specificando tale valore. Il segno meno significa che si sta comunicando al sistema che qualcosa non è il valore.
+    - Sono presenti due istanze di "name": "+name" e "-name".  Il segno Più (+) a aggiunge o sovrascrive il valore. Il segno Meno (-) rimuove il valore.
 5. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che il valore di name è ora presente nella memoria del bot.
+    - Il valore di name è ora presente nella memoria del bot.
     - "I know your name. It is $name" è l'unica risposta disponibile. 
 6. Selezionare "I know your name. It is $name".
 
 Provare a cancellare l'entità negabile:
 
 7. Immettere "my name is not david".
-    - Si noti che "not" viene selezionato come nome in base al modello precedente. Questo non è corretto.
+    - Si noti che "not" viene selezionato come nome in base al modello precedente. Questa etichetta non è corretta.
 2. Fare clic su "not" e quindi sulla X rossa. 
 3. Fare clic su "david".
     - Questa è ora un'entità negativa che comunica che questo non è il valore dell'entità name.

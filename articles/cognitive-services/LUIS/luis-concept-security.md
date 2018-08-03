@@ -2,25 +2,25 @@
 title: Informazioni sull'accesso alle applicazioni LUIS - Azure | Microsoft Docs
 description: Informazioni sull'accesso in creazione all'app LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 44380e12e6d095e8d40675af0b6b2fddc5e4c4e9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 13b769a0b5a940e0f3dd5f2e0cc3567d9879ee0d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264268"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223780"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Accesso utente endpoint e in creazione
 L'accesso in creazione è disponibile ai proprietari e ai collaboratori. Per un'app privata, l'accesso endpoint è disponibile ai proprietari e ai collaboratori. Per un'app pubblica, l'accesso endpoint è disponibile a chiunque disponga di un proprio account LUIS e dell'ID dell'app pubblica. 
 
 ## <a name="access-to-authoring"></a>Accesso in creazione
-L'accesso all'app dal sito Web [LUIS][LUIS] o dalle [API di creazione](https://aka.ms/luis-authoring-apis) è controllato dal proprietario dell'app. 
+L'accesso all'app dal sito Web [LUIS](luis-reference-regions.md#luis-website) o dalle [API di creazione](https://aka.ms/luis-authoring-apis) è controllato dal proprietario dell'app. 
 
 Il proprietario e tutti i collaboratori hanno accesso in creazione all'app. 
 
@@ -32,8 +32,8 @@ Il proprietario e tutti i collaboratori hanno accesso in creazione all'app.
 |Importare una versione||
 |Rendere pubblica un'app|Quando un'app è pubblica, chiunque disponga di una chiave di creazione o endpoint può eseguire una query nell'app.|
 |Modificare il modello|
-|Pubblica|
-|Rivedere le espressioni endpoint per l'[apprendimento attivo](label-suggested-utterances.md)|
+|Pubblicare|
+|Rivedere le espressioni endpoint per l'[apprendimento attivo](luis-how-to-review-endoint-utt.md)|
 |Eseguire il training|
 
 ## <a name="access-to-endpoint"></a>Accedere all'endpoint
@@ -50,7 +50,7 @@ L'endpoint di un'app privata è disponibile a:
 |--|--|--|
 |Chiave di creazione del proprietario| Fino a 1000 accessi endpoint|
 |Chiavi di creazione dei collaboratori| Fino a 1000 accessi endpoint|
-|Chiavi endpoint aggiunte dalla pagina **[Publish](publishapp.md)** (Pubblica)|Il proprietario e i collaboratori possono aggiungere chiavi endpoint|
+|Chiavi endpoint aggiunte dalla pagina **[Publish](luis-how-to-publish-app.md)** (Pubblica)|Il proprietario e i collaboratori possono aggiungere chiavi endpoint|
 
 Le altre chiavi di creazione o endpoint **non** dispongono dell'accesso.
 
@@ -61,6 +61,8 @@ Un utente che non è proprietario né collaboratore può accedere solo a un'app 
 
 ## <a name="microsoft-user-accounts"></a>Account utente Microsoft
 Gli autori e i collaboratori possono aggiungere chiavi a LUIS nella pagina Publish (Pubblica). L'account utente Microsoft che crea la chiave LUIS nel portale di Azure deve essere il proprietario dell'app o un collaboratore. 
+
+Per altre informazioni sugli account utente Active Directory vedere [Tenant di Active Directory di Azure](luis-how-to-account-settings.md#azure-active-directory-tenant-user). 
 
 <!--
 ### Individual consent
@@ -78,5 +80,3 @@ LUIS ha completato con successo l'auditing per le certificazioni ISO 27001:2013 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere le [procedure consigliate](luis-concept-best-practices.md) per imparare a usare finalità ed entità per le stime migliori.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

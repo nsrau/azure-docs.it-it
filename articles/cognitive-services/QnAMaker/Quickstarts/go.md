@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fcb44a4c737f85941b33c278cfbae3f128df8207
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: d68ff91d74a6c43c6d492aa07e916a842b50e96f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301292"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867590"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Guida introduttiva per l'API QnA Maker Microsoft con Go 
 <a name="HOLTop"></a>
@@ -719,8 +719,8 @@ Il codice seguente ottiene le risposte a una domanda usando la knowledge base sp
 
 1. Creare un nuovo progetto Go nell'ambiente di sviluppo integrato preferito.
 1. Aggiungere il codice riportato di seguito.
-1. Sostituire il valore di `host` con il nome del sito Web per la sottoscrizione QnA Maker. Per altre informazioni, vedere [Creare un servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
-1. Sostituire il valore `endpoint_key` con una chiave dell'endpoint valida per la sottoscrizione. Si noti che è diversa dalla chiave di sottoscrizione. È possibile ottenere le chiavi dell'endpoint usando il metodo [Get endpoint keys](#GetKeys).
+1. Sostituire il valore di `host` con il nome del sito Web per la sottoscrizione di QnA Maker. Per altre informazioni, vedere [Creare un servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
+1. Sostituire il valore di `endpoint_key` con una chiave endpoint valida per la sottoscrizione. Si noti che è diversa dalla chiave di sottoscrizione. È possibile ottenere le chiavi dell'endpoint usando il metodo [Get endpoint keys](#GetKeys).
 1. Sostituire il valore di `kb` con l'ID della knowledge base su cui si vogliono eseguire query per ottenere risposte. Tenere presente che questa knowledge base deve essere già stata pubblicata tramite il metodo [Publish](#Publish).
 1. Eseguire il programma.
 

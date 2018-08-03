@@ -1,7 +1,7 @@
 ---
-title: Come usare il callback di rilevamento entità con un'applicazione di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come usare il callback di rilevamento entità con un modello di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come usare il callback di rilevamento entità con un'applicazione di Conversation Learner.
+description: Informazioni su come usare il callback di rilevamento entità con un modello di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e41ea5930ff0c8395d0c93aa42e224ebfc894ba8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f168018a23d03ffb957da2dd1f67881420a21208
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376257"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171104"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Come usare il callback di rilevamento entità
 
 Questa esercitazione illustra il callback di rilevamento entità e un modello comune per la risoluzione delle entità.
 
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 10](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
+
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot "tutorialEntityDetectionCallback" sia in esecuzione.
+Per questa esercitazione è necessario che il bot `tutorialEntityDetectionCallback` sia in esecuzione.
 
     npm run tutorial-entity-detection
 
@@ -31,21 +35,21 @@ Il callback di rilevamento entità consente di usare codice personalizzato per g
 
 ### <a name="open-the-demo"></a>Aprire la demo
 
-Nell'elenco delle app fare clic su Tutorial-10-EntityDetenctionCallback. 
+Nell'elenco del modello, fare clic su Tutorial-10-EntityDetectionCallback. 
 
 ### <a name="entities"></a>Entità
 
-Nell'applicazione sono state definite tre entità.
+Nel modello vengono definite tre entità.
 
 ![](../media/tutorial10_entities.PNG)
 
 1. City è un'entità personalizzata che verrà specificata dall'utente come input di testo.
-2. CityUnknown è un'entità a livello di codice che verrà popolata dal sistema copiando l'input utente se il sistema non riconosce di quale città si tratta.
+2. CityUnknown è un'entità a livello di codice che verrà popolata dal sistema. copiando l'input utente se il sistema non riconosce di quale città si tratta.
 3. CityResolved è la città rilevata dal sistema ed è il nome canonico della città. Ad esempio, "the big apple" verrà risolto in "new york".
 
 ### <a name="actions"></a>Azioni
 
-Sono state create tre azioni. 
+Nel modello vengono definite tre azioni.
 
 ![](../media/tutorial10_actions.PNG)
 
@@ -72,9 +76,9 @@ Questa funzione viene chiamata dopo la risoluzione di entità.
 2. Digitare "hello".
 3. Fare clic su Score Actions (Punteggio azioni) e selezionare "Which city do you want?".
 2. Immettere "new york".
-    - Si noti che queste parole vengono riconosciute come entità city.
+    - Il testo viene riconosciuto come entità city.
 5. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che le entità City e CityResolved sono state popolate.
+    - `City` e `CityResolved` sono state popolate.
 6. Selezionare "You said $City, and I resolved that to $CityResolved".
 7. Fare clic su Done Teaching (Training completato).
 
@@ -84,9 +88,9 @@ Aggiungere un altro dialogo di esempio:
 2. Digitare "hello".
 3. Fare clic su Score Actions (Punteggio azioni) e selezionare "Which city do you want?".
 2. Immettere "big apple".
-    - Si noti che queste parole vengono riconosciute come entità city.
+    - Il testo viene riconosciuto come entità city.
 5. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti l'effetto dell'esecuzione del codice in CityResolved.
+    - `CityResolved` mostra l'effetto del codice in esecuzione.
 6. Selezionare "You said $City, and I resolved that to $CityResolved".
 7. Fare clic su Done Teaching (Training completato).
 
@@ -101,7 +105,7 @@ Aggiungere un altro dialogo di esempio:
 6. Selezionare "I don't know this city, $CityUnknown. Which city do you want?".
 7. Immettere "new york".
 8. Fare clic su Score Actions (Punteggio azioni).
-    - Si noti che l'entità CityUnknown è stata cancellata e l'entità CityResolved è stata popolata.
+    - `CityUknown` è stato cancellato e `CityResolved` viene popolato.
 6. Selezionare "You said $City, and I resolved that to $CityResolved".
 7. Fare clic su Done Teaching (Training completato).
 

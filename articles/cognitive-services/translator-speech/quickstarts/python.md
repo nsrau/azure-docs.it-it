@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 40535f400bc5359019e89320489721bf481c1210
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 8bf904b2029790d64a806fcf4a7e4860579a5a2f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39124828"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39204851"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Guida introduttiva per l'API Traduzione vocale Microsoft con Python 
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ Per eseguire questo codice è necessario [Python 3.x](https://www.python.org/dow
 
 È necessario installare il [pacchetto websocket-client](https://pypi.python.org/pypi/websocket-client) per Python.
 
-È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono.
+È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file .wav dall'[API sintesi vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 È necessario disporre di un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Traduzione vocale Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

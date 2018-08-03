@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 79723a914fd41b0197b4d59a6a83304e233d3f64
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 6da1ec00e04ea993923a97c4641880a5f31d18fa
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301537"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868175"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Guida introduttiva per l'API QnA Maker Microsoft con Node.js 
 <a name="HOLTop"></a>

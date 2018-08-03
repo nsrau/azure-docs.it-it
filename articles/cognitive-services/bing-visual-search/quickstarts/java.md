@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8160302faa373d69b65afe6b68a8efb44442850d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41e0855b126ca6e54d0a487a88fe59a0be6f72f6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377740"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071996"
 ---
 # <a name="your-first-bing-visual-search-query-in-java"></a>La prima query di Ricerca visiva Bing in Java
 
@@ -35,7 +35,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Questo articolo include una semplice applicazione console che invia una richiesta all'API Ricerca visiva Bing e visualizza i risultati della ricerca JSON. Mentre l'applicazione è scritta in Java, l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP e di analizzare il codice JSON. 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Se si preferisce, è possibile usare un ambiente IDE Java, ma è sufficiente un editor di testo.
 
@@ -147,7 +147,8 @@ public class UploadImage2 {
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Ottenere informazioni dettagliate su un'immagine usando un token di informazioni dettagliate](../use-insights-token.md)  
-[Esercitazione sull'app a singola pagina di Ricerca visiva Bing](../tutorial-bing-visual-search-single-page-app.md)  
+[Esercitazione sul caricamento dell'immagine di Ricerca visiva Bing di Ricerca visiva Bing](../tutorial-visual-search-image-upload.md)
+[Panoramica su Ricerca visiva Bing](../tutorial-bing-visual-search-single-page-app.md)  
 [Panoramica di Ricerca visiva Bing](../overview.md)  
 [Prova](https://aka.ms/bingvisualsearchtryforfree)  
 [Ottenere una chiave di accesso per la versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

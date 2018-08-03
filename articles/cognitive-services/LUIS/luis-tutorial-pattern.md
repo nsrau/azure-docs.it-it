@@ -1,69 +1,44 @@
 ---
 title: Esercitazione usando i criteri per migliorare le stime LUIS - Azure | Microsoft Docs
-titleSuffix: Azure
+titleSuffix: Cognitive Services
 description: In questa esercitazione usare i criteri per le finalità per migliorare le stime di finalità ed entità LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: ff5572366be548132b28e5ce03b9595e7f98128c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 07/20/2018
+ms.author: diberry
+ms.openlocfilehash: 9ad1d9e1543c3d9a74025fb23bd1767478b53b4b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265317"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238455"
 ---
-# <a name="tutorial-use-patterns-to-improve-predictions"></a>Esercitazione: Usare i criteri per migliorare le stime
+# <a name="tutorial-improve-app-with-patterns"></a>Esercitazione: migliorare le app con i criteri
 
 In questa esercitazione usare i criteri per le finalità per migliorare le stime di finalità ed entità LUIS.  
 
 > [!div class="checklist"]
 * Come capire che un criterio potrebbe essere utile per l'app
 * Come creare un criterio 
-* Come usare entità predefinite e personalizzate in un criterio 
 * Come verificare i miglioramenti di stima del criterio
-* Come aggiungere un ruolo a un'entità per trovare entità basate su contesto
-* Come aggiungere Pattern.any per trovare entità in formato libero
 
-Per questo articolo, è necessario disporre di un account [LUIS][LUIS] gratuito per creare l'applicazione LUIS.
+Per questo articolo è necessario un account [LUIS](luis-reference-regions.md) gratuito per creare un'applicazione LUIS personalizzata.
 
-## <a name="import-humanresources-app"></a>Importare l'app HumanResources
-Questa esercitazione importa un'app HumanResources. L'app dispone di tre finalità: None, GetEmployeeOrgChart, GetEmployeeBenefits. L'app dispone di due entità: Prebuilt number (numero predefinito) e Employee (Dipendente). L'entità Employee (Dipendente) è un'entità semplice per estrarre il nome di un dipendente. 
+## <a name="before-you-begin"></a>Prima di iniziare
+Se non si ha l'app relativa alle risorse umane dell'esercitazione sul [test in batch](luis-tutorial-batch-testing.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json).
 
-1. Creare un nuovo file di app LUIS e nominarlo `HumanResources.json`. 
-
-2. Copiare la definizione dell'app seguente nel file:
-
-   [!code-json[Add the LUIS model](~/samples-luis/documentation-samples/tutorial-patterns/HumanResources.json?range=1-164 "Add the LUIS model")]
-
-3. Nella pagina **Apps** (App) LUIS selezionare **Import new app** (Importa nuova app). 
-
-4. Nella finestra di dialogo **Import new app** (Importa nuova app) selezionare il file `HumanResources.json` creato al passaggio 1.
-
-5. Selezionare la finalità **GetEmployeeOrgChart**, quindi passare da **Entities view** (Visualizzazione entità) a **Tokens view** (Visualizzazione token). Sono elencate diverse espressioni di esempio. Ogni espressione contiene un nome, ovvero un'entità Employee (Dipendente). Si noti che ogni nome è diverso e che la disposizione delle parole varia a seconda dell'espressione. Questa diversità consente a LUIS di apprendere un'ampia gamma di espressioni.
-
-    ![Schermata della pagina Intent (Finalità) con la visualizzazione Entities (Entità) attivata](media/luis-tutorial-pattern/utterances-token-view.png)
-
-6. Selezionare **Train** (Esegui il training) nella barra di spostamento superiore per eseguire il training dell'app. Attendere la barra verde che segnala il completamento dell'operazione.
-
-7. Selezionare **Test** nel pannello superiore. Immettere `Who does Patti Owens report to?` e selezionare invio. Selezionare **Inspect** (Ispeziona) sotto l'espressione per visualizzare ulteriori informazioni sul test.
-    
-    Il nome del dipendente, Patti Owens, non è ancora stato usato in un'espressione di esempio. Questo test ha lo scopo di capire fino a che punto LUIS abbia appreso che questa espressione è destinata alla finalità `GetEmployeeOrgChart` e che l'entità Employee (Dipendente) sia `Patti Owens`. Il risultato deve essere inferiore al 50% (0,50) per la finalità `GetEmployeeOrgChart`. Sebbene la finalità sia corretta, il punteggio è basso. L'entità Employee (Dipendente) è correttamente identificata come `Patti Owens`. I criteri aumentano questo punteggio di stima iniziale. 
-
-    ![Schermata del pannello Test](media/luis-tutorial-pattern/original-test.png)
-
-8. Chiudere il pannello test selezionando il pulsante **Test** nella barra di spostamento superiore. 
+Se si vuole mantenere l'app originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `patterns`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
 
 ## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>I criteri insegnano a LUIS espressioni comuni con un minor numero di esempi
 Data la natura del dominio risorse umane, esistono alcuni modi comuni di porre domande sulle relazioni dei dipendenti all'interno delle organizzazioni. Ad esempio: 
 
 ```
-Who does Mike Jones report to?
-Who reports to Mike Jones? 
+Who does Jill Jones report to?
+Who reports to Jill Jones? 
 ```
 
 Queste espressioni sono troppo simili per determinare l'univocità contestuale di ciascuna senza fornire molte espressioni di esempio. Aggiungendo un criterio per una finalità, LUIS apprende criteri di espressioni comuni per una finalità senza fornire molte espressioni di esempio. 
@@ -75,181 +50,319 @@ Who does {Employee} report to?
 Who reports to {Employee}? 
 ```
 
-Il criterio è una combinazione di corrispondenza a espressioni regolari e apprendimento automatico. Fornire alcuni esempi di espressioni modello per LUIS per apprendere il criterio. Questi esempi, insieme alle espressioni della finalità, offrono a LUIS una migliore comprensione delle espressioni appropriate per la finalità e della posizione, all'interno dell'espressione, in cui si trova l'entità. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
+Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo che può essere ignorato. Un criterio è una combinazione di corrispondenza a espressioni regolari e apprendimento automatico.  L'esempio di espressione modello, insieme alle espressioni della finalità, offrono a LUIS una migliore comprensione delle espressioni appropriate per la finalità.
+
+Affinché un criterio possa essere messo in corrispondenza con un'espressione, le entità all'interno dell'espressione devono corrispondere per prima cosa alle entità nell'espressione modello. Tuttavia, il modello non consente di stimare le entità, solo le finalità. 
+
+**Mentre i criteri consentono di fornire un numero inferiore espressioni di esempio, se le entità non vengono rilevate, il criterio non corrisponde.**
+
+Tenere presente che i dipendenti siano stati creati nell'[esercitazione delle entità elenco](luis-quickstart-intent-and-list-entity.md).
+
+## <a name="create-new-intents-and-their-utterances"></a>Creare nuove finalità ed espressioni
+Aggiungere due nuove finalità: `OrgChart-Manager` e `OrgChart-Reports`. Una volta che LUIS ha restituito una stima per l'app client, il nome della finalità può essere usato come un nome di funzione nell'app client e l'entità Employee può essere usata come parametro di tale funzione.
+
+```
+OrgChart-Manager(employee){
+    ///
+}
+```
+
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** (Compila) nella barra dei menu in alto a destra. 
+
+2. Nella pagina **Intents** (Finalità) selezionare **Create new intent** (Crea nuova finalità). 
+
+3. Immettere `OrgChart-Manager` nella finestra di dialogo popup, quindi selezionare **Done** (Fine).
+
+    ![Creare una nuova finestra popup di messaggi](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
+
+4. Aggiungere espressioni di esempio alla finalità.
+
+    |Espressioni di esempio|
+    |--|
+    |Chi è il superiore di John W. Smith?|
+    |A chi fa riferimento John W. Smith?|
+    |Chi è il manager di John W. Smith?|
+    |A chi fa riferimento direttamente Jill Jones?|
+    |Chi è il supervisore di Jill Jones?|
+
+    [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Screenshot di LUIS in cui si aggiungono nuove espressioni alla finalità")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+
+    Non occorre preoccuparsi se l'entità keyPhrase è etichettata nelle espressioni della finalità invece che nell'entità employee. Entrambe sono stimate correttamente nel riquadro di Test e in corrispondenza dell'endpoint. 
+
+5. Selezionare **Intents** (Finalità) nel pannello di navigazione a sinistra.
+
+6. Selezionare **Create new intent** (Crea nuova finalità). 
+
+7. Immettere `OrgChart-Reports` nella finestra di dialogo popup, quindi selezionare **Done** (Fine).
+
+8. Aggiungere espressioni di esempio alla finalità.
+
+    |Espressioni di esempio|
+    |--|
+    |Chi sono i subalterni di John W. Smith?|
+    |Chi fa riferimento a John W. Smith?|
+    |Che cosa gestisce John W. Smith?|
+    |Chi sono i dipendenti diretti di Jill Jones?|
+    |Che cosa supervisiona Jill Jones?|
+
+## <a name="caution-about-example-utterance-quantity"></a>Prestare attenzione alla quantità di espressioni di esempio
+La quantità di espressioni di esempio in queste finalità non è sufficiente per eseguire il training di LUIS in modo corretto. In un'app reale, ogni finalità deve avere un minimo di 15 espressioni con una varietà di scelta di parole e lunghezza di espressione. Queste poche espressioni vengono selezionate in modo specifico per evidenziare i criteri. 
+
+## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
+Le nuove finalità e le espressioni richiedono un training. 
+
+1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Train** (Esegui il training).
+
+    ![Immagine del pulsante di training](./media/luis-tutorial-pattern/hr-train-button.png)
+
+2. Il training è completato quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
+
+    ![Immagine della barra di notifica del completamento](./media/luis-tutorial-pattern/hr-trained-inline.png)
+
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
+Per ottenere una previsione di Language Understanding in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
+
+1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Publish** (Pubblica). 
+
+2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
+
+    [![Screenshot della pagina Publish (Pubblica) con il pulsante Publish to production slot (Pubblica in slot di produzione) evidenziato](./media/luis-tutorial-pattern/hr-publish-to-production.png)](./media/luis-tutorial-pattern/hr-publish-to-production.png#lightbox)
+
+3. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
+
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
+1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
+
+    [ ![Schermata della pagina Publish (Pubblica) con l'URL endpoint evidenziato](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png)](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png#lightbox)
+
+
+2. Andare alla fine dell'URL nell'indirizzo e immettere `Who is the boss of Jill Jones?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
+
+    ```JSON
+    {
+        "query": "who is the boss of jill jones?",
+        "topScoringIntent": {
+            "intent": "OrgChart-Manager",
+            "score": 0.353984952
+        },
+        "intents": [
+            {
+                "intent": "OrgChart-Manager",
+                "score": 0.353984952
+            },
+            {
+                "intent": "OrgChart-Reports",
+                "score": 0.214128986
+            },
+            {
+                "intent": "EmployeeFeedback",
+                "score": 0.08434003
+            },
+            {
+                "intent": "MoveEmployee",
+                "score": 0.019131
+            },
+            {
+                "intent": "GetJobInformation",
+                "score": 0.004819009
+            },
+            {
+                "intent": "Utilities.Confirm",
+                "score": 0.0043958663
+            },
+            {
+                "intent": "Utilities.StartOver",
+                "score": 0.00312064588
+            },
+            {
+                "intent": "Utilities.Cancel",
+                "score": 0.002265454
+            },
+            {
+                "intent": "Utilities.Help",
+                "score": 0.00133465114
+            },
+            {
+                "intent": "None",
+                "score": 0.0011388344
+            },
+            {
+                "intent": "Utilities.Stop",
+                "score": 0.00111166481
+            },
+            {
+                "intent": "FindForm",
+                "score": 0.0008900076
+            },
+            {
+                "intent": "ApplyForJob",
+                "score": 0.0007836131
+            }
+        ],
+        "entities": [
+            {
+                "entity": "jill jones",
+                "type": "Employee",
+                "startIndex": 19,
+                "endIndex": 28,
+                "resolution": {
+                    "values": [
+                        "Employee-45612"
+                    ]
+                }
+            },
+            {
+                "entity": "boss of jill jones",
+                "type": "builtin.keyPhrase",
+                "startIndex": 11,
+                "endIndex": 28
+            }
+        ]
+    }
+    ```
+
+Questa query è riuscita? Per questo ciclo di corsi di formazione è riuscita. I punteggi delle due finalità principali sono simili. Poiché il training LUIS non è esattamente lo stesso ogni volta, è presente una certa variazione: questi due punteggi potrebbero invertirsi al successivo ciclo di training. Il risultato è che potrebbe essere restituita la finalità non corretta. 
+
+Usare i criteri per rendere il punteggio della finalità significativamente superiore in percentuale e a una distanza maggiore dal punteggio più alto successivo. 
 
 ## <a name="add-the-template-utterances"></a>Aggiungere espressioni modello
 
-1. Nel riquadro di spostamento sinistro, sotto **Improve app performance** (Migliora le prestazioni dell'app), selezionare **Patterns** (Criteri).
+1. Selezionare **Build** (Compila) nel menu in alto.
 
-2. Selezionare la finalità **GetEmployeeOrgChart**, quindi immettere le espressioni modello seguenti, una alla volta, selezionando invio dopo ognuna:
+2. Nel riquadro di spostamento sinistro, sotto **Improve app performance** (Migliora le prestazioni dell'app), selezionare **Patterns** (Criteri).
 
-    ```
-    Does {Employee} have {number} subordinates?
-    Does {Employee} have {number} direct reports?
-    Who does {Employee} report to?
-    Who reports to {Employee}?
-    Who is {Employee}'s manager?
-    Who are {Employee}'s subordinates?
-    ```
+3. Selezionare la finalità **OrgChart-Manager**, quindi immettere le espressioni modello seguenti, una alla volta, selezionando invio dopo ognuna:
+
+    |Espressioni modello|
+    |:--|
+    |Chi è il superiore di {Employee}[?]|
+    |A chi fa riferimento {Employee}[?]|
+    |Chi è il manager di {Employee}[?]|
+    |A chi fa riferimento direttamente {Employee}[?]|
+    |Chi è supervisore di {Employee}[?]|
+    |Chi è il capo di {Employee}[?]|
 
     La sintassi `{Employee}` contrassegna la posizione dell'entità nell'espressione modello e specifica di quale entità si tratta. 
+    
+    Le entità con i ruoli usano la sintassi che include il nome del ruolo,   , e sono trattate in un'[esercitazione separata per i ruoli](luis-tutorial-pattern-roles.md). 
 
-    ![Schermata di immissione di espressioni modello per la finalità](./media/luis-tutorial-pattern/enter-pattern.png)
+    La sintassi facoltativa, `[]`, contrassegna le parole o i caratteri di punteggiatura che sono facoltativi. LUIS mette in corrispondenza le espressioni ignorando il testo facoltativo tra parentesi.
 
-3. Selezionare **Train** (Esegui il training) nella barra di spostamento superiore. Attendere la barra verde che segnala il completamento dell'operazione.
+    Se si digita l'espressione modello, LUIS consente di compilare l'entità quando si immette la parentesi graffa sinistra, `{`.
 
-4. Selezionare **Test** nel pannello superiore. Immettere `Who does Patti Owens report to?` nella casella di testo. Selezionare Invio. Si tratta della stessa espressione testata nella sezione precedente. Il risultato dovrebbe essere superiore per la finalità `GetEmployeeOrgChart`. 
+    [ ![Screenshot dell'immissione delle espressioni modello per la finalità](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-    Il punteggio è ora migliore. LUIS ha appreso il criterio rilevante per la finalità senza fornire molti esempi.
 
-    ![Schermata del pannello Test con punteggio alto](./media/luis-tutorial-pattern/high-score.png)
 
-    Prima viene trovata l'entità, poi il criterio a indicare la finalità. Se nel risultato del test l'entità non viene rilevata e di conseguenza il criterio non viene trovato, è necessario aggiungere un maggior numero di espressioni di esempio sulla finalità (non il criterio). 
+4. Selezionare la finalità **OrgChart-Reports**, quindi immettere le espressioni modello seguenti, una alla volta, selezionando invio dopo ognuna di esse:
 
-5. Chiudere il pannello test selezionando il pulsante **Test** nella barra di spostamento superiore.
+    |Espressioni modello|
+    |:--|
+    |Chi sono i subalterni di {Employee}[?]|
+    |Chi fa riferimento a {Employee}[?]|
+    |Che cosa gestisce {Employee}[?]|
+    |Chi sono i dipendenti diretti di {Employee}[?]|
+    |Che cosa supervisiona {Employee}[?]|
+    |Che cosa fa il capo di {Employee}[?]|
 
-## <a name="use-an-entity-with-a-role-in-a-pattern"></a>Usare un'entità con un ruolo in un criterio
-L'app LUIS viene usata per spostare i dipendenti da una posizione a un'altra. Un'espressione di esempio è `Move Bob Jones from Seattle to Los Colinas`. Ogni posizione nell'espressione ha un significato diverso. Seattle è la posizione di origine e Los Colinas è la posizione di destinazione per lo spostamento. Per poter distinguere le posizioni nel criterio, nelle sezioni seguenti si crea un'entità semplice per la posizione con due ruoli: origine e destinazione. 
+## <a name="query-endpoint-when-patterns-are-used"></a>Eseguire query sull'endpoint quando vengono usati i criteri
 
-### <a name="create-a-new-intent-for-moving-people-and-assets"></a>Creare una nuova finalità per spostare persone e asset
-Creare una nuova finalità per qualsiasi espressione che riguardi lo spostamento di persone o asset.
+1. Eseguire il training dell'app e ripubblicarla.
 
-1. Selezionare **Intents** (Finalità) dal riquadro di spostamento sinistro
-2. Selezionare **Create new intent** (Crea nuova finalità)
-3. Assegnare un nome alla nuova finalità `MoveAssetsOrPeople`
-4. Aggiungere espressioni di esempio:
+2. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
 
+3. Andare alla fine dell'URL nell'indirizzo e immettere `Who is the boss of Jill Jones?` come espressione. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
+
+    ```JSON
+    {
+        "query": "who is the boss of jill jones?",
+        "topScoringIntent": {
+            "intent": "OrgChart-Manager",
+            "score": 0.9999989
+        },
+        "intents": [
+            {
+                "intent": "OrgChart-Manager",
+                "score": 0.9999989
+            },
+            {
+                "intent": "OrgChart-Reports",
+                "score": 7.616303E-05
+            },
+            {
+                "intent": "EmployeeFeedback",
+                "score": 7.84204349E-06
+            },
+            {
+                "intent": "GetJobInformation",
+                "score": 1.20674213E-06
+            },
+            {
+                "intent": "MoveEmployee",
+                "score": 7.91245157E-07
+            },
+            {
+                "intent": "None",
+                "score": 3.875E-09
+            },
+            {
+                "intent": "Utilities.StartOver",
+                "score": 1.49E-09
+            },
+            {
+                "intent": "Utilities.Confirm",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Help",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Stop",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Cancel",
+                "score": 1.225E-09
+            },
+            {
+                "intent": "FindForm",
+                "score": 1.123077E-09
+            },
+            {
+                "intent": "ApplyForJob",
+                "score": 5.625E-10
+            }
+        ],
+        "entities": [
+            {
+                "entity": "jill jones",
+                "type": "Employee",
+                "startIndex": 19,
+                "endIndex": 28,
+                "resolution": {
+                    "values": [
+                        "Employee-45612"
+                    ]
+                },
+                "role": ""
+            },
+            {
+                "entity": "boss of jill jones",
+                "type": "builtin.keyPhrase",
+                "startIndex": 11,
+                "endIndex": 28
+            }
+        ]
+    }
     ```
-    Move Bob Jones from Seattle to Los Colinas
-    Move Dave Cooper from Redmond to Seattle
-    Move Jim Smith from Toronto to Vancouver
-    Move Jill Benson from Boston to London
-    Move Travis Hinton from Portland to Orlando
-    ```
-    ![Schermata dell'espressione di esempio per la finalità MoveAssetsOrPeople](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-    Lo scopo delle espressioni di esempio è fornire un numero sufficiente di esempi. Se più avanti nel test, l'entità posizione non viene rilevata e di conseguenza non viene rilevato neanche il criterio, tornare a questo passaggio e aggiungere altri esempi. Eseguire nuovamente il training e il test. 
-
-5. Contrassegnare le entità nelle espressioni di esempio con l'entità Employee (Dipendente) selezionando il nome e il cognome in un'espressione, quindi selezionare l'entità Employee (Dipendente) nell'elenco.
-
-    ![Schermata delle espressioni in MoveAssetsOrPeople contrassegnate con l'entità Employee (Dipendente)](./media/luis-tutorial-pattern/intent-moveasserts-employee.png)
-
-6. Selezionare il testo `portland` nell'espressione `move travis hinton from portland to orlando`. Nella finestra di dialogo popup immettere il nome della nuova entità `Location` e selezionare **Create new entity** (Crea nuova entità). Scegliere il tipo di entità **Simple** (Semplice) e selezionare **Done** (Fine).
-
-    ![Schermata della creazione della nuova entità posizione](./media/luis-tutorial-pattern/create-new-location-entity.png)
-
-    Contrassegnare il resto dei nomi di posizione nelle espressioni. 
-
-    ![Schermata di tutte le entità contrassegnate](./media/luis-tutorial-pattern/moveasset-all-entities-labeled.png)
-
-    Il criterio della scelta e dell'ordine delle parole è ovvio nell'immagine precedente. Se **non** si usano i criteri e le espressioni sulla finalità presentano un criterio ovvio, valutare la possibilità di usarli. 
-
-    Se si prevede un'ampia gamma di espressioni, anziché un criterio, le espressioni di esempio sono quelle errate. In questo caso, sarebbe preferibile disporre di espressioni diverse nella scelta dei termini o delle parole, nella lunghezza e nel posizionamento delle entità. 
-
-<!--TBD: what guidance to move from hier entities to patterns with roles -->
-<!--    The [Hierarchical entity quickstart](luis-quickstart-intent-and-hier-entity.md) uses the  same idea of location but uses child entities to find origin and destination locations. 
--->
-### <a name="add-role-to-location-entity"></a>Aggiungere un ruolo all'entità posizione 
-I ruoli possono essere usati solo per i criteri. Aggiungere i ruoli origine e destinazione all'entità posizione. 
-
-1. Selezionare **Entities** (Entità) nel riquadro di spostamento sinistro, quindi **Location** (Posizione) dall'elenco di entità.
-
-2. Aggiungere i ruoli `Origin` e `Destination` all'entità.
-
-    ![Schermata della nuova entità con ruoli](./media/luis-tutorial-pattern/location-entity.png)
-
-    I ruoli non vengono contrassegnati nella pagina della finalità MoveAssetsOrPeople perché i ruoli non esistono nelle espressioni della finalità. Esistono solo nelle espressioni modello del criterio. 
-
-### <a name="add-template-utterances-that-uses-location-and-destination-roles"></a>Aggiungere espressioni modello che usino i ruoli posizione e destinazione
-Aggiungere espressioni modello che usino la nuova entità.
-
-1. Selezionare **Patterns** (Criteri) dal riquadro di spostamento sinistro.
-
-2. Selezionare la finalità **MoveAssetsOrPeople**.
-
-3. Immettere una nuova espressione modello usando la nuova entità `Move {Employee} from {Location:Origin} to {Location:Destination}`. La sintassi per un'entità e il ruolo all'interno di un'espressione modello è `{entity:role}`.
-
-    ![Schermata della nuova entità con ruoli](./media/luis-tutorial-pattern/pattern-moveassets.png)
-
-4. Eseguire il training dell'app per finalità, entità e criterio nuovi.
-
-### <a name="test-the-new-pattern-for-role-data-extraction"></a>Testare il nuovo criterio per l'estrazione dei dati del ruolo
-Convalidare il nuovo criterio con un test.
-
-1. Selezionare **Test** nel pannello superiore. 
-2. Immettere l'espressione `Move Tammi Carlson from Bellingham to Winthrop`.
-3. Selezionare **Inspect** (Ispeziona) sotto il risultato per visualizzare i risultati del test per entità e finalità.
-
-    ![Schermata della nuova entità con ruoli](./media/luis-tutorial-pattern/test-with-roles.png)
-
-    Prima vengono trovate le entità, poi il criterio a indicare la finalità. Se nel risultato di un test le entità non vengono rilevate e di conseguenza il criterio non viene trovato, è necessario aggiungere un maggior numero di espressioni di esempio sulla finalità (non il criterio). 
-
-4. Chiudere il pannello test selezionando il pulsante **Test** nella barra di spostamento superiore.
-
-## <a name="use-a-patternany-entity-to-find-free-form-entities-in-a-pattern"></a>Usare un'entità Pattern.any per trovare entità in formato libero in un criterio
-Questa app HumanResources aiuta i dipendenti a trovare i moduli aziendali. Molti dei moduli dispongono di titoli di diversa lunghezza. La lunghezza variabile include frasi che potrebbero confondere LUIS circa la fine del nome del modulo. Usando un'entità **Pattern.any** in un criterio è possibile specificare l'inizio e la fine del nome del modulo in modo che LUIS lo estragga correttamente. 
-
-### <a name="create-a-new-intent-for-the-form"></a>Creare una nuova finalità per il modulo
-Creare una nuova finalità per le espressioni che cercano i moduli.
-
-1. Selezionare **Intents** (Finalità) dal riquadro di spostamento sinistro.
-
-2. Selezionare **Create new intent** (Crea nuova finalità).
-
-3. Immettere il nome della nuova finalità `FindForm`.
-
-4. Aggiungere un'espressione di esempio.
-
-    ```
-    `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`
-    ```
-
-    ![Schermata della nuova entità con ruoli](./media/luis-tutorial-pattern/intent-findform.png)
-
-    Il titolo del modulo è `What to do when a fire breaks out in the Lab`. L'espressione chiede la posizione del modulo e chi deve firmarlo confermando il dipendente che lo legge. Senza un'entità Pattern.any, sarebbe difficile capire dove finisce il titolo del modulo ed estrarre il titolo del modulo come un'entità dell'espressione.
-
-### <a name="create-a-patternany-entity-for-the-form-title"></a>Creare un'entità Pattern.any per il titolo del modulo
-L'entità Pattern.any consente entità di diversa lunghezza. Funziona solo in un criterio perché il criterio contrassegna l'inizio e la fine dell'entità. Se si rileva che il criterio, quando include Pattern.any, estrae le entità in modo errato, usare un [elenco esplicito](luis-concept-patterns.md#explicit-lists) per risolvere il problema. 
-
-1. Selezionare **Entities** (Entità) nel riquadro di spostamento sinistro.
-
-2. Selezionare **Create new entity** (Crea nuova entità). 
-
-3. Assegnare un nome all'entità `FormName` con il tipo **Pattern.any**. Per questa specifica esercitazione, non è necessario aggiungere ruoli all'entità.
-
-    ![Immagine della finestra di dialogo per nome entità e tipo entità](./media/luis-tutorial-pattern/create-entity-pattern-any.png)
-
-### <a name="add-a-pattern-that-uses-the-patternany"></a>Aggiungere un criterio che usa Pattern.any
-
-1. Selezionare **Patterns** (Criteri) dal riquadro di spostamento sinistro.
-
-2. Selezionare la finalità **FindForm**.
-
-3. Immettere una nuova espressione modello usando la nuova entità `Where is the form {FormName} and who needs to sign it after I read it?`
-
-    ![Schermata dell'espressione modello usando l'entità pattern.any](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
-
-4. Eseguire il training dell'app per finalità, entità e criterio nuovi.
-
-### <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testare il nuovo criterio per l'estrazione dei dati in formato libero
-1. Selezionare **Test** nella barra superiore per aprire il pannello test. 
-
-2. Immettere l'espressione `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
-
-3. Selezionare **Inspect** (Ispeziona) sotto il risultato per visualizzare i risultati del test per entità e finalità.
-
-    ![Schermata dell'espressione modello usando l'entità pattern.any](./media/luis-tutorial-pattern/test-pattern.any-results.png)
-
-    Prima viene trovata l'entità, poi il criterio a indicare la finalità. Se nel risultato di un test le entità non vengono rilevate e di conseguenza il criterio non viene trovato, è necessario aggiungere un maggior numero di espressioni di esempio sulla finalità (non il criterio).
-
-4. Chiudere il pannello test selezionando il pulsante **Test** nella barra di spostamento superiore.
+La stima della finalità a questo punto è significativamente più elevata. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app LUIS. A tale scopo, selezionare il menu con i puntini di sospensione (...) a destra del nome nell'elenco di app, quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app LUIS. A tale scopo, selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Usare l'elenco di frasi per migliorare la stima](luis-tutorial-interchangeable-phrase-list.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Informazioni su come usare i ruoli con un criterio](luis-tutorial-pattern-roles.md)

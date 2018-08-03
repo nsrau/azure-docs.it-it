@@ -1,253 +1,319 @@
 ---
-title: Creare un'entità composita per estrarre dati complessi - Azure | Microsoft Docs
+title: Esercitazione per la creazione di un'entità composita per estrarre dati complessi - Azure | Microsoft Docs
 description: Informazioni su come creare un'entità composita nell'app LUIS per estrarre tipi diversi di dati di entità.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 03/28/2018
-ms.author: v-geberr
-ms.openlocfilehash: cb581ee60dea2b0810332933455a03a8b68e16ea
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 07/09/2018
+ms.author: diberry
+ms.openlocfilehash: d14041e895bdf70544f7e956c76f91992a2df991
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264386"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238098"
 ---
-# <a name="use-composite-entity-to-extract-complex-data"></a>Usare l'entità composita per estrarre dati complessi
-Questa app semplice include due [finalità](luis-concept-intent.md) e diverse entità. La sua funzione è prenotare voli, ad esempio '1 biglietto da Seattle al Cairo venerdì' e restituire tutte le specifiche della prenotazione come unico dato. 
+# <a name="tutorial-6-add-composite-entity"></a>Esercitazione: 6. Aggiungere un'entità composita 
+Questa esercitazione aggiunge un'entità composita per aggregare i dati estratti in un'entità contenitore.
 
 In questa esercitazione si apprenderà come:
 
+<!-- green checkmark -->
 > [!div class="checklist"]
-* Aggiungere entità predefinite datetimeV2 e number
-* Creare un'entità composita
-* Eseguire una query nell'app LUIS e ricevere i dati dell'entità composita
+> * Informazioni sulle entità composite 
+> * Aggiungere un'entità composita per estrarre i dati
+> * Eseguire il training e pubblicare l'app
+> * Eseguire query sull'endpoint dell'app per ottenere una risposta JSON di Language Understanding
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* App LUIS dall'**[avvio rapido gerarchico](luis-tutorial-composite-entity.md)**. 
+Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità gerarchica](luis-quickstart-intent-and-hier-entity.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
 
-> [!Tip]
-> Se non si dispone di una sottoscrizione, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
+Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `composite`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale.  
 
 ## <a name="composite-entity-is-a-logical-grouping"></a>L'entità composita è un raggruppamento logico 
-La funzione dell'entità è trovare e categorizzare parti del testo nell'espressione. Un'entità [composita](luis-concept-entity-types.md) è data da altri tipi di entità appresi dal contesto. Per questa app di viaggi che accetta prenotazioni dei voli, sono disponibili informazioni quali date, posizioni e numero di posti. 
+Lo scopo dell'entità composita è di raggruppare le entità correlate in un'entità di categoria padre. Prima che venga creata un'entità composita le informazioni sono entità separate. È simile all'entità gerarchica ma può contenere più tipi di entità. 
 
-Prima che venga creata un'entità composita le informazioni sono entità separate. Creare un'entità composita quando le entità separate possono essere raggruppate logicamente e questo raggruppamento logico è utile per il chatbot o per altre applicazioni che usano LUIS. 
+ Creare un'entità composita quando le entità separate possono essere raggruppate logicamente e questo raggruppamento logico è utile per le applicazioni client. 
 
-Semplici espressioni di esempio degli utenti includono:
+In questa app, il nome del dipendente è definito nell'entità elenco **Employee** (Dipendente) e include i sinonimi di nome, l'indirizzo e-mail, l'interno telefonico aziendale, il numero di telefono cellulare e Stati Uniti. Il codice fiscale. 
 
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Reserve a seat from New York to Paris on the first of April
-```
+La finalità **MoveEmployee** contiene espressioni di esempio per richiedere il trasferimento di un dipendente da un edificio e ufficio a un altro. I nomi degli edifici sono alfabetici: "A", "B", e così via, mentre gli uffici sono numerici: "1234", "13245". 
+
+Espressioni di esempio nella finalità **MoveEmployee** includono:
+
+|Espressioni di esempio|
+|--|
+|Move John W. Smith to a-2345|
+|shift x12345 to h-1234 tomorrow|
  
-L'entità composita corrisponde al numero di posti, alla località di partenza, alla località di destinazione e alla data. 
+La richiesta di trasferimento deve includere almeno il dipendente (con qualsiasi sinonimo) e la posizione finale dell'edificio e dell'ufficio. La richiesta può includere anche l'ufficio di origine oltre a una data in cui eseguire il trasferimento. 
 
-## <a name="what-luis-does"></a>Funzioni di LUIS
-Dopo che la finalità e le entità dell'espressione sono state identificate, [estratte](luis-concept-data-extraction.md#list-entity-data) e restituite in JSON dall'[endpoint](https://aka.ms/luis-endpoint-apis), LUIS ha assolto alla sua funzione. L'applicazione chiamante o il chatbot acquisisce la risposta JSON e soddisfa la richiesta nel modo previsto a seconda dell'app o del chatbot. 
+I dati estratti dall'endpoint dovrebbero contenere queste informazioni e restituirle in un'entità composita `RequestEmployeeMove`. 
 
-## <a name="add-prebuilt-entities-number-and-datetimev2"></a>Aggiungere entità predefinite number e datetimeV2
-1. Selezionare l'app `MyTravelApp` dall'elenco di app nel sito Web [LUIS][LUIS].
+## <a name="create-composite-entity"></a>Creare un'entità composita
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
 
-2. Quando si apre l'app, selezionare il collegamento di spostamento sinistro **Entities** (Entità).
+    [ ![Screenshot dell'app LUIS con il pulsante relativo alla compilazione evidenziato in alto a destra sulla barra di spostamento](./media/luis-tutorial-composite-entity/hr-first-image.png)](./media/luis-tutorial-composite-entity/hr-first-image.png#lightbox)
 
-    ![Selezionare il pulsante entities (entità)](./media/luis-tutorial-composite-entity/intents-page-select-entities.png)    
+2. Nella pagina **Intents** (Finalità) selezionare la finalità **MoveEmployee**. 
 
-3. Selezionare **Manage prebuilt entities** (Gestisci entità predefinite).
+    [![](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png "Screenshot di LUIS con la finalità \"MoveEmployee\" evidenziata")](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png#lightbox)
 
-    ![Selezionare il pulsante entities (entità)](./media/luis-tutorial-composite-entity/manage-prebuilt-entities-button.png)
+3. Selezionare l'icona della lente di ingrandimento della barra degli strumenti per filtrare l'elenco di espressioni. 
 
-4. Nella casella popup selezionare **number** e **datetimeV2**.
+    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con il pulsante della lente di ingrandimento evidenziato")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
-    ![Selezionare il pulsante entities (entità)](./media/luis-tutorial-composite-entity/prebuilt-entity-ddl.png)
+4. Immettere `tomorrow` nella casella di testo del filtro per trovare l'espressione `shift x12345 to h-1234 tomorrow`.
 
-5. Per poter estrarre le nuove entità, selezionare **Train** (Esegui il training) nella barra di spostamento superiore.
+    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con il filtro \"tomorrow\" evidenziato")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
-    ![Selezionare il pulsante Train (Esegui il training)](./media/luis-tutorial-composite-entity/train.png)
+    È anche possibile filtrare l'entità per datetimeV2, selezionando **Entity filters** (Filtri entità) e quindi **datetimeV2** dall'elenco. 
 
-## <a name="use-existing-intent-to-create-composite-entity"></a>Usare la finalità esistente per creare un'entità composita
-1. Selezionare **Intents** (Finalità) nel pannello di spostamento sinistro. 
+5. Selezionare la prima entità, `Employee`, quindi selezionare **Wrap in composite entity** (Esegui il wrapping in entità composita) nell'elenco del menu a comparsa. 
 
-    ![Selezionare la pagina Intents (Finalità)](./media/luis-tutorial-composite-entity/intents-from-entities-page.png)
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con evidenziata la selezione della prima entità nel composito")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
-2. Selezionare `BookFlight` dall'elenco **Intents** (Finalità).  
 
-    ![Selezionare la finalità BookFlight dall'elenco](./media/luis-tutorial-composite-entity/intent-page-with-prebuilt-entities-labeled.png)
+6. Quindi selezionare immediatamente l'ultima entità, `datetimeV2`, nell'espressione. Sotto le parole selezionate viene disegnata una barra verde che indica un'entità composita. Nel menu a comparsa immettere il nome composito `RequestEmployeeMove` quindi selezionare **Create new composite** (Crea nuovo composito) dal menu a comparsa. 
 
-    Le entità predefinite number e datetimeV2 vengono etichettate nelle espressioni.
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con evidenziate la selezione dell'ultima entità e la creazione dell'entità")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
-3. Per l'espressione `book 2 flights from seattle to cairo next monday`, selezionare l'entità `number` blu, quindi selezionare **Wrap in composite entity** (Esegui il wrapping nell'entità composita) dall'elenco. Una linea verde, sotto le parole, segue il cursore mentre si sposta a destra, indicando un'entità composita. Spostarsi a destra per selezionare l'ultima entità predefinita `datetimeV2`, quindi immettere `FlightReservation` nella finestra popup, infine selezionare **Create new composite** (Crea nuova entità composita). 
+7. In **What type of entity do you want to create** (Che tipo di identità si desidera creare?) quasi tutti i campi necessari sono nell'elenco. Manca solo la posizione di origine. Selezionare **Add a child entity** (Aggiungi entità figlio), selezionare **Locations::Origin** dall'elenco delle entità esistenti, quindi selezionare **Done** (Operazione completata). 
 
-    ![Creare un'entità composita nella pagina intents (finalità)](./media/luis-tutorial-composite-entity/create-new-composite.png)
+  ![Screenshot di LUIS con la finalità "MoveEmployee" in cui si aggiunge un'altra entità nella finestra popup](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
-4. Verrà visualizzata una finestra di dialogo popup in cui verificare gli elementi figlio dell'entità composita. Selezionare **Operazione completata**.
+8. Selezionare la lente di ingrandimento nella barra degli strumenti per rimuovere il filtro. 
 
-    ![Creare un'entità composita nella pagina intents (finalità)](./media/luis-tutorial-composite-entity/validate-composite-entity.png)
+## <a name="label-example-utterances-with-composite-entity"></a>Etichettare le espressioni di esempio con l'entità composita
+1. In ogni espressione di esempio, selezionare l'entità più a sinistra nel composito. Selezionare quindi **Wrap in composite entity** (Esegui il wrapping in entità composita).
 
-## <a name="wrap-the-entities-in-the-composite-entity"></a>Eseguire il wrapping delle entità nell'entità composita
-Dopo aver creato l'entità composita, etichettare le espressioni rimanenti nell'entità composita. Per eseguire il wrapping di una frase come entità composita, è necessario selezionare la parola più a sinistra, selezionare **Wrap in composite entity** (Esegui il wrapping nell'entità composita), selezionare la parola più a destra e infine selezionare l'entità composita nominata `FlightReservation`. Si tratta di una sequenza rapida di selezioni, suddivisa nei passaggi seguenti:
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con evidenziata la selezione della prima entità nel composito")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
-1. Nell'espressione `schedule 4 seats from paris to london for april 1` selezionare il 4 come entità predefinita number.
+2. Selezionare l'ultima parola nell'entità composita quindi selezionare **RequestEmployeeMove** nel menu a comparsa. 
 
-    ![Selezionare la parola più a sinistra](./media/luis-tutorial-composite-entity/wrap-composite-step-1.png)
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot di LUIS con la finalità \"MoveEmployee\" con evidenziata la selezione dell'ultima entità nel composito")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
-2. Selezionare **Wrap in composite entity** (Esegui il wrapping nell'entità composita) dall'elenco che viene visualizzato.
+3. Verificare che tutte le espressioni nella finalità siano etichettate con l'entità composita. 
 
-    ![Selezionare wrap (Esegui il wrapping) dall'elenco](./media/luis-tutorial-composite-entity/wrap-composite-step-2.png)
+    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Schermata di LUIS in 'MoveEmployee' con tutte le espressioni etichettate")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
-3. Selezionare la parola più a destra. La linea verde che compare sotto la frase indica un'entità composita.
-
-    ![Selezionare la parola più a destra](./media/luis-tutorial-composite-entity/wrap-composite-step-3.png)
-
-4. Selezionare il nome composito `FlightReservation` dall'elenco che viene visualizzato.
-
-    ![Selezionare l'entità composita nominata](./media/luis-tutorial-composite-entity/wrap-composite-step-4.png)
-
-    Per l'ultima espressione, eseguire il wrapping di `London` e `tomorrow` nell'entità composita, usando le stesse istruzioni. 
-
-## <a name="train-the-luis-app"></a>Eseguire il training dell'app LUIS
-LUIS non apprende le finalità e le entità (il modello) finché non viene sottoposta a training. 
+## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
+LUIS non è conoscenza della nuova entità composita fino a quando non viene eseguito il training dell'app. 
 
 1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Train** (Esegui il training).
 
-    ![Eseguire il training dell'app](./media/luis-tutorial-composite-entity/train-button.png)
+    ![Eseguire il training dell'app](./media/luis-tutorial-composite-entity/hr-train-button.png)
 
 2. Il training è completato quando nella barra di stato verde nella parte superiore del sito Web viene confermato il completamento.
 
-    ![Training completato](./media/luis-tutorial-composite-entity/trained.png)
+    ![Training completato](./media/luis-tutorial-composite-entity/hr-trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
-Per ottenere una stima LUIS in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
+Per ottenere una previsione di Language Understanding in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
 
 1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Publish** (Pubblica). 
 
 2. Selezionare lo slot di produzione e il pulsante **Publish** (Pubblica).
 
-    ![pubblicare l'app](./media/luis-tutorial-composite-entity/publish-to-production.png)
+    ![pubblicare l'app](./media/luis-tutorial-composite-entity/hr-publish-to-production.png)
 
 3. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
+## <a name="query-the-endpoint"></a>Query dell'endpoint 
 1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
 
-    ![Selezionare l'URL endpoint](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
+    ![Selezionare l'URL endpoint](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
 
-2. Andare alla fine dell'URL nell'indirizzo e immettere `reserve 3 seats from London to Cairo on Sunday`. L'ultimo parametro querystring è `q`, la query dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, pertanto rappresenta un buon test e dovrebbe restituire la finalità `BookFlight` con l'entità gerarchica estratta.
+2. Andare alla fine dell'URL nell'indirizzo e immettere `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. L'ultimo parametro querystring è `q`, la query dell'espressione. 
 
-```
+    Poiché questo test consiste nel verificare che il composito venga estratto in modo corretto, il test può includere un'espressione di esempio esistente o una nuova espressione. Un buon test consiste nell'includere tutte le entità figlio nell'entità composita.
+
+```JSON
 {
-  "query": "reserve 3 seats from London to Cairo on Sunday",
+  "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.999999046
+    "intent": "MoveEmployee",
+    "score": 0.9959525
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.999999046
+      "intent": "MoveEmployee",
+      "score": 0.9959525
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.009858314
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00728598563
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.0058053555
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.005371796
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00266987388
     },
     {
       "intent": "None",
-      "score": 0.227036044
+      "score": 0.00123299169
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00116407464
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00102653319
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0006628214
     }
   ],
   "entities": [
     {
-      "entity": "sunday",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 40,
-      "endIndex": 45,
+      "entity": "march 3 2 p.m",
+      "type": "builtin.datetimeV2.datetime",
+      "startIndex": 41,
+      "endIndex": 54,
       "resolution": {
         "values": [
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-03-25"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2018-03-03 14:00:00"
           },
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-04-01"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2019-03-03 14:00:00"
           }
         ]
       }
     },
     {
-      "entity": "3 seats from london to cairo on sunday",
-      "type": "flightreservation",
-      "startIndex": 8,
-      "endIndex": 45,
-      "score": 0.6892485
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 5,
+      "endIndex": 14,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
     },
     {
-      "entity": "cairo",
-      "type": "Location::Destination",
+      "entity": "z - 2345",
+      "type": "Locations::Destination",
       "startIndex": 31,
-      "endIndex": 35,
-      "score": 0.557570755
+      "endIndex": 36,
+      "score": 0.9690751
     },
     {
-      "entity": "london",
-      "type": "Location::Origin",
+      "entity": "a - 1234",
+      "type": "Locations::Origin",
       "startIndex": 21,
       "endIndex": 26,
-      "score": 0.8933808
+      "score": 0.9713137
+    },
+    {
+      "entity": "-1234",
+      "type": "builtin.number",
+      "startIndex": 22,
+      "endIndex": 26,
+      "resolution": {
+        "value": "-1234"
+      }
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 32,
+      "endIndex": 36,
+      "resolution": {
+        "value": "-2345"
+      }
     },
     {
       "entity": "3",
       "type": "builtin.number",
-      "startIndex": 8,
-      "endIndex": 8,
+      "startIndex": 47,
+      "endIndex": 47,
       "resolution": {
         "value": "3"
       }
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 50,
+      "endIndex": 50,
+      "resolution": {
+        "value": "2"
+      }
+    },
+    {
+      "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+      "type": "requestemployeemove",
+      "startIndex": 5,
+      "endIndex": 54,
+      "score": 0.4027723
     }
   ],
   "compositeEntities": [
     {
-      "parentType": "flightreservation",
-      "value": "3 seats from london to cairo on sunday",
+      "parentType": "requestemployeemove",
+      "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
       "children": [
         {
-          "type": "builtin.datetimeV2.date",
-          "value": "sunday"
+          "type": "builtin.datetimeV2.datetime",
+          "value": "march 3 2 p.m"
         },
         {
-          "type": "Location::Destination",
-          "value": "cairo"
+          "type": "Locations::Destination",
+          "value": "z - 2345"
         },
         {
-          "type": "builtin.number",
-          "value": "3"
+          "type": "Employee",
+          "value": "jill jones"
         },
         {
-          "type": "Location::Origin",
-          "value": "london"
+          "type": "Locations::Origin",
+          "value": "a - 1234"
         }
       ]
     }
-  ]
+  ],
+  "sentimentAnalysis": {
+    "label": "neutral",
+    "score": 0.5
+  }
 }
 ```
 
-Questa espressione restituisce una matrice di entità composite incluso l'oggetto **flightreservation** con i dati estratti.  
+Questa espressione restituisce una matrice di entità composite. A ogni entità viene assegnato un tipo e un valore. Per individuare con maggiore precisione ogni entità figlio, usare la combinazione di tipo e valore dell'elemento di matrice composita per trovare l'elemento corrispondente nella matrice delle entità.  
 
-## <a name="what-has-this-luis-app-accomplished"></a>A quali funzioni ha assolto questa app LUIS?
-Questa app, con solo due finalità e un'entità composita, ha identificato un'intenzione di query in linguaggio naturale e ha restituito i dati estratti. 
+## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
+Questa app ha identificato una finalità di query in linguaggio naturale e ha restituito i dati estratti come gruppo denominato. 
 
-Il chatbot dispone ora di informazioni sufficienti per determinare l'azione principale, `BookFlight`, e le informazioni sulla prenotazione trovate nell'espressione. 
+Il chatbot ha ora informazioni sufficienti per determinare l'azione principale e i relativi dettagli nell'espressione. 
 
-## <a name="where-is-this-luis-data-used"></a>Dove vengono usati questi dati LUIS? 
+## <a name="where-is-this-luis-data-used"></a>Qual è la destinazione d'uso dei dati di Language Understanding? 
 LUIS ha terminato con questa richiesta. L'applicazione chiamante, ad esempio un chatbot, può acquisire il risultato topScoringIntent e i dati dell'entità per completare il passaggio successivo. LUIS non esegue questo lavoro programmatico per il bot o l'applicazione chiamante, ma si limita a determinare l'intenzione dell'utente. 
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+Quando non è più necessaria, eliminare l'app LUIS. Seleziona **App personali** nel menu in alto a sinistra. Selezionare il pulsante con i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+
 ## <a name="next-steps"></a>Passaggi successivi
-
-[Altre informazioni sulle entità](luis-concept-entity-types.md). 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [!div class="nextstepaction"] 
+> [Informazioni su come aggiungere un'entità semplice con un elenco di frasi](luis-quickstart-primary-and-secondary-data.md)  

@@ -1,7 +1,7 @@
 ---
-title: Come creare un'applicazione "Hello World" di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
+title: Come creare un modello "Hello World" di Conversation Learner - Servizi cognitivi Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Informazioni su come creare un'applicazione "Hello World" di Conversation Learner.
+description: Informazioni su come creare un modello "Hello World" di Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,21 +10,26 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 30026285ac6dda45d2f5e3718aae741b928cf242
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376361"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170872"
 ---
-# <a name="how-to-create-a-hello-world-application-with-conversation-learner"></a>Come creare un'applicazione "Hello World" con Conversation Learner
+# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Come creare un modello "Hello World" con Conversation Learner
 
 Questa esercitazione illustra come iniziare a usare Conversation Learner, ad esempio creando azioni, eseguendo il training interattivo e apportando correzioni ai dialoghi registrati degli utenti finali.
+
+## <a name="video"></a>Video
+
+[![Anteprima esercitazione 1](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+
 
 ## <a name="requirements"></a>Requisiti
 Se non si è ancora provveduto, per prima cosa assicurarsi che siano stati completati tutti i passaggi di configurazione, inclusa la creazione di un file con estensione `.env` con la chiave di creazione di LUIS.  Per informazioni dettagliate, vedere la [guida introduttiva](https://github.com/Microsoft/ConversationLearner-Samples).
 
-Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
 
     npm run tutorial-general
 
@@ -32,14 +37,14 @@ Per questa esercitazione è necessario che il bot di esercitazione generale sia 
 
 Per iniziare, passare alla home page nell'interfaccia utente Web.
 
-### <a name="create-the-app"></a>Creare l'app
-1. Fare clic su New App (Nuova app)
+### <a name="create-the-model"></a>Creare il modello
+1. Fare clic su New Model (Nuovo modello)
 2. Nel campo Name (Nome) immettere "Hello World"
 3. Click Create
 
 ### <a name="create-an-action"></a>Creare un'azione
 
-1. Fare clic sull'app Hello World per avviarla.
+1. Fare clic sul modello Hello World per avviarlo
 2. Fare clic su Actions (Azioni) e quindi su New Action (Nuova azione).
     - Un'azione può essere un messaggio di testo restituito da Conversation Learner all'utente, una chiamata API o una scheda.
 3. In Response (Risposta) digitare "Hello World!".

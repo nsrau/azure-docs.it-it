@@ -3,24 +3,24 @@ title: Informazioni di riferimento sui domini predefiniti - Azure| Microsoft Doc
 titleSuffix: Azure
 description: Informazioni di riferimento sui domini predefiniti che sono raccolte predefinite di finalità ed entità di Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061965"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238897"
 ---
 # <a name="prebuilt-domain-reference"></a>Informazioni di riferimento sui domini predefiniti
 Queste informazioni di riferimento descrivono i [domini predefiniti](luis-how-to-use-prebuilt-domains.md) che sono raccolte predefinite delle finalità ed delle entità offerte da LUIS.
 
-I [domini personalizzati](create-new-app.md), al contrario, vengono avviati senza finalità e modelli. È possibile aggiungere le finalità e le entità dei domini predefiniti a un modello personalizzato.
+I [domini personalizzati](luis-how-to-start-new-app.md), al contrario, vengono avviati senza finalità e modelli. È possibile aggiungere le finalità e le entità dei domini predefiniti a un modello personalizzato.
 
 ## <a name="list-of-prebuilt-domains"></a>Elenco dei domini predefiniti
 LUIS offre 20 domini predefiniti. 
@@ -36,22 +36,22 @@ LUIS offre 20 domini predefiniti.
 | Giochi | Gestisce le richieste relative a una partita in un gioco multiplayer.| it-IT |
 | HomeAutomation | Controllo dei dispositivi domestici intelligenti come luci e accessori.| it-IT<br/> zh-CN |
 | MovieTickets | Prenotazione di biglietti per film in una sala cinematografica.| it-IT |
-| Music | Riproduzione di musica su un lettore.| it-IT<br/> zh-CN |
-| Note | Il dominio Note offre finalità ed entità correlate alla creazione, alla modifica e alla ricerca di note.| it-IT<br/> zh-CN |
+| Musica | Riproduzione di musica su un lettore.| it-IT<br/> zh-CN |
+| Note | Il dominio Note (Nota) offre finalità ed entità correlate alla creazione, alla modifica e alla ricerca di note.| it-IT<br/> zh-CN |
 | OnDevice | Il dominio OnDevice (Dispositivo) offre finalità ed entità correlate al controllo del dispositivo.| it-IT<br/> zh-CN |
-| Places  | Gestione delle query correlate a luoghi come aziende, istituzioni, ristoranti, spazi pubblici e indirizzi.| it-IT<br/> zh-CN |
+| Località  | Gestione delle query correlate a luoghi come aziende, istituzioni, ristoranti, spazi pubblici e indirizzi.| it-IT<br/> zh-CN |
 | Reminder | Gestione delle richieste correlate alla creazione, alla modifica e alla ricerca di promemoria.| it-IT<br/> zh-CN |
 | RestaurantReservation | Gestione delle richieste di prenotazione per i ristoranti.| it-IT<br/> zh-CN |
 | Taxi | Gestione delle prenotazioni di taxi.| it-IT<br/> zh-CN |
 | Translate | Traduzione del testo nella lingua di destinazione.| it-IT<br/> zh-CN |
 | TV | Controllo dei televisori.| it-IT |
-| Utilities  | Gestione delle richieste comuni a più domini, ad esempio le richieste di aiuto, di ripetizione o di riavvio.| it-IT |
+| Servizi pubblici  | Gestione delle richieste comuni a più domini, ad esempio le richieste di aiuto, di ripetizione o di riavvio.| it-IT |
 | Weather | Recupero dei report e delle previsioni meteo.| it-IT<br/> zh-CN |
 | Web | Navigazione di un sito Web.| it-IT<br/> zh-CN |
 
 Per informazioni dettagliate su ogni dominio, vedere le sezioni che seguono.
 
-## <a name="calendar"></a>Calendar 
+## <a name="calendar"></a>Calendario 
 
 Il dominio Calendar (Calendario) offre finalità ed entità correlate alle voci di calendario. Le finalità del calendario includono l'aggiunta, l'eliminazione o la modifica di un appuntamento, la verifica della disponibilità e la ricerca di informazioni su una voce del calendario o un appuntamento.
 
@@ -61,14 +61,14 @@ Il dominio Calendar (Calendario) offre finalità ed entità correlate alle voci 
 | Add | Aggiungere una voce singola al calendario.| Prendi un appuntamento con Lisa per le 14.00 di domenica <br/><br/>Voglio pianificare una riunione<br/><br/>Ho bisogno di organizzare una riunione|
 | CheckAvailability | Cercare la disponibilità per un appuntamento o una riunione nel calendario dell'utente o di un altro utente.| Quando è possibile incontrare Jim? <br/><br/>Mostra quando Carol è disponibile domani<br/><br/>Chris è libero sabato?|
 | Delete | Richiedere di eliminare una voce del calendario.| Annulla l'appuntamento con Carol. <br/><br/>Cancella la riunione delle 9.00<br/>|
-| Edit | Richiedere di modificare una riunione o una voce del calendario esistente.| Sposta la riunione delle 9.00 alle 10.00.<br/><br/>Voglio aggiornare la mia pianificazione.<br/><br/>Ripianificare la riunione con Ryan.|
+| Modificare | Richiedere di modificare una riunione o una voce del calendario esistente.| Sposta la riunione delle 9.00 alle 10.00.<br/><br/>Voglio aggiornare la mia pianificazione.<br/><br/>Ripianificare la riunione con Ryan.|
 | Find | Visualizzare il calendario settimanale personale.| Trova l'appuntamento di controllo dal dentista. <br/><br/>Mostra il mio calendario<br/>|
 
 ### <a name="entities"></a>Entità
 | Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Location | Località dell'elemento del calendario, della riunione o dell'appuntamento. Indirizzi, città e regioni sono un ottimo esempio di località.| 209 Nashville Gym <br/><br/>897 Pancake house<br/><br/>Garage|
-| Subject | Titolo di una riunione o di un appuntamento.| Appuntamento dal dentista <br/><br/>Pranzo con Julia<br/><br/>Appuntamento dal dottore|
+| Località | Località dell'elemento del calendario, della riunione o dell'appuntamento. Indirizzi, città e regioni sono un ottimo esempio di località.| 209 Nashville Gym <br/><br/>897 Pancake house<br/><br/>Garage|
+| Oggetto | Titolo di una riunione o di un appuntamento.| Appuntamento dal dentista <br/><br/>Pranzo con Julia<br/><br/>Appuntamento dal dottore|
 
 ## <a name="camera"></a>Camera 
 Il dominio Camera (Fotocamera) offre finalità ed entità correlate all'uso di una fotocamera. Le finalità includono lo scatto di una foto, selfie, screenshot o video e la trasmissione di video in un'applicazione.
@@ -98,29 +98,29 @@ Il dominio Communication (Comunicazione) offre le finalità e le entità correla
 | ---------------- |-----------------------|----|
 | AddContact| Aggiungere un nuovo contatto all'elenco dei contatti dell'utente.|Aggiungi nuovo contatto <br/><br/>Salva il numero e assegna il nome Carol|
 | AddMore| Aggiungere altri dati a un messaggio di posta elettronica o a un messaggio di testo, come fase della composizione di un messaggio di posta elettronica o di testo.|Aggiungi altro al messaggio di testo <br/><br/>Aggiungi altro al corpo del messaggio di posta elettronica|
-| Answer| Rispondere a una chiamata in arrivo.|Rispondi alla chiamata <br/><br/>Rispondi|
+| Risposta| Rispondere a una chiamata in arrivo.|Rispondi alla chiamata <br/><br/>Rispondi|
 | AssignContactNickname| Assegnare un nome alternativo a un contatto.|Cambia Isaac con papà <br/>Cambia nome alternativo di Jim<br/>Aggiungi nome alternativo a Patti Owens|
 | CallVoiceMail| Connettersi alla posta vocale dell'utente.|Connettimi alla casella della posta vocale <br/>Messaggi vocali<br/>Chiama posta vocale|
 | CheckIMStatus| Controllare lo stato di un contatto in Skype.|Lo stato online di Jim è impostato su Assente? <br/>Carol è disponibile per una chat?|
-| Confirm| Confermare un'azione.|Sì<br/>OK<br/>Va bene<br/>Confermo di voler inviare questo messaggio di posta elettronica.<br/>|
+| Confirm| Confermare un'azione.|Yes<br/>OK<br/>Va bene<br/>Confermo di voler inviare questo messaggio di posta elettronica.<br/>|
 | Dial| Effettuare una chiamata telefonica.|Chiama Jim<br/>Componi 311<br/>|
 | FindContact| Trovare le informazioni sul contatto in base al nome.|Trova il numero di Carol<br/>Mostra il numero di Carol<br/>|
 | FindSpeedDial| Trovare il numero rapido impostato per un numero telefonico e viceversa.|A quale numero corrisponde il numero 5?<br/>È impostato il numero rapido?<br/>Qual è il numero rapido per 941-5555-333?|
 | GetForwardingsStatus| Ottenere lo stato corrente dell'inoltro di chiamata.|L'inoltro di chiamata è attivato?<br/>Dimmi se lo stato della chiamata è attivo o inattivo<br/>|
-| Goback| Tornare al passaggio precedente.|Torna a Twitter<br/>Torna indietro di un passaggio<br/>Torna indietro|
-| Ignore| Ignorare una chiamata in arrivo.|Non rispondere<br/>Ignora la chiamata|
+| Goback| Tornare al passaggio precedente.|Torna a Twitter<br/>Torna indietro di un passaggio<br/>Tornare alla schermata precedente|
+| Ignora| Ignorare una chiamata in arrivo.|Non rispondere<br/>Ignora la chiamata|
 | IgnoreWithMessage| Ignorare una chiamata in arrivo e rispondere invece con un messaggio di testo.|Non rispondere alla chiamata ma inviare un messaggio di testo.<br/>Ignora e invia un messaggio di testo.|
 | PressKey| Premere un pulsante o un numero sul tastierino numerico.|Componi asterisco.<br/>Premi 1 2 3.|
 | ReadAloud| Leggere un messaggio o un messaggio di posta elettronica all'utente.|Leggi testo.<br/>Cosa ha detto nel messaggio?|
 | TurnForwardingOff| Effettuare una chiamata telefonica.|<br/><br/>|
 | Redial| Ricomporre o chiamare di nuovo un numero.|Richiama.<br/>Richiama ultimo numero.|
-| Reject| Rifiutare una chiamata in arrivo.|Rifiuta chiamata<br/>Non posso rispondere<br/>Non sono disponibile ora, richiamo più tardi.|
+| Rifiuto| Rifiutare una chiamata in arrivo.|Rifiuta chiamata<br/>Non posso rispondere<br/>Non sono disponibile ora, richiamo più tardi.|
 | SendEmail| Inviare un messaggio di posta elettronica. Questa finalità si applica alla posta elettronica e non ai messaggi di testo.|Invia un messaggio di posta elettronica a Mike Waters: Mike, la cena della settimana scorsa è stata splendida.<br/>Invia un messaggio di posta elettronica a Bob<br/>|
 | SendMessage| Inviare un messaggio di testo o un messaggio istantaneo.|Invia un messaggio di testo a Chris e Carol|
 | SetSpeedDial| Impostare un numero rapido per il numero di telefono di un contatto.|Imposta numero rapido 1 per Carol.<br/>Imposta numero rapido per mamma.|
 | ShowNext| Visualizzare l'elemento successivo, ad esempio in un elenco di messaggi di testo o messaggi di posta elettronica.|Visualizza successivo.<br/>Passa alla pagina successiva.|
 | ShowPrevious| Visualizzare l'elemento precedente, ad esempio in un elenco di messaggi di testo o messaggi di posta elettronica.|Mostra precedente.<br/>Precedente<br/>Passa a precedente.|
-| StartOver| Riavviare il sistema o avviare una nuova sessione.|Rinizia<br/>Nuova sessione<br/>riavvia|
+| StartOver| Riavviare il sistema o avviare una nuova sessione.|Rinizia<br/>Nuova sessione<br/>restart|
 | TurnForwardingOff| Disattivare l'inoltro di chiamata.|Interrompi l'inoltro delle chiamate<br/>Disattiva l'inoltro delle chiamate|
 | TurnForwardingOn| Disattivare l'altoparlante.|Inoltra le chiamate al numero 3333<br/>Attiva l'inoltro delle chiamate al numero 3333|
 | TurnSpeakerOff| Disattivare l'altoparlante.|Escludi altoparlante.<br/>Disattiva viva voce.<br/>|
@@ -129,15 +129,15 @@ Il dominio Communication (Comunicazione) offre le finalità e le entità correla
 ### <a name="entities"></a>Entità
 | Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| AudioDeviceType | Tipo di dispositivo audio (altoparlante, cuffie, microfono, ecc.).| Altoparlante<br/>Viva voce<br/>Bluetooth|
-| Category | Categoria di un messaggio o di un messaggio di posta elettronica.| Importante<br/>Priorità alta|
+| AudioDeviceType | Tipo di dispositivo audio (altoparlante, cuffie, microfono, ecc.).| Relatore<br/>Viva voce<br/>Bluetooth|
+| Categoria | Categoria di un messaggio o di un messaggio di posta elettronica.| Importante<br/>Priorità alta|
 | ContactAttribute | Un attributo del contatto cercato dall'utente.| Compleanni<br/>Indirizzo<br/>Numero di telefono|
 | ContactName | Nome di un contatto o del destinatario del messaggio.| Carol<br/>Jim<br/>Chris|
 | EmailSubject | Testo usato come oggetto del messaggio di posta elettronica.| Re: storia interessante|
 | Grafico a linee | Linea che l'utente vuole usare per effettuare una chiamata o da cui inviare un messaggio di testo o un messaggio di posta elettronica.| Linea ufficio<br/>Cella inglese<br/>Skype|
 | Message | Messaggio da inviare come messaggio di posta elettronica o messaggio di testo.| È stato bello incontrarti oggi. A presto!|
-| MessageType | Nome di un contatto o del destinatario del messaggio.| Testo<br/>Messaggio di posta elettronica|
-| OrderReference | Posizione ordinale o relativa in un elenco che identifica un elemento da recuperare. Ad esempio, "ultimo" o "recente" in "Qual è l'ultimo messaggio inviato?"| Ultimo<br/>Recente|
+| MessageType | Nome di un contatto o del destinatario del messaggio.| Text<br/>Email|
+| OrderReference | Posizione ordinale o relativa in un elenco che identifica un elemento da recuperare. Ad esempio, "ultimo" o "recente" in "Qual è l'ultimo messaggio inviato?"| Last (Ultimo)<br/>Recente|
 | SenderName | Nome del mittente.| Patti Owens|
 
 ## <a name="entertainment"></a>Entertainment  
@@ -153,16 +153,16 @@ Il dominio Entertainment (Svago) offre le finalità e le entità correlate alla 
 | ---------------- |-----------------------|----|
 | ContentRating | Classificazione dei contenuti multimediali, ad esempio G oppure R per i film.|Video per bambini.<br/>Classificazione PG.|
 | Genre | Genere di un film, gioco, app o brano musicale.|Commedia<br/>Drammatico<br/>Divertimento|
-| Keyword| Parola chiave di ricerca generica che specifica un attributo non presente negli slot multimediali più specifici.|Colonne sonore<br/>Moon River<br/>Amelia Earhart|
-| Language | Classificazione dei contenuti multimediali, ad esempio G oppure R per i film.|Francese<br/>Inglese<br/>Coreano|
+| Parole chiave| Parola chiave di ricerca generica che specifica un attributo non presente negli slot multimediali più specifici.|Colonne sonore<br/>Moon River<br/>Amelia Earhart|
+| Linguaggio | Linguaggio usato nei supporti, ad esempio lingua parlata del brano o del filmato.|Francese<br/>Inglese<br/>Coreano|
 | MediaFormat | Tipologia tecnica specifica aggiuntiva in cui è formattato il contenuto multimediale.|Film in HD<br/>Film in 3D<br/>Scaricabile|
 | MediaSource | Store o marketplace per l'acquisizione del contenuto multimediale.|Netflix<br/>Prime|
 | MediaSubTypes| Tipi multimediali di dimensioni ridotte rispetto a film e giochi.|Demo<br/>Dlc<br/>Trailer|
 | Nationality| Paese di creazione del film, del programma o del brano musicale.|Francese<br/>Tedesco<br/>Coreano|
 | Person| Attore, regista, produttore, musicista o artista associato a un film, un'app, un gioco o un programma televisivo.|Madonna<br/>Stanley Kubrick|
-| Role| Ruolo svolto nella creazione di un contenuto multimediale.|Cantante<br/>Regista<br/>Con|
+| Ruolo| Ruolo svolto nella creazione di un contenuto multimediale.|Cantante<br/>Regista<br/>Con|
 | Title| Nome di un film, un'app, un gioco, un programma televisivo o un brano musicale.|Friends<br/>Minecraft|
-| Type| Tipo o formato multimediale di un film, un'app, un gioco, un programma televisivo o un brano musicale.|Musica<br/>Film per la TV <br/>programmi|
+| type| Tipo o formato multimediale di un film, un'app, un gioco, un programma televisivo o un brano musicale.|Musica<br/>Film per la TV <br/>programmi|
 | UserRating| Valutazione dell'utente espressa in stelle.|5 stelle<br/>3 stelle<br/>4 stelle|
 
 ## <a name="events"></a>Eventi 
@@ -178,10 +178,10 @@ Il dominio Events (Eventi) offre le finalità e le entità correlate alla prenot
 | Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Indirizzo | Località o indirizzo dell'evento. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
-| Name | Nome di un evento.|Shakespeare in the Park|
+| NOME | Nome di un evento.|Shakespeare in the Park|
 | PlaceName| Nome della posizione dell'evento.|Louvre<br/>Opera House<br/>Broadway|
-| PlaceType | Tipo di posizione in cui si terrà l'evento.|Caffè<br/>Teatro<br/>Biblioteca|
-| Type | Tipo di evento.|Concerto<br/>Gioco di sport|
+| PlaceType | Tipo di posizione in cui si terrà l'evento.|Caffè<br/>Teatro<br/>Libreria|
+| type | Tipo di evento.|Concerto<br/>Gioco di sport|
 
 ## <a name="fitness"></a>Fitness 
 Il dominio Fitness offre le finalità e le entità correlate alla registrazione delle attività di fitness. Le finalità includono il salvataggio di note, del tempo o della distanza rimanente o dei risultati dell'attività.
@@ -197,11 +197,11 @@ Il dominio Fitness offre le finalità e le entità correlate alla registrazione 
 ### <a name="entities"></a>Entità
 | Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| ActivityType | Tipo di attività da registrare. |Corsa<br/>Camminata<br/>Nuotata<br/>Bicicletta |
+| ActivityType | Tipo di attività da registrare. |Esegui<br/>Camminata<br/>Nuotata<br/>Ciclo |
 | Food | Tipo di alimento da registrare in un'app per il fitness. |Banana<br/>Salmone<br/>Frullato proteico|
 | MealType| Tipo di pasto da registrare in un'app per il benessere o il fitness.|Colazione<br/>Pasto principale<br/>Pranzo<br/>Cena|
 | Misura| Tipo di misura per tempo, distanza o peso da usare in un app per il benessere o il fitness.|Chilometri<br/>Miglia<br/>Minuti<br/>Chilogrammi|
-| Number | Quantità numerica da usare in un'app per il benessere o il fitness.|19<br/>tre<br/>200<br/>uno|
+| Number | Quantità numerica da usare in un'app per il benessere o il fitness.|19<br/>three<br/>200<br/>one|
 | StatType | Tipo di statistica sui dati aggregati da usare in un'app per il benessere o il fitness.|Somma<br/>Media<br/>Massima<br/>Minima|
 
 ## <a name="gaming"></a>Giochi 
@@ -217,7 +217,7 @@ Il dominio Gaming (Giochi) offre le finalità e le entità correlate alla gestio
 ### <a name="entities"></a>Entità
 | Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Contact| Nome di un contatto da usare in un gioco multiplayer.|Carol<br/>Jim|
+| Contatto| Nome di un contatto da usare in un gioco multiplayer.|Carol<br/>Jim|
 
 
 ## <a name="homeautomation"></a>HomeAutomation 
@@ -233,8 +233,8 @@ Il dominio HomeAutomation (Domotica) offre le finalità e le entità correlate a
 ### <a name="entities"></a>Entità
 | Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Device | Tipo di dispositivo che può essere acceso o spento.|macchina del caffè<br/>termostato<br/>luci|
-| Operation | Stato del dispositivo da impostare.|bloccato<br/>aperto<br/>acceso<br/>spento|
+| Dispositivo | Tipo di dispositivo che può essere acceso o spento.|macchina del caffè<br/>termostato<br/>luci|
+| Operazione | Stato del dispositivo da impostare.|lock<br/>apre<br/>in<br/>spento|
 | Room | Posizione o locale in cui si trova il dispositivo.|soggiorno<br/>camera da letto<br/>cucina|
 
 ## <a name="movietickets"></a>MovieTickets 
@@ -278,13 +278,13 @@ Skip to the next song
 | DecreaseVolume | Abbassare il volume del dispositivo.|abbassa il volume del brano<br/>abbassa il volume|
 | IncreaseVolume | Alzare il volume del dispositivo.|alza il volume del brano<br/>alza il volume|
 | Mute |Disattivare l'audio della musica in riproduzione.|Disattiva audio del brano<br/>Togli audio del brano<br/>Disattiva audio della musica |
-| Pause | Sospendere la musica in riproduzione.|Sospendi<br/>Sospendi musica<br/>Sospendi brano|
+| Sospendi | Sospendere la musica in riproduzione.|Sospendi<br/>Sospendi musica<br/>Sospendi brano|
 | PlayMusic | Riprodurre musica su un dispositivo.|riproduci Kevin Durant<br/>riproduci Paradise dei Coldplay<br/>riproduci Hello di Adele|
 | Repeat |Ripetere la musica in riproduzione.|Ripeti brano<br/>Riproduci di nuovo il brano<br/>Ripeti musica|
-| Resume | Riprendere la musica in riproduzione.|Riprendi brano<br/>Riavvia la musica<br/>Annulla la sospensione|
+| Riprendi | Riprendere la musica in riproduzione.|Riprendi brano<br/>Riavvia la musica<br/>Annulla la sospensione|
 | SkipBack | Tornare indietro di un brano.|Passa al prossimo brano<br/>Riproduci il prossimo brano|
 | SkipForward |Andare avanti di un brano.|Riproduci brano precedente<br/>Tornare al brano precedente |
-| Stop | Interrompere un'azione relativa alla riproduzione di musica. |Interrompi riproduzione di questo album.|
+| Arresto | Interrompere un'azione relativa alla riproduzione di musica. |Interrompi riproduzione di questo album.|
 | Unmute | Attivare l'audio di un dispositivo di riproduzione di musica.| Attiva audio.|
 
 ### <a name="entities"></a>Entità
@@ -308,7 +308,7 @@ Remove all items from my vacation list
 | ---------------- |-----------------------|----|
 | AddToNote | Aggiungere informazioni a una nota.|Aggiungi alla lista della spesa lattuga pomodoro pane caffè<br/>Aggiungi all'elenco di attività<br/>aggiungi cupcake alla Wunderlist|
 | CheckOffItem | Aggiungere un segno di spunta alle voci di una nota preesistente.|Aggiungi segno di spunta alle banane nella lista della spesa<br/>Contrassegna cheesecake nella lista dello shopping delle vacanze|
-| Clear | Cancellare tutte le voci da una nota preesistente.|Rimuovi tutte le voci dalla lista delle vacanze<br/>Cancella tutto dalla lista delle letture|
+| Cancellazione | Cancellare tutte le voci da una nota preesistente.|Rimuovi tutte le voci dalla lista delle vacanze<br/>Cancella tutto dalla lista delle letture|
 | Confirm | Confermare un'azione relativa a una nota.|OK per me<br/>Sì<br/>Confermo di tenere tutte le voci nelle liste|
 | Create | Creare una nuova nota. | Crea un elenco<br/>Ricordami che Jason è in città la prima settimana di maggio|
 | Delete | Eliminare un'intera nota. |Elimina la lista delle vacanze <br/>elimina la lista della spesa|
@@ -343,18 +343,18 @@ Can you make the screen brighter?
 |CloseApplication|Chiudere l'applicazione del dispositivo.|chiudi lettore video|
 |FileBug|Segnalare un bug nel dispositivo.|segnala bug<br/>Puoi segnare un bug?<br/>Segnala questo bug|
 |GoBack|Chiedere di tornare indietro di un passaggio o di tornare al passaggio precedente.|Torna indietro<br/>Torna a schermata precedente<br/>Torna indietro interrompi ascolto|
-|Help| Richiedere aiuto.|Aiuto<br/>Ciao<br/>Cosa fare<br/>Serve aiuto| 
+|Guida| Richiedere aiuto.|Aiuto<br/>Ciao<br/>Cosa fare<br/>Serve aiuto| 
 |LocateDevice|Individuare la posizione del dispositivo.|Puoi trovare il mio telefono<br/>Trova iPhone di Tom<br/>Trova il mio iPhone|
 |LogIn|Accedere a un servizio usando il dispositivo.|Accedi<br/>Accesso a Facebook<br/>Accedi a LinkedIn|
-|LogOut|Disconnettersi da un servizio usando un dispositivo.|Disconnetti telefono<br/>Accedi a Twitter<br/>Disconnetti|
+|LogOut|Disconnettersi da un servizio usando un dispositivo.|Disconnetti telefono<br/>Accedi a Twitter<br/>Effettuare la disconnessione|
 |MainMenu|Visualizzare il menu principale di un dispositivo.|Visualizza menu.|
 |OpenApplication|Aprire un'applicazione nel dispositivo.|Apri sveglia<br/>Attiva fotocamera<br/>Apri calendario|
 |OpenSetting|Aprire un'impostazione nel dispositivo.|Apri impostazioni di rete.|
 |PairDevice|Associare il dispositivo.|Associa segnale Bluetooth al telefono<br/>Attiva Bluetooth e associa al laptop<br/>Associa segnale Bluetooth al laptop|
-|PowerOff | Spegnere il dispositivo.|Spegni computer<br/>Chiudi<br/>Spegni telefono cellulare|
+|PowerOff | Spegnere il dispositivo.|Spegni computer<br/>Shutdown<br/>Spegni telefono cellulare|
 |QueryBattery|Ottenere informazioni sulla durata della batteria.|Mostra durata batteria.<br/>Qual è lo stato della batteria<br/>Quanta carica è rimasta?<br/>Mostra batteria|
 |QueryWifi|Ottenere informazioni sul WiFi.|Ottieni informazioni sul WiFi.|
-|Restart|Riavviare il dispositivo.|Riavvia.|
+|Riavvio|Riavviare il dispositivo.|Riavvia.|
 |RingDevice| Chiedere al dispositivo di suonare per trovarlo nel caso venga perso.|Fai suonare il telefono.| 
 |SetBrightness|Impostare la luminosità del dispositivo.|Imposta luminosità media<br/>Imposta luminosità alta<br/>Imposta luminosità bassa|
 |SetupDevice|Avviare l'impostazione del dispositivo.|Voglio impostare il sistema operativo<br/>Imposta<br/>Imposta automaticamente|
@@ -364,7 +364,7 @@ Can you make the screen brighter?
 |SwitchApplication|Passare all'applicazione da usare nel dispositivo.|Passa a lettore multimediale.|
 |TurnDownBrightness|Abbassare la luminosità del dispositivo.|Abbassa luminosità schermo.|
 |TurnOffSetting|Disattivare un'impostazione del dispositivo.|Disattiva Bluetooth<br/>Disattiva dati<br/>Disconnetti Bluetooth|
-|TurnOnSetting|Attivare un'impostazione del dispositivo.|Attivato <br/> Disattivato|
+|TurnOnSetting|Attivare un'impostazione del dispositivo.|Attivato <br/> Off|
 |TurnUpBrightness|Aumentare la luminosità del dispositivo.|Schermo più luminoso|
 
 ### <a name="entities"></a>Entità
@@ -396,7 +396,7 @@ At what time does Safeway close?
 |CheckIntoPlace|Aggiungere un luogo usando i social media.|Aggiungi Foursquare<br/>Aggiungi questa posizione|
 |CheckRouteTraffic| Controllare il traffico di una strada specificata dall'utente.|Com'è il traffico verso Mashiko?<br/>Mostra traffico verso Kirkland<br/>Com'è il traffico verso Seattle?| 
 |Confirm|Confermare un'azione relativa a un luogo.|Confermare la prenotazione al ristorante.|
-|Exit|Azione per uscire da un'attività relativa a un luogo.|Esci<br/>Esci dando istruzioni|
+|Esci|Azione per uscire da un'attività relativa a un luogo.|Esci<br/>Esci dando istruzioni|
 |FindPlace|Cercare un luogo (ufficio, istituzione, ristorante, luogo pubblico, indirizzo).|Dov'è la biblioteca più vicina?<br/>Trova buon ristorante italiano in Mountain View|
 |GetAddress| Chiedere l'indirizzo di un luogo.|Mostra indirizzo di Guu in Robson Street<br/>Qual è l'indirizzo dello Starbucks più vicino?| 
 |GetDistance|Chiedere la distanza da un luogo specifico.|Quanto è lontano l'Holiday Inn?<br/>quanto è lontana Bellevue Square da qui<br/>quanto è lontana Tahoe|
@@ -417,9 +417,9 @@ At what time does Safeway close?
 |SelectItem|Scegliere una voce da un elenco relativo a uno o più luoghi.|Scegli il secondo<br/>Seleziona il primo|
 |ShowMap|Visualizzare una mappa di un'area.|Mostra una mappa per il secondo<br/>Mostra mappa<br/>Trova San Francisco sulla mappa|
 |ShowNext|Visualizzare l'elemento successivo di una serie.|Mostra il prossimo<br/>passa alla pagina successiva|
-|ShowPrevious|Visualizzare l'elemento precedente di una serie.|mostra precedente<br/>precedente<br/>passa a precedente|
+|ShowPrevious|Visualizzare l'elemento precedente di una serie.|mostra precedente<br/>previous<br/>passa a precedente|
 |StartOver|Riavviare l'app o avviare una nuova sessione.|Rinizia<br/>Nuova sessione<br/>
-riavvia|
+restart|
 |TakesReservations|Chiedere se un luogo accetta prenotazioni.|La galleria d'arte accetta prenotazioni?<br/>È possibile prenotare a Olive Garden
 
 ### <a name="entities"></a>Entità
@@ -428,23 +428,23 @@ riavvia|
 | AbsoluteLocation | Posizione o indirizzo di un luogo.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | Amenities | Caratteristiche e attrattive di un luogo.|pranzo gratis per i bambini<br/>fronte mare<br/>parcheggio gratuito|
 | Atmosphere | Atmosfera di un luogo.|adatto ai bambini<br/>ristorante informale<br/>sport|
-| Cuisine | Cucina di un luogo. |Mediterranea<br/>Italiana<br/>Indiana|
+| Cuisine | Cucina di un luogo. |Mediterranea<br/>Italiano<br/>Indiana|
 | DestinationAddress| Posizione o indirizzo di destinazione.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName| Nome di una destinazione (ufficio, ristorante, luogo pubblico o istituzione).|central park<br/>safeway<br/>walmart|
 | DestinationPlaceType | Tipo di una destinazione (ufficio locale, ristorante, luogo pubblico o istituzione). |Ristorante<br/>Opera<br/>Cinema|
 | Distance | Distanza per un luogo.|15 miglia<br/>5 miglia<br/>10 miglia|
 | MealType | Tipo di pasto come colazione o pranzo. |colazione<br/>pasto principale<br/>pranzo<br/>cena|
-| OpenStatus | Indica se un luogo è aperto o chiuso.|Aperto<br/>chiuso<br/>apertura|
+| OpenStatus | Indica se un luogo è aperto o chiuso.|Apri<br/>closed<br/>apertura|
 | PlaceName | Nome di un luogo.|Cheesecake Factory|
-| PlaceType | Tipo di luogo.|Caffè<br/>Teatro<br/>Biblioteca|
+| PlaceType | Tipo di luogo.|Caffè<br/>Teatro<br/>Libreria|
 | PreferredRoute | Strada preferita specificata dall'utente. | 101 <br/>202 <br/>Strada 401|
-| Product | Prodotto offerto da un luogo. | Abbigliamento<br/>Fotocamere ASR digitali<br/>Pesce fresco | 
+| Prodotto | Prodotto offerto da un luogo. | Abbigliamento<br/>Fotocamere ASR digitali<br/>Pesce fresco | 
 | PublicTransportationRoute | Nome del trasporto pubblico cercato dall'utente. | Northeast Corridor Train<br/>Autobus 3X |
 | Rating | Classificazione di un luogo. | 5 stelle<br/>3 stelle<br/>4 stelle|
 | RouteAvoidanceCriteria | Criteri per evitare strade specifiche, ad esempio per evitare incidenti, lavori stradali o pedaggi | Pedaggio <br/>Lavori stradali<br/>Strada 11|
 | ServiceProvided | Servizio offerto da un'attività o un luogo, ad esempio parrucchiere, spazzaneve, paesaggio. | acconciatura<br/>meccanico<br/>idraulico|
 | TransportationCompany | Nome dell'azienda dei trasporti.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | Mezzo di trasporto.|Autobus<br/>Treno<br/>Automobile|
+| TransportationType | Mezzo di trasporto.|Autobus<br/>Eseguire il training<br/>Driving (Guida)|
 
 ## <a name="reminder"></a>Reminder 
 Il dominio Reminder (Promemoria) offre le finalità e le entità per la creazione, la modifica e la ricerca dei promemoria.
@@ -459,7 +459,7 @@ Can you check if I have a reminder about Christine's birthday?
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Change| Modificare un promemoria.|Sposta il mio colloquio alle 9.00 di domani<br/>Sposta promemoria assegnazione a domani|
+| Modifica| Modificare un promemoria.|Sposta il mio colloquio alle 9.00 di domani<br/>Sposta promemoria assegnazione a domani|
 | Create| Creare un nuovo promemoria.|Crea un promemoria<br/>Ricordami di comprare il latte<br/>Ricordami di chiamare Rebecca quando sono a casa|
 | Delete | Eliminare un promemoria.|Elimina immagine promemoria<br/>Elimina questo promemoria|
 | Find | Trovare un promemoria.|C'è un promemoria per l'anniversario?<br/>Controlla se c'è un promemoria per il compleanno di Christine|
@@ -487,14 +487,14 @@ Table for 3 in Palo Alto at 7
 ### <a name="entities"></a>Entità
 | Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Address| Posizione o indirizzo di un evento per una prenotazione.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Indirizzo| Posizione o indirizzo di un evento per una prenotazione.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | Amenities | Attributo che descrive le attrattive di un luogo.|vista oceano<br/>vietato fumare|
 | AppName | Nome di un'applicazione per effettuare prenotazioni.|OpenTable<br/>Yelp<br/>TripAdvisor|
 | Atmosphere | Descrizione dell'atmosfera di un ristorante o di un altro luogo.|romantico<br/>informale<br/>adatto ai gruppi|
-| Cuisine | Tipo di alimenti, cucina o nazionalità della cucina. |Cinese<br/>Italiana<br/>Messicana|
+| Cuisine | Tipo di alimenti, cucina o nazionalità della cucina. |Cinese<br/>Italiano<br/>Messicana|
 | MealType | Tipo di pasto associato a una prenotazione.|colazione<br/>pasto principale<br/>pranzo<br/>cena|
 | PlaceName | Nome di un ufficio locale, ristorante, luogo pubblico o istituzione.|IHOP<br/>Cheesecake Factory<br/>Louvre|
-| PlaceType | Tipo di un ufficio locale, ristorante, luogo pubblico o istituzione.|ristorante<br/>opera<br/>cinema|
+| PlaceType | Tipo di un ufficio locale, ristorante, luogo pubblico o istituzione.|restaurant<br/>opera<br/>cinema|
 | Rating | Classificazione di un luogo o un ristorante.|5 stelle<br/>3 stelle<br/>4 stelle|
 
 ## <a name="taxi"></a>Taxi 
@@ -512,20 +512,20 @@ Cancel my Uber
 | Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
 | Book | Chiamare un taxi. |Prenota taxi<br/>Trova taxi<br/>Prenota uber x|
-| Cancel | Annullare un'azione relativa alla prenotazione di un taxi.|Annulla taxi<br/>Annulla Uber|
+| Annulla | Annullare un'azione relativa alla prenotazione di un taxi.|Annulla taxi<br/>Annulla Uber|
 | Track | Tenere traccia del percorso di un taxi.|Quanto tempo deve attendere il taxi?<br/>Dov'è Uber?|
 
 ### <a name="entities"></a>Entità
 | Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Address| Indirizzo associato alla prenotazione di un taxi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Indirizzo| Indirizzo associato alla prenotazione di un taxi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationAddress| Posizione o indirizzo di destinazione. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName | Nome di una destinazione (ufficio locale, ristorante, luogo pubblico o istituzione). |Central Park<br/>Safeway<br/>Walmart|
 | DestinationPlaceType | Tipo di una destinazione (ufficio locale, ristorante, luogo pubblico o istituzione). |Ristorante<br/>Opera<br/>Cinema|
 | PlaceName | Nome di un ufficio locale, ristorante, luogo pubblico o istituzione. |Central Park<br/>Safeway<br/>Walmart|
 | PlaceType| Tipo di luogo in una richiesta di prenotazione di un taxi.|Ristorante<br/>Opera<br/>Cinema|
 | TransportationCompany | Nome dell'azienda dei trasporti.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | Mezzo di trasporto.|Autobus<br/>Treno<br/>Auto|
+| TransportationType | Mezzo di trasporto.|Autobus<br/>Eseguire il training<br/>Driving (Guida)|
 
 ## <a name="translate"></a>Translate 
 Il dominio Translate (Tradurre) offre le finalità e le entità correlate alla traduzione di testo in una lingua di destinazione.
@@ -572,7 +572,7 @@ Watch National Geographic
 | ---------------- |-----------------------|----|
 | ChannelName | Nome di un canale TV.|CNN<br/>BBC<br/>Canale Cinema|
 
-## <a name="utilities"></a>Utilities  
+## <a name="utilities"></a>Servizi pubblici  
 Il dominio Utilities (Utilità) offre le finalità per operazioni comuni a molte attività, ad esempio saluti, annullamento, conferma, aiuto, ripetizione, navigazione, avvio e interruzione.
 
 ### <a name="examples"></a>Esempi
@@ -585,16 +585,16 @@ Repeat last question please
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Cancel | Annullare un'azione.|Annulla messaggio<br/>Non inviare più il messaggio di posta elettronica|
+| Annulla | Annullare un'azione.|Annulla messaggio<br/>Non inviare più il messaggio di posta elettronica|
 | Confirm | Confermare un'azione.|Sì, confermo<br/>Bene, confermo<br/>OK, confermo|
 | FinishTask | Completare un'attività iniziata dall'utente.|Ho finito<br/>Ho completato<br/>Fatto|
 | GoBack | Tornare indietro di un passaggio o tornare al passaggio precedente.|Torna a Twitter<br/>Torna indietro di un passaggio<br/>Tornare alla schermata precedente|
-| Help | Richiedere aiuto.|Aiuto<br/>apri aiuto<br/>aiuto|
+| Guida | Richiedere aiuto.|Aiuto<br/>apri aiuto<br/>help|
 | Repeat | Ripetere un'azione.|Ripeti l'ultima domanda<br/>ripeti l'ultimo brano|
 | ShowNext | Visualizzare l'elemento successivo di una serie. |Mostra il prossimo<br/>passa alla pagina successiva|
 | ShowPrevious | Visualizzare l'elemento precedente di una serie.|mostra precedente|
-| StartOver | Riavviare l'app o avviare una nuova sessione.|Rinizia<br/>Nuova sessione<br/>riavvia|
-| Stop | Interrompere un'azione.| Smetti di dirlo<br/>Zitto<br/>Basta|
+| StartOver | Riavviare l'app o avviare una nuova sessione.|Rinizia<br/>Nuova sessione<br/>restart|
+| Arresto | Interrompere un'azione.| Smetti di dirlo<br/>Zitto<br/>Basta|
 
 ## <a name="weather"></a>Weather 
 Il dominio Weather (Meteo) offre le finalità e le entità per recuperare i report e le previsioni meteo.
@@ -615,7 +615,7 @@ What's the average temperature in India in september?
 ### <a name="entities"></a>Entità
 | Nome dell'entità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Location| Posizione assoluta per una richiesta meteo.|Seattle<br/>Parigi<br/>Palo Alto|
+| Località| Posizione assoluta per una richiesta meteo.|Seattle<br/>Parigi<br/>Palo Alto|
 
 ## <a name="web"></a>Web 
 Il dominio Web offre una finalità per la navigazione in un sito Web.
@@ -630,5 +630,5 @@ Navigate to www.bing.com
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Navigate | Richiedere di passare a un sito Web specifico. |Passa a facebook.com<br/>Vai a www.twitter.com|
+| Esplorare | Richiedere di passare a un sito Web specifico. |Passa a facebook.com<br/>Vai a www.twitter.com|
 

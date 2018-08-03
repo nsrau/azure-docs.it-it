@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5a90f298e80ec4ca1b17e2d3aa4079aebcd38a83
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377857"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069575"
 ---
 # <a name="supported-languages-for-speech-service"></a>Lingue supportate per il servizio Voce
 
@@ -25,13 +25,18 @@ Sono supportate lingue diverse a seconda delle funzioni dei servizi Voce. Le tab
 
 L'API Riconoscimento vocale Microsoft supporta le lingue seguenti. 
 
-| Codice | Linguaggio | Codice | Linguaggio |
-|-----|-----|-----|-----|
-| ar-EG | Arabo (Egitto), standard moderno | It-IT | Italiano (Italia) |
-| de-DE | Tedesco (Germania) | ja-JP | Giapponese (Giappone) |
-| it-IT | Inglese (Stati Uniti) | pt-BR | Portoghese (Brasile) |
-| es-ES | Spagnolo (Spagna) | ru-RU | Russo (Russia) |
-| fr-FR | Francese (Francia) | zh-CN | Cinese (mandarino, semplificato) |
+  Codice | Linguaggio | Adattamento acustico | Adattamento linguistico | Adattamento della pronuncia
+ ------|----------|---------------------|---------------------|-------------------------
+ ar-EG | Arabo (Egitto), standard moderno | No  | sì | No 
+ It-IT | Italiano (Italia) | No  | sì | No  
+ de-DE | Tedesco (Germania) | No  | sì | sì
+ ja-JP | Giapponese (Giappone) | No  | sì | No 
+ it-IT | Inglese (Stati Uniti) | sì | sì | sì
+ pt-BR | Portoghese (Brasile) | No  | sì | No 
+ es-ES | Spagnolo (Spagna) | No  | sì | No 
+ ru-RU | Russo (Russia) | No  | sì | No 
+ fr-FR | Francese (Francia) | No  | sì | No 
+ zh-CN | Cinese (mandarino, semplificato) | No  | sì | No 
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
@@ -154,7 +159,7 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
 | Bengalese      | `bn`          |
-| Bosniaco (alfabeto latino)      | `bs`          |
+| Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cantonese (tradizionale)      | `yue`          |
 | Catalano      | `ca`          |
@@ -203,7 +208,7 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 | Sloveno      | `sl`          |
 | Spagnolo      | `es`          |
 | Svedese      | `sv`          |
-| Taitiano      | `ty`          |
+| Tahitiano      | `ty`          |
 | Tamil      | `ta`          |
 | Thai      | `th`          |
 | Tongano      | `to`          |
@@ -218,4 +223,4 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-windows.md)
+* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: ad5af799fd46dc51b85432999f986de8cdb056ec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377689"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258848"
 ---
 # <a name="creating-custom-voice-fonts"></a>Creazione di caratteri voce personalizzati
 
@@ -25,21 +25,11 @@ Per creare un carattere voce, effettuare una registrazione in studio e caricare 
 
 La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-US) e il cinese (zh-CN).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 La funzionalità di personalizzazione della voce per la sintesi vocale è attualmente in versione di anteprima privata. [Compilare il modulo di richiesta](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) per essere presi in considerazione per l'accesso.
 
-Altri elementi necessari:
-
-* Un account di Azure (è possibile [registrarsi gratuitamente](https://azure.microsoft.com/free/ai/) se non si dispone ancora di un account).
-
-* Una sottoscrizione per il servizio di riconoscimento vocale. [Crearne una](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) se non è già stato fatto.
-
-    ![Creare il pannello](media/custom-voice/create-panel.png)
-
-Dopo aver creato la sottoscrizione, è possibile trovare due chiavi di sottoscrizione nel pannello di avvio rapido o nel pannello della panoramica della nuova sottoscrizione. È possibile usare una qualsiasi delle chiavi.
-
-Infine, connettere la sottoscrizione al portale per la voce personalizzata come indicato di seguito.
+È necessario disporre anche di un account di Azure e di una sottoscrizione al servizio Voce. [Crearne una](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) se non è già stato fatto. Collegare la sottoscrizione al portale per la voce personalizzata come indicato di seguito.
 
 1. Accedere al [portale per la voce personalizzata](https://customvoice.ai) tramite lo stesso account Microsoft usato per richiedere l'accesso.
 
@@ -51,7 +41,7 @@ Infine, connettere la sottoscrizione al portale per la voce personalizzata come 
 
      ![Connettere una sottoscrizione esistente](media/custom-voice/connect-existing-sub.png)
 
-4. Incollare la chiave di sottoscrizione nella tabella, come illustrato di seguito.
+4. Incollare la chiave di sottoscrizione nella tabella, come illustrato di seguito. Ogni sottoscrizione dispone di due chiavi che è possibile usare nell'applicazione.
 
      ![Aggiungere la sottoscrizione](media/custom-voice/add-subscription.png)
 
@@ -61,9 +51,9 @@ Ora si è pronti per iniziare.
 
 Un set di dati di training vocale è costituito da un set di file audio, insieme a un file di testo contenente le trascrizioni di tutti i file audio.
 
-È possibile preparare questi file in entrambe le direzioni: scrivere uno script e farlo leggere a uno speaker oppure usare audio pubblicamente disponibile e trascriverne il testo. Nel secondo caso, modificare le disfluenze dai file audio, ad esempio "um" e altri suoni riempitivi, balbettii, parole mormorate o errori di pronuncia.
+È possibile preparare questi file in due modi: scrivere uno script e farlo leggere da uno speaker oppure usare audio disponibile pubblicamente e trascriverne il testo. Nel secondo caso, modificare le disfluenze dai file audio, ad esempio "um" e altri suoni riempitivi, balbettii, parole mormorate o errori di pronuncia.
 
-Per produrre un carattere voce ottimale, è importante che le registrazioni vengano eseguite in un ambiente silenzioso con un microfono di alta qualità. Volume uniforme, velocità, tono e manierismi espressivi sono elementi essenziali per la creazione di una voce digitale di buona qualità. Per creare una voce per l'uso in produzione, è consigliabile avvalersi di uno studio di registrazione e uno speaker professionali.
+Per produrre un carattere voce ottimale, è importante che le registrazioni vengano eseguite in un ambiente silenzioso con un microfono di alta qualità. Volume uniforme, velocità, tono e manierismi espressivi sono elementi essenziali per la creazione di una voce digitale di buona qualità. Per creare una voce per l'uso in produzione, è consigliabile avvalersi di uno studio di registrazione e uno speaker professionali. Per altri dettagli, vedere [Come registrare esempi vocali per una voce personalizzata](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>File audio
 
@@ -74,21 +64,21 @@ I file audio devono essere preparati come segue. Gli altri formati non sono supp
 | **Proprietà** | **Valore** |
 | ------------ | --------- |
 | Formato file  | RIFF (WAV)|
-| Frequenza di campionamento| 16.000 Hz |
-| Canali     | 1 (monofonico)  |
+| Frequenza di campionamento| Almeno 16.000 Hz |
 | Formato del campione| PCM, 16 bit |
-| Nome file    | Numerico, con estensione `.wav` |
+| File Name    | Numerico, con estensione `.wav` |
 | Formato di archiviazione| Zip      |
 | Dimensione massima del file|200 MB|
 
 Inserire il set di file audio in un'unica cartella senza sottodirectory e comprimere l'intero set di file audio in un unico archivio ZIP.
 
 > [!NOTE]
+> I file Wave con una frequenza di campionamento inferiore a 16.000 Hz vengono rifiutati. Se un file con estensione zip contiene file wave con frequenze di campionamento diverse, vengono importati solo i file con una frequenza uguale o superiore a 16.000 Hz.
 > Il portale attualmente consente di importare archivi ZIP fino a 200 MB. È tuttavia possibile caricare più archivi. Il numero massimo di set di dati consentito è di 10 file ZIP per gli utenti con una sottoscrizione gratuita e di 50 per gli utenti con una sottoscrizione standard.
 
 ### <a name="transcripts"></a>Trascrizioni
 
-Il file di trascrizione è un file di testo normale Unicode (UTF-16 little-endian). Ogni riga del file di trascrizione deve contenere il nome di un file audio, seguito da un carattere di tabulazione (punto di codice 9) e infine la trascrizione. Non sono consentite righe vuote.
+Il file di trascrizione è un file di testo normale (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE). Ogni riga del file di trascrizione deve contenere il nome di un file audio, seguito da un carattere di tabulazione (punto di codice 9) e infine la trascrizione. Non sono consentite righe vuote.
 
 Ad esempio: 
 
@@ -218,21 +208,21 @@ Dopo aver compilato la casella di testo e confermato la modalità di input, fare
 
 Dopo aver creato e testato il modello vocale, distribuirlo in un endpoint personalizzato per la sintesi vocale. Sarà quindi possibile usare questo endpoint al posto dell'endpoint normale quando si effettuano richieste di sintesi vocale tramite l'API REST. L'endpoint personalizzato può essere richiamato solo dalla sottoscrizione usata per distribuire il carattere.
 
-Per creare un nuovo endpoint personalizzato, scegliere **Endpoints** (Endpoint) dal menu Custom Voice (Voce personalizzata) nella parte superiore della pagina. Verrà visualizzata la pagina Deployment (Distribuzione), con una tabella con gli endpoint vocali personalizzati correnti, se presenti.
+Per creare un nuovo endpoint personalizzato, scegliere **Endpoints** (Endpoint) dal menu Custom Voice (Voce personalizzata) nella parte superiore della pagina. Verrà visualizzata la pagina My Deployed Voices (Voci personali distribuite), con la relativa tabella di endpoint vocali personalizzati correnti, se presenti. Le impostazioni locali correnti vengono visualizzate nella prima riga della tabella. Per creare una distribuzione per una lingua diversa, cambiare le impostazioni locali visualizzate. Le impostazioni locali devono corrispondere alla voce da distribuire.
 
-Fare clic sul pulsante **Deploy voices** (Distribuisci voci) per creare un nuovo endpoint. Nella pagina Create Endpoint (Crea endpoint) le impostazioni locali correnti sono riportate nella prima riga della tabella. Per creare una distribuzione per una lingua diversa, cambiare le impostazioni locali visualizzate. Le impostazioni locali devono corrispondere alla voce da distribuire. Inserire il nome e la descrizione dell'endpoint personalizzato.
+Fare clic sul pulsante **Deploy voices** (Distribuisci voci) per creare un nuovo endpoint. Inserire il nome e la descrizione dell'endpoint personalizzato.
 
 Nel menu Subscription (Sottoscrizione) scegliere la sottoscrizione da usare. Gli utenti con una sottoscrizione gratuita possono avere solo un modello distribuito alla volta. Gli utenti con una sottoscrizione standard possono creare fino a 20 endpoint, ognuno con una voce personalizzata.
 
 ![Creare un endpoint](media/custom-voice/create-endpoint.png)
 
-Dopo aver selezionato il modello da distribuire, fare clic su **Create** (Crea). Verrà nuovamente visualizzata la pagina Deployment (Distribuzione), ora con una voce per il nuovo endpoint. La creazione di un'istanza per un nuovo endpoint potrebbe richiedere alcuni minuti. Quando lo stato della distribuzione cambia in Succeeded (Completato), l'endpoint è pronto per l'uso.
+Dopo aver selezionato il modello da distribuire, fare clic su **Create** (Crea). Verrà visualizzata nuovamente la pagina My Deployed Voices (Voci personali distribuite), ora con una voce per il nuovo endpoint. La creazione di un'istanza per un nuovo endpoint potrebbe richiedere alcuni minuti. Quando lo stato della distribuzione cambia in Succeeded (Completato), l'endpoint è pronto per l'uso.
 
 ![Voci personali distribuite](media/custom-voice/my-deployed-voices.png)
 
-Quando lo stato della distribuzione è Succeeded (Completato), l'endpoint del carattere voce distribuito viene visualizzato nella tabella My deployed voices (Voci personali distribuite). È possibile usare questo URI direttamente in una richiesta HTTP.
+Quando lo stato della distribuzione è Succeeded (Completato), l'endpoint del carattere voce distribuito viene visualizzato nella tabella My Deployed Voices (Voci personali distribuite). È possibile usare questo URI direttamente in una richiesta HTTP.
 
-Il test online dell'endpoint è anche disponibile tramite il portale per la voce personalizzata. Per testare l'endpoint, scegliere **Endpoints testing** (Test endpoint) dal menu a discesa Custom Voice (Voce personalizzata). Viene visualizzata la pagina di test degli endpoint. Scegliere una voce distribuita, quindi immettere il testo da leggere (come testo normale o in formato SSML) nella casella di testo.
+Il test online dell'endpoint è anche disponibile tramite il portale per la voce personalizzata. Per testare l'endpoint, scegliere **Endpoints testing** (Test endpoint) dal menu a discesa Custom Voice (Voce personalizzata). Viene visualizzata la pagina di test degli endpoint. Scegliere una voce personalizzata distribuita, quindi immettere il testo da leggere (come testo normale o in formato SSML) nella casella di testo.
 
 > [!NOTE] 
 > Quando si usa il formato SSML, il tag `<voice>` deve specificare il nome assegnato alla voce personalizzata al momento della creazione.
@@ -246,4 +236,4 @@ Dal punto di vista funzionale, l'endpoint personalizzato è identico all'endpoin
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-- [Riconoscimento vocale in C#](quickstart-csharp-windows.md)
+- [Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

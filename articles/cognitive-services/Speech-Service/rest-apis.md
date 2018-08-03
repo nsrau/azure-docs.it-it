@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37044821"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112874"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del Servizio di riconoscimento vocale
 
@@ -24,7 +24,7 @@ Le API REST del Servizio di riconoscimento vocale unificato sono simili alle API
 
 Rispetto alla precedente API Riconoscimento vocale del Servizio di riconoscimento vocale, nell'API Riconoscimento vocale solo gli endpoint usati sono diversi. I nuovi endpoint sono indicati nella tabella riportata di seguito. Usare l'endpoint corrispondente all'area della propria sottoscrizione.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 L'API Riconoscimento vocale è altrimenti simile all'[API REST](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) per la precedente API Riconoscimento vocale.
 
@@ -48,14 +48,14 @@ La nuova API Sintesi vocale supporta un output audio di 24 KHz. L'intestazione `
 
 Il Servizio di riconoscimento vocale ora offre due voci da 24 KHz:
 
-Impostazioni locali | Lingua   | Sesso | Mapping nome del servizio
+Impostazioni locali | Linguaggio   | Sesso | Mapping nome del servizio
 -------|------------|--------|------------
-en-US  | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
-en-US  | Inglese (Stati Uniti) | Maschio   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
+it-IT  | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+it-IT  | Inglese (Stati Uniti) | Maschio   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
 Gli endpoint REST per l'API Sintesi vocale del Servizio di riconoscimento vocale unificato sono riportati di seguito. Usare l'endpoint corrispondente all'area della propria sottoscrizione.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Tenere presente queste differenze quando si consulta la [documentazione dell'API REST](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) per la precedente API Riconoscimento vocale.
 
@@ -63,7 +63,7 @@ Tenere presente queste differenze quando si consulta la [documentazione dell'API
 
 Per inviare una richiesta all'API REST del Servizio di riconoscimento vocale è necessario un token di accesso. È possibile ottenere un token immettendo la propria chiave di sottoscrizione nell'endpoint `issueToken` del Servizio di riconoscimento vocale di un'area, indicato nella tabella riportata di seguito. Usare l'endpoint corrispondente all'area della propria sottoscrizione.
 
-[!include[](includes/endpoints-token-service.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Ogni token di accesso è valido per 10 minuti. È possibile ottenere un nuovo token in qualsiasi momento. Se si vuole, anche prima di ogni richiesta all'API REST del Servizio di riconoscimento vocale. Per ridurre al minimo il traffico di rete e la latenza, è tuttavia consigliabile usare lo stesso token per nove minuti.
 
@@ -265,5 +265,7 @@ Come in precedenza, verificare che il valore `FetchTokenUri` corrisponda all'are
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni su come personalizzare un modello conversione voce/testo](how-to-customize-speech-models.md)
+- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+- [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
+- [Personalizzare modelli linguistici](how-to-customize-language-model.md)
+

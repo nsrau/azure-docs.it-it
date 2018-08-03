@@ -1,388 +1,235 @@
 ---
-title: Usare un test in batch per migliorare le previsioni LUIS | Microsoft Docs
+title: Usare un test in batch per migliorare le stime LUIS | Microsoft Docs
 titleSuffix: Azure
-description: Caricare un test in batch, esaminare i risultati e migliorare le previsioni LUIS tramite modifiche.
+description: Caricare un test in batch, esaminare i risultati e migliorare le stime LUIS tramite modifiche.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
-ms.author: v-geberr
-ms.openlocfilehash: 5788f17f2724a0354a1db506971c2343c1800f01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 07/16/2018
+ms.author: diberry
+ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266397"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237809"
 ---
-# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Usare un test in batch per individuare i problemi di accuratezza delle previsioni
+# <a name="improve-app-with-batch-test"></a>Migliorare l'app con test in batch
 
-Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni.  
+Questa esercitazione illustra come usare un test in batch per individuare i problemi di stima delle espressioni.  
 
 In questa esercitazione si apprenderà come:
 
+<!-- green checkmark -->
 > [!div class="checklist"]
 * Creare un file di test in batch 
 * Eseguire un test in batch
 * Esaminare i risultati del test
-* Correggere gli errori relativi alle finalità
+* Correggere gli errori 
 * Eseguire nuovamente il test in batch
 
-## <a name="prerequisites"></a>prerequisiti
+Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
 
-> [!div class="checklist"]
-> * Per questo articolo è anche necessario un account [LUIS][LUIS] per creare un'applicazione LUIS personalizzata.
+## <a name="before-you-begin"></a>Prima di iniziare
+Se non si dispone dell'app relativa alle risorse umane dell'esercitazione per [esaminare le espressioni endpoint](luis-tutorial-review-endpoint-utterances.md) tutorial, [importare](luis-how-to-start-new-app.md#import-new-app) il file JSON in una nuova app nel sito Web di [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
 
-> [!Tip]
-> Se non si ha già una sottoscrizione, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
+Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `batchtest`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
 
-## <a name="create-new-app"></a>Creare una nuova app
-Questo articolo usa il dominio predefinito HomeAutomation. Il dominio predefinito include le finalità, le entità e le espressioni per il controllo dei dispositivi HomeAutomation, come le luci. Creare l'app, aggiungere il dominio, eseguire il training e quindi pubblicarla.
+Eseguire il training dell'app.
 
-1. Nel sito Web [LUIS] creare una nuova app selezionando **Create new app** (Crea nuova app) nella pagina **MyApps** (App personali). 
+## <a name="purpose-of-batch-testing"></a>Scopo del test in batch
+L'esecuzione di test in batch consente di convalidare lo stato del modello attivo e sottoposto a training con un set noto di espressioni ed entità etichettate. Nel file batch in formato JSON aggiungere le espressioni e impostare le etichette di entità che è necessario prevedere all'interno dell'espressione. 
 
-    ![Creare una nuova app](./media/luis-tutorial-batch-testing/create-app-1.png)
+<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Quando si usa un'app diversa rispetto a quella di questa esercitazione, verificare che *non* si usino le espressioni di esempio già aggiunte a una finalità. Per verificare le espressioni di test in batch rispetto alle espressioni di esempio, [esportare](luis-how-to-start-new-app.md#export-app) l'app. Confrontare le espressioni di esempio dell'app alle espressioni di test in batch. 
 
-2. Immettere il nome `Batchtest-HomeAutomation` nella finestra di dialogo.
+Requisiti per il test in batch:
 
-    ![Immettere il nome dell'app](./media/luis-tutorial-batch-testing/create-app-2.png)
+* Numero massimo di 1000 espressioni per ogni test. 
+* Assenza di duplicati. 
+* Tipi di entità consentiti: solo entità apprese in modo automatico semplici, gerarchiche (solo elemento padre) e composite. Il test in batch è utile solo per le finalità e le entità apprese in modo automatico.
 
-3. Selezionare **Prebuilt Domains** (Domini predefiniti) nell'angolo in basso a sinistra. 
+## <a name="create-a-batch-file-with-utterances"></a>Creare un file batch con espressioni
+1. Creare `HumanResources-jobs-batch.json` in un editor di testo come [VSCode](https://code.visualstudio.com/). 
 
-    ![Selezionare Prebuilt Domains (Domini predefiniti)](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
+2. Nel file batch in formato JSON aggiungere espressioni con la **finalità** che si desidera prevedere nel test. 
 
-4. Selezionare **Add domain** (Aggiungi dominio) per HomeAutomation.
-
-    ![Aggiungere il dominio HomeAutomation](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
-
-5. Selezionare **Train** (Esegui il training) nella barra di spostamento in alto a destra.
-
-    ![Selezionare il pulsante Train (Esegui il training)](./media/luis-tutorial-batch-testing/train-button.png)
-
-## <a name="batch-test-criteria"></a>Criteri del test in batch
-È possibile eseguire il test in batch su massimo 1000 espressioni alla volta. Il batch non deve contenere duplicati. [Esportare](create-new-app.md#export-app) l'app per visualizzare l'elenco delle espressioni correnti.  
-
-La strategia di test per LUIS usa tre set di dati separati: espressioni di modello, espressioni del test in batch ed espressioni di endpoint. Per questa esercitazione, assicurarsi di non usare le espressioni di modello (aggiunte a una finalità) o le espressioni di endpoint. 
-
-Non usare un'espressione già presente nell'app per il test in batch:
-
-```
-'breezeway on please',
-'change temperature to seventy two degrees',
-'coffee bar on please',
-'decrease temperature for me please',
-'dim kitchen lights to 25 .',
-'fish pond off please',
-'fish pond on please',
-'illuminate please',
-'living room lamp on please',
-'living room lamps off please',
-'lock the doors for me please',
-'lower your volume',
-'make camera 1 off please',
-'make some coffee',
-'play dvd',
-'set lights bright',
-'set lights concentrate',
-'set lights out bedroom',
-'shut down my work computer',
-'silence the phone',
-'snap switch fan fifty percent',
-'start master bedroom light .',
-'theater on please',
-'turn dimmer off',
-'turn off ac please',
-'turn off foyer lights',
-'turn off living room light',
-'turn off staircase',
-'turn off venice lamp',
-'turn on bathroom heater',
-'turn on external speaker',
-'turn on my bedroom lights .',
-'turn on the furnace room lights',
-'turn on the internet in my bedroom please',
-'turn on thermostat please',
-'turn the fan to high',
-'turn thermostat on 70 .' 
-```
-
-## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>Creare un batch per testare l'accuratezza della previsione della finalità
-1. Creare `homeauto-batch-1.json` in un editor di testo come [VSCode](https://code.visualstudio.com/). 
-
-2. Aggiungere le espressioni con la **finalità** che si desidera sia prevista nel test. In questa esercitazione, per semplicità, prendere le espressioni in `HomeAutomation.TurnOn` e `HomeAutomation.TurnOff` e modificare il testo `on` e `off` alternandolo nelle espressioni. Per la finalità `None` aggiungere un paio di espressioni che non fanno parte dell'area del [dominio](luis-glossary.md#domain) (oggetto). 
-
-    Per comprendere in che modo i risultati del test in batch sono correlati al JSON del batch, aggiungere solo sei finalità.
-
-    ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        }
-    ]
-    ```
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Eseguire il batch
+
 1. Selezionare **Test** nella barra di spostamento in alto. 
 
-    ![Selezionare Test nella barra di spostamento](./media/luis-tutorial-batch-testing/test-1.png)
+    [ ![Screenshot dell'app LUIS con il pulsante relativo al test evidenziato in alto a destra sulla barra di spostamento](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
 
 2. Selezionare **Batch testing panel** (Pannello test in batch) nel pannello di destra. 
 
-    ![Selezionare Batch testing panel (Pannello test in batch)](./media/luis-tutorial-batch-testing/test-2.png)
+    [ ![Schermata dell'app LUIS con il pannello di test in batch evidenziato](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Selezionare **Import dataset** (Importa set di dati).
 
-    ![Selezionare Import dataset (Importa set di dati)](./media/luis-tutorial-batch-testing/test-3.png)
+    [ ![Schermata dell'app LUIS con l'opzione di importazione set di dati evidenziata](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Scegliere il percorso del file system del file `homeauto-batch-1.json`.
+4. Scegliere il percorso del file system del file `HumanResources-jobs-batch.json`.
 
-5. Denominare il set di dati `set 1`.
+5. Assegnare un nome al set di dati `intents only` e selezionare **Done** (Fatto).
 
-    ![Selezionare il file](./media/luis-tutorial-batch-testing/test-4.png)
+    ![Selezionare il file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
 6. Selezionare il pulsante **Run** (Esegui). Attendere fino a quando il test non viene completato.
 
-    ![Selezionare Run (Esegui)](./media/luis-tutorial-batch-testing/test-5.png)
+    [ ![Schermata dell'app LUIS con il pulsante Run (Esegui) evidenziato](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
 7. Selezionare **See results** (Visualizza risultati).
 
-    ![See results (Visualizza risultati)](./media/luis-tutorial-batch-testing/test-6.png)
-
 8. Esaminare i risultati nel grafico e nella legenda.
 
-    ![Risultati del batch](./media/luis-tutorial-batch-testing/batch-result-1.png)
+    [ ![Schermata dell'app LUIS con i risultati del test in batch](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Esaminare i risultati del batch
-I risultati del batch sono suddivisi in due sezioni. La sezione superiore contiene il grafico e la legenda. La sezione inferiore mostra le espressioni quando si seleziona il nome di un'area del grafico.
+Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. L'impostazione predefinita del filtro è sulla prima finalità dell'elenco. Il filtro contiene tutte le finalità e solo le entità semplici, gerarchiche (solo elemento padre) e composite. Quando si seleziona una [sezione del grafico](luis-concept-batch-test.md#batch-test-results) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico. 
 
-Gli eventuali errori sono indicati con il colore rosso. Il grafico contiene quattro sezioni, di cui due visualizzate in rosso. **Queste sono le sezioni a cui prestare attenzione**. 
+Quando si passa il mouse sul grafico, la rotellina del mouse consente di ingrandire o ridurre la visualizzazione del grafico. Ciò è utile quando sono presenti molti punti nel grafico strettamente raggruppati. 
 
-La sezione in alto a destra indica che il test ha erroneamente previsto l'esistenza di una finalità o di un'entità. La sezione in alto a sinistra indica che il test ha erroneamente previsto l'assenza di una finalità o di un'entità.
+Il grafico è diviso in quattro quadranti, con due sezioni visualizzate in rosso. **Queste sono le sezioni a cui prestare attenzione**. 
 
-### <a name="homeautomationturnoff-test-results"></a>Risultati del test di HomeAutomation.TurnOff
-Nella legenda selezionare la finalità `HomeAutomation.TurnOff`. A sinistra del nome nella legenda è presente un'icona verde di esito positivo. Non ci sono errori per questa finalità. 
+### <a name="getjobinformation-test-results"></a>Risultati del test GetJobInformation
+I risultati del test **GetJobInformation** visualizzati nel filtro mostrano che due delle quattro stime hanno avuto esito positivo. Selezionare il nome **False positive** (Falso positivo) sopra il quadrante superiore destro per visualizzare le espressioni sotto il grafico. 
 
-![Risultati del batch](./media/luis-tutorial-batch-testing/batch-result-1.png)
+![Espressioni di test in batch LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-### <a name="homeautomationturnon-and-none-intents-have-errors"></a>Le finalità HomeAutomation.TurnOn e None presentano errori
-Le altre due finalità presentano errori, ovvero le previsioni del test non corrispondono alle aspettative del file batch. Selezionare la finalità `None` nella legenda per esaminare il primo errore. 
+Perché sono presenti due espressioni previste come **ApplyForJob** anziché come finalità **GetJobInformation** corretta? Le due finalità sono strettamente correlate in termini di scelta e di disposizione delle parole. Esistono anche esempi per **ApplyForJob** tre volte più numerosi rispetto a **GetJobInformation**. Questo disuguaglianza di espressioni di esempio pesa in favore della finalità **ApplyForJob**. 
 
-![Finalità None](./media/luis-tutorial-batch-testing/none-intent-failures.png)
+Si noti che entrambe le finalità hanno lo stesso numero di errori. Una stima non corretta in una finalità influisce anche sull'altra. Entrambe presentano errori perché le espressioni sono state stimate in modo non corretto per una finalità e anche per l'altra. 
 
-Gli errori vengono visualizzati nelle sezioni rosse del grafico **False Positive** (Falso positivo) e **False Negative** (Falso negativo). Selezionare il nome della sezione **False Negative** (Falso negativo) del grafico per visualizzare l'espressione con esito negativo sotto il grafico. 
+![Errori di filtro di test in batch LUIS](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-![Errori falsi negativi](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
-
-L'espressione in errore `help` era prevista come finalità `None`, ma il test ha previsto la finalità `HomeAutomation.TurnOn`.  
-
-Ci sono due errori: uno in HomeAutomation.TurnOn e uno in None. Entrambi sono causati dall'espressione `help`, perché non ha soddisfatto l'aspettativa in None e ha generato una corrispondenza imprevista per la finalità HomeAutomation.TurnOn. 
-
-Per determinare i motivi per cui le espressioni `None` hanno esito negativo, esaminare le espressioni attualmente in `None`. 
-
-## <a name="review-none-intents-utterances"></a>Esaminare le espressioni della finalità None
-
-1. Chiudere il pannello **Test** selezionando il pulsante **Test** nella barra di spostamento in alto. 
-
-2. Selezionare **Build** (Compila) nel pannello di navigazione in alto. 
-
-3. Selezionare **None** nell'elenco delle finalità.
-
-4. Selezionare CTRL+E per passare alla visualizzazione token delle espressioni 
-    
-    |Espressioni della finalità None|Punteggio di previsione|
-    |--|--|
-    |"decrease temperature for me please"|0.44|
-    |"dim kitchen lights to 25."|0.43|
-    |"lower your volume"|0,46|
-    |"turn on the internet in my bedroom please"|0.28|
-
-## <a name="fix-none-intents-utterances"></a>Correggere le espressioni della finalità None
-    
-Si suppone che ogni espressione in `None` si trovi all'esterno del dominio dell'app. Poiché queste espressioni sono correlate a HomeAutomation, si trovano nella finalità errata. 
-
-LUIS assegna alle espressioni anche un punteggio di previsione inferiore al 50% (<0,50). Se si osservano le espressioni nelle altre due finalità, si noterà che i punteggi di previsione sono molto più elevati. Quando LUIS presenta punteggi bassi per le espressioni di esempio, vuol dire che le espressioni generano confusione per LUIS tra la finalità corrente e le altre finalità. 
-
-Per correggere l'app, è necessario spostare le espressioni attualmente nella finalità `None` nella finalità corretta e aggiungere nuove finalità appropriate alla finalità `None`. 
-
-Tre espressioni nella finalità `None` sono dirette a ridurre le impostazioni dei dispositivi di automazione e usano parole come `dim`, `lower` o `decrease`. La quarta espressione chiede di attivare Internet. Poiché tutti le quattro espressioni riguardano l'attivazione o la modifica del livello di potenza di un dispositivo, dovrebbero essere spostate nella finalità `HomeAutomation.TurnOn`. 
-
-Questa è solo una delle soluzioni. Si potrebbe anche creare una nuova finalità `ChangeSetting` e spostare le espressioni utilizzando dim, lower e decrease in questa nuova finalità. 
+Le espressioni corrispondenti nella parte superiore della sezione **False positive** (Falso positivo) sono `Can I apply for any database jobs with this resume?` e `Can I apply for any database jobs with this resume?`. Per la prima espressione, la parola `resume` è stata usata solo in **ApplyForJob**. Per la seconda espressione, la parola `apply` è stata usata solo per la finalità **ApplyForJob**.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Correggere l'app in base ai risultati del batch
-Spostare le quattro espressioni nella finalità `HomeAutomation.TurnOn`. 
+L'obiettivo di questa sezione è quello di avere tutte le espressioni stimate in modo corretto per **GetJobInformation** tramite la correzione dell'app. 
 
-1. Selezionare la casella di controllo sopra l'elenco delle espressioni in modo da selezionare tutte le espressioni. 
+Una correzione apparentemente rapida potrebbe essere quella di aggiungere queste espressioni di file batch alla finalità corretta. Questo risultato non è tuttavia quello desiderato. Si desidera che LUIS stimi in modo corretto tali espressioni senza aggiungerle come esempi. 
 
-2. Nell'elenco a discesa **Reassign intent** (Riassegna finalità) selezionare `HomeAutomation.TurnOn`. 
+Può essere opportuno anche rimuovere le espressioni da **ApplyForJob** fino a quando la quantità di espressioni equivale a quella di **GetJobInformation**. In questo modo si potrebbero correggere i risultati del test, ma si impedisce a LUIS di stimare in modo preciso la finalità la volta successiva. 
 
-    ![Spostare le espressioni](./media/luis-tutorial-batch-testing/move-utterances.png)
+La prima soluzione consiste nell'aggiungere più espressioni a **GetJobInformation**. La seconda soluzione consiste nel ridurre il peso di parole come `resume` e `apply` rispetto alla finalità **ApplyForJob**. 
 
-    Dopo aver riassegnato le quattro espressioni, l'elenco delle espressioni per la finalità `None` è vuoto.
+### <a name="add-more-utterances-to-getjobinformation"></a>Aggiungere altre espressioni a **GetJobInformation**
+1. Chiudere il pannello di test in batch selezionando il pulsante **Test** nel pannello di navigazione superiore. 
 
-3. Aggiungere quattro nuove finalità per la finalità None:
+    [ ![Schermata di LUIS con il pulsante Test evidenziato](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
 
-    ```
-    "fish"
-    "dogs"
-    "beer"
-    "pizza"
-    ```
+2. Selezionare **GetJobInformation** nell'elenco di finalità. 
 
-    Queste espressioni sono sicuramente all'esterno del dominio di HomeAutomation. Quando si immette ciascuna espressione, controllarne il punteggio. Il punteggio potrebbe essere basso o anche molto basso (circondato da un riquadro rosso). Dopo aver eseguito il training dell'app, nel passaggio 8, il punteggio sarà molto più elevato. 
+    [ ![Schermata di LUIS con il pulsante Test evidenziato](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
-7. Rimuovere eventuali etichette selezionando l'etichetta blu nell'espressione, quindi fare clic su **Remove label** (Rimuovi etichetta).
+3. Aggiungere altre espressioni modificate in lunghezza e scelta e disposizione delle parole, assicurandosi di includere i termini `resume`, `c.v.` e `apply`:
 
-8. Selezionare **Train** (Esegui il training) nella barra di spostamento in alto a destra. Il punteggio di ogni espressione è molto più elevato. Tutti i punteggi per la finalità `None` dovrebbero essere ora superiori a 0,80. 
+    |Espressioni di esempio per la finalità **GetJobInformation**|
+    |--|
+    |Il nuovo lavoro in magazzino per uno stocker richiede l'invio di un curriculum?|
+    |Dove si trovano i lavori manuali oggi?|
+    |Ho sentito che era disponibile un lavoro di codifica in campo medico che richiede un curriculum.|
+    |Vorrei che gli universitari in cerca di lavoro scrivessero il proprio curriculum. |
+    |Ecco il mio curriculum, sono alla ricerca di un nuovo posto nelle università che preveda l'uso del computer.|
+    |Quali posizioni sono disponibili nel settore dell'assistenza familiare?|
+    |È disponibile un posto di stagista presso il giornale?|
+    |Il mio curriculum dimostra che sono esperto nell'analisi di approvvigionamento, budget e perdite di denaro. È disponibile un posto per questo tipo di lavoro?|
+    |Dove si trovano i lavori nel settore della perforazione oggi?|
+    |Ho lavorato 8 anni come conducente EMS. Sono disponibili nuovi lavori?|
+    |I nuovi lavori in campo alimentare richiedono una domanda?|
+    |Quanti nuovi lavori nel settore cantieristico sono disponibili?|
+    |È disponibile un nuovo posto nel settore delle Risorse Umane per le relazioni e le negoziazioni con la manodopera?|
+    |Ho un master nel settore della conservazione dei beni culturali. Sono disponibili nuove posizioni?|
+    |Sono disponibili lavori per babysitter per bambini di 13 anni in città oggi?|
+
+    Non assegnare un'etichetta all'entità **Job** nelle espressioni. Questa sezione dell'esercitazione è incentrata solo stima delle finalità.
+
+4. Eseguire il training dell'app selezionando **Train** (Training) nel riquadro di spostamento in alto a destra.
 
 ## <a name="verify-the-fix-worked"></a>Verificare il funzionamento delle correzioni
-Per verificare che le espressioni del test in batch siano previste correttamente per la finalità **None**, eseguire nuovamente il test in batch.
+Per verificare che le espressioni del test in batch siano stimate correttamente per la finalità, eseguire nuovamente il test in batch.
+
+1. Selezionare **Test** nella barra di spostamento in alto. Se i risultati del batch sono ancora aperti, selezionare **Back to list** (Torna a elenco).  
+
+2. Selezionare i puntini di sospensione (***...*** ) a destra del nome del batch e selezionare **Run Dataset** (Esegui set di dati). Attendere fino a quando il test in batch non viene completato. Si noti che il pulsante **See results** (Visualizza risultati) è ora di colore verde. Ciò significa che l'intero batch è stato eseguito correttamente.
+
+3. Selezionare **See results** (Visualizza risultati). Per tutte le finalità, le icone a sinistra del nome devono essere verdi. 
+
+    ![Schermata di LUIS con il pulsante di risultati batch evidenziato](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+
+## <a name="create-batch-file-with-entities"></a>Creare file di batch con entità 
+Per verificare le entità in un test in batch, le entità devono essere etichettate nel file batch JSON. Vengono usate solo le entità apprese in modo automatico, ovvero di tipo semplice, gerarchico, (solo elemento padre) e composite. Non aggiungere entità non apprese in modo automatico perché si trovano sempre tramite espressioni regolari o corrispondenze di testo esplicite.
+
+La variazione delle entità per il numero di parole totali ([token](luis-glossary.md#token)) può influire sulla qualità della stima. Verificare che i dati di training specificati per la finalità con espressioni etichettate includano una vasta gamma di lunghezze di entità. 
+
+Quando si scrivono i file di batch e se ne esegue il test la prima volta, è consigliabile iniziare con poche espressioni ed entità di cui è noto il funzionamento corretto, nonché con quelle che si ritene essere stimate in modo non corretto. Ciò consente di concentrarsi sulle aree del problema rapidamente. Dopo aver eseguito il test delle finalità **GetJobInformation** e **ApplyForJob** con nomi dell'entità Job diversi, che non erano stati stimati, il file di test in batch è stato sviluppato per verificare se fosse presente un problema di stima per determinati valori dell'entità **Job**. 
+
+Il valore di un'entità **Job**, indicato nelle espressioni di test, è composto in genere da una o due parole, con alcuni esempi di più parole. Se la _propria_ app relativa alle risorse umane è composta in genere da nomi di lavoro costituiti da molte parole, le espressioni di esempio etichettate con l'entità **Job** in questa app non funzionano in modo corretto.
+
+1. Creare `HumanResources-entities-batch.json` in un editor di testo come [VSCode](https://code.visualstudio.com/). In alternativa, scaricare [il file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) dal repository Github LUIS-Samples.
+
+
+2. Nel file batch in formato JSON aggiungere una matrice di oggetti che includono espressioni con la **finalità** che si vuole stimare nel test nonché i percorsi di tutte le entità nell'espressione. Poiché un'entità è basata su token, verificare di iniziare e terminare ogni entità con un carattere. Non iniziare o terminare l'espressione con uno spazio. Ciò può causare un errore durante l'importazione del file batch.  
+
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+
+<!--TBD: when will the patterns fix be in for batch testing? -->
+## <a name="run-the-batch-with-entities"></a>Eseguire il batch con le entità
 
 1. Selezionare **Test** nella barra di spostamento in alto. 
 
 2. Selezionare **Batch testing panel** (Pannello test in batch) nel pannello di destra. 
 
-3. Selezionare i tre punti di sospensione (...) a destra del nome del batch e scegliere **Run Dataset** (Esegui set di dati). Attendere fino a quando il test in batch non viene completato.
+3. Selezionare **Import dataset** (Importa set di dati).
 
-    ![Run dataset (Esegui set di dati)](./media/luis-tutorial-batch-testing/run-dataset.png)
+4. Scegliere il percorso del file system del file `HumanResources-entities-batch.json`.
 
-4. Selezionare **See results** (Visualizza risultati). Per tutte le finalità, le icone a sinistra del nome devono essere verdi. Con il filtro a destra impostato sulla finalità `HomeAutomation.Turnoff`, selezionare il punto verde nel pannello superiore destra più vicino al centro del grafico. Il nome dell'espressione viene visualizzato nella tabella sotto il grafico. Il punteggio di `breezeway off please` è molto basso. Come attività facoltativa, è possibile aggiungere più espressioni alla finalità per aumentare questo punteggio. 
+5. Assegnare un nome al set di dati `entities` e selezionare **Done** (Fatto).
 
-    ![Run dataset (Esegui set di dati)](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
+6. Selezionare il pulsante **Run** (Esegui). Attendere fino a quando il test non viene completato.
 
-<!--
-    The Entities section of the legend may have errors. That is the next thing to fix.
+    [ ![Schermata dell'app LUIS con il pulsante Run (Esegui) evidenziato](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
-## Create a batch to test entity detection
-1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
+7. Selezionare **See results** (Visualizza risultati).
 
-2. Utterances have entities identified with `startPos` and `endPost`. These two elements identify the entity before [tokenization](luis-glossary.md#token), which happens in some [cultures](luis-supported-languages.md#tokenization) in LUIS. If you plan to batch test in a tokenized culture, learn how to [extract](luis-concept-data-extraction.md#tokenized-entity-returned) the non-tokenized entities.
+## <a name="review-entity-batch-results"></a>Esaminare i risultati del batch di entità
+Il grafico viene aperto con tutte le finalità stimate correttamente. Scorrere verso il basso nel filtro a destra per trovare le stime di entità con errori. 
 
-    Copy the following JSON into the file:
+1. Selezionare l'entità **Job** nel filtro.
 
-    ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 4
-            }
-          ]
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Operation",
-              "startPos": 7,
-              "endPos": 17
-            }
-          ]
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 9
-            }
-          ]
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Device",
-              "startPos": 0,
-              "endPos": 10
-            }
-          ]
-        }
-      ]
-    ```
+    ![Stime di entità con errori nel filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
-3. Import the batch file, following the [same instructions](#run-the-batch) as the first import, and name the dataset `set 2`. Run the test.
+    Il grafico viene modificato per visualizzare le stime di entità. 
 
-## Possible entity errors
-Since the intents in the right-side filter of the test panel still pass the test, this section focuses on correct entity identification. 
+2. Selezionare **False Negative** (Falso negativo) nel quadrante in basso a sinistra del grafico. Usare quindi la combinazione di tasti CTRL + E per passare alla visualizzazione token. 
 
-Entity testing is diferrent than intents. An utterance will have only one top scoring intent, but it may have several entities. An utterance's entity may be correctly identified, may be incorrectly identified as an entity other than the one in the batch test, may overlap with other entities, or not identified at all. 
+    [ ![Visualizzazione token delle stime di entità](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    
+    L'analisi delle espressioni sotto il grafico rivela un errore di coerenza quando il nome dell'entità Job include `SQL`. L'analisi delle espressioni di esempio e dell'elenco di frasi dell'entità Job indica che SQL viene usato solo una volta e solo come parte di un nome di lavoro maggiore, `sql/oracle database administrator`.
 
-## Review entity errors
-1. Select `HomeAutomation.Device` in the filter panel. The chart changes to show a single false positive and several true negatives. 
+## <a name="fix-the-app-based-on-entity-batch-results"></a>Correggere l'app in base ai risultati batch dell'entità
+La correzione dell'app richiede che LUIS determini in modo corretto le variazioni dei lavori per SQL. Sono disponibili diverse opzioni per la correzione. 
 
-2. Select the False positive section name. The utterance for this chart point is displayed below the chart. The labeled intent and the predicted intent are the same, which is consistent with the test -- the intent prediction is correct. 
+* Aggiungere in modo esplicito più espressioni di esempio che usano SQL e assegnare un'etichetta a tali parole come entità Job. 
+* Aggiungere in modo esplicito più lavori per SQL all'elenco di frasi
 
-    The issue is that the HomeAutomation.Device was detected but the batch expected HomeAutomation.Room for the utterance "coffee bar off please". `Coffee bar` could be a room or a device, depending on the environment and context. As the model designer, you can either enforce the selection as `HomeAutomation.Room` or change the batch file to use `HomeAutomation.Device`. 
+Queste attività vengono lasciate all'utente.
 
-    If you want to reinforce that coffee bar is a room, you nee to add an utterances to LUIS that help LUIS decide a coffee bar is a room. 
+L'aggiunta di un [criterio](luis-concept-patterns.md) prima che l'entità venga stimata correttamente non consente di risolvere il problema. Ciò avviene perché il criterio non corrisponde fino a quando non vengono rilevate tutte le entità nel criterio stesso. 
 
-    The most direct route is to add the utterance to the intent but that to add the utterance for every entity detection error is not the machine-learned solution. Another fix would be to add an utterance with `coffee bar`.
+## <a name="what-has-this-tutorial-accomplished"></a>Risultati dell'esercitazione
+L'accuratezza della stima dell'app è aumentata grazie alla ricerca di errori nel batch e alla correzione del modello. 
 
-## Add utterance to help extract entity
-1. Select the **Test** button on the top navigation to close the batch test panel.
+## <a name="clean-up-resources"></a>Pulire le risorse
+Quando non è più necessaria, eliminare l'app LUIS. Seleziona **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione **...** a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
-2. On the `HomeAutomation.TurnOn` intent, add the utterance, `turn coffee bar on please`. The uttterance should have all three entities detected after you select enter. 
 
-3. Select **Train** on the top navigation panel. Wait until training completes successfully.
-
-3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
-
-4. If the list of datasets is not visible, select **Back to list**. Select the three dots (...) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
-
-5. Select **See results** to review the test results.
-
-6. 
--->
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sulle espressioni di esempio](luis-how-to-add-example-utterances.md)
+> [Informazioni sui criteri](luis-tutorial-pattern.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

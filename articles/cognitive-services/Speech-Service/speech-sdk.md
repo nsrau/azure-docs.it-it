@@ -8,28 +8,22 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b9b7b8af5ce3d75788fd2c4f5e0309b5ca561a8f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378410"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113393"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Informazioni su Speech SDK di Servizi cognitivi
 
 Speech Software Development Kit (SDK) di Servizi cognitivi consente alle applicazioni accesso nativo alle funzioni del servizio di riconoscimento vocale, rendendo più semplice lo sviluppo di software. Attualmente, l'SDK consente l'accesso alle funzioni di **riconoscimento vocale**, **traduzione vocale** e **riconoscimento finalità**.
 
-La tabella elenca i linguaggi di programmazione e i sistemi operativi attualmente supportati.
+[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-|Sistema operativo supportato.|Linguaggio di programmazione|
-|-|-|
-|Windows|C/C++, C#|
-|Linux|C/C++|
-|Dispositivi|Java\*|
-
-\* *Java SDK fa parte di [Speech Devices SDK](speech-devices-sdk.md).*
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="get-the-windows-sdk"></a>Ottenere Windows SDK
 
@@ -61,9 +55,25 @@ Per creare un'applicazione, copiare o spostare i file binari e le librerie neces
 
 ## <a name="get-the-java-sdk"></a>Ottenere Java SDK
 
-Java SDK fa parte di [Speech Devices SDK](speech-devices-sdk.md).
+Java SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste per usarlo.
+È ospitato in un repository Maven in `https://csspeechstorage.blob.core.windows.net/maven/` come pacchetto `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
+Per usare il pacchetto dal progetto Android Studio apportare le modifiche seguenti:
+
+* Nel file al livello di progetto `build.gradle` aggiungere quanto segue nella sezione `repository`:
+
+  ```text
+  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
+  ```
+
+* Nel modulo al livello di progetto `build.gradle` aggiungere quanto segue nella sezione `dependencies`:
+
+  ```text
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
+  ```
+
+Java SDK fa inoltre parte di [Speech Devices SDK](speech-devices-sdk.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-windows.md)
+* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

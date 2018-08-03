@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0fb9f92e736e598662f66ae3d283ba02f715e3af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 973e4efcbe9d0627ca261def2449a237819559ad
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374521"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441149"
 ---
 # <a name="text-moderation---supported-languages-by-feature"></a>Moderazione testo - lingue supportate dalla funzionalità
 
@@ -36,61 +36,61 @@ ms.locfileid: "35374521"
 | Cinese (tradizionale) | Bangla - Bangladesh | Finlandese  | Italiano
 | Churc (Slavo) | Bangla - India | Francese     | Coreano
 | Copto | Basco | Tedesco                      | Norvegese
-| Dhivehi | Bielorusso | Greco, moderno         | Polacco
-| Farsi | Bosniaco (alfabeto cirillico) | Ungherese        | Portoghese
-| Greco | Bosniaco (alfabeto latino) | Italiano             | Rumeno
-| Creolo haitiano | Bretone [non GeoPol] | Giapponese  | Russo
-| Ebraico | Bulgaro | Coreano                        | Slovacco
-| Hmong | Catalano | Norvegese                        | Spagnolo
-| Curdo (paesi arabi) | Curdo sorani | Polacco        | Turco
-| Curdo (Latino) | Cherokee | Portoghese
-| Lepcha | Cinese (semplificato) | Rumeno
-| Limbu | Cinese (tradizionale) - Hong Kong RAS | Russo
-| LU | Cinese (tradizionale) - Taiwan | Serbo (alfabeto cirillico)
-| Lycian | Croato | Serbo (alfabeto latino)
-| Lydian | Ceco | Slovacco
-| Miceneo (Greco) | Danese | Spagnolo
-| Nko | Dari | Svedese
-| Norvegese (Bokmål) | Olandese | Turco
-| Norvegese (Nynorsk) | Inglese 
-| Persiano antico | Estone 
-| Pashto | Filippino
-| Punjabi | Finlandese
-| Rejang | Francese
-| Santali | Galiziano
-| Sasak | Georgiano
-| Saurashtra | Tedesco
-| Serbo (alfabeto cirillico) | Greco
-| Serbo (alfabeto latino) | Gujarati
-| Sinhala | Hausa
-| Sloveno | Ebraico
-| Sylheti | Hindi
-| Siriaco | Ungherese
-| Tagbanwa | Islandese
-| Tai (Nua) | Igbo
-| Tamashek | Indonesiano
-| Ugaritico | Inuktitut
-| Uzbeco (alfabeto cirillico) | Irlandese
-| Uzbeco (alfabeto latino) | isiXhosa
-| Vai | isiZulu
-| Yi | Italiano
-| Zhuang, Chuang | Giapponese
-| | Kannada
-| | Kazako
-| | Khmer
-| | Quiché
-| | Kinyarwanda
-| | Kiswahili
-| | Konkani
-| | Coreano
-| | Kyrgyz
-| | Lao
-| | Lettone
-| | Lituano
-| | Lussemburghese
-| | Macedone
-| | Malese
-| | Malayalam
+| Ceco |  Bielorusso | Greco, moderno         | Polacco
+| Dhivehi | Bosniaco (alfabeto cirillico) | Ungherese      | Portoghese
+| Olandese | Bosniaco (alfabeto latino) | Italiano             | Rumeno
+| Inglese | (Creolo) | Bretone [non GeoPol] | Giapponese  | Russo
+| Farsi | Bulgaro | Coreano                        | Slovacco
+| Francese | Catalano | Norvegese                        | Spagnolo
+| Tedesco | Curdo sorani | Polacco        | Turco
+| Greco | Cherokee | Portoghese
+| Haitiano | Cinese (semplificato) | Rumeno
+| Ebraico | Cinese (tradizionale) - Hong Kong RAS | Russo
+| Hindi | Cinese (tradizionale) - Taiwan | Serbo (alfabeto cirillico)
+| Hmong | Croato | Serbo (alfabeto latino)
+| Ungherese | Ceco | Slovacco
+| Italiano | Danese | Spagnolo
+| Giapponese | Dari | Svedese
+| Coreano | Olandese | Turco
+| Curdo (paesi arabi) | Inglese
+| Curdo (Latino) | Estone
+| Lepcha | Filippino
+| Limbu | Finlandese
+| LU | Francese
+| Lycian | Galiziano
+| Lydian | Georgiano
+| Miceneo (Greco) | Tedesco
+| Nko | Greco
+| Norvegese (Bokmål) | Gujarati
+| Norvegese (Nynorsk) |  Hausa
+| Persiano antico | Ebraico
+| Pashto | Hindi
+| Polacco | Ungherese
+| Portoghese | Islandese
+| Punjabi | Igbo
+| Rejang | Indonesiano
+| Russo | Inuktitut
+| Santali | Irlandese
+| Sasak | isiXhosa
+| Saurashtra | isiZulu
+| Serbo (alfabeto cirillico) | Italiano
+| Serbo (alfabeto latino) | Giapponese
+| Sinhala | Kannada
+| Sloveno | Kazako
+| Spagnolo | Khmer
+| Svedese | Quiché
+| Sylheti | Kinyarwanda
+| Siriaco | Kiswahili
+| Tagbanwa | Konkani
+| Tai (Nua) | Coreano
+| Tamashek | Kyrgyz
+| Turco | Lao
+| Ugaritico | Lettone
+| Uzbeco (alfabeto cirillico) | Lituano
+| Uzbeco (alfabeto latino) | Lussemburghese
+| Vai | Macedone
+| Yi | Malese
+| Zhuang, Chuang | Malayalam
 | | Maltese
 | | Maori
 | | Marathi

@@ -2,19 +2,19 @@
 title: Glossario per il servizio API Language Understanding Intelligent Service (LUIS) | Microsoft Docs
 description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265388"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225507"
 ---
 # <a name="glossary"></a>Glossario
 
@@ -72,7 +72,7 @@ Nel contesto di LUIS, un **dominio** è un'area di conoscenza. Il dominio è spe
 
 ## <a name="endpoint"></a>Endpoint
 
-L'URL dell'[endpoint LUIS](https://aka.ms/luis-endpoint-apis) è l'indirizzo a cui si inviano le query LUIS dopo la creazione e la pubblicazione dell'[app LUIS](#luis-app). L'URL dell'endpoint contiene la regione dell'app pubblicata, nonché l'ID dell'app. È possibile trovare l'endpoint nella pagina **[Pubblica](publishapp.md)** dell'app, nella tabella delle risorse e delle chiavi oppure è possibile ottenere l'URL dell'endpoint dall'API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) (Ottieni informazioni sull'app).
+L'URL dell'[endpoint LUIS](https://aka.ms/luis-endpoint-apis) è l'indirizzo a cui si inviano le query LUIS dopo la creazione e la pubblicazione dell'[app LUIS](#luis-app). L'URL dell'endpoint contiene la regione dell'app pubblicata, nonché l'ID dell'app. È possibile trovare l'endpoint nella pagina **[Pubblica](luis-how-to-publish-app.md)** dell'app, nella tabella delle risorse e delle chiavi oppure è possibile ottenere l'URL dell'endpoint dall'API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) (Ottieni informazioni sull'app).
 
 Un endpoint di esempio è simile al seguente:
 
@@ -82,7 +82,7 @@ Un endpoint di esempio è simile al seguente:
 |--|--|
 |region| [regione di pubblicazione](luis-reference-regions.md#publishing-regions) |
 |appID | ID dell'app LUIS |
-|subscriptionid | Chiave di sottoscrizione LUIS creata nel portale di Azure |
+|subscriptionid | Chiave endpoint LUIS creata nel portale di Azure |
 |q | espressione |
 |timezoneOffset| minutes|
 
@@ -92,15 +92,15 @@ Le [entità](luis-concept-entity-types.md) sono parole importanti nelle [espress
 
 ## <a name="f-measure"></a>Misura F
 
-Nei [test batch][batch-testing] è una misura dell'accuratezza del test.
+Nei [test batch](luis-interactive-test.md#batch-testing) è una misura dell'accuratezza del test.
 
 ## <a name="false-negative"></a>Falso negativo (TN)
 
-Nei [test in batch][batch-testing] i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato l'assenza della finalità/entità di destinazione.
+Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato l'assenza della finalità/entità di destinazione.
 
 ## <a name="false-positive"></a>Falso positivo (TP)
 
-Nei [test in batch][batch-testing] i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato la presenza della finalità/entità di destinazione.
+Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato la presenza della finalità/entità di destinazione.
 
 ## <a name="features"></a>Funzionalità
 
@@ -135,10 +135,10 @@ Un [dominio predefinito](luis-how-to-use-prebuilt-domains.md) è un'app LUIS con
 
 ## <a name="prebuilt-entity"></a>Entità predefinite
 
-Un'[entità predefinita](pre-builtentities.md) è un'entità fornita da LUIS per tipi di informazioni comuni quali numeri, URL e posta elettronica. Si sceglie di aggiungere un'entità predefinita all'applicazione. 
+Un'[entità predefinita](luis-prebuilt-entities.md) è un'entità fornita da LUIS per tipi di informazioni comuni quali numeri, URL e posta elettronica. Si sceglie di aggiungere un'entità predefinita all'applicazione. 
 
 ## <a name="precision"></a>Precisione
-Nei [test in batch][batch-testing], la precisione (denominata anche valore predittivo positivo) è la frazione delle espressioni rilevanti tra le espressioni recuperate.
+Nei [test in batch](luis-interactive-test.md#batch-testing), la precisione (denominata anche valore predittivo positivo) è la frazione delle espressioni rilevanti tra le espressioni recuperate.
 
 ## <a name="programmatic-key"></a>Chiave programmatica
 
@@ -153,7 +153,7 @@ Pubblicare significa rendere una [versione attiva](#active-version) di LUIS disp
 La quota LUIS è la limitazione del [livello di sottoscrizione di Azure](https://aka.ms/luis-price-tier). La quota LUIS può essere limitata sia dalle richieste al secondo (stato HTTP 429) che dalle richieste totali in un mese (stato HTTP 403). 
 
 ## <a name="recall"></a>Richiamare
-Nei [test in batch][batch-testing] il richiamo (anche detto sensibilità) è la capacità di LUIS di generalizzare. 
+Nei [test in batch](luis-interactive-test.md#batch-testing) il richiamo (anche detto sensibilità) è la capacità di LUIS di generalizzare. 
 
 ## <a name="semantic-dictionary"></a>Dizionario semantico
 Un dizionario semantico viene fornito nella pagina List entity (Elenca entità) e nella pagina Phrase list (Elenco frasi). Il dizionario semantico fornisce suggerimenti di parole in base all'ambito corrente.
@@ -163,11 +163,11 @@ L'analisi del sentiment fornisce valori positivi o negativi delle espressioni fo
 
 ## <a name="speech-priming"></a>Priming del riconoscimento vocale
 
-Il priming del riconoscimento vocale consente la preparazione del servizio di riconoscimento vocale con il modello LUIS. Vedere [Abilitare il priming del riconoscimento vocale](publishapp.md#enable-speech-priming).
+Il priming del riconoscimento vocale consente la preparazione del servizio di riconoscimento vocale con il modello LUIS. Vedere [Abilitare il priming del riconoscimento vocale](luis-how-to-publish-app.md#enable-speech-priming).
 
 ## <a name="spelling-correction"></a>Correzione di errori di ortografia
 
-Nella pagina Publish (Pubblica), attivare [Bing spell checker](publishapp.md#enable-bing-spell-checker) (Controllo ortografico Bing) per correggere gli errori di ortografia nelle espressioni prima della stima. 
+Nella pagina Publish (Pubblica), attivare [Bing spell checker](luis-how-to-publish-app.md#enable-bing-spell-checker) (Controllo ortografico Bing) per correggere gli errori di ortografia nelle espressioni prima della stima. 
 
 ## <a name="starter-key"></a>Chiave di avvio
 
@@ -175,11 +175,11 @@ Corrisponde alla [chiave programmatica](#programmatic-key), rinominata chiave di
 
 ## <a name="subscription-key"></a>Chiave di sottoscrizione
 
-La chiave di sottoscrizione è quella associata al servizio LUIS [creata in Azure](luis-how-to-azure-subscription.md). Questa chiave non è la [chiave di crezione](#programmatic-key). Se si dispone di una chiave di sottoscrizione, essa deve essere utilizzata per qualsiasi richiesta di endpoint invece della chiave di creazione. È possibile visualizzare la chiave di sottoscrizione corrente all'interno dell'URL dell'endpoint al fondo della pagina [**Publish App** (Pubblica pagina) ](publishapp.md) nel sito Web [LUIS](luis-reference-regions.md). È il valore della coppia nome/valore **subscription-key**. 
+La chiave **endpoint** è quella associata al servizio LUIS [creata in Azure](luis-how-to-azure-subscription.md). Questa chiave non è la [chiave di crezione](#programmatic-key). Se si dispone di una chiave endpoint, essa deve essere usata per qualsiasi richiesta di endpoint invece della chiave di creazione. È possibile visualizzare la chiave endpoint corrente all'interno dell'URL dell'endpoint al fondo della pagina [**Publish App** (Pubblica pagina) ](luis-how-to-publish-app.md) nel sito Web [LUIS](luis-reference-regions.md). È il valore della coppia nome/valore **subscription-key**. 
 
 ## <a name="test"></a>Test
 
-Eseguire il [test](interactive-test.md#test-your-app) di un'app LUIS significa passare un'espressione a LUIS e visualizzare i risultati JSON.
+Eseguire il [test](luis-interactive-test.md#test-your-app) di un'app LUIS significa passare un'espressione a LUIS e visualizzare i risultati JSON.
 
 ## <a name="timezoneoffset"></a>Differenza fuso orario
 
@@ -196,11 +196,11 @@ Il training è il processo con cui si insegnano a LUIS le modifiche apportate al
 
 ## <a name="true-negative"></a>Falso negativo (TN)
 
-Nei [test in batch][batch-testing] i punti dati rappresentano espressioni in cui l'app ha correttamente stimato l'assenza della finalità/entità di destinazione.
+Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha correttamente stimato l'assenza della finalità/entità di destinazione.
 
 ## <a name="true-positive"></a>Falso positivo (TP)
 
-Nei [test in batch][batch-testing] i punti dati rappresentano espressioni in cui l'app ha correttamente stimato la presenza della finalità/entità di destinazione.
+Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha correttamente stimato la presenza della finalità/entità di destinazione.
 
 ## <a name="utterance"></a>Espressione
 
@@ -209,5 +209,3 @@ Un'espressione è una frase nel linguaggio naturale, ad esempio "prenota 2 bigli
 ## <a name="version"></a>Versione
 
 Una [versione](luis-how-to-manage-versions.md) di LUIS è un modello di dati specifico associato a un ID app LUIS e all'endpoint pubblicato. Ogni app LUIS ha almeno una versione.
-
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

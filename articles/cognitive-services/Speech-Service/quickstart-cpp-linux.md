@@ -1,45 +1,46 @@
 ---
-title: Guida introduttiva di Speech SDK per C++ e Linux | Microsoft Docs
+title: 'Avvio rapido: Riconoscimento vocale in C++ su Linux con Speech SDK di Servizi cognitivi| Microsoft Docs'
 titleSuffix: Microsoft Cognitive Services
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare Speech SDK con Linux e C++ in Servizi cognitivi.
+description: Informazioni sul riconoscimento vocale in C++ su Linux con Speech SDK di Servizi cognitivi
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: cee70ba585f93dda3249fc5b39f25fb613b57a45
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: b5f5cdbe202b406c724a9f4f5787e566b432a66c
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753603"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116147"
 ---
-# <a name="quickstart-for-c-and-linux"></a>Guida introduttiva per C++ e Linux
+# <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su Linux con Speech SDK
 
-La versione corrente di Speech SDK di Servizi cognitivi è `0.4.0`.
+Questo articolo spiega come creare un'applicazione console C++ su Linux (Ubuntu 16.04) usando Speech SDK di Servizi cognitivi per trascrivere il riconoscimento vocale.
 
-Speech SDK di Servizi cognitivi per Linux è disponibile per la compilazione di applicazioni a 64 bit e a 32 bit. I file necessari possono essere scaricati come un file con estensione tar da https://aka.ms/csspeech/linuxbinary.
+## <a name="prerequisites"></a>Prerequisiti
 
-> [!NOTE]
-> Se si sta cercando una guida introduttiva a C++ e Windows, andare [qui](quickstart-cpp-windows.md).
-> Se si sta cercando una guida introduttiva a C# e Windows, andare [qui](quickstart-csharp-windows.md).
+* Una chiave di sottoscrizione per il servizio di riconoscimento vocale. Vedere [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md).
+* Un PC Ubuntu 16.04 con un microfono funzionante.
+* Per installare i pacchetti necessari per compilare ed eseguire questo esempio eseguire il comando seguente:
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+  ```sh
+  sudo apt-get update
+  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  ```
 
-> [!NOTE]
-> Queste istruzioni presuppongono che Ubuntu 16.04 sia in esecuzione in un computer (x86 o x64).
-> In una versione diversa di Ubuntu, o una distribuzione Linux diversa, è necessario adattare i passaggi necessari.
+## <a name="get-the-speech-sdk"></a>Ottenere Speech SDK
 
-## <a name="prerequisites"></a>prerequisiti
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-[!include[Ubuntu Prerequisites](includes/ubuntu1604-prerequisites.md)]
+La versione corrente di Speech SDK di Servizi cognitivi è `0.5.0`.
 
-## <a name="getting-the-binary-package"></a>Ottenere il pacchetto binario
-
-[!include[License Notice](includes/license-notice.md)]
+Speech SDK di Servizi cognitivi per Linux è disponibile per la compilazione di applicazioni a 64 bit e a 32 bit.
+I file necessari possono essere scaricati come un file con estensione tar da https://aka.ms/csspeech/linuxbinary.
+Scaricare e installare SDK come indicato di seguito:
 
 1. Selezionare una directory (percorso assoluto) in cui si desidera posizionare le intestazioni e i file binari di Speech SDK.
    Ad esempio, selezionare il percorso `speechsdk` sotto la home directory:
@@ -69,66 +70,66 @@ Speech SDK di Servizi cognitivi per Linux è disponibile per la compilazione di 
 
    Dovrebbero essere presenti le comunicazioni relative a terze parti e i file di licenza, nonché una directory `include` per le intestazioni e una directory `lib` per le librerie.
 
-   [!include[Linux Binary Archive Content](includes/linuxbinary-content.md)]
+   [!include[Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
-## <a name="sample-code"></a>Codice di esempio
+## <a name="add-the-sample-code"></a>Aggiungere il codice di esempio
 
-Il codice seguente riconosce la lingua inglese dal microfono.
-Posizionarlo in un file denominato `quickstart-linux.cpp`:
+1. Aggiungere il codice seguente in un file denominato `helloworld.cpp`:
 
-[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Linux/quickstart-linux/quickstart-linux.cpp#code)]
+  [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-Sostituire la chiave di sottoscrizione nel codice con quella ottenuta.
+1. Sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione.
+
+1. Sostituire la stringa `YourServiceRegion` con la [regione](regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
 
 ## <a name="building"></a>Compilazione
 
 > [!NOTE]
 > Assicurarsi di copiare e incollare i comandi di compilazione qui di seguito come una _singola riga_.
 
-* Eseguire il comando seguente per compilare l'applicazione su un computer x64:
+* Eseguire il comando seguente per compilare l'applicazione su un computer **x64**:
 
   ```sh
-  g++ quickstart-linux.cpp -o quickstart-linux -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-* Eseguire il comando seguente per compilare l'applicazione su un computer x86:
+* Eseguire il comando seguente per compilare l'applicazione su un computer **x86**:
 
   ```sh
-  g++ quickstart-linux.cpp -o quickstart-linux -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-## <a name="running"></a>In esecuzione
+## <a name="run-the-sample"></a>Eseguire l'esempio
 
-Per eseguire l'applicazione, è necessario configurare il percorso di libreria del caricatore in modo da puntare alla libreria Speech SDK.
+1. Configurare il percorso di libreria del caricatore in modo da puntare alla libreria Speech SDK.
 
-* Su un computer x64 eseguire:
+   * Su un computer **x64** eseguire:
 
-  ```sh
-  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x64"
-  ```
+     ```sh
+     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x64"
+     ```
 
-* Su un computer x86 eseguire:
+   * Su un computer **x86** eseguire:
 
-  ```sh
-  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
-  ```
+     ```sh
+     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
+     ```
 
-Eseguire l'applicazione come indicato di seguito:
+1. Eseguire l'applicazione come indicato di seguito:
 
-```sh
-./quickstart-linux
-```
+   ```sh
+   ./helloworld
+   ```
 
-Se non ci sono errori, verrà visualizzato un output simile al seguente:
+1. Verrà visualizzato un output simile al seguente:
 
-```text
-Say something...
-We recognized: What's the weather
-```
+   ```text
+   Say something...
+   We recognized: What's the weather
+   ```
 
-## <a name="downloading-the-sample"></a>Download dell'esempio
-
-Per l'insieme di esempi più recente, vedere il [repository GitHub degli esempi di Speech SDK di Servizi cognitivi](https://aka.ms/csspeech/samples).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Ricercare questo esempio nella cartella `quickstart/cpp-linux`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

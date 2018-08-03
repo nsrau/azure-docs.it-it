@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd7531004759cdaeb59f4706dc2650d0db3c0cdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377732"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070927"
 ---
 # <a name="your-first-bing-visual-search-query-in-c"></a>La prima query di Ricerca visiva Bing in C#
 
-L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine, un token di informazioni dettagliate, oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](../overview.md) Questo articolo illustra come caricare un'immagine. Caricare un'immagine può essere utile negli scenari per dispositivi mobili in cui si acquisisce un'immagine di un luogo noto e si ottengono le relative informazioni. Le informazioni dettagliate, ad esempio, possono includere curiosità sul luogo. 
+L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine o un token di informazioni dettagliate oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](../overview.md) Questo articolo illustra come caricare un'immagine. Caricare un'immagine può essere utile negli scenari per dispositivi mobili in cui si acquisisce un'immagine di un punto di riferimento ben noto e si ottengono le relative informazioni. Le informazioni dettagliate, ad esempio, possono includere curiosità sul punto di riferimento. 
 
-Se si carica un'immagine locale, la figura seguente illustra i dati di formato che è necessario includere nel corpo del POST. I dati di formato devono includere l'intestazione Content-Disposition. Il relativo parametro `name` deve essere impostato su "image" e il parametro `filename` può essere impostato su qualsiasi stringa. Il contenuto del modulo è il file binario dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB. 
+Se si carica un'immagine locale, la figura seguente illustra i dati del modulo che è necessario includere nel corpo del POST. I dati dl modulo devono includere l'intestazione Content-Disposition. Il parametro `name` deve essere impostato su "image" e il parametro `filename` può essere impostato su qualsiasi stringa. Il contenuto del modulo è il file binario dell'immagine. La dimensione massima delle immagini che è possibile caricare è 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -37,11 +37,11 @@ Questo articolo include una semplice applicazione console che invia una richiest
 Il programma di esempio usa solo le classi di .NET Core e viene eseguito in Windows con CLR .NET o in Linux o in macOS con [Mono](http://www.mono-project.com/).
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/) perché questo codice possa essere eseguito su Windows. (La Community Edition funzionerà.)
 
-Per questo Avvio rapido, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
+Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 
 ## <a name="running-the-application"></a>Esecuzione dell'applicazione
 
@@ -52,7 +52,7 @@ Per eseguire l'applicazione seguire questa procedura:
 1. Creare una nuova soluzione di Console in Visual Studio.
 1. Sostituire il contenuto di `Program.cs` con il codice illustrato in questo Avvio rapido.
 2. Sostituire il valore `accessKey` con la chiave di sottoscrizione.
-2. Sostituire il valore `imagePath` con il percorso dell'immagine da caricare.
+2. Sostituire il valore di `imagePath` con il percorso dell'immagine da caricare.
 3. Eseguire il programma.
 
 
@@ -387,8 +387,9 @@ Sostituire il metodo BingImageSearch con il codice seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Ottenere informazioni dettagliate su un'immagine usando un token di informazioni dettagliate](../use-insights-token.md)  
-[Esercitazione sull'app a singola pagina di Ricerca visiva Bing](../tutorial-bing-visual-search-single-page-app.md)
+[Esercitazione sul caricamento dell'immagine di Ricerca visiva Bing](../tutorial-visual-search-image-upload.md)
+[Esercitazione sull'applicazione a pagina singola di Ricerca visiva Bing](../tutorial-bing-visual-search-single-page-app.md)
 [Panoramica su Ricerca visiva Bing](../overview.md)  
 [Prova](https://aka.ms/bingvisualsearchtryforfree)  
-[Ottenere una chiave di accesso gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Riferimenti dell'API Ricerca visiva Bing](https://aka.ms/bingvisualsearchreferencedoc)
+[Ottenere una chiave di accesso per la versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Informazioni di riferimento sull'API Ricerca visiva Bing](https://aka.ms/bingvisualsearchreferencedoc)
