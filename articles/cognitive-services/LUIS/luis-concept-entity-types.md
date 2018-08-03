@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226612"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282280"
 ---
 # <a name="entities-in-luis"></a>Entità in LUIS
 
@@ -70,7 +70,7 @@ LUIS offre molti tipi di entità: entità predefinite, entità basate su Machine
 | **Simple** <br/>[Basata su Machine Learning](#machine-learned) | ✔ | **Definizione**<br>Un'entità semplice è un'entità generica che descrive un singolo concetto e che viene appresa dal contesto basato su Machine Learning. Il contesto include scelta e posizione delle parole e lunghezza dell'espressione.<br/><br/>Questa entità è valida per le parole o le frasi che non sono formattate in modo coerente ma che indicano la stessa cosa. <br/><br/>[Guida introduttiva](luis-quickstart-primary-and-secondary-data.md)<br/>[Risposta di esempio per l'entità](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Elenco** <br/>[Corrispondenza esatta](#exact-match)|| **Definizione**<br>Le entità elenco rappresentano un set chiuso e fisso di parole correlate insieme ai relativi sinonimi nel sistema. <br><br>Ogni entità elenco può avere uno o più moduli. Sono particolarmente adatte per un set noto di varianti per rappresentare lo stesso concetto.<br/><br/>LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente.<br/><br>Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint. <br/><br/>[Guida introduttiva](luis-quickstart-intent-and-list-entity.md)<br>[Risposta di esempio per l'entità](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Mista](#mixed) | ✔|**Definizione**<br>Patterns.any è un segnaposto di lunghezza variabile usato solo nell'espressione di modello del criterio per contrassegnare l'inizio e la fine dell'entità.  <br><br>**Esempio**<br>Data un'espressione per la ricerca di libri in base al titolo, pattern.any estrae il titolo completo. Un'espressione di modello con pattern.any è `Who wrote {BookTitle}[?]`.<br/><br/>[Esercitazione](luis-tutorial-pattern.md)<br>[Risposta di esempio per l'entità](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Composita** <br/>[Basata su Machine Learning](#machine-learned) | ✔|**Definizione**<br>Un'entità composita è costituita da altre entità, ad esempio entità predefinite, semplici, espressione regolare, elenco, gerarchiche. Le entità separate formano un'entità intera. Le entità elenco non sono consentite nelle entità composite. <br><br>**Esempio**<br>Un'entità composita denominata PlaneTicketOrder potrebbe avere le entità figlio predefinite `number` e `ToLocation`. <br/><br/>[Esercitazione](luis-tutorial-composite-entity.md)<br>[Risposta di esempio per l'entità](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Composita** <br/>[Basata su Machine Learning](#machine-learned) | ✔|**Definizione**<br>Un'entità composita è costituita da altre entità, ad esempio entità predefinite, semplici, espressione regolare, elenco, gerarchiche. Le entità separate formano un'entità intera. <br><br>**Esempio**<br>Un'entità composita denominata PlaneTicketOrder potrebbe avere le entità figlio predefinite `number` e `ToLocation`. <br/><br/>[Esercitazione](luis-tutorial-composite-entity.md)<br>[Risposta di esempio per l'entità](luis-concept-data-extraction.md#composite-entity-data)|  
 | **Gerarchica** <br/>[Basata su Machine Learning](#machine-learned) |✔ | **Definizione**<br>Un'entità gerarchica è una categoria di entità semplici con apprendimento su base contestuale.<br><br>**Esempio**<br>Data un'entità gerarchica di `Location` con figli `ToLocation` e `FromLocation`, ogni figlio può essere determinato in base al **contesto** all'interno dell'espressione. Nell'espressione `Book 2 tickets from Seattle to New York`, le entità `ToLocation` e `FromLocation` sono contestualmente diverse in base alle parole circostanti. <br/><br/>**Non usare se**<br>Se si sta cercando un'entità che abbia corrispondenze di testo esatte per i figli indipendentemente dal contesto, è consigliabile usare un'entità elenco. Se si sta cercando una relazione padre-figlio con altri tipi di entità, è consigliabile usare un'entità composita.<br/><br/>[Guida introduttiva](luis-quickstart-intent-and-hier-entity.md)<br>[Risposta di esempio per l'entità](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 Le entità <a name="prebuilt"></a>

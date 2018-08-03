@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222673"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399572"
 ---
 # <a name="collaborating"></a>Collaborazione
 
@@ -25,7 +25,7 @@ Un account LUIS è associato a un singolo account [Microsoft Live](https://login
 
 Un account LUIS può disporre di più app LUIS.
 
-Per altre informazioni sugli account utente Active Directory vedere [Tenant di Active Directory di Azure](luis-how-to-account-settings.md#azure-active-directory-tenant-user). 
+Per altre informazioni sugli account utente Active Directory vedere [Tenant di Active Directory di Azure](luis-how-to-collaborate.md#azure-active-directory-tenant-user). 
 
 ## <a name="luis-app-owner"></a>Proprietario dell'app LUIS
 L'account che crea un'app è il proprietario. Ogni app ha un singolo proprietario. Il proprietario è elencato nelle **[impostazioni](luis-how-to-collaborate.md)** dell'app. È l'account che può eliminare l'app. È anche l'account che riceve la posta elettronica quando la quota dell'endpoint raggiunge il 75% del limite mensile. 

@@ -1,21 +1,20 @@
 ---
-title: Informazioni sul Servizio di riconoscimento vocale (anteprima) | Microsoft Docs
+title: Informazioni sul Servizio di riconoscimento vocale (anteprima)
 description: 'Il servizio Voce, parte dei Servizi Cognitivi Microsoft, unisce diversi servizi vocali di Azure precedentemente disponibili in modo separato: Riconoscimento vocale Bing (che comprende il riconoscimento vocale e la sintesi vocale), Riconoscimento vocale personalizzato e Traduzione vocale.'
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: adfc854fc24b9e285c405f3038a21ec84cd2f4c2
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fc6ef4ccbe6e392b991bd375afcc63a54f58db02
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989336"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285460"
 ---
 # <a name="what-is-the-speech-service-preview"></a>Informazioni sul Servizio di riconoscimento vocale (anteprima)
 
@@ -38,8 +37,8 @@ Il servizio di riconoscimento vocale viene reso disponibile in due modi. [L'SDK]
 
 |<br>Metodo|Sintesi vocale<br>Riconoscimento vocale|Sintesi vocale<br>Sintesi vocale|Sintesi vocale<br>Traduzione|<br>DESCRIZIONE|
 |-|-|-|-|-|
-|[SDK](speech-sdk.md)|sì|No |sì|Librerie per determinati linguaggi di programmazione che semplificano lo sviluppo.|
-|[REST](rest-apis.md)|sì|sì|No |Un'API semplice basato su HTTP che rende più facile aggiungere comandi vocali all'applicazione.|
+|[SDK](speech-sdk.md)|Yes|No |Yes|Librerie per determinati linguaggi di programmazione che semplificano lo sviluppo.|
+|[REST](rest-apis.md)|Yes|Yes|No |Un'API semplice basato su HTTP che rende più facile aggiungere comandi vocali all'applicazione.|
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
