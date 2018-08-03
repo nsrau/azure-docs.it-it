@@ -72,12 +72,12 @@ La connessione viene stabilita tramite la connessione Internet esistente, ma ric
 | Usa la connessione Internet esistente. |Latenza imprevedibile perché la connessione attraversa Internet. |
 | Può essere usata per connettersi a servizi di Azure che possono essere connessi a una Rete virtuale, ad esempio Macchine virtuali e Servizi cloud. |È necessario configurare e gestire un dispositivo VPN* convalidato in locale. |
 | Velocità effettiva massima di 200 Mb/s per gateway. |Richiede attività di amministrazione minime continuative di un gateway VPN di Azure. |
-| Può forzare il traffico in uscita originato da macchine virtuali cloud attraverso la rete locale per l'analisi e la registrazione tramite route definite dall'utente o BGP (Border Gateway Protocol)**. |Non può essere usata per connettersi a Microsoft Office 365 o Dynamics CRM Online. |
+| Può forzare il traffico in uscita originato da macchine virtuali cloud attraverso la rete locale per l'analisi e la registrazione tramite route definite dall'utente o BGP (Border Gateway Protocol)\*\*. |Non può essere usata per connettersi a Microsoft Office 365 o Dynamics CRM Online. |
 | Non può essere usata per connettersi ai servizi di Azure che non possono essere connessi a una rete virtuale. | |
 | Se si usano servizi che avviano connessioni ai dispositivi locali e i criteri di sicurezza lo richiedono, potrebbe essere necessario un firewall tra la rete locale e Azure. | |
 
 * *Visualizzare un elenco di [dispositivi VPN convalidati](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable).
-* **Altre informazioni sull'uso di [route definite dall'utente](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) o [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) per imporre il routing da reti virtuali di Azure a un dispositivo locale.
+* \*\*Altre informazioni sull'uso di [route definite dall'utente](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) o [BGP](../vpn-gateway/vpn-gateway-bgp-overview.md) per imporre il routing da reti virtuali di Azure a un dispositivo locale.
 
 ## <a name="connecting-with-a-dedicated-private-connection"></a>Connessione tramite una connessione privata dedicata
 Questo tipo di connessione fornisce l'accesso a tutti i servizi cloud Microsoft su una connessione privata dedicata a Microsoft che non attraversa Internet, come mostrato di seguito.
@@ -92,11 +92,11 @@ La connessione richiede l'uso del servizio ExpressRoute e una connessione a un p
 | Larghezza di banda fino a 10 Gb/s per circuito di ExpressRoute e velocità effettiva fino a 2 Gb/s per ogni gateway. |Richiede una connessione dedicata a un provider di connettività. |
 | Latenza prevedibile perché si tratta di una connessione dedicata a Microsoft che non attraversa Internet. |Potrebbe richiedere attività di amministrazione minime continuative di uno o più gateway VPN di Azure, in caso di connessione del circuito a reti virtuali. |
 | Non richiede comunicazioni crittografate, anche se è possibile crittografare il traffico, se necessario. |Se si usano servizi cloud che avviano connessioni ai dispositivi locali, potrebbe essere necessario un firewall tra la rete locale e Azure. |
-| Possibilità di connessione diretta a tutti i servizi cloud Microsoft, con alcune eccezioni*. |Richiede il protocollo NAT (Network Address Translation) degli indirizzi IP locali che accedono ai data center Microsoft per servizi che non possono essere connessi a una rete virtuale.** |
+| Possibilità di connessione diretta a tutti i servizi cloud Microsoft, con alcune eccezioni*. |Richiede il protocollo NAT (Network Address Translation) degli indirizzi IP locali che accedono ai data center Microsoft per servizi che non possono essere connessi a una rete virtuale.\*\* |
 | Può forzare il traffico in uscita originato da macchine virtuali cloud tramite la rete locale per l'analisi e la registrazione tramite BGP. | |
 
 * *Visualizzare un [elenco di servizi](../expressroute/expressroute-faqs.md#supported-services) che non possono essere usati con ExpressRoute. La sottoscrizione di Azure deve essere approvata per la connessione a Office 365.  Per informazioni dettagliate, vedere l'articolo [Azure ExpressRoute per Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd?ui=en-US&rs=en-US&ad=US&fromAR=1).
-* **Per altre informazioni sui requisiti [NAT](../expressroute/expressroute-nat.md) per ExpressRoute.
+* \*\*Per altre informazioni sui requisiti [NAT](../expressroute/expressroute-nat.md) per ExpressRoute.
 
 Altre informazioni su [ExpressRoute](../expressroute/expressroute-introduction.md), sui rispettivi [prezzi](https://azure.microsoft.com/pricing/details/expressroute) e sui [provider di connettività](../expressroute/expressroute-locations.md#locations).
 
