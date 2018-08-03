@@ -80,7 +80,7 @@ Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazio
 ### <a name="mobile-services-server-sdks"></a>SDK del server di *Servizi* mobili
 | Piattaforma server | Version | Intestazione della versione accettata |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nessuna intestazione di versione ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nessuna intestazione di versione** |
 | Node.js |(Presto disponibile) |**Nessuna intestazione di versione** |
 
 <!-- TODO: add Node npm version -->
@@ -122,11 +122,11 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 | 3.0.0-3.x.y |False/Non specificato |400 - Richiesta non valida |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Eseguire la migrazione di un servizio mobile al servizio app di Azure]
+* [Eseguire la migrazione di un Servizio mobile al Servizio app di Azure]
 
 [Client di Servizi mobili]: #MobileServicesClients
 [Client di App per dispositivi mobili]: #MobileAppsClients
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Eseguire la migrazione di un servizio mobile al servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
+[Eseguire la migrazione di un Servizio mobile al Servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
