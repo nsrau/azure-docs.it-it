@@ -2,8 +2,8 @@
 title: Documentazione della sicurezza di Azure | Microsoft Docs
 description: La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusivi relativi alla sicurezza, derivanti da un intelligence globale per la sicurezza, controlli relativi ai clienti e un'infrastruttura con protezione avanzata. Questa combinazione avanzata contribuisce alla protezione delle applicazioni e dei dati e al supporto del lavoro richiesto per la conformità e offre una sicurezza a costi contenuti per organizzazioni di qualsiasi dimensione.
 services: security
-author: czeumault
-manager: carolz
+author: arob98
+manager: angrobe
 layout: LandingPage
 ms.assetid: ''
 ms.service: security
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
-ms.author: carolz
-ms.openlocfilehash: ceabc623963acd469a2e4694cb412828dc511100
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: angrobe
+ms.openlocfilehash: 9f190ab5b17fbead9a9d88bc37fc8b35d8c9f45c
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113793"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505461"
 ---
 # <a name="azure-security-documentation"></a>Documentazione sulla sicurezza di Azure
 
