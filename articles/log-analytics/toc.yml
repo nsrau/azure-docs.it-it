@@ -9,9 +9,9 @@
   items:
     - name: Raccolta - Macchine virtuali di Azure
       href: log-analytics-quick-collect-azurevm.md
-    - name: Raccolta - Computer Linux
+    - name: Raccolta - Computer Linux ibrido
       href: log-analytics-quick-collect-linux-computer.md
-    - name: Raccolta - Computer Windows
+    - name: Raccolta - Computer Windows ibrido
       href: log-analytics-quick-collect-windows-computer.md
 - name: Esercitazioni
   items:

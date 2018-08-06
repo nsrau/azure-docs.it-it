@@ -187,6 +187,8 @@
               href: service-fabric-dnsservice.md
             - name: Proxy inverso
               href: service-fabric-reverseproxy.md
+            - name: Installare e configurare il proxy inverso
+              href: service-fabric-reverseproxy-setup.md
             - name: Configurare il proxy inverso per le comunicazioni sicure
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Diagnostica del proxy inverso
@@ -643,7 +645,7 @@
       items:
         - name: Elenco di controllo per l'idoneità per la produzione
           href: service-fabric-production-readiness-checklist.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.servicefabric/

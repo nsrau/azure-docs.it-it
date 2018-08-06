@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Hub eventi?
       href: event-hubs-about.md
-    - name: Hub eventi per Apache Kafka
+    - name: Hub eventi per Apache Kafka (anteprima)
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: Acquisizione di Hub eventi
       href: event-hubs-capture-overview.md
