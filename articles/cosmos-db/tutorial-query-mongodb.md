@@ -2,23 +2,21 @@
 title: "Azure Cosmos DB: procedura per l'esecuzione di query con l'API MongoDB | Microsoft Docs"
 description: Informazioni su come eseguire query con l'API MongoDB per Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 03/29/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d8d524038d6483ff5da195648ee763f8faa1dad4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e941eb27e9c55f9a4b0e7af8d4cd8efa0220616b
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264461"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Esercitazione: Eseguire query in Azure Cosmos DB con l'API di MongoDB
 
@@ -29,9 +27,7 @@ Questo articolo illustra le attività seguenti:
 > [!div class="checklist"]
 > * Esecuzione di query sui dati con MongoDB
 
-Per iniziare, guardare questo video con Andy Hoh, Program Manager di Azure Cosmos DB, sull'esecuzione di query in MongoDB:
-
->[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
+Per iniziare, è possibile usare gli esempi in questo documento e guardare il video sull'[esecuzione di query su Azure Cosmos DB con la shell MongoDB](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/).
 
 ## <a name="sample-document"></a>Documento di esempio
 

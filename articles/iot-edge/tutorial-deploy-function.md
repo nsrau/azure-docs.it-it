@@ -1,6 +1,6 @@
 ---
 title: Distribuire Funzioni di Azure con Azure IoT Edge | Microsoft Docs
-description: Distribuire una funzione di Azure come modulo in un dispositivo perimetrale.
+description: In questa esercitazione una funzione di Azure viene distribuita come modulo in un dispositivo perimetrale.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f3ba0ccb1cb8961344b605e7ec386b6d6692262
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d37e08f58986a1318e6b379d2efeb71bc58d4583
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006878"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413740"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Esercitazione: Distribuire Funzioni di Azure come moduli IoT Edge (anteprima)
 
@@ -35,14 +35,21 @@ La funzione di Azure creata in questa esercitazione filtra i dati relativi alla 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per testare il modulo della funzione che si compila in questa esercitazione, è necessario un dispositivo IoT Edge. È possibile usare il dispositivo configurato nella guida introduttiva per [Linux](quickstart-linux.md) o [Windows](quickstart.md).
+Un dispositivo Azure IoT Edge:
 
-Nel computer di sviluppo sono necessari i prerequisiti seguenti: 
+* È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
+
+Risorse cloud:
+
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
+
+Risorse per lo sviluppo:
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [Estensione Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) per Visual Studio Code. 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
-* [Docker CE](https://docs.docker.com/install/) installato nel computer di sviluppo. 
+* [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
 In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  

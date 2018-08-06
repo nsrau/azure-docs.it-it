@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e3515cba449826389fbff35765de9631728de5d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063426"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324307"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guida introduttiva: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
@@ -29,15 +29,16 @@ Nell'ambito del processo Spark si analizzeranno i dati delle sottoscrizioni di u
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - [Creare un account di Azure Data Lake Storage Gen2](quickstart-create-account.md)
 
 ## <a name="set-aside-storage-account-configuration"></a>Esaminare l'account di archiviazione
 
-Durante questa esercitazione è necessario avere accesso al nome e alla chiave di accesso dell'account di archiviazione. Nel portale di Azure selezionare **Tutti i servizi** e filtrare in base ad *archiviazione*. Selezionare **Account di archiviazione** e individuare l'account creato per questa esercitazione.
-
-Da **Panoramica** copiare il nome dell'account di archiviazione in un editor di testo. Selezionare quindi **Chiavi di accesso** e copiare il valore per **Key1** nell'editor di testo, in quanto entrambi i valori sono necessari per i comandi illustrati di seguito.
+> [!IMPORTANT]
+> Durante questa esercitazione è necessario avere accesso al nome e alla chiave di accesso dell'account di archiviazione. Nel portale di Azure selezionare **Tutti i servizi** e filtrare in base ad *archiviazione*. Selezionare **Account di archiviazione** e individuare l'account creato per questa esercitazione.
+>
+> Da **Panoramica** copiare il **nome** dell'account di archiviazione in un editor di testo. Selezionare quindi **Chiavi di accesso** e copiare il valore di **key1** nell'editor di testo, perché entrambi i valori sono necessari per i comandi illustrati di seguito.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creare un'area di lavoro di Azure Databricks
 
@@ -53,7 +54,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
     Specificare i valori seguenti:
      
-    |Proprietà  |DESCRIZIONE  |
+    |Proprietà  |Descrizione  |
     |---------|---------|
     |**Nome area di lavoro**     | Specificare un nome per l'area di lavoro di Databricks        |
     |**Sottoscrizione**     | Selezionare la sottoscrizione di Azure nell'elenco a discesa.        |
@@ -85,7 +86,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
     * Creare un cluster con il runtime **4.2 beta**.
     * Assicurarsi di selezionare la casella di controllo **Terminate after 120 minutes of inactivity** (Termina dopo 120 minuti di inattività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
 
-4. Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare notebook al cluster ed eseguire processi Spark.
+4. Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
 
 Per altre informazioni sulla creazione di cluster, vedere [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Creare un cluster Spark in Azure Databricks).
 
@@ -97,15 +98,15 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
 
 2. Nel riquadro a sinistra selezionare **Workspace** (Area di lavoro). Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create (Crea)** > **Notebook**.
 
-    ![Creare un notebook in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Creare un notebook in Databricks")
+    ![Creare un blocco appunti in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Creare un blocco appunti in Databricks")
 
 3. Nella finestra di dialogo **Create Notebook** (Crea un notebook) immettere un nome per il notebook. Selezionare **Scala** come linguaggio e quindi selezionare il cluster Spark creato in precedenza.
 
-    ![Creare un notebook in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Creare un notebook in Databricks")
+    ![Creare un blocco appunti in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Creare un blocco appunti in Databricks")
 
-    Selezionare **Create**.
+    Selezionare **Crea**.
 
-4. Immettere il codice seguente nella prima cella, sostituendo i valori segnaposto con il nome dell'account, la chiave e un nome per il file system.
+4. Nel codice seguente sostituire il testo **ACCOUNT_NAME** e **ACCOUNT_KEY** con i valori copiati all'inizio di questa guida introduttiva. Sostituire anche il testo **FILE_SYSTEM_NAME** con il nome che si vuole assegnare al file system. Immettere quindi il codice nella prima cella.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -122,17 +123,17 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
 
 Prima di iniziare con questa sezione, è necessario completare i prerequisiti seguenti:
 
-* Scaricare **small_radio_json.json** [da GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-* Caricare il file JSON di esempio tramite **AzCopy versione 10** nell'account di archiviazione BLOB di Azure e nel file system creato:
+Immettere il codice seguente in una cella del notebook:
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> AzCopy versione 10 è disponibile solo per i clienti che usano la versione di anteprima.
+Nella cella premere `Shift` + `Enter` per eseguire il codice.
+
+In una nuova cella sotto questa immettere il codice seguente, sostituendo **FILE_SYSTEM** e **ACCOUNT_NAME** con gli stessi valori usati in precedenza:
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+Nella cella premere `Shift` + `Enter` per eseguire il codice.
 
 ## <a name="run-a-spark-sql-job"></a>Eseguire un processo Spark SQL
 
@@ -152,7 +153,7 @@ Eseguire le attività seguenti per eseguire un processo Spark SQL sui dati.
 
     Dopo il completamento del comando, tutti i dati presenti nel file JSON sono visualizzati in una tabella nel cluster Databricks.
 
-    Il comando magic `%sql` del linguaggio consente di eseguire codice SQL dal notebook anche se questo è di un altro tipo. Per altre informazioni, vedere [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook) (Combinazione di linguaggi in un notebook).
+    Il comando magic `%sql` del linguaggio consente di eseguire codice SQL dal blocco appunti anche se questo è di un altro tipo. Per altre informazioni, vedere [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook) (Combinazione di linguaggi in un blocco appunti).
 
 2. Si esaminerà ora uno snapshot dei dati JSON di esempio per comprendere meglio la query eseguita. Incollare il frammento di codice seguente in una cella di codice e premere **MAIUSC+INVIO**.
 

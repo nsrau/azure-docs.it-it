@@ -1,6 +1,6 @@
 ---
 title: Esercitazione - Distribuire processi ASA in dispositivi Azure IoT Edge | Microsoft Docs
-description: Distribuire Analisi di flusso di Azure come modulo in un dispositivo Iot Edge
+description: In questa esercitazione Analisi di flusso di Azure viene distribuito come modulo in un dispositivo Iot Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540173"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413876"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge - anteprima
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge (anteprima)
 
 Molte soluzioni IoT usano servizi di analisi per ottenere informazioni sui dati quando arrivano nel cloud dai dispositivi IoT. Con Azure IoT Edge, è possibile spostare direttamente nel dispositivo la logica di [Analisi di flusso di Azure][azure-stream]. Elaborando i flussi di telemetria sul perimetro, è possibile ridurre la quantità di dati caricati e ridurre il tempo necessario per reagire a informazioni dettagliate di utilità pratica.
 
@@ -36,10 +36,19 @@ In questa esercitazione si apprenderà come:
 >[!NOTE]
 >I moduli di Analisi di flusso di Azure per IoT Edge sono in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>prerequisiti
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* Un hub IoT
-* Il dispositivo IoT Edge creato e configurato nella guida introduttiva per [Windows][lnk-quickstart-win] o [Linux][lnk-quickstart-lin]. 
+## <a name="prerequisites"></a>Prerequisiti
+
+Un dispositivo Azure IoT Edge:
+
+* È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
+* Il modulo Azure Machine Learning non supporta i processori ARM.
+
+Risorse cloud:
+
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
+
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Creare un processo di Analisi di flusso di Azure
 
@@ -71,7 +80,7 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
 
    3. In **Ambiente host** selezionare **Edge**.
     
-3. Selezionare **Create**.
+3. Selezionare **Crea**.
 
 4. Nel processo creato, in **Topologia processo**, aprire **Input**.
 
@@ -123,7 +132,7 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
 
 1. Nel portale di Azure, nell'hub IoT passare a **IoT Edge** e aprire la pagina dei dettagli del dispositivo IoT Edge.
 
-2. Selezionare **Set modules** (Configura i moduli).  
+2. Selezionare **Imposta moduli**.  
 
    Se il modulo tempSensor è stato distribuito in precedenza in questo dispositivo, la compilazione dei campi potrebbe essere automatica. In caso contrario, aggiungere il modulo seguendo questa procedura:
 

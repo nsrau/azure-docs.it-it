@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355373"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347285"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -64,13 +64,7 @@ Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
 4. Selezionare o creare una rete virtuale.
 
-    * Se si seleziona una nuova rete virtuale, è possibile specificare un nome e una località. Se si prevede di ospitare app Linux in questo ambiente del servizio app, attualmente sono supportate solo 6 aree, ovvero **Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale, Australia orientale, Asia sud-orientale.** 
-
-5. Se si seleziona una rete virtuale esistente, è necessario creare una subnet per contenere l'ambiente del servizio app. Assicurarsi di impostare una subnet con dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app. La dimensione consigliata è `/25`, contenente 128 indirizzi, in grado di gestire un ambiente del servizio app con dimensione massima. La dimensione minima selezionabile è `/28`. In base alle esigenze dell'infrastruttura, è possibile ridimensionare questo valore solo fino a un massimo di 3 istanze.
-
-    * Superare il valore massimo predefinito di 100 istanze nei piani di servizio app.
-
-    * Usare una scalabilità intorno a 100, ma con ridimensionamento front-end più rapido.
+5. Se si seleziona una rete virtuale esistente, è necessario creare una subnet per contenere l'ambiente del servizio app. Assicurarsi di impostare una subnet con dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app. La dimensione consigliata è `/24`, che include 256 indirizzi ed è in grado di gestire un ambiente del servizio app di dimensioni massime e qualsiasi esigenza di ridimensionamento. 
 
 6. Selezionare **Rete virtuale/Località** > **Configurazione rete virtuale**. Impostare **Tipo di indirizzo VIP** su **Interno**.
 
@@ -119,11 +113,11 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 
 5. Selezionare il sistema operativo. 
 
-    * Se si intende creare un'app di Linux usando un contenitore Docker personalizzato, è possibile usare un proprio contenitore seguendo queste istruzioni. 
+    * Se si vuole creare un'app Linux usando un contenitore Docker personalizzato, è possibile usare un proprio contenitore seguendo le istruzioni disponibili [qui][linuxapp]. 
 
 6. Selezionare o creare un piano di servizio app. Se si vuole creare un nuovo piano di servizio app, selezionare l'ambiente del servizio app in uso come località. Selezionare il pool di lavoro in cui si vuole creare il piano di servizio app. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come località e il pool di lavoro. Quando si specifica il nome dell'app, il dominio sotto il nome dell'app verrà sostituito con il dominio dell'ambiente del servizio app.
 
-7. Selezionare **Create**. Se si vuole che l'app venga visualizzata nel dashboard, selezionare la casella di controllo **Aggiungi al dashboard**.
+7. Selezionare **Crea**. Se si vuole che l'app venga visualizzata nel dashboard, selezionare la casella di controllo **Aggiungi al dashboard**.
 
     ![Creazione del piano di servizio app][2]
 
@@ -172,7 +166,6 @@ Per caricare i propri certificati e testare l'accesso:
 
     > [!NOTE] 
     > Non tentare di creare questa macchina virtuale nella stessa subnet in cui si trova l'ambiente del servizio app per evitare esiti negativi o problemi.
-    >
     >
 
 6. Impostare il DNS per il dominio dell'ambiente del servizio app. È possibile usare un carattere jolly con il dominio nel DNS. Per eseguire alcuni semplici test, modificare il file hosts nella macchina virtuale per impostare il nome dell'app Web sull'indirizzo IP VIP:
@@ -258,3 +251,4 @@ Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB c
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[linuxapp]: ../containers/app-service-linux-intro.md

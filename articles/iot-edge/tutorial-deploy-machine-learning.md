@@ -1,6 +1,6 @@
 ---
 title: Distribuire Azure Machine Learning con Azure IoT Edge | Microsoft Docs
-description: Distribuire Azure Machine Learning come modulo in un dispositivo periferico
+description: In questa esercitazione Azure Machine Learning viene distribuito come modulo in un dispositivo periferico
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173506"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413074"
 ---
-# <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuire Azure Machine Learning come modulo di IoT Edge - anteprima
+# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Azure Machine Learning come modulo di IoT Edge (anteprima)
 
 È possibile usare i moduli di IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la distribuzione di un modulo di Azure Machine Learning che stima quando un dispositivo ha esito negativo in base ai dati di temperatura del computer simulati. Per altre informazioni su Azure ML in IoT Edge, consultare la [documentazione di Azure Machine Learning](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md).
 
@@ -33,15 +33,23 @@ In questa esercitazione si apprenderà come:
 >[!NOTE]
 >I moduli di Azure Machine Learning in Azure IoT Edge sono in anteprima pubblica. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per testare il modulo di Machine Learning che si compila in questa esercitazione, è necessario un dispositivo IoT Edge. È possibile usare il dispositivo configurato nella guida introduttiva per [dispositivi Linux](quickstart-linux.md) o [Windows](quickstart.md). 
+Un dispositivo Azure IoT Edge:
 
-Il modulo Azure Machine Learning non supporta i processori ARM.
+* È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
+* Il modulo Azure Machine Learning non supporta i processori ARM.
 
-Nel computer di sviluppo sono necessari i prerequisiti seguenti: 
+Risorse cloud:
+
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
+
+Risorse per lo sviluppo:
 * Un account di Azure Machine Learning. Seguire le istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Non è necessario installare l'applicazione workbench per questa esercitazione. 
-* Gestione modelli per Azure ML nel computer in uso. Per configurare l'ambiente e creare un account, attenersi alle istruzioni riportate in [Configurazione di Gestione modelli](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Durante la configurazione della distribuzione è consigliabile scegliere la procedura locale anziché quella cluster, dove possibile.
+* Gestione dei modelli per Azure Machine Learning. Per configurare l'ambiente e creare un account, attenersi alle istruzioni riportate in [Configurazione di Gestione modelli](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Durante la configurazione della distribuzione è consigliabile scegliere la procedura locale anziché quella cluster, dove possibile.
 
 ### <a name="disable-process-identification"></a>Disabilitare l'identificazione di un processo
 
@@ -108,7 +116,7 @@ Verificare che l'immagine del contenitore sia stata creata e archiviata corretta
 4. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**.  Queste informazioni sono necessarie per accedere al registro dai dispositivi Edge.
 5. Selezionare **Repository**
 6. Selezionare **machinelearningmodule**
-7. A questo punto si disporrà del percorso completo dell'immagine del contenitore. Prendere nota del percorso dell'immagine per la sezione successiva. Dovrebbe essere simile al seguente: **<nome_registro>.azureacr.io/machinelearningmodule:1**
+7. A questo punto si disporrà del percorso completo dell'immagine del contenitore. Prendere nota del percorso dell'immagine per la sezione successiva. Dovrebbe essere simile al seguente: **<nome_registro>.azurecr.io/machinelearningmodule:1**
 
 ## <a name="deploy-to-your-device"></a>Eseguire la distribuzione nel dispositivo
 

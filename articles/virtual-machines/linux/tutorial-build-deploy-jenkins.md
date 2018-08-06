@@ -1,25 +1,24 @@
 ---
 title: Esercitazione - CI/CD da Jenkins in macchine virtuali di Azure con Team Services | Microsoft Docs
 description: In questa esercitazione viene descritto come configurare l'integrazione continua (CI) e la distribuzione continua (CD) di un'app Node.js usando Jenkins in macchine virtuali di Azure da Release Management in Visual Studio Team Services o Microsoft Team Foundation Server
-author: ahomer
-manager: douge
-editor: tysonn
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
-ms.openlocfilehash: 6b74ab4d97df7e1e6b9bec8e3bcb150c99bd5b5c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
+ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903452"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390596"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Jenkins e Visual Studio Team Services
 
@@ -169,6 +168,10 @@ Per creare una definizione di versione in Team Services:
 6. Passare al repository Git di origine e modificare il contenuto del titolo **h1** nel file app/views/index.jade con un testo modificato.
 7. Eseguire il commit delle modifiche.
 8. Dopo alcuni minuti si noterà una nuova versione creata nella pagina **Versioni** di Team Services o Team Foundation Server. Aprire la versione per visualizzare la distribuzione in corso. Congratulazioni!
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Risoluzione dei problemi del plug-in Jenkins
+
+Se si rilevano bug con i plug-in Jenkins, segnalare un problema in [Jenkins JIRA](https://issues.jenkins-ci.org/) per il componente specifico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

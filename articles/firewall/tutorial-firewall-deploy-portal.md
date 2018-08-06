@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145319"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358947"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -88,6 +88,9 @@ In primo luogo, creare un gruppo di risorse per contenere le risorse necessarie 
     Il firewall si troverà in questa subnet e il nome della subnet **deve** essere AzureFirewallSubnet.
 11. In **Intervallo indirizzi** immettere **10.0.1.0/24**.
 12. Usare le altre impostazioni predefinite e quindi fare clic su **Crea**.
+
+> [!NOTE]
+> La dimensione minima della subnet AzureFirewallSubnet è /25.
 
 ### <a name="create-additional-subnets"></a>Creare subnet aggiuntive
 
@@ -172,6 +175,9 @@ Usare le informazioni nella tabella seguente per configurare le **Impostazioni**
 4. Al termine della distribuzione, passare al gruppo di risorse **Test-FW-RG** e fare clic sul firewall **Test FW01**.
 6. Annotare l'indirizzo IP privato. Sarà necessario più avanti per la creazione della route predefinita.
 
+> [!NOTE]
+> L'indirizzo IP pubblico deve essere di tipo SKU Standard.
+
 [//]: # (Ricordarsi di annotare l'indirizzo IP privato per il firewall.)
 
 ## <a name="create-a-default-route"></a>Creare una route predefinita
@@ -223,7 +229,7 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 >- Accesso alle risorse di archiviazione per lo stato dei dischi gestiti.
 >- Diagnostica per Windows
 >
-> È possibile eseguire l'override di questa raccolta di regole predefinite dell'infrastruttura creando una raccolta di regole di applicazione *deny all* che viene elaborata per ultima. Verrà elaborata sempre prima della raccolta di regole dell'infrastruttura. Qualsiasi elemento non incluso nella raccolta di regole dell'infrastruttura viene negato per impostazione predefinita.
+> È possibile eseguire l'override di questa raccolta di regole predefinite dell'infrastruttura creando una raccolta di regole di applicazione *deny all* che viene elaborata per ultima. Verrà sempre elaborata prima della raccolta di regole dell'infrastruttura. Qualsiasi elemento non incluso nella raccolta di regole dell'infrastruttura viene negato per impostazione predefinita.
 
 ## <a name="configure-network-rules"></a>Configurare le regole di rete
 
@@ -233,7 +239,7 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 4. In **Azione** selezionare **Consenti**.
 
 6. In **Regole** immettere **AllowDNS** in **Nome**.
-8. In **Protocollo** selezionare **TCP**.
+8. In **Protocollo** selezionare **UDP**.
 9. In **Indirizzi di origine** immettere **10.0.2.0/24**.
 10. In Indirizzo di destinazione immettere **209.244.0.3,209.244.0.4**
 11. In **Porte di destinazione** immettere **53**.

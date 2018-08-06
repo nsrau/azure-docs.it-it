@@ -13,20 +13,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: alkohli
-ms.openlocfilehash: f63eadc9a6ab834e02d62be9a209b504d76d3c8e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090776"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362661"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Risolvere i problemi in Azure Data Box Disk (anteprima)
 
 Questo articolo si applica a Microsoft Azure Data Box nella versione di anteprima. Questo articolo illustra una parte dei flussi di lavoro e delle attività di gestione complessi che possono essere eseguiti per Data Box e Data Box Disk. 
 
-È possibile gestire Data Box tramite l'interfaccia utente del servizio Data Box (nota anche come interfaccia utente del portale) e l'interfaccia utente Web locale per il dispositivo. Data Box Disk può essere gestito solo tramite il portale di Azure. Questo articolo è incentrato sulle attività che è possibile eseguire con il portale di Azure. Usare il portale di Azure per gestire gli ordini, gestire i dispositivi e monitorare lo stato dell'ordine man mano che procede verso la fase terminale.
+È possibile gestire Data Box Disk tramite il portale di Azure. Questo articolo è incentrato sulle attività che è possibile eseguire con il portale di Azure. Usare il portale di Azure per gestire gli ordini, gestire i dispositivi e monitorare lo stato dell'ordine man mano che procede verso il completamento.
 
 L'articolo include le esercitazioni seguenti:
 

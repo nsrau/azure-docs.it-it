@@ -4,17 +4,17 @@ description: Criteri di Azure è un servizio disponibile in Azure che consente d
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249869"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364429"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -126,11 +126,11 @@ In questo scenario, per la definizione dei parametri dell'iniziativa **initiativ
 | Scope | Definizioni dei criteri | 250 |
 | Scope | Definizioni di iniziativa | 100 |
 | Tenant | Definizioni di iniziativa | 1000 |
-| Scope | Assegnazione dei criteri | 100 |
+| Scope | Assegnazioni di criteri/iniziative | 100 |
 | Definizione di criteri | Parametri | 20 |
 | Definizione di iniziativa | Criteri | 100 |
 | Definizione di iniziativa | Parametri | 100 |
-| Assegnazione dei criteri | Esclusioni (notScopes) | 100 |
+| Assegnazioni di criteri/iniziative | Esclusioni (notScopes) | 100 |
 | Regola dei criteri | Istruzioni condizionali annidate | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>Raccomandazioni per la gestione dei criteri

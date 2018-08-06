@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ms.author: barclayn
-ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226714"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282997"
 ---
 # <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
 
@@ -37,6 +37,8 @@ Di seguito sono riportati alcuni termini chiave:
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** è il servizio Azure AD per un determinato tenant. Ogni directory dispone di uno o più domini. A una directory possono essere associate molte sottoscrizioni, ma un solo tenant. 
 - **ID tenant di Azure**: un modo univoco per identificare Azure Active Directory all'interno di una sottoscrizione di Azure. 
 - **Identità del servizio gestita**: Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarli. Identità del servizio gestita consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione in Key Vault o in qualsiasi servizio che supporti l'autenticazione di Azure AD, senza dover inserire le credenziali nel codice. Per altre informazioni sull'identità del servizio gestita, vedere [qui](../active-directory/managed-service-identity/overview.md)
+
+    ![Schema dell'identità del servizio gestita](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>Ruoli dell'insieme di credenziali delle chiavi
 

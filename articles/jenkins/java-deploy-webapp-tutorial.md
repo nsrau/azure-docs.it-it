@@ -1,22 +1,19 @@
 ---
-title: Usare Jenkins per distribuire le app Web in Azure | Microsoft Docs
+title: Usare Jenkins per distribuire le app Web in Azure
 description: Impostare l'integrazione continua da GitHub in Servizio app di Azure per le app Web Java con Jenkins e Docker.
-author: rloutlaw
-manager: douge
-ms.service: jenkins
-ms.search.scope: ''
-ms.devlang: java
-ms.topic: article
-ms.workload: web
-ms.date: 08/02/2017
-ms.author: routlaw
-ms.custom: Jenkins, devcenter
-ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29853000"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389943"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurare l'integrazione e la distribuzione continue in Servizio App di Azure con Jenkins
 
@@ -74,8 +71,8 @@ Impostare Jenkins per la ricezione di [webhook GitHub](https://developer.github.
     ![Creare una copia tramite fork da GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
 1. Nella console Web di Jenkins selezionare **New Item**, denominarlo **MyJavaApp**, selezionare **Freestyle project**, quindi **OK**.   
     ![Nuovo progetto Freestyle Jenkins](media/jenkins-java-quickstart/jenkins_freestyle.png)
-2. Nella sezione **General** selezionare il progetto **GitHub** e immettere l'URL della copia del repository creata tramite fork, ad esempio https://github.com/raisa/gs-spring-boot-docker
-3. Nella sezione **Source code management** selezionare **Git** e immettere l'URL `.git` della copia del repository creata tramite fork, ad esempio https://github.com/raisa/gs-spring-boot-docker.git
+2. Nella sezione **General** (Generale) selezionare un progetto **GitHub** e immettere l'URL della copia del repository creata tramite fork, ad esempio https://github.com/raisa/gs-spring-boot-docker
+3. Nella sezione **Source code management** (Gestione del codice sorgente) selezionare **Git** e immettere l'URL `.git` del repository con fork, ad esempio https://github.com/raisa/gs-spring-boot-docker.git
 4. Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
 5. Nella sezione **Build** selezionare **Add build step** e scegliere **Invoke top-level Maven targets**. Immettere `package` nel campo **Obiettivi**.
 6. Selezionare **Salva**. Per testare il processo, selezionare **Build Now** dalla pagina del progetto.
@@ -180,9 +177,12 @@ Impostare Jenkins per la ricezione di [webhook GitHub](https://developer.github.
     ```
 3. Verrà avviata una nuova compilazione in Jenkins, attivata dal nuovo commit nel ramo `master` del repository. Al termine ricaricare l'app in Azure.     
       ![Visualizzare l'app distribuita in Azure](media/jenkins-java-quickstart/hello_docker_world.png)
-  
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Risoluzione dei problemi del plug-in Jenkins
+
+Se si rilevano bug con i plug-in Jenkins, segnalare un problema in [Jenkins JIRA](https://issues.jenkins-ci.org/) per il componente specifico.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare macchine virtuali di Azure come agenti di compilazione](/azure/jenkins/jenkins-azure-vm-agents)
-- [Gestire le risorse in processi e pipeline con l'interfaccia della riga di comando di Azure](/azure/jenkins/execute-cli-jenkins-pipeline)
- 
+> [!div class="nextstepaction"]
+> [Usare macchine virtuali di Azure come agenti di compilazione](/azure/jenkins/jenkins-azure-vm-agents)

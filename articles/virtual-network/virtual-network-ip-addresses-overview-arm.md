@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f55dfa8ffadc4ddee1ff3861682e5596b675f0d0
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767859"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325286"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -97,7 +97,7 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 * Si usano certificati SSL collegati a un indirizzo IP.
 
 > [!NOTE]
-> Azure assegna gli indirizzi IP pubblici da un intervallo univoco a ogni area di Azure. Per informazioni dettagliate, vedere [Intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+> Azure assegna gli indirizzi IP pubblici da un intervallo univoco per ogni area del cloud di Azure. È possibile scaricare l'elenco degli intervalli (prefissi) per i cloud [Pubblico](https://www.microsoft.com/download/details.aspx?id=56519), [US Government](https://www.microsoft.com/download/details.aspx?id=57063), [Cina](https://www.microsoft.com/download/details.aspx?id=57062) e [Germania](https://www.microsoft.com/download/details.aspx?id=57064) di Azure.
 >
 
 ### <a name="dns-hostname-resolution"></a>Risoluzione del nome host DNS
@@ -128,10 +128,10 @@ La tabella seguente illustra la proprietà specifica tramite la quale un indiriz
 
 | Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | statico |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Sì |Sì |
-| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
-| gateway VPN |Configurazione IP del gateway |Sì |No  |
-| gateway applicazione |Configurazione front-end |Sì |No  |
+| Macchina virtuale |interfaccia di rete |Yes |Yes |
+| Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Yes |Yes |
+| gateway VPN |Configurazione IP del gateway |Yes |No  |
+| gateway applicazione |Configurazione front-end |Yes |No  |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
 Gli indirizzi IP privati consentono alle risorse di Azure di comunicare con altre risorse in una [rete virtuale](virtual-networks-overview.md) o in una rete locale tramite un gateway VPN o un circuito ExpressRoute, senza usare un indirizzo IP raggiungibile tramite Internet.
@@ -176,9 +176,9 @@ La tabella seguente illustra la proprietà specifica tramite la quale un indiriz
 
 | Risorse di livello superiore | Associazione di indirizzi IP | dinamico | statico |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Sì |Sì |
-| Bilanciamento del carico |Configurazione front-end |Sì |Sì |
-| gateway applicazione |Configurazione front-end |Sì |Sì |
+| Macchina virtuale |interfaccia di rete |Yes |Yes |
+| Bilanciamento del carico |Configurazione front-end |Yes |Yes |
+| gateway applicazione |Configurazione front-end |Yes |Yes |
 
 ## <a name="limits"></a>Limiti
 I limiti imposti agli indirizzi IP sono indicati nel set completo di [limiti della rete](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. I limiti sono classificati per area e per sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.

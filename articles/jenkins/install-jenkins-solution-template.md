@@ -1,27 +1,25 @@
 ---
 title: Creare un server Jenkins in Azure
 description: Installare Jenkins in una macchina virtuale Linux di Azure dal modello di soluzione Jenkins e compilare un'applicazione Java di esempio.
-author: tomarcher
-manager: rloutlaw
-ms.service: multiple
-ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: quickstart
 ms.author: tarcher
-ms.custom: Jenkins
-ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635459"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390429"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Creare un server Jenkins in una VM Linux di Azure dal portale di Azure
 
 Questa guida introduttiva illustra come installare [Jenkins](https://jenkins.io) in una VM Ubuntu Linux con gli strumenti e i plug-in configurati per usare Azure. Al termine, si avrà un server Jenkins in esecuzione in Azure che compila un'app Java di esempio da [GitHub](https://github.com).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure.
 * Accesso a SSH nella riga di comando del computer (ad esempio, la shell Bash o [PuTTY](http://www.putty.org/))
@@ -88,6 +86,10 @@ Selezionare **Build Now** (Compila) per compilare il codice e creare il pacchett
 ![Passare all'area di lavoro per ottenere il file JAR della compilazione](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 Passare a `complete/build/libs` e verificare che sia presente il file `gs-spring-boot-0.1.0.jar` per assicurarsi che la compilazione sia stata completata correttamente. Il server Jenkins è ora pronto per la compilazione dei progetti dell'utente in Azure.
+
+## <a name="troubleshooting-the-jenkins-solution-template"></a>Risoluzione dei problemi del modello di soluzione Jenkins
+
+Se si rilevano bug relativi al modello di soluzione Jenkins, segnalare un problema nel [repository Jenkins di GitHub](https://github.com/azure/jenkins/issues).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

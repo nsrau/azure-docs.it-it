@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e4e94567cf978631be52a3304b47b68f61ac3fff
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161164"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413747"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione della password self-service di Azure AD dalla schermata di accesso
 
@@ -112,9 +112,11 @@ Durante il test di questa funzionalità con Hyper-V, il collegamento "Reimposta 
 
 * Passare alla macchina virtuale usata per il test e fare clic su **Visualizza**, quindi deselezionare **Sessione avanzata**.
 
-Durante il test di questa funzionalità con Desktop remoto, il collegamento "Reimposta password" non viene visualizzato
+Durante il test di questa funzionalità con Desktop remoto, il collegamento "Reimposta password" non viene visualizzato.
 
 * La reimpostazione della password non è attualmente supportata da Desktop remoto.
+
+Se la schermata di blocco di Windows è disabilitata tramite una chiave del Registro di sistema o criteri di gruppo, **Reimposta password** non sarà disponibile.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
