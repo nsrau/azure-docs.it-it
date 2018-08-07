@@ -7,7 +7,7 @@
 - name: Guida introduttiva
   items:
     - name: Creare un profilo di Gestione traffico
-      href: traffic-manager-create-profile.md
+      href: quickstart-create-traffic-manager-profile.md
 - name: Esercitazioni
   items:
     - name: Indirizzare il traffico in base alla posizione geografica dell'endpoint
