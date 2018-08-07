@@ -38,7 +38,7 @@
           href: blockchain-workbench-data-powerbi.md
         - name: Usare i dati in SQL Management Studio
           href: blockchain-workbench-data-sql-management-studio.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Configurazione
       href: blockchain-workbench-configuration-overview.md
@@ -49,7 +49,6 @@
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: Risorse
-  expanded: true
   items:
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
@@ -60,10 +59,12 @@
     - name: Forum
       href: 'https://aka.ms/workbenchforum'
     - name: Feedback sul prodotto
-      href: 'https://feedback.azure.com/forums/586780-blockchain'
-    - name: Modelli di soluzioni
-      items:
-        - name: Ethereum Proof-of-Work Consortium
-          href: ethereum-deployment-guide.md
-        - name: Hyperledger Fabric Consortium
-          href: hyperledger-fabric-single-member-blockchain.md
+      href: 'https://aka.ms/blockchainuservoice'
+- name: Ethereum Proof-of-Authority Consortium
+  href: ethereum-poa-deployment.md
+- name: Modelli di soluzioni
+  items:
+    - name: Ethereum Proof-of-Work Consortium
+      href: ethereum-deployment-guide.md
+    - name: Hyperledger Fabric Consortium
+      href: hyperledger-fabric-single-member-blockchain.md

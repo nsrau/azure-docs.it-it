@@ -119,7 +119,7 @@
               href: redirect-internal-site-cli.md
     - name: Supporto multi-tenant
       items:
-        - name: Configurare il supporto multi-tenat
+        - name: Configurare il supporto multi-tenant
           href: create-web-app.md
     - name: Reindirizzare il traffico Web con Azure PowerShell
       href: tutorial-url-redirect-powershell.md

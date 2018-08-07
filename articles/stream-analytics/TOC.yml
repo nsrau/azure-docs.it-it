@@ -46,8 +46,8 @@
       href: stream-analytics-compatibility-level.md
     - name: Modelli di query comuni
       href: stream-analytics-stream-analytics-query-patterns.md
-    - name: Usare tipi di dati complessi in JSON e AVRO
-      href: 'https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics'
+    - name: Analizzare i dati JSON e AVRO
+      href: stream-analytics-parsing-json.md
     - name: Considerazioni sull'ordinamento degli eventi
       href: stream-analytics-out-of-order-and-late-events.md
     - name: Checkpoint e riproduzione

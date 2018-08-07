@@ -27,13 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: Esercitazioni
   items:
-    - name: 1 - Effettuare il provisioning del runtime di integrazione SSIS di Azure
-      items:
-        - name: Interfaccia utente
-          href: tutorial-deploy-ssis-packages-azure.md
-        - name: Azure PowerShell
-          href: tutorial-deploy-ssis-packages-azure-powershell.md
-    - name: 2 - Copiare i dati nel cloud
+    - name: Copiare i dati nel cloud
       items:
         - name: Strumento Copia dati
           href: tutorial-copy-data-tool.md
@@ -41,7 +35,7 @@
           href: tutorial-copy-data-portal.md
         - name: .NET
           href: tutorial-copy-data-dot-net.md
-    - name: 3 - Copiare i dati locali nel cloud
+    - name: Copiare i dati locali nel cloud
       items:
         - name: Strumento Copia dati
           href: tutorial-hybrid-copy-data-tool.md
@@ -49,34 +43,34 @@
           href: tutorial-hybrid-copy-portal.md
         - name: Azure PowerShell
           href: tutorial-hybrid-copy-powershell.md
-    - name: 4 - Copiare i dati nel bulk
+    - name: Copiare dati in blocco
       items:
         - name: Interfaccia utente
           href: tutorial-bulk-copy-portal.md
         - name: Azure PowerShell
           href: tutorial-bulk-copy.md
-    - name: 5 - Copiare i dati in modo incrementale
+    - name: Copiare i dati in modo incrementale
       href: tutorial-incremental-copy-overview.md
       items:
-        - name: 5.1 - Copiare da una tabella
+        - name: 1 - Copiare da una tabella
           items:
             - name: Interfaccia utente
               href: tutorial-incremental-copy-portal.md
             - name: Azure PowerShell
               href: tutorial-incremental-copy-powershell.md
-        - name: 5.2 - Copiare da più tabelle
+        - name: 2 - Copiare da più tabelle
           items:
             - name: Interfaccia utente
               href: tutorial-incremental-copy-multiple-tables-portal.md
             - name: Azure PowerShell
               href: tutorial-incremental-copy-multiple-tables-powershell.md
-        - name: 5.3 - Usare la funzionalità di rilevamento delle modifiche
+        - name: 3 - Usare la funzionalità di rilevamento delle modifiche
           items:
             - name: Interfaccia utente
               href: tutorial-incremental-copy-change-tracking-feature-portal.md
             - name: Azure PowerShell
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
-    - name: 6 - Trasformare i dati nel cloud
+    - name: Trasformare i dati nel cloud
       items:
         - name: HDInsight Spark
           items:
@@ -88,18 +82,24 @@
           items:
             - name: Interfaccia utente
               href: transform-data-using-databricks-notebook.md
-    - name: 7 - Trasformare i dati nella rete virtuale
+    - name: Trasformare i dati nella rete virtuale
       items:
         - name: Interfaccia utente
           href: tutorial-transform-data-hive-virtual-network-portal.md
         - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
-    - name: 8 - Flusso di controllo
+    - name: Aggiungere la creazione di rami e il concatenamento
       items:
         - name: Interfaccia utente
           href: tutorial-control-flow-portal.md
         - name: .NET
           href: tutorial-control-flow.md
+    - name: Eseguire pacchetti SSIS in Azure
+      items:
+        - name: Interfaccia utente
+          href: tutorial-deploy-ssis-packages-azure.md
+        - name: Azure PowerShell
+          href: tutorial-deploy-ssis-packages-azure-powershell.md
 - name: Esempi
   items:
     - name: Esempi di codice

@@ -39,6 +39,8 @@
       items:
         - name: Panoramica
           href: content-protection-overview.md
+        - name: Sistema con più tecnologie DRM e controllo di accesso
+          href: design-multi-drm-system-with-access-control.md
     - name: Codifica
       items:
         - name: Panoramica
