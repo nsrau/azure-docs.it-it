@@ -176,6 +176,8 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Risolvere problemi
       items:
+        - name: Disabilitare la registrazione convergente
+          href: howto-registration-mfa-sspr-converged-troubleshoot.md
         - name: Risolvere i problemi della reimpostazione della password self-service
           href: active-directory-passwords-troubleshoot.md
         - name: Domande frequenti sulla reimpostazione della password self-service

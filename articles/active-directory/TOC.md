@@ -401,10 +401,10 @@
 ### [Recuperare i risultati della verifica di accesso](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Proteggere le identità
-### [Accesso condizionale](active-directory-conditional-access-azure-portal.md)
-#### [Introduzione](active-directory-conditional-access-azure-portal-get-started.md)
+### Accesso condizionale
+#### [Overview](conditional-access/overview.md)
 #### Guide introduttive
-##### [Configurare l'autenticazione a più fattori per singole app cloud](conditional-access/app-based-mfa.md)
+##### [Richiedere Multi-Factor Authentication per app specifiche](conditional-access/app-based-mfa.md)
 ##### [Richiedere l'accettazione delle condizioni per l'utilizzo](conditional-access/require-tou.md)
 ##### [Bloccare l'accesso quando viene rilevato un rischio nella sessione](conditional-access/app-sign-in-risk.md)
 #### Esercitazioni
@@ -418,15 +418,16 @@
 ##### [Informazioni sui criteri relativi ai dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md)
 #### Guide alle procedure
 ##### [Procedure consigliate](conditional-access/best-practices.md)
-##### [Configurare criteri di accesso condizionale per i tentativi di accesso da reti non attendibili](active-directory-conditional-access-untrusted-networks.md)
-##### [Configurare l'accesso condizionale basato su dispositivo](active-directory-conditional-access-policy-connected-applications.md)
-##### [Configurare l'accesso condizionale basato su app](active-directory-conditional-access-mam.md)
-##### [Specificare le condizioni per l'utilizzo per utenti e app](active-directory-tou.md)
+##### [Richiedere Multi-Factor Authentication per tentativi di accesso da reti non attendibili](conditional-access/untrusted-networks.md)
+##### [Richiedere i dispositivi gestiti](conditional-access/require-managed-devices.md)
+##### [Richiedere app client approvate](conditional-access/app-based-conditional-access.md)
+##### [Richiedere le condizioni per l'utilizzo per utenti e app](active-directory-tou.md)
 ##### [Eseguire la migrazione di criteri classici](conditional-access/policy-migration.md)
 ##### [Configurare la connettività VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Configurare SharePoint ed Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Correzione](active-directory-conditional-access-device-remediation.md)
-#### [Riferimento tecnico](active-directory-conditional-access-technical-reference.md)
+#### [Riferimento](conditional-access/technical-reference.md)
+##### [Riferimento tecnico](conditional-access/technical-reference.md)
 #### [Domande frequenti](conditional-access/faqs.md)
 
 ### Autenticazione basata su certificati

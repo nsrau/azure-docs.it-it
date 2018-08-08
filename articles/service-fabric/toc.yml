@@ -553,8 +553,8 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Aumentare le prestazioni a livello di programmazione
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Aumentare le prestazioni o eseguire l'aggiornamento delle macchine virtuali con tipo di nodo primario
-                  href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
+                - name: Ridimensionamento del tipo di nodo del set di scalabilità di macchine virtuali
+                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
             - name: Aggiornamento
               href: service-fabric-cluster-upgrade.md
             - name: Configurare il controllo di accesso
