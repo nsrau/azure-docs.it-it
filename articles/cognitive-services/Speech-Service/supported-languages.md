@@ -1,21 +1,20 @@
 ---
-title: Lingue supportate dal servizio Voce - Servizi cognitivi Microsoft | Microsoft Docs
+title: Lingue supportate dal servizio Voce - Servizi cognitivi Microsoft
 description: Elenco delle lingue supportate dal servizio Voce.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2a768846958f73ace22971f2f2ca8f886c9df252
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069575"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282157"
 ---
 # <a name="supported-languages-for-speech-service"></a>Lingue supportate per il servizio Voce
 
@@ -27,16 +26,16 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti.
 
   Codice | Linguaggio | Adattamento acustico | Adattamento linguistico | Adattamento della pronuncia
  ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Arabo (Egitto), standard moderno | No  | sì | No 
- It-IT | Italiano (Italia) | No  | sì | No  
- de-DE | Tedesco (Germania) | No  | sì | sì
- ja-JP | Giapponese (Giappone) | No  | sì | No 
- it-IT | Inglese (Stati Uniti) | sì | sì | sì
- pt-BR | Portoghese (Brasile) | No  | sì | No 
- es-ES | Spagnolo (Spagna) | No  | sì | No 
- ru-RU | Russo (Russia) | No  | sì | No 
- fr-FR | Francese (Francia) | No  | sì | No 
- zh-CN | Cinese (mandarino, semplificato) | No  | sì | No 
+ ar-EG | Arabo (Egitto), standard moderno | No  | Yes | No 
+ It-IT | Italiano (Italia) | No  | Yes | No  
+ de-DE | Tedesco (Germania) | No  | Yes | Yes
+ ja-JP | Giapponese (Giappone) | No  | Yes | No 
+ it-IT | Inglese (Stati Uniti) | Yes | Yes | Yes
+ pt-BR | Portoghese (Brasile) | No  | Yes | No 
+ es-ES | Spagnolo (Spagna) | No  | Yes | No 
+ ru-RU | Russo (Russia) | No  | Yes | No 
+ fr-FR | Francese (Francia) | No  | Yes | No 
+ zh-CN | Cinese (mandarino, semplificato) | No  | Yes | No 
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 

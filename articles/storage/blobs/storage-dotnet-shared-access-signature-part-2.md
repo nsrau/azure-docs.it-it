@@ -2,24 +2,19 @@
 title: Creare e usare una firma di accesso condiviso (SAS) con Archiviazione BLOB di Azure | Microsoft Docs
 description: Questa esercitazione illustra come creare firme di accesso condiviso da usare con l'archiviazione BLOB e come usarle nelle applicazioni client.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
+ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: blobs
+ms.openlocfilehash: 6546553fa3537ac63d956dc5febfd77efe9fd34d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23056796"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400124"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB
 
@@ -72,7 +67,7 @@ Modificare il file app.config in modo che contenga un'impostazione di configuraz
 ### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Generare l'URI di una firma di accesso condiviso per un contenitore
 Per iniziare, viene aggiunto un metodo per generare una firma di accesso condiviso per un nuovo contenitore. In questo caso la firma non è associata a criteri di accesso archiviati, pertanto include nell'URI le informazioni relative alla scadenza e alle autorizzazioni concesse.
 
-In primo luogo, aggiungere al metodo **Main()** il codice per autenticare l'accesso all'account di archiviazione e creare un nuovo contenitore:
+In primo luogo aggiungere al metodo **Main()** il codice per l'autenticazione dell'accesso all'account di archiviazione e per la creazione di un nuovo contenitore:
 
 ```csharp
 static void Main(string[] args)

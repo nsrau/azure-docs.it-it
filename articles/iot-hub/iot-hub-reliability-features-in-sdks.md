@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7717c026b4c09f47159fe62640f9a2eedf409d30
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d321e82560f7676f77ed9161c1bce0304b7d5914
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247682"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397108"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Come gestire le funzionalità di connettività e messaggistica affidabile con gli SDK per dispositivi dell'hub IoT di Azure
 
@@ -116,3 +116,4 @@ Per altri linguaggi, vedere la documentazione relativa all'implementazione ripor
 - [Usare IoT SDK per dispositivi per C](.\iot-hub-device-sdk-c-intro.md)
 - [Sviluppare per dispositivi vincolati](.\iot-hub-devguide-develop-for-constrained-devices.md)
 - [Sviluppare per dispositivi mobili](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [Risolvere i problemi di disconnessione dei dispositivi](iot-hub-troubleshoot-connectivity.md)

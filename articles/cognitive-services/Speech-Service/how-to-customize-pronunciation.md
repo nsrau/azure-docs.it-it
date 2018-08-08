@@ -1,20 +1,19 @@
 ---
-title: Informazioni sul servizio di riconoscimento vocale di Servizi cognitivi di Azure| Microsoft Docs
+title: Informazioni sul servizio di riconoscimento vocale di Servizi cognitivi di Azure
 description: Informazioni su come personalizzare la pronuncia con il servizio di riconoscimento vocale di Servizi cognitivi.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: f926bf8686a279c93d8f1ed03e8a0ecf3f4a9632
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c7c06fc2f33baa7357fd5f945414daf2bc6e4858
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347321"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284939"
 ---
 # <a name="enable-custom-pronunciation"></a>Abilitare la pronuncia personalizzata
 La pronuncia personalizzata consente agli utenti di definire la forma fonetica e la visualizzazione di una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Tutto ciò che serve è un file di pronunce, un semplice file con estensione txt.

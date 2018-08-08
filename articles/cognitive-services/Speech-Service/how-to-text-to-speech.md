@@ -1,27 +1,26 @@
 ---
-title: Usare Sintesi vocale tramite i servizi di riconoscimento vocale | Microsoft Docs
+title: Usare Sintesi vocale tramite i servizi di riconoscimento vocale
 description: Informazioni su come usare Sintesi vocale nel Servizio di riconoscimento vocale.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 21157af9ad6361234ffa9b927da64baab505f624
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213334"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281515"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Usare "Sintesi vocale" nel Servizio di riconoscimento vocale
 
 Il Servizio di riconoscimento vocale offre la funzionalità Sintesi vocale attraverso una semplice richiesta HTTP. Dopo aver eseguito il POST del testo da pronunciare nell'endpoint appropriato, l'utente riceve dal servizio un file audio (`.wav`) contenente la sintesi vocale. L'applicazione può quindi usare questo audio nel modo previsto.
 
-Il corpo della richiesta POST per Sintesi vocale può essere costituito da testo normale (ASCII o UTF8) o da un documento [SSML](speech-synthesis-markup.md). Se il testo della richiesta è in formato testo normale, viene pronunciato con una voce predefinita. Nella maggior parte dei casi, è consigliabile usare un corpo in formato SSML. La richiesta HTTP deve includere un token di [autorizzazione](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication). 
+Il corpo della richiesta POST per Sintesi vocale può essere costituito da testo normale (ASCII o UTF8) o da un documento [SSML](speech-synthesis-markup.md). Se il testo della richiesta è in formato testo normale, viene pronunciato con una voce predefinita. Nella maggior parte dei casi, è consigliabile usare un corpo in formato SSML. La richiesta HTTP deve includere un token di [autorizzazione](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication). 
 
 Ecco gli endpoint Sintesi vocale per diverse aree. Usare quello appropriato per la sottoscrizione.
 

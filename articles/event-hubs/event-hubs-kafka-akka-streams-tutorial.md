@@ -1,5 +1,5 @@
 ---
-title: Uso di Akka Streams con Hub eventi di Azure per l'ecosistema Kafka | Microsoft Docs
+title: Uso di Akka Streams con Hub eventi di Azure per Apache Kafka | Microsoft Docs
 description: Connessione di Akka Streams a un Hub eventi abilitato per Kafka
 services: event-hubs
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 9db27340a2210ea0be0564b15241952477e592ba
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f6671e05c53b8be2e06eb969adc8a4d5736aff37
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302793"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284449"
 ---
-# <a name="using-akka-streams-with-event-hubs-for-kafka-ecosystem"></a>Uso di Akka Streams con Hub eventi per l'ecosistema Kafka
+# <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Uso di Akka Streams con Hub eventi per Apache Kafka
 
 Uno dei principali vantaggi dell'uso di Apache Kafka è l'ecosistema di framework a cui si può connettere. L'Hub eventi abilitato per Kafka combina la flessibilità di Kafka con la scalabilità, la coerenza e il supporto dell'ecosistema di Azure.
 
-Questa esercitazione illustra come connettere Akka Streams all'Hub eventi abilitato per Kafka senza modificare i client di protocollo o eseguire cluster personalizzati. Hub eventi di Azure per l'ecosistema Kafka supporta [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html)
+Questa esercitazione illustra come connettere Akka Streams all'Hub eventi abilitato per Kafka senza modificare i client di protocollo o eseguire cluster personalizzati. Hub eventi di Azure per Kafka supporta [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, verificare di disporre dei prerequisiti seguenti:
 
@@ -134,6 +134,6 @@ Consultare il manuale [Akka Streams Kafka Guide](https://doc.akka.io/docs/akka-s
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Leggere le informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Leggere le informazioni su Hub eventi per l'ecosistema Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Leggere le informazioni su Hub eventi per Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * Usare [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per lo [streaming di eventi dall'istanza di Kafka locale all'istanza di Hub eventi abilitata per Kafka nel cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Informazioni su come eseguire lo streaming negli Hub eventi abilitati per Kafka usando le [applicazioni native Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md) o [Apache Flink](event-hubs-kafka-flink-tutorial.md)

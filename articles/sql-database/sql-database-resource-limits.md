@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236925"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412111"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Panoramica dei limiti delle risorse di Database SQL Azure 
 
@@ -28,10 +28,12 @@ Questo articolo riporta una panoramica dei limite delle risorse del Database SQL
 | Numero predefinito di server per sottoscrizione in ogni area | 20 |
 | Numero massimo di server per sottoscrizione in ogni area | 200 |
 | Quota DTU/eDTU per server | 54.000 |
+| Quota vCore per server | 540 |
+| N. max pool per server | limitato dal numero di DTU o vCore |
 |||
 
 > [!NOTE]
-> Per ottenere una quota di DTU/eDTU maggiore o più server rispetto alla quantità predefinita, è possibile inviare una nuova richiesta di supporto nel portale di Azure per la sottoscrizione con il tipo di problema "Quota". La quota di DTU/eDTU e il limite di database per server limita il numero di pool elastici per ogni server. 
+> Per ottenere una quota di DTU/eDTU o vCore maggiore o un numero di server più alto rispetto alla quantità predefinita, è possibile inviare una nuova richiesta di supporto nel portale di Azure per la sottoscrizione con il tipo di problema "Quota". La quota di DTU/eDTU e il limite di database per server limita il numero di pool elastici per ogni server. 
 
 > [!IMPORTANT]
 > Poiché il numero di database si avvicina al limite per ogni server, può verificarsi quanto segue:
@@ -56,6 +58,7 @@ In caso di uso elevato di spazio, le opzioni di mitigazione includono:
 
 - Aumento delle dimensioni massime del database o pool elastico o aggiungere più archiviazione. Vedere [Ridimensionare le risorse del database singolo](sql-database-single-database-scale.md) e [Ridimensionare le risorse del pool elastico](sql-database-elastic-pool-scale.md).
 - Se il database è in un pool elastico, in alternativa può essere spostato all'esterno del pool in modo che lo spazio di archiviazione non venga condiviso con altri database.
+- Compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md)
 
 ### <a name="sessions-and-workers-requests"></a>Sessioni e ruoli di lavoro (richieste) 
 

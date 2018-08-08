@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 08/01/2018
 ms.author: sethm
-ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 30df312e349bd6f6ebd1f38141075382be2522a2
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874653"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397985"
 ---
 # <a name="managed-service-identity-preview"></a>Identità del servizio gestito (anteprima)
 
@@ -63,7 +63,7 @@ L'identità del servizio gestito dell'applicazione Web dispone ora dell'accesso 
 
 ### <a name="run-the-app"></a>Esecuzione dell'app
 
-Modificare ora la pagina predefinita dell'applicazione ASP.NET creata. È anche possibile usare il codice dell'applicazione Web di [questo repository GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
+Modificare ora la pagina predefinita dell'applicazione ASP.NET creata. È possibile usare il codice dell'applicazione Web di [questo repository GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 La pagina Default.aspx è la pagina di destinazione. Il codice è disponibile nel file Default.aspx.cs. Il risultato è un'applicazione Web minima con pochi campi di immissione e con pulsanti di **invio** e **ricezione** che consentono la connessione al bus di servizio per l'invio o la ricezione di messaggi.
 
@@ -74,8 +74,12 @@ Una volta apportate queste modifiche, pubblicare ed eseguire l'applicazione. Un 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
 Per inviare o ricevere messaggi, immettere il nome dello spazio dei nomi e il nome dell'entità creata, quindi fare clic su **Invia** o **Ricevi**.
- 
-Si noti che l'identità del servizio gestito funziona solo all'interno dell'ambiente Azure e solo nella distribuzione del servizio app in cui è stata configurata. Si noti anche che, al momento, le identità del servizio gestito non funzionano con gli slot di distribuzione del servizio app.
+
+
+> [!NOTE]
+> - L'identità del servizio gestito funziona solo all'interno dell'ambiente di Azure, nei Servizi app, nelle macchine virtuali di Azure e nei set di scalabilità. Per le applicazioni .NET, la libreria Microsoft.Azure.Services.AppAuthentication, usata dal pacchetto NuGet del bus di servizio, rappresenta un'astrazione di questo protocollo e supporta un'esperienza di sviluppo locale. Questa libreria consente anche di testare il codice in locale nel computer di sviluppo usando l'account utente da Visual Studio, dall'interfaccia della riga di comando di Azure 2.0 o tramite l'autenticazione integrata di Active Directory. Per altre informazioni sulle opzioni di sviluppo locale con questa libreria, vedere [Autenticazione da servizio a servizio ad Azure Key Vault usando .NET](../key-vault/service-to-service-authentication.md).  
+> 
+> - Le identità del servizio gestito attualmente non funzionano con gli slot di distribuzione del servizio app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,25 +1,25 @@
 ---
-title: Usare un test in batch per migliorare le stime LUIS | Microsoft Docs
+title: Usare un test in batch per migliorare le previsioni LUIS | Microsoft Docs
 titleSuffix: Azure
-description: Caricare un test in batch, esaminare i risultati e migliorare le stime LUIS tramite modifiche.
+description: Caricare un test in batch, esaminare i risultati e migliorare le previsioni LUIS tramite modifiche.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: diberry
-ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: de33b4618eb31707d324098e894682dd254c8ee4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237809"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358375"
 ---
 # <a name="improve-app-with-batch-test"></a>Migliorare l'app con test in batch
 
-Questa esercitazione illustra come usare un test in batch per individuare i problemi di stima delle espressioni.  
+Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni.  
 
 In questa esercitazione si apprenderà come:
 
@@ -31,9 +31,10 @@ In questa esercitazione si apprenderà come:
 * Correggere gli errori 
 * Eseguire nuovamente il test in batch
 
-Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
+
 Se non si dispone dell'app relativa alle risorse umane dell'esercitazione per [esaminare le espressioni endpoint](luis-tutorial-review-endpoint-utterances.md) tutorial, [importare](luis-how-to-start-new-app.md#import-new-app) il file JSON in una nuova app nel sito Web di [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
 
 Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `batchtest`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
@@ -41,6 +42,7 @@ Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la ve
 Eseguire il training dell'app.
 
 ## <a name="purpose-of-batch-testing"></a>Scopo del test in batch
+
 L'esecuzione di test in batch consente di convalidare lo stato del modello attivo e sottoposto a training con un set noto di espressioni ed entità etichettate. Nel file batch in formato JSON aggiungere le espressioni e impostare le etichette di entità che è necessario prevedere all'interno dell'espressione. 
 
 <!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Quando si usa un'app diversa rispetto a quella di questa esercitazione, verificare che *non* si usino le espressioni di esempio già aggiunte a una finalità. Per verificare le espressioni di test in batch rispetto alle espressioni di esempio, [esportare](luis-how-to-start-new-app.md#export-app) l'app. Confrontare le espressioni di esempio dell'app alle espressioni di test in batch. 
@@ -52,6 +54,7 @@ Requisiti per il test in batch:
 * Tipi di entità consentiti: solo entità apprese in modo automatico semplici, gerarchiche (solo elemento padre) e composite. Il test in batch è utile solo per le finalità e le entità apprese in modo automatico.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Creare un file batch con espressioni
+
 1. Creare `HumanResources-jobs-batch.json` in un editor di testo come [VSCode](https://code.visualstudio.com/). 
 
 2. Nel file batch in formato JSON aggiungere espressioni con la **finalità** che si desidera prevedere nel test. 
@@ -62,15 +65,13 @@ Requisiti per il test in batch:
 
 1. Selezionare **Test** nella barra di spostamento in alto. 
 
-    [ ![Screenshot dell'app LUIS con il pulsante relativo al test evidenziato in alto a destra sulla barra di spostamento](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
-
 2. Selezionare **Batch testing panel** (Pannello test in batch) nel pannello di destra. 
 
-    [ ![Schermata dell'app LUIS con il pannello di test in batch evidenziato](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
+    [ ![Screenshot dell'app LUIS con il pannello di test in batch evidenziato](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Selezionare **Import dataset** (Importa set di dati).
 
-    [ ![Schermata dell'app LUIS con l'opzione di importazione set di dati evidenziata](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+    [ ![Screenshot dell'app LUIS con l'opzione di importazione di set di dati evidenziata](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. Scegliere il percorso del file system del file `HumanResources-jobs-batch.json`.
 
@@ -80,15 +81,14 @@ Requisiti per il test in batch:
 
 6. Selezionare il pulsante **Run** (Esegui). Attendere fino a quando il test non viene completato.
 
-    [ ![Schermata dell'app LUIS con il pulsante Run (Esegui) evidenziato](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. Selezionare **See results** (Visualizza risultati).
 
 8. Esaminare i risultati nel grafico e nella legenda.
 
-    [ ![Schermata dell'app LUIS con i risultati del test in batch](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
+    [ ![Screenshot dell'app LUIS con i risultati del test in batch](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Esaminare i risultati del batch
+
 Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. L'impostazione predefinita del filtro è sulla prima finalità dell'elenco. Il filtro contiene tutte le finalità e solo le entità semplici, gerarchiche (solo elemento padre) e composite. Quando si seleziona una [sezione del grafico](luis-concept-batch-test.md#batch-test-results) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico. 
 
 Quando si passa il mouse sul grafico, la rotellina del mouse consente di ingrandire o ridurre la visualizzazione del grafico. Ciò è utile quando sono presenti molti punti nel grafico strettamente raggruppati. 
@@ -96,6 +96,7 @@ Quando si passa il mouse sul grafico, la rotellina del mouse consente di ingrand
 Il grafico è diviso in quattro quadranti, con due sezioni visualizzate in rosso. **Queste sono le sezioni a cui prestare attenzione**. 
 
 ### <a name="getjobinformation-test-results"></a>Risultati del test GetJobInformation
+
 I risultati del test **GetJobInformation** visualizzati nel filtro mostrano che due delle quattro stime hanno avuto esito positivo. Selezionare il nome **False positive** (Falso positivo) sopra il quadrante superiore destro per visualizzare le espressioni sotto il grafico. 
 
 ![Espressioni di test in batch LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
@@ -109,6 +110,7 @@ Si noti che entrambe le finalità hanno lo stesso numero di errori. Una stima no
 Le espressioni corrispondenti nella parte superiore della sezione **False positive** (Falso positivo) sono `Can I apply for any database jobs with this resume?` e `Can I apply for any database jobs with this resume?`. Per la prima espressione, la parola `resume` è stata usata solo in **ApplyForJob**. Per la seconda espressione, la parola `apply` è stata usata solo per la finalità **ApplyForJob**.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Correggere l'app in base ai risultati del batch
+
 L'obiettivo di questa sezione è quello di avere tutte le espressioni stimate in modo corretto per **GetJobInformation** tramite la correzione dell'app. 
 
 Una correzione apparentemente rapida potrebbe essere quella di aggiungere queste espressioni di file batch alla finalità corretta. Questo risultato non è tuttavia quello desiderato. Si desidera che LUIS stimi in modo corretto tali espressioni senza aggiungerle come esempi. 
@@ -118,13 +120,10 @@ Può essere opportuno anche rimuovere le espressioni da **ApplyForJob** fino a q
 La prima soluzione consiste nell'aggiungere più espressioni a **GetJobInformation**. La seconda soluzione consiste nel ridurre il peso di parole come `resume` e `apply` rispetto alla finalità **ApplyForJob**. 
 
 ### <a name="add-more-utterances-to-getjobinformation"></a>Aggiungere altre espressioni a **GetJobInformation**
+
 1. Chiudere il pannello di test in batch selezionando il pulsante **Test** nel pannello di navigazione superiore. 
 
-    [ ![Schermata di LUIS con il pulsante Test evidenziato](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
-
 2. Selezionare **GetJobInformation** nell'elenco di finalità. 
-
-    [ ![Schermata di LUIS con il pulsante Test evidenziato](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
 3. Aggiungere altre espressioni modificate in lunghezza e scelta e disposizione delle parole, assicurandosi di includere i termini `resume`, `c.v.` e `apply`:
 
@@ -151,6 +150,7 @@ La prima soluzione consiste nell'aggiungere più espressioni a **GetJobInformati
 4. Eseguire il training dell'app selezionando **Train** (Training) nel riquadro di spostamento in alto a destra.
 
 ## <a name="verify-the-fix-worked"></a>Verificare il funzionamento delle correzioni
+
 Per verificare che le espressioni del test in batch siano stimate correttamente per la finalità, eseguire nuovamente il test in batch.
 
 1. Selezionare **Test** nella barra di spostamento in alto. Se i risultati del batch sono ancora aperti, selezionare **Back to list** (Torna a elenco).  
@@ -162,6 +162,7 @@ Per verificare che le espressioni del test in batch siano stimate correttamente 
     ![Schermata di LUIS con il pulsante di risultati batch evidenziato](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## <a name="create-batch-file-with-entities"></a>Creare file di batch con entità 
+
 Per verificare le entità in un test in batch, le entità devono essere etichettate nel file batch JSON. Vengono usate solo le entità apprese in modo automatico, ovvero di tipo semplice, gerarchico, (solo elemento padre) e composite. Non aggiungere entità non apprese in modo automatico perché si trovano sempre tramite espressioni regolari o corrispondenze di testo esplicite.
 
 La variazione delle entità per il numero di parole totali ([token](luis-glossary.md#token)) può influire sulla qualità della stima. Verificare che i dati di training specificati per la finalità con espressioni etichettate includano una vasta gamma di lunghezze di entità. 
@@ -177,7 +178,7 @@ Il valore di un'entità **Job**, indicato nelle espressioni di test, è composto
 
    [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
-<!--TBD: when will the patterns fix be in for batch testing? -->
+
 ## <a name="run-the-batch-with-entities"></a>Eseguire il batch con le entità
 
 1. Selezionare **Test** nella barra di spostamento in alto. 
@@ -192,11 +193,10 @@ Il valore di un'entità **Job**, indicato nelle espressioni di test, è composto
 
 6. Selezionare il pulsante **Run** (Esegui). Attendere fino a quando il test non viene completato.
 
-    [ ![Schermata dell'app LUIS con il pulsante Run (Esegui) evidenziato](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. Selezionare **See results** (Visualizza risultati).
 
 ## <a name="review-entity-batch-results"></a>Esaminare i risultati del batch di entità
+
 Il grafico viene aperto con tutte le finalità stimate correttamente. Scorrere verso il basso nel filtro a destra per trovare le stime di entità con errori. 
 
 1. Selezionare l'entità **Job** nel filtro.
@@ -212,6 +212,7 @@ Il grafico viene aperto con tutte le finalità stimate correttamente. Scorrere v
     L'analisi delle espressioni sotto il grafico rivela un errore di coerenza quando il nome dell'entità Job include `SQL`. L'analisi delle espressioni di esempio e dell'elenco di frasi dell'entità Job indica che SQL viene usato solo una volta e solo come parte di un nome di lavoro maggiore, `sql/oracle database administrator`.
 
 ## <a name="fix-the-app-based-on-entity-batch-results"></a>Correggere l'app in base ai risultati batch dell'entità
+
 La correzione dell'app richiede che LUIS determini in modo corretto le variazioni dei lavori per SQL. Sono disponibili diverse opzioni per la correzione. 
 
 * Aggiungere in modo esplicito più espressioni di esempio che usano SQL e assegnare un'etichetta a tali parole come entità Job. 
@@ -219,14 +220,15 @@ La correzione dell'app richiede che LUIS determini in modo corretto le variazion
 
 Queste attività vengono lasciate all'utente.
 
-L'aggiunta di un [criterio](luis-concept-patterns.md) prima che l'entità venga stimata correttamente non consente di risolvere il problema. Ciò avviene perché il criterio non corrisponde fino a quando non vengono rilevate tutte le entità nel criterio stesso. 
+L'aggiunta di un [criterio](luis-concept-patterns.md) prima che l'entità venga stimata correttamente non permette di risolvere il problema. Ciò avviene perché il criterio non corrisponde fino a quando non vengono rilevate tutte le entità nel criterio stesso. 
 
 ## <a name="what-has-this-tutorial-accomplished"></a>Risultati dell'esercitazione
+
 L'accuratezza della stima dell'app è aumentata grazie alla ricerca di errori nel batch e alla correzione del modello. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app LUIS. Seleziona **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione **...** a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
+Quando non è più necessaria, eliminare l'app LUIS. Seleziona **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione **...** a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 06/28/2018
+ms.date: 07/26/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 82ad6239923f78641bfa80027ed62242b45b95eb
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: df3220936673e508e0fa01a283270e1b4ca4753c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096258"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283436"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limiti di capacità di SQL Data Warehouse
 Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
@@ -27,7 +27,7 @@ Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinita per server |54.000<br></br>Per impostazione predefinita, ogni server SQL, ad esempio myserver.database.windows.net, ha una quota DTU di 54.000 che consente al massimo DW6000c. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota [creando un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e selezionando *Quota* come tipo di richiesta.  Per calcolare le esigenze in termini di DTU, moltiplicare 7,5 per il valore DWU totale necessario oppure moltiplicare per 9 il totale di DWU a elevato utilizzo di calcolo necessari. Ad esempio: <br></br>DW6000 x 7,5 = 45.000 DTU<br></br>DW6000c x 9 = 54.000 DTU.<br></br>È possibile visualizzare l'utilizzo di DTU attuale nell'opzione SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU. |
 | Connessione del database |Sessioni simultanee aperte |1024<br/><br/>Ognuna delle 1024 sessioni attive può inviare richieste a un database SQL Data Warehouse nello stesso momento. Si noti che vi sono limiti nel numero di query che è possibile eseguire contemporaneamente. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione. |
 | Connessione del database |Memoria massima per le istruzioni preparate |20 MB |
-| [gestione del carico di lavoro](resource-classes-for-workload-management.md) |Numero massimo di query simultanee |32<br/><br/> Per impostazione predefinita, SQL Data Warehouse può eseguire un massimo di 32 query simultanee e mette in coda le query rimanenti.<br/><br/>Il numero di query simultanee può diminuire quando gli utenti sono assegnati a classi di risorse superiori o quando SQL Data Warehouse ha un'impostazione di [unità Data Warehouse](memory-and-concurrency-limits.md) inferiore. Alcune query, come ad esempio le query DMV, possono essere sempre eseguite. |
+| [gestione del carico di lavoro](resource-classes-for-workload-management.md) |Numero massimo di query simultanee |128<br/><br/> SQL Data Warehouse può eseguire un massimo di 128 query simultanee e mette in coda le query rimanenti.<br/><br/>Il numero di query simultanee può diminuire quando gli utenti sono assegnati a classi di risorse superiori o quando SQL Data Warehouse ha un'impostazione di [unità Data Warehouse](memory-and-concurrency-limits.md) inferiore. Per alcune query, come le query DMV, l'esecuzione è sempre consentita e non influisce sul limite di query simultanee. Per altre informazioni sull'esecuzione di query simultanee, vedere l'articolo sui [valori massimi di concorrenza](memory-and-concurrency-limits.md#concurrency-maximums). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB massimi |399 GB per DW100. Pertanto a DWU1000, tempdb ha le dimensioni di 3,99 TB. |
 
 ## <a name="database-objects"></a>Oggetti di database

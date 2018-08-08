@@ -2,18 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: virtual-machines
-author: rogara
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 399479de0ce9bab29d0338b1155f8b0c1bab542c
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: b011dd5993e63fe9bce36ec8b8c1b4739dbf704b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414587"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037804"
 ---
 # <a name="azure-managed-disks-overview"></a>Panoramica di Azure Managed Disks
 
@@ -135,7 +135,7 @@ Esistono due tipi di crittografia in riferimento ai dischi gestiti. Il primo si 
 
 ### <a name="azure-disk-encryption-ade"></a>Crittografia dischi di Azure (ADE)
 
-Crittografia dischi di Azure consente di crittografare i dischi del sistema operativo e i dischi dati usati da una macchina virtuale IaaS. Questo tipo di crittografia include i dischi gestiti. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt. Il processo di crittografia è integrato in Azure Key Vault per consentire il controllo e la gestione delle chiavi di crittografia del disco. Per altre informazioni, vedere [Crittografia dischi di Azure per l'anteprima di macchine virtuali IaaS Windows e Linux](../articles/security/azure-security-disk-encryption.md).
+Crittografia dischi di Azure consente di crittografare i dischi del sistema operativo e i dischi dati usati da una macchina virtuale IaaS. Questo tipo di crittografia include i dischi gestiti. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt, Il processo di crittografia è integrato in Azure Key Vault per consentire il controllo e la gestione delle chiavi di crittografia del disco. Per altre informazioni, vedere [Crittografia dischi di Azure per l'anteprima di macchine virtuali IaaS Windows e Linux](../articles/security/azure-security-disk-encryption.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

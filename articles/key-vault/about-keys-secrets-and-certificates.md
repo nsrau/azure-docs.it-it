@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972401"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359190"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 Azure Key Vault consente agli utenti di archiviare e utilizzare le chiavi di crittografia all'interno dell'ambiente Microsoft Azure. Key Vault supporta più tipi di chiavi e algoritmi e consente l'utilizzo di moduli di protezione hardware (HSM) per le chiavi di valore elevato. Inoltre, Key Vault consente agli utenti di archiviare in modo sicuro i segreti. I segreti sono oggetti ottetto di dimensioni limitate senza alcuna semantica specifica. Key Vault supporta inoltre certificati, che si avvalgono di chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico.
@@ -117,15 +117,36 @@ Dove:
 
 Le chiavi crittografiche in Azure Key Vault sono rappresentate come oggetti JSON Web Key [JWK]. Le specifiche di base JWK/JWA vengono inoltre estese per consentire l’implementazione in Azure Key Vault dei tipi di chiave univoci, ad esempio importando le chiavi Azure Key Vault tramite il pacchetto specifico del fornitore (Thales) del modulo di protezione hardware per abilitare il trasporto sicuro di chiavi utilizzabili solo nei moduli di protezione hardware di Azure Key Vault.  
 
-La versione iniziale di Azure Key Vault supporta solo le chiavi RS; le versioni future potrebbero supportare altri tipi di chiave, ad esempio simmetriche e a curva ellittica.  
-
--   **RSA**: una chiave RSA a 2048 bit. Si tratta di una chiave "soft", che viene elaborata da Key Vault nel software ma viene archiviata come crittografata quando inattiva tramite l’utilizzo di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA esistente o richiedere a Azure Key Vault di generarne una.  
--   **RSA-HSM**: una chiave RSA elaborata in un modulo di protezione hardware. Le chiavi RSA-HSM sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Azure Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA, in forma soft o tramite l'esportazione da un dispositivo del modulo di protezione hardware, o richiedere a Azure Key Vault di generarne una. Questo tipo di chiave aggiunge l'attributo T a JWK per riportare il materiale della chiave HSM.  
+- **Chiavi "soft"**: chiave elaborata da Key Vault nel software ma archiviata come crittografata quando inattiva tramite l'utilizzo di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC esistente o richiedere ad Azure Key Vault di generarne una.
+- **Chiavi "hard"**: chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Azure Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC, in forma soft o tramite l'esportazione da un dispositivo del modulo di protezione hardware, o richiedere ad Azure Key Vault di generarne una. Questo tipo di chiave aggiunge l'attributo T a JWK per riportare il materiale della chiave HSM.
 
      Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
+Azure Key Vault supporta solo le chiavi RSA e a curva ellittica; le versioni future potrebbero supportare altri tipi di chiave, ad esempio simmetriche.
+
+-   **EC**: chiave "soft" a curva ellittica.
+-   **EC-HSM**: chiave "hard" a curva ellittica.
+-   **RSA**: chiave RSA "soft".
+-   **RSA-HSM**: chiave RSA "hard".
+
+Azure Key Vault supporta le chiavi RSA di dimensioni 2048, 3072 e 4096, e le chiavi a curva ellittica di tipo P-256, P-384, P-521 e P-256K.
+
+### <a name="BKMK_Cryptographic"></a> Protezione crittografica
+
+I moduli di crittografia utilizzati da Azure Key Vault Azure, moduli di protezione hardware o software, sono dispongono di convalida FIPS. Non è necessario attuare misure preventive particolari per l'esecuzione in modalità FIPS. Se si **creano** oppure si **importano** chiavi come protette del modulo di protezione hardware, queste verranno elaborate all'interno dei moduli di protezione hardware convalidati per il livello 2 o una versione successiva di FIPS 140-2. Se si **creano** oppure si **importano** chiavi come protette dal software, queste verranno elaborate all'interno di moduli di crittografia convalidati per il livello 1 o la versione successivi di FIPS 140-2. Per ulteriori informazioni, vedere [Chiavi e i tipi di chiave](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+
+###  <a name="BKMK_ECAlgorithms"></a> Algoritmi EC
+ Gli identificatori di algoritmi seguenti sono supportati con le chiavi EC ed EC-HSM in Azure Key Vault. 
+
+#### <a name="signverify"></a>SIGN//VERIFY
+
+-   **ES256** - ECDSA per digest e chiavi SHA-256 creati con la curva P-256. Questo algoritmo è descritto in [RFC7518].
+-   **ES256K** - ECDSA per digest e chiavi SHA-256 creati con la curva P-256K. Questo algoritmo è in attesa di standardizzazione.
+-   **ES384** - ECDSA per digest e chiavi SHA-384 creati con la curva P-384. Questo algoritmo è descritto in [RFC7518].
+-   **ES512** - ECDSA per digest e chiavi SHA-512 creati con la curva P-521. Questo algoritmo è descritto in [RFC7518].
+
 ###  <a name="BKMK_RSAAlgorithms"></a> Algoritmi RSA  
- Gli identificatori di algoritmi seguenti sono supportati con le chiavi RSA in Azure Key Vault.  
+ Gli identificatori di algoritmi seguenti sono supportati con le chiavi RSA e RSA-HSM in Azure Key Vault.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>ESEGUI/NON ESEGUIRE IL WRAPPING DELLA CHIAVE, CRITTOGRAFA/DECRITTOGRAFA
 
@@ -138,25 +159,6 @@ La versione iniziale di Azure Key Vault supporta solo le chiavi RS; le versioni 
 -   **RS384**: RSASSA-PKCS-v1_5 tramite SHA-384. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-384 e deve avere una lunghezza di 48 byte.  
 -   **RS512**: RSASSA-PKCS-v1_5 tramite SHA-512. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-512 e deve avere una lunghezza di 64 byte.  
 -   **RSNULL**: vedere [RFC2437], un caso di utilizzo specializzato per abilitare determinati scenari TLS.  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> Algoritmi RSA-HSM  
-Gli identificatori di algoritmi seguenti sono supportati con le chiavi RSA-HSM in Azure Key Vault.  
-
-### <a name="BKMK_Cryptographic"></a> Protezione crittografica
-
-I moduli di crittografia utilizzati da Azure Key Vault Azure, moduli di protezione hardware o software, sono dispongono di convalida FIPS. Non è necessario attuare misure preventive particolari per l'esecuzione in modalità FIPS. Se si **creano** oppure si **importano** chiavi come protette del modulo di protezione hardware, queste verranno elaborate all'interno dei moduli di protezione hardware convalidati per il livello 2 o una versione successiva di FIPS 140-2. Se si **creano** oppure si **importano** chiavi come protette dal software, queste verranno elaborate all'interno di moduli di crittografia convalidati per il livello 1 o la versione successivi di FIPS 140-2. Per ulteriori informazioni, vedere [Chiavi e i tipi di chiave](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
-
-#### <a name="wrapunwrap-encryptdecrypt"></a>ESEGUI/NON ESEGUIRE IL WRAPPING, CRITTOGRAF/DECRITTOGRAFA
-
--   **RSA1_5**: crittografia della chiave RSAES-PKCS1-V1_5 [RFC3447].  
--   **RSA-OAEP**: RSAES con OAEP (Optimal Asymmetric Encryption Padding) [RFC3447] con i parametri predefiniti specificati da RFC 3447 nella sezione A.2.1. Tali parametri predefiniti usano una funzione hash di SHA-1 e una funzione di generazione della maschera MGF1 con SHA-1.  
-
- #### <a name="signverify"></a>SIGN//VERIFY  
-
--   **RS256**: RSASSA-PKCS-v1_5 tramite SHA-256. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-256 e deve avere una lunghezza di 32 byte.  
--   **RS384**: RSASSA-PKCS-v1_5 tramite SHA-384. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-384 e deve avere una lunghezza di 48 byte.  
--   **RS512**: RSASSA-PKCS-v1_5 tramite SHA-512. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-512 e deve avere una lunghezza di 64 byte.  
--   RSNULL: vedere [RFC2437], un caso di utilizzo specializzato per abilitare determinati scenari TLS.  
 
 ###  <a name="BKMK_KeyOperations"></a> Operazioni chiave
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 34248d75c190aa4636c39f087d399d946b589d58
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dc5b5cbe9b1f000d8ddf9d38cfe13f5275e698f2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355900"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347859"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno #
 
@@ -41,7 +41,7 @@ Dopo avere creato l'ambiente del servizio app, non è possibile modificare quant
 - Dimensioni della subnet
 
 > [!NOTE]
-> Quando si sceglie una rete virtuale e si specifica una subnet, assicurarsi che le dimensioni siano sufficienti per supportare la crescita futura. È consigliabile una dimensione pari a `/25` con 128 indirizzi.
+> Quando si sceglie una rete virtuale e si specifica una subnet, assicurarsi che le dimensioni siano sufficienti per supportare la crescita futura e adattarvisi. È consigliabile una dimensione pari a `/24` con 256 indirizzi.
 >
 
 ## <a name="three-ways-to-create-an-ase"></a>Tre modi per creare un ambiente del servizio app ##
@@ -68,10 +68,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 3. Selezionare o creare un gruppo di risorse. Con i gruppi di risorse è possibile gestire insieme le risorse di Azure correlate. I gruppi di risorse sono utili anche quando si stabiliscono le regole di controllo degli accessi in base al ruolo per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ARMOverview].
 
-4. Selezionare il sistema operativo. 
-
-    * L'hosting di un'app di Linux in un ambiente del servizio app è una nuova funzionalità di anteprima, pertanto è consigliabile non aggiungere app di Linux in un ambiente del servizio app che esegue attualmente carichi di lavoro di produzione. 
-    * L'aggiunta di un'app di Linux in un ambiente del servizio app determina l'esecuzione dell'ambiente in modalità di anteprima. 
+4. Selezionare il sistema operativo (Windows, Linux o Docker). 
 
 5. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo**. Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
 
@@ -79,13 +76,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 6. Nell'elenco a discesa **Località** selezionare l'area in cui si vuole creare l'ambiente del servizio app. Se si seleziona un ambiente del servizio app esistente, non viene creato un nuovo ambiente del servizio app. Il piano di servizio app viene creato nell'ambiente del servizio app selezionato. 
 
-    > [!NOTE]
-    > Linux in un ambiente del servizio app è attualmente abilitato solo in 6 aree, ovvero **Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale, Australia orientale, Asia sud-orientale.** Linux in un ambiente del servizio app è una funzionalità di anteprima, pertanto è consigliabile non selezionare un tale ambiente creato prima dell'anteprima.
-    >
-
 7. Selezionare **Piano tariffario** e scegliere uno dei prezzi SKU **Isolato**. Se si sceglie una scheda SKU **Isolato** e una località diversa da un ambiente del servizio app, un nuovo ambiente del servizio app viene creato in tale località. Per avviare il processo di creazione di un ambiente del servizio app, selezionare **Seleziona**. Lo SKU **Isolato** è disponibile in combinazione con un ambiente del servizio app. Non è inoltre possibile usare qualsiasi altro codice di riferimento del prodotto per i prezzi in un ambiente del servizio app diverso da **Isolato**. 
-
-    * Per Linux in un ambiente del servizio app di anteprima, verrà applicato uno sconto del 50% per lo SKU del servizio app Isolato (non verrà applicato alcuno sconto alla tariffa fissa per l'ambiente del servizio app stesso).
 
     ![Selezione del piano tariffario][3]
 
@@ -121,13 +112,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 5. Nell'elenco a discesa **Località** selezionare l'area in cui si vuole creare l'ambiente del servizio app. Se si seleziona un ambiente del servizio app esistente, non viene creato un nuovo ambiente del servizio app. Il piano di servizio app viene creato nell'ambiente del servizio app selezionato. 
 
-    > [!NOTE]
-    > Linux in un ambiente del servizio app è attualmente abilitato solo in 6 aree, ovvero **Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale, Australia orientale, Asia sud-orientale.** Linux in un ambiente del servizio app è una funzionalità di anteprima, pertanto è consigliabile non selezionare un tale ambiente creato prima dell'anteprima.
-    >
-
 6. Selezionare **Piano tariffario** e scegliere uno dei prezzi SKU **Isolato**. Se si sceglie una scheda SKU **Isolato** e una località diversa da un ambiente del servizio app, un nuovo ambiente del servizio app viene creato in tale località. Per avviare il processo di creazione di un ambiente del servizio app, selezionare **Seleziona**. Lo SKU **Isolato** è disponibile in combinazione con un ambiente del servizio app. Non è inoltre possibile usare qualsiasi altro codice di riferimento del prodotto per i prezzi in un ambiente del servizio app diverso da **Isolato**. 
-
-    * Per Linux in un ambiente del servizio app di anteprima, verrà applicato uno sconto del 50% per lo SKU del servizio app Isolato (non verrà applicato alcuno sconto alla tariffa fissa per l'ambiente del servizio app stesso).
 
     ![Selezione del piano tariffario][3]
 
@@ -171,7 +156,7 @@ Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente 
 
 5. Selezionare la rete virtuale e la località. È possibile creare una nuova rete virtuale o selezionare una rete virtuale esistente: 
 
-    * Se si seleziona una nuova rete virtuale, è possibile specificare un nome e una località. Se si prevede di ospitare app Linux in questo ambiente del servizio app, attualmente sono supportate solo 6 aree, ovvero **Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale, Australia orientale, Asia sud-orientale.** 
+    * Se si seleziona una nuova rete virtuale, è possibile specificare un nome e una località. 
     
     * Alla nuova rete virtuale vengono assegnati l'intervallo di indirizzi 192.168.250.0/23 e una subnet denominata predefinita. La subnet è definita come 192.168.250.0/24. È possibile selezionare solo una rete virtuale di Resource Manager. La selezione di **Tipo di indirizzo VIP** indica se è possibile accedere all'ambiente del servizio app direttamente da Internet (Esterno) o se si usa un servizio di bilanciamento del carico interno. Per altre informazioni su queste opzioni, vedere [Creare e usare un bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE]. 
 
@@ -196,7 +181,7 @@ Per altre informazioni sull'ambiente del servizio app 1, vedere [Introduction to
 [6]: ./media/how_to_create_an_external_app_service_environment/createexternalase-network.png
 [7]: ./media/how_to_create_an_external_app_service_environment/createexternalase-createwafc.png
 [8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-aspcreatewafc.png
-[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
+[9]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
 
 
 

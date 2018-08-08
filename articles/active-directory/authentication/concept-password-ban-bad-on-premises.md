@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 5d4062ff2c21deeb56eb4ae6e8386452608f85fa
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158805"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308477"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Anteprima: Applicare la protezione password di Azure AD per Windows Server Active Directory
 
@@ -37,6 +37,7 @@ Ci sono tre componenti software che costituiscono la protezione password di Azur
 ## <a name="requirements"></a>Requisiti
 
 * Tutti i computer in cui sono installati i componenti di protezione password di Azure AD, inclusi i controller di dominio, devono eseguire Windows Server 2012 o versione successiva.
+* Tutti i computer in cui sono installati i componenti di protezione della password di Azure AD, inclusi i controller di dominio, devono eseguire Universal C Runtime. Questa condizione si ottiene preferibilmente con l'applicazione completa di patch alla macchina tramite Windows Update. In alternative, è possibile installare un pacchetto di aggiornamento appropriato specifico del sistema operativo. Vedere [Aggiornamento di Universal C Runtime in Windows](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)
 * Deve esserci connettività di rete tra almeno un controller di dominio in ogni dominio e almeno un server che ospita il servizio proxy di protezione password di Azure AD.
 * Qualsiasi dominio di Active Directory che esegue il software del servizio agente del controller di dominio deve usare DFSR per la replica di sysvol.
 * Un account di amministratore globale per registrare il servizio proxy di protezione password di Azure AD in Azure AD.
@@ -48,7 +49,7 @@ I vantaggi dell'elenco globale di password escluse si applicano a tutti gli uten
 
 L'elenco personalizzato di password escluse richiede licenze di Azure AD Basic.
 
-La protezione password di Azure AD per Windows Server Active Directory richiede licenze di Azure AD Premium. 
+La protezione password di Azure AD per Windows Server Active Directory richiede licenze di Azure AD Premium.
 
 Informazioni aggiuntive sulle licenze, inclusi i costi, sono disponibili nella pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -61,7 +62,7 @@ Sono necessari due programmi di installazione per la password di protezione di A
 * Non è richiesta la connettività Internet dai controller di dominio. I computer che eseguono il servizio proxy di protezione password di Azure AD sono gli unici che richiedono la connettività Internet.
 * Non vengono aperte porte di rete nei controller di dominio.
 * Non sono necessarie modifiche dello schema di Active Directory.
-   * Il software usa il contenitore Active Directory esistente e gli oggetti dello schema serviceConnectionPoint.
+* Il software usa il contenitore Active Directory esistente e gli oggetti dello schema serviceConnectionPoint.
 * Non ci sono requisiti minimi per il livello funzionale della foresta o del dominio di Active Directory.
 * Il software non crea né richiede account nei domini di Active Directory protetti.
 * La distribuzione incrementale è supportata, ma i criteri password vengono applicati solo dove è installato l'agente del controller di dominio.

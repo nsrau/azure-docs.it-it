@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 9d6c56f96c085de60b7cc05e4cc16b57867f6a7d
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 935b501964435e80172ef3e147f777bf47119b48
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308361"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285123"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver su macchina virtuali di Azure in SUSE Linux Enterprise Server for SAP applications
 
@@ -223,7 +223,27 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 1. **[A]**  Installare il connettore SUSE
    
    <pre><code>
-   sudo zypper install sap_suse_cluster_connector
+   sudo zypper install sap-suse-cluster-connector
+   </code></pre>
+
+   Verificare di aver installato la nuova versione del connettore del cluster SAP SUSE. La versione precedente era denominata sap_suse_cluster_connector mentre la nuova è denominata **sap-suse-cluster-connector**.
+
+   <pre><code>
+   sudo zypper info sap-suse-cluster-connector
+   
+   Information for package sap-suse-cluster-connector:
+   ---------------------------------------------------
+   Repository     : SLE-12-SP3-SAP-Updates
+   Name           : sap-suse-cluster-connector
+   <b>Version        : 3.0.0-2.2</b>
+   Arch           : noarch
+   Vendor         : SUSE LLC <https://www.suse.com/>
+   Support Level  : Level 3
+   Installed Size : 41.6 KiB
+   <b>Installed      : Yes</b>
+   Status         : up-to-date
+   Source package : sap-suse-cluster-connector-3.0.0-2.2.src
+   Summary        : SUSE High Availability Setup for SAP Products
    </code></pre>
 
 1. **[A]**  Aggiornare gli agenti delle risorse SAP  

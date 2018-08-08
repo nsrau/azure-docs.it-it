@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259120"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325388"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -49,7 +49,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     
 * **Abilitare l'autenticazione moderna**: per eseguire questa funzionalità è necessario abilitare l'[autenticazione moderna](https://aka.ms/modernauthga) sul proprio tenant.
 
-* **Usare le versioni più recenti dei client di Office 365**: per ottenere un'esperienza di accesso invisibile all'utente con i client di Office 365 (Outlook, Word, Excel e altri), è necessario usare le versioni 16.0.8730.xxxx o successive.
+* **Usare le versioni più recenti dei client di Office 365**: per ottenere un'esperienza di accesso invisibile all'utente con i client di Office 365 (Outlook, Word, Excel e altri), gli utenti devono usare le versioni 16.0.8730.xxxx o successive.
 
 ## <a name="step-2-enable-the-feature"></a>Passaggio 2: Abilitare la funzionalità
 
@@ -80,6 +80,9 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 4. Verificare che la funzionalità **Accesso Single Sign-On facile** sia impostata su **Abilitato**.
 
 ![Portale di Azure: riquadro Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> L'accesso Single Sign-On facile crea un account computer denominato `AZUREADSSOACC`, che rappresenta Azure AD, in Active Directory (AD) locale in ciascuna foresta di AD. Questo account computer è necessario per poter usare questa funzionalità. Spostare l'account computer `AZUREADSSOACC` in un'unità organizzativa in cui sono archiviati altri account computer per assicurarsi che venga gestito allo stesso modo e non venga eliminato.
 
 ## <a name="step-3-roll-out-the-feature"></a>Passaggio 3: Distribuire la funzionalità
 
@@ -194,7 +197,7 @@ L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefo
 
 Per testare la funzionalità per un utente specifico, verificare che siano soddisfatte tutte le condizioni seguenti:
   - L'utente esegue l'accesso da un dispositivo aziendale.
-  - Il dispositivo è aggiunto al dominio di Active Directory.
+  - Il dispositivo è aggiunto al dominio di Active Directory. _Non_ è necessario che il dispositivo sia [aggiunto ad Azure AD](../active-directory-azureadjoin-overview.md).
   - Il dispositivo ha una connessione diretta al controller di dominio, nella rete aziendale cablata o wireless oppure tramite una connessione di accesso remoto, ad esempio di tipo VPN.
   - La [funzionalità è stata distribuita](##step-3-roll-out-the-feature) all'utente tramite Criteri di gruppo.
 

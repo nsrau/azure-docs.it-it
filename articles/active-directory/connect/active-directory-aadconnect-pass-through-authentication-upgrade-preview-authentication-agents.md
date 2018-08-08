@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f3460d22354a944a14c814c372cacf6839dc7bb7
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214728"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325429"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticazione pass-through di Azure Active Directory - Aggiornare gli agenti di autenticazione di anteprima
 
@@ -68,7 +68,7 @@ Prima di aggiornare l'agente di autenticazione nello stesso server, è necessari
 
 1. **Aggiornare Azure AD Connect**: seguire questo [articolo](./active-directory-aadconnect-upgrade-previous-version.md) e aggiornare alla versione più recente di Azure AD Connect.
 2. **Disinstallare la versione di anteprima dell'agente di autenticazione**: scaricare [questo script di PowerShell](https://aka.ms/rmpreviewagent) ed eseguirlo come amministratore nel server.
-3. **Scaricare la versione più recente dell'agente di autenticazione (versioni 1.5.193.0 o successive)**: accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale del tenant. Selezionare **Azure Active Directory -> Azure AD Connect -> Autenticazione pass-through -> Scarica agente**. Accettare le [condizioni del servizio](https://aka.ms/authagenteula) e scaricare la versione più recente dell'agente di autenticazione. È inoltre possibile scaricare l'agente di autenticazione da [qui](https://aka.ms/getauthagent).
+3. **Scaricare la versione più recente dell'agente di autenticazione (versioni 1.5.389.0 o successive)**: accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale del tenant. Selezionare **Azure Active Directory -> Azure AD Connect -> Autenticazione pass-through -> Scarica agente**. Accettare le [condizioni del servizio](https://aka.ms/authagenteula) e scaricare la versione più recente dell'agente di autenticazione. È inoltre possibile scaricare l'agente di autenticazione da [qui](https://aka.ms/getauthagent).
 4. **Installare la versione più recente dell'agente di autenticazione**: eseguire il file eseguibile scaricato nel passaggio 3. Fornire le credenziali di amministratore globale del tenant quando viene richiesto.
 5. **Verificare che sia stata installata la versione più recente**: come illustrato in precedenza, passare a **Pannello di controllo -> Programmi -> Programmi e funzionalità** e verificare che sia presente una voce per "**Agente di autenticazione di Microsoft Azure AD Connect**".
 
@@ -80,7 +80,7 @@ Prima di aggiornare l'agente di autenticazione nello stesso server, è necessari
 Eseguire la procedura seguente per aggiornare gli agenti di autenticazione su altri server (in cui Azure AD Connect non è installato):
 
 1. **Disinstallare la versione di anteprima dell'agente di autenticazione**: scaricare [questo script di PowerShell](https://aka.ms/rmpreviewagent) ed eseguirlo come amministratore nel server.
-2. **Scaricare la versione più recente dell'agente di autenticazione (versioni 1.5.193.0 o successive)**: accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale del tenant. Selezionare **Azure Active Directory -> Azure AD Connect -> Autenticazione pass-through -> Scarica agente**. Accettare le condizioni del servizio e scaricare la versione più recente.
+2. **Scaricare la versione più recente dell'agente di autenticazione (versioni 1.5.389.0 o successive)**: accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale del tenant. Selezionare **Azure Active Directory -> Azure AD Connect -> Autenticazione pass-through -> Scarica agente**. Accettare le condizioni del servizio e scaricare la versione più recente.
 3. **Installare la versione più recente dell'agente di autenticazione**: eseguire il file eseguibile scaricato nel passaggio 2. Fornire le credenziali di amministratore globale del tenant quando viene richiesto.
 4. **Verificare che sia stata installata la versione più recente**: come illustrato in precedenza, passare a **Pannello di controllo -> Programmi -> Programmi e funzionalità** e verificare che sia presente una voce denominata **Agente di autenticazione di Microsoft Azure AD Connect**.
 

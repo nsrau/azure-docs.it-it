@@ -1,25 +1,22 @@
 ---
-title: Eseguire il backup e il ripristino con l'app Microsoft Authenticator - Azure AD | Microsoft Docs
+title: Eseguire il backup e il ripristino con l'app Microsoft Authenticator - Azure Active Directory | Microsoft Docs
 description: Informazioni su come eseguire il backup e il ripristino delle credenziali dell'account usando l'app Microsoft Authenticator.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.service: multi-factor-authentication
+ms.component: user-help
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.custom: end-user
-ms.openlocfilehash: a9c950ecafd2eb5f3aed1bee3707f57be6ec3b62
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058553"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358121"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account con l'app Microsoft Authenticator
 
@@ -51,7 +48,7 @@ La richiesta di effettuare l'accesso a entrambi gli account insieme offre una ma
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Ripristinare le credenziali dell'account nel nuovo dispositivo
 È possibile ripristinare le credenziali dell'account dal proprio account iCloud, usando lo stesso account di ripristino di Microsoft configurato quando è stato eseguito il backup delle informazioni.
 
-**Per ripristinare le informazioni**
+### <a name="to-recover-your-information"></a>Per ripristinare le informazioni
 1.  Nel dispositivo iOS aprire l'app Microsoft Authenticator e selezionare **Inizia il ripristino** nella parte inferiore della schermata.
 
     ![App Microsoft Authenticator che mostra dove fare clic su Inizia il ripristino](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
@@ -67,7 +64,7 @@ Se si usano le notifiche push con gli account personali, aziendali o dell'istitu
 
 Per gli account Microsoft personali, è possibile provare la propria identità immettendo la password insieme a un numero di telefono o posta elettronica alternativo. Per gli account aziendali o dell'istituto di istruzione, è necessario eseguire la scansione di un codice a matrice fornito dal provider dell'account.
 
-**Per fornire un'ulteriore verifica per gli account personali**
+### <a name="to-provide-additional-verification-for-personal-accounts"></a>Per fornire un'ulteriore verifica per gli account personali
 1.  Nella schermata **Account** dell'app Microsoft Authenticator selezionare la freccia in giù accanto all'account da ripristinare.
 
     ![App Microsoft Authenticator che mostra gli account disponibili con le frecce in giù associate](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-arrow.png)
@@ -76,7 +73,7 @@ Per gli account Microsoft personali, è possibile provare la propria identità i
 
     ![App Microsoft Authenticator che consente di immettere le informazioni di accesso](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-sign-in.png)
 
-**Per fornire un'ulteriore verifica per gli account aziendali o dell'istituto di istruzione**
+### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Per fornire un'ulteriore verifica per gli account aziendali o dell'istituto di istruzione
 1.  Nella schermata **Account** dell'app Microsoft Authenticator selezionare la freccia in giù accanto all'account da ripristinare.
 
     ![App Microsoft Authenticator che mostra gli account disponibili con le frecce in giù associate](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
@@ -86,7 +83,7 @@ Per gli account Microsoft personali, è possibile provare la propria identità i
     ![App Microsoft Authenticator che consente di eseguire la scansione del codice a matrice](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Per altre informazioni su come ottenere un codice a matrice, vedere l'articolo [iniziare a usare l'app Microsoft Authenticator](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to).
+    >Per altre informazioni su come ottenere un codice a matrice, vedere la [sezione Aggiungere account all'app dell'articolo Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app).
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Risoluzione dei problemi di backup e ripristino
 Esistono diversi motivi per cui il backup potrebbe non essere disponibile:

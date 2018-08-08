@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069387"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283625"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -117,7 +117,9 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 -   Una tabella non può includere colonne Identity che non sono la chiave primaria.
 
--   Una chiave primaria non può contenere il tipo di dati datetime.
+-   Una chiave primaria non può avere i tipi di dati seguenti: sql_variant, binary, varbinary, image, xml. 
+
+-   Usare i tipi di dati che seguono come chiave primaria con la massima cautela, perché supportano solo la precisione al secondo: time, datetime, datetime2, datetimeoffset.
 
 -   I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
 
@@ -131,7 +133,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 -   XMLSchemaCollection (supportato da XML)
 
--   Cursor, Timestamp, Hierarchyid
+-   Cursor, RowVersion, Timestamp, Hierarchyid
 
 #### <a name="unsupported-column-types"></a>Tipi di colonna non supportati
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2016
+ms.date: 07/24/2018
 ms.author: genli
-ms.openlocfilehash: a10bf96f06c3917913c479d81e8772cb86cfe36e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8a6256ab9c511342b536919c69faed30d40a256d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005267"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282591"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Panoramica sugli indirizzi IP pubblici (classici) a livello di istanza
 Un indirizzo IP pubblico a livello di istanza (ILPIP) è un indirizzo IP pubblico che è possibile assegnare direttamente all'istanza del ruolo della macchina virtuale o dei servizi cloud in cui risiede l'istanza del ruolo o la macchina virtuale. Un ILPIP non sostituisce l'indirizzo IP virtuale (VIP) assegnato al servizio cloud. Piuttosto, si tratta di un indirizzo IP aggiuntivo che è possibile usare per connettersi direttamente all'istanza della macchina virtuale o del ruolo.
@@ -144,6 +144,16 @@ Per aggiungere un ILPIP a un'istanza del ruolo dei servizi cloud, completare i p
     </ServiceConfiguration>
     ```
 3. Caricare il file con estensione CSCFG per il servizio cloud completando la procedura nell'articolo [Come configurare i servizi cloud](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg).
+
+### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Come recuperare informazioni su ILPIP per un servizio cloud
+Per visualizzare le informazioni su ILPIP per ogni istanza, eseguire il comando PowerShell seguente e osservare i valori per *PublicIPAddress* e *PublicIPName*:
+
+```powershell
+$roles = Get-AzureRole -ServiceName PaaSFTPService -Slot Production -RoleName WorkerRole1 -InstanceDetails
+
+$roles[0].PublicIPAddress
+$roles[1].PublicIPAddress
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sul funzionamento degli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md) nel modello di distribuzione classica.

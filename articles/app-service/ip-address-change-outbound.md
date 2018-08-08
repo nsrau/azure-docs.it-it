@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3d2c75ba2f7f5c276f495ec3589481b8131b58e1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: a68085ee571654bc1bff2ea23303a02bfb2a9b0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343179"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343485"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Come preparare un cambio di indirizzo IP in uscita
 
@@ -37,7 +37,9 @@ I nuovi indirizzi IP in uscita vengono visualizzati nel portale prima di diventa
 
 2.  Nel menu di spostamento a sinistra selezionare **Servizi app**.
 
-3.  Selezionare il servizio app dall'elenco.
+3.  Selezionare il servizio app nell'elenco.
+
+4.  Se l'app è un'app per le funzioni, vedere [Function app outbound IP addresses](../azure-functions/ip-addresses.md#function-app-outbound-ip-addresses) (Indirizzi IP in uscita dell'app per le funzioni).
 
 4.  Nell'intestazione **Impostazioni** fare clic su **Proprietà** nel menu di spostamento a sinistra e individuare la sezione denominata **Indirizzi IP in uscita**.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950407"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414702"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Servizi di consulenza in Azure Marketplace
 I Servizi di consulenza in Azure Marketplace consentono ai partner Microsoft di connettere i clienti con servizi per supportare ed estendere l'uso di Azure. Azure Marketplace supporta l'elenco delle offerte di servizi di consulenza dai partner System Integrator (SI) di Microsoft. 
@@ -31,17 +31,17 @@ Le vetrine del marketplace sono organizzate in base a gruppi di destinatari e pr
 
 |         |Azure Marketplace  |AppSource |
 |---------|---------|---------|
-|Audience   |Professionisti IT e sviluppatori cloud|Utenti aziendali/Line-of-Business decision makers|
+|**Destinatari**   |**Professionisti IT e sviluppatori cloud**|**Utenti aziendali/Line-of-Business decision makers**|
 |Pertinenza delle soluzioni     |Applicazioni tecniche create per o in Azure|Applicazioni aziendali che sfruttano/estendono D365, Power BI, Office 365, Azure. (applicazioni completate per componente aggiuntivo)|
 |Opzioni di pubblicazione     |Contattami, prova, transazione o servizi di consulenza|Contattami, prova o servizi di consulenza|
 |In Esperienza di prodotto      |Portale di gestione di Azure|Office 365, Dynamics 365, app client di Office| 
 |Altri      |Pubblicazione locale tramite Azure Stack|Servizi di consulenza per Dynamics e Power BI|
 
->[!Note]
->I servizi di consulenza in Microsoft Azure Marketplace devono sfruttare le offerte rivolte a un pubblico tecnico focalizzato *sulle soluzioni e i servizi tecnici di Azure*.
-
-
 Le offerte di servizio basate su Microsoft Dynamics 365, Office 365 e Power BI sono idonee a essere inserite in AppSource. Per altre informazioni, vedere [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Linee guida all'inserzione di servizi di consulenza in Microsoft AppSource). 
+
+>[!Note]
+>I servizi di consulenza in Azure Marketplace devono sfruttare le offerte rivolte a un **pubblico tecnico focalizzato sulle *soluzioni e i servizi tecnici di Azure* **
+
 
 >[!TIP]
 >Queste informazioni sono valide solo per i servizi Azure Marketplace. Per pubblicare nella vetrina di Azure Marketplace, occorre effettuare questa selezione scegliendo "Azure" dal menu a discesa "Prodotto principale" nel portale Cloud Partner. Per pubblicare in AppSource, occorre effettuare questa selezione scegliendo "Dynamics 365," "Power BI" o "Power Apps" dal menu a discesa "Prodotto principale" nel portale Cloud Partner.
@@ -59,7 +59,7 @@ I partner devono anche avere **competenze Silver o Gold** nell'area pertinente a
 Per altre informazioni, vedere le [competenze in Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
  
 
-I partner integratori di sistemi possono inviare offerte di servizi di consulenza per i 18 paesi seguenti. 
+**I partner integratori di sistemi possono inviare offerte di servizi di consulenza per i 18 paesi seguenti**
 
 |Paesi idonei |  |  |
 |---------|---------|---------|
@@ -70,7 +70,7 @@ I partner integratori di sistemi possono inviare offerte di servizi di consulenz
 |Finlandia     |Messico         |Regno Unito         |
 |Francia     |Paesi Bassi         |Stati Uniti         |
 
-I servizi di consulenza in Azure Marketplace verranno lanciati prima in Australia, Canada, Regno Unito e Stati Uniti. I cataloghi per gli altri paesi verranno attivati dopo che i partner avranno inviato e Microsoft avrà approvato un numero significativo e una selezione accattivante di offerte di servizi.
+Il lancio dei servizi di consulenza in Azure Marketplace avverrà nell'area geografica specifica. Il primo lancio sarà in: Stati Uniti, Canada, Regno Unito e Australia. I cataloghi per gli altri paesi verranno attivati dopo che i partner avranno inviato e Microsoft avrà approvato un numero significativo e una selezione accattivante di offerte di servizi.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Effettuare la registrazione ai servizi di consulenza in Azure Marketplace
 Iniziare effettuando la registrazione ai servizi di consulenza in [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Gli editori possono fare riferimento a [Diventare un editore nel Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) per un elenco di controllo completo dei requisiti di registrazione. 
@@ -121,7 +121,7 @@ Le offerte devono essere di uno dei cinque tipi di servizi seguenti (è possibil
 * **Modello di verifica:** implementazione di ambito limitato per determinare se una soluzione soddisfa i requisiti del cliente. 
 * **Workshop**: impegno interattivo condotto presso la sede di un cliente. Può includere training, briefing, valutazioni o demo basati sui dati o sull'ambiente del cliente. 
 
-Nota: fatta eccezione per il tipo di servizio *Briefing*, i servizi di consulenza possono essere offerti di persona (ovvero in loco presso la sede di un cliente o la struttura di un partner) o virtualmente (ovvero tramite teleconferenza, conferenza Web o implementazione remota). I briefing devono essere offerti di persona.
+**Nota:** fatta eccezione per il tipo di servizio *Briefing*, i servizi di consulenza possono essere offerti di persona (ovvero in loco presso la sede di un cliente o la struttura di un partner) o virtualmente (ovvero tramite teleconferenza, conferenza Web o implementazione remota). I briefing devono essere offerti di persona.
 
 Dopo aver configurato gli elementi obbligatori elencati sopra, il team di revisione del contenuto verificherà che la descrizione dell'offerta sia completa e offra sufficienti informazioni ai destinatari. 
 
@@ -144,11 +144,11 @@ Durante la revisione delle descrizioni e dei riepiloghi delle offerte, il team a
 
 |Tipo di offerta  |Obbligatoria |Consigliato  |
 |---------|---------|---------|
-|Valutazione    |   Includere un'agenda dettagliata delle valutazioni di più giorni o più settimane e descrivere in modo articolato il risultato finale che il cliente può aspettarsi      |    Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca     |
-|Briefing    |   Descrivere in modo articolato il risultato finale che il cliente può aspettarsi. Tenere presente che i briefing devono essere offerti anche di persona. Se si fornisce un servizio virtuale, scegliere un tipo di offerta diverso    |  Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca       |
-|Implementazione    |  Includere un'agenda dettagliata delle implementazioni di più giorni o più settimane e descrivere in modo articolato le modifiche di progettazione e gli elementi tecnici o di altro tipo che il cliente può aspettarsi come risultato dell'engagement       |    Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca     |
-|Modello di verifica    |    Descrivere in modo articolato le modifiche di progettazione e gli elementi tecnici o di altro tipo che il cliente può aspettarsi come risultato dell'engagement     | Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca        |
-|Workshop    |   Includere un'agenda dettagliata giornaliera, settimanale o mensile, in base alla durata dell'offerta. Descrivere in modo articolato gli obiettivi di apprendimento o altri risultati finali del workshop     |   Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca      |
+|**Valutazione**    |   Includere un'agenda dettagliata delle valutazioni di più giorni o più settimane e descrivere in modo articolato il risultato finale che il cliente può aspettarsi      |    Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca     |
+|**Briefing**    |   Descrivere in modo articolato il risultato finale che il cliente può aspettarsi. Tenere presente che i briefing devono essere offerti anche di persona. Se si fornisce un servizio virtuale, scegliere un tipo di offerta diverso    |  Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca       |
+|**Implementazione**    |  Includere un'agenda dettagliata delle implementazioni di più giorni o più settimane e descrivere in modo articolato le modifiche di progettazione e gli elementi tecnici o di altro tipo che il cliente può aspettarsi come risultato dell'engagement       |    Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca     |
+|**Modello di verifica**    |    Descrivere in modo articolato le modifiche di progettazione e gli elementi tecnici o di altro tipo che il cliente può aspettarsi come risultato dell'engagement     | Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca        |
+|**Workshop**    |   Includere un'agenda dettagliata giornaliera, settimanale o mensile, in base alla durata dell'offerta. Descrivere in modo articolato gli obiettivi di apprendimento o altri risultati finali del workshop     |   Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca      |
 
 Nel portale Cloud Partner è possibile aggiungere la formattazione all'inserzione usando [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown), un linguaggio di sviluppo leggero che consente di creare facilmente inserzioni eleganti. 
 
@@ -160,3 +160,12 @@ Nel portale Cloud Partner è possibile aggiungere la formattazione all'inserzion
 *   Interruzione di riga dopo l'intestazione
 *   * * = bold (senza spazi) (ad es: **No Space**) •   Riepilogo corsivo dell'offerta •   Agenda e risultati finali è un'intestazione
 
+## <a name="next-steps"></a>Passaggi successivi
+
+Se non è già stato fatto, 
+
+- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace
+
+Se si è registrati e si utilizza il portale Cloud Partner, 
+
+- [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare e completare l'offerta

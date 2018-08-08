@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 08/01/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 29ab649f8fe06ae598ff138ff98eb2611ec38e1f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 37cabadb18bf065de64b7ae24c4ed19994e60625
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128878"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413638"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Connettere Operations Manager a Log Analytics
 Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di Log Analytics.  Ciò consente di sfruttare le opportunità di Log Analytics pur continuando a usare Operations Manager per:
@@ -39,12 +39,21 @@ Il diagramma seguente illustra la connessione tra gli agenti e i server di gesti
 
 Se i criteri di sicurezza IT non consentono ai computer nella rete di connettersi a Internet, i server di gestione possono essere configurati per la connessione al gateway OMS per poter ricevere le informazioni di configurazione e inviare i dati raccolti a seconda della soluzione abilitata.  Per altre informazioni e procedure su come configurare il gruppo di gestione di Operations Manager per comunicare tramite un Gateway OMS con il servizio Log Analytics, vedere [Connettere i computer a OMS tramite il Gateway OMS](log-analytics-oms-gateway.md).  
 
-## <a name="system-requirements"></a>Requisiti di sistema
-Prima di iniziare, esaminare i dettagli seguenti per verificare che i prerequisiti siano soddisfatti.
+## <a name="prerequisites"></a>Prerequisiti 
+Prima di iniziare, esaminare i requisiti seguenti.
 
-* Log Analytics supporta solo System Center Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 e versioni successive e Operations Manager 2012 R2 UR2 e versioni successive.  Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
-* Tutti gli agenti di Operations Manager devono soddisfare i requisiti di supporto minimo. Verificare che gli agenti dispongano dell'aggiornamento minimo richiesto, altrimenti il traffico degli agenti di Windows può avere esito negativo e nel log eventi di Operations Manager potrebbero essere presenti molti errori.
-* Un'area di lavoro di Log Analytics.  Per ulteriori informazioni, vedere [Introduzione a Log Analytics](log-analytics-get-started.md).
+* Log Analytics supporta solo System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 o versioni successive e Operations Manager 2012 R2 UR2 o versioni successive.  Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
+* Tutti gli agenti di Operations Manager devono soddisfare i requisiti di supporto minimo. Verificare che gli agenti dispongano dell'aggiornamento minimo richiesto, altrimenti le comunicazioni degli agenti di Windows possono avere esito negativo e generare errori nel log eventi di Operations Manager.
+* Un'area di lavoro di Log Analytics.  Per altre informazioni, vedere [Raccogliere dati dai computer dell'ambiente con Log Analytics](log-analytics-concept-hybrid.md).
+* Autenticazione in Azure con un account membro del [ruolo di collaboratore di Log Analytics](log-analytics-manage-access.md#manage-accounts-and-users).  
+
+>[!NOTE]
+>Modifiche recenti alle API di Azure impediranno ai clienti di configurare correttamente per la prima volta l'integrazione tra il gruppo di gestione e Log Analytics. I clienti che hanno già integrato il proprio gruppo di gestione con il servizio non sono interessati da queste modifiche, a meno che non debbano riconfigurare la connessione esistente.  
+>Per ogni versione di Operations Manager è stato rilasciato un nuovo Management Pack:  
+>* Per System Center Operations Manager 1801, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57173)  
+>* Per System Center 2016 - Operations Manager, scaricare il Management Pack da [qui](https://www.microsoft.com/download/details.aspx?id=57172)  
+>* Per System Center Operations Manager 2012 R2, scaricare il Management Pack da [qui](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
+
 
 ### <a name="network"></a>Rete
 Le informazioni di seguito elencano i dettagli di configurazione del proxy e del firewall necessari all'agente di Operations Manager, ai server di gestione e alla Console operatore per comunicare con Log Analytics.  Il traffico in uscita da ogni componente di rete viene indirizzato al servizio Log Analytics.     
@@ -52,15 +61,15 @@ Le informazioni di seguito elencano i dettagli di configurazione del proxy e del
 |Risorsa | Numero della porta| Ignorare l'analisi HTTPS|  
 |---------|------|-----------------------|  
 |**Agent**|||  
-|\*.ods.opinsights.azure.com| 443 |Sì|  
-|\*.oms.opinsights.azure.com| 443|Sì|  
-|\*.blob.core.windows.net| 443|Sì|  
-|\*.azure-automation.net| 443|Sì|  
+|\*.ods.opinsights.azure.com| 443 |Yes|  
+|\*.oms.opinsights.azure.com| 443|Yes|  
+|\*.blob.core.windows.net| 443|Yes|  
+|\*.azure-automation.net| 443|Yes|  
 |**Server di gestione**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| Sì|  
-|\*.ods.opinsights.azure.com| 443| Sì|  
-|*.azure-automation.net | 443| Sì|  
+|\*.blob.core.windows.net| 443| Yes|  
+|\*.ods.opinsights.azure.com| 443| Yes|  
+|*.azure-automation.net | 443| Yes|  
 |**Dalla console di Operations Manager a quella di OMS**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -76,7 +85,7 @@ Le informazioni di seguito elencano i dettagli di configurazione del proxy e del
 ## <a name="connecting-operations-manager-to-log-analytics"></a>Connettere Operations Manager a Log Analytics
 Eseguire questa serie di passaggi per configurare il gruppo di gestione di Operations Manager per connettersi a una delle aree di lavoro di Log Analytics.
 
-Se questa è la prima volta che il gruppo di gestione di Operations Manager si registra in un'area di lavoro di Log Analytics ed è necessario che i server di gestione comunichino con il servizio tramite un server proxy o un server del Gateway OMS, l'opzione per specificare la configurazione del proxy per il gruppo di gestione non è disponibile nella Console operatore.  Il gruppo di gestione deve essere registrato correttamente con il servizio prima che questa opzione sia disponibile.  È necessario aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema da cui si esegue la console operatore per configurare l'integrazione e tutti i server di gestione nel gruppo di gestione.  
+Durante la registrazione iniziale del gruppo di gestione di Operations Manager con un'area di lavoro di Log Analytics, l'opzione per specificare la configurazione proxy per il gruppo di gestione non è disponibile nella console operatore.  Il gruppo di gestione deve essere registrato correttamente con il servizio prima che questa opzione sia disponibile.  Per risolvere questo problema, è necessario aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema da cui si esegue la console operatore per configurare l'integrazione e tutti i server di gestione nel gruppo di gestione.  
 
 1. Aprire un prompt dei comandi con privilegi elevati.
    a. Passare a **Start** e digitare **cmd**.
@@ -91,7 +100,7 @@ Dopo aver completato la procedura di integrazione seguente con Log Analytics, è
 2. Espandere il nodo Operations Management Suite e fare clic su **Connessione**.
 3. Fare clic sul collegamento **Registrazione a Operations Management Suite** .
 4. Nella pagina**Caricamento guidato di Operations Management Suite: Autenticazione**, immettere l'indirizzo di posta elettronica o il numero di telefono e la password dell'account amministratore associato alla sottoscrizione OMS e fare clic su **Accedi**.
-5. Al termine dell'autenticazione, nella pagina **Operations Management Suite Onboarding Wizard: Select Workspace** (Caricamento guidato di Operations Management Suite: selezione area di lavoro) verrà chiesto di selezionare l'area di lavoro di Log Analytics.  Se si ha più di un'area di lavoro, selezionare l'area di lavoro che si vuole registrare con il gruppo di gestione di Operations Manager nell'elenco a discesa e quindi fare clic su **Avanti**.
+5. Al termine dell'autenticazione, nella pagina **Operations Management Suite Onboarding Wizard: Select Workspace** (Caricamento guidato di Operations Management Suite: selezione area di lavoro) verrà chiesto di selezionare il tenant e la sottoscrizione di Azure e l'area di lavoro di Log Analytics.  Se si ha più di un'area di lavoro, selezionare l'area di lavoro che si vuole registrare con il gruppo di gestione di Operations Manager nell'elenco a discesa e quindi fare clic su **Avanti**.
    
    > [!NOTE]
    > Operations Manager supporta solo un'area di lavoro di Log Analytics alla volta. La connessione e i computer registrati in Log Analytics con l'area di lavoro precedente vengono rimossi da Log Analytics.
@@ -193,7 +202,7 @@ I Management Pack per le soluzioni abilitate che si integrano con Operations Man
 4. Per rimuovere tutti i Management pack rimanenti che presentano una dipendenza da altri Management pack di System Center Advisor, usare lo script *RecursiveRemove.ps1* scaricato in precedenza da TechNet Script Center.  
  
     > [!NOTE]
-    > Non eliminare i management pack Microsoft System Center Advisor o Microsoft System Center Advisor Internal.  
+    > Il passaggio per rimuovere i Management Pack di Advisor con PowerShell non eliminerà automaticamente Microsoft System Center Advisor o i Management Pack interni di Microsoft System Center Advisor.  Non tentare di eliminarli.  
     >  
 
 5. Aprire la console di Operations Manager con un account membro del ruolo Amministratori di Operations Manager.
@@ -201,6 +210,7 @@ I Management Pack per le soluzioni abilitate che si integrano con Operations Man
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
+
 7. Nel portale di OMS fare clic sul riquadro **Impostazioni**.
 8. Selezionare **Origini connesse**.
 9. Nella tabella della sezione System Center Operations Manager dovrebbe essere visualizzato il nome del gruppo di gestione che si desidera rimuovere dall'area di lavoro.  Nella colonna **Ultimi dati** fare clic su **Rimuovi**.  

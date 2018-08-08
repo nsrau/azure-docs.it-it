@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 68343f3fcdd2275012207d7ac5a5f3bcdc71d1b8
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091493"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414375"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Scelta del livello di servizio vCore e delle risorse di calcolo, memoria, archiviazione e I/O
 
@@ -55,6 +55,9 @@ Valutare gli aspetti seguenti:
 > Il costo addebitato dipende dalla quantità totale di risorse di archiviazione allocate per i file MDF e LDF.
 
 Per monitorare la dimensione totale corrente dei file MDF e LDF, usare [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Per monitorare la dimensione corrente dei singoli file MDF e LDF, usare [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+
+> [!IMPORTANT]
+> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
 ## <a name="backups-and-storage"></a>Backup e archiviazione
 

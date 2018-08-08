@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346026"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309062"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica 
 Il database SQL di Azure può generare metriche e log di diagnostica per facilitare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
@@ -25,7 +25,7 @@ Il database SQL di Azure può generare metriche e log di diagnostica per facilit
 * **Hub eventi di Azure**: usata per l'integrazione dei dati di telemetria di database SQL con soluzioni di monitoraggio personalizzate o pipeline attive.
 * **Log Analytics di Azure**: usata per una soluzione di monitoraggio già pronta con funzionalità di reporting, avviso e mitigazione. Si tratta di una funzionalità di [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md).
 
-    ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
+    ![Architettura](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
@@ -267,6 +267,8 @@ Informazioni su come [scaricare le metriche e i log di diagnostica da Archiviazi
 |Pool elastico|Percentuale eDTU, eDTU usata, limite eDTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, limite di archiviazione, percentuale di archiviazione XTP |
 |||
 
+### <a name="logs"></a>Log
+
 ### <a name="query-store-runtime-statistics"></a>Statistiche di runtime di Query Store
 
 |Proprietà|DESCRIZIONE|
@@ -460,6 +462,57 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |resource_owner_type_s|Proprietario del blocco.|
 |blocked_process_filtered_s|Report XML del processo bloccato.|
 |duration_d|Durata del blocco in microsecondi.|
+
+### <a name="deadlocks-dataset"></a>Set di dati di deadlock
+
+|Proprietà|DESCRIZIONE|
+|---|---|
+|TenantId|ID tenant.|
+|SourceSystem|Always: Azure|
+|TimeGenerated [UTC] |Timestamp di quando è stato registrato il log.|
+|type|Always: AzureDiagnostics|
+|ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL|
+|Categoria|Nome della categoria. Always: Deadlocks|
+|OperationName|Nome dell'operazione. Always: DeadlockEvent|
+|Risorsa|Nome della risorsa.|
+|ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES|
+|SubscriptionId|GUID della sottoscrizione a cui appartiene il database.|
+|ResourceGroup|Nome del gruppo di risorse a cui appartiene il database.|
+|LogicalServerName_s|Nome server a cui appartiene il database.|
+|ElasticPoolName_s|Nome del pool elastico a cui appartiene il database, se esistente.|
+|DatabaseName_s|Nome del database. |
+|ResourceId|URI della risorsa.|
+|deadlock_xml_s|XML del report di deadlock.|
+
+### <a name="automatic-tuning-dataset"></a>Set di dati di ottimizzazione automatica
+
+|Proprietà|DESCRIZIONE|
+|---|---|
+|TenantId|ID tenant.|
+|SourceSystem|Always: Azure|
+|TimeGenerated [UTC]|Timestamp di quando è stato registrato il log.|
+|type|Always: AzureDiagnostics|
+|ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL|
+|Categoria|Nome della categoria. Always: AutomaticTuning|
+|Risorsa|Nome della risorsa.|
+|ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES|
+|SubscriptionId|GUID della sottoscrizione a cui appartiene il database.|
+|ResourceGroup|Nome del gruppo di risorse a cui appartiene il database.|
+|LogicalServerName_s|Nome server a cui appartiene il database.|
+|LogicalDatabaseName_s|Nome del database.|
+|ElasticPoolName_s|Nome del pool elastico a cui appartiene il database, se esistente.|
+|DatabaseName_s|Nome del database.|
+|ResourceId|URI della risorsa.|
+|RecommendationHash_s|Hash univoco della raccomandazione di ottimizzazione automatica.|
+|OptionName_s|Operazione di ottimizzazione automatica.|
+|Schema_s|Schema del database.|
+|Table_s|Tabella interessata.|
+|IndexName_s|Nome dell'indice.|
+|IndexColumns_s|Nome della colonna.|
+|IncludedColumns_s|Colonne incluse.|
+|EstimatedImpact_s|Impatto stimato del file JSON delle raccomandazioni di ottimizzazione automatica.|
+|Event_s|Tipo di evento di ottimizzazione automatica.|
+|Timestamp_t|Timestamp dell'ultimo aggiornamento.|
 
 ### <a name="intelligent-insights-dataset"></a>Set di dati di Intelligent Insights
 Altre informazioni sul [formato di log di Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).

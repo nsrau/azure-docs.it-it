@@ -3,7 +3,7 @@ title: Risolvere i problemi di File di Azure in Linux | Microsoft Docs
 description: Risoluzione dei problemi di File di Azure in Linux
 services: storage
 documentationcenter: ''
-author: wmgries
+author: jeffpatt24
 manager: aungoo
 editor: tamram
 tags: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: wgries
-ms.openlocfilehash: 4a80b868529b18875100d8205fd8c3a664b6b9e2
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: jeffpatt
+ms.openlocfilehash: 5781a3c2e121b81275683d73eb3047ba949857c7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738365"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415714"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -43,11 +43,11 @@ Ridurre il numero di handle aperti simultaneamente chiudendone alcuni e quindi r
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Rallentamento della copia del file da e verso File di Azure in Linux
 
--   In assenza di un requisito minimo specifico per la dimensione di I/O, è consigliabile usare 1 MB per assicurare prestazioni ottimali.
--   Se si conosce la dimensione finale del file che si vuole estendere con operazioni di scrittura e il software non presenta problemi di compatibilità se la parte finale del file non ancora scritta contiene zeri, impostare la dimensione del file in fase preliminare anziché lasciare che ogni operazione di scrittura venga considerata un'estensione.
--   Usare il metodo di copia corretto:
-    -   Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
-    -   Usare [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) tra condivisioni file in un computer locale.
+- In assenza di un requisito minimo specifico per la dimensione di I/O, è consigliabile usare 1 MiB per assicurare prestazioni ottimali.
+- Se si conosce la dimensione finale del file che si vuole estendere con operazioni di scrittura e il software non presenta problemi di compatibilità se la parte finale del file non ancora scritta contiene zeri, impostare la dimensione del file in fase preliminare anziché lasciare che ogni operazione di scrittura venga considerata un'estensione.
+- Usare il metodo di copia corretto:
+    - Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
+    - Usare [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) tra condivisioni file in un computer locale.
 
 <a id="error112"></a>
 ## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Errore di montaggio (112): Host inattivo" perché la riconnessione è scaduta
@@ -66,9 +66,9 @@ La connessione può rimanere inattiva per i motivi seguenti:
 Questo problema di riconnessione nel kernel Linux è stato corretto nell'ambito delle modifiche seguenti:
 
 - [Fix reconnect to not defer smb3 session reconnect long after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93) (Correggere la funzionalità di riconnessione in modo da non rinviare la riconnessione della sessione smb3 a molto tempo dopo la riconnessione del socket)
--   [Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) (Chiamare il servizio echo immediatamente dopo la riconnessione del socket)
--   [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: correggere un possibile danneggiamento della memoria dopo la riconnessione)
--   [CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and later](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Correggere un possibile doppio blocco del mutex durante la riconnessione, per i kernel 4.9 e versioni successive)
+- [Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) (Chiamare il servizio echo immediatamente dopo la riconnessione del socket)
+- [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: correggere un possibile danneggiamento della memoria dopo la riconnessione)
+- [CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and later](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Correggere un possibile doppio blocco del mutex durante la riconnessione, per i kernel 4.9 e versioni successive)
 
 È tuttavia possibile che queste modifiche non siano state ancora trasferite a tutte le distribuzioni di Linux. Questa e altre correzioni di riconnessione sono state apportate nei kernel Linux di uso più comune seguenti: 4.4.40, 4.8.16 e 4.9.1. Per ottenere questa correzione, eseguire l'aggiornamento a una di queste versioni del kernel consigliate.
 
@@ -139,12 +139,16 @@ Le cause comuni di questo problema sono le seguenti:
 
 - Si sta usando un client di distribuzione Linux incompatibile. Si consiglia di usare le distribuzioni Linux seguenti per connettersi alla condivisione file di Azure:
 
-    - Ubuntu Server 14.04+ 
-    - RHEL 7+ 
-    - CentOS 7+ 
-    - Debian 8 
-    - openSUSE 13.2+ 
-    - SUSE Linux Enterprise Server 12
+* **Versioni minime consigliate con funzionalità di montaggio corrispondenti (SMB versione 2.1 e SMB versione 3.0)**    
+    
+    |   | SMB 2.1 <br>(Montaggio in macchine virtuali nella stessa area di Azure) | SMB 3.0 <br>(Montaggio in locale e tra più aree) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
 - Il pacchetto di strumenti CIFS-utils non è installato nel client.
 - La versione SMB/CIFS minima 2.1 non è installata nel client.
@@ -170,6 +174,31 @@ Aggiornare il kernel di Linux a una delle versioni seguenti che prevedono una co
 - 4.9.48+
 - 4.12.11+
 - Tutte le versioni successive o corrispondenti alla 4.13
+
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Cannot create symbolic links - ln: failed to create symbolic link 't': Operation not supported (Impossibile creare collegamenti simbolici - ln: impossibile creare il collegamento simbolico 't': operazione non supportata)
+
+### <a name="cause"></a>Causa
+Per impostazione predefinita, il montaggio di condivisioni di File di Azure in Linux tramite CIFS non abilita il supporto per i collegamenti simbolici. Verrà visualizzato un errore simile al seguente:
+```
+ln -s linked -n t
+ln: failed to create symbolic link 't': Operation not supported
+```
+### <a name="solution"></a>Soluzione
+Il client Linux CIFS non supporta la creazione di collegamenti simbolici in stile Windows tramite il protocollo SMB2/3. Il client Linux attualmente supporta un altro stile di collegamenti simbolici, i [collegamenti simbolici Mishall+French] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) sia per creare che per seguire le operazioni. I clienti per i quali sono necessari collegamenti simbolici possono usare l'opzione di montaggio "mfsymlinks". L'opzione "mfsymlinks" è in genere consigliata perché è anche il formato usato dai computer Mac.
+
+Per poter usare collegamenti simbolici, aggiungere quanto segue alla fine del comando di montaggio CIFS:
+
+```
+,mfsymlinks
+```
+
+Il comando sarà quindi simile a quanto segue:
+
+```
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+```
+
+Dopo l'aggiunta, sarà possibile creare collegamenti simbolici come suggerito nella [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

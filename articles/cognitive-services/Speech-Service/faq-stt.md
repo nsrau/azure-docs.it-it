@@ -1,24 +1,23 @@
 ---
-title: Domande frequenti sul servizio di riconoscimento vocale in Azure | Microsoft Docs
+title: Domande frequenti sul servizio di riconoscimento vocale in Azure
 description: Di seguito sono riportate le risposte alle domande più frequenti sul riconoscimento vocale.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e5ba01c25646578da22f054659051be3515e9e4b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223888"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281831"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul servizio di riconoscimento vocale
 
-Se le risposte alle proprie domande non sono presenti in questo documento, provare a rivolgersi alla community del Servizio di riconoscimento vocale personalizzato in [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) e [UserVoice](https://cognitive.uservoice.com/)
+Se le risposte alle proprie domande non sono presenti in questo documento, vedere le altre opzioni di supporto [qui](support.md).
 
 ## <a name="general"></a>Generale
 
@@ -28,7 +27,7 @@ Se le risposte alle proprie domande non sono presenti in questo documento, prova
 
 **Domanda**: Da dove è necessario iniziare per usare un modello di base?
 
-**Risposta**: Prima di tutto è necessario ottenere una [chiave di sottoscrizione](get-started.md). Se si desidera effettuare chiamate REST ai modelli di base predistribuiti, vedere i [dettagli qui](rest-apis.md). Se si desidera usare WebSocket, scaricare l'[SDK](speech-sdk.md).
+**Risposta**: Prima di tutto è necessario ottenere una [chiave di sottoscrizione](get-started.md). Per effettuare chiamate REST ai modelli di base predistribuiti, vedere i [dettagli qui](rest-apis.md). Se si desidera usare WebSocket, scaricare l'[SDK](speech-sdk.md).
 
 **Domanda**: È sempre necessario compilare un modello conversione voce/testo personalizzato?
 

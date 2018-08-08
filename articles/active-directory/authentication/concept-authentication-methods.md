@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 9141658c25ea3051d8e7c866f523c54afb7d6e18
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248345"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414525"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
 
@@ -198,3 +198,5 @@ Se l'organizzazione è federata e usa SSO con Azure AD e si prevede di usare Azu
 [Impossibile abilitare la reimpostazione della password in modalità self-service per l'organizzazione](quickstart-sspr.md)
 
 [Abilitare Azure Multi-Factor Authentication per l'organizzazione](howto-mfa-getstarted.md)
+
+[Documentazione sulla configurazione di un metodo di autenticazione per l'utente finale](https://aka.ms/securityinfoguide)

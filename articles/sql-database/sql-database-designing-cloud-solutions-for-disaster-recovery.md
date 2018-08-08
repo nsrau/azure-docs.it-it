@@ -1,5 +1,5 @@
 ---
-title: Progettare un servizio a disponibilità elevata con database SQL di Azure | Documentazione Microsoft
+title: Progettare servizi disponibili a livello globale con il database SQL di Azure | Microsoft Docs
 description: Informazioni sulla progettazione di applicazioni per servizi a disponibilità elevata con database SQL di Azure.
 keywords: ripristino di emergenza cloud, soluzioni di ripristino di emergenza, backup dei dati delle app, replica geografica, pianificazione della continuità aziendale
 services: sql-database
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f1c228802bd0a2e65321a3abe47b87845f5f86a0
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092614"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264655"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>Progettazione di servizi a disponibilità elevata con database SQL di Azure
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Progettazione di servizi disponibili a livello globale con il database SQL di Azure
 
-Quando si compilano e si distribuiscono servizi a disponibilità elevata nel database SQL di Azure, [i gruppi di failover e la replica geografica attiva](sql-database-geo-replication-overview.md) consentono di garantire resilienza in caso di interruzioni a livello di area ed errori irreversibili, nonché un rapido ripristino nei database secondari. Questo articolo esamina modelli di applicazione comuni e illustra vantaggi e svantaggi di ogni opzione. Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Quando si compilano e si distribuiscono servizi cloud con il database SQL di Azure, [i gruppi di failover e la replica geografica attiva](sql-database-geo-replication-overview.md) consentono di garantire resilienza in caso di interruzioni a livello di area ed errori irreversibili. La stessa funzionalità consente di creare applicazioni distribuite a livello globale ottimizzate per l'accesso locale ai dati. Questo articolo illustra modelli di applicazione comuni, nonché i vantaggi e gli svantaggi di ogni opzione. 
 
 > [!NOTE]
 > Se si usano pool elastici e database premium o business critical, è possibile renderli resistenti alle interruzioni a livello di area convertendoli in una configurazione di distribuzione con ridondanza della zona. Vedere [Database con ridondanza della zona](sql-database-high-availability.md).  

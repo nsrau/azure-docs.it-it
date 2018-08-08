@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 32feac32af01e518ad6cede43cc4b4f00c097d3b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e07ed8f131697d6340b899ef76c988aed215556b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041280"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Esercitazione: Integrazione di Azure Active Directory con SmarterU
 
@@ -126,11 +126,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 7. Nella barra degli strumenti in alto fare clic su **Impostazioni account**.
    
-    ![Impostazioni account](./media/smarteru-tutorial/IC777326.png "Impostazioni account")
+    ![Impostazioni account](./media/smarteru-tutorial/accountsettings.png)
 
 8. Nella pagina di configurazione dell’account, eseguire la procedura seguente:
    
-    ![Autorizzazione esterna](./media/smarteru-tutorial/IC777327.png "Autorizzazione esterna") 
+    ![Autorità esterna](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. Selezionare **Attiva autorizzazione esterna**.
   
@@ -138,11 +138,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
   
       c. Nella sezione **Accesso predefinito utente** selezionare la scheda **SmarterU**.
   
-      d. Selezionare **Attiva Okta**.
+      d. Selezionare **Enable SAML**.
   
-      e. Copiare il contenuto del file dei metadati scaricato e incollarlo nella casella di testo **Metadati Okta** .
+      e. Copiare il contenuto del file di metadati scaricato e quindi incollarlo nella casella di testo **IdP Metadata** (Metadati IdP).
+      
+      f. Selezionare **un attributo o un'attestazione dell'identificatore**.
   
-      f. Fare clic su **Save**.
+      g. Fare clic su **Save**.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -177,7 +179,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-smarteru-test-user"></a>Creazione di un utente di test di SmarterU
 
@@ -193,7 +195,7 @@ Nel caso di SmarterU, il provisioning è un'attività manuale.
 
 3. Nella sezione degli utenti, eseguire la procedura seguente:
    
-    ![Nuovo utente](./media/smarteru-tutorial/IC777329.png "Nuovo utente")  
+    ![Nuovo utente](./media/smarteru-tutorial/adduser.png)  
 
     a. Fare clic su **+Utente**.
     

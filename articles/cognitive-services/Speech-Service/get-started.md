@@ -1,21 +1,20 @@
 ---
-title: Provare gratuitamente il Servizio di riconoscimento vocale | Microsoft Docs
+title: Provare gratuitamente il Servizio di riconoscimento vocale
 description: Di seguito viene descritto come è possibile provare il servizio di riconoscimento vocale senza alcun costo.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3feef04694336d9173b419285a96fcaef543e18f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ff9a258d42f25ded82545909cdeade119548148e
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35378937"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325208"
 ---
 # <a name="try-the-speech-service-for-free"></a>Provare gratuitamente il Servizio di riconoscimento vocale
 
@@ -130,10 +129,8 @@ Per aggiungere una risorsa del servizio vocale al proprio account Azure, seguire
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scaricare un SDK e alcuni codici di esempio per provare il servizio di riconoscimento vocale.
+Eseguire una delle guide introduttive di 10 minuti o vedere gli esempi di SDK.
 
 > [!div class="nextstepaction"]
-> [SDK di riconoscimento vocale](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Codice di esempio](samples.md)
+> [Guida introduttiva: Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
+> [Esempi di Speech SDK](speech-sdk.md#get-the-samples)

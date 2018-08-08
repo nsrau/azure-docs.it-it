@@ -5,6 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,29 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 275c1d1dad9030da776900c4e2b97152c8d2d581
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8cec2c2b72b88a27c4a6c15b197e859b879bef43
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839133"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308525"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Ruoli e attività del processo di data science per i team
 
 Il processo di data science per i team è un framework sviluppato da Microsoft che fornisce una metodologia strutturata per creare con efficienza soluzioni di analisi predittiva e applicazioni intelligenti. Questo articolo descrive i ruoli chiave del personale e le loro attività associate gestite da un team di data science che usa questo processo come standard. 
 
-Questa introduzione è collegata a esercitazioni che forniscono istruzioni su come configurare l'ambiente TDSP per l'intero gruppo di data science, i team di data science e i progetti. Vengono fornite istruzioni dettagliate sull'uso di Visual Studio Team Services (VSTS) nelle esercitazioni come piattaforma di hosting del codice e strumento di pianificazione agile per gestire le attività del team, controllare l'accesso e gestire i repository. 
+Questa introduzione è collegata a esercitazioni che forniscono istruzioni su come configurare l'ambiente TDSP per l'intero gruppo di data science, i team di data science e i progetti. Fornisce indicazioni dettagliate sull'uso di Visual Studio Team Services (VSTS) nelle esercitazioni.  Visual Studio Team Services offre una piattaforma di hosting del codice e un flessibile strumento di pianificazione per gestire le attività del team, controllare l'accesso e gestire i repository. 
 
-Sarà possibile usare queste informazioni anche per implementare TDSP nel proprio strumento di hosting del codice e pianificazione. 
+È possibile usare queste informazioni anche per implementare TDSP nel proprio strumento di hosting del codice e di pianificazione. 
 
 ## <a name="structures-of-data-science-groups-and-teams"></a>Strutture dei gruppi e team di data science
+
 Le funzioni di data science nelle aziende sono spesso organizzate nella gerarchia seguente:
 
 1. ***Uno o più gruppi di data science***
 
 2. ***Uno o più team di data science interni a uno o più gruppi***
 
-In tale struttura ci sono responsabili di gruppo e team. In genere, un progetto di data science viene eseguito da un team di data science, che può essere composto da responsabili del progetto (per le attività di gestione e governance del progetto) e data scientist o tecnici (singoli collaboratori o personale tecnico) che si occuperanno delle parti di data science e ingegneria dei dati del progetto. Prima dell'esecuzione, la configurazione e la governance sono eseguite dai responsabili di gruppo, team o progetto.
+In questa struttura sono presenti responsabili di gruppo e team. In genere, un progetto di data science viene eseguito da un team di data science, che può essere composto da responsabili del progetto (per le attività di gestione e governance del progetto) e data scientist o tecnici (singoli collaboratori o personale tecnico) che si occuperanno delle parti di data science e ingegneria dei dati del progetto. Prima dell'esecuzione, la configurazione e la governance sono eseguite dai responsabili di gruppo, team o progetto.
 
 ## <a name="definition-of-four-tdsp-roles"></a>Definizione di quattro ruoli TDSP
 Sulla base del presupposto precedente, sono stati specificati quattro ruoli distinti per il personale del team:
@@ -50,7 +52,8 @@ Sulla base del presupposto precedente, sono stati specificati quattro ruoli dist
 4. ***Singolo collaboratore di progetto***. Data scientist, analista aziendale, tecnico dei dati, architetto, etc. Un singolo collaboratore di progetto esegue un progetto di data science. 
 
 
-**[AZURE.NOTE]**: a seconda della struttura aziendale, un singolo utente può coprire più ruoli O viceversa più persone possono lavorare nello stesso ruolo. Questo succede spesso nelle piccole aziende o organizzazioni che hanno un numero ridotto di persone nell'organizzazione di data science.
+> [!NOTE]
+> A seconda della struttura aziendale, un singolo utente può coprire più ruoli o, viceversa, più persone possono lavorare nello stesso ruolo. Questo succede spesso nelle piccole aziende o organizzazioni che hanno un numero ridotto di persone nell'organizzazione di data science.
 
 ## <a name="tasks-to-be-completed-by-four-personnel"></a>Attività che devono essere completare dalle quattro persone
 
@@ -60,9 +63,10 @@ L'immagine seguente illustra le attività di primo livello del personale, per ru
 
 Questo schema e la successiva descrizione dettagliata delle attività che sono assegnate a ciascun ruolo nel TDSP consentono di scegliere l'esercitazione appropriata in base alle responsabilità dell'utente nell'organizzazione.
 
->[AZURE.NOTE] Nelle istruzioni seguenti vengono mostrati i passaggi per configurare un ambiente TDSP e completare altre attività di data science in Visual Studio Team Services (VSTS). Si spiega come eseguire queste attività con VSTS, perché è questo lo strumento utilizzato per implementare TDSP in Microsoft. VSTS facilita la collaborazione integrando la gestione degli elementi di lavoro che tengono traccia delle attività e un servizio di hosting del codice utilizzato per condividere le utilità, organizzare le versioni e fornire la sicurezza basata sui ruoli. Per implementare le attività illustrate dal TDSP è anche possibile scegliere altre piattaforme, se si preferisce. Tuttavia, a seconda della piattaforma, alcune funzionalità di VSTS che vengono sfruttate potrebbero non essere disponibili. 
+> [!NOTE]
+> Nelle istruzioni seguenti vengono mostrati i passaggi per configurare un ambiente TDSP e completare altre attività di data science in Visual Studio Team Services (VSTS). Si spiega come eseguire queste attività con VSTS, perché è questo lo strumento utilizzato per implementare TDSP in Microsoft. VSTS facilita la collaborazione integrando la gestione degli elementi di lavoro che tengono traccia delle attività e un servizio di hosting del codice utilizzato per condividere le utilità, organizzare le versioni e fornire la sicurezza basata sui ruoli. Per implementare le attività illustrate dal TDSP è anche possibile scegliere altre piattaforme, se si preferisce. Tuttavia, a seconda della piattaforma, è possibile che alcune funzionalità di VSTS non siano disponibili. 
 >
->Si usa anche la [macchina virtuale per data science (DSVM)](http://aka.ms/dsvm) nel cloud di Azure come desktop di analisi con diversi strumenti di data science comuni preconfigurati e integrati con vari software Microsoft e servizi di Azure. Per implementare TDSP è possibile usare la DSVM o qualsiasi altro ambiente di sviluppo. 
+>In queste istruzioni si usa anche la [macchina virtuale per data science (DSVM)](http://aka.ms/dsvm) nel cloud di Azure come desktop di analisi con diversi strumenti di data science comuni preconfigurati e integrati con vari software Microsoft e servizi di Azure. Per implementare TDSP è possibile usare la DSVM o qualsiasi altro ambiente di sviluppo. 
 
 
 ## <a name="group-manager-tasks"></a>Attività del responsabile del gruppo
@@ -70,8 +74,11 @@ Questo schema e la successiva descrizione dettagliata delle attività che sono a
 Il responsabile del gruppo (o un amministratore di sistema TDSP designato) deve completare le attività seguenti per adottare il TDSP:
 
 - Creare un **account di gruppo** in una piattaforma di hosting del codice (ad esempio Github, Git, Visual Studio Team Services o altro)
-- Creare un **repository dei modelli di progetto** nell'account di gruppo ed eseguirne il seeding dal repository dei modelli di progetto sviluppato dal team TDSP di Microsoft. Il repository dei modelli di progetto TDSP di Microsoft fornisce una **struttura di directory standardizzata** che comprende directory per dati, codice e documenti e fornisce un set di **modelli di documento standardizzati** per guidare in modo efficiente il processo di data scienze. 
-- Creare un **repository delle utilità** ed eseguirne il seeding dal repository delle utilità sviluppato dal team TDSP di Microsoft. Il repository delle utilità TDSP di Microsoft fornisce un set di utilità per migliorare l'efficienza di lavoro di un data sientist, incluse utilità per l'esplorazione interattiva, l'analisi e la creazione di report sui dati e per la modellazione di base e la relativa creazione i report.
+- Creare un **repository dei modelli di progetto** nell'account di gruppo ed eseguirne il seeding dal repository dei modelli di progetto sviluppato dal team TDSP di Microsoft. Il repository dei modelli di progetto TDSP di Microsoft 
+    - fornisce una **struttura di directory standardizzata** che comprende directory per dati, codice e documenti 
+    - e fornisce un set di **modelli di documento standardizzati** per guidare in modo efficiente il processo di data scienze. 
+- Creare un **repository delle utilità** ed eseguirne il seeding dal repository delle utilità sviluppato dal team TDSP di Microsoft. Il repository delle utilità TDSP di Microsoft fornisce 
+    - un set di utilità per migliorare l'efficienza di lavoro di un data scientist, incluse utilità per l'esplorazione interattiva, l'analisi e la creazione di report sui dati e per la modellazione di base e la relativa creazione i report.
 - Configurare i **criteri di controllo di sicurezza** di questi due repository nell'account di gruppo.  
 
 Per istruzioni dettagliate, vedere [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md). 
@@ -132,9 +139,13 @@ Il flusso di lavoro include passaggi che possono essere raggruppati in tre attiv
 
 Per istruzioni dettagliate sul flusso di lavoro di esecuzione del progetto, vedere [Esecuzione di progetti di data science](project-execution.md).
 
+## <a name="project-structure"></a>Struttura progetto
+
+Usare questo [repository dei modelli di progetto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) per favorire una maggiore efficienza di esecuzione del progetto e di collaborazione. Questo repository offre una struttura di directory standardizzata e modelli di documento che è possibile usare per il proprio progetto TDSP.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ecco i collegamenti alle descrizioni più dettagliate dei ruoli e delle attività definite dal processo di data science per i team:
+Per descrizioni più dettagliate dei ruoli e delle attività definite dal processo di data science per i team, vedere:
 
 - [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md)
 - [Team Lead tasks for a data science team (Attività del responsabile del team per un team di data science)](team-lead-tasks.md)

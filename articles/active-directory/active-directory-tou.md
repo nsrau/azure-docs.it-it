@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136656"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398955"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare a usare Condizioni per l'utilizzo di Azure AD.
@@ -78,7 +78,7 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
     >[!IMPORTANT]
     >L'applicazione dei controlli dei criteri di accesso condizionale (incluse le condizioni per l'utilizzo) non è supportata per gli account di servizio.  È consigliabile escludere tutti gli account di servizio dai criteri di accesso condizionale.
 
-7. Fare clic su **Crea**.
+7. Fare clic su **Create**(Crea).
 
 8. Se è stato selezionato un modello personalizzato di accesso condizionale, verrà visualizzata una nuova schermata che consente di personalizzare il criterio di accesso condizionale.
 
@@ -138,6 +138,42 @@ Gli utenti possono visualizzare e verificare le condizioni per l'utilizzo accett
 
 1. Sarà quindi possibile verificare le condizioni per l'utilizzo accettate. 
 
+## <a name="edit-terms-of-use-details"></a>Modificare i dettagli delle condizioni per l'utilizzo
+È possibile modificare alcuni dettagli delle condizioni per l'utilizzo, ma non è possibile modificare un documento esistente. La procedura seguente descrive come modificare i dettagli.
+
+1. Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo [ https://aka.ms/catou ](https://aka.ms/catou).
+
+1. Selezionare le condizioni per l'utilizzo da modificare.
+
+1. Fare clic su **Modifica le condizioni**.
+
+1. Nel riquadro della modifica delle condizioni per l'utilizzo, modificare il nome, il nome visualizzato o richiedere che gli utenti espandano i valori.
+
+    ![Aggiungere le condizioni per l'utilizzo](media/active-directory-tou/edit-tou.png)
+
+1. Fare clic su **Salva** per salvare le modifiche.
+
+    Dopo aver salvato le modifiche, gli utenti dovranno accettare nuovamente le condizioni nuove.
+
+## <a name="add-a-terms-of-use-language"></a>Aggiungere una lingua delle condizioni per l'utilizzo
+La procedura seguente descrive come aggiungere una lingua delle condizioni per l'utilizzo.
+
+1. Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo [ https://aka.ms/catou ](https://aka.ms/catou).
+
+1. Selezionare le condizioni per l'utilizzo da modificare.
+
+1. Nel riquadro dei dettagli fare clic sulla scheda **Lingue**.
+
+    ![Aggiungere le condizioni per l'utilizzo](media/active-directory-tou/languages-tou.png)
+
+1. Fare clic su **Aggiungi lingua**.
+
+1. Nel riquadro Aggiungi la lingua delle condizioni per l'utilizzo caricare il PDF localizzato e selezionare la lingua.
+
+    ![Aggiungere le condizioni per l'utilizzo](media/active-directory-tou/language-add-tou.png)
+
+1. Fare clic su **Aggiungi** per aggiungere la lingua.
+
 ## <a name="delete-terms-of-use"></a>Eliminare le condizioni per l'utilizzo
 È possibile eliminare le condizioni per l'utilizzo obsolete con la procedura seguente.
 
@@ -175,8 +211,11 @@ R: i conteggi inclusi nel report delle Condizioni per l'utilizzo e gli utenti ch
 **D: perché viene visualizzato un numero diverso di consensi nel report delle Condizioni per l'utilizzo rispetto ai log di controllo di Azure AD?**</br>
 R: il report delle Condizioni per l'utilizzo viene archiviato per la durata di tale Condizioni per l'utilizzo, mentre i log di controllo di Azure AD vengono archiviati per 30 giorni. Inoltre, i report delle Condizioni per l'utilizzo mostrano solo lo stato di consenso corrente degli utenti. Ad esempio, se un utente rifiuta e in seguito accetta, il report delle Condizioni per l'utilizzo mostrerà solo quest'ultima azione dell'utente. Se è necessario visualizzare la cronologia, è possibile usare i log di controllo di Azure AD.
 
-**D: se i termini delle Condizioni per l'utilizzo vengono modificati, è necessario che gli utenti le accettino di nuovo?**</br>
-R: Sì, un amministratore può modificare le Condizioni per l'utilizzo rendendone nuovamente necessaria l'accettazione da parte degli utenti.
+**D: Se i termini delle condizioni per l'utilizzo vengono modificati, è necessario che gli utenti le accettino di nuovo?**</br>
+R: Sì, se un amministratore modifica i dettagli delle condizioni per l'utilizzo, gli utenti devono accettare le nuove condizioni.
+
+**D: È possibile aggiornare un documento esistente sulle condizioni per l'utilizzo?**</br>
+R: Al momento non è possibile aggiornare un documento esistente sulle condizioni per l'utilizzo. Per modificare un documento sulle condizioni per l'utilizzo, è necessario creare una nuova istanza delle condizioni per l'utilizzo.
 
 **D: se sono presenti collegamenti ipertestuali nel documento PDF delle Condizioni per l'utilizzo, gli utenti finali possono selezionarli?**</br>
 R: viene eseguito il rendering predefinito del file PDF in formato JPEG, in modo che i collegamenti ipertestuali non siano selezionabili. Gli utenti hanno la possibilità di selezionare **In caso di problemi di visualizzazione fare clic qui** per eseguire il rendering PDF in modo nativo in cui sono supportati i collegamenti ipertestuali.

@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: dd9bb4cb2622651c2d1979166ad838b3b337d583
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343184"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307994"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Esempio: creare una competenza personalizzata usando l'API Traduzione testuale
 
 Questo esempio illustra come creare una competenza personalizzata in formato API Web che accetta il testo in qualsiasi lingua e lo traduce in inglese. L'esempio usa una [funzione di Azure](https://azure.microsoft.com/services/functions/) per eseguire il wrapping dell'[API Traduzione testuale](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) in modo che implementi l'interfaccia della competenza personalizzata.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 + Leggere l'articolo sull'[interfaccia per le competenze personalizzate](cognitive-search-custom-skill-interface.md) se non si ha familiarità con l'interfaccia di input/output che una competenza personalizzata deve implementare.
 
@@ -244,6 +244,13 @@ Quando si è soddisfatti del comportamento della funzione, è possibile pubblica
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al gruppo di risorse e cercare la funzione di traduzione pubblicata. Nella sezione **Gestisci** dovrebbe essere presente un elenco Chiavi host. Selezionare l'icona **Copia** icona per la chiave host *predefinita*.  
 
+## <a name="update-ssl-settings"></a>Aggiornare le impostazioni SSL
+
+Tutte le funzioni di Azure create dopo il 30 giugno 2018 hanno disabilitato TLS 1.0, che non è attualmente compatibile con le funzionalità personalizzate.
+
+1. Nel [portale di Azure](https://portal.azure.com) passare al gruppo di risorse e cercare la funzione di traduzione pubblicata. Nella sezione **Funzionalità della piattaforma** dovrebbe essere presente SSL.
+
+1. Dopo aver selezionato SSL, è necessario modificare **Versione minima TLS** impostandola su 1.0. Le funzioni di TLS 1.2 non sono ancora supportate come funzionalità personalizzate.
 
 ## <a name="test-the-function-in-azure"></a>Testare la funzione in Azure
 

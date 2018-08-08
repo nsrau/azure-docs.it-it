@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3176a3a4acc6e9ca486d409d861f2ed0e63473ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056505"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346716"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare ed eseguire il debug delle funzioni di Azure per Azure IoT Edge
 
@@ -23,7 +23,7 @@ Questo articolo mostra come usare [Visual Studio Code (VS Code)](https://code.vi
 Questo articolo presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico. In alternativa, si può simulare il dispositivo IoT Edge nel computer di sviluppo.
 
 > [!NOTE]
-> Questo articolo sul debug illustra come collegare un processo a un contenitore di modulo ed eseguirne il debug con VS Code. È possibile eseguire il debug di moduli C# solo in contenitori Linux amd64. Se non si ha ancora familiarità con le funzionalità di debug di Visual Studio Code, vedere le [informazioni sul debug](https://code.visualstudio.com/Docs/editor/debugging). 
+> Questo articolo sul debug illustra come collegare un processo a un contenitore di modulo ed eseguirne il debug con VS Code. È possibile eseguire il debug di funzioni C# solo in contenitori Linux amd64. Se non si ha ancora familiarità con le funzionalità di debug di Visual Studio Code, vedere le [informazioni sul debug](https://code.visualstudio.com/Docs/editor/debugging). 
 
 In questo articolo viene usato Visual Studio Code come strumento di sviluppo principale. Installare Visual Studio Code. Aggiungere quindi le estensioni necessarie: 
 
@@ -71,7 +71,7 @@ Nella soluzione sono presenti quattro elementi:
 
 * Un file **deployment.template.json** in cui sono elencati il nuovo modulo e un modulo **tempSensor** di esempio che simula i dati utilizzabili per il test. Per altre informazioni su come funzionano i manifesti di distribuzione, vedere [Informazioni su come usare i manifesti della distribuzione per distribuire moduli e definire route](module-composition.md).
 
-## <a name="devlop-your-module"></a>Sviluppare un modulo
+## <a name="develop-your-module"></a>Sviluppare il modulo
 
 Il codice funzione di Azure predefinito fornito con la soluzione si trova in **moduli** > **\<nome del modulo\>** > **EdgeHubTrigger-Csharp** > **run.csx**. Il modulo e il file deployment.template.json sono impostati in modo che sia possibile compilare la soluzione, inviarla al registro del contenitore e distribuirla in un dispositivo per avviare il test senza toccare alcun codice. Il modulo viene compilato solo per accettare l'input da un'origine (in questo caso, il modulo tempSensor che simula i dati) e collegarlo all'hub IoT. 
 

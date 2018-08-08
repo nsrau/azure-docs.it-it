@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159291"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307909"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
@@ -158,7 +158,7 @@ Si noti anche che un ambiente a 64 bit richiede il piano di servizio Basic o Sta
 
 Per altre informazioni, vedere [Configurare le app Web nel servizio app](web-sites-configure.md).
 
-## <a name="why-does-my-request-time-out-after-240-seconds"></a>Perché la richiesta raggiunge il timeout dopo 240 secondi?
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>Perché la richiesta raggiunge il timeout dopo 230 secondi?
 
 Azure Load Balancer ha un'impostazione predefinita di quattro minuti per il timeout di inattività. Si tratta in genere di un limite di tempo di risposta ragionevole per una richiesta Web. Se l'app Web richiede l'elaborazione in background, è consigliabile usare Processi Web di Azure. L'app Web di Azure può chiamare Processi Web e ricevere una notifica al termine dell'elaborazione in background. È possibile scegliere tra più metodi per l'uso di Processi Web, tra cui le code e i trigger.
 

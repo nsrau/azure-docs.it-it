@@ -4,17 +4,17 @@ description: Usare l'estensione IoT per l'interfaccia della riga di comando di A
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/08/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 98a4be02188f7e0462979792a6061d535a64a18d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29c11139a2c773db2d26bf44984ad4dc72f2d870
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095975"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324606"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli-20"></a>Distribuire i moduli di Azure IoT Edge con l'interfaccia della riga di comando di Azure 2.0
 
@@ -24,7 +24,7 @@ L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cl
 
 Questo articolo illustra come creare un manifesto della distribuzione JSON e quindi usare tale file per eseguire il push della distribuzione in un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione da assegnare a più dispositivi in base ai relativi tag condivisi, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor-cli.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure. 
 * Un [dispositivo IoT Edge](how-to-register-device-cli.md) con il runtime di IoT Edge installato.
@@ -33,15 +33,15 @@ Questo articolo illustra come creare un manifesto della distribuzione JSON e qui
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
-Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli di IoT Edge](module-composition.md).
+Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).
 
-Per distribuire i moduli tramite l'interfaccia della riga di comando di Azure 2.0, salvare il manifesto della distribuzione a livello locale come file con estensione txt. Il percorso del file verrà usato nella sezione successiva quando si eseguirà il comando per applicare la configurazione al dispositivo. 
+Per distribuire i moduli tramite l'interfaccia della riga di comando di Azure 2.0, salvare il manifesto della distribuzione a livello locale come file con estensione json. Il percorso del file verrà usato nella sezione successiva quando si eseguirà il comando per applicare la configurazione al dispositivo. 
 
 Di seguito è riportato un esempio di manifesto della distribuzione di base con un solo modulo:
 
    ```json
    {
-     "moduleContent": {
+     "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
            "schemaVersion": "1.0",
@@ -50,13 +50,8 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
              "settings": {
                "minDockerVersion": "v1.25",
                "loggingOptions": "",
-               "registryCredentials": {
-                 "registryName": {
-                   "username": "",
-                   "password": "",
-                   "address": ""
-                 }
-               }
+               "registryCredentials": {}
+             }
            },
            "systemModules": {
              "edgeAgent": {
@@ -112,6 +107,8 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
 
 I moduli vengono distribuiti nel dispositivo applicando il manifesto della distribuzione configurato con le informazioni relative ai moduli. 
 
+Passare alle directory della cartella in cui è stato salvato il manifesto della distribuzione. Se è stato usato uno dei modelli IoT Edge di Visual Studio Code, usare il file `deployment.json` nella cartella **config** della directory della soluzione. Non usare il file `deployment.template.json`. 
+
 Per applicare la configurazione a un dispositivo IoT Edge usare il comando seguente:
 
    ```cli
@@ -119,6 +116,8 @@ Per applicare la configurazione a un dispositivo IoT Edge usare il comando segue
    ```
 
 Il parametro device id fa distinzione tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato. 
+
+   ![Impostare i moduli](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>Visualizzare i moduli nel dispositivo
 

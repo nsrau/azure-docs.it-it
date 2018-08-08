@@ -2,7 +2,7 @@
 title: Monitorare Funzioni di Azure
 description: Imparare a usare Azure Application Insights con Funzioni di Azure per il monitoraggio dell'esecuzione delle funzioni.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: tdykstra
-ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: glenga
+ms.openlocfilehash: ba820c594b5afb34c050c74de30300b0dfc8c3a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344056"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -58,7 +59,7 @@ Affinché un'app per le funzioni invii dati ad Application Insights, è necessar
 
 3. Immettere le altre informazioni richieste.
 
-1. Selezionare **Create**.
+1. Selezionare **Crea**.
 
 Il passaggio successivo consiste nel [disabilitare la registrazione incorporata](#disable-built-in-logging).
 
@@ -222,7 +223,7 @@ Il file *host.json* configura il numero di registrazioni che un'app per le funzi
       "categoryLevels": {
         "Host.Results": "Error",
         "Function": "Error",
-        "Host.Aggregator": "Information"
+        "Host.Aggregator": "Trace"
       }
     }
   }
@@ -232,7 +233,7 @@ Il file *host.json* configura il numero di registrazioni che un'app per le funzi
 In questo esempio vengono impostate due regole:
 
 1. Per i log con categoria "Host.Results" o "Function", inviare ad Application Insights solo i log di livello `Error` e livelli superiori. I log di livello `Warning` e livelli inferiori vengono ignorati.
-2. Per i log con categoria Host. Aggregator, inviare ad Application Insights solo i log di livello `Information` e superiori. I log di livello `Debug` e livelli inferiori vengono ignorati.
+2. Per i log con categoria Host.Aggregator, inviare tutti i log ad Application Insights. Il livello del log `Trace` corrisponde a quello che alcuni logger chiamano `Verbose`, ma usano `Trace` nel file *host.json*.
 3. Per tutti gli altri log, inviare ad Application Insights solo i log di livello `Information` e superiori.
 
 Il valore della categoria in *host.json* controlla la registrazione di tutte le categorie che iniziano con lo stesso valore. Ad esempio, "Host" in *host.json* controlla la registrazione di "Host.General", "Host.Executor", "Host.Results" e così via.
@@ -558,7 +559,7 @@ Per l'interfaccia della riga di comando di Azure 2.0 usare i comandi seguenti pe
 az login
 az account list
 az account set <subscriptionNameOrId>
-az appservice web log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 Per Azure PowerShell usare i comandi seguenti per aggiungere l'account di Azure, scegliere la sottoscrizione e trasmettere in streaming i file di log:

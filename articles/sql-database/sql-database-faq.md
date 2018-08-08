@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092070"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308814"
 ---
 # <a name="sql-database-faq"></a>Domande frequenti sul database SQL
 
@@ -90,7 +90,7 @@ Sì, è possibile selezionare in modo indipendente il livello delle risorse di c
 Il periodo di conservazione dei backup per il ripristino temporizzato può essere impostato tra 7 e 35 giorni. Le risorse di archiviazione dei backup verranno addebitate separatamente in base all'effettivo utilizzo, se questo supera la quantità di risorse di archiviazione pari alla dimensione massima dei dati. Nella versione di anteprima il periodo di conservazione predefinito per il ripristino temporizzato è di 7 giorni. In molti casi la dimensione massima dei dati è sufficiente per archiviare 7 giorni di backup.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>Perché è consentita la selezione della generazione di hardware per il calcolo?
-L'obiettivo è consentire la massima flessibilità, in modo da poter scegliere una configurazione di prestazioni che soddisfi al meglio le esigenze dell'applicazione. La tabella precedente illustra le differenze tra Gen4 e Gen5. In particolare, l'hardware Gen4 offre molta più memoria per ogni vCore. L'hardware Gen5 consente tuttavia di aumentare molto di più le risorse di calcolo. L'obiettivo di Microsoft è rendere chiare queste differenze, in modo che i clienti possano ottenere il miglior rapporto prezzo/prestazioni per l'applicazione.
+L'obiettivo è consentire la massima flessibilità, in modo da poter scegliere una configurazione di prestazioni che soddisfi al meglio le esigenze dell'applicazione. L'hardware Gen4 offre molta più memoria per ogni vCore. L'hardware Gen5 consente tuttavia di aumentare molto di più le risorse di calcolo. Per altre informazioni, vedere [Modello di acquisto vCore](sql-database-service-tiers-vcore.md)
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>È necessario portare offline l'applicazione per eseguire la conversione da un database basato su DTU a un livello di servizio basato su vCore? 
 I nuovi livelli di servizio offrono un semplice metodo di conversione online simile al processo esistente di aggiornamento dei database dal livello di servizio Standard a Premium e viceversa. Questa conversione può essere avviata tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, T-SQL o l'API REST. Vedere gli articoli per [gestire database singoli](sql-database-single-database-scale.md) e per [gestire pool elastici](sql-database-elastic-pool.md).

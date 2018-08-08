@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: e564f48b4b90cfcaa72ed51d5f210a71a4980360
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902946"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325456"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Come usare un'identità del servizio gestito di una macchina virtuale di Azure per l'acquisizione di token 
 
@@ -29,7 +29,7 @@ Identità del servizio gestito offre servizi di Azure con un'identità gestita a
 
 Questo articolo fornisce vari esempi di codice e script per l'acquisizione di token, oltre a indicazioni su argomenti importanti come la gestione degli errori HTTP e di scadenza dei token. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -49,6 +49,7 @@ Un'applicazione client può richiedere un [token di accesso solo app](../develop
 |  |  |
 | -------------- | -------------------- |
 | [Ottenere un token tramite HTTP](#get-a-token-using-http) | Dettagli del protocollo per l'endpoint del token dell'identità del servizio gestito |
+| [Ottenere un token usando la libreria Microsoft.Azure.Services.AppAuthentication per .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Esempio di utilizzo della libreria Microsoft.Azure.Services.AppAuthentication da un client .NET
 | [Ottenere un token tramite C#](#get-a-token-using-c) | Esempio d'uso dell'endpoint REST dell'identità del servizio gestito da un client C# |
 | [Ottenere un token tramite Go](#get-a-token-using-go) | Esempio d'uso dell'endpoint REST dell'identità del servizio gestito da un client Go |
 | [Ottenere un token tramite Azure PowerShell](#get-a-token-using-azure-powershell) | Esempio d'uso dell'endpoint REST dell'identità del servizio gestito da un client PowerShell |
@@ -73,7 +74,9 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `http://169.254.169.254/metadata/identity/oauth2/token` | L'endpoint dell'identità del servizio gestito per il servizio metadati dell'istanza. |
 | `api-version`  | Un parametro di stringa della query, che indica la versione dell'API per l'endpoint del servizio metadati dell'istanza. Usare la versione dell'API `2018-02-01` o successiva. |
 | `resource` | Parametro della stringa di query, che indica l'URI ID app della risorsa di destinazione. Viene visualizzato anche nell'attestazione `aud` (audience, destinatari) del token emesso. In questo esempio viene richiesto un token per accedere ad Azure Resource Manager, con l'URI di ID app https://management.azure.com/. |
-| `Metadata` | Campo di intestazione della richiesta HTTP, richiesto dall'identità del servizio gestito come mitigazione contro attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole.
+| `Metadata` | Campo di intestazione della richiesta HTTP, richiesto dall'identità del servizio gestito come mitigazione contro attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole. |
+| `object_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore object_id dell'identità gestita per cui si desidera il token. Obbligatorio se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
+| `client_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore client_id dell'identità gestita per cui si desidera il token. Obbligatorio se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
 
 Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale per l'identità del servizio gestita *(da deprecare)*:
 
@@ -87,7 +90,9 @@ Metadata: true
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `http://localhost:50342/oauth2/token` | Endpoint dell'identità del servizio gestito, dove 50342 è la porta predefinita ed è configurabile. |
 | `resource` | Parametro della stringa di query, che indica l'URI ID app della risorsa di destinazione. Viene visualizzato anche nell'attestazione `aud` (audience, destinatari) del token emesso. In questo esempio viene richiesto un token per accedere ad Azure Resource Manager, con l'URI di ID app https://management.azure.com/. |
-| `Metadata` | Campo di intestazione della richiesta HTTP, richiesto dall'identità del servizio gestito come mitigazione contro attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole.
+| `Metadata` | Campo di intestazione della richiesta HTTP, richiesto dall'identità del servizio gestito come mitigazione contro attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole.|
+| `object_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore object_id dell'identità gestita per cui si desidera il token. Obbligatorio se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
+| `client_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore client_id dell'identità gestita per cui si desidera il token. Obbligatorio se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
 
 
 Risposta di esempio:
@@ -115,6 +120,26 @@ Content-Type: application/json
 | `not_before` | Intervallo di tempo in cui il token di accesso è valido e può essere accettato. La data è rappresentata come numero di secondi da "1970-01-01T0:0:0Z UTC" (corrisponde all'attestazione `nbf` del token). |
 | `resource` | Risorsa per cui è stato richiesto il token di accesso, che corrisponde al parametro della stringa di query `resource` della richiesta. |
 | `token_type` | Tipo di token, ovvero un token di accesso di connessione, che indica che la risorsa può concedere l'accesso al titolare del token. |
+
+## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Ottenere un token usando la libreria Microsoft.Azure.Services.AppAuthentication per .NET
+
+Per le funzioni e le applicazioni .NET, il modo più semplice per funzionare con un'identità del servizio gestito è tramite il pacchetto Microsoft.Azure.Services.AppAuthentication. Questa raccolta consente anche di testare il codice in locale nel computer di sviluppo usando l'account utente da Visual Studio, dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) o tramite l'autenticazione integrata di Active Directory. Per altre informazioni sulle opzioni di sviluppo locale con questa libreria, vedere la [documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication]. In questa sezione viene illustrato come muovere i primi passi con la libreria nel codice.
+
+1. Aggiungere un riferimento ai pacchetti NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) all'applicazione.
+
+2.  Aggiungere il codice seguente all'applicazione:
+
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
+    
+Per altre informazioni su Microsoft.Azure.Services.AppAuthentication e sulle relative operazioni esposte, vedere la [documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication) e l'[esempio di servizio app e insieme di credenziali delle chiavi con MSI .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Ottenere un token tramite C#
 

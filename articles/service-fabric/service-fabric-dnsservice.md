@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 4d248724597a411f7253be1ccca0be6b85db95af
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237180"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397527"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servizio DNS in Azure Service Fabric
 Il servizio DNS è un servizio di sistema facoltativo che è possibile abilitare nel cluster per individuare altri servizi usando il protocollo DNS. 
@@ -159,7 +159,7 @@ Nell'esempio seguente il nome DNS per un servizio con stato viene impostato su `
     -ServiceDnsName service1.application1
 ```
 
-## <a name="making-dns-queries-on-a-stateful-service-partition"></a>Effettuare query DNS su una partizione del servizio con stato
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[Anteprima] Effettuare query DNS su una partizione del servizio con stato
 A partire da Service Fabric versione 6.3, il servizio DNS di Service Fabric supporta le query per le partizioni del servizio.
 
 Per le partizioni che verranno usate nelle query DNS, si applicano le restrizioni di denominazione seguenti:
@@ -249,6 +249,8 @@ public class ValuesController : Controller
 }
 ```
 
+## <a name="known-issues"></a>Problemi noti
+* Nelle versioni di Service Fabric 6.3 e successive, le ricerche DNS di nomi di servizi contenenti un segno meno nel nome DNS presentano un problema. Per altre informazioni su questo problema, seguire questo [problema GitHub](https://github.com/Azure/service-fabric-issues/issues/1197). La correzione di questo problema è prevista nel prossimo aggiornamento della versione 6.3. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla comunicazione tra i servizi all'interno del cluster, vedere [Connettersi e comunicare con i servizi in Service Fabric](service-fabric-connect-and-communicate-with-services.md)

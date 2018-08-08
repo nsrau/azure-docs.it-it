@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444266"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399091"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Impostare e ottenere la velocità effettiva per i contenitori e il database Azure Cosmos DB
 
@@ -153,7 +153,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Impostare la velocità effettiva a livello di set di contenitori o di database
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Impostare la velocità effettiva per un set di contenitori a livello di database
 
 Ecco un frammento di codice per il provisioning di 100.000 unità richiesta al secondo per un set di contenitori usando .NET SDK dell'API SQL:
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Ottenere la velocità effettiva con il comando GetLastRequestStatistics dell'API MongoDB
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Ottenere la velocità effettiva usando le metriche del portale dell'API MongoDB
+
+Il modo più semplice per ottenere una stima valida degli addebiti per le unità richiesta per il database dell'API MongoDB consiste nell'usare le metriche del [portale di Azure](https://portal.azure.com). I grafici *Numero di richieste* e *Richiedi addebito* consentono di ottenere una stima del numero di unità richiesta utilizzate da ogni operazione e del numero di unità richiesta utilizzate una rispetto all'altra.
+
+![Metriche del portale dell'API MongoDB][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Superamento dei limiti della velocità effettiva riservata nell'API MongoDB
+Le applicazioni che superano la velocità effettiva con provisioning per un contenitore o un set di contenitori vengono limitate nella velocità fino a quando il tasso di utilizzo non scende sotto la velocità effettiva con provisioning. In caso di limitazione della velocità, il back-end terminerà la richiesta con un codice errore `16500`, ovvero `Too Many Requests`. Per impostazione predefinita, l'API MongoDB ripeterà automaticamente i tentativi fino a 10 volte prima di restituire un codice errore `Too Many Requests`. Se si riceve un numero eccessivo di codici errore `Too Many Requests`, è possibile prendere in considerazione l'aggiunta di una logica di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione oppure l'[aumento della velocità effettiva con provisioning per il contenitore](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>Ottenere l'addebito della richiesta con il comando GetLastRequestStatistics dell'API MongoDB
 
 L'API MongoDB supporta un comando personalizzato, *getLastRequestStatistics*, per il recupero degli addebiti per le richieste per un'operazione specificata.
 
@@ -254,14 +263,19 @@ Un metodo per stimare la quantità di velocità effettiva riservata richiesta da
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Ottenere la velocità effettiva usando le metriche del portale dell'API MongoDB
+## <a id="RequestchargeGraphAPI"></a>Ottenere l'addebito della richiesta per gli account dell'API Gremlin 
 
-Il modo più semplice per ottenere una stima valida degli addebiti per le unità richiesta per il database dell'API MongoDB consiste nell'usare le metriche del [portale di Azure](https://portal.azure.com). I grafici *Numero di richieste* e *Richiedi addebito* consentono di ottenere una stima del numero di unità richiesta utilizzate da ogni operazione e del numero di unità richiesta utilizzate una rispetto all'altra.
+Ecco un esempio su come ottenere l'addebito della richiesta per gli account dell'API Gremlin tramite la libreria Gremlin.Net. 
 
-![Metriche del portale dell'API MongoDB][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Superamento dei limiti della velocità effettiva riservata nell'API MongoDB
-Le applicazioni che superano la velocità effettiva con provisioning per un contenitore o un set di contenitori vengono limitate nella velocità fino a quando il tasso di utilizzo non scende sotto la velocità effettiva con provisioning. In caso di limitazione della velocità, il back-end terminerà la richiesta con un codice errore `16500`, ovvero `Too Many Requests`. Per impostazione predefinita, l'API MongoDB ripeterà automaticamente i tentativi fino a 10 volte prima di restituire un codice errore `Too Many Requests`. Se si riceve un numero eccessivo di codici errore `Too Many Requests`, è possibile prendere in considerazione l'aggiunta di una logica di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione oppure l'[aumento della velocità effettiva con provisioning per il contenitore](set-throughput.md).
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+Oltre al metodo precedente, per i calcoli delle unità richiesta è anche possibile usare l'intestazione "x-ms-total-request-charge".
+
 
 ## <a name="throughput-faq"></a>Domande frequenti sulla velocità effettiva
 

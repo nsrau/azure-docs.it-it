@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: tdykstra
-ms.openlocfilehash: 31c0d8c43a1a7614ff1965853b8ce0a3997db6f4
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 5d30357e5308de0224590703bb5e68fbe73b882b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343178"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343437"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Come preparare un cambio di indirizzo IP in ingresso
 
@@ -39,9 +39,11 @@ Il nuovo indirizzo IP in ingresso che viene assegnato all'app si trova nel porta
 
 2.  Nel menu di spostamento a sinistra selezionare **Servizi app**.
 
-3.  Selezionare il servizio app dall'elenco.
+3.  Selezionare il servizio app nell'elenco.
 
-4.  Nell'intestazione **Impostazioni** fare clic su **Proprietà** nel menu di spostamento a sinistra e individuare la sezione denominata **Indirizzo IP virtuale**.
+4.  Se l'app è un'app per le funzioni, vedere [Function app inbound IP address](../azure-functions/ip-addresses.md#function-app-inbound-ip-address) (Indirizzo IP in ingresso dell'app per le funzioni).
+
+4.  Sotto l'intestazione **Impostazioni** fare clic su **Proprietà** nel menu di spostamento a sinistra e individuare la sezione denominata **Indirizzo IP virtuale**.
 
 5. Copiare l'indirizzo IP e riconfigurare il record di dominio o meccanismo di IP.
 

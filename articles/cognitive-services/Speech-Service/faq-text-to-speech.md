@@ -1,24 +1,23 @@
 ---
-title: Domande frequenti sul servizio di riconoscimento vocale in Azure | Microsoft Docs
+title: Domande frequenti sul servizio di riconoscimento vocale in Azure
 description: Di seguito sono riportate le risposte alle domande più frequenti sul riconoscimento vocale.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 4a29435c0ace79fc3a5d3a5a42a0e91bdbc8da5e
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d70c4a359c713d6c5f46423193e9c9e7e1f3baf
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082825"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282858"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Domande frequenti sulla sintesi vocale
 
-Se le risposte alle proprie domande non sono presenti qui, provare a rivolgersi alla community del Servizio di riconoscimento vocale personalizzato in [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) e [UserVoice](https://cognitive.uservoice.com/)
+Se le risposte alle proprie domande non sono presenti in questo documento, vedere le altre opzioni di supporto [qui](support.md).
 
 ## <a name="general"></a>Generale
 
@@ -46,7 +45,7 @@ Offriamo servizi aggiuntivi per agevolare la preparazione degli script per la re
 
 **Domanda**: Che cosa è necessario fare se serve una concorrenza più elevata rispetto al valore predefinito o a ciò che viene offerto nel portale?
 
-**Risposta**: È possibile aumentare il modello in incrementi di 20 richieste simultanee. Contattare l'[assistenza clienti per la voce personalizzata](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) per eventuali domande su un maggiore ridimensionamento.
+**Risposta**: È possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee. Contattare l'[assistenza clienti per la voce personalizzata](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) per eventuali domande su un maggiore ridimensionamento.
 
 **Domanda**: È possibile scaricare il modello ed eseguirlo in locale?
 

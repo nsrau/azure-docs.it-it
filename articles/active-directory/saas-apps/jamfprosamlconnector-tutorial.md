@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 794039ee1a5b1cf3b382e0f0769383b1e033e982
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046941"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Esercitazione: Integrazione di Azure Active Directory con Jamf Pro
 
@@ -139,7 +139,21 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurazione di Jamf Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. Scorrere verso il basso fino a **IDENTITY PROVIDER** (PROVIDER DI IDENTITÀ) nella sezione **Single Sign-On** e seguire questa procedura:
+10. Nella pagina **Single Sign-On** eseguire la procedura seguente:
+
+    ![Single Sign-On di Jamf Pro](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+
+    a. Selezionare **Jamf Pro Server** per abilitare l'accesso Single Sign-On.
+
+    b. Se si seleziona **Allow bypass for all users** (Consenti bypass per tutti gli utenti) gli utenti non vengono reindirizzati alla pagina di accesso del provider di identità per l'autenticazione, ma possono accedere a Jamf Pro direttamente. Se un utente prova ad accedere a Jamf Pro tramite il provider di identità, l'autenticazione SSO e l'autorizzazione vengono avviate dal provider di identità.
+
+    c. Selezionare l'opzione **NameID** (ID nome) per **USER MAPPING: SAML** (Mapping utenti: SAML). Per impostazione predefinita, questa impostazione corrisponde a **NameID** (ID nome), ma è possibile definire un attributo personalizzato.
+
+    d. Selezionare **Email** (Posta elettronica) per **USER MAPPING: JAMF PRO** (Mapping utenti: Jamf Pro). Jamf Pro esegue il mapping degli attributi SAML inviati dal provider di identità nei modi seguenti: per utenti e per gruppi. Se un utente tenta di accedere a Jamf Pro, per impostazione predefinita Jamf Pro ottiene informazioni sull'utente dal provider di identità e cerca una corrispondenza tra i propri account utente. Se l'account utente in ingresso non esiste in Jamf Pro, cerca una corrispondenza tra i nomi di gruppo.
+
+    e. Incollare il valore `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` nella casella di testo **GROUP ATTRIBUTE NAME** (Nome attributo gruppo).
+ 
+11. Nella stessa pagina scorrere verso il basso fino a **IDENTITY PROVIDER** (Provider di identità) nella sezione **Single Sign-On** ed eseguire la procedura seguente:
 
     ![Configurazione di Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -152,7 +166,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     d. Copiare il valore di **Entity ID** (ID entità) e incollarlo nella casella di testo **Identificatore (ID entità)** nella sezione **URL e dominio Jamf Pro** del portale di Azure.
 
     >[!NOTE]
-    > In questo caso, `aadsso` è la parte del sottodominio (a scopo di riferimento). Usare questo valore per completare l'URL di accesso e l'URL di risposta nella sezione **URL e dominio Jamf Pro** del portale di Azure.
+    > Il valore disattivato visualizzato corrisponde alla parte relativa al sottodominio. Usare questo valore per completare l'URL di accesso e l'URL di risposta nella sezione **URL e dominio Jamf Pro** del portale di Azure.
 
     e. Fare clic su **Save**.
 
@@ -186,7 +200,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-jamf-pro-test-user"></a>Creare un utente di test di Jamf Pro
 

@@ -7,14 +7,14 @@ manager: carmonm
 keywords: backup e ripristino di emergenza; servizio Backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
-ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605825"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412952"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
 Questo articolo risponde alle domande comuni sui componenti di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,8 +33,11 @@ Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristin
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se l'organizzazione ha un insieme di credenziali, come è possibile isolare i dati di un server da un altro server durante il ripristino dei dati?<br/>
 Tutti i server che vengono registrati nello stesso insieme di credenziali possono ripristinare i dati dei quali è stato eseguito il backup da altri server *che usano la stessa passphrase*. Se sono presenti server i cui dati di backup devono essere isolati dagli altri server dell'organizzazione, usare una passphrase designata per tali server. Ad esempio, per i server del reparto risorse umane può essere usata una passphrase, per quelli dell'ufficio contabilità un'altra e per quelli di archiviazione un'altra ancora.
 
-### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>È possibile eseguire la migrazione dei dati o dell'insieme di credenziali per il backup tra sottoscrizioni? <br/>
-di serie L'insieme di credenziali viene creato a livello di sottoscrizione e non può essere riassegnato a un'altra sottoscrizione.
+### <a name="can-i-migrate-my-vault-between-subscriptions-br"></a>È possibile eseguire la migrazione dell'insieme di credenziali tra sottoscrizioni? <br/>
+No. L'insieme di credenziali viene creato a livello di sottoscrizione e non può essere riassegnato a un'altra sottoscrizione.
+
+### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>È possibile eseguire la migrazione dei dati di backup di un altro insieme di credenziali? <br/>
+No. Non è possibile spostare i dati di backup archiviati in un insieme di credenziali in un insieme di credenziali diverso.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Gli insiemi di credenziali di Servizi di ripristino sono basati su Resource Manager. Gli insiemi di credenziali di backup sono ancora supportati? <br/>
 Gli insiemi di credenziali di backup sono stati convertiti in insiemi di credenziali di Servizi di ripristino. Se non è stata eseguita la conversione dell'insieme di credenziali di backup in un insieme di credenziali di Servizi di ripristino, tale conversione è stata eseguita automaticamente. 
@@ -60,7 +63,7 @@ Sì. È possibile usare il server di Backup di Azure per eseguire il backup di V
 Sì.
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>È possibile registrare un server Data Protection Manager in più insiemi di credenziali? <br/>
-di serie Un server di Backup di Microsoft Azure o un server Data Protection Manager può essere registrato in un solo insieme di credenziali.
+No. Un server di Backup di Microsoft Azure o un server Data Protection Manager può essere registrato in un solo insieme di credenziali.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Quale versione di System Center Data Protection Manager è supportata?
 
@@ -74,11 +77,11 @@ Sì. Tuttavia, per usare Azure Backup con System Center Data Protection Manager 
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>È possibile usare DPM per eseguire il backup delle App in Azure Stack?
 
-di serie Sebbene sia possibile usare Backup di Azure per proteggere Azure Stack, Backup di Azure attualmente non supporta l'utilizzo di DPM per eseguire il backup delle app in Azure Stack.
+No. Sebbene sia possibile usare Backup di Azure per proteggere Azure Stack, Backup di Azure attualmente non supporta l'utilizzo di DPM per eseguire il backup delle app in Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Funzionamento di Backup di Azure
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Se si annulla un processo di backup una volta avviato, i dati di backup trasferiti vengono eliminati? <br/>
-di serie Tutti i dati trasferiti nell'insieme di credenziali prima dell'annullamento del processo di backup rimangono nell'insieme di credenziali. Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup. Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file. Il processo di backup successivo sarà incrementale nei backup di dati eseguiti in precedenza. I backup incrementali trasferiscono solo dati nuovi o modificati, il che equivale a un migliore utilizzo della larghezza di banda.
+No. Tutti i dati trasferiti nell'insieme di credenziali prima dell'annullamento del processo di backup rimangono nell'insieme di credenziali. Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup. Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file. Il processo di backup successivo sarà incrementale nei backup di dati eseguiti in precedenza. I backup incrementali trasferiscono solo dati nuovi o modificati, il che equivale a un migliore utilizzo della larghezza di banda.
 
 Se si annulla un processo di backup per una macchina virtuale di Azure, tutti i dati trasferiti vengono ignorati. Il processo di backup successivo trasferisce i dati incrementali dall'ultimo processo di backup riuscito.
 
@@ -147,7 +150,7 @@ No, sia DPM che Windows Server/client prevedono criteri di conservazione giornal
 Sì, la struttura di memorizzazione del Backup di Azure consente di disporre della massima flessibilità nella definizione dei criteri di conservazione in base alle esigenze.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>È possibile "pianificare un backup" alle 18.00 e specificare criteri di conservazione con un orario diverso?<br/>
-di serie I criteri di conservazione possono essere applicati solo ai punti di backup. Nell'immagine seguente viene specificato il criterio di conservazione per i backup eseguiti a mezzanotte e alle 18. <br/>
+No. I criteri di conservazione possono essere applicati solo ai punti di backup. Nell'immagine seguente viene specificato il criterio di conservazione per i backup eseguiti a mezzanotte e alle 18. <br/>
 
 ![Pianificare backup e conservazione](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
@@ -165,7 +168,7 @@ Per ogni istanza protetta, è possibile creare fino a 9999 punti di ripristino. 
 Non esistono limiti al numero di ripristini da Backup di Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Quando si ripristinano i dati, vengono addebitati costi per il traffico in uscita da Azure? <br/>
-di serie I ripristini sono gratuiti e non viene addebitato alcun costo per il traffico in uscita.
+No. I ripristini sono gratuiti e non viene addebitato alcun costo per il traffico in uscita.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>Che cosa succede quando si modificano i criteri di backup?
 Quando vengono applicati nuovi criteri, vengono seguite la pianificazione e la conservazione stabilite dai nuovi criteri. Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri. Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione ed eliminati nel successivo processo di pulizia.

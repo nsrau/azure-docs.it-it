@@ -1,23 +1,24 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale in C++ su Linux con Speech SDK di Servizi cognitivi| Microsoft Docs'
+title: 'Guida introduttiva: Riconoscimento vocale in C++ su Linux con Speech SDK di Servizi cognitivi'
 titleSuffix: Microsoft Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ su Linux con Speech SDK di Servizi cognitivi
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: b5f5cdbe202b406c724a9f4f5787e566b432a66c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8f794f1d29b5fde9acd43fa4a018ccb39a8ccd25
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116147"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324779"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su Linux con Speech SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come creare un'applicazione console C++ su Linux (Ubuntu 16.04) usando Speech SDK di Servizi cognitivi per trascrivere il riconoscimento vocale.
 
@@ -133,4 +134,4 @@ Ricercare questo esempio nella cartella `quickstart/cpp-linux`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visitare la [pagina degli esempi](samples.md) per esempi aggiuntivi.
+* [Scaricare gli esempi](speech-sdk.md#get-the-samples)

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4911a302bf9055948827a72f2e631663b8be741e
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724908"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39267121"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Architetture di database multimaster replicate a livello globale con Microsoft Azure Cosmos DB 
  
@@ -35,7 +35,7 @@ Se si dispone già di una sottoscrizione di Azure, è possibile iscriversi per p
 
 2. Nella pagina Nuovo account, specificare un nome per l'account di Azure Cosmos DB e quindi scegliere API, sottoscrizione, gruppo di risorse e località.  
 
-3. Selezionare poi **Iscrizione immediata all'anteprima** nel campo Multi Master Preview.  
+3. Selezionare quindi **Iscrizione immediata all'anteprima** nel campo Anteprima di Multimaster.  
 
    ![Effettuare l'iscrizione per l'anteprima multimaster](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
 
@@ -71,7 +71,7 @@ I clienti che tentano di implementare il modello multimaster autonomamente aggiu
 
 Il supporto multimaster offre in pratica i vantaggi seguenti:
 
-* **Miglioramenti nel ripristino di emergenza, nella disponibilità in scrittura e nel failover** - È possibile usare il supporto multimaster per conservare in misura maggiore la disponibilità elevata di un database di importanza strategica. Un database multimaster può, ad esempio, replicare i dati di un'area verso un'area di failover quando l'area primaria diventa non disponibile a causa di un'interruzione del servizio o una situazione di emergenza. L'area di failover funge a questo punto da area master pienamente funzionale per supportare l'applicazione. Il modello multimaster offre una "possibilità di sopravvivenza" e una protezione maggiori al verificarsi di disastri naturali, interruzioni di elettricità o sabotaggi, o di tutte queste situazioni insieme in quanto le aree rimanenti possono trovarsi in multimaster posti in luoghi geografici diversi con una disponibilità di scrittura garantita maggiore del 99,999%. 
+* **Miglioramenti nel ripristino di emergenza, nella disponibilità in scrittura e nel failover** - È possibile usare il supporto multimaster per conservare in misura maggiore la disponibilità elevata di un database di importanza strategica. Un database multimaster può, ad esempio, replicare i dati di un'area verso un'area di failover quando l'area primaria diventa non disponibile a causa di un'interruzione del servizio o una situazione di emergenza. L'area di failover funge da area master pienamente funzionale per supportare l'applicazione. Il modello multimaster offre una protezione con maggiore "possibilità di sopravvivenza" al verificarsi di disastri naturali, interruzioni di elettricità o sabotaggi, in quanto le aree rimanenti possono trovarsi in multimaster ubicati in luoghi geografici diversi con una disponibilità di scrittura garantita maggiore del 99,999%. 
 
 * **Miglioramento della latenza in scrittura per gli utenti finali** - Più sono vicini i dati (offerti dal servizio) all'utente finale, migliore è l'esperienza dell'utente. Se, ad esempio, gli utenti si trovano in Europa ma il database risiede negli Stati Uniti o in Australia, la latenza aggiunta è di circa 140 ms e 300 ms per le rispettive aree. Per molti giochi popolari, servizi bancari o applicazioni interattive (Web o per dispositivi mobili) i ritardi non sono un buon inizio. La latenza ha un'enorme importanza nella percezione che un cliente ha di un'esperienza di alta qualità. È stato inoltre dimostrato che la latenza ha un notevole impatto sul comportamento degli utenti. Con l'evoluzione della tecnologia e soprattutto con l'avvento di AR, VR e MR, che richiedono esperienze ancora più immersive e realistiche, gli sviluppatori devono ora creare sistemi software con requisiti di latenza rigorosi. Diventa quindi ancora più importante avere applicazioni e dati (contenuto per le applicazioni) disponibili localmente. Con il supporto multimaster di Microsoft Azure Cosmos DB, le prestazioni sono veloci quanto le normali operazioni di lettura e scrittura in locale e sono avanzate a livello globale grazie alla distribuzione geografica.  
 

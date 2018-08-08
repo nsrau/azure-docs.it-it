@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 4a6e0924492c26c9bad4ed0af207ad9764c3cc5c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3659572f46ae82d39a6c53246db2b6a536be32c8
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831898"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282942"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
 
@@ -127,6 +127,12 @@ In base alle risposte alle domande precedenti, verrà visualizzato il pulsante *
 
 Dopo i passaggi precedenti, l'utente può accedere alla risorsa originale, ovvero un collegamento a un oggetto esistente. Il valore **Diagnose status** (Stato diagnosi) nella visualizzazione elenco diventa **In attesa di sincronizzazione**. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Connect Health non mostrerà più l'errore di sincronizzazione risolto nella visualizzazione elenco.
 
+## <a name="failures-and-error-messages"></a>Errori e messaggi di errore
+**L'utente con attributo in conflitto viene eliminato temporaneamente in Azure Active Directory. Assicurarsi che l'utente venga eliminato definitivamente prima di riprovare.**  
+L'utente con attributo in conflitto in Azure AD deve essere rimosso prima di applicare la correzione. Vedere [come eliminare in modo permanente l'utente in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) prima di riprovare ad applicare la correzione. L'utente verrà anche eliminato automaticamente in modo permanente dopo 30 giorni in cui si trova nello stato di eliminazione temporanea. 
+
+**L'aggiornamento dell'ancoraggio di origine in un utente basato sul cloud nel tenant non è supportato.**  
+L'utente basato su cloud in Azure AD non deve avere l'ancoraggio di origine. In questo caso l'aggiornamento dell'ancoraggio di origine non è supportato. La correzione manuale è necessaria in locale. 
 
 ## <a name="faq"></a>Domande frequenti
 **D.** Cosa accade se l'esecuzione di **Applica correzione** non riesce?  

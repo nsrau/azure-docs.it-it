@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004847"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283095"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
-Il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) consente di [creare e aggiungere una macchina virtuale a un lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Ciò vale per la creazione di una macchina virtuale alla volta. Tuttavia, se l'ambiente contiene più macchine virtuali, ogni macchina deve essere creata individualmente. Per scenari quali app Web multilivello o farm di SharePoint, è necessario un meccanismo che consenta la creazione di più macchine virtuali in un unico passaggio. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di distribuire ripetutamente più macchine virtuali in modo coerente. Ciò offre i vantaggi seguenti:
+Il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) consente di [aggiungere una macchina virtuale alla volta a un lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Tuttavia, se l'ambiente contiene più macchine virtuali, ogni macchina deve essere creata individualmente. Per scenari quali app Web multilivello o farm di SharePoint, è necessario un meccanismo che consenta la creazione di più macchine virtuali in un unico passaggio. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di distribuire ripetutamente più macchine virtuali in modo coerente. Ciò offre i vantaggi seguenti:
 
 - I modelli di Azure Resource Manager vengono caricati direttamente dal repository di controllo del codice sorgente (GitHub o Team Services Git).
 - Al termine della configurazione, gli utenti possono creare un ambiente scegliendo un modello di Azure Resource Manager dal portale di Azure, come avviene con altri tipi di [basi per macchine virtuali](./devtest-lab-comparing-vm-base-image-types.md).
@@ -43,6 +43,8 @@ Altre informazioni sui numerosi [vantaggi offerti dai modelli di Resource Manage
 
 Come procedura consigliata nei casi di infrastruttura come codice e configurazione come codice, i modelli di ambiente devono essere gestiti nel controllo del codice sorgente. Azure Labs DevTest applica questa procedura e carica tutti i modelli Azure Resource Manager direttamente dai repository VSTS Git o GitHub. Di conseguenza, i modelli di Resource Manager possono essere usati in tutto il ciclo di rilascio, dall'ambiente di test a quello di produzione.
 
+Esaminare i modelli creati dal team di DevTest Labs nel [repository GitHub pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Nel repository pubblico è possibile visualizzare i modelli condivisi da altri utenti che è possibile usare direttamente o personalizzare in base alle esigenze. Dopo aver creato il modello, archiviarlo nel repository per condividerlo con altri utenti. È anche possibile configurare un repository Git personale con i modelli che si usano per configurare gli ambienti nel cloud. 
+
 Ci sono un paio di regole da seguire per organizzare i modelli di Azure Resource Manager in un repository:
 
 - Il nome del file del modello master deve essere `azuredeploy.json`. 
@@ -53,15 +55,15 @@ Ci sono un paio di regole da seguire per organizzare i modelli di Azure Resource
 - È possibile usare i parametri `_artifactsLocation` e `_artifactsLocationSasToken` per costruire il valori URI parametersLink e consentire a DevTest Labs di gestire automaticamente i modelli nidificati. Per altre informazioni, vedere [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments (Come Azure DevTest Labs semplifica le distribuzioni di modelli di Resource Manager nidificati negli ambienti di test)](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
 - È possibile definire metadati per specificare il nome e la descrizione visualizzati del modello. I metadati deve essere contenuti in un file denominato `metadata.json`. Il file di metadati di esempio seguente mostra come specificare il nome e la descrizione visualizzati: 
 
-```json
-{
+    ```json
+    {
  
-"itemDisplayName": "<your template name>",
+        "itemDisplayName": "<your template name>",
  
-"description": "<description of the template>"
+        "description": "<description of the template>"
  
-}
-```
+    }
+    ```
 
 La procedura seguente consente di aggiungere un repository nel lab tramite il portale di Azure. 
 
@@ -150,7 +152,7 @@ Quando si usa un modello di Resource Manager in DevTest Labs, tenere in consider
 
 - Non è possibile convalidare la maggior parte dei criteri quando si distribuiscono i modelli di Resource Manager.
 
-   Ad esempio, un criterio del lab può specificare che un utente può creare solo cinque macchine virtuali. Se tuttavia l'utente distribuisce un modello di Resource Manager per la creazione di varie macchine virtuali, tale operazione è consentita. Tra i criteri che non vengono convalidati sono inclusi:
+   Ad esempio, un criterio del lab può specificare che un utente può creare solo cinque macchine virtuali. Tuttavia un utente può distribuire un modello di Resource Manager per la creazione di varie macchine virtuali. Tra i criteri che non vengono convalidati sono inclusi:
 
    - Numero di macchine virtuali per utente
    - Numero di macchine virtuali premium per utente del lab

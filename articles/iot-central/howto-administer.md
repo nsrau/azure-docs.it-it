@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0bdd798f9bc8fdaef54abd721a986c607c6323a5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a43febf1e78f80451b6aeed19e095b2c313d3216
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628556"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284854"
 ---
 # <a name="how-to-administer-your-application"></a>Come gestire l'applicazione
 
@@ -55,6 +55,25 @@ Nella pagina **Application Settings** (Impostazioni applicazione) immettere l'UR
 ## <a name="change-the-application-image"></a>Modificare l'immagine dell'applicazione
 
 Per altre informazioni sull'uso di immagini in un'applicazione Azure IoT Central, vedere [Prepare and upload images to your Azure IoT Central application](howto-prepare-images.md) (Preparare e caricare immagini nell'applicazione Azure IoT Central).
+
+## <a name="copy-an-application"></a>Copiare un'applicazione
+
+È possibile creare una copia di una qualsiasi applicazione, senza tuttavia includere eventuali istanze di dispositivi, la cronologia dei dati dei dispositivi e i dati degli utenti. La copia sarà un'applicazione a pagamento per la quale verrà applicato un addebito. Non è possibile creare un'applicazione di prova copiando un'altra applicazione.
+
+Per copiare un'applicazione, passare alla pagina **Impostazioni dell'applicazione** e fare clic sul pulsante **Copia**.
+
+![Pagina Impostazioni dell'applicazione](media\howto-administer\appCopy1.png)
+
+Facendo clic sul pulsante **Copia** verrà visualizzata una finestra di dialogo in cui è possibile selezionare un nome, un URL, una directory AAD, una sottoscrizione e un'area di Azure per la nuova applicazione che verrà creata tramite la copia dell'applicazione originale. Selezionare i valori per ognuno di questi campi e quindi fare clic sul pulsante **Copia** per confermare che si intende procedere. Nell'articolo che illustra [come creare un'applicazione](howto-create-application.md) sono disponibili maggiori informazioni sui valori da inserire.
+
+![Pagina Impostazioni dell'applicazione](media\howto-administer\appCopy2.png)
+
+Al termine dell'operazione di copia dell'app, sarà possibile passare alla nuova applicazione creata tramite la copia dell'applicazione originale selezionando il collegamento visualizzato nella pagina **Impostazioni dell'applicazione**.
+
+![Pagina Impostazioni dell'applicazione](media\howto-administer\appCopy3.png)
+
+> [!Note]
+> Copiando un'applicazione si copiano anche le definizioni di regole o azioni. Tuttavia, poiché gli utenti che hanno accesso all'app originale non vengono copiati nell'app copiata, sarà necessario aggiungere manualmente gli utenti alle azioni (come i servizi di posta elettronica) per le quali gli utenti sono un prerequisito.
 
 ## <a name="delete-an-application"></a>Eliminare un'applicazione
 

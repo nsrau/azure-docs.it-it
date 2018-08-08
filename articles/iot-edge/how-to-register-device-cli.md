@@ -4,17 +4,17 @@ description: Usare l'estensione IoT per l'interfaccia della riga di comando di A
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 05/30/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6935dfe5b32364e402017cd3005ab17969ce1ce
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 451f4df31cd1c520b14227829923f72fe80c38c3
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034814"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325497"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli-20"></a>Registrare un nuovo dispositivo Azure IoT Edge con l'interfaccia della riga di comando di Azure 2.0
 
@@ -24,7 +24,7 @@ L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cl
 
 Questo articolo illustra come registrare un nuovo dispositivo IoT Edge usando l'interfaccia della riga di comando di Azure 2.0.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure. 
 * [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente. La versione dell'interfaccia della riga di comando di Azure 2.0 deve essere 2.0.24 o successiva. Usare `az –-version` per la convalida. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. 
@@ -63,7 +63,7 @@ Quando si è pronti per configurare il dispositivo, è necessaria la stringa di 
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name] 
    ```
 
-Per il parametro device-id viene fatta distinzione tra maiuscole e minuscole. 
+Per il parametro device-id viene fatta distinzione tra maiuscole e minuscole. Non copiare le virgolette alle estremità della stringa di connessione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

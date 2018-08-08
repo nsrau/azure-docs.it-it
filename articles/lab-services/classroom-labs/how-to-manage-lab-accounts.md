@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225303"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345889"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gestire account lab in Azure Lab Services 
 In Azure Lab Services, un account lab è un contenitore per lab gestiti, ad esempio, laboratori di classe. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
@@ -55,11 +55,17 @@ Per configurare un lab per le classi in un account del lab, l'utente deve essere
     ![Aggiungere un utente al ruolo di creatore di lab](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Specificare le immagini del Marketplace disponibili per i proprietari del lab
-In questa sezione verranno specificate le immagini del Marketplace che i proprietari del lab possono usare per creare lab per le classi. 
+In quanto proprietario di un account del lab, è possibile specificare le immagini del Marketplace che gli autori di lab possono usare per creare lab nell'account del lab. 
 
 1. Selezionare **Immagini del Marketplace** nel menu a sinistra. Per impostazione predefinita, verrà visualizzato l'elenco completo delle immagini (abilitate e disabilitate). È possibile filtrare l'elenco per visualizzare solo le immagini abilitate o disabilitate selezionando l'opzione **Enabled only**/**Disabled only** (Solo abilitate, Solo disabilitate) nell'elenco a discesa nella parte superiore. 
-
+    
     ![Pagina Immagini del Marketplace](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+
+    Nell'elenco vengono visualizzate solo le immagini del Marketplace che soddisfano le condizioni seguenti:
+        
+    - Crea una singola macchina virtuale.
+    - Usa Azure Resource Manager per il provisioning di macchine virtuali
+    - Non richiede l'acquisto di un piano di licenze aggiuntivo
 2. Per **disabilitare** un'immagine del Marketplace che è stata abilitata, eseguire una delle azioni seguenti: 
     1. Selezionare **... (puntini di sospensione)** nell'ultima colonna e selezionare **Disable image** (Disabilita immagine). 
 

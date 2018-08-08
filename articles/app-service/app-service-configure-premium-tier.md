@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 07/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 04996e772c2989be89ce551bfa45c57154de7b2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714562"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307790"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
 
@@ -28,21 +28,19 @@ Il nuovo piano tariffario **PremiumV2** consente di avere processori più veloci
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per passare un'app Web al livello **PremiumV2**, è necessario avere un'app Web nel servizio app di Azure eseguita su un livello inferiore rispetto a **PremiumV2**.
+Per passare un'app Web al livello **PremiumV2**, è necessario avere un'app Web in Servizio app di Azure eseguita su un livello inferiore rispetto a **PremiumV2** e l'app Web deve essere in esecuzione in una distribuzione del servizio app che supporta PremiumV2.
 
 <a name="availability"></a>
 
 ## <a name="premiumv2-availability"></a>Disponibilità di PremiumV2
 
-Il livello PremiumV2 è attualmente disponibile per il servizio app di Azure solo in _Windows_. I contenitori Linux non sono attualmente supportati.
+Il livello **PremiumV2** è disponibile per il servizio app sia in _Windows_ che in _Linux_.
 
-Il livello PremiumV2 è già disponibile nella maggior parte delle aree di Azure ed è in continua espansione. Per vedere se è disponibile nella propria area, eseguire in [Azure Cloud Shell](../cloud-shell/overview.md) il comando dell'interfaccia della riga di comando di Azure seguente:
+**PremiumV2** è disponibile nella maggior parte delle aree di Azure. Per vedere se è disponibile nella propria area, eseguire in [Azure Cloud Shell](../cloud-shell/overview.md) il comando dell'interfaccia della riga di comando di Azure seguente:
 
 ```azurecli-interactive
 az appservice list-locations --sku P1V2
 ```
-
-Se si riceve un errore durante la creazione dell'app o del piano di servizio app, è probabile che **PremiumV2** non sia disponibile nella propria area.
 
 <a name="create"></a>
 
@@ -57,11 +55,11 @@ Selezionare **Produzione**, quindi selezionare **P1V2**, **P2V2** o **P3V2** e f
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Se le opzioni **P1V2**, **P2V2** e **P3V2** non sono visualizzate, è possibile che **PremiumV2** non sia disponibile nell'area scelta o che si stia configurando un piano di servizio app Linux, che non supporta **PremiumV2**.
+> Se le opzioni **P1V2**, **P2V2** e **P3V2** non sono visualizzate oppure sono in grigio, il livello **PremiumV2** probabilmente non è disponibile nella distribuzione del servizio app sottostante che contiene il piano di servizio app. Per altri dettagli, vedere [Passare a un piano superiore da una combinazione di gruppo di risorse e area non supportata](#unsupported).
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Passare un'app esistente al livello PremiumV2
 
-Prima di passare un'app esistente al livello **PremiumV2**, assicurarsi che **PremiumV2** sia disponibile della propria area. Per informazioni, vedere [Disponibilità di PremiumV2](#availability). Se non è disponibile nella propria area, vedere [Passare a un piano superiore da un'area non supportata](#unsupported).
+Prima di passare un'app esistente al livello **PremiumV2**, assicurarsi che **PremiumV2** sia disponibile. Per informazioni, vedere [Disponibilità di PremiumV2](#availability). Se non è disponibile, vedere [Passare a un piano superiore da una combinazione di gruppo di risorse e area non supportata](#unsupported).
 
 A seconda dell'ambiente di hosting, il passaggio al livello successivo può richiedere operazioni aggiuntive. 
 
@@ -81,32 +79,20 @@ Se l'operazione viene completata correttamente, nella pagina di panoramica dell'
 
 ### <a name="if-you-get-an-error"></a>Se si verifica un errore
 
-In alcuni piani di servizio app non è possibile passare al livello PremiumV2. Se l'operazione di scalabilità verticale restituisce un errore, è necessario creare un nuovo piano di servizio app per l'app.
-
-Creare un piano di servizio app _Windows_ nella stessa area e nello stesso gruppo di risorse in cui si trova l'app del servizio app. Seguire i passaggi descritti in [Creare un'app nel livello PremiumV2](#create) per impostarla sul livello **PremiumV2**. Se si vuole, è possibile usare la stessa configurazione di scalabilità orizzontale definita per il piano di servizio app esistente (numero di istanze, scalabilità automatica e così via).
-
-Aprire di nuovo la pagina dell'app del servizio app. Nel riquadro di spostamento sinistro del servizio app, selezionare **Cambia il piano di servizio app**.
-
-![](media/app-service-configure-premium-tier/change-plan.png)
-
-Selezionare il piano di servizio app creato.
-
-![](media/app-service-configure-premium-tier/select-plan.png)
-
-Al termine dell'operazione di modifica, l'app è in esecuzione sul livello **PremiumV2**.
+Alcuni piani di servizio app non possono essere passati al livello PremiumV2 se la distribuzione del servizio app sottostante non supporta PremiumV2.  Per altri dettagli, vedere [Passare a un piano superiore da una combinazione di gruppo di risorse e area non supportata](#unsupported).
 
 <a name="unsupported"></a>
 
-## <a name="scale-up-from-an-unsupported-region"></a>Passare a un piano superiore da un'area non supportata
+## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Passare a un piano superiore da una combinazione di gruppo di risorse e area non supportata
 
-Se l'app viene eseguita in un'area in cui **PremiumV2** non è ancora disponibile, per poter usufruire del livello **PremiumV2** è possibile spostare l'app in un'area diversa. Sono disponibili due opzioni:
+Se l'app viene eseguita in una distribuzione del servizio app in cui **PremiumV2** non è disponibile, o se l'app viene eseguita in un'area che attualmente non supporta **PremiumV2**, sarà necessario ridistribuire l'app per sfruttare **PremiumV2**.  Sono disponibili due opzioni:
 
-- Creare un'app in un nuovo piano **PremiumV2** e quindi ridistribuire il codice dell'applicazione. Seguire i passaggi descritti in [Creare un'app nel livello PremiumV2](#create) per impostarla sul livello **PremiumV2**. Se necessario, è possibile usare la stessa configurazione di scalabilità orizzontale definita per il piano di servizio app esistente (numero di istanze, scalabilità automatica e così via).
-- Se l'app è già in esecuzione in un livello **Premium** esistente, è possibile clonare l'app con tutte le impostazioni dell'app, le stringhe di connessione e la configurazione di distribuzione.
+- Creare un **nuovo** gruppo di risorse e quindi creare una **nuova** app Web e un nuovo piano di servizio app nel **nuovo** gruppo di risorse, scegliendo l'area di Azure desiderata durante il processo di creazione.  È **necessario** selezionare il piano **PremiumV2** al momento della creazione del nuovo piano di servizio app.  In questo modo ci si assicura che la combinazione di gruppo di risorse, piano di servizio app e area di Azure consentirà di creare il piano di servizio app in una distribuzione del servizio app che supporta **PremiumV2**.  Ridistribuire quindi il codice dell'applicazione nell'app e nel piano di servizio app appena creati. Se lo si desidera, è possibile passare in seguito a un piano di servizio app inferiore rispetto a **PremiumV2** per risparmiare sui costi e sarà comunque possibile passare di nuovo a un piano superiore in futuro con **PremiumV2**.
+- Se l'app è già in esecuzione in un livello **Premium** esistente, è possibile clonare l'app con tutte le impostazioni dell'app, le stringhe di connessione e la configurazione di distribuzione in un nuovo piano di servizio app che usa **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    Nella pagina **Clona app** è possibile creare un piano di servizio app nell'area voluta e specificare le impostazioni da clonare.
+    Nella pagina **Clona app** è possibile creare un piano di servizio app con **PremiumV2** nell'area voluta e specificare le impostazioni dell'app e la configurazione da clonare.
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 

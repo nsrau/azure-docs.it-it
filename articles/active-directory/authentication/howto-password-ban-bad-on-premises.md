@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161831"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308876"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Anteprima: Distribuire la funzione della password di protezione di Azure AD
 
@@ -56,7 +56,7 @@ Sono necessari due programmi di installazione per la password di protezione di A
 
 1. Scegliere uno o più server per ospitare il servizio proxy della password di protezione di Azure AD.
    * Ogni servizio di questo tipo può fornire solo criteri password per una singola foresta e il computer host deve essere aggiunto a un dominio (i livelli radice e figlio sono supportati in ugual misura) in questa foresta. Per fare in modo che il servizio proxy della password di protezione di Azure AD svolga il proprio compito, deve esistere la connettività di rete tra almeno un controller di dominio in ogni dominio della foresta e il computer host proxy della password di protezione di Azure AD.
-   * Supporta l'installazione e l'esecuzione del servizio proxy della password di protezione di Azure AD su un controller di dominio per scopi di test, ma in seguito richiede la connettività Internet.
+   * Supporta l'installazione e l'esecuzione del servizio proxy della password di protezione di Azure AD su un controller di dominio per scopi di test, ma il controller di dominio richiede in seguito la connettività Internet.
 
    > [!NOTE]
    > L'anteprima pubblica supporta un massimo di due (2) server proxy per ogni foresta.
@@ -110,6 +110,9 @@ Sono necessari due programmi di installazione per la password di protezione di A
 
    > [!NOTE]
    > Si presuppone che la registrazione della foresta di Active Directory sia un passaggio da eseguire una sola volta nella durata della foresta. Gli agenti del controller di dominio in esecuzione nella foresta eseguiranno automaticamente qualsiasi altra attività di manutenzione necessaria a partire da questo momento. Dopo che la registrazione ha avuto esito positivo per una specifica foresta, ulteriori chiamate di `Register-AzureADPasswordProtectionForest` continueranno ad avere esito positivo, ma non sono necessarie.
+
+   > [!NOTE]
+   > Affinché `Register-AzureADPasswordProtectionForest` abbia esito positivo, è necessario che nel dominio del server proxy sia disponibile almeno un controller di dominio Windows Server 2012 o versioni successive. Prima di questo passaggio, tuttavia, non è necessario che nel controller di dominio sia installato alcun software dell'agente del controller di dominio.
 
 6. Facoltativo: configurare il servizio proxy della password di protezione di Azure AD per l'ascolto su una porta specifica.
    * Il meccanismo RPC su TCP viene usato dal software agente del controller di dominio della password di protezione di Azure AD nei controller di dominio per comunicare con il servizio proxy della password di protezione di Azure AD. Per impostazione predefinita, il servizio proxy dei criteri password di Azure AD è in ascolto su qualsiasi endpoint RPC dinamico disponibile. Se necessario a causa dei requisiti del firewall e della topologia di rete, il servizio potrebbe invece configurato per restare in attesa su una porta TCP specifica.

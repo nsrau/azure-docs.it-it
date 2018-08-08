@@ -1,21 +1,20 @@
 ---
-title: Informazioni sul riconoscimento vocale | Microsoft Docs
+title: Informazioni sul riconoscimento vocale
 description: Panoramica delle funzionalità dell'API Riconoscimento vocale.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2ed00377db80849a8355ccc895db12d006bea642
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069928"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325337"
 ---
 # <a name="about-the-speech-to-text-api"></a>Informazioni sull'API Riconoscimento vocale
 
@@ -41,14 +40,15 @@ Alcune funzionalità dell'API **Riconoscimento vocale** non sono disponibili tra
 
 | Caso d'uso | REST | SDK |
 |-----|-----|-----|----|
-| Trascrivere una breve espressione, ad esempio un comando (lunghezza < 15 s), senza risultati temporanei | sì | sì |
-| Trascrivere un'espressione più lunga (> 15 s) | No  | sì |
-| Trascrivere lo streaming di audio con risultati temporanei facoltativi | No  | sì |
-| Comprendere le finalità di chi parla tramite LUIS | No\* | sì |
+| Trascrivere una breve espressione, ad esempio un comando (lunghezza < 15 s), senza risultati temporanei | Yes | Yes |
+| Trascrivere un'espressione più lunga (> 15 s) | No  | Yes |
+| Trascrivere lo streaming di audio con risultati temporanei facoltativi | No  | Yes |
+| Comprendere le finalità di chi parla tramite LUIS | No\* | Yes |
 
 \* *Le finalità e le entità LUIS possono essere derivate con una sottoscrizione di LUIS separata. Con questa sottoscrizione, l'SDK può chiamare LUIS automaticamente e fornire i risultati relativi a entità e finalità, oltre alle trascrizioni vocali. Con l'API REST, è possibile chiamare LUIS manualmente per derivare finalità ed entità con la sottoscrizione di LUIS.*
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
+* [Guida introduttiva: Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
+* [Vedere come riconoscere le finalità dai contenuti vocali in C#](how-to-recognize-intents-from-speech-csharp.md)

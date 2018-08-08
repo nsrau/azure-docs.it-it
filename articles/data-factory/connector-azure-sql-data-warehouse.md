@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 42ffdbf117b3f522e27e6e46628231ddb8221018
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 70615726ed313884a977ae1b338d3c484fc32a1a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051628"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326174"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -59,8 +59,8 @@ Per il servizio collegato di Azure SQL Data Warehouse sono supportate le proprie
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureSqlDW**. | Sì |
-| connectionString | Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà **connectionString**. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| type | La proprietà type deve essere impostata su **AzureSqlDW**. | Yes |
+| connectionString | Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà **connectionString**. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì, quando si usa l'autenticazione Azure AD con un'entità servizio. |
@@ -213,8 +213,8 @@ Per copiare dati da o in Azure SQL Data Warehouse, impostare la proprietà **typ
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Sì |
-| tableName | Nome della tabella o vista nell'istanza di Azure SQL Data Warehouse a cui fa riferimento il servizio collegato. | Sì |
+| type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Yes |
+| tableName | Nome della tabella o vista nell'istanza di Azure SQL Data Warehouse a cui fa riferimento il servizio collegato. | Yes |
 
 #### <a name="dataset-properties-example"></a>Esempio di proprietà dei set di dati
 
@@ -245,7 +245,7 @@ Per copiare dati da Azure SQL Data Warehouse, impostare la proprietà **type** n
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **SqlDWSource**. | Sì |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **SqlDWSource**. | Yes |
 | SqlReaderQuery | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No  |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No  |
 | storedProcedureParameters | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No  |
@@ -349,7 +349,7 @@ Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'att
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **SqlDWSink**. | Sì |
+| type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **SqlDWSink**. | Yes |
 | allowPolyBase | Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT. <br/><br/> È consigliabile caricare dati in SQL Data Warehouse tramite PolyBase. Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse).<br/><br/>I valori consentiti sono **True** e **False** (predefinito).  | No  |
 | polyBaseSettings | Gruppo di proprietà che è possibile specificare quando la proprietà **allowPolybase** è impostata su **true**. | No  |
 | rejectValue | Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo.<br/><br/>Per altre informazioni sulle opzioni di rifiuto di PolyBase, vedere la sezione Argomenti in [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>I valori consentiti sono 0 (predefinito), 1, 2 e così via. |No  |
@@ -401,9 +401,9 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
 2. Il tipo di **set di dati di input** è **AzureBlob** o **AzureDataLakeStoreFile**. Il tipo di formato nelle proprietà `type` è **OrcFormat**, **ParquetFormat** o **TextFormat**, con le configurazioni seguenti:
 
    1. `rowDelimiter` deve essere **\n**.
-   2. `nullValue` è impostato su **stringa vuota** ("") o `treatEmptyAsNull` è impostato su **true**.
+   2. `nullValue` è impostato su **una stringa vuota** ("") o come valore predefinito e `treatEmptyAsNull` non è impostato su false.
    3. `encodingName` è impostato su **utf-8**, ovvero il valore predefinito.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` e `skipLineCount` non sono specificati.
+   4. `escapeChar`, `quoteChar` e `skipLineCount` non sono specificati. Il supporto di PolyBase ignora la riga di intestazione che può essere configurata come `firstRowAsHeader` nella data factory di Azure.
    5. `compression` può essere **no compression**, **GZip** o **Deflate**.
 
     ```json
@@ -414,7 +414,8 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
            "columnDelimiter": "<any delimiter>",
            "rowDelimiter": "\n",
            "nullValue": "",
-           "encodingName": "utf-8"
+           "encodingName": "utf-8",
+           "firstRowAsHeader": <any>
        },
        "compression": {
            "type": "GZip",
@@ -422,9 +423,6 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
        }
     },
     ```
-
-3. Non è disponibile alcuna impostazione `skipHeaderLineCount` in **BlobSource** o **AzureDataLakeStore** per l'attività di copia nella pipeline.
-4. Non è disponibile alcuna impostazione `sliceIdentifierColumnName` in **SqlDWSink** per l'attività di copia nella pipeline. PolyBase garantisce che tutti i dati verranno aggiornati o che nessun dato verrà aggiornato in una singola esecuzione. Per ottenere la **ripetibilità**, usare `sqlWriterCleanupScript`.
 
 ```json
 "activities":[
@@ -561,7 +559,7 @@ Quando si copiano i dati da o in Azure SQL Data Warehouse, vengono usati i mappi
 | Decimal | Decimal |
 | FILESTREAM attribute (varbinary(max)) | Byte[] |
 | Float | Double |
-| immagine | Byte[] |
+| image | Byte[] |
 | int | Int32 |
 | money | Decimal |
 | nchar | String, Char[] |

@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036752"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265065"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Attestazioni facoltative in Azure AD (anteprima)
 
@@ -41,8 +41,8 @@ Uno degli obiettivi dell'[endpoint Azure AD v2.0](active-directory-appmodel-v2-o
 
 | Tipo di account | Endpoint v1.0                      | Endpoint v2.0  |
 |--------------|------------------------------------|----------------|
-| Account del servizio gestito          | N/D - Vengono usati in alternativa i ticket RPS | Supporto presto disponibile |
-| AAD          | Supportato                          | Supportato      |
+| Account Microsoft personale  | N/D - Vengono usati in alternativa i ticket RPS | Supporto presto disponibile |
+| Account Azure AD          | Supportato                          | Supportato      |
 
 ## <a name="standard-optional-claims-set"></a>Set di attestazioni facoltative standard
 Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito.  Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) più avanti in questo articolo. 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188671"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308055"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisiti di sistema per Importazione/Esportazione di Azure
 
@@ -30,13 +30,12 @@ Per preparare i dischi rigidi tramite lo strumento WAImportExport, sono supporta
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 
-Il servizio Importazione/Esportazione di Azure supporta gli account di archiviazione di Azure seguenti.
-- Classico
+Il servizio Importazione/Esportazione di Azure supporta gli [account di archiviazione di Azure](storage-account-options.md) seguenti.
+- Account di archiviazione Utilizzo generico v1 (distribuzione classica o di Azure Resource Manager)
 - Account di archiviazione BLOB
-- Account di archiviazione v1 per utilizzo generico. 
+- Account di archiviazione Utilizzo generico v2
 
 Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
 
@@ -48,10 +47,10 @@ Ogni processo può essere usato per trasferire dati da o verso un solo account d
 Con il servizio Importazione/Esportazione di Azure sono supportati i tipi di archiviazione inclusi nell'elenco seguente.
 
 
-|Processo  |Archiviazione  |Supportato  |Non supportate  |
+|Processo  |Servizio di archiviazione |Supportato  |Non supportate  |
 |---------|---------|---------|---------|
-|Importa     |  Archiviazione BLOB di Azure. <br>BLOB in blocchi e BLOB di pagine supportati. <br> File di Azure supportato.       |         |
-|Esportazione     |   Archiviazione BLOB di Azure. <br>BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati.       | File di Azure non supportato.        |
+|Importa     |  Archivio BLOB di Azure <br><br> Archiviazione file di Azure       | BLOB in blocchi e BLOB di pagine supportati <br><br> File supportati          |
+|Esportazione     |   Archivio BLOB di Azure       | BLOB in blocchi, BLOB di pagine e BLOB di aggiunta supportati         | File di Azure non supportato
 
 
 ## <a name="supported-hardware"></a>Hardware supportato 

@@ -7,20 +7,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ea912d2b2297cf64b51ea4c50b36b3847fcc1bf8
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 128b4bc787cd882e719ee3332d285af44b15dfe2
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131889"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412991"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limiti di risorse per i pool elastici usando il modello di acquisto basato su DTU 
 
 Questo articolo illustra in modo dettagliato i limiti delle risorse per i pool elastici e i database in pool del database SQL di Azure usando il modello di acquisto basato su DTU. 
 
 Per i limiti di risorse basati su DTU per i singoli database, vedere [Limiti di risorse basate su DTU - database singoli](sql-database-vcore-resource-limits-elastic-pools.md). Per i limiti di risorse in base ai VCore, vedere [Limiti delle risorse basati su vCore per i database singoli](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse basati su vCore per pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).
+
+> [!IMPORTANT]
+> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Pool elastico: dimensioni di archiviazione e livelli delle prestazioni
 

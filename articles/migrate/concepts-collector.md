@@ -4,15 +4,15 @@ description: Offre una panoramica dell'appliance Agente di raccolta e illustra c
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/27/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951040"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308460"
 ---
 # <a name="collector-appliance"></a>Appliance Agente di raccolta
 
@@ -188,7 +188,7 @@ In base al numero di macchine virtuali nell'ambito selezionato, sono necessari f
 
 È possibile aggiornare l'agente di raccolta per la versione più recente senza scaricare nuovamente il file con estensione OVA.
 
-1. Scaricare il [pacchetto di aggiornamento](https://aka.ms/migrate/col/upgrade_9_11) più recente (versione 1.0.9.11).
+1. Scaricare il [pacchetto di aggiornamento](https://aka.ms/migrate/col/upgrade_9_13) più recente (versione 1.0.9.13).
 2. Per garantire la sicurezza dell'hotfix scaricato, aprire il prompt dei comandi come amministratore ed eseguire il comando seguente per generare l'hash del file ZIP. L'hash generato deve corrispondere con all'hash indicato nella versione specifica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -199,6 +199,16 @@ In base al numero di macchine virtuali nell'ambito selezionato, sono necessari f
 5. Fare clic con il pulsante destro del mouse sul file Setup.ps1, selezionare Run with PowerShell (Esegui con PowerShell) e quindi seguire le istruzioni visualizzate sullo schermo per installare l'aggiornamento.
 
 ### <a name="list-of-updates"></a>Elenco degli aggiornamenti
+
+#### <a name="upgrade-to-version-10913"></a>Eseguire l'aggiornamento alla versione 1.0.9.13
+
+Valori hash per l'aggiornamento al [pacchetto 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### <a name="upgrade-to-version-10911"></a>Eseguire l'aggiornamento alla versione 1.0.9.11
 

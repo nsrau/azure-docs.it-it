@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7c0675f78f11bf1e493683fa474cce20c2b2a288
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192877"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326116"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.

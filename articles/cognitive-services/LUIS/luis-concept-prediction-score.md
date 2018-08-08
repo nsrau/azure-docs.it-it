@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224587"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358104"
 ---
 # <a name="prediction-score"></a>Punteggio di stima
 Il punteggio di stima indica il grado di attendibilità rispetto ai risultati di stima di LUIS. 
@@ -36,6 +36,8 @@ Quando un'espressione ottiene un punteggio di bassa attendibilità, LUIS lo evid
 La stima di ogni espressione restituisce una finalità con punteggio elevato. Si tratta di un confronto numerico tra punteggi di stima. Tra i due punteggi più elevati può esserci una piccola differenza. LUIS non indica questa prossimità se non restituendo i punteggi.  
 
 Se si è interessati alla prossimità dei punteggi più elevati, è necessario restituire il punteggio di tutte le finalità. È possibile aggiungere espressioni alle due finalità che indicano le relative differenze con la disposizione e la scelta delle parole oppure lasciare che l'applicazione chiamante LUIS, ad esempio un chatbot, effettui scelte programmatiche sulla modalità di gestione delle due finalità principali. 
+
+Due finalità con punteggio troppo simile possono essere invertite a causa del training non deterministico. Il punteggio superiore può diventare il secondo punteggio mentre il secondo può diventare il primo. Per evitare questo problema, aggiungere espressioni di esempio a ognuna delle due finalità superiori per l'espressione con una scelta di parole e un contesto che le differenzino. Le due finalità devono avere circa lo stesso numero di espressioni di esempio. Una regola generale per la separazione per impedire l'inversione a causa del training è una differenza del 15% nei punteggi.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Restituire un punteggio di stima per tutte le finalità
 Un risultato di test o endpoint può includere tutte le finalità. Questa configurazione è impostata sull'[endpoint](https://aka.ms/v1-endpoint-api-docs) con la coppia nome/valore della stringa di query `verbose=true`. 

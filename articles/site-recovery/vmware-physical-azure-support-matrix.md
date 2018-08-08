@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: raynew
-ms.openlocfilehash: 516cb69042e923a46168c7655dc3e3010d9557e6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 96fc44ad7f69b4de0ec5ea3967fe5495086ba53a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173793"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413604"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice di supporto per la replica di VM VMware e server fisici in Azure
 
@@ -62,7 +62,7 @@ Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in
 --- | ---
 Impostazioni del computer | I computer che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
 Sistema operativo Windows | Windows Server 2016 a 64 bit (Server Core, server con Esperienza desktop), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con almeno SP1. </br></br>  [Windows Server 2008 con almeno SP2 - a 32 e a 64 bit](migrate-tutorial-windows-server-2008.md) (solo per la migrazione). </br></br> Windows 2016 Nano Server non è supportato.
-Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.5 <br/><br/>CentOS: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.5 <br/><br/>Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versioni del kernel supportate)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versioni del kernel supportate)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/></br>* *L'aggiornamento dei computer replicati da SUSE Linux Enterprise Server 11 da SP3 a SP4 non è supportato. Per eseguire l'aggiornamento, disabilitare la replica e abilitarla nuovamente dopo l'aggiornamento.*
+Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11<b>\*\*</b>, da 6.1 a 6.9<b>\*\*</b>, da 7.0 a 7.5 <br/><br/>CentOS: da 5.2 a 5.11<b>\*\*</b>, da 6.1 a 6.9<b>\*\*</b>, da 7.0 a 7.5 <br/><br/>Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versioni del kernel supportate)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versioni del kernel supportate)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/></br>* *L'aggiornamento dei computer replicati da SUSE Linux Enterprise Server 11 da SP3 a SP4 non è supportato. Per eseguire l'aggiornamento, disabilitare la replica e abilitarla nuovamente dopo l'aggiornamento.*</br></br><b>\*\*</b> *Fare riferimento a [supporto per macchine virtuali Linux in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) per informazioni sul supporto per Linux e le tecnologie open source in Azure. Azure Site Recovery consente di eseguire il failover ed eseguire i server Linux in Azure, tuttavia i fornitori di Linux potrebbero limitare il supporto solo alle versioni della propria distribuzione che non hanno raggiunto la fine del ciclo di vita.*
 
 
 >[!NOTE]
@@ -156,7 +156,7 @@ Indirizzo IP riservato | Yes
 IPv4 | Yes
 Conservazione indirizzo IP di origine | Yes
 Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Yes
-Rete accelerata | No
+Rete accelerata | No 
 
 ## <a name="storage"></a>Archiviazione
 **Componente** | **Supportato**
@@ -168,19 +168,19 @@ Percorsi multipli (MPIO) | Sì, testato con DSM Microsoft, EMC PowerPath 5.7 SP4
 Volumi virtuali host | Sì per VMware<br/><br/> N/D per server fisici
 VMDK guest/server | Yes
 EFI/UEFI guest/server| Parziale (migrazione ad Azure per macchine virtuali VMware con Windows Server 2012 e versioni successive) </br></br> Vedere la nota alla fine della tabella
-Disco cluster condiviso guest/server | No
-Disco crittografato guest/server | No
-NFS guest/server | No
-SMB 3.0 guest/server | No
+Disco cluster condiviso guest/server | No 
+Disco crittografato guest/server | No 
+NFS guest/server | No 
+SMB 3.0 guest/server | No 
 RDM guest/server | Yes<br/><br/> N/D per server fisici
 Disco guest/server > 1 TB | Yes<br/><br/>Fino a 4.095 GB
 Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Yes
 Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 KB | Yes
 Volume con disco con striping > 4 TB guest/server <br><br/>Gestione volumi logici (LVM)| Yes
-Guest/server - Spazi di archiviazione | No
-Disco di aggiunta/rimozione a caldo guest/server | No
+Guest/server - Spazi di archiviazione | No 
+Disco di aggiunta/rimozione a caldo guest/server | No 
 Guest/server - esclusione disco | Yes
-Percorsi multipli (MPIO) guest/server | No
+Percorsi multipli (MPIO) guest/server | No 
 
 > [!NOTE]
 > È possibile eseguire la migrazione in Azure di macchine virtuali VMware con avvio UEFI che eseguono Windows Server 2012 o versioni successive. Si applicano le restrizioni seguenti:
@@ -197,14 +197,14 @@ Percorsi multipli (MPIO) guest/server | No
 Archiviazione con ridondanza locale | Yes
 Archiviazione con ridondanza geografica | Yes
 Archiviazione con ridondanza geografica e accesso in lettura | Yes
-Archiviazione ad accesso sporadico | No
-Archiviazione ad accesso frequente| No
-BLOB in blocchi | No
+Archiviazione ad accesso sporadico | No 
+Archiviazione ad accesso frequente| No 
+BLOB in blocchi | No 
 Crittografia per dati inattivi (servizio di archiviazione di Azure)| Yes
 Archiviazione Premium | Yes
-Servizio di importazione/esportazione | No
-Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | No
-Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) | No
+Servizio di importazione/esportazione | No 
+Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | No 
+Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) | No 
 
 ## <a name="azure-compute"></a>Calcolo di Azure
 
@@ -237,8 +237,8 @@ Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e tra
 
 **Azione** | **Supportato**
 --- | ---
-Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No
-Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No
+Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No 
+Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No 
 
 
 ## <a name="mobility-service"></a>Servizio Mobility

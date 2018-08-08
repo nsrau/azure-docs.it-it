@@ -1,23 +1,24 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK di Servizi cognitivi | Microsoft Docs'
+title: 'Guida introduttiva: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK di Servizi cognitivi'
 titleSuffix: Microsoft Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ su Windows Desktop con Speech SDK di Servizi cognitivi
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4a8c5f7053c1976233bf9de6a0c142885b73c8aa
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071199"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324572"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C# su Windows Desktop con Speech SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Viene illustrato come creare un'applicazione console basata su C++ per Windows Desktop che usi Speech SDK.
 L'applicazione si basa sul [pacchetto NuGet Speech SDK di Servizi cognitivi Microsoft](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017.
@@ -94,4 +95,4 @@ Ricercare questo esempio nella cartella `quickstart/cpp-windows`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visitare la [pagina degli esempi](samples.md) per esempi aggiuntivi.
+* [Scaricare gli esempi](speech-sdk.md#get-the-samples)

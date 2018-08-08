@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 13d7594c15959661f3f9c3ab2165739719beac07
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "32193044"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308222"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Uso dell'estensione di diagnostica Linux per monitorare le prestazioni e i dati di diagnostica di una macchina virtuale Linux
 
@@ -60,7 +60,7 @@ Questo articolo illustra come abilitare e configurare l'estensione usando i coma
 
 Si noti che i metodi di configurazione descritti qui non funzioneranno per il portale di Azure. Per visualizzare e configurare i dati di sistema e prestazioni direttamente dal portale di Azure, l'estensione deve essere abilitata con il portale.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Agente Linux di Azure 2.0.6 o versione successiva**.
 
@@ -89,7 +89,7 @@ Passaggio 1. Creare un file denominato PrivateConfig.json con il contenuto segue
         "storageAccountKey" : "the key of the account"
     }
 
-Passaggio 2. Eseguire **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Passaggio 2. Eseguire **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Scenario 2. Personalizzare le metriche di monitoraggio delle prestazioni
 
@@ -159,7 +159,7 @@ I dati delle prestazioni e della diagnostica vengono archiviati in una tabella d
 1. Esplora server di Visual Studio. Passare all'account di archiviazione. Dopo circa cinque minuti dall'esecuzione della VM, verranno visualizzate le quattro tabelle predefinite: "LinuxCpu", "LinuxDisk", "LinuxMemory" e "Linuxsyslog". Fare doppio clic sui nomi delle tabelle per visualizzare i dati.
 1. [Esplora archivi di Azure](https://azurestorageexplorer.codeplex.com/ "Esplora archivi di Azure").
 
-![immagine](./media/diagnostic-extension/no1.png)
+![image](./media/diagnostic-extension/no1.png)
 
 Se è stato abilitato fileCfg o perfCfg (come illustrato negli scenari 2 e 3), è possibile usare Esplora server di Visual Studio e Azure Storage Explorer per visualizzare i dati non predefiniti.
 

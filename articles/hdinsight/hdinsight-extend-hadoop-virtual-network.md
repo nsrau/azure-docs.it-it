@@ -1,26 +1,22 @@
 ---
-title: Estendere HDInsight con Rete virtuale - Azure | Microsoft Docs
+title: Estendere HDInsight con Rete virtuale - Azure
 description: Informazioni su come usare Rete virtuale di Azure per la connessione di HDInsight ad altre risorse cloud o risorse nel proprio data center
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
-ms.author: larryfr
-ms.openlocfilehash: 842746561b74860e674fbaa298c78bb0ac58bd68
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/26/2018
+ms.openlocfilehash: bcfbe3b8ff198f9905fe6f36b18a9474cf987bba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112134"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284636"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
@@ -277,9 +273,9 @@ Se si usano gruppi di sicurezza di rete o route definite dall'utente, è necessa
     | Paese | Region | Indirizzi IP consentiti | Porta consentita | Direzione |
     | ---- | ---- | ---- | ---- | ----- |
     | Asia | Asia orientale | 23.102.235.122</br>52.175.38.134 | 443 | In ingresso |
-    | &nbsp; | Asia sudorientale | 13.76.245.160</br>13.76.136.249 | 443 | In ingresso |
+    | &nbsp; | Asia sud-orientale | 13.76.245.160</br>13.76.136.249 | 443 | In ingresso |
     | Australia | Australia orientale | 104.210.84.115</br>13.75.152.195 | 443 | In ingresso |
-    | &nbsp; | Australia sudorientale | 13.77.2.56</br>13.77.2.94 | 443 | In ingresso |
+    | &nbsp; | Australia sud-orientale | 13.77.2.56</br>13.77.2.94 | 443 | In ingresso |
     | Brasile | Brasile meridionale | 191.235.84.104</br>191.235.87.113 | 443 | In ingresso |
     | Canada | Canada orientale | 52.229.127.96</br>52.229.123.172 | 443 | In ingresso |
     | &nbsp; | Canada centrale | 52.228.37.66</br>52.228.45.222 | 443 | In ingresso |
@@ -290,6 +286,7 @@ Se si usano gruppi di sicurezza di rete o route definite dall'utente, è necessa
     | Germania | Germania centrale | 51.4.146.68</br>51.4.146.80 | 443 | In ingresso |
     | &nbsp; | Germania nord-orientale | 51.5.150.132</br>51.5.144.101 | 443 | In ingresso |
     | India | India centrale | 52.172.153.209</br>52.172.152.49 | 443 | In ingresso |
+    | &nbsp; | India meridionale | 104.211.223.67<br/>104.211.216.210 | 443 | In ingresso |
     | Giappone | Giappone orientale | 13.78.125.90</br>13.78.89.60 | 443 | In ingresso |
     | &nbsp; | Giappone occidentale | 40.74.125.69</br>138.91.29.150 | 443 | In ingresso |
     | Corea del Sud | Corea del Sud centrale | 52.231.39.142</br>52.231.36.209 | 433 | In ingresso |
@@ -579,7 +576,7 @@ Nel server DNS personalizzato nella rete virtuale:
     
     * Sostituire il valore `192.168.0.1` con l'indirizzo IP del server DNS locale. Questa voce indirizza tutte le altre richieste DNS al server DNS locale.
 
-3. Per usare la configurazione, riavviare Bind. Ad esempio, `sudo service bind9 restart`.
+3. Per usare la configurazione, riavviare Bind. Ad esempio: `sudo service bind9 restart`.
 
 4. Aggiungere un server d'inoltro condizionale al server DNS locale. Configurare il server d'inoltro condizionale per l'invio di richieste del suffisso DNS del passaggio 1 al server DNS personalizzato.
 

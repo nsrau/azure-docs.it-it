@@ -1,23 +1,24 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale in C# per .NET Framework su Windows con Speech SDK di Servizi cognitivi | Microsoft Docs'
+title: 'Guida introduttiva: Riconoscimento vocale in C# per .NET Framework in Windows con Speech SDK di Servizi cognitivi'
 titleSuffix: Microsoft Cognitive Services
 description: Informazioni sul riconoscimento vocale in C# per .NET Framework su Windows con Speech SDK di Servizi cognitivi
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f3b181c8d65cf8618b7599a999b2b8edf20ed809
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259028"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325191"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C# per .NET Framework su Windows con Speech SDK | Microsoft Docs
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come creare un'applicazione console C# per .NET Framework in Windows usando Speech SDK di Servizi cognitivi per trascrivere il riconoscimento vocale.
 L'applicazione si basa sul [pacchetto NuGet Speech SDK di Servizi cognitivi Microsoft](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017.
@@ -51,7 +52,7 @@ L'applicazione si basa sul [pacchetto NuGet Speech SDK di Servizi cognitivi Micr
 
     ![Accettare le condizioni di licenza](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accettare le condizioni di licenza")
 
-1. Nella Console di Gestione pacchetti viene visualizzata la riga di output seguente.
+1. Nella console di Gestione pacchetti viene visualizzata la riga di output seguente.
 
    ```text
    Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
@@ -104,6 +105,6 @@ Ricercare questo esempio nella cartella `quickstart/csharp-dotnet-windows`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Traduzione vocale](how-to-translate-speech.md)
+- [Traduzione vocale](how-to-translate-speech-csharp.md)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5503ffaf8a429221a0a0730fc999cb7a90f43785
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a7e00e84e5165296bcad83c515fc2af315954be
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092121"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414443"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limiti del modello di acquisto in base ai vCore per il database SQL di Azure per i pool elastici
 
@@ -22,6 +22,8 @@ Questo articolo illustra in modo dettagliato i limiti delle risorse per i pool e
 
 Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limiti delle risorse basate su DTU per il database SQL - pool elastici](sql-database-dtu-resource-limits-elastic-pools.md).
 
+> [!IMPORTANT]
+> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Pool elastico: dimensioni di archiviazione e livelli delle prestazioni
 
@@ -38,7 +40,7 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Supporto per columnstore|sì|sì|sì|sì|sì|sì|
+|Supporto per columnstore|Yes|Yes|Yes|Yes|Yes|Yes|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Dimensioni massime dei dati (GB)|512|756|1536|2048|3584|4096|
@@ -62,7 +64,7 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Generazione hardware|5|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Supporto per columnstore|sì|sì|sì|sì|sì|sì|sì|sì|
+|Supporto per columnstore|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Dimensioni massime dei dati (GB)|512|756|1536|2048|3072|4096|4096|4096|
@@ -88,7 +90,7 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Supporto per columnstore|sì|sì|sì|sì|sì|sì|
+|Supporto per columnstore|Yes|Yes|Yes|Yes|Yes|Yes|
 |Archiviazione OLTP in memoria (GB)|1|2|4|8|20|36|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|1024|
@@ -102,7 +104,7 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Numero minimo/massimo di arresti del pool elastico|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Numero di repliche|3|3|3|3|3|3|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
-|Scalabilità orizzontale in lettura|sì|sì|sì|sì|sì|sì|
+|Scalabilità orizzontale in lettura|Yes|Yes|Yes|Yes|Yes|Yes|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 
@@ -112,7 +114,7 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Generazione hardware|5|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Supporto per columnstore|sì|sì|sì|sì|sì|sì|sì|sì|
+|Supporto per columnstore|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Archiviazione OLTP in memoria (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
@@ -126,7 +128,7 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Numero minimo/massimo di arresti del pool elastico|N/D|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Numero di repliche|3|3|3|3|3|3|3|3|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Scalabilità orizzontale in lettura|sì|sì|sì|sì|sì|sì|sì|sì|
+|Scalabilità orizzontale in lettura|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 

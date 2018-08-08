@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213232"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285358"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -30,12 +30,12 @@ L'accesso Single Sign-On (SSO) facile di Azure Active Directory consente agli ut
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-L'accesso SSO facile può essere combinato con i metodi di accesso che usano la [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) o l'[autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md).
+L'accesso SSO facile può essere combinato con i metodi di accesso che usano la [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-hash-synchronization.md) o l'[autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md). L'accesso Single Sign-On facile _non_ è applicabile ad Active Directory Federation Services (AD FS).
 
 ![Accesso Single Sign-On facile](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->L'accesso Single Sign-On facile _non_ è applicabile ad Active Directory Federation Services (AD FS).
+>Per poter usare l'accesso Single Sign-on facile, il dispositivo dell'utente deve essere **aggiunto al dominio** ma non è necessario che sia [aggiunto ad Azure AD](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -75,8 +75,10 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [**Avvio rapido**](active-directory-aadconnect-sso-quick-start.md): avvio ed esecuzione di Accesso SSO facile di Azure AD.
-- [**Approfondimento tecnico**](active-directory-aadconnect-sso-how-it-works.md): informazioni sul funzionamento dell'accesso facile.
+- [**Guida introduttiva**](active-directory-aadconnect-sso-quick-start.md): avvio ed esecuzione di Accesso SSO facile di Azure AD.
+- [**Piano di distribuzione**](https://aka.ms/AuthenticationDeploymentPlan) - Piano di distribuzione dettagliato.
+- [**Approfondimento tecnico**](active-directory-aadconnect-sso-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
 - [**Domande frequenti**](active-directory-aadconnect-sso-faq.md): risposte alle domande più frequenti.
 - [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-sso.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.
+

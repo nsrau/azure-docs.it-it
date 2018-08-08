@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441574"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282246"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse
 
@@ -156,7 +156,7 @@ Per accedere alle risorse della propria sottoscrizione è necessario assegnare l
 
    ![selezionare aggiungi](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Selezionare il ruolo che si desidera assegnare all'applicazione. L'immagine seguente mostra il ruolo **Lettore**.
+1. Selezionare il ruolo che si desidera assegnare all'applicazione. Per consentire all'applicazione di eseguire azioni quali istanze di **riavvio**, **avvio** e **arresto**, è necessario selezionare il ruolo **Collaboratore**. L'immagine seguente mostra il ruolo **Lettore**.
 
    ![selezionare il ruolo](./media/resource-group-create-service-principal-portal/select-role.png)
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258493"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283224"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: domande frequenti
 
@@ -94,10 +94,8 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
 
 1. Eseguire la chiamata a `$creds = Get-Credential`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
 
->[!NOTE]
->Per trovare la foresta di Active Directory desiderata, usare il nome utente dell'amministratore di dominio fornito nel formato di nome dell'identità utente (UPN) (johndoe@contoso.com) o il nome dominio completo dell'account SAM (contoso\johndoe o contoso.com\johndoe). Se si usa il formato di nome dominio completo dell'account SAM, usare la parte del dominio del nome utente per [individuare il controller di dominio dell'amministratore di dominio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se invece si usa il formato UPN, [convertirlo in un nome dominio completo dell'account SAM](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) prima di individuare il controller di dominio appropriato.
-
-usare i nomi dell'entità utente ed eseguire la conversione 
+    >[!NOTE]
+    >Per trovare la foresta di Active Directory desiderata, usare il nome utente dell'amministratore di dominio fornito nel formato di nome dell'identità utente (UPN) (johndoe@contoso.com) o il nome dominio completo dell'account SAM (contoso\johndoe o contoso.com\johndoe). Se si usa il formato di nome dominio completo dell'account SAM, usare la parte del dominio del nome utente per [individuare il controller di dominio dell'amministratore di dominio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se invece si usa il formato UPN, [convertirlo in un nome dominio completo dell'account SAM](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) prima di individuare il controller di dominio appropriato.
 
 2. Eseguire la chiamata a `Update-AzureADSSOForest -OnPremCredentials $creds`. Questo comando aggiorna la chiave di decrittografia di Kerberos per l'account computer `AZUREADSSOACC` in questa foresta di AD specifica e la aggiorna in Azure AD.
 3. Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui è stata configurata la funzionalità.
@@ -107,26 +105,45 @@ usare i nomi dell'entità utente ed eseguire la conversione
 
 ## <a name="how-can-i-disable-seamless-sso"></a>Come è possibile disabilitare l'accesso SSO facile?
 
-La funzionalità Accesso SSO facile può essere disabilitata tramite Azure AD Connect.
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>Passaggio 1. Disabilitare la funzionalità nel tenant
 
-Eseguire Azure AD Connect, scegliere la pagina "Cambia l'accesso utente" e fare clic su "Avanti". Deselezionare quindi l'opzione "Abilita Single Sign-On". Continuare la procedura guidata. Al termine della procedura guidata, l'accesso SSO facile è disabilitato nel tenant.
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Opzione A: Disabilitare tramite Azure AD Connect
 
-Viene tuttavia visualizzato un messaggio con il testo seguente:
+1. Eseguire Azure AD Connect, scegliere la pagina **Cambia l'accesso utente** e fare clic su **Avanti**.
+2. Deselezionare l'opzione **Abilita Single Sign-On**. Continuare la procedura guidata.
+
+Al termine della procedura guidata, l'accesso Single Sign-On facile è disabilitato nel tenant. Verrà tuttavia visualizzato un messaggio con il testo seguente:
 
 "L'accesso Single Sign-On è ora disabilitato, ma è necessario eseguire altri passaggi manuali per completare la pulizia. Altre informazioni"
 
-Per completare il processo, seguire questa procedura manuale nel server locale in cui si esegue Azure AD Connect:
+Per completare il processo di eliminazione, seguire i passaggi 2 e 3 nel server locale in cui si esegue Azure AD Connect.
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Passaggio 1. Ottenere l'elenco delle foreste di Active Directory in cui è stata abilitata la funzionalità Accesso SSO facile
+#### <a name="option-b-disable-using-powershell"></a>Opzione B: Disabilitare tramite PowerShell
 
-1. Scaricare e installare prima l' [Assistente per l'accesso ai Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
+Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
+
+1. Scaricare e installare prima l'[Assistente per l'accesso ai Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Scaricare e installare quindi il [modulo di Azure Active Directory a 64 bit per Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
+4. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
+5. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Il comando dovrebbe far sì che venga visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore globale del tenant.
+6. Eseguire la chiamata a `Enable-AzureADSSO -Enable $false`.
+
+>[!IMPORTANT]
+>Disabilitando l'accesso Single Sign-On facile tramite PowerShell, non verrà modificato lo stato in Azure AD Connect. L'accesso Single Sign-On facile verrà visualizzato come abilitato nella pagina **Cambia l'accesso utente**.
+
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Passaggio 2. Ottenere l'elenco delle foreste di Active Directory in cui è stata abilitata la funzionalità Accesso SSO facile
+
+Seguire i passaggi da 1 a 5 se l'accesso Single Sign-On facile è stato disabilitato tramite Azure AD Connect. Se invece l'accesso Single Sign-On facile è stato disabilitato tramite PowerShell, passare al passaggio 6.
+
+1. Scaricare e installare prima l'[Assistente per l'accesso ai Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Scaricare e installare quindi il [modulo di Azure Active Directory a 64 bit per Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 3. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
 5. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Il comando dovrebbe far sì che venga visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore globale del tenant.
 6. Eseguire la chiamata a `Get-AzureADSSOStatus`. ll comando consente di visualizzare l'elenco di foreste di Active Directory, ovvero l'elenco "Domini", in cui è stata abilitata questa funzionalità.
 
-### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passaggio 2. Eliminare manualmente l'account computer `AZUREADSSOACCT` da ogni foresta di AD elencata.
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passaggio 3. Eliminare manualmente l'account computer `AZUREADSSOACCT` da ogni foresta di AD elencata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

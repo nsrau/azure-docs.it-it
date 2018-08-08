@@ -5,6 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: deguhath
-ms.openlocfilehash: aaa965c507faba344ca717a76b3fb3a0a01fa0ee
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1ebd640191ffbb1b3ea70ca07081522b370e4e2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838569"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308188"
 ---
 # <a name="team-data-science-process-project-planning"></a>Pianificazione di un progetto di data science per i team
 
@@ -55,9 +56,13 @@ Se non si ha accesso Microsoft Project, è possibile scaricare un foglio di lavo
 
 Usare questi modelli a proprio rischio. Valgono le [consuete dichiarazioni di non responsabilità](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
+## <a name="repository-template"></a>Modello di repository
+
+Usare questo [repository dei modelli di progetto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) per favorire una maggiore efficienza di esecuzione del progetto e di collaborazione. Questo repository offre una struttura di directory standardizzata e modelli di documento che è possibile usare per il proprio progetto TDSP.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Sviluppo agile di progetti di data science](agile-development.md) Questo documento descrive come eseguire un progetto di data science in modo sistematico, collaborativo e con controllo delle versioni all'interno di un team di progetto usando il processo di data science per i team.
 
-Sono anche disponibili esercitazioni dettagliate che illustrano tutti i passaggi del processo per **scenari specifici**. Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'argomento [Example walkthroughs](walkthroughs.md) (Procedure dettagliate di esempio). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
+Sono anche disponibili esercitazioni dettagliate che illustrano tutti i passaggi del processo per **scenari specifici**. Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'articolo [Procedure dettagliate di esempio](walkthroughs.md). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 

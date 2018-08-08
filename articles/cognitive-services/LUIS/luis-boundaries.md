@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/31/2018
 ms.author: diberry
-ms.openlocfilehash: ea4f31094e27f1abbe57c212f262845fd16dd984
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225279"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399832"
 ---
 # <a name="luis-boundaries"></a>Limiti di LUIS
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -31,7 +31,7 @@ LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-b
 | Elenco esplicito | 50 per applicazione|
 | **[Gerarchica](./luis-concept-entity-types.md) |100 con un massimo di 10 elementi figlio |
 | [Finalità][intents]|500 per ogni applicazione<br>Applicazione [basata su invio](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) con 500 origini di spedizione corrispondenti|
-| [Elenca entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il * numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
+| [Elenca entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
 | [Criteri](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applicazione, 3 entità pattern.any per criterio |
 | [Elenco di frasi][phrase-list]|10 elenchi di frase, 5.000 elementi per ogni elenco|
@@ -41,6 +41,7 @@ LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-b
 | **[Simple](./luis-concept-entity-types.md)| 100 entità|
 | [Espressione][utterances] | 500 caratteri|
 | [Espressioni][utterances] | 15.000 per ogni applicazione|
+| [Versioni](luis-concept-version.md)| nessun limite |
 | [Nome della versione][luis-how-to-manage-versions] | 10 caratteri limitati a caratteri alfanumerici e punto (.) |
 
 *Il numero max predefinito di caratteri è 50. 

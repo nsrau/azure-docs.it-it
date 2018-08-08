@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295529"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399144"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -92,6 +92,8 @@ Se ad esempio il gateway applicazione è impostato su tre istanze e nessun IP fr
 **D. Il gateway applicazione supporta le intestazioni x-forwarded-for?**
 
 Sì, il gateway applicazione inserisce le intestazioni x-forwarded-for, x-forwarded-proto e x-forwarded-port nella richiesta inoltrata al back-end. Il formato dell'intestazione x-forwarded-for è un elenco di IP:Porta separato da virgole. I valori validi per x-forwarded-proto sono http o https. X-forwarded-port specifica la porta raggiunta dalla richiesta nel gateway applicazione.
+
+Il gateway applicazione inserisce anche un'intestazione X-Original-Host contenente l'intestazione Host originale con cui è arrivata la richiesta. Questa intestazione è utile in scenari come l'integrazione di un sito Web di Azure, in cui l'intestazione host in ingresso viene modificata prima che il traffico venga indirizzato al back-end.
 
 **D. Quanto tempo occorre per distribuire un gateway applicazione? Il gateway applicazione funziona durante l'aggiornamento?**
 

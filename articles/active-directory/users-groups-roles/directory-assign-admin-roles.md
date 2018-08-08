@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 34b56c7435e2995f806828dce34f3d6bf425ca75
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449074"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399941"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Assegnazione dei ruoli di amministratore in Azure Active Directory
 
@@ -48,8 +48,6 @@ Sono disponibili i ruoli di amministratore seguenti:
   > [!NOTE]
   > Per distribuire il criterio di accesso condizionale di Exchange ActiveSync in Azure, l'utente deve essere anche amministratore globale.
   
-* **[Amministratore del servizio Dynamics 365 / Amministratore del servizio CRM](#crm-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft CRM Online, quando il servizio è presente, e possono gestire i ticket di supporto e monitorare l'integrità del servizio. Altre informazioni sono disponibili in [Utilizzare il ruolo di amministratore del servizio per gestire il tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
-
 * **[Amministratori di dispositivi](#device-administrators)**: gli utenti con questo ruolo diventano amministratori di computer locali su tutti i dispositivi Windows 10 che fanno parte di Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory.
 
 * **[Ruoli con autorizzazioni di lettura nella directory](#directory-readers)**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/active-directory-integrating-applications.md). Non deve essere assegnato agli utenti.
@@ -57,6 +55,8 @@ Sono disponibili i ruoli di amministratore seguenti:
 * **[Account di sincronizzazione della directory](#directory-synchronization-accounts)**: non usare. Questo ruolo viene assegnato automaticamente al servizio Azure AD Connect e non è progettato o supportato per altri usi.
 
 * **[Ruoli con autorizzazioni di scrittura nella directory](#directory-writers)**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/active-directory-integrating-applications.md). Non deve essere assegnato agli utenti.
+
+* **[Amministratore del servizio Dynamics 365 / Amministratore del servizio CRM](#dynamics-365-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Dynamics 365 Online, quando il servizio è presente, e possono gestire i ticket di supporto e monitorare l'integrità del servizio. Altre informazioni sono disponibili in [Utilizzare il ruolo di amministratore del servizio per gestire il tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Amministratore del servizio Exchange](#exchange-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Exchange Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -267,11 +267,6 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano identità di Azure AD. In Microsoft API Graph, Azure AD API Graph e Azure AD PowerShell, questo ruolo è identificato come "Amministratore società". È l'"amministratore globale" nel [portale di Azure](https://portal.azure.com).
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
   > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, consultare la descrizione dei ruoli sopra riportata.
   >
   >
@@ -357,27 +352,6 @@ Può gestire le funzionalità di accesso condizionale.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update | Aggiornare le proprietà standard nei criteri di accesso condizionale in Azure Active Directory. |
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Aggiornare la proprietà ConditionalAccessPolicys.Owners in Azure Active Directory. |
 
-### <a name="crm-service-administrator"></a>Amministratore del servizio CRM
-Può gestire tutti gli aspetti del prodotto Dynamics 365.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
-  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, consultare la descrizione dei ruoli sopra riportata.
-  >
-  >
-
-| **Actions** | **Descrizione** |
-| --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Eseguire la lettura della proprietà Organizations.TrustedCAsForPasswordlessAuth in Azure Active Directory. |
-| microsoft.aad.accessservice/AllEntities/AllActions | Creare ed eliminare tutte le risorse, eseguire la lettura e aggiornare le proprietà standard in Controllo di accesso di Azure. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
-| microsoft.aad.supporttickets/AllEntities/AllActions | Creare e gestire ticket di supporto per Office 365. |
-| microsoft.crm/AllEntities/AllActions | Gestire tutti gli aspetti di Dynamics 365. |
-
 ### <a name="device-administrators"></a>Amministratori di dispositivi
 I membri di questo ruolo vengono aggiunti al gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD.
 
@@ -389,13 +363,8 @@ I membri di questo ruolo vengono aggiunti al gruppo di amministratori locale nei
 | **Actions** | **Descrizione** |
 | --- | --- |
 
-### <a name="directory-reader"></a>Ruolo con autorizzazioni di lettura della directory
-Può leggere le informazioni base della directory. Per concedere l'accesso alle applicazioni
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
+### <a name="directory-readers"></a>Ruoli con autorizzazioni di lettura nella directory
+Può leggere le informazioni base della directory. Per concedere l'accesso alle applicazioni.
 
 | **Actions** | **Descrizione** |
 | --- | --- |
@@ -449,11 +418,6 @@ Può leggere le informazioni base della directory. Per concedere l'accesso alle 
 ### <a name="directory-synchronization-accounts"></a>Account di sincronizzazione della directory
 Usata solo dal servizio di Azure AD Connect.
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/Policy/Create | Creare criteri in Azure Active Directory. |
@@ -483,11 +447,6 @@ Usata solo dal servizio di Azure AD Connect.
 ### <a name="directory-writer"></a>Ruolo con autorizzazioni di scrittura nella directory
 Può leggere e scrivere le informazioni base della directory. Per concedere l'accesso alle applicazioni
 
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.aad.directory/DirectorySetting/Create | Creare impostazioni della directory in Azure Active Directory. |
@@ -507,6 +466,27 @@ Può leggere e scrivere le informazioni base della directory. Per concedere l'ac
 | microsoft.aad.directory/User/Update | Aggiornare le proprietà standard negli utenti in Azure Active Directory. |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Aggiornare la proprietà Users.AppRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/User/Update/Manager | Aggiornare la proprietà Users.Manager in Azure Active Directory. |
+
+### <a name="dynamics-365-service-administrator"></a>Amministratore del servizio Dynamics 365
+Può gestire tutti gli aspetti del prodotto Dynamics 365.
+
+  > [!NOTE]
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  >
+  >
+
+  > [!NOTE]
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, consultare la descrizione dei ruoli sopra riportata.
+  >
+  >
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Eseguire la lettura della proprietà Organizations.TrustedCAsForPasswordlessAuth in Azure Active Directory. |
+| microsoft.aad.accessservice/AllEntities/AllActions | Creare ed eliminare tutte le risorse, eseguire la lettura e aggiornare le proprietà standard in Controllo di accesso di Azure. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.aad.supporttickets/AllEntities/AllActions | Creare e gestire ticket di supporto per Office 365. |
+| microsoft.crm/AllEntities/AllActions | Gestire tutti gli aspetti di Dynamics 365. |
 
 ### <a name="exchange-service-administrator"></a>Amministratore del servizio Exchange
 Può gestire tutti gli aspetti del prodotto Exchange.
@@ -613,7 +593,7 @@ Può gestire tutti gli aspetti del prodotto Intune.
 | microsoft.aad.directory/Device/Update/RegisteredOwners | Aggiornare la proprietà Devices.RegisteredOwners in Azure Active Directory. |
 | microsoft.aad.directory/Device/Update/RegisteredUsers | Aggiornare la proprietà Devices.RegisteredUsers in Azure Active Directory. |
 | microsoft.aad.directory/Group/Create | Creare gruppi in Azure Active Directory. |
-| microsoft.aad.directory/Group/CreateAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| microsoft.aad.directory/Group/CreateAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
 | microsoft.aad.directory/Group/Delete | Eliminare gruppi in Azure Active Directory. |
 | microsoft.aad.directory/Group/Read | Eseguire la lettura delle proprietà standard nei gruppi in Azure Active Directory. |
 | microsoft.aad.directory/Group/Read/HiddenMembers | Eseguire la lettura della proprietà Groups.HiddenMembers in Azure Active Directory. |
@@ -783,6 +763,25 @@ Può gestire le assegnazioni dei ruoli in Azure AD
 | microsoft.aad.directory/DirectoryRole/Update | Aggiornare le proprietà standard per i ruoli della directory in Azure Active Directory. |
 | microsoft.aad.privilegedrolemanagement/AllEntities/AllActions | Gestire tutti gli aspetti del servizio di gestione dei ruoli con privilegi. |
 
+### <a name="reports-reader"></a>Lettore di report
+Può eseguire la lettura dei report di accesso e di controllo.
+
+  > [!NOTE]
+  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
+  >
+  >
+
+  > [!NOTE]
+  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, consultare la descrizione dei ruoli sopra riportata.
+  >
+  >
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.aad.reports/AllEntities/Read | Eseguire la lettura dei report di Azure AD. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.usagereports/AllEntities/Read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
+
 ### <a name="security-administrator"></a>Amministratore della sicurezza
 Può eseguire la lettura dei report e delle informazioni di sicurezza
 
@@ -810,25 +809,6 @@ Può eseguire la lettura dei report e delle informazioni di sicurezza
 | microsoft.aad.privilegedrolemanagement/AllEntities/Read | Eseguire la lettura di tutti gli aspetti di Privileged Identity Management. |
 | microsoft.protectioncenter/AllEntities/Read | Eseguire la lettura di tutti gli aspetti del Centro protezione Office 365. |
 | microsoft.protectioncenter/AllEntities/Update | Gestire il Centro protezione Office 365. |
-
-### <a name="reports-reader"></a>Lettore di report
-Può eseguire la lettura dei report di accesso e di controllo.
-
-  > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
-  >
-  >
-
-  > [!NOTE]
-  > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, consultare la descrizione dei ruoli sopra riportata.
-  >
-  >
-
-| **Actions** | **Descrizione** |
-| --- | --- |
-| microsoft.aad.reports/AllEntities/Read | Eseguire la lettura dei report di Azure AD. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
-| microsoft.office365.usagereports/AllEntities/Read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
 
 ### <a name="security-reader"></a>Ruolo con autorizzazioni di lettura per la sicurezza
 Può eseguire la lettura dei report e delle informazioni di sicurezza in Azure AD e Office 365.
@@ -908,7 +888,7 @@ Può gestire tutti gli aspetti di utenti e gruppi
 | microsoft.aad.directory/Contact/Delete | Eliminare contatti in Azure Active Directory. |
 | microsoft.aad.directory/Contact/Update | Aggiornare le proprietà standard nei contatti in Azure Active Directory. |
 | microsoft.aad.directory/Group/Create | Creare gruppi in Azure Active Directory. |
-| microsoft.aad.directory/Group/CreateAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato viene conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
+| microsoft.aad.directory/Group/CreateAsOwner | Creare gruppi in Azure Active Directory. L'autore viene aggiunto come primo proprietario e l'oggetto creato verrà conteggiato ai fini della quota di 250 oggetti creati dell'autore. |
 | microsoft.aad.directory/Group/Delete | Eliminare gruppi in Azure Active Directory. |
 | microsoft.aad.directory/Group/Read | Eseguire la lettura delle proprietà standard nei gruppi in Azure Active Directory. |
 | microsoft.aad.directory/Group/Read/HiddenMembers | Eseguire la lettura della proprietà Groups.HiddenMembers in Azure Active Directory. |

@@ -1,23 +1,24 @@
 ---
-title: "Avvio rapido: Riconoscimento vocale in C# in un'applicazione piattaforma UWP con Speech SDK di Servizi cognitivi| Microsoft Docs"
+title: "Guida introduttiva: Riconoscimento vocale in C# in un'app UWP con Speech SDK di Servizi cognitivi"
 titleSuffix: Microsoft Cognitive Services
 description: Informazioni sul riconoscimento vocale in un'applicazione piattaforma UWP con Speech SDK di Servizi cognitivi
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 751736a4333932a68775589dddeb82ef6fa6f398
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 549a8fd29cf1f986da0af1ae49dbf0e5335603bd
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258209"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325701"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in un'applicazione piattaforma UWP con Speech SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come creare un'applicazione piattaforma UWP (Universal Windows Platform) usando Speech SDK di Servizi cognitivi per trascrivere il riconoscimento vocale.
 L'applicazione si basa sul [pacchetto NuGet Speech SDK di Servizi cognitivi Microsoft](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017.
@@ -116,6 +117,6 @@ Ricercare questo esempio nella cartella `quickstart/csharp-uwp`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Traduzione vocale](how-to-translate-speech.md)
+- [Traduzione vocale](how-to-translate-speech-csharp.md)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)

@@ -4,17 +4,17 @@ description: Le valutazioni e gli effetti di Criteri di Azure determinano la con
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250288"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343553"
 ---
 # <a name="getting-compliance-data"></a>Ottenere dati sulla conformità
 
@@ -35,7 +35,7 @@ Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di div
 
 - Un criterio o un'iniziativa è stata appena assegnata a un ambito. In questo caso sono necessari circa 30 minuti prima che l'assegnazione venga applicata all'ambito definito. Dopo l'applicazione, ha inizio il ciclo di valutazione per le risorse in tale ambito sulla base del criterio o dell'iniziativa appena assegnata e, a seconda degli effetti usati dal criterio o dall'iniziativa, le risorse sono contrassegnate come conformi o non conformi. Un criterio o un'iniziativa estesa valutata rispetto a un ambito di risorse di grandi dimensioni può richiedere tempo, pertanto non è prevedibile quando verrà completato il ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
 - Un criterio o un'iniziativa già assegnata a un ambito viene aggiornata. Il ciclo di valutazione e la tempistica per questo scenario sono gli stessi di quelli per una nuova assegnazione a un ambito.
-- Una risorsa viene distribuita a un ambito con un'assegnazione tramite Resource Manager, REST, l'interfaccia della riga di comando di Azure o Azure PowerShell. In questo scenario l'evento di effetto (Append, Audit, Deny, Deploy) e le informazioni sullo stato conforme diventano disponibili nel portale e negli SDK dopo circa 15 minuti.
+- Una risorsa viene distribuita a un ambito con un'assegnazione tramite Resource Manager, REST, l'interfaccia della riga di comando di Azure o Azure PowerShell. In questo scenario l'evento di effetto (Append, Audit, Deny, Deploy) e le informazioni sullo stato conforme per la singola risorsa diventano disponibili nel portale e negli SDK dopo circa 15 minuti. Questo evento non causa una valutazione di altre risorse.
 - Ciclo di valutazione della conformità standard. Una volta ogni 24 ore, le assegnazioni vengono automaticamente rivalutate. Un criterio o un'iniziativa estesa valutata rispetto a un ambito di risorse di grandi dimensioni può richiedere tempo, pertanto non è prevedibile quando verrà completato il ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
 
 ## <a name="how-compliance-works"></a>Funzionamento della conformità
@@ -51,8 +51,6 @@ In un'assegnazione una risorsa non è conforme se non segue i criteri o le regol
 
 \* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE.
 Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
-
-Per comprendere meglio come le risorse vengano contrassegnate come non conformi, verrà usato l'esempio di assegnazione dei criteri creato sopra.
 
 Ad esempio, si supponga di avere un gruppo di risorse, ContosoRG, con alcuni account di archiviazione (evidenziati in rosso) esposti su reti pubbliche.
 

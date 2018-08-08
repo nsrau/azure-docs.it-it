@@ -3,7 +3,7 @@ title: Trigger timer per Funzioni di Azure
 description: Informazioni su come usare trigger timer in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308160"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345243"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -205,7 +205,7 @@ La proprietà `IsPastDue` è `true` quando la chiamata della funzione corrente a
 
 ## <a name="cron-expressions"></a>Espressioni CRON 
 
-Un'espressione CRON per il trigger timer di Funzioni di Azure include sei campi: 
+Funzioni di Azure usa la raccolta [NCronTab](https://github.com/atifaziz/NCrontab) per interpretare le espressioni CRON. Un'espressione CRON include sei campi:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -219,7 +219,12 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 |Set di valori (operatore `,`)|<nobr>"5,8,10 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.08 e hh.mm.10, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
 |Valore di intervallo (operatore `/`)|<nobr>"0 */5 * * * *"</nobr>|Alle hh.05.00, hh.10.00, hh.15.00 e così via fino alle hh.55.00, dove hh è ogni ora (12 volte all'ora)|
 
-Per specificare mesi o giorni è possibile utilizzare abbreviazioni di tre lettere anziché valori numerici. Ad esempio, usare Gen per gennaio o Dom per domenica.
+Per specificare mesi o giorni è possibile usare valori numerici, nomi o abbreviazioni di nomi:
+
+* Per i giorni, i valori numerici vanno da 0 a 6 in cui 0 corrisponde alla domenica.
+* I nomi sono in inglese. Ad esempio: `Monday`, `January`.
+* Per i nomi viene fatta distinzione tra maiuscole e minuscole.
+* I nomi possono essere abbreviati. La lunghezza consigliata per le abbreviazioni è tre lettere.  Ad esempio: `Mon`, `Jan`. 
 
 ### <a name="cron-examples"></a>Esempi CRON
 
@@ -227,13 +232,13 @@ Ecco alcuni esempi di espressioni CRON che è possibile usare per il trigger tim
 
 |Esempio|Quando viene attivato  |
 |---------|---------|
-|"0 */5 * * * *"|Una volta ogni cinque minuti|
-|"0 0 * * * *"|Una volta all'inizio di ogni ora|
-|"0 0 */2 * * *"|Una volta ogni due ore|
-|"0 0 9-17 * * *"|Una volta ogni ora dalle 9 alle 17|
-|"0 30 9 * * *"|Alle 9.30 di ogni giorno|
-|"0 30 9 * * 1-5"|Alle 9.30 di ogni giorno feriale|
-
+|`"0 */5 * * * *"`|Una volta ogni cinque minuti|
+|`"0 0 * * * *"`|Una volta all'inizio di ogni ora|
+|`"0 0 */2 * * *"`|Una volta ogni due ore|
+|`"0 0 9-17 * * *"`|Una volta ogni ora dalle 9 alle 17|
+|`"0 30 9 * * *"`|Alle 9.30 di ogni giorno|
+|`"0 30 9 * * 1-5"`|Alle 9.30 di ogni giorno feriale|
+|`"0 30 9 * Jan Mon"`|Alle 9.30 di ogni lunedì di gennaio|
 >[!NOTE]   
 >Alcuni esempi di espressioni CRON sono disponibili online, ma molti omettono il campo `{second}`. Se si copia una di queste espressioni, aggiungere il campo `{second}` mancante. In genere è preferibile impostare uno zero in questo campo, anziché un asterisco.
 
@@ -246,13 +251,13 @@ Il fuso orario predefinito usato con le espressioni CRON è Coordinated Universa
 Ad esempio, *Ora solare fuso orientale* (EST) è UTC-05:00. Per attivare il timer trigger ogni giorno alle 10:00 EST, usare la seguente espressione CRON che rappresenta il fuso orario UTC:
 
 ```json
-"schedule": "0 0 15 * * *",
+"schedule": "0 0 15 * * *"
 ``` 
 
 In alternativa, è possibile creare un'impostazione per l'app per le funzioni denominata `WEBSITE_TIME_ZONE` e impostare il valore su **Ora solare fuso orientale**.  Usare quindi l'espressione CRON seguente: 
 
 ```json
-"schedule": "0 0 10 * * *",
+"schedule": "0 0 10 * * *"
 ``` 
 
 ## <a name="timespan"></a>Intervallo di tempo

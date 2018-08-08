@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 65757abe13c45ce1a929c4648637f98360659030
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259297"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284871"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -76,7 +76,7 @@ Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenc
 - Verificare se l'accesso SSO facile è abilitato in Azure AD Connect. Se non è possibile abilitare la funzionalità, ad esempio a causa di una porta bloccata, verificare che tutti i [prerequisiti](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) siano soddisfatti.
 - Se nel tenant sono stati abilitati sia [Aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) che l'accesso Single Sign-On facile, assicurarsi che il problema non dipenda da Aggiunta ad Azure AD. SSO da Aggiunta ad Azure AD ha la precedenza su SSO facile se il dispositivo è sia registrato con Azure AD che aggiunto a un dominio. Con SSO da Aggiunta ad Azure AD l'utente visualizza un riquadro di accesso con il messaggio "Connesso a Windows".
 - Verificare che l'URL di Azure AD (https://autologon.microsoftazuread-sso.com) faccia parte delle impostazioni della zona Intranet dell'utente.
-- Verificare che il dispositivo aziendale sia aggiunto al dominio Active Directory.
+- Verificare che il dispositivo aziendale sia aggiunto al dominio Active Directory. Per poter usare l'accesso Single Sign-on facile, _non_ è necessario che il dispositivo sia [aggiunto ad Azure AD](../active-directory-azureadjoin-overview.md).
 - Verificare che l'utente sia connesso al dispositivo tramite un account di dominio di Active Directory.
 - Verificare che l'account dell'utente sia presente in una foresta di Active Directory in cui è stato configurato l'accesso SSO facile.
 - Verificare che il dispositivo sia connesso alla rete aziendale.
@@ -120,8 +120,8 @@ Se il problema persiste, è possibile reimpostare manualmente la funzionalità n
 
 1. Eseguire la chiamata a `$creds = Get-Credential`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
 
->[!NOTE]
->Per trovare la foresta di Active Directory desiderata, usare il nome utente dell'amministratore di dominio fornito nel formato di nome dell'identità utente (UPN) (johndoe@contoso.com) o il nome dominio completo dell'account SAM (contoso\johndoe o contoso.com\johndoe). Se si usa il formato di nome dominio completo dell'account SAM, usare la parte del dominio del nome utente per [individuare il controller di dominio dell'amministratore di dominio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se invece si usa il formato UPN, [convertirlo in un nome dominio completo dell'account SAM](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) prima di individuare il controller di dominio appropriato.
+    >[!NOTE]
+    >Per trovare la foresta di Active Directory desiderata, usare il nome utente dell'amministratore di dominio fornito nel formato di nome dell'identità utente (UPN) (johndoe@contoso.com) o il nome dominio completo dell'account SAM (contoso\johndoe o contoso.com\johndoe). Se si usa il formato di nome dominio completo dell'account SAM, usare la parte del dominio del nome utente per [individuare il controller di dominio dell'amministratore di dominio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se invece si usa il formato UPN, [convertirlo in un nome dominio completo dell'account SAM](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) prima di individuare il controller di dominio appropriato.
 
 2. Eseguire la chiamata a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Questo comando rimuove l'account computer `AZUREADSSOACCT` dal controller di dominio locale per questa foresta di Active Directory specifica.
 3. Ripetere la procedura precedente per ogni foresta di Active Directory in cui la funzionalità è configurata.
@@ -129,12 +129,10 @@ Se il problema persiste, è possibile reimpostare manualmente la funzionalità n
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Passaggio 4: abilitare l'accesso SSO facile per ogni foresta di Active Directory
 
 1. Eseguire la chiamata a `Enable-AzureADSSOForest`. Quando richiesto, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
-
->[!NOTE]
->Per trovare la foresta di Active Directory desiderata, usare il nome utente dell'amministratore di dominio fornito nel formato di nome dell'identità utente (UPN) (johndoe@contoso.com) o il nome dominio completo dell'account SAM (contoso\johndoe o contoso.com\johndoe). Se si usa il formato di nome dominio completo dell'account SAM, usare la parte del dominio del nome utente per [individuare il controller di dominio dell'amministratore di dominio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se invece si usa il formato UPN, [convertirlo in un nome dominio completo dell'account SAM](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) prima di individuare il controller di dominio appropriato.
-
+   >[!NOTE]
+   >Per trovare la foresta di Active Directory desiderata, usare il nome utente dell'amministratore di dominio fornito nel formato di nome dell'identità utente (UPN) (johndoe@contoso.com) o il nome dominio completo dell'account SAM (contoso\johndoe o contoso.com\johndoe). Se si usa il formato di nome dominio completo dell'account SAM, usare la parte del dominio del nome utente per [individuare il controller di dominio dell'amministratore di dominio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se invece si usa il formato UPN, [convertirlo in un nome dominio completo dell'account SAM](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) prima di individuare il controller di dominio appropriato.
 2. Ripetere la procedura precedente per ogni foresta di Active Directory in cui si desidera configurare la funzionalità.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Passaggio 5. Abilitare la funzionalità nel tenant
 
-Per abilitare la funzionalità nel tenant corrente, eseguire la chiamata a `Enable-AzureADSSO` e immettere **true** al prompt `Enable:`.
+Per abilitare la funzionalità nel tenant, chiamare `Enable-AzureADSSO -Enable $true`.

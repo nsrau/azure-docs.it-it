@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cf4579705e5910f62ca07223cb16405140926119
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 66b4f63e75773aa0c1857dfcc19e22b48a0c3537
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859201"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343160"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup online automatico e ripristino con Azure Cosmos DB
 Azure Cosmos DB esegue automaticamente il backup di tutti i dati a intervalli regolari. I backup automatici vengono eseguiti senza impatto sulle prestazioni o sulla disponibilità delle operazioni del database. Tutti i backup vengono archiviati separatamente in un altro servizio di archiviazione, oltre a essere replicati a livello globale per garantire la resilienza in caso di emergenze locali. I backup automatici sono destinati agli scenari in cui si elimina involontariamente il contenitore Cosmos DB e in un secondo momento è necessario il ripristino dei dati o una soluzione di ripristino di emergenza.  
@@ -50,7 +50,7 @@ Come descritto sopra, Azure Cosmos DB crea snapshot dei dati ogni quattro ore a 
 Per l'API SQL, se si vuole mantenere gli snapshot, è possibile usare l'opzione di esportazione in JSON nello [strumento di migrazione dei dati](import-data.md#export-to-json-file) di Azure Cosmos DB per pianificare backup aggiuntivi.
 
 > [!NOTE]
-> Se si "effettua il provisioning della velocità effettiva per un set di contenitori a livello di database", ricordarsi che il ripristino avviene a livello di account di database completo. È inoltre necessario assicurarsi di contattare il team di supporto tecnico entro 8 ore se si elimina accidentalmente il contenitore (tabella/raccolta/grafico), quando si usa questa nuova funzionalità. 
+> Se si "effettua il provisioning della velocità effettiva per un set di contenitori a livello di database", ricordarsi che il ripristino avviene a livello di account di database completo. È inoltre necessario assicurarsi di contattare il team di supporto tecnico entro 8 ore se si elimina accidentalmente il contenitore. Se non si contatta il team di supporto entro 8 ore, infatti, non è possibile ripristinare i dati. 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Ripristino di un database da un backup online

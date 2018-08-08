@@ -1,21 +1,20 @@
 ---
-title: Come registrare campioni vocali per la creazione di una voce personalizzata | Microsoft Docs
+title: Come registrare campioni vocali per la creazione di una voce personalizzata
 titleSuffix: Microsoft Cognitive Services
 description: Creare una voce personalizzata di qualità elevata grazie alla preparazione di uno script affidabile, all'assunzione di speaker di alto livello e a una registrazione professionale.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 1afab3b7c128abdf97c3a16fc493935bab5cfd4c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072266"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284167"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Come registrare campioni vocali per una voce personalizzata
 
@@ -104,7 +103,7 @@ In base alle norme sul copyright, la lettura di un testo protetto da copyright d
 
 È possibile tuttavia evitare completamente questi problemi. Sono disponibili molte origini di testo che si possono usare senza licenza né autorizzazione.
 
-|Origine del testo|Descrizione|
+|Origine del testo|DESCRIZIONE|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|Circa 1100 frasi selezionate da testi non protetti da copyright per l'uso specifico in progetti di sintesi vocale. Si tratta di un punto di partenza eccellente.|
 |Testi non più protetti<br>da copyright|Si tratta in genere di testi pubblicati prima del 1923. Per l'inglese, sul sito [Project Gutenberg](https://www.gutenberg.org/) sono disponibili decine di migliaia di tali testi. Può essere opportuno, tuttavia, concentrarsi su testi più recenti perché la lingua si avvicina di più all'inglese moderno.|

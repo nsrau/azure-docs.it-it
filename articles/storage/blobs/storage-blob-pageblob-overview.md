@@ -3,16 +3,17 @@ title: Funzionalità univoche dei BLOB di pagine di Azure | Microsoft Docs
 description: Una panoramica dei BLOB di pagine di Azure e dei relativi vantaggi, inclusi casi d'uso con script di esempio.
 services: storage
 author: anasouma
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.component: blobs
+ms.openlocfilehash: a215771b0126e9048b7d9da4ed1d6073c8e960a4
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39267361"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Funzionalità univoche dei BLOB di pagine di Azure
 
@@ -24,7 +25,7 @@ Le funzionalità principali dei BLOB di pagine di Azure sono l'interfaccia REST,
 
 ## <a name="sample-use-cases"></a>Caso d'uso di esempio
 
-Verranno ora esaminati un paio di casi d'uso per i BLOB di pagine a partire dai dischi IaaS di Azure. I BLOB di pagine di Azure sono alla base della piattaforma di dischi virtuali per il servizio IaaS di Azure. Sia i dischi dati che quelli del sistema operativo di Azure vengono implementati come dischi virtuali in cui i dati vengono resi persistenti nella piattaforma di archiviazione di Azure e quindi recapitati alle macchine virtuali per ottenere prestazioni ottimali. I dischi di Azure vengono resi persistenti nel [formato VHD](https://technet.microsoft.com/library/dd979539.aspx) di Hyper-V e archiviati come [BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in Archiviazione di Azure. Oltre a usare i dischi virtuali per le VM IaaS di Azure, i BLOB di pagine abilitano anche scenari PaaS e DBaaS, ad esempio il servizio database SQL di Azure, che usa attualmente i BLOB di pagine per l'archiviazione dei dati SQL, consentendo operazioni casuali rapide di lettura/scrittura per il database. Un altro esempio è quello in cui si ha un servizio PaaS per l'accesso multimediale condiviso per applicazioni di collaborazione per la modifica di video e i BLOB di pagine consentono di accedere rapidamente a percorsi casuali nei file multimediali. Consente anche a più utenti di modificare e unire in modo rapido ed efficiente gli stessi file multimediali. 
+Verrà ora esaminato qualche caso d'uso per i BLOB di pagine a partire dai dischi IaaS di Azure. I BLOB di pagine di Azure sono alla base della piattaforma di dischi virtuali per il servizio IaaS di Azure. Sia i dischi dati che quelli del sistema operativo di Azure vengono implementati come dischi virtuali in cui i dati vengono resi persistenti nella piattaforma di archiviazione di Azure e quindi recapitati alle macchine virtuali per ottenere prestazioni ottimali. I dischi di Azure vengono resi persistenti nel [formato VHD](https://technet.microsoft.com/library/dd979539.aspx) di Hyper-V e archiviati come [BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in Archiviazione di Azure. Oltre a usare i dischi virtuali per le VM IaaS di Azure, i BLOB di pagine abilitano anche scenari PaaS e DBaaS, ad esempio il servizio database SQL di Azure, che usa attualmente i BLOB di pagine per l'archiviazione dei dati SQL, consentendo operazioni casuali rapide di lettura/scrittura per il database. Un altro esempio è quello in cui si ha un servizio PaaS per l'accesso multimediale condiviso per applicazioni di collaborazione per la modifica di video e i BLOB di pagine consentono di accedere rapidamente a percorsi casuali nei file multimediali. Consente anche a più utenti di modificare e unire in modo rapido ed efficiente gli stessi file multimediali. 
 
 I servizi forniti da Microsoft, ad esempio Azure Site Recovery e Backup di Azure, e molti sviluppatori di terze parti hanno implementato le innovazioni leader del settore usando l'interfaccia REST del BLOB di pagine. Di seguito sono elencati alcuni degli scenari univoci implementati in Azure: 
 * Gestione degli snapshot incrementali controllata dell'applicazione: le applicazioni possono sfruttare gli snapshot dei BLOB di pagine e le API REST per il salvataggio dei checkpoint dell'applicazione senza dover sostenere la costosa duplicazione dei dati. Archiviazione di Azure supporta gli snapshot locali per i BLOB di pagine, che non richiedono la copia dell'intero BLOB. Queste API snapshot pubbliche consentono anche l'accesso e la copia dei valori differenziali tra gli snapshot.

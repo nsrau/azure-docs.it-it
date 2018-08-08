@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752793"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413128"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestione del ciclo di vita di Archiviazione BLOB di Azure (anteprima)
 
@@ -70,7 +70,7 @@ Se la funzionalità è stata approvata e registrata correttamente, si dovrebbe r
 
 ## <a name="add-or-remove-policies"></a>Aggiungere o rimuovere criteri 
 
-È possibile aggiungere, modificare o rimuovere un criterio tramite il portale di Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), le API REST o gli strumenti client nei linguaggi seguenti: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+È possibile aggiungere, modificare o rimuovere criteri tramite il portale di Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), le [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) o gli strumenti client nei linguaggi seguenti: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -133,7 +133,7 @@ I parametri necessari all'interno di una regola sono:
 
 ## <a name="rules"></a>Regole
 
-La definizione di ogni regola include un set di filtri e un set di azioni. La regola di esempio seguente modifica il livello per i BLOB in blocchi di base con il prefisso `foo`. Nel criterio queste regole sono definite nel modo seguente:
+La definizione di ogni regola include un set di filtri e un set di azioni. La regola di esempio seguente modifica il livello per i BLOB in blocchi di base con il prefisso `container1/foo`. Nel criterio queste regole sono definite nel modo seguente:
 
 - Imposta il BLOB sul livello di archiviazione ad accesso sporadico 30 giorni dopo l'ultima modifica
 - Imposta il BLOB sul livello di archiviazione archivio 90 giorni dopo l'ultima modifica
@@ -150,7 +150,7 @@ La definizione di ogni regola include un set di filtri e un set di azioni. La re
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "foo" ]
+          "prefixMatch": [ "container1/foo" ]
         },
         "actions": {
           "baseBlob": {
@@ -177,8 +177,8 @@ Durante l'anteprima, i filtri validi includono:
 
 | Nome filtro | Tipo di filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Una matrice di valori di enumerazione predefiniti. | Per la versione di anteprima è supportato solo `blockBlob`. | Sì |
-| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. | Se non è definita, questa regola si applica a tutti i BLOB all'interno dell'account. | No  |
+| blobTypes   | Una matrice di valori di enumerazione predefiniti. | Per la versione di anteprima è supportato solo `blockBlob`. | Yes |
+| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Una stringa di prefisso deve iniziare con un nome di contenitore. Ad esempio, se tutti i BLOB in "https://myaccount.blob.core.windows.net/mycontainer/mydir/..." devono essere abbinati per una regola, il prefisso è "mycontainer/mydir". | Se non è definita, questa regola si applica a tutti i BLOB all'interno dell'account. | No  |
 
 ### <a name="rule-actions"></a>Azioni della regola
 
@@ -207,7 +207,7 @@ Gli esempi seguenti illustrano come affrontare scenari comuni relativi alle rego
 
 ### <a name="move-aging-data-to-a-cooler-tier"></a>Spostare i dati a un livello di archiviazione ad accesso più sporadico
 
-L'esempio seguente illustra la transizione di BLOB in blocchi con prefisso `foo` o `bar`. Il criterio sposta i BLOB che non sono stati modificati da oltre 30 giorni a un livello di archiviazione ad accesso sporadico e i BLOB non modificati da 90 giorni a un livello di archiviazione archivio:
+L'esempio seguente illustra la transizione di BLOB in blocchi con prefisso `container1/foo` o `container2/bar`. Il criterio sposta i BLOB che non sono stati modificati da oltre 30 giorni a un livello di archiviazione ad accesso sporadico e i BLOB non modificati da 90 giorni a un livello di archiviazione archivio:
 
 ```json
 {
@@ -220,7 +220,7 @@ L'esempio seguente illustra la transizione di BLOB in blocchi con prefisso `foo`
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "foo", "bar" ]
+            "prefixMatch": [ "container1/foo", "container2/bar" ]
           },
           "actions": {
             "baseBlob": {
@@ -236,7 +236,7 @@ L'esempio seguente illustra la transizione di BLOB in blocchi con prefisso `foo`
 
 ### <a name="archive-data-at-ingest"></a>Archiviare i dati al momento dell'inserimento 
 
-Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. È consigliabile archiviare questi dati subito dopo l'inserimento. Per archiviare i dati al momento dell'inserimento viene configurato il criterio del ciclo di vita seguente. In questo esempio i BLOB in blocchi nell'account di archiviazione con prefisso `archive` vengono immediatamente spostati in un livello di archiviazione archivio. La transizione immediata avviene agendo sui BLOB 0 giorni dopo la data dell'ultima modifica:
+Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. È consigliabile archiviare questi dati subito dopo l'inserimento. Per archiviare i dati al momento dell'inserimento viene configurato il criterio del ciclo di vita seguente. In questo esempio i BLOB in blocchi nell'account di archiviazione all'interno del contenitore `archivecontainer` vengono immediatamente spostati in un livello di archiviazione. La transizione immediata avviene agendo sui BLOB 0 giorni dopo la data dell'ultima modifica:
 
 ```json
 {
@@ -249,7 +249,7 @@ Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se 
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archive" ]
+            "prefixMatch": [ "archivecontainer" ]
           },
           "actions": {
             "baseBlob": { 
@@ -292,7 +292,7 @@ Per alcuni dati è prevista di scadenza un determinato numero di giorni o mesi d
 
 ### <a name="delete-old-snapshots"></a>Eliminare gli snapshot precedenti
 
-Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo di vita vengono spesso usati gli snapshot per tenere traccia delle versioni precedenti dei dati. È possibile creare criteri che eliminino gli snapshot precedenti in base al tempo trascorso. Il tempo trascorso per lo snapshot viene determinato valutando la sua data/ora di creazione. Questa regola del criterio elimina gli snapshot dei BLOB in blocchi con prefisso `activeData` per i quali sono trascorsi 90 giorni o più dalla creazione dello snapshot.
+Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo di vita vengono spesso usati gli snapshot per tenere traccia delle versioni precedenti dei dati. È possibile creare criteri che eliminino gli snapshot precedenti in base al tempo trascorso. Il tempo trascorso per lo snapshot viene determinato valutando la sua data/ora di creazione. Questa regola dei criteri elimina gli snapshot dei BLOB in blocchi all'interno del contenitore `activedata` per i quali sono trascorsi 90 giorni o più dalla creazione.
 
 ```json
 {
@@ -305,7 +305,7 @@ Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo d
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activeData" ]
+            "prefixMatch": [ "activedata" ]
           },
           "actions": {            
             "snapshot": {

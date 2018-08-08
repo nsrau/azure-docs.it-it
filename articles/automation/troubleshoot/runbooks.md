@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ea134cde8b174d020a0adf73256aec3a6c406eaa
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237598"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413859"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -94,6 +94,26 @@ Se nell'account Azure è abilitata l'autenticazione a più fattori, non è possi
 Per usare un certificato con i cmdlet del modello di distribuzione classica di Azure, vedere il blog relativo alla [creazione e all'aggiunta di un certificato per la gestione dei servizi Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere l'argomento relativo alla [creazione di un'entità servizio tramite il portale di Azure](../../azure-resource-manager/resource-group-create-service-principal-portal.md) e quello relativo all'[autenticazione di un'entità servizio con Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errori comuni durante l'utilizzo di runbook
+
+### <a name="task-was-cancelled"></a>Scenario: il runbook ha esito negativo con errore "Un'attività è stata annullata"
+
+#### <a name="issue"></a>Problema
+
+Il runbook ha esito negativo con un errore simile all'esempio seguente:
+
+```
+Exception: A task was canceled.
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore può essere causato dall'utilizzo di moduli di Azure non aggiornati.
+
+#### <a name="resolution"></a>Risoluzione
+
+Questo errore può essere risolto aggiornando i moduli di Azure alla versione più recente.
+
+Nell'account di Automazione fare clic su **Moduli** e quindi su **Aggiorna moduli di Azure**. L'aggiornamento richiede circa 15 minuti; al termine, eseguire di nuovo il runbook con esito negativo.
 
 ### <a name="not-recognized-as-cmdlet"></a>Scenario: il runbook ha esito negativo a causa di un cmdlet mancano
 

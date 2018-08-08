@@ -5,17 +5,17 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1db5f0a62a21d040949c9f4e4c42f80c86e76506
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e23579479c61810d651bebae7b486b53aaaf0d42
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163866"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361387"
 ---
-### <a name="what-is-azure-firewall"></a>Che cos'è Firewall di Azure?
+### <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
 Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo distribuito come servizio con disponibilità elevata e scalabilità cloud senza limiti. È possibile creare, applicare e registrare criteri di connettività di applicazione e di rete in modo centralizzato tra le sottoscrizioni e le reti virtuali. Firewall di Azure è attualmente in anteprima pubblica.
 
@@ -66,7 +66,7 @@ Firewall di Azure è integrato con Monitoraggio di Azure per la visualizzazione 
 
 ### <a name="how-does-azure-firewall-work-relative-to-existing-like-nvas-in-the-marketplace"></a>Come funziona Firewall di Azure rispetto ad altre soluzioni esistenti, come le appliance virtuali di rete, nel marketplace?
 
-Firewall di Azure è un servizio firewall di base che consente di risolvere determinati scenari dei clienti. Si prevede che i clienti dispongano di una combinazione di Firewall di Azure e appliance virtuali di rete di terze parti e che collaborino con i partner Microsoft per realizzare insieme varie soluzioni più vantaggiose. 
+Firewall di Azure è un servizio firewall di base che consente di risolvere determinati scenari dei clienti. Si presuppone che ci sia una combinazione di appliance virtuali di rete di terze parti e Firewall di Azure. L'integrazione è una priorità fondamentale.
  
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Qual è la differenza tra la funzionalità Web application firewall del gateway applicazione e Firewall di Azure?
 
@@ -74,7 +74,7 @@ Web application firewall (WAF) è una funzionalità del gateway applicazione che
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsg-and-azure-firewall"></a>Qual è la differenza tra i gruppi di sicurezza di rete e Firewall di Azure?
 
-Il servizio Firewall di Azure si integra con la funzionalità esistente dei gruppi di sicurezza di rete offrendo una migliore sicurezza di rete con strategie di difesa avanzate. I gruppi di sicurezza di rete forniscono un filtraggio del traffico distribuito a livello di rete per limitare il traffico verso le risorse all'interno delle reti virtuali in ogni sottoscrizione.  Firewall di Azure è un firewall di rete centralizzato con stato completo, distribuito come servizio, che fornisce protezione a livello di rete e di applicazione in diverse sottoscrizioni e reti virtuali. 
+Il servizio Firewall di Azure si integra con la funzionalità dei gruppi di sicurezza di rete offrendo una migliore sicurezza di rete con strategie di difesa avanzate. I gruppi di sicurezza di rete forniscono un filtraggio del traffico distribuito a livello di rete per limitare il traffico verso le risorse all'interno delle reti virtuali in ogni sottoscrizione.  Firewall di Azure è un firewall di rete centralizzato con stato completo, distribuito come servizio, che fornisce protezione a livello di rete e di applicazione in diverse sottoscrizioni e reti virtuali. 
 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Come si configura Firewall di Azure con gli endpoint di servizio?
 
@@ -84,4 +84,5 @@ Per l'accesso sicuro ai servizi PaaS, è consigliabile usare gli endpoint di ser
 
 * Firewall di Azure ha un limite non rigido di 1000 TB al mese per unità firewall. 
 * Se eseguito in una rete virtuale centrale, Firewall di Azure è soggetto alle limitazioni relative al peering delle reti virtuali, ovvero un massimo di 50 reti virtuali spoke.  
-* Firewall di Azure non consente il peering a livello globale. I clienti devono quindi avere almeno una distribuzione di Firewall per ogni area.
+* Firewall di Azure non consente il peering globale. È quindi necessaria almeno una distribuzione di Firewall per ogni area.
+* Firewall di Azure supporta 10.000 regole di applicazione e 10.000 regole di rete.

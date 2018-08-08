@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: f1d85b031abda73c6ca41d6d2551db9d9cd36f1f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ac338283bfe123e70697b0301fdccca886653c42
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092155"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285300"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integrazione dell’applicazione SaaS con Azure Active Directory
 
@@ -113,7 +113,7 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 | ![Logo](./media/tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](boomi-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Box](box-tutorial.md)| [Box - Provisioning utente](box-userprovisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](boxcryptor-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpmâonline](bpmonline-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpm online](bpmonline-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-bridge-tutorial.png)| [Bridge](bridge-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-brightspace-desire2learn-tutorial.png)| [Brightspace by Desire2Learn](brightspace-desire2learn-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-bynder-tutorial.png)| [Bynder](bynder-tutorial.md)|
@@ -264,7 +264,7 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 | ![Logo](./media/tutorial-list/active-directory-saas-imagineerwebVision-tutorial.png)| [Imagineer WebVision](imagineerwebVision-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-impacriskmanager-tutorial.png)| [IMPAC Risk Manager](impacriskmanager-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-infogix-tutorial.png)| [Infogix Data3Sixty Govern](infogix-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Infor Retail â Information Management](inforretailinformationmanagement-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Infor Retail - Information Management](inforretailinformationmanagement-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-inkling-tutorial.png)| [Inkling](inkling-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-innotas-tutorial.png)| [Innotas](innotas-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-innovationhub-tutorial.png)| [Innovation Hub](innovationhub-tutorial.md)|
@@ -330,7 +330,7 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 | ![Logo](./media/tutorial-list/active-directory-saas-lifesize-cloud-tutorial.png)| [Lifesize Cloud](lifesize-cloud-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-worksmobile-tutorial.png)| [LINE WORKS](worksmobile-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn Elevate](linkedinelevate-tutorial.md)|[LinkedIn Elevate - Provisioning utente](linkedinelevate-provisioning-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|[LinkedIn Learning - Provisioning utente](linkedinlearning-provisioning-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](linkedinsalesnavigator-tutorial.md)|  [LinkedIn Sales Navigator - Provisioning utente](linkedinsalesnavigator-provisioning-tutorial.md)| 
 | ![Logo](./media/tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](liquidfiles-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](litmos-tutorial.md)|

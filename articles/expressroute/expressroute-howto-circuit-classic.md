@@ -1,26 +1,18 @@
 ---
 title: 'Modificare un circuito ExpressRoute: PowerShell: Azure classico| Microsoft Docs'
 description: Questo articolo illustra i passaggi per verificare lo stato, aggiornare o eliminare ed effettuare il deprovisioning del circuito del modello di distribuzione classica ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 457bb74fa15d31fecbf668038ac880cafb8a897d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 407782ff59147f227f5f34bc3318333093b4f57e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "24102835"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283572"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificare un circuito ExpressRoute mediante PowerShell (versione classica)
 
@@ -42,7 +34,38 @@ L'articolo illustra anche le procedure di controllo di stato, aggiornamento, eli
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Installare le versioni più recenti dei moduli di PowerShell per Gestione dei servizi di Azure. Per istruzioni dettagliate sulla configurazione del computer per l'uso con i moduli di Azure PowerShell, vedere [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) (Introduzione ai cmdlet di Azure PowerShell).
+Installare le versioni più recenti dei moduli di PowerShell per Gestione dei servizi di Azure e il modulo ExpressRoute.  Quando si usa l'esempio seguente, si noti che il numero di versione (in questo esempio, 5.1.1) verrà modificato quando vengono rilasciate versioni più recenti dei cmdlet.
+
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
+
+Per istruzioni dettagliate su come configurare il computer per usare i moduli di Azure PowerShell, vedere [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) (Introduzione ai cmdlet di Azure PowerShell).
+
+Per accedere al proprio account di Azure, usare l'esempio seguente:
+
+1. Aprire la console di PowerShell con diritti elevati e connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
+
+  ```powershel
+  Connect-AzureRmAccount
+  ```
+2. Controllare le sottoscrizioni per l'account.
+
+  ```powershell
+  Get-AzureRmSubscription
+  ```
+3. Se sono disponibili più sottoscrizioni, selezionare la sottoscrizione da usare.
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
+
+4. Successivamente, utilizzare il cmdlet seguente per aggiungere la sottoscrizione di Azure a PowerShell per il modello di distribuzione classico.
+
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ## <a name="get-the-status-of-a-circuit"></a>Ottenere lo stato di un circuito
 

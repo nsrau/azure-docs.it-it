@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 1ddf8cd38b4d62dc206a9f27e0620f8c7b232ec3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2593a9e782298bbd6e40bde611a430844febbce3
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31519383"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398489"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Eseguire il debug di processi Apache Spark in esecuzione in Azure HDInsight
 
 Questo articolo illustra come tenere traccia ed eseguire il debug di processi Spark in esecuzione nei cluster HDInsight tramite l'interfaccia utente di YARN, l'interfaccia utente di Spark e il server cronologia Spark. Si avvierà un processo Spark usando un notebook disponibile nel cluster Spark, **Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib**. È possibile usare la procedura seguente anche per tenere traccia di un'applicazione inviata usando qualsiasi altro approccio, ad esempio, **spark-submit**.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 È necessario disporre di quanto segue:
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -107,6 +107,7 @@ Una volta completato un processo, le informazioni corrispondenti vengono salvate
 
 ## <a name="see-also"></a>Vedere anche 
 *  [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
+*  [Eseguire il debug dei processi Spark tramite il Server cronologia Spark esteso](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>Per gli analisti dei dati
 

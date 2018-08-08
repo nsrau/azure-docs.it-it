@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 79e5622dd73e53854204675b435e99d187a3ab26
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075887"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358309"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete. Il monitoraggio e la diagnostica di mesh Service Fabric sono suddivisi in tre tipi principali di dati di diagnostica:
@@ -40,7 +40,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> È possibile usare il comando "az mesh servicereplica" per ottenere il nome della replica. I nomi della replica sono numeri incrementali a partire da 0.*
+> È possibile usare il comando "az mesh service-replica" per ottenere il nome della replica. I nomi della replica sono numeri incrementali a partire da 0.*
 
 Ecco come appare per visualizzare i log dal contenitore VotingWeb.Code dall'applicazione di voto:
 

@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2018
+ms.date: 8/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 1021900620272cc5476d8972daf9d7e0a161797a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205341"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398002"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Eseguire l'aggiornamento alla versione 2 dello stack di macchine virtuali di Azure
 
@@ -107,7 +107,7 @@ Non sono previsti costi per l'aggiornamento dello stack a v2. Gli snapshot vengo
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>L'aggiornamento alla versione 2 dello stack comporta l'aumento del limite di snapshot degli account di archiviazione Premium da 10 TB?
 
-Gli snapshot acquisiti come parte dello stack di v2 valgono come limite di 10 TB per gli snapshot di un account di archiviazione premium per dischi non gestiti. 
+No, limite totale di snapshot per ogni account archiviazione rimane comunque di 10 TB. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Negli account di archiviazione Premium gli snapshot creati per un punto di ripristino istantaneo occupano il limite di snapshot di 10 TB?
 

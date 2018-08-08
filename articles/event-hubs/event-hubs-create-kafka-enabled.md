@@ -1,5 +1,5 @@
 ---
-title: Creare Hub eventi di Azure abilitati per Kafka | Microsoft Docs
+title: Creare Hub eventi di Azure abilitati per Apache Kafka | Microsoft Docs
 description: Creare uno spazio dei nomi di Hub eventi di Azure abilitato per Kafka usando il portale di Azure
 services: event-hubs
 documentationcenter: .net
@@ -10,22 +10,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: shvija
-ms.openlocfilehash: 7a05a89fdf99efb6470ee9c8695f349cf22b8ebb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 79b6b879bd2332c044ce871e2c9a938c6b9c900c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442128"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285086"
 ---
-# <a name="create-kafka-enabled-event-hubs"></a>Creare Hub eventi con supporto per Kafka
+# <a name="create-apache-kafka-enabled-event-hubs"></a>Creare Hub eventi con supporto per Apache Kafka
 
 Hub eventi di Azure è una piattaforma come servizio (PaaS, Platform as a Service) di streaming di Big Data che inserisce milioni di eventi al secondo e fornisce bassa latenza e velocità effettiva elevata per l'analisi e la visualizzazione in tempo reale.
 
-Hub eventi di Azure per ecosistemi Kafka fornisce un endpoint che consente allo spazio dei nomi di Hub eventi di comprendere in modo nativo il protocollo del messaggio e le API [Apache Kafka](https://kafka.apache.org/intro). Con questa funzionalità è possibile comunicare con gli Hub eventi come si farebbe con gli argomenti Kafka senza modificare i client del protocollo o eseguire i propri cluster. Gli Hub eventi per l'ecosistema Kafka supportano [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html) e successive.
+Hub eventi di Azure fornisce un endpoint Kafka. che consente allo spazio dei nomi di Hub eventi di comprendere in modo nativo il protocollo del messaggio e le API [Apache Kafka](https://kafka.apache.org/intro). Con questa funzionalità è possibile comunicare con gli Hub eventi come si farebbe con gli argomenti Kafka senza modificare i client del protocollo o eseguire i propri cluster. Hub eventi supporta [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e versioni successive.
 
 Questo articolo descrive come creare uno spazio dei nomi di Hub eventi e ottenere la stringa di connessione necessaria per connettere le applicazioni Kafka agli Hub eventi con supporto per Kafka.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     
     ![Cercare Hub eventi nel portale](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Specificare un nome univoco e abilitare Kafka nello spazio dei nomi. Fare clic su **Crea**.
+3. Specificare un nome univoco e abilitare Kafka nello spazio dei nomi. Fare clic su **Create**(Crea).
     
     ![Creare uno spazio dei nomi](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  
@@ -58,7 +58,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per altre informazioni sugli Hub eventi, visitare i collegamenti seguenti:
 
 * [Trasmettere in Hub eventi dalle applicazioni Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Leggere le informazioni su Hub eventi per l'ecosistema Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Leggere le informazioni su Hub eventi per Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Leggere le informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
 
 

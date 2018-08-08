@@ -1,97 +1,126 @@
 ---
-title: 'Procedura: usare le password per le app in Azure MFA | Microsoft Docs'
-description: Questa pagina consente agli utenti di comprendere il ruolo e la funzione delle password per le app in Azure MFA.
-services: multi-factor-authentication
-documentationcenter: ''
+title: Come gestire le password per le app in Azure Active Directory | Microsoft Docs
+description: Questa pagina descrive che cosa sono le password per le app e per cosa vengono usate nell'ambito della verifica in due passaggi.
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 07/30/2018
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: 290458e95aaed0cc85d83539d9d870c334df45df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057593"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343289"
 ---
-# <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Che cosa sono le password per le app in Azure Multi-Factor Authentication?
-Alcune applicazioni non basate su browser, come il client di posta elettronica di Apple, utilizzano Exchange Active Sync e attualmente non supportano l'autenticazione a più fattori. L’autenticazione a più fattori viene abilitata per singolo utente. Questo implica che, se un utente è stato abilitato per l'autenticazione a più fattori e tenta di utilizzare applicazioni non basate su browser, non potrà farlo. La password dell’app consente tale operazione. Se si applica Multi-Factor Authentication tramite criteri di accesso condizionale e non tramite Multi-Factor Authentication per utente, è possibile creare password di app. Le applicazioni che usano criteri di accesso condizionale per controllare l'accesso non hanno bisogno di password di app.
+# <a name="manage-app-passwords-for-two-step-verification"></a>Gestire le password per le app per la verifica in due passaggi
 
-Dopo aver creato una password dell’app, è possibile utilizzarla al posto della password originale con le applicazioni non basate su browser. Questo avviene perché quando ci si registra per la verifica in due passaggi, si indica a Microsoft di non consentire l'accesso con la password a un utente che non possa eseguire anche la seconda verifica. Il client di posta elettronica di Apple sul telefono non può accedere perché per questo client non è possibile richiedere la verifica in due passaggi. La soluzione al problema consiste nel creare una password per l'app più sicura che non venga usata quotidianamente, ma solo per le app che non supportano la verifica in due passaggi. Usare la password per l'app per ignorare l’autenticazione a più fattori e proseguire.
+Alcune app non basate su browser, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
 
-> [!NOTE]
-> I client di Office 2013, tra cui Outlook, supportano i nuovi protocolli di autenticazione e possono essere usati con la verifica in due passaggi.  Ciò significa che una volta attivati, le password della app non vengono richieste per l'utilizzo con i Client di Office 2013.  Per altre informazioni, vedere l'[annuncio dell'anteprima pubblica dell'autenticazione moderna di Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+Quando si usano password per le app, è importante tenere presente quanto segue:
 
+- Le password per le app vengono generate automaticamente e immesse una sola volta per ogni app.
 
-## <a name="how-to-use-app-passwords"></a>Come utilizzare le password delle app
-Di seguito sono riportate alcune considerazioni da tenere presente per l’utilizzo delle password delle app.
+- Il limite è di 40 password per utente. Se si prova a crearne un'altra oltre questo limite, verrà chiesto di eliminare una password esistente prima di poter creare quella nuova.
 
-* La password per l'app non viene creata dall'utente, ma viene generata automaticamente. Poiché è sufficiente immettere la password per l'app una volta per ogni app, è preferibile usare una password più complessa, generata automaticamente anziché crearne una facile da ricordare.
-* Al momento esiste un limite di 40 password per utente. Se si tenta di creare una password dopo aver raggiunto il limite, verrà richiesto di eliminare una delle password per le app esistenti prima di crearne una nuova.
-* È consigliabile usare una sola password per dispositivo, non per applicazione. Ad esempio, è possibile creare una sola password per il computer portatile e usarla per tutte le applicazioni su tale computer. Quindi, creare una seconda password per le app da usare per tutte le app sul desktop.
-* La prima volta che si esegue la registrazione per la verifica in due passaggi viene comunicata una sola password per le app.  Se sono necessarie password aggiuntive, è possibile crearle.
+- Usare una sola password per dispositivo, non per app. Ad esempio, creare una singola password per tutte le app del portatile e un'altra per tutte le app sul PC desktop.
 
+    >[!Note]
+    >I client di Office 2013, tra cui Outlook, supportano i nuovi protocolli di autenticazione e possono essere usati con la verifica in due passaggi. Questo supporto significa che dopo l'attivazione della verifica in due passaggi non sono più necessarie le password per le app per i client Office 2013. Per altre informazioni, vedere l'articolo [Funzionamento dell'autenticazione moderna per le applicazioni client di Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
+## <a name="where-to-create-and-delete-your-app-passwords"></a>Dove creare ed eliminare password per le app
 
-## <a name="creating-and-deleting-app-passwords"></a>Creazione ed eliminazione delle password di app
-Durante l'accesso iniziale, viene fornita una password dell’app che è possibile utilizzare.  Inoltre, è inoltre possibile creare ed eliminare le password per le app in un secondo momento.  La procedura dipende dalla modalità di utilizzo dell’autenticazione a più fattori. Rispondere alle domande seguenti per determinare il luogo in cui è possibile gestire le password per le app:
+Una password per le app viene assegnata durante la registrazione iniziale della verifica in due passaggi. Se è necessaria più di una password, è possibile crearne altre, in base al modo in cui si usa la verifica in due passaggi:
 
-1. La verifica in due passaggi viene usata per l'account Microsoft personale? Se sì, è consigliabile consultare l'articolo [Password per app e verifica in due passaggi](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) per avere altre informazioni. Altrimenti passare alla seconda domanda.
+- **La verifica in due passaggi viene usata con l'account Microsoft Azure.** Creare ed eliminare password per le app tramite il [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere l'articolo [Password per app e verifica in due passaggi](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification).
 
-2. Pertanto, la verifica in due passaggi viene usata per un account aziendale o dell'istituto di istruzione. È usata per accedere alle applicazioni di Office 365? Se sì, è consigliabile consultare [Creare una password dell'app per Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) per avere maggiori informazioni. Altrimenti passare alla terza domanda.
+- **La verifica in due passaggi viene usata con l'account Microsoft personale.** Creare ed eliminare le password per le app tramite la pagina [Informazioni di base sulla sicurezza](https://account.microsoft.com/account/) con l'account Microsoft. Per altre informazioni, vedere l'articolo [Password per app e verifica in due passaggi](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
 
-3. La verifica in due passaggi viene usata con Microsoft Azure? Se sì, passare alla sezione [Gestione delle password per le app nel Portale di Azure](#manage-app-passwords-in-the-Azure-portal) di questo articolo. Altrimenti passare alla quarta domanda.
+- **La verifica in due passaggi viene usata con l'account aziendale o dell'istituto di istruzione e le app di Office 365** Creare ed eliminare le password per le app tramite le istruzioni fornite nella sezione [Creare ed eliminare password per le app tramite il portale di Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) di questo articolo.
 
-4. Non si è sicuri su dove venga usata la verifica in due passaggi? Passare alla sezione [Gestione delle password per le app nel Portale MyApps](#manage-app-passwords-with-the-myapps-portal) di questo articolo.
+## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Creare ed eliminare password per le app tramite il portale di Office 365
 
+Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di istruzione e le app di Office 365, è possibile creare ed eliminare le password per le app tramite il portale di Office 365. Il numero massimo di password per le app consentito è 40 per volta. Se è necessaria un'altra password per le app dopo avere raggiunto il limite, sarà necessario eliminare una delle password esistenti.
+
+### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Per creare password per le app tramite il portale di Office 365
+
+1. Accedere all'account aziendale o dell'istituto di istruzione.
+
+2. Passare a https://portal.office.com, selezionare l'icona **Impostazioni** nell'angolo in alto a destra del **portale di Office 365** e quindi espandere **Verifica aggiuntiva di sicurezza**.
+
+    ![Portale di Office che mostra l'area Verifica aggiuntiva di sicurezza espansa](media/security-info/security-info-o365password.png)
+
+3. Selezionare il testo **Create and manage app passwords** (Crea e gestisci password per le app) per aprire la pagina **Password dell'app**.
+
+4. Selezionare **Crea**, digitare un nome descrittivo per l'app per cui è necessaria la password e quindi selezionare **Avanti**.
+
+5. Selezionare **Copia password negli Appunti** e quindi **Chiudi**.
+
+6. Usare la password copiata per accedere all'app non basata su browser. Questa password deve essere immessa una sola volta e viene memorizzata per il futuro.
+
+### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>Per eliminare le password di app tramite il portale di Office 365
+
+1. Accedere all'account aziendale o dell'istituto di istruzione.
+
+2. Passare a https://portal.office.com, selezionare l'icona **Impostazioni** nell'angolo in alto a destra del **portale di Office 365** e quindi selezionare **Verifica aggiuntiva di sicurezza**.
+
+3. Selezionare il testo **Create and manage app passwords** (Crea e gestisci password per le app) per aprire la pagina **Password dell'app**.
+
+4. Selezionare **Elimina** per la password da eliminare, selezionare **Sì** nella casella di conferma e quindi selezionare **Chiudi**.
+
+    La password viene eliminata.
+
+5. Completare i passaggi per la creazione di una password per le app per crearne una nuova.
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gestione delle password per le app nel Portale di Azure
+
 Se si usa la verifica in due passaggi con Azure, è consigliabile creare password per le app tramite il Portale di Azure.
 
+## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gestire le password per le app nel portale MyApps
 
+È possibile creare ed eliminare password per le app anche tramite il portale MyApps.
 
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gestione delle password per le app nel portale MyApps.
-Se non si è certi di come utilizzare Multi-Factor Authentication, è sempre possibile creare ed eliminare le password per le app tramite il portale Myapps.
+### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Per creare una password per le app tramite il portale MyApps
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Per creare una password di app tramite il portale Myapps
 1. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com).
+
 2. Fare clic sul nome in alto a destra e scegliere **Profilo**.
+
 3. Selezionare **Verifica aggiuntiva di sicurezza**.
+
    ![Selezionare Verifica aggiuntiva di sicurezza: schermata](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
 
-4. Selezionare **Password delle app**.
+4. Selezionare **Password dell'app**.
+
    ![Selezionare le password per le app: schermata](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
-5. Fare clic su **Crea**.
-6. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.
+5. Fare clic su **Create**(Crea).
+
+6. Digitare un nome per la password e quindi selezionare **Avanti**.
+
 7. Copiare la password per l'app negli Appunti, quindi incollarla nell'app.
-   ![Creare una password di app](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+   
+    ![Creare una password di app](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Per eliminare una password di app tramite il portale MyApps
-1. Accedere a [https://myapps.microsoft.com](https://myapps.microsoft.com).
-2. Nella parte superiore selezionare il profilo.
-3. Selezionare **Verifica aggiuntiva di sicurezza**.
+### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Per eliminare una password per le app tramite il portale MyApps
 
-   ![Selezionare Verifica aggiuntiva di sicurezza: schermata](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+1. Passare al profilo e quindi selezionare **Verifica aggiuntiva di sicurezza**.
 
-4. Selezionare **Password delle app**.
-
-   ![Selezionare le password per le app: schermata](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Accanto alla password dell’app che si desidera rimuovere, selezionare **Elimina**.
+2. Selezionare **Password dell'app** e quindi **Elimina** accanto alla password che si vuole eliminare.
 
    ![Eliminare una password di app](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
 
-6. Confermare che si desidera eliminare la password facendo clic su **Sì**.
-7. Dopo che la password dell’app è stata eliminata, è possibile fare clic su **Chiudi**.
+3. Selezionare **Sì** per confermare l'eliminazione della password e quindi **Chiudi**.
+
+## <a name="if-your-app-passwords-arent-working-properly"></a>Se le app per le password non funzionano correttamente
+
+Assicurarsi di aver digitato correttamente la password. Se si è certi di aver immesso la password correttamente, è possibile provare ad accedere di nuovo e creare una nuova password. Se nessuna di queste opzioni risolve il problema, contattare il supporto tecnico dell'azienda per richiedere l'eliminazione delle password per le app esistenti, in modo da poterne creare di nuove. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

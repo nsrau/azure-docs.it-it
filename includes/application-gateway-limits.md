@@ -15,6 +15,8 @@
 | Timeout massimo delle richieste |24 ore | |
 | Numero di siti |20 |1 per listener HTTP |
 | Mappe URL per listener |1 | |
+|Lunghezza massima dell'URL|8000|
 | Dimensioni massime caricamento file Standard |2 GB | |
 | Dimensioni massime caricamento file WAF |100 MB| |
+|Limite dimensioni corpo WAF (senza file)|128 KB|
 

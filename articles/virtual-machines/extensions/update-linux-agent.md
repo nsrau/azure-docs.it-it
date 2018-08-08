@@ -3,7 +3,7 @@ title: Aggiornare l'agente Linux di Azure da Github | Microsoft Docs
 description: Informazioni su come aggiornare l'agente Linux di Azure per macchine virtuali Linux in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: danis
-ms.openlocfilehash: b5a482ef6d15f1c6b1942a6128a807d7c6189918
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: ef8668527974b7249f2f9c94e563ae5336d290d6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944963"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39416054"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Come aggiornare l'agente Linux di Azure in una macchina virtuale
 
@@ -162,7 +162,7 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart walinuxagent.service
 ```
 
-## <a name="redhat--centos"></a>Redhat / CentOS
+## <a name="red-hat--centos"></a>Red Hat / CentOS
 
 ### <a name="rhelcentos-6"></a>RHEL/CentOS 6
 
@@ -395,7 +395,7 @@ Questo è in genere sufficiente, ma se per qualche motivo è necessario installa
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>Aggiornare l'agente Linux se per la distribuzione non è presente alcun pacchetto agente
 
-Installare wget (in alcune distribuzioni non viene installato per impostazione predefinita, ad esempio in Redhat, CentOS e Oracle Linux versione 6.4 e 6.5) digitando `sudo yum install wget` nella riga di comando.
+Installare wget (in alcune distribuzioni non viene installato per impostazione predefinita, ad esempio in Red Hat, CentOS e Oracle Linux versione 6.4 e 6.5) digitando `sudo yum install wget` nella riga di comando.
 
 ### <a name="1-download-the-latest-version"></a>1. Scaricare la versione più recente
 Aprire [la versione dell’agente Linux di Azure in Github](https://github.com/Azure/WALinuxAgent/releases) in una pagina Web e trovare il numero di versione più recente. (È possibile individuare la versione corrente digitando `waagent --version`.)

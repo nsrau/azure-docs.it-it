@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 78cd8b2d6afe98e34c33ed3c841c8023d9dab764
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635271"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346662"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT SDK per dispositivi per C
 
@@ -70,9 +70,10 @@ Quando il codice sorgente di esempio è disponibile, è necessario ottenere un s
 Esistono diversi strumenti open source che consentono di gestire l'hub IoT.
 
 * Un'applicazione Windows denominata [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Un'estensione Visual Studio Code multipiattaforma denominata [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 * Uno strumento dell'interfaccia della riga di comando multipiattaforma di Python denominato [estensione IoT dell'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Questa esercitazione usa lo strumento grafico *Device Explorer*. È anche possibile usare *l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0* se si preferisce uno strumento dell'interfaccia della riga di comando.
+Questa esercitazione usa lo strumento grafico *Device Explorer*. È possibile usare l'*estensione Azure IoT Toolkit per Visual Studio Code* se si sviluppa in Visual Studio Code. È anche possibile usare *l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0* se si preferisce uno strumento dell'interfaccia della riga di comando.
 
 Lo strumento Device Explorer usa le librerie del servizio IoT di Azure per eseguire diverse funzioni nell'hub IoT, inclusa l'aggiunta di dispositivi. Se si usa lo strumento Device Explorer per aggiungere un dispositivo, si ottiene una stringa di connessione per il dispositivo, che sarà necessaria per eseguire le applicazioni di esempio.
 
@@ -84,7 +85,7 @@ Durante l'esecuzione del programma, viene visualizzata l'interfaccia seguente:
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-Immettere la **stringa di connessione all'hub IoT** nel primo campo e fare clic su **Aggiorna**. Questo passaggio configura lo strumento per la comunicazione con l'hub IoT.
+Immettere la **stringa di connessione all'hub IoT** nel primo campo e fare clic su **Aggiorna**. Questo passaggio configura lo strumento per la comunicazione con l'hub IoT. La **stringa di connessione** si trova in **Servizio hub IoT** > **Impostazioni** > **Criteri di accesso condiviso** > **iothubowner**.
 
 Dopo la configurazione della stringa di connessione all'hub IoT, fare clic sulla scheda **Management** (Gestione):
 
@@ -102,7 +103,7 @@ Dopo la creazione del dispositivo, l'elenco Devices (Dispositivi) viene aggiorna
 
 Se si sceglie **Copy connection string for selected device** (Copia stringa di connessione per il dispositivo selezionato), la stringa di connessione del dispositivo viene copiata negli Appunti. Conservare una copia della stringa di connessione del dispositivo. È necessaria quando si eseguono le applicazioni di esempio descritte nelle sezioni seguenti.
 
-Dopo aver completato i passaggi precedenti, si è pronti per iniziare a eseguire il codice. Entrambi gli esempi hanno una costante all'inizio del file di origine principale che consente di immettere una stringa di connessione. Ecco, ad esempio, la stringa di connessione dell'applicazione **iothub\_client\_sample\_mqtt**.
+Dopo aver completato i passaggi precedenti, si è pronti per iniziare a eseguire il codice. La maggior parte degli esempi ha una costante all'inizio del file di origine principale che consente di immettere una stringa di connessione. Ecco, ad esempio, la stringa di connessione dell'applicazione **iothub\_client\_sample\_mqtt**.
 
 ```c
 static const char* connectionString = "[device connection string]";

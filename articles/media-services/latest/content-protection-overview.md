@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 600068113fec0549f3993ac57c1daa93577c6be6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115231"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399754"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
 
@@ -30,7 +30,7 @@ L'immagine seguente illustra il flusso di lavoro di protezione dei contenuti di 
 
 &#42; *la crittografia dinamica supporta AES-128 "con chiave non crittografata", CBCS e CENC. Per altre informazioni, vedere la matrice del supporto [qui](#streaming-protocols-and-encryption-types).*
 
-Questo articolo usa una terminologia e illustra concetti importanti per comprendere la protezione dei contenuti con Servizi multimediali. L'articolo include anche collegamenti ad articoli che descrivono come proteggere i contenuti. 
+Questo articolo usa una terminologia e illustra concetti importanti per comprendere la protezione dei contenuti con Servizi multimediali. L'articolo include anche la sezione [Domande frequenti](#faq) e collegamenti ad articoli che illustrano come proteggere i contenuti. 
 
 ## <a name="main-components-of-the-content-protection-system"></a>Componenti principali del sistema di protezione del contenuto
 
@@ -125,6 +125,65 @@ Con i criteri di chiave simmetrica con restrizione token, la chiave simmetrica v
 
 Quando si configurano i criteri di restrizione del token, è necessario specificare i parametri primary verification key, issuer e audience. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che rilascia il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 
+## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>Domande frequenti
+
+### <a name="question"></a>Domanda
+
+Come si implementa un sistema a più DRM (PlayReady, Widevine e FairPlay), usando Servizi multimediali di Azure (AMS) v3 e il servizio di distribuzione delle licenze/chiavi di Servizi multimediali di Azure?
+
+### <a name="answer"></a>Risposta
+
+Per uno scenario end-to-end, vedere l'[esempio di codice seguente](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
+
+L'esempio illustra come:
+
+1. Creare e configurare ContentKeyPolicies.
+
+  L'esempio contiene funzioni che consentono di configurare le licenze di [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), e [FairPlay](fairplay-license-overview.md).
+
+    ```
+    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+    ```
+
+2. Creare un oggetto StreamingLocator configurato per eseguire lo streaming di una risorsa crittografata. 
+
+  Nel caso di questo esempio, si imposta **StreamingPolicyName** su **PredefinedStreamingPolicy.SecureStreaming**, che supporta la crittografia envelope e cenc e imposta due chiavi simmetriche in StreamingLocator. 
+
+  Se si vuole crittografare anche con FairPlay, impostare **StreamingPolicyName** su **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+
+3. Creare un token di test.
+
+  Il metodo **GetTokenAsync** illustra come creare un token di test.
+  
+4. Compilare l'URL di streaming.
+
+  Il metodo **GetDASHStreamingUrlAsync** illustra come compilare l'URL di streaming. In questo caso, l'URL esegue lo streaming del contenuto **DASH**.
+
+### <a name="question"></a>Domanda
+
+Come e dove si ottiene il token JWT prima di usarlo per richiedere la licenza o la chiave?
+
+### <a name="answer"></a>Risposta
+
+1. Per la produzione, è necessario avere un servizio Web del servizio token di sicurezza che emette il token JWT in corrispondenza di una richiesta HTTPS. Per i test, è possibile usare il codice illustrato nel metodo **GetTokenAsync** definito in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Dopo l'autenticazione di un utente, il lettore dovrà richiedere al servizio token di sicurezza tale token e assegnarlo come valore del token. È possibile usare l'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
+
+* Per un esempio di esecuzione del servizio token di sicurezza, con una chiave di crittografia simmetrica e asimmetrica, vedere [ http://aka.ms/jwt ](http://aka.ms/jwt). 
+* Per un esempio di lettore basato su Azure Media Player con tale token JWT, vedere [ http://aka.ms/amtest ](http://aka.ms/amtest) (espandere il collegamento "player_settings" per visualizzare l'input del token).
+
+### <a name="question"></a>Domanda
+
+Come si autorizzano le richieste di streaming di video con la crittografia AES?
+
+### <a name="answer"></a>Risposta
+
+L'approccio corretto consiste nell'usare il servizio token di sicurezza:
+
+Nel servizio token di sicurezza, a seconda del profilo dell'utente, aggiungere attestazioni diverse (ad esempio “Premium User”, “Basic User”, “Free Trial User”). Con diverse attestazioni in un token JWT, l'utente può visualizzare diversi tipi di contenuto. Naturalmente, per contenuto/risorse diverse, ContentKeyPolicyRestriction avrà il valore RequiredClaims corrispondente.
+
+Usare le API dei Servizi multimediali di Azure per la configurazione del recapito della licenza/chiave e la crittografia delle risorse (come illustrato in [questo esempio](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

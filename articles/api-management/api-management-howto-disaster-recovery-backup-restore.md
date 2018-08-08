@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090878"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283099"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -61,7 +61,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 4. Immettere un nome per l'applicazione.
 5. Come tipo di applicazione selezionare **Nativo**.
 6. Immettere un URL di segnaposto, ad esempio `http://resources` per **URI di reindirizzamento**, che è un campo obbligatorio, ma il valore non viene usato in seguito. Selezionare la casella di controllo per salvare l'applicazione.
-7. Fare clic su **Crea**.
+7. Fare clic su **Create**(Crea).
 
 ### <a name="add-an-application"></a>Aggiungere un'applicazione
 
@@ -76,6 +76,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 
 7. Fare clic su **Autorizzazioni delegate** accanto all'applicazione appena aggiunta, selezionare la casella per **Accesso a Gestione dei servizi di Azure (anteprima)**.
 8. Fare clic su **Seleziona**.
+9. Fare clic su **Concedi autorizzazioni**.
 
 ### <a name="configuring-your-app"></a>Configurazione dell'app
 
@@ -92,7 +93,7 @@ namespace GetTokenResourceManagerRequests
         static void Main(string[] args)
         {
             var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
-            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var result = authenticationContext.AcquireTokenAsync("https://management.azure.com/", "{application id}", new Uri("{redirect uri}"), new PlatformParameters(PromptBehavior.Auto)).Result;
 
             if (result == null) {
                 throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -123,6 +124,8 @@ Sostituire `{tentand id}`, `{application id}` e `{redirect uri}` usando le istru
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Chiamata delle operazioni di backup e ripristino
 
+Le API REST sono [Api Management Service - Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) (Servizio Gestione API - Backup) e [Api Management Service - Restore](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore) (Servizio Gestione API - Ripristino).
+
 Prima di chiamare le operazioni di backup e ripristino descritte nelle sezioni seguenti, impostare l'intestazione della richiesta di autorizzazione per la chiamata REST.
 
 ```csharp
@@ -132,24 +135,27 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ### <a name="step1"> </a>Backup di un servizio di Gestione API
 Per eseguire il backup di un servizio di gestione API, emettere la seguente richiesta HTTP:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
+```
 
 dove:
 
 * `subscriptionId`: ID della sottoscrizione contenente il servizio Gestione API di cui si sta tentando di eseguire il backup.
 * `resourceGroupName`: nome del gruppo di risorse del servizio Gestione API di Azure
 * `serviceName` : il nome del servizio di Gestione API di cui sta eseguendo il backup specificato quando è stato creato.
-* `api-version` - sostituire con `2014-02-14`
+* `api-version` - sostituire con `2018-06-01-preview`
 
 Nel corpo della richiesta, specificare il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di destinazione di Azure:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Impostare il valore dell'intestazione della richiesta `Content-Type` su `application/json`.
@@ -168,24 +174,26 @@ Quando si crea una richiesta di backup, occorre attenersi ai vincoli seguenti.
 ### <a name="step2"></a>Ripristino di un servizio di Gestione API
 Per ripristinare un servizio di Gestione API da un backup creato in precedenza, creare la seguente richiesta HTTP:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
+```
 
 dove:
 
 * `subscriptionId` : ID della sottoscrizione contenente il servizio di Gestione API in cui si sta ripristinando un backup.
 * `resourceGroupName`: una stringa nel formato "Api-Default-{service-region}", dove `service-region` identifica l'area di Azure in cui è ospitato il servizio Gestione API in cui si sta ripristinando un backup, ad esempio `North-Central-US`.
 * `serviceName` : il nome del servizio di Gestione API in cui si sta effettuando il ripristino specificato quando è stato creato.
-* `api-version` - sostituire con `2014-02-14`
+* `api-version` - sostituire con `2018-06-01-preview`
 
 Nel corpo della richiesta specificare la posizione del file di backup, ad esempio il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di Azure:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Impostare il valore dell'intestazione della richiesta `Content-Type` su `application/json`.

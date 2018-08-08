@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/27/2018
 ms.author: iainfou
-ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205249"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345855"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative ad Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Azure applica automaticamente le patch di sicurezza ai nodi del cluster con una 
 
 - Manualmente tramite il portale di Azure o l'interfaccia della riga di comando di Azure.
 - Aggiornando il cluster AKS. Gli aggiornamenti del cluster [bloccano e svuotano i nodi](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) automaticamente, quindi li riattivano con l'immagine Ubuntu più recente. Aggiornare l'immagine del sistema operativo nei nodi senza modificare le versioni Kubernetes specificando la versione corrente del cluster in `az aks upgrade`.
-- Usando [Kured](https://github.com/weaveworks/kured), un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. Quindi orchestra i riavvii in tutto il cluster, seguendo lo stesso processo di blocco e svuotamento descritto in precedenza.
+- Usando [Kured](https://github.com/weaveworks/kured), un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. Quindi gestisce i riavvii del sistema operativo in tutto il cluster, seguendo lo stesso processo di blocco e svuotamento descritto in precedenza.
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS supporta la scalabilità automatica dei nodi?
 
@@ -39,7 +39,7 @@ Sì, la scalabilità automatica è disponibile tramite il [Ridimensionamento aut
 
 Sì, RBAC può essere abilitato durante la [distribuzione di un cluster AKS dall'interfaccia della riga di comando di Azure o dal modello di Azure Resource Manager](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Questa funzionalità sarà a breve disponibile sul portale di Azure.
 
-## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Quali controller di ammissione Kubernetes supporta AKS? Può essere configurato?
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quali controller di ammissione Kubernetes supporta AKS? È possibile aggiungere o rimuovere i controller di ammissione?
 
 AKS supporta i seguenti [controller di ammissione][admission-controllers]:
 
@@ -66,7 +66,7 @@ Attualmente non è possibile. Il server API Kubernetes viene esposto come nome d
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault è integrato in AKS?
 
-AKS non è attualmente integrato nell'insieme di credenziali delle chiavi di Azure in modo nativo. Tuttavia, sono disponibili soluzioni di community come [l'agente acs-keyvault-agent di Hexadite][hexadite].
+AKS non è attualmente integrato nell'insieme di credenziali delle chiavi di Azure in modo nativo. Tuttavia, il progetto [KeyVault Flex Volume](https://github.com/Azure/kubernetes-keyvault-flexvol) consente l'integrazione diretta dai pod di Kubernetes ai segreti di KeyVault.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>È possibile eseguire contenitori Windows Server in AKS?
 
@@ -76,7 +76,7 @@ Per eseguire i contenitori di Windows Server, è necessario eseguire nodi basati
 
 Ogni distribuzione AKS si estende a due gruppi di risorse. Il primo viene creato dall'utente e contiene solo la risorsa del servizio Kubernetes. Il provider di risorse AKS crea automaticamente il secondo durante la distribuzione con un nome come *MC_myResourceGroup_myAKSCluster_eastus*. Il secondo gruppo di risorse contiene tutte le risorse di infrastruttura associate al cluster, ad esempio le VM, le risorse di rete e di archiviazione. Viene creato per semplificare la pulitura delle risorse.
 
-Se si creano risorse che verranno usate con il cluster AKS, ad esempio account di archiviazione o un indirizzo IP pubblico riservato, è necessario inserirle nel gruppo di risorse generato automaticamente.
+Se si creano risorse che verranno usate con il cluster AKS, ad esempio account di archiviazione o gli indirizzi IP pubblici riservati, è necessario inserirle nel gruppo di risorse generato automaticamente.
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre un contratto di servizio?
 

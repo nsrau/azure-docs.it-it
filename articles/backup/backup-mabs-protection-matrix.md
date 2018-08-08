@@ -5,16 +5,16 @@ services: backup
 author: markgalioto
 ms.service: backup
 keywords: ''
-ms.date: 11/28/2017
+ms.date: 7/14/2018
 ms.topic: conceptual
 ms.author: markgal
 manager: carmonm
-ms.openlocfilehash: 2edf6b4076dfafd775e723d44ed4d93b7493828b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4167e8214674527039fd838f81c3489840e6ef68
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607243"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284913"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice di protezione del server di Backup di Azure
 
@@ -80,8 +80,8 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2012 - Datacenter e Standard|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione: computer Hyper-V, volumi condivisi cluster<br /><br />Ripristino: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2008 R2 SP1 - Enterprise e Standard|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione: computer Hyper-V, volumi condivisi cluster<br /><br />Ripristino: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2008 SP2|Server fisico<br /><br />Macchina virtuale Hyper-V locale|N|N|Protezione: computer Hyper-V, volumi condivisi cluster<br /><br />Ripristino: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
-|VM VMware|Server VMware 5.5, 6.0 o 6.5 |Macchina virtuale Hyper-V locale|S|Y (con UR1)|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Ripristino a livello di elemento di file e cartelle disponibili solo per Windows<br /> VMware vApps non è supportato|
-|Linux|Linux in esecuzione come guest Hyper-V o VMware|Macchina virtuale Hyper-V locale|S|S|Hyper-V deve essere in esecuzione in Windows Server 2012 R2 o Windows Server 2016. Protezione: intera macchina virtuale<br /><br />Ripristino: intera macchina virtuale <br/><br/> Per un elenco completo delle distribuzioni e versioni Linux supportate, vedere l'articolo [Linux in distribuzioni approvate da Azure](../virtual-machines/linux/endorsed-distros.md).|
+|VM VMware|Server VMware 5.5, 6.0 o 6.5 |Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|Y (con UR1)|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Ripristino a livello di elemento di file e cartelle disponibili solo per Windows<br /> VMware vApps non è supportato|
+|Linux|Linux in esecuzione come guest Hyper-V o VMware|Server fisico, <br/>Macchina virtuale Hyper-V locale, <br/> Macchina virtuale Windows in VMWare|S|S|Hyper-V deve essere in esecuzione in Windows Server 2012 R2 o Windows Server 2016. Protezione: intera macchina virtuale<br /><br />Ripristino: intera macchina virtuale <br/><br/> Per un elenco completo delle distribuzioni e versioni Linux supportate, vedere l'articolo [Linux in distribuzioni approvate da Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="cluster-support"></a>Supporto di cluster
 Il server di Backup di Azure può proteggere i dati nelle applicazioni in cluster seguenti:

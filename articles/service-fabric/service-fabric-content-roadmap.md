@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1c3ea5b041cf2a961ef57bc168ae86b83412e044
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212824"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358719"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Informazioni su Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili.  Service Fabric ha una struttura molto estesa e richiede un apprendimento completo.  Questo articolo offre un riepilogo di Service Fabric e descrive i concetti di base, i modelli di programmazione, il ciclo di vita dell'applicazione, i test, i cluster e il monitoraggio dell'integrità. Leggere [Panoramica](service-fabric-overview.md) e [Cosa sono i microservizi?](service-fabric-overview-microservices.md) per la presentazione di Service Fabric e per informazioni su come usarlo per creare microservizi. Questo articolo non offre un elenco completo dei contenuti ma include collegamenti ad articoli di panoramica e introduttivi su tutte le aree di Service Fabric. 
@@ -55,7 +55,7 @@ Un'applicazione denominata è una raccolta di servizi denominati che esegue una 
 
 Dopo aver creato un'applicazione denominata, è possibile creare un'istanza di uno dei relativi tipi di servizio, ovvero un servizio denominato, all'interno del cluster. A tale scopo è necessario specificare il tipo di servizio, usando nome e versione corrispondenti. A ogni istanza del tipo di servizio viene assegnato un nome URI con un ambito definito dall'URI della relativa applicazione denominata. Se, ad esempio, si crea un servizio denominato "MyDatabase" all'interno di un'applicazione denominata "MyNamedApp", l'URI corrispondente sarà simile al seguente: *fabric:/MyNamedApp/MyDatabase*. All'interno di un'applicazione denominata è possibile creare uno o più servizi denominati. Ogni servizio denominato può avere uno schema di partizione e numeri di istanze/repliche specifici. 
 
-Sono disponibili due tipi di servizi: con e senza stato. I servizi senza stato archiviano lo stato permanente in un servizio di archiviazione esterno, ad esempio Archiviazione di Azure, database SQL di Azure o Azure Cosmos DB. Usare un servizio senza stato nei casi in cui il servizio non prevede alcun tipo di archivio permanente. Un servizio con stato usa Service Fabric per gestire lo stato del servizio tramite i modelli di programmazione Reliable Collections o Reliable Actors. 
+Sono disponibili due tipi di servizi: con e senza stato. I servizi senza stato non archiviano lo stato all'interno del servizio. I servizi senza stato sono totalmente privi di archiviazione permanente o archiviano lo stato permanente in un servizio di archiviazione esterno, ad esempio Archiviazione di Azure, database SQL di Azure o Azure Cosmos DB. Un servizio con stato archivia lo stato all'interno del servizio e lo gestisce tramite modelli di programmazione Reliable Collections o Reliable Actor. 
 
 Quando si crea un servizio denominato, è necessario specificare uno schema di partizione. I servizi con grandi quantità di stato suddividono i dati tra partizioni. Ogni partizione è responsabile di una parte dello stato completo del servizio, che verrà distribuito tra i nodi del cluster.  
 
@@ -193,7 +193,7 @@ Il video seguente di Microsoft Virtual Academy descrive i concetti del modello d
 </a></center>
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
-Il [monitoraggio e la diagnostica](service-fabric-diagnostics-overview.md) sono essenziali per lo sviluppo, il test e la distribuzione di applicazioni e servizi in qualsiasi ambiente. Le soluzioni di Service Fabric funzionano meglio quando si pianifica e si implementa il monitoraggio e la diagnostica che consentono di verificare che le applicazioni e i servizi funzionino come previsto in un ambiente di sviluppo locale o in fase di produzione.
+Il [monitoraggio e la diagnostica](service-fabric-diagnostics-overview.md) sono essenziali per lo sviluppo, i test e la distribuzione di applicazioni e servizi in qualsiasi ambiente. Le soluzioni di Service Fabric funzionano meglio quando si pianifica e si implementa il monitoraggio e la diagnostica che consentono di verificare che le applicazioni e i servizi funzionino come previsto in un ambiente di sviluppo locale o in fase di produzione.
 
 Gli obiettivi principali di monitoraggio e diagnostica sono:
 

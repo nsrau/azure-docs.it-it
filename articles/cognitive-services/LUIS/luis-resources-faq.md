@@ -7,14 +7,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239118"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390195"
 ---
 # <a name="language-understanding-faq"></a>Domande frequenti su LUIS
 
@@ -147,6 +147,12 @@ Se si usa il log per l'analisi delle stime, non acquisire le espressioni di test
 * È possibile eliminare le espressioni dall'elenco di espressioni utente suggerite da LUIS nella pagina **Review endpoint utterances** (Esamina espressioni endpoint). Le espressioni eliminate da questo elenco non vengono più suggerite, ma non vengono eliminate dai log.
 * Se si elimina un account, vengono eliminate tutte le app insieme ai relativi log ed espressioni di esempio. I dati vengono mantenuti nei server per 60 giorni prima di essere eliminati in modo permanente.
 
+### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft accede ai dati dell'app LUIS per i propri scopi, ad esempio per migliorare LUIS o Microsoft in generale? 
+
+No. Il modello di dati dell'app LUIS non viene usato da LUIS per migliorare l'app LUIS stessa come piattaforma né viene usato da Microsoft in alcun modo. I dati di ogni app sono separati e di esclusiva proprietà dell'utente e dei suoi collaboratori. 
+
+Vedere altre informazioni sulla [privacy degli utenti](luis-reference-gdpr.md), sulla [conformità alla sicurezza](luis-concept-security.md#security-compliance) e sull'[archiviazione dei dati](luis-concept-data-storage.md).
+
 ## <a name="language-and-translation-support"></a>Supporto linguistico e di traduzione 
 
 ### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>Si dispone di un'app in una lingua e si desidera creare un'app parallela in un'altra lingua. Qual è il modo più semplice per eseguire questa operazione?
@@ -175,20 +181,6 @@ Il [priming del riconoscimento vocale](https://docs.microsoft.com/bot-framework/
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS è disponibile in locale o in un cloud privato?
 No. 
 
-## <a name="changes-to-the-docs"></a>Modifiche alla documentazione
-
-### <a name="where-did-the-tutorials-go"></a>Dove sono state spostate le esercitazioni? 
-Gli articoli che precedentemente si trovavano nella sezione Esercitazioni si trovano ora nella sezione Procedure dei documenti. 
-
-|Esercitazione|
-|--|
-|Integrare LUIS con un bot usando [C#](luis-csharp-tutorial-build-bot-framework-sample.md) e [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
-|Aggiungere Application Insights a un bot con [C#](luis-tutorial-bot-csharp-appinsights.md) e [Node.js](luis-tutorial-function-appinsights.md)|
-|Compilare un'app LUIS a livello di codice con [Node.js](luis-tutorial-node-import-utterances-csv.md)|
-|Usare un'[entità composita](luis-tutorial-composite-entity.md) per estrarre i dati raggruppati|
-|Aggiungere un'[entità elenco](luis-tutorial-list-entity.md) per un maggiore rilevamento di entità con Node.js|
-|Migliorare l'accuratezza delle stime con un [elenco di frasi](luis-quickstart-primary-and-secondary-data.md), [modelli](luis-tutorial-pattern.md), e [test in batch](luis-tutorial-batch-testing.md)|
-|[Correggere l'ortografia](luis-tutorial-batch-testing.md) con l'API Controllo ortografico Bing v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>In occasione della conferenza Build 2018, è stata menzionata una funzionalità o una dimostrazione di LUIS. Di quale caratteristica si trattava? 
 
@@ -198,7 +190,7 @@ In occasione della conferenza Build 2018 sono state rilasciate le seguenti funzi
 |--|--|
 |Miglioramenti|Entità [Espressione regolare](luis-concept-data-extraction.md##regular-expression-entity-data) ed entità [Frase chiave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
 |Modelli|Modelli [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>Concetto dell'entità [Patterns.Any](luis-concept-entity-types.md), incluso un [elenco esplicito](luis-concept-patterns.md#explicit-lists) per le eccezioni<br>Concetto [Ruoli](luis-concept-roles.md)|
-|Integrazioni|Integrazione dell'[analisi di testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) per l'[analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integrazione [vocale](https://docs.microsoft.com/azure/cognitive-services/speech) del [priming del riconoscimento vocale](luis-how-to-publish-app.md#enable-speech-priming) in combinazione con [Speech SDK](https://aka.ms/SpeechSDK)|
+|Integrazioni|Integrazione dell'[analisi di testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) per l'[analisi del sentiment](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integrazione [vocale](https://docs.microsoft.com/azure/cognitive-services/speech) del priming del riconoscimento vocale in combinazione con [Speech SDK](https://aka.ms/SpeechSDK)|
 |Strumento Dispatch|Parte di [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), lo [strumento](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) a riga di comando Dispatch permette di combinare più app LUIS e QnA Maker in una singola app LUIS per migliorare il riconoscimento delle finalità in un bot
 
 Sono state incluse altre [route API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) di creazione. 

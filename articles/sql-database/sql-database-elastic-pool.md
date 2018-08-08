@@ -7,15 +7,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: a5d5c29b30f746c5507e45ecbee6c5ab9aff56f3
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d350678d80497b44cdd854baf958926150867c01
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091943"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326099"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL
 
@@ -36,6 +36,9 @@ I pool elastici risolvono il problema assicurando ai database l'ottenimento dell
 I pool elastici consentono agli sviluppatori di acquistare risorse per un pool condiviso da più database, in modo da supportare periodi di utilizzo imprevisti da parte dei singoli database. È possibile configurare le risorse per il pool in base al [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o al [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). Il requisito di risorse per un pool è determinato dall'utilizzo aggregato dei relativi database. La quantità di risorse disponibili per il pool dipende dal budget dello sviluppatore. Lo sviluppatore aggiunge semplicemente database al pool, imposta la quantità minima e massima di risorse per i database (DTU minimi o massimi oppure vCore minimi o massimi a seconda della scelta del modello di risorse), quindi imposta le risorse del pool in base al proprio budget. Utilizzando i pool, lo sviluppatore può aumentare con facilità i servizi offerti da una piccola nuova impresa fino a un'azienda matura in continua crescita.
 
 All'interno del pool i singoli database sono sufficientemente flessibili da assicurare una scalabilità automatica nell'ambito di parametri prefissati. Se il carico di lavoro è importante, un database può utilizzare più risorse per soddisfare la domanda. Se invece il carico di lavoro è più leggero, i database in assenza di carico non utilizzano risorse. La possibilità di effettuare il provisioning delle risorse per l'intero pool e non per i singoli database semplifica le attività di gestione. È inoltre disponibile un budget per il pool prevedibile. È possibile aggiungere altre risorse a un pool esistente senza causare tempi di inattività, ad eccezione del caso in cui sia necessario spostare i database per fornire risorse di calcolo aggiuntive per le nuove eDTU riservate. Analogamente, se le risorse aggiuntive non sono più necessarie, è possibile rimuoverle da un pool esistente in qualsiasi momento. È possibile aggiungere e rimuovere database dal pool. Se si prevede che un database sottoutilizzerà le proprie risorse, è possibile rimuoverlo.
+
+> [!NOTE]
+> Quando si spostano database all'interno o all'esterno di un pool elastico, non si verifica alcun tempo di inattività, ad eccezione di un breve periodo (nell'ordine di secondi) alla fine dell'operazione, quando vengono rilasciate le connessioni al database.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando considerare un pool elastico del database SQL
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 48e0e68794e83739835d97aa8a2b26516c660357
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714885"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345192"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Acquistare un nome di dominio personalizzato per app Web Azure
 
@@ -27,7 +27,7 @@ I domini del servizio app (anteprima) sono i domini di primo livello che sono ge
 
 Questo articolo è per il Servizio app di Azure (app Web, app per le API, app per dispositivi mobili, app per la logica). Per una macchina virtuale di Azure o per Archiviazione di Azure, vedere [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Assegnare il dominio del servizio app alla macchina virtuale di Azure o ad Archiviazione di Azure). Per i servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -77,6 +77,9 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 ![Conferma operazione di scalabilità](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## <a name="buy-the-domain"></a>Acquistare il dominio
+
+### <a name="pricing-information"></a>Informazioni sui prezzi
+Per informazioni sui prezzi nei domini del servizio app di Azure, visitare la [pagina dei prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/) e scorrere fino a Dominio del servizio app.
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 Aprire il [portale di Azure](https://portal.azure.com/) e accedere con l'account Azure.
