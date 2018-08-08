@@ -98,7 +98,7 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparare le unità SATA e inviarle al data center di Azure
 L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da inviare al data center di Azure più vicino. Questa utilità è disponibile nella directory di installazione dell'agente di Servizi di ripristino nel percorso seguente:
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+   *\Microsoft* *Azure* *Recovery* *Services* \*Agent\Utils\*
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un computer di copia a cui sono collegate le unità SATA da preparare. Assicurarsi che il computer di copia soddisfi i requisiti seguenti:
 
