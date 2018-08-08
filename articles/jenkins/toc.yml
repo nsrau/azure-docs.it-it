@@ -9,6 +9,7 @@
   items:
     - name: Creare un server Jenkins
       href: /azure/jenkins/install-jenkins-solution-template
+      maintainContext: true
 - name: Esercitazioni
   items:
     - name: Integrazione continua e distribuzione continua per il servizio app

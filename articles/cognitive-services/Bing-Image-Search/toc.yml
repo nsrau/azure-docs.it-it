@@ -47,8 +47,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
 - name: Guide alle procedure
   items:
-    - name: Usare e visualizzare i risultati
-      href: UseAndDisplayRequirements.md
     - name: Ottenere informazioni dettagliate sulle immagini
       href: image-insights.md
     - name: Ottenere immagini con estensione gif
@@ -61,7 +59,7 @@
       href: resize-and-crop-thumbnails.md
     - name: Aggiornamento da v5 a v7
       href: bing-image-upgrade-guide-v5-to-v7.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: API Ricerca immagini Bing v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
@@ -91,5 +89,7 @@
       href: image-search-endpoint.md
     - name: Paesi e mercati supportati
       href: supported-countries-markets.md
+    - name: Requisiti per l'uso e la visualizzazione
+      href: UseAndDisplayRequirements.md
     - name: Analisi per l'API Ricerca immagini Bing
       href: bing-image-stats.md
