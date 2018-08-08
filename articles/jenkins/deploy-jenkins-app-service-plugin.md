@@ -1,26 +1,19 @@
 ---
-title: Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins| Microsoft Docs
+title: Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins
 description: Informazioni su come usare il Servizio app di Azure per distribuire un'app Web Java in Azure con Jenkins
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 7/24/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418423"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391487"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
@@ -228,6 +221,10 @@ Per il valore **Docker registry URL** (URL registro Docker) immettere l'URL nel 
 
 3. Passare a http://&lt;nome_app>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Sostituire &lt;x> e &lt;y> con numeri qualsiasi per ottenere la somma di x e y.
     
+## <a name="troubleshooting-the-jenkins-plugin"></a>Risoluzione dei problemi del plug-in Jenkins
+
+Se si rilevano bug con i plug-in Jenkins, segnalare un problema in [Jenkins JIRA](https://issues.jenkins-ci.org/) per il componente specifico.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione è stato usato il plug-in Jenkins Servizio app di Azure per eseguire la distribuzione in Azure.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: def5788b83116ce0843f1fdd86933830cabc9ee2
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a9f684eccefab3e43d9b2b7a364b245a53519f76
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187997"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389686"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Creare, elencare ed eliminare un'identità del servizio gestita assegnata dall'utente usando Azure PowerShell
 
@@ -35,9 +35,15 @@ In questo articolo è illustrato come creare, elencare ed eliminare un'identità
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Installare [la versione più recente di Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM), se non è già installata.
 - Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell 5.7.0 o versione successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
-- Per eseguire le operazioni di gestione in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
+- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
     - [Collaboratore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare, leggere (elenco), aggiornare ed eliminare un'identità assegnata dall'utente.
     - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per leggere (elenco) le proprietà di un'identità assegnata dall'utente.
+
+> [!NOTE]
+> Mentre le identità assegnate dall'utente sono ancora in anteprima, è necessario innanzitutto installare manualmente il modulo AzureRM.ManagedServiceIdentity usando il comando seguente. 
+```azurepowershell-interactive
+Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
+```
 
 ## <a name="create-a-user-assigned-identity"></a>Creare un'identità assegnata dall'utente
 

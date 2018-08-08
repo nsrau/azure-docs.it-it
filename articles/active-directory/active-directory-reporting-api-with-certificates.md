@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0da0e5d4b7dd8ff000d6c56716bea1b36935af01
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 44ec19721ba59898915f6547231fb586cb44eb30
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928907"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389753"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Ottenere dati con l'API di creazione report di Azure Active Directory con certificati
 
@@ -85,10 +85,9 @@ A questo punto, è possibile utilizzare il token di accesso nello script di Powe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una prima impressione delle API di creazione report](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Creare una soluzione personalizzata](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Ottenere una prima impressione delle API di creazione report](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Informazioni di riferimento sulle API di controllo](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Informazioni di riferimento sulle API di report di attività di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 
 
 

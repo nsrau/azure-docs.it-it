@@ -1,5 +1,5 @@
 ---
-title: Account e autorizzazioni di Azure AD Connect | Documentazione Microsoft
+title: Account e autorizzazioni di Azure AD Connect | Microsoft Docs
 description: Questo argomento descrive gli account usati e creati nonché le autorizzazioni necessarie.
 services: active-directory
 documentationcenter: ''
@@ -13,50 +13,61 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cfb6fb512ecb7d57cf411a31b2e04726bfc4b743
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824269"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263403"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
+
+## <a name="accounts-used-for-azure-ad-connect"></a>Account usati per Azure AD Connect
+
+![](media/active-directory-aadconnect-accounts-permissions/account5.png)
+
+Azure AD Connect usa 3 account per sincronizzare le informazioni da locale o da Windows Server Active Directory ad Azure Active Directory.  Questi account sono:
+
+- **Account del connettore di AD DS**:     usato per leggere e scrivere informazioni in Windows Server Active Directory
+
+- **Account del servizio ADSync**:      usato per eseguire il servizio di sincronizzazione e accedere al database SQL
+
+- **Account del connettore di Azure AD**:     usato per scrivere informazioni in Azure AD
+
+Oltre a questi tre account usati per eseguire Azure AD Connect, per installare Azure AD Connect sono necessari anche gli account aggiuntivi seguenti.  Si tratta di:
+
+- **Account Administrator dell'organizzazione di AD DS**:      usato per installare Azure AD Connect
+- **Account Administrator globale di AD Azure**:  usato per creare l'account del connettore di Azure AD e configurare Azure AD.
+
+- **Account SA di SQL (facoltativo)**:     usato per creare il database ADSync, quando si usa la versione completa di SQL Server.  SQL Server può essere locale o remoto per l'installazione di Azure AD Connect.  Questo account può essere lo stesso dell'amministratore dell'organizzazione.  L'amministratore SQL può ora effettuare il provisioning del database fuori banda e quindi l'amministratore di Azure AD Connect può eseguire l'installazione con diritti di proprietario del database.  Per altre informazioni, vedere [Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL]()
+
+## <a name="installing-azure-ad-connect"></a>Installazione di Azure AD Connect
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:
 
 * Impostazioni rapide: sono necessari più privilegi.  È possibile eseguire la configurazione con facilità, senza che sia necessario creare utenti o configurare autorizzazioni.
 * Impostazioni personalizzate: sono disponibili più opzioni e scelte. In alcune situazioni è tuttavia necessario assicurarsi manualmente di disporre delle autorizzazioni corrette.
 
-## <a name="related-documentation"></a>Documentazione correlata
-Se non è stata letta la documentazione in [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md), la tabella seguente fornisce collegamenti ad argomenti correlati.
 
-|Argomento |Collegamento|  
-| --- | --- |
-|Scaricare Azure AD Connect | [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
-|Eseguire l'installazione con le Impostazioni rapide | [Installazione rapida di Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
-|Eseguire l'installazione mediante le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
-|Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
-|Dopo l'installazione | [Verificare l'installazione e assegnare le licenze ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>Installazione mediante le impostazioni rapide
-In Impostazioni rapide vengono richieste le credenziali di amministratore dell'organizzazione di Active Directory Domain Services.  Si tratta quindi dell'istanza locale di Active Directory che è possibile configurare con le autorizzazioni necessarie per Azure AD Connect. Se si esegue l'aggiornamento da DirSync, le credenziali di amministratore dell'organizzazione di Servizi di dominio Active Directory vengono usate per reimpostare la password per l'account usato da DirSync. Sono necessarie anche le credenziali di amministratore globale di Azure AD.
+In Impostazioni rapide, l'installazione guidata richiede quanto segue:
 
-| Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie | Utilizzo |
-| --- | --- | --- | --- |
-| N/D |Utente che esegue l'installazione guidata |Amministratore del server locale |<li>Creazione dell'account locale usato come [account del servizio del motore di sincronizzazione](#azure-ad-connect-sync-service-account). |
-| Connessione ad Azure AD |Credenziali di directory di Azure AD |Ruolo di amministratore in Azure AD |<li>Abilitazione della sincronizzazione nella directory di Azure AD.</li>  <li>Creazione dell'[account Azure AD](#azure-ad-service-account) utilizzato per le operazioni di sincronizzazione ricorrenti in Azure AD.</li> |
-| Connettersi ad AD DS |Credenziali Active Directory locali |Membro del gruppo Enterprise Admins (EA) in Active Directory |<li>Creazione di un [account](#active-directory-account) in Active Directory e concessione delle relative autorizzazioni. L'account creato viene usato per leggere e scrivere informazioni di directory durante la sincronizzazione.</li> |
+  - Le credenziali amministratore dell'organizzazione AD DS
+  - Le credenziali amministratore globale di Azure AD
 
-### <a name="enterprise-admin-credentials"></a>Credenziali di amministratore dell'organizzazione
-Queste credenziali vengono usate solo durante l'installazione e non dopo il completamento di quest'ultima. L'amministratore dell'organizzazione, non l'amministratore di dominio, deve garantire che le autorizzazioni in Active Directory possano essere impostate in tutti i domini.
+### <a name="ad-ds-enterprise-admin-credentials"></a>Le credenziali amministratore dell'organizzazione AD DS
+L'account amministratore dell'organizzazione AD DS è usato per configurare Active Directory locale. Queste credenziali vengono usate solo durante l'installazione e non dopo il completamento di quest'ultima. L'amministratore dell'organizzazione, non l'amministratore di dominio, deve garantire che le autorizzazioni in Active Directory possano essere impostate in tutti i domini.
 
-### <a name="global-admin-credentials"></a>Credenziali di amministratore globale
-Queste credenziali vengono usate solo durante l'installazione e non dopo il completamento di quest'ultima. Vengono usate per creare l'[account Azure AD](#azure-ad-service-account) utile per sincronizzare le modifiche apportate ad Azure AD. e per abilitare la sincronizzazione come funzionalità in Azure AD.
+Se si esegue l'aggiornamento da DirSync, le credenziali di amministratore dell'organizzazione di Servizi di dominio Active Directory vengono usate per reimpostare la password per l'account usato da DirSync. Sono necessarie anche le credenziali di amministratore globale di Azure AD.
 
-### <a name="permissions-for-the-created-ad-ds-account-for-express-settings"></a>Autorizzazioni per gli account creati di Servizi di dominio Active Directory per le impostazioni rapide
-L' [account](#active-directory-account) creato per la lettura e la scrittura in Servizi di dominio Active Directory ha le autorizzazioni seguenti se creato tramite impostazioni rapide:
+### <a name="azure-ad-global-admin-credentials"></a>Credenziali di amministratore globale di Azure AD
+Queste credenziali vengono usate solo durante l'installazione e non dopo il completamento di quest'ultima. Vengono usate per creare l'[account del connettore di Azure AD](#azure-ad-service-account) utile per sincronizzare le modifiche apportate ad Azure AD e per abilitare la sincronizzazione come funzionalità in Azure AD.
+
+### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>Autorizzazioni necessarie per l'account del connettore di AD DS per le impostazioni rapide
+L'[account del connettore di AD DS](#active-directory-account) è creato per la lettura e la scrittura in AD di Windows Server e ha le autorizzazioni seguenti se creato tramite impostazioni rapide:
 
 | Autorizzazione | Usato per |
 | --- | --- |
@@ -67,22 +78,44 @@ L' [account](#active-directory-account) creato per la lettura e la scrittura in 
 | Lettura/scrittura di tutte le proprietà - Contatto |Importazione ed Exchange ibrido |
 | Reimposta password |Preparazione per l'abilitazione del writeback delle password |
 
-## <a name="custom-settings-installation"></a>Installazione mediante le impostazioni personalizzate
-Azure AD Connect versione 1.1.524.0 e successive con l'opzione per consentire alla procedura guidata di Azure AD Connect di creare l'account usato per connettersi ad Active Directory.  Con le versioni precedenti era necessario creare l'account prima dell'installazione. Per le autorizzazioni da concedere a questo account, vedere [Creare l'account di Servizi di dominio Active Directory](#create-the-ad-ds-account). 
+### <a name="express-installation-wizard-summary"></a>Riepilogo della procedura guidata di installazione rapida
+
+![Installazione rapida](media/active-directory-aadconnect-get-started-express/express.png)
+
+Di seguito è riportato un riepilogo delle pagine della procedura guidata di installazione rapida, le credenziali raccolte e il relativo uso.
+
+| Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie | Utilizzo |
+| --- | --- | --- | --- |
+| N/D |Utente che esegue l'installazione guidata |Amministratore del server locale |<li>Crea l'[account di servizio ADSync](#azure-ad-connect-sync-service-account) usato per eseguire il servizio di sincronizzazione. |
+| Connessione ad Azure AD |Credenziali di directory di Azure AD |Ruolo di amministratore in Azure AD |<li>Abilitazione della sincronizzazione nella directory di Azure AD.</li>  <li>Creazione dell'[account del connettore di Azure AD](#azure-ad-service-account) usato per le operazioni di sincronizzazione ricorrenti in Azure AD.</li> |
+| Connettersi ad AD DS |Credenziali Active Directory locali |Membro del gruppo Enterprise Admins (EA) in Active Directory |<li>Creazione di un [account del connettore di AD DS](#active-directory-account) in Active Directory e concessione delle relative autorizzazioni. L'account creato viene usato per leggere e scrivere informazioni di directory durante la sincronizzazione.</li> |
+
+
+## <a name="custom-installation-settings"></a>Impostazioni di installazione personalizzata
+
+Con l'installazione personalizzata la procedura guidata offre più opzioni e scelte. 
+
+### <a name="custom-installation-wizard-summary"></a>Riepilogo della procedura guidata di installazione personalizzata
+
+Di seguito è riportato un riepilogo delle pagine della procedura guidata di installazione personalizzata, le credenziali raccolte e il relativo uso.
+
+![Installazione rapida](media/active-directory-aadconnect-accounts-permissions/customize.png)
 
 | Pagina della procedura guidata | Credenziali raccolte | Autorizzazioni necessarie | Utilizzo |
 | --- | --- | --- | --- |
 | N/D |Utente che esegue l'installazione guidata |<li>Amministratore del server locale</li><li>Se si usa una versione completa di SQL Server, l'utente deve essere un amministratore di sistema in SQL</li> |Per impostazione predefinita, crea l'account locale usato come [account del servizio del motore di sincronizzazione](#azure-ad-connect-sync-service-account). L'account viene creato solo quando l'amministratore non specifica un account determinato. |
 | Installazione dei servizi di sincronizzazione, opzione Account di servizio |Active Directory o credenziali dell'account utente locale |Autorizzazioni utente concesse mediante l'installazione guidata |Se l'amministratore specifica un account, quest'ultimo viene usato come account del servizio di sincronizzazione. |
-| Connessione ad Azure AD |Credenziali di directory di Azure AD |Ruolo di amministratore in Azure AD |<li>Abilitazione della sincronizzazione nella directory di Azure AD.</li>  <li>Creazione dell'[account Azure AD](#azure-ad-service-account) utilizzato per le operazioni di sincronizzazione ricorrenti in Azure AD.</li> |
-| Connessione delle directory |Credenziali Active Directory locali per ogni foresta connessa ad Azure AD |Le autorizzazioni variano in base alle funzionalità attivate e sono disponibili in [Creare l'account di Servizi di dominio Active Directory](#create-the-ad-ds-account) |L'account viene usato per leggere e scrivere informazioni di directory durante la sincronizzazione. |
+| Connessione ad Azure AD |Credenziali di directory di Azure AD |Ruolo di amministratore in Azure AD |<li>Abilitazione della sincronizzazione nella directory di Azure AD.</li>  <li>Creazione dell'[account del connettore di Azure AD](#azure-ad-service-account) usato per le operazioni di sincronizzazione ricorrenti in Azure AD.</li> |
+| Connessione delle directory |Credenziali Active Directory locali per ogni foresta connessa ad Azure AD |Le autorizzazioni variano in base alle funzionalità attivate e sono disponibili in [Create the AD DS Connector account](#create-the-ad-dso-connector-account) (Creare l'account del connettore di AD DS) |L'account viene usato per leggere e scrivere informazioni di directory durante la sincronizzazione. |
 | Server ADFS |Per ogni server nell'elenco, la procedura guidata raccoglie le credenziali, quando le credenziali di accesso dell'utente che esegue la procedura guidata non sono sufficienti per la connessione |Amministratore di dominio |Installazione e configurazione del ruolo del server ADFS. |
 | Server Proxy applicazione Web |Per ogni server nell'elenco, la procedura guidata raccoglie le credenziali, quando le credenziali di accesso dell'utente che esegue la procedura guidata non sono sufficienti per la connessione |Amministratore locale nel computer di destinazione |Installazione e configurazione del ruolo del server WAP. |
 | Credenziali di attendibilità del proxy |Credenziali di attendibilità del servizio federativo (le credenziali che sono utilizzate dal proxy per richiedere un certificato di attendibilità da FS) |Account di dominio che è un amministratore locale del server ADFS |Registrazione iniziale del certificato di attendibilità di FS-WAP. |
 | Pagina Account del servizio ADFS, "Utilizzare un'opzione account utente di dominio" |Credenziali dell'account utente di Active Directory |Utente di dominio |L'account utente di Active Directory di cui vengono fornite le credenziali viene usato come account di accesso del servizio AD FS. |
 
-### <a name="create-the-ad-ds-account"></a>Creare l'account di Servizi di dominio Active Directory
-L'account specificato nella pagina **Connessione delle directory** deve essere presente in Active Directory prima dell'installazione.  È necessario che siano disponibili anche le autorizzazioni necessarie. L'installazione guidata non verifica che le autorizzazioni e gli eventuali problemi vengano rilevati solo durante la sincronizzazione.
+### <a name="create-the-ad-ds-connector-account"></a>Creare l'account del connettore di AD DS
+L'account specificato nella pagina **Connessione delle directory** deve essere presente in Active Directory prima dell'installazione.  Azure AD Connect versione 1.1.524.0 e successive con l'opzione per consentire alla procedura guidata di Azure AD Connect di creare l'**account del connettore di AD DS** usato per connettersi ad Active Directory.  
+
+È necessario che siano disponibili anche le autorizzazioni necessarie. L'installazione guidata non verifica che le autorizzazioni e gli eventuali problemi vengano rilevati solo durante la sincronizzazione.
 
 Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate. Se si dispone di più domini, le autorizzazioni devono essere concesse per tutti i domini nella foresta. Se queste funzionalità non vengono abilitate, sono sufficienti le autorizzazioni dell' **utente di dominio** predefinite.
 
@@ -110,14 +143,14 @@ Quando si aggiorna da una versione di Azure AD Connect a una nuova versione, è 
 | Utente che esegue l'installazione guidata |Se si utilizza un server SQL completo: DBO (o simile) del database del motore di sincronizzazione |Apportare modifiche a livello di database, ad esempio l'aggiornamento di tabelle con nuove colonne. |
 
 ## <a name="more-about-the-created-accounts"></a>Altre informazioni sugli account creati
-### <a name="active-directory-account"></a>Account Active Directory
+### <a name="ad-ds-connector-account"></a>Account del connettore di AD DS
 Se si usano le impostazioni rapide, viene creato un account in Active Directory usato per la sincronizzazione. L'account creato si trova nel dominio radice della foresta nel contenitore degli utenti e il relativo nome con prefisso è **MSOL_**. L'account viene creato con una password lunga e complessa priva di scadenza. Se nel dominio sono presenti criteri di password, assicurarsi che per tale account siano consentite password lunghe e complesse.
 
 ![Account AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-Se si usano le impostazioni personalizzate, l'utente è responsabile della creazione dell'account prima di avviare l'installazione.
+Se si usano le impostazioni personalizzate, l'utente è responsabile della creazione dell'account prima di avviare l'installazione.  Vedere [Creare l'account del connettore di AD DS](#create-the-ad-dso-connector-account).
 
-### <a name="azure-ad-connect-sync-service-account"></a>Account del servizio di sincronizzazione Azure AD Connect
+### <a name="adsync-service-account"></a>Account del servizio ADSync
 Il servizio di sincronizzazione può essere eseguito con account diversi, ad esempio con un **account del servizio virtuale** (VSA), un **account del servizio gestito del gruppo** (gMSA/sMSA) o un normale account utente. Le opzioni supportate sono state modificate con il rilascio di aprile 2017 di Connect se si esegue una nuova installazione. Se si esegue un aggiornamento da una versione precedente di Azure AD Connect, tali opzioni non sono disponibili.
 
 | Tipo di account | Opzione di installazione | DESCRIZIONE |
@@ -184,18 +217,29 @@ Se si usa una versione completa di SQL Server, l'account del servizio corrispond
 
 L'account concede inoltre le autorizzazioni a file, chiavi del Registro di sistema e altri oggetti correlati al motore di sincronizzazione.
 
-### <a name="azure-ad-service-account"></a>Account del servizio Azure AD
+### <a name="azure-ad-connector-account"></a>Account del connettore di Azure AD
 In Azure AD viene creato un account per l'uso con il servizio di sincronizzazione. Questo account può essere identificato in base al relativo nome visualizzato.
 
 ![Account AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
 Il nome del server in cui viene usato l'account può essere identificato nella seconda parte del nome utente. Nell'immagine, il nome del server è DC1. Se si dispone di server di gestione temporanea, ogni server avrà il proprio account.
 
-L'account del servizio viene creato con una password lunga e complessa priva di scadenza. Viene concesso un ruolo speciale per gli **account di sincronizzazione della directory** che dispone solo delle autorizzazioni per eseguire attività di sincronizzazione della directory. Questo ruolo predefinito speciale non può essere concesso al di fuori della procedura guidata di Azure AD Connect. Il portale di Azure mostra questo account con il ruolo **Utente**.
+L'account viene creato con una password lunga e complessa priva di scadenza. Viene concesso un ruolo speciale per gli **account di sincronizzazione della directory** che dispone solo delle autorizzazioni per eseguire attività di sincronizzazione della directory. Questo ruolo predefinito speciale non può essere concesso al di fuori della procedura guidata di Azure AD Connect. Il portale di Azure mostra questo account con il ruolo **Utente**.
 
 In Azure AD esiste un limite di 20 account del servizio di sincronizzazione. Per ottenere l'elenco degli account del servizio Azure AD esistenti in Azure AD, eseguire il cmdlet di PowerShell per Azure AD seguente:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 Per rimuovere gli account del servizio Azure AD inutilizzati, eseguire il cmdlet di PowerShell per Azure AD seguente:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+
+## <a name="related-documentation"></a>Documentazione correlata
+Se non è stata letta la documentazione in [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md), la tabella seguente fornisce collegamenti ad argomenti correlati.
+
+|Argomento |Collegamento|  
+| --- | --- |
+|Scaricare Azure AD Connect | [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Eseguire l'installazione con le Impostazioni rapide | [Installazione rapida di Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
+|Eseguire l'installazione mediante le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
+|Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|Dopo l'installazione | [Verificare l'installazione e assegnare le licenze ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md).

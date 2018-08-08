@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 232af6ec08152d18db86a7b6373da0d281a74a91
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866526"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262518"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
 
-Per il controllo dei servizi di Archiviazione di Azure in base ai requisiti più recenti di conformità e sicurezza, SSL 1.0, 2.0, 3.0 e TLS 1.0 sono riconosciuti come protocolli di comunicazione non conformi.
-
-SSL 1.0, 2.0 e 3.0 sono stati identificati come vulnerabili e non sono più consentiti da RFC. TLS 1.0 è diventato un protocollo non sicuro per l'uso della crittografia a blocchi (DES CBC e RC2 CBC) e di flusso (RC4). Il PCI Council ha anche suggerito la migrazione a versioni più recenti del protocollo TLS. Per informazioni più dettagliate, è possibile vedere [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+Transport Layer Security (TLS) e Secure Sockets Layer (SSL) sono protocolli di crittografia che consentono di proteggere le comunicazioni su una rete di computer. SSL 1.0, 2.0 e 3.0 sono stati identificati come vulnerabili e non sono più consentiti da RFC. TLS 1.0 è diventato un protocollo non sicuro per l'uso della crittografia a blocchi (DES CBC e RC2 CBC) e di flusso (RC4). Il PCI Council ha anche suggerito la migrazione a versioni più recenti del protocollo TLS. Per informazioni più dettagliate, è possibile vedere [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
 
 Archiviazione di Azure ha dismesso SSL 3.0 dal 2015 e usa TLS 1.2 negli endpoint HTTPS pubblici, ma i protocolli TLS 1.0 e TLS 1.1 sono ancora supportati per la compatibilità con le versioni precedenti.
 
-Per essere certi che la connessione ad Archiviazione di Azure sia sicura e conforme, è necessario abilitare TLS 1.2 sul lato client prima di inviare richieste al servizio Archiviazione di Azure.
+Per essere certi che la connessione ad Archiviazione di Azure sia sicura e conforme, è necessario abilitare TLS 1.2 o versione successiva sul lato client prima di inviare richieste al servizio Archiviazione di Azure.
 
 ## <a name="enable-tls-12-in-net-client"></a>Abilitare TLS 1.2 nel client .NET
 
@@ -86,4 +84,5 @@ La schermata seguente presenta un esempio per la verifica.
 ## <a name="see-also"></a>Vedere anche 
 
 * [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [Conformità PCI su TLS](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)
 * [Abilitare TLS nel client Java](https://www.java.com/en/configure_crypto.html)

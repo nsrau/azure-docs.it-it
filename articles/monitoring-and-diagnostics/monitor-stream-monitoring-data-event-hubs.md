@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/24/2018
+ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248097"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389610"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -113,6 +113,7 @@ Il routing dei dati di monitoraggio a un hub eventi con Monitoraggio di Azure co
     1. Il [componente aggiuntivo Monitoraggio di Azure per Splunk](https://splunkbase.splunk.com/app/3534/) è disponibile in Splunkbase e in un progetto open source. [La documentazione è disponibile qui](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Se non è possibile installare un componente aggiuntivo nell'istanza di Splunk (ad es. se si usa un proxy o Splunk Cloud), è possibile inoltrare questi eventi all'agente di raccolta di eventi Splunk HTTP tramite [questa funzione, che viene attivata da nuovi messaggi nell'hub eventi](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** - Le istruzioni per configurare SumoLogic per il consumo dei dati di un hub eventi sono [disponibili qui](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub).
+* **Server Syslog** - Se si vuole trasmettere i dati di Monitoraggio di Azure direttamente a un server syslog, è possibile estrarre [questo repository github](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md) (Archiviare il log attività in un account di archiviazione)

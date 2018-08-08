@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 698dbbba55ed32a5cef8034059ee8e36edd16ae5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347907"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389824"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -123,7 +123,7 @@ Per gli scenari con grandi quantità di dati non strutturati da archiviare nel c
 
 L'elaborazione dei log è uno scenario di uso comune per l'uso degli input di archiviazione BLOB con Analisi di flusso. In questo scenario i file di dati di telemetria sono stati acquisiti da un sistema e devono essere analizzati ed elaborati per estrarre dati significativi.
 
-Il timestamp predefinito degli eventi dell'archiviazione BLOB in Analisi di flusso è il timestamp dell'ultima modifica del BLOB, ovvero `BlobLastModifiedUtcTime`. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+Il timestamp predefinito degli eventi dell'archiviazione BLOB in Analisi di flusso è il timestamp dell'ultima modifica del BLOB, ovvero `BlobLastModifiedUtcTime`. Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx). Un processo di Analisi di flusso di Azure estrae i dati dall'input di Archiviazione BLOB di Azure ogni secondo se il file BLOB è disponibile. Se il file BLOB non è disponibile, è presente un backoff esponenziale con un ritardo massimo di 90 secondi.
 
 Gli input in formato CSV *richiedono* una riga di intestazione per definire i campi per il set di dati e tutti i campi della riga di intestazione devono essere univoci.
 

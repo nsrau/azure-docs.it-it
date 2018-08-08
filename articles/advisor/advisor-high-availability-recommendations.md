@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 297a213fe4219b834187f977e3281eb939352f60
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ea8d8d0adbc7cf5a8dfb6e9af51257b9d2ba8db2
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249064"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264083"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Consigli di Advisor sulla disponibilità elevata
 
@@ -66,6 +66,14 @@ I profili di Gestione traffico con più di un endpoint dispongono di maggiore di
 Se tutti gli endpoint in un profilo di Gestione traffico configurato per il routing di prossimità si trovano nella stessa area, gli utenti di altre aree potrebbero subire ritardi di connessione. L'aggiunta o lo spostamento di un endpoint in un'altra area migliorerà le prestazioni generali e fornirà una migliore disponibilità se tutti gli endpoint in una regione presenta anomalie. Advisor identifica i profili di Gestione traffico configurati per il routing di prossimità in cui tutti gli endpoint si trovano nella stessa area e consiglia di aggiungere o spostare un endpoint in un'altra area Azure.
 
 Se un profilo di Gestione traffico è configurato per il routing geografico, il traffico viene instradato verso gli endpoint in base ad aree definite. Se un'area presenta anomalie, non vi sono failover predefiniti. Avere un endpoint in cui il raggruppamento di area è configurato su "Tutto (mondo)" eviterà l’interruzione del traffico e migliorerà la disponibilità del servizio. Advisor identifica i profili di Gestione traffico configurati per il routing geografico dove non vi sono endpoint configurati per avere il raggruppamento di area come "Tutto (mondo)" e raccomanda di apportare le modifiche necessarie alla configurazione.
+
+## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Rimuovere l'asimmetria dei dati sulla tabella di SQL data warehouse per aumentare le prestazioni delle query
+
+Durante l'esecuzione del carico di lavoro, l'asimmetria dei dati può causare uno spostamento dati inutile o colli di bottiglia nelle risorse. Advisor rileverà un'asimmetria dei dati della distribuzione maggiore del 15% e consiglierà di ridistribuire i dati e rivedere le selezioni della chiave di distribuzione della tabella. Per altre informazioni sull'identificazione e la rimozione dell'asimmetria, vedere [risoluzione dei problemi di asimmetria](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+
+## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Creare o aggiornare le statistiche della tabella obsolete nella tabella di SQL data warehouse per aumentare le prestazioni delle query
+
+Advisor identifica le tabelle che non hanno [statistiche della tabella](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) aggiornate e consiglia di crearle o di aggiornarle. Query Optimizer di SQL data warehouse usa le statistiche aggiornate per stimare la cardinalità o il numero di righe nel risultato della query al fine di creare un piano di query di qualità elevata per prestazioni ottimali.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Come accedere ai consigli sulla disponibilità elevata in Advisor
 

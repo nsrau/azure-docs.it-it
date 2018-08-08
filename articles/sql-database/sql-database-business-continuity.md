@@ -1,5 +1,5 @@
 ---
-title: Continuità aziendale cloud - Ripristino del database - Database SQL | Documentazione Microsoft
+title: Continuità aziendale cloud - Ripristino del database - Database SQL | Microsoft Docs
 description: Informazioni su come il database SQL di Azure supporta la continuità aziendale cloud e il ripristino del database e consente di mantenere le applicazioni cloud cruciali in esecuzione.
 keywords: continuità aziendale, continuità aziendale cloud, ripristino di emergenza del database, ripristino del database
 services: sql-database
@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092291"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263147"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -33,7 +33,7 @@ La tabella seguente mette a confronto i valori ERT e RPO per ogni livello di ser
 | --- | --- | --- | --- |--- |--- |
 | Ripristino temporizzato dal backup |Qualsiasi punto di ripristino entro 7 giorni |Qualsiasi punto di ripristino entro 35 giorni |Qualsiasi punto di ripristino entro 35 giorni |Qualsiasi punto di ripristino entro il periodo configurato (fino a 35 giorni)|Qualsiasi punto di ripristino entro il periodo configurato (fino a 35 giorni)|
 | Ripristino geografico dai backup con replica geografica |ERT < 12 ore, RPO < 1 ora |ERT < 12 ore, RPO < 1 ora |ERT < 12 ore, RPO < 1 ora |ERT < 12 ore, RPO < 1 ora|ERT < 12 ore, RPO < 1 ora|
-| Ripristino dall'insieme di credenziali di Backup di Azure |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett|ERT < 12 ore, RPO < 1 sett|
+| Eseguire il ripristino dalla conservazione a lungo termine SQL |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett |ERT < 12 ore, RPO < 1 sett|ERT < 12 ore, RPO < 1 sett|
 | Replica geografica attiva |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec |ERT < 30 sec, RPO < 5 sec|ERT < 30 sec, RPO < 5 sec|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Usare il ripristino temporizzato per recuperare un database
@@ -102,7 +102,7 @@ Per altre informazioni e per i passaggi dettagliati per il ripristino di un data
 
 ### <a name="restore-backups-from-long-term-retention"></a>Ripristinare i backup dalla conservazione a lungo termine
 
-Se la perdita di dati si è verificata fuori dal periodo di memorizzazione corrente per i backup automatici e il database è configurato per la conservazione a lungo termine, è possibile eseguire il ripristino da un backup settimanale nella risorsa di archiviazione della conservazione a lungo termine in un nuovo database. A questo punto, è possibile sostituire il database originale con il database ripristinato o copiare i dati necessari dai dati ripristinati nel database originale. Se si vuole recuperare una versione precedente del database prima di un aggiornamento importante dell'applicazione oppure soddisfare una richiesta dei revisori o di carattere legale, è possibile creare un database usando un backup completo salvato nell'insieme di credenziali di Backup di Azure.  Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
+Se la perdita di dati si è verificata fuori dal periodo di memorizzazione corrente per i backup automatici e il database è configurato per la conservazione a lungo termine tramite Archiviazione BLOB di Azure, è possibile eseguire il ripristino da un backup settimanale in Archiviazione BLOB di Azure in un nuovo database. A questo punto, è possibile sostituire il database originale con il database ripristinato o copiare i dati necessari dai dati ripristinati nel database originale. Se si vuole recuperare una versione precedente del database prima di un aggiornamento importante dell'applicazione oppure soddisfare una richiesta dei revisori o di carattere legale, è possibile creare un database usando un backup completo salvato in Archiviazione BLOB di Azure.  Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Ripristinare un database in un'altra area da un'interruzione del data center regionale di Azure
 <!-- Explain this scenario -->

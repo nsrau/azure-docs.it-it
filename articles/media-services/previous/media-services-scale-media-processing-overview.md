@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 894b403b59624b6c42ce947169e9c9ac30ec76b9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785850"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368629"
 ---
 # <a name="scaling-media-processing-overview"></a>Panoramica del ridimensionamento dell'elaborazione multimediale
 Questa pagina presenta una panoramica di come e perché ridimensionare l'elaborazione multimediale. 
@@ -35,7 +35,8 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. Ind
 | Scenari | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Caso d'uso previsto |Codifica con velocità in bit singola. <br/>File SD o con risoluzione inferiore, non dipendenti dall'ora, a basso costo. |Codifica con velocità in bit singola e multipla.<br/>Uso normale per la codifica SD e HD. |Codifica con velocità in bit singola e multipla.<br/>Video Full HD e con risoluzione 4K. Codifica dipendente dall'ora con completamento più rapido. |
-| Benchmark |[File di input: della durata di 5 minuti, con risoluzione 640x360p, a 29,97 fotogrammi al secondo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>La codifica di un file MP4 con velocità in bit singola con la stessa risoluzione richiede circa 11 minuti. |[File di input: della durata di 5 minuti, con risoluzione 1280 x 720p, a 29,97 fotogrammi al secondo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 720p" richiede circa 5 minuti.<br/><br/>La codifica con set di impostazioni "Codec video H.264 a bitrate multipli con risoluzione 720p" richiede circa 11,5 minuti. |[File di input: della durata di 5 minuti, con risoluzione 1920x1080p, a 29,97 fotogrammi al secondo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 1080p" richiede circa 2,7 minuti.<br/><br/>La codifica con "Codec video H.264 a bitrate multiplo con risoluzione 1080p" preconfigurato richiede circa 5,7 minuti. |
+| Benchmark |La codifica di un file MP4 con velocità in bit singola con la stessa risoluzione richiede circa 11 minuti. |La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 720p" richiede circa 5 minuti.<br/><br/>La codifica con set di impostazioni "Codec video H.264 a bitrate multipli con risoluzione 720p" richiede circa 11,5 minuti. |La codifica con set di impostazioni "Codec video H264 a bitrate singolo con risoluzione 1080p" richiede circa 2,7 minuti.<br/><br/>La codifica con "Codec video H.264 a bitrate multiplo con risoluzione 1080p" preconfigurato richiede circa 5,7 minuti. |
+
 
 ## <a name="considerations"></a>Considerazioni
 > [!IMPORTANT]
@@ -43,7 +44,7 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. Ind
 > 
 > 
 
-* Unità riservate di lavoro per la parallelizzazione di tutta l'elaborazione di supporti di memorizzazione, tra cui l'indicizzazione di processi tramite Azure Media Indexer.  Tuttavia, a differenza della codifica, l'indicizzazione di processi non viene elaborata più velocemente con unità riservate più veloci.
+* Per i processi di analisi audio e video generati da Servizi multimediali v3 o Video Indexer, il tipo di unità di S3 è fortemente consigliato.
 * Se si usa il pool condiviso, vale a dire senza unità riservate, le attività di codifica hanno le stesse prestazioni di quando si usano le unità riservate S1. Non c'è tuttavia alcun limite superiore al tempo che le attività possono trascorrere nello stato in coda e in qualsiasi momento può essere eseguita al massimo una sola attività.
 
 ## <a name="billing"></a>Fatturazione

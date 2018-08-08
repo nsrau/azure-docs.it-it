@@ -3,25 +3,25 @@ title: Prerequisiti di accesso all'API di creazione report di Azure AD | Microso
 description: Informazioni sui prerequisiti di accesso all'API di creazione report di Azure AD
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/07/2018
-ms.author: dhanyahk;rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a38447150dd283ff21a852690cfd48477472f7b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9dc30f1d303c6849ed016d0bc81ce1bf3d3d9d5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588761"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390620"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -86,7 +86,7 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
     c. Nella casella di testo **URL di accesso** digitare `https://localhost`.
 
-    d. Fare clic su **Crea**. 
+    d. Fare clic su **Create**(Crea). 
 
 
 ## <a name="grant-permissions"></a>Concedere le autorizzazioni 
@@ -230,9 +230,7 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere dati con l'API di creazione report di Azure Active Directory con certificati](active-directory-reporting-api-with-certificates.md).
-
-- [Ottenere una prima impressione delle API di creazione report](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Creare una soluzione personalizzata](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Ottenere dati con l'API di creazione report di Azure Active Directory con certificati](active-directory-reporting-api-with-certificates.md)
+* [Ottenere una prima impressione delle API di creazione report](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Informazioni di riferimento sulle API di controllo](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Informazioni di riferimento sulle API di report di attività di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

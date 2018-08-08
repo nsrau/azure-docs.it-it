@@ -1,116 +1,163 @@
 ---
-title: Gestione degli errori e delle eccezioni per App per la logica in Azure | Microsoft Docs
-description: Modelli per la gestione degli errori e delle eccezioni in App per la logica.
+title: Gestione delle eccezioni e degli errori - App per la logica di Azure | Microsoft Docs
+description: Informazioni sui modelli per la gestione degli errori e delle eccezioni in App per la logica di Azure
 services: logic-apps
-documentationcenter: ''
-author: dereklee
-manager: jeconnoc
-editor: ''
-ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+author: dereklee
+ms.author: deli
+manager: jeconnoc
 ms.date: 01/31/2018
-ms.author: deli; LADocs
-ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300063"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263753"
 ---
-# <a name="handle-errors-and-exceptions-in-logic-apps"></a>Gestire gli errori e le eccezioni in App per la logica
+# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
-Nelle architetture di integrazione una delle difficoltà consiste nel garantire che i tempi di inattività o i problemi dei sistemi dipendenti vengano gestiti in modo appropriato. Per creare solide integrazioni resilienti in caso di problemi ed errori, App per la logica offre un'esperienza all'avanguardia per la gestione degli errori e delle eccezioni. 
+Il modo adottato da qualsiasi architettura di integrazione per gestire in maniera appropriata i tempi di inattività o i problemi causati da sistemi dipendenti può costituire una difficoltà. Per contribuire a creare integrazioni solide e resilienti che consentano di gestire correttamente problemi ed errori, App per la logica offre un'esperienza all'avanguardia per la gestione degli errori e delle eccezioni. 
+
+<a name="retry-policies"></a>
 
 ## <a name="retry-policies"></a>Criteri di ripetizione dei tentativi
 
-Per la gestione degli errori e delle eccezioni più semplice, è possibile usare i criteri di ripetizione. Tali criteri definiscono se e come l'azione ripete la richiesta in caso di timeout o esito negativo, con restituzione di una risposta 429 o 5xx, della richiesta iniziale. 
+Il metodo di base per gestire eccezioni ed errori consiste nell'usare *criteri di ripetizione* in qualsiasi trigger o azione, purché il metodo sia supportato. I criteri di ripetizione specificano se e come l'azione o il trigger ripete la richiesta in caso di timeout o esito negativo della richiesta originale, cioè qualsiasi richiesta con una risposta 408, 429 o 5xx. Se non vengono usati altri criteri di ripetizione, si usano quelli predefiniti. 
 
-Esistono quattro tipi di criteri di ripetizione: predefinito, nessuno, a intervallo fisso e a intervallo esponenziale. Se la definizione del flusso di lavoro non ha criteri di ripetizione, vengono invece usati i criteri predefiniti specificati dal servizio.
+Ecco i tipi di criteri di ripetizione: 
 
-Per configurare i criteri di ripetizione, se applicabili, aprire Progettazione app per la logica per l'app per la logica e passare a **Impostazioni** per un'azione specifica nell'app per la logica. È anche possibile definire i criteri di ripetizione nella sezione **inputs** di un'azione o trigger specifico, se ripetibile, nella definizione del flusso di lavoro. Di seguito è illustrata la sintassi generale:
+| type | DESCRIZIONE | 
+|------|-------------| 
+| [**Predefiniti**](#default-retry) | Questi criteri inviano fino a quattro richieste di ripetizione a intervalli [*con crescita esponenziale*](#exponential-retry) scalati di 7,5 secondi ma con un limite massimo compreso tra 5 e 45 secondi. | 
+| [**Intervallo esponenziale**](#exponential-retry)  | Questi criteri attendono un intervallo casuale selezionato da un intervallo con crescita esponenziale prima di inviare la richiesta successiva. | 
+| [**Intervallo fisso**](#fixed-retry)  | Questi criteri attendono l'intervallo specificato prima di inviare la richiesta successiva. | 
+| [**Nessuno**](#no-retry)  | Questi criteri non ripetono la richiesta. | 
+||| 
+
+Per informazioni sulle restrizioni dei criteri di ripetizione, vedere [Limiti e configurazione per App per la logica](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
+
+### <a name="change-retry-policy"></a>Modificare i criteri di ripetizione
+
+Per selezionare criteri di ripetizione diversi, seguire questa procedura: 
+
+1. Aprire l'app per la logica in Logic App Designer. 
+
+2. Aprire le **impostazioni** per un'azione o un trigger.
+
+3. Se l'azione o il trigger supporta i criteri di ripetizione, selezionare il tipo desiderato in **Criteri di ripetizione**. 
+
+In alternativa, è possibile specificare manualmente i criteri di ripetizione nella sezione `inputs` per un'azione o un trigger che supporta i criteri di ripetizione. Se non si specificano criteri di ripetizione, l'azione usa i criteri predefiniti.
 
 ```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
+"<action-name>": {
+   "type": "<action-type>", 
+   "inputs": {
+      "<action-specific-inputs>",
+      "retryPolicy": {
+         "type": "<retry-policy-type>",
+         "interval": "<retry-interval>",
+         "count": <retry-attempts>,
+         "minimumInterval": "<minimum-interval>",
+         "maximumInterval": "<maximun-interval>"
+      },
+      "<other-action-specific-inputs>"
+   },
+   "runAfter": {}
 }
 ```
 
-Per altre informazioni sulla sintassi e sulla sezione **inputs**, vedere la [sezione relativa ai criteri di ripetizione in Trigger e azioni dei flussi di lavoro][retryPolicyMSDN]. Per informazioni sulle restrizioni dei criteri di ripetizione, vedere [Limiti e configurazione per App per la logica](../logic-apps/logic-apps-limits-and-config.md). 
+*Obbligatorio*
+
+| Valore | type | DESCRIZIONE |
+|-------|------|-------------|
+| <*retry-policy-type*> | string | Il tipo di criteri di ripetizione che si desidera usare: "Predefiniti", "Nessuno", "Intervallo fisso" o "Intervallo esponenziale" | 
+| <*retry-interval*> | string | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. | 
+| <*retry-attempts*> | Integer | Numero di tentativi di ripetizione, che deve essere compresi tra 1 e 90 | 
+||||
+
+*Facoltativo*
+
+| Valore | type | DESCRIZIONE |
+|-------|------|-------------|
+| <*minimum-interval*> | string | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | string | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+|||| 
+
+Di seguito sono riportate altre informazioni sui diversi tipi di criteri.
+
+<a name="default-retry"></a>
 
 ### <a name="default"></a>Predefinito
 
-Quando non si definiscono criteri di ripetizione nella sezione **retryPolicy**, l'app per la logica usa il criterio predefinito, costituito da [criteri con un intervallo esponenziale ](#exponential-interval) che invia fino a quattro tentativi a intervalli con crescita esponenziale scalati di 7,5 secondi. L'intervallo è compreso tra 5 e 45 secondi. Tali criteri equivalgono ai criteri nella definizione del flusso di lavoro HTTP di questo esempio:
+Se non vengono specificati i criteri di ripetizione, l'azione usa i criteri predefiniti, che in realtà sono [criteri a intervallo esponenziale](#exponential-interval) che inviano fino a quattro richieste di ripetizione a intervalli con crescita esponenziale scalati di 7,5 secondi. L'intervallo è compreso tra 5 e 45 secondi. 
+
+Anche se non è espressamente definito nell'azione o nel trigger, qui sotto viene mostrato il comportamento dei criteri predefiniti in un'azione HTTP di esempio:
 
 ```json
 "HTTP": {
-    "type": "Http",
-    "inputs": {
-        "method": "GET",
-        "uri": "http://myAPIendpoint/api/action",
-        "retryPolicy" : {
-            "type": "exponential",
-            "count": 4,
-            "interval": "PT7S",
-            "minimumInterval": "PT5S",
-            "maximumInterval": "PT1H"
-        }
-    },
-    "runAfter": {}
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://myAPIendpoint/api/action",
+      "retryPolicy" : {
+         "type": "exponential",
+         "interval": "PT7S",
+         "count": 4,
+         "minimumInterval": "PT5S",
+         "maximumInterval": "PT1H"
+      }
+   },
+   "runAfter": {}
 }
 ```
 
 ### <a name="none"></a>Nessuna
 
-Se si imposta **retryPolicy** su **none**, i criteri non ripeteranno le richieste non riuscite.
-
-| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
-| ------------ | -------- | ---- | ----------- | 
-| type | Sì | string | **nessuna** | 
-||||| 
+Per specificare che l'azione o il trigger non ripete richieste con esito negativo, impostare <*retry-policy-type*> su `none`.
 
 ### <a name="fixed-interval"></a>Intervallo fisso
 
-Se si imposta **retryPolicy** su **fixed**, i criteri ripeteranno una richiesta non riuscita attendendo l'intervallo di tempo specificato prima di inviare la richiesta successiva.
+Per specificare che l'azione o il trigger attende l'intervallo specificato prima di inviare la richiesta successiva, impostare <*retry-policy-type*> su `fixed`.
 
-| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
-| ------------ | -------- | ---- | ----------- |
-| type | Sì | string | **fixed** |
-| count | Sì | Integer | Numero di tentativi di ripetizione, che deve essere compresi tra 1 e 90 | 
-| interval | Sì | string | Intervallo di ripetizione dei tentativi in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), che deve essere compreso tra PT5S e PT1D | 
-||||| 
+*Esempio*
+
+Dopo una prima richiesta con esito negativo, questi criteri di ripetizione provano altre due volte a ricevere le ultime notizie con un intervallo di 30 secondo tra ciascun tentativo:
+
+```json
+"Get_latest_news": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "https://mynews.example.com/latest",
+      "retryPolicy": {
+         "type": "fixed",
+         "interval": "PT30S",
+         "count": 2
+      }
+   }
+}
+```
 
 <a name="exponential-interval"></a>
 
 ### <a name="exponential-interval"></a>Intervallo esponenziale
 
-Se si imposta **retryPolicy** su **exponential**, i criteri ripeteranno una richiesta non riuscita dopo un intervallo di tempo casuale di un intervallo a crescita esponenziale. I criteri garantiscono anche l'invio di ogni tentativo a un intervallo casuale maggiore di **minimumInterval** e minore di **maximumInterval**. Nei criteri esponenziali **count** e **interval** sono obbligatori, mentre i valori per **minimumInterval** e **maximumInterval** sono facoltativi. Per eseguire l'override rispettivamente dei valori predefiniti PT5S e PT1D, è possibile aggiungere questi valori.
+Per specificare che l'azione o il trigger attende un intervallo causale prima di inviare la richiesta successiva, impostare <*retry-policy-type*> su `exponential`. L'intervallo casuale viene selezionato da un intervallo con crescita esponenziale. Facoltativamente, è inoltre possibile sostituire gli intervalli minimo e massimo predefiniti specificando i propri intervalli minimo e massimo.
 
-| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
-| ------------ | -------- | ---- | ----------- |
-| type | Sì | string | **exponential** |
-| count | Sì | Integer | Numero di tentativi di ripetizione, che deve essere compresi tra 1 e 90  |
-| interval | Sì | string | Intervallo di ripetizione dei tentativi in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), che deve essere compreso tra PT5S e PT1D. |
-| minimumInterval | No  | string | Intervallo minimo di ripetizione dei tentativi in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), che deve essere compreso tra PT5S e **interval** |
-| maximumInterval | No  | string | Intervallo minimo di ripetizione dei tentativi in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), che deve essere compreso tra **interval** e PT1D | 
-||||| 
+**Intervalli variabili casuali**
 
-Questa tabella illustra come una variabile casuale uniforme nell'intervallo indicato viene generata per ogni nuovo tentativo fino al valore di **count** incluso:
-
-**Intervallo variabile casuale**
+Questa tabella illustra come App per la logica genera una variabile casuale uniforme nell'intervallo specificato per ogni nuovo tentativo fino al numero di tentativi (incluso):
 
 | Numero di ripetizioni | Intervallo minimo | Intervallo massimo |
-| ------------ | ---------------- | ---------------- |
-| 1 | Massimo (0, **minimumInterval**) | Minimo (intervallo, **maximumInterval**) |
-| 2 | Massimo (intervallo, **minimumInterval**) | Minimo (2 * intervallo, **maximumInterval**) |
-| 3 | Massimo (2 * intervallo, **minimumInterval**) | Minimo (4 * intervallo, **maximumInterval**) |
-| 4 | Massimo (4*intervallo, **minimumInterval**) | Minimo (8 * intervallo, **maximumInterval**) |
-| .... | | | 
+|--------------|------------------|------------------|
+| 1 | max(0, <*minimum-interval*>) | min(interval, <*maximum-interval*>) |
+| 2 | max(interval, <*minimum-interval*>) | min(2 * interval, <*maximum-interval*>) |
+| 3 | max(2 * interval, <*minimum-interval*>) | min(4 * interval, <*maximum-interval*>) |
+| 4 | max(4 * interval, <*minimum-interval*>) | min(8 * interval, <*maximum-interval*>) |
+| .... | .... | .... | 
 |||| 
 
 ## <a name="catch-and-handle-failures-with-the-runafter-property"></a>Rilevare e gestire gli errori con la proprietà RunAfter
@@ -174,103 +221,105 @@ Per i limiti degli ambiti, vedere [Limiti e configurazione](../logic-apps/logic-
 
 ### <a name="get-context-and-results-for-failures"></a>Ottenere il contesto e i risultati per gli errori
 
-Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo e tutti gli errori o i codici di stato restituiti. La funzione del flusso di lavoro **@result()** offre il contesto relativo al risultato di tutte le azioni all'interno di un ambito.
+Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo e tutti gli errori o i codici di stato restituiti. L'espressione "@result()" offre il contesto relativo al risultato di tutte le azioni all'interno di un ambito.
 
-La funzione **@result()** accetta un unico parametro, il nome dell'ambito, e restituisce una matrice dei risultati di tutte le azioni all'interno di tale ambito. Questi oggetti azione includono gli stessi attributi dell'oggetto **@actions()**, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID correlazione e gli output dell'azione. Per inviare il contesto per una qualsiasi azione non riuscita all'interno di un ambito, è possibile associare una funzione **@result()** a una proprietà **runAfter**.
+La funzione "@result()" accetta un unico parametro (il nome dell'ambito) e restituisce una matrice dei risultati di tutte le azioni all'interno di tale ambito. Questi oggetti azione includono gli stessi attributi dell'oggetto **@actions()**, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID correlazione e gli output dell'azione. Per inviare il contesto per una qualsiasi azione non riuscita all'interno di un ambito, è possibile associare una funzione **@result()** a una proprietà **runAfter**.
 
-Per eseguire un'azione *per ogni* azione di un ambito con stato **Failed**, è possibile associare **@result()** a un'azione **[Filtra matrice](../connectors/connectors-native-query.md)** e a un ciclo **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)**. Ciò consente anche di filtrare la matrice dei risultati in modo da ottenere le azioni non riuscite. La matrice dei risultati filtrata può quindi essere usata per eseguire un'azione per ogni errore con il ciclo **ForEach** . 
+Per eseguire un'azione per ogni azione di un ambito con risultato **Failed**, e per filtrare la matrice dei risultati in modo da ottenere le azioni non riuscite, è possibile associare **@result()** a un'azione **[Filter Array](../connectors/connectors-native-query.md)** e a un ciclo [**For each**](../logic-apps/logic-apps-control-flow-loops.md). La matrice dei risultati filtrata può quindi essere usata per eseguire un'azione per ogni errore con il ciclo **For each**. 
 
-Ecco un esempio, seguito da una spiegazione dettagliata, che invia una richiesta HTTP POST con il corpo della risposta di qualsiasi azione non riuscita all'interno dell'ambito "My_Scope":
+Di seguito è riportato un esempio, con una spiegazione dettagliata, che invia una richiesta HTTP POST con il corpo della risposta di qualsiasi azione non riuscita all'interno dell'ambito "My_Scope":
 
 ```json
 "Filter_array": {
-    "inputs": {
-        "from": "@result('My_Scope')",
-        "where": "@equals(item()['status'], 'Failed')"
-    },
-    "runAfter": {
-        "My_Scope": [
-            "Failed"
-        ]
-    },
-    "type": "Query"
+   "type": "Query",
+   "inputs": {
+      "from": "@result('My_Scope')",
+      "where": "@equals(item()['status'], 'Failed')"
+   },
+   "runAfter": {
+      "My_Scope": [
+         "Failed"
+      ]
+    }
 },
 "For_each": {
-    "actions": {
-        "Log_Exception": {
-            "inputs": {
-                "body": "@item()['outputs']['body']",
-                "method": "POST",
-                "headers": {
-                    "x-failed-action-name": "@item()['name']",
-                    "x-failed-tracking-id": "@item()['clientTrackingId']"
-                },
-                "uri": "http://requestb.in/"
+   "type": "foreach",
+   "actions": {
+      "Log_exception": {
+         "type": "Http",
+         "inputs": {
+            "method": "POST",
+            "body": "@item()['outputs']['body']",
+            "headers": {
+               "x-failed-action-name": "@item()['name']",
+               "x-failed-tracking-id": "@item()['clientTrackingId']"
             },
-            "runAfter": {},
-            "type": "Http"
-        }
-    },
-    "foreach": "@body('Filter_array')",
-    "runAfter": {
-        "Filter_array": [
-            "Succeeded"
-        ]
-    },
-    "type": "Foreach"
+            "uri": "http://requestb.in/"
+         },
+         "runAfter": {}
+      }
+   },
+   "foreach": "@body('Filter_array')",
+   "runAfter": {
+      "Filter_array": [
+         "Succeeded"
+      ]
+   }
 }
 ```
 
 Ecco la procedura dettagliata che descrive quanto accaduto in questo esempio:
 
-1. Per ottenere il risultato di tutte le azioni all'interno di "My_Scope", l'azione **Filtra matrice** filtra **@result('My_Scope')**.
+1. Per ottenere il risultato di tutte le azioni nell'ambito "My_Scope", l'azione **Filter Array** usa questa espressione filtro: "@result('My_Scope')"
 
-2. La condizione per **Filtra matrice** è qualsiasi elemento **@result()** con stato uguale a **Failed**. Questa condizione filtra la matrice di tutti i risultati dell'azione da "My_Scope" fino a una matrice con i soli risultati delle azioni non riuscite.
+2. La condizione per **Filter Array** è qualsiasi elemento "@result()" con stato uguale a **Failed**. Questa condizione filtra la matrice che ha tutti i risultati dell'azione da "My_Scope" fino a una matrice con i soli risultati delle azioni non riuscite.
 
-3. Eseguire un'azione del ciclo **For Each** sugli output della *matrice filtrata*. Questo passaggio esegue un'azione *per ogni* risultato di azione non riuscita precedentemente filtrato.
+3. Eseguire un'azione del ciclo **For each** sugli output della *matrice filtrata*. Questo passaggio esegue un'azione per ogni risultato di azione non riuscita precedentemente filtrato.
 
-   Se una sola azione nell'ambito ha avuto esito negativo, le azioni in **foreach** vengono eseguite una sola volta. 
+   Se una sola azione nell'ambito ha avuto esito negativo, le azioni nel ciclo **For each** vengono eseguite una sola volta. 
    Molte azioni non riuscite determinano un'azione per errore.
 
-4. Inviare HTTP POST nel corpo della risposta dell'elemento **foreach**, che è **@item()['outputs']['body']**. La forma dell'elemento **@result()** è uguale alla forma di **@actions()** e può essere analizzata nello stesso modo.
+4. Inviare HTTP POST nel corpo della riposta dell'elemento **For each**, cioè l'espressione "@item()['outputs']['body']". 
 
-5. Includere due intestazioni personalizzate con il nome dell'azione non riuscita **@item()['name']** e l'ID di rilevamento del client dell'esecuzione non riuscita **@item()['clientTrackingId']**.
+   La forma dell'elemento "@result()" è uguale alla forma di "@actions()" e può essere analizzata nello stesso modo.
 
-Come riferimento, di seguito è riportato un esempio di un singolo elemento **@result()**, che mostra le proprietà **name**, **body**, e **clientTrackingId** analizzate nell'esempio precedente. All'esterno di un'azione **foreach** **@result()** restituisce una matrice di questi oggetti.
+5. Includere due intestazioni personalizzate con il nome dell'azione non riuscita ("@item()['name']") e l'ID di rilevamento del client dell'esecuzione non riuscita ("@item()['clientTrackingId']").
+
+Come riferimento, di seguito è riportato un esempio di un singolo elemento "@result()", che mostra le proprietà **name**, **body** e **clientTrackingId** analizzate nell'esempio precedente. All'esterno di un'azione **For each**, "@result()" restituisce una matrice di questi oggetti.
 
 ```json
 {
-    "name": "Example_Action_That_Failed",
-    "inputs": {
-        "uri": "https://myfailedaction.azurewebsites.net",
-        "method": "POST"
-    },
-    "outputs": {
-        "statusCode": 404,
-        "headers": {
-            "Date": "Thu, 11 Aug 2016 03:18:18 GMT",
-            "Server": "Microsoft-IIS/8.0",
-            "X-Powered-By": "ASP.NET",
-            "Content-Length": "68",
-            "Content-Type": "application/json"
-        },
-        "body": {
-            "code": "ResourceNotFound",
-            "message": "/docs/folder-name/resource-name does not exist"
-        }
-    },
-    "startTime": "2016-08-11T03:18:19.7755341Z",
-    "endTime": "2016-08-11T03:18:20.2598835Z",
-    "trackingId": "bdd82e28-ba2c-4160-a700-e3a8f1a38e22",
-    "clientTrackingId": "08587307213861835591296330354",
-    "code": "NotFound",
-    "status": "Failed"
+   "name": "Example_Action_That_Failed",
+   "inputs": {
+      "uri": "https://myfailedaction.azurewebsites.net",
+      "method": "POST"
+   },
+   "outputs": {
+      "statusCode": 404,
+      "headers": {
+         "Date": "Thu, 11 Aug 2016 03:18:18 GMT",
+         "Server": "Microsoft-IIS/8.0",
+         "X-Powered-By": "ASP.NET",
+         "Content-Length": "68",
+         "Content-Type": "application/json"
+      },
+      "body": {
+         "code": "ResourceNotFound",
+         "message": "/docs/folder-name/resource-name does not exist"
+      }
+   },
+   "startTime": "2016-08-11T03:18:19.7755341Z",
+   "endTime": "2016-08-11T03:18:20.2598835Z",
+   "trackingId": "bdd82e28-ba2c-4160-a700-e3a8f1a38e22",
+   "clientTrackingId": "08587307213861835591296330354",
+   "code": "NotFound",
+   "status": "Failed"
 }
 ```
 
-Le espressioni descritte in precedenza in questo articolo possono essere usate per eseguire diversi modelli di gestione delle eccezioni. È possibile scegliere di eseguire una singola azione di gestione delle eccezioni all'esterno dell'ambito che accetta l'intera matrice filtrata degli errori e rimuovere l'azione **foreach**. È anche possibile includere altre proprietà utili della risposta **@result()** come illustrato in precedenza.
+Le espressioni descritte in precedenza in questo articolo possono essere usate per eseguire diversi modelli di gestione delle eccezioni. È possibile scegliere di eseguire una singola azione di gestione delle eccezioni all'esterno dell'ambito che accetta l'intera matrice filtrata degli errori e rimuovere l'azione **For each**. È anche possibile includere altre proprietà utili della risposta **@result()** come illustrato in precedenza.
 
-## <a name="azure-diagnostics-and-telemetry"></a>Diagnostica e telemetria di Azure
+## <a name="azure-diagnostics-and-metrics"></a>Diagnostica di Azure e metriche
 
 I modelli precedenti sono un ottimo modo per gestire gli errori e le eccezioni in un'esecuzione, ma è possibile anche identificare e rispondere agli errori indipendentemente dall'esecuzione. 
 [Diagnostica di Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) consente di inviare in modo semplice tutti gli eventi del flusso di lavoro, inclusi tutti gli stati delle esecuzioni e delle azioni, a un account di archiviazione di Azure o a un hub eventi creato in Hub eventi di Azure. 

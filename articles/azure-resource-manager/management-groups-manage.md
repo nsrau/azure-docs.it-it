@@ -10,24 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/09/2018
+ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 730f79ce0a70da92dbb6332ad824b17e6c2327ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fab26fec44b671a9f779b114c1521bc8142d9427
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488379"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389399"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
 I gruppi di gestione sono contenitori che semplificano la gestione dell'accesso, dei criteri e della conformità tra più sottoscrizioni. È possibile modificare, eliminare e gestire questi contenitori per creare gerarchie utilizzabili con [Criteri di Azure](../azure-policy/azure-policy-introduction.md) e [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md). Per altre informazioni sui gruppi di gestione, vedere [Organizzare le risorse con i gruppi di gestione di Azure](management-groups-overview.md).
 
-La funzionalità dei gruppi di gestione è disponibile come anteprima pubblica. Per iniziare a usare i gruppi di gestione, accedere al [portale di Azure](https://portal.azure.com). In alternativa, è possibile usare [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) o l'[API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) per gestire i gruppi di gestione.
-
 Per apportare modifiche a un gruppo di gestione, è necessario disporre del ruolo Proprietario o Collaboratore per il gruppo di gestione. Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>Modificare il nome di un gruppo di gestione
 
@@ -80,6 +78,7 @@ Per eliminare un gruppo di gestione è necessario che siano soddisfatti i requis
 3. Selezionare il gruppo di gestione da eliminare.
 4. Selezionare **Elimina**.
     - Se l'icona è disabilitata, posizionando il cursore del mouse sull'icona viene visualizzato il motivo.
+
     ![Elimina gruppo](media/management-groups/delete.png)
 5. Si aprirà una finestra con la richiesta di confermare l'eliminazione del gruppo di gestione.
 

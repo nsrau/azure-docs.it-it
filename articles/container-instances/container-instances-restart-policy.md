@@ -1,21 +1,21 @@
 ---
-title: Eseguire attività in contenitori in Istanze di contenitore di Azure
+title: Eseguire attività in contenitori in istanze di contenitori di Azure con criteri di riavvio
 description: Informazioni su come usare Istanze di contenitore di Azure per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
 services: container-instances
 author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 07/26/2018
 ms.author: marsma
-ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd411ff38411c71cce2a8a63cc453c34e665a385
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167130"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262736"
 ---
-# <a name="run-a-containerized-task-in-azure-container-instances"></a>Eseguire un'attività in contenitori in Istanze di contenitore di Azure
+# <a name="run-containerized-tasks-with-restart-policies"></a>Eseguire attività in contenitori con criteri di riavvio
 
 La semplicità e la velocità della distribuzione di contenitori in Istanze di contenitore di Azure offre una piattaforma interessante per l'esecuzione di attività eseguite una sola volta come la compilazione, il test e il rendering di immagini in un'istanza del contenitore.
 

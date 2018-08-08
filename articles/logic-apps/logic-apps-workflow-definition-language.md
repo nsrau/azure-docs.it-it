@@ -1,29 +1,25 @@
 ---
-title: Schema del linguaggio di definizione del flusso di lavoro - App per la logica di Azure | Microsoft Docs
+title: Informazioni di riferimento sullo schema per il linguaggio di definizione del flusso di lavoro - App per la logica di Azure | Microsoft Docs
 description: Scrivere definizioni del flusso di lavoro personalizzate per App per la logica di Azure con il linguaggio di definizione del flusso di lavoro
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
-ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0ac191f1191357ecc7292d51b298567f7f4e4786
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059233"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391225"
 ---
-# <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definizioni del flusso di lavoro di App per la logica di Azure con lo schema del linguaggio di definizione del flusso di lavoro
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Informazioni di riferimento sullo schema per il linguaggio di definizione del flusso di lavoro in App per la logica di Azure
 
-Quando si crea un flusso di lavoro di app per la logica con [App per la logica di Azure](../logic-apps/logic-apps-overview.md), la definizione alla base del flusso di lavoro descrive la logica effettiva eseguita per l'app per la logica. Questa descrizione segue una struttura definita e convalidata dallo schema del linguaggio di definizione del flusso di lavoro che usa il formato [JSON (JavaScript Object Notation)](https://www.json.org/). 
+Quando si crea un flusso di lavoro di app per la logica con [App per la logica di Azure](../logic-apps/logic-apps-overview.md), la definizione alla base del flusso di lavoro descrive la logica effettiva eseguita per l'app per la logica. Questa descrizione segue una struttura definita e convalidata dallo schema del linguaggio di definizione del flusso di lavoro che usa [JSON (JavaScript Object Notation)](https://www.json.org/). 
   
 ## <a name="workflow-definition-structure"></a>Struttura della definizione del flusso di lavoro
 
@@ -44,7 +40,7 @@ Di seguito è riportata la struttura generale di una definizione del flusso di l
   
 | Elemento | Obbligatoria | DESCRIZIONE | 
 |---------|----------|-------------| 
-| Definizione | sì | Elemento iniziale della definizione del flusso di lavoro | 
+| Definizione | Yes | Elemento iniziale della definizione del flusso di lavoro | 
 | $schema | Solo quando si fa riferimento esternamente a una definizione del flusso di lavoro | Percorso del file di schema JSON che descrive la versione del linguaggio di definizione del flusso di lavoro, disponibile qui: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
 | contentVersion | No  | Numero di versione della definizione del flusso di lavoro, per impostazione predefinita "1.0.0.0". Specificare un valore da usare per identificare e confermare la definizione corretta durante la distribuzione di un flusso di lavoro. | 
 | Parametri | No  | Definizioni di uno o più parametri che trasferiscono i dati nel flusso di lavoro <p><p>Numero massimo di parametri: 50 | 
@@ -76,7 +72,7 @@ Di seguito è riportata la struttura generale della definizione di un parametro:
 
 | Elemento | Obbligatoria | type | DESCRIZIONE |  
 |---------|----------|------|-------------|  
-| type | sì | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. | Tipo di parametro |
+| type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. | Tipo di parametro |
 | defaultValue | No  | Uguale a `type` | Valore del parametro predefinito quando non viene specificato alcun valore durante la creazione dell'istanza del flusso di lavoro | 
 | allowedValues | No  | Uguale a `type` | Matrice con valori che il parametro può accettare |  
 | metadata | No  | Oggetto JSON | Qualsiasi altro parametro, ad esempio il nome o una descrizione leggibile dell'app per la logica o i dati di progettazione usati da Visual Studio o altri strumenti |  
@@ -106,12 +102,12 @@ Di seguito è riportata la struttura generale della definizione di un output:
 
 | Elemento | Obbligatoria | type | DESCRIZIONE | 
 |---------|----------|------|-------------| 
-| <*key-name*> | sì | string | Valore chiave del valore di output restituito |  
-| type | sì | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito | 
-| value | sì | Uguale a `type` | Valore di output restituito |  
+| <*key-name*> | Yes | string | Valore chiave del valore di output restituito |  
+| type | Yes | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito | 
+| value | Yes | Uguale a `type` | Valore di output restituito |  
 ||||| 
 
-Per ottenere l'output dall'esecuzione di un flusso di lavoro, esaminare la cronologia di esecuzione e i dettagli dell'app per la logica nel portale di Azure oppure usare l'[API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio PowerBI, per poter creare dashboard. 
+Per ottenere l'output dall'esecuzione di un flusso di lavoro, esaminare la cronologia di esecuzione e i dettagli dell'app per la logica nel portale di Azure oppure usare l'[API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio Power BI, per creare dashboard. 
 
 <a name="expressions"></a>
 
@@ -226,7 +222,7 @@ In alternativa, vedere altre informazioni sulle funzioni e il loro utilizzo gene
 Ecco un paio esempi di attività che possono essere eseguite con le funzioni: 
 
 | Attività | Sintassi della funzione | Risultato | 
-| ---- | --------------- | -------------- | 
+| ---- | --------------- | ------ | 
 | Restituisce una stringa in formato minuscolo. | toLower('<*text*>') <p>Ad esempio toLower('Hello') | "hello" | 
 | Restituisce un identificatore univoco globale (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 

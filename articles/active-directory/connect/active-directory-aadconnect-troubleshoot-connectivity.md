@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: risolvere i problemi di connettività | Documentazione Microsoft'
+title: 'Azure AD Connect: risolvere i problemi di connettività | Microsoft Docs'
 description: Descrive come risolvere i problemi di connettività con Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 793a65347552782c4a3482b29d10e4c94ef85663
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295397"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263232"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività con Azure AD Connect
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -52,7 +52,7 @@ Nella tabella seguente sono riportate le impostazioni minime relative agli URL a
 | \*.microsoftonline.com |HTTPS/443 |Usato per configurare la directory di Azure AD e i dati di importazione/esportazione. |
 
 ## <a name="errors-in-the-wizard"></a>Errori nella procedura guidata
-L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connessione ad Azure AD** usa l'utente attualmente connesso. Nella pagina **Configura** passa all'[account che esegue il servizio per il motore di sincronizzazione](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). La presenza di un eventuale problema sarà probabilmente già evidente nella pagina **Connessione ad Azure AD** della procedura guidata, in quanto la configurazione del proxy è globale.
+L'Installazione guidata usa due diversi contesti di sicurezza. Nella pagina **Connessione ad Azure AD** usa l'utente attualmente connesso. Nella pagina **Configura** passa all'[account che esegue il servizio per il motore di sincronizzazione](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). La presenza di un eventuale problema sarà probabilmente già evidente nella pagina **Connessione ad Azure AD** della procedura guidata, in quanto la configurazione del proxy è globale.
 
 Di seguito sono riportati i problemi più comuni che vengono visualizzati nell'Installazione guidata.
 
@@ -161,28 +161,28 @@ Problemi di configurazione di rete o del proxy. Non è possibile raggiungere la 
 ### <a name="user-password-expired"></a>Password utente scaduta
 Le credenziali sono scadute. Modificare la password.
 
-### <a name="authorizationfailure"></a>Errore di autorizzazione
-Problema sconosciuto.
+### <a name="authorization-failure"></a>Errore di autorizzazione
+Non è stato possibile autorizzare l'utente a eseguire azioni in Azure AD.
 
 ### <a name="authentication-cancelled"></a>Autenticazione annullata
 La richiesta di autenticazione a più fattori (MFA) è stata annullata.
 
-### <a name="connecttomsonline"></a>Connessione a MS Online
+### <a name="connect-to-ms-online-failed"></a>Connessione a MS Online non riuscita
 L'autenticazione ha avuto esito positivo, ma Azure AD PowerShell ha un problema di autenticazione.
 
-### <a name="azurerolemissing"></a>Ruolo di Azure mancante
-L'autenticazione ha avuto esito positivo. L'utente non è un amministratore globale.
+### <a name="azure-ad-global-admin-role-needed"></a>È necessario il ruolo di amministratore globale di Azure AD
+Utente autenticato correttamente. All'utente non è stato assegnato il ruolo di amministratore globale. In [questo modo è possibile assegnare il ruolo di amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) all'utente. 
 
-### <a name="privilegedidentitymanagement"></a>Privileged Identity Management
+### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management (PIM) abilitata
 L'autenticazione ha avuto esito positivo. Privileged Identity Management è abilitata e l'utente attualmente non è un amministratore globale. Per altre informazioni, vedere [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### <a name="companyinfounavailable"></a>Informazioni aziendali non disponibili
+### <a name="company-information-unavailable"></a>Informazioni sulla società non disponibili
 L'autenticazione ha avuto esito positivo. Impossibile recuperare le informazioni aziendali da Azure AD.
 
-### <a name="retrievedomains"></a>Recupero domini
+### <a name="domain-information-unavailable"></a>Informazioni sul dominio non disponibili
 L'autenticazione ha avuto esito positivo. Impossibile recuperare le informazioni sul dominio da Azure AD.
 
-### <a name="unexpected-exception"></a>Eccezione imprevista
+### <a name="unspecified-authentication-failure"></a>Errore di autenticazione non specificato
 Visualizzata come un errore imprevisto nell'Installazione guidata, può verificarsi se si tenta di usare un **Account Microsoft** anziché un **account dell'istituto di istruzione o dell'organizzazione**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Procedure di risoluzione dei problemi per le versioni precedenti.

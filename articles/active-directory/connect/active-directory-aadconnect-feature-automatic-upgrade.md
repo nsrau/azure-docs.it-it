@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: aggiornamento automatico | Microsoft Docs'
+title: 'Azure AD Connect: aggiornamento automatico | Documentazione Microsoft'
 description: Questo argomento illustra la funzionalità di aggiornamento automatico predefinita nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089962"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263947"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
 Questa funzionalità è stata introdotta nella build [1.1.105.0 rilasciata nel mese di febbraio 2016](active-directory-aadconnect-version-history.md#111050).  Questa funzionalità è stata aggiornata nella [build 1.1.561](active-directory-aadconnect-version-history.md#115610) e ora supporta scenari aggiuntivi che non erano supportati in precedenza.
@@ -95,8 +95,8 @@ Ecco un elenco dei messaggi più comuni. L'elenco non include tutti i messaggi, 
 | UpgradeNotSupportedInvalidPersistedState |L'installazione non è un aggiornamento delle impostazioni rapide o di DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Il metaverse include più di 100.000 oggetti. |
 | UpgradeNotSupportedMultiForestSetup |Viene stabilita la connessione a più foreste. L'installazione rapida si connette a una sola foresta. |
-| UpgradeNotSupportedNonLocalDbInstall |Non si sta usando un database LocalDB di SQL Server Express. |
-| UpgradeNotSupportedNonMsolAccount |L'[account AD Connect](active-directory-aadconnect-accounts-permissions.md#active-directory-account) non è più l'account MSOL_ predefinito. |
+| UpgradeNotSupportedNonLocalDbInstall |Non si sta usando un database LocalDB di SQL Server Express. |d
+| UpgradeNotSupportedNonMsolAccount |L'[account del connettore di Active Directory Domain Services](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) non è più l'account MSOL_ predefinito. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | Durante la configurazione di AAD Connect, nella selezione del metodo di accesso si è scelto *Non configurare*. | 
 | UpgradeNotSupportedPtaSignInMethod | È stata selezionato Autenticazione pass-through come metodo di accesso. |
 | UpgradeNotSupportedStagingModeEnabled |Il server è in [modalità di staging](active-directory-aadconnectsync-operations.md#staging-mode). |

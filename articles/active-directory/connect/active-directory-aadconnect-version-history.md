@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049518"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390154"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -36,6 +36,45 @@ Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [esegu
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118800"></a>1.1.880.0
+
+### <a name="release-status"></a>Stato della versione
+
+20/07/2018: rilasciata per aggiornamento automatico. La versione per il download seguirà a breve.
+
+### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
+
+- L'integrazione di PingFederate in Azure AD Connect è ora disponibile per la disponibilità generale. [Altre informazioni su come effettuare la federazione di Azure AD con PingFederate](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Azure AD Connect ora crea il backup del trust di Azure AD in AD FS ogni volta che viene effettuato un aggiornamento e lo archivia in un file separato per un facile ripristino, se necessario. [Altre informazioni sulla nuova funzionalità e sulla gestione dei trust di Azure AD in Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
+- Il nuovo strumento di risoluzione dei problemi consente di risolvere i problemi relativi alla modifica dell'indirizzo di posta elettronica principale e all'esclusione dell'account dall'elenco globale degli indirizzi
+- Azure AD Connect è stato aggiornato per includere il più recente client nativo di SQL Server 2012
+- Quando si passa dall'accesso utente a Sincronizzazione dell'hash delle password o a Autenticazione pass-through nell'attività "Cambia l'accesso utente", la casella di controllo Accesso Single Sign-On facile è abilitata per impostazione predefinita.
+- Aggiunto supporto per Windows Server Essentials 2019
+- L'agente di Azure AD Connect Health è stato aggiornato alla versione più recente 3.1.7.0
+- Durante un aggiornamento, se il programma di installazione rileva modifiche alle regole di sincronizzazione predefinite, l'amministratore visualizza un messaggio di avviso prima di sovrascrivere le regole modificate. Con questa operazione consentirà all'utente di intraprendere azioni correttive e di riprendere in un secondo momento. Comportamento precedente: se esisteva una regola predefinita modificata, l'aggiornamento manuale sovrascriveva quelle regole senza dare alcun preavviso all'utente e l'utilità di pianificazione della sincronizzazione veniva disabilitata senza informare l'utente. Nuovo comportamento: all'utente verrà inviato un avviso prima di sovrascrivere le regole di sincronizzazione predefinite modificate. L'utente avrà la possibilità di interrompere il processo di aggiornamento e di riprenderlo dopo aver intrapreso un'azione correttiva.
+- Garantire una migliore gestione di un problema di conformità FIPS, fornendo un messaggio di errore per la generazione di hash MD5 in un ambiente conforme a FIPS e un collegamento alla documentazione che offre una soluzione per questo problema.
+- Aggiornamento dell'interfaccia utente per migliorare le attività di federazione nella procedura guidata, che ora si trovano in un sottogruppo separato per la federazione. 
+- Tutte le attività aggiuntive della federazione sono ora raggruppate in un singolo sottomenu per facilitarne l'uso.
+- Un nuovo modulo ADSyncConfig Posh rinnovato (AdSyncConfig.psm1) con nuove funzioni di autorizzazioni di AD spostate dal vecchio ADSyncPrep.psm1 (che potrebbe essere ritirato a breve)
+
+### <a name="fixed-issues"></a>Problemi risolti 
+
+- Risolto un bug in cui il server AAD Connect mostrava un elevato utilizzo della CPU dopo l'aggiornamento a .Net 4.7.2
+- Risolto un bug che generava in modo intermittente un messaggio di errore per un problema di deadlock SQL risolto automaticamente
+- Risolti alcuni problemi di accessibilità per Sync Rules Editor e Sync Service Manager  
+- Risolto un bug a causa del quale Azure AD Connect non poteva ottenere le informazioni sull'impostazione del registro
+- Risolto un bug che creava problemi quando l'utente andava avanti/indietro nella procedura guidata
+- Risolto un bug per evitare che si verificasse un errore a causa di una gestione multi-thread errata nella procedura guidata
+- Se la pagina Group Sync Filtering (Filtro sincronizzazione di gruppo) rileva un errore LDAP durante la risoluzione dei gruppi di sicurezza, Azure AD Connect ora restituisce l'eccezione con piena fedeltà.  La causa radice dell'eccezione di riferimento non è ancora nota e verrà risolta da un bug diverso.
+-  Risolto un bug per cui le autorizzazioni per le chiavi STK e NGC (attributo msDS-KeyCredentialLink su oggetti User/Device per WHfB) non erano state impostate correttamente.     
+- Risolto un bug in cui "Set-ADSyncRestrictedPermissions" non veniva chiamato correttamente
+-  Aggiunta del supporto per la concessione delle autorizzazioni sul Writeback dei gruppi nell'installazione guidata di AAD Connect
+- Quando è stato cambiato il metodo di accesso da Sincronizzazione dell'hash delle password ad AD FS, Sincronizzazione dell'hash delle password non è stata disabilitata.
+- Aggiunta verifica per gli indirizzi IPv6 nella configurazione di AD FS
+- Aggiornato il messaggio di notifica per informare della presenza di una configurazione esistente.
+- Il writeback del dispositivo non riesce a rilevare il contenitore nella foresta non attendibile. È stato aggiornato per fornire un messaggio di errore migliore e un collegamento alla documentazione appropriata
+- La deselezione di un'Unità organizzativa e quindi la sincronizzazione/il writeback corrispondente a tale Unità organizzativa produce un errore di sincronizzazione generico. È stato modificato per creare un messaggio di errore più comprensibile.
 
 ## <a name="118190"></a>1.1.819.0
 

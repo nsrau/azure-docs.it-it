@@ -1,9 +1,9 @@
 ---
-title: Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure | Documentazione Microsoft
+title: Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure | Microsoft Docs
 description: Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza di Azure facilitino la protezione delle risorse di Azure e garantiscano la conformità ai criteri di sicurezza.
 services: security-center
 documentationcenter: na
-author: TerryLan
+author: TerryLanfear
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2018
+ms.date: 07/31/2018
 ms.author: terrylan
-ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006615"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367107"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
 Questo documento illustra come usare le raccomandazioni presenti nel Centro sicurezza di Azure per la protezione delle risorse di Azure.
@@ -95,7 +95,7 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 | [La valutazione della vulnerabilità non è installata](security-center-vulnerability-assessment-recommendations.md) |Consiglia di installare una soluzione di valutazione della vulnerabilità nella VM. |
 | [Correggi le vulnerabilità](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Consente di visualizzare le vulnerabilità del sistema e delle applicazioni rilevate dalla soluzione di valutazione delle vulnerabilità installata nella VM. |
 | [Abilitare la crittografia per l'account di archiviazione di Azure](security-center-enable-encryption-for-storage-account.md) | Consiglia di abilitare la crittografia del servizio Archiviazione di Azure per i dati inattivi che applica la crittografia ai dati quando vengono scritti nell'archiviazione di Azure e li decrittografa prima del recupero. La crittografia del servizio Archiviazione di Azure è attualmente disponibile solo per il servizio BLOB di Azure e può essere usata per BLOB in blocchi, BLOB di pagine e BLOB di aggiunta. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).</br>La crittografia del servizio Archiviazione di Azure è supportata solo negli account di archiviazione di Resource Manager. |
-| [Abilita i controlli applicazione adattivi](security-center-adaptive-application.md) | Suggerisce di applicare controlli dell'applicazione adattivi nelle macchine virtuali Windows. La funzionalità è in anteprima e disponibile nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). |
+| [Abilita i controlli applicazione adattivi](security-center-adaptive-application.md) | Suggerisce di applicare controlli dell'applicazione adattivi nelle macchine virtuali Windows. Questa funzionalità è disponibile nel livello Standard di Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). |
 | Il servizio app deve essere accessibile solo tramite HTTPS | Consiglia di limitare l'accesso del servizio app solo tramite HTTPS. |
 | Web Socket deve essere disabilitato per l'applicazione Web| Consiglia di esaminare attentamente l'utilizzo di Web Socket all'interno delle applicazioni Web.  Il protocollo Web Socket è vulnerabile a diversi tipi di minacce alla sicurezza. |
 | Usare i domini personalizzati per l'applicazione Web | Consiglia l'uso dei domini personalizzati per proteggere un'applicazione Web da attacchi comuni come il phishing e altri attacchi correlati a DNS. |

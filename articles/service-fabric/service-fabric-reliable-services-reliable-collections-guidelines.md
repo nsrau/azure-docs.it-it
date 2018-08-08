@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 7a61fa9df5b5232c11f4a546ec5f050461c88e88
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72091d592475e41f254ef7c3882e3d3fee0c491b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211141"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389532"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric
 Questa sezione fornisce le linee guida per l'uso di Reliable State Manager e Reliable Collections. L'obiettivo è quello di aiutare gli utenti a evitare errori comuni.
@@ -49,6 +49,7 @@ Occorre tenere presente i concetti seguenti:
 * Le operazioni di lettura sul secondario possono leggere le versioni che non sono vincolate a un quorum.
   Ciò significa che una versione dei dati che viene letta da un singolo secondario potrebbe essere elaborata in modo non corretto.
   Le letture della replica primaria sono sempre stabili: non sono mai elaborate in modo non corretto.
+* La sicurezza e la privacy dei dati resi persistenti tramite l'applicazione in una raccolta affidabile sono decisioni dell'utente e sono soggette a misure di protezione fornite dalla gestione dell'archiviazione, ad esempio la crittografia del disco del sistema operativo potrebbe essere usata per proteggere i dati inattivi.  
 
 ### <a name="next-steps"></a>Passaggi successivi
 * [Lavorare con le raccolte Reliable Collections](service-fabric-work-with-reliable-collections.md)

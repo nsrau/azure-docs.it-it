@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 89562e6a2bfb977585cec1925a5f306c69c3d1e8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159680"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390671"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introduzione all'API di creazione report di Azure Active Directory
 
@@ -43,8 +43,6 @@ Per accedere all'API di creazione report, anche se si prevede di accedervi trami
 3. Concedere le autorizzazioni
 4. Ottenere le impostazioni di configurazione
 
-
- 
 Per istruzioni dettagliate vedere i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites-azure-portal.md).
 
 ## <a name="apis-with-graph-explorer"></a>API con Graph explorer
@@ -55,11 +53,11 @@ Per istruzioni dettagliate vedere i [prerequisiti di accesso all'API di creazion
 
 ![Interfaccia utente di Autorizzazioni di modifica](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
-## <a name="recommendation"></a>Raccomandazione 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Usare i certificati per accedere all'API di creazione report di Azure AD 
 
-Se si intende recuperare dei dati dei report senza l'intervento dell'utente, è consigliabile usare l'API di creazione di report di Azure AD con certificati.
+È consigliabile usare l'API di creazione report di Azure AD con certificati se si prevede di recuperare i dati dei report senza l'intervento dell'utente.
 
-Per istruzioni dettagliate vedere [Ottenere dati con l'API di creazione report di Azure Active Directory con certificati](active-directory-reporting-api-with-certificates.md).
+Per istruzioni dettagliate vedere [Ottenere dati con l'API di creazione report di Azure AD con certificati](active-directory-reporting-api-with-certificates.md).
 
 
 ## <a name="explore"></a>Esplorazione
@@ -67,17 +65,13 @@ Per istruzioni dettagliate vedere [Ottenere dati con l'API di creazione report d
 Ottenere una prima impressione delle API di creazione report:
    
    - [Utilizzo degli esempi dell'API di controllo](active-directory-reporting-api-audit-samples.md) 
- 
    - [Utilizzo degli esempi dell'API di creazione report sull'attività di accesso](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## <a name="customize"></a>Personalizza  
+## <a name="next-steps"></a>Passaggi successivi
 
-Creare una soluzione personalizzata: 
-   
-   - [Utilizzo delle informazioni di riferimento sull'API di controllo](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-
-   - [Utilizzo delle informazioni di riferimento sull'API di creazione report sull'attività di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
+ * [Informazioni di riferimento sulle API di controllo](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ * [Informazioni di riferimento sulle API di report di attività di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Risolvere gli errori relativi all'API di creazione report di Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 

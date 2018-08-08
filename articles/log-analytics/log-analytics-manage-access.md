@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 3b4e0f978cc7d23d0157b78fd2dff27096d2768b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: cb927c0bad69bb3b5b3001e4ba19b11acd1eb316
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133341"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389970"
 ---
 # <a name="manage-workspaces"></a>Gestire le aree di lavoro
 
-Per gestire l'accesso a Log Analytics, vengono eseguite diverse attività amministrative relative alle aree di lavoro. Questo articolo fornisce le procedure consigliate per gestire le aree di lavoro. Un'area di lavoro è sostanzialmente un contenitore che include informazioni sull'account e semplici informazioni di configurazione per l'account stesso. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
+Per gestire l'accesso a Log Analytics, vengono eseguite diverse attività amministrative relative alle aree di lavoro. Questo articolo contiene suggerimenti e procedure per gestire le aree di lavoro. Un'area di lavoro è sostanzialmente un contenitore che include informazioni sull'account e semplici informazioni di configurazione per l'account stesso. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
 
 Per creare un'area di lavoro, è necessario:
 
@@ -44,31 +44,33 @@ Oggi, un'area di lavoro fornisce:
 * Isolamento dei dati per definire diritti di accesso utente diversi
 * Ambito per la configurazione delle impostazioni, ad esempio conservazione ed estremità di chiusura dei dati
 
-Dal punto di vista del consumo, è consigliabile creare meno aree di lavoro possibile. Ciò rende le esperienze di query e di amministrazione più semplici e veloci. Tuttavia, in base alle caratteristiche precedenti, si possono creare più aree di lavoro se:
+Dal punto di vista del consumo, è consigliabile creare meno aree di lavoro possibile. In questo modo le operazioni di amministrazione e di esecuzione di query sono più semplici e più rapide. Tuttavia, in base alle caratteristiche precedenti, si possono creare più aree di lavoro se:
 
 * Si opera in un'azienda globale ed è necessario che i dati siano archiviati in aree specifiche per motivi di sovranità o conformità.
 * Si usa Azure e si intendono evitare costi di trasferimento dei dati in uscita tramite un'area di lavoro nella stessa area delle risorse di Azure da essa gestite.
-* Si vogliono allocare le spese a reparti o gruppi aziendali diversi in base all'utilizzo. Quando si crea un'area di lavoro per ogni dipartimento o gruppo aziendale nel proprio abbonamento ad Azure.
+* Si intende allocare le spese a reparti o gruppi aziendali diversi in base all'uso tramite la creazione di un'area di lavoro per ogni reparto o gruppo aziendale nella relativa sottoscrizione di Azure.
 * Si opera come provider di servizi gestiti e per ogni cliente gestito è necessario mantenere i dati di Log Analytics isolati da altri dati del cliente.
-* Si gestiscono più clienti e si desidera che ogni cliente, reparto o gruppo aziendale visualizzi i propri dati, ma non i dati di altri.
+* Si gestiscono più clienti e si vuole che ogni cliente, reparto o gruppo aziendale visualizzi i propri dati, ma non quelli di altri.
 
 Quando si usano agenti Windows per la raccolta dei dati, è possibile [configurare ogni agente in modo che faccia riferimento a una o più aree di lavoro](log-analytics-windows-agents.md).
 
 Se si usa System Center Operations Manager, ogni gruppo di gestione di Operations Manager può essere connesso con una sola area di lavoro. È possibile installare Microsoft Monitoring Agent nei computer gestiti da Operations Manager e fare sì che l’agente faccia riferimento sia a Operations Manager che a un'altra area di lavoro di Log Analytics.
 
-### <a name="workspace-information"></a>Informazioni sull'area di lavoro
+## <a name="workspace-information"></a>Informazioni sull'area di lavoro
 
 È possibile visualizzare i dettagli sull'area di lavoro nel portale di Azure. 
 
-#### <a name="view-workspace-information-in-the-azure-portal"></a>Visualizzare le informazioni sull'area di lavoro nel portale di Azure
+1. Accedere al [portale di Azure](https://portal.azure.com), se questa operazione non è già stata eseguita.
 
-1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com), usando la sottoscrizione di Azure.
-2. Scegliere **Altri servizi** dal menu **Hub** e digitare **Log Analytics** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Log Analytics**.  
-    ![Hub di Azure](./media/log-analytics-manage-access/hub.png)  
-3. Nel pannello di sottoscrizioni di Log Analytics, selezionare un'area di lavoro.
-4. Nel pannello dell'area di lavoro vengono visualizzati i dettagli sull'area di lavoro e i collegamenti che forniscono informazioni aggiuntive.  
-    ![Dettagli dell'area di lavoro](./media/log-analytics-manage-access/workspace-details.png)  
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.  
 
+    ![Portale di Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)  
+
+3. Nella pagina delle sottoscrizioni di Log Analytics selezionare un'area di lavoro.
+
+4. In tale pagina vengono visualizzati i dettagli su come iniziare, sulla configurazione e sui collegamenti per ottenere altre informazioni.  
+
+    ![Dettagli dell'area di lavoro](./media/log-analytics-manage-access/workspace-overview-page.png)  
 
 ## <a name="manage-accounts-and-users"></a>Gestire utenti e account
 A ogni area di lavoro possono essere associati più account, ognuno dei quali può avere accesso a diverse aree di lavoro. L'accesso viene gestito tramite [accesso basato sui ruoli Azure](../active-directory/role-based-access-control-configure.md). Questi diritti di accesso si applicano sia nel portale di Azure sia sull'accesso all'API.
@@ -150,23 +152,25 @@ Usare questi ruoli per concedere agli utenti l'accesso ad ambiti diversi:
 Tutte le aree di lavoro create dopo il 26 settembre 2016 devono essere collegate a una sottoscrizione di Azure al momento della creazione. All'accesso, le aree di lavoro create prima di tale data devono essere collegate a un'area di lavoro. Quando si crea l'area di lavoro dal portale di Azure o si collega l'area di lavoro a una sottoscrizione di Azure, Azure Active Directory viene collegato come account aziendale.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Per collegare un'area di lavoro a una sottoscrizione di Azure nel portale di Azure
-1. Accedere al [portale di Azure](http://portal.azure.com).
-2. Cercare e selezionare **Log Analytics**.
-3. Viene visualizzato un elenco delle aree di lavoro esistenti. Fare clic su **Aggiungi**.  
-   ![Elenco di aree di lavoro](./media/log-analytics-manage-access/manage-access-link-azure01.png)
-4. In **Area di lavoro di OMS** fare clic su **Collega esistente**.  
-   ![Collegare un'area di lavoro esistente](./media/log-analytics-manage-access/manage-access-link-azure02.png)
-5. Fare clic su **Configura le impostazioni necessarie**.  
-   ![configure required settings](./media/log-analytics-manage-access/manage-access-link-azure03.png)
-6. Viene visualizzato l'elenco delle aree di lavoro non ancora collegate all'account Azure. Selezionare un'area di lavoro.  
-   ![Selezionare le aree di lavoro](./media/log-analytics-manage-access/manage-access-link-azure04.png)
-7. Se necessario, è possibile modificare i valori per gli elementi seguenti:
+1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.  
+
+2. Nel riquadro delle sottoscrizioni di Log Analytics fare clic si **Aggiungi**.  
+
+    ![Elenco di aree di lavoro](./media/log-analytics-manage-access/workspace-link-existing-01.png)
+
+3. Nel riquadro **Area di lavoro di Log Analytics** fare clic su **Collega esistente**.  
+
+4. Fare clic su **Configura le impostazioni necessarie**.  
+
+5. Viene visualizzato l'elenco delle aree di lavoro non ancora collegate all'account Azure. Selezionare l'area di lavoro.  
+   
+6. Se necessario, è possibile modificare i valori per gli elementi seguenti:
    * Sottoscrizione
    * Gruppo di risorse
    * Località
    * Piano tariffario  
-     ![Modificare i valori](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8. Fare clic su **OK**. L'area di lavoro ora è collegata all'account Azure.
+
+7. Fare clic su **OK**. L'area di lavoro ora è collegata all'account Azure.
 
 > [!NOTE]
 > Se non viene visualizzata l'area di lavoro a cui ci si vuole collegare, la sottoscrizione di Azure non ha accesso all'area di lavoro creata usando il portale di OMS.  Per concedere l'accesso a questo account dal portale di OMS, vedere [Aggiungere un utente a un'area di lavoro esistente](#add-a-user-to-an-existing-workspace).
@@ -184,6 +188,7 @@ Quando si acquista una sottoscrizione di OMS, i diritti vengono aggiunti al cont
 Per assicurarsi che l'uso di un'area di lavoro venga applicato ai diritti derivanti dalla sottoscrizione di OMS, è necessario:
 
 1. Creare un'area di lavoro in una sottoscrizione di Azure che fa parte del contratto Enterprise Agreement che include sia la sottoscrizione di OMS
+
 2. Selezionare il piano *OMS* per l'area di lavoro
 
 > [!NOTE]
@@ -191,7 +196,7 @@ Per assicurarsi che l'uso di un'area di lavoro venga applicato ai diritti deriva
 >
 >
 
-I diritti della sottoscrizione di OMS non sono visibili nel portale di Azure o OMS. È possibile visualizzare i diritti e l'uso in Enterprise Portal.  
+I diritti della sottoscrizione di OMS non sono visibili nel portale di Azure. È possibile visualizzare i diritti e l'uso in Enterprise Portal.  
 
 Se è necessario modificare la sottoscrizione di Azure a cui è collegata la propria area di lavoro, è possibile usare il cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) di Azure PowerShell.
 
@@ -203,14 +208,12 @@ Se si ha un impegno monetario di Azure nell'iscrizione Enterprise a cui sono col
 Se è necessario modificare la sottoscrizione di Azure a cui è collegata l'area di lavoro, è possibile usare il cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) di Azure PowerShell.  
 
 ### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Passare a un piano tariffario a pagamento per l'area di lavoro nel portale di Azure
-1. Accedere al [portale di Azure](http://portal.azure.com).
-2. Cercare e selezionare **Log Analytics**.
-3. Viene visualizzato un elenco delle aree di lavoro esistenti. Selezionare un'area di lavoro.  
-4. Nel pannello dell'area di lavoro in **Generale** fare clic su **Piano tariffario**.  
-5. In **Piano tariffario** selezionare un piano tariffario e quindi fare clic su **Seleziona**.  
-    ![selezione piano](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Quando si aggiorna la visualizzazione nel portale di Azure, **Piano tariffario** risulta aggiornato per il piano selezionato.  
-    ![piano aggiornato](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+1. Nel riquadro delle sottoscrizioni di Log Analytics del portale di Azure selezionare un'area di lavoro.
+
+2. Nel riquadro dell'area di lavoro selezionare **Piano tariffario** in **Generale**.  
+
+3. In **Piano tariffario** selezionare un piano tariffario e quindi fare clic su **Seleziona**.  
+    ![Piano tariffario selezionato](./media/log-analytics-manage-access/workspace-pricing-tier-info.png)
 
 > [!NOTE]
 > Se l'area di lavoro è collegata a un account di Automazione, prima di poter selezionare il piano tariffario *Standalone (Per GB)* (Autonomo - per GB), è necessario eliminare eventuali soluzioni di **Automazione e controllo** e scollegare l'account di Automazione. Nel pannello dell'area di lavoro in **Generale** fare clic su **Soluzioni** per visualizzare ed eliminare le soluzioni. Per scollegare l'account di Automazione, fare clic sul nome dell'account di Automazione nel pannello **Piano tariffario**.
@@ -222,32 +225,18 @@ Se è necessario modificare la sottoscrizione di Azure a cui è collegata l'area
 Per modificare il piano tariffario usando il portale di OMS, è necessaria una sottoscrizione di Azure.
 
 1. Nel portale di OMS fare clic sul riquadro **Impostazioni**.
+
 2. Fare clic sulla scheda **Account** e quindi sulla scheda **Azure Subscription & Data Plan** (Sottoscrizione di Azure e piano dati).
+
 3. Fare clic sul piano tariffario che si vuole usare.
+
 4. Fare clic su **Save**.  
-   ![Sottoscrizione e piani dati](./media/log-analytics-manage-access/subscription-tab.png)
+
+    ![Sottoscrizione e piani di dati](./media/log-analytics-manage-access/subscription-tab.png)
 
 Il nuovo piano dati viene visualizzato nella barra multifunzione del portale di OMS, nella parte superiore della pagina Web.
 
 ![Barra multifunzione di OMS](./media/log-analytics-manage-access/data-plan-changed.png)
-
-
-## <a name="change-how-long-log-analytics-stores-data"></a>Modificare la durata dell'archiviazione dei dati di Log Analytics
-
-Nel piano tariffario Gratuito, Log Analytics mette a disposizione i dati degli ultimi sette giorni.
-Nel piano tariffario Standard, Log Analytics mette a disposizione i dati degli ultimi 30 giorni.
-Nel piano tariffario Premium, Log Analytics mette a disposizione i dati degli ultimi 365 giorni.
-Nei piani tariffari Autonomo e OMS, Log Analytics mette a disposizione i dati degli ultimi 31 giorni.
-
-Quando si usano i piani tariffari Autonomo e OMS, è possibile conservare fino a 2 anni di dati (730 giorni). I dati archiviati da più tempo rispetto al valore predefinito di 31 giorni sono soggetti a costi di conservazione dei dati. Per altre informazioni sui prezzi, vedere i [prezzi per eccedenze](https://azure.microsoft.com/pricing/details/log-analytics/).
-
-Per modificare la durata dalla conservazione dati, vedere [Gestire i costi controllando i volumi e la conservazione di dati in Log Analytics](log-analytics-manage-cost-storage.md).
-
-
-## <a name="delete-a-log-analytics-workspace"></a>Eliminare un'area di lavoro di Log Analytics
-Quando si elimina un'area di lavoro di Log Analytics, tutti i dati relativi a tale area vengono eliminati dal servizio Log Analytics entro 30 giorni.
-
-Se si è un amministratore e vi sono più utenti associati all'area di lavoro, l'associazione tra quest'ultima e gli utenti viene interrotta. Se gli utenti sono associati ad altre aree di lavoro, potranno continuare a usare Log Analytics con tali aree di lavoro. Tuttavia, se non sono associati ad altre aree di lavoro, per usare il servizio devono crearne una nuova. Per eliminare un'area di lavoro, vedere [Eliminare un'area di lavoro di Azure Log Analytics](log-analytics-manage-del-workspace.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [Raccogliere dati dai computer nell'ambiente con Log Analytics](log-analytics-concept-hybrid.md) per raccogliere dati dai computer nel data center o in un altro ambiente cloud.
