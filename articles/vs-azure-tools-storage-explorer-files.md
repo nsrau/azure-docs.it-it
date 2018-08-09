@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525758"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429788"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso di Storage Explorer con Archiviazione file di Azure
 
 Archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo Server Message Block (SMB)standard. Sono supportati sia SMB 2.1 che SMB 3.0. Con Archiviazione file di Azure si può eseguire la migrazione ad Azure delle applicazioni legacy basate su condivisioni file velocemente e senza costose riscritture. È possibile usare Archiviazione file per esporre pubblicamente dati a livello mondiale o per archiviare privatamente dati applicazione. Questo articolo illustra come usare Storage Explorer per l'utilizzo con file e condivisioni file.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per seguire la procedura descritta in questo articolo, è necessario eseguire queste operazioni:
 
@@ -41,17 +41,17 @@ La procedura seguente illustra come creare una condivisione file all'interno di 
 
 1. Aprire Esplora archivi.
 
-2. Nel riquadro sinistro espandere l'account di archiviazione all'interno del quale si vuole creare la condivisione file.
+1. Nel riquadro sinistro espandere l'account di archiviazione all'interno del quale si vuole creare la condivisione file.
 
-3. Fare clic con il pulsante destro del mouse su **Condivisioni file** e scegliere **Crea condivisione file** dal menu di scelta rapida.
+1. Fare clic con il pulsante destro del mouse su **Condivisioni file** e scegliere **Crea condivisione file** dal menu di scelta rapida.
 
     ![Crea condivisione file](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. Sotto la cartella **Condivisioni file** verrà visualizzata una casella di testo. Immettere il nome per la condivisione file. Per un elenco di regole e restrizioni relative alla denominazione delle condivisioni file, vedere la sezione relativa alle [regole di denominazione delle condivisioni](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container).
+1. Sotto la cartella **Condivisioni file** verrà visualizzata una casella di testo. Immettere il nome per la condivisione file. Per un elenco di regole e restrizioni relative alla denominazione delle condivisioni file, vedere la sezione relativa alle [regole di denominazione delle condivisioni](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container).
 
     ![Denominare la condivisione](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Premere **INVIO** al termine della creazione della condivisione file o **ESC** per annullare. La condivisione file appena creata viene visualizzata sotto la cartella **Condivisioni file** per l'account di archiviazione selezionato.
+1. Premere **INVIO** al termine della creazione della condivisione file o **ESC** per annullare. La condivisione file appena creata viene visualizzata sotto la cartella **Condivisioni file** per l'account di archiviazione selezionato.
 
     ![La nuova condivisione](media/vs-azure-tools-storage-explorer-files/image3.png)
 
@@ -63,15 +63,15 @@ La procedura seguente illustra come visualizzare il contenuto di una condivision
 
 1. Aprire Esplora archivi.
 
-2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da visualizzare.
+1. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da visualizzare.
 
-3. Espandere le **Condivisioni file** dell'account di archiviazione.
+1. Espandere le **Condivisioni file** dell'account di archiviazione.
 
-4. Fare clic con il pulsante destro del mouse sulla condivisione file da visualizzare e scegliere **Apri** dal menu di scelta rapida. È anche possibile fare doppio clic sulla condivisione file che si vuole visualizzare.
+1. Fare clic con il pulsante destro del mouse sulla condivisione file da visualizzare e scegliere **Apri** dal menu di scelta rapida. È anche possibile fare doppio clic sulla condivisione file che si vuole visualizzare.
 
     ![Apri condivisione](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. Nel riquadro principale verrà visualizzato il contenuto della condivisione file.
+1. Nel riquadro principale verrà visualizzato il contenuto della condivisione file.
     
     ![Contenuto della condivisione file](media/vs-azure-tools-storage-explorer-files/image5.png)
 
@@ -83,15 +83,15 @@ La procedura seguente illustra come eliminare una condivisione file all'interno 
 
 1. Aprire Esplora archivi.
 
-2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da visualizzare.
+1. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da visualizzare.
 
-3. Espandere le **Condivisioni file** dell'account di archiviazione.
+1. Espandere le **Condivisioni file** dell'account di archiviazione.
 
-4. Fare clic con il pulsante destro del mouse sulla condivisione file da eliminare e scegliere **Elimina** dal menu di scelta rapida. È anche possibile premere **CANC** per eliminare la condivisione file attualmente selezionata.
+1. Fare clic con il pulsante destro del mouse sulla condivisione file da eliminare e scegliere **Elimina** dal menu di scelta rapida. È anche possibile premere **CANC** per eliminare la condivisione file attualmente selezionata.
 
     ![Delete](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Fare clic su **Sì** nella finestra di dialogo di conferma.
+1. Fare clic su **Sì** nella finestra di dialogo di conferma.
     
     ![Finestra di dialogo di conferma](media/vs-azure-tools-storage-explorer-files/image7.png)
 
@@ -103,15 +103,15 @@ La procedura seguenti illustra come copiare una condivisione file da un account 
 
 1. Aprire Esplora archivi.
 
-2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da copiare.
+1. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da copiare.
 
-3. Espandere le **Condivisioni file** dell'account di archiviazione.
+1. Espandere le **Condivisioni file** dell'account di archiviazione.
 
-4. Fare clic con il pulsante destro del mouse sulla condivisione file da copiare e scegliere **Copy File Share** (Copia condivisione file) dal menu di scelta rapida.
+1. Fare clic con il pulsante destro del mouse sulla condivisione file da copiare e scegliere **Copy File Share** (Copia condivisione file) dal menu di scelta rapida.
 
     ![Copia condivisione file](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Fare clic con il pulsante destro del mouse sull'account di archiviazione di destinazione in cui si vuole incollare la condivisione file e scegliere **Paste File Share** (Incolla condivisione file) dal menu di scelta rapida.
+1. Fare clic con il pulsante destro del mouse sull'account di archiviazione di destinazione in cui si vuole incollare la condivisione file e scegliere **Paste File Share** (Incolla condivisione file) dal menu di scelta rapida.
 
     ![Incolla condivisione file](media/vs-azure-tools-storage-explorer-files/image9.png)
 
@@ -123,25 +123,25 @@ La procedura seguente illustra come creare una firma di accesso condiviso per un
 
 1. Aprire Esplora archivi.
 
-2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file per cui si vuole ottenere una firma di accesso condiviso.
+1. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file per cui si vuole ottenere una firma di accesso condiviso.
 
-3. Espandere le **Condivisioni file** dell'account di archiviazione.
+1. Espandere le **Condivisioni file** dell'account di archiviazione.
 
-4. Fare clic con il pulsante destro del mouse sulla condivisione file e scegliere **Get Shared Access Signature** (Ottieni firma di accesso condiviso) dal menu di scelta rapida.
+1. Fare clic con il pulsante destro del mouse sulla condivisione file e scegliere **Get Shared Access Signature** (Ottieni firma di accesso condiviso) dal menu di scelta rapida.
 
     ![Ottenere la firma di accesso condiviso](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. Nella finestra di dialogo **Firma di accesso condiviso** specificare i criteri, le date di inizio e di scadenza, il fuso orario e i livelli di accesso da impostare per la risorsa.
+1. Nella finestra di dialogo **Firma di accesso condiviso** specificare i criteri, le date di inizio e di scadenza, il fuso orario e i livelli di accesso da impostare per la risorsa.
 
     ![Finestra di dialogo Firma di accesso condiviso](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. Una volta specificate le opzioni per la firma di accesso condiviso, scegliere **Crea**.
+1. Una volta specificate le opzioni per la firma di accesso condiviso, scegliere **Crea**.
 
-7. Verrà visualizzata una seconda finestra di dialogo **Firma di accesso condiviso** con l'elenco della condivisione file insieme all'URL e alle stringhe di query che è possibile usare per accedere alla risorsa di archiviazione. Selezionare **Copia** accanto all'URL che si vuole copiare negli Appunti.
+1. Verrà visualizzata una seconda finestra di dialogo **Firma di accesso condiviso** con l'elenco della condivisione file insieme all'URL e alle stringhe di query che è possibile usare per accedere alla risorsa di archiviazione. Selezionare **Copia** accanto all'URL che si vuole copiare negli Appunti.
     
     ![Seconda finestra di dialogo Firma di accesso condiviso](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-8. Al termine, scegliere **Chiudi**.
+1. Al termine, scegliere **Chiudi**.
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Gestire i criteri di accesso per una condivisione file
 
@@ -149,19 +149,19 @@ La procedura seguente illustra come gestire, ovvero aggiungere e rimuovere, crit
 
 1. Aprire Esplora archivi.
 
-2. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file di cui si vogliono gestire i criteri di accesso.
+1. Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file di cui si vogliono gestire i criteri di accesso.
 
-3. Espandere le **Condivisioni file** dell'account di archiviazione.
+1. Espandere le **Condivisioni file** dell'account di archiviazione.
 
-4. Selezionare la condivisione file e scegliere **Manage Access Policies** (Gestisci criteri di accesso) dal menu di scelta rapida.
+1. Selezionare la condivisione file e scegliere **Manage Access Policies** (Gestisci criteri di accesso) dal menu di scelta rapida.
 
     ![Menu di scelta rapida Manage Access Policies (Gestisci criteri di accesso)](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. Nella finestra di dialogo **Criteri di accesso** saranno elencati tutti i criteri di accesso già creati per la condivisione file selezionata.
+1. Nella finestra di dialogo **Criteri di accesso** saranno elencati tutti i criteri di accesso già creati per la condivisione file selezionata.
     
     ![Criteri di accesso](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Seguire questi passaggi a seconda dell'attività di gestione dei criteri di accesso:
+1. Seguire questi passaggi a seconda dell'attività di gestione dei criteri di accesso:
     
     - **Aggiungere nuovi criteri di accesso**: selezionare **Aggiungi**. Una volta generati, nella finestra di dialogo **Criteri di accesso** verranno visualizzati i criteri di accesso appena aggiunti, con le impostazioni predefinite.
 
@@ -169,7 +169,7 @@ La procedura seguente illustra come gestire, ovvero aggiungere e rimuovere, crit
 
     - **Rimuovere criteri di accesso**: selezionare **Rimuovi** accanto ai criteri di accesso da rimuovere.
 
-7. Creare un nuovo URL di firma di accesso condiviso usando i criteri di accesso creati in precedenza:
+1. Creare un nuovo URL di firma di accesso condiviso usando i criteri di accesso creati in precedenza:
     
     ![Ottenere una firma di accesso condiviso](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -183,19 +183,19 @@ La procedura seguente illustra come gestire i file e le cartelle all'interno di 
 
 1.  Aprire Esplora archivi.
 
-2.  Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da gestire.
+1.  Nel riquadro sinistro espandere l'account di archiviazione che contiene la condivisione file da gestire.
 
-3.  Espandere le **Condivisioni file** dell'account di archiviazione.
+1.  Espandere le **Condivisioni file** dell'account di archiviazione.
 
-4.  Fare doppio clic sulla condivisione file che si vuole visualizzare.
+1.  Fare doppio clic sulla condivisione file che si vuole visualizzare.
 
-5.  Nel riquadro principale verrà visualizzato il contenuto della condivisione file.
+1.  Nel riquadro principale verrà visualizzato il contenuto della condivisione file.
 
     ![Contenuto della condivisione file](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  Nel riquadro principale verrà visualizzato il contenuto della condivisione file.
+1.  Nel riquadro principale verrà visualizzato il contenuto della condivisione file.
 
-7.  Seguire questi passaggi in base all'attività da eseguire:
+1.  Seguire questi passaggi in base all'attività da eseguire:
 
     - **Caricare file in una condivisione file**
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 2b0420302bc74d4534d712de618959ef68c76514
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126369"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429421"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Elaborare messaggi di posta elettronica e allegati con App per la logica di Azure
 
@@ -82,7 +82,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
       ![Copiare e salvare la chiave e il nome dell'account di archiviazione](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Per ottenere la chiave di accesso dell'account di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list). 
+   Per ottenere la chiave di accesso dell'account di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
 
 3. Creare un contenitore di archiviazione BLOB per gli allegati di posta elettronica.
    
@@ -100,7 +100,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
       ![Contenitore di archiviazione completato](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Per creare un contenitore di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create). 
+   Per creare un contenitore di archiviazione è anche possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 Connettere quindi Storage Explorer all'account di archiviazione.
 
@@ -274,8 +274,8 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
       | Impostazione | Valore | DESCRIZIONE | 
       | ------- | ----- | ----------- | 
-      | **Con allegato** | sì | Recupera solo i messaggi di posta elettronica con allegati. <p>**Nota:** il trigger non rimuove alcun messaggio di posta elettronica dall'account, controlla solo i nuovi messaggi ed elabora solo i messaggi che corrispondono al filtro dell'oggetto. | 
-      | **Includi allegati** | sì | Recupera gli allegati da usare come input per il flusso di lavoro, invece che limitarsi a controllare la presenza di allegati. | 
+      | **Con allegato** | Yes | Recupera solo i messaggi di posta elettronica con allegati. <p>**Nota:** il trigger non rimuove alcun messaggio di posta elettronica dall'account, controlla solo i nuovi messaggi ed elabora solo i messaggi che corrispondono al filtro dell'oggetto. | 
+      | **Includi allegati** | Yes | Recupera gli allegati da usare come input per il flusso di lavoro, invece che limitarsi a controllare la presenza di allegati. | 
       | **Filtro oggetto** | ```Business Analyst 2 #423501``` | Testo da trovare nell'oggetto del messaggio di posta elettronica | 
       |  |  |  | 
 

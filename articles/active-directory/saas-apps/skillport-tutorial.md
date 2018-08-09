@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: cbe2e6db514eb978cf99b249c434eb5cf3df6cd2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 71a2b7186c77c6c1872870a594b287479c292472
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045999"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Esercitazione: Integrazione di Azure Active Directory con Skillport
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Skillport dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-skillport-from-the-gallery"></a>Aggiunta di Skillport dalla raccolta
 Per configurare l'integrazione di Skillport in Azure AD, è necessario aggiungere Skillport dalla raccolta all'elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di Skillport in Azure AD, è necessario aggiunger
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **Skillport**.
+1. Nella casella di ricerca digitare **Skillport**.
 
     ![Creazione di un utente test di Azure AD](./media/skillport-tutorial/tutorial_skillport_search.png)
 
-5. Nel pannello dei risultati selezionare **Skillport** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **Skillport** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/skillport-tutorial/tutorial_skillport_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Per stabilire la relazione di collegamento, assegnare il valore del **nome utent
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Skillport, è necessario completare le procedure di base seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di Skillport](#creating-a-skillport-test-user)**: per avere una controparte di Britta Simon in Skillport collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente di test di Skillport](#creating-a-skillport-test-user)**: per avere una controparte di Britta Simon in Skillport collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/skillport-tutorial/tutorial_skillport_samlbase.png)
 
-3. Nella sezione **URL e dominio Skillport** seguire questa procedura:
+1. Nella sezione **URL e dominio Skillport** seguire questa procedura:
 
     ![Configure Single Sign-On](./media/skillport-tutorial/tutorial_skillport_url.png)
 
@@ -130,15 +130,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
       Data center USA: `https://sso.skillport.com/sp/ACS.saml2`
  
-4. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
     ![Configure Single Sign-On](./media/skillport-tutorial/tutorial_skillport_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/skillport-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso Single Sign-On sul lato **Skillport**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Skillport](https://www.skillsoft.com/contact.asp). La configurazione verrà eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **Skillport**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Skillport](https://www.skillsoft.com/contact.asp). La configurazione verrà eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -151,15 +151,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/skillport-tutorial/create_aaduser_01.png) 
 
-2. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/skillport-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/skillport-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/skillport-tutorial/create_aaduser_04.png) 
 
@@ -169,7 +169,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-skillport-test-user"></a>Creazione di un utente di test di Skillport
 
@@ -187,23 +187,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **Skillport**.
+1. Nell'elenco delle applicazioni selezionare **Skillport**.
 
     ![Configure Single Sign-On](./media/skillport-tutorial/tutorial_skillport_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

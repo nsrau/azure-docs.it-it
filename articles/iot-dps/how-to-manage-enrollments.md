@@ -1,19 +1,19 @@
 ---
 title: Gestire le registrazioni dei dispositivi con il portale di Azure | Microsoft Docs
 description: Come gestire le registrazioni dei dispositivi per il servizio DPS nel portale di Azure
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: b13f74e0c3df5090d1b1b2e0c48e3dc612821250
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5282ee0858c1226b2b743f42203e7b4af9eac6e6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628437"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524126"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Come gestire le registrazioni dei dispositivi con il portale di Azure
 
@@ -29,8 +29,8 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
     È possibile creare un gruppo di registrazioni per un gruppo di dispositivi nel portale usando la procedura seguente:
 
     1. Accedere al portale di Azure e fare clic su **Tutte le risorse** nel menu a sinistra.  
-    2. Selezionare dall'elenco di risorse il servizio di provisioning dei dispositivi per cui si desidera registrare il dispositivo.  
-    3. Nel servizio di provisioning:  
+    1. Selezionare dall'elenco di risorse il servizio di provisioning dei dispositivi per cui si desidera registrare il dispositivo.  
+    1. Nel servizio di provisioning:  
        a. Fare clic su **Gestisci registrazioni**, quindi selezionare la scheda **Gruppi di registrazione**.  
        b. Fare clic sul pulsante **Aggiungi** in alto.  
        c. Quando viene visualizzato il pannello "Add Enrollment Group" (Aggiungi gruppo di registrazione), inserire le informazioni necessarie per la voce dell'elenco di registrazione.  Il **nome del gruppo** è obbligatorio. Selezionare inoltre "CA o Intermedio" per **Tipo di certificato** e caricare il **certificato primario** radice per il gruppo di dispositivi.  
@@ -44,8 +44,8 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
     È possibile creare una registrazione singola nel portale mediante la procedura seguente:
 
     1. Accedere al portale di Azure e fare clic su **Tutte le risorse** nel menu a sinistra.
-    2. Selezionare dall'elenco di risorse il servizio di provisioning dei dispositivi per cui si desidera registrare il dispositivo.
-    3. Nel servizio di provisioning:  
+    1. Selezionare dall'elenco di risorse il servizio di provisioning dei dispositivi per cui si desidera registrare il dispositivo.
+    1. Nel servizio di provisioning:  
        a. Fare clic su **Gestisci registrazioni**, quindi selezionare la scheda **Registrazioni singole**.  
        b. Fare clic sul pulsante **Aggiungi** in alto.   
        c. Quando viene visualizzato il pannello "Add Enrollment" (Aggiungi registrazione), inserire le informazioni necessarie per la voce dell'elenco di registrazione. Selezionare il **meccanismo** di attestazione per il dispositivo (X.509 o TPM). Per l'attestazione X.509 è necessario caricare il **certificato primario** foglia per il dispositivo. Per TPM è necessario immettere la **chiave dell'attestazione** e l'**ID di registrazione** per il dispositivo.  
@@ -57,9 +57,9 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
 È possibile aggiornare una voce di registrazione esistente sul portale usando la procedura seguente:
 
 1. Aprire il servizio di provisioning dei dispositivi nel portale di Azure e fare clic su **Manage enrollments** (Gestisci registrazioni). 
-2. Passare alla voce di registrazione che si desidera modificare. Selezionando la voce, si aprirà un riepilogo dei dati per la registrazione del dispositivo. 
-3. In questa pagina è possibile modificare gli elementi diversi dal tipo protezione e dalle credenziali, ad esempio l'hub IoT a cui il dispositivo dovrà essere collegato e l'ID del dispositivo. È anche possibile modificare lo stato iniziale del dispositivo gemello. 
-4. Al termine, fare clic su **Salva** per aggiornare la registrazione del dispositivo. 
+1. Passare alla voce di registrazione che si desidera modificare. Selezionando la voce, si aprirà un riepilogo dei dati per la registrazione del dispositivo. 
+1. In questa pagina è possibile modificare gli elementi diversi dal tipo protezione e dalle credenziali, ad esempio l'hub IoT a cui il dispositivo dovrà essere collegato e l'ID del dispositivo. È anche possibile modificare lo stato iniziale del dispositivo gemello. 
+1. Al termine, fare clic su **Salva** per aggiornare la registrazione del dispositivo. 
 
     ![Aggiornare una registrazione sul portale](./media/how-to-manage-enrollments/update-enrollment.png)
 
@@ -67,9 +67,9 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
 Nei casi in cui non è necessario eseguire il provisioning dei dispositivi in alcun hub IoT, è possibile rimuovere la voce di registrazione correlata sul portale usando la procedura seguente:
 
 1. Aprire il servizio di provisioning dei dispositivi nel portale di Azure e fare clic su **Manage enrollments** (Gestisci registrazioni). 
-2. Individuare e selezionare la voce di registrazione che si desidera modificare. 
-3. Fare clic su **Elimina** nella parte superiore, quindi selezionare **Sì** quando viene richiesto di confermare. 
-5. Una volta completata l'azione, la voce apparirà rimossa dall'elenco delle registrazioni dei dispositivi. 
+1. Individuare e selezionare la voce di registrazione che si desidera modificare. 
+1. Fare clic su **Elimina** nella parte superiore, quindi selezionare **Sì** quando viene richiesto di confermare. 
+1. Una volta completata l'azione, la voce apparirà rimossa dall'elenco delle registrazioni dei dispositivi. 
  
     ![Rimuovere una registrazione dal portale](./media/how-to-manage-enrollments/remove-enrollment.png)
 

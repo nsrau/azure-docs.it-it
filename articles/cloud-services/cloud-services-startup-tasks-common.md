@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0737738bfd0ab27898631263f57302d15ee11d53
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006547"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620988"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
@@ -348,7 +348,7 @@ Il modo più semplice per rilevare se un'attività è già stata eseguita consis
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
-IF EXIST "%RoleRoot%\Task1_Success.txt" (
+IF EXIST "%PathToApp1Install%\Task1_Success.txt" (
   ECHO Application 1 is already installed. Exiting. >> "%TEMP%\StartupLog.txt" 2>&1
   GOTO Finish
 )
@@ -361,7 +361,7 @@ IF %ERRORLEVEL% EQU 0 (
   REM   The application installed without error. Create a file to indicate that the task
   REM   does not need to be run again.
 
-  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
+  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%PathToApp1Install%\Task1_Success.txt"
 
 ) ELSE (
   REM   An error occurred. Log the error and exit with the error code.

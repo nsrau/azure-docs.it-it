@@ -3,18 +3,17 @@ title: Gestione del ciclo di vita di Archiviazione di Azure
 description: Informazioni su come creare regole dei criteri del ciclo di vita per la transizione dei dati da livelli di archiviazione ad accesso frequente a livelli di accesso sporadico e archivio.
 services: storage
 author: yzheng-msft
-manager: jwillis
 ms.service: storage
-ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413128"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528444"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestione del ciclo di vita di Archiviazione BLOB di Azure (anteprima)
 
@@ -59,11 +58,11 @@ Se la funzionalità è stata approvata e registrata correttamente, si dovrebbe r
 
 Per inviare una richiesta: 
 ```cli
-az feature register –-namespace Microsoft.Storage –-name DLM
+az feature register --namespace Microsoft.Storage --name DLM
 ```
 È possibile controllare lo stato di approvazione della registrazione con il comando seguente:
 ```cli
--az feature show –-namespace Microsoft.Storage –-name DLM
+az feature show --namespace Microsoft.Storage --name DLM
 ```
 Se la funzionalità è stata approvata e registrata correttamente, si dovrebbe ricevere lo stato di "Registrazione completata". 
 

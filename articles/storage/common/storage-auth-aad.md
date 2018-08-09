@@ -3,17 +3,17 @@ title: Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Dire
 description: Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: tamram
-ms.openlocfilehash: 9a0782b96b45d27c9b7e603959ecadf5b2632064
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: common
+ms.openlocfilehash: 90868961475c2e9d0ac7d28c5d9a50c8eb281675
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737647"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525206"
 ---
 # <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)
 

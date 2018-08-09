@@ -3,25 +3,20 @@ title: Usare l'anteprima di Archiviazione di Azure Data Lake Gen2 con cluster Az
 description: Informazioni su come eseguire query sui dati dall'anteprima di Archiviazione di Azure Data Lake Gen2 e archiviare i risultati dell'analisi.
 keywords: HDFS, dati strutturati, dati non strutturati, Data Lake Store, input Hadoop, output Hadoop, archivio Hadoop, input HDFS, output HDFS, archivio HDFS, WASB in Azure
 services: hdinsight,storage
-documentationcenter: ''
 tags: azure-portal
 author: jamesbak
-manager: jahogg
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e4e72d3c5b6b9c96de6a8faafccfcc39fe3c37b8
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4a9f79b292e58331dcd2f7cb656e24b244aa89ba
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136690"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528509"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Usare l'anteprima di Archiviazione di Azure Data Lake Gen2 con cluster Azure HDInsight
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: a1e279f9cb4eebd97b76449a7d28227c91407cb1
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: faa89ffd572733c580235b1c6dec58893de20503
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053046"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Esercitazione: Integrazione di Azure Active Directory con Form.com
 
@@ -53,7 +53,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Form.com dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-formcom-from-the-gallery"></a>Aggiunta di Form.com dalla raccolta
 Per configurare l'integrazione di Fuse in Azure AD, è necessario aggiungere Form.com dalla raccolta all'elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di Fuse in Azure AD, è necessario aggiungere For
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **Form.com**, selezionare **Form.com** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **Form.com**, selezionare **Form.com** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Form.com nell'elenco risultati](./media/formcom-tutorial/tutorial_form.com_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Per stabilire la relazione di collegamento, in Form.com assegnare il valore di *
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Form.com, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente test di Form.com](#create-a-formcom-test-user)**: per avere una controparte di Britta Simon in Form.com collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente test di Form.com](#create-a-formcom-test-user)**: per avere una controparte di Britta Simon in Form.com collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -102,11 +102,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
 
     ![Finestra di dialogo Single Sign-On](./media/formcom-tutorial/tutorial_form.com_samlbase.png)
 
-3. Nella sezione **URL e dominio Form.com** seguire questa procedura:
+1. Nella sezione **URL e dominio Form.com** seguire questa procedura:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Form.com](./media/formcom-tutorial/tutorial_form.com_url.png)
 
@@ -123,7 +123,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di accesso, l'URL di risposta e l'identificatore effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Form.com](https://form.com/about/company/contact-us/).
 
-4. Nella sezione **Certificato di firma SAML** seguire questa procedura:
+1. Nella sezione **Certificato di firma SAML** seguire questa procedura:
     
     ![Configure Single Sign-On](./media/formcom-tutorial/tutorial_metadataurl.png)
 
@@ -131,15 +131,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
      
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/formcom-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione Form.com** fare clic su **Configura Form.com** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
+1. Nella sezione **Configurazione Form.com** fare clic su **Configura Form.com** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
     ![Configurazione Form.com](./media/formcom-tutorial/tutorial_form.com_configure.png) 
 
-7. Per configurare l'accesso Single Sign-On sul lato **Form.com**, è necessario inviare il **Certificato (Base64)** scaricato, l'**URL dei metadati di federazione dell'app** e l'**URL del servizio Single Sign-On SAML** al [team di supporto di Form.com](https://form.com/about/company/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **Form.com**, è necessario inviare il **Certificato (Base64)** scaricato, l'**URL dei metadati di federazione dell'app** e l'**URL del servizio Single Sign-On SAML** al [team di supporto di Form.com](https://form.com/about/company/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -153,15 +153,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/formcom-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/formcom-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/formcom-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/formcom-tutorial/create_aaduser_04.png)
 
@@ -171,7 +171,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-formcom-test-user"></a>Creare un utente test Form.com
 
@@ -189,23 +189,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **Form.com**.
+1. Nell'elenco delle applicazioni selezionare **Form.com**.
 
     ![Collegamento Form.com nell'elenco delle applicazioni](./media/formcom-tutorial/tutorial_form.com_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

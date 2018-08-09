@@ -2,24 +2,18 @@
 title: Panoramica degli snapshot di condivisione per File di Azure | Microsoft Docs
 description: Uno snapshot di condivisione è una versione di sola lettura di una condivisione di File di Azure, acquisita in un determinato momento per eseguire un backup della condivisione stessa.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: af113ae76d81c82ff6c4ced1569aa16f3a9ee27c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.component: files
+ms.openlocfilehash: f98817802478853e8d176223a9a9a3081531897f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064483"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528375"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.

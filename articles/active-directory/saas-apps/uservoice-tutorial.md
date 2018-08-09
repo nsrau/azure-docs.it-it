@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ead383ef0967fcaf67f3157f0a51104126ad618
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f69955cb3e5419659e358e738c28f214fb7015b7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045411"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Esercitazione: Integrazione di Azure Active Directory con UserVoice
 
@@ -53,7 +53,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di UserVoice dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-uservoice-from-the-gallery"></a>Aggiunta di UserVoice dalla raccolta
 Per configurare l'integrazione di UserVoice in Azure AD, è necessario aggiungere UserVoice dalla raccolta al proprio elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di UserVoice in Azure AD, è necessario aggiunger
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **UserVoice**, selezionare **UserVoice** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **UserVoice**, selezionare **UserVoice** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![UserVoice nell'elenco dei risultati](./media/uservoice-tutorial/tutorial_uservoice_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Per stabilire la relazione di collegamento, in UserVoice assegnare il valore di 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con UserVoice, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di UserVoice](#create-a-uservoice-test-user)**: per avere una controparte di Britta Simon in UserVoice collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di UserVoice](#create-a-uservoice-test-user)**: per avere una controparte di Britta Simon in UserVoice collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -102,11 +102,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Finestra di dialogo Single Sign-On](./media/uservoice-tutorial/tutorial_uservoice_samlbase.png)
 
-3. Nella sezione **URL e dominio UserVoice** seguire questa procedura:
+1. Nella sezione **URL e dominio UserVoice** seguire questa procedura:
 
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di UserVoice](./media/uservoice-tutorial/tutorial_uservoice_url.png)
 
@@ -117,29 +117,29 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di UserVoice](https://www.uservoice.com/).
 
-4. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
+1. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
 
     ![Collegamento di download del certificato](./media/uservoice-tutorial/tutorial_uservoice_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/uservoice-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di UserVoice** fare clic su **Configura UserVoice** per aprire la finestra **Configura accesso**. Copiare i valori **Sign-Out URL (URL di disconnessione) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
+1. Nella sezione **Configurazione di UserVoice** fare clic su **Configura UserVoice** per aprire la finestra **Configura accesso**. Copiare i valori **Sign-Out URL (URL di disconnessione) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
 
     ![Configurazione di UserVoice](./media/uservoice-tutorial/tutorial_uservoice_configure.png) 
 
-7. In un'altra finestra del browser Web accedere al sito aziendale di UserVoice come amministratore.
+1. In un'altra finestra del browser Web accedere al sito aziendale di UserVoice come amministratore.
 
-8. Sulla barra degli strumenti in alto fare clic su **Impostazioni**, quindi selezionare **Portale Web** nel menu.
+1. Sulla barra degli strumenti in alto fare clic su **Impostazioni**, quindi selezionare **Portale Web** nel menu.
    
     ![Sezione Impostazioni sul lato dell'app](./media/uservoice-tutorial/ic777519.png "Impostazioni")
 
-9. Nelle sezione **User authentication** (Autenticazione utente) della scheda **Web portal** (Portale Web) fare clic su **Edit** (Modifica) per aprire la finestra di dialogo **Edit User Authentication** (Modifica autenticazione utente).
+1. Nelle sezione **User authentication** (Autenticazione utente) della scheda **Web portal** (Portale Web) fare clic su **Edit** (Modifica) per aprire la finestra di dialogo **Edit User Authentication** (Modifica autenticazione utente).
    
     ![Scheda Portale Web](./media/uservoice-tutorial/ic777520.png "Portale Web")
 
-10. Nella finestra di dialogo **Edit User Authentication** seguire questa procedura:
+1. Nella finestra di dialogo **Edit User Authentication** seguire questa procedura:
    
     ![Modificare l'autenticazione utente](./media/uservoice-tutorial/ic777521.png "Modificare l'autenticazione utente")
    
@@ -169,15 +169,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/uservoice-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/uservoice-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/uservoice-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/uservoice-tutorial/create_aaduser_04.png)
 
@@ -187,7 +187,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-uservoice-test-user"></a>Creare un utente di test per UserVoice
 
@@ -196,21 +196,21 @@ Per consentire agli utenti di Azure AD di accedere a UserVoice, è necessario es
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
 1. Accedere al tenant di **UserVoice** .
 
-2. Passare a **Impostazioni**.
+1. Passare a **Impostazioni**.
    
     ![Impostazioni](./media/uservoice-tutorial/ic777811.png "Impostazioni")
 
-3. Fare clic su **Generale**.
+1. Fare clic su **Generale**.
 
-4. Fare clic su **Agents and permissions**.
+1. Fare clic su **Agents and permissions**.
    
     ![Agenti e autorizzazioni](./media/uservoice-tutorial/ic777812.png "Agenti e autorizzazioni")
 
-5. Fare clic su **Aggiungi amministratori**.
+1. Fare clic su **Aggiungi amministratori**.
    
     ![Aggiungere amministratori](./media/uservoice-tutorial/ic777813.png "Aggiungere amministratori")
 
-6. Nella finestra di dialogo **Invita amministratori** seguire questa procedura:
+1. Nella finestra di dialogo **Invita amministratori** seguire questa procedura:
    
     ![Invitare gli amministratori](./media/uservoice-tutorial/ic777814.png "Invitare gli amministratori")
    
@@ -233,23 +233,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **UserVoice**.
+1. Nell'elenco delle applicazioni selezionare **UserVoice**.
 
     ![Collegamento UserVoice nell'elenco delle applicazioni](./media/uservoice-tutorial/tutorial_uservoice_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

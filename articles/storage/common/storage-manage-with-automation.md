@@ -2,24 +2,18 @@
 title: Gestire Archiviazione di Azure usando Automazione di Azure
 description: Informazioni su come è possibile usare il servizio Automazione di Azure per gestire l'Archiviazione di Azure su vasta scala.
 services: storage, automation
-documentationcenter: ''
 author: jodoglevy
-manager: eamono
-editor: ''
-ms.assetid: bac41c39-1d95-46aa-a481-ec17bbb21b40
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: eamono
-ms.openlocfilehash: 4649e42a628307e15f8b067503e4e8e13f16f1af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 82ec929c8d3055187a83179432fc601baa191cc4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059546"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526369"
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Gestione di Archiviazione di Azure mediante Automazione di Azure
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione di BLOB, tabelle e code di Archiviazione di Azure.

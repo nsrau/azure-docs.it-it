@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364546"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448442"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integrazione e distribuzione continue in Azure Data Factory
 
@@ -53,15 +53,15 @@ Ecco l'intero ciclo di vita per l'integrazione e la distribuzione continue che �
 
 1.  Configurare una data factory di sviluppo con VSTS in cui tutti gli sviluppatori possono creare risorse di Data Factory, ad esempio pipeline, set di dati e così via.
 
-2.  Gli sviluppatori possono quindi modificare le risorse, ad esempio le pipeline. Quando apportano le modifiche, possono selezionare **Debug** per vedere come viene eseguita la pipeline con le modifiche più recenti.
+1.  Gli sviluppatori possono quindi modificare le risorse, ad esempio le pipeline. Quando apportano le modifiche, possono selezionare **Debug** per vedere come viene eseguita la pipeline con le modifiche più recenti.
 
-3.  Quando gli sviluppatori si considerano soddisfatti delle modifiche, possono creare una richiesta pull dal proprio ramo al ramo master (o al ramo di collaborazione) per far esaminare le modifiche ai colleghi.
+1.  Quando gli sviluppatori si considerano soddisfatti delle modifiche, possono creare una richiesta pull dal proprio ramo al ramo master (o al ramo di collaborazione) per far esaminare le modifiche ai colleghi.
 
-4.  Dopo che le modifiche sono state inserite nel ramo master, possono eseguire la pubblicazione nella factory di sviluppo selezionando **Pubblica**.
+1.  Dopo che le modifiche sono state inserite nel ramo master, possono eseguire la pubblicazione nella factory di sviluppo selezionando **Pubblica**.
 
-5.  Quando il team è pronto per alzare di livello le modifiche alla factory di test e alla factory di produzione, può esportare il modello di Resource Manager dal ramo master o da qualsiasi altro ramo qualora il ramo master supporti la data factory di sviluppo in tempo reale.
+1.  Quando il team è pronto per alzare di livello le modifiche alla factory di test e alla factory di produzione, può esportare il modello di Resource Manager dal ramo master o da qualsiasi altro ramo qualora il ramo master supporti la data factory di sviluppo in tempo reale.
 
-6.  Il modello di Resource Manager esportato può essere distribuito con file dei parametri diversi nella factory di test e nella factory di produzione.
+1.  Il modello di Resource Manager esportato può essere distribuito con file dei parametri diversi nella factory di test e nella factory di produzione.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatizzare l'integrazione continua con le versioni di VSTS
 
@@ -81,19 +81,19 @@ Ecco i passaggi necessari per configurare una versione di VSTS per poter automat
 
 1.  Passare alla pagina di VSTS nello stesso progetto di quello configurato con la data factory.
 
-2.  Fare clic sul menu in alto **Compilazione e versione** &gt; **Versioni** &gt; **Crea definizione di versione**.
+1.  Fare clic sul menu in alto **Compilazione e versione** &gt; **Versioni** &gt; **Crea definizione di versione**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Selezionare il modello **processo vuoto**.
+1.  Selezionare il modello **processo vuoto**.
 
-4.  Immettere il nome dell'ambiente.
+1.  Immettere il nome dell'ambiente.
 
-5.  Aggiungere un elemento Git e selezionare lo stesso repository configurato con la data factory. Scegliere `adf_publish` come ramo predefinito con la versione predefinita più recente.
+1.  Aggiungere un elemento Git e selezionare lo stesso repository configurato con la data factory. Scegliere `adf_publish` come ramo predefinito con la versione predefinita più recente.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Aggiungere un'attività di distribuzione di Azure Resource Manager:
+1.  Aggiungere un'attività di distribuzione di Azure Resource Manager:
 
     a.  Creare la nuova attività, cercare **Distribuzione gruppo di risorse di Azure** e aggiungerla.
 
@@ -109,9 +109,9 @@ Ecco i passaggi necessari per configurare una versione di VSTS per poter automat
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Salvare la definizione di versione.
+1.  Salvare la definizione di versione.
 
-9.  Creare una nuova versione da questa definizione di versione.
+1.  Creare una nuova versione da questa definizione di versione.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -144,7 +144,7 @@ Esistono due modi per gestire i segreti:
 
     -   Il file dei parametri deve essere anche nel ramo di pubblicazione.
 
-2.  Aggiungere un'[attività di Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) prima della distribuzione di Azure Resource Manager descritta nella sezione precedente:
+1.  Aggiungere un'[attività di Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) prima della distribuzione di Azure Resource Manager descritta nella sezione precedente:
 
     -   Selezionare la scheda **Attività**, creare una nuova attività, cercare **Azure Key Vault** e aggiungerla.
 
@@ -160,9 +160,9 @@ La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. P
 
 1.  Nella scheda Attività della versione di VSTS cercare **Azure Powershell** e aggiungerla.
 
-2.  Scegliere **Azure Resource Manager** come tipo di connessione e selezionare la sottoscrizione.
+1.  Scegliere **Azure Resource Manager** come tipo di connessione e selezionare la sottoscrizione.
 
-3.  Scegliere **Script inline** come tipo di script e quindi fornire il codice. L'esempio seguente arresta i trigger:
+1.  Scegliere **Script inline** come tipo di script e quindi fornire il codice. L'esempio seguente arresta i trigger:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

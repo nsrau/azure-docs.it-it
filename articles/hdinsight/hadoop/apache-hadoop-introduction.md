@@ -3,20 +3,18 @@ title: Informazioni su HDInsight e sullo stack di tecnologie Hadoop e Spark - Az
 description: Introduzione a HDInsight e allo stack di tecnologie Hadoop e Spark con i relativi componenti, tra cui Kafka, Hive, Storm e HBase, per l'analisi dei Big Data.
 keywords: azure hadoop, hadoop azure, introduzione hadoop, intro hadoop, stack di tecnologie hadoop, intro a hadoop, introduzione a hadoop, informazioni sul cluster hadoop, info sul cluster hadoop, uso di hadoop
 services: hdinsight
-author: cjgronlund
-ms.author: cgronlun
-manager: jhubbard
-ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
+author: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: c7bed171a3b866f4b1f94d6a5348dd25d8820f2b
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3bf1b4c9ea0db3a51f2455edf3e1e70aaa3dcdab
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115342"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595733"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Informazioni su Azure HDInsight e sullo stack di tecnologie Hadoop
 

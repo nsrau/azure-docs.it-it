@@ -2,24 +2,19 @@
 title: Uso dell'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure | Documentazione Microsoft
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure. L'interfaccia della riga di comando di Azure 2.0 è uno strumento multipiattaforma compilato in Python.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: common
+ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131872"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527491"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso dell'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure
 
@@ -31,7 +26,7 @@ Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. e possa soddisfare i requisiti di creazione dell'account specificati di seguito per Azure e per il servizio Archiviazione.
 
 ### <a name="accounts"></a>Account

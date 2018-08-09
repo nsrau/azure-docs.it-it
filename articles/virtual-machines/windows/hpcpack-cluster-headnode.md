@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: acd4cd44dd35a5b1755d9456f683076567d62165
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 70c1d95f704315ee6a481367188e2bb620916702
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915260"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428957"
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Creare il nodo head di un cluster HPC Pack in una macchina virtuale di Azure con un'immagine del Marketplace
 Usare un'[immagine di macchina virtuale Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) in Azure Marketplace e nel portale di Azure per creare il nodo head di un cluster HPC. L'immagine di macchina virtuale HPC Pack è basata su Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 preinstallato. Usare questo nodo head per una distribuzione basata sul modello di verifica di HPC Pack in Azure. Sarà quindi possibile aggiungere nodi di calcolo al cluster per eseguire carichi di lavoro HPC.
@@ -45,22 +45,22 @@ Come illustrato nella figura riportata di seguito, il nodo head HPC Pack viene d
 Di seguito sono indicati i principali passaggi per usare il portale di Azure per creare una VM di Azure per il nodo head HPC Pack usando il modello di distribuzione di Resource Manager. 
 
 1. Se si desidera creare una nuova foresta di Active Directory in Azure con VM di controller di dominio separate, è possibile usare un [modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc). Per una semplice distribuzione basata sul modello di verifica, è possibile saltare questo passaggio e configurare la VM del nodo head come controller di dominio. Le opzioni sono descritte più avanti in questo articolo.
-2. Alla pagina [HPC Pack 2012 R2 su Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) di Azure Marketplace fare clic su **Crea macchina virtuale**. 
-3. Nel portale, alla pagina **HPC Pack 2012 R2 on Windows Server 2012 R2** selezionare il modello di distribuzione di **Resource Manager** e fare clic su **Crea**.
+1. Alla pagina [HPC Pack 2012 R2 su Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) di Azure Marketplace fare clic su **Crea macchina virtuale**. 
+1. Nel portale, alla pagina **HPC Pack 2012 R2 on Windows Server 2012 R2** selezionare il modello di distribuzione di **Resource Manager** e fare clic su **Crea**.
    
     ![Immagine di HPC Pack][marketplace]
-4. Usare il portale per configurare le impostazioni e creare la macchina virtuale. Chi non conosce Azure può seguire l'esercitazione [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Per una distribuzione con modello di verifica è in genere possibile accettare le impostazioni predefinite o consigliate.
+1. Usare il portale per configurare le impostazioni e creare la macchina virtuale. Chi non conosce Azure può seguire l'esercitazione [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Per una distribuzione con modello di verifica è in genere possibile accettare le impostazioni predefinite o consigliate.
    
    > [!NOTE]
    > Se si desidera aggiungere il nodo head a un dominio di Active Directory esistente in Azure, assicurarsi di specificare la rete virtuale per tale dominio quando si crea la VM.
    > 
    > 
-5. Dopo aver creato e avviato la VM, [connettersi alla VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) tramite Desktop remoto. 
-6. Aggiungere la macchina virtuale a una foresta di domini di Active Directory scegliendo una delle opzioni seguenti:
+1. Dopo aver creato e avviato la VM, [connettersi alla VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) tramite Desktop remoto. 
+1. Aggiungere la macchina virtuale a una foresta di domini di Active Directory scegliendo una delle opzioni seguenti:
    
    * Se la VM è stata creata in una rete virtuale di Azure con una foresta di domini esistente, aggiungerla alla foresta usando gli strumenti standard di Server Manager o Windows PowerShell. Eseguire quindi il riavvio.
    * Se la VM è stata creata in una nuova rete virtuale senza una foresta di domini esistente, configurare la VM come controller di dominio. Usare i passaggi standard per installare e configurare il ruolo Servizi di dominio Active Directory nel nodo head. Per informazioni dettagliate, vedere [Installare una nuova foresta di Active Directory di Windows Server 2012](https://technet.microsoft.com/library/jj574166.aspx).
-7. Quando la VM è in esecuzione e fa parte di una foresta Active Directory, avviare i servizi di HPC Pack come descritto di seguito:
+1. Quando la VM è in esecuzione e fa parte di una foresta Active Directory, avviare i servizi di HPC Pack come descritto di seguito:
    
     a. Connettersi alla VM del nodo head con un account di dominio membro del gruppo Amministratori locale. Ad esempio, è possibile usare l'account di amministratore impostato al momento della creazione della VM del nodo head.
    

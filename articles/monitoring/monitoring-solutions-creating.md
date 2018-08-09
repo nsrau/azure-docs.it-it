@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92089904941ae913f1992a4407083bfcae010f2d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887421"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528028"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Progettare e creare una soluzione di gestione in Azure (anteprima)
 > [!NOTE]
@@ -77,7 +77,7 @@ Durante lo sviluppo della soluzione, è necessario installarla e testarla nell'a
 Dopo avere completato e testato la soluzione, è possibile renderla disponibile ai clienti tramite le seguenti origini.
 
 - **Modelli di avvio rapido di Azure**.  [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) è un set di modelli di Resource Manager messi a disposizione dalla community tramite GitHub.  È possibile rendere disponibile la soluzione seguendo le informazioni nella [Contribution Guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
-- **Azure Marketplace**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) consente di distribuire e vendere la soluzione agli altri sviluppatori, agli ISV e ai professionisti IT.  Informazioni su come pubblicare la soluzione in Azure Marketplace sono disponibili in [Come pubblicare e gestire un'offerta in Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+- **Azure Marketplace**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) consente di distribuire e vendere la soluzione agli altri sviluppatori, agli ISV e ai professionisti IT.  Informazioni su come pubblicare la soluzione in Azure Marketplace sono disponibili in [Come pubblicare e gestire un'offerta in Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
 
 
 

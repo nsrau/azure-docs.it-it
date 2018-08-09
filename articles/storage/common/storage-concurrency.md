@@ -2,24 +2,19 @@
 title: Gestione della concorrenza nell'archiviazione di Microsoft Azure
 description: Come gestire la concorrenza per i servizi BLOB, di accodamento, di tabelle e file
 services: storage
-documentationcenter: ''
 author: jasontang501
-manager: tadb
-editor: tysonn
-ms.assetid: cc6429c4-23ee-46e3-b22d-50dd68bd4680
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: common
+ms.openlocfilehash: 9c36347db2d1678e79e5ad80cda491f77850c4a6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23060186"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525240"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestione della concorrenza nell'archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica
@@ -91,14 +86,14 @@ Nella tabella seguente sono riepilogate le operazioni contenitore che accettano 
 
 | Operazione | Restituisce il valore ETag del contenitore | Accetta intestazioni condizionali |
 |:--- |:--- |:--- |
-| Create Container |Sì |No  |
-| Get Container Properties |Sì |No  |
-| Get Container Metadata |Sì |No  |
-| Set Container Metadata |Sì |Sì |
-| Get Container ACL |Sì |No  |
-| Set Container ACL |Sì |Sì (*) |
-| Delete Container |No  |Sì |
-| Lease Container |Sì |Sì |
+| Create Container |Yes |No  |
+| Get Container Properties |Yes |No  |
+| Get Container Metadata |Yes |No  |
+| Set Container Metadata |Yes |Yes |
+| Get Container ACL |Yes |No  |
+| Set Container ACL |Yes |Sì (*) |
+| Delete Container |No  |Yes |
+| Lease Container |Yes |Yes |
 | List Blobs |No  |No  |
 
 (*) Le autorizzazioni definite da SetContainerACL sono memorizzate nella cache e la propagazione degli aggiornamenti a queste autorizzazioni richiede 30 secondi durante i quali la coerenza degli aggiornamenti non è garantita.  
@@ -107,22 +102,22 @@ Nella tabella seguente sono riepilogate le operazioni BLOB che accettano intesta
 
 | Operazione | Restituisce il valore ETag | Accetta intestazioni condizionali |
 |:--- |:--- |:--- |
-| Put Blob |Sì |Sì |
-| Get Blob |Sì |Sì |
-| Get Blob Properties |Sì |Sì |
-| Set Blob Properties |Sì |Sì |
-| Get Blob Metadata |Sì |Sì |
-| Set Blob Metadata |Sì |Sì |
-| Lease Blob (*) |Sì |Sì |
-| Snapshot Blob |Sì |Sì |
-| Copy Blob |Sì |Sì (per il BLOB di origine e destinazione) |
+| Put Blob |Yes |Yes |
+| Get Blob |Yes |Yes |
+| Get Blob Properties |Yes |Yes |
+| Set Blob Properties |Yes |Yes |
+| Get Blob Metadata |Yes |Yes |
+| Set Blob Metadata |Yes |Yes |
+| Lease Blob (*) |Yes |Yes |
+| Snapshot Blob |Yes |Yes |
+| Copy Blob |Yes |Sì (per il BLOB di origine e destinazione) |
 | Abort Copy Blob |No  |No  |
-| Delete Blob |No  |Sì |
+| Delete Blob |No  |Yes |
 | Put Block |No  |No  |
-| Put Block List |Sì |Sì |
-| Get Block List |Sì |No  |
-| Put Page |Sì |Sì |
-| Get Page Ranges |Sì |Sì |
+| Put Block List |Yes |Yes |
+| Get Block List |Yes |No  |
+| Put Page |Yes |Yes |
+| Get Page Ranges |Yes |Yes |
 
 (*) Lease Blob non modifica l'ETag in un BLOB.  
 
@@ -242,13 +237,13 @@ Nella tabella seguente sono riepilogate le modalità in cui le operazioni delle 
 
 | Operazione | Restituisce il valore ETag | Richiede l'intestazione della richiesta If-Match |
 |:--- |:--- |:--- |
-| Query Entities |Sì |No  |
-| Insert Entity |Sì |No  |
-| Update Entity |Sì |Sì |
-| Merge Entity |Sì |Sì |
-| Delete Entity |No  |Sì |
-| Insert or Replace Entity |Sì |No  |
-| Insert or Merge Entity |Sì |No  |
+| Query Entities |Yes |No  |
+| Insert Entity |Yes |No  |
+| Update Entity |Yes |Yes |
+| Merge Entity |Yes |Yes |
+| Delete Entity |No  |Yes |
+| Insert or Replace Entity |Yes |No  |
+| Insert or Merge Entity |Yes |No  |
 
 SI noti che le operazioni **Insert or Replace Entity** e **Insert or Merge Entity** *non* eseguono alcun controllo di concorrenza perché non inviano un valore ETag al servizio tabelle.  
 

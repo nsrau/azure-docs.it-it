@@ -2,18 +2,18 @@
 title: Uso di Importazione/Esportazione di Azure per esportare dati da BLOB di Azure | Microsoft Docs
 description: Informazioni su come creare processi di esportazione nel portale di Azure per trasferire dati da BLOB di Azure.
 author: alkohli
-manager: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb714086a0142d9780bd018d77dc880a430f240e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: common
+ms.openlocfilehash: a7456bedeb6bc870ad5d6892fe697fb2dfcd3bc1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113759"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527805"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 Questo articolo offre istruzioni dettagliate su come usare il servizio Importazione/Esportazione di Azure per esportare in tutta sicurezza grandi quantità di dati da Archiviazione BLOB di Azure. Il servizio richiede la spedizione di unità vuote al data center di Azure. Il servizio esporta i dati dall'account di archiviazione alle unità e quindi rispedisce le unità.
@@ -128,7 +128,7 @@ L'esportazione è stata completata. A questo punto, è possibile eliminare il pr
 Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessarie per il processo di esportazione. Eseguire questo passaggio in un sistema Windows con una [versione supportata del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
 
 1. [Scaricare WAImportExport versione 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) nel sistema Windows. 
-2. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio, `C:\WaImportExportV1`.
+2. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio: `C:\WaImportExportV1`.
 3. Aprire una finestra di PowerShell o della riga di comando con privilegi amministrativi. Per passare alla directory della cartella decompressa, eseguire il comando seguente:
     
     `cd C:\WaImportExportV1`

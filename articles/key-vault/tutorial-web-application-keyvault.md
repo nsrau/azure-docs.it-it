@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 747a0fc7f66edbae8d4a99eeaf0ea45f844d6465
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ff8cfb84fda6d40cca6d61a956f05e28ea670bf6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125943"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428775"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Esercitazione: Configurare un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi
 
@@ -44,7 +44,7 @@ az login
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 L'esempio seguente crea un gruppo di risorse denominato *ContosoResourceGroup* nella posizione *eastus*.
 
@@ -213,7 +213,7 @@ Per l'applicazione Web devono essere installati due pacchetti NuGet. Per install
 1. Sopra l'editor selezionare **WebKeyVault**.
 2. Selezionare **Publish** (Pubblica), quindi **Start** (Inizia).
 3. Creare un nuovo **servizio app** e selezionare **Publish**.
-4. Selezionare **Crea**.
+4. Selezionare **Create**.
 
 >[!IMPORTANT]
 > Verrà visualizzata una finestra del browser con un messaggio di errore 502.5 - Errore del processo. Si tratta di un comportamento previsto. Sarà necessario concedere i diritti di identità di applicazione per leggere i segreti dall'insieme di credenziali delle chiavi.

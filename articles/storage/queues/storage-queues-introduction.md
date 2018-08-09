@@ -2,24 +2,19 @@
 title: Introduzione all'archiviazione code di Azure | Microsoft Docs
 description: Introduzione all'archiviazione code di Azure
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.openlocfilehash: 792e8c7efb2a627fbc1abde1389015949d5931e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: queues
+ms.openlocfilehash: d2d4a31097c4050ba9193fc9d6fa076fe9c6e27f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059586"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524832"
 ---
 # <a name="introduction-to-queues"></a>Introduzione alle code
 
@@ -39,11 +34,11 @@ Il servizio di accodamento contiene i componenti seguenti:
 ![Concetti delle code](./media/storage-queues-introduction/queue1.png)
 
 * **Formato dell'URL**: è possibile fare riferimento alle code usando il formato di URL seguente:   
-    http://`<storage account>`.queue.core.windows.net/`<queue>` 
+    https://`<storage account>`.queue.core.windows.net/`<queue>` 
   
     L'URL seguente fa riferimento a una delle code nel diagramma:   
   
-    `http://myaccount.queue.core.windows.net/images-to-download`
+    `https://myaccount.queue.core.windows.net/images-to-download`
 
 * **Account di archiviazione:** tutti gli accessi ad Archiviazione di Azure vengono eseguiti tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) .
 

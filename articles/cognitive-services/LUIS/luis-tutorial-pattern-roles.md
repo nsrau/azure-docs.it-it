@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 80f2d482a660992011549fe8dc76a09740da6ab1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237826"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524145"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Esercitazione: Migliorare le app con i ruoli di criteri
 
@@ -27,7 +27,7 @@ In questa esercitazione usare un'entità semplice con i ruoli combinati con i cr
 * Crea criteri per le espressioni tramite entità semplici con i ruoli
 * Come verificare i miglioramenti di stima del criterio
 
-Per questo articolo è necessario un account [LUIS](luis-reference-regions.md) gratuito per creare un'applicazione LUIS personalizzata.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si dispone dell'app relativa alle risorse umane dell'esercitazione relativa ai [criteri](luis-tutorial-pattern.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json).
@@ -125,25 +125,18 @@ L'assegnazione di etichette alle entità in questa procedura può risultare più
     Se è stata rimossa l'entità keyPhrase, aggiungerla nuovamente all'app.
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
-Le nuove finalità e le espressioni richiedono un training. 
 
-1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Train** (Esegui il training).
-
-2. Il training è completato quando nella barra di stato verde nella parte superiore del sito Web viene confermato il completamento.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
-Per ottenere una previsione di Language Understanding in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
 
-1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Publish** (Pubblica). 
-
-2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
-
-3. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-without-pattern"></a>Query sull'endpoint senza criterio
-1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL dell'endpoint nella barra degli indirizzi. 
 
-2. Passare alla fine dell'URL nell'indirizzo e immettere `Move Wayne Berry from Miami to Mount Vernon`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+
+2. Andare alla fine dell'URL nell'indirizzo e immettere `Move Wayne Berry from Miami to Mount Vernon`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
     ```JSON
     {
@@ -388,7 +381,8 @@ In modo analogo ai nomi di persone, i nomi di città sono complessi perché poss
 Il punteggio di finalità è ora molto più elevato e i nomi di ruolo fanno parte della risposta dell'entità.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app LUIS. A tale scopo, selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283095"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433171"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
@@ -136,7 +136,7 @@ Dopo aver salvato un modello di Resource Manager e averlo personalizzato per le 
 - [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) descrive come usare l'interfaccia della riga di comando di Azure con i modelli di Resource Manager per distribuire le risorse in Azure.
 
 > [!NOTE]
-> Solo un utente con autorizzazioni di proprietario lab può creare macchine virtuali da un modello di Resource Manager usando Azure PowerShell. Se si desidera automatizzare la creazione di VM usando un modello di Resource Manager e si dispone solo delle autorizzazioni utente, è possibile usare il comando [**az lab vm create** nell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+> Solo un utente con autorizzazioni di proprietario lab può creare macchine virtuali da un modello di Resource Manager usando Azure PowerShell. Se si desidera automatizzare la creazione di VM usando un modello di Resource Manager e si dispone solo delle autorizzazioni utente, è possibile usare il comando [**az lab vm create** nell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).
 
 ### <a name="general-limitations"></a>Limitazioni generali 
 

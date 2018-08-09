@@ -2,23 +2,18 @@
 title: Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Anteprima di Azure Data Lake Storage Gen2
 description: Introduzione all'interfaccia della riga di comando di Hadoop Distributed File System per Anteprima di Azure Data Lake Storage Gen2
 services: storage
-documentationcenter: ''
 author: artemuwka
-manager: jahogg
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 591d8ea7670bf9b29450695ee7cbee5fa39baaac
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ef28468c7aa420c145f5e6d79e2b079bd1d094f4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344723"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523683"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Anteprima di Azure Data Lake Storage Gen2
 

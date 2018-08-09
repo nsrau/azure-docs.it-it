@@ -7,17 +7,17 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a76322d70f6b54d65a4b751a7187425cb4be821
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5c1a884ebe6216c4e8099f2ada2182ccff68b63e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834543"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450331"
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Raccogliere i dati di modello tramite la raccolta dati
 
@@ -56,7 +56,7 @@ Per usare la raccolta dati di modello, è necessario apportare le modifiche segu
     from azureml.datacollector import ModelDataCollector
     ```
 
-2. Aggiungere le righe di codice seguenti alla funzione `init()`:
+1. Aggiungere le righe di codice seguenti alla funzione `init()`:
     
     ```python
     global inputs_dc, prediction_dc
@@ -64,7 +64,7 @@ Per usare la raccolta dati di modello, è necessario apportare le modifiche segu
     prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")
     ```
 
-3. Aggiungere le righe di codice seguenti alla funzione `run(input_df)`:
+1. Aggiungere le righe di codice seguenti alla funzione `run(input_df)`:
     
     ```python
     global inputs_dc, prediction_dc
@@ -74,13 +74,13 @@ Per usare la raccolta dati di modello, è necessario apportare le modifiche segu
 
     Assicurarsi che le variabili `input_df` e `pred` (valore di previsione da `model.predict()`) vengano inizializzate prima di chiamare la funzione `collect()` su di esse.
 
-4. Usare il comando `az ml service create realtime` con l'opzione `--collect-model-data true` per creare un servizio Web in tempo reale. Questo passaggio assicura che i dati del modello vengano raccolti quando il servizio è in esecuzione.
+1. Usare il comando `az ml service create realtime` con l'opzione `--collect-model-data true` per creare un servizio Web in tempo reale. Questo passaggio assicura che i dati del modello vengano raccolti quando il servizio è in esecuzione.
 
      ```batch
     c:\temp\myIris> az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
     ```
     
-5. Per testare la raccolta dati, eseguire il comando `az ml service run realtime`:
+1. Per testare la raccolta dati, eseguire il comando `az ml service run realtime`:
 
     ```
     C:\Temp\myIris> az ml service run realtime -i irisapp -d "ADD YOUR INPUT DATA HERE!!" 
@@ -90,15 +90,15 @@ Per usare la raccolta dati di modello, è necessario apportare le modifiche segu
 Per visualizzare i dati raccolti nell'archiviazione blob:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Tutti i servizi**.
-3. Nella casella di ricerca digitare **Account di archiviazione** e premere INVIO.
-4. Dal pannello di ricerca **Account di archiviazione**, selezionare la risorsa **Account di archiviazione**. Per determinare l'account di archiviazione, usare la procedura seguente:
+1. Selezionare **Tutti i servizi**.
+1. Nella casella di ricerca digitare **Account di archiviazione** e premere INVIO.
+1. Dal pannello di ricerca **Account di archiviazione**, selezionare la risorsa **Account di archiviazione**. Per determinare l'account di archiviazione, usare la procedura seguente:
 
     a. Passare a Azure Machine Learning Workbench, selezionare il progetto su cui si sta lavorando e aprire un prompt dei comandi dal menu **File**.
     
     b. Digitare `az ml env show -v` e controllare il valore di *storage_account*. Questo è il nome dell'account di archiviazione.
 
-5. Selezionare **Contenitori** nel menu del pannello delle risorse e quindi il contenitore denominato **modeldata**. Per visualizzare i dati che iniziano a propagarsi nell'account di archiviazione potrebbe essere necessario attendere una decina di minuti dalla prima richiesta del servizio Web. I dati vengono trasmessi nei BLOB con il percorso del contenitore seguente:
+1. Selezionare **Contenitori** nel menu del pannello delle risorse e quindi il contenitore denominato **modeldata**. Per visualizzare i dati che iniziano a propagarsi nell'account di archiviazione potrebbe essere necessario attendere una decina di minuti dalla prima richiesta del servizio Web. I dati vengono trasmessi nei BLOB con il percorso del contenitore seguente:
 
     `/modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv`
 

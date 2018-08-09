@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 7285ef4bea1dccb651360520bfe8bc4289d54f8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 77e370e80e423446d17a074b9458e7002f8627dd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046040"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Esercitazione: Integrazione di Azure Active Directory con Panorama9
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Panorama9 dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-panorama9-from-the-gallery"></a>Aggiunta di Panorama9 dalla raccolta
 Per configurare l'integrazione di Panorama9 in Azure AD, è necessario aggiungere Panorama9 dalla raccolta al proprio elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di Panorama9 in Azure AD, è necessario aggiunger
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **Panorama9**.
+1. Nella casella di ricerca digitare **Panorama9**.
 
     ![Creazione di un utente test di Azure AD](./media/panorama9-tutorial/tutorial_panorama9_search.png)
 
-5. Nel pannello dei risultati selezionare **Panorama9** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **Panorama9** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/panorama9-tutorial/tutorial_panorama9_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Per stabilire la relazione di collegamento, in Panorama9 assegnare il valore di 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Panorama9, è necessario completare le procedure di base seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di Panorama9](#creating-a-panorama9-test-user)**: per avere una controparte di Britta Simon in Panorama9 collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente di test di Panorama9](#creating-a-panorama9-test-user)**: per avere una controparte di Britta Simon in Panorama9 collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -105,11 +105,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_samlbase.png)
 
-3. Nella sezione **URL e dominio Panorama9** seguire questa procedura:
+1. Nella sezione **URL e dominio Panorama9** seguire questa procedura:
 
     ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_url.png)
 
@@ -120,27 +120,27 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Panorama9](https://support.panorama9.com). 
  
-4. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
+1. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
 
     ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Panorama9** fare clic su **Configura Panorama9** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
+1. Nella sezione **Configurazione di Panorama9** fare clic su **Configura Panorama9** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
     ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_configure.png) 
 
-5. In un'altra finestra del Web browser accedere al sito aziendale di Panorama9 come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di Panorama9 come amministratore.
 
-6. Nella barra degli strumenti in alto, fare clic su **Gestisci** quindi fare clic su **Estensioni**.
+1. Nella barra degli strumenti in alto, fare clic su **Gestisci** quindi fare clic su **Estensioni**.
    
    ![Estensioni](./media/panorama9-tutorial/ic790023.png "Estensioni")
-7. Nella finestra di dialogo **Estensioni**, fare clic su **Single Sign-On**.
+1. Nella finestra di dialogo **Estensioni**, fare clic su **Single Sign-On**.
    
    ![Single Sign-On](./media/panorama9-tutorial/ic790024.png "Single Sign-On")
-8. Nella sezione **Impostazioni** , eseguire la procedura seguente:
+1. Nella sezione **Impostazioni** , eseguire la procedura seguente:
    
    ![Impostazioni](./media/panorama9-tutorial/ic790025.png "Impostazioni")
    
@@ -148,7 +148,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
     b. Nella casella di testo **Certificate fingerprint** (Impronta digitale certificato) incollare il valore **Identificazione personale** del certificato copiato dal portale di Azure.    
          
-9. Fare clic su **Save**.
+1. Fare clic su **Save**.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -165,15 +165,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/panorama9-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/panorama9-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/panorama9-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/panorama9-tutorial/create_aaduser_04.png) 
 
@@ -183,7 +183,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-panorama9-test-user"></a>Creazione di un utente di test di Panorama9
 
@@ -195,17 +195,17 @@ Nel caso di Panorama9, il provisioning è un'attività manuale.
 
 1. Accedere al sito aziendale di **Panorama9** come amministratore.
 
-2. Nel menu in alto fare clic su **Gestisci**, quindi fare clic su **Utenti**.
+1. Nel menu in alto fare clic su **Gestisci**, quindi fare clic su **Utenti**.
    
   ![Utenti](./media/panorama9-tutorial/ic790027.png "Utenti")
 
-3. Nella sezione utenti fare clic su **+** per aggiungere il nuovo utente.
+1. Nella sezione utenti fare clic su **+** per aggiungere il nuovo utente.
 
  ![Utenti](./media/panorama9-tutorial/ic790028.png "Utenti")
 
-4. Passare alla sezione Dati utente e digitare l'indirizzo di posta elettronica di un utente valido di Azure Active Directory di cui si vuole eseguire il provisioning nella casella di testo **Posta elettronica**.
+1. Passare alla sezione Dati utente e digitare l'indirizzo di posta elettronica di un utente valido di Azure Active Directory di cui si vuole eseguire il provisioning nella casella di testo **Posta elettronica**.
 
-5. Tornare alla sezione Utenti e fare clic su **Salva**.
+1. Tornare alla sezione Utenti e fare clic su **Salva**.
    
 > [!NOTE]
     > Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
@@ -222,23 +222,23 @@ In questa sezione, Britta Simon viene abilitata per l'uso dell'accesso Single Si
 
     ![Assegna utente][201] 
 
-2. Nell'elenco di applicazioni selezionare **Panorama9**.
+1. Nell'elenco di applicazioni selezionare **Panorama9**.
 
     ![Configure Single Sign-On](./media/panorama9-tutorial/tutorial_panorama9_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

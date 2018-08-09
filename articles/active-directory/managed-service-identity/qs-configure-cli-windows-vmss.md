@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: 36df9d00d41f3c092320fa88772b41c9a41c6d8e
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6474b34abeceb58c2eff9e7a2d2237ec47e61933
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237282"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447524"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Configurare un'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -36,7 +36,7 @@ Questo articolo descrive come eseguire le seguenti operazioni di identità del s
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire le operazioni di gestione in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
+- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
     - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare un set di scalabilità di macchine virtuali e abilitare e rimuovere da un set di scalabilità di macchine virtuali l'identità gestita assegnata dal sistema e/o dall'utente.
     - [Collaboratore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare un'identità assegnata dall'utente.
     - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare e rimuovere un'identità assegnata dall'utente da e verso un set di scalabilità di macchine virtuali.
@@ -55,19 +55,19 @@ Questa sezione descrive come abilitare e disabilitare l'identità assegnata dal 
 
 Per creare un set di scalabilità di macchine virtuali con l'identità assegnata dal sistema abilitata:
 
-1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az_login). Usare un account associato alla sottoscrizione di Azure in cui si vuole distribuire il set di scalabilità di macchine virtuali:
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si vuole distribuire il set di scalabilità di macchine virtuali:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Creare un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md#terminology) per il contenuto e la distribuzione del set di scalabilità di macchine virtuali e delle risorse correlate, usando [az group create](/cli/azure/group/#az_group_create). Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio:
+2. Creare un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md#terminology) per il contenuto e la distribuzione del set di scalabilità di macchine virtuali e delle risorse correlate, usando [az group create](/cli/azure/group/#az-group-create). Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Creare un set di scalabilità di macchine virtuali con [az vmss create](/cli/azure/vmss/#az_vmss_create). L'esempio seguente crea un set di scalabilità di macchine virtuali denominato *myVMSS* con un'identità assegnata dal sistema, come richiesto dal parametro `--assign-identity`. I parametri `--admin-username` e `--admin-password` specificano il nome utente e la password dell'account amministrativo per l'accesso alla macchina virtuale. Aggiornare questi valori in base alle esigenze specifiche dell'ambiente: 
+3. Creare un set di scalabilità di macchine virtuali con [az vmss create](/cli/azure/vmss/#az-vmss-create). L'esempio seguente crea un set di scalabilità di macchine virtuali denominato *myVMSS* con un'identità assegnata dal sistema, come richiesto dal parametro `--assign-identity`. I parametri `--admin-username` e `--admin-password` specificano il nome utente e la password dell'account amministrativo per l'accesso alla macchina virtuale. Aggiornare questi valori in base alle esigenze specifiche dell'ambiente: 
 
    ```azurecli-interactive 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -77,13 +77,13 @@ Per creare un set di scalabilità di macchine virtuali con l'identità assegnata
 
 Se è necessario abilitare l'identità assegnata dal sistema in un set di scalabilità di macchine virtuali di Azure esistente:
 
-1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az_login). Usare un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali.
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali.
 
    ```azurecli-interactive
    az login
    ```
 
-2. Usare il comando [az vmss identity assign](/cli/azure/vmss/identity/#az_vmss_identity_assign) per abilitare un'identità assegnata dal sistema a una VM esistente:
+2. Usare il comando [az vmss identity assign](/cli/azure/vmss/identity/#az-vmss-identity-assign) per abilitare un'identità assegnata dal sistema a una VM esistente:
 
    ```azurecli-interactive
    az vmss identity assign -g myResourceGroup -n myVMSS
@@ -106,7 +106,7 @@ Se una macchina virtuale non necessita più dell'identità assegnata dal sistema
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Per rimuovere l'estensione identità del servizio gestita della VM, usare il comando [az vmss identity remove](/cli/azure/vmss/identity/#az_vmss_remove_identity) per rimuovere l'identità assegnata dal sistema da un VMSS:
+Per rimuovere l'estensione identità del servizio gestita della VM, usare il comando [az vmss identity remove](/cli/azure/vmss/identity/#az-vmss-remove-identity) per rimuovere l'identità assegnata dal sistema da un VMSS:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -120,7 +120,7 @@ Questa sezione descrive come abilitare e rimuovere un'identità assegnata dall'u
 
 Questa sezione descrive come creare un VMSS e assegnare un'identità assegnata dall'utente al VMSS. Se si dispone già di un VMSS che si intende usare, ignorare questa sezione e procedere con la successiva.
 
-1. Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio. Creare un [gruppo di risorse](~/articles/azure-resource-manager/resource-group-overview.md#terminology) per contenere e distribuire l'identità assegnata dall'utente mediante [az group create](/cli/azure/group/#az_group_create). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<LOCATION>` con valori personalizzati. :
+1. Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio. Creare un [gruppo di risorse](~/articles/azure-resource-manager/resource-group-overview.md#terminology) per contenere e distribuire l'identità assegnata dall'utente mediante [az group create](/cli/azure/group/#az-group-create). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<LOCATION>` con valori personalizzati. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -183,7 +183,7 @@ La risposta contiene i dettagli relativi all'identità assegnata dall'utente cre
    }
    ```
 
-2. Assegnare l'identità assegnata dall'utente al VMSS mediante [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VMSS NAME>` con valori personalizzati. `<USER ASSIGNED IDENTITY ID>` sarà la proprietà `id` della risorsa dell'identità assegnata dall'utente creata nel passaggio precedente:
+2. Assegnare l'identità assegnata dall'utente al VMSS mediante [az vmss identity assign](/cli/azure/vmss/identity#az-vm-assign-identity). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VMSS NAME>` con valori personalizzati. `<USER ASSIGNED IDENTITY ID>` sarà la proprietà `id` della risorsa dell'identità assegnata dall'utente creata nel passaggio precedente:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>

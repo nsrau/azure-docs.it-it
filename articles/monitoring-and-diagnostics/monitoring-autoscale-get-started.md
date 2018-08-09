@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263647"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448969"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -24,9 +24,9 @@ La scalabilità automatica di Monitoraggio di Azure si applica solo a set di sca
 È possibile individuare tutte le risorse per le quali è applicabile la scalabilità automatica in Monitoraggio di Azure. Eseguire i passaggi descritti di seguito per una procedura guidata:
 
 1. Aprire il [portale di Azure.][1]
-2. Fare clic sull'icona di Monitoraggio di Azure nel riquadro a sinistra.
+1. Fare clic sull'icona di Monitoraggio di Azure nel riquadro a sinistra.
   ![Aprire Monitoraggio di Azure][2]
-3. Fare clic su **Scalabilità automatica** per visualizzare tutte le risorse per cui è applicabile, nonché il relativo stato corrente di scalabilità automatica.
+1. Fare clic su **Scalabilità automatica** per visualizzare tutte le risorse per cui è applicabile, nonché il relativo stato corrente di scalabilità automatica.
   ![Individuazione della scalabilità automatica nel Monitoraggio di Azure][3]
 
 È possibile usare il riquadro filtro nella parte superiore per ridurre l'ambito dell'elenco e selezionare le risorse in un gruppo di risorse specifico, i tipi di risorse specifici o una determinata risorsa.
@@ -42,11 +42,11 @@ Per ogni risorsa verranno indicati il numero di istanze corrente e lo stato di s
 Verrà ora illustrata una semplice procedura dettagliata per creare la prima impostazione di scalabilità automatica.
 
 1. Aprire il pannello **Scalabilità automatica** in Monitoraggio di Azure e selezionare una risorsa da ridimensionare (la procedura seguente usa un piano di servizio app associato a un'app Web. È possibile [creare la prima app Web ASP.NET in Azure in 5 minuti][4]).
-2. Notare che il numero corrente di istanze per il ruolo è 1. Fare clic su **Abilita scalabilità automatica**.
+1. Notare che il numero corrente di istanze per il ruolo è 1. Fare clic su **Abilita scalabilità automatica**.
   ![Impostazione di scalabilità per la nuova app Web][5]
-3. Specificare un nome per il set di scalabilità, quindi scegliere **Aggiungi una regola**. Si notino le opzioni per le regole di scalabilità visualizzate come riquadro contesto sul lato destro. Per impostazione predefinita viene applicata l'opzione per aumentare il numero di istanze di 1 se la percentuale CPU della risorsa supera il 70 per cento. Lasciare i valori predefiniti e fare clic su **Aggiungi**.
+1. Specificare un nome per il set di scalabilità, quindi scegliere **Aggiungi una regola**. Si notino le opzioni per le regole di scalabilità visualizzate come riquadro contesto sul lato destro. Per impostazione predefinita viene applicata l'opzione per aumentare il numero di istanze di 1 se la percentuale CPU della risorsa supera il 70 per cento. Lasciare i valori predefiniti e fare clic su **Aggiungi**.
   ![Creare l'impostazione di scalabilità per un'app Web][6]
-4. È stata così creata la prima regola di scalabilità. Si noti che l'esperienza utente indica le procedure consigliate e che "È consigliabile includere almeno una regola di riduzione del numero di istanze". A tale scopo, procedere come segue:
+1. È stata così creata la prima regola di scalabilità. Si noti che l'esperienza utente indica le procedure consigliate e che "È consigliabile includere almeno una regola di riduzione del numero di istanze". A tale scopo, procedere come segue:
   
     a. Fare clic su **Aggiungi regola**. 
 
@@ -58,7 +58,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
 
    A questo punto si avrà un'impostazione di scalabilità che aumenta/riduce il numero di istanze in base all'utilizzo della CPU.
    ![Scalabilità in base alla CPU][8]
-5. Fare clic su **Save**.
+1. Fare clic su **Save**.
 
 Congratulazioni! A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
@@ -70,18 +70,18 @@ Congratulazioni! A questo punto è stata creata la prima impostazione di scalabi
 Oltre alla scalabilità basata sempre sulla CPU, è possibile impostare la scalabilità in modo diverso per giorni specifici della settimana.
 
 1. Fare clic su **Aggiungi una condizione di scalabilità**.
-2. L'impostazione della modalità e delle regole di scalabilità è uguale alla condizione predefinita.
-3. Selezionare **Ripeti in giorni specifici** per la pianificazione.
-4. Selezionare i giorni e l'ora di inizio/fine per l'applicazione della condizione di scalabilità.
+1. L'impostazione della modalità e delle regole di scalabilità è uguale alla condizione predefinita.
+1. Selezionare **Ripeti in giorni specifici** per la pianificazione.
+1. Selezionare i giorni e l'ora di inizio/fine per l'applicazione della condizione di scalabilità.
 
 ![Condizione di scalabilità in base alla pianificazione][9]
 ### <a name="scale-differently-on-specific-dates"></a>Impostare la scalabilità in modo diverso per date specifiche
 Oltre alla scalabilità basata sempre sulla CPU, è possibile impostare la scalabilità in modo diverso per le date specifiche.
 
 1. Fare clic su **Aggiungi una condizione di scalabilità**.
-2. L'impostazione della modalità e delle regole di scalabilità è uguale alla condizione predefinita.
-3. Selezionare **Specificare le date di inizio/fine** per la pianificazione.
-4. Selezionare i giorni e l'ora di inizio/fine per l'applicazione della condizione di scalabilità.
+1. L'impostazione della modalità e delle regole di scalabilità è uguale alla condizione predefinita.
+1. Selezionare **Specificare le date di inizio/fine** per la pianificazione.
+1. Selezionare i giorni e l'ora di inizio/fine per l'applicazione della condizione di scalabilità.
 
 ![Condizione di scalabilità in base alle date][10]
 

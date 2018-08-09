@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 18ee5eb7f097d8d8738d72a29bcb73b8265b5416
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: db136fb1c68c243086d3e83424ed2c9864638c8f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161957"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433386"
 ---
 # <a name="create-an-azure-container-service-dcos-cluster"></a>Creare un cluster DC/OS del servizio contenitore di Azure
 
@@ -57,8 +57,8 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Crea un cluster del servizio contenitore di Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | Crea un cluster del servizio contenitore di Azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917473"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428531"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner 
 
@@ -105,7 +105,7 @@ Per aggiungere manualmente le VM:
 
 1. Selezionare **Insert row** (Inserisci riga) per inserire una nuova riga tra la riga **iniziale** e quella **finale**.
 
-2. Compilare le colonne seguenti in base alle dimensioni approssimative delle VM e al numero di VM corrispondenti alla configurazione: 
+1. Compilare le colonne seguenti in base alle dimensioni approssimative delle VM e al numero di VM corrispondenti alla configurazione: 
 
     a. **Number of VMs** (Numero di VM)
 
@@ -125,9 +125,9 @@ Per aggiungere manualmente le VM:
 
     i. **Vantaggio Azure Hybrid Use**
 
-3. È possibile applicare lo stesso valore a tutte le VM nella tabella facendo clic sul pulsante **Apply to all** (Applica a tutte) per il **numero di esercitazioni sul ripristino di emergenza in un anno**, la **durata di ogni esercitazione sul ripristino di emergenza (in giorni)**, la **ridondanza dei dati** e il **vantaggio Azure Hybrid Use**.
+1. È possibile applicare lo stesso valore a tutte le VM nella tabella facendo clic sul pulsante **Apply to all** (Applica a tutte) per il **numero di esercitazioni sul ripristino di emergenza in un anno**, la **durata di ogni esercitazione sul ripristino di emergenza (in giorni)**, la **ridondanza dei dati** e il **vantaggio Azure Hybrid Use**.
 
-4. Selezionare **Re-calculate cost** (Ricalcola costo) per aggiornare il costo.
+1. Selezionare **Re-calculate cost** (Ricalcola costo) per aggiornare il costo.
 
 **VM Name** (Nome VM): nome della VM.
 

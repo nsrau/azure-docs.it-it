@@ -2,18 +2,18 @@
 title: Uso di Importazione/Esportazione di Azure per trasferire dati in BLOB di Azure | Microsoft Docs
 description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure per trasferire dati da e verso BLOB di Azure.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eea7e2779a169fa9a64cc7a5695e91999f219277
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: common
+ms.openlocfilehash: 2484d01c268757ef612ba7b397b80b8ea4c4e76a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112832"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528140"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -30,7 +30,7 @@ Prima di creare un processo di importazione per trasferire dati in Archiviazione
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks). 
 - Predisporre un sistema Windows con una [versione del sistema operativo supportata](storage-import-export-requirements.md#supported-operating-systems). 
 - Abilitare BitLocker nel sistema Windows. Vedere [How to enable BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) (Come abilitare BitLocker).
-- [Scaricare WAImportExport versione 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) nel sistema Windows. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio, `C:\WaImportExportV1`.
+- [Scaricare WAImportExport versione 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) nel sistema Windows. Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio: `C:\WaImportExportV1`.
 - Avere un account FedEx o DHL.  
     - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
     - Generare un numero di tracciabilità per il processo di esportazione.
@@ -71,7 +71,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
     |/sk:     |Chiave dell'account di Archiviazione di Azure.         |
     |/t:     |Lettera di unità del disco da spedire. Ad esempio, l'unità `D`.         |
     |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di ` manage-bde -protectors -get D: `      |
-    |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio, `D:\`.         |
+    |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio: `D:\`.         |
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure.         |
     |/skipwrite:     |Opzione che specifica che non sono presenti nuovi dati da copiare e che è necessario preparare i dati esistenti nel disco.          |
 7. Ripetere il passaggio precedente per ogni disco che deve essere spedito. Viene creato un file journal con il nome specificato per ogni esecuzione della riga di comando.

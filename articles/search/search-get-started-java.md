@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/14/2016
 ms.author: jjed
-ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f52ed0ab302d1c3dad699258287f6edd7197cef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799533"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525621"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introduzione a Ricerca di Azure in Java
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ Questa è la prima esercitazione di Ricerca di Azure basata su Java e sul set di
 
 Se si dispone già delle nozioni di base di Ricerca di Azure, è possibile usare questo esempio come base per ulteriore sperimentazione, ad esempio ampliando la [pagina di ricerca](search-pagination-page-layout.md) o implementando l'[esplorazione basata su facet](search-faceted-navigation.md). È inoltre possibile migliorare la pagina dei risultati della ricerca aggiungendo conteggi e raggruppando i documenti in modo che gli utenti possano sfogliare i risultati.
 
-Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](https://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. È inoltre possibile visualizzare i collegamenti nell'[elenco di video ed esercitazioni](search-video-demo-tutorial-list.md) per accedere ad altre informazioni.
+Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acquisire consapevolezza di ciò che è possibile creare. Visitare la [pagina della documentazione](https://azure.microsoft.com/documentation/services/search/) per trovare ulteriori risorse. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG

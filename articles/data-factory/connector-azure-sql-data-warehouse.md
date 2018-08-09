@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 70615726ed313884a977ae1b338d3c484fc32a1a
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326174"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430740"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -105,21 +105,21 @@ Per usare l'autenticazione token dell'applicazione Azure AD basata sull'entità 
     - Chiave applicazione
     - ID tenant
 
-2. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita. L'amministratore di Azure AD può essere un utente o un gruppo di Azure AD. Se si concede il ruolo di amministratore al gruppo con l'identità del servizio gestita, ignorare i passaggi 3 e 4. L'amministratore avrà accesso completo al database.
+1. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita. L'amministratore di Azure AD può essere un utente o un gruppo di Azure AD. Se si concede il ruolo di amministratore al gruppo con l'identità del servizio gestita, ignorare i passaggi 3 e 4. L'amministratore avrà accesso completo al database.
 
-3. **[Creare utenti del database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** per l'entità servizio. Connettersi al data warehouse da o in cui si vogliono copiare i dati usando strumenti come SSMS, con un'identità di Azure AD che abbia almeno l'autorizzazione ALTER ANY USER. Eseguire il comando in T-SQL seguente:
+1. **[Creare utenti del database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** per l'entità servizio. Connettersi al data warehouse da o in cui si vogliono copiare i dati usando strumenti come SSMS, con un'identità di Azure AD che abbia almeno l'autorizzazione ALTER ANY USER. Eseguire il comando in T-SQL seguente:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Concedere all'entità servizio le autorizzazioni necessarie**, come si fa di norma per gli utenti SQL o altri utenti. Eseguire il codice seguente:
+1. **Concedere all'entità servizio le autorizzazioni necessarie**, come si fa di norma per gli utenti SQL o altri utenti. Eseguire il codice seguente:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. **Configurare un servizio collegato ad Azure SQL Data Warehouse** in Azure Data Factory.
+1. **Configurare un servizio collegato ad Azure SQL Data Warehouse** in Azure Data Factory.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Esempio di servizio collegato tramite l'autenticazione basata su entità servizio
@@ -168,21 +168,21 @@ Per usare l'autenticazione token dell'applicazione Azure AD basata sull'identit�
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita.
+1. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita.
 
-3. **[Creare utenti del database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** per il gruppo di Azure AD. Connettersi al data warehouse da o in cui si vogliono copiare i dati usando strumenti come SSMS, con un'identità di Azure AD che abbia almeno l'autorizzazione ALTER ANY USER. Eseguire il comando in T-SQL seguente. 
+1. **[Creare utenti del database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** per il gruppo di Azure AD. Connettersi al data warehouse da o in cui si vogliono copiare i dati usando strumenti come SSMS, con un'identità di Azure AD che abbia almeno l'autorizzazione ALTER ANY USER. Eseguire il comando in T-SQL seguente. 
     
     ```sql
     CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Concedere al gruppo di Azure AD le autorizzazioni necessarie**, come si fa di norma per gli utenti SQL e altri utenti. Ad esempio, eseguire il codice seguente.
+1. **Concedere al gruppo di Azure AD le autorizzazioni necessarie**, come si fa di norma per gli utenti SQL e altri utenti. Ad esempio, eseguire il codice seguente.
 
     ```sql
     EXEC sp_addrolemember [role name], [your Azure AD group name];
     ```
 
-5. **Configurare un servizio collegato ad Azure SQL Data Warehouse** in Azure Data Factory.
+1. **Configurare un servizio collegato ad Azure SQL Data Warehouse** in Azure Data Factory.
 
 #### <a name="linked-service-example-that-uses-msi-authentication"></a>Esempio di servizio collegato tramite l'autenticazione dell'identità del servizio gestita
 
@@ -398,13 +398,13 @@ PolyBase di SQL Data Warehouse supporta direttamente Archiviazione BLOB di Azure
 Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostazioni e usa automaticamente il meccanismo BULKINSERT per lo spostamento dei dati.
 
 1. Il tipo di **servizio collegato all'origine** è **AzureStorage** o **AzureDataLakeStore** con autenticazione entità servizio.
-2. Il tipo di **set di dati di input** è **AzureBlob** o **AzureDataLakeStoreFile**. Il tipo di formato nelle proprietà `type` è **OrcFormat**, **ParquetFormat** o **TextFormat**, con le configurazioni seguenti:
+1. Il tipo di **set di dati di input** è **AzureBlob** o **AzureDataLakeStoreFile**. Il tipo di formato nelle proprietà `type` è **OrcFormat**, **ParquetFormat** o **TextFormat**, con le configurazioni seguenti:
 
    1. `rowDelimiter` deve essere **\n**.
-   2. `nullValue` è impostato su **una stringa vuota** ("") o come valore predefinito e `treatEmptyAsNull` non è impostato su false.
-   3. `encodingName` è impostato su **utf-8**, ovvero il valore predefinito.
-   4. `escapeChar`, `quoteChar` e `skipLineCount` non sono specificati. Il supporto di PolyBase ignora la riga di intestazione che può essere configurata come `firstRowAsHeader` nella data factory di Azure.
-   5. `compression` può essere **no compression**, **GZip** o **Deflate**.
+   1. `nullValue` è impostato su **una stringa vuota** ("") o come valore predefinito e `treatEmptyAsNull` non è impostato su false.
+   1. `encodingName` è impostato su **utf-8**, ovvero il valore predefinito.
+   1. `escapeChar`, `quoteChar` e `skipLineCount` non sono specificati. Il supporto di PolyBase ignora la riga di intestazione che può essere configurata come `firstRowAsHeader` nella data factory di Azure.
+   1. `compression` può essere **no compression**, **GZip** o **Deflate**.
 
     ```json
     "typeProperties": {

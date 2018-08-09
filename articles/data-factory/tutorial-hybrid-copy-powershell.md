@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d002955bcdb6e521fd3daddc223e07afa50f2208
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 5c80abcfa4fe14bc211bf829f24d190790d80353
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082707"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430805"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server locale all'archivio BLOB di Azure
 In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud. 
@@ -51,13 +51,13 @@ In questa esercitazione si usa un database di SQL Server locale come archivio da
 
 1. Avviare SQL Server Management Studio. Se non è già installato nel computer, passare a [Scaricare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
 
-2. Connettersi all'istanza di SQL Server usando le credenziali. 
+1. Connettersi all'istanza di SQL Server usando le credenziali. 
 
-3. Creare un database di esempio. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse su **Database** e scegliere **Nuovo database**. 
+1. Creare un database di esempio. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse su **Database** e scegliere **Nuovo database**. 
  
-4. Nella finestra **Nuovo database** immettere un nome per il database e fare clic su **OK**. 
+1. Nella finestra **Nuovo database** immettere un nome per il database e fare clic su **OK**. 
 
-5. Per creare la tabella **emp** e inserirvi alcuni dati di esempio, eseguire questo script di query sul database:
+1. Per creare la tabella **emp** e inserirvi alcuni dati di esempio, eseguire questo script di query sul database:
 
    ```
        INSERT INTO emp VALUES ('John', 'Doe')
@@ -65,7 +65,7 @@ In questa esercitazione si usa un database di SQL Server locale come archivio da
        GO
    ```
 
-6. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse sul database creato e scegliere **Nuova query**.
+1. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse sul database creato e scegliere **Nuova query**.
 
 ### <a name="azure-storage-account"></a>Account di archiviazione di Azure
 In questa esercitazione si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB) come archivio dati di destinazione/sink. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account). La pipeline nella data factory creata in questa esercitazione copia i dati dal database di SQL Server locale (origine) a questo archivio BLOB di Azure (sink). 
@@ -75,17 +75,17 @@ In questa esercitazione si usano il nome e la chiave dell'account di archiviazio
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con nome utente e password. 
 
-2. Nel riquadro a sinistra selezionare **Altri servizi**, usare la parola chiave **Archiviazione** come filtro e selezionare **Account di archiviazione**.
+1. Nel riquadro a sinistra selezionare **Altri servizi**, usare la parola chiave **Archiviazione** come filtro e selezionare **Account di archiviazione**.
 
     ![Cercare l'account di archiviazione](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
 
-3. Nell'elenco degli account di archiviazione filtrare, se necessario, e quindi selezionare il proprio account di archiviazione. 
+1. Nell'elenco degli account di archiviazione filtrare, se necessario, e quindi selezionare il proprio account di archiviazione. 
 
-4. Nella finestra **Account di archiviazione** selezionare **Chiavi di accesso**.
+1. Nella finestra **Account di archiviazione** selezionare **Chiavi di accesso**.
 
     ![Recuperare il nome e la chiave dell'account di archiviazione](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
-5. Nelle caselle **Nome account di archiviazione** e **key1** copiare i valori e incollarli nel Blocco note o in un altro editor per usarli in seguito nell'esercitazione. 
+1. Nelle caselle **Nome account di archiviazione** e **key1** copiare i valori e incollarli nel Blocco note o in un altro editor per usarli in seguito nell'esercitazione. 
 
 #### <a name="create-the-adftutorial-container"></a>Creare il contenitore adftutorial 
 In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'archivio BLOB di Azure. 
@@ -94,19 +94,19 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
     ![Selezionare l'opzione BLOB](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-2. Nella finestra **Servizio BLOB** selezionare **Contenitore**. 
+1. Nella finestra **Servizio BLOB** selezionare **Contenitore**. 
 
     ![Pulsante Aggiungi contenitore](media/tutorial-hybrid-copy-powershell/add-container-button.png)
 
-3. Nella finestra di dialogo **Nuovo contenitore** immettere **adftutorial** nella casella **Nome** e fare clic su **OK**. 
+1. Nella finestra di dialogo **Nuovo contenitore** immettere **adftutorial** nella casella **Nome** e fare clic su **OK**. 
 
     ![Immettere il nome del contenitore](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
-4. Selezionare **adftutorial** nell'elenco di contenitori.  
+1. Selezionare **adftutorial** nell'elenco di contenitori.  
 
     ![Selezionare il contenitore](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
-5. Tenere aperta la finestra **Contenitore** per **adftutorial** perché verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
+1. Tenere aperta la finestra **Contenitore** per **adftutorial** perché verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
 
     ![Finestra Contenitore](media/tutorial-hybrid-copy-powershell/container-page.png)
 
@@ -117,9 +117,9 @@ Installare la versione più recente di Azure PowerShell, se non è già presente
 
 1. Passare alla pagina di [download degli SDK di Azure](https://azure.microsoft.com/downloads/). 
 
-2. In **Strumenti da riga di comando**, sezione **PowerShell**, selezionare **Windows - Installazione**. 
+1. In **Strumenti da riga di comando**, sezione **PowerShell**, selezionare **Windows - Installazione**. 
 
-3. Per installare Azure PowerShell, eseguire il file MSI. 
+1. Per installare Azure PowerShell, eseguire il file MSI. 
 
 Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
@@ -129,13 +129,13 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
 
     ![Avviare PowerShell](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 
-2. Eseguire questo comando e immettere il nome utente e la password di Azure usati per accedere al portale di Azure:
+1. Eseguire questo comando e immettere il nome utente e la password di Azure usati per accedere al portale di Azure:
        
     ```powershell
     Connect-AzureRmAccount
     ```        
 
-3. Se si hanno più sottoscrizioni di Azure, eseguire questo comando per selezionare la sottoscrizione che si vuole usare. Sostituire **SubscriptionId** con l'ID della sottoscrizione di Azure:
+1. Se si hanno più sottoscrizioni di Azure, eseguire questo comando per selezionare la sottoscrizione che si vuole usare. Sostituire **SubscriptionId** con l'ID della sottoscrizione di Azure:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
@@ -149,7 +149,7 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
     $resourceGroupName = "ADFTutorialResourceGroup"
     ```
 
-2. Per creare il gruppo di risorse di Azure, eseguire questo comando: 
+1. Per creare il gruppo di risorse di Azure, eseguire questo comando: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
@@ -157,7 +157,7 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
 
     Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$resourceGroupName` ed eseguire di nuovo il comando.
 
-3. Definire una variabile per il nome della data factory utilizzabile in seguito nei comandi di PowerShell. Il nome deve iniziare con una lettera o un numero e può contenere solo lettere, numeri e il carattere trattino (-).
+1. Definire una variabile per il nome della data factory utilizzabile in seguito nei comandi di PowerShell. Il nome deve iniziare con una lettera o un numero e può contenere solo lettere, numeri e il carattere trattino (-).
 
     > [!IMPORTANT]
     >  Aggiornare il nome della data factory in modo che sia univoco a livello globale, ad esempio ADFTutorialFactorySP1127. 
@@ -166,13 +166,13 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
     $dataFactoryName = "ADFTutorialFactory"
     ```
 
-4. Definire una variabile per la località della data factory: 
+1. Definire una variabile per la località della data factory: 
 
     ```powershell
     $location = "East US"
     ```  
 
-5. Per creare la data factory, eseguire il cmdlet `Set-AzureRmDataFactoryV2` seguente: 
+1. Per creare la data factory, eseguire il cmdlet `Set-AzureRmDataFactoryV2` seguente: 
     
     ```powershell       
     Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
@@ -199,7 +199,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
-2. Creare un runtime di integrazione self-hosted. 
+1. Creare un runtime di integrazione self-hosted. 
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -215,7 +215,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
     Description       : selfhosted IR description
     ```
 
-3. Eseguire questo comando per recuperare lo stato del runtime di integrazione creato:
+1. Eseguire questo comando per recuperare lo stato del runtime di integrazione creato:
 
     ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
@@ -240,7 +240,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
     State                     : NeedRegistration
     ```
 
-4. Eseguire questo comando per recuperare le *chiavi di autenticazione* per la registrazione del runtime di integrazione self-hosted nel servizio Data Factory nel cloud. Copiare una delle chiavi (escluse le virgolette) per la registrazione del runtime di integrazione self-hosted che si installerà nel computer nel passaggio successivo. 
+1. Eseguire questo comando per recuperare le *chiavi di autenticazione* per la registrazione del runtime di integrazione self-hosted nel servizio Data Factory nel cloud. Copiare una delle chiavi (escluse le virgolette) per la registrazione del runtime di integrazione self-hosted che si installerà nel computer nel passaggio successivo. 
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -258,21 +258,21 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 ## <a name="install-the-integration-runtime"></a>Installare il runtime di integrazione
 1. Scaricare [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) in un computer Windows locale, quindi eseguire l'installazione. 
 
-2. Nella pagina iniziale dell'**installazione guidata di Microsoft Integration Runtime** fare clic su **Avanti**.  
+1. Nella pagina iniziale dell'**installazione guidata di Microsoft Integration Runtime** fare clic su **Avanti**.  
 
-3. Nella finestra **Contratto di licenza con l'utente finale** accettare le condizioni e fare clic su **Avanti**. 
+1. Nella finestra **Contratto di licenza con l'utente finale** accettare le condizioni e fare clic su **Avanti**. 
 
-4. Nella finestra **Cartella di destinazione** fare clic su **Avanti**. 
+1. Nella finestra **Cartella di destinazione** fare clic su **Avanti**. 
 
-5. Nella pagina **Pronto per l'installazione** fare clic su **Installa**. 
+1. Nella pagina **Pronto per l'installazione** fare clic su **Installa**. 
 
-6. Se viene visualizzato un messaggio di avviso relativo al computer configurato per passare alla modalità di sospensione o di ibernazione quando non è in uso, fare clic su **OK**. 
+1. Se viene visualizzato un messaggio di avviso relativo al computer configurato per passare alla modalità di sospensione o di ibernazione quando non è in uso, fare clic su **OK**. 
 
-7. Se viene visualizzata la finestra **Opzioni risparmio energia**, chiuderla e passare alla finestra di configurazione. 
+1. Se viene visualizzata la finestra **Opzioni risparmio energia**, chiuderla e passare alla finestra di configurazione. 
 
-8. Nella pagina **Installazione di Microsoft Integration Runtime completata** fare clic su **Fine**.
+1. Nella pagina **Installazione di Microsoft Integration Runtime completata** fare clic su **Fine**.
 
-9. Nella finestra **Registra Runtime di integrazione (self-hosted)** incollare la chiave salvata nella sezione precedente e fare clic su **Registra**. 
+1. Nella finestra **Registra Runtime di integrazione (self-hosted)** incollare la chiave salvata nella sezione precedente e fare clic su **Registra**. 
 
     ![Registrare il runtime di integrazione](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
@@ -280,22 +280,22 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
     ![Registrazione completata](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-10. Nella finestra **Nuovo nodo di Runtime di integrazione (self-hosted)** fare clic su **Avanti**. 
+1. Nella finestra **Nuovo nodo di Runtime di integrazione (self-hosted)** fare clic su **Avanti**. 
 
     ![Finestra Nuovo nodo di Runtime di integrazione](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
-11. Nella finestra **Canale di comunicazione Intranet** fare clic su **Ignora**.  
+1. Nella finestra **Canale di comunicazione Intranet** fare clic su **Ignora**.  
     È possibile selezionare un certificato TLS/SSL per proteggere la comunicazione tra nodi in un ambiente di runtime di integrazione di più nodi.
 
     ![Finestra Canale di comunicazione Intranet](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
 
-12. Nella finestra **Registra Runtime di integrazione (self-hosted)** fare clic su **Avvia Configuration Manager**. 
+1. Nella finestra **Registra Runtime di integrazione (self-hosted)** fare clic su **Avvia Configuration Manager**. 
 
-13. Quando il nodo viene connesso al servizio cloud, viene visualizzato il messaggio seguente:
+1. Quando il nodo viene connesso al servizio cloud, viene visualizzato il messaggio seguente:
 
     ![Connessione del nodo](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-14. Testare la connettività al database di SQL Server nel modo seguente:
+1. Testare la connettività al database di SQL Server nel modo seguente:
 
     ![Scheda Diagnostica](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)   
 
@@ -344,9 +344,9 @@ In questo passaggio, l'account di archiviazione di Azure viene collegato alla da
     }
    ```
 
-2. In PowerShell passare alla cartella *C:\ADFv2Tutorial*.
+1. In PowerShell passare alla cartella *C:\ADFv2Tutorial*.
 
-3. Eseguire il cmdlet `Set-AzureRmDataFactoryV2LinkedService` seguente per creare il servizio collegato denominato AzureStorageLinkedService: 
+1. Eseguire il cmdlet `Set-AzureRmDataFactoryV2LinkedService` seguente per creare il servizio collegato denominato AzureStorageLinkedService: 
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -424,14 +424,14 @@ In questo passaggio si collega l'istanza di SQL Server locale alla data factory.
     > - Prima di salvare il file, sostituire **\<servername>**, **\<databasename>**, **\<username>** e **\<password>** con i valori dell'istanza di SQL Server.
     > - Se è necessario usare una barra rovesciata (\\) nell'account utente o nel nome del server, farla precedere dal carattere di escape (\\). Ad esempio, usare *mydomain\\\\myuser*. 
 
-2. Per crittografare i dati sensibili (nome utente, password e così via), eseguire il cmdlet `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential`.  
+1. Per crittografare i dati sensibili (nome utente, password e così via), eseguire il cmdlet `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential`.  
     Con questa crittografia, le credenziali vengono crittografate con Data Protection API (DPAPI). Le credenziali crittografate vengono archiviate in locale (computer locale) nel nodo del runtime di integrazione self-hosted. Il payload di output può essere reindirizzato a un altro file JSON (in questo caso *encryptedLinkedService.json*) che contiene le credenziali crittografate.
     
    ```powershell
    New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
-3. Eseguire questo comando, che crea EncryptedSqlServerLinkedService:
+1. Eseguire questo comando, che crea EncryptedSqlServerLinkedService:
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
@@ -476,7 +476,7 @@ In questo passaggio si definisce un set di dati che rappresenta i dati nell'ista
     }
     ```
 
-2. Per creare il set di dati SqlServerDataset, eseguire il cmdlet `Set-AzureRmDataFactoryV2Dataset`.
+1. Per creare il set di dati SqlServerDataset, eseguire il cmdlet `Set-AzureRmDataFactoryV2Dataset`.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
@@ -518,7 +518,7 @@ Il servizio collegato ha le informazioni di connessione usate da Data Factory in
     }
     ```
 
-2. Per creare il set di dati AzureBlobDataset, eseguire il cmdlet `Set-AzureRmDataFactoryV2Dataset`.
+1. Per creare il set di dati AzureBlobDataset, eseguire il cmdlet `Set-AzureRmDataFactoryV2Dataset`.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
@@ -573,7 +573,7 @@ In questa esercitazione viene creata una pipeline con un'attività di copia. L'a
     }
     ```
 
-2. Eseguire il cmdlet `Set-AzureRmDataFactoryV2Pipeline` per creare la pipeline SQLServerToBlobPipeline.
+1. Eseguire il cmdlet `Set-AzureRmDataFactoryV2Pipeline` per creare la pipeline SQLServerToBlobPipeline.
 
     ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
@@ -634,7 +634,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
     Error             : {errorCode, message, failureType, target}
     ```
 
-2. È possibile ottenere l'ID di esecuzione della pipeline SQLServerToBlobPipeline e verificare il risultato dettagliato dell'esecuzione dell'attività usando il comando seguente: 
+1. È possibile ottenere l'ID di esecuzione della pipeline SQLServerToBlobPipeline e verificare il risultato dettagliato dell'esecuzione dell'attività usando il comando seguente: 
 
     ```powershell
     Write-Host "Pipeline 'SQLServerToBlobPipeline' run result:" -foregroundcolor "Yellow"
@@ -662,8 +662,8 @@ La pipeline crea automaticamente la cartella di output denominata *fromonprem* n
 1. Nella finestra del contenitore **adftutorial** del portale di Azure fare clic su **Aggiorna** per visualizzare la cartella di output.
 
     ![Cartella di output creata](media/tutorial-hybrid-copy-powershell/fromonprem-folder.png)
-2. Selezionare `fromonprem` nell'elenco di cartelle. 
-3. Verificare che venga visualizzato un file denominato `dbo.emp.txt`.
+1. Selezionare `fromonprem` nell'elenco di cartelle. 
+1. Verificare che venga visualizzato un file denominato `dbo.emp.txt`.
 
     ![File di output](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
 

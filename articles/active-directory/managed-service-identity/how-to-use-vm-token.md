@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 42ac1cc7dd50f46ada263089437740e680928e70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325456"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596053"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Come usare un'identità del servizio gestito di una macchina virtuale di Azure per l'acquisizione di token 
 
@@ -44,7 +44,7 @@ Se si prevede di usare gli esempi di Azure PowerShell presenti in questo articol
 
 ## <a name="overview"></a>Panoramica
 
-Un'applicazione client può richiedere un [token di accesso solo app](../develop/active-directory-dev-glossary.md#access-token) dell'identità del servizio gestita per accedere a una determinata risorsa. Il token è [basato sull'entità servizio dell'identità del servizio gestito](overview.md#how-does-it-work). Non è quindi necessario la registrazione del client per ottenere un token di accesso nell'ambito della propria entità servizio. Il token è adatto per l'uso come token di connessione nelle [chiamate da servizio a servizio che richiedono le credenziali client](../develop/active-directory-protocols-oauth-service-to-service.md).
+Un'applicazione client può richiedere un [token di accesso solo app](../develop/developer-glossary.md#access-token) dell'identità del servizio gestita per accedere a una determinata risorsa. Il token è [basato sull'entità servizio dell'identità del servizio gestito](overview.md#how-does-it-work). Non è quindi necessario la registrazione del client per ottenere un token di accesso nell'ambito della propria entità servizio. Il token è adatto per l'uso come token di connessione nelle [chiamate da servizio a servizio che richiedono le credenziali client](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

@@ -2,19 +2,20 @@
 title: Informazioni dettagliate sulle prestazioni delle query per il database SQL di Azure | Documentazione Microsoft
 description: Il monitoraggio delle prestazioni delle query identifica le query principali a livello di utilizzo di CPU per un database SQL di Azure.
 services: sql-database
-author: stevestein
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: f608beb0834b1c838b082e92340ebf9b650d8b3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 5069b4e69c53ed93e9018cef2517f6125b838d12
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648735"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524166"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Query Performance Insight del database SQL di Azure
 La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'attività complessa che richiede un'esperienza significativa e un investimento elevato in termini di tempo. Le Informazioni dettagliate sulle prestazioni delle query consentono di dedicare meno tempo alla risoluzione dei problemi delle prestazioni del database, offrendo i vantaggi seguenti:​
@@ -26,7 +27,7 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' [archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia attivo nel database. Se l'archivio query non è in esecuzione, il portale richiede di attivarlo.
 
 ## <a name="permissions"></a>Autorizzazioni

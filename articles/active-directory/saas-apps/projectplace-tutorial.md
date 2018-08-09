@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 0ad1c1e66ac0719889760d4685607bd6e5f39f1f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4bbe1fc855dfaf637f5893fff795f47b50bd80c6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046068"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>Esercitazione: Integrazione di Azure Active Directory con Projectplace
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Projectplace dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-projectplace-from-the-gallery"></a>Aggiunta di Projectplace dalla raccolta
 Per configurare l'integrazione di Projectplace in Azure AD, è necessario aggiungere Projectplace dalla raccolta all'elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di Projectplace in Azure AD, è necessario aggiun
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **Projectplace**.
+1. Nella casella di ricerca digitare **Projectplace**.
 
     ![Creazione di un utente test di Azure AD](./media/projectplace-tutorial/tutorial_projectplace_search.png)
 
-5. Nel pannello dei risultati selezionare **Projectplace** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **Projectplace** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/projectplace-tutorial/tutorial_projectplace_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Per stabilire la relazione di collegamento, in Projectplace assegnare il valore 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Projectplace, è necessario completare le procedure di base seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di Projectplace](#creating-a-projectplace-test-user)**: per avere una controparte di Britta Simon in Projectplace collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente di test di Projectplace](#creating-a-projectplace-test-user)**: per avere una controparte di Britta Simon in Projectplace collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_projectplace_samlbase.png)
 
-3. Nella sezione **URL e dominio Projectplace** seguire questa procedura:
+1. Nella sezione **URL e dominio Projectplace** seguire questa procedura:
 
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_projectplace_url.png)
 
@@ -117,15 +117,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto di Projectplace](https://success.planview.com/Projectplace/Support). 
  
-4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_projectplace_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_general_400.png)
 
-7. Per configurare l'accesso Single Sign-On sul lato **Projectplace**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Projectplace](https://success.planview.com/Projectplace/Support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **Projectplace**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Projectplace](https://success.planview.com/Projectplace/Support). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 >[!NOTE]
 >La configurazione dell'accesso Single Sign-On deve essere eseguita dal [team di supporto di Projectplace](https://success.planview.com/Projectplace/Support). Al termine della configurazione, viene ricevuta una notifica.
@@ -144,15 +144,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/projectplace-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/projectplace-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/projectplace-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/projectplace-tutorial/create_aaduser_04.png) 
 
@@ -162,7 +162,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-projectplace-test-user"></a>Creazione di un utente di test di Projectplace
 
@@ -172,15 +172,15 @@ Per consentire agli utenti di Azure AD di accedere a Projectplace, è necessario
 
 1. Accedere al sito aziendale di **Projectplace** come amministratore.
 
-2. Passare a **Persone**, quindi fare clic su **Membri**.
+1. Passare a **Persone**, quindi fare clic su **Membri**.
    
     ![Persone](./media/projectplace-tutorial/ic790228.png "Persone")
 
-3. Fare clic su **Aggiungi membro**.
+1. Fare clic su **Aggiungi membro**.
    
     ![Aggiungere membri](./media/projectplace-tutorial/ic790232.png "Aggiungere membri")
 
-4. Nella sezione **Aggiungi membro** , eseguire la procedura seguente:
+1. Nella sezione **Aggiungi membro** , eseguire la procedura seguente:
    
     ![Nuovi membri](./media/projectplace-tutorial/ic790233.png "Nuovi membri")
    
@@ -205,23 +205,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **Projectplace**.
+1. Nell'elenco delle applicazioni selezionare **Projectplace**.
 
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_projectplace_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

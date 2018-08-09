@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f58a8d76cc46ac25474c7b91e464974612876a06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f14a7aabbdf815992e0777eaf5335a69570ce2e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164955"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429251"
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuire e usare il Registro contenitori di Azure
 
@@ -39,13 +39,13 @@ Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4
 
 Prima di distribuire un Registro contenitori di Azure, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). In questo esempio viene creato un gruppo di risorse denominato `myResourceGroup` nell'area `westeurope`.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). In questo esempio viene creato un gruppo di risorse denominato `myResourceGroup` nell'area `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Creare un Registro contenitori di Azure con il comando [az acr create](/cli/azure/acr#az_acr_create). Il nome di un registro contenitori **deve essere univoco**.
+Creare un Registro contenitori di Azure con il comando [az acr create](/cli/azure/acr#az-acr-create). Il nome di un registro contenitori **deve essere univoco**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -55,7 +55,7 @@ Nella parte restante di questa esercitazione si usa `<acrname>` come segnaposto 
 
 ## <a name="container-registry-login"></a>Accesso al registro contenitori
 
-Usare il comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) per accedere all'istanza del Registro contenitori di Azure. È necessario specificare il nome univoco assegnato al registro contenitori al momento della creazione.
+Usare il comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) per accedere all'istanza del Registro contenitori di Azure. È necessario specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 
 ```azurecli
 az acr login --name <acrName>
@@ -124,7 +124,7 @@ Il completamento dell'operazione richiede alcuni minuti.
 
 ## <a name="list-images-in-registry"></a>Elencare le immagini nel registro
 
-Per restituire un elenco di immagini di cui è stato eseguito il push nel Registro contenitori di Azure, usare il comando [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Aggiornare il comando con il nome dell'istanza del Registro contenitori di Azure.
+Per restituire un elenco di immagini di cui è stato eseguito il push nel Registro contenitori di Azure, usare il comando [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list). Aggiornare il comando con il nome dell'istanza del Registro contenitori di Azure.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
