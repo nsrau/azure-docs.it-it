@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: cdb59a7078b3bbce112356b61e19702fb6ed9df1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0e67e97a68ca333dff366dd5e0222c96a1022557
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228724"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425273"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Esercitazione: Integrazione di Azure Active Directory con iLMS
 
@@ -33,7 +33,7 @@ L'integrazione di iLMS con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con iLMS sono necessari gli elementi seguenti:
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di iLMS dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-ilms-from-the-gallery"></a>Aggiunta di iLMS dalla raccolta
 Per configurare l'integrazione di iLMS in Azure AD, è necessario aggiungere iLMS dalla raccolta al proprio elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di iLMS in Azure AD, è necessario aggiungere iLM
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Per aggiungere una nuova applicazione, fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
+1. Per aggiungere una nuova applicazione, fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **iLMS**.
+1. Nella casella di ricerca digitare **iLMS**.
 
     ![Creazione di un utente test di Azure AD](./media/ilms-tutorial/tutorial_ilms_search.png)
 
-5. Nel pannello dei risultati selezionare **iLMS** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **iLMS** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/ilms-tutorial/tutorial_ilms_addfromgallery.png)
 
@@ -89,10 +89,10 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 Per configurare e testare l'accesso Single Sign-On di Azure AD con iLMS, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di iLMS](#creating-an-ilms-test-user)** : per avere una controparte di Britta Simon in iLMS collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente di test di iLMS](#creating-an-ilms-test-user)** : per avere una controparte di Britta Simon in iLMS collegata alla relativa rappresentazione in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_samlbase.png)
 
-3. Nella sezione **URL e dominio iLMS** se si vuole configurare l'applicazione in modalità avviata da **IDP**, seguire questa procedura:
+1. Nella sezione **URL e dominio iLMS** se si vuole configurare l'applicazione in modalità avviata da **IDP**, seguire questa procedura:
 
     ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_url.png)
 
@@ -119,13 +119,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     >[!Note]
     >Questo '123456' è un valore di esempio dell'identificatore.
 
-4. Selezionare **Mostra impostazioni URL avanzate**, se si desidera configurare l'applicazione in modalità avviata da **SP**:
+1. Selezionare **Mostra impostazioni URL avanzate**, se si desidera configurare l'applicazione in modalità avviata da **SP**:
 
     ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_url1.png)
 
     Nella casella di testo **URL di accesso** incollare il valore **Endpoint (URL)** copiato dalla sezione **Provider di servizi** delle impostazioni SAML nel portale di amministrazione come `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
-5. Per abilitare il provisioning JIT, l'applicazione iLMS si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
+1. Per abilitare il provisioning JIT, l'applicazione iLMS si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
     
     ![Configure Single Sign-On](./media/ilms-tutorial/4.png)
     
@@ -134,7 +134,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > È necessario abilitare **Create Un-recognized User Account** (Crea account utente non riconosciuto) in iLMS per eseguire il mapping di questi attributi. Seguire le istruzioni [qui](http://support.inspiredelearning.com/customer/portal/articles/2204526) per avere un'idea della configurazione degli attributi.
 
-6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente e seguire questa procedura:
+1. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente e seguire questa procedura:
     
     | Nome attributo | Valore attributo |
     | ---------------| --------------- |    
@@ -154,17 +154,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. Fare clic su **Ok**
 
-7. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
     ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_certificate.png) 
 
-8. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_general_400.png)
 
-9. In un'altra finestra del Web browser accedere al **portale di amministrazione di iLMS** come amministratore.
+1. In un'altra finestra del Web browser accedere al **portale di amministrazione di iLMS** come amministratore.
 
-10. Fare clic su **SSO:SAML** nella scheda **Impostazioni** per aprire le impostazioni di SAML ed eseguire la procedura seguente:
+1. Fare clic su **SSO:SAML** nella scheda **Impostazioni** per aprire le impostazioni di SAML ed eseguire la procedura seguente:
     
     ![Configure Single Sign-On](./media/ilms-tutorial/1.png) 
 
@@ -198,7 +198,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
         
        - Selezionare **Send Error Notification Email** (Invia una notifica di errore via posta elettronica) e immettere l'indirizzo di posta elettronica dell'utente a cui si desidera ricevere la notifica di errore.
 
-11. Fare clic sul pulsante **Save** (Salva) per salvare le impostazioni.
+1. Fare clic sul pulsante **Save** (Salva) per salvare le impostazioni.
 
     ![Configure Single Sign-On](./media/ilms-tutorial/save.png)
 
@@ -216,15 +216,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/ilms-tutorial/create_aaduser_01.png) 
 
-2. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/ilms-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/ilms-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/ilms-tutorial/create_aaduser_04.png) 
 
@@ -234,7 +234,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-an-ilms-test-user"></a>Creazione di un utente test di iLMS
 
@@ -244,11 +244,11 @@ Se è necessario creare manualmente un utente, seguire la seguente procedura:
 
 1. Accedere al sito aziendale di iLMS come amministratore.
 
-2. Fare clic su **"Register User"** (Registra utente) nella scheda **Users** (Utenti) per aprire la pagina **Register User** (Registra utente). 
+1. Fare clic su **"Register User"** (Registra utente) nella scheda **Users** (Utenti) per aprire la pagina **Register User** (Registra utente). 
    
    ![Aggiungere un dipendente](./media/ilms-tutorial/3.png)
 
-3. Nella pagina **"Register User"** (Registra utente) eseguire la procedura seguente.
+1. Nella pagina **"Register User"** (Registra utente) eseguire la procedura seguente.
 
     ![Aggiungere un dipendente](./media/ilms-tutorial/create_testuser_add.png)
 
@@ -281,23 +281,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **iLMS**.
+1. Nell'elenco delle applicazioni selezionare **iLMS**.
 
     ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

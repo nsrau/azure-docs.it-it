@@ -2,24 +2,18 @@
 title: Recupero di informazioni sullo stato per un processo di importazione/esportazione di Azure | Documentazione Microsoft
 description: Informazioni su come ottenere informazioni sullo stato per i processi del servizio Importazione/Esportazione di Microsoft Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 76b2f73442261da4c791aaae8532d7a0dbbb6d95
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059906"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520607"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recupero delle informazioni sullo stato per un processo di Importazione/Esportazione di Azure
 È possibile chiamare l'operazione [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) per recuperare informazioni su entrambi i processi: importazione ed esportazione. Le informazioni restituite includono:

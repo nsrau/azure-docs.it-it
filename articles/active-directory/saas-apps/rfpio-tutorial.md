@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 59b05814be0be9042e7507cc8d928b5f5feb80ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 04ba94e3263af03279b74b4832b8291ad6414274
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051762"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Esercitazione: Integrazione di Azure Active Directory con RFPIO
 
@@ -52,7 +52,7 @@ A questo scopo, seguire queste indicazioni:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di RFPIO dalla raccolta.
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD.
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD.
 
 ## <a name="add-rfpio-from-the-gallery"></a>Aggiungere RFPIO dalla raccolta
 Per configurare l'integrazione di RFPIO in Azure AD, è necessario aggiungere RFPIO dalla raccolta al proprio elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di RFPIO in Azure AD, è necessario aggiungere RF
 
     ![Active Directory][1]
 
-2. Selezionare **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Selezionare **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Per aggiungere una nuova applicazione selezionare il pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
+1. Per aggiungere una nuova applicazione selezionare il pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **RFPIO**.
+1. Nella casella di ricerca digitare **RFPIO**.
 
     ![Creazione di un utente test di Azure AD](./media/rfpio-tutorial/tutorial_rfpio_search.png)
 
-5. Nel pannello dei risultati selezionare **RFPIO** e quindi selezionare il pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **RFPIO** e quindi selezionare il pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/rfpio-tutorial/tutorial_rfpio_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Per stabilire la relazione di collegamento, in RFPIO assegnare il valore del **n
 Per configurare e testare l'accesso Single Sign-On di Azure AD con RFPIO, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di RFPIO](#creating-a-rfpio-test-user)**: per avere una controparte di Britta Simon in RFPIO collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#testing-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di RFPIO](#creating-a-rfpio-test-user)**: per avere una controparte di Britta Simon in RFPIO collegata alla relativa rappresentazione in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#testing-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/rfpio-tutorial/tutorial_rfpio_samlbase.png)
 
-3. Nella sezione **URL e dominio RFPIO**, se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **URL e dominio RFPIO**, se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/tutorial_rfpio_url.png)
 
@@ -120,39 +120,39 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Nella casella di testo **Stato dell'inoltro** immettere un valore stringa. Per ottenere tale valore, contattare il [team di supporto di RFPIO](https://www.rfpio.com/contact/). 
 
-4. Selezionare **Mostra impostazioni URL avanzate** se si desidera configurare l'applicazione in modalità avviata da **SP**: 
+1. Selezionare **Mostra impostazioni URL avanzate** se si desidera configurare l'applicazione in modalità avviata da **SP**: 
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/tutorial_rfpio_url2.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL: `https://www.app.rfpio.com`
 
-5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/tutorial_rfpio_certificate.png) 
 
-6. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/tutorial_general_400.png)
 
-7. In un'altra finestra del Web browser accedere al sito Web **RFPIO** come amministratore.
+1. In un'altra finestra del Web browser accedere al sito Web **RFPIO** come amministratore.
 
-8. Fare clic sull'elenco a discesa a sinistra nella parte inferiore.
+1. Fare clic sull'elenco a discesa a sinistra nella parte inferiore.
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app1.png)
 
-9. Fare clic su di **Impostazioni organizzazione**. 
+1. Fare clic su di **Impostazioni organizzazione**. 
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app2.png)
 
-10. Fare clic sulla sezione relativa a **FUNZIONALITÀ E INTEGRAZIONE**.
+1. Fare clic sulla sezione relativa a **FUNZIONALITÀ E INTEGRAZIONE**.
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app4.png)
 
-11. In **SAML Configurazione SSO** fare clic su **Modifica**.
+1. In **SAML Configurazione SSO** fare clic su **Modifica**.
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app3.png)
 
-12. In questa sezione eseguire le seguenti operazioni:
+1. In questa sezione eseguire le seguenti operazioni:
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app5.png)
     
@@ -182,15 +182,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/rfpio-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/rfpio-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/rfpio-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/rfpio-tutorial/create_aaduser_04.png) 
 
@@ -200,7 +200,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-rfpio-test-user"></a>Creare un utente di test di RFPIO
 
@@ -211,23 +211,23 @@ Nel caso di RFPIO, il provisioning è un'attività manuale.
 
 1. Accedere al sito aziendale di RFPIO come amministratore.
 
-2. Fare clic sull'elenco a discesa a sinistra nella parte inferiore.
+1. Fare clic sull'elenco a discesa a sinistra nella parte inferiore.
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app1.png)
 
-3. Fare clic su di **Impostazioni organizzazione**. 
+1. Fare clic su di **Impostazioni organizzazione**. 
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app2.png)
 
-4. Fare clic su **MEMBRI DEL TEAM**.
+1. Fare clic su **MEMBRI DEL TEAM**.
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app6.png)
 
-5. Fare clic su **AGGIUNGI MEMBRI**.
+1. Fare clic su **AGGIUNGI MEMBRI**.
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app7.png)
 
-6. Nella sezione **Aggiungere nuovi membri**. eseguire le seguenti operazioni:
+1. Nella sezione **Aggiungere nuovi membri**. eseguire le seguenti operazioni:
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/app8.png)
 
@@ -252,23 +252,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **RFPIO**.
+1. Nell'elenco delle applicazioni selezionare **RFPIO**.
 
     ![Configure Single Sign-On](./media/rfpio-tutorial/tutorial_rfpio_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

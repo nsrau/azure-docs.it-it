@@ -2,24 +2,18 @@
 title: Uso dello strumento Importazione/Esportazione di Azure - versione 1 | Documentazione Microsoft
 description: Informazioni su come usare lo strumento Importazione/Esportazione per preparare i dischi rigidi per un processo di importazione o per ripristinare un processo di importazione o esportazione.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: f77535bb-d577-438a-bdd3-e15a82e0c543
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 4ce2273cc0dcc456c2edc8c5dd2fc22496f20380
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 90b5697da0f134ccb3c9ddb66b5da138c8849189
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059356"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523411"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Utilizzo dello strumento di importazione/esportazione di Azure (modello di distribuzione classica)
 

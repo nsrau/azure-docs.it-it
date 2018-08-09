@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d76a8996f7ccc6a7b6df2f8e1fe52568dbd725db
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210799"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426905"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Esercitazione: Configurare ServiceNow per il provisioning utenti automatico con Azure Active Directory
 
@@ -29,7 +29,7 @@ Questa esercitazione descrive le procedure da eseguire in ServiceNow e Azure AD 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](./../active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con ServiceNow, sono necessari gli elementi seguenti:
 
@@ -68,15 +68,15 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni**.
 
-2. Se ServiceNow è già stato configurato per l'accesso Single Sign-On, cercare l'istanza di ServiceNow usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **ServiceNow** nella raccolta di applicazioni. Selezionare ServiceNow nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
+1. Se ServiceNow è già stato configurato per l'accesso Single Sign-On, cercare l'istanza di ServiceNow usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **ServiceNow** nella raccolta di applicazioni. Selezionare ServiceNow nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
-3. Selezionare l'istanza di ServiceNow e quindi la scheda **Provisioning**.
+1. Selezionare l'istanza di ServiceNow e quindi la scheda **Provisioning**.
 
-4. Impostare **Modalità di provisioning** su **Automatico**. 
+1. Impostare **Modalità di provisioning** su **Automatico**. 
 
     ![provisioning](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-5. Nella sezione Credenziali amministratore, seguire questa procedura:
+1. Nella sezione Credenziali amministratore, seguire questa procedura:
    
     a. Nella casella di testo **Nome istanza ServiceNow** digitare il nome dell'istanza di ServiceNow.
 
@@ -84,19 +84,19 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
     c. Nella casella di testo **ServiceNow Admin Password** (Password amministratore ServiceNow) digitare la password dell'amministratore.
 
-6. Nel portale di Azure fare clic su **Verifica connessione** per verificare che Azure AD possa connettersi all'app ServiceNow. Se la connessione non riesce, verificare che l'account ServiceNow abbia autorizzazioni di amministratore di team e ripetere il passaggio **"Credenziali amministratore"**.
+1. Nel portale di Azure fare clic su **Verifica connessione** per verificare che Azure AD possa connettersi all'app ServiceNow. Se la connessione non riesce, verificare che l'account ServiceNow abbia autorizzazioni di amministratore di team e ripetere il passaggio **"Credenziali amministratore"**.
 
-7. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
+1. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
 
-8. Fare clic su **Salva**.
+1. Fare clic su **Salva**.
 
-9. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to ServiceNow** (Sincronizza utenti di Azure Active Directory in ServiceNow).
+1. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to ServiceNow** (Sincronizza utenti di Azure Active Directory in ServiceNow).
 
-10. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD in ServiceNow. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in ServiceNow per le operazioni di aggiornamento. Selezionare il pulsante Salva per eseguire il commit delle modifiche.
+1. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD in ServiceNow. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in ServiceNow per le operazioni di aggiornamento. Selezionare il pulsante Salva per eseguire il commit delle modifiche.
 
-11. Per abilitare il servizio di provisioning di Azure AD per ServiceNow, impostare **Stato del provisioning** su **On** (Attivo) nella sezione Impostazioni
+1. Per abilitare il servizio di provisioning di Azure AD per ServiceNow, impostare **Stato del provisioning** su **On** (Attivo) nella sezione Impostazioni
 
-12. Fare clic su **Salva**.
+1. Fare clic su **Salva**.
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a ServiceNow nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app ServiceNow.
 

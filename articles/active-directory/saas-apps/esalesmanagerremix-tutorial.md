@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 235ba5fd1365ed8b400edce3db22420369540cce
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d96fd1eacc98e88dc8578b259781cc661cf85933
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052670"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442830"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrare Azure Active Directory con E Sales Manager Remix
 
@@ -64,15 +64,15 @@ Per configurare l'integrazione di Azure AD con E Sales Manager Remix, aggiungere
 
     ![Pulsante Azure Active Directory][1]
 
-2. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
+1. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
 
     ![Finestra "Applicazioni aziendali"][2]
     
-3. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** nella parte superiore della finestra.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** nella parte superiore della finestra.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **E Sales Manager Remix**, selezionare **E Sales Manager Remix** nell'elenco dei risultati e quindi selezionare **Aggiungi**.
+1. Nella casella di ricerca digitare **E Sales Manager Remix**, selezionare **E Sales Manager Remix** nell'elenco dei risultati e quindi selezionare **Aggiungi**.
 
     ![E Sales Manager Remix nell'elenco dei risultati](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -92,11 +92,11 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     ![Collegamento "Single Sign-On"][4]
 
-2. Nella finestra **Single Sign-On** selezionare **Accesso basato su SAML** nella casella **Modalità Single Sign-On**.
+1. Nella finestra **Single Sign-On** selezionare **Accesso basato su SAML** nella casella **Modalità Single Sign-On**.
  
     ![Finestra "Single Sign-On"](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-3. In **URL e dominio E Sales Manager Remix Domain** eseguire queste operazioni:
+1. In **URL e dominio E Sales Manager Remix Domain** eseguire queste operazioni:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
@@ -109,47 +109,47 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
     > [!NOTE] 
     > I valori precedenti non sono valori reali. Aggiornarli con l'URL e l'identificatore di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di E Sales Manager Remix](mailto:esupport@softbrain.co.jp).
 
-4. In **Certificato di firma SAML** selezionare **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+1. In **Certificato di firma SAML** selezionare **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Collegamento di download del certificato (Base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-5. Selezionare la casella di controllo **Visualizza e modifica tutti gli altri attributi utente** e quindi selezionare l'attributo **emailaddress**.
+1. Selezionare la casella di controllo **Visualizza e modifica tutti gli altri attributi utente** e quindi selezionare l'attributo **emailaddress**.
     
     ![Finestra Attributi utente](./media/esalesmanagerremix-tutorial/configure1.png)
 
     Viene visualizzata la finestra **Modifica attributo**.
 
-6. Copiare i valori di **Spazio dei nomi** e **Nome**. Generare il valore nel formato *\<Spazio dei nomi>/\<Nome>* e salvarlo, perché verrà usato successivamente in questa esercitazione.
+1. Copiare i valori di **Spazio dei nomi** e **Nome**. Generare il valore nel formato *\<Spazio dei nomi>/\<Nome>* e salvarlo, perché verrà usato successivamente in questa esercitazione.
 
     ![Finestra Modifica attributo](./media/esalesmanagerremix-tutorial/configure2.png)
 
-7. In **Configurazione di E Sales Manager Remix** selezionare **Configura E Sales Manager Remix**.
+1. In **Configurazione di E Sales Manager Remix** selezionare **Configura E Sales Manager Remix**.
 
     ![Configurazione di E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     Viene visualizzata la finestra **Configura accesso**.
 
-8. Nella sezione **Riferimento rapido** copiare l'URL di accesso e l'URL del servizio Single Sign-On SAML.
+1. Nella sezione **Riferimento rapido** copiare l'URL di accesso e l'URL del servizio Single Sign-On SAML.
 
-9. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
     ![Pulsante Salva](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
-10. Accedere all'applicazione E Sales Manager Remix come amministratore.
+1. Accedere all'applicazione E Sales Manager Remix come amministratore.
 
-11. In alto a destra selezionare **To Administrator Menu** (A menu amministratore).
+1. In alto a destra selezionare **To Administrator Menu** (A menu amministratore).
 
     ![Comando "To Administrator Menu" (A menu amministratore)](./media/esalesmanagerremix-tutorial/configure4.png)
 
-12. Nel riquadro a sinistra selezionare **System settings** (Impostazioni sistema)  > **Cooperation with external system** (Cooperazione con sistema esterno).
+1. Nel riquadro a sinistra selezionare **System settings** (Impostazioni sistema)  > **Cooperation with external system** (Cooperazione con sistema esterno).
 
     ![Collegamenti "System settings" (Impostazioni sistema) e "Cooperation with external system" (Cooperazione con sistema esterno)](./media/esalesmanagerremix-tutorial/configure5.png)
     
-13. Nella finestra **Cooperation with external system** (Cooperazione con sistema esterno) selezionare **SAML**.
+1. Nella finestra **Cooperation with external system** (Cooperazione con sistema esterno) selezionare **SAML**.
 
     ![Finestra "Cooperation with external system" (Cooperazione con sistema esterno)](./media/esalesmanagerremix-tutorial/configure6.png)
 
-14. In **SAML authentication setting** (Impostazione di autenticazione SAML) eseguire queste operazioni:
+1. In **SAML authentication setting** (Impostazione di autenticazione SAML) eseguire queste operazioni:
 
     ![Sezione "SAML authentication setting" (Impostazione di autenticazione SAML)](./media/esalesmanagerremix-tutorial/configure3.png)
     
@@ -183,17 +183,17 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     ![Collegamento Azure Active Directory](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare un elenco degli utenti correnti, selezionare **Utenti e gruppi** > **Tutti gli utenti**.
+1. Per visualizzare un elenco degli utenti correnti, selezionare **Utenti e gruppi** > **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. Nella parte superiore della finestra **Tutti gli utenti** selezionare **Aggiungi**.
+1. Nella parte superiore della finestra **Tutti gli utenti** selezionare **Aggiungi**.
 
     ![Pulsante Aggiungi](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
     Viene visualizzata la finestra **Utente**.
 
-4. Nella finestra **Utente** seguire questa procedura:
+1. Nella finestra **Utente** seguire questa procedura:
 
     ![Finestra Utente](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
@@ -203,21 +203,21 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Crea**.
+    d. Selezionare **Create**.
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Creare un utente di test in E Sales Manager Remix
 
 1. Accedere all'applicazione E Sales Manager Remix come amministratore.
 
-2. Selezionare **To Administrator Menu** (A menu amministratore) nel menu in alto a destra.
+1. Selezionare **To Administrator Menu** (A menu amministratore) nel menu in alto a destra.
 
     ![Configurazione di E Sales Manager Remix](./media/esalesmanagerremix-tutorial/configure4.png)
 
-3. Selezionare **Your company settings** (Impostazioni azienda)  > **Maintenance of departments and employees** (Gestione reparti e dipendenti) e quindi **Employees registered** (Dipendenti registrati).
+1. Selezionare **Your company settings** (Impostazioni azienda)  > **Maintenance of departments and employees** (Gestione reparti e dipendenti) e quindi **Employees registered** (Dipendenti registrati).
 
     ![Scheda "Employees registered" (Dipendenti registrati)](./media/esalesmanagerremix-tutorial/user1.png)
 
-4. Nella sezione **New employee registration** (Registrazione nuovo dipendente) eseguire queste operazioni:
+1. Nella sezione **New employee registration** (Registrazione nuovo dipendente) eseguire queste operazioni:
     
     ![Sezione "New employee registration" (Registrazione nuovo dipendente)](./media/esalesmanagerremix-tutorial/user2.png)
 
@@ -229,7 +229,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     d. Selezionare **Registration** (Registrazione).
 
-5. In futuro, per accedere come amministratore sarà necessario accedere come utente dotato di autorizzazioni di amministratore e quindi, in alto a destra, selezionare **To Administrator Menu** (A menu amministratore).
+1. In futuro, per accedere come amministratore sarà necessario accedere come utente dotato di autorizzazioni di amministratore e quindi, in alto a destra, selezionare **To Administrator Menu** (A menu amministratore).
 
     ![Comando "To Administrator Menu" (A menu amministratore)](./media/esalesmanagerremix-tutorial/configure4.png)
 
@@ -243,23 +243,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamenti "Applicazioni aziendali" e "Tutte le applicazioni"][201] 
 
-2. Nell'elenco **Applicazioni** selezionare **E Sales Manager Remix**.
+1. Nell'elenco **Applicazioni** selezionare **E Sales Manager Remix**.
 
     ![Collegamento E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-3. Nel riquadro sinistro fare clic su **Utenti e gruppi**.
+1. Nel riquadro sinistro fare clic su **Utenti e gruppi**.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic su **Aggiungi** e quindi nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+1. Fare clic su **Aggiungi** e quindi nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**.
+1. Nella finestra **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**.
 
-6. Fare clic sul pulsante **Seleziona**.
+1. Fare clic sul pulsante **Seleziona**.
 
-7. Nella finestra **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nella finestra **Aggiungi assegnazione** selezionare **Assegna**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

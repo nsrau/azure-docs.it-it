@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 3f1bc925b772265a9f72c34f5ac661088123bb1a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8da9f0f8aeb36d9ff2f87511c902dd719bc755b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626138"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441601"
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registrare i dati da Archivio Data Lake in Azure Data Catalog
 In questo articolo si apprenderà come integrare Azure Data Lake Store con Azure Data Catalog per individuare i dati all'interno dell'organizzazione integrandoli con Azure Data Catalog. Per altre informazioni sulla catalogazione dei dati, vedere [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Per informazioni sugli scenari in cui è possibile usare il catalogo dati, vedere l'articolo relativo agli [scenari comuni di Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -37,20 +37,20 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 > [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
 
 1. Passare a `https://azure.microsoft.com/services/data-catalog`e fare clic su **Introduzione**.
-2. Accedere al portale di Azure Data Catalog e fare clic su **Pubblica dati**.
+1. Accedere al portale di Azure Data Catalog e fare clic su **Pubblica dati**.
 
     ![Registrare un'origine dati](./media/data-lake-store-with-data-catalog/register-data-source.png "Registrare un'origine dati")
-3. Nella pagina successiva fare clic su **Avvia applicazione**. Verrà scaricato il file manifesto dell'applicazione nel computer in uso. Fare doppio clic sul file manifesto per avviare l'applicazione.
-4. Nella pagina iniziale fare clic su **Accedi**e immettere le credenziali.
+1. Nella pagina successiva fare clic su **Avvia applicazione**. Verrà scaricato il file manifesto dell'applicazione nel computer in uso. Fare doppio clic sul file manifesto per avviare l'applicazione.
+1. Nella pagina iniziale fare clic su **Accedi**e immettere le credenziali.
 
     ![Schermata iniziale](./media/data-lake-store-with-data-catalog/welcome.screen.png "Schermata iniziale")
-5. Nella pagina Selezionare un'origine dati selezionare **Azure Data Lake** e quindi fare clic su **Avanti**.
+1. Nella pagina Selezionare un'origine dati selezionare **Azure Data Lake** e quindi fare clic su **Avanti**.
 
     ![Selezionare l'origine dati](./media/data-lake-store-with-data-catalog/select-source.png "Selezionare l'origine dati")
-6. Nella pagina successiva fornire il nome dell'account Archivio Data Lake che si vuole registrare in Data Catalog. Lasciare l'impostazione predefinita per le altre opzioni e quindi fare clic su **Connetti**.
+1. Nella pagina successiva fornire il nome dell'account Archivio Data Lake che si vuole registrare in Data Catalog. Lasciare l'impostazione predefinita per le altre opzioni e quindi fare clic su **Connetti**.
 
     ![Connessione all'origine dati](./media/data-lake-store-with-data-catalog/connect-to-source.png "Connessione all'origine dati")
-7. La pagina successiva può essere suddivisa nei segmenti seguenti.
+1. La pagina successiva può essere suddivisa nei segmenti seguenti.
 
     a. La casella **Gerarchia server** rappresenta la struttura della cartella dell'account Archivio Data Lake. **$Root** rappresenta la radice dell'account Data Lake Store, mentre **AmbulanceData** rappresenta la cartella creata nella radice dell'account Data Lake Store.
 
@@ -59,20 +59,20 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     c. La casella **Oggetti da registrare** elenca i file e le cartelle che si desidera registrare in Azure Data Catalog.
 
     ![Visualizzare la struttura dei dati](./media/data-lake-store-with-data-catalog/view-data-structure.png "Visualizzare la struttura dei dati")
-8. Per questa esercitazione, è necessario registrare tutti i file nella directory. A tale scopo, fare clic sul pulsante (![spostamento di oggetti](./media/data-lake-store-with-data-catalog/move-objects.png "Spostamento di oggetti")) per spostare tutti i file nella casella **Oggetti da registrare**.
+1. Per questa esercitazione, è necessario registrare tutti i file nella directory. A tale scopo, fare clic sul pulsante (![spostamento di oggetti](./media/data-lake-store-with-data-catalog/move-objects.png "Spostamento di oggetti")) per spostare tutti i file nella casella **Oggetti da registrare**.
 
     Poiché i dati vengono registrati in un catalogo dati dell'organizzazione, è consigliabile aggiungere alcuni metadati che è possibile usare in un secondo momento per individuare rapidamente i dati. Ad esempio, è possibile aggiungere un indirizzo di posta elettronica per il proprietario dei dati (ad esempio, uno che si occupa del caricamento dei dati) o aggiungere un tag per identificare i dati. La schermata seguente mostra un tag aggiunto ai dati.
 
     ![Visualizzare la struttura dei dati](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Visualizzare la struttura dei dati")
 
     Fare clic su **Register**.
-9. La schermata seguente indica che i dati sono stati registrati correttamente nel catalogo dati.
+1. La schermata seguente indica che i dati sono stati registrati correttamente nel catalogo dati.
 
     ![Registrazione completata](./media/data-lake-store-with-data-catalog/registration-complete.png "Visualizzare la struttura dei dati")
-10. Fare clic su **Visualizza portale** per tornare al portale di Data Catalog e verificare che sia quindi possibile accedere ai dati registrati dal portale. Per cercare i dati, è possibile usare il tag che è stato usato durante la registrazione dei dati.
+1. Fare clic su **Visualizza portale** per tornare al portale di Data Catalog e verificare che sia quindi possibile accedere ai dati registrati dal portale. Per cercare i dati, è possibile usare il tag che è stato usato durante la registrazione dei dati.
 
      ![Cercare dati nel catalogo](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Cercare dati nel catalogo")
-11. È ora possibile eseguire operazioni come l'aggiunta di annotazioni e documentazione ai dati. Per altre informazioni, vedere i collegamenti seguenti:
+1. È ora possibile eseguire operazioni come l'aggiunta di annotazioni e documentazione ai dati. Per altre informazioni, vedere i collegamenti seguenti:
 
     * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
     * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)

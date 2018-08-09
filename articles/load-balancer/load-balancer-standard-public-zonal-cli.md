@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0932195bb95ab9610f723245bfed7fedb01001f9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b4bb0cdb9be59ae35b640ef67b12c382bb621a19
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323634"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433582"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Creare un servizio Load Balancer Standard pubblico con un front-end di zona usando l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra la creazione di un servizio [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end di zona tramite un indirizzo IP pubblico Standard. In questo scenario, specificare una zona particolare per le istanze front-end e back-end, per allineare il percorso dati e le risorse a una zona specifica.
 
-Per altre informazioni sull'uso delle zone di disponibilità con il servizio Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
+Per altre informazioni sull'uso delle zone di disponibilità con Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
  
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, assicurarsi di aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e di aver eseguito l'accesso a un account Azure con [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e di avere eseguito l'accesso a un account di Azure con [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
 > [!NOTE]
- Il supporto per le zone di disponibilità viene fornito per determinate risorse, aree e famiglie di dimensioni di macchine virtuali di Azure. Per altre informazioni su come iniziare e con quali risorse, aree e famiglie di dimensioni di macchina virtuale di Azure è possibile provare le zone di disponibilità, vedere [Panoramica delle zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview). Per assistenza è possibile usare il forum di [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) oppure [aprire un ticket di supporto di Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+ Il supporto per le zone di disponibilità è disponibile per determinate risorse, aree e famiglie di dimensioni di macchine virtuali di Azure. Per altre informazioni su come iniziare e con quali risorse, aree e famiglie di dimensioni di macchina virtuale di Azure è possibile provare le zone di disponibilità, vedere [Panoramica delle zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview). Per assistenza è possibile usare il forum di [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) oppure [aprire un ticket di supporto di Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupLB* nella località *westeurope*:
 
@@ -67,11 +67,11 @@ az network public-ip create \
 Questa sezione descrive dettagliatamente come creare e configurare i componenti seguenti del servizio di bilanciamento del carico:
 - Un pool IP front-end che riceve il traffico di rete in ingresso sul servizio di bilanciamento del carico.
 - Un pool IP back-end a cui il pool front-end invia il traffico di rete con carico bilanciato.
-- Un probe di integrità che determina l'integrità delle istanze back-end delle VM.
-- Una regola di bilanciamento del carico che definisce come il traffico verrà distribuito alle VM.
+- un probe di integrità che determina l'integrità delle istanze delle macchine virtuali back-end
+- una regola di bilanciamento del carico che definisce come verrà distribuito il traffico alle macchine virtuali.
 
 ### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
-Creare un servizio di bilanciamento del carico standard con [az network lb create](/cli/azure/network/lb#az_network_lb_create). Nell'esempio seguente viene creato un servizio di bilanciamento del carico denominato *myLoadBalancer* e viene assegnato l'indirizzo *myPublicIP* alla configurazione IP front-end.
+Creare un servizio di bilanciamento del carico standard con il comando [az network lb create](/cli/azure/network/lb#az-network-lb-create). L'esempio seguente crea un servizio di bilanciamento del carico denominato *myLoadBalancer* e assegna l'indirizzo *myPublicIP* alla configurazione IP front-end.
 
 ```azurecli-interactive
 az network lb create \
@@ -83,9 +83,9 @@ az network lb create \
 --sku Standard
 ```
 
-## <a name="create-health-probe-on-port-80"></a>Creare un probe di integrità nella porta 80
+## <a name="create-health-probe-on-port-80"></a>Creare un probe di integrità sulla porta 80
 
-Un probe di integrità controlla tutte le istanze di una macchina virtuale per assicurarsi che possano inviare il traffico di rete. L'istanza della macchina virtuale con controlli di probe falliti non viene rimossa dal servizio di bilanciamento del carico fino a quando non è nuovamente online e il controllo dei probe ne certifica l'integrità. Creare un probe di integrità con il comando z network lb probe create per monitorare l'integrità delle macchine virtuali. Per creare un probe di integrità TCP, usare con [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). L'esempio seguente crea un probe di integrità denominato *myHealthProbe*:
+Un probe di integrità controlla tutte le istanze di una macchina virtuale per assicurarsi che possano inviare il traffico di rete. L'istanza della macchina virtuale con controlli di probe falliti non viene rimossa dal servizio di bilanciamento del carico fino a quando non è nuovamente online e il controllo dei probe ne certifica l'integrità. Creare un probe di integrità con il comando az network lb probe create per monitorare l'integrità delle macchine virtuali. Per creare un probe di integrità TCP, usare con [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). L'esempio seguente crea un probe di integrità denominato *myHealthProbe*:
 
 ```azurecli-interactive
 az network lb probe create \
@@ -97,7 +97,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>Creare una regola di bilanciamento del carico per la porta 80
-Una regola di bilanciamento del carico definisce la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alla porta di origine e di destinazione necessaria. Creare una regola di bilanciamento del carico *myLoadBalancerRuleWeb* con il comando [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) per l'ascolto sulla porta 80 nel pool front-end *myFrontEndPool* e l'invio del traffico di rete con carico bilanciato al pool di indirizzi back-end *myBackEndPool* sempre tramite la porta 80.
+Una regola di bilanciamento del carico definisce la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alla porta di origine e di destinazione necessaria. Creare una regola di bilanciamento del carico *myLoadBalancerRuleWeb* con il comando [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) per l'ascolto sulla porta 80 nel pool front-end *myFrontEndPool* e l'invio del traffico di rete con carico bilanciato al pool di indirizzi back-end *myBackEndPool* sempre tramite la porta 80.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -117,7 +117,7 @@ Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciam
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet* nel gruppo myResourceGroup con il comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet* nel gruppo myResourceGroup con il comando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
 
 ```azurecli-interactive
@@ -130,7 +130,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
-Creare un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup* per definire le connessioni in ingresso alla rete virtuale con il comando [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
+Creare un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup* per definire le connessioni in ingresso alla rete virtuale con il comando [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
 ```azurecli-interactive
 az network nsg create \
@@ -138,7 +138,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-Creare una regola del gruppo di sicurezza di rete denominata *myNetworkSecurityGroupRule* per la porta 80 con il comando [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create).
+Creare una regola del gruppo di sicurezza di rete denominata *myNetworkSecurityGroupRule* per la porta 80 con il comando [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create).
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -155,7 +155,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>Creare NIC
-Creare tre NIC virtuali con il comando [az network nic create](/cli/azure/network/nic#az_network_nic_create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. L'esempio seguente crea tre schede di interfaccia di rete virtuali, Una scheda di interfaccia di rete virtuale per ogni VM creata per l'app nei passaggi successivi. È possibile creare altre schede di interfaccia di rete virtuale e macchine virtuali in qualsiasi momento e aggiungerle al bilanciamento del carico:
+Creare tre schede di interfaccia di rete virtuali con il comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. L'esempio seguente crea tre schede di interfaccia di rete virtuali, Una scheda di interfaccia di rete virtuale per ogni VM creata per l'app nei passaggi successivi. È possibile creare altre schede di interfaccia di rete virtuale e macchine virtuali in qualsiasi momento e aggiungerle al bilanciamento del carico:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -170,7 +170,7 @@ for i in `seq 1 3`; do
 done
 ```
 ## <a name="create-backend-servers"></a>Creare i server back-end
-In questo esempio vengono create tre macchine virtuali nella zona 1 da usare come server back-end per il bilanciamento del carico. Viene inoltre installato NGINX nelle macchine virtuali per verificare l'avvenuta creazione del servizio di bilanciamento del carico.
+In questo esempio vengono create tre macchine virtuali nella zona 1 da usare come server back-end per il bilanciamento del carico. Viene anche installato NGINX nelle macchine virtuali per verificare l'avvenuta creazione del servizio di bilanciamento del carico.
 
 ### <a name="create-cloud-init-config"></a>Creare una configurazione cloud-init
 
@@ -219,7 +219,7 @@ runcmd:
 ```
 
 ### <a name="create-the-zonal-virtual-machines"></a>Creare le macchine virtuali di zona
-Creare le VM con [az vm create](/cli/azure/vm#az_vm_create). Nell'esempio seguente vengono create tre VM nella zona 1 e vengono generate le chiavi SSH, se non sono già presenti:
+Creare le VM con [az vm create](/cli/azure/vm#az-vm-create). Nell'esempio seguente vengono create tre VM nella zona 1 e vengono generate le chiavi SSH, se non sono già presenti:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -235,7 +235,7 @@ done
 ```
 
 ## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
-Per ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico, usare il comando [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). 
+Ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con il comando [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurecli-interactive
   az network public-ip show \

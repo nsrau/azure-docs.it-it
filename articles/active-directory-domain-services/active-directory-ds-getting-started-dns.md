@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: b4f76602d469766f75e7a3948ae1aed290bffb4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f683eeee05f264ca239b8f1da2bc5078e0146a17
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588999"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503486"
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Abilitare Azure Active Directory Domain Services
 

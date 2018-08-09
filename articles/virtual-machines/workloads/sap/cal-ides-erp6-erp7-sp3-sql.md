@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: b1895fb1910c5f30cbcff1c16ca66057d31a580b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 93824c8f0e7667fcb58fd6b8292cddfa2b4a482a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656483"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441461"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
 Questo articolo descrive come distribuire un sistema SAP IDES in esecuzione con SQL Server e il sistema operativo Windows in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Gli screenshot illustrano il processo in dettaglio. Per distribuire una soluzione diversa, seguire la stessa procedura.
@@ -49,7 +49,7 @@ Dopo l'accesso a SAP CAL, la prima pagina visualizzata è di solito la pagina **
     > [!NOTE]
     I passaggi successivi illustrano come creare un account SAP CAL per le distribuzioni Resource Manager. Se è già disponibile un account SAP CAL collegato al modello di distribuzione classica, per creare un nuovo account SAP CAL è *necessario* seguire questa procedura. Il nuovo account SAP CAL deve eseguire la distribuzione nel modello Resource Manager.
 
-2. Per la creazione di un nuovo account di SAP CAL, nella pagina **Accounts** (Account) sono disponibili due opzioni per Azure: 
+1. Per la creazione di un nuovo account di SAP CAL, nella pagina **Accounts** (Account) sono disponibili due opzioni per Azure: 
 
     a. **Microsoft Azure (classic)** (Microsoft Azure (classica)), il modello di distribuzione classica, non rappresenta più il modello di distribuzione preferito.
 
@@ -61,27 +61,27 @@ Dopo l'accesso a SAP CAL, la prima pagina visualizzata è di solito la pagina **
 
     ![Account SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-3. Immettere l'**ID sottoscrizione** di Azure, reperibile nel Portale di Azure. 
+1. Immettere l'**ID sottoscrizione** di Azure, reperibile nel Portale di Azure. 
 
     ![ID sottoscrizione di SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
-4. Per autorizzare SAP CAL alla distribuzione nella sottoscrizione di Azure definita, fare clic su **Authorize** (Autorizza). Nella scheda del browser viene visualizzata la pagina seguente:
+1. Per autorizzare SAP CAL alla distribuzione nella sottoscrizione di Azure definita, fare clic su **Authorize** (Autorizza). Nella scheda del browser viene visualizzata la pagina seguente:
 
     ![Accesso ai servizi cloud di Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
 
-5. Se sono elencati più utenti, scegliere l'account Microsoft collegato come coamministratore della sottoscrizione di Azure selezionata. Nella scheda del browser viene visualizzata la pagina seguente:
+1. Se sono elencati più utenti, scegliere l'account Microsoft collegato come coamministratore della sottoscrizione di Azure selezionata. Nella scheda del browser viene visualizzata la pagina seguente:
 
     ![Conferma dei servizi cloud di Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
 
-6. Fare clic **Accept**. Se l'autorizzazione ha esito positivo, viene visualizzata nuovamente la definizione dell'account SAP CAL. Dopo un breve periodo, viene visualizzato un messaggio di conferma del completamento del processo di autorizzazione.
+1. Fare clic **Accept**. Se l'autorizzazione ha esito positivo, viene visualizzata nuovamente la definizione dell'account SAP CAL. Dopo un breve periodo, viene visualizzato un messaggio di conferma del completamento del processo di autorizzazione.
 
-7. Per assegnare a un utente l'account SAP CAL appena creato, immettere l'**ID utente** nella casella di testo a destra e fare clic su **Add** (Aggiungi). 
+1. Per assegnare a un utente l'account SAP CAL appena creato, immettere l'**ID utente** nella casella di testo a destra e fare clic su **Add** (Aggiungi). 
 
     ![Associazione tra account e utente](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
 
-8. Per associare l'account all'utente usato per accedere a SAP CAL, fare clic su **Review** (Verifica). 
+1. Per associare l'account all'utente usato per accedere a SAP CAL, fare clic su **Review** (Verifica). 
 
-9. Per creare l'associazione tra l'utente e l'account SAP CAL appena creato, fare clic su **Create** (Crea).
+1. Per creare l'associazione tra l'utente e l'account SAP CAL appena creato, fare clic su **Create** (Crea).
 
     ![Associazione tra utente e account](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
 
@@ -96,7 +96,7 @@ Prima di distribuire la soluzione SAP IDES basata su Windows e SQL Server, potre
 ### <a name="deploy-a-solution"></a>Distribuire una soluzione
 1. Dopo aver configurato un account di SAP CAL, selezionare la **soluzione SAP IDES in Windows e SQL Server**. Fare clic su **Create Instance** (Crea istanza) e confermare l'accettazione di termini e condizioni di utilizzo. 
 
-2. Nella pagina **Basic Mode: Create Instance** (Modalità di base: crea istanza) è necessario:
+1. Nella pagina **Basic Mode: Create Instance** (Modalità di base: crea istanza) è necessario:
 
     a. Immettere un **nome** di istanza.
 
@@ -106,19 +106,19 @@ Prima di distribuire la soluzione SAP IDES basata su Windows e SQL Server, potre
 
     ![Modalità SAP CAL di base: creare un'istanza](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-3. Fare clic su **Crea**. Dopo alcuni minuti, a seconda della dimensione e della complessità della soluzione, di cui SAP CAL fornisce una stima, la soluzione viene visualizzata come attiva e pronta all'uso: 
+1. Fare clic su **Create**(Crea). Dopo alcuni minuti, a seconda della dimensione e della complessità della soluzione, di cui SAP CAL fornisce una stima, la soluzione viene visualizzata come attiva e pronta all'uso: 
 
     ![Istanze di SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 
-4. Per individuare il gruppo di risorse e tutti i suoi oggetti creati con SAP CAL, passare al Portale di Azure. È possibile che le macchine virtuali vengano avviate con lo stesso nome di istanza assegnato in SAP CAL.
+1. Per individuare il gruppo di risorse e tutti i suoi oggetti creati con SAP CAL, passare al Portale di Azure. È possibile che le macchine virtuali vengano avviate con lo stesso nome di istanza assegnato in SAP CAL.
 
     ![Oggetti del gruppo di risorse](./media/cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
 
-5. Nel portale di SAP CAL passare alle istanze distribuite e fare clic su **Connect** (Connetti). Verrà visualizzata la finestra popup seguente: 
+1. Nel portale di SAP CAL passare alle istanze distribuite e fare clic su **Connect** (Connetti). Verrà visualizzata la finestra popup seguente: 
 
     ![Finestra Connect to the Instance (Connettersi all'istanza)](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
 
-6. Prima che sia possibile usare una delle opzioni per la connessione ai sistemi distribuiti, è necessario fare clic su **Getting Started Guide** (Guida introduttiva). La documentazione cita gli utenti per ognuno dei metodi di connettività. Le password per questi utenti corrispondono alla password master definita all'inizio del processo di distribuzione. Nella documentazione sono elencati altri utenti funzionali con le relative password. È possibile usare questi utenti per accedere al sistema distribuito.
+1. Prima che sia possibile usare una delle opzioni per la connessione ai sistemi distribuiti, è necessario fare clic su **Getting Started Guide** (Guida introduttiva). La documentazione cita gli utenti per ognuno dei metodi di connettività. Le password per questi utenti corrispondono alla password master definita all'inizio del processo di distribuzione. Nella documentazione sono elencati altri utenti funzionali con le relative password. È possibile usare questi utenti per accedere al sistema distribuito.
 
     ![Documentazione di benvenuto di SAP](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b749d8a904bc40eba3346cc03d9274236380c80d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31594050"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450291"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale data science Windows di Azure
 La macchina virtuale di Data Science di Microsoft è un'immagine di macchina virtuale (VM) di Windows Azure pre-installata e configurata con diversi strumenti diffusi comunemente usati per l'analisi dei dati e l'apprendimento automatico. Gli strumenti inclusi sono:
@@ -45,8 +45,8 @@ La macchina virtuale di Data Science di Microsoft è un'immagine di macchina vir
 L'esecuzione dell'analisi scientifica dei dati comporta l'iterazione di una sequenza di attività quali:
 
 1. Ricerca, caricamento e pre-elaborazione dei dati
-2. Compilazione e test di modelli
-3. Distribuzione dei modelli per l'uso in applicazioni intelligenti
+1. Compilazione e test di modelli
+1. Distribuzione dei modelli per l'uso in applicazioni intelligenti
 
 I data scientist usano un'ampia gamma di strumenti per completare queste attività. Trovare le versioni software appropriate e quindi scaricarle e installarle può essere un'operazione molto dispersiva in termini di tempo. La macchina virtuale per l'analisi scientifica dei dati di Microsoft facilita questo compito fornendo un'immagine pronta da usare di cui si può eseguire il provisioning in Azure con tutti i più comuni strumenti pre-installati e configurati. 
 
@@ -57,7 +57,7 @@ Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti c
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Altre versioni della macchina virtuale per l'analisi scientifica dei dati
 È disponibile anche un'immagine [Ubuntu](dsvm-ubuntu-intro.md), con molti strumenti simili, oltre ad alcuni framework aggiuntivi di apprendimento avanzato. È anche disponibile un'immagine [CentOS](linux-dsvm-intro.md). Viene poi offerta un'[edizione Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) della macchina virtuale per l'analisi scientifica dei dati anche se alcuni strumenti sono disponibili solo nell'edizione Windows Server 2016.  In caso contrario, questo articolo si applica anche all'edizione Windows Server 2012.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di creare una macchina virtuale per l'analisi scientifica dei dati di Microsoft, è necessario quanto segue:
 
 * **Sottoscrizione di Azure**: per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.com/free).
@@ -67,23 +67,23 @@ Prima di creare una macchina virtuale per l'analisi scientifica dei dati di Micr
 Per creare un'istanza della macchina virtuale per l'analisi scientifica dei dati di Microsoft, seguire questa procedura:
 
 1. Passare alla macchina virtuale nel [portale di Azure](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
-2. Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
-3. La procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft richiede **input** per ognuno dei **quattro passaggi** elencati in ordine numerico sul lato destro della figura. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
+1. Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
+1. La procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft richiede **input** per ognuno dei **quattro passaggi** elencati in ordine numerico sul lato destro della figura. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
    
    1. **Nozioni di base**
       
       1. **Name**: nome del server di analisi scientifica dei dati che si sta creando.
-      2. **Tipo di disco della macchina virtuale**: scegliere tra SSD o HDD. Per l'istanza di GPU NC_v1 (basata su NVidia Tesla K80), come tipo di disco scegliere **HDD**. 
-      3. **Nome utente**: ID di accesso dell'account amministratore.
-      4. **Password**: password dell'account amministratore.
-      5. **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale.
-      6. **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse o usarne uno esistente.
-      7. **Location**: selezionare la posizione del data center più appropriata. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete.
-   2. **Dimensione**: selezionare un tipo di server che soddisfa i requisiti funzionali e i vincoli di costo. Per accedere ad altre opzioni di dimensioni delle VM, selezionare "Visualizza tutto".
-   3. **Impostazioni**:
+      1. **Tipo di disco della macchina virtuale**: scegliere tra SSD o HDD. Per l'istanza di GPU NC_v1 (basata su NVidia Tesla K80), come tipo di disco scegliere **HDD**. 
+      1. **Nome utente**: ID di accesso dell'account amministratore.
+      1. **Password**: password dell'account amministratore.
+      1. **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale.
+      1. **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse o usarne uno esistente.
+      1. **Location**: selezionare la posizione del data center più appropriata. In genere è il data center contenente la maggior parte dei dati o più vicino alla posizione fisica per garantire la massima velocità di accesso alla rete.
+   1. **Dimensione**: selezionare un tipo di server che soddisfa i requisiti funzionali e i vincoli di costo. Per accedere ad altre opzioni di dimensioni delle VM, selezionare "Visualizza tutto".
+   1. **Impostazioni**:
       
       1. **Usa il servizio Managed Disks**: scegliere Gestito se si vuole che Azure gestisca i dischi per la VM.  In caso contrario, è necessario specificare un account di archiviazione nuovo o esistente. 
-      2. **Altri parametri**: in genere si usano semplicemente i valori predefiniti. Se si vuole provare a usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
+      1. **Altri parametri**: in genere si usano semplicemente i valori predefiniti. Se si vuole provare a usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
     a. **Riepilogo**: verificare che tutte le informazioni immesse siano corrette e fare clic su **Crea**. **NOTA**: la macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Dimensioni**. 
 
 > [!NOTE]
@@ -112,7 +112,7 @@ Per lo sviluppo tramite Python è installata la distribuzione Anaconda Python 2.
 > 
 > 
 
-Anaconda Python 3.6 viene installato in C:\Anaconda e Anaconda Python 2.7 viene installato in C:\Anaconda\envs\python2. Per la procedura dettagliata, vedere la [documentazione di PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) . 
+Anaconda Python 3.6 viene installato in C:\Anaconda e Anaconda Python 2.7 viene installato in C:\Anaconda\envs\python2. Per la procedura dettagliata, vedere la [documentazione di PTVS](/visualstudio/python/installing-python-interpreters.md) . 
 
 ### <a name="jupyter-notebook"></a>Notebook Jupyter
 La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per la condivisione di codice e analisi. Un server Jupyter Notebook è preconfigurato con i kernel Python 2.7, Python 3.x, PySpark, Julia e R. Sul desktop è disponibile un'icona denominata "Notebook di Jupyter" per avviare il server Jupyter e aprire il browser per accedere al server Notebook. 

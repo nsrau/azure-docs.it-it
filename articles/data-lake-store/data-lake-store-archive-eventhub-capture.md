@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bda52acc12aad3cad20143c319f557f11d760c42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624662"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435153"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Usare Azure Data Lake Store per acquisire dati da Hub eventi
 
 Informazioni su come usare Azure Data Lake Store per acquisire i dati ricevuti da Hub eventi di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -39,11 +39,11 @@ In questa sezione si crea una cartella nell'account in cui si vuole acquisire i 
 
     ![Esplora dati di Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Esplora dati di Data Lake Store")
 
-2.  Fare clic su **Nuova cartella** e quindi immettere un nome per la cartella in cui si vuole acquisire i dati.
+1.  Fare clic su **Nuova cartella** e quindi immettere un nome per la cartella in cui si vuole acquisire i dati.
 
     ![Creare una nuova cartella in Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Creare una nuova cartella in Data Lake Store")
 
-3. Assegnare le autorizzazioni alla radice di Data Lake Store. 
+1. Assegnare le autorizzazioni alla radice di Data Lake Store. 
 
     a. Fare clic su **Esplora dati**, selezionare la radice dell'account Data Lake Store e quindi fare clic su **Accesso**.
 
@@ -64,7 +64,7 @@ In questa sezione si crea una cartella nell'account in cui si vuole acquisire i 
 
     Fare clic su **OK**.
 
-4. Assegnare le autorizzazioni per la cartella nell'account Data Lake Store in cui si vuole acquisire i dati.
+1. Assegnare le autorizzazioni per la cartella nell'account Data Lake Store in cui si vuole acquisire i dati.
 
     a. Fare clic su **Esplora dati**, selezionare la cartella nell'account Data Lake Store e quindi fare clic su **Accesso**.
 
@@ -86,11 +86,11 @@ In questa sezione si crea una cartella nell'account in cui si vuole acquisire i 
 
 In questa sezione si crea un hub eventi in uno spazio dei nomi di Hub eventi. Si configura anche l'hub eventi per acquisire i dati in un account Azure Data Lake Store. Questa sezione presuppone che sia già stato creato uno spazio dei nomi di Hub eventi.
 
-2. Dal riquadro **Panoramica** dello spazio dei nomi di Hub eventi fare clic su **+ Hub eventi**.
+1. Dal riquadro **Panoramica** dello spazio dei nomi di Hub eventi fare clic su **+ Hub eventi**.
 
     ![Creare un hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Creare un hub eventi")
 
-3. Fornire i valori seguenti per configurare Hub eventi per acquisire i dati in Data Lake Store.
+1. Fornire i valori seguenti per configurare Hub eventi per acquisire i dati in Data Lake Store.
 
     ![Creare un hub eventi](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Creare un hub eventi")
 
@@ -104,7 +104,7 @@ In questa sezione si crea un hub eventi in uno spazio dei nomi di Hub eventi. Si
 
     e. Lasciare il valore predefinito per **Formati dei nomi file di acquisizione di esempio**. Questa opzione controlla la struttura di cartelle che viene creata nella cartella di acquisizione.
 
-    f. Fare clic su **Crea**.
+    f. Fare clic su **Create**(Crea).
 
 ## <a name="test-the-setup"></a>Testare la configurazione
 

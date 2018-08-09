@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: ced93032203c33dc4cda362d30192ee8eb37d944
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 86a04393761b79d76339c111d5c5c8b76dc983c2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38455112"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431209"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Esempio dell'interfaccia della riga di comando: creare un account Batch in modalità servizio Batch
 
@@ -47,14 +47,14 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Crea l'account Batch. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea un account di archiviazione. |
-| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Aggiorna le proprietà dell'account Batch.  |
-| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Recupera i dettagli dell'account Batch specificato.  |
-| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Recupera le chiavi d'accesso dell'account Batch specificato.  |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
-| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Crea l'account Batch. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea un account di archiviazione. |
+| [az batch account set](/cli/azure/batch/account#az-batch-account-set) | Aggiorna le proprietà dell'account Batch.  |
+| [az batch account show](/cli/azure/batch/account#az-batch-account-show) | Recupera i dettagli dell'account Batch specificato.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az-batch-account-keys-list) | Recupera le chiavi d'accesso dell'account Batch specificato.  |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
+| [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

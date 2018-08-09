@@ -8,18 +8,18 @@ ms.author: tomfitz
 ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 544f5210adbea6791f9224a1e2be0743ce9995d5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127714"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434147"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Instradare eventi personalizzati a Connessioni ibride di Inoltro di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Connessioni ibride di Inoltro di Azure è uno gestore dell'evento supportato. Usare le connessioni ibride come gestore dell'evento quando è necessario elaborare gli eventi da applicazioni che non hanno un endpoint pubblico. Queste applicazioni potrebbero trovarsi all'interno della rete aziendale dell'organizzazione. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. Inviare gli eventi alla connessione ibrida.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente disponga già di una connessione ibrida e di un'applicazione listener. Per iniziare a usare le connessioni ibride, vedere [Introduzione alle connessioni ibride di inoltro - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) oppure [Introduzione alle connessioni ibride di inoltro - Node](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
 
@@ -29,7 +29,7 @@ Questo articolo presuppone che l'utente disponga già di una connessione ibrida 
 
 Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inseriti in un gruppo di risorse di Azure. Un gruppo di risorse è una raccolta logica in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). 
 
 L'esempio seguente crea un gruppo di risorse denominato *gridResourceGroup* nella località *westus2*.
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7cca2475228155de6dc1f5c00a0d306e3a40c11a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304920"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441987"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico pubblico per le macchine virtuali tramite l'interfaccia della riga di comando di Azure 2.0
 
@@ -57,8 +57,8 @@ Per accedere all'app Web in Internet, assegnare un indirizzo IP pubblico al serv
 Questa sezione descrive dettagliatamente come creare e configurare i componenti seguenti del servizio di bilanciamento del carico:
   - Un pool IP front-end che riceve il traffico di rete in ingresso sul servizio di bilanciamento del carico.
   - Un pool IP back-end a cui il pool front-end invia il traffico di rete con carico bilanciato.
-  - Un probe di integrità che determina l'integrità delle istanze delle macchine virtuali back-end.
-  - Una regola di bilanciamento del carico che definisce come verrà distribuito il traffico alle macchine virtuali.
+  - un probe di integrità che determina l'integrità delle istanze delle macchine virtuali back-end
+  - una regola di bilanciamento del carico che definisce come verrà distribuito il traffico alle macchine virtuali.
 
 ### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
 
@@ -147,7 +147,7 @@ Creare una regola del gruppo di sicurezza di rete per consentire il traffico in 
 ```
 ### <a name="create-nics"></a>Creare NIC
 
-Creare tre interfacce di rete con il comando [az network nic create](/cli/azure/network/nic#az_network_nic_create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. 
+Creare tre interfacce di rete con il comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -169,7 +169,7 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 
 ### <a name="create-an-availability-set"></a>Creare un set di disponibilità
 
-Creare un set di disponibilità con il comando [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Creare un set di disponibilità con il comando [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -223,7 +223,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Creare le macchine virtuali con il comando [az vm create](/cli/azure/vm#az_vm_create).
+Creare le macchine virtuali con il comando [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -242,7 +242,7 @@ La distribuzione delle macchine virtuali può richiedere alcuni minuti.
 
 ## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
 
-Per ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico, usare il comando [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
+Per ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico, usare il comando [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
 
 ```azurecli-interactive
   az network public-ip show \
@@ -255,7 +255,7 @@ Per ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico, u
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group#az_group_delete).
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupLB

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cd231a6baad74cd88d82b219e2e58e9252187ff5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598998"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434602"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Domande frequenti su Azure Databricks
 
@@ -34,8 +34,8 @@ Come parte del provisioning di Databricks, viene creata una nuova rete virtuale.
 
 A tale scopo, seguire questa procedura:
 1. In Azure Active Directory (Azure AD) eseguire il provisioning di un'entità servizio e registrare la relativa chiave.
-2. Assegnare le autorizzazioni necessarie all'entità servizio in Data Lake Store.
-3. Per accedere a un file in Data Lake Store, usare le credenziali dell'entità servizio in Notebook.
+1. Assegnare le autorizzazioni necessarie all'entità servizio in Data Lake Store.
+1. Per accedere a un file in Data Lake Store, usare le credenziali dell'entità servizio in Notebook.
 
 Per altre informazioni, vedere [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) (Usare Data Lake Store con Azure Databricks).
 
@@ -52,8 +52,8 @@ Ecco alcuni problemi che possono verificarsi con Databricks.
 #### <a name="solution"></a>Soluzione
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Sottoscrizioni**, la sottoscrizione in uso e quindi **Provider di risorse**. 
-3. Nell'elenco di provider di risorse selezionare **Registra** per **Microsoft.Databricks**. Per registrare il provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
+1. Selezionare **Sottoscrizioni**, la sottoscrizione in uso e quindi **Provider di risorse**. 
+1. Nell'elenco di provider di risorse selezionare **Registra** per **Microsoft.Databricks**. Per registrare il provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
 
 
 ### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Problema: l'account {indirizzo di posta elettronica} non dispone del ruolo di proprietario o collaboratore per la risorsa dell'area di lavoro Databricks nel portale di Azure
@@ -107,8 +107,8 @@ Codice di errore di Azure: messaggio di errore di MissingSubscriptionRegistratio
 #### <a name="solution"></a>Soluzione
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Sottoscrizioni**, la sottoscrizione in uso e quindi **Provider di risorse**. 
-3. Nell'elenco di provider di risorse selezionare **Registra** per **Microsoft.Compute**. Per registrare il provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
+1. Selezionare **Sottoscrizioni**, la sottoscrizione in uso e quindi **Provider di risorse**. 
+1. Nell'elenco di provider di risorse selezionare **Registra** per **Microsoft.Compute**. Per registrare il provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
 
 Per istruzioni più dettagliate, vedere [Provider e tipi di risorse](../azure-resource-manager/resource-manager-supported-services.md).
 

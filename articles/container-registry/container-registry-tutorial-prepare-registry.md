@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768193"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450029"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un registro contenitori di Azure con replica geografica
 
@@ -32,7 +32,7 @@ Nelle esercitazioni successive si distribuirà il contenitore dal registro priva
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questa esercitazione richiede un'installazione locale dell'interfaccia della riga di comando di Azure (versione 2.0.31 o successiva). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Questa esercitazione richiede un'installazione locale dell'interfaccia della riga di comando di Azure (versione 2.0.31 o successiva). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 È consigliabile conoscere i concetti principali di Docker, come i contenitori, le immagini dei contenitori e i comandi di base dell'interfaccia della riga di comando di Docker. Per una panoramica sulle nozioni di base dei contenitori, vedere l'[introduzione a Docker]( https://docs.docker.com/get-started/).
 
@@ -90,7 +90,7 @@ Dopo aver completato la replica, nel portale viene visualizzato *Pronta* per ent
 
 Dopo aver configurato la replica geografica, generare un'immagine del contenitore ed eseguirne il push nel registro. È necessario accedere all'istanza di Registro contenitori di Azure prima di eseguirvi il push delle immagini.
 
-Usare il comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) per autenticare e memorizzare nella cache le credenziali del registro. Sostituire `<acrName>` con il nome del registro creato in precedenza.
+Usare il comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) per autenticare e memorizzare nella cache le credenziali del registro. Sostituire `<acrName>` con il nome del registro creato in precedenza.
 
 ```azurecli
 az acr login --name <acrName>

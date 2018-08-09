@@ -2,18 +2,18 @@
 title: Domande frequenti sul servizio Importazione/Esportazione di Azure | Microsoft Docs
 description: Risposte ad alcune domande frequenti sul servizio Importazione/Esportazione di Azure.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
-ms.openlocfilehash: d324025a50346415de8232af4adc487a5d907331
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: common
+ms.openlocfilehash: 6a2d067625e96aefdcb0197e1abb13b0c41fbe7f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031397"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521439"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Servizio Importazione/Esportazione di Azure: domande frequenti 
 Di seguito vengono fornite alcune domande e risposte relative all'uso del servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione di Azure. Le domande e le risposte sono suddivise nelle categorie seguenti:

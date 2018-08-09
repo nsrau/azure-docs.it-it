@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jeedes
-ms.openlocfilehash: d796ebf6e30476d766a0d9b6c78ba4b5cf577b47
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 871942db15d6a3cff45584e33b2191e21d2281a0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056226"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Esercitazione: Integrazione di Azure Active Directory con Vidyard
 
@@ -53,7 +53,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Vidyard dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-vidyard-from-the-gallery"></a>Aggiunta di Vidyard dalla raccolta
 Per configurare l'integrazione di Vidyard in Azure AD, è necessario aggiungere Vidyard dalla raccolta al proprio elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di Vidyard in Azure AD, è necessario aggiungere 
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **Vidyard**, selezionare **Vidyard** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **Vidyard**, selezionare **Vidyard** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Vidyard nell'elenco risultati](./media/vidyard-tutorial/tutorial_vidyard_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual �
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Vidyard, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di Vidyard](#create-a-vidyard-test-user)**: per avere una controparte di Britta Simon in Vidyard collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di Vidyard](#create-a-vidyard-test-user)**: per avere una controparte di Britta Simon in Vidyard collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -100,11 +100,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Finestra di dialogo Single Sign-On](./media/vidyard-tutorial/tutorial_vidyard_samlbase.png)
 
-3. Nella sezione **URL e dominio Vidyard** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **URL e dominio Vidyard** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Vidyard](./media/vidyard-tutorial/tutorial_vidyard_url2.png)
 
@@ -112,7 +112,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://secure.vidyard.com/sso/saml/<unique id>/consume`
 
-4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Vidyard](./media/vidyard-tutorial/tutorial_vidyard_url1.png)
 
@@ -125,17 +125,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento di download del certificato](./media/vidyard-tutorial/tutorial_vidyard_certificate.png) 
 
-6. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/vidyard-tutorial/tutorial_general_400.png)
 
-7. Nella sezione **Configurazione di Vidyard** fare clic su **Configura Vidyard** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
+1. Nella sezione **Configurazione di Vidyard** fare clic su **Configura Vidyard** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
     ![Configurazione Vidyard](./media/vidyard-tutorial/tutorial_vidyard_configure.png)
 
-8. In un'altra finestra del Web browser accedere al sito aziendale di Vidyard come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di Vidyard come amministratore.
 
-9. Nel dashboard di Vidyard selezionare **Group** (Gruppo) > **Security** (Sicurezza)
+1. Nel dashboard di Vidyard selezionare **Group** (Gruppo) > **Security** (Sicurezza)
 
     ![Configurazione Vidyard](./media/vidyard-tutorial/configure1.png)
 
@@ -143,7 +143,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurazione Vidyard](./media/vidyard-tutorial/configure2.png)
 
-11. Nella sezione **SAML Configuration** (Configurazione SAML) seguire questa procedura:
+1. Nella sezione **SAML Configuration** (Configurazione SAML) seguire questa procedura:
 
     ![Configurazione Vidyard](./media/vidyard-tutorial/configure3.png)
 
@@ -161,18 +161,18 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     g. Fare clic su **Conferma**.
 
-12. Nella scheda Single Sign-On selezionare **Assign** (Assegna) accanto a un profilo esistente
+1. Nella scheda Single Sign-On selezionare **Assign** (Assegna) accanto a un profilo esistente
 
     ![Configurazione Vidyard](./media/vidyard-tutorial/configure4.png)
 
     > [!NOTE]
     > Dopo aver creato un profilo SSO, è possibile assegnarlo a qualsiasi gruppo per i quali gli utenti richiederanno l'accesso tramite Azure. Se l'utente non esiste all'interno del gruppo a cui sono stati assegnati, Vidyard creerà automaticamente un account utente e assegnerà loro un ruolo in tempo reale.
 
-13. Selezionare il gruppo dell'organizzazione, visibile in **Groups Available to Assign** (Gruppi disponibili per l'assegnazione).
+1. Selezionare il gruppo dell'organizzazione, visibile in **Groups Available to Assign** (Gruppi disponibili per l'assegnazione).
 
     ![Configurazione Vidyard](./media/vidyard-tutorial/configure5.png)
 
-14. È possibile visualizzare i gruppi assegnati in **Groups Currently Assigned** (Gruppi attualmente assegnati). Selezionare un ruolo per il gruppo in base alla propria organizzazione e fare clic su **Confirm** (Conferma).
+1. È possibile visualizzare i gruppi assegnati in **Groups Currently Assigned** (Gruppi attualmente assegnati). Selezionare un ruolo per il gruppo in base alla propria organizzazione e fare clic su **Confirm** (Conferma).
 
     ![Configurazione Vidyard](./media/vidyard-tutorial/configure6.png)
 
@@ -191,15 +191,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/vidyard-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/vidyard-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/vidyard-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/vidyard-tutorial/create_aaduser_04.png)
 
@@ -209,7 +209,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-vidyard-test-user"></a>Creare un utente di test con Vidyard
 
@@ -229,23 +229,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco di applicazioni selezionare **Vidyard**.
+1. Nell'elenco di applicazioni selezionare **Vidyard**.
 
     ![Collegamento di Vidyard nell'elenco delle applicazioni](./media/vidyard-tutorial/tutorial_vidyard_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

@@ -1,27 +1,22 @@
 ---
-title: Eseguire operazioni in Archiviazione code di Azure con PowerShell | Microsoft Docs
-description: Come eseguire operazioni in Archiviazione code di Azure con PowerShell
+title: Eseguire operazioni nell'archivio code di Azure con PowerShell | Microsoft Docs
+description: Come eseguire operazioni nell'archivio code di Azure con PowerShell
 services: storage
-documentationcenter: storage
 author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 0765e2b36f9d32c43e9f0042d2be0fab53e07b04
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.component: queues
+ms.openlocfilehash: 0b78f822bec2bd545331ed52f3339a07b5dfb466
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115596"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521048"
 ---
-# <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni in Archiviazione code di Azure con Azure PowerShell
+# <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni nell'archivio code di Azure con Azure PowerShell
 
 Archiviazione code di Azure è un servizio che consente di archiviare grandi quantità di messaggi a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Per informazioni dettagliate, vedere [Introduzione alle code di Azure](storage-queues-introduction.md). Questa procedura illustra le operazioni più comuni nell'archivio code. Si apprenderà come:
 

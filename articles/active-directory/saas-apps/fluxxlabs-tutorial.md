@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 7bb15323a1f4ead02a24c4ee451de8890a635032
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 367310527619d4bdb5f84a80c567a9d83698846e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053045"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433773"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Esercitazione: Integrazione di Azure Active Directory con Fluxx Labs
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Fluxx Labs dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-fluxx-labs-from-the-gallery"></a>Aggiunta di Fluxx Labs dalla raccolta
 Per configurare l'integrazione di Fluxx Labs in Azure AD, è necessario aggiungere Fluxx Labs dalla raccolta al proprio elenco di app SaaS gestite.
@@ -63,15 +63,15 @@ Per configurare l'integrazione di Fluxx Labs in Azure AD, è necessario aggiunge
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
 
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **Fluxx Labs**, selezionare **Fluxx Labs** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **Fluxx Labs**, selezionare **Fluxx Labs** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Fluxx Labs nell'elenco dei risultati](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Per stabilire la relazione di collegamento, in Fluxx Labs assegnare il valore de
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Fluxx Labs, è necessario completare le operazioni di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di Fluxx Labs](#create-a-fluxx-labs-test-user)**: per avere una controparte di Britta Simon in Fluxx Labs collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di Fluxx Labs](#create-a-fluxx-labs-test-user)**: per avere una controparte di Britta Simon in Fluxx Labs collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -101,11 +101,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
 
     ![Finestra di dialogo Single Sign-On](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
 
-3. Nella sezione **URL e dominio Fluxx Labs** seguire questa procedura:
+1. Nella sezione **URL e dominio Fluxx Labs** seguire questa procedura:
 
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di Fluxx Labs](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_url.png)
 
@@ -126,29 +126,29 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di Fluxx Labs](mailto:travis@fluxxlabs.com).
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Collegamento di download del certificato](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/fluxxlabs-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Fluxx Labs** fare clic su **Configura Fluxx Labs** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
+1. Nella sezione **Configurazione di Fluxx Labs** fare clic su **Configura Fluxx Labs** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
     ![Configurazione di Fluxx Labs](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
 
-7. In un'altra finestra del Web browser accedere al sito aziendale di Fluxx Labs come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di Fluxx Labs come amministratore.
 
-8. Selezionare **Amministrazione** sotto la sezione **Impostazioni**.
+1. Selezionare **Amministrazione** sotto la sezione **Impostazioni**.
 
     ![Configurazione di Fluxx Labs](./media/fluxxlabs-tutorial/config1.png)
 
-9. Nel pannello Amministrazione selezionare **Plug-in** > **Integrazioni** e quindi selezionare **SAML SSO-(Disabilitato)**
+1. Nel pannello Amministrazione selezionare **Plug-in** > **Integrazioni** e quindi selezionare **SAML SSO-(Disabilitato)**
 
     ![Configurazione di Fluxx Labs](./media/fluxxlabs-tutorial/config2.png)
 
-10. Nella sezione attribute seguire questa procedura:
+1. Nella sezione attribute seguire questa procedura:
 
     ![Configurazione di Fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
 
@@ -185,15 +185,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/fluxxlabs-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/fluxxlabs-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/fluxxlabs-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/fluxxlabs-tutorial/create_aaduser_04.png)
 
@@ -203,7 +203,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
   
 ### <a name="create-a-fluxx-labs-test-user"></a>Creare un utente test di Fluxx Labs
 
@@ -213,15 +213,15 @@ Per consentire agli utenti di Azure AD di accedere a Fluxx Labs, è necessario e
 
 1. Accedere al sito aziendale di Fluxx Labs come amministratore.
 
-2. Fare clic sull'**icona** visualizzata di seguito.
+1. Fare clic sull'**icona** visualizzata di seguito.
 
     ![Configurazione di Fluxx Labs](./media/fluxxlabs-tutorial/config6.png)
 
-3. Nel dashboard fare clic sull'icona visualizzata di seguito per aprire la scheda **New PEOPLE** (Nuove PERSONE).
+1. Nel dashboard fare clic sull'icona visualizzata di seguito per aprire la scheda **New PEOPLE** (Nuove PERSONE).
 
     ![Configurazione di Fluxx Labs](./media/fluxxlabs-tutorial/config4.png)
 
-4. Nella sezione **NEW PEOPLE** (Nuove persone) seguire questa procedura:
+1. Nella sezione **NEW PEOPLE** (Nuove persone) seguire questa procedura:
 
     ![Configurazione di Fluxx Labs](./media/fluxxlabs-tutorial/config5.png)
 
@@ -241,23 +241,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **Fluxx Labs**.
+1. Nell'elenco delle applicazioni selezionare **Fluxx Labs**.
 
     ![Collegamento a Fluxx Labs nell'elenco delle applicazioni](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

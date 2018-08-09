@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: afbdf2171c1fc1eef95514526a509d171e262d4a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413876"
+ms.locfileid: "39435683"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge (anteprima)
 
@@ -60,7 +60,7 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
 
 1. Nel portale di Azure passare a **Crea una risorsa**, immettere **account di archiviazione** nella casella di ricerca e quindi selezionare **Account di archiviazione - BLOB, file, tabella e coda**.
 
-2. Nel riquadro **Crea account di archiviazione** immettere un nome per l'account di archiviazione, selezionare la stessa posizione in cui è archiviato l'hub IoT, selezionare lo stesso gruppo di risorse di hub IoT e quindi selezionare **Crea**. Prendere nota del nome per usarlo in seguito.
+1. Nel riquadro **Crea account di archiviazione** immettere un nome per l'account di archiviazione, selezionare la stessa posizione in cui è archiviato l'hub IoT, selezionare lo stesso gruppo di risorse di hub IoT e quindi selezionare **Crea**. Prendere nota del nome per usarlo in seguito.
 
     ![Creare un account di archiviazione][1]
 
@@ -69,40 +69,40 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
 
 1. Nel portale di Azure passare a **Crea una risorsa** > **Internet delle cose** e selezionare **Processo di Analisi di flusso**.
 
-2. Nel riquadro **Nuovo processo di Analisi di flusso** seguire questa procedura:
+1. Nel riquadro **Nuovo processo di Analisi di flusso** seguire questa procedura:
 
    1. Nella casella **Nome processo** digitare un nome di processo.
    
-   2. Usare lo stesso **gruppo di risorse** e la stessa **località** dell'hub IoT. 
+   1. Usare lo stesso **gruppo di risorse** e la stessa **località** dell'hub IoT. 
 
       > [!NOTE]
       > I processi di Analisi di flusso di Azure in IoT Edge non sono al momento supportati nell'area Stati Uniti occidentali 2. 
 
-   3. In **Ambiente host** selezionare **Edge**.
+   1. In **Ambiente host** selezionare **Edge**.
     
-3. Selezionare **Crea**.
+1. Selezionare **Create**.
 
-4. Nel processo creato, in **Topologia processo**, aprire **Input**.
+1. Nel processo creato, in **Topologia processo**, aprire **Input**.
 
    ![Input di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-5. Selezionare **Aggiungi input del flusso**, quindi selezionare **Hub Edge**.
+1. Selezionare **Aggiungi input del flusso**, quindi selezionare **Hub Edge**.
 
-6. Nel riquadro **Nuovo input** inserire la **temperatura** come alias di input. 
+1. Nel riquadro **Nuovo input** inserire la **temperatura** come alias di input. 
 
-7. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
-8. In **Topologia processo** aprire **Output**.
+1. In **Topologia processo** aprire **Output**.
 
    ![Output di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-9. Selezionare **Aggiungi**, quindi selezionare **Hub Edge**.
+1. Selezionare **Aggiungi**, quindi selezionare **Hub Edge**.
 
-10. Nel riquadro **Nuovo output** inserire **avviso** come alias di output. 
+1. Nel riquadro **Nuovo output** inserire **avviso** come alias di output. 
 
-11. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
-12. In **Topologia processo** selezionare **Query** e quindi sostituire il testo predefinito con la query seguente che crea un avviso se la temperatura media del computer raggiunge i 70 gradi in un arco di 30 secondi:
+1. In **Topologia processo** selezionare **Query** e quindi sostituire il testo predefinito con la query seguente che crea un avviso se la temperatura media del computer raggiunge i 70 gradi in un arco di 30 secondi:
 
     ```sql
     SELECT  
@@ -115,15 +115,15 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
     HAVING Avg(machine.temperature) > 70
     ```
 
-13. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
-14. In **Configura** selezionare **Impostazioni di IoT Edge**.
+1. In **Configura** selezionare **Impostazioni di IoT Edge**.
 
-15. Selezionare il proprio **account di archiviazione** dal menu a discesa.
+1. Selezionare il proprio **account di archiviazione** dal menu a discesa.
 
-16. Per il campo **Contenitore**, selezionare **Crea nuovo** e specificare un nome per il contenitore di archiviazione. 
+1. Per il campo **Contenitore**, selezionare **Crea nuovo** e specificare un nome per il contenitore di archiviazione. 
 
-17. Selezionare **Salva**. 
+1. Selezionare **Salva**. 
 
 
 ## <a name="deploy-the-job"></a>Distribuire il processo
@@ -132,25 +132,25 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
 
 1. Nel portale di Azure, nell'hub IoT passare a **IoT Edge** e aprire la pagina dei dettagli del dispositivo IoT Edge.
 
-2. Selezionare **Imposta moduli**.  
+1. Selezionare **Imposta moduli**.  
 
    Se il modulo tempSensor è stato distribuito in precedenza in questo dispositivo, la compilazione dei campi potrebbe essere automatica. In caso contrario, aggiungere il modulo seguendo questa procedura:
 
    1. Fare clic su **Aggiungi** e selezionare **Modulo IoT Edge**.
-   2. Per il nome, digitare **tempSensor**.
-   3. Per l'URI dell'immagine, immettere **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
-   4. Lasciare invariate le altre impostazioni.
-   5. Selezionare **Salva**.
+   1. Per il nome, digitare **tempSensor**.
+   1. Per l'URI dell'immagine, immettere **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
+   1. Lasciare invariate le altre impostazioni.
+   1. Selezionare **Salva**.
 
-3. Aggiungere il processo Edge di Analisi di flusso di Azure seguendo questa procedura:
+1. Aggiungere il processo Edge di Analisi di flusso di Azure seguendo questa procedura:
 
    1. Fare clic su **Aggiungi** e selezionare **Azure Stream Analytics Module** (Modulo di Analisi di flusso di Azure).
-   2. Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. 
-   3. Selezionare **Salva**.
+   1. Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. 
+   1. Selezionare **Salva**.
 
-4. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-5. Sostituire il valore predefinito in **Route** con il codice seguente. Aggiornare _{moduleName}_ con il nome del modulo di Analisi di flusso di Azure. Il modulo deve avere lo stesso nome del processo da cui è stato creato. 
+1. Sostituire il valore predefinito in **Route** con il codice seguente. Aggiornare _{moduleName}_ con il nome del modulo di Analisi di flusso di Azure. Il modulo deve avere lo stesso nome del processo da cui è stato creato. 
 
     ```json
     {
@@ -163,11 +163,11 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
     }
     ```
 
-6. Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
-7. Nel passaggio **Review Deployment** (Verifica la distribuzione) fare clic su **Invia**.
+1. Nel passaggio **Review Deployment** (Verifica la distribuzione) fare clic su **Invia**.
 
-8. Tornare alla pagina dei dettagli del dispositivo e selezionare **Aggiorna**.  
+1. Tornare alla pagina dei dettagli del dispositivo e selezionare **Aggiorna**.  
 
     Dovrebbe essere visualizzato il nuovo modulo di Analisi di flusso in esecuzione insieme al modulo dell'agente IoT Edge e all'hub IoT Edge.
 
@@ -185,7 +185,7 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
 <!--
    ![Docker output][8]
 -->
-2. Visualizzare tutti i registri di sistema e i dati di metrica. Usare il nome del modulo di Analisi di flusso:
+1. Visualizzare tutti i registri di sistema e i dati di metrica. Usare il nome del modulo di Analisi di flusso:
 
    ```cmd/sh
    iotedge logs -f {moduleName}  
@@ -210,7 +210,7 @@ In caso contrario, è possibile eliminare le configurazioni locali e le risorse 
 Per eliminare solo l'hub IoT, eseguire il comando seguente usando il nome dell'hub e il nome del gruppo di risorse:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
@@ -218,14 +218,14 @@ Per eliminare l'intero gruppo di risorse per nome:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
 
-2. Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse che contiene l'hub IoT. 
+1. Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse che contiene l'hub IoT. 
 
-3. A destra del gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
+1. A destra del gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
 
 <!--
    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 -->
-4. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere di nuovo il nome del gruppo di risorse per confermare e fare clic su **Elimina**. Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
+1. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere di nuovo il nome del gruppo di risorse per confermare e fare clic su **Elimina**. Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

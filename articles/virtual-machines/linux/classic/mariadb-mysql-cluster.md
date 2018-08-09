@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 4a3eede532345f8628af1722a06531571f01afbf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2cdc58a827f696d62e6240b90202ee04ce371d07
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191952"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426854"
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>Cluster MariaDB (MySQL) - Esercitazione su Azure
 > [!IMPORTANT]
@@ -54,32 +54,32 @@ In questo articolo viene descritto come completare i passaggi seguenti:
 1. Creare un gruppo di affinità per contenere le risorse.
 
         azure account affinity-group create mariadbcluster --location "North Europe" --label "MariaDB Cluster"
-2. Creare una rete virtuale.
+1. Creare una rete virtuale.
 
         azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
-3. Creare un account di archiviazione per ospitare tutti i dischi. Non è consigliabile inserire più di 40 dischi molto usati nello stesso account di archiviazione, per evitare di raggiungere il limite di 20.000 IOPS per account. Nel caso di questo esempio si è molto lontani da tale valore, dunque per motivi di semplicità verrà archiviato tutto nello stesso account.
+1. Creare un account di archiviazione per ospitare tutti i dischi. Non è consigliabile inserire più di 40 dischi molto usati nello stesso account di archiviazione, per evitare di raggiungere il limite di 20.000 IOPS per account. Nel caso di questo esempio si è molto lontani da tale valore, dunque per motivi di semplicità verrà archiviato tutto nello stesso account.
 
         azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
-4. Individuare il nome dell'immagine di macchina virtuale CentOS 7.
+1. Individuare il nome dell'immagine di macchina virtuale CentOS 7.
 
         azure vm image list | findstr CentOS
    Il risultato sarà simile a `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`.
 
    Usare il nome nel passaggio successivo.
-5. Creare il modello di macchina virtuale sostituendo /path/to/key.pem con il percorso in cui è stata archiviata la chiave SSH .pem generata.
+1. Creare il modello di macchina virtuale sostituendo /path/to/key.pem con il percorso in cui è stata archiviata la chiave SSH .pem generata.
 
         azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-os.vhd"  --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
-6. Collegare 4 dischi dati da 500 GB alla macchina virtuale da usare in configurazione RAID.
+1. Collegare 4 dischi dati da 500 GB alla macchina virtuale da usare in configurazione RAID.
 
         FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-data-%d.vhd
-7. Usare SSH per accedere al modello di macchina virtuale creato all'indirizzo mariadbhatemplate.cloudapp.net:22 e connettersi usando la chiave privata.
+1. Usare SSH per accedere al modello di macchina virtuale creato all'indirizzo mariadbhatemplate.cloudapp.net:22 e connettersi usando la chiave privata.
 
 ### <a name="software"></a>Software
 1. Ottenere la radice.
 
         sudo su
 
-2. Installare il supporto RAID:
+1. Installare il supporto RAID:
 
     a. Installare mdadm.
 
@@ -106,7 +106,7 @@ In questo articolo viene descritto come completare i passaggi seguenti:
 
               mount /mnt/data
 
-3. Installare MariaDB.
+1. Installare MariaDB.
 
     a. Creare il file MariaDB.repo.
 
@@ -126,7 +126,7 @@ In questo articolo viene descritto come completare i passaggi seguenti:
 
            yum install MariaDB-Galera-server MariaDB-client galera
 
-4. Spostare la directory dati MySQL nel dispositivo a blocchi RAID.
+1. Spostare la directory dati MySQL nel dispositivo a blocchi RAID.
 
     a. Copiare la directory MySQL nel nuovo percorso e rimuovere la vecchia directory.
 
@@ -140,12 +140,12 @@ In questo articolo viene descritto come completare i passaggi seguenti:
 
            ln -s /mnt/data/mysql /var/lib/mysql
 
-5. Poiché [SELinux interferisce con le operazioni cluster](http://galeracluster.com/documentation-webpages/configuration.html#selinux), è necessario disabilitarlo per la sessione corrente. Modificare `/etc/selinux/config` per disabilitarlo per i riavvii successivi.
+1. Poiché [SELinux interferisce con le operazioni cluster](http://galeracluster.com/documentation-webpages/configuration.html#selinux), è necessario disabilitarlo per la sessione corrente. Modificare `/etc/selinux/config` per disabilitarlo per i riavvii successivi.
 
             setenforce 0
 
             then editing `/etc/selinux/config` to set `SELINUX=permissive`
-6. Convalidare le esecuzioni di MySQL.
+1. Convalidare le esecuzioni di MySQL.
 
    a. Avviare MySQL.
 
@@ -162,7 +162,7 @@ In questo articolo viene descritto come completare i passaggi seguenti:
    d. Arrestare MySQL.
 
             service mysql stop
-7. Creare un segnaposto di configurazione.
+1. Creare un segnaposto di configurazione.
 
    a. Modificare la configurazione di MySQL per creare un segnaposto per le impostazioni del cluster. Non sostituire **`<Variables>`** né rimuovere simboli di commento in questa fase. L'operazione va eseguita dopo la creazione di una macchina virtuale dal modello.
 
@@ -183,7 +183,7 @@ In questo articolo viene descritto come completare i passaggi seguenti:
            #wsrep_cluster_address="gcomm://mariadb1,mariadb2,mariadb3" # CHANGE: Uncomment and Add all your servers
            #wsrep_node_address='<ServerIP>' # CHANGE: Uncomment and set IP address of this server
            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
-8. Aprire le porte necessarie sul firewall usando FirewallD su CentOS 7.
+1. Aprire le porte necessarie sul firewall usando FirewallD su CentOS 7.
 
    * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
    * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
@@ -191,7 +191,7 @@ In questo articolo viene descritto come completare i passaggi seguenti:
    * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
    * Ricaricare il firewall: `firewall-cmd --reload`
 
-9. Ottimizzare le prestazioni del sistema. Per altre informazioni, vedere la [strategia di ottimizzazione delle prestazioni](optimize-mysql.md).
+1. Ottimizzare le prestazioni del sistema. Per altre informazioni, vedere la [strategia di ottimizzazione delle prestazioni](optimize-mysql.md).
 
    a. Modificare di nuovo il file di configurazione di MySQL.
 
@@ -210,12 +210,12 @@ In questo articolo viene descritto come completare i passaggi seguenti:
            innodb_log_buffer_size = 128M # The log buffer allows transactions to run without having to flush the log to disk before the transactions commit
            innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
            query_cache_size = 0
-10. Arrestare MySQL, disabilitare l'esecuzione all'avvio del servizio MySQL per evitare di rovinare il cluster quando si aggiunge un nodo ed eseguire il deprovisioning della macchina.
+1. Arrestare MySQL, disabilitare l'esecuzione all'avvio del servizio MySQL per evitare di rovinare il cluster quando si aggiunge un nodo ed eseguire il deprovisioning della macchina.
 
         service mysql stop
         chkconfig mysql off
         waagent -deprovision
-11. Acquisire la macchina virtuale tramite il portale. (Attualmente il [problema noto n. 1268 nell’interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli/issues/1268) descrive il fatto che le immagini acquisite dagli strumenti di tale interfaccia non acquisiscono i dischi dati collegati.)
+1. Acquisire la macchina virtuale tramite il portale. (Attualmente il [problema noto n. 1268 nell’interfaccia della riga di comando di Azure](https://github.com/Azure/azure-xplat-cli/issues/1268) descrive il fatto che le immagini acquisite dagli strumenti di tale interfaccia non acquisiscono i dischi dati collegati.)
 
     a. Arrestare la macchina tramite il portale.
 
@@ -251,7 +251,7 @@ Creare tre macchine virtuali sulla base del modello creato e quindi configurare 
         --ssh 22
         --vm-name mariadb1
         mariadbha mariadb-galera-image azureuser
-2. Creare altre due macchine virtuali collegandole al servizio cloud mariadbha. Modificare il nome della macchina virtuale e la porta SSH in una porta univoca non in conflitto con altre macchine virtuali nello stesso servizio cloud.
+1. Creare altre due macchine virtuali collegandole al servizio cloud mariadbha. Modificare il nome della macchina virtuale e la porta SSH in una porta univoca non in conflitto con altre macchine virtuali nello stesso servizio cloud.
 
         azure vm create
         --virtual-network-name mariadbvnet
@@ -275,20 +275,20 @@ Creare tre macchine virtuali sulla base del modello creato e quindi configurare 
         --ssh 24
         --vm-name mariadb3
         --connect mariadbha mariadb-galera-image azureuser
-3. Per il passaggio successivo è necessario ottenere l'indirizzo IP interno di ognuna delle tre macchine virtuali:
+1. Per il passaggio successivo è necessario ottenere l'indirizzo IP interno di ognuna delle tre macchine virtuali:
 
     ![Recupero dell'indirizzo IP virtuale](./media/mariadb-mysql-cluster/IP.png)
-4. Usare SSH per accedere alle tre macchine virtuali e modificare il file di configurazione in ognuna di esse.
+1. Usare SSH per accedere alle tre macchine virtuali e modificare il file di configurazione in ognuna di esse.
 
         sudo vi /etc/my.cnf.d/server.cnf
 
     Rimuovere simboli di commento in **`wsrep_cluster_name`** e **`wsrep_cluster_address`** rimuovendo **#** a inizio riga.
     Inoltre, sostituire **`<ServerIP>`** in **`wsrep_node_address`** e **`<NodeName>`** in **`wsrep_node_name`** rispettivamente con l'indirizzo IP e il nome della macchina virtuale, quindi rimuovere i simboli di commento dalle righe di codice.
-5. Avviare il cluster in MariaDB1 e lasciare che venga eseguito all'avvio.
+1. Avviare il cluster in MariaDB1 e lasciare che venga eseguito all'avvio.
 
         sudo service mysql bootstrap
         chkconfig mysql on
-6. Avviare MySQL in MariaDB2 e MariaDB3 e lasciare che venga eseguito all'avvio.
+1. Avviare MySQL in MariaDB2 e MariaDB3 e lasciare che venga eseguito all'avvio.
 
         sudo service mysql start
         chkconfig mysql on

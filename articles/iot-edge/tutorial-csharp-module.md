@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c94479ca523f0097c8fbf94729f3a255ffc0c2bf
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 991113b4e3e501d6d058a83baa795a5d7cbaa585
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413222"
+ms.locfileid: "39439680"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Esercitazione: Sviluppare un modulo C# per IoT Edge e distribuirlo in un dispositivo simulato
 
@@ -58,7 +58,7 @@ In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studi
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori di Azure**.
 2. Assegnare un nome al registro, scegliere una sottoscrizione e un gruppo di risorse e impostare lo SKU su **Di base**. 
-3. Selezionare **Crea**.
+3. Selezionare **Create**.
 4. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**. 
 5. Impostare **Utente amministratore** su **Abilita**.
 6. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Questi valori vengono usati più avanti nel corso dell'esercitazione per pubblicare l'immagine Docker nel registro e per aggiungere le credenziali del registro al runtime di Azure IoT Edge. 
@@ -297,7 +297,7 @@ In caso contrario, è possibile eliminare le risorse di Azure e le configurazion
 Per eliminare solo l'hub IoT, eseguire il comando seguente usando il nome dell'hub e il nome del gruppo di risorse:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

@@ -2,24 +2,18 @@
 title: Uso dell'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure | Documentazione Microsoft
 description: Informazioni su come usare l'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure. La CLI di Azure è uno strumento multipiattaforma
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: b502232a-e8f6-4d6c-befd-3476592e0e35
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 1e2c2dc45f2cb91ca225bf183ddde5fa2d1123c4
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.component: common
+ms.openlocfilehash: f406f12b3313670e8e2d89296f7c24478bb58c6c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936990"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521507"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Uso dell'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure
 

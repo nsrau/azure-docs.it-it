@@ -2,24 +2,19 @@
 title: 'Guida introduttiva: Eseguire un processo Spark in Azure Databricks tramite il portale di Azure | Microsoft Docs'
 description: Questa guida introduttiva illustra come usare il portale di Azure per creare un'area di lavoro di Azure Databricks e un cluster Apache Spark e per eseguire un processo Spark.
 services: storage
-documentationcenter: ''
 author: jamesbak
 ms.author: jamesbak
-manager: jahogg
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: ded79456934738cd4e3eda584031d14b414c98a6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324307"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522748"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guida introduttiva: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
@@ -104,7 +99,7 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
 
     ![Creare un blocco appunti in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Creare un blocco appunti in Databricks")
 
-    Selezionare **Crea**.
+    Selezionare **Create**.
 
 4. Nel codice seguente sostituire il testo **ACCOUNT_NAME** e **ACCOUNT_KEY** con i valori copiati all'inizio di questa guida introduttiva. Sostituire anche il testo **FILE_SYSTEM_NAME** con il nome che si vuole assegnare al file system. Immettere quindi il codice nella prima cella.
 

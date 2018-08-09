@@ -2,24 +2,19 @@
 title: Usare Analisi archiviazione di Azure per raccogliere dati di metriche e log | Microsoft Docs
 description: Analisi archiviazione consente di tenere traccia dei dati delle metriche per tutti i servizi di archiviazione e di raccogliere i log per l'archiviazione di BLOB, code e tabelle.
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
-ms.openlocfilehash: edda01cbfe1b53d934f9f4a7bb01c645fa680873
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: a99375ae961e9239e5e8ea86db8b1b9b002b10c8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30243435"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526964"
 ---
 # <a name="storage-analytics"></a>di Analisi archiviazione
 

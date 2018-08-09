@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971860"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421213"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Introduzione all'esecuzione di carichi di lavoro Excel e SOA in un cluster HPC Pack in Azure
 Questo articolo illustra come distribuire un cluster Microsoft HPC Pack 2012 R2 nelle macchine virtuali di Azure con un modello di avvio rapido di Azure o uno script di distribuzione di Azure PowerShell. Il cluster usa le immagini VM di Azure Marketplace progettate per l'esecuzione di Microsoft Excel o carichi di lavoro di architettura orientata ai servizi (SOA) con HPC Pack. È possibile usare il cluster per eseguire servizi Excel HPC e SOA da un computer client locale. I servizi Excel HPC includono l'offload di cartelle di lavoro di Excel e funzioni definite dall'utente di Excel o UDF.
@@ -35,7 +35,7 @@ Il seguente diagramma illustra in modo generale il cluster HPC Pack che verrà c
 
 ![Cluster HPC con nodi che eseguono carichi di lavoro di Excel][scenario]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Computer client** : per inviare i processi di Excel e SOA di esempio al cluster, è necessario un computer client basato su Windows. Per eseguire lo script di distribuzione del cluster di Azure PowerShell (se si sceglie tale metodo di distribuzione), è necessario anche un computer Windows.
 * **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 * **Quota di core** : potrebbe essere necessario aumentare la quota di core, soprattutto se si distribuiscono più nodi del cluster con dimensioni delle macchine virtuali multicore. Se si utilizza un modello di avvio rapido di Azure, la quota di core in Resource Manager è riferita a ogni area di Azure. In tal caso, potrebbe essere necessario aumentare la quota per una determinata area. Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-subscription-service-limits.md). Per aumentare una quota, è possibile [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) senza alcun addebito.
@@ -53,10 +53,10 @@ Usare un modello di Guida introduttiva di Azure per distribuire con rapidità un
 > 
 
 1. Visitare la [pagina del modello per la creazione del cluster HPC su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Se lo si desidera, esaminare le informazioni sul modello e il codice sorgente.
-2. Fare clic su **Distribuisci in Azure** per avviare una distribuzione con il modello nel portale di Azure.
+1. Fare clic su **Distribuisci in Azure** per avviare una distribuzione con il modello nel portale di Azure.
    
    ![Modello di distribuzione in Azure][github]
-3. Nel portale, attenersi alla procedura seguente per immettere i parametri del modello di cluster HPC.
+1. Nel portale, attenersi alla procedura seguente per immettere i parametri del modello di cluster HPC.
    
    a. Nella pagina **Parametri** , immettere o modificare i valori dei parametri del modello. (Per visualizzare informazioni della Guida, fare clic sull'icona accanto a ogni impostazione). Nella seguente schermata vengono visualizzati valori di esempio. In questo esempio viene creato un cluster denominato *hpc01* nel dominio *hpc.local*, composto da un nodo head e 2 nodi di calcolo. I nodi di calcolo vengono creati da un'immagine di VM di HPC Pack che include Microsoft Excel.
    
@@ -76,7 +76,7 @@ Usare un modello di Guida introduttiva di Azure per distribuire con rapidità un
    d. Scegliere un percorso per il gruppo di risorse, ad esempio gli Stati Uniti centrali.
    
    e. Nella pagina **Note legali** esaminare le condizioni. Se si accettano le condizioni, fare clic su **Acquista**. Quindi, dopo aver impostato i valori per il modello, fare clic su **Crea**.
-4. Al termine della distribuzione (in genere richiede circa 30 minuti), esportare il file del certificato del cluster dal nodo head del cluster. Successivamente questo certificato pubblico viene importato nel computer client per fornire l'autenticazione sul lato server per l'associazione HTTP protetta.
+1. Al termine della distribuzione (in genere richiede circa 30 minuti), esportare il file del certificato del cluster dal nodo head del cluster. Successivamente questo certificato pubblico viene importato nel computer client per fornire l'autenticazione sul lato server per l'associazione HTTP protetta.
    
    a. Nel portale di Azure passare al dashboard, selezionare il nodo head e fare clic su **Connetti** nella parte superiore della pagina per connettersi tramite Desktop remoto.
    
@@ -177,12 +177,12 @@ Lo script di distribuzione di HPC Pack IaaS offre un altro modo versatile per di
 **Esecuzione dello script**
 
 1. Aprire la console di PowerShell nel computer client come amministratore.
-2. Passare alla cartella dello script (E:\IaaSClusterScript in questo esempio).
+1. Passare alla cartella dello script (E:\IaaSClusterScript in questo esempio).
    
    ```
    cd E:\IaaSClusterScript
    ```
-3. Per distribuire il cluster HPC Pack, eseguire il comando seguente. In questo esempio si presuppone che il file di configurazione si trovi in E:\HPCDemoConfig.xml.
+1. Per distribuire il cluster HPC Pack, eseguire il comando seguente. In questo esempio si presuppone che il file di configurazione si trovi in E:\HPCDemoConfig.xml.
    
    ```
    .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -214,8 +214,8 @@ Il pacchetto Office Professional Plus 2013 installato nell'immagine VM è un'edi
 Per eseguire l'offload di una cartella di lavoro di Excel in modo da eseguirla nel cluster HPC Pack in Azure, attenersi alla procedura riportata di seguito. A tale scopo, è necessario disporre di Excel 2010 o 2013 già installato nel computer client.
 
 1. Usare una delle opzioni illustrate nel Passaggio 1 per distribuire un cluster HPC Pack con l'immagine del nodo di calcolo di Excel. Ottenere il file del certificato del cluster (con estensione cer) e nome utente e password del cluster.
-2. Nel computer client, importare il certificato del cluster in Cert: \CurrentUser\Root.
-3. Verificare che Excel sia installato. Creare un file Excel.exe.config con i seguenti contenuti nella stessa cartella di Excel.exe del computer client. Così facendo, il componente aggiuntivo di HPC Pack 2012 R2 Excel COM viene caricato correttamente.
+1. Nel computer client, importare il certificato del cluster in Cert: \CurrentUser\Root.
+1. Verificare che Excel sia installato. Creare un file Excel.exe.config con i seguenti contenuti nella stessa cartella di Excel.exe del computer client. Così facendo, il componente aggiuntivo di HPC Pack 2012 R2 Excel COM viene caricato correttamente.
    
     ```
     <?xml version="1.0"?>
@@ -225,13 +225,13 @@ Per eseguire l'offload di una cartella di lavoro di Excel in modo da eseguirla n
         </startup>
     </configuration>
     ```
-4. Configurare il client per l'invio di processi al cluster di HPC Pack. Per farlo, è possibile scaricare [HPC Pack 2012 R2 Update 3](http://www.microsoft.com/download/details.aspx?id=49922) e installare il client di HPC Pack. In alternativa, scaricare e installare le utilità client [HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) e il file ridistribuibile di Visual C++ 2010 appropriato per il computer in uso ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
-5. In questo esempio viene usata una cartella di lavoro di Excel di esempio denominata ConvertiblePricing_Complete.xlsb. È possibile scaricarlo [qui](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
-6. Copiare la cartella di lavoro di Excel in una cartella di lavoro, ad esempio D:\Excel\Run.
-7. Aprire la cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **COM Add-Ins** e verificare che il componente aggiuntivo HPC Pack Excel COM venga caricato correttamente.
+1. Configurare il client per l'invio di processi al cluster di HPC Pack. Per farlo, è possibile scaricare [HPC Pack 2012 R2 Update 3](http://www.microsoft.com/download/details.aspx?id=49922) e installare il client di HPC Pack. In alternativa, scaricare e installare le utilità client [HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) e il file ridistribuibile di Visual C++ 2010 appropriato per il computer in uso ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
+1. In questo esempio viene usata una cartella di lavoro di Excel di esempio denominata ConvertiblePricing_Complete.xlsb. È possibile scaricarlo [qui](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
+1. Copiare la cartella di lavoro di Excel in una cartella di lavoro, ad esempio D:\Excel\Run.
+1. Aprire la cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **COM Add-Ins** e verificare che il componente aggiuntivo HPC Pack Excel COM venga caricato correttamente.
    
    ![Componente aggiuntivo Excel per HPC Pack][addin]
-8. Modificare la macro VBA HPCControlMacros in Excel cambiando le righe commentate, come illustrato nello script seguente. Sostituire con i valori appropriati per il proprio ambiente.
+1. Modificare la macro VBA HPCControlMacros in Excel cambiando le righe commentate, come illustrato nello script seguente. Sostituire con i valori appropriati per il proprio ambiente.
    
    ![Macro Excel per HPC Pack][macro]
    
@@ -251,8 +251,8 @@ Per eseguire l'offload di una cartella di lavoro di Excel in modo da eseguirla n
    'HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath
    HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath, UserName:="hpc\azureuser", Password:="<YourPassword>"
    ```
-9. Copiare la cartella di lavoro di Excel in una directory di caricamento, ad esempio D:\Excel\Upload. Questa directory viene specificata nella costante HPC_DependsFiles della macro VBA.
-10. Per eseguire la cartella di lavoro nel cluster di Azure, fare clic sul pulsante **Cluster** nel foglio di lavoro.
+1. Copiare la cartella di lavoro di Excel in una directory di caricamento, ad esempio D:\Excel\Upload. Questa directory viene specificata nella costante HPC_DependsFiles della macro VBA.
+1. Per eseguire la cartella di lavoro nel cluster di Azure, fare clic sul pulsante **Cluster** nel foglio di lavoro.
 
 ### <a name="run-excel-udfs"></a>Esecuzione delle funzioni definite dall'utente di Excel
 Per eseguire funzioni definite dall'utente di Excel, seguire i passaggi da 1 a 3 della precedente configurazione del computer client. Per le funzioni UDF di Excel, non è necessario che l'applicazione di Excel sia installata nei nodi di calcolo. Pertanto, quando si creano i nodi di calcolo del cluster, è possibile scegliere un'immagine del nodo di calcolo normale, anziché l'immagine del nodo di calcolo con Excel.
@@ -267,10 +267,10 @@ Dopo aver correttamente distribuito il cluster, continuare con la procedura segu
 1. Aprire una nuova cartella di lavoro di Excel. Nella barra multifunzione **Sviluppo** fare clic su **Componenti aggiuntivi**. Quindi, nella finestra di dialogo fare clic su **Sfoglia**, accedere alla cartella %CCP_HOME%Bin\XLL32 e selezionare il ClusterUDF32.xll di esempio. Se il ClusterUDF32 non esiste nel computer client, copiarlo dalla cartella %CCP_HOME%Bin\XLL32 nel nodo head.
    
    ![Selezionare la UDF][udf]
-2. Fare clic su **File** > **Opzioni** > **Avanzate**. In **Formule** selezionare **Allow user-defined XLL functions to run a compute cluster** (Consenti l'esecuzione di funzioni XLL definite dall'utente in un cluster di elaborazione). Fare clic su **Opzioni** e immettere il nome completo del cluster in **Nome del nodo head del cluster**. (Come indicato in precedenza la casella di immissione è limitata a 34 caratteri, pertanto un nome di cluster lungo potrebbe non essere adatto. Per i nomi di cluster lunghi, è possibile usare una variabile a livello di computer).
+1. Fare clic su **File** > **Opzioni** > **Avanzate**. In **Formule** selezionare **Allow user-defined XLL functions to run a compute cluster** (Consenti l'esecuzione di funzioni XLL definite dall'utente in un cluster di elaborazione). Fare clic su **Opzioni** e immettere il nome completo del cluster in **Nome del nodo head del cluster**. (Come indicato in precedenza la casella di immissione è limitata a 34 caratteri, pertanto un nome di cluster lungo potrebbe non essere adatto. Per i nomi di cluster lunghi, è possibile usare una variabile a livello di computer).
    
    ![Configurare la UDF][options]
-3. Per eseguire il calcolo della funzione UDF nel cluster, fare clic sulla cella con valore =XllGetComputerNameC() e premere Invio. La funzione recupera semplicemente il nome del nodo di calcolo in cui viene eseguita la funzione UDF. Per la prima esecuzione, una finestra di dialogo per l'immissione delle credenziali richiede nome utente e password per connettersi al cluster IaaS.
+1. Per eseguire il calcolo della funzione UDF nel cluster, fare clic sulla cella con valore =XllGetComputerNameC() e premere Invio. La funzione recupera semplicemente il nome del nodo di calcolo in cui viene eseguita la funzione UDF. Per la prima esecuzione, una finestra di dialogo per l'immissione delle credenziali richiede nome utente e password per connettersi al cluster IaaS.
    
    ![Eseguire una UDF][run]
    
@@ -280,9 +280,9 @@ Dopo aver correttamente distribuito il cluster, continuare con la procedura segu
 Per eseguire applicazioni SOA generiche nel cluster IaaS di HPC Pack, distribuire innanzitutto il cluster usando uno dei metodi descritti nel Passaggio 1. In questo caso specificare l'immagine di un nodo di calcolo generico, poiché nei nodi di calcolo non è necessario Excel. Attenersi quindi alla procedura seguente:
 
 1. Dopo avere recuperato il certificato del cluster, importarlo nel computer client, in Cert:\CurrentUser\Root.
-2. Installare l'[SDK di HPC Pack 2012 R2 Update 3](http://www.microsoft.com/download/details.aspx?id=49921) e le [utilità client di HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Questi strumenti consentono di sviluppare ed eseguire applicazioni client SOA.
-3. Scaricare il [codice di esempio](https://www.microsoft.com/download/details.aspx?id=41633)HelloWorldR2. Aprire HelloWorldR2.sln in Visual Studio 2010 o 2012. Questo esempio non è attualmente compatibile con le versioni più recenti di Visual Studio.
-4. Compilare innanzitutto il progetto EchoService. Dopodiché, distribuire il servizio nel cluster IaaS con le stesse modalità di distribuzione in un cluster locale. Per informazioni dettagliate, vedere il file Readme.doc in HelloWordR2. Modificare e compilare HelloWorldR2 e altri progetti come descritto nella sezione seguente per generare le applicazioni client SOA da eseguire in un cluster IaaS di Azure.
+1. Installare l'[SDK di HPC Pack 2012 R2 Update 3](http://www.microsoft.com/download/details.aspx?id=49921) e le [utilità client di HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Questi strumenti consentono di sviluppare ed eseguire applicazioni client SOA.
+1. Scaricare il [codice di esempio](https://www.microsoft.com/download/details.aspx?id=41633)HelloWorldR2. Aprire HelloWorldR2.sln in Visual Studio 2010 o 2012. Questo esempio non è attualmente compatibile con le versioni più recenti di Visual Studio.
+1. Compilare innanzitutto il progetto EchoService. Dopodiché, distribuire il servizio nel cluster IaaS con le stesse modalità di distribuzione in un cluster locale. Per informazioni dettagliate, vedere il file Readme.doc in HelloWordR2. Modificare e compilare HelloWorldR2 e altri progetti come descritto nella sezione seguente per generare le applicazioni client SOA da eseguire in un cluster IaaS di Azure.
 
 ### <a name="use-http-binding-with-azure-storage-queue"></a>Uso dell'associazione Http con coda di archiviazione di Azure
 Per usare l'associazione Http con una coda di archiviazione di Azure, apportare alcune modifiche al codice di esempio.
@@ -335,10 +335,10 @@ Per utilizzare l'associazione Http senza una coda di archiviazione di Azure, in 
 Per usare l'associazione NetTcp, la configurazione è simile alla connessione a un cluster locale. È necessario aprire alcuni endpoint nella VM del nodo head. Se ad esempio è stato usato lo script di distribuzione IaaS di HPC Pack per creare il cluster, impostare gli endpoint nel portale di Azure come di seguito descritto.
 
 1. Arrestare la VM.
-2. Aggiungere le porte TCP 9090, 9087, 9091, 9094 rispettivamente per Sessione, Broker, Broker worker e Servizi dati
+1. Aggiungere le porte TCP 9090, 9087, 9091, 9094 rispettivamente per Sessione, Broker, Broker worker e Servizi dati
    
     ![Configurare gli endpoint][endpoint-new-portal]
-3. Avviare la VM.
+1. Avviare la VM.
 
 L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modifica al nome head per il nome completo del cluster IaaS.
 

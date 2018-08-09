@@ -2,24 +2,20 @@
 title: Come usare l'archiviazione code da Python | Microsoft Docs
 description: Informazioni su come usare il servizio di accodamento di Azure da Python per creare ed eliminare code e per inserire, visualizzare ed eliminare messaggi.
 services: storage
-documentationcenter: python
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: cc0d2da2-379a-4b58-a234-8852b4e3d99d
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c7976c01436b1c30880bfd4c57cb97f72a4f48b0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: queues
+ms.openlocfilehash: 975f76fa15507874a16b2b14c2988d618daf2b29
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606691"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520487"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Come usare l'archiviazione di accodamento da Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

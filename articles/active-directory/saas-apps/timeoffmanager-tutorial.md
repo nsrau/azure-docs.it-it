@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 7e1d942d593fc01f68c1cdb7ffd923d2529cf171
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e7f0f6bb778dedeea61b74b5ca0c2edbadd5279b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050613"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Esercitazione: Integrazione di Azure Active Directory con TimeOffManager
 
@@ -53,7 +53,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiungere TimeOffManager dalla raccolta
-2. Configurare e testare l'accesso Single Sign-On di Azure AD
+1. Configurare e testare l'accesso Single Sign-On di Azure AD
 
 ## <a name="add-timeoffmanager-from-the-gallery"></a>Aggiungere TimeOffManager dalla raccolta
 Per configurare l'integrazione di TimeOffManager in Azure AD, è necessario aggiungere TimeOffManager dalla raccolta all'elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di TimeOffManager in Azure AD, è necessario aggi
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **TimeOffManager**, selezionare **TimeOffManager** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **TimeOffManager**, selezionare **TimeOffManager** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Aggiungere dalla raccolta](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Per stabilire la relazione di collegamento, in TimeOffManager assegnare il valor
 Per configurare e testare l'accesso Single Sign-On di Azure AD con TimeOffManager, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di TimeOffManager](#create-a-timeoffmanager-test-user)**: per avere una controparte di Britta Simon in TimeOffManager collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di TimeOffManager](#create-a-timeoffmanager-test-user)**: per avere una controparte di Britta Simon in TimeOffManager collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -101,11 +101,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Accesso basato su SAML](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_samlbase.png)
 
-3. Nella sezione **URL e dominio TimeOffManager** seguire questa procedura:
+1. Nella sezione **URL e dominio TimeOffManager** seguire questa procedura:
 
      ![Sezione URL e dominio TimeOffManager](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_url.png)
 
@@ -114,11 +114,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. È possibile ottenere questo valore dalla **pagina delle impostazioni per l'accesso Single Sign-On**, illustrata più avanti nell'esercitazione, oppure contattando il [team di supporto di TimeOffManager](https://www.purelyhr.com/contact-us).
  
-4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Sezione Certificato di firma SAML](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_certificate.png) 
 
-5. Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a TimeOffManger con il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
+1. Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a TimeOffManger con il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
     
     L'applicazione TimeOffManger si aspetta che le asserzioni SAML abbiano un formato specifico, quindi è necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione.
 
@@ -142,20 +142,20 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d.  Fare clic su **OK**.
     
-6. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/timeoffmanager-tutorial/tutorial_general_400.png)
 
-7. Nella sezione **Configurazione di TimeOffManager** fare clic su **Configura TimeOffManager** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+1. Nella sezione **Configurazione di TimeOffManager** fare clic su **Configura TimeOffManager** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
     ![Sezione Configurazione di TimeOffManager](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_configure.png) 
 
-8. In un'altra finestra del Web browser accedere al sito aziendale di TimeOffManager come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di TimeOffManager come amministratore.
 
-9. Andare a **Account \> Account Options \> Single Sign-On Settings** (Account > Opzioni account > Impostazioni Single Sign-On).
+1. Andare a **Account \> Account Options \> Single Sign-On Settings** (Account > Opzioni account > Impostazioni Single Sign-On).
    
    ![Single Sign-On Settings](./media/timeoffmanager-tutorial/ic795917.png "Single Sign-On Settings")
-7. Nella sezione **Single Sign-On Settings** , eseguire la procedura seguente:
+1. Nella sezione **Single Sign-On Settings** , eseguire la procedura seguente:
    
    ![Single Sign-On Settings](./media/timeoffmanager-tutorial/ic795918.png "Single Sign-On Settings")
    
@@ -173,7 +173,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
    g. Fare clic su **Save Changes** (Salva modifiche).
 
-11. Nella pagina **Single Sign on settings** (Impostazioni Single Sign-On) copiare il valore dell'**URL del servizio consumer di asserzione** e incollarlo nella casella di testo **URL di risposta** nella sezione **URL e dominio TimeOffManager** del portale di Azure. 
+1. Nella pagina **Single Sign on settings** (Impostazioni Single Sign-On) copiare il valore dell'**URL del servizio consumer di asserzione** e incollarlo nella casella di testo **URL di risposta** nella sezione **URL e dominio TimeOffManager** del portale di Azure. 
 
       ![Single Sign-On Settings](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On Settings")
 
@@ -192,15 +192,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/timeoffmanager-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Utenti e gruppi --> Tutti gli utenti](./media/timeoffmanager-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Pulsante Aggiungi](./media/timeoffmanager-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Finestra di dialogo Utente](./media/timeoffmanager-tutorial/create_aaduser_04.png) 
 
@@ -210,7 +210,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-timeoffmanager-test-user"></a>Creare un utente di test di TimeOffManager
 
@@ -236,23 +236,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **TimeOffManager**.
+1. Nell'elenco delle applicazioni selezionare **TimeOffManager**.
 
     ![TimeOffManager nell'elenco di app](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

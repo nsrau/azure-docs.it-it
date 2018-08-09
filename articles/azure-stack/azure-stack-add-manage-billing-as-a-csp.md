@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: f119c2803148d68c9c08cbc6a61a3c8733bc1da4
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 66bab9f4b5099099039aa0f60cd86ef23e73cd1f
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090355"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715686"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gestire l'utilizzo e fatturazione per Azure Stack come Provider di servizi Cloud 
 
@@ -82,5 +82,5 @@ Poiché le sottoscrizioni tenant sono le sottoscrizioni CSP, fattura viene invia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Per altre informazioni sul programma CSP, vedere [programma Cloud Solution Provider](https://partnercenter.microsoft.com/en-us/partner/programs).
+ - Per altre informazioni sul programma CSP, vedere [programma Cloud Solution Provider](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
  - Per altre informazioni su come recuperare le informazioni sull'utilizzo di risorse di Azure Stack, vedere [informazioni sull'utilizzo e fatturazione in Azure Stack](azure-stack-billing-and-chargeback.md).

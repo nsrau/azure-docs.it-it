@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237044"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434959"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure
 
@@ -23,9 +23,9 @@ La sincronizzazione dati SQL consente agli utenti di sincronizzare dati tra i da
 
 In questo articolo viene presentata una soluzione per replicare automaticamente le modifiche dello schema in tutti gli endpoint di sincronizzazione dati SQL.
 1. Questa soluzione usa un trigger DDL per tenere traccia delle modifiche dello schema.
-2. Il trigger inserisce i comandi di modifica dello schema in una tabella di rilevamento.
-3. Questa tabella di rilevamento viene sincronizzata con tutti gli endpoint usando il servizio sincronizzazione dati.
-4. I trigger DML dopo l'inserimento vengono usati per applicare le modifiche dello schema negli altri endpoint.
+1. Il trigger inserisce i comandi di modifica dello schema in una tabella di rilevamento.
+1. Questa tabella di rilevamento viene sincronizzata con tutti gli endpoint usando il servizio sincronizzazione dati.
+1. I trigger DML dopo l'inserimento vengono usati per applicare le modifiche dello schema negli altri endpoint.
 
 In questo articolo si usa ALTER TABLE come esempio di modifica dello schema, ma la soluzione funziona anche per altri tipi di modifiche dello schema.
 
@@ -136,31 +136,31 @@ Dopo che le modifiche dello schema sono state replicate in tutti gli endpoint, �
 
 1.  Modificare lo schema.
 
-2.  Evitare qualsiasi modifica dei dati in cui sono interessate le nuove colonne fino al completamento del passaggio di creazione del trigger.
+1.  Evitare qualsiasi modifica dei dati in cui sono interessate le nuove colonne fino al completamento del passaggio di creazione del trigger.
 
-3.  Attendere che le modifiche dello schema vengano applicate a tutti gli endpoint.
+1.  Attendere che le modifiche dello schema vengano applicate a tutti gli endpoint.
 
-4.  Aggiornare lo schema del database e aggiungere la nuova colonna allo schema di sincronizzazione.
+1.  Aggiornare lo schema del database e aggiungere la nuova colonna allo schema di sincronizzazione.
 
-5.  I dati nella nuova colonna vengono sincronizzati durante la successiva operazione di sincronizzazione.
+1.  I dati nella nuova colonna vengono sincronizzati durante la successiva operazione di sincronizzazione.
 
 #### <a name="remove-columns"></a>Rimuovere le colonne
 
 1.  Rimuovere le colonne dallo schema di sincronizzazione. La sincronizzazione dati interrompe la sincronizzazione dei dati in queste colonne.
 
-2.  Modificare lo schema.
+1.  Modificare lo schema.
 
-3.  Aggiornare lo schema del database.
+1.  Aggiornare lo schema del database.
 
 #### <a name="update-data-types"></a>Aggiornare i tipi di dati.
 
 1.  Modificare lo schema.
 
-2.  Attendere che le modifiche dello schema vengano applicate a tutti gli endpoint.
+1.  Attendere che le modifiche dello schema vengano applicate a tutti gli endpoint.
 
-3.  Aggiornare lo schema del database.
+1.  Aggiornare lo schema del database.
 
-4.  Se i tipi di dati nuovi e precedenti non sono completamente compatibili, ad esempio, se si passa da `int` a `bigint`, la sincronizzazione potrebbe non riuscire prima del completamento delle operazioni di creazione dei trigger. La sincronizzazione ha esito positivo dopo un nuovo tentativo.
+1.  Se i tipi di dati nuovi e precedenti non sono completamente compatibili, ad esempio, se si passa da `int` a `bigint`, la sincronizzazione potrebbe non riuscire prima del completamento delle operazioni di creazione dei trigger. La sincronizzazione ha esito positivo dopo un nuovo tentativo.
 
 #### <a name="rename-columns-or-tables"></a>Rinominare le colonne o le tabelle
 
@@ -176,25 +176,25 @@ La logica di replica descritta in questo articolo smette di funzionare in alcune
 
 1.  Disabilitare il trigger DDL ed evitare ulteriori modifiche dello schema fino alla risoluzione del problema.
 
-2.  Nel database di endpoint in cui si sta verificando il problema, disabilitare il trigger AFTER INSERT nell'endpoint in cui non è possibile eseguire la modifica dello schema. Questa azione consente di sincronizzare il comando di modifica dello schema.
+1.  Nel database di endpoint in cui si sta verificando il problema, disabilitare il trigger AFTER INSERT nell'endpoint in cui non è possibile eseguire la modifica dello schema. Questa azione consente di sincronizzare il comando di modifica dello schema.
 
-3.  Attivare la sincronizzazione del trigger per sincronizzare la tabella di tracciamento delle modifiche dello schema.
+1.  Attivare la sincronizzazione del trigger per sincronizzare la tabella di tracciamento delle modifiche dello schema.
 
-4.  Nel database di endpoint in cui si sta verificando il problema, eseguire una query sulla tabella di cronologia delle modifiche dello schema per ottenere l'ID dell'ultimo comando di modifica dello schema applicato.
+1.  Nel database di endpoint in cui si sta verificando il problema, eseguire una query sulla tabella di cronologia delle modifiche dello schema per ottenere l'ID dell'ultimo comando di modifica dello schema applicato.
 
-5.  Eseguire una query sulla tabella di rilevamento delle modifiche dello schema per elencare tutti i comandi con un ID maggiore del valore ID recuperato nel passaggio precedente.
+1.  Eseguire una query sulla tabella di rilevamento delle modifiche dello schema per elencare tutti i comandi con un ID maggiore del valore ID recuperato nel passaggio precedente.
 
     a.  Ignorare i comandi che non possono essere eseguiti nel database di endpoint. È necessario gestire correttamente l'incoerenza dello schema. Ripristinare le modifiche dello schema originale se l'incoerenza influisce sull'applicazione.
 
     b.  Applicare manualmente i comandi che devono essere applicati.
 
-6.  Aggiornare la tabella della cronologia delle modifiche dello schema e impostare l'ultimo ID applicato sul valore corretto.
+1.  Aggiornare la tabella della cronologia delle modifiche dello schema e impostare l'ultimo ID applicato sul valore corretto.
 
-7.  Verificare se lo schema viene aggiornato.
+1.  Verificare se lo schema viene aggiornato.
 
-8.  Abilitare nuovamente il trigger AFTER INSERT disattivato nel secondo passaggio.
+1.  Abilitare nuovamente il trigger AFTER INSERT disattivato nel secondo passaggio.
 
-9.  Abilitare nuovamente il trigger DDL disattivato nel primo passaggio.
+1.  Abilitare nuovamente il trigger DDL disattivato nel primo passaggio.
 
 Se si vuole pulire i record nella tabella di rilevamento delle modifiche dello schema, usare DELETE anziché TRUNCATE. Non reinizializzare mai la colonna Identity nella tabella di rilevamento delle modifiche dello schema usando DBCC CHECKIDENT. È possibile creare nuove tabelle di rilevamento delle modifiche dello schema e aggiornare il nome della tabella nel trigger DDL se è necessario reinizializzare.
 

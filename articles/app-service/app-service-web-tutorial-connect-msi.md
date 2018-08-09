@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461538"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445562"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Esercitazione: Proteggere la connessione al database SQL con un'identità del servizio gestito
 
@@ -38,7 +38,7 @@ Si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo riprende come punto di partenza le procedure completate in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Se non si è ancora provveduto, seguire prima tale esercitazione. In alternativa, è possibile adattare le procedure alla propria app ASP.NET con un database SQL.
 
@@ -48,7 +48,7 @@ Questo articolo riprende come punto di partenza le procedure completate in [Eser
 
 ## <a name="enable-managed-service-identity"></a>Abilitare l'identità del servizio gestito
 
-Per abilitare un'identità del servizio per l'app Azure, usare il comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) in Cloud Shell. Nel comando seguente sostituire *\<app name>*.
+Per abilitare un'identità del servizio per l'app Azure, usare il comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) in Cloud Shell. Nel comando seguente sostituire *\<app name>*.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,7 +73,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Concedere all'identità l'accesso al database
 
-A questo punto si concede all'identità del servizio dell'app l'accesso al database usando il comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) in Cloud Shell. Nel comando seguente sostituire *\<server_name>* e <principalid_from_last_step>. Digitare il nome di un amministratore al posto di *\<admin_user>*.
+A questo punto si concede all'identità del servizio dell'app l'accesso al database usando il comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) in Cloud Shell. Nel comando seguente sostituire *\<server_name>* e <principalid_from_last_step>. Digitare il nome di un amministratore al posto di *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -83,7 +83,7 @@ L'identità del servizio gestito ha ora accesso al server di database SQL di Azu
 
 ## <a name="modify-connection-string"></a>Modificare la stringa di connessione
 
-Modificare la connessione impostata in precedenza per l'app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell. Nel comando seguente sostituire *\<app name>* con il nome dell'app e *\<server_name>* e *\<db_name>* con i nomi per il database SQL.
+Modificare la connessione impostata in precedenza per l'app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. Nel comando seguente sostituire *\<app name>* con il nome dell'app e *\<server_name>* e *\<db_name>* con i nomi per il database SQL.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure

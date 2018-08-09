@@ -3,16 +3,17 @@ title: Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure
 description: Informazioni sui diversi modi di archiviare e accedere ai dati in Azure per aiutare a decidere quale tecnologia usare.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: common
+ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529503"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure
 
@@ -57,7 +58,7 @@ La tabella seguente confronta File di Azure e Dischi di Azure.
 |-|-|-|  
 |**Attributo**|**Dischi di Azure**|**File di Azure**|  
 |Scope|Esclusivo per una singola macchina virtuale|Accesso condiviso tra più macchine virtuali|  
-|Snapshot e Copia|Sì|No |  
+|Snapshot e Copia|Yes|Yes|  
 |Configurazione|Connesso all'avvio della macchina virtuale|Connesso dopo l'avvio della macchina virtuale|  
 |Authentication|Predefinito|Impostato con comando net use|  
 |Pulizia|Automatico|Manuale|  

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 5b99f60c1bd81b77a5fc2be5575f65fc63eb0c11
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: a2fbdebfc800c33a99b19b366209aeabb03fe115
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34711094"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590834"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Esercitazione: concedere l'accesso a un'API Web ASP.NET Core da un'app Web a singola pagina usando Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completare l'esercitazione sull'[autenticazione degli utenti con Azure Active Directory B2C in un'applicazione a singola pagina](active-directory-b2c-tutorials-spa.md).
 * Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="register-web-api"></a>Registrare l'API Web
 
-Le risorse API Web devono essere registrate nel tenant prima che possano accettare e rispondere a [richieste di risorse protette](../active-directory/develop/active-directory-dev-glossary.md#resource-server) da parte di [applicazioni client](../active-directory/develop/active-directory-dev-glossary.md#client-application) che presentano un [token di accesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) di Azure Active Directory. La registrazione stabilisce l'[oggetto applicazione ed entità servizio](../active-directory/develop/active-directory-dev-glossary.md#application-object) nel tenant. 
+Le risorse API Web devono essere registrate nel tenant prima che possano accettare e rispondere a [richieste di risorse protette](../active-directory/develop/developer-glossary.md#resource-server) da parte di [applicazioni client](../active-directory/develop/developer-glossary.md#client-application) che presentano un [token di accesso](../active-directory/develop/developer-glossary.md#access-token) di Azure Active Directory. La registrazione stabilisce l'[oggetto applicazione ed entità servizio](../active-directory/develop/developer-glossary.md#application-object) nel tenant. 
 
 Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 
@@ -57,10 +57,10 @@ Accedere al [portale di Azure](https://portal.azure.com/) come amministratore gl
     | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | Hello Core API | Immettere un **nome** che descriva l'API Web agli sviluppatori. |
-    | **Includi app Web/API Web** | Sì | Selezionare **Sì** per un'API Web. |
-    | **Consenti il flusso implicito** | Sì | Selezionare **Sì** perché l'API usa l'[accesso OpenID Connect](active-directory-b2c-reference-oidc.md). |
+    | **Includi app Web/API Web** | Yes | Selezionare **Sì** per un'API Web. |
+    | **Consenti il flusso implicito** | Yes | Selezionare **Sì** perché l'API usa l'[accesso OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL di risposta** | `http://localhost:44332` | Gli URL di risposta sono gli endpoint a cui Azure AD B2C restituisce eventuali token richiesti dall'API. In questa esercitazione l'API Web di esempio viene eseguita in locale (localhost) ed è in ascolto sulla porta 5000. |
-    | **URI ID app** | HelloCoreAPI | L'URI identifica l'API in modo univoco nel tenant. In questo modo è possibile registrare più API per ogni tenant. Gli [ambiti](../active-directory/develop/active-directory-dev-glossary.md#scopes) regolano l'accesso alla risorsa API protetta e vengono definiti per ogni URI ID app. |
+    | **URI ID app** | HelloCoreAPI | L'URI identifica l'API in modo univoco nel tenant. In questo modo è possibile registrare più API per ogni tenant. Gli [ambiti](../active-directory/develop/developer-glossary.md#scopes) regolano l'accesso alla risorsa API protetta e vengono definiti per ogni URI ID app. |
     | **Client nativo** | No  | Trattandosi di un'API Web e non un client nativo, selezionare No. |
     
 3. Fare clic su **Crea** per registrare l'API.
@@ -75,7 +75,7 @@ La registrazione dell'API Web con Azure AD B2C definisce una relazione di trust.
 
 ## <a name="define-and-configure-scopes"></a>Definire e configurare gli ambiti
 
-Gli [ambiti](../active-directory/develop/active-directory-dev-glossary.md#scopes) consentono di regolare l'accesso alle risorse protette. Vengono usati dall'API Web per implementare il controllo degli accessi in base all'ambito. Alcuni utenti possono avere ad esempio accesso sia in lettura che in scrittura, mentre altri possono avere autorizzazioni di sola lettura. In questa esercitazione si definiscono autorizzazioni di lettura per l'API Web.
+Gli [ambiti](../active-directory/develop/developer-glossary.md#scopes) consentono di regolare l'accesso alle risorse protette. Vengono usati dall'API Web per implementare il controllo degli accessi in base all'ambito. Alcuni utenti possono avere ad esempio accesso sia in lettura che in scrittura, mentre altri possono avere autorizzazioni di sola lettura. In questa esercitazione si definiscono autorizzazioni di lettura per l'API Web.
 
 ### <a name="define-scopes-for-the-web-api"></a>Definire gli ambiti per l'API Web
 
@@ -111,7 +111,7 @@ Per chiamare un'API Web protetta da un'app, è necessario concedere all'app le a
 
 5. Fare clic su **OK**.
 
-L'**App a pagina singola di esempio** è registrata per chiamare l'API protetta **Hello Core API**. Gli utenti [eseguono l'autenticazione](../active-directory/develop/active-directory-dev-glossary.md#authentication) con Azure AD B2C per usare l'app desktop WPF. L'app desktop ottiene una [concessione di autorizzazione](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) da Azure AD B2C per l'accesso all'API Web protetta.
+L'**App a pagina singola di esempio** è registrata per chiamare l'API protetta **Hello Core API**. Gli utenti [eseguono l'autenticazione](../active-directory/develop/developer-glossary.md#authentication) con Azure AD B2C per usare l'app desktop WPF. L'app desktop ottiene una [concessione di autorizzazione](../active-directory/develop/developer-glossary.md#authorization-grant) da Azure AD B2C per l'accesso all'API Web protetta.
 
 ## <a name="update-code"></a>Aggiornare il codice
 

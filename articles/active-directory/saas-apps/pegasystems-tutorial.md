@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: c1b29cb7d09bcaa25457cf6f99731beae30fa7b2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 224120f01cf6e1a32c85d1f50c6e3a30f50d243a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046142"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Esercitazione: Integrazione di Azure Active Directory con Pegasystems
 
@@ -53,7 +53,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Pegasystems dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-pega-systems-from-the-gallery"></a>Aggiunta di Pegasystems dalla raccolta
 Per configurare l'integrazione di Pegasystems in Azure AD, è necessario aggiungere Pegasystems dalla raccolta al proprio elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di Pegasystems in Azure AD, è necessario aggiung
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **Pegasystems**, selezionare **Pegasystems** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **Pegasystems**, selezionare **Pegasystems** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Pegasystems nell'elenco risultati](./media/pegasystems-tutorial/tutorial_pegasystems_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Per stabilire la relazione di collegamento, in Pegasystems assegnare il valore d
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Pegasystems, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di Pegasystems](#create-a-pega-systems-test-user)**: per avere una controparte di Britta Simon in Pegasystems collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di Pegasystems](#create-a-pega-systems-test-user)**: per avere una controparte di Britta Simon in Pegasystems collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -102,11 +102,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Finestra di dialogo Single Sign-On](./media/pegasystems-tutorial/tutorial_pegasystems_samlbase.png)
 
-3. Nella sezione **URL e dominio Pegasystems** eseguire la procedura seguente se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **URL e dominio Pegasystems** eseguire la procedura seguente se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Informazioni sull'accesso Single Sign-On di URL e dominio di Pegasystems](./media/pegasystems-tutorial/tutorial_pegasystems_url.png)
 
@@ -114,7 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
-4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     ![Informazioni sull'accesso Single Sign-On di URL e dominio di Pegasystems](./media/pegasystems-tutorial/tutorial_pegasystems_url1.png)
 
@@ -123,11 +123,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, aggiornare i valori con l'identificatore, l'URL di risposta, l'URL dello stato dell'inoltro effettivi. È possibile trovare i valori dell'identificatore e dell'URL di risposta nell'applicazione Pegasystems illustrata più avanti in questa esercitazione. Per ottenere il valore dello stato dell'inoltro, contattare il [team di supporto clienti di Pegasystems](https://www.pega.com/contact-us). 
 
-5. L'applicazione Pegasystems prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Queste attestazioni sono specifiche del cliente e dipendono dai requisiti. Di seguito sono descritte alcune attestazioni facoltative che è possibile configurare per l'applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. 
+1. L'applicazione Pegasystems prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Queste attestazioni sono specifiche del cliente e dipendono dai requisiti. Di seguito sono descritte alcune attestazioni facoltative che è possibile configurare per l'applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. 
 
     ![Configure Single Sign-On](./media/pegasystems-tutorial/tutorial_attribute.png)
 
-6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente ed eseguire i passaggi descritti di seguito:
+1. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente ed eseguire i passaggi descritti di seguito:
     
     | Nome attributo | Valore attributo |
     | ------------------- | -------------------- |    
@@ -156,20 +156,20 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. Fare clic su **OK**.
 
-7. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Collegamento di download del certificato](./media/pegasystems-tutorial/tutorial_pegasystems_certificate.png) 
-8. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/pegasystems-tutorial/tutorial_general_400.png)
     
-9. Per configurare l'accesso Single Sign-On sul lato **Pegasystems**, aprire il **portale Pega** usando l'account amministratore in un'altra finestra del browser.
+1. Per configurare l'accesso Single Sign-On sul lato **Pegasystems**, aprire il **portale Pega** usando l'account amministratore in un'altra finestra del browser.
 
-10. Selezionare **Create** -> **SysAdmin** -> **Authentication Service** (Crea > Amministrazione del sistema > Servizio di autenticazione).
+1. Selezionare **Create** -> **SysAdmin** -> **Authentication Service** (Crea > Amministrazione del sistema > Servizio di autenticazione).
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-11. Eseguire le operazioni seguenti nella schermata **Create Authentication Service** (Crea servizio di autenticazione):
+1. Eseguire le operazioni seguenti nella schermata **Create Authentication Service** (Crea servizio di autenticazione):
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
@@ -181,15 +181,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Fare clic su **Create and open** (Crea e apri) 
     
-12. Nella sezione **Identity Provider (IdP) information** (Informazioni sul provider di identità) fare clic su **Import IdP metadata** (Importa dati IdP) e cercare il file di metadati precedentemente scaricato dal portale di Azure. Fare clic su **Submit** (Invia) per caricare i metadati.
+1. Nella sezione **Identity Provider (IdP) information** (Informazioni sul provider di identità) fare clic su **Import IdP metadata** (Importa dati IdP) e cercare il file di metadati precedentemente scaricato dal portale di Azure. Fare clic su **Submit** (Invia) per caricare i metadati.
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
     
-13. Questa operazione inserirà i dati del provider di identità come illustrato di seguito.
+1. Questa operazione inserirà i dati del provider di identità come illustrato di seguito.
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/pegasystems-tutorial/tutorial_pegasystems_admin3.png)
     
-14. Eseguire le azioni seguenti nella sezione **Service Provider (SP) settings** (Impostazioni del provider del servizio):
+1. Eseguire le azioni seguenti nella sezione **Service Provider (SP) settings** (Impostazioni del provider del servizio):
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
@@ -199,7 +199,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Selezionare **Disable request signing** (Disabilita firma richiesta).
 
-15. Fare clic su **Save**
+1. Fare clic su **Save**
     
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -216,15 +216,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/pegasystems-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/pegasystems-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/pegasystems-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/pegasystems-tutorial/create_aaduser_04.png)
 
@@ -234,7 +234,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-pega-systems-test-user"></a>Creare un utente di test per Pegasystems
 
@@ -253,23 +253,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **Pegasystems**.
+1. Nell'elenco delle applicazioni selezionare **Pegasystems**.
 
     ![Collegamento Pegasystems nell'elenco Applicazioni](./media/pegasystems-tutorial/tutorial_pegasystems_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

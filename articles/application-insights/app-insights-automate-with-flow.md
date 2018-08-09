@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: c92b50ee78c100a531a2973181251444b3810967
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293773"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424552"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di Azure Application Insights con il connettore per Microsoft Flow
 
@@ -35,19 +35,19 @@ Questa esercitazione illustra come creare un flusso che usa l'algoritmo di clust
 
 ### <a name="step-1-create-a-flow"></a>Passaggio 1: Creare un flusso
 1. Accedere a [Microsoft Flow](http://flow.microsoft.com) e quindi selezionare **Flussi personali**.
-2. Fare clic su **Crea un flusso da un modello vuoto**.
+1. Fare clic su **Crea un flusso da un modello vuoto**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Passaggio 2: Creare un trigger per il flusso
 1. Selezionare **Pianificazione** e quindi selezionare **Pianificazione - Ricorrenza**.
-2. Nella casella **Frequenza** selezionare **Giorno** e nella casella **Intervallo** immettere **1**.
+1. Nella casella **Frequenza** selezionare **Giorno** e nella casella **Intervallo** immettere **1**.
 
     ![Finestra di dialogo del trigger di Microsoft Flow](./media/app-insights-automate-with-flow/flow1.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>Passaggio 3: Aggiungere un'azione di Application Insights
 1. Fare clic su **Nuovo passaggio** e quindi su **Aggiungi un'azione**.
-2. Cercare **Azure Application Insights**.
-3. Fare clic su **Application Insights - Visualize Analytics query Preview** (Application Insights - Visualizza query di Analisi Anteprima).
+1. Cercare **Azure Application Insights**.
+1. Fare clic su **Application Insights - Visualize Analytics query Preview** (Application Insights - Visualizza query di Analisi Anteprima).
 
     ![Finestra di esecuzione della query di Analisi](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -84,12 +84,12 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 ### <a name="step-6-configure-the-flow-to-send-email"></a>Passaggio 6: Configurare il flusso per l'invio tramite posta elettronica
 
 1. Fare clic su **Nuovo passaggio** e quindi su **Aggiungi un'azione**.
-2. Cercare **Office 365 Outlook**.
-3. Fare clic su **Office 365 Outlook - Invia un messaggio di posta elettronica**.
+1. Cercare **Office 365 Outlook**.
+1. Fare clic su **Office 365 Outlook - Invia un messaggio di posta elettronica**.
 
     ![Finestra di selezione di Office 365 Outlook](./media/app-insights-automate-with-flow/flow2b.png)
 
-4. Nella finestra **Invia un messaggio di posta elettronica** seguire questa procedura:
+1. Nella finestra **Invia un messaggio di posta elettronica** seguire questa procedura:
 
    a. Digitare l'indirizzo e-mail del destinatario.
 
@@ -101,7 +101,7 @@ Quando si creano query, verificare che funzionino correttamente in Analisi prima
 
     ![Configurazione di Office 365 Outlook](./media/app-insights-automate-with-flow/flow5.png)
 
-5. Nel menu di contenuto dinamico seguire questa procedura:
+1. Nel menu di contenuto dinamico seguire questa procedura:
 
     a. Selezionare **Nome allegato**.
 

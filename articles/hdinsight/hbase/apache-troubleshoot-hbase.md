@@ -1,22 +1,19 @@
 ---
-title: Risolvere i problemi di HBase con Azure HDInsight | Microsoft Docs
+title: Risolvere i problemi di HBase con Azure HDInsight
 description: Risposte alle domande comuni sull'uso di HBase e Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinver
-manager: ashitg
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 7/7/2017
+author: nitinver
 ms.author: nitinver
-ms.openlocfilehash: d5d50121cd0375af1b57baadeb40efb237aaea11
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 7/7/2017
+ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165282"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593900"
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Risolvere i problemi di HBase con Azure HDInsight
 

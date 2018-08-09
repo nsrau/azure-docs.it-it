@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6362bcb701b444c8cd71b270222ce4f87b4cc2e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055859"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Esercitazione: Integrazione di Azure Active Directory con vxMaintain
 
@@ -65,19 +65,19 @@ Per aggiungere vxMaintain dalla raccolta, seguire questa procedura:
 
     ![Pulsante Azure Active Directory][1]
 
-2. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
+1. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
 
     ![Riquadro "Applicazioni aziendali"][2]
     
-3. Per aggiungere un'applicazione, fare clic su **Nuova applicazione** nella finestra di dialogo **Tutte le applicazioni**.
+1. Per aggiungere un'applicazione, fare clic su **Nuova applicazione** nella finestra di dialogo **Tutte le applicazioni**.
 
     ![Pulsante "Nuova applicazione"][3]
 
-4. Nella casella di ricerca digitare **vxMaintain**.
+1. Nella casella di ricerca digitare **vxMaintain**.
 
     ![Elenco a discesa "Modalità Single Sign-On"](./media/vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
-5. Nell'elenco risultati, selezionare **vxMaintain** e quindi fare clic su **Aggiungi**.
+1. Nell'elenco risultati, selezionare **vxMaintain** e quindi fare clic su **Aggiungi**.
 
     ![Collegamento di vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
@@ -98,11 +98,11 @@ In questa sezione è possibile abilitare l'accesso SSO di Azure AD nel portale d
 
     ![Comando "Single Sign-On"][4]
 
-2. Nell'elenco a discesa **Modalità Single Sign-On** selezionare **Accesso basato su SAML** per abilitare l'accesso SSO.
+1. Nell'elenco a discesa **Modalità Single Sign-On** selezionare **Accesso basato su SAML** per abilitare l'accesso SSO.
  
     ![Comando "Accesso basato su SAML"](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
-3. In **URL e dominio vxMaintain** seguire questa procedura:
+1. In **URL e dominio vxMaintain** seguire questa procedura:
 
     ![Sezione URL e dominio vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
@@ -113,15 +113,15 @@ In questa sezione è possibile abilitare l'accesso SSO di Azure AD nel portale d
     > [!NOTE] 
     > I valori precedenti non sono valori reali. Aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di vxMaintain](https://www.hubspot.com/company/contact).
  
-4. In **Certificato di firma SAML** selezionare **XML metadati** e quindi salvare il file di metadati nel computer.
+1. In **Certificato di firma SAML** selezionare **XML metadati** e quindi salvare il file di metadati nel computer.
 
     ![Sezione "Certificato di firma SAML"](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
-5. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
     ![Pulsante Salva](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso SSO di **vxMaintain**, inviare il file **XML metadati** scaricato al [team di supporto di vxMaintain](https://www.hubspot.com/company/contact).
+1. Per configurare l'accesso SSO di **vxMaintain**, inviare il file **XML metadati** scaricato al [team di supporto di vxMaintain](https://www.hubspot.com/company/contact).
 
 > [!TIP]
 > Durante la configurazione dell'app, nel [portale di Azure](https://portal.azure.com) è disponibile un riepilogo delle istruzioni precedenti. Dopo aver aggiunto l'app dalla sezione **Active Directory** > **Applicazioni aziendali**, selezionare la scheda **Single Sign-On** e accedere alla documentazione incorporata dalla sezione **Configurazione**. 
@@ -138,16 +138,16 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     ![Pulsante "Azure Active Directory"](./media/vxmaintain-tutorial/create_aaduser_01.png) 
 
-2. Per visualizzare un elenco di utenti, passare a **Utenti e gruppi** > **Tutti gli utenti**.
+1. Per visualizzare un elenco di utenti, passare a **Utenti e gruppi** > **Tutti gli utenti**.
     
     ![Collegamento "Tutti gli utenti"](./media/vxmaintain-tutorial/create_aaduser_02.png)  
     Verrà visualizzata la finestra di dialogo **Tutti gli utenti**. 
 
-3. Per aprire la finestra di dialogo **Utente**, fare clic su **Aggiungi**.
+1. Per aprire la finestra di dialogo **Utente**, fare clic su **Aggiungi**.
  
     ![Pulsante Aggiungi](./media/vxmaintain-tutorial/create_aaduser_03.png) 
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
  
     ![Finestra di dialogo Utente](./media/vxmaintain-tutorial/create_aaduser_04.png) 
 
@@ -157,7 +157,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore generato nella casella **Password**.
 
-    d. Selezionare **Crea**.
+    d. Selezionare **Create**.
  
 ### <a name="create-a-vxmaintain-test-user"></a>Creare un utente di test di vxMaintain
 
@@ -173,21 +173,21 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Tutte le applicazioni"][201] 
 
-2. Nell'elenco **Applicazioni** selezionare **vxMaintain**.
+1. Nell'elenco **Applicazioni** selezionare **vxMaintain**.
 
     ![Collegamento di vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
-3. Nel riquadro sinistro fare clic su **Utenti e gruppi**.
+1. Nel riquadro sinistro fare clic su **Utenti e gruppi**.
 
     ![Collegamento "Utenti e gruppi"][202] 
 
-4. Fare clic su **Aggiungi** e quindi nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+1. Fare clic su **Aggiungi** e quindi nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
 
     ![Collegamento "Utenti e gruppi"][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti** e quindi fare clic su **Seleziona**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti** e quindi fare clic su **Seleziona**.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
     
 ### <a name="test-your-azure-ad-single-sign-on"></a>Testare l'accesso Single Sign-On di Azure AD
 

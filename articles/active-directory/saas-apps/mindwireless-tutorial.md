@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 3898f64ebc32db2a512b04949e9b33a36694cdb6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6c6fe0a720795c67a7062f5a5971c699472fca07
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046489"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Esercitazione: Integrazione di Azure Active Directory con mindWireless
 
@@ -53,7 +53,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di mindWireless dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-mindwireless-from-the-gallery"></a>Aggiunta di mindWireless dalla raccolta
 Per configurare l'integrazione di mindWireless in Azure AD, è necessario aggiungere mindWireless dalla raccolta al proprio elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di mindWireless in Azure AD, è necessario aggiun
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **mindWireless**, selezionare **mindWireless** dal pannello dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **mindWireless**, selezionare **mindWireless** dal pannello dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![mindWireless nell'elenco risultati](./media/mindwireless-tutorial/tutorial_mindwireless_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve sapere qual è l
 Per configurare e testare l'accesso Single Sign-On di Azure AD con mindWireless, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test per mindWireless](#create-a-mindwireless-test-user)**: per avere una controparte di Britta Simon in mindWireless collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test per mindWireless](#create-a-mindwireless-test-user)**: per avere una controparte di Britta Simon in mindWireless collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -100,11 +100,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
 
     ![Finestra di dialogo Single Sign-On](./media/mindwireless-tutorial/tutorial_mindwireless_samlbase.png)
 
-3. Nella sezione **URL e dominio mindWireless** seguire questa procedura:
+1. Nella sezione **URL e dominio mindWireless** seguire questa procedura:
 
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di mindWireless](./media/mindwireless-tutorial/tutorial_mindwireless_url.png)
 
@@ -115,13 +115,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di mindWireless](mailto:sdulloor@mindwireless.com).
 
-4. L'applicazione mindWireless prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML.
+1. L'applicazione mindWireless prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML.
 
-5. La schermata seguente illustra un esempio relativo a questa operazione. Il nome dell'attestazione è sempre **ID dipendente**, con mapping del valore a user.employeeid, che contiene il valore EmployeeID dell'utente. In questo caso il mapping utente da Azure AD a mindWireless viene eseguito su EmployeeID, ma è possibile eseguirlo su un valore diverso anche in base alle impostazioni dell'applicazione. È possibile collaborare prima di tutto con il [team di supporto di mindWireless](mailto:sdulloor@mindwireless.com) per usare l'identificatore corretto di un utente ed eseguire il mapping di tale valore all'attestazione **ID dipendente**.
+1. La schermata seguente illustra un esempio relativo a questa operazione. Il nome dell'attestazione è sempre **ID dipendente**, con mapping del valore a user.employeeid, che contiene il valore EmployeeID dell'utente. In questo caso il mapping utente da Azure AD a mindWireless viene eseguito su EmployeeID, ma è possibile eseguirlo su un valore diverso anche in base alle impostazioni dell'applicazione. È possibile collaborare prima di tutto con il [team di supporto di mindWireless](mailto:sdulloor@mindwireless.com) per usare l'identificatore corretto di un utente ed eseguire il mapping di tale valore all'attestazione **ID dipendente**.
 
     ![Configure Single Sign-On](./media/mindwireless-tutorial/tutorial_attribute.png)
 
-6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente ed eseguire i passaggi descritti di seguito:
+1. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente ed eseguire i passaggi descritti di seguito:
     
     | Nome attributo | Valore attributo | Valore spazio dei nomi |
     | -------------- | --------------- | ----------------|
@@ -141,19 +141,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     e. Fare clic su **OK**.
     
-7. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Collegamento di download del certificato](./media/mindwireless-tutorial/tutorial_mindwireless_certificate.png) 
 
-8. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/mindwireless-tutorial/tutorial_general_400.png)
 
-9. Nella sezione **Configurazione di mindWireless** fare clic su **Configura mindWireless** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+1. Nella sezione **Configurazione di mindWireless** fare clic su **Configura mindWireless** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
     ![Configurazione di mindWireless](./media/mindwireless-tutorial/tutorial_mindwireless_configure.png) 
 
-10. Per configurare l'accesso Single Sign-On sul lato **mindWireless**, è necessario inviare il **certificato (Base64) scaricato, l'URL del servizio Single Sign-On SAML** e l'**ID di entità SAML** al [team di supporto di mindWireless](mailto:sdulloor@mindwireless.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **mindWireless**, è necessario inviare il **certificato (Base64) scaricato, l'URL del servizio Single Sign-On SAML** e l'**ID di entità SAML** al [team di supporto di mindWireless](mailto:sdulloor@mindwireless.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -167,15 +167,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/mindwireless-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/mindwireless-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/mindwireless-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/mindwireless-tutorial/create_aaduser_04.png)
 
@@ -185,7 +185,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
 ### <a name="create-a-mindwireless-test-user"></a>Creare un utente di test di mindWireless
 
@@ -203,23 +203,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco di applicazioni selezionare **mindWireless**.
+1. Nell'elenco di applicazioni selezionare **mindWireless**.
 
     ![Collegamento mindWireless nell'elenco delle applicazioni](./media/mindwireless-tutorial/tutorial_mindwireless_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

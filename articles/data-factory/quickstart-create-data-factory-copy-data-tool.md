@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 4df392ec7e100ef0efcbb3876079710a6b9ca4fb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 401f5fb6eeff2b9ca033dd24872ea88bd696253c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623536"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443205"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Usare lo strumento Copia dati per copiare i dati 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -30,36 +30,36 @@ In questa guida introduttiva si userà il portale di Azure per creare una data f
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Scegliere **Nuovo** dal menu a sinistra, selezionare **Dati e analisi** e quindi selezionare **Data Factory**. 
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
-2. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** per **Nome**. 
+1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** per **Nome**. 
       
    ![Pagina "Nuova data factory"](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory.png)
  
    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, **&lt;nomeutente&gt;ADFTutorialDataFactory**, e provare di nuovo a crearla. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
   
    ![Errore quando un nome non è disponibile](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
-3. Per **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory. 
-4. In **Gruppo di risorse** eseguire una di queste operazioni:
+1. Per **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory. 
+1. In **Gruppo di risorse** eseguire una di queste operazioni:
      
    - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco. 
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-   Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Per **Versione** selezionare **V2**.
-5. Per **Località** selezionare la località per la data factory. 
+   Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+1. Per **Versione** selezionare **V2**.
+1. Per **Località** selezionare la località per la data factory. 
 
    L'elenco include solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio, HDInsight) usati da Data Factory possono trovarsi in altre località/aree.
 
-6. Selezionare **Aggiungi al dashboard**.     
-7. Selezionare **Create**.
-8. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
+1. Selezionare **Aggiungi al dashboard**.     
+1. Selezionare **Crea**.
+1. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
 
     ![Riquadro "Deploying data factory" (Distribuzione della data factory)](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
-9. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Azure Data Factory in una scheda separata.
+1. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Azure Data Factory in una scheda separata.
    
    ![Home page della data factory, con il riquadro "Crea e monitora"](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)
 
@@ -69,10 +69,10 @@ In questa guida introduttiva si userà il portale di Azure per creare una data f
 
    ![Riquadro "Copia dati"](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-tile.png)
 
-2. Nella pagina **Proprietà** dello strumento Copia dati è possibile specificare un nome per la pipeline e la relativa descrizione, quindi selezionare **Avanti**. 
+1. Nella pagina **Proprietà** dello strumento Copia dati è possibile specificare un nome per la pipeline e la relativa descrizione, quindi selezionare **Avanti**. 
 
    ![Pagina "Proprietà"](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
-3. Nella pagina **Archivio dati di origine** completare la procedura seguente:
+1. Nella pagina **Archivio dati di origine** completare la procedura seguente:
 
     a. Fare clic su **+ Crea nuova connessione** per aggiungere una connessione.
 
@@ -91,7 +91,7 @@ In questa guida introduttiva si userà il portale di Azure per creare una data f
    ![Selezionare il servizio collegato di origine](./media/quickstart-create-data-factory-copy-data-tool/select-source-linked-service.png)
 
 
-4. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input) completare questa procedura:
+1. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input) completare questa procedura:
 
    a. Fare clic su **Sfoglia** per passare alla cartella **adftutorial/input**, selezionare il file **emp.txt**, quindi fare clic su **Scegli**. 
 
@@ -102,39 +102,39 @@ In questa guida introduttiva si userà il portale di Azure per creare una data f
    ![Pagina "Choose the input file or folder" (Scegliere il file o la cartella di input)](./media/quickstart-create-data-factory-copy-data-tool/select-binary-copy.png)
 
 
-5. Nella pagina **Destination data store** (Archivio dati di destinazione) selezionare il servizio collegato **Archiviazione BLOB di Azure** appena creato e quindi selezionare **Avanti**. 
+1. Nella pagina **Destination data store** (Archivio dati di destinazione) selezionare il servizio collegato **Archiviazione BLOB di Azure** appena creato e quindi selezionare **Avanti**. 
 
    ![Pagina "Destination data store" (Archivio dati di destinazione)](./media/quickstart-create-data-factory-copy-data-tool/select-sink-linked-service.png)
 
-6. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output) immettere **adftutorial/output** come percorso della cartella, quindi selezionare **Avanti**. 
+1. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output) immettere **adftutorial/output** come percorso della cartella, quindi selezionare **Avanti**. 
 
    ![Pagina "Choose the output file or folder" (Scegliere il file o la cartella di output)](./media/quickstart-create-data-factory-copy-data-tool/configure-sink-path.png) 
 
-7. Nella pagina **Impostazioni** selezionare **Avanti** per usare le configurazioni predefinite. 
+1. Nella pagina **Impostazioni** selezionare **Avanti** per usare le configurazioni predefinite. 
 
-8. Nella pagina **Riepilogo** verificare tutte le impostazioni e selezionare **Avanti**. 
+1. Nella pagina **Riepilogo** verificare tutte le impostazioni e selezionare **Avanti**. 
 
     ![Pagina "Riepilogo"](./media/quickstart-create-data-factory-copy-data-tool/summary-page.png)
 
-9. Nella pagina **Distribuzione completata** selezionare **Monitoraggio** per monitorare la pipeline creata. 
+1. Nella pagina **Distribuzione completata** selezionare **Monitoraggio** per monitorare la pipeline creata. 
 
     ![Pagina "Distribuzione completata"](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 
-10. L'applicazione passa alla scheda **Monitoraggio**. In questa scheda viene visualizzato lo stato della pipeline. Selezionare **Aggiorna** per aggiornare l'elenco. 
+1. L'applicazione passa alla scheda **Monitoraggio**. In questa scheda viene visualizzato lo stato della pipeline. Selezionare **Aggiorna** per aggiornare l'elenco. 
     
     ![Monitorare l'esecuzione della pipeline](./media/quickstart-create-data-factory-copy-data-tool/pipeline-monitoring.png)
 
-11. Selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. La pipeline ha solo un'attività di tipo **Copia**. 
+1. Selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. La pipeline ha solo un'attività di tipo **Copia**. 
 
     ![Monitorare l'esecuzione delle attività](./media/quickstart-create-data-factory-copy-data-tool/activity-monitoring.png)
     
-12. Per visualizzare informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (immagine degli occhiali) nella colonna **Azioni**. Per informazioni dettagliate sulle proprietà, vedere [Panoramica dell'attività Copia](copy-activity-overview.md).
+1. Per visualizzare informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (immagine degli occhiali) nella colonna **Azioni**. Per informazioni dettagliate sulle proprietà, vedere [Panoramica dell'attività Copia](copy-activity-overview.md).
 
     ![Dettagli dell'operazione di copia](./media/quickstart-create-data-factory-copy-data-tool/activity-execution-details.png)
 
-13. Verificare che il file **emp.txt** sia stato creato nella cartella **output** del contenitore **adftutorial**. Se la cartella output non esiste, il servizio Data Factory la crea automaticamente. 
+1. Verificare che il file **emp.txt** sia stato creato nella cartella **output** del contenitore **adftutorial**. Se la cartella output non esiste, il servizio Data Factory la crea automaticamente. 
 
-14. Passare alla scheda **Autore** sopra la scheda **Monitoraggio** nel pannello sinistro, per poter modificare i servizi collegati, i set di dati e le pipeline. Per informazioni sulla modifica di questi elementi nell'interfaccia utente di Data Factory, vedere [Creare una data factory con il portale di Azure](quickstart-create-data-factory-portal.md).
+1. Passare alla scheda **Autore** sopra la scheda **Monitoraggio** nel pannello sinistro, per poter modificare i servizi collegati, i set di dati e le pipeline. Per informazioni sulla modifica di questi elementi nell'interfaccia utente di Data Factory, vedere [Creare una data factory con il portale di Azure](quickstart-create-data-factory-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 La pipeline in questo esempio copia i dati da una posizione a un'altra nell'archivio BLOB di Azure. Per informazioni sull'uso di Data Factory in più scenari, vedere le [esercitazioni](tutorial-copy-data-portal.md). 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0b2bb17c85f76498e11ea3f007d55d7488f249cf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917335"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426888"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Aggiungere uno script VMM a un piano di ripristino
 
@@ -27,7 +27,7 @@ In questo articolo viene descritto come creare uno script di System Center Virtu
 
 Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum su Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È possibile usare gli script di PowerShell nei piani di ripristino. Perché sia possibile accedervi dal piano di ripristino, è necessario crearli e inserirli nella libreria VMM. Durante la scrittura di uno script, tenere presenti le considerazioni seguenti:
 
@@ -52,9 +52,9 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
   
   1. Aprire l'editor del Registro di sistema e passare a **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  2. Modificare il valore di **ScriptLibraryPath** in **\\\libserver2.contoso.com\share\\**. Specificare il nome di dominio completo. Fornire le autorizzazioni per il percorso di condivisione. Si tratta del nodo radice della condivisione. Per verificare la presenza del nodo radice, in VMM passare al nodo radice nella libreria. Il percorso che si apre è la radice del percorso. Si tratta del percorso da usare nella variabile.
+  1. Modificare il valore di **ScriptLibraryPath** in **\\\libserver2.contoso.com\share\\**. Specificare il nome di dominio completo. Fornire le autorizzazioni per il percorso di condivisione. Si tratta del nodo radice della condivisione. Per verificare la presenza del nodo radice, in VMM passare al nodo radice nella libreria. Il percorso che si apre è la radice del percorso. Si tratta del percorso da usare nella variabile.
 
-  3. Testare lo script usando un account utente con lo stesso livello di diritti utente dell'account del servizio VMM. Usando questi diritti utente, è possibile verificare che gli script autonomi testati vengano eseguiti nello stesso modo in cui vengono eseguiti nei piani di ripristino. Nel server VMM impostare i criteri di esecuzione come segue in modo che vengano ignorati:
+  1. Testare lo script usando un account utente con lo stesso livello di diritti utente dell'account del servizio VMM. Usando questi diritti utente, è possibile verificare che gli script autonomi testati vengano eseguiti nello stesso modo in cui vengono eseguiti nei piani di ripristino. Nel server VMM impostare i criteri di esecuzione come segue in modo che vengano ignorati:
 
      a. Aprire la console di **Windows PowerShell a 64 bit** come amministratore.
      
@@ -68,19 +68,19 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 Se si dispone di un sito di origine VMM, è possibile creare uno script nel server VMM e includerlo nel piano di ripristino.
 
 1. Nella condivisione di libreria creare una nuova cartella. Ad esempio, \<Nome server VMM>\MSSCVMMLibrary\RPScripts. Posizionare la cartella nei server VMM di origine e destinazione.
-2. Creare lo script. Assegnare un nome, ad esempio RPScript. Verificare che lo script funzioni come previsto.
-3. Inserire lo script nella cartella \<Nome server VMM>\MSSCVMMLibrary nei server VMM di origine e destinazione.
+1. Creare lo script. Assegnare un nome, ad esempio RPScript. Verificare che lo script funzioni come previsto.
+1. Inserire lo script nella cartella \<Nome server VMM>\MSSCVMMLibrary nei server VMM di origine e destinazione.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Aggiungere lo script a un piano di ripristino
 
 Dopo avere aggiunto macchine virtuali o gruppi di replica a un piano di ripristino e avere creato il piano, è possibile aggiungere lo script al gruppo.
 
 1. Aprire il piano di ripristino.
-2. Nell'elenco **Passaggio** selezionare una voce. Selezionare quindi **Script** o **Azione manuale**.
-3. Specificare se si desidera aggiungere lo script o l’azione prima o dopo l'elemento selezionato. Per spostare lo script verso l'alto o verso il basso nell'elenco, usare i pulsanti **Sposta su** e **Sposta giù**.
-4. Se si aggiunge uno script VMM, selezionare **Failover to VMM script** (Failover nello script VMM). In **Percorso script** immettere il percorso relativo della condivisione, Ad esempio, **\RPScripts\RPScript.PS1**.
-5. Se si aggiunge un runbook di automazione di Azure, specificare l'account di Automazione di Azure in cui si trova il runbook e selezionare lo script di runbook di Azure che si desidera usare.
-6. Per verificare che lo script funzioni come previsto, eseguire un failover di prova del piano di ripristino.
+1. Nell'elenco **Passaggio** selezionare una voce. Selezionare quindi **Script** o **Azione manuale**.
+1. Specificare se si desidera aggiungere lo script o l’azione prima o dopo l'elemento selezionato. Per spostare lo script verso l'alto o verso il basso nell'elenco, usare i pulsanti **Sposta su** e **Sposta giù**.
+1. Se si aggiunge uno script VMM, selezionare **Failover to VMM script** (Failover nello script VMM). In **Percorso script** immettere il percorso relativo della condivisione, Ad esempio, **\RPScripts\RPScript.PS1**.
+1. Se si aggiunge un runbook di automazione di Azure, specificare l'account di Automazione di Azure in cui si trova il runbook e selezionare lo script di runbook di Azure che si desidera usare.
+1. Per verificare che lo script funzioni come previsto, eseguire un failover di prova del piano di ripristino.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

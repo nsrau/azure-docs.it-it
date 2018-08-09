@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 922c87f2d577aff86d51a1fde53f221ebd2fa82c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295950"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446691"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 > * distribuire il codice senza server mediante Funzioni di Azure
 > * creare una sottoscrizione di eventi di archiviazione BLOB in Griglia di eventi
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -52,7 +52,7 @@ Se non si usa Cloud Shell, prima è necessario accedere usando `az login`.
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
-Per Funzioni di Azure è necessario un account di archiviazione generale. Creare un altro account di archiviazione generale nel gruppo di risorse usando il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Per Funzioni di Azure è necessario un account di archiviazione generale. Creare un altro account di archiviazione generale nel gruppo di risorse usando il comando [az storage account create](/cli/azure/storage/account#az-storage-account-create).
 
 I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. 
 
@@ -66,7 +66,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni  
 
-Per ospitare l'esecuzione della funzione è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente per l'esecuzione senza server del codice di funzione. Creare un'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
+Per ospitare l'esecuzione della funzione è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente per l'esecuzione senza server del codice di funzione. Creare un'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
 Nel comando seguente sostituire il segnaposto `<function_app>` con il nome univoco dell'app per le funzioni. Poiché verrà usato come dominio DNS predefinito per l'app per le funzioni, è necessario che il app per le funzioni sia univoco tra tutte le app in Azure. Per `<general_storage_account>` sostituire il nome dell'account di archiviazione generale creato.
 

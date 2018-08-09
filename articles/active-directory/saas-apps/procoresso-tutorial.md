@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: bd84224f4c3a8a498a296ff50190713111895472
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 871fde799f064f52b11b75e190b9b7c8a73a843d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051616"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Procore SSO
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Procore SSO dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-procore-sso-from-the-gallery"></a>Aggiungere Procore SSO dalla raccolta
 Per configurare l'integrazione di Procore SSO in Azure AD, è necessario aggiungere Procore SSO dalla raccolta al proprio elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di Procore SSO in Azure AD, è necessario aggiung
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
+1. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **Procore SSO**.
+1. Nella casella di ricerca digitare **Procore SSO**.
 
     ![Creazione di un utente test di Azure AD](./media/procoresso-tutorial/tutorial_procoresso_search.png)
 
-5. Nel pannello dei risultati selezionare **Procore SSO** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **Procore SSO** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/procoresso-tutorial/tutorial_procoresso_addfromgallery.png)
 
@@ -89,10 +89,10 @@ La relazione di collegamento viene stabilita assegnando il valore del **nome ute
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Procore SSO, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Procore SSO](#creating-a-procore-sso-test-user)** : per avere una controparte di Britta Simon in Procore SSO collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente test di Procore SSO](#creating-a-procore-sso-test-user)** : per avere una controparte di Britta Simon in Procore SSO collegata alla relativa rappresentazione in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,33 +104,33 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_samlbase.png)
 
-3. Nella sezione **URL e dominio Procore SSO** l'utente deve eseguire alcuna operazione perché l'applicazione è già preintegrata in Azure.
+1. Nella sezione **URL e dominio Procore SSO** l'utente deve eseguire alcuna operazione perché l'applicazione è già preintegrata in Azure.
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_url.png)
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Procore SSO** fare clic su **Configura Procore SSO** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+1. Nella sezione **Configurazione di Procore SSO** fare clic su **Configura Procore SSO** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_configure.png) 
 
-7. Per configurare l'accesso Single Sign-On sul lato **Procore SSO**, accedere al sito aziendale di Procore come amministratore.
+1. Per configurare l'accesso Single Sign-On sul lato **Procore SSO**, accedere al sito aziendale di Procore come amministratore.
 
-8. Nell'elenco della casella degli strumenti scegliere **Admin** per aprire la pagina delle impostazioni SSO.
+1. Nell'elenco della casella degli strumenti scegliere **Admin** per aprire la pagina delle impostazioni SSO.
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/procore_tool_admin.png)
 
-9. Incollare i valori nelle caselle come descritto di seguito.
+1. Incollare i valori nelle caselle come descritto di seguito.
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/procore_setting_admin.png)  
 
@@ -140,9 +140,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Aprire il file **XML dei metadati** scaricato in precedenza dal portale di Azure e copiare il certificato nel tag denominato **X509Certificate**. Incollare il valore copiato nel **Single Sign On x509 Certificate** (Certificato x509 Single Sign-On).
 
-10. Fare clic su **Save Changes** (Salva modifiche).
+1. Fare clic su **Save Changes** (Salva modifiche).
 
-11. Dopo queste impostazioni, è necessario inviare il **nome di dominio**, ad esempio **contoso.com**, con cui si effettua l'accesso a Procore al [team di supporto Procore](https://support.procore.com/), che attiverà l'accesso Single Sign-On federato per quel dominio.
+1. Dopo queste impostazioni, è necessario inviare il **nome di dominio**, ad esempio **contoso.com**, con cui si effettua l'accesso a Procore al [team di supporto Procore](https://support.procore.com/), che attiverà l'accesso Single Sign-On federato per quel dominio.
 
 <!--### Next steps
 
@@ -168,15 +168,15 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     ![Creazione di un utente test di Azure AD](./media/procoresso-tutorial/create_aaduser_01.png) 
 
-2. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/procoresso-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/procoresso-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/procoresso-tutorial/create_aaduser_04.png) 
 
@@ -186,7 +186,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-procore-sso-test-user"></a>Creare un utente test di Procore SSO
 
@@ -194,11 +194,11 @@ Attenersi alla procedura seguente per creare un utente test di Procore sul relat
 
 1. Accedere al sito aziendale di Procore come amministratore.  
 
-2. Nell'elenco a discesa della casella degli strumenti fare clic su **Directory** per aprire la pagina della directory aziendale.
+1. Nell'elenco a discesa della casella degli strumenti fare clic su **Directory** per aprire la pagina della directory aziendale.
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_sso_directory.png)
 
-3. Fare clic su **Add a Person** (Aggiungi una persona) per aprire il modulo e immettere le opzioni seguenti.
+1. Fare clic su **Add a Person** (Aggiungi una persona) per aprire il modulo e immettere le opzioni seguenti.
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_add.png)
 
@@ -210,13 +210,13 @@ Attenersi alla procedura seguente per creare un utente test di Procore sul relat
 
     d. Selezionare **Permission Template** (Modello di autorizzazione) per **Apply Permission Template Later** (Applica modello di autorizzazione più tardi).
 
-    e. Fare clic su **Crea**.
+    e. Fare clic su **Create**(Crea).
 
-4. Verificare e aggiornare i dettagli del contatto appena aggiunto.
+1. Verificare e aggiornare i dettagli del contatto appena aggiunto.
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Se è richiesto un invito via posta elettronica, fare clic su **Save and Send Invitation** (Salva e invia invito) oppure scegliere **Save** (Salva) per salvare direttamente e completare la registrazione dell'utente.
+1. Se è richiesto un invito via posta elettronica, fare clic su **Save and Send Invitation** (Salva e invia invito) oppure scegliere **Save** (Salva) per salvare direttamente e completare la registrazione dell'utente.
     
     ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_save.png)  
 
@@ -232,23 +232,23 @@ In questa sezione viene concesso a Britta Simon l'accesso a Procore SSO per cons
 
     ![Assegna utente][201] 
 
-2. Nell'elenco di applicazioni selezionare **Procore SSO**.
+1. Nell'elenco di applicazioni selezionare **Procore SSO**.
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/tutorial_procoresso_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

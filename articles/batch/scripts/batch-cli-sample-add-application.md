@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: 80b9cb749be942f72459180182e7d74a45f6a943
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7c38ac560a4fd277e2b19999ab0ac81549a5fa2f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843103"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445960"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Esempio di interfaccia della riga di comando: aggiungere un'applicazione a un account Azure Batch
 
@@ -48,14 +48,14 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea un account di archiviazione. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Crea l'account Batch. |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
-| [az batch application create](/cli/azure/batch/application#az_batch_application_create) | Crea un'applicazione.  |
-| [az batch application package create](/cli/azure/batch/application/package#az_batch_application_package_create) | Aggiunge un pacchetto di applicazione per l'applicazione specificata.  |
-| [az batch application set](/cli/azure/batch/application#az_batch_application_set) | Aggiorna le proprietà di un'applicazione.  |
-| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea un account di archiviazione. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Crea l'account Batch. |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
+| [az batch application create](/cli/azure/batch/application#az-batch-application-create) | Crea un'applicazione.  |
+| [az batch application package create](/cli/azure/batch/application/package#az-batch-application-package-create) | Aggiunge un pacchetto di applicazione per l'applicazione specificata.  |
+| [az batch application set](/cli/azure/batch/application#az-batch-application-set) | Aggiorna le proprietà di un'applicazione.  |
+| [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

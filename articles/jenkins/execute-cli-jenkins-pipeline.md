@@ -15,12 +15,12 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1796e9f76e39334c8bbdd03463a0f91e9b47cb17
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28926931"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421305"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Distribuire nel servizio app di Azure con Jenkins e l'interfaccia della riga di comando di Azure
 Per distribuire un'app Web di Java in Azure, è possibile usare l'interfaccia della riga di comando di Azure in [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). In questa esercitazione viene creata una pipeline CI/CD in una macchina virtuale di Azure e viene illustrato come:
@@ -63,7 +63,7 @@ Per eseguire l'interfaccia della riga di comando di Azure è necessaria una cred
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Creare un servizio app di Azure per la distribuzione dell'app Web di Java
 
-Creare un piano di servizio app di Azure con il piano tariffario **GRATUITO** usando il comando dell'interfaccia della riga di comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create). Il piano di servizio app definisce le risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono queste risorse, per poter consentire un risparmio sui costi quando si ospitano più app. 
+Creare un piano di servizio app di Azure con il piano tariffario **GRATUITO** usando il comando dell'interfaccia della riga di comando [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create). Il piano di servizio app definisce le risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono queste risorse, per poter consentire un risparmio sui costi quando si ospitano più app. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -92,7 +92,7 @@ Quando il piano è pronto, l'output dell'interfaccia della riga di comando di Az
 
 ### <a name="create-an-azure-web-app"></a>Creare un'app Web di Azure
 
- Usare il comando dell'interfaccia della riga di comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) per creare la definizione di un'app Web nel piano di servizio app `myAppServicePlan`. La definizione dell'app Web fornisce un URL con cui accedere all'applicazione e configura diverse opzioni per distribuire il codice in Azure. 
+ Usare il comando dell'interfaccia della riga di comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) per creare la definizione di un'app Web nel piano di servizio app `myAppServicePlan`. La definizione dell'app Web fornisce un URL con cui accedere all'applicazione e configura diverse opzioni per distribuire il codice in Azure. 
 
 ```azurecli-interactive
 az webapp create \
@@ -122,7 +122,7 @@ Quando la definizione dell'app Web è pronta, l'interfaccia della riga di comand
 
 ### <a name="configure-java"></a>Configurare Java 
 
-Impostare la configurazione del runtime Java necessaria per l'app con il comando [az appservice web config update](/cli/azure/appservice/web/config#az_appservice_web_config_update).
+Impostare la configurazione del runtime Java necessaria per l'app con il comando [az appservice web config update](/cli/azure/appservice/web/config#az-appservice-web-config-update).
 
 Il comando seguente configura l'app Web per l'esecuzione in un'istanza recente di Java 8 JDK e in [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 

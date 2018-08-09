@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 8074867b5fa70d3cacc1a860fdfe03532c722d00
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: c838b0d3e8c687b48c975360e4fb49f8713ce7f6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869234"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440773"
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Creare e instradare eventi personalizzati con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -35,7 +35,7 @@ Se non si usa Cloud Shell, prima è necessario accedere usando `az login`.
 
 Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inseriti in un gruppo di risorse di Azure. Un gruppo di risorse è una raccolta logica in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). 
 
 L'esempio seguente crea un gruppo di risorse denominato *gridResourceGroup* nella località *westus2*.
 

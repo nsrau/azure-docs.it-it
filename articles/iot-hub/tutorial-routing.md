@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6e421aa630dc121589dece789e2e0d7f9a56bbe6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700826"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434840"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Esercitazione: Configurare il routing dei messaggi con l'IoT Hub
 
@@ -35,7 +35,7 @@ In questa esercitazione si eseguono le seguenti attività:
 > * ...nell'account di archiviazione.
 > * ... nella visualizzazione di Power BI.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -80,13 +80,13 @@ Le sezioni seguenti descrivono come eseguire questa procedura necessaria. Seguir
 
     <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
 
-2. Creare un hub IoT nel livello S1. Aggiungere un gruppo di consumer all'hub IoT Il gruppo di consumer è usato da Analisi di flusso di Azure quando si recuperano i dati.
+1. Creare un hub IoT nel livello S1. Aggiungere un gruppo di consumer all'hub IoT Il gruppo di consumer è usato da Analisi di flusso di Azure quando si recuperano i dati.
 
-3. Creare un account di archiviazione V1 standard con la replica Standard_LRS.
+1. Creare un account di archiviazione V1 standard con la replica Standard_LRS.
 
-4. Creare uno spazio dei nomi del bus di servizio e una coda 
+1. Creare uno spazio dei nomi del bus di servizio e una coda 
 
-5. Creare un'identità del dispositivo per il dispositivo simulato che invia messaggi all'hub dell'utente. Salvare la chiave per la fase del test.
+1. Creare un'identità del dispositivo per il dispositivo simulato che invia messaggi all'hub dell'utente. Salvare la chiave per la fase del test.
 
 ### <a name="azure-cli-instructions"></a>Istruzioni per l'interfaccia della riga di comando di Azure
 
@@ -265,15 +265,15 @@ Successivamente, creare un'identità del dispositivo e salvare la chiave per un 
 
 1. Aprire il [portale di Azure](https://portal.azure.com) ed eseguire l'accesso all'account di Azure.
 
-2. Fare clic su **Gruppi di risorse** e selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**.
+1. Fare clic su **Gruppi di risorse** e selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**.
 
-3. Nell'elenco di risorse, fare clic sull'hub IoT. Questa esercitazione usa **ContosoTestHub**. Selezionare **dispositivi IoT** dal riquadro Hub.
+1. Nell'elenco di risorse, fare clic sull'hub IoT. Questa esercitazione usa **ContosoTestHub**. Selezionare **dispositivi IoT** dal riquadro Hub.
 
-4. Fare clic su **+ Aggiungi**. Nel riquadro Aggiungi dispositivo, immettere l'ID del dispositivo. Questa esercitazione usa **Contoso-Test-Device**. Lasciare vuote le chiavi e controllare **Genera chiavi automaticamente**. Assicurarsi che **Connetti dispositivo all'hub IoT** sia abilitata. Fare clic su **Save**.
+1. Fare clic su **+ Aggiungi**. Nel riquadro Aggiungi dispositivo, immettere l'ID del dispositivo. Questa esercitazione usa **Contoso-Test-Device**. Lasciare vuote le chiavi e controllare **Genera chiavi automaticamente**. Assicurarsi che **Connetti dispositivo all'hub IoT** sia abilitata. Fare clic su **Save**.
 
    ![Screenshot che mostra la schermata Aggiungi dispositivi.](./media/tutorial-routing/add-device.png)
 
-5. Ora che è stato creato, fare clic sul dispositivo per visualizzare le chiavi generate. Fare clic sull'icona Copia sulla chiave primaria e salvarla in un punto, ad esempio nel Blocco note per la fase di test di questa esercitazione.
+1. Ora che è stato creato, fare clic sul dispositivo per visualizzare le chiavi generate. Fare clic sull'icona Copia sulla chiave primaria e salvarla in un punto, ad esempio nel Blocco note per la fase di test di questa esercitazione.
 
    ![Screenshot che mostra i dettagli del dispositivo, comprese le chiavi.](./media/tutorial-routing/device-details.png)
 
@@ -303,7 +303,7 @@ Ora configurare il routing per l'account di archiviazione. Definire un endpoint 
    
    Fare clic su **OK** per completare l'aggiunta dell'endpoint.
    
-2. Fare clic su **Route** sull'hub IoT dell'utente. Si intende creare una regola di routing che indirizzi i messaggi al contenitore di archiviazione appena aggiunto come endpoint. Fare clic su **+Aggiungi** nella parte superiore del riquadro Route. Compilare i campi sullo schermo. 
+1. Fare clic su **Route** sull'hub IoT dell'utente. Si intende creare una regola di routing che indirizzi i messaggi al contenitore di archiviazione appena aggiunto come endpoint. Fare clic su **+Aggiungi** nella parte superiore del riquadro Route. Compilare i campi sullo schermo. 
 
    **Nome**: Inserire un nome per la regola di routing. Questa esercitazione usa **StorageRule**.
 
@@ -335,7 +335,7 @@ Ora configurare il routing per la coda del bus di servizio. Definire un endpoint
 
    Fare clic su **OK** per salvare l'endpoint. Al termine, chiudere il riquadro di endpoint. 
     
-2. Fare clic su **Route** sull'hub IoT dell'utente. Si intende creare una regola di routing che indirizzi i messaggi alla coda del Bus di servizio appena aggiunto come endpoint. Fare clic su **+Aggiungi** nella parte superiore del riquadro Route. Compilare i campi sullo schermo. 
+1. Fare clic su **Route** sull'hub IoT dell'utente. Si intende creare una regola di routing che indirizzi i messaggi alla coda del Bus di servizio appena aggiunto come endpoint. Fare clic su **+Aggiungi** nella parte superiore del riquadro Route. Compilare i campi sullo schermo. 
 
    **Nome**: Inserire un nome per la regola di routing. Questa esercitazione si usa **SBQueueRule**. 
 
@@ -371,19 +371,19 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
    ![Screenshot che mostra la schermata Crea app per la logica.](./media/tutorial-routing/create-logic-app.png)
 
-   Fare clic su **Crea**.
+   Fare clic su **Create**(Crea).
 
-4. Passare ora ad App per la logica. Il modo più semplice per ottenere l'App per la logica è fare clic su **Gruppi di risorse**, selezionare il gruppo di risorse (questa esercitazione usa **ContosoResources**), quindi selezionare l'App per la logica dall'elenco di risorse. Viene visualizzata la pagina della finestra di progettazione dell'App per la logica (potrebbe essere necessario scorrere verso destra per visualizzare l'intera pagina). Nella pagina della finestra di progettazione dell'App per la logica, scorrere verso il basso fino a visualizzare il riquadro **App per la logica vuota +** e farvi clic sopra. 
+1. Passare ora ad App per la logica. Il modo più semplice per ottenere l'App per la logica è fare clic su **Gruppi di risorse**, selezionare il gruppo di risorse (questa esercitazione usa **ContosoResources**), quindi selezionare l'App per la logica dall'elenco di risorse. Viene visualizzata la pagina della finestra di progettazione dell'App per la logica (potrebbe essere necessario scorrere verso destra per visualizzare l'intera pagina). Nella pagina della finestra di progettazione dell'App per la logica, scorrere verso il basso fino a visualizzare il riquadro **App per la logica vuota +** e farvi clic sopra. 
 
-5. Verrà visualizzato un elenco di connettori. Selezionare **Bus di servizio**. 
+1. Verrà visualizzato un elenco di connettori. Selezionare **Bus di servizio**. 
 
    ![Screenshot che mostra l'elenco di connettori.](./media/tutorial-routing/logic-app-connectors.png)
 
-6. Verrà visualizzato un elenco di trigger. Selezionare **Bus di servizio - Quando un messaggio viene ricevuto in una coda (completamento di coda)**. 
+1. Verrà visualizzato un elenco di trigger. Selezionare **Bus di servizio - Quando un messaggio viene ricevuto in una coda (completamento di coda)**. 
 
    ![Screenshot che mostra l'elenco dei trigger per il Bus di servizio.](./media/tutorial-routing/logic-app-triggers.png)
 
-6. Nella schermata successiva, inserire il nome della connessione. Questa esercitazione usa **ContosoConnection**. 
+1. Nella schermata successiva, inserire il nome della connessione. Questa esercitazione usa **ContosoConnection**. 
 
    ![Screenshot che mostra l'impostazione della connessione per la coda del Bus di servizio.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -391,23 +391,23 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
    
    ![Screenshot che mostra la fine della configurazione della connessione.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-7. Nella schermata successiva, selezionare il nome della coda (questa esercitazione usata **contososbqueue**) dall'elenco a discesa. È possibile usare le impostazioni predefinite nei campi rimanenti. 
+1. Nella schermata successiva, selezionare il nome della coda (questa esercitazione usata **contososbqueue**) dall'elenco a discesa. È possibile usare le impostazioni predefinite nei campi rimanenti. 
 
    ![Screenshot che mostra le opzioni di coda.](./media/tutorial-routing/logic-app-queue-options.png)
 
-7. Configurare ora l'azione per inviare un messaggio di posta elettronica quando viene ricevuto un messaggio nella coda. In Progettazione app per la logica fare clic su **+Nuovo passaggio** per aggiungere un passaggio, quindi fare clic su **Aggiungi un'azione**. Nel riquadro **Scegliere un'azione**, trovare e fare clic su **Outlook di Office 365**. Nella schermata dei trigger, selezionare **Office 365 Outlook - Inviare un messaggio di posta elettronica**.  
+1. Configurare ora l'azione per inviare un messaggio di posta elettronica quando viene ricevuto un messaggio nella coda. In Progettazione app per la logica fare clic su **+Nuovo passaggio** per aggiungere un passaggio, quindi fare clic su **Aggiungi un'azione**. Nel riquadro **Scegliere un'azione**, trovare e fare clic su **Outlook di Office 365**. Nella schermata dei trigger, selezionare **Office 365 Outlook - Inviare un messaggio di posta elettronica**.  
 
    ![Screenshot che mostra le opzioni di Office 365.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-8. Successivamente, accedere all'account Office 365 dell'utente per configurare la connessione. Specificare gli indirizzi di posta elettronica per i destinatari del messaggio di posta elettronica. Specificare anche l'oggetto e digitare il messaggio che si desidera il destinatario visualizzi nel corpo. Per i test, inserire il proprio indirizzo di posta elettronica come destinatario.
+1. Successivamente, accedere all'account Office 365 dell'utente per configurare la connessione. Specificare gli indirizzi di posta elettronica per i destinatari del messaggio di posta elettronica. Specificare anche l'oggetto e digitare il messaggio che si desidera il destinatario visualizzi nel corpo. Per i test, inserire il proprio indirizzo di posta elettronica come destinatario.
 
    Fare clic su **Aggiungere contenuto dinamico** per visualizzare il contenuto del messaggio che è possibile includere. Selezionare **Contenuto**: includerà il messaggio di posta elettronica. 
 
    ![Screenshot che mostra le opzioni di posta elettronica per l'app per la logica.](./media/tutorial-routing/logic-app-send-email.png)
 
-9. Fare clic su **Save**. Quindi chiudere la finestra di progettazione delle app per la logica
+1. Fare clic su **Save**. Quindi chiudere la finestra di progettazione delle app per la logica
 
-## <a name="set-up-azure-stream-analytics"></a>Configurare l'analisi di flusso di Azure
+## <a name="set-up-azure-stream-analytics"></a>Configurare Analisi di flusso di Azure
 
 Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto impostare un processo di Analisi di flusso di Azure per recuperare i dati. Tenere presente che solo i messaggi in cui il **livello** è **normale** vengono inviati all'endpoint predefinito e verranno recuperati dal processo di analisi di flusso per la visualizzazione di Power BI.
 
@@ -415,7 +415,7 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**.
 
-2. Immettere le seguenti informazioni per il processo.
+1. Immettere le seguenti informazioni per il processo.
 
    **Nome processo**: il nome del processo. Il nome deve essere univoco a livello globale. Questa esercitazione usa **contosoJob**.
 
@@ -425,13 +425,13 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    ![Screenshot che mostra come creare il processo di analisi di flusso.](./media/tutorial-routing/stream-analytics-create-job.png)
 
-3. Fare clic su **Crea** per creare il processo. Per tornare al processo, fare clic su **Gruppi di risorse**. Questa esercitazione usa **ContosoResources**. Selezionare il gruppo di risorse, quindi fare clic sul processo di Analisi di flusso nell'elenco di risorse. 
+1. Fare clic su **Crea** per creare il processo. Per tornare al processo, fare clic su **Gruppi di risorse**. Questa esercitazione usa **ContosoResources**. Selezionare il gruppo di risorse, quindi fare clic sul processo di Analisi di flusso nell'elenco di risorse. 
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di analisi di flusso
+### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di Analisi di flusso
 
 1. In **Topologia processo** fare clic su **Input**.
 
-2. Nel riquadro **Input**, fare clic su **Aggiungi input del flusso** e selezionare Hub IoT. Nella schermata che viene visualizzata, compilare i campi seguenti:
+1. Nel riquadro **Input**, fare clic su **Aggiungi input del flusso** e selezionare Hub IoT. Nella schermata che viene visualizzata, compilare i campi seguenti:
 
    **Alias di input**: questa esercitazione usa **contosoinputs**.
 
@@ -449,13 +449,13 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    ![Screenshot che mostra come configurare gli input per il processo di analisi del flusso.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-5. Fare clic su **Save**.
+1. Fare clic su **Save**.
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di analisi di flusso
+### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di Analisi di flusso
 
 1. In **Topologia processo** fare clic su **Output**.
 
-2. Nel riquadro **Output** fare clic su **Aggiungi**, quindi selezionare **Power BI**. Nella schermata che viene visualizzata, compilare i campi seguenti:
+1. Nel riquadro **Output** fare clic su **Aggiungi** e selezionare **Power BI**. Nella schermata che viene visualizzata, compilare i campi seguenti:
 
    **Alias di output**: l'alias univoco per l'output. Questa esercitazione usa **contosooutputs**. 
 
@@ -465,25 +465,25 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    Accettare le impostazioni predefinite nei campi rimanenti.
 
-3. Fare clic su **Autorizza** e accedere all'account di Power BI.
+1. Fare clic su **Autorizza** e accedere all'account di Power BI.
 
    ![Screenshot che mostra come configurare gli output per il processo di analisi di flusso.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-4. Fare clic su **Save**.
+1. Fare clic su **Save**.
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurare la query del processo di analisi di flusso
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurare la query del processo di Analisi di flusso
 
 1. In **Topologia processo** fare clic su **Query**.
 
-2. Sostituire `[YourInputAlias]` con l'alias di input del processo. Questa esercitazione usa **contosoinputs**.
+1. Sostituire `[YourInputAlias]` con l'alias di input del processo. Questa esercitazione usa **contosoinputs**.
 
-3. Sostituire `[YourOutputAlias]` con l'alias di output del processo. Questa esercitazione usa **contosooutputs**.
+1. Sostituire `[YourOutputAlias]` con l'alias di output del processo. Questa esercitazione usa **contosooutputs**.
 
    ![Screenshot che mostra come configurare le query per il processo di analisi di flusso.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-4. Fare clic su **Save**.
+1. Fare clic su **Save**.
 
-5. Chiudere il riquadro della query. Si tornerà alla visualizzazione delle risorse nel gruppo di risorse. Fare clic sul processo di Analisi di flusso. In questa esercitazione è denominato **contosoJob**.
+1. Chiudere il riquadro della query. Si tornerà alla visualizzazione delle risorse nel gruppo di risorse. Fare clic sul processo di Analisi di flusso. In questa esercitazione è denominato **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso
 
@@ -525,7 +525,7 @@ Se tutto è configurato correttamente, a questo punto si dovrebbero visualizzare
    * L'app per la logica che recupera il messaggio dalla coda del Bus di servizio funziona correttamente.
    * Il connettore app per la logica per Outlook funziona correttamente. 
 
-2. Nel [portale di Azure](https://portal.azure.com), fare clic su **Gruppi di risorse** e selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**. Selezionare l'account di archiviazione, fare clic su **BLOB**, quindi selezionare il contenitore. Questa esercitazione usa **contosoresults**. Dovrebbe essere visualizzata una cartella ed è possibile eseguire il drill-down nelle directory fino a quando non viene visualizzato uno o più file. Aprire uno di tali file; essi contengono le voci indirizzate all'account di archiviazione. 
+1. Nel [portale di Azure](https://portal.azure.com), fare clic su **Gruppi di risorse** e selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**. Selezionare l'account di archiviazione, fare clic su **BLOB**, quindi selezionare il contenitore. Questa esercitazione usa **contosoresults**. Dovrebbe essere visualizzata una cartella ed è possibile eseguire il drill-down nelle directory fino a quando non viene visualizzato uno o più file. Aprire uno di tali file; essi contengono le voci indirizzate all'account di archiviazione. 
 
    ![Screenshot che mostra i file dei risultati nella risorsa di archiviazione.](./media/tutorial-routing/results-in-storage.png)
 
@@ -539,17 +539,17 @@ Ora con l'applicazione ancora in esecuzione, configurare la visualizzazione di P
 
 1. Accedere all'account [Power BI](https://powerbi.microsoft.com/).
 
-2. Passare all'**area di lavoro** e selezionare l'area di lavoro impostata quando è stato creato l'output del processo di analisi di flusso. In questa esercitazione viene usato **Area di lavoro personale**. 
+1. Passare all'**area di lavoro** e selezionare l'area di lavoro impostata quando è stato creato l'output del processo di analisi di flusso. In questa esercitazione viene usato **Area di lavoro personale**. 
 
-3. Fare clic su **Set di dati** .
+1. Fare clic su **Set di dati**.
 
    Dovrebbero essere elencati i set di dati specificati durante la creazione di output per il processo di analisi di flusso. Questa esercitazione usa **contosodataset**. (La prima volta, potrebbero volerci da 5 a 10 minuti per il set di dati da visualizzare).
 
-4. In **AZIONI**, fare clic sulla prima icona per creare un report.
+1. In **AZIONI**, fare clic sulla prima icona per creare un report.
 
    ![Screenshot che mostra l'area di lavoro di Power BI con le icone del report e delle evidenziate.](./media/tutorial-routing/power-bi-actions.png)
 
-5. Creare un grafico a linee per visualizzare la temperatura in tempo reale nel tempo.
+1. Creare un grafico a linee per visualizzare la temperatura in tempo reale nel tempo.
 
    a. Nella pagina della creazione del report, aggiungere un grafico a linee scegliendo l'icona del grafico a linee.
 
@@ -563,11 +563,11 @@ Ora con l'applicazione ancora in esecuzione, configurare la visualizzazione di P
 
    Viene creato un grafico a linee. L'asse x mostra data e ora per il fuso orario UTC. L'asse y mostra la temperatura dal sensore.
 
-7. Creare un altro grafico a linee in modo da visualizzare in tempo reale l'umidità nel tempo. Per configurare il secondo grafico, attenersi alla stessa procedura precedente e inserire **EventEnqueuedUtcTime** sull'asse x e l'**umidità** sull'asse y.
+1. Creare un altro grafico a linee in modo da visualizzare in tempo reale l'umidità nel tempo. Per configurare il secondo grafico, attenersi alla stessa procedura precedente e inserire **EventEnqueuedUtcTime** sull'asse x e l'**umidità** sull'asse y.
 
    ![Screenshot che mostra il report di Power BI finale con i due grafici.](./media/tutorial-routing/power-bi-report.png)
 
-8. Fare clic su **Salva** per salvare il report.
+1. Fare clic su **Salva** per salvare il report.
 
 Dovrebbe essere possibile visualizzare i dati su entrambi i grafici. Ciò comporta quanto segue:
 

@@ -6,20 +6,19 @@ keywords: ''
 author: jamesbak
 ms.topic: article
 ms.author: jamesbak
-manager: jahogg
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a6130d8440b16e5a72c939fc07f6bf32c0946418
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 27ea73862f834a834b1622d0e51d0076c9afbe71
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114293"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523105"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Usare l'URI di Azure Data Lake Storage Gen2
 
-Il driver di [file system Hadoop](http://www.aosabook.org/en/hdfs.html) compatibile con la versione di anteprima di Azure Data Lake Storage Gen2 è noto per l'identificatore di schema `abfs` (file system del BLOB di Azure). Coerente con altri driver di file system Hadoop, il driver ABFS usa un formato URI per indirizzare file e directory all'interno di un account che supporta Data Lake Storage Gen2.
+Il driver di [file system Hadoop](http://www.aosabook.org/en/hdfs.html) compatibile con l'anteprima di Azure Data Lake Storage Gen2 è noto per l'identificatore di schema `abfs` (file system del BLOB di Azure). Coerente con altri driver di file system Hadoop, il driver ABFS usa un formato URI per indirizzare file e directory all'interno di un account che supporta Data Lake Storage Gen2.
 
 ## <a name="uri-syntax"></a>Sintassi dell'URI
 

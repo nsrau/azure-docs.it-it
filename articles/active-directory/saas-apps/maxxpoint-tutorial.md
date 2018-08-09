@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 6be07aa807501072f232d4371c7a4ad4d3fac10b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ca10db225947fbd98b8d5919cdaa371710b0ce46
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225470"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442667"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Esercitazione: Integrazione di Azure Active Directory con MaxxPoint
 
@@ -33,7 +33,7 @@ L'integrazione di MaxxPoint con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con MaxxPoint, sono necessari gli elementi seguenti:
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di MaxxPoint dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
 ## <a name="adding-maxxpoint-from-the-gallery"></a>Aggiunta di MaxxPoint dalla raccolta
@@ -64,19 +64,19 @@ Per configurare l'integrazione di MaxxPoint in Azure AD, è necessario aggiunger
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **MaxxPoint**.
+1. Nella casella di ricerca digitare **MaxxPoint**.
 
     ![Creazione di un utente test di Azure AD](./media/maxxpoint-tutorial/tutorial_maxxpoint_001.png)
 
-5. Nel pannello dei risultati selezionare **MaxxPoint** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **MaxxPoint** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/maxxpoint-tutorial/tutorial_maxxpoint_0001.png)
 
@@ -90,10 +90,10 @@ La relazione di collegamento viene stabilita assegnando al valore di **nome uten
 Per configurare e testare l'accesso Single Sign-On di Azure AD con MaxxPoint, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test MaxxPoint](#creating-a-maxxpoint-test-user)**: per avere una controparte di Britta Simon in MaxxPoint collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente test MaxxPoint](#creating-a-maxxpoint-test-user)**: per avere una controparte di Britta Simon in MaxxPoint collegata alla relativa rappresentazione in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -105,15 +105,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/maxxpoint-tutorial/tutorial_general_300.png)
 
-3. Nella sezione **URL e dominio MaxxPoint**, se si vuole configurare l'applicazione in **modalità avviata da IDP**, non è necessario eseguire alcun passaggio.
+1. Nella sezione **URL e dominio MaxxPoint**, se si vuole configurare l'applicazione in **modalità avviata da IDP**, non è necessario eseguire alcun passaggio.
 
     ![Configure Single Sign-On](./media/maxxpoint-tutorial/tutorial_maxxpoint_02.png)
     
-4. Nella sezione **URL e dominio MaxxPoint**, se si vuole configurare l'applicazione in **modalità avviata da IDP**, seguire questa procedura:
+1. Nella sezione **URL e dominio MaxxPoint**, se si vuole configurare l'applicazione in **modalità avviata da IDP**, seguire questa procedura:
     
     ![Configure Single Sign-On](./media/maxxpoint-tutorial/tutorial_maxxpoint_03.png)
 
@@ -124,15 +124,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Si noti che questo non è il valore reale. È necessario aggiornare questo valore con l'URL di accesso effettivo. Contattare il team di MaxxPoint al numero **888-728-0950** per ottenere questo valore.
 
-5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Configure Single Sign-On](./media/maxxpoint-tutorial/tutorial_maxxpoint_06.png) 
 
-6. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/maxxpoint-tutorial/tutorial_general_400.png)
 
-7. Per ottenere l'accesso SSO configurato per l'applicazione, contattare il team di supporto di MaxxPoint al numero **888-728-0950** che fornirà anche le informazioni su come inviare il file **XML metadati** scaricato. 
+1. Per ottenere l'accesso SSO configurato per l'applicazione, contattare il team di supporto di MaxxPoint al numero **888-728-0950** che fornirà anche le informazioni su come inviare il file **XML metadati** scaricato. 
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -148,15 +148,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/maxxpoint-tutorial/create_aaduser_01.png) 
 
-2. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/maxxpoint-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/maxxpoint-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/maxxpoint-tutorial/create_aaduser_04.png) 
 
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**. 
+    d. Fare clic su **Create**(Crea). 
 
 ### <a name="creating-a-maxxpoint-test-user"></a>Creazione di un utente test MaxxPoint
 
@@ -184,23 +184,23 @@ In questa sezione, Britta Simon viene abilitata per l'uso dell'accesso Single Si
 
     ![Assegna utente][201] 
 
-2. Nell'elenco di applicazioni selezionare **MaxxPoint**.
+1. Nell'elenco di applicazioni selezionare **MaxxPoint**.
 
     ![Configure Single Sign-On](./media/maxxpoint-tutorial/tutorial_maxxpoint_50.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

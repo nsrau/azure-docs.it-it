@@ -2,24 +2,19 @@
 title: Sviluppare per File di Azure con Java | Microsoft Docs
 description: Informazioni su come sviluppare applicazioni e servizi Java che usano File di Azure per archiviare i dati dei file.
 services: storage
-documentationcenter: java
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: a9585bc77a73cbd84fb2efa201a5745c62f3360a
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: aa63a31f7f84502a29aad6b38f454ea1080127e0
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738201"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529467"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Sviluppare per File di Azure con Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -35,7 +30,7 @@ Questa esercitazione illustra le nozioni di base per l'uso di Java per sviluppar
 * Caricare, scaricare ed eliminare un file
 
 > [!Note]  
-> Poiché File di Azure è accessibile tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione file di Azure usando le classi I/O standard di Java. Questo articolo illustra come scrivere applicazioni che usano l'SDK Java di Archiviazione di Azure, che usa l'[API REST di File di Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) per comunicare con File di Azure.
+> Poiché File di Azure è accessibile tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione file di Azure usando le classi I/O standard di Java. Questo articolo illustra come scrivere applicazioni che usano l'SDK Java di Archiviazione di Azure, che usa l'[API REST di File di Azure](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) per comunicare con File di Azure.
 
 ## <a name="create-a-java-application"></a>Creare un'applicazione Java
 Per compilare gli esempi, saranno necessari il Java Development Kit (JDK) e [Azure Storage SDK per Java](https://github.com/Azure/azure-storage-java). È inoltre necessario aver creato un account di archiviazione di Azure.

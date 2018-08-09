@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: eeaac4f694c3e7197a5f798d7462b39d42e14e03
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021324"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505832"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Esercitazione: Creare un'app ASP.NET in Azure con un database SQL
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -50,9 +50,8 @@ Se Visual Studio è già stato installato, aggiungere i carichi di lavoro in Vis
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
-<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[Scaricare il progetto di esempio](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
--
--Estrarre (decomprimere) il file *dotnet-sqldb-tutorial-master.zip*.
+- [Scaricare il progetto di esempio](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+- Estrarre (decomprimere) il file *dotnet-sqldb-tutorial-master.zip*.
 
 Il progetto di esempio contiene un'app CRUD (create-read-update-delete) [ASP.NET MVC](https://www.asp.net/mvc) di base che usa [Code First di Entity Framework](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -156,7 +155,7 @@ Nella finestra di dialogo **Configura database SQL**:
 
 ![Configurare il database SQL](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-La finestra di dialogo **Crea servizio app** visualizza le risorse configurate. Fare clic su **Crea**. 
+La finestra di dialogo **Crea servizio app** visualizza le risorse configurate. Fare clic su **Create**(Crea). 
 
 ![Risorse create](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 72a9cc905adda5146cf943d8f0ed2789c3088422
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189392"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447391"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Esempi dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure
 
@@ -33,7 +33,7 @@ Nell'esempio creato si presuppone che l'argomento del bus di servizio abbia due 
 
 Nell'esempio si inviano messaggi all'argomento del bus di servizio e quindi si verifica che l'evento sia stato generato per questa sottoscrizione del bus di servizio. La funzione o l'app per la logica riceve i messaggi dalla sottoscrizione del bus di servizio e quindi li completa.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, verificare di avere completato i passaggi nelle due sezioni successive.
 
 ### <a name="create-a-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
@@ -46,13 +46,13 @@ Creare uno spazio dei nomi Premium del bus di servizio e un argomento del bus di
 
 1. Clonare [il repository azure-service-bus di GitHub](https://github.com/Azure/azure-service-bus/).
 
-2. In Visual Studio andare alla cartella *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* e aprire il file *SBEventGridIntegration.sln*.
+1. In Visual Studio andare alla cartella *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* e aprire il file *SBEventGridIntegration.sln*.
 
-3. Andare al progetto **MessageSender** e quindi selezionare **Program.cs**.
+1. Andare al progetto **MessageSender** e quindi selezionare **Program.cs**.
 
    ![8][]
 
-4. Immettere il nome dell'argomento e la stringa di connessione e quindi eseguire il codice dell'applicazione console seguente:
+1. Immettere il nome dell'argomento e la stringa di connessione e quindi eseguire il codice dell'applicazione console seguente:
 
     ```CSharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
@@ -65,7 +65,7 @@ Prima di affrontare l'intero scenario, configurare almeno una semplice funzione 
 
 1. Nel portale di Azure creare una nuova applicazione per Funzioni di Azure. Per i concetti di base di Funzioni di Azure, vedere [Documentazione di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/).
 
-2. Nella funzione appena creata selezionare il segno più (+) per aggiungere una funzione trigger HTTP:
+1. Nella funzione appena creata selezionare il segno più (+) per aggiungere una funzione trigger HTTP:
 
     ![2][]
     
@@ -73,9 +73,9 @@ Prima di affrontare l'intero scenario, configurare almeno una semplice funzione 
 
     ![3][]
 
-3. Selezionare il pulsante **Webhook e API**, selezionare **CSharp** e quindi selezionare **Creare questa funzione**.
+1. Selezionare il pulsante **Webhook e API**, selezionare **CSharp** e quindi selezionare **Creare questa funzione**.
  
-4. Nella funzione incollare il codice seguente:
+1. Nella funzione incollare il codice seguente:
 
     ```CSharp
     #r "Newtonsoft.Json"
@@ -121,7 +121,7 @@ Prima di affrontare l'intero scenario, configurare almeno una semplice funzione 
     }
     ```
 
-5. Selezionare **Salva ed esegui**.
+1. Selezionare **Salva ed esegui**.
 
 ## <a name="connect-the-function-and-namespace-via-event-grid"></a>Connettere la funzione e lo spazio dei nomi tramite Griglia di eventi
 
@@ -133,16 +133,16 @@ Per creare una nuova sottoscrizione di Griglia di eventi di Azure, seguire quest
 
     ![20][]
 
-2. Selezionare **Sottoscrizione di eventi**.  
+1. Selezionare **Sottoscrizione di eventi**.  
     Verrà aperta la finestra **Sottoscrizione di eventi**. L'immagine seguente mostra un modulo per la sottoscrizione di una funzione di Azure o di un webhook senza applicare filtri.
 
     ![21][]
 
-3. Completare il modulo come illustrato e ricordare di immettere il filtro pertinente nella casella **Filtro per suffisso**.
+1. Completare il modulo come illustrato e ricordare di immettere il filtro pertinente nella casella **Filtro per suffisso**.
 
-4. Selezionare **Create**.
+1. Selezionare **Create**.
 
-5. Inviare un messaggio all'argomento del bus di servizio, come indicato nella sezione "Prerequisiti" e quindi verificare che gli eventi vengano trasmessi tramite la funzionalità Monitoraggio di Funzioni di Azure.
+1. Inviare un messaggio all'argomento del bus di servizio, come indicato nella sezione "Prerequisiti" e quindi verificare che gli eventi vengano trasmessi tramite la funzionalità Monitoraggio di Funzioni di Azure.
 
 Il passaggio successivo consiste nel collegare tra loro la funzione e lo spazio dei nomi del bus di servizio. Per questo esempio, usare il portale di Azure. Per informazioni su come usare PowerShell o l'interfaccia della riga di comando di Azure per eseguire questo passaggio, vedere [Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure](service-bus-to-event-grid-integration-concept.md).
 
@@ -160,26 +160,26 @@ Si aggiungerà una funzione di Azure, come illustrato nell'esempio seguente, per
 
     ![10][]
 
-2. Immettere la stringa di connessione nel codice seguente:
+1. Immettere la stringa di connessione nel codice seguente:
 
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
 
-3. Nel portale di Azure scaricare il profilo di pubblicazione per la funzione di Azure creata nella sezione "Configurare una funzione di test".
+1. Nel portale di Azure scaricare il profilo di pubblicazione per la funzione di Azure creata nella sezione "Configurare una funzione di test".
 
     ![11][]
 
-4. In Visual Studio fare clic con il pulsante destro del mouse su **SBEventGridIntegration** e quindi scegliere **Pubblica**. 
+1. In Visual Studio fare clic con il pulsante destro del mouse su **SBEventGridIntegration** e quindi scegliere **Pubblica**. 
 
-5. Nel riquadro **Pubblica** per il profilo di pubblicazione scaricato in precedenza selezionare **Importa profilo** e quindi **Pubblica**.
+1. Nel riquadro **Pubblica** per il profilo di pubblicazione scaricato in precedenza selezionare **Importa profilo** e quindi **Pubblica**.
 
     ![12][]
 
-6. Dopo aver pubblicato la nuova funzione di Azure, creare una nuova sottoscrizione di Griglia di eventi di Azure che punti alla nuova funzione di Azure.  
+1. Dopo aver pubblicato la nuova funzione di Azure, creare una nuova sottoscrizione di Griglia di eventi di Azure che punti alla nuova funzione di Azure.  
     Nella casella **Termina con** assicurarsi di applicare il filtro corretto, corrispondente al nome della sottoscrizione del bus di servizio.
 
-7. Inviare un messaggio all'argomento del bus di servizio di Azure creato in precedenza e quindi monitorare il log di Funzioni di Azure nel portale di Azure per assicurarsi che gli eventi vengano trasmessi e i messaggi ricevuti.
+1. Inviare un messaggio all'argomento del bus di servizio di Azure creato in precedenza e quindi monitorare il log di Funzioni di Azure nel portale di Azure per assicurarsi che gli eventi vengano trasmessi e i messaggi ricevuti.
 
     ![12-1][]
 
@@ -195,22 +195,22 @@ Connettere un'app per la logica con il bus di servizio di Azure e Griglia di eve
 
     ![14][]
 
-2. Aggiungere le informazioni seguendo questa procedura:
+1. Aggiungere le informazioni seguendo questa procedura:
 
     a. Nella casella **Nome risorsa** immettere il nome dello spazio dei nomi. 
 
     b. In **Opzioni avanzate** immettere il filtro per la sottoscrizione nella casella **Filtro per suffisso**.
 
-3. Aggiungere un'azione di ricezione per il bus di servizio per poter ricevere i messaggi da una sottoscrizione dell'argomento.  
+1. Aggiungere un'azione di ricezione per il bus di servizio per poter ricevere i messaggi da una sottoscrizione dell'argomento.  
     L'azione finale è indicata nell'immagine seguente:
 
     ![15][]
 
-4. Aggiungere un evento completo, come illustrato nell'immagine seguente:
+1. Aggiungere un evento completo, come illustrato nell'immagine seguente:
 
     ![16][]
 
-5. Salvare l'app per la logica e inviare un messaggio all'argomento del bus di servizio come illustrato nella sezione "Prerequisiti".  
+1. Salvare l'app per la logica e inviare un messaggio all'argomento del bus di servizio come illustrato nella sezione "Prerequisiti".  
     Osservare l'esecuzione dell'app per la logica. Per visualizzare altri dati per l'esecuzione, selezionare **Panoramica** e quindi visualizzare i dati in **Cronologia esecuzioni**.
 
     ![17][]

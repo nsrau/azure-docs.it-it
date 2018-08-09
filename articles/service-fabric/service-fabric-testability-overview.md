@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 807e4588e23ea01c5ce435282d7af59bb108e6c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a4ddfc17a81a6816bc797bab4c3b5a8b2fc4334e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209685"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425239"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduzione al servizio di analisi degli errori
 Il servizio di analisi degli errori è progettato per testare servizi basati su Microsoft Azure Service Fabric. Con il servizio di analisi degli errori è possibile causare errori significativi ed eseguire scenari di test completi delle applicazioni. Tali errori e scenari verificano e convalidano i numerosi stati e le transizioni sperimentate da un servizio per la relativa durata, il tutto in modo controllato, sicuro e coerente.
@@ -47,8 +47,8 @@ Quando viene avviato uno scenario di test o un'azione di errore, viene inviato a
 Infrastruttura di servizi rende molto più semplice il processo di scrittura e gestione delle applicazioni scalabili distribuite. Allo stesso modo, il servizio di analisi degli errori semplifica il test di un'applicazione distribuita. Esistono tre problemi principali che devono essere risolti durante il test:
 
 1. La simulazione e la generazione di errori che potrebbero verificarsi negli scenari reali: uno degli aspetti importanti di Service Fabric è che consente alle applicazioni distribuite di correggere vari errori. Tuttavia, per verificare che l'applicazione sia in grado di correggere questi errori, è necessario un meccanismo per simulare e generare questi errori reali in un ambiente di test controllato.
-2. La capacità di generare errori correlati: gli errori di base nel sistema, ad esempio gli errori di rete e gli errori dei computer, sono facili da riprodurre singolarmente. Generare un numero significativo di scenari che possono verificarsi nel mondo reale in seguito alle interazioni di questi singoli errori non è semplice.
-3. L'esperienza unificata tra vari livelli di sviluppo e distribuzione: esistono molti sistemi di fault injection che consentono di generare diversi tipi di errori. Tuttavia, quando si passa da uno scenario di sviluppo in un ambiente di piccole dimensioni all'esecuzione degli stessi test in ambienti di test di grandi dimensioni per usarli nella produzione, l'esperienza è insoddisfacente.
+1. La capacità di generare errori correlati: gli errori di base nel sistema, ad esempio gli errori di rete e gli errori dei computer, sono facili da riprodurre singolarmente. Generare un numero significativo di scenari che possono verificarsi nel mondo reale in seguito alle interazioni di questi singoli errori non è semplice.
+1. L'esperienza unificata tra vari livelli di sviluppo e distribuzione: esistono molti sistemi di fault injection che consentono di generare diversi tipi di errori. Tuttavia, quando si passa da uno scenario di sviluppo in un ambiente di piccole dimensioni all'esecuzione degli stessi test in ambienti di test di grandi dimensioni per usarli nella produzione, l'esperienza è insoddisfacente.
 
 Sebbene esistano numerosi meccanismi per risolvere questi problemi, manca ancora un sistema in grado di eseguire le stesse operazioni con le garanzie richieste, direttamente da un ambiente di sviluppo di piccole dimensioni ai test nei cluster di produzione. Il servizio di analisi degli errori consente agli sviluppatori di applicazioni di concentrarsi sul test della logica di business. Il servizio di analisi degli errori offre tutte le funzionalità necessarie per testare l'interazione del servizio con il sistema distribuito sottostante.
 
@@ -56,7 +56,7 @@ Sebbene esistano numerosi meccanismi per risolvere questi problemi, manca ancora
 Per verificare l'affidabilità di un sistema distribuito in caso di errori, è necessario un meccanismo per generare errori. Sebbene dal punto di vista teorico generare un errore come un nodo inattivo sembri semplice, comporta gli stessi problemi di coerenza che si tenta di risolvere con Service Fabric. Se ad esempio si vuole arrestare un nodo, il flusso di lavoro richiesto è il seguente:
 
 1. Eseguire dal client una richiesta di arresto del nodo.
-2. Inviare la richiesta al nodo giusto.
+1. Inviare la richiesta al nodo giusto.
    
     a. Se il nodo non viene trovato, la richiesta ha esito negativo.
    
@@ -68,8 +68,8 @@ Per verificare l'errore dalla prospettiva del test è necessario sapere che, qua
 Se è difficile iniziare a simulare un errore reale in modo coerente, essere in grado di generare errori correlati è ancora più complesso. Ad esempio, in un servizio persistente con stato si verifica una perdita di dati quando si verificano i seguenti eventi:
 
 1. Nella replica viene rilevato solo un quorum di scrittura delle repliche. Tutte le repliche secondarie restano dietro quelle primarie.
-2. Il quorum di scrittura si interrompe in quanto le repliche si arrestano a causa dell'arresto di un pacchetto di codice o di un nodo.
-3. Il quorum di scrittura non può tornare attivo perché i dati per le repliche sono stati persi a causa di un danno del disco o della ricreazione dell'immagine del computer.
+1. Il quorum di scrittura si interrompe in quanto le repliche si arrestano a causa dell'arresto di un pacchetto di codice o di un nodo.
+1. Il quorum di scrittura non può tornare attivo perché i dati per le repliche sono stati persi a causa di un danno del disco o della ricreazione dell'immagine del computer.
 
 Questi errori correlati si verificano effettivamente nel mondo reale, anche se non con la stessa frequenza dei singoli errori. La possibilità di testare questi scenari prima che si verifichino nell'ambiente di produzione è fondamentale. Ancora più importante è la possibilità di simulare questi scenari con carichi di lavoro di produzione in circostanze controllate, ad esempio durante la giornata con tutti gli ingegneri al lavoro, il che è di gran lunga preferibile al rischio che lo scenario si verifichi per la prima volta nell'ambiente di produzione alle 2:00.
 
@@ -77,13 +77,13 @@ Questi errori correlati si verificano effettivamente nel mondo reale, anche se n
 Di solito, la pratica consisteva nel creare tre set di esperienze diversi, uno per l'ambiente di sviluppo, uno per i test e uno per la produzione. Il modello era quello indicato di seguito:
 
 1. Nell'ambiente di sviluppo generare transizioni di stato che consentissero unit test dei singoli metodi.
-2. Nell'ambiente di test riprodurre errori per consentire ai test end-to-end di fare pratica con scenari di errore diversi.
-3. Mantenere l'ambiente di produzione originario per impedire qualsiasi errore non naturale e garantire una risposta umana estremamente rapida all'errore.
+1. Nell'ambiente di test riprodurre errori per consentire ai test end-to-end di fare pratica con scenari di errore diversi.
+1. Mantenere l'ambiente di produzione originario per impedire qualsiasi errore non naturale e garantire una risposta umana estremamente rapida all'errore.
 
 In Service Fabric il servizio di analisi degli errori consente di capovolgere tutto questo e di usare la stessa metodologia dall'ambiente di sviluppo alla produzione. A questo scopo è possibile procedere in due modi:
 
 1. Per indurre errori controllati, usare le API del servizio di analisi degli errori da un ambiente di piccole dimensioni fino ai cluster di produzione.
-2. Per fare in modo che il cluster induca errori automaticamente, usare il servizio di analisi degli errori per generare errori automatici. Il controllo della frequenza degli errori tramite la configurazione consente al servizio stesso di essere sottoposto a test in modo diverso in ambienti differenti.
+1. Per fare in modo che il cluster induca errori automaticamente, usare il servizio di analisi degli errori per generare errori automatici. Il controllo della frequenza degli errori tramite la configurazione consente al servizio stesso di essere sottoposto a test in modo diverso in ambienti differenti.
 
 Con Service Fabric, sebbene la scala degli errori sarà diversa in ambienti differenti, il meccanismo effettivo sarà identico. Ciò consente l'uso di un codice molto più rapido per la pipeline di distribuzione e la possibilità di testare i servizi con carichi di lavoro reali.
 

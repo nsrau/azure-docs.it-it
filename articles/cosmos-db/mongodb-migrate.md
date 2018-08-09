@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100297"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435323"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: importare i dati di MongoDB 
 
@@ -36,7 +36,7 @@ Questa esercitazione illustra le attività seguenti:
 > * Importazione di dati di MongoDB tramite mongoimport
 > * Importazione di dati di MongoDB tramite mongorestore
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Aumentare la velocità effettiva: la durata della migrazione dei dati dipende dalla quantità di velocità effettiva che si configura per una raccolta o un set di raccolte. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel [portale di Azure](https://portal.azure.com), vedere [Livelli di prestazioni e piani tariffari in Azure Cosmos DB](performance-levels.md).
 
@@ -45,8 +45,8 @@ Questa esercitazione illustra le attività seguenti:
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Trovare le informazioni della stringa di connessione (host, porta, nome utente e password)
 
 1. Nel riquadro sinistro del [portale di Azure](https://portal.azure.com) fare clic sulla voce **Azure Cosmos DB**.
-2. Nel riquadro **Sottoscrizioni** selezionare il nome dell'account.
-3. Nel pannello **Stringa di connessione** fare clic su **Stringa di connessione**.
+1. Nel riquadro **Sottoscrizioni** selezionare il nome dell'account.
+1. Nel pannello **Stringa di connessione** fare clic su **Stringa di connessione**.
 
    Il riquadro destro contiene tutte le informazioni necessarie per connettersi correttamente all'account.
 
@@ -82,7 +82,7 @@ Esempio:
         
     * Per impostazione predefinita, Azure Cosmos DB effettua il provisioning di una nuova raccolta MongoDB con 1.000 unità richiesta al secondo (UR/sec). Prima di iniziare la migrazione tramite mongoimport, mongorestore o mongomirror, creare tutte le raccolte dal [portale di Azure](https://portal.azure.com) o da strumenti e driver di MongoDB. Se le dimensioni della raccolta superano 10 GB, assicurarsi di creare una [raccolta partizionata](partition-data.md) con una chiave di partizione appropriata.
 
-    * Nel [portale di Azure](https://portal.azure.com) aumentare la velocità effettiva delle raccolte da 1.000 unità richiesta/secondo per una singola raccolta a partizione e da 2.500 unità richiesta/secondo per una raccolta partizionata solo per la migrazione. Con una velocità effettiva più elevata, è possibile evitarne la limitazione e completare più rapidamente la migrazione. Con la fatturazione oraria in Azure Cosmos DB, è possibile ridurre la velocità effettiva immediatamente dopo la migrazione per ridurre i costi.
+    * Nel [portale di Azure](https://portal.azure.com) aumentare la velocità effettiva delle raccolte da 1.000 unità richiesta/secondo per una singola raccolta a partizione e da 2.500 unità richiesta/secondo per una raccolta partizionata solo per la migrazione. Con una velocità effettiva più elevata, è possibile evitare la limitazione di velocità e completare più rapidamente la migrazione. Con la fatturazione oraria in Azure Cosmos DB, è possibile ridurre la velocità effettiva immediatamente dopo la migrazione per ridurre i costi.
 
     * Oltre a impostare le unità richiesta/secondo a livello di raccolta, è possibile eseguire il provisioning di unità richiesta al secondo per un set di raccolte a livello di database padre. Ciò presuppone che vengano prima creati il database e le raccolte e che venga definita una chiave di partizione per ogni raccolta.
 
@@ -102,7 +102,7 @@ Esempio:
         }
         ```
 
-2. Calcolare l'addebito approssimativo delle unità richiesta per la scrittura di un singolo documento:
+1. Calcolare l'addebito approssimativo delle unità richiesta per la scrittura di un singolo documento:
 
     a. Connettersi al database Azure Cosmos DB MongoDB dalla shell di MongoDB. È possibile trovare istruzioni in [Connettere un'applicazione MongoDB ad Azure Cosmos DB](connect-mongodb-account.md).
     
@@ -125,7 +125,7 @@ Esempio:
         
     d. Prendere nota dell'addebito della richiesta.
     
-3. Determinare la latenza dal proprio computer al servizio cloud Azure Cosmos DB:
+1. Determinare la latenza dal proprio computer al servizio cloud Azure Cosmos DB:
     
     a. Abilitare la registrazione dettagliata dalla shell di MongoDB usando questo comando: ```setVerboseShell(true)```
     
@@ -135,9 +135,9 @@ Esempio:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Rimuovere il documento inserito prima della migrazione per verificare che non siano presenti documenti duplicati. È possibile rimuovere i documenti usando questo comando: ```db.coll.remove({})```
+1. Rimuovere il documento inserito prima della migrazione per verificare che non siano presenti documenti duplicati. È possibile rimuovere i documenti usando questo comando: ```db.coll.remove({})```
 
-5. Calcolare i valori *batchSize* e *numInsertionWorkers* approssimativi:
+1. Calcolare i valori *batchSize* e *numInsertionWorkers* approssimativi:
 
     * Per *batchSize* dividere le unità richiesta totali di cui è stato effettuato il provisioning per le unità richiesta consumate dalla scrittura di un singolo documento nel passaggio 3.
     
@@ -157,7 +157,7 @@ Esempio:
     
     *numInsertionWorkers = (10000 UR x 0,1 s) / (24 x 10 UR) = 4,1666*
 
-6. Eseguire il comando di migrazione finale:
+1. Eseguire il comando di migrazione finale:
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

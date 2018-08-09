@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: ca4ed4444cd753c0fe22c6596dfd34d033b7b0cf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237003"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527365"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Esercitazione: migliorare le app con l'entità pattern.any
 
@@ -26,7 +26,7 @@ Questa esercitazione usa l'entità pattern.any per aumentare le stime di finalit
 * Creare un criterio che usa pattern.any
 * Come verificare i miglioramenti di stima
 
-Per questo articolo è necessario un account [LUIS](luis-reference-regions.md) gratuito per creare un'applicazione LUIS personalizzata.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si ha l'app relativa alle risorse umane dell'esercitazione dei [ruoli del criterio](luis-tutorial-pattern-roles.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json).
@@ -106,8 +106,9 @@ L'entità Pattern.any estrae entità di lunghezza variabile. Funziona solo in un
 
 4. Se è stata rimossa l'entità keyPhrase, aggiungerla nuovamente all'app. 
 
-5. Eseguire il training dell'app.
+## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testare il nuovo criterio per l'estrazione dei dati in formato libero
 1. Selezionare **Test** nella barra superiore per aprire il pannello test. 
@@ -123,7 +124,8 @@ L'entità Pattern.any estrae entità di lunghezza variabile. Funziona solo in un
 4. Chiudere il pannello test selezionando il pulsante **Test** nella barra di spostamento superiore.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app LUIS. A tale scopo, selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

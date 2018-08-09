@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 50e9a65f881981964270e0a8bbc7af46a9dfd27a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5ecb0e87d45cc01b65c91ee4c5c9d29806999269
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047726"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431682"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Esercitazione: Integrazione di Azure Active Directory con EBSCO
 
@@ -53,7 +53,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di EBSCO dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-ebsco-from-the-gallery"></a>Aggiunta di EBSCO dalla raccolta
 Per configurare l'integrazione di EBSCO in Azure AD, è necessario aggiungere EBSCO dalla raccolta al proprio elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di EBSCO in Azure AD, è necessario aggiungere EB
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **EBSCO**, selezionare **EBSCO** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **EBSCO**, selezionare **EBSCO** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![EBSCO nell'elenco risultati](./media/ebsco-tutorial/tutorial_ebsco_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve sapere qual è l
 Per configurare e testare l'accesso Single Sign-On di Azure AD con EBSCO, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di EBSCO](#create-an-ebsco-test-user)**: per automatizzare la personalizzazione o il provisioning utenti EBSCOhost. EBSCO supporta il provisioning utenti JIT (Just-In-Time).
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di EBSCO](#create-an-ebsco-test-user)**: per automatizzare la personalizzazione o il provisioning utenti EBSCOhost. EBSCO supporta il provisioning utenti JIT (Just-In-Time).
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -100,17 +100,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Finestra di dialogo Single Sign-On](./media/ebsco-tutorial/tutorial_ebsco_samlbase.png)
 
-3. Nella sezione **URL e dominio EBSCO** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **URL e dominio EBSCO** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Informazioni Single Sign-On per URL e dominio di EBSCO](./media/ebsco-tutorial/tutorial_ebsco_url.png)
 
     Nella casella di testo **Identificatore** digitare un URL: `pingsso.ebscohost.com`
 
-4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     ![Informazioni Single Sign-On per URL e dominio di EBSCO](./media/ebsco-tutorial/tutorial_ebsco_url1.png)
 
@@ -125,14 +125,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     o   **Profile** = I clienti possono personalizzare il collegamento in modo da indirizzare gli utenti a uno profilo specifico, in base al prodotto acquistato da EBSCO. È possibile immettere un ID di profilo specifico. I principali ID sono eds (EBSCO Discovery Service) ed ehost (database EBSCOhost). Istruzioni specifiche sull'argomento sono disponibili in [questa pagina](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
-5. L'applicazione EBSCO prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
+1. L'applicazione EBSCO prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
     
     ![Configure Single Sign-On](./media/ebsco-tutorial/tutorial_ebsco_attribute.png)
 
     > [!Note]
     > L'attributo **name** è obbligatorio ed è mappato a **User Identifier** (Identificatore utente) nell'applicazione EBSCO. Viene aggiunto per impostazione predefinita e non è quindi necessario inserirlo manualmente.
     
-6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente e seguire questa procedura:
+1. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente e seguire questa procedura:
     
     | Nome attributo | Valore attributo |
     | ---------------| --------------- |    
@@ -152,15 +152,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. Fare clic su **Ok**
 
-7. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Collegamento di download del certificato](./media/ebsco-tutorial/tutorial_ebsco_certificate.png) 
 
-8. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/ebsco-tutorial/tutorial_general_400.png)
     
-9. Per configurare l'accesso Single Sign-On sul lato **EBSCO**, è necessario inviare il file **XML metadati** scaricato al [team di supporto EBSCO](mailto:sso@ebsco.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **EBSCO**, è necessario inviare il file **XML metadati** scaricato al [team di supporto EBSCO](mailto:sso@ebsco.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -177,15 +177,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/ebsco-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/ebsco-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/ebsco-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/ebsco-tutorial/create_aaduser_04.png)
 
@@ -195,7 +195,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-an-ebsco-test-user"></a>Creare un utente di test di EBSCO
 
@@ -220,23 +220,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **EBSCO**.
+1. Nell'elenco delle applicazioni selezionare **EBSCO**.
 
     ![Collegamento di EBSCO nell'elenco delle applicazioni](./media/ebsco-tutorial/tutorial_ebsco_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
@@ -245,15 +245,15 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 1. Quando si fa clic sul riquadro EBSCO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione EBSCO.
 Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
-2. Dopo aver eseguito l'accesso all'applicazione, fare clic sul pulsante **Sign In** (Accedi) nell'angolo in alto a destra.
+1. Dopo aver eseguito l'accesso all'applicazione, fare clic sul pulsante **Sign In** (Accedi) nell'angolo in alto a destra.
 
     ![Accesso a EBSCO nell'elenco delle applicazioni](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
  
-3. Si riceverà un messaggio unico in cui viene richiesto di associare i dati di accesso istituzionali/SAML con l'opzione **Link your existing MyEBSCOhost account to your institution account now** (Collega l'account MyEBSCOhost esistente all'account dell'istituto ora) oppure **Create a new MyEBSCOhost account and link it to your institution account** (Crea un nuovo account MyEBSCOhost e collegalo all'account dell'istituto). L'account viene usato per la personalizzazione nell'applicazione EBSCOhost. Selezionare l'opzione per **creare un nuovo account** e si noterà che il modulo per la personalizzazione è precompilato con i valori della risposta SAML, come illustrato nella schermata seguente. Fare clic su "**Continue**" (Continua) per salvare la selezione.
+1. Si riceverà un messaggio unico in cui viene richiesto di associare i dati di accesso istituzionali/SAML con l'opzione **Link your existing MyEBSCOhost account to your institution account now** (Collega l'account MyEBSCOhost esistente all'account dell'istituto ora) oppure **Create a new MyEBSCOhost account and link it to your institution account** (Crea un nuovo account MyEBSCOhost e collegalo all'account dell'istituto). L'account viene usato per la personalizzazione nell'applicazione EBSCOhost. Selezionare l'opzione per **creare un nuovo account** e si noterà che il modulo per la personalizzazione è precompilato con i valori della risposta SAML, come illustrato nella schermata seguente. Fare clic su "**Continue**" (Continua) per salvare la selezione.
     
      ![Utente EBSCO nell'elenco delle applicazioni](./media/ebsco-tutorial/tutorial_ebsco_user.png)
 
-4. Dopo aver completato la configurazione precedente, cancellare nuovamente i cookie, la cache e i dati di accesso. Le impostazioni di personalizzazione vengono memorizzate e non sarà necessario eseguire nuovamente l'accesso manuale.
+1. Dopo aver completato la configurazione precedente, cancellare nuovamente i cookie, la cache e i dati di accesso. Le impostazioni di personalizzazione vengono memorizzate e non sarà necessario eseguire nuovamente l'accesso manuale.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

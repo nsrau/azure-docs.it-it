@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a3932ff621782b8ab97f27ef052aeee8e1d2a3ac
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768261"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423505"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedure consigliate per il Registro contenitori di Azure
 
@@ -57,7 +57,7 @@ Quando si esegue l'autenticazione con un registro contenitori di Azure, esistono
 
 | type | Scenario di esempio | Metodo consigliato |
 |---|---|---|
-| Identità singola | Uno sviluppatore che esegue il pull o il push di immagini dal computer di sviluppo. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
+| Identità singola | Uno sviluppatore che esegue il pull o il push di immagini dal computer di sviluppo. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identità headless/del servizio | Pipeline di compilazione e distribuzione in cui l'utente non è direttamente coinvolto. | [Entità servizio](container-registry-authentication.md#service-principal) |
 
 Per informazioni dettagliate sull'autenticazione al Registro contenitori di Azure, vedere [Eseguire l'autenticazione con un registro contenitori Docker privato](container-registry-authentication.md).
@@ -101,7 +101,7 @@ Il Registro contenitori di Azure è disponibile in più livelli, chiamati SKU, o
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

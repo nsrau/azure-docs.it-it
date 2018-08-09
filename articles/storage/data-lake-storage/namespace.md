@@ -1,29 +1,28 @@
 ---
-title: Versione di anteprima di Azure Data Lake Storage Gen2 - Spazio dei nomi gerarchico
-description: Descrive la nozione di spazio dei nomi gerarchico per la versione di anteprima di Azure Data Lake Storage Gen2
+title: Anteprima di Azure Data Lake Storage Gen2 - Spazio dei nomi gerarchico
+description: Descrive la nozione di spazio dei nomi gerarchico per Anteprima di Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
-manager: twooley
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 44eec21f4687d2df64c59d41cdb02c6ef2268f82
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114368"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528698"
 ---
-# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Spazio dei nomi gerarchico per la versione di anteprima di Azure Data Lake Storage Gen2
+# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Spazio dei nomi gerarchico per Anteprima di Azure Data Lake Storage Gen2
 
 Meccanismo chiave che consente alla versione di anteprima di Azure Data Lake Storage Gen2 di fornire prestazioni del file system scalabili in base all'archiviazione di oggetti e ai prezzi tramite l'aggiunta di uno **spazio dei nomi gerarchico**. Consente la raccolta di oggetti o file all'interno di un account per organizzarli in una gerarchia di directory e sottodirectory annidate allo stesso modo in cui sono organizzate nel file system o sul computer. Con lo spazio dei nomi gerarchico abilitato, Data Lake Storage Gen2 offre scalabilità ed efficacia di archiviazione di oggetti, con la semantica del file system già nota ai motori e ai framework di analisi.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Vantaggi dello spazio dei nomi gerarchico
 
 > [!NOTE]
-> Durante la versione di anteprima pubblica di Azure Data Lake Storage Gen2, alcune delle funzionalità elencate di seguito possono variare in termini di disponibilità. Poiché le aree e le nuove funzionalità vengono rilasciate durante il programma di anteprima, queste informazioni verranno comunicate più avanti tramite il nostro gruppo Yammer dedicato.  
+> Durante l'anteprima pubblica di Azure Data Lake Storage Gen2, alcune delle funzionalità elencate di seguito possono variare in termini di disponibilità. Poiché le aree e le nuove funzionalità vengono rilasciate durante il programma di anteprima, queste informazioni verranno comunicate più avanti tramite il nostro gruppo Yammer dedicato.  
 
 I file system che implementano uno spazio dei nomi gerarchico per i dati BLOB godono dei seguenti vantaggi:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036490"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421135"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Inviare i processi HPC da un computer locale a un cluster HPC Pack distribuito in Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -47,34 +47,34 @@ Per le procedure dettagliate, vedere [Installare i componenti Web di Microsoft H
 **Per installare i componenti Web**
 
 1. Connettersi alla macchina virtuale del nodo head usando le credenziali di amministratore del cluster.
-2. Dalla cartella di installazione di HPC Pack, eseguire HpcWebComponents.msi nel nodo head.
-3. Seguire i passaggi della procedura guidata per installare i componenti Web
+1. Dalla cartella di installazione di HPC Pack, eseguire HpcWebComponents.msi nel nodo head.
+1. Seguire i passaggi della procedura guidata per installare i componenti Web
 
 **Per configurare i componenti Web**
 
 1. Nel nodo head avviare HPC PowerShell come amministratore.
-2. Per spostarsi sul percorso dello script di configurazione, digitare il comando seguente:
+1. Per spostarsi sul percorso dello script di configurazione, digitare il comando seguente:
    
     ```powershell
     cd $env:CCP_HOME\bin
     ```
-3. Per configurare l'interfaccia REST e avviare il servizio Web HPC, digitare il comando seguente:
+1. Per configurare l'interfaccia REST e avviare il servizio Web HPC, digitare il comando seguente:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
-4. Quando viene richiesto di selezionare un certificato, scegliere il certificato corrispondente al nome DNS pubblico del nodo head. Ad esempio, se si distribuisce la VM del nodo head usando il modello di distribuzione classica, il nome del certificato ha un aspetto simile a CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Se si usa un modello di distribuzione di Resource Manager, il nome del certificato ha un aspetto simile a CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com.
+1. Quando viene richiesto di selezionare un certificato, scegliere il certificato corrispondente al nome DNS pubblico del nodo head. Ad esempio, se si distribuisce la VM del nodo head usando il modello di distribuzione classica, il nome del certificato ha un aspetto simile a CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Se si usa un modello di distribuzione di Resource Manager, il nome del certificato ha un aspetto simile a CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com.
    
    > [!NOTE]
    > È necessario selezionare questo certificato per inviare processi al nodo head da un computer locale in un momento successivo. Non selezionare né configurare un certificato corrispondente al nome computer del nodo head nel dominio di Active Directory, ad esempio CN=*MyHPCHeadNode.HpcAzure.local*.
    > 
    > 
-5. Per configurare il portale Web per l'invio di processi, digitare il comando seguente:
+1. Per configurare il portale Web per l'invio di processi, digitare il comando seguente:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. Al termine dello script, arrestare e riavviare il servizio Utilità di pianificazione dei processi HPC digitando i comandi seguenti:
+1. Al termine dello script, arrestare e riavviare il servizio Utilità di pianificazione dei processi HPC digitando i comandi seguenti:
    
     ```powershell
     net stop hpcscheduler
@@ -89,18 +89,18 @@ Per usare gli strumenti client di HPC Pack per inviare processi alla VM del nodo
 **Per esportare il certificato dal nodo head**
 
 1. Nel nodo head aggiungere lo snap-in Certificati a Microsoft Management Console per l'account computer locale. Per la procedura che illustra come aggiungere lo snap-in, vedere [Aggiungere lo snap-in Certificati a MMC](https://technet.microsoft.com/library/cc754431.aspx).
-2. Nell'albero della console espandere **Certificati – Computer locale** > **Personale**, quindi fare clic su **Certificati**.
-3. Individuare il certificato configurato per i componenti Web di HPC Pack in [Passaggio 1: installare e configurare i componenti Web nel nodo head](#step-1-install-and-configure-the-web-components-on-the-head-node) (ad esempio, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
-4. Fare clic con il pulsante destro del mouse sul nome del certificato e scegliere **All Tasks** (Tutte le attività) > **Esporta**.
-5. In Esportazione guidata certificati fare clic su **Avanti**, quindi assicurarsi che l'opzione **Non esportare la chiave privata** sia selezionata.
-6. Seguire i passaggi rimanenti della procedura guidata per esportare il certificato nel formato binario codificato DER X.509 (.CER).
+1. Nell'albero della console espandere **Certificati – Computer locale** > **Personale**, quindi fare clic su **Certificati**.
+1. Individuare il certificato configurato per i componenti Web di HPC Pack in [Passaggio 1: installare e configurare i componenti Web nel nodo head](#step-1-install-and-configure-the-web-components-on-the-head-node) (ad esempio, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+1. Fare clic con il pulsante destro del mouse sul nome del certificato e scegliere **All Tasks** (Tutte le attività) > **Esporta**.
+1. In Esportazione guidata certificati fare clic su **Avanti**, quindi assicurarsi che l'opzione **Non esportare la chiave privata** sia selezionata.
+1. Seguire i passaggi rimanenti della procedura guidata per esportare il certificato nel formato binario codificato DER X.509 (.CER).
 
 **Per importare il certificato nel computer client**
 
 1. Copiare il certificato esportato dal nodo head in una cartella nel computer client.
-2. Nel computer client eseguire certmgr.msc.
-3. In Gestione certificati espandere **Certificati - Utente corrente** > **Autorità di certificazione principale attendibili**, fare clic con il pulsante destro del mouse su **Certificati**, quindi fare clic su **All Tasks** (Tutte le attività) > **Importa**.
-4. Nell'Importazione guidata certificati fare clic su **Avanti** e seguire i passaggi per importare il certificato esportato dal nodo head nell'archivio Autorità di certificazione radice disponibile nell'elenco locale.
+1. Nel computer client eseguire certmgr.msc.
+1. In Gestione certificati espandere **Certificati - Utente corrente** > **Autorità di certificazione principale attendibili**, fare clic con il pulsante destro del mouse su **Certificati**, quindi fare clic su **All Tasks** (Tutte le attività) > **Importa**.
+1. Nell'Importazione guidata certificati fare clic su **Avanti** e seguire i passaggi per importare il certificato esportato dal nodo head nell'archivio Autorità di certificazione radice disponibile nell'elenco locale.
 
 > [!TIP]
 > Potrebbe venire visualizzato un avviso di sicurezza perché l'autorità di certificazione nel nodo head non viene riconosciuta dal computer client. A scopo di test è possibile ignorare questo avviso e completare l'importazione del certificato.
@@ -113,7 +113,7 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 **Per eseguire comandi di invio processi nel computer client**
 
 1. In un computer client con installate le utilità client HPC Pack avviare un prompt dei comandi.
-2. Digitare un comando di esempio. Ad esempio, per elencare tutti i processi nel cluster, digitare un comando simile a uno dei seguenti in base al nome DNS completo del nodo head:
+1. Digitare un comando di esempio. Ad esempio, per elencare tutti i processi nel cluster, digitare un comando simile a uno dei seguenti in base al nome DNS completo del nodo head:
    
     ```command
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
@@ -129,7 +129,7 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
    > Nell'URL dell'Utilità di pianificazione usare il nome DNS completo del nodo head e non l'indirizzo IP. Se si specifica l'indirizzo IP, viene visualizzato un errore che indica che è necessario che il certificato del server includa una catena di certificati valida o sia posizionato nell'archivio radice attendibile.
    > 
    > 
-3. Quando richiesto, digitare il nome utente (nel formato &lt;DomainName&gt;\\&lt;UserName&gt;) e la password dell'amministratore del cluster HPC o di un altro utente cluster configurato. È possibile scegliere di archiviare le credenziali in locale per ulteriori operazioni di processo.
+1. Quando richiesto, digitare il nome utente (nel formato &lt;DomainName&gt;\\&lt;UserName&gt;) e la password dell'amministratore del cluster HPC o di un altro utente cluster configurato. È possibile scegliere di archiviare le credenziali in locale per ulteriori operazioni di processo.
    
     Verrà visualizzato un elenco di processi.
 
@@ -142,8 +142,8 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
     b. Fare clic su **Credenziali Windows** > **Aggiungi credenziali generiche**.
    
     c. Specificare l'indirizzo Internet (ad esempio https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler o https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler) e il nome utente (&lt;DomainName&gt;\\&lt;UserName&gt;) e la password dell'amministratore del cluster o un altro utente cluster configurato.
-2. Nel computer client avviare Gestione processi HPC.
-3. Nella finestra di dialogo **Select Head Node** (Seleziona nodo head) digitare l'URL del nodo head in Azure (ad esempio https://&lt;HeadNodeDnsName&gt;.cloudapp.net o https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
+1. Nel computer client avviare Gestione processi HPC.
+1. Nella finestra di dialogo **Select Head Node** (Seleziona nodo head) digitare l'URL del nodo head in Azure (ad esempio https://&lt;HeadNodeDnsName&gt;.cloudapp.net o https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
    
     Verrà visualizzato il gestore dei processi HPC con un elenco dei processi sul nodo head.
 
@@ -160,13 +160,13 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
     ```
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. Nella finestra di dialogo di sicurezza che viene visualizzata digitare le credenziali di dominio dell'amministrazione cluster HPC. È anche possibile aggiungere altri utenti cluster in ruoli diversi. Vedere [Gestione degli utenti del cluster](https://technet.microsoft.com/library/ff919335.aspx).
+1. Nella finestra di dialogo di sicurezza che viene visualizzata digitare le credenziali di dominio dell'amministrazione cluster HPC. È anche possibile aggiungere altri utenti cluster in ruoli diversi. Vedere [Gestione degli utenti del cluster](https://technet.microsoft.com/library/ff919335.aspx).
    
     Verrà visualizzato l'elenco dei processi.
-3. Per inviare un processo di esempio che restituisca la stringa "Hello World" dal cluster, fare clic su **Nuovo processo** nel riquadro di spostamento a sinistra.
-4. Nella sezione **From submission pages** (Dalle pagine di invio) della pagina **Nuovo processo** fare clic su **HelloWorld**. Verrà visualizzata la pagina di invio processi.
-5. Fare clic su **Submit**. Se richiesto, specificare le credenziali di dominio dell'amministratore cluster HPC. Il processo viene inviato e, nella pagina **My Jobs** (Processi), viene visualizzato l'ID del processo.
-6. Per visualizzare i risultati del processo inviato, fare clic sull'ID del processo e scegliere **Visualizza attività** per visualizzare l'output del comando (in **Output**).
+1. Per inviare un processo di esempio che restituisca la stringa "Hello World" dal cluster, fare clic su **Nuovo processo** nel riquadro di spostamento a sinistra.
+1. Nella sezione **From submission pages** (Dalle pagine di invio) della pagina **Nuovo processo** fare clic su **HelloWorld**. Verrà visualizzata la pagina di invio processi.
+1. Fare clic su **Submit**. Se richiesto, specificare le credenziali di dominio dell'amministratore cluster HPC. Il processo viene inviato e, nella pagina **My Jobs** (Processi), viene visualizzato l'ID del processo.
+1. Per visualizzare i risultati del processo inviato, fare clic sull'ID del processo e scegliere **Visualizza attività** per visualizzare l'output del comando (in **Output**).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per inviare processi al cluster Azure, è anche possibile usare l' [API REST HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).

@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: d7b832659272f01b6e939150fa89626620d5eab7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6e7de0a7b580c0028982895487117ab98d0cd612
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153559"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503452"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurazione di PHP nelle app Web di Servizio app di Azure
 
@@ -102,7 +102,7 @@ In alternativa a un file `.user.ini` è possibile usare la funzione [ini_set()] 
 
 1. Aggiungere un'impostazione dell'applicazione all'applicazione Web con la chiave `PHP_INI_SCAN_DIR` e valore `d:\home\site\ini`
 1. Creare un file `settings.ini` usando la console Kudu (http://&lt;site-name&gt;.scm.azurewebsite.net) nella directory `d:\home\site\ini`.
-1. Aggiungere le impostazioni di configurazione al file `settings.ini` utilizzando la stessa sintassi che si userebbe in un file php.ini. Ad esempio, se si desidera fare riferimento il `curl.cainfo` impostazione su un `*.crt` file e impostare su 512K 'wincache.maxfilesize' impostazione del `settings.ini` file conterrebbe il testo:
+1. Aggiungere le impostazioni di configurazione al file  `settings.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera fare riferimento il `curl.cainfo` impostazione su un `*.crt` file e impostare su 512K 'wincache.maxfilesize' impostazione del `settings.ini` file conterrebbe il testo:
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
@@ -119,7 +119,7 @@ Come indicato nella sezione precedente, il modo migliore per visualizzare la ver
 1. Inserire i file con estensione `.dll` nella directory `ext` (ad esempio `php_xdebug.dll`). Verificare che le estensioni siano compatibili con la versione predefinita di PHP e con VC9 e non thread-safe (nts).
 1. Aggiungere un'impostazione dell'applicazione all'applicazione Web con la chiave `PHP_INI_SCAN_DIR` e valore `d:\home\site\ini`
 1. Creare un `ini` del file in `d:\home\site\ini` chiamato `extensions.ini`.
-1. Aggiungere le impostazioni di configurazione al file `extensions.ini` utilizzando la stessa sintassi che si userebbe in un file php.ini. Ad esempio, se si desidera abilitare le estensioni di MongoDB e XDebug il `extensions.ini` file conterrebbe il testo:
+1. Aggiungere le impostazioni di configurazione al file  `extensions.ini` usando la stessa sintassi che si userebbe in un file `php.ini`. Ad esempio, se si desidera abilitare le estensioni di MongoDB e XDebug il `extensions.ini` file conterrebbe il testo:
 
         ; Enable Extensions
         extension=d:\home\site\ext\php_mongo.dll

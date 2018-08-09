@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/18/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 84bd82f479ce516152f50d5753e8d91940724c93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 120fd3552ad36b3d19179f39ca95ce2b3ee2c2e6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263525"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426619"
 ---
 # <a name="create-activity-log-alerts-classic"></a>Creare avvisi del log attività (versione classica)
 
@@ -58,31 +58,31 @@ Per altre informazioni sulle notifiche sull'integrità del servizio, vedere [Ric
 1. Nel [portale](https://portal.azure.com)selezionare **Monitoraggio**.
 
     ![Servizio "Monitoraggio"](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. Nella sezione **Log attività** selezionare **Avvisi (versione classica)**.
+1. Nella sezione **Log attività** selezionare **Avvisi (versione classica)**.
 
     ![Scheda "Avvisi"](./media/monitoring-activity-log-alerts/alerts-blades.png)
-3. Selezionare il comando **Aggiungi avviso del log attività** e compilare i campi.
+1. Selezionare il comando **Aggiungi avviso del log attività** e compilare i campi.
 
-4. Immettere un nome per la casella **Nome avviso del log attività** e selezionare una **descrizione**.
+1. Immettere un nome per la casella **Nome avviso del log attività** e selezionare una **descrizione**.
 
     ![Comando "Aggiungi avviso del log attività"](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-5. Nella casella **Sottoscrizione** viene inserita automaticamente la sottoscrizione corrente. Il gruppo di azione verrà salvato in questa sottoscrizione. Questa è la sottoscrizione in cui verrà distribuita la risorsa di avviso e in cui verranno monitorati gli eventi del log attività.
+1. Nella casella **Sottoscrizione** viene inserita automaticamente la sottoscrizione corrente. Il gruppo di azione verrà salvato in questa sottoscrizione. Questa è la sottoscrizione in cui verrà distribuita la risorsa di avviso e in cui verranno monitorati gli eventi del log attività.
 
     ![Finestra di dialogo "Aggiungi avviso del log attività"](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-6. Selezionare il **gruppo di risorse** in cui verrà creata la risorsa di avviso. Non è il gruppo di risorse che viene monitorato dall'avviso, ma è quello in cui si trova la risorsa di avviso.
+1. Selezionare il **gruppo di risorse** in cui verrà creata la risorsa di avviso. Non è il gruppo di risorse che viene monitorato dall'avviso, ma è quello in cui si trova la risorsa di avviso.
 
-7. Selezionare facoltativamente una **categoria di eventi** per modificare i filtri aggiuntivi visualizzati. Per gli eventi amministrativi, i filtri includono **Gruppo di risorse**, **Risorse**, **Tipo di risorsa**, **Nome dell'operazione**, **Livello**, **Stato** ed **Evento avviato da**. Questi valori identificano gli eventi che devono essere monitorati da questo avviso.
+1. Selezionare facoltativamente una **categoria di eventi** per modificare i filtri aggiuntivi visualizzati. Per gli eventi amministrativi, i filtri includono **Gruppo di risorse**, **Risorse**, **Tipo di risorsa**, **Nome dell'operazione**, **Livello**, **Stato** ed **Evento avviato da**. Questi valori identificano gli eventi che devono essere monitorati da questo avviso.
 
     >[!NOTE]
     >È necessario specificare nell'avviso almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
     >
     >
 
-8. Immettere un nome nella casella **Nome gruppo di azione** e un nome nella casella **Nome breve gruppo di azione**. Il nome breve viene usato al posto del nome completo di un gruppo di azione quando le notifiche vengono inviate usando questo gruppo.
+1. Immettere un nome nella casella **Nome gruppo di azione** e un nome nella casella **Nome breve gruppo di azione**. Il nome breve viene usato al posto del nome completo di un gruppo di azione quando le notifiche vengono inviate usando questo gruppo.
 
-9.  Definire un elenco di azioni, fornendo i dati dell'azione seguenti:
+1.  Definire un elenco di azioni, fornendo i dati dell'azione seguenti:
 
     a. **Nome:**: immettere il nome, l'alias o l'identificatore dell'azione.
 
@@ -90,7 +90,7 @@ Per altre informazioni sulle notifiche sull'integrità del servizio, vedere [Ric
 
     c. **Dettagli**: in base al tipo di azione immettere un numero di telefono, un indirizzo di posta elettronica o l'URI del webhook.
 
-10. Fare clic su **OK** per creare l'avviso.
+1.  Fare clic su **OK** per creare l'avviso.
 
 La propagazione completa dell'avviso richiede alcuni minuti, quindi l'avviso diventa attivo. Si attiva quando nuovi eventi corrispondono ai criteri dell'avviso.
 
@@ -104,9 +104,9 @@ Per altre informazioni, vedere [Informazioni sullo schema webhook degli avvisi d
 ## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Creare un avviso per un evento del log attività con un gruppo di azione esistente usando il portale di Azure
 1. Seguire i passaggi da 1 a 7 nella sezione precedente per creare l'avviso del log attività.
 
-2. In **Notifica tramite** selezionare il pulsante Gruppo di azione **esistente**. Selezionare un gruppo di azione esistente dall'elenco.
+1. In **Notifica tramite** selezionare il pulsante Gruppo di azione **esistente**. Selezionare un gruppo di azione esistente dall'elenco.
 
-3. Fare clic su **OK** per creare l'avviso.
+1. Fare clic su **OK** per creare l'avviso.
 
 La propagazione completa dell'avviso richiede alcuni minuti, quindi l'avviso diventa attivo. Si attiva quando nuovi eventi corrispondono ai criteri dell'avviso.
 

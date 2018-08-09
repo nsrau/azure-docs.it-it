@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d262770dda0f6f70d2c5d8ea2a3095369a56b87
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a967272442c4b05657fbd3567fe89a4eec8418f4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218031"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425160"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Private Access (ZPA)
 
@@ -33,7 +33,7 @@ L'integrazione di Zscaler Private Access (ZPA) con Azure AD offre i vantaggi seg
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Zscaler Private Access (ZPA), sono necessari gli elementi seguenti:
 
@@ -55,7 +55,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Zscaler Private Access (ZPA) dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
 ## <a name="adding-zscaler-private-access-zpa-from-the-gallery"></a>Aggiunta di Zscaler Private Access (ZPA) dalla raccolta
@@ -67,19 +67,19 @@ Per configurare l'integrazione di Zscaler Private Access (ZPA) in Azure AD, è n
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
+1. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **Zscaler Private Access (ZPA)**.
+1. Nella casella di ricerca digitare **Zscaler Private Access (ZPA)**.
 
     ![Creazione di un utente test di Azure AD](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_001.png)
 
-5. Nel pannello dei risultati selezionare **Zscaler Private Access (ZPA)** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **Zscaler Private Access (ZPA)** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_0001.png)
 
@@ -94,10 +94,10 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Zscaler Private Access (ZPA), è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Zscaler Private Access (ZPA)](#creating-a-zscaler-private-access-(zpa)-test-user)**: per avere una controparte di Britta Simon in Zscaler Private Access (ZPA) collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente test di Zscaler Private Access (ZPA)](#creating-a-zscaler-private-access-(zpa)-test-user)**: per avere una controparte di Britta Simon in Zscaler Private Access (ZPA) collegata alla relativa rappresentazione in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -109,11 +109,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** in **Modalità** selezionare **Accesso basato su SAML** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** in **Modalità** selezionare **Accesso basato su SAML** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/zscalerprivateaccess-tutorial/tutorial_general_300.png)
     
-3. Nella sezione **Zscaler Private Access (ZPA) Domain and URLs** (URL e dominio di Zscaler Private Access (ZPA) seguire questa procedura:
+1. Nella sezione **Zscaler Private Access (ZPA) Domain and URLs** (URL e dominio di Zscaler Private Access (ZPA) seguire questa procedura:
     
     ![Configure Single Sign-On](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_01.png)
 
@@ -124,37 +124,37 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. In questo caso è consigliabile usare in Identificatore il valore univoco dell'URL. Contattare il [team di supporto di Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa-submit-ticket) per ottenere questi valori.
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
+1. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
     ![Configure Single Sign-On](./media/zscalerprivateaccess-tutorial/tutorial_general_400.png)     
 
-5. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
+1. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
 
     ![Configure Single Sign-On](./media/zscalerprivateaccess-tutorial/tutorial_general_500.png)
 
-6. Nella sezione **Certificato di firma SAML** selezionare **Make new certificate active** (Rendi attivo il nuovo certificato) e fare clic sul pulsante **Salva**.
+1. Nella sezione **Certificato di firma SAML** selezionare **Make new certificate active** (Rendi attivo il nuovo certificato) e fare clic sul pulsante **Salva**.
 
     ![Configure Single Sign-On](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_02.png)
 
-7. Nella finestra popup **Rollover certificate** (Certificato di rollover) fare clic su **OK**.
+1. Nella finestra popup **Rollover certificate** (Certificato di rollover) fare clic su **OK**.
 
     ![Configure Single Sign-On](./media/zscalerprivateaccess-tutorial/tutorial_general_600.png)
 
-8. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Configure Single Sign-On](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_03.png) 
 
-9. In un'altra finestra del Web browser accedere al sito aziendale di Zscaler Private Access (ZPA) come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di Zscaler Private Access (ZPA) come amministratore.
 
-10. Passare ad **Amministratore** e quindi fare clic su **Idp Configuration** (Configurazione IdP).
+1. Passare ad **Amministratore** e quindi fare clic su **Idp Configuration** (Configurazione IdP).
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_04.png)
 
-11. Nella sezione **Idp Configuration** (Configurazione IdP) fare clic su **Add New IDP Configuration** (Aggiungi nuova configurazione IdP).
+1. Nella sezione **Idp Configuration** (Configurazione IdP) fare clic su **Add New IDP Configuration** (Aggiungi nuova configurazione IdP).
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_05.png)
 
-12. Nella sezione **New IDP Configuration** (Nuova configurazione IdP) eseguire la procedura seguente:
+1. Nella sezione **New IDP Configuration** (Nuova configurazione IdP) eseguire la procedura seguente:
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_06.png)
 
@@ -175,15 +175,15 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     ![Creazione di un utente test di Azure AD](./media/zscalerprivateaccess-tutorial/create_aaduser_01.png) 
 
-2. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/zscalerprivateaccess-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/zscalerprivateaccess-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/zscalerprivateaccess-tutorial/create_aaduser_04.png) 
 
@@ -193,7 +193,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**. 
+    d. Fare clic su **Create**(Crea). 
 
 
 
@@ -214,23 +214,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni, selezionare **Zscaler Private Access (ZPA)**.
+1. Nell'elenco delle applicazioni, selezionare **Zscaler Private Access (ZPA)**.
 
     ![Configure Single Sign-On](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_50.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 
 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4a811c5354a9ff2aaa48a300d9b2655f91fdab23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 205938bbf615face0768028717a333c13c1fafa1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901093"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590314"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Come usare un'identità del servizio gestito di una macchina virtuale di Azure per l'accesso 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 In questo articolo vengono forniti esempi di script di PowerShell e dell'interfaccia della riga di comando per l'accesso tramite un'entità servizio dell'identità del servizio gestito, oltre a indicazioni su argomenti importanti come la gestione degli errori.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -38,7 +38,7 @@ Se si prevede di usare gli esempi di Azure PowerShell e dell'interfaccia della r
 
 ## <a name="overview"></a>Panoramica
 
-Un'identità del servizio gestito fornisce un[oggetto dell'entità servizio](../develop/active-directory-dev-glossary.md#service-principal-object), [creato con l'abilitazione dell'identità del servizio gestito](overview.md#how-does-it-work) nella macchina virtuale. L'entità servizio può acquisire l'accesso alle risorse di Azure e può essere usata come identità dai client da script o riga di comando per l'accesso al client e alle risorse. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
+Un'identità del servizio gestito fornisce un[oggetto dell'entità servizio](../develop/developer-glossary.md#service-principal-object), [creato con l'abilitazione dell'identità del servizio gestito](overview.md#how-does-it-work) nella macchina virtuale. L'entità servizio può acquisire l'accesso alle risorse di Azure e può essere usata come identità dai client da script o riga di comando per l'accesso al client e alle risorse. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
 
    - essere registrato e autorizzato da Azure AD come applicazione client Web/riservata
    - accedere con la propria entità servizio usando le credenziali dell'app (probabilmente integrate nello script)

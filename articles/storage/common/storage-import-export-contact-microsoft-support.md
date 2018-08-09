@@ -2,24 +2,18 @@
 title: Creare il ticket o il caso di supporto per un processo di Importazione/Esportazione di Azure | Microsoft Docs
 description: Informazioni sulla registrazione di richieste di supporto per problemi relativi al processo di Importazione/Esportazione.
 services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/29/2018
 ms.author: alkohli;
-ms.openlocfilehash: b82adae5854aa836701e299a0aabd2b61e73ca99
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: common
+ms.openlocfilehash: 321f59b1fd7b408d13856d7345d5d00608e3d250
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323654"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521082"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Aprire un ticket di supporto per un processo di Importazione/Esportazione
 
@@ -65,7 +59,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
     1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
     2. In Informazioni di contatto specificare nome, posta elettronica, contatto facoltativo, paese. Selezionare la casella di controllo **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
-    3. Fare clic su **Crea**.
+    3. Fare clic su **Create**(Crea).
    
         ![Informazioni contatto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 

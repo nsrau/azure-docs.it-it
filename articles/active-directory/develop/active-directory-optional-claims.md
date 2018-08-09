@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265065"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597974"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Attestazioni facoltative in Azure AD (anteprima)
 
@@ -33,7 +33,7 @@ Questa funzionalità viene usata dagli sviluppatori di applicazioni per specific
 > [!Note]
 > Questa funzionalità è attualmente disponibile in anteprima pubblica. Potrebbe essere necessario ripristinare o rimuovere eventuali modifiche. La funzionalità è disponibile in tutte le sottoscrizioni di Azure AD durante l'anteprima pubblica. Quando la funzionalità sarà disponibile a livello generale, alcuni aspetti potrebbero tuttavia richiedere una sottoscrizione Azure AD Premium.
 
-Per l'elenco di attestazioni standard e le relative modalità di utilizzo nei token, vedere le [nozioni di base sui token rilasciati da Azure AD](active-directory-token-and-claims.md). 
+Per l'elenco di attestazioni standard e le relative modalità di utilizzo nei token, vedere le [nozioni di base sui token rilasciati da Azure AD](v1-id-and-access-tokens.md). 
 
 Uno degli obiettivi dell'[endpoint Azure AD v2.0](active-directory-appmodel-v2-overview.md) è quello di ottenere token di dimensioni minori in modo da garantire prestazioni ottimali da parte dei client.  Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.  
 
@@ -126,7 +126,7 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
 
 ## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
 
-È possibile configurare attestazioni facoltative per l'applicazione modificando il manifesto dell'applicazione (vedere l'esempio riportato di seguito). Per altre informazioni, vedere l'articolo [Informazioni sul manifesto dell'applicazione di Azure AD](active-directory-application-manifest.md).
+È possibile configurare attestazioni facoltative per l'applicazione modificando il manifesto dell'applicazione (vedere l'esempio riportato di seguito). Per altre informazioni, vedere l'articolo [Informazioni sul manifesto dell'applicazione di Azure AD](reference-app-manifest.md).
 
 **Schema di esempio:**
 
@@ -247,4 +247,4 @@ Sono disponibili più opzioni per l'aggiornamento delle proprietà di configuraz
 
 
 ## <a name="related-content"></a>Contenuti correlati
-* Altre informazioni sulle [attestazioni standard](active-directory-token-and-claims.md) fornite da Azure AD. 
+* Altre informazioni sulle [attestazioni standard](v1-id-and-access-tokens.md) fornite da Azure AD. 

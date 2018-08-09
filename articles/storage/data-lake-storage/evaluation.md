@@ -3,18 +3,17 @@ title: Linee guida per i clienti di Azure Data Lake Storage Gen1 | Microsoft Doc
 description: La versione di anteprima di Azure Data Lake Storage Gen2 offre funzionalità di archiviazione BLOB native, tra cui suddivisione in livelli dei dati, gestione del ciclo di vita e sicurezza di rete avanzata, oltre al file system compatibile con Hadoop disponibile in Data Lake Storage Gen1.
 services: storage
 author: roygara
-manager: twooley
 ms.topic: article
 ms.author: rogarana
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 786abbc10f21b137c328f10c5cbd20dce7653957
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d247c2e96a45f0f6fceb64d4f3f274549c83ea66
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035104"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522425"
 ---
 # <a name="guidance-for-azure-data-lake-storage-gen1-customers"></a>Linee guida per i clienti di Azure Data Lake Storage Gen1
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 76308bbb06d6bf1cdc9147258f7c26babae371a9
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ad3ec09f039b38290929289c7bca77664b0fb554
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750486"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441786"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizzare l'installazione del runtime di integrazione Azure-SSIS
 
@@ -39,7 +39,7 @@ L'installazione personalizzata si configura preparando uno script e i relativi f
 
 -   La condivisione amministrativa non è attualmente supportata in runtime di integrazione Azure-SSIS.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
@@ -53,52 +53,52 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
 ## <a name="instructions"></a>Istruzioni
 
-2.  Scaricare e installare [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) versione 5.4 o successiva.
+1.  Scaricare e installare [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) versione 5.4 o successiva.
 
-3.  Preparare lo script di installazione personalizzato e i file associati (ad esempio file con estensione bat, cmd, exe, dll, msi o ps1).
+1.  Preparare lo script di installazione personalizzato e i file associati (ad esempio file con estensione bat, cmd, exe, dll, msi o ps1).
 
     1.  È necessario disporre di un file di script denominato `main.cmd`, ovvero il punto di ingresso dell'installazione personalizzata.
 
-    2.  Se si vuole che nel contenitore vengano caricati anche i log generati da altri strumenti (ad esempio `msiexec.exe`), specificare negli script la variabile di ambiente predefinita `CUSTOM_SETUP_SCRIPT_LOG_DIR` come cartella dei log (ad esempio `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
+    1.  Se si vuole che nel contenitore vengano caricati anche i log generati da altri strumenti (ad esempio `msiexec.exe`), specificare negli script la variabile di ambiente predefinita `CUSTOM_SETUP_SCRIPT_LOG_DIR` come cartella dei log (ad esempio `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
-4.  Scaricare, installare e avviare [Azure Storage Explorer](http://storageexplorer.com/).
+1.  Scaricare, installare e avviare [Azure Storage Explorer](http://storageexplorer.com/).
 
     1.  In **(Local and Attached)** (Locale e collegato) fare clic con il pulsante destro del mouse su **Account di archiviazione** e scegliere **Connect to Azure storage** (Connetti ad archiviazione di Azure).
 
        ![Connessione ad Archiviazione di Azure](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
-    2.  Scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e selezionare **Avanti**.
+    1.  Scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e selezionare **Avanti**.
 
        ![Usare un nome e una chiave dell'account di archiviazione](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image2.png)
 
-    3.  Immettere il nome dell'account di archiviazione di Azure e la chiave, selezionare **Avanti**, quindi selezionare **Connetti**.
+    1.  Immettere il nome dell'account di archiviazione di Azure e la chiave, selezionare **Avanti**, quindi selezionare **Connetti**.
 
        ![Fornire il nome e la chiave dell'account di archiviazione](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png)
 
-    4.  Nell'account di archiviazione di Azure connesso fare clic con il pulsante destro del mouse su **Blob Containers** (Contenitori BLOB), scegliere **Create Blob Container** e assegnare un nome al nuovo contenitore.
+    1.  Nell'account di archiviazione di Azure connesso fare clic con il pulsante destro del mouse su **Blob Containers** (Contenitori BLOB), scegliere **Create Blob Container** e assegnare un nome al nuovo contenitore.
 
        ![Creare un contenitore BLOB](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    5.  Selezionare il nuovo contenitore e caricare lo script di installazione personalizzato e i file associati. Assicurarsi di caricare `main.cmd` nel primo livello del contenitore, non in una cartella qualsiasi. 
+    1.  Selezionare il nuovo contenitore e caricare lo script di installazione personalizzato e i file associati. Assicurarsi di caricare `main.cmd` nel primo livello del contenitore, non in una cartella qualsiasi. 
 
        ![Caricare i file nel contenitore BLOB](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
-    6.  Fare clic con il pulsante destro del mouse sul contenitore e scegliere **Get Shared Access Signature** (Ottieni firma di accesso condiviso).
+    1.  Fare clic con il pulsante destro del mouse sul contenitore e scegliere **Get Shared Access Signature** (Ottieni firma di accesso condiviso).
 
        ![Ottenere la firma di accesso condiviso per il contenitore](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
-    7.  Creare l'URI SAS per il contenitore con una scadenza sufficientemente lunga e con autorizzazioni di lettura, scrittura ed elenco. L'URI SAS è necessario per scaricare ed eseguire lo script di installazione personalizzato e i file associati ogni volta che viene ricreata l'immagine di un nodo del runtime di integrazione Azure-SSIS o viene riavviato. Le autorizzazioni di scrittura sono necessarie per caricare i log di esecuzione dell'installazione.
+    1.  Creare l'URI SAS per il contenitore con una scadenza sufficientemente lunga e con autorizzazioni di lettura, scrittura ed elenco. L'URI SAS è necessario per scaricare ed eseguire lo script di installazione personalizzato e i file associati ogni volta che viene ricreata l'immagine di un nodo del runtime di integrazione Azure-SSIS o viene riavviato. Le autorizzazioni di scrittura sono necessarie per caricare i log di esecuzione dell'installazione.
 
         > [!IMPORTANT]
         > Assicurarsi che l'URI SAS non scada e che le risorse del programma di installazione siano sempre disponibili durante l'intero ciclo di vita del runtime di integrazione Azure-SSIS, dalla creazione all'eliminazione, soprattutto se si arresta e si riavvia regolarmente il runtime di integrazione Azure-SSIS durante questo periodo.
 
        ![Generare la firma di accesso condiviso per il contenitore](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
 
-    8.  Copiare e salvare l'URI SAS del contenitore.
+    1.  Copiare e salvare l'URI SAS del contenitore.
 
        ![Copiare e salvare la firma di accesso condiviso](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-    9.  Quando si riconfigura o si esegue il provisioning del runtime di integrazione Azure-SSIS con PowerShell, prima di avviare il runtime eseguire il cmdlet `Set-AzureRmDataFactoryV2IntegrationRuntime` inserendo l'URI SAS del contenitore come valore per il nuovo parametro `SetupScriptContainerSasUri`. Ad esempio: 
+    1.  Quando si riconfigura o si esegue il provisioning del runtime di integrazione Azure-SSIS con PowerShell, prima di avviare il runtime eseguire il cmdlet `Set-AzureRmDataFactoryV2IntegrationRuntime` inserendo l'URI SAS del contenitore come valore per il nuovo parametro `SetupScriptContainerSasUri`. Ad esempio: 
 
        ```powershell
        Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -111,9 +111,9 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
                                                     -ResourceGroupName $MyResourceGroupName
        ```
 
-    10.  Al termine dell'installazione personalizzata e dopo l'avvio del runtime di integrazione Azure-SSIS, l'output standard di `main.cmd` e gli altri log di esecuzione saranno disponibili nella cartella `main.cmd.log` del contenitore di archiviazione.
+    1.  Al termine dell'installazione personalizzata e dopo l'avvio del runtime di integrazione Azure-SSIS, l'output standard di `main.cmd` e gli altri log di esecuzione saranno disponibili nella cartella `main.cmd.log` del contenitore di archiviazione.
 
-2.  Per altri esempi di installazione personalizzata, connettersi al contenitore dell'anteprima pubblica con Azure Storage Explorer.
+1.  Per altri esempi di installazione personalizzata, connettersi al contenitore dell'anteprima pubblica con Azure Storage Explorer.
 
     a.  In **(Local and Attached)** (Locale e collegato) fare clic con il pulsante destro del mouse su **Account di archiviazione** e scegliere **Connect to Azure storage** (Connetti ad archiviazione di Azure), selezionare **Use a connection string or a shared access signature URI** (Usa una stringa di connessione o un URI di firma di accesso condiviso), quindi selezionare **Avanti**.
 
@@ -129,7 +129,7 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
        1. Una cartella `Sample`, che contiene un'installazione personalizzata per installare un'attività di base in ogni nodo del runtime di integrazione Azure-SSIS. L'attività non esegue alcuna operazione se non andare in sospensione per pochi secondi. La cartella contiene inoltre una cartella `gacutil` che contiene `gacutil.exe`. Inoltre, contiene commenti `main.cmd` per salvare in modo permanente le credenziali di accesso per le condivisioni di file.
 
-       2. Una cartella `UserScenarios`, che contiene più installazioni personalizzate per scenari utente reali.
+       1. Una cartella `UserScenarios`, che contiene più installazioni personalizzate per scenari utente reali.
 
     ![Contenuto del contenitore dell'anteprima pubblica](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 
@@ -137,21 +137,21 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
        1. Una cartella `.NET FRAMEWORK 3.5`, che contiene un'installazione personalizzata per installare una versione precedente di .NET Framework che potrebbe essere necessaria per i componenti personalizzati in ogni nodo del runtime di integrazione Azure-SSIS.
 
-       2. Una cartella `BCP`, che contiene un'installazione personalizzata per installare utilità della riga di comando di SQL Server (`MsSqlCmdLnUtils.msi`), tra cui il programma di copia bulk (`bcp`), in ogni nodo del runtime di integrazione Azure-SSIS.
+       1. Una cartella `BCP`, che contiene un'installazione personalizzata per installare utilità della riga di comando di SQL Server (`MsSqlCmdLnUtils.msi`), tra cui il programma di copia bulk (`bcp`), in ogni nodo del runtime di integrazione Azure-SSIS.
 
-       3. Una cartella `EXCEL`, che contiene un'installazione personalizzata per installare assembly open source (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` e `ExcelDataReader.dll`) in ogni nodo del runtime di integrazione Azure-SSIS.
+       1. Una cartella `EXCEL`, che contiene un'installazione personalizzata per installare assembly open source (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` e `ExcelDataReader.dll`) in ogni nodo del runtime di integrazione Azure-SSIS.
 
-       4. Una cartella `MSDTC`, che contiene un'installazione personalizzata per modificare le configurazioni di rete e di sicurezza per il servizio Microsoft Distributed Transaction Coordinator (MSDTC) in ogni nodo del runtime di integrazione Azure-SSIS. Per assicurarsi che MSDTC venga avviato, aggiungere l'attività Esegui processo all'inizio del flusso di controllo nei pacchetti per eseguire il seguente comando: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
+       1. Una cartella `MSDTC`, che contiene un'installazione personalizzata per modificare le configurazioni di rete e di sicurezza per il servizio Microsoft Distributed Transaction Coordinator (MSDTC) in ogni nodo del runtime di integrazione Azure-SSIS. Per assicurarsi che MSDTC venga avviato, aggiungere l'attività Esegui processo all'inizio del flusso di controllo nei pacchetti per eseguire il seguente comando: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
-       5. Una cartella `ORACLE ENTERPRISE`, che contiene uno script di installazione personalizzata (`main.cmd`) e un file di configurazione per l'installazione invisibile all'utente (`client.rsp`) del driver OCI di Oracle in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione Oracle. Prima di tutto scaricare il client Oracle più recente, ad esempio `winx64_12102_client.zip` da [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) e quindi caricarlo insieme a `main.cmd` e `client.rsp` nel contenitore. Se si usa TNS per la connessione a Oracle, è necessario anche scaricare `tnsnames.ora`, modificarlo e caricarlo nel contenitore, in modo che possa essere copiato nella cartella di installazione di Oracle durante l'installazione.
+       1. Una cartella `ORACLE ENTERPRISE`, che contiene uno script di installazione personalizzata (`main.cmd`) e un file di configurazione per l'installazione invisibile all'utente (`client.rsp`) del driver OCI di Oracle in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione Oracle. Prima di tutto scaricare il client Oracle più recente, ad esempio `winx64_12102_client.zip` da [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) e quindi caricarlo insieme a `main.cmd` e `client.rsp` nel contenitore. Se si usa TNS per la connessione a Oracle, è necessario anche scaricare `tnsnames.ora`, modificarlo e caricarlo nel contenitore, in modo che possa essere copiato nella cartella di installazione di Oracle durante l'installazione.
 
-       6. Una cartella`ORACLE STANDARD`, che contiene uno script di installazione personalizzato (`main.cmd`) per installare il driver ODP.NET di Oracle in ogni nodo del runtime di integrazione Azure-SSIS. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione ADO.NET. Prima di tutto scaricare il driver ODP.NET Oracle più recente, ad esempio `ODP.NET_Managed_ODAC122cR1.zip` da [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) e quindi caricarlo insieme a `main.cmd` nel contenitore.
+       1. Una cartella`ORACLE STANDARD`, che contiene uno script di installazione personalizzato (`main.cmd`) per installare il driver ODP.NET di Oracle in ogni nodo del runtime di integrazione Azure-SSIS. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione ADO.NET. Prima di tutto scaricare il driver ODP.NET Oracle più recente, ad esempio `ODP.NET_Managed_ODAC122cR1.zip` da [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) e quindi caricarlo insieme a `main.cmd` nel contenitore.
 
-       7. Una cartella `SAP BW`, che contiene uno script di installazione personalizzato (`main.cmd`) per installare l'assembly SAP .NET Connector (`librfc32.dll`) in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione SAP BW. Prima di tutto, caricare nel contenitore la versione a 32 o 64 bit di `librfc32.dll` dalla cartella di installazione di SAP, insieme a `main.cmd`. Lo script copia quindi l'assembly SAP nella cartella `%windir%\SysWow64` o `%windir%\System32` durante l'installazione.
+       1. Una cartella `SAP BW`, che contiene uno script di installazione personalizzato (`main.cmd`) per installare l'assembly SAP .NET Connector (`librfc32.dll`) in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione SAP BW. Prima di tutto, caricare nel contenitore la versione a 32 o 64 bit di `librfc32.dll` dalla cartella di installazione di SAP, insieme a `main.cmd`. Lo script copia quindi l'assembly SAP nella cartella `%windir%\SysWow64` o `%windir%\System32` durante l'installazione.
 
-       8. Una cartella `STORAGE`, che contiene un'installazione personalizzata per installare Azure PowerShell in ogni nodo del runtime di integrazione Azure-SSIS. Questa installazione consente di distribuire ed eseguire pacchetti SSIS che eseguono [script di PowerShell per la gestione dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copiare `main.cmd`, un `AzurePowerShell.msi` di esempio (o installare l'ultima versione) e `storage.ps1` nel contenitore. Usare PowerShell.dtsx come modello per i pacchetti. Il modello di pacchetto combina un'[attività di download di BLOB di Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), che scarica `storage.ps1` come script di PowerShell modificabile, e un'[attività Esegui processo](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), che esegue lo script in ogni nodo.
+       1. Una cartella `STORAGE`, che contiene un'installazione personalizzata per installare Azure PowerShell in ogni nodo del runtime di integrazione Azure-SSIS. Questa installazione consente di distribuire ed eseguire pacchetti SSIS che eseguono [script di PowerShell per la gestione dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copiare `main.cmd`, un `AzurePowerShell.msi` di esempio (o installare l'ultima versione) e `storage.ps1` nel contenitore. Usare PowerShell.dtsx come modello per i pacchetti. Il modello di pacchetto combina un'[attività di download di BLOB di Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), che scarica `storage.ps1` come script di PowerShell modificabile, e un'[attività Esegui processo](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), che esegue lo script in ogni nodo.
 
-       9. Una cartella `TERADATA`, che contiene uno script di installazione personalizzato (`main.cmd)` e il file associato `install.cmd`) e pacchetti di installazione (`.msi`). Questi file installano i connettori Teradata, l'API TPT e il driver ODBC in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione Teradata. Prima di tutto, scaricare il file ZIP Teradata Tools and Utilities (TTU) 15.x (ad esempio `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) da [Teradata](http://partnerintelligence.teradata.com) e quindi caricarlo insieme ai file `.cmd` e `.msi` precedenti nel contenitore.
+       1. Una cartella `TERADATA`, che contiene uno script di installazione personalizzato (`main.cmd)` e il file associato `install.cmd`) e pacchetti di installazione (`.msi`). Questi file installano i connettori Teradata, l'API TPT e il driver ODBC in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione Teradata. Prima di tutto, scaricare il file ZIP Teradata Tools and Utilities (TTU) 15.x (ad esempio `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) da [Teradata](http://partnerintelligence.teradata.com) e quindi caricarlo insieme ai file `.cmd` e `.msi` precedenti nel contenitore.
 
     ![Cartelle nella cartella degli scenari utente](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

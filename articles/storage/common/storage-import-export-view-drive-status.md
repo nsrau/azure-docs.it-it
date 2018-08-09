@@ -2,18 +2,18 @@
 title: Visualizzare lo stato dei processi di Importazione/Esportazione di Azure | Microsoft Docs
 description: Informazioni su come visualizzare lo stato dei processi di Importazione/Esportazione e delle unità usate.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 176cbf190b6442682a222eb4f24b6583fb87a46b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659702"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521524"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualizzare lo stato dei processi di Importazione/Esportazione di Azure
 
@@ -31,12 +31,12 @@ Viene visualizzato uno degli stati di processo seguenti, in base al punto in cui
 
 | Stato processo | DESCRIZIONE |
 |:--- |:--- |
-| Creazione | Dopo la creazione di un processo, lo stato è impostato su **Creazione**. Mentre il processo si trova nello stato **Creazione**, il servizio Importazione/Esportazione presuppone che le unità non siano state spedite al data center. Un processo può rimanere in questo stato per un massimo di due settimane; trascorse le quali viene automaticamente eliminato dal servizio. |
+| Creating | Dopo la creazione di un processo, lo stato è impostato su **Creazione**. Mentre il processo si trova nello stato **Creazione**, il servizio Importazione/Esportazione presuppone che le unità non siano state spedite al data center. Un processo può rimanere in questo stato per un massimo di due settimane; trascorse le quali viene automaticamente eliminato dal servizio. |
 | Spedizione | Dopo aver spedito il pacchetto, è consigliabile aggiornare le informazioni di tracciabilità nel portale di Azure.  Lo stato del processo viene modificato in **Spedizione**. Il processo rimane nello stato **Spedizione** per un massimo di due settimane. 
 | Ricevuto | Dopo che tutte le unità sono state ricevute nel data center, lo stato del processo viene impostato su **Ricevuto**. |
-| Trasferimento | Dopo l'avvio dell'elaborazione per almeno un'unità, lo stato del processo viene impostato su **Trasferimento**. Per altre informazioni, vedere [Visualizzare lo stato dell'unità](#view-drive-status). |
-| Imballaggio | Una volta completata l'elaborazione di tutte le unità, lo stato del processo viene impostato su **Imballaggio** fino a quando le unità non vengono rispedite all'utente. |
-| Completato | Dopo che tutte le unità sono state rispedite, se il processo è stato completato senza errori, il suo stato viene impostato su **Completato**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Completato**. |
+| Transferring | Dopo l'avvio dell'elaborazione per almeno un'unità, lo stato del processo viene impostato su **Trasferimento**. Per altre informazioni, vedere [Visualizzare lo stato dell'unità](#view-drive-status). |
+| Packaging | Una volta completata l'elaborazione di tutte le unità, lo stato del processo viene impostato su **Imballaggio** fino a quando le unità non vengono rispedite all'utente. |
+| Completed | Dopo che tutte le unità sono state rispedite, se il processo è stato completato senza errori, il suo stato viene impostato su **Completato**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Completato**. |
 | Chiuso | Dopo che tutte le unità sono state rispedite, se si sono verificati errori durante l'elaborazione del processo, il suo stato viene impostato su **Chiuso**. Il processo viene eliminato automaticamente dopo 90 giorni in cui si trova nello stato **Chiuso**. |
 
 ## <a name="view-drive-status"></a>Visualizzare lo stato dell'unità
@@ -48,10 +48,10 @@ La tabella seguente descrive ogni stato in cui può trovarsi un'unità in un pro
 | Stato dell'unità | DESCRIZIONE |
 |:--- |:--- |
 | Specificata | Per un processo di importazione, quando il processo viene creato dal portale di Azure, lo stato iniziale di un'unità è **Specificata**. Per un processo di esportazione, lo stato iniziale dell'unità è **Ricevuta**, perché non è stata specificata alcuna unità al momento della creazione del processo. |
-| Ricevuta | Le unità passano allo stato **Ricevuta** quando il servizio Importazione/Esportazione ha elaborato le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è **Ricevuta**. |
+| Ricevuto | Le unità passano allo stato **Ricevuta** quando il servizio Importazione/Esportazione ha elaborato le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è **Ricevuta**. |
 | MaiRicevuta | L'unità passa allo stato **MaiRicevuta** se il pacchetto di un processo viene ricevuto, ma non contiene l'unità. Un'unità può anche passare a questo stato se sono trascorse due settimane da quando il servizio ha ricevuto le informazioni sulla spedizione, ma il pacchetto non è ancora stato ricevuto nel data center. |
-| Trasferimento | Un'unità passa allo stato **Trasferimento** quando il servizio inizia a trasferire i dati dall'unità ad Archiviazione di Azure. |
-| Completata | Un'unità passa allo stato **Completata** se il servizio ha trasferito correttamente tutti i dati senza errori.
+| Transferring | Un'unità passa allo stato **Trasferimento** quando il servizio inizia a trasferire i dati dall'unità ad Archiviazione di Azure. |
+| Completed | Un'unità passa allo stato **Completata** se il servizio ha trasferito correttamente tutti i dati senza errori.
 | CompletataPiùInformazioni | Un'unità passa allo stato **CompletataPiùInformazioni** se il servizio ha riscontrato problemi durante la copia dei dati da o verso l'unità. Le informazioni possono includere errori, avvisi o messaggi informativi sulla sovrascrittura dei BLOB.
 | Rispedita | Un'unità passa allo stato **Rispedita** quando viene spedita dal data center all'indirizzo mittente. |
 

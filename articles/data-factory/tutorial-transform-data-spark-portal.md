@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: e62953ddfcc3f6d08430c477efbd7efc23064e19
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 52b1ec9a1f69273723129050820bb3b4efd7f36d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085420"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441341"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando un'attività Spark in Azure Data Factory
 In questa esercitazione si usa il portale di Azure per creare una pipeline di Azure Data Factory. Questa pipeline trasforma i dati usando un'attività Spark e un servizio collegato su richiesta di Azure HDInsight. 
@@ -63,17 +63,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     if __name__ == "__main__":
         main()
     ```
-2. Sostituire *&lt;storageAccountName&gt;* con il nome del proprio account di archiviazione di Azure. Salvare quindi il file. 
-3. Nell'Archivio BLOB di Azure creare un contenitore denominato **adftutorial**, se non esiste. 
-4. Creare una cartella denominata **spark**.
-5. Creare una sottocartella denominata **script** nella cartella **spark**. 
-6. Caricare il file **WordCount_Spark.py** nella sottocartella **script**. 
+1. Sostituire *&lt;storageAccountName&gt;* con il nome del proprio account di archiviazione di Azure. Salvare quindi il file. 
+1. Nell'Archivio BLOB di Azure creare un contenitore denominato **adftutorial**, se non esiste. 
+1. Creare una cartella denominata **spark**.
+1. Creare una sottocartella denominata **script** nella cartella **spark**. 
+1. Caricare il file **WordCount_Spark.py** nella sottocartella **script**. 
 
 
 ### <a name="upload-the-input-file"></a>Caricare il file di input
 1. Creare un file denominato **minecraftstory.txt** con del testo. Il programma Spark conta il numero di parole in questo testo. 
-2. Creare una sottocartella denominata **inputfiles** nella cartella **spark**. 
-3. Caricare il file **minecraftstory.txt** nella sottocartella **inputfiles**. 
+1. Creare una sottocartella denominata **inputfiles** nella cartella **spark**. 
+1. Caricare il file **minecraftstory.txt** nella sottocartella **inputfiles**. 
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
@@ -81,30 +81,30 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. Scegliere **Nuovo** dal menu a sinistra, selezionare **Dati e analisi** e quindi selezionare **Data Factory**. 
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
-2. Nel riquadro **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**. 
+1. Nel riquadro **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**. 
       
    ![Riquadro "Nuova data factory"](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, cambiare il nome della data factory. Usare, ad esempio **&lt;nomeutente&gt;ADFTutorialDataFactory**. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
   
    ![Errore quando un nome non è disponibile](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
-3. Per **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory. 
-4. In **Gruppo di risorse** eseguire una di queste operazioni:
+1. Per **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory. 
+1. In **Gruppo di risorse** eseguire una di queste operazioni:
      
    - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
    Alcuni dei passaggi di questa guida introduttiva presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-5. Per **Versione** selezionare **V2**.
-6. Per **Località** selezionare la località per la data factory. 
+1. Per **Versione** selezionare **V2**.
+1. Per **Località** selezionare la località per la data factory. 
 
    Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio HDInsight) usati da Data Factory possono trovarsi in altre aree.
-7. Selezionare **Aggiungi al dashboard**.     
-8. Selezionare **Crea**.
-9. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
+1. Selezionare **Aggiungi al dashboard**.     
+1. Selezionare **Crea**.
+1. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
 
    ![Riquadro "Deploying data factory" (Distribuzione della data factory)](media//tutorial-transform-data-spark-portal/deploying-data-factory.png)
-10. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Data Factory in una scheda separata.
+1. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Data Factory in una scheda separata.
 
     ![Home page della data factory, con il riquadro "Crea e monitora"](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
 
@@ -120,13 +120,13 @@ In questa sezione vengono creati due servizi collegati:
 
    ![Pagina "Attività iniziali"](./media/tutorial-transform-data-spark-portal/get-started-page.png)
 
-2. Selezionare **Connessioni** nella parte inferiore della finestra e quindi **+ Nuovo**. 
+1. Selezionare **Connessioni** nella parte inferiore della finestra e quindi **+ Nuovo**. 
 
    ![Pulsanti per la creazione di una nuova connessione](./media/tutorial-transform-data-spark-portal/new-connection.png)
-3. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Archivio dati** > **Archiviazione BLOB di Azure** e quindi selezionare **Continua**. 
+1. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Archivio dati** > **Archiviazione BLOB di Azure** e quindi selezionare **Continua**. 
 
    ![Selezione del riquadro "Archiviazione BLOB di Azure"](./media/tutorial-transform-data-spark-portal/select-azure-storage.png)
-4. Per **Nome account di archiviazione** selezionare il nome dell'elenco e quindi selezionare **Salva**. 
+1. Per **Nome account di archiviazione** selezionare il nome dell'elenco e quindi selezionare **Salva**. 
 
    ![Casella per specificare il nome dell'account di archiviazione](./media/tutorial-transform-data-spark-portal/new-azure-storage-linked-service.png)
 
@@ -134,10 +134,10 @@ In questa sezione vengono creati due servizi collegati:
 ### <a name="create-an-on-demand-hdinsight-linked-service"></a>Creare un servizio collegato HDInsight su richiesta
 
 1. Selezionare il pulsante **+ Nuovo** per creare un altro servizio collegato. 
-2. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Calcolo** > **Azure HDInsight** e quindi selezionare **Continua**. 
+1. Nella finestra **New Linked Service** (Nuovo servizio collegato) selezionare **Calcolo** > **Azure HDInsight** e quindi selezionare **Continua**. 
 
    ![Selezione del riquadro "Azure HDInsight"](./media/tutorial-transform-data-spark-portal/select-azure-hdinsight.png)
-2. Nella finestra **New Linked Service** (Nuovo servizio collegato) completare questa procedura: 
+1. Nella finestra **New Linked Service** (Nuovo servizio collegato) completare questa procedura: 
 
    a. Per **Nome** immettere **AzureHDInsightLinkedService**.
    
@@ -173,17 +173,17 @@ In questa sezione vengono creati due servizi collegati:
 1. Selezionare il pulsante **+** (segno più) e quindi selezionare **Pipeline** dal menu.
 
    ![Pulsanti per la creazione di una nuova pipeline](./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png)
-2. Nella casella degli strumenti **Attività** espandere **HDInsight**. Trascinare l'attività **Spark** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. 
+1. Nella casella degli strumenti **Attività** espandere **HDInsight**. Trascinare l'attività **Spark** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. 
 
    ![Trascinamento dell'attività Spark](./media/tutorial-transform-data-spark-portal/drag-drop-spark-activity.png)
-3. Nelle proprietà della finestra dell'attività **Spark** in basso completare questa procedura: 
+1. Nelle proprietà della finestra dell'attività **Spark** in basso completare questa procedura: 
 
    a. Passare alla scheda **HDI Cluster** (Cluster HDInsight).
    
    b. Selezionare il servizio **AzureHDInsightLinkedService** creato nella procedura precedente. 
         
    ![Specificare il servizio collegato HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
-4. Passare alla scheda **Script/Jar** e completare questa procedura: 
+1. Passare alla scheda **Script/Jar** e completare questa procedura: 
 
    a. Per **Job Linked Service** (Servizio collegato processo) selezionare **AzureStorage1**.
    
@@ -193,10 +193,10 @@ In questa sezione vengono creati due servizi collegati:
    
    c. Passare alla cartella **adftutorial/spark/script**, selezionare **WordCount_Spark.py** e quindi **Fine**.      
 
-5. Per convalidare la pipeline, selezionare il pulsante **Convalida** sulla barra degli strumenti. Selezionare il pulsante **>>** (freccia destra) per chiudere la finestra di convalida. 
+1. Per convalidare la pipeline, selezionare il pulsante **Convalida** sulla barra degli strumenti. Selezionare il pulsante **>>** (freccia destra) per chiudere la finestra di convalida. 
     
    ![Pulsante "Convalida"](./media/tutorial-transform-data-spark-portal/validate-button.png)
-6. Selezionare **Pubblica tutti**. L'interfaccia utente di Data Factory pubblicherà le entità (servizi collegati e pipeline) nel servizio Azure Data Factory. 
+1. Selezionare **Pubblica tutti**. L'interfaccia utente di Data Factory pubblicherà le entità (servizi collegati e pipeline) nel servizio Azure Data Factory. 
     
    ![Pulsante "Pubblica tutti"](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
@@ -210,11 +210,11 @@ Selezionare **Trigger** sulla barra degli strumenti e quindi selezionare **Trigg
 
 1. Passare alla scheda **Monitoraggio**. Verificare che venga visualizzata un'esecuzione della pipeline. La creazione di un cluster Spark richiede circa 20 minuti. 
    
-2. Selezionare periodicamente **Aggiorna** per controllare lo stato dell'esecuzione della pipeline. 
+1. Selezionare periodicamente **Aggiorna** per controllare lo stato dell'esecuzione della pipeline. 
 
    ![Scheda per il monitoraggio delle esecuzioni della pipeline, con il pulsante "Aggiorna"](./media/tutorial-transform-data-spark-portal/monitor-tab.png)
 
-3. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**.
+1. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**.
 
    ![Stato dell'esecuzione della pipeline](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 

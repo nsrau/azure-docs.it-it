@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 8603716d30e1061ca9d600f2c053e90ff50c2433
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785880"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423548"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurare i criteri di protezione dei contenuti tramite il portale di Azure
  Con Servizi multimediali di Azure, è possibile proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e distribuzione. È possibile usare Servizi multimediali per distribuire contenuti crittografati dinamicamente con Advanced Encryption Standard (AES), tramite chiavi di crittografia a 128 bit. È inoltre possibile usarlo con crittografia comune (CENC) tramite Digital Rights Management (DRM) PlayReady e/o Widevine e Apple FairPlay. 
@@ -33,7 +33,7 @@ Per usare il portale al fine di configurare la protezione globale del contenuto 
 
 1. Nel [portale](https://portal.azure.com/) selezionare l'account Servizi multimediali.
 
-2. Selezionare **Impostazioni** > **Protezione del contenuto**.
+1. Selezionare **Impostazioni** > **Protezione del contenuto**.
 
     ![Protezione del contenuto](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -110,11 +110,11 @@ La crittografia con chiave non crittografata AES è abilitata su tutti i protoco
     
     e. **Solo FairPlay con HLS**: il flusso HLS viene crittografato dinamicamente con FairPlay.
 
-2. Per abilitare la crittografia, nel pannello **Content Protection Global Settings** (Impostazioni globali protezione del contenuto) selezionare **Configurazione FairPlay**. Selezionare quindi il **certificato dell'app** e immettere la **chiave privata dell'applicazione**.
+1. Per abilitare la crittografia, nel pannello **Content Protection Global Settings** (Impostazioni globali protezione del contenuto) selezionare **Configurazione FairPlay**. Selezionare quindi il **certificato dell'app** e immettere la **chiave privata dell'applicazione**.
 
     ![Tipo di crittografia](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-3. Dopo aver selezionato la crittografia, fare clic su **Applica**.
+1. Dopo aver selezionato la crittografia, fare clic su **Applica**.
 
 >[!NOTE] 
 >Se si prevede di eseguire un flusso HLS crittografato con AES in Safari, vedere il post di blog sul [flusso HLS crittografato in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).

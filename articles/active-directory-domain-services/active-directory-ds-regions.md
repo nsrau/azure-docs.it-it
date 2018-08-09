@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: bd35eb77-ac0b-49ce-b7d5-bb21e4f54e0a
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 44c60fa27d79c8c4fa2b987f729ff7cf9058fc1a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 934a96bf4fd6747dc2273e0f9a57161eb5394ede
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588472"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502751"
 ---
 # <a name="azure-ad-domain-services---supported-regions"></a>Servizi di dominio Azure AD - Aree supportate
 Per informazioni su dove è disponibile Servizi di dominio Azure Active Directory, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).

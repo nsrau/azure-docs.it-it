@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561365"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434191"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Intelligence per le minacce nel Centro sicurezza di Azure
 Questo articolo illustra come usare la funzionalità di intelligence per le minacce del Centro sicurezza di Azure per risolvere i problemi relativi alla sicurezza.
@@ -50,22 +50,22 @@ Per visualizzare l'intelligence per le minacce corrente per il proprio ambiente,
 
 1. Aprire il dashboard **Centro sicurezza**.
 
-2. Nel riquadro sinistro fare clic su **Intelligence per le minacce** in **Protezione dalle minacce**. Si aprirà una mappa.
+1. Nel riquadro sinistro fare clic su **Intelligence per le minacce** in **Protezione dalle minacce**. Si aprirà una mappa.
 
     ![Mappa di intelligence per le minacce](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. Nella parte superiore della mappa, selezionare **Visualizza Intelligence per le minacce classico**. Verrà visualizzato il dashboard **Intelligence per le minacce**.
+1. Nella parte superiore della mappa, selezionare **Visualizza Intelligence per le minacce classico**. Verrà visualizzato il dashboard **Intelligence per le minacce**.
 
     ![Dashboard Intelligence per le minacce](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
     > Se nella colonna a destra viene visualizzato **PIANO DI AGGIORNAMENTO**, questa area di lavoro usa una sottoscrizione gratuita. Eseguire l'aggiornamento al piano Standard per usare questa funzionalità. Se nella colonna a destra viene visualizzato **RICHIEDE L'AGGIORNAMENTO** aggiornare [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per usare questa funzionalità. Per altre informazioni sul piano tariffario, vedere i prezzi del Centro sicurezza di Azure.
     >
-3. Se sono presenti più aree di lavoro da analizzare, classificare l'indagine in ordine di priorità in base alla colonna **Indirizzi IP dannosi**. Mostra il numero attuale di indirizzi IP dannosi nell'area di lavoro. Selezionare l'area di lavoro da usare per visualizzare il dashboard **Intelligence per le minacce**.
+1. Se sono presenti più aree di lavoro da analizzare, classificare l'indagine in ordine di priorità in base alla colonna **Indirizzi IP dannosi**. Mostra il numero attuale di indirizzi IP dannosi nell'area di lavoro. Selezionare l'area di lavoro da usare per visualizzare il dashboard **Intelligence per le minacce**.
 
     ![Informazioni di intelligence sulle minacce](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. Questo dashboard è suddiviso in quattro riquadri:
+1. Questo dashboard è suddiviso in quattro riquadri:
 
     a.  **Tipi di minacce**. Offre un riepilogo dei tipi di minacce rilevati nell'area di lavoro selezionata.
 

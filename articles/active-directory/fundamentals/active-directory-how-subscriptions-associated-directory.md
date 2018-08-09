@@ -14,12 +14,12 @@ ms.date: 12/12/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: bcae3f51e2245928c8110d06f3514177d57ac883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6b0933e9aa732cb9a01a454764fb0425465ec078
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448960"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503312"
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory
 
@@ -59,7 +59,7 @@ La modifica della directory della sottoscrizione è un'operazione a livello di s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sulla creazione di una nuova directory di Azure AD gratuita, vedere [Come ottenere un tenant di Azure Active Directory](../develop/active-directory-howto-tenant.md)
+* Per altre informazioni sulla creazione di una nuova directory di Azure AD gratuita, vedere [Come ottenere un tenant di Azure Active Directory](../develop/quickstart-create-new-tenant.md)
 * Per altre informazioni sul trasferimento della proprietà della fatturazione di una proprietario di Azure, vedere [Trasferire la proprietà di una sottoscrizione di Azure a un altro account](../../billing/billing-subscription-transfer.md)
 * Per altre informazioni sul modo in cui l'accesso alle risorse viene controllato in Microsoft Azure, vedere [Informazioni sull'accesso alle risorse in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Per altre informazioni su come assegnare i ruoli in Azure AD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)

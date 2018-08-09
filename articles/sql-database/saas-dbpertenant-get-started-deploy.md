@@ -10,12 +10,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645362"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423560"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà:
 
 Una [serie di esercitazioni correlate](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) consente di esplorare i vari modelli di progettazione e gestione SaaS. Gli argomenti trattati nelle esercitazioni non si limitano a questa distribuzione iniziale. Nel corso delle esercitazioni è possibile esaminare gli script disponibili per vedere come vengono implementati i diversi modelli SaaS. Gli script illustrano come le funzionalità del database SQL semplificano lo sviluppo di applicazioni SaaS.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, verificare di aver installato Azure PowerShell. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 
@@ -56,7 +56,7 @@ Scegliere ora i nomi e annotarli.
 
    <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-2. Nel modello immettere i valori per i parametri obbligatori.
+1. Nel modello immettere i valori per i parametri obbligatori.
 
     > [!IMPORTANT]
     > Alcune impostazioni di autenticazione e per i firewall server sono intenzionalmente non protette a scopo dimostrativo. È consigliabile creare un nuovo gruppo di risorse. Non usare gruppi di risorse, server o pool esistenti. Non usare questa applicazione, gli script o eventuali risorse distribuite per la produzione. Eliminare questo gruppo di risorse quando non è più necessario usare l'applicazione per interrompere la fatturazione correlata.
@@ -65,13 +65,13 @@ Scegliere ora i nomi e annotarli.
     - **Percorso**: selezionare un percorso dall'elenco a discesa.
     - **Utente**: usare il valore del nome utente scelto in precedenza.
 
-3. Distribuire l'applicazione.
+1. Distribuire l'applicazione.
 
     a. Selezionare l'opzione per accettare i termini e le condizioni.
 
     b. Selezionare **Acquisto**.
 
-4. Per monitorare lo stato di distribuzione, selezionare **Notifiche** (l'icona a forma di campanella a destra della casella di ricerca). La distribuzione dell'app SaaS Wingtip Tickets richiede circa cinque minuti.
+1. Per monitorare lo stato di distribuzione, selezionare **Notifiche** (l'icona a forma di campanella a destra della casella di ricerca). La distribuzione dell'app SaaS Wingtip Tickets richiede circa cinque minuti.
 
    ![Distribuzione completata](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
@@ -83,11 +83,11 @@ Durante la distribuzione dell'applicazione, scaricare il codice sorgente e gli s
 > I contenuti eseguibili (script e DLL) possono essere bloccati da Windows quando si scaricano e si estraggono i file con estensione zip provenienti da un'origine esterna. Seguire i passaggi per sbloccare il file con estensione zip prima di estrarre gli script. L'operazione di sblocco consente di verificare che gli script possono essere eseguiti.
 
 1. Passare al [repository WingtipTicketsSaaS-DbPerTenant di GitHub][github-wingtip-dpt].
-2. Selezionare **Clona o scarica**.
-3. Selezionare **Download ZIP** (Scarica ZIP) e salvare il file.
-4. Fare clic con il pulsante destro del mouse sul file **WingtipTicketsSaaS-DbPerTenant-master.zip** e quindi scegliere **Proprietà**.
-5. Nella scheda **Generale** selezionare **Annulla blocco** > **Applica**.
-6. Selezionare **OK** ed estrarre i file.
+1. Selezionare **Clona o scarica**.
+1. Selezionare **Download ZIP** (Scarica ZIP) e salvare il file.
+1. Fare clic con il pulsante destro del mouse sul file **WingtipTicketsSaaS-DbPerTenant-master.zip** e quindi scegliere **Proprietà**.
+1. Nella scheda **Generale** selezionare **Annulla blocco** > **Applica**.
+1. Selezionare **OK** ed estrarre i file.
 
 Gli script si trovano nella cartella ...\\WingtipTicketsSaaS-DbPerTenant-master\\Learning Modules.
 
@@ -96,8 +96,8 @@ Gli script si trovano nella cartella ...\\WingtipTicketsSaaS-DbPerTenant-master\
 Prima di eseguire uno script, aggiornare il gruppo di risorse e i valori utente nel file UserConfig. Impostare queste variabili sui valori usati durante la distribuzione.
 
 1. In PowerShell ISE aprire ...\\Learning Modules\\**UserConfig.psm1** 
-2. Aggiornare **ResourceGroupName** e **Name** con i valori specifici della distribuzione in uso (solo alle righe 10 e 11).
-3. Salvare le modifiche.
+1. Aggiornare **ResourceGroupName** e **Name** con i valori specifici della distribuzione in uso (solo alle righe 10 e 11).
+1. Salvare le modifiche.
 
 Sono presenti riferimenti a questi valori in quasi ogni script.
 
@@ -113,7 +113,7 @@ Una pagina centrale **Events Hub** (Hub eventi) visualizza un elenco di collegam
 
     ![Hub eventi](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Selezionare **Fabrikam Jazz Club** nella pagina Events Hub.
+1. Selezionare **Fabrikam Jazz Club** nella pagina Events Hub.
 
     ![Eventi](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -148,8 +148,8 @@ Al termine della distribuzione, è possibile usare l'app.
 Lo script di PowerShell *Demo-LoadGenerator* avvia un carico di lavoro che viene eseguito su tutti i database tenant. Il carico del mondo reale in molte app SaaS è generalmente sporadico e imprevedibile. Per simulare il tipo di carico, il generatore produce un carico con picchi casuali o picchi di attività per ogni tenant. I picchi vengono eseguiti a intervalli casuali. Il modello di carico si manifesta completamente solo dopo alcuni minuti. Lasciare agire il generatore per almeno tre o quattro minuti prima di monitorare il carico.
 
 1. In PowerShell ISE aprire ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* script.
-2. Premere F5 per eseguire lo script e avviare il generatore di carico. Per il momento lasciare invariati i valori predefiniti dei parametri.
-3. Accedere al proprio account Azure e, se necessario, selezionare la sottoscrizione che si vuole usare.
+1. Premere F5 per eseguire lo script e avviare il generatore di carico. Per il momento lasciare invariati i valori predefiniti dei parametri.
+1. Accedere al proprio account Azure e, se necessario, selezionare la sottoscrizione che si vuole usare.
 
 Lo script del generatore di carico avvia un processo in background per ogni database nel catalogo e quindi si arresta. Se si esegue nuovamente lo script del generatore di carico, questo arresta tutti i processi in esecuzione in background prima di avviarne di nuovi.
 
@@ -169,16 +169,16 @@ Per controllare e monitorare i processi in background, usare i cmdlet seguenti:
 
     - Entrambi i file con estensione ps1 vengono archiviati nelle cartelle Learning Modules\\Utilities\\.
 
-2. *LoadGenerator.ps1* esegue un ciclo di tutti i database tenant nel catalogo.
+1. *LoadGenerator.ps1* esegue un ciclo di tutti i database tenant nel catalogo.
 
-3. *LoadGenerator.ps1* avvia un processo di PowerShell in background per ogni database tenant:
+1. *LoadGenerator.ps1* avvia un processo di PowerShell in background per ogni database tenant:
 
     - Per impostazione predefinita, i processi in background vengono eseguiti per 120 minuti.
     - Ogni processo comporta un carico sulla CPU in un database tenant eseguendo *sp_CpuLoadGenerator*. L'intensità e la durata del carico variano a seconda del valore `$DemoScenario`. 
     - *sp_CpuLoadGenerator* esegue un ciclo per un'istruzione SQL SELECT che causa un carico elevato della CPU. L'intervallo di tempo tra i problemi creati dall'istruzione SELECT varia in base ai valori di parametro per creare un carico della CPU controllabile. I livelli di carico e gli intervalli sono casuali per simulare carichi più realistici.
     - Questo file con estensione sql viene archiviato in *WingtipTenantDB\\dbo\\StoredProcedures\\*.
 
-4. Se `$OneTime = $false`, il generatore di carico avvia i processi in background e quindi prosegue l'esecuzione. Ogni 10 secondi, esegue il monitoraggio di eventuali nuovi tenant di cui viene effettuato il provisioning. Se si imposta `$OneTime = $true`, il generatore di carico avvia i processi in background e quindi arresta l'esecuzione in primo piano. Per questa esercitazione lasciare `$OneTime = $false`.
+1. Se `$OneTime = $false`, il generatore di carico avvia i processi in background e quindi prosegue l'esecuzione. Ogni 10 secondi, esegue il monitoraggio di eventuali nuovi tenant di cui viene effettuato il provisioning. Se si imposta `$OneTime = $true`, il generatore di carico avvia i processi in background e quindi arresta l'esecuzione in primo piano. Per questa esercitazione lasciare `$OneTime = $false`.
 
   Usare CTRL+C o CTRL+INTERR per arrestare o riavviare il generatore di carico. 
 
@@ -193,8 +193,8 @@ Prima di continuare con la sezione successiva, lasciare il generatore di carico 
 La distribuzione iniziale crea tre tenant di esempio. Si creerà ora un altro tenant per verificarne l'impatto sull'applicazione distribuita. Nell'app Wingtip Tickets, il flusso di lavoro per effettuare il provisioning di nuovi tenant è illustrato nell'[esercitazione su provisioning e catalogazione](saas-dbpertenant-provision-and-catalog.md). In questa fase si crea un nuovo tenant in meno di un minuto.
 
 1. Aprire una nuova finestra di PowerShell ISE.
-2. Aprire ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
-3. Per eseguire lo script, premere F5. Per il momento lasciare invariati i valori predefiniti.
+1. Aprire ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
+1. Per eseguire lo script, premere F5. Per il momento lasciare invariati i valori predefiniti.
 
    > [!NOTE]
    > Molti script dell'applicazione SaaS Wingtip usano *$PSScriptRoot* per esplorare le cartelle per chiamare funzioni in altri script. Questa variabile viene valutata solo quando viene eseguito lo script completo premendo F5. Se si evidenzia e si esegue una selezione con F8 possono verificarsi errori. Per eseguire gli script, premere F5.
@@ -220,11 +220,11 @@ Dopo aver avviato l'esecuzione di un carico sulla raccolta di tenant, è possibi
 
    ![Database](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
-2. Tornare all'elenco di istanze di SQL Server.
+1. Tornare all'elenco di istanze di SQL Server.
 
-3. Aprire il server **tenants1-dpt-&lt;UTENTE&gt;** che include i database tenant.
+1. Aprire il server **tenants1-dpt-&lt;UTENTE&gt;** che include i database tenant.
 
-4. Vedere gli elementi seguenti:
+1. Vedere gli elementi seguenti:
 
     - Ogni database tenant è un database **standard elastico** in un pool standard da 50 eDTU.
     - Il database Red Maple Racing è il database tenant di cui è stato effettuato il provisioning in precedenza.

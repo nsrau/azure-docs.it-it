@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 9811be78bd6260b17c462c077ed299dff8309b83
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: af2c997f0842da751eb93f0788a7402fc7d144ae
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048508"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Esercitazione: Integrazione di Azure Active Directory con Canvas LMS
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Canvas dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-canvas-from-the-gallery"></a>Aggiunta di Canvas dalla raccolta
 Per configurare l'integrazione di Canvas in Azure AD, è necessario aggiungere Canvas dalla raccolta all'elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di Canvas in Azure AD, è necessario aggiungere C
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **Canvas**.
+1. Nella casella di ricerca digitare **Canvas**.
 
     ![Creazione di un utente test di Azure AD](./media/canvas-lms-tutorial/tutorial_canvaslms_search.png)
 
-5. Nel pannello dei risultati selezionare **Canvas** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **Canvas** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/canvas-lms-tutorial/tutorial_canvaslms_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Per stabilire la relazione di collegamento, in Canvas assegnare il valore del **
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Canvas, è necessario completare le procedure di base seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di Canvas](#creating-a-canvas-test-user)**: per avere una controparte di Britta Simon in Canvas collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente di test di Canvas](#creating-a-canvas-test-user)**: per avere una controparte di Britta Simon in Canvas collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
 
-3. Nella sezione **URL e dominio Canvas** seguire questa procedura:
+1. Nella sezione **URL e dominio Canvas** seguire questa procedura:
 
     ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_url.png)
 
@@ -119,29 +119,29 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Canvas](https://community.canvaslms.com/community/help). 
  
-4. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
+1. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
 
     ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Canvas** fare clic su **Configura Canvas** per aprire la finestra **Configura accesso**. Copiare l'**URL di modifica password, l'URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido**.
+1. Nella sezione **Configurazione di Canvas** fare clic su **Configura Canvas** per aprire la finestra **Configura accesso**. Copiare l'**URL di modifica password, l'URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido**.
 
     ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
  
-7. In un'altra finestra del Web browser accedere al sito aziendale di Canvas come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di Canvas come amministratore.
 
-8. Passare a **Courses (Corsi) \> Managed Accounts (Account gestiti) \> Microsoft**.
+1. Passare a **Courses (Corsi) \> Managed Accounts (Account gestiti) \> Microsoft**.
    
     ![Canvas](./media/canvas-lms-tutorial/IC775990.png "Canvas")
 
-9. Nel riquadro di spostamento sinistro selezionare **Authentication** (Autenticazione) e quindi fare clic su **Add New SAML Config** (Aggiungi nuova configurazione SAML).
+1. Nel riquadro di spostamento sinistro selezionare **Authentication** (Autenticazione) e quindi fare clic su **Add New SAML Config** (Aggiungi nuova configurazione SAML).
    
     ![Autenticazione](./media/canvas-lms-tutorial/IC775991.png "Autenticazione")
 
-10. Nella pagina Current Integration seguire questa procedura:
+1. Nella pagina Current Integration seguire questa procedura:
    
     ![Current Integration](./media/canvas-lms-tutorial/IC775992.png "Current Integration")
 
@@ -175,15 +175,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/canvas-lms-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/canvas-lms-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/canvas-lms-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/canvas-lms-tutorial/create_aaduser_04.png) 
 
@@ -193,7 +193,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-canvas-test-user"></a>Creazione di un utente di test di Canvas
 
@@ -205,19 +205,19 @@ Nel caso di Canvas, il provisioning degli utenti è un'attività manuale.
 
 1. Accedere al tenant **Canvas** .
 
-2. Passare a **Courses (Corsi) \> Managed Accounts (Account gestiti) \> Microsoft**.
+1. Passare a **Courses (Corsi) \> Managed Accounts (Account gestiti) \> Microsoft**.
    
    ![Canvas](./media/canvas-lms-tutorial/IC775990.png "Canvas")
 
-3. Fare clic su **Users**.
+1. Fare clic su **Users**.
    
    ![Utenti](./media/canvas-lms-tutorial/IC775995.png "Utenti")
 
-4. Fare clic su **Add new user**.
+1. Fare clic su **Add new user**.
    
    ![Utenti](./media/canvas-lms-tutorial/IC775996.png "Utenti")
 
-5. Nella finestra di dialogo Add a New User seguire questa procedura:
+1. Nella finestra di dialogo Add a New User seguire questa procedura:
    
    ![Aggiungere un utente](./media/canvas-lms-tutorial/IC775997.png "Aggiungere un utente")
    
@@ -246,23 +246,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **Canvas**.
+1. Nell'elenco delle applicazioni selezionare **Canvas**.
 
     ![Configure Single Sign-On](./media/canvas-lms-tutorial/tutorial_canvaslms_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: b69cc226ca5b4f48747b033e0da5e7f991be112e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915467"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426752"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure per VM Red Hat Enterprise Linux su richiesta in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) consente ai provider di servizi cloud (come Azure) di eseguire il mirroring del contenuto dei repository ospitati in Red Hat, creare repository personalizzati con contenuto specifico di Azure e garantirne la disponibilità per le VM degli utenti finali.
@@ -76,9 +76,9 @@ Se si verificano problemi di connessione all'infrastruttura RHUI di Azure da una
 
     b. Se punta a un percorso con il modello `mirrorlist.*cds[1-4].cloudapp.net`, è necessario un aggiornamento della configurazione. Se si sta usando uno snapshot di VM precedente, è necessario aggiornarlo in modo che punti alla nuova infrastruttura RHUI di Azure.
 
-2. L'accesso all'istanza dell'infrastruttura RHUI ospitata in Azure è limitato alle macchine virtuali incluse negli [intervalli IP dei data center di Azure] (https://www.microsoft.com/download/details.aspx?id=41653).
+1. L'accesso all'istanza dell'infrastruttura RHUI ospitata in Azure è limitato alle macchine virtuali incluse negli [intervalli IP dei data center di Azure] (https://www.microsoft.com/download/details.aspx?id=41653).
  
-3. Se si sta usando la nuova configurazione ed è stato verificato che la VM si connette dall'intervallo IP di Azure ma non è comunque possibile connettersi all'infrastruttura RHUI di Azure, richiedere supporto tecnico a Microsoft o Red Hat.
+1. Se si sta usando la nuova configurazione ed è stato verificato che la VM si connette dall'intervallo IP di Azure ma non è comunque possibile connettersi all'infrastruttura RHUI di Azure, richiedere supporto tecnico a Microsoft o Red Hat.
 
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Procedura di aggiornamento manuale per l'uso dei server RHUI di Azure
 Questa procedura viene illustrata solo per riferimento. Le immagini RHEL con pagamento in base al consumo hanno già la configurazione corretta per connettersi all'infrastruttura RHUI di Azure. Per aggiornare manualmente la configurazione per l'uso dei server RHUI di Azure, seguire questa procedura:
@@ -89,13 +89,13 @@ Questa procedura viene illustrata solo per riferimento. Le immagini RHEL con pag
    curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
    ```
 
-2. Verificare la validità della chiave scaricata.
+1. Verificare la validità della chiave scaricata.
 
    ```bash
    gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
    ```
 
-3. Controllare l'output e quindi verificare `keyid` e `user ID packet`.
+1. Controllare l'output e quindi verificare `keyid` e `user ID packet`.
 
    ```bash
    Version: GnuPG v1.4.7 (GNU/Linux)
@@ -119,14 +119,14 @@ Questa procedura viene illustrata solo per riferimento. Le immagini RHEL con pag
            data: [2047 bits]
    ```
 
-4. Installare la chiave pubblica.
+1. Installare la chiave pubblica.
 
    ```bash
    sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
    ```
 
-5. Scaricare, verificare e installare un pacchetto RPM Package Manager (RPM) client.
+1. Scaricare, verificare e installare un pacchetto RPM Package Manager (RPM) client.
     
     >[!NOTE]
     >Le versioni dei pacchetti variano. In caso di connessione manuale all'infrastruttura RHUI di Azure, è possibile trovare l'ultima versione del pacchetto client per ogni famiglia RHEL effettuando il provisioning dell'immagine più recente dalla raccolta.
@@ -165,7 +165,7 @@ Questa procedura viene illustrata solo per riferimento. Le immagini RHEL con pag
     sudo rpm -U azureclient.rpm
     ```
 
-6. Al termine, verificare di poter accedere all'infrastruttura RHUI di Azure dalla VM.
+1. Al termine, verificare di poter accedere all'infrastruttura RHUI di Azure dalla VM.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per creare una VM Red Hat Enterprise Linux da un'immagine con pagamento in base al consumo di Azure Marketplace e usare l'istanza di RHUI ospitata in Azure, passare ad [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). 

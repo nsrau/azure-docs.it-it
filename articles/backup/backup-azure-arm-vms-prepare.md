@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960169"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445744"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
 
@@ -69,29 +69,29 @@ Un insieme di credenziali dei servizi di ripristino è un'entità che archivia i
 Per creare un insieme di credenziali dei servizi di ripristino:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Nel menu **Hub** selezionare **Esplora** e quindi digitare **Servizi di ripristino**. Non appena si inizia a digitare, l'elenco delle risorse viene filtrato in base all'input. Selezionare **Insiemi di credenziali dei servizi di ripristino**.
+1. Nel menu **Hub** selezionare **Esplora** e quindi digitare **Servizi di ripristino**. Non appena si inizia a digitare, l'elenco delle risorse viene filtrato in base all'input. Selezionare **Insiemi di credenziali dei servizi di ripristino**.
 
     ![Digitazione nella casella e selezione di "Insiemi di credenziali dei servizi di ripristino" nei risultati](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
     Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino.
-3. Nel menu di **Insiemi di credenziali dei servizi di ripristino** selezionare **Aggiungi**.
+1. Nel menu di **Insiemi di credenziali dei servizi di ripristino** selezionare **Aggiungi**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
     Verrà visualizzato il riquadro **Insiemi di credenziali dei servizi di ripristino**, in cui viene richiesto di specificare le informazioni relative a **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
 
     ![Riquadro "Insiemi di credenziali dei servizi di ripristino"](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. Nel campo **Nome**digitare un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome contenente da 2 a 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
-5. Selezionare **Sottoscrizione** per visualizzare l'elenco delle sottoscrizioni disponibili. Se non si è certi della sottoscrizione da usare, usare quella predefinita (o suggerita). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure.
-6. Selezionare **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-7. Selezionare **Località** per selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali *deve* trovarsi nella stessa area geografica delle macchine virtuali che si vuole proteggere.
+1. Nel campo **Nome**digitare un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome contenente da 2 a 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
+1. Selezionare **Sottoscrizione** per visualizzare l'elenco delle sottoscrizioni disponibili. Se non si è certi della sottoscrizione da usare, usare quella predefinita (o suggerita). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure.
+1. Selezionare **Gruppo di risorse** per visualizzare l'elenco dei gruppi di risorse disponibili oppure **Nuovo** per crearne uno nuovo. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+1. Selezionare **Località** per selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali *deve* trovarsi nella stessa area geografica delle macchine virtuali che si vuole proteggere.
 
    > [!IMPORTANT]
    > Se non si è certi della località in cui si trova la VM, chiudere la finestra di dialogo per la creazione dell'insieme di credenziali e passare all'elenco delle macchine virtuali nel portale. Se si hanno macchine virtuali in più aree, è necessario creare un insieme di credenziali dei servizi di ripristino in ogni area. Creare l'insieme di credenziali nella prima località prima di passare a quella successiva. Non è necessario specificare account di archiviazione per archiviare i dati di backup. Questo aspetto viene gestito automaticamente dall'insieme di credenziali dei servizi di ripristino e dal servizio Backup di Azure.
    >
    >
 
-8. Selezionare **Create**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. Al termine della creazione, l'insieme di credenziali verrà visualizzato nell'elenco degli insiemi di credenziali dei servizi di ripristino. Se non viene visualizzato, selezionare **Aggiorna**.
+1. Selezionare **Create**. La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. Al termine della creazione, l'insieme di credenziali verrà visualizzato nell'elenco degli insiemi di credenziali dei servizi di ripristino. Se non viene visualizzato, selezionare **Aggiorna**.
 
     ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -107,13 +107,13 @@ Per modificare le impostazioni di replica di archiviazione:
 
    ![Scegliere l'insieme di credenziali dall'elenco degli insiemi di credenziali di backup](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. Nel riquadro **Impostazioni** usare il dispositivo di scorrimento verticale per passare alla sezione **Gestisci** e selezionare **Infrastruttura di backup**. Nella sezione **Generale** selezionare **Configurazione di backup**. Nel riquadro **Configurazione di backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali. Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica.
+1. Nel riquadro **Impostazioni** usare il dispositivo di scorrimento verticale per passare alla sezione **Gestisci** e selezionare **Infrastruttura di backup**. Nella sezione **Generale** selezionare **Configurazione di backup**. Nel riquadro **Configurazione di backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali. Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica.
 
    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
    Se si usa Azure come endpoint di archiviazione di backup primario, continuare a usare l'archiviazione con ridondanza geografica. Se si usa Azure come endpoint di archiviazione di backup non primario, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione, vedere la panoramica [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
 
-3. Se è stato modificato il tipo di replica di archiviazione, selezionare **Salva**.
+1. Se è stato modificato il tipo di replica di archiviazione, selezionare **Salva**.
     
 Dopo aver scelto l'opzione di archiviazione per l'insieme di credenziali, è possibile associare la VM all'insieme di credenziali. Per iniziare l'associazione, è necessario trovare e registrare le macchine virtuali di Azure.
 
@@ -135,20 +135,20 @@ Prima di registrare una macchina virtuale in un insieme di credenziali di Serviz
       Verranno visualizzati il riquadro **Impostazioni** e il dashboard dell'insieme di credenziali scelto.
 
       ![Riquadro Impostazioni e dashboard dell'insieme di credenziali](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. Nel menu del dashboard dell'insieme di credenziali selezionare **Backup**.
+1. Nel menu del dashboard dell'insieme di credenziali selezionare **Backup**.
 
    ![Pulsante Backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
    Verranno visualizzati i riquadri **Backup** e **Obiettivo del backup**.
 
-3. Nel riquadro **Obiettivo del backup** impostare **Posizione di esecuzione del carico di lavoro** su **Azure** ed **Elementi di cui eseguire il backup** su **Macchina virtuale**. Selezionare **OK**.
+1. Nel riquadro **Obiettivo del backup** impostare **Posizione di esecuzione del carico di lavoro** su **Azure** ed **Elementi di cui eseguire il backup** su **Macchina virtuale**. Selezionare **OK**.
 
    ![Riquadri Backup e Obiettivo del backup](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
    Questo passaggio registra l'estensione della VM nell'insieme di credenziali. Il riquadro **Obiettivo del backup** verrà chiuso e verrà visualizzato il riquadro **Criteri di backup**.
 
    ![Riquadri Backup e Criteri di backup](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. Nel riquadro **Criteri di backup** selezionare i criteri di backup da applicare all'insieme di credenziali.
+1. Nel riquadro **Criteri di backup** selezionare i criteri di backup da applicare all'insieme di credenziali.
 
    ![Selezionare il criterio di backup](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
@@ -156,13 +156,13 @@ Prima di registrare una macchina virtuale in un insieme di credenziali di Serviz
     Selezionare **OK** per associare i criteri di backup all'insieme di credenziali.
 
    Il riquadro **Criteri di backup** verrà chiuso e verrà visualizzato il riquadro **Seleziona macchine virtuali**.
-5. Nel riquadro **Seleziona macchine virtuali** scegliere le macchine virtuali da associare ai criteri specificati e selezionare **OK**.
+1. Nel riquadro **Seleziona macchine virtuali** scegliere le macchine virtuali da associare ai criteri specificati e selezionare **OK**.
 
    ![Riquadro "Seleziona macchine virtuali"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
    Viene convalidata la macchina virtuale selezionata. Se le macchine virtuali previste non sono visibili, controllare che si trovino nella stessa area di Azure dell'insieme di credenziali di Servizi di ripristino. Se non vengono ancora visualizzate, verificare che non siano già protette con un altro insieme di credenziali. L'area in cui si trova l'insieme di credenziali di Servizi di ripristino viene visualizzata nel dashboard dell'insieme di credenziali.
 
-6. Dopo aver definito tutte le impostazioni per l'insieme di credenziali, nel riquadro **Backup** selezionare **Abilita backup**. Questo passaggio distribuisce i criteri nell'insieme di credenziali e nelle VM, ma non crea il punto di ripristino iniziale per la macchina virtuale.
+1. Dopo aver definito tutte le impostazioni per l'insieme di credenziali, nel riquadro **Backup** selezionare **Abilita backup**. Questo passaggio distribuisce i criteri nell'insieme di credenziali e nelle VM, ma non crea il punto di ripristino iniziale per la macchina virtuale.
 
    ![Pulsante Abilita backup](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
@@ -241,15 +241,15 @@ Per usare un proxy HTTP per la comunicazione con la rete Internet pubblica, comp
 Questa procedura imposta la configurazione del server proxy per l'account di sistema locale.
 
 1. Scaricare [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
-2. Aprire Internet Explorer eseguendo questo comando da un prompt con privilegi elevati:
+1. Aprire Internet Explorer eseguendo questo comando da un prompt con privilegi elevati:
 
     ```
     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
     ```
 
-3. In Internet Explorer passare a **Strumenti** > **Opzioni Internet** > **Connessioni** > **Impostazioni LAN**.
-4. Verificare le impostazioni del proxy per l'account di sistema. Impostare l'indirizzo IP e la porta del proxy.
-5. Chiudere Internet Explorer.
+1. In Internet Explorer passare a **Strumenti** > **Opzioni Internet** > **Connessioni** > **Impostazioni LAN**.
+1. Verificare le impostazioni del proxy per l'account di sistema. Impostare l'indirizzo IP e la porta del proxy.
+1. Chiudere Internet Explorer.
 
 Lo script seguente imposta una configurazione proxy a livello di computer e la usa per tutto il traffico HTTP o HTTPS in uscita. Se è stato configurato un server proxy in un account utente corrente e non in un account di sistema locale, usare questo script per applicare le impostazioni a SYSTEMACCOUNT.
 
@@ -283,10 +283,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Passaggio 2: Consentire le connessioni in ingresso nel server proxy
 1. Aprire Windows Firewall nel server proxy. Il modo più semplice per accedere al firewall consiste nel cercare **Windows Firewall con sicurezza avanzata**.
-2. Nella finestra di dialogo **Windows Firewall con sicurezza avanzata** fare clic con il pulsante destro del mouse su **Regole connessioni in entrata** e scegliere **Nuova regola**.
-3. Nella pagina **Tipo di regola** della Creazione guidata nuova regola connessioni in entrata selezionare **Personalizzata** e quindi **Avanti**.
-4. Nella pagina **Programma** selezionare **Tutti i programmi** e quindi **Avanti**.
-5. Nella pagina **Protocollo e porte** immettere le informazioni seguenti e selezionare **Avanti**:
+1. Nella finestra di dialogo **Windows Firewall con sicurezza avanzata** fare clic con il pulsante destro del mouse su **Regole connessioni in entrata** e scegliere **Nuova regola**.
+1. Nella pagina **Tipo di regola** della Creazione guidata nuova regola connessioni in entrata selezionare **Personalizzata** e quindi **Avanti**.
+1. Nella pagina **Programma** selezionare **Tutti i programmi** e quindi **Avanti**.
+1. Nella pagina **Protocollo e porte** immettere le informazioni seguenti e selezionare **Avanti**:
    * Per **Tipo di protocollo** selezionare **TCP**.
    * Per **Porta locale** selezionare **Porte specifiche**. Nella casella seguente specificare il numero della porta del proxy che è stata configurata.
    * Per **Porta remota** selezionare **Tutte le porte**.

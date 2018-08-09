@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 911e65719bff0a86e3280482296bbb320fd30377
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: fb52949bf5616c8639caa1f3fab860597648ec89
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801831"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504591"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di gestione delle identità in modo che la soluzione ibrida soddisfi i requisiti aziendali definiti in [Determinare le attività della gestione ibrida delle identità](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -73,7 +73,7 @@ I servizi di Azure AD basati su licenza o diritti funzionano attivando una sotto
 
 ## <a name="integration-with-other-3rd-party-providers"></a>Integrazione con altri provider di terze parti
 
-Azure Active Directory offre autenticazione Single Sign-On e sicurezza avanzata per l'accesso alle applicazioni a migliaia di applicazioni SaaS e di applicazioni Web locali. Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+Azure Active Directory offre autenticazione Single Sign-On e sicurezza avanzata per l'accesso alle applicazioni a migliaia di applicazioni SaaS e di applicazioni Web locali. Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="define-synchronization-management"></a>Definire la soluzione di gestione della sincronizzazione
 L'integrazione delle directory locali con Azure AD rende gli utenti più produttivi, in quanto fornisce un'identità comune per accedere alle risorse cloud e locali. Con questa integrazione utenti e organizzazioni possono sfruttare i vantaggi seguenti:

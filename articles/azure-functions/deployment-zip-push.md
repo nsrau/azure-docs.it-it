@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3ff02816cdd5641cdcd78a12206b80be6d518373
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699955"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423709"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>Distribuzione push con file ZIP per Funzioni di Azure 
 Questo articolo descrive come distribuire i file di progetto dell'app per le funzioni in Azure da un file ZIP (compresso). Vengono fornite informazioni su come eseguire una distribuzione push sia utilizzando l'interfaccia della riga di comando di Azure sia le API REST. 
@@ -73,7 +73,7 @@ Quando lo sviluppo avviene in un computer locale, è facile creare un file ZIP d
 
 ## <a name="cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
 
-Per attivare una distribuzione push, è possibile utilizzare l'interfaccia della riga di comando di Azure. Eseguire la distribuzione push di un file ZIP nell'app per le funzioni usando il comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip). Per usare questo comando, è necessario utilizzare l'interfaccia della riga di comando di Azure 2.0.21 o versione successiva. Per visualizzare la versione dell'interfaccia della riga di comando di Azure in uso, utilizzare il comando `az --version`.
+Per attivare una distribuzione push, è possibile utilizzare l'interfaccia della riga di comando di Azure. Eseguire la distribuzione push di un file ZIP nell'app per le funzioni usando il comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Per usare questo comando, è necessario utilizzare l'interfaccia della riga di comando di Azure 2.0.21 o versione successiva. Per visualizzare la versione dell'interfaccia della riga di comando di Azure in uso, utilizzare il comando `az --version`.
 
 Nel comando seguente sostituire il segnaposto `<zip_file_path>` con il percorso del file ZIP. Sostituire inoltre `<app_name>` con il nome univoco dell'app per le funzioni. 
 

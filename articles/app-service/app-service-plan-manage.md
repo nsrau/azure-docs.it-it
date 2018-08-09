@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 1dfe8a903e19ff524a1c4a0228e6aefcbe9ff183
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117681"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449360"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -35,7 +35,7 @@ Un [piano di servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-o
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Web e dispositivi mobili** e quindi selezionare **App Web** o un altro tipo di app del servizio app.
 
-2. Selezionare un piano di servizio app esistente o creare un piano per la nuova app.
+1. Selezionare un piano di servizio app esistente o creare un piano per la nuova app.
 
    ![Creare un'app nel portale di Azure.][createWebApp]
 
@@ -59,13 +59,13 @@ Un [piano di servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-o
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare l'app che si intende spostare.
 
-2. Nel menu cercare la sezione **Piano di servizio app**.
+1. Nel menu cercare la sezione **Piano di servizio app**.
 
-3. Selezionare **Change App Service plan** (Cambia il piano di servizio app) per aprire il selettore **Piano di servizio app**.
+1. Selezionare **Change App Service plan** (Cambia il piano di servizio app) per aprire il selettore **Piano di servizio app**.
 
    ![Pannello di selezione Piano di servizio app.][change] 
 
-4. Nel selettore **Piano di servizio App** selezionare un piano esistente in cui spostare l'app.   
+1. Nel selettore **Piano di servizio App** selezionare un piano esistente in cui spostare l'app.   
 
 > [!IMPORTANT]
 > La pagina **Select App Service plan** (Seleziona piano di servizio app) viene filtrata in base ai criteri seguenti: 

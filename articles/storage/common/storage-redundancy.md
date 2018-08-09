@@ -1,19 +1,19 @@
 ---
-title: Replica dei dati in Archiviazione di Azure | Microsoft Docs
+title: Replica dei dati in Archiviazione di Azure | Documentazione Microsoft
 description: I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di replica includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.component: common
+ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076215"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523761"
 ---
 # <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
 
@@ -34,10 +34,10 @@ La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e 
 
 | Scenario                                                                                                 | Archiviazione con ridondanza locale                             | ZRS                              | Archiviazione con ridondanza geografica                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Mancata disponibilità di un nodo in un data center                                                                 | Sì                             | Sì                              | Sì                                  | Sì                                  |
-| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                               | Sì                              | Sì                                  | Sì                                  |
-| Interruzione a livello di area                                                                                     | No                               | No                                | Sì                                  | Sì                                  |
-| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                               | No                                | No                                    | Sì                                  |
+| Mancata disponibilità di un nodo in un data center                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                  |
+| Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                               | Yes                              | Yes                                  | Yes                                  |
+| Interruzione a livello di area                                                                                     | No                               | No                                | Yes                                  | Yes                                  |
+| Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                               | No                                | No                                    | Yes                                  |
 | Replica progettata per fornire una durabilità di ___ per gli oggetti nel corso di un determinato anno                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
 | Tipi di account di archiviazione supportati                                                                   | GPv1, GPv2, BLOB                | GPv2                             | GPv1, GPv2, BLOB                     | GPv1, GPv2, BLOB                     |
 

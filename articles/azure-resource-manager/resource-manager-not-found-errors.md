@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 494526ae2084053f23bb3a096ac7d089c47a731a
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 176de6f19274dfd8a6cf0335bb4cf16a8baa874b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823436"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525345"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Risolvere gli errori relativi alle risorse di Azure non trovate
 
@@ -60,7 +60,7 @@ Se si sta provando a distribuire la risorsa mancante nel modello, verificare se 
 }
 ```
 
-È tuttavia opportuno evitare di impostare dipendenze non necessarie. La presenza di dipendenze non necessarie prolunga la durata della distribuzione impedendo di distribuire in parallelo risorse che non sono interdipendenti. Si potrebbero anche creare dipendenze circolari che bloccano la distribuzione. La funzione [reference](resource-group-template-functions-resource.md#reference) e la funzione\ [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) creano una dipendenza implicita dalla risorsa di riferimento, se tale risorsa viene distribuita nello stesso modello e vi si fa riferimento tramite il nome, non tramite l'ID risorsa. Si potrebbero quindi avere dipendenze aggiuntive rispetto a quelle specificate nella proprietà **dependsOn**. La funzione [resourceId](resource-group-template-functions-resource.md#resourceid) non crea una dipendenza implicita né esegue la convalida dell'esistenza della risorsa. Le funzioni [reference](resource-group-template-functions-resource.md#reference) e [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) non creano una dipendenza implicita se si fa riferimento alla risorsa tramite l'ID risorsa. Per creare una dipendenza implicita, passare il nome della risorsa distribuita nello stesso modello.
+È tuttavia opportuno evitare di impostare dipendenze non necessarie. La presenza di dipendenze non necessarie prolunga la durata della distribuzione impedendo di distribuire in parallelo risorse che non sono interdipendenti. Si potrebbero anche creare dipendenze circolari che bloccano la distribuzione. La funzione [reference](resource-group-template-functions-resource.md#reference) e la funzione\ [list*](resource-group-template-functions-resource.md#list) creano una dipendenza implicita dalla risorsa di riferimento, se tale risorsa viene distribuita nello stesso modello e vi si fa riferimento tramite il nome, non tramite l'ID risorsa. Si potrebbero quindi avere dipendenze aggiuntive rispetto a quelle specificate nella proprietà **dependsOn**. La funzione [resourceId](resource-group-template-functions-resource.md#resourceid) non crea una dipendenza implicita né esegue la convalida dell'esistenza della risorsa. Le funzioni [reference](resource-group-template-functions-resource.md#reference) e [list*](resource-group-template-functions-resource.md#list) non creano una dipendenza implicita se si fa riferimento alla risorsa tramite l'ID risorsa. Per creare una dipendenza implicita, passare il nome della risorsa distribuita nello stesso modello.
 
 In caso di problemi relativi alle dipendenze, è necessario esaminare in modo approfondito l'ordine di distribuzione delle risorse. Per visualizzare l'ordine delle operazioni di distribuzione:
 

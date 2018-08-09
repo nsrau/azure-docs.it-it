@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8c3224a392e7e130b62e36019a1d180c6826d0ed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9ab2b22840d162fc0194151c5eec02675aad92dc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332212"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427653"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Esercitazione: Configurare Asana per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in Asana e Azure Active Directory (Azure AD) per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD ad Asana.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -61,15 +61,15 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
 1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory** > **App aziendali** > **Tutte le applicazioni**.
 
-2. Se si è già configurato Asana per l'accesso Single Sign-On, cercare l'istanza di Asana usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **Asana** nella raccolta di applicazioni. Selezionare **Asana** nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
+1. Se si è già configurato Asana per l'accesso Single Sign-On, cercare l'istanza di Asana usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **Asana** nella raccolta di applicazioni. Selezionare **Asana** nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
-3. Selezionare l'istanza di Asana e quindi la scheda **Provisioning**.
+1. Selezionare l'istanza di Asana e quindi la scheda **Provisioning**.
 
-4. Impostare **Modalità di provisioning** su **Automatico**.
+1. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Provisioning di Asana](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-5. Nella sezione **Credenziali amministratore** seguire queste istruzioni per generare il token e immetterlo in **Token segreto**:
+1. Nella sezione **Credenziali amministratore** seguire queste istruzioni per generare il token e immetterlo in **Token segreto**:
 
     a. Accedere ad [Asana](https://app.asana.com) usando l'account amministratore.
 
@@ -81,19 +81,19 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
     e. Aggiornare i dati in **Name** (Nome) e **About** (Informazioni) e la foto del profilo, come necessario. Copiare il token in **Token** e selezionarlo in **Save Changes** (Salva modifiche).
 
-6. Nel portale di Azure selezionare **Test connessione** per verificare che Azure AD possa connettersi all'app Asana. Se la connessione non riesce, verificare che l'account Asana abbia le autorizzazioni di amministrazione e ripetere il passaggio **Test connessione**.
+1. Nel portale di Azure selezionare **Test connessione** per verificare che Azure AD possa connettersi all'app Asana. Se la connessione non riesce, verificare che l'account Asana abbia le autorizzazioni di amministrazione e ripetere il passaggio **Test connessione**.
 
-7. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Indirizzo di posta elettronica per le notifiche**. Selezionare la casella di controllo sottostante.
+1. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Indirizzo di posta elettronica per le notifiche**. Selezionare la casella di controllo sottostante.
 
-8. Selezionare **Salva**. 
+1. Selezionare **Salva**. 
 
-9. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Asana** (Sincronizza utenti di Azure Active Directory in Asana).
+1. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Asana** (Sincronizza utenti di Azure Active Directory in Asana).
 
-10. Nella sezione **Mapping degli attributi** esaminare gli attributi utente da sincronizzare da Azure AD ad Asana. Gli attributi selezionati come proprietà**corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Asana per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche. Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi del provisioning](../active-directory-saas-customizing-attribute-mappings.md).
+1. Nella sezione **Mapping degli attributi** esaminare gli attributi utente da sincronizzare da Azure AD ad Asana. Gli attributi selezionati come proprietà**corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Asana per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche. Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi del provisioning](../active-directory-saas-customizing-attribute-mappings.md).
 
-11. Per abilitare il servizio di provisioning di Azure AD per Asana, nella sezione **Impostazioni** impostare **Stato del provisioning** su **Sì**.
+1. Per abilitare il servizio di provisioning di Azure AD per Asana, nella sezione **Impostazioni** impostare **Stato del provisioning** su **Sì**.
 
-12. Selezionare **Salva**. 
+1. Selezionare **Salva**. 
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti assegnati ad Asana nella sezione **Utenti**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. Usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log attività di provisioning. I log di controllo descrivono tutte le azioni eseguite dal servizio di provisioning nell'app Asana.
 

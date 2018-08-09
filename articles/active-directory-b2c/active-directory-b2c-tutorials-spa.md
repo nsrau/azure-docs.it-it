@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712522"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591568"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Esercitazione: abilitare l'autenticazione a un'app a pagina singola con account che usano Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Creare il proprio [tenant di Azure AD B2C](active-directory-b2c-get-started.md)
 * Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
@@ -39,7 +39,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="register-single-page-app"></a>Registrare l'app a pagina singola
 
-Le applicazioni devono essere [registrate](../active-directory/develop/active-directory-dev-glossary.md#application-registration) nel tenant perché possano ricevere [token di accesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) da Azure Active Directory. La registrazione dell'app crea un [ID applicazione](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) per l'app nel tenant. 
+Le applicazioni devono essere [registrate](../active-directory/develop/developer-glossary.md#application-registration) nel tenant perché possano ricevere [token di accesso](../active-directory/develop/developer-glossary.md#access-token) da Azure Active Directory. La registrazione dell'app crea un [ID applicazione](../active-directory/develop/developer-glossary.md#application-id-client-id) per l'app nel tenant. 
 
 Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 
@@ -56,8 +56,8 @@ Accedere al [portale di Azure](https://portal.azure.com/) come amministratore gl
     | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | App a pagina singola di esempio | Immettere un **nome** che descriva l'app agli utenti. | 
-    | **Includi app Web/API Web** | Sì | Selezionare **Sì** per un'applicazione a pagina singola. |
-    | **Consenti il flusso implicito** | Sì | Selezionare **Sì** perché l'app usa l'[accesso OpenID Connect](active-directory-b2c-reference-oidc.md). |
+    | **Includi app Web/API Web** | Yes | Selezionare **Sì** per un'applicazione a pagina singola. |
+    | **Consenti il flusso implicito** | Yes | Selezionare **Sì** perché l'app usa l'[accesso OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL di risposta** | `http://localhost:6420` | Gli URL di risposta sono gli endpoint a cui Azure AD B2C restituisce eventuali token richiesti dall'app. In questa esercitazione l'app di esempio viene eseguita in locale (localhost) ed è in ascolto sulla porta 6420. |
     | **Includi client nativo** | No  | Trattandosi di un'app a pagina singola e non di un client nativo, selezionare No. |
     
@@ -88,7 +88,7 @@ Per configurare gli utenti per l'iscrizione e l'accesso all'app Web, creare **cr
     | **Nome** | SiUpIn | Immettere un **nome** per il criterio. Il nome del criterio ha il prefisso **B2C_1_**. Usare il nome completo **B2C_1_SiUpIn** del criterio nel codice di esempio. | 
     | **Provider di identità** | Iscrizione tramite posta elettronica | Provider di identità usato per identificare l'utente in modo univoco. |
     | **Attributi di iscrizione** | Nome visualizzato e Codice postale | Selezionare gli attributi che devono essere raccolti dall'utente durante l'iscrizione. |
-    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, Nuovo utente, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/active-directory-dev-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, Nuovo utente, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Fare clic su **Crea** per creare i criteri. 
 
@@ -105,7 +105,7 @@ Per consentire agli utenti di reimpostare autonomamente le informazioni del prof
     | **Nome** | SiPe | Immettere un **nome** per il criterio. Il nome del criterio ha il prefisso **B2C_1_**. Usare il nome completo **B2C_1_SiPe** del criterio nel codice di esempio. | 
     | **Provider di identità** | Accesso all'account locale | Provider di identità usato per identificare l'utente in modo univoco. |
     | **Attributi del profilo** | Nome visualizzato e Codice postale | Selezionare gli attributi che un utente può modificare durante la modifica del profilo. |
-    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/active-directory-dev-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) dopo aver completato la modifica del profilo. |
+    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token) dopo aver completato la modifica del profilo. |
 
 2. Fare clic su **Crea** per creare i criteri. 
 
@@ -121,7 +121,7 @@ Per abilitare la reimpostazione delle password nell'applicazione, è necessario 
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | SSPR | Immettere un **nome** per il criterio. Il nome del criterio ha il prefisso **B2C_1_**. Usare il nome completo **B2C_1_SSPR** del criterio nel codice di esempio. | 
     | **Provider di identità** | Reimpostare la password usando l'indirizzo e-mail | Provider di identità usato per identificare l'utente in modo univoco. |
-    | **Attestazioni dell'applicazione** | ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/active-directory-dev-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) dopo aver completato la reimpostazione delle password. |
+    | **Attestazioni dell'applicazione** | ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token) dopo aver completato la reimpostazione delle password. |
 
 2. Fare clic su **Crea** per creare i criteri. 
 

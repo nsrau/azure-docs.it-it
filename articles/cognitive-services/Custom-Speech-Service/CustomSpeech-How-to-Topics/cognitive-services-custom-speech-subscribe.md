@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fcef86a19a77581ff82b64173e2ac68b26ae708a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3969114323f5675c5e14ab36990b124e84ead37
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373100"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427568"
 ---
 # <a name="obtain-subscription-keys"></a>Ottenere chiavi di sottoscrizione
 Prima di iniziare a usare il Servizio di riconoscimento vocale personalizzato, occorre collegare il proprio account utente a una sottoscrizione di Azure. Sono disponibili sottoscrizioni per livelli gratuiti e a pagamento. Per informazioni sui livelli, vedere la [pagina dei prezzi](https://www.microsoft.com/cognitive-services/en-us/pricing).
@@ -31,7 +31,7 @@ Prima di iniziare a usare il Servizio di riconoscimento vocale personalizzato, o
         ![API Servizi cognitivi](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
     
-2. Compilare i campi obbligatori seguenti:
+1. Compilare i campi obbligatori seguenti:
 
       a. **Nome account**. Usare un nome significativo. Sarà infatti necessario ricordarlo facilmente in modo da trovare la propria sottoscrizione di Servizi cognitivi nell'elenco delle risorse.
 
@@ -45,7 +45,7 @@ Prima di iniziare a usare il Servizio di riconoscimento vocale personalizzato, o
 
       ![Creazione dell'account di Servizi cognitivi](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-blade.png)
 
-3. Si dovrebbe trovare una visualizzazione nel dashboard o un servizio con il nome dell'account specificato nell'elenco delle risorse. Selezionandolo è possibile visualizzare una panoramica del servizio. Nell'elenco a sinistra, in **Gestione risorse**, selezionare **Chiavi**. Copiare **CHIAVE 1**.
+1. Si dovrebbe trovare una visualizzazione nel dashboard o un servizio con il nome dell'account specificato nell'elenco delle risorse. Selezionandolo è possibile visualizzare una panoramica del servizio. Nell'elenco a sinistra, in **Gestione risorse**, selezionare **Chiavi**. Copiare **CHIAVE 1**.
 
       Questa chiave di sottoscrizione è necessaria nei passaggi successivi.
 
@@ -57,7 +57,7 @@ Prima di iniziare a usare il Servizio di riconoscimento vocale personalizzato, o
 
       ![ID sottoscrizione nella pagina di panoramica](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys.png)
 
-4. Per immettere la chiave di sottoscrizione, selezionare il proprio account utente sulla barra multifunzione in alto a destra. Nel menu a discesa selezionare **Sottoscrizioni**.
+1. Per immettere la chiave di sottoscrizione, selezionare il proprio account utente sulla barra multifunzione in alto a destra. Nel menu a discesa selezionare **Sottoscrizioni**.
 
       ![Voce di menu Sottoscrizioni](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-selection.png)
 
@@ -65,7 +65,7 @@ Prima di iniziare a usare il Servizio di riconoscimento vocale personalizzato, o
 
     ![Tabella delle sottoscrizioni](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
 
-5. Selezionare **Aggiungi nuova**. Immettere un nome per la sottoscrizione e la chiave di sottoscrizione. Può essere la **CHIAVE 1** (chiave primaria) o la **CHIAVE 2** (chiave secondaria) della sottoscrizione.
+1. Selezionare **Aggiungi nuova**. Immettere un nome per la sottoscrizione e la chiave di sottoscrizione. Può essere la **CHIAVE 1** (chiave primaria) o la **CHIAVE 2** (chiave secondaria) della sottoscrizione.
 
       ![Nome chiave di sottoscrizione](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
 

@@ -2,24 +2,18 @@
 title: Gestire condivisioni file di Azure con Azure Storage Explorer
 description: Informazioni su come usare Azure Storage Explorer per gestire File di Azure.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: e8989cadd331021a3e35fc559421bbdd08f0b4fb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308498"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521195"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gestire condivisioni file di Azure con Azure Storage Explorer 
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Questo articolo contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Storage Explorer è un popolare strumento client per Windows, macOS e Linux. È possibile usare Storage Explorer per gestire condivisioni file di Azure e altre risorse di archiviazione.

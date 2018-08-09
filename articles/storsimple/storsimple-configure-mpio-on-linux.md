@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ccd24e1498282cd2b627226df79af22e9647b64d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d1188b40021fbb221bc19af6d4a5397f7ba8f800
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681574"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439873"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
 Questo articolo illustra i passaggi necessari a configurare l'I/O a percorsi multipli (MPIO) nel server host CentOS 6.6. Il server host è connesso al dispositivo Microsoft Azure StorSimple per la disponibilità elevata attraverso gli iniziatori iSCSI. L'articolo descrive in dettaglio il rilevamento automatico dei dispositivi con percorsi multipli e la configurazione specifica solo per i volumi StorSimple.
@@ -67,7 +67,7 @@ Un dispositivo StorSimple connesso a un host Linux può essere configurato per l
 
 La procedura seguente descrive come configurare i percorsi multipli quando un dispositivo StorSimple con due interfacce di rete viene connesso a un host con due interfacce di rete.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questa sezione illustra nel dettaglio i prerequisiti di configurazione per il server CentOS e il dispositivo StorSimple.
 
 ### <a name="on-centos-host"></a>Sull'host CentOS
@@ -106,21 +106,21 @@ Questa sezione illustra nel dettaglio i prerequisiti di configurazione per il se
           TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
-2. Installare *iSCSI-initiator-utils* sul server CentOS. Seguire questa procedura per installare *iSCSI-initiator-utils*.
+1. Installare *iSCSI-initiator-utils* sul server CentOS. Seguire questa procedura per installare *iSCSI-initiator-utils*.
    
    1. Accedere come `root` all'host CentOS.
-   2. Installare *iSCSI-initiator-utils*. Digitare: 
+   1. Installare *iSCSI-initiator-utils*. Digitare: 
       
        `yum install iscsi-initiator-utils`
-   3. Dopo aver correttamente installato *iSCSI-initiator-utils* , avviare il servizio iSCSI. Digitare: 
+   1. Dopo aver correttamente installato *iSCSI-initiator-utils* , avviare il servizio iSCSI. Digitare: 
       
        `service iscsid start`
       
        A volte, `iscsid` potrebbe non avviarsi e può rendersi necessaria l'opzione `--force`
-   4. Per assicurarsi che l'iniziatore iSCSI sia abilitato durante la fase di avvio, usare il comando `chkconfig` per abilitare il servizio.
+   1. Per assicurarsi che l'iniziatore iSCSI sia abilitato durante la fase di avvio, usare il comando `chkconfig` per abilitare il servizio.
       
        `chkconfig iscsi on`
-   5. Per verificare che sia stato correttamente configurato, eseguire il comando:
+   1. Per verificare che sia stato correttamente configurato, eseguire il comando:
       
        `chkconfig --list | grep iscsi`
       
@@ -130,7 +130,7 @@ Questa sezione illustra nel dettaglio i prerequisiti di configurazione per il se
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
        Nell'esempio precedente, è possibile vedere che l'ambiente iSCSI verrà eseguito in fase di avvio su livelli di esecuzione 2, 3, 4 e 5.
-3. Installare *device-mapper-multipath*. Digitare: 
+1. Installare *device-mapper-multipath*. Digitare: 
    
     `yum install device-mapper-multipath`
    
@@ -142,7 +142,7 @@ Il dispositivo StorSimple deve avere:
 * Almeno due interfacce abilitate per iSCSI. Per verificare che le due interfacce siano abilitate per iSCSI sul dispositivo StorSimple, seguire questa procedura nel portale di Azure classico del dispositivo StorSimple:
   
   1. Accedere al portale classico del dispositivo StorSimple.
-  2. Selezionare il servizio StorSimple Manager, fare clic su **Dispositivi** e scegliere lo specifico dispositivo StorSimple. Fare clic su **Configura** e verificare le impostazioni di interfaccia di rete. Di seguito è riportata una schermata con due interfacce di rete abilitate per iSCSI. Entrambe le interfacce di rete da 10 GbE, DATA 2 e DATA 3, sono abilitate per iSCSI.
+  1. Selezionare il servizio StorSimple Manager, fare clic su **Dispositivi** e scegliere lo specifico dispositivo StorSimple. Fare clic su **Configura** e verificare le impostazioni di interfaccia di rete. Di seguito è riportata una schermata con due interfacce di rete abilitate per iSCSI. Entrambe le interfacce di rete da 10 GbE, DATA 2 e DATA 3, sono abilitate per iSCSI.
      
       ![Configurazione DATA 2 StorSimple MPIO](./media/storsimple-configure-mpio-on-linux/IC761347.png)
      
@@ -151,8 +151,8 @@ Il dispositivo StorSimple deve avere:
       Nella pagina **Configura**
      
      1. Assicurarsi che entrambe le interfacce di rete siano abilitate per iSCSI. Il campo **Abilitato per iSCSI** deve essere impostato su **Sì**.
-     2. Assicurarsi che le interfacce di rete abbiano la stessa velocità, cioè 1 GbE o 10 GbE.
-     3. Prendere nota degli indirizzi IPv4 delle interfacce abilitate per iSCSI e salvarli per un uso successivo nell'host.
+     1. Assicurarsi che le interfacce di rete abbiano la stessa velocità, cioè 1 GbE o 10 GbE.
+     1. Prendere nota degli indirizzi IPv4 delle interfacce abilitate per iSCSI e salvarli per un uso successivo nell'host.
 * Le interfacce iSCSI sul dispositivo StorSimple devono essere raggiungibili dal server CentOS.
       Per verificarlo, è necessario fornire gli indirizzi IP delle interfacce di rete abilitate per iSCSI StorSimple nel server host. I comandi usati e l'output corrispondente con DATA2 (10.126.162.25) e DATA3 (10.126.162.26) sono illustrati di seguito:
   
@@ -191,14 +191,14 @@ I dispositivi supportati da percorsi multipli possono essere individuati e confi
      `mpathconf --enable`
    
     Il comando precedente creerà un file `sample/etc/multipath.conf` .
-2. Avviare il servizio a percorsi multipli. Digitare: 
+1. Avviare il servizio a percorsi multipli. Digitare: 
    
     `service multipathd start`
    
     Viene visualizzato l'output seguente:
    
     `Starting multipathd daemon:`
-3. Abilitare il rilevamento automatico dei percorsi multipli. Digitare: 
+1. Abilitare il rilevamento automatico dei percorsi multipli. Digitare: 
    
     `mpathconf --find_multipaths y`
    
@@ -216,7 +216,7 @@ Per impostazione predefinita, tutti i dispositivi sono elencati nella blacklist 
 1. Modificare il file `/etc/mulitpath.conf` . Digitare: 
    
     `vi /etc/multipath.conf`
-2. Trovare la sezione blacklist_exceptions nel file multipath.conf. Il dispositivo StorSimple deve essere elencato come eccezione di blacklist in questa sezione. È possibile rimuovere il commento dalle righe pertinenti in questo file per modificarlo, come mostrato di seguito (usare solo il modello specifico del dispositivo in uso):
+1. Trovare la sezione blacklist_exceptions nel file multipath.conf. Il dispositivo StorSimple deve essere elencato come eccezione di blacklist in questa sezione. È possibile rimuovere il commento dalle righe pertinenti in questo file per modificarlo, come mostrato di seguito (usare solo il modello specifico del dispositivo in uso):
    
         blacklist_exceptions {
             device {
@@ -235,7 +235,7 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 1. Modificare il file `/etc/multipath.conf` . Digitare: 
    
     `vi /etc/multipath.conf`
-2. Nella sezione `defaults` impostare `path_grouping_policy` su `multibus`. `path_grouping_policy` specifica il criterio di raggruppamento dei percorsi predefinito da applicare ai percorsi multipli non specificati. La sezione delle impostazioni predefinite avrà l'aspetto seguente.
+1. Nella sezione `defaults` impostare `path_grouping_policy` su `multibus`. `path_grouping_policy` specifica il criterio di raggruppamento dei percorsi predefinito da applicare ai percorsi multipli non specificati. La sezione delle impostazioni predefinite avrà l'aspetto seguente.
    
         defaults {
                 user_friendly_names yes
@@ -254,7 +254,7 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 1. Riavviare il daemon `multipathd` . Digitare: 
    
     `service multipathd restart`
-2. Si otterrà un output come quello illustrato di seguito:
+1. Si otterrà un output come quello illustrato di seguito:
    
         [root@centosSS ~]# service multipathd start
         Starting multipathd daemon:  [OK]
@@ -298,9 +298,9 @@ Questo algoritmo di bilanciamento del carico usa tutti i percorsi multipli dispo
 
     Se in questo caso vengono visualizzati due percorsi e una sola interfaccia host, sarà necessario abilitare entrambe le interfacce sull'host per iSCSI. Consultare le [istruzioni dettagliate nella documentazione Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Un volume viene esposto al server CentOS dal dispositivo StorSimple. Per altre informazioni, vedere il [Passaggio 6: Creare un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) tramite il portale di Azure nel dispositivo StorSimple.
+1. Un volume viene esposto al server CentOS dal dispositivo StorSimple. Per altre informazioni, vedere il [Passaggio 6: Creare un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) tramite il portale di Azure nel dispositivo StorSimple.
 
-3. Verificare i percorsi disponibili. Digitare: 
+1. Verificare i percorsi disponibili. Digitare: 
 
       ```
       multipath –l

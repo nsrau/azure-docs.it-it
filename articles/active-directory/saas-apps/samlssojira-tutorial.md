@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 05a91e66d046bb7869179175c3a7d0b13b1942e4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6ae8256f3485d49d42efeb2927a6838252a1aeee
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042191"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442908"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Esercitazione: integrazione di Azure Active Directory con SAML SSO for Jira di resolution GmbH
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di SAML SSO for Jira di resolution GmbH dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-saml-sso-for-jira-by-resolution-gmbh-from-the-gallery"></a>Aggiunta di SAML SSO for Jira di resolution GmbH dalla raccolta
 Per configurare l'integrazione di SAML SSO for Jira di resolution GmbH in Azure AD, è necessario aggiungere SAML SSO for Jira di resolution GmbH dalla raccolta all'elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di SAML SSO for Jira di resolution GmbH in Azure 
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **SAML SSO for Jira di resolution GmbH**.
+1. Nella casella di ricerca digitare **SAML SSO for Jira di resolution GmbH**.
 
     ![Creazione di un utente test di Azure AD](./media/samlssojira-tutorial/tutorial_samlssojira_search.png)
 
-5. Nel pannello dei risultati selezionare **SAML SSO for Jira by resolution GmbH** (SAML SSO for Jira di resolution GmbH) e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **SAML SSO for Jira by resolution GmbH** (SAML SSO for Jira di resolution GmbH) e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/samlssojira-tutorial/tutorial_samlssojira_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Per stabilire la relazione di collegamento, in SAML SSO for Jira di resolution G
 Per configurare e testare l'accesso Single Sign-On di Azure AD con SAML SSO for Jira di resolution GmbH, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di SAML SSO for Jira di resolution GmbH](#creating-a-saml-sso-for-jira-by-resolution-gmbh-test-user)**: per avere una controparte di Britta Simon in SAML SSO for Jira di resolution GmbH che sia collegata alla rappresentazione di Azure AD dell'utente.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente di test di SAML SSO for Jira di resolution GmbH](#creating-a-saml-sso-for-jira-by-resolution-gmbh-test-user)**: per avere una controparte di Britta Simon in SAML SSO for Jira di resolution GmbH che sia collegata alla rappresentazione di Azure AD dell'utente.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_samlbase.png)
 
-3. Nella sezione **SAML SSO for Jira by resolution GmbH Domain and URLs** (Dominio e URL di SAML SSO for Jira di resolution GmbH) se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **SAML SSO for Jira by resolution GmbH Domain and URLs** (Dominio e URL di SAML SSO for Jira di resolution GmbH) se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_url_1.png)
 
@@ -116,7 +116,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<server-base-url>/plugins/servlet/samlsso`
 
-4. Selezionare **Mostra impostazioni URL avanzate** se si desidera configurare l'applicazione in modalità avviata da **SP**:
+1. Selezionare **Mostra impostazioni URL avanzate** se si desidera configurare l'applicazione in modalità avviata da **SP**:
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_url_2.png)
 
@@ -125,47 +125,47 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Contattare il [team di supporto del client di SAML SSO for Jira di resolution GmbH](https://www.resolution.de/go/support) per ottenere i valori. 
 
-5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_certificate.png) 
 
-6. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_general_400.png)
     
-7. In un'altra finestra del Web browser accedere al **portale di amministrazione di SAML SSO for Jira di resolution GmbH** come amministratore.
+1. In un'altra finestra del Web browser accedere al **portale di amministrazione di SAML SSO for Jira di resolution GmbH** come amministratore.
 
-8. Passare il puntatore del mouse sulla rotellina e scegliere **Add-ons** (Componenti aggiuntivi).
+1. Passare il puntatore del mouse sulla rotellina e scegliere **Add-ons** (Componenti aggiuntivi).
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon1.png)
 
-9. Si verrà reindirizzati alla pagina di Administrator Access (Accesso come amministratore). Immettere la **password** e fare clic sul pulsante **Confirm** (Conferma).
+1. Si verrà reindirizzati alla pagina di Administrator Access (Accesso come amministratore). Immettere la **password** e fare clic sul pulsante **Confirm** (Conferma).
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon2.png)
 
-10. Nella sezione della scheda Add-ons (Componenti aggiuntivi) fare clic su **Find new add-ons** (Trova nuovi componenti aggiuntivi). Cercare **SAML Single Sign On (SSO) for JIRA** e fare clic su **Install** (Installa) per installare il nuovo plug-in di SAML.
+1. Nella sezione della scheda Add-ons (Componenti aggiuntivi) fare clic su **Find new add-ons** (Trova nuovi componenti aggiuntivi). Cercare **SAML Single Sign On (SSO) for JIRA** e fare clic su **Install** (Installa) per installare il nuovo plug-in di SAML.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon7.png)
 
-11. Viene avviata l'installazione del plug-in. Fare clic su **Close**.
+1. Viene avviata l'installazione del plug-in. Fare clic su **Close**.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon8.png)
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon9.png)
 
-12. Fare clic su **Manage**.
+1.  Fare clic su **Manage**.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon10.png)
     
-13. Fare clic su **Configure** (Configura) per configurare il nuovo plug-in.
+1. Fare clic su **Configure** (Configura) per configurare il nuovo plug-in.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon11.png)
 
-14. Nella pagina **SAML SingleSignOn Plugin Configuration** (Configurazione del plug-in SAML SingleSignOn) fare clic sul pulsante **Add new IdP** (Aggiungi nuovo provider di identità) per configurare le impostazioni del provider di identità.
+1. Nella pagina **SAML SingleSignOn Plugin Configuration** (Configurazione del plug-in SAML SingleSignOn) fare clic sul pulsante **Add new IdP** (Aggiungi nuovo provider di identità) per configurare le impostazioni del provider di identità.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon4.png)
 
-15. Nella pagina **Choose your SAML Identity Provider** (Scegliere il provider di identità SAML) eseguire la procedura seguente:
+1. Nella pagina **Choose your SAML Identity Provider** (Scegliere il provider di identità SAML) eseguire la procedura seguente:
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5a.png)
  
@@ -177,11 +177,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. Fare clic su **Avanti**.
     
-16. Nella pagina **Identity provider configuration** (Configurazione provider di identità) fare clic sul pulsante **Next** (Avanti).
+1. Nella pagina **Identity provider configuration** (Configurazione provider di identità) fare clic sul pulsante **Next** (Avanti).
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
 
-17. Nella pagina **Import SAML IdP Metadata** (Importa metadati provider di identità SAML) eseguire la procedura seguente:
+1. Nella pagina **Import SAML IdP Metadata** (Importa metadati provider di identità SAML) eseguire la procedura seguente:
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5c.png)
 
@@ -193,19 +193,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. Fare clic qui sul pulsante **Next** (Avanti).
     
-18. Nella pagina **User ID attribute and transformation** (Attributo e trasformazione ID utente) fare clic sul pulsante **Next** (Avanti).
+1. Nella pagina **User ID attribute and transformation** (Attributo e trasformazione ID utente) fare clic sul pulsante **Next** (Avanti).
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5d.png)
     
-19. Nella pagina **User creation and update** (Creazione e aggiornamento utente) fare clic su **Save & Next** (Salva e continua) per salvare le impostazioni.   
+1. Nella pagina **User creation and update** (Creazione e aggiornamento utente) fare clic su **Save & Next** (Salva e continua) per salvare le impostazioni.    
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6a.png)
     
-20. Nella pagina **Test your settings** (Test impostazioni) fare clic su **Skip test & configure manually** (Ignora test e configura manualmente) per ignorare il test dell'utente. Il test verrà eseguito nella sezione successiva e richiede alcune impostazioni nel portale di Azure. 
+1. Nella pagina **Test your settings** (Test impostazioni) fare clic su **Skip test & configure manually** (Ignora test e configura manualmente) per ignorare il test dell'utente. Il test verrà eseguito nella sezione successiva e richiede alcune impostazioni nel portale di Azure. 
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6b.png)
     
-21. Nella finestra di dialogo visualizzata, contenente il messaggio **Skipping the test means...** (Significato della mancata esecuzione del test), fare clic su **OK**.
+1. Nella finestra di dialogo visualizzata, contenente il messaggio **Skipping the test means...** (Significato della mancata esecuzione del test), fare clic su **OK**.
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6c.png)
 
@@ -224,15 +224,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/samlssojira-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/samlssojira-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/samlssojira-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/samlssojira-tutorial/create_aaduser_04.png) 
 
@@ -242,7 +242,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-saml-sso-for-jira-by-resolution-gmbh-test-user"></a>Creazione di un utente di test di SAML SSO for Jira di resolution GmbH
 
@@ -253,19 +253,19 @@ In SAML SSO for Jira di resolution GmbH il provisioning è un'attività manuale.
 
 1. Accedere al sito aziendale di SAML SSO for Jira di resolution GmbH come amministratore.
 
-2. Passare il puntatore del mouse e fare clic su **User management** (Gestione utenti).
+1. Passare il puntatore del mouse e fare clic su **User management** (Gestione utenti).
 
     ![Aggiungere un dipendente](./media/samlssojira-tutorial/user1.png) 
 
-3. Si verrà reindirizzati alla pagina Administrator Access (Accesso amministratore) per inserire la **Password** e fare clic sul pulsante **Confirm** (Conferma).
+1. Si verrà reindirizzati alla pagina Administrator Access (Accesso amministratore) per inserire la **Password** e fare clic sul pulsante **Confirm** (Conferma).
 
     ![Aggiungere un dipendente](./media/samlssojira-tutorial/user2.png) 
 
-4. Nella sezione della scheda **User management** (Gestione utenti) fare clic su **Create user** (Crea utente).
+1. Nella sezione della scheda **User management** (Gestione utenti) fare clic su **Create user** (Crea utente).
 
     ![Aggiungere un dipendente](./media/samlssojira-tutorial/user3.png) 
 
-5. Nella pagina della finestra di dialogo **"Create New User"** (Crea nuovo utente) effettuare le operazioni seguenti:
+1. Nella pagina della finestra di dialogo **"Create New User"** (Crea nuovo utente) effettuare le operazioni seguenti:
 
     ![Aggiungere un dipendente](./media/samlssojira-tutorial/user4.png) 
 
@@ -291,23 +291,23 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **SAML SSO for Jira by resolution GmbH** (SAML SSO for Jira di resolution GmbH).
+1. Nell'elenco delle applicazioni selezionare **SAML SSO for Jira by resolution GmbH** (SAML SSO for Jira di resolution GmbH).
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 749b554b8cf99ce849e0e3ab7b3a9478d8705e54
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833585"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422995"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure #
 
 L'[ambiente del servizio app](./intro.md) è una distribuzione del servizio app di Azure nella subnet della rete virtuale di Azure di un cliente. Può essere distribuito con un endpoint pubblico o privato per l'accesso dell'app. La distribuzione dell'ambiente del servizio app con un endpoint privato, ovvero un servizio di bilanciamento del carico interno, viene definita ambiente del servizio app con bilanciamento del carico interno.  
 
-I dispositivi WAF (Web Application Firewall) consentono di proteggere le applicazioni Web controllando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esaminano anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. È possibile ottenere un dispositivo WAF da Azure Marketplace oppure usare il [gateway applicazione di Azure][appgw].
+I dispositivi WAF (Web Application Firewall) consentono di proteggere le applicazioni Web controllando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esamina anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. È possibile ottenere un dispositivo WAF da Azure Marketplace oppure usare il [gateway applicazione di Azure][appgw].
 
 Il gateway applicazione di Azure è un'appliance virtuale che offre bilanciamento del carico di livello 7, offload SSL e protezione WAF. Può essere in ascolto su un indirizzo IP pubblico e instradare il traffico all'endpoint applicazione. Le informazioni seguenti illustrano come integrare un gateway applicazione configurato WAF con un'app di un ambiente del servizio app con bilanciamento del carico interno.  
 
@@ -64,7 +64,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
 1. Nel portale di Azure passare a **Nuovo** > **Rete** > **Gateway applicazione**.
 
-2. Nell'area **Informazioni di base**:
+1. Nell'area **Informazioni di base**:
 
    a. In **Nome** immettere il nome del gateway applicazione.
 
@@ -78,7 +78,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
    ![Informazioni di base sulla creazione del nuovo gateway applicazione][2]
 
-3. Nell'area **Impostazioni**:
+1. Nell'area **Impostazioni**:
 
    a. In **Rete virtuale** selezionare la rete virtuale dell'ambiente del servizio app.
 
@@ -94,25 +94,25 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
    ![Impostazioni per la creazione del nuovo gateway applicazione][3]
     
-4. Nella sezione **Riepilogo** verificare le impostazioni e selezionare **OK**. Per completare la configurazione del gateway applicazione possono essere necessari poco più di 30 minuti.  
+1. Nella sezione **Riepilogo** verificare le impostazioni e selezionare **OK**. Per completare la configurazione del gateway applicazione possono essere necessari poco più di 30 minuti.  
 
-5. Al termine della configurazione del gateway applicazione, passare al portale del gateway. Selezionare **Pool back-end**. Aggiungere l'indirizzo del servizio di bilanciamento del carico interno dell'ambiente del servizio app.
+1. Al termine della configurazione del gateway applicazione, passare al portale del gateway. Selezionare **Pool back-end**. Aggiungere l'indirizzo del servizio di bilanciamento del carico interno dell'ambiente del servizio app.
 
    ![Configurare il pool back-end][4]
 
-6. Al termine della configurazione del pool back-end, selezionare **Probe integrità**. Creare un probe di integrità per il nome di dominio che si vuole usare per l'app. 
+1. Al termine della configurazione del pool back-end, selezionare **Probe integrità**. Creare un probe di integrità per il nome di dominio che si vuole usare per l'app. 
 
    ![Configurare probe di integrità][5]
     
-7. Al termine della configurazione dei probe di integrità, selezionare **Impostazioni HTTP**. Modificare le impostazioni esistenti, selezionare **Usa probe personalizzato** e scegliere il probe configurato.
+1. Al termine della configurazione dei probe di integrità, selezionare **Impostazioni HTTP**. Modificare le impostazioni esistenti, selezionare **Usa probe personalizzato** e scegliere il probe configurato.
 
    ![Configurare le impostazioni HTTP][6]
     
-8. Passare alla sezione **Panoramica** del gateway applicazione e copiare l'indirizzo IP pubblico usato per il gateway. Impostare tale indirizzo IP come record A per il nome di dominio dell'app o usare il nome DNS di tale indirizzo in un record CNAME. È più facile selezionare l'indirizzo IP pubblico e copiarlo dall'interfaccia utente dell'indirizzo IP pubblico che non copiarlo dal collegamento nella sezione **Panoramica** del gateway applicazione. 
+1. Passare alla sezione **Panoramica** del gateway applicazione e copiare l'indirizzo IP pubblico usato per il gateway. Impostare tale indirizzo IP come record A per il nome di dominio dell'app o usare il nome DNS di tale indirizzo in un record CNAME. È più facile selezionare l'indirizzo IP pubblico e copiarlo dall'interfaccia utente dell'indirizzo IP pubblico che non copiarlo dal collegamento nella sezione **Panoramica** del gateway applicazione. 
 
    ![Portale del gateway applicazione][7]
 
-9. Impostare il nome di dominio personalizzato per l'app nell'ambiente del servizio app con bilanciamento del carico interno. Passare all'app nel portale e in **Impostazioni** selezionare **Domini personalizzati**.
+1. Impostare il nome di dominio personalizzato per l'app nell'ambiente del servizio app con bilanciamento del carico interno. Passare all'app nel portale e in **Impostazioni** selezionare **Domini personalizzati**.
 
    ![Impostare il nome di dominio personalizzato per l'app][8]
 

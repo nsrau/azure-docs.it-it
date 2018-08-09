@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9981db7e2994b9a4f20f99f4997a89b0368d343c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226561"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423675"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner per distribuzioni da Hyper-V ad Azure
 
@@ -96,7 +96,7 @@ Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profil
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
-2.  Ogni host Hyper-V da profilare deve avere:
+1.  Ogni host Hyper-V da profilare deve avere:
 
     a. La VM su cui lo strumento verrà eseguito nell'elenco TrustedHosts. Eseguire il comando seguente da una sessione di PowerShell con privilegi elevati sull'host Hyper-V.
 
@@ -111,10 +111,10 @@ Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profil
 1.  Scaricare la versione più recente di [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
 Lo strumento è compresso in una cartella ZIP. Lo stesso strumento supporta entrambi gli scenari di ripristino di emergenza da VMware ad Azure e da Hyper-V ad Azure. È possibile usare questo strumento anche per lo scenario di ripristino di emergenza da Hyper-V al sito secondario, ignorando però la raccomandazione del report sull'infrastruttura di Azure.
 
-2.  Copiare la cartella ZIP nel server Windows nel quale si intende eseguire lo strumento. È possibile eseguire lo strumento in Windows Server 2012 R2 o Windows Server 2016. Il server deve avere accesso alla rete per connettersi al cluster Hyper-V o all'host Hyper-V in cui si trovano le VM da profilare. È consigliabile che la VM su cui lo strumento verrà eseguito abbia la stessa configurazione hardware del server Hyper-V che si vuole proteggere. Tale configurazione assicura che la velocità effettiva ottenuta segnalata dallo strumento corrisponda alla velocità effettiva che Azure Site Recovery può raggiungere durante la replica. Il calcolo della velocità effettiva dipende dalla larghezza di banda di rete disponibile nel server e dalla configurazione hardware (CPU, memoria e così via) del server. La velocità effettiva viene calcolata dal server in cui lo strumento è in esecuzione in Azure. Se la configurazione hardware del server è diversa da quella del server Hyper-V, la velocità effettiva ottenuta che viene segnalata dallo strumento non sarà corretta.
+1.  Copiare la cartella ZIP nel server Windows nel quale si intende eseguire lo strumento. È possibile eseguire lo strumento in Windows Server 2012 R2 o Windows Server 2016. Il server deve avere accesso alla rete per connettersi al cluster Hyper-V o all'host Hyper-V in cui si trovano le VM da profilare. È consigliabile che la VM su cui lo strumento verrà eseguito abbia la stessa configurazione hardware del server Hyper-V che si vuole proteggere. Tale configurazione assicura che la velocità effettiva ottenuta segnalata dallo strumento corrisponda alla velocità effettiva che Azure Site Recovery può raggiungere durante la replica. Il calcolo della velocità effettiva dipende dalla larghezza di banda di rete disponibile nel server e dalla configurazione hardware (CPU, memoria e così via) del server. La velocità effettiva viene calcolata dal server in cui lo strumento è in esecuzione in Azure. Se la configurazione hardware del server è diversa da quella del server Hyper-V, la velocità effettiva ottenuta che viene segnalata dallo strumento non sarà corretta.
 Configurazione consigliata della VM: 8 vCPU, 16 GB di RAM, 300 GB di HDD.
 
-3.  Estrarre la cartella ZIP.
+1.  Estrarre la cartella ZIP.
 La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploymentPlanner.exe e si trova nella cartella padre.
 
 Esempio: copiare il file ZIP nell'unità E:\ ed estrarlo. E:\ASR Deployment Planner_v2.2.zip

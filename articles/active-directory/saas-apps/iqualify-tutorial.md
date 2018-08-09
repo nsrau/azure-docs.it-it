@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 3ff5a833da5bbe99c5c6d1576b9775051b3ce07b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d1161480bfd7a4cfeeb81f02234586a515fdffed
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048090"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446144"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Esercitazione: Integrazione di Azure Active Directory con iQualify LMS
 
@@ -53,7 +53,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di iQualify LMS dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-iqualify-lms-from-the-gallery"></a>Aggiunta di iQualify LMS dalla raccolta
 Per configurare l'integrazione di iQualify LMS in Azure AD, è necessario aggiungere iQualify LMS dalla raccolta all'elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di iQualify LMS in Azure AD, è necessario aggiun
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **iQualify LMS**, nel pannello dei risultati selezionare **iQualify LMS** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **iQualify LMS**, nel pannello dei risultati selezionare **iQualify LMS** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![iQualify LMS nell'elenco dei risultati](./media/iqualify-tutorial/tutorial_iqualify_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Per stabilire la relazione di collegamento, in iQualify LMS assegnare il valore 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con iQualify LMS, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di iQualify LMS](#create-an-iqualify-lms-test-user)**: per avere una controparte di Britta Simon in iQualify LMS collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di iQualify LMS](#create-an-iqualify-lms-test-user)**: per avere una controparte di Britta Simon in iQualify LMS collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -102,11 +102,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Finestra di dialogo Single Sign-On](./media/iqualify-tutorial/tutorial_iqualify_samlbase.png)
 
-3. Nella sezione **URL e dominio iQualify LMS** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da IDP:
+1. Nella sezione **URL e dominio iQualify LMS** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da IDP:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di iQualify LMS](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
@@ -122,7 +122,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | Ambiente di produzione: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
     | Ambiente di test: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
 
-4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di iQualify LMS](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
@@ -135,11 +135,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di iQualify LMS](https://www.iqualify.com). 
 
-5. L'applicazione iQualify LMS prevede che le asserzioni SAML (Security Assertion Markup Language) vengano visualizzate in un formato specifico. Configurare le attestazioni e gestire i valori degli attributi nella sezione **Attributi utente** della pagina di integrazione dell'applicazione iQualify, come illustrato nello screenshot seguente:
+1. L'applicazione iQualify LMS prevede che le asserzioni SAML (Security Assertion Markup Language) vengano visualizzate in un formato specifico. Configurare le attestazioni e gestire i valori degli attributi nella sezione **Attributi utente** della pagina di integrazione dell'applicazione iQualify, come illustrato nello screenshot seguente:
     
     ![Configure Single Sign-On](./media/iqualify-tutorial/atb.png)
 
-6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On**, per ogni riga illustrata nella tabella seguente, seguire questa procedura:
+1. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On**, per ogni riga illustrata nella tabella seguente, seguire questa procedura:
     
     | Nome attributo | Valore attributo |
     | --- | --- |    
@@ -165,32 +165,32 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!Note]
     > La ripetizione dei passaggi da "a" a "d" per l'attributo **person_id** è **facoltativa**.
 
-7. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Collegamento di download del certificato](./media/iqualify-tutorial/tutorial_iqualify_certificate.png) 
 
-8. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/iqualify-tutorial/tutorial_general_400.png)
     
-9. Nella sezione **Configurazione di iQualify LMS** fare clic su **Configura iQualify LMS** per aprire la finestra **Configura accesso**. Copiare i valori **Sign-Out URL (URL di disconnessione) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
+1. Nella sezione **Configurazione di iQualify LMS** fare clic su **Configura iQualify LMS** per aprire la finestra **Configura accesso**. Copiare i valori **Sign-Out URL (URL di disconnessione) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
 
     ![Configurazione di iQualify LMS](./media/iqualify-tutorial/tutorial_iqualify_configure.png) 
 
-10.  Aprire una nuova finestra del browser e quindi accedere all'ambiente di iQualify come amministratore.
+1.  Aprire una nuova finestra del browser e quindi accedere all'ambiente di iQualify come amministratore.
 
-11. Una volta connessi, fare clic sul proprio avatar in alto a destra e quindi fare clic su **Account settings** (Impostazioni account).
+1. Una volta connessi, fare clic sul proprio avatar in alto a destra e quindi fare clic su **Account settings** (Impostazioni account).
 
     ![Impostazioni dell'account](./media/iqualify-tutorial/setting1.png) 
-12. Nell'area delle impostazioni dell'account fare clic sul menu a sinistra sulla barra multifunzione e fare clic su **INTEGRATIONS** (INTEGRAZIONI).
+1. Nell'area delle impostazioni dell'account fare clic sul menu a sinistra sulla barra multifunzione e fare clic su **INTEGRATIONS** (INTEGRAZIONI).
     
     ![INTEGRAZIONI](./media/iqualify-tutorial/setting2.png)
 
-13. In INTEGRATIONS (INTEGRAZIONI) fare clic sull'icona **SAML**.
+1. In INTEGRATIONS (INTEGRAZIONI) fare clic sull'icona **SAML**.
 
     ![Icona SAML](./media/iqualify-tutorial/setting3.png)
 
-14. Nella finestra di dialogo **SAML Authentication Settings** (Impostazioni di autenticazione SAML) seguire questa procedura:
+1. Nella finestra di dialogo **SAML Authentication Settings** (Impostazioni di autenticazione SAML) seguire questa procedura:
 
     ![Impostazioni di autenticazione SAML](./media/iqualify-tutorial/setting4.png)
 
@@ -221,15 +221,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/iqualify-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/iqualify-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/iqualify-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/iqualify-tutorial/create_aaduser_04.png)
 
@@ -239,7 +239,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-an-iqualify-lms-test-user"></a>Creare un utente di test di iQualify LMS
 
@@ -259,23 +259,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **iQualify LMS**.
+1. Nell'elenco delle applicazioni selezionare **iQualify LMS**.
 
     ![Collegamento di iQualify LMS nell'elenco delle applicazioni](./media/iqualify-tutorial/tutorial_iqualify_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

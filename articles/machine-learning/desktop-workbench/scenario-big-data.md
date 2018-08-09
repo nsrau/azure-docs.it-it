@@ -9,19 +9,19 @@ editor: daden
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 450c033fbce3544cdc17ddc6d47ff726b01a4d3e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832663"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450671"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsione del carico di lavoro server in terabyte di dati
 
@@ -44,12 +44,12 @@ Prevedere il carico di lavoro dei server è un'esigenza aziendale comune per le 
 In questo scenario si analizza la stima del carico di lavoro per ogni computer (o server). In particolare vengono usati i dati della sessione in ogni server per stimare la classe di carico di lavoro del server in futuro. Il carico di ciascun server viene classificato nelle categorie bassa, media o alta usando il classificatore di foreste casuali in [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). Le tecniche di apprendimento automatico e il flusso di lavoro in questo esempio possono essere facilmente estesi a problemi simili. 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 I prerequisiti per eseguire questo esempio sono i seguenti:
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
-* Una copia installata di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Per installare il programma e creare un'area di lavoro, vedere la [guida rapida all'installazione](../service/quickstart-installation.md). Se si dispone di più sottoscrizioni, è possibile [impostare quella desiderata come sottoscrizione attiva corrente](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
+* Una copia installata di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Per installare il programma e creare un'area di lavoro, vedere la [guida rapida all'installazione](../service/quickstart-installation.md). Se si dispone di più sottoscrizioni, è possibile [impostare quella desiderata come sottoscrizione attiva corrente](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 * Windows 10 (le istruzioni generali riportate in questo esempio sono le stesse per i sistemi macOS).
 * Una macchina virtuale di data science (DSVM) per Linux (Ubuntu), preferibilmente nell'area Stati Uniti orientali in cui si trovano i dati. È possibile eseguire il provisioning di una macchina virtuale di data science Ubuntu seguendo [queste istruzioni](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Si può anche vedere [questa Guida rapida](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). È consigliabile usare una macchina virtuale con almeno 8 core e 32 GB di memoria. 
 

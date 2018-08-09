@@ -1,20 +1,20 @@
 ---
 title: Eseguire il provisioning di un dispositivo con il servizio Device Provisioning in hub IoT di Azure| Microsoft Docs
 description: Eseguire il provisioning del dispositivo in un singolo hub IoT con il servizio Device Provisioning in hub IoT di Azure
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/12/2018
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c4355d6bebe00650a6fb4e2f2a6e400be30722b2
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 1b9d6342d30c5f5e9ef80213664447c48a62494c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145129"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521901"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Eseguire il provisioning del dispositivo in un hub IoT con il servizio Device Provisioning in hub IoT di Azure
 
@@ -92,7 +92,7 @@ In seguito all'avvio del dispositivo dovrebbero verificarsi le azioni seguenti:
 Per altre informazioni, vedere l'applicazione di esempio del simulatore TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Registrare il dispositivo

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: sethm
-ms.openlocfilehash: 77acad8bd0a7ada13979db539b138e03d42dc031
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3e4689aa4ef5cdbd52aa2c70b8ba754013cab3db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132190"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425953"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>Guida introduttiva: elaborare flussi di eventi con l'interfaccia della riga di comando di Azure e Java
 
@@ -23,7 +23,7 @@ Hub eventi di Azure è una piattaforma di streaming di dati e un servizio di ins
 
 Per completare questa guida introduttiva è necessaria una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito][] prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -87,7 +87,7 @@ Sostituire `"Your event hub"` con il nome dell'hub eventi creato nello spazio de
 
 Sostituire infine `"Your primary SAS key"` con il valore della chiave di firma di accesso condiviso per il criterio nel passaggio precedente.
 
-### <a name="build-the-application"></a>Compilare l'applicazione. 
+### <a name="build-the-application"></a>Compilare l'applicazione 
 
 Passare alla cartella `\azure-event-hubs\samples\Java\Basic\SimpleSend` e immettere il comando di compilazione seguente:
 
@@ -292,7 +292,7 @@ In questo articolo sono stati creati lo spazio dei nomi di Hub eventi e altre ri
 > [!div class="nextstepaction"]
 > [Visualizzare anomalie dei dati nei flussi di dati di Hub eventi](event-hubs-tutorial-visualize-anomalies.md)
 
-[creare un account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[Creare un account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
-[az group create]: /cli/azure/group#az_group_create
+[az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

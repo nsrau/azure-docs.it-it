@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d73142931a5cfa84cb24df7a85c799a0f508385
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4a1a687700badc550d37bf74f6a7e1680388897
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358830"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440316"
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure
 
@@ -45,7 +45,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Salvare un modello dalla cronologia di distribuzione
 
-È possibile recuperare un modello dalla cronologia della distribuzione usando il comando [az group deployment export](/cli/azure/group/deployment#az_group_deployment_export). L'esempio seguente salva il modello precedentemente distribuito:
+È possibile recuperare un modello dalla cronologia della distribuzione usando il comando [az group deployment export](/cli/azure/group/deployment#az-group-deployment-export). L'esempio seguente salva il modello precedentemente distribuito:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -56,7 +56,7 @@ Restituisce il modello. Copiare il codice JSON e salvarlo come file. Si noti che
 
 ## <a name="export-resource-group-as-template"></a>Esportare un gruppo di risorse come modello
 
-Invece di recuperare un modello dalla cronologia della distribuzione, è possibile recuperarne uno che rappresenta lo stato corrente di un gruppo di risorse tramite il comando [az group export](/cli/azure/group#az_group_export). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione nello stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
+Invece di recuperare un modello dalla cronologia della distribuzione, è possibile recuperarne uno che rappresenta lo stato corrente di un gruppo di risorse tramite il comando [az group export](/cli/azure/group#az-group-export). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione nello stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
 
 ```azurecli
 az group export --name ExampleGroup

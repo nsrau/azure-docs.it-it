@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178869"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433790"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Configurare gli avvisi di integrità dei servizi con ServiceNow
 
@@ -26,27 +26,27 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Creazione di un'API REST con script in ServiceNow
 1.  Assicurarsi di avere eseguito la registrazione e l'accesso all'account [ServiceNow](https://www.servicenow.com/).
 
-2.  Passare alla sezione **System Web Services** (Servizi Web di sistema) in ServiceNow e selezionare **Scripted REST APIs** (API REST con script).
+1.  Passare alla sezione **System Web Services** (Servizi Web di sistema) in ServiceNow e selezionare **Scripted REST APIs** (API REST con script).
 
     ![La sezione relativa al servizio Web con script in ServiceNow](./media/webhook-alerts/servicenow-sws-section.png)
 
-3.  Selezionare **New** (Nuova) per creare un nuovo servizio REST con script.
+1.  Selezionare **New** (Nuova) per creare un nuovo servizio REST con script.
  
     ![Il pulsante della nuova API REST con script in ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
 
-4.  Aggiungere un **nome** all'API REST e impostare l'**ID API** su `azureservicehealth`.
+1.  Aggiungere un **nome** all'API REST e impostare l'**ID API** su `azureservicehealth`.
 
-5.  Selezionare **Submit** (Invia).
+1.  Selezionare **Submit** (Invia).
 
     ![Impostazioni API REST in ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
 
-6.  Selezionare l'API REST che è stata creata e nella scheda **Resources** (Risorse) selezionare **New** (Nuova).
+1.  Selezionare l'API REST che è stata creata e nella scheda **Resources** (Risorse) selezionare **New** (Nuova).
 
     ![La scheda relativa alle risorse in ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 
-7.  **Denominare**  la nuova risorsa `event` e cambiare il **metodo HTTP** in `POST`.
+1.  **Denominare**  la nuova risorsa `event` e cambiare il **metodo HTTP** in `POST`.
 
-8.  Nella sezione **Script** aggiungere il codice JavaScript seguente:
+1.  Nella sezione **Script** aggiungere il codice JavaScript seguente:
 
     >[!NOTE]
     >È necessario aggiornare il valore `<secret>`,`<group>` e `<email>` nello script seguente.
@@ -139,15 +139,15 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
     })(request, response);
     ```
 
-9.  Nella scheda relativa alla sicurezza deselezionare **Requires authentication** (Richiede autenticazione) e selezionare **Submit** (Invia). Il valore `<secret>` impostato protegge invece questa API.
+1.  Nella scheda relativa alla sicurezza deselezionare **Requires authentication** (Richiede autenticazione) e selezionare **Submit** (Invia). Il valore `<secret>` impostato protegge invece questa API.
 
     ![La casella di controllo di richiesta dell'autenticazione in ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 
-10.  Nella sezione Scripted REST APIs (API REST con script) è presente **Base API Path** (Percorso API base) per la nuova API REST:
+1.  Nella sezione Scripted REST APIs (API REST con script) è presente **Base API Path** (Percorso API base) per la nuova API REST:
 
      ![Il percorso API base in ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
-11.  L'URL di integrazione completo è simile al seguente:
+1.  L'URL di integrazione completo è simile al seguente:
         
          https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
@@ -156,7 +156,7 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 ### <a name="for-a-new-action-group"></a>Per un nuovo gruppo di azioni:
 1. Seguire i passaggi da 1 a 8 in [questo articolo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) per creare un avviso con un nuovo gruppo di azioni.
 
-2. Definire l'elenco di **azioni**:
+1. Definire l'elenco di **azioni**:
 
     a. **Tipo di azione:** *Webhook*
 
@@ -164,16 +164,16 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 
     c. **Nome:** nome, alias o identificatore del webhook.
 
-3. Al termine fare clic su **Salva** per creare l'avviso.
+1. Al termine fare clic su **Salva** per creare l'avviso.
 
 ### <a name="for-an-existing-action-group"></a>Per un gruppo di azioni esistente:
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Monitoraggio**.
 
-2. Nella sezione **Impostazioni** selezionare **Gruppi di azioni**.
+1. Nella sezione **Impostazioni** selezionare **Gruppi di azioni**.
 
-3. Individuare e selezionare il gruppo di azioni da modificare.
+1. Individuare e selezionare il gruppo di azioni da modificare.
 
-4. Aggiungere all'elenco di **azioni**:
+1. Aggiungere all'elenco di **azioni**:
 
     a. **Tipo di azione:** *Webhook*
 
@@ -181,12 +181,12 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 
     c. **Nome:** nome, alias o identificatore del webhook.
 
-5. Al termine fare clic su **Salva** per aggiornare il gruppo di azioni.
+1. Al termine fare clic su **Salva** per aggiornare il gruppo di azioni.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Test dell'integrazione del webhook tramite una richiesta HTTP POST
 1. Creare il payload di integrità del servizio che si vuole inviare. È possibile trovare un payload di esempio del webhook di integrità del servizio in [Webhook per gli avvisi del log attività di Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
-2. Creare una richiesta HTTP POST nel modo seguente:
+1. Creare una richiesta HTTP POST nel modo seguente:
 
     ```
     POST        https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
@@ -195,9 +195,9 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 
     BODY        <service health payload>
     ```
-3. Verrà visualizzata una risposta `200 OK` con un messaggio indicante la creazione di un evento imprevisto.
+1. Verrà visualizzata una risposta `200 OK` con un messaggio indicante la creazione di un evento imprevisto.
 
-4. Passare a [ServiceNow](https://www.servicenow.com/) per confermare che l'integrazione è stata configurata correttamente.
+1. Passare a [ServiceNow](https://www.servicenow.com/) per confermare che l'integrazione è stata configurata correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare le notifiche di webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: dad37a0d66ff1af9ad7e7f3b6a807ef1104da39f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041093"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Esercitazione: Integrazione di Azure Active Directory con Vodelic
 
@@ -53,7 +53,7 @@ A questo scopo, seguire queste indicazioni:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Vodeclic dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="add-vodeclic-from-the-gallery"></a>Aggiunta di Vodeclic dalla raccolta
 Per configurare l'integrazione di Vodeclic in Azure AD, è necessario aggiungere Vodeclic dalla raccolta al proprio elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di Vodeclic in Azure AD, è necessario aggiungere
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Per aggiungere una nuova applicazione, fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
+1. Per aggiungere una nuova applicazione, fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **Vodeclic**. Selezionare **Vodeclic** nel pannello dei risultati e quindi selezionare il pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **Vodeclic**. Selezionare **Vodeclic** nel pannello dei risultati e quindi selezionare il pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Vodeclic nell'elenco risultati](./media/vodeclic-tutorial/tutorial_vodeclic_addfromgallery.png)
 
@@ -87,10 +87,10 @@ In Vodeclic assegnare al valore **Username** (Nome utente) lo stesso valore del 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Vodeclic, completare i blocchi predefiniti seguenti:
 
 1. [Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on): per consentire agli utenti di usare questa funzionalità.
-2. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. [Creare un utente di test di Vodeclic](#create-a-vodeclic-test-user) per avere una controparte di Britta Simon in Vodeclic collegata alla rappresentazione dell'utente in Azure AD.
-4. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. [Testare l'accesso Single Sign-On](#test-single-sign-on) per verificare se la configurazione funziona.
+1. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. [Creare un utente di test di Vodeclic](#create-a-vodeclic-test-user) per avere una controparte di Britta Simon in Vodeclic collegata alla rappresentazione dell'utente in Azure AD.
+1. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. [Testare l'accesso Single Sign-On](#test-single-sign-on) per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -102,11 +102,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** per **Modalità Single Sign-On** selezionare **Accesso basato su SAML** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** per **Modalità Single Sign-On** selezionare **Accesso basato su SAML** per abilitare l'accesso Single Sign-On.
  
     ![Finestra di dialogo Single Sign-On](./media/vodeclic-tutorial/tutorial_vodeclic_samlbase.png)
 
-3. Per configurare l'applicazione in modalità avviata da **IDP**, nella sezione **URL e dominio Vodeclic** seguire questa procedura:
+1. Per configurare l'applicazione in modalità avviata da **IDP**, nella sezione **URL e dominio Vodeclic** seguire questa procedura:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Vodeclic](./media/vodeclic-tutorial/tutorial_vodeclic_url.png)
 
@@ -114,7 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella **URL di risposta** digitare un URL nel formato seguente: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
-4. Se si preferisce configurare l'applicazione in modalità iniziata da **SP**, fare clic sulla casella di controllo **Mostra impostazioni URL avanzate** e seguire questa procedura:
+1. Se si preferisce configurare l'applicazione in modalità iniziata da **SP**, fare clic sulla casella di controllo **Mostra impostazioni URL avanzate** e seguire questa procedura:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Vodeclic](./media/vodeclic-tutorial/tutorial_vodeclic_url1.png)
 
@@ -123,15 +123,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Vodeclic](mailto:hotline@vodeclic.com).
 
-5. Nella sezione **Certificato di firma SAML** selezionare **XML metadati** e quindi salvare il file di metadati sul computer.
+1. Nella sezione **Certificato di firma SAML** selezionare **XML metadati** e quindi salvare il file di metadati sul computer.
 
     ![Collegamento di download del certificato](./media/vodeclic-tutorial/tutorial_vodeclic_certificate.png) 
 
-6. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/vodeclic-tutorial/tutorial_general_400.png)
     
-7. Per configurare l'accesso Single Sign-On sul lato **Vodeclic**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Vodeclic](mailto:hotline@vodeclic.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **Vodeclic**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Vodeclic](mailto:hotline@vodeclic.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo di queste istruzioni è disponibile nel [portale di Azure](https://portal.azure.com) durante la configurazione dell'app. Dopo aver aggiunto l'app dalla sezione **Active Directory** > **Applicazioni aziendali** è sufficiente selezionare la scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Per altre informazioni sulla funzione di documentazione incorporata, vedere la [documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -148,15 +148,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/vodeclic-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare un elenco di utenti, passare a **Utenti e gruppi**. Selezionare quindi **Tutti gli utenti**.
+1. Per visualizzare un elenco di utenti, passare a **Utenti e gruppi**. Selezionare quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/vodeclic-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** selezionare **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** selezionare **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/vodeclic-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/vodeclic-tutorial/create_aaduser_04.png)
 
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Crea**.
+    d. Selezionare **Create**.
  
 ### <a name="create-a-vodeclic-test-user"></a>Creare un utente test Vodeclic
 
@@ -187,23 +187,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegnare utenti][201] 
 
-2. Nell'elenco di applicazioni selezionare **Vodeclic**.
+1. Nell'elenco di applicazioni selezionare **Vodeclic**.
 
     ![Collegamento di Vodeclic nell'elenco delle applicazioni](./media/vodeclic-tutorial/tutorial_vodeclic_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Nella finestra di dialogo **Aggiungi assegnazione** selezionare quindi **Utenti e gruppi**.
+1. Fare clic sul pulsante **Aggiungi**. Nella finestra di dialogo **Aggiungi assegnazione** selezionare quindi **Utenti e gruppi**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**.
 
-6. Nella finestra di dialogo **Utenti e gruppi** fare clic sul pulsante **Seleziona**.
+1. Nella finestra di dialogo **Utenti e gruppi** fare clic sul pulsante **Seleziona**.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

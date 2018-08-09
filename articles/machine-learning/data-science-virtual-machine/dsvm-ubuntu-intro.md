@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179708"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422376"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
 
@@ -63,8 +63,8 @@ La macchina virtuale per l'analisi scientifica dei dati per Linux contiene anche
 L'esecuzione dell'analisi scientifica dei dati comporta l'iterazione di una sequenza di attività quali:
 
 1. Ricerca, caricamento e pre-elaborazione dei dati
-2. Compilazione e test di modelli
-3. Distribuzione dei modelli per l'uso in applicazioni intelligenti
+1. Compilazione e test di modelli
+1. Distribuzione dei modelli per l'uso in applicazioni intelligenti
 
 Gli esperti di dati usano vari strumenti per completare queste attività. Trovare le versioni del software appropriate e quindi scaricarle, compilarle e installarle può essere un'operazione molto dispersiva in termini di tempo.
 
@@ -75,15 +75,15 @@ Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti c
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Altre versioni della macchina virtuale per l'analisi scientifica dei dati
 È disponibile anche un'immagine [CentOS](linux-dsvm-intro.md), con molti degli stessi strumenti dell'immagine Ubuntu. È disponibile anche un'immagine [Windows](provision-vm.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di creare una macchina virtuale per l'analisi scientifica dei dati per Linux è necessario avere una sottoscrizione di Azure. Per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Creare la macchina virtuale per l'analisi scientifica dei dati per Linux
 Di seguito sono elencati i passaggi per la creazione di un'istanza della macchina virtuale per l'analisi scientifica dei dati per Linux:
 
 1. Passare all'elenco di macchine virtuali nel [portale di Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
-2. Fare clic su **Crea** (in basso) per aprire la procedura guidata.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-3. Le sezioni seguenti forniscono gli input per ognuno dei passaggi (elencati nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
+1. Fare clic su **Crea** (in basso) per aprire la procedura guidata.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. Le sezioni seguenti forniscono gli input per ognuno dei passaggi (elencati nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
    
    a. **Nozioni di base**:
    
@@ -118,8 +118,8 @@ Per il provisioning sono necessari circa 5-10 minuti. Lo stato del provisioning 
 
 È possibile accedere alla DSVM Ubuntu in tre modi:
 1. SSH per le sessioni terminale
-2. X2Go per le sessioni grafiche
-3. JupyterHub e JupyterLab per i notebook di Jupyter
+1. X2Go per le sessioni grafiche
+1. JupyterHub e JupyterLab per i notebook di Jupyter
 
 ### <a name="ssh"></a>SSH
 
@@ -134,7 +134,7 @@ Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali
 Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pronta per accettare connessioni client. Per connettersi al desktop con interfaccia grafica della VM Linux, è necessario completare la procedura seguente nel client:
 
 1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
+1. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
    * **Scheda Session**(Sessione):
      * **Host**: nome host o indirizzo IP della VM Linux di analisi scientifica dei dati.
      * **Login**(Accesso): nome utente di accesso della VM Linux.
@@ -416,16 +416,16 @@ Si apre un'interfaccia grafica con un set di schede. Qui è disponibile una proc
 > 
 
 1. Fare clic su **Execute**.
-2. Viene visualizzata una finestra di dialogo in cui viene chiesto se si vuole usare il set di dati meteo di esempio. Fare clic su **Yes** (Sì) per caricare l'esempio.
-3. Fare clic sulla scheda **Model** (Modello).
-4. Fare clic su **Execute** (Esegui) per compilare un albero delle decisioni.
-5. Fare clic su **Draw** (Progetta) per visualizzare l'albero delle decisioni.
-6. Fare clic sul pulsante di opzione **Foresta** e quindi su **Esegui** per creare una foresta casuale.
-7. Fare clic sulla scheda **Evaluate** (Valuta).
-8. Fare clic sul pulsante di opzione **Rischio** e quindi su **Esegui** per visualizzare due tracciati delle prestazioni per Rischio (Cumulativo).
-9. Fare clic sulla scheda **Log** (Log) per visualizzare il codice R generato per le operazioni precedenti.
+1. Viene visualizzata una finestra di dialogo in cui viene chiesto se si vuole usare il set di dati meteo di esempio. Fare clic su **Yes** (Sì) per caricare l'esempio.
+1. Fare clic sulla scheda **Model** (Modello).
+1. Fare clic su **Execute** (Esegui) per compilare un albero delle decisioni.
+1. Fare clic su **Draw** (Progetta) per visualizzare l'albero delle decisioni.
+1. Fare clic sul pulsante di opzione **Foresta** e quindi su **Esegui** per creare una foresta casuale.
+1. Fare clic sulla scheda **Evaluate** (Valuta).
+1. Fare clic sul pulsante di opzione **Rischio** e quindi su **Esegui** per visualizzare due tracciati delle prestazioni per Rischio (Cumulativo).
+1. Fare clic sulla scheda **Log** (Log) per visualizzare il codice R generato per le operazioni precedenti.
    (A causa di un bug nella versione corrente di Rattle, è necessario inserire un carattere *#* davanti a *Esporta il log...* nel testo del log).
-10. Fare clic sul pulsante **Esporta** per salvare il file di script R denominato *weather_script.R* nella home directory.
+1. Fare clic sul pulsante **Esporta** per salvare il file di script R denominato *weather_script.R* nella home directory.
 
 È possibile uscire da Rattle e da R. A questo punto è possibile modificare lo script R generato o usarlo così com'è, in qualsiasi momento, per ripetere tutte le operazioni eseguite nell'interfaccia utente di Rattle. Questo è un modo semplice, specialmente per gli utenti meno esperti di R, di eseguire analisi e accedere all'apprendimento automatico rapidamente in un'interfaccia grafica semplice, generando automaticamente codice in R per apportare modifiche e/o apprendere.
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: ec5470587454a35bc7606a3518d61bd3491d653b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc74d7fdd082cf497b7cabf30d96509ebe8b6b68
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765542"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426020"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 1. Nel portale di Azure selezionare un profilo della rete CDN, quindi selezionare l'endpoint per il server Web.
 
-2. In Impostazioni nel riquadro sinistro selezionare **Regole di memorizzazione nella cache**.
+1. In Impostazioni nel riquadro sinistro selezionare **Regole di memorizzazione nella cache**.
 
    ![Pulsante Regole di memorizzazione nella cache della rete CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
@@ -60,13 +60,13 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 1. In **Regole di memorizzazione nella cache globali**, impostare **Comportamento di memorizzazione nella cache della stringa di query** su **Ignora stringhe di query** e impostare **Comportamento di memorizzazione nella cache** su **Ignora**.
       
-2. Per **Durata scadenza cache** immettere 3600 nella casella **Secondi** o 1 nella casella **Ore**. 
+1. Per **Durata scadenza cache** immettere 3600 nella casella **Secondi** o 1 nella casella **Ore**. 
 
    ![Esempio di regole di memorizzazione nella cache globali della rete CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    Questa regola di memorizzazione nella cache globale imposta una durata di un'ora per la cache e influisce su tutte le richieste per l'endpoint. Esegue l'override di qualsiasi intestazione HTTP `Cache-Control` o `Expires` inviata dal server di origine specificato dall'endpoint.   
 
-3. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
 **Per configurare le intestazioni Cache-Control di un server Web tramite regole di memorizzazione nella cache personalizzate:**
 
@@ -80,7 +80,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
     La prima regola di memorizzazione nella cache personalizzata imposta una durata della cache di quattro ore per qualsiasi file nella cartella `/webfolder1` nel server di origine specificato dall'endpoint. La seconda regola esegue l'override della prima regola solo per il file `file1.txt` e imposta una durata della cache di due ore per tale file.
 
-2. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Impostazione delle intestazioni Cache-Control tramite dei file di configurazione
@@ -113,10 +113,10 @@ Per le applicazioni ASP.NET, gestire a livello di codice il comportamento di mem
 
 Per memorizzare nella cache il contenuto dell'applicazione in ASP.NET a livello di codice, eseguire la procedura seguente:
    1. Verificare che il contenuto sia contrassegnato come memorizzabile nella cache impostando `HttpCacheability` su `Public`. 
-   2. Impostare un validator della cache chiamando uno dei metodi `HttpCachePolicy` seguenti:
+   1. Impostare un validator della cache chiamando uno dei metodi `HttpCachePolicy` seguenti:
       - Chiamare `SetLastModified` per impostare un valore di timestamp per l'intestazione`Last-Modified`.
       - Chiamare `SetETag` per impostare un valore per l'intestazione`ETag`.
-   3. Facoltativamente, specificare un'ora di scadenza della cache chiamando `SetExpires` per impostare un valore dell'intestazione `Expires`. In caso contrario, si applica l'euristica predefinita della cache descritta in precedenza in questo documento.
+   1. Facoltativamente, specificare un'ora di scadenza della cache chiamando `SetExpires` per impostare un valore dell'intestazione `Expires`. In caso contrario, si applica l'euristica predefinita della cache descritta in precedenza in questo documento.
 
 Ad esempio, per memorizzare nella cache il contenuto per un'ora, aggiungere il codice C# seguente:  
 

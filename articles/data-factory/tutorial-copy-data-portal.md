@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 47fc3b44719caf430edf026bf776c4e85764ad08
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d8e2d6f18ea1c66404ceed475d1522bd631961fb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048438"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444556"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con Azure Data Factory
 In questa esercitazione viene creata una data factory con l'interfaccia utente di Azure Data Factory. La pipeline in questa data factory copia i dati da un archivio BLOB di Azure a un database SQL. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -36,7 +36,7 @@ In questa esercitazione si segue questa procedura:
 > * Attivare la pipeline in base a una pianificazione.
 > * Monitorare le esecuzioni di pipeline e attività.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Account di archiviazione di Azure**. Come archivio dati di *origine* si usa un archivio BLOB. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
 * **Database SQL di Azure**. Il database viene usato come archivio dati *sink*. Se non si ha un database SQL, vedere la procedura per crearne uno in [Creare un database SQL](../sql-database/sql-database-get-started-portal.md).
@@ -54,7 +54,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL per l'esercitazione seg
     Jane,Doe
     ```
 
-2. Creare un contenitore denominato **adftutorial** nell'archivio BLOB. Creare una cartella denominata **input** in questo contenitore. Caricare quindi il file **emp.txt** nella cartella **input**. Usare il portale di Azure o strumenti come [Azure Storage Explorer](http://storageexplorer.com/) per eseguire queste attività.
+1. Creare un contenitore denominato **adftutorial** nell'archivio BLOB. Creare una cartella denominata **input** in questo contenitore. Caricare quindi il file **emp.txt** nella cartella **input**. Usare il portale di Azure o strumenti come [Azure Storage Explorer](http://storageexplorer.com/) per eseguire queste attività.
 
 #### <a name="create-a-sink-sql-table"></a>Creare una tabella SQL sink
 
@@ -72,7 +72,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL per l'esercitazione seg
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Consentire ai servizi di Azure di accedere a SQL Server. Assicurarsi che l'opzione **Consenti l'accesso a Servizi di Azure** sia impostata su **SÌ** per SQL Server in modo che Data Factory possa scrivere dati in SQL Server. Per verificare e attivare l'impostazione, seguire questa procedura:
+1. Consentire ai servizi di Azure di accedere a SQL Server. Assicurarsi che l'opzione **Consenti l'accesso a Servizi di Azure** sia impostata su **SÌ** per SQL Server in modo che Data Factory possa scrivere dati in SQL Server. Per verificare e attivare l'impostazione, seguire questa procedura:
 
     a. A sinistra selezionare **Altri servizi** > **SQL Server**.
 
@@ -80,55 +80,55 @@ Preparare ora l'archivio BLOB di Azure e il database SQL per l'esercitazione seg
 
     c. Nella pagina **Impostazioni del firewall** selezionare **SÌ** per **Consenti l'accesso a Servizi di Azure**.
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 In questo passaggio si crea una data factory e si avvia l'interfaccia utente di Data Factory per creare una pipeline nella data factory. 
 
 1. Aprire il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
-2. Nel menu a sinistra selezionare **Nuovo** > **Dati e analisi** > **Data factory**. 
+1. Nel menu a sinistra selezionare **Nuovo** > **Dati e analisi** > **Data factory**. 
   
    ![Creazione di una nuova data factory](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
-3. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**. 
+1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**. 
       
      ![Nuova data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato il messaggio di errore seguente per il campo Nome, modificare il nome della data factory, ad esempio usando nomeutenteADFTutorialDataFactory. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere [Azure Data factory - Regole di denominazione](naming-rules.md).
   
    ![Messaggio di errore](./media/tutorial-copy-data-portal/name-not-available-error.png)
-4. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
-5. In **Gruppo di risorse** eseguire una di queste operazioni:
+1. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
+1. In **Gruppo di risorse** eseguire una di queste operazioni:
      
     a. Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
 
     b. Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse. 
          
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md). 
-6. In **Versione** selezionare **V2**.
-7. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre aree.
-8. Selezionare **Aggiungi al dashboard**. 
-9. Selezionare **Create**. 
-10. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
+1. In **Versione** selezionare **V2**.
+1. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dalla data factory possono trovarsi in altre aree.
+1. Selezionare **Aggiungi al dashboard**. 
+1. Selezionare **Crea**. 
+1. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-copy-data-portal/deploying-data-factory.png)
-11. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
+1. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
    
     ![Home page di Data factory](./media/tutorial-copy-data-portal/data-factory-home-page.png)
-12. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
+1. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
 In questo passaggio si crea una pipeline con un'attività di copia nella data factory. L'attività copia i dati dall'archivio BLOB al database SQL. Nell'[Esercitazione introduttiva](quickstart-create-data-factory-portal.md) è stata creata una pipeline con questa procedura:
 
 1. Creazione del servizio collegato. 
-2. Creazione dei set di dati di input e di output.
-3. Creare una pipeline.
+1. Creazione dei set di dati di input e di output.
+1. Creare una pipeline.
 
 In questa esercitazione si crea inizialmente la pipeline, quindi si creano i servizi collegati e i set di dati quando risultano necessari per la configurazione della pipeline. 
 
 1. Nella pagina **Attività iniziali** selezionare **Create pipeline** (Crea pipeline). 
 
    ![Creare una pipeline](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
-2. Nella scheda **Generale** della pipeline immettere **CopyPipeline** come **nome** della pipeline.
+1. Nella scheda **Generale** della pipeline immettere **CopyPipeline** come **nome** della pipeline.
 
-3. Nella casella degli strumenti **Attività** espandere la categoria **Flusso di dati** e trascinare l'attività **Copia** dalla casella degli strumenti all'area di progettazione della pipeline. Specificare **CopyFromBlobToSql** per **Nome**.
+1. Nella casella degli strumenti **Attività** espandere la categoria **Flusso di dati** e trascinare l'attività **Copia** dalla casella degli strumenti all'area di progettazione della pipeline. Specificare **CopyFromBlobToSql** per **Nome**.
 
     ![Attività di copia](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
@@ -136,39 +136,39 @@ In questa esercitazione si crea inizialmente la pipeline, quindi si creano i ser
 
 1. Passare alla scheda **Origine**. Selezionare **+ Nuovo** per creare un set di dati di origine. 
 
-2. Nella finestra **Nuovo set di dati** selezionare **Archiviazione BLOB di Azure** e quindi **Fine**. I dati di origine si trovano in un archivio BLOB, quindi come set di dati di origine si seleziona **Archiviazione BLOB di Azure**. 
+1. Nella finestra **Nuovo set di dati** selezionare **Archiviazione BLOB di Azure** e quindi **Fine**. I dati di origine si trovano in un archivio BLOB, quindi come set di dati di origine si seleziona **Archiviazione BLOB di Azure**. 
 
     ![Selezione dell'archiviazione](./media/tutorial-copy-data-portal/select-azure-blob-dataset.png)
 
-3. Verrà aperta una nuova scheda per il set di dati BLOB. Nella scheda **Generale** nella parte inferiore della finestra **Proprietà** immettere **SourceBlobDataset** in **Nome**.
+1. Verrà aperta una nuova scheda per il set di dati BLOB. Nella scheda **Generale** nella parte inferiore della finestra **Proprietà** immettere **SourceBlobDataset** in **Nome**.
 
     ![Nome del set di dati](./media/tutorial-copy-data-portal/dataset-name.png)
 
-4. Passare alla scheda **Connessione** della finestra **Proprietà**. Selezionare **+ Nuovo** accanto alla casella di testo **Servizio collegato**. 
+1. Passare alla scheda **Connessione** della finestra **Proprietà**. Selezionare **+ Nuovo** accanto alla casella di testo **Servizio collegato**. 
 
     ![Pulsante Nuovo per il servizio collegato](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 
-5. Nella finestra **New Linked Service** (Nuovo servizio collegato) immettere **AzureStorageLinkedService** come nome, selezionare l'account di archiviazione nell'elenco **Nome account di archiviazione**, quindi selezionare **Salva** per distribuire il servizio collegato.
+1. Nella finestra **New Linked Service** (Nuovo servizio collegato) immettere **AzureStorageLinkedService** come nome, selezionare l'account di archiviazione nell'elenco **Nome account di archiviazione**, quindi selezionare **Salva** per distribuire il servizio collegato.
 
     ![Nuovo servizio collegato](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
 
-6. Dopo aver creato il servizio collegato, si torna alle impostazioni del set di dati. Selezionare **Sfoglia** accanto a **Percorso file**.
+1. Dopo aver creato il servizio collegato, si torna alle impostazioni del set di dati. Selezionare **Sfoglia** accanto a **Percorso file**.
 
     ![Pulsante Sfoglia per il percorso del file](./media/tutorial-copy-data-portal/file-browse-button.png)
 
-7. Passare alla cartella **adftutorial/input** e selezionare il file **emp.txt** e quindi **Fine**. 
+1. Passare alla cartella **adftutorial/input** e selezionare il file **emp.txt** e quindi **Fine**. 
 
     ![Selezionare il file di input](./media/tutorial-copy-data-portal/select-input-file.png)
 
-8. Verificare che **Formato file** sia impostato su **Text format** (Formato testo) e che l'opzione **Delimitatore di colonna** sia impostata su **Virgola (`,`)**. Se il file di origine usa delimitatori di colonna e di riga diversi, è possibile selezionare **Detect Text Format** (Rileva formato testo) per **Formato file**. Lo strumento Copia dati rileva automaticamente il formato del file e i delimitatori. È comunque possibile sostituire questi valori. Per visualizzare l'anteprima dei dati in questa pagina, selezionare **Anteprima dati**.
+1. Verificare che **Formato file** sia impostato su **Text format** (Formato testo) e che l'opzione **Delimitatore di colonna** sia impostata su **Virgola (`,`)**. Se il file di origine usa delimitatori di colonna e di riga diversi, è possibile selezionare **Detect Text Format** (Rileva formato testo) per **Formato file**. Lo strumento Copia dati rileva automaticamente il formato del file e i delimitatori. È comunque possibile sostituire questi valori. Per visualizzare l'anteprima dei dati in questa pagina, selezionare **Anteprima dati**.
 
     ![Rilevare il formato del testo](./media/tutorial-copy-data-portal/detect-text-format.png)
 
-9. Passare alla scheda **Schema** nella finestra **Proprietà** e selezionare **Importa schema**. Si noti che l'applicazione ha rilevato due colonne nel file di origine. Lo schema viene importato per poter eseguire il mapping delle colonne dall'archivio dati di origine all'archivio dati sink. Se non è necessario eseguire il mapping delle colonne, questo passaggio può essere ignorato. Per questa esercitazione importare lo schema.
+1. Passare alla scheda **Schema** nella finestra **Proprietà** e selezionare **Importa schema**. Si noti che l'applicazione ha rilevato due colonne nel file di origine. Lo schema viene importato per poter eseguire il mapping delle colonne dall'archivio dati di origine all'archivio dati sink. Se non è necessario eseguire il mapping delle colonne, questo passaggio può essere ignorato. Per questa esercitazione importare lo schema.
 
     ![Rilevare lo schema di origine](./media/tutorial-copy-data-portal/detect-source-schema.png)  
 
-10. Tornare ora alla pipeline -> scheda **Origine** e verificare che **SourceBlobDataset** sia selezionato. Per visualizzare l'anteprima dei dati in questa pagina, selezionare **Anteprima dati**. 
+1. Tornare ora alla pipeline -> scheda **Origine** e verificare che **SourceBlobDataset** sia selezionato. Per visualizzare l'anteprima dei dati in questa pagina, selezionare **Anteprima dati**. 
     
     ![Set di dati di origine](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
@@ -177,16 +177,16 @@ In questa esercitazione si crea inizialmente la pipeline, quindi si creano i ser
 1. Passare alla scheda **Sink** e selezionare **+ Nuovo** per creare un set di dati sink. 
 
     ![Set di dati sink](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-2. Nella finestra **Nuovo set di dati** immettere "SQL" nella casella di ricerca per filtrare i connettori, quindi selezionare **Database SQL di Azure** e infine selezionare **Fine**. In questa esercitazione si copiano i dati in un database SQL. 
+1. Nella finestra **Nuovo set di dati** immettere "SQL" nella casella di ricerca per filtrare i connettori, quindi selezionare **Database SQL di Azure** e infine selezionare **Fine**. In questa esercitazione si copiano i dati in un database SQL. 
 
     ![Selezione del database SQL](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
-3. Nella scheda **Generale** della finestra **Proprietà** immettere **OutputSqlDataset** in **Nome**. 
+1. Nella scheda **Generale** della finestra **Proprietà** immettere **OutputSqlDataset** in **Nome**. 
     
     ![Nome del set di dati di output](./media/tutorial-copy-data-portal/output-dataset-name.png)
-4. Passare alla scheda **Connessione** e selezionare **+ Nuovo** accanto a **Servizio collegato**. È necessario associare un set di dati a un servizio collegato. Il servizio collegato contiene la stringa di connessione usata da Data Factory per connettersi al database SQL in fase di esecuzione. Il set di dati specifica il contenitore, la cartella e il file (facoltativo) in cui vengono copiati i dati. 
+1. Passare alla scheda **Connessione** e selezionare **+ Nuovo** accanto a **Servizio collegato**. È necessario associare un set di dati a un servizio collegato. Il servizio collegato contiene la stringa di connessione usata da Data Factory per connettersi al database SQL in fase di esecuzione. Il set di dati specifica il contenitore, la cartella e il file (facoltativo) in cui vengono copiati i dati. 
     
     ![Servizio collegato](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
-5. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura: 
+1. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura: 
 
     a. In **Nome** immettere **AzureSqlDatabaseLinkedService**.
 
@@ -204,16 +204,16 @@ In questa esercitazione si crea inizialmente la pipeline, quindi si creano i ser
     
     ![Salvare il nuovo servizio collegato](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-6. In **Tabella** selezionare **[dbo].[emp]**. 
+1. In **Tabella** selezionare **[dbo].[emp]**. 
 
     ![Tabella](./media/tutorial-copy-data-portal/select-emp-table.png)
-7. Passare alla scheda **Schema** e selezionare **Importa schema**. 
+1. Passare alla scheda **Schema** e selezionare **Importa schema**. 
 
     ![Selezionare Importa schema](./media/tutorial-copy-data-portal/import-destination-schema.png)
-8. Selezionare la colonna **ID** e quindi **Elimina**. La colonna **ID** è una colonna Identity del database SQL, quindi non è necessario che l'attività di copia inserisca dati in questa colonna.
+1. Selezionare la colonna **ID** e quindi **Elimina**. La colonna **ID** è una colonna Identity del database SQL, quindi non è necessario che l'attività di copia inserisca dati in questa colonna.
 
     ![Eliminare la colonna ID](./media/tutorial-copy-data-portal/delete-id-column.png)
-9. Passare alla scheda con la pipeline e verificare che in **Sink Dataset** (Set di dati sink) sia selezionato **OutputSqlDataset**.
+1. Passare alla scheda con la pipeline e verificare che in **Sink Dataset** (Set di dati sink) sia selezionato **OutputSqlDataset**.
 
     ![Scheda con la pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
@@ -233,36 +233,36 @@ Per convalidare la pipeline, selezionare **Convalida** dalla barra degli strumen
 
 1. Per eseguire il debug della pipeline, selezionare **Debug** sulla barra degli strumenti. Lo stato dell'esecuzione della pipeline verrà visualizzato nella scheda **Output** nella parte inferiore della finestra. 
 
-2. Quando è possibile eseguire correttamente la pipeline, nella barra degli strumenti superiore selezionare **Pubblica tutto**. Questa azione pubblica le entità create (set di dati e pipeline) in Data Factory.
+1. Quando è possibile eseguire correttamente la pipeline, nella barra degli strumenti superiore selezionare **Pubblica tutto**. Questa azione pubblica le entità create (set di dati e pipeline) in Data Factory.
 
     ![Pubblica](./media/tutorial-copy-data-portal/publish-button.png)
 
-4. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**. Per visualizzare i messaggi di notifica, fare clic su **Mostra notifiche** in alto a destra (pulsante con il campanello). 
+1. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**. Per visualizzare i messaggi di notifica, fare clic su **Mostra notifiche** in alto a destra (pulsante con il campanello). 
 
 ## <a name="trigger-the-pipeline-manually"></a>Attivare manualmente la pipeline
 In questo passaggio si attiva manualmente la pipeline pubblicata nel passaggio precedente. 
 
 1. Selezionare **Trigger** sulla barra degli strumenti e quindi selezionare **Trigger Now** (Attiva adesso). Nella pagina **Pipeline Run** (Esecuzione di pipeline) selezionare **Fine**.  
 
-2. Passare alla scheda **Monitoraggio** a sinistra. Viene visualizzata un'esecuzione della pipeline attivata da un trigger manuale. È possibile usare i collegamenti nella colonna **Azioni** per visualizzare i dettagli delle attività ed eseguire di nuovo la pipeline.
+1. Passare alla scheda **Monitoraggio** a sinistra. Viene visualizzata un'esecuzione della pipeline attivata da un trigger manuale. È possibile usare i collegamenti nella colonna **Azioni** per visualizzare i dettagli delle attività ed eseguire di nuovo la pipeline.
 
     ![Monitorare le esecuzioni di pipeline](./media/tutorial-copy-data-portal/monitor-pipeline.png)
-3. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. In questo esempio è presente una sola attività, quindi nell'elenco viene visualizzata una sola voce. Per informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Azioni**. Selezionare **Pipeline** in alto per tornare alla visualizzazione **Pipeline Runs** (Esecuzioni di pipeline). Per aggiornare la visualizzazione, selezionare **Aggiorna**.
+1. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. In questo esempio è presente una sola attività, quindi nell'elenco viene visualizzata una sola voce. Per informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Azioni**. Selezionare **Pipeline** in alto per tornare alla visualizzazione **Pipeline Runs** (Esecuzioni di pipeline). Per aggiornare la visualizzazione, selezionare **Aggiorna**.
 
     ![Monitorare le esecuzioni delle attività](./media/tutorial-copy-data-portal/view-activity-runs.png)
-4. Verificare l'aggiunta di altre due righe alla tabella **emp** nel database SQL. 
+1. Verificare l'aggiunta di altre due righe alla tabella **emp** nel database SQL. 
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Attivare la pipeline in base a una pianificazione
 In questa pianificazione si crea un trigger di pianificazione per la pipeline. Il trigger esegue la pipeline in base alla pianificazione specificata, ad esempio ogni ora oppure ogni giorno. In questo esempio, il trigger viene impostato per l'esecuzione ogni minuto fino al valore di data e ora di fine specificato. 
 
 1. Passare alla scheda **Autore** a sinistra sopra la scheda Monitoraggio. 
 
-2. Accedere alla pipeline, fare clic su **Trigger** sulla barra degli strumenti e selezionare **New/Edit** (Nuovo/Modifica). 
+1. Accedere alla pipeline, fare clic su **Trigger** sulla barra degli strumenti e selezionare **New/Edit** (Nuovo/Modifica). 
 
-3. Nella finestra **Add Triggers** (Aggiungi trigger) selezionare **Choose trigger** (Scegli trigger) e quindi **+ Nuovo**. 
+1. Nella finestra **Add Triggers** (Aggiungi trigger) selezionare **Choose trigger** (Scegli trigger) e quindi **+ Nuovo**. 
 
     ![New button](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
-4. Nella finestra **Nuovo trigger** seguire questa procedura: 
+1. Nella finestra **Nuovo trigger** seguire questa procedura: 
 
     a. In **Nome** immettere **RunEveryMinute**.
 
@@ -286,22 +286,22 @@ In questa pianificazione si crea un trigger di pianificazione per la pipeline. I
 
     > [!IMPORTANT]
     > Dato che a ogni esecuzione della pipeline è associato un costo, impostare correttamente la data di fine. 
-5. Nella pagina **Trigger Run Parameters** (Parametri esecuzione trigger) esaminare l'avviso e quindi selezionare **Fine**. La pipeline di questo esempio non accetta alcun parametro. 
+1. Nella pagina **Trigger Run Parameters** (Parametri esecuzione trigger) esaminare l'avviso e quindi selezionare **Fine**. La pipeline di questo esempio non accetta alcun parametro. 
 
     ![Parametri di esecuzione del trigger](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
 
-6. Fare clic su **Pubblica tutto** per pubblicare la modifica. 
+1. Fare clic su **Pubblica tutto** per pubblicare la modifica. 
 
-7. Passare alla scheda **Monitoraggio** a sinistra per visualizzare le esecuzioni della pipeline attivate. 
+1. Passare alla scheda **Monitoraggio** a sinistra per visualizzare le esecuzioni della pipeline attivate. 
 
     ![Esecuzioni di pipeline attivate](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
-8. Per passare dalla visualizzazione **Pipeline Runs** (Esecuzioni di pipeline) alla visualizzazione **Trigger Runs** (Esecuzioni del trigger), selezionare **Pipeline Runs** (Esecuzioni di pipeline) e quindi **Trigger Runs** (Esecuzioni del trigger).
+1. Per passare dalla visualizzazione **Pipeline Runs** (Esecuzioni di pipeline) alla visualizzazione **Trigger Runs** (Esecuzioni del trigger), selezionare **Pipeline Runs** (Esecuzioni di pipeline) e quindi **Trigger Runs** (Esecuzioni del trigger).
     
     ![Esecuzioni di trigger](./media/tutorial-copy-data-portal/trigger-runs-menu.png)
-9. Verrà visualizzato l'elenco di esecuzioni di trigger. 
+1. Verrà visualizzato l'elenco di esecuzioni di trigger. 
 
     ![Elenco delle esecuzioni di trigger](./media/tutorial-copy-data-portal/trigger-runs-list.png)
-10. Verificare che vengano inserite due righe per ogni minuto (per ogni esecuzione di pipeline) nella tabella **emp** fino alla data e ora di fine specificata. 
+1. Verificare che vengano inserite due righe per ogni minuto (per ogni esecuzione di pipeline) nella tabella **emp** fino alla data e ora di fine specificata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 La pipeline di questo esempio copia i dati da una posizione a un'altra in un archivio BLOB. Si è appreso come: 

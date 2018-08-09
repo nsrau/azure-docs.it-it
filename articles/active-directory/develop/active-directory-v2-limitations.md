@@ -17,21 +17,21 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4fbde5306efb2de5cfe3ffd0a49b9e24a7b67e8c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003959"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590750"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Perché usare l'endpoint 2.0
 
-Nella compilazione di applicazioni che si integrano con Azure Active Directory (Azure AD) è necessario stabilire se l'endpoint 2.0 e i protocolli di autenticazione rispondono ai requisiti specifici. L'endpoint originale di Azure AD è ancora completamente supportato e, per alcuni aspetti, include più funzionalità della versione 2.0. L'endpoint 2.0 [introduce vantaggi significativi](active-directory-v2-compare.md) per gli sviluppatori.
+Nella compilazione di applicazioni che si integrano con Azure Active Directory (Azure AD) è necessario stabilire se l'endpoint 2.0 e i protocolli di autenticazione rispondono ai requisiti specifici. L'endpoint originale di Azure AD è ancora completamente supportato e, per alcuni aspetti, include più funzionalità della versione 2.0. L'endpoint 2.0 [introduce vantaggi significativi](azure-ad-endpoint-comparison.md) per gli sviluppatori.
 
 Di seguito sono riportati alcuni consigli per gli sviluppatori, opportunamente semplificati:
 
 * Se nell'applicazione devono essere supportati account Microsoft personali, usare l'endpoint 2.0. È necessario tuttavia comprendere prima i limiti illustrati in questo articolo.
-* Se l'applicazione deve supportare solo account Microsoft aziendali o dell'istituto di istruzione, non usare l'endpoint 2.0. In questo caso, fare riferimento alla [Guida per gli sviluppatori di Azure Active Directory](active-directory-developers-guide.md).
+* Se l'applicazione deve supportare solo account Microsoft aziendali o dell'istituto di istruzione, non usare l'endpoint 2.0. In questo caso, fare riferimento alla [Guida per gli sviluppatori di Azure Active Directory](azure-ad-developers-guide.md).
 
 L'endpoint 2.0 verrà migliorato per eliminare le restrizioni elencate di seguito, in modo da consentire l'uso esclusivo dell'endpoint 2.0. Nel frattempo, usare questo articolo per determinare se l'endpoint 2.0 è adatto alle proprie esigenze. L'articolo verrà aggiornato periodicamente per riflettere lo stato corrente dell'endpoint 2.0. È consigliabile tornare a consultarlo regolarmente per valutare i propri requisiti rispetto alle funzionalità della versione 2.0.
 
@@ -39,11 +39,11 @@ Se è disponibile un'app Azure AD che non usa l'endpoint 2.0, non è necessario 
 
 ## <a name="restrictions-on-app-types"></a>Restrizioni relative ai tipi di app
 
-I tipi di app seguenti non sono attualmente supportati dall'endpoint 2.0. Per una descrizione dei tipi di app supportati, vedere [Tipi di app per l'endpoint 2.0 di Azure Active Directory](active-directory-v2-flows.md).
+I tipi di app seguenti non sono attualmente supportati dall'endpoint 2.0. Per una descrizione dei tipi di app supportati, vedere [Tipi di app per l'endpoint 2.0 di Azure Active Directory](v2-app-types.md).
 
 ### <a name="standalone-web-apis"></a>API Web autonome
 
-È possibile usare l'endpoint 2.0 per [compilare un'API Web protetta con OAuth 2.0](active-directory-v2-flows.md#web-apis). L'API Web, tuttavia, può ricevere i token solo da un'applicazione che condivide lo stesso ID applicazione. Non è possibile accedere a un'API Web da un client con un ID applicazione diverso perché il client non sarà in grado di richiedere o ottenere autorizzazioni per l'API Web.
+È possibile usare l'endpoint 2.0 per [compilare un'API Web protetta con OAuth 2.0](v2-app-types.md#web-apis). L'API Web, tuttavia, può ricevere i token solo da un'applicazione che condivide lo stesso ID applicazione. Non è possibile accedere a un'API Web da un client con un ID applicazione diverso perché il client non sarà in grado di richiedere o ottenere autorizzazioni per l'API Web.
 
 Per informazioni su come compilare un'API Web che accetti token da un client con lo stesso ID applicazione, vedere gli esempi di API Web dell'endpoint 2.0 nella sezione [Introduzione](active-directory-appmodel-v2-overview.md#getting-started).
 
@@ -91,16 +91,16 @@ Gli ultimi due URI possono essere aggiunti perché si tratta di sottodomini del 
 
 Si noti inoltre che è possibile avere solo 20 URL di risposta per una determinata applicazione.
 
-Per informazioni su come registrare un'app nel portale di registrazione delle applicazioni, vedere [Come registrare un'app con l'endpoint 2.0](active-directory-v2-app-registration.md).
+Per informazioni su come registrare un'app nel portale di registrazione delle applicazioni, vedere [Come registrare un'app con l'endpoint 2.0](quickstart-v2-register-an-app.md).
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restrizioni relative alle librerie e agli SDK
 
 Il supporto delle librerie per l'endpoint 2.0 è attualmente limitato. Per usare l'endpoint 2.0 in un'applicazione di produzione, sono disponibili le opzioni seguenti:
 
 * Se si compila un'applicazione Web, è possibile usare il middleware lato server di Microsoft disponibile a livello generale per eseguire operazioni di accesso e convalida dei token. Sono inclusi il middleware OpenID Connect OWIN per ASP.NET e il plug-in Passport per NodeJS. Per esempi di codice che usano il middleware di Microsoft, vedere la sezione [Introduzione](active-directory-appmodel-v2-overview.md#getting-started).
-* Se si compila un'applicazione desktop o portatile, è possibile usare una delle librerie di autenticazione Microsoft (MSAL) di anteprima. Queste librerie sono disponibili in anteprima supportata di produzione ed è quindi consigliabile usarle in applicazioni di produzione. Per altre informazioni sui termini e condizioni dell'anteprima e sulle librerie disponibili, vedere le [informazioni di riferimento sulle librerie di autenticazione](active-directory-v2-libraries.md).
+* Se si compila un'applicazione desktop o portatile, è possibile usare una delle librerie di autenticazione Microsoft (MSAL) di anteprima. Queste librerie sono disponibili in anteprima supportata di produzione ed è quindi consigliabile usarle in applicazioni di produzione. Per altre informazioni sui termini e condizioni dell'anteprima e sulle librerie disponibili, vedere le [informazioni di riferimento sulle librerie di autenticazione](reference-v2-libraries.md).
 * In caso di piattaforme non coperte da librerie Microsoft, è possibile integrarle con l'endpoint 2.0 tramite l'invio e la ricezione diretta di messaggi di protocollo nel codice dell'applicazione. I protocolli OpenID Connect e OAuth della versione 2.0 [sono documentati in modo esplicito](active-directory-v2-protocols.md) per consentire tale integrazione.
-* Per realizzare l'integrazione con l'endpoint 2.0, è anche possibile usare librerie OpenID Connect e OAuth di tipo open source. Il protocollo della versione 2.0 dovrebbe essere compatibile con molte librerie di protocollo open source senza modifiche rilevanti. La disponibilità di questi tipi di librerie varia in base a linguaggio e piattaforma. Nei siti Web di [OpenID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) è disponibile un elenco delle implementazioni più diffuse. Per altre informazioni, vedere [Azure Active Directory 2.0 e librerie di autenticazione](active-directory-v2-libraries.md), l'elenco di librerie client open source e gli esempi testati con l'endpoint 2.0.
+* Per realizzare l'integrazione con l'endpoint 2.0, è anche possibile usare librerie OpenID Connect e OAuth di tipo open source. Il protocollo della versione 2.0 dovrebbe essere compatibile con molte librerie di protocollo open source senza modifiche rilevanti. La disponibilità di questi tipi di librerie varia in base a linguaggio e piattaforma. Nei siti Web di [OpenID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) è disponibile un elenco delle implementazioni più diffuse. Per altre informazioni, vedere [Azure Active Directory 2.0 e librerie di autenticazione](reference-v2-libraries.md), l'elenco di librerie client open source e gli esempi testati con l'endpoint 2.0.
 
 ## <a name="restrictions-on-protocols"></a>Restrizioni relative ai protocolli
 

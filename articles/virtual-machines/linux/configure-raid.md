@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: d6e831692da37645e264c6674f1ba54bb16d25d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2376ade49b990ff22683a14ecd4ae6b4dda356c3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911758"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434544"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configurare RAID software in Linux
 I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per presentare più dischi dati collegati come se si trattasse di un singolo dispositivo RAID. In genere questa configurazione consente di migliorare le prestazioni e la velocità effettiva rispetto all'utilizzo di un unico disco.
@@ -62,13 +62,13 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
                     sectors (command 'u').
     ```
 
-2. Premere 'n' al prompt per creare una **n**uova partizione:
+1. Premere 'n' al prompt per creare una **n**uova partizione:
 
     ```bash
     Command (m for help): n
     ```
 
-3. Successivamente, premere 'p' per creare una partizione **p**rimaria:
+1. Successivamente, premere 'p' per creare una partizione **p**rimaria:
 
     ```bash 
     Command action
@@ -76,27 +76,27 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
             p   primary partition (1-4)
     ```
 
-4. Premere '1' per selezionare la partizione numero 1:
+1. Premere '1' per selezionare la partizione numero 1:
 
     ```bash
     Partition number (1-4): 1
     ```
 
-5. Selezionare il punto di inizio della nuova partizione oppure premere `<enter>` per accettare le impostazioni predefinite, che prevedono il posizionamento della partizione all'inizio dello spazio libero nell'unità:
+1. Selezionare il punto di inizio della nuova partizione oppure premere `<enter>` per accettare le impostazioni predefinite, che prevedono il posizionamento della partizione all'inizio dello spazio libero nell'unità:
 
     ```bash   
     First cylinder (1-1305, default 1):
     Using default value 1
     ```
 
-6. Selezionare le dimensioni della partizione, ad esempio digitare '+10G' per creare una partizione da 10 gigabyte. In alternativa, premere `<enter>` per creare un'unica partizione che occupa l'intera unità:
+1. Selezionare le dimensioni della partizione, ad esempio digitare '+10G' per creare una partizione da 10 gigabyte. In alternativa, premere `<enter>` per creare un'unica partizione che occupa l'intera unità:
 
     ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
     Using default value 1305
     ```
 
-7. Successivamente, modificare l'ID e il **t**ipo della partizione dal valore predefinito '83' (Linux) a 'fd' (rilevamento automatico RAID Linux):
+1. Successivamente, modificare l'ID e il **t**ipo della partizione dal valore predefinito '83' (Linux) a 'fd' (rilevamento automatico RAID Linux):
 
     ```bash  
     Command (m for help): t
@@ -104,7 +104,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
     Hex code (type L to list codes): fd
     ```
 
-8. Infine, scrivere la tabella delle partizioni sull'unità e chiudere fdisk:
+1. Infine, scrivere la tabella delle partizioni sull'unità e chiudere fdisk:
 
     ```bash   
     Command (m for help): w
@@ -119,7 +119,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
         /dev/sdc1 /dev/sdd1 /dev/sde1
     ```
 
-2. Creare il file system nel nuovo dispositivo RAID
+1. Creare il file system nel nuovo dispositivo RAID
    
     a. **CentOS, Oracle Linux, SLES 12, openSUSE e Ubuntu**
 
@@ -154,7 +154,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
     ```bash
     sudo mkdir /data
     ```
-2. Quando si modifica /etc/fstab è consigliabile utilizzare l' **UUID** anziché il nome del dispositivo per fare riferimento al file system.  Usare l'utilità `blkid` per determinare l'UUID per il nuovo file system:
+1. Quando si modifica /etc/fstab è consigliabile utilizzare l' **UUID** anziché il nome del dispositivo per fare riferimento al file system.  Usare l'utilità `blkid` per determinare l'UUID per il nuovo file system:
 
     ```bash   
     sudo /sbin/blkid
@@ -162,7 +162,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
     ```
 
-3. Aprire /etc/fstab in un editor di testo e aggiungere una voce per il nuovo file system, ad esempio:
+1. Aprire /etc/fstab in un editor di testo e aggiungere una voce per il nuovo file system, ad esempio:
 
     ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
@@ -176,7 +176,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
    
     Salvare e chiudere /etc/fstab.
 
-4. Verificare che la voce /etc/fstab sia corretta:
+1. Verificare che la voce /etc/fstab sia corretta:
 
     ```bash  
     sudo mount -a
@@ -192,7 +192,7 @@ In questo esempio verrà creata una singola partizione del disco in /dev/sdc. La
     /dev/md127 on /data type ext4 (rw)
     ```
 
-5. (Facoltativo) Parametri di avvio alternativo
+1. (Facoltativo) Parametri di avvio alternativo
    
     **Configurazione di fstab**
    

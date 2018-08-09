@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9c4032191738703b71319c05bce4f6bbbc61b44b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 85d58538e15881308ee1f645f7ddd12ec27c94de
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847200"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423413"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Ottenere risorse in un gruppo di risorse gestite e ridimensionare le macchine virtuali con l'interfaccia della riga di comando di Azure
 
@@ -39,9 +39,9 @@ Questo script usa i comandi seguenti per distribuire l'applicazione gestita. Ogn
 
 | Comando | Note |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | Elenca le applicazioni gestite. Fornire i valori di query per definire i risultati. |
-| [az resource list](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | Elenca le risorse. Fornire un gruppo di risorse e i valori di query per definire i risultati. |
-| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az_vm_resize) | Aggiorna le dimensioni di una macchina virtuale. |
+| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | Elenca le applicazioni gestite. Fornire i valori di query per definire i risultati. |
+| [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | Elenca le risorse. Fornire un gruppo di risorse e i valori di query per definire i risultati. |
+| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | Aggiorna le dimensioni di una macchina virtuale. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

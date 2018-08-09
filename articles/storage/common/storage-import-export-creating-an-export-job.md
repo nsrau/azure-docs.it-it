@@ -2,24 +2,18 @@
 title: Creare un processo di esportazione per Importazione/Esportazione di Azure | Documentazione Microsoft
 description: Informazioni su come creare un processo di esportazione per il servizio Importazione/Esportazione di Microsoft Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: common
+ms.openlocfilehash: 889cedf555c8a9a86cc8a2101f27cafcb48376df
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232268"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523156"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Creazione di un processo di esportazione per Importazione/Esportazione di Azure
 La creazione di un processo di esportazione per il servizio Importazione/Esportazione di Microsoft Azure con l'API REST prevede i passaggi seguenti:

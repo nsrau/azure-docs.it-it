@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355305"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446851"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app #
 
@@ -51,20 +51,20 @@ Per creare un'app Web in un ambiente del servizio app:
 
 1. Selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 
-2. Immettere un nome per l'app Web. Se si è già selezionato un piano di servizio app in un ambiente del servizio app, il nome di dominio dell'app rispecchierà il nome di dominio dell'ambiente del servizio app.
+1. Immettere un nome per l'app Web. Se si è già selezionato un piano di servizio app in un ambiente del servizio app, il nome di dominio dell'app rispecchierà il nome di dominio dell'ambiente del servizio app.
 
     ![Selezione del nome per l'app Web][1]
 
-3. Selezionare una sottoscrizione.
+1. Selezionare una sottoscrizione.
 
-4. Immettere un nome per un nuovo gruppo di risorse, oppure fare clic su **Usa esistente** e selezionarne uno dall'elenco a discesa.
+1. Immettere un nome per un nuovo gruppo di risorse, oppure fare clic su **Usa esistente** e selezionarne uno dall'elenco a discesa.
 
-5. Selezionare il sistema operativo. 
+1. Selezionare il sistema operativo. 
 
     * L'hosting di un'app di Linux in un ambiente del servizio app è una nuova funzionalità di anteprima, pertanto è consigliabile non aggiungere app di Linux in un ambiente del servizio app che esegue attualmente carichi di lavoro di produzione. 
     * L'aggiunta di un'app di Linux in un ambiente del servizio app determina l'esecuzione dell'ambiente in modalità di anteprima. 
 
-5. Selezionare un piano di servizio app esistente nell'ambiente del servizio app o crearne uno nuovo con la procedura seguente:
+1. Selezionare un piano di servizio app esistente nell'ambiente del servizio app o crearne uno nuovo con la procedura seguente:
 
     a. Selezionare **Crea nuovo**.
 
@@ -82,7 +82,7 @@ Per creare un'app Web in un ambiente del servizio app:
     > Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
     >
 
-6. Selezionare **Create**.
+1. Selezionare **Create**.
 
 ## <a name="how-scale-works"></a>Come funziona il ridimensionamento ##
 
@@ -160,7 +160,7 @@ Per eliminare un ambiente del servizio app:
 
 1. Usare **Elimina** nella parte superiore del pannello **Ambiente del servizio app**. 
 
-2. Immettere il nome dell'ambiente del servizio app per confermare l'eliminazione. Quando si elimina un ambiente del servizio app, viene eliminato anche tutto il relativo contenuto. 
+1. Immettere il nome dell'ambiente del servizio app per confermare l'eliminazione. Quando si elimina un ambiente del servizio app, viene eliminato anche tutto il relativo contenuto. 
 
     ![Eliminazione dell'ambiente del servizio app][3]
 

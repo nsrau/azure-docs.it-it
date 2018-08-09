@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: cccbe2052336012b9ac98b3e28dc6481cbf9aefb
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: eb848ede258d8d25d4734664bd500235f34359e7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144533"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Esercitazione: Integrazione di Azure Active Directory con Freshservice
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Freshservice dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-freshservice-from-the-gallery"></a>Aggiunta di Freshservice dalla raccolta
 Per configurare l'integrazione di Freshservice in Azure AD è necessario aggiungere Freshservice dalla raccolta al proprio elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di Freshservice in Azure AD è necessario aggiung
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **Freshservice**.
+1. Nella casella di ricerca digitare **Freshservice**.
 
     ![Creazione di un utente test di Azure AD](./media/freshservice-tutorial/tutorial_freshservice_search.png)
 
-5. Nel pannello dei risultati selezionare **Freshservice** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **Freshservice** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/freshservice-tutorial/tutorial_freshservice_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Per stabilire la relazione di collegamento, in Freshservice assegnare il valore 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Freshservice è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Freshservice](#creating-a-freshservice-test-user)**: per avere una controparte di Britta Simon in Freshservice collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente test di Freshservice](#creating-a-freshservice-test-user)**: per avere una controparte di Britta Simon in Freshservice collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_samlbase.png)
 
-3. Nella sezione **URL e dominio Freshservice** seguire questa procedura:
+1. Nella sezione **URL e dominio Freshservice** seguire questa procedura:
 
     ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_url.png)
 
@@ -119,29 +119,29 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Freshservice](https://support.freshservice.com/). 
  
-4. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
+1. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
 
     ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Freshservice** fare clic su **Configura Freshservice** per aprire la finestra **Configura accesso**. Copiare i valori **Sign-Out URL (URL di disconnessione) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
+1. Nella sezione **Configurazione di Freshservice** fare clic su **Configura Freshservice** per aprire la finestra **Configura accesso**. Copiare i valori **Sign-Out URL (URL di disconnessione) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
 
     ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_configure.png) 
 
-7. In un'altra finestra del Web browser accedere al sito aziendale di Freshservice come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di Freshservice come amministratore.
 
-8. Nel menu in alto fare clic su **Admin**.
+1. Nel menu in alto fare clic su **Admin**.
    
     ![Amministratore](./media/freshservice-tutorial/ic790814.png "Amministratore")
 
-9. Nel **portale dei clienti** fare clic su **Security** (Sicurezza).
+1. Nel **portale dei clienti** fare clic su **Security** (Sicurezza).
    
     ![Sicurezza](./media/freshservice-tutorial/ic790815.png "Sicurezza")
 
-10. Nella sezione **Security** seguire questa procedura:
+1. Nella sezione **Security** seguire questa procedura:
    
     ![Single Sign-On](./media/freshservice-tutorial/ic790816.png "Single Sign-On")
    
@@ -168,15 +168,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/freshservice-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/freshservice-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/freshservice-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/freshservice-tutorial/create_aaduser_04.png) 
 
@@ -196,19 +196,19 @@ Per consentire agli utenti di Azure AD di accedere a Freshservice, è necessario
 
 1. Accedere al sito aziendale di **FreshService** come amministratore.
 
-2. Nel menu in alto fare clic su **Admin**.
+1. Nel menu in alto fare clic su **Admin**.
    
     ![Amministratore](./media/freshservice-tutorial/ic790814.png "Amministratore")
 
-3. Nella sezione **User Management** (Gestione utenti) fare clic su **Requesters** (Richiedenti).
+1. Nella sezione **User Management** (Gestione utenti) fare clic su **Requesters** (Richiedenti).
    
     ![Requesters](./media/freshservice-tutorial/ic790818.png "Requesters")
 
-4. Fare clic su **Nuovo Requester**.
+1. Fare clic su **Nuovo Requester**.
    
     ![New Requesters](./media/freshservice-tutorial/ic790819.png "New Requesters")
 
-5. Nella sezione **New Requester** seguire questa procedura:
+1. Nella sezione **New Requester** seguire questa procedura:
    
     ![New Requester](./media/freshservice-tutorial/ic790820.png "New Requester")   
 
@@ -232,23 +232,23 @@ Per consentire agli utenti di Azure AD di accedere a Freshservice, è necessario
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **Freshservice**.
+1. Nell'elenco delle applicazioni selezionare **Freshservice**.
 
     ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

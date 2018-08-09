@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186879"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527070"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Come impaginare i risultati della ricerca in Ricerca di Azure
 In questo articolo vengono fornite indicazioni su come utilizzare l'API REST del servizio Ricerca di Azure per implementare elementi standard di una pagina di risultati di ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e la navigazione.
@@ -102,7 +102,6 @@ Vedere [Ricerca nei documenti (API di Ricerca di Azure)](https://docs.microsoft.
 * [API REST per il servizio Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice)
 * [Operazioni sugli indici](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [Operazioni sui documenti](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-* [Video ed esercitazioni su Ricerca di Azure](search-video-demo-tutorial-list.md)
 * [Esplorazione in base a facet in Ricerca di Azure](search-faceted-navigation.md)
 
 <!--Image references-->

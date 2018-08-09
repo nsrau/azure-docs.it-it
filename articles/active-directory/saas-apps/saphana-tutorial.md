@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c466e811d868403c59d6615882422996442d792a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e498b0ca4b9efe09c2fe2f2bfcdcb3cc68b9c2c4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045828"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Esercitazione: Integrazione di Azure Active Directory con SAP HANA
 
@@ -55,7 +55,7 @@ A questo scopo, seguire queste indicazioni:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di SAP HANA dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="add-sap-hana-from-the-gallery"></a>Aggiungere di SAP HANA dalla raccolta
 Per configurare l'integrazione di SAP HANA in Azure AD, aggiungere SAP HANA dalla raccolta all'elenco di app SaaS gestite.
@@ -66,15 +66,15 @@ Per configurare l'integrazione di SAP HANA in Azure AD, aggiungere SAP HANA dall
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Per aggiungere la nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
+1. Per aggiungere la nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **SAP HANA**. Selezionare quindi **SAP HANA** dal pannello Risultati. Fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione. 
+1. Nella casella di ricerca digitare **SAP HANA**. Selezionare quindi **SAP HANA** dal pannello Risultati. Fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione. 
 
     ![Nuova applicazione](./media/saphana-tutorial/tutorial_saphana_addfromgallery.png)
 
@@ -88,10 +88,10 @@ In SAP HANA assegnare a **Username** (Nome utente) lo stesso **nome utente** di 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con SAP HANA, completare i blocchi predefiniti seguenti:
 
 1. [Configurare l'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on) per consentire agli utenti di usare questa funzionalità.
-2. [Creare un utente di test di Azure AD](#creating-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. [Creare un utente di test di SAP HANA](#creating-a-sap-hana-test-user) per avere una controparte di Britta Simon in SAP HANA collegata alla rappresentazione dell'utente in Azure AD.
-4. [Assegnare l'utente di test di Azure AD](#assigning-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. [Testare l'accesso Single Sign-On](#testing-single-sign-on) per verificare se la configurazione funziona.
+1. [Creare un utente di test di Azure AD](#creating-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. [Creare un utente di test di SAP HANA](#creating-a-sap-hana-test-user) per avere una controparte di Britta Simon in SAP HANA collegata alla rappresentazione dell'utente in Azure AD.
+1. [Assegnare l'utente di test di Azure AD](#assigning-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. [Testare l'accesso Single Sign-On](#testing-single-sign-on) per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -103,11 +103,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Modalità** in **Accesso basato su SAML**.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Modalità** in **Accesso basato su SAML**.
  
     ![Finestra di dialogo Single Sign-On](./media/saphana-tutorial/tutorial_saphana_samlbase.png)
 
-3. Nella sezione **URL e dominio SAP HANA** seguire questa procedura:
+1. Nella sezione **URL e dominio SAP HANA** seguire questa procedura:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On](./media/saphana-tutorial/tutorial_saphana_url.png)
 
@@ -118,35 +118,35 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di SAP HANA](https://cloudplatform.sap.com/contact.html). 
 
-4. Nella sezione **Certificato di firma SAML** selezionare **XML metadati** e quindi salvare il file di metadati sul computer.
+1. Nella sezione **Certificato di firma SAML** selezionare **XML metadati** e quindi salvare il file di metadati sul computer.
 
     ![Collegamento di download del certificato](./media/saphana-tutorial/tutorial_saphana_certificate.png) 
 
     >[!Note]
     >Se il certificato non è attivo, attivarlo selezionando la casella di controllo **Make new certificate active** (Rendi attivo nuovo certificato) in Azure AD. 
 
-5. L'applicazione SAP HANA prevede un formato specifico per le asserzioni SAML. Lo screenshot seguente ne illustra un esempio. 
+1. L'applicazione SAP HANA prevede un formato specifico per le asserzioni SAML. Lo screenshot seguente ne illustra un esempio. 
 
     In questo caso è stato eseguito il mapping di **Identificatore utente** con la funzione **ExtractMailPrefix()** di **user.mail**. In questo modo si ottiene il valore di prefisso della posta elettronica dell'utente che rappresenta l'ID univoco dell'utente. L'ID utente viene inviato all'applicazione SAP HANA in ogni risposta con esito positivo.
 
     ![Configura accesso Single Sign-On](./media/saphana-tutorial/attribute.png)
 
-6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** eseguire questa procedura:
+1. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** eseguire questa procedura:
 
     a. Nell'elenco a discesa **Identificatore utente** selezionare **ExtractMailPrefix**.
     
     b. Nell'elenco a discesa **Posta** selezionare **user.mail**.
 
-7. Fare clic sul pulsante **Salva**.
+1. Fare clic sul pulsante **Salva**.
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/saphana-tutorial/tutorial_general_400.png)
     
-8. Per configurare l'accesso Single Sign-On sul lato SAP HANA, accedere alla **console Web HANA XSA** passando al relativo endpoint HTTPS.
+1. Per configurare l'accesso Single Sign-On sul lato SAP HANA, accedere alla **console Web HANA XSA** passando al relativo endpoint HTTPS.
 
     > [!NOTE]
     > Nella configurazione predefinita l'URL reindirizza la richiesta a una schermata di accesso, che richiede le credenziali di un utente del database SAP HANA autenticato. L'utente che effettua l'accesso deve disporre delle autorizzazioni per eseguire attività di amministrazione di SAML.
 
-9. Nell'interfaccia Web XSA passare a **SAML Identity Provider** (Provider di identità SAML). A questo punto selezionare il pulsante **+** nella parte inferiore della schermata per visualizzare il riquadro **Add Identity Provider Info** (Aggiungi informazioni provider di identità). Seguire quindi questa procedura:
+1. Nell'interfaccia Web XSA passare a **SAML Identity Provider** (Provider di identità SAML). A questo punto selezionare il pulsante **+** nella parte inferiore della schermata per visualizzare il riquadro **Add Identity Provider Info** (Aggiungi informazioni provider di identità). Seguire quindi questa procedura:
 
     ![Aggiungi provider di identità](./media/saphana-tutorial/sap1.png)
 
@@ -163,11 +163,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Il nome del provider di identità SAML è obbligatorio e deve essere univoco. Viene visualizzato nell'elenco di provider di identità SAML disponibili che viene visualizzato quando si seleziona SAML come metodo di autenticazione per le applicazioni SAP HANA XS da usare. Ad esempio, è possibile eseguire questa procedura nell'area dello schermo **Authentication** (Autenticazione) dello strumento di amministrazione di elementi XS.
 
-10. Selezionare **Save** (Salva) per salvare i dettagli del provider di identità SAML e aggiungere il nuovo provider di identità SAML all'elenco di provider noti.
+1. Selezionare **Save** (Salva) per salvare i dettagli del provider di identità SAML e aggiungere il nuovo provider di identità SAML all'elenco di provider noti.
 
     ![Pulsante per il salvataggio](./media/saphana-tutorial/sap4.png)
 
-11. In Studio HANA, nella scheda **Configuration** (Configurazione) filtrare le impostazioni all'interno delle proprietà del sistema in base a **saml**. Modificare quindi il valore del parametro **assertion_timeout** da **10 sec** a **120 sec**.
+1. In Studio HANA, nella scheda **Configuration** (Configurazione) filtrare le impostazioni all'interno delle proprietà del sistema in base a **saml**. Modificare quindi il valore del parametro **assertion_timeout** da **10 sec** a **120 sec**.
 
     ![Impostazione assertion_timeout](./media/saphana-tutorial/sap7.png)
 
@@ -186,15 +186,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/saphana-tutorial/create_aaduser_01.png) 
 
-2. Per visualizzare un elenco di utenti, passare a **Utenti e gruppi**. Selezionare quindi **Tutti gli utenti**.
+1. Per visualizzare un elenco di utenti, passare a **Utenti e gruppi**. Selezionare quindi **Tutti gli utenti**.
     
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/saphana-tutorial/create_aaduser_02.png) 
 
-3. Per aprire la finestra di dialogo **Utente**, selezionare **Aggiungi** nella parte superiore della finestra di dialogo.
+1. Per aprire la finestra di dialogo **Utente**, selezionare **Aggiungi** nella parte superiore della finestra di dialogo.
  
     ![Pulsante Aggiungi](./media/saphana-tutorial/create_aaduser_03.png) 
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
  
     ![Finestra di dialogo Utente](./media/saphana-tutorial/create_aaduser_04.png) 
 
@@ -204,7 +204,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota della password.
 
-    d. Selezionare **Crea**.
+    d. Selezionare **Create**.
  
 ### <a name="create-a-sap-hana-test-user"></a>Creare un utente di test di SAP HANA
 
@@ -220,23 +220,23 @@ Per creare un utente manualmente, seguire questa procedura:
 
     ![Create user](./media/saphana-tutorial/sap5.png)
 
-2. Selezionare la casella di controllo invisibile a sinistra di **SAML** e quindi selezionare il collegamento **Configura**.
+1. Selezionare la casella di controllo invisibile a sinistra di **SAML** e quindi selezionare il collegamento **Configura**.
 
-3. Selezionare **Aggiungi** per aggiungere il provider di identità SAML.  Selezionare il provider di identità SAML appropriato e quindi **OK**.
+1. Selezionare **Aggiungi** per aggiungere il provider di identità SAML.  Selezionare il provider di identità SAML appropriato e quindi **OK**.
 
-4. Aggiungere un valore nel campo **External Identity** (Identità esterna), in questo caso BrittaSimon, oppure scegliere **Any** (Qualsiasi). Selezionare **OK**.
+1. Aggiungere un valore nel campo **External Identity** (Identità esterna), in questo caso BrittaSimon, oppure scegliere **Any** (Qualsiasi). Selezionare **OK**.
 
     >[!Note]
     >Se la casella di controllo **Any** (Qualsiasi) non è selezionata, il nome utente in HANA deve corrispondere esattamente al nome dell'utente nell'UPN prima del suffisso di dominio (ad esempio BrittaSimon@contoso.com diventerebbe BrittaSimon in HANA).
 
-5. A scopo di test, assegnare tutti i ruoli **XS** all'utente.
+1. A scopo di test, assegnare tutti i ruoli **XS** all'utente.
 
     ![Assegnazione di ruoli](./media/saphana-tutorial/sap6.png)
 
     > [!TIP]
     > È consigliabile assegnare solo le autorizzazioni appropriate per i casi d'uso.
 
-6. Salvare l'utente.
+1. Salvare l'utente.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -250,23 +250,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegnare utenti][201] 
 
-2. Nell'elenco delle applicazioni selezionare **SAP HANA**.
+1. Nell'elenco delle applicazioni selezionare **SAP HANA**.
 
     ![Assegnare utenti](./media/saphana-tutorial/tutorial_saphana_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+1. Fare clic sul pulsante **Aggiungi**. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Selezionare il pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare il pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

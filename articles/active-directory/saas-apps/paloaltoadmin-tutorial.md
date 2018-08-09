@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: b39879cc8548139879a3039c5e0c6b924e83c107
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fed368c0df265495d9fee764f86825957fae8bab
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046672"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447425"
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Integrare Azure Active Directory con Palo Alto Networks - Admin UI
 
@@ -64,15 +64,15 @@ Per configurare l'integrazione di Azure AD con Palo Alto Networks - Admin UI, è
 
     ![Pulsante Azure Active Directory][1]
 
-2. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
+1. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
 
     ![Finestra "Applicazioni aziendali"][2]
     
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore della finestra.
+1. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore della finestra.
 
     ![Pulsante "Nuova applicazione"][3]
 
-4. Nella casella di ricerca digitare **Palo Alto Networks - Admin UI**, selezionare **Palo Alto Networks - Admin UI** nel pannello dei risultati e quindi selezionare il pulsante **Aggiungi**.
+1. Nella casella di ricerca digitare **Palo Alto Networks - Admin UI**, selezionare **Palo Alto Networks - Admin UI** nel pannello dei risultati e quindi selezionare il pulsante **Aggiungi**.
 
     ![Palo Alto Networks - Admin UI nell'elenco dei risultati](./media/paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
@@ -94,11 +94,11 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     ![Collegamento "Single Sign-On"][4]
 
-2. Nella finestra **Single Sign-On** selezionare **Accesso basato su SAML** nella casella **Modalità Single Sign-On**.
+1. Nella finestra **Single Sign-On** selezionare **Accesso basato su SAML** nella casella **Modalità Single Sign-On**.
  
     ![Finestra "Single Sign-On"](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_samlbase.png)
 
-3. In **URL e dominio Palo Alto Networks - Admin UI** eseguire queste operazioni:
+1. In **URL e dominio Palo Alto Networks - Admin UI** eseguire queste operazioni:
 
     ![Informazioni su URL e dominio di Palo Alto Networks - Admin UI per l'accesso Single Sign-On](./media/paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
     
@@ -111,7 +111,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
     > [!NOTE] 
     > I valori precedenti non sono valori reali. Aggiornarli con l'URL e l'identificatore di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Palo Alto Networks - Admin UI](https://support.paloaltonetworks.com/support). 
  
-4. Poiché l'applicazione Palo Alto Networks - Admin UI si aspetta un formato specifico per le asserzioni SAML, configurare le attestazioni come mostrato nell'immagine seguente. Gestire i valori degli attributi nella sezione **Attributi utente** della pagina **Application Integration** (Integrazione applicazioni) eseguendo queste operazioni:
+1. Poiché l'applicazione Palo Alto Networks - Admin UI si aspetta un formato specifico per le asserzioni SAML, configurare le attestazioni come mostrato nell'immagine seguente. Gestire i valori degli attributi nella sezione **Attributi utente** della pagina **Application Integration** (Integrazione applicazioni) eseguendo queste operazioni:
     
     ![Elenco Attributi token SAML](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
     
@@ -144,23 +144,23 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
     > * [Device access domain for Admin UI (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain) (Dominio di accesso al dispositivo per Admin UI - accessdomain)
     >
 
-5. In **Certificato di firma SAML** selezionare **XML metadati** e quindi **Salva**.
+1. In **Certificato di firma SAML** selezionare **XML metadati** e quindi **Salva**.
 
     ![Collegamento per il download del file XML dei metadati](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
 
     ![Pulsante Salva](./media/paloaltoadmin-tutorial/tutorial_general_400.png)
 
-6. Aprire l'interfaccia utente di amministrazione del firewall di Palo Alto Networks come amministratore in una nuova finestra.
+1. Aprire l'interfaccia utente di amministrazione del firewall di Palo Alto Networks come amministratore in una nuova finestra.
 
-7. Selezionare la scheda **Device** (Dispositivo).
+1. Selezionare la scheda **Device** (Dispositivo).
 
     ![Scheda Device (Dispositivo)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-8. Nel riquadro a sinistra selezionare **SAML Identity Provider** (Provider di identità SAML) e quindi **Import** (Importa) per importare il file di metadati.
+1. Nel riquadro a sinistra selezionare **SAML Identity Provider** (Provider di identità SAML) e quindi **Import** (Importa) per importare il file di metadati.
 
     ![Pulsante di importazione del file di metadati](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-9. Nella finestra **SAML Identity Provider Server Profile Import** (Importazione profilo server provider di identità SAML) eseguire queste operazioni:
+1. Nella finestra **SAML Identity Provider Server Profile Import** (Importazione profilo server provider di identità SAML) eseguire queste operazioni:
 
     ![Finestra "SAML Identity Provider Server Profile Import" (Importazione profilo server provider di identità SAML)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
@@ -174,11 +174,11 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
     
     e. Per eseguire il commit delle configurazioni nel firewall, selezionare **Commit**.
 
-10. Nel riquadro a sinistra selezionare **SAML Identity Provider** (Provider di identità SAML) e quindi selezionare il profilo del provider di identità SAML, ad esempio **AzureAD Admin UI**, creato nel passaggio precedente. 
+1. Nel riquadro a sinistra selezionare **SAML Identity Provider** (Provider di identità SAML) e quindi selezionare il profilo del provider di identità SAML, ad esempio **AzureAD Admin UI**, creato nel passaggio precedente. 
 
     ![Profilo del provider di identità SAML](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
 
-11. Nella finestra **SAML Identity Provider Server Profile** (Profilo server provider di identità SAML) eseguire queste operazioni:
+1. Nella finestra **SAML Identity Provider Server Profile** (Profilo server provider di identità SAML) eseguire queste operazioni:
 
     ![Finestra "SAML Identity Provider Server Profile" (Profilo server provider di identità SAML)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
@@ -186,20 +186,20 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
   
     b. Selezionare **OK**.
 
-12. Nell'interfaccia utente di amministrazione del firewall di Palo Alto Networks selezionare **Device** (Dispositivo) e quindi selezionare **Admin Roles** (Ruoli amministrazione).
+1. Nell'interfaccia utente di amministrazione del firewall di Palo Alto Networks selezionare **Device** (Dispositivo) e quindi selezionare **Admin Roles** (Ruoli amministrazione).
 
-13. Fare clic sul pulsante **Aggiungi**. 
+1. Fare clic sul pulsante **Aggiungi**. 
 
-14. Nella casella **Name** (Nome) nella finestra **Admin Role Profile** (Profilo ruolo amministratore) specificare un nome per il ruolo di amministratore, ad esempio **fwadmin**.  
+1. Nella casella **Name** (Nome) nella finestra **Admin Role Profile** (Profilo ruolo amministratore) specificare un nome per il ruolo di amministratore, ad esempio **fwadmin**.  
     Il nome del ruolo di amministratore deve corrispondere al nome dell'attributo del ruolo di amministratore SAML inviato dal provider di identità. Il nome e il valore del ruolo di amministratore sono stati creati nel passaggio 4.
 
     ![Configurare il ruolo di amministratore per Palo Alto Networks](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
   
-15. Nell'interfaccia utente di amministrazione del firewall selezionare **Device** (Dispositivo) e quindi **Authentication Profile** (Profilo di autenticazione).
+1. Nell'interfaccia utente di amministrazione del firewall selezionare **Device** (Dispositivo) e quindi **Authentication Profile** (Profilo di autenticazione).
 
-16. Fare clic sul pulsante **Aggiungi**. 
+1. Fare clic sul pulsante **Aggiungi**. 
 
-17. Nella finestra **Authentication Profile** (Profilo di autenticazione) eseguire queste operazioni: 
+1. Nella finestra **Authentication Profile** (Profilo di autenticazione) eseguire queste operazioni: 
 
     ![Finestra "Authentication Profile" (Profilo di autenticazione)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
 
@@ -222,17 +222,17 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     g. Selezionare **OK**.
 
-18. Per consentire agli amministratori di usare l'accesso SSO SAML tramite Azure, selezionare **Device** (Dispositivo) > **Setup** (Imposta). Nel riquadro **Setup** (Imposta) selezionare la scheda **Management** (Gestione) e quindi in **Authentication Settings** (Impostazioni autenticazione) selezionare il pulsante **Settings** (Impostazioni) raffigurato da un ingranaggio. 
+1. Per consentire agli amministratori di usare l'accesso SSO SAML tramite Azure, selezionare **Device** (Dispositivo) > **Setup** (Imposta). Nel riquadro **Setup** (Imposta) selezionare la scheda **Management** (Gestione) e quindi in **Authentication Settings** (Impostazioni autenticazione) selezionare il pulsante **Settings** (Impostazioni) raffigurato da un ingranaggio. 
 
  ![Pulsante Settings (Impostazioni)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 
-19. Selezionare il profilo di autenticazione SAML creato nel passaggio 17, ad esempio **AzureSAML_Admin_AuthProfile**.
+1. Selezionare il profilo di autenticazione SAML creato nel passaggio 17, ad esempio **AzureSAML_Admin_AuthProfile**.
 
  ![Campo Authentication Profile (Profilo di autenticazione)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
 
-20. Selezionare **OK**.
+1. Selezionare **OK**.
 
-21. Per eseguire il commit della configurazione, selezionare **Commit**.
+1. Per eseguire il commit della configurazione, selezionare **Commit**.
 
 
 > [!TIP]
@@ -249,17 +249,17 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     ![Collegamento Azure Active Directory](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare un elenco degli utenti correnti, selezionare **Utenti e gruppi** > **Tutti gli utenti**.
+1. Per visualizzare un elenco degli utenti correnti, selezionare **Utenti e gruppi** > **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. Nella parte superiore della finestra **Tutti gli utenti** selezionare **Aggiungi**.
+1. Nella parte superiore della finestra **Tutti gli utenti** selezionare **Aggiungi**.
 
     ![Pulsante Aggiungi](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
     Viene visualizzata la finestra **Utente**.
 
-4. Nella finestra **Utente** seguire questa procedura:
+1. Nella finestra **Utente** seguire questa procedura:
 
     ![Finestra Utente](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
@@ -269,7 +269,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Crea**.
+    d. Selezionare **Create**.
  
 ### <a name="create-a-palo-alto-networks---admin-ui-test-user"></a>Creare un utente di test di Palo Alto Networks - Admin UI
 
@@ -285,23 +285,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamenti "Applicazioni aziendali" e "Tutte le applicazioni"][201] 
 
-2. Nell'elenco **Applicazioni** selezionare **Palo Alto Networks - Admin UI**.
+1. Nell'elenco **Applicazioni** selezionare **Palo Alto Networks - Admin UI**.
 
     ![Collegamento Palo Alto Networks - Admin UI](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_app.png)  
 
-3. Nel riquadro sinistro fare clic su **Utenti e gruppi**.
+1. Nel riquadro sinistro fare clic su **Utenti e gruppi**.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic su **Aggiungi** e quindi nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+1. Fare clic su **Aggiungi** e quindi nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**.
+1. Nella finestra **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**.
 
-6. Fare clic sul pulsante **Seleziona**.
+1. Fare clic sul pulsante **Seleziona**.
 
-7. Nella finestra **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nella finestra **Aggiungi assegnazione** selezionare **Assegna**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

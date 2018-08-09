@@ -3,18 +3,18 @@ title: Guida introduttiva di Azure - Creare un account di archiviazione | Micros
 description: Informazioni su come creare rapidamente un nuovo account di archiviazione usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 services: storage
 author: tamram
-manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.component: common
+ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856529"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524021"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -23,7 +23,7 @@ Un account di archiviazione di Azure offre uno spazio dei nomi univoco nel cloud
 Per iniziare a usare Archiviazione di Azure, è prima necessario creare un nuovo account di archiviazione. È possibile creare un account di archiviazione di Azure usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Questa guida introduttiva illustra come usare ognuna di queste opzioni per creare il nuovo account di archiviazione. 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -97,7 +97,7 @@ Per creare un gruppo di risorse nel portale di Azure, seguire questa procedura:
 3. Immettere un nome per il nuovo gruppo di risorse.
 4. Selezionare la sottoscrizione in cui creare il nuovo gruppo di risorse.
 5. Scegliere la posizione per il gruppo di risorse.
-6. Selezionare il pulsante **Create** .  
+6. Fare clic sul pulsante **Create** (Crea).  
 
 ![Screenshot che mostra la creazione del gruppo di risorse nel portale di Azure](./media/storage-quickstart-create-account/create-resource-group.png)
 

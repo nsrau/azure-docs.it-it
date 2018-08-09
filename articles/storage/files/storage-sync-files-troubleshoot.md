@@ -2,23 +2,18 @@
 title: Risolvere i problemi di Sincronizzazione file di Azure | Microsoft Docs
 description: Informazioni sulla risoluzione di problemi comuni di Sincronizzazione file di Azure.
 services: storage
-documentationcenter: ''
 author: jeffpatt24
-manager: aungoo
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
-ms.openlocfilehash: ad82cde2dc6048c5a87766b21bd38ed3fbc6bd39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.component: files
+ms.openlocfilehash: 1475e1955a282581c66235c13d4dbe7153735a35
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173282"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526743"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -768,7 +763,7 @@ Per monitorare l'attività di richiamo in un server, usare l'evento ID 9005, 900
 <a id="files-fail-tiering"></a>**Risolvere i problemi dei file che non è possibile archiviare a livelli**  
 Se non è possibile archiviare a livelli i file in File di Azure:
 
-1. Nel Visualizzatore eventi esaminare i registri i dati di telemetria e gli eventi operativi e diagnostici, che si trovano in Registri applicazioni e servizi\Microsoft\FileSync\Agente. 
+1. Nel Visualizzatore eventi esaminare i registri i dati di telemetria e gli eventi operativi e diagnostici, i quali si trovano in Registri applicazioni e servizi\Microsoft\FileSync\Agente. 
     1. Verificare che i file esistano nella condivisione di file di Azure.
 
     > [!NOTE]

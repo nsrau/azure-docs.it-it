@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1a0bc85063a80854ff6b970b0a57a991acfb3750
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224297"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593962"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuire Azure Blockchain Workbench
 
@@ -51,7 +51,7 @@ Azure Blockchain Workbench richiede l'esecuzione di diverse operazioni prelimina
 Per la distribuzione di Blockchain Workbench, è necessaria la registrazione di un'applicazione Azure AD. Per registrare l'app, è necessario un tenant di Azure Active Directory (Azure AD). È possibile usare un tenant esistente oppure crearne uno nuovo. Se si usa un tenant di Azure AD esistente, sono necessarie autorizzazioni sufficienti per registrare le applicazioni e concedere le autorizzazioni per l'API Graph all'interno di un tenant di Azure AD. Se non sono disponibili autorizzazioni sufficienti in un tenant di Azure AD esistente, creare un nuovo tenant. 
 
 > [!IMPORTANT]
-> Non è necessario distribuire Workbench nello stesso tenant di quello usato per registrare un'applicazione Azure AD. Workbench deve essere distribuito in un tenant in cui sono disponibili autorizzazioni sufficienti per distribuire le risorse. Per altre informazioni sui tenant di Azure AD, vedere [Come ottenere un tenant di Active Directory](../active-directory/develop/active-directory-howto-tenant.md) e [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+> Non è necessario distribuire Workbench nello stesso tenant di quello usato per registrare un'applicazione Azure AD. Workbench deve essere distribuito in un tenant in cui sono disponibili autorizzazioni sufficienti per distribuire le risorse. Per altre informazioni sui tenant di Azure AD, vedere [Come ottenere un tenant di Active Directory](../active-directory/develop/quickstart-create-new-tenant.md) e [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare l'account nell'angolo superiore destro e passare al tenant di Azure AD desiderato. Il tenant deve essere il tenant dell'amministratore della sottoscrizione in cui viene distribuito Workbench ed è necessario avere autorizzazioni sufficienti per registrare le applicazioni.
@@ -73,7 +73,7 @@ Per la distribuzione di Blockchain Workbench, è necessaria la registrazione di 
 
 ### <a name="modify-application-manifest"></a>Modificare il manifesto dell'applicazione
 
-È quindi necessario modificare il manifesto dell'applicazione per l'uso di ruoli applicazione in Azure AD in modo da specificare gli amministratori di Blockchain Workbench.  Per altre informazioni sui manifesti delle applicazioni, vedere [Manifesto dell'applicazione Azure Active Directory](../active-directory/develop/active-directory-application-manifest.md).
+È quindi necessario modificare il manifesto dell'applicazione per l'uso di ruoli applicazione in Azure AD in modo da specificare gli amministratori di Blockchain Workbench.  Per altre informazioni sui manifesti delle applicazioni, vedere [Manifesto dell'applicazione Azure Active Directory](../active-directory/develop/reference-app-manifest.md).
 
 1. Per l'applicazione registrata, selezionare **Manifesto** nel riquadro dei dettagli dell'applicazione registrata.
 2. Generare un GUID. È possibile generare un GUID usando il comando di PowerShell [guid] :: NewGuid () o il cmdlet New-GUID. Un'altra opzione consiste nell'usare un sito Web di generatori di GUID.
@@ -180,7 +180,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
     ![Risultati della ricerca nel Marketplace](media/blockchain-workbench-deploy/marketplace-search-results.png)
 
-4.  Selezionare **Crea**.
+4.  Selezionare **Create**.
 5.  Completare le impostazioni di base.
 
     ![Creare Azure Blockchain Workbench](media/blockchain-workbench-deploy/blockchain-workbench-settings-basic.png)

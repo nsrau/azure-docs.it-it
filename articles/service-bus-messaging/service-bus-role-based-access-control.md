@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 729d6db6b2fc6495ffb0f4fbe4d545d7ad953cef
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 80c226b4b4295a232a6cefb4da12e1db23adae66
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783526"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505234"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controllo degli accessi in base al ruolo di Active Directory (anteprima)
 
@@ -61,7 +61,7 @@ Prima di poter eseguire l'applicazione di esempio, registrarla in Azure AD e app
 
 Poiché l'applicazione di esempio è un'applicazione console, è necessario registrare un'applicazione nativa e aggiungere le autorizzazioni API per **Microsoft.ServiceBus** al set di autorizzazioni richieste. Le applicazioni native richiedono anche un oggetto **redirect-URI** in Azure AD, che funge da identificatore. Non è necessario che l'URI sia una destinazione di rete. Per questo esempio usare `http://servicebus.microsoft.com`, poiché questo URI è già usato nel codice di esempio.
 
-I passaggi di registrazione dettagliati sono illustrati in [questa esercitazione](../active-directory/develop/active-directory-integrating-applications.md). Seguire i passaggi per registrare un'app **nativa** e quindi seguire le istruzioni di aggiornamento per aggiungere l'API **Microsoft.ServiceBus** alle autorizzazioni necessarie. Mentre si esegue la procedura, prendere nota di **TenantId** e **ApplicationId**, perché questi valori saranno necessari per eseguire l'applicazione.
+I passaggi di registrazione dettagliati sono illustrati in [questa esercitazione](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Seguire i passaggi per registrare un'app **nativa** e quindi seguire le istruzioni di aggiornamento per aggiungere l'API **Microsoft.ServiceBus** alle autorizzazioni necessarie. Mentre si esegue la procedura, prendere nota di **TenantId** e **ApplicationId**, perché questi valori saranno necessari per eseguire l'applicazione.
 
 ### <a name="run-the-app"></a>Esecuzione dell'app
 

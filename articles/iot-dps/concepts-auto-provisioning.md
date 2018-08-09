@@ -1,19 +1,19 @@
 ---
 title: Servizio Device Provisioning in hub IoT - Concetti relativi al provisioning automatico
 description: Questo articolo offre una panoramica delle fasi in cui si articola il provisioning automatico dei dispositivi tramite il servizio Device Provisioning in hub IoT, l'hub IoT e SDK client.
-author: BryanLa
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9a45f8269e0ca2bc4188016af0ace06831c762b6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736407"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521279"
 ---
 # <a name="auto-provisioning-concepts"></a>Concetti relativi al provisioning automatico
 

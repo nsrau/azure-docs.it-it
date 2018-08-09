@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952479"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443733"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con Azure Kubernetes Service (AKS)
 
@@ -77,12 +77,12 @@ Per il comando `aks install-connector` sono disponibili questi argomenti.
 
 | Argomento: | DESCRIZIONE | Obbligatoria |
 |---|---|:---:|
-| `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Sì |
-| `--name``-n` | Nome del cluster gestito. | Sì |
-| `--resource-group``-g` | Nome del gruppo di risorse. | Sì |
+| `--connector-name` | Nome del connettore di Istanze di contenitore di Azure.| Yes |
+| `--name` `-n` | Nome del cluster gestito. | Yes |
+| `--resource-group` `-g` | Nome del gruppo di risorse. | Yes |
 | `--os-type` | Tipo del sistema operativo delle istanze di contenitore. Valori consentiti: Both, Linux, Windows. Valore predefinito: Linux. | No  |
 | `--aci-resource-group` | Gruppo di risorse in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
-| `--location``-l` | Posizione in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
+| `--location` `-l` | Posizione in cui creare i gruppi di contenitori di Istanze di contenitore di Azure. | No  |
 | `--service-principal` | Entità servizio usata per l'autenticazione alle API di Azure. | No  |
 | `--client-secret` | Segreto associato all'entità servizio. | No  |
 | `--chart-url` | URL di un chart Helm che installa il connettore di Istanze di contenitore di Azure. | No  |
@@ -204,7 +204,7 @@ Per altre informazioni su Virtual Kubelet, vedere il [progetto GitHub Virtual Ku
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
-[az-container-list]: /cli/azure/aks#az_aks_list
+[az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 
 <!-- LINKS - external -->

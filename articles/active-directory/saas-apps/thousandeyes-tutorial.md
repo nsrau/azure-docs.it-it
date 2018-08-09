@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b6dcc2e057ab0877646bb5ace962cfd00cfb8839
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b6af7a3322b1a01c1d822df78d827121c19e21e1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041807"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Esercitazione: Integrazione di Azure Active Directory con ThousandEyes
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di ThousandEyes dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-thousandeyes-from-the-gallery"></a>Aggiunta di ThousandEyes dalla raccolta
 Per configurare l'integrazione di ThousandEyes in Azure AD, è necessario aggiungere ThousandEyes dalla raccolta al proprio elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di ThousandEyes in Azure AD, è necessario aggiun
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **ThousandEyes**.
+1. Nella casella di ricerca digitare **ThousandEyes**.
 
     ![Creazione di un utente test di Azure AD](./media/thousandeyes-tutorial/tutorial_thousandeyes_search.png)
 
-5. Nel pannello dei risultati selezionare **ThousandEyes** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **ThousandEyes** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/thousandeyes-tutorial/tutorial_thousandeyes_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Per stabilire la relazione di collegamento, in ThousandEyes assegnare il valore 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ThousandEyes, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test per ThousandEyes](#creating-a-thousandeyes-test-user)**: per avere una controparte di Britta Simon in ThousandEyes collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente test per ThousandEyes](#creating-a-thousandeyes-test-user)**: per avere una controparte di Britta Simon in ThousandEyes collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,43 +104,43 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
 
     ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_samlbase.png)
 
-3. Nella sezione **URL e dominio ThousandEyes** seguire questa procedura:
+1. Nella sezione **URL e dominio ThousandEyes** seguire questa procedura:
 
     ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_url.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL come: `https://app.thousandeyes.com/login/sso`
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_certificate.png)
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di ThousandEyes** fare clic su **Configura ThousandEyes** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+1. Nella sezione **Configurazione di ThousandEyes** fare clic su **Configura ThousandEyes** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
     ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_configure.png) 
 
-7. In un'altra finestra del browser Web accedere al sito aziendale di **ThousandEyes** come amministratore.
+1. In un'altra finestra del browser Web accedere al sito aziendale di **ThousandEyes** come amministratore.
 
-8. Nel menu in alto fare clic su **Impostazioni**.
+1. Nel menu in alto fare clic su **Impostazioni**.
 
     ![Impostazioni](./media/thousandeyes-tutorial/ic790066.png "Impostazioni")
 
-9. Fare clic su **Account**
+1. Fare clic su **Account**
 
     ![Account](./media/thousandeyes-tutorial/ic790067.png "Account")
 
-10. Fare clic sulla scheda **Security & Authentication** (Sicurezza e autenticazione).
+1. Fare clic sulla scheda **Security & Authentication** (Sicurezza e autenticazione).
 
     ![Sicurezza e autenticazione](./media/thousandeyes-tutorial/ic790068.png "Security e autenticazione")
 
-11. Nella sezione **Setup Single Sign-On** eseguire la procedura seguente:
+1. Nella sezione **Setup Single Sign-On** eseguire la procedura seguente:
 
     ![Configurare l'accesso Single Sign-On](./media/thousandeyes-tutorial/ic790069.png "Configurare l'accesso Single Sign-On")
 
@@ -167,15 +167,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/thousandeyes-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/thousandeyes-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
 
     ![Creazione di un utente test di Azure AD](./media/thousandeyes-tutorial/create_aaduser_03.png)
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
 
     ![Creazione di un utente test di Azure AD](./media/thousandeyes-tutorial/create_aaduser_04.png)
 
@@ -185,7 +185,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
 ### <a name="creating-a-thousandeyes-test-user"></a>Creazione di un utente di test di ThousandEyes
 
@@ -195,19 +195,19 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in ThousandE
 
 1. Accedere al sito aziendale di ThousandEyes come amministratore.
 
-2. Fare clic su **Impostazioni**.
+1. Fare clic su **Impostazioni**.
 
     ![Impostazioni](./media/thousandeyes-tutorial/IC790066.png "Impostazioni")
 
-3. Fare clic su **Account**.
+1. Fare clic su **Account**.
 
     ![Account](./media/thousandeyes-tutorial/IC790067.png "Account")
 
-4. Fare clic sulla scheda **Accounts & Users** (Account e utenti).
+1. Fare clic sulla scheda **Accounts & Users** (Account e utenti).
 
     ![Account e utenti](./media/thousandeyes-tutorial/IC790073.png "Account e utenti")
 
-5. Nella sezione **Add Users & Accounts** (Account e utenti) eseguire la procedura seguente:
+1. Nella sezione **Add Users & Accounts** (Account e utenti) eseguire la procedura seguente:
 
     ![Aggiungere account utente](./media/thousandeyes-tutorial/IC790074.png "Aggiungere account utente")
 
@@ -235,23 +235,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco di applicazioni selezionare **ThousandEyes**.
+1. Nell'elenco di applicazioni selezionare **ThousandEyes**.
 
     ![Configure Single Sign-On](./media/thousandeyes-tutorial/tutorial_thousandeyes_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

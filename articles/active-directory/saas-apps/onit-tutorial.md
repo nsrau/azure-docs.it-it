@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 330dbf31a1c1af6146ae1272a42ecc3621271bb1
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a93acc79fc447018b5cf63b2e2456bc394c1f78e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046570"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Esercitazione: Integrazione di Azure Active Directory con Onit
 
@@ -54,7 +54,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Onit dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-onit-from-the-gallery"></a>Aggiunta di Onit dalla raccolta
 Per configurare l'integrazione di Onit in Azure AD, è necessario aggiungere Onit dalla raccolta all'elenco di app SaaS gestite.
@@ -65,15 +65,15 @@ Per configurare l'integrazione di Onit in Azure AD, è necessario aggiungere Oni
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **Onit**, selezionare **Onit** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **Onit**, selezionare **Onit** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Onit nell'elenco risultati](./media/onit-tutorial/tutorial_onit_addfromgallery.png)
 
@@ -88,10 +88,10 @@ Per stabilire la relazione di collegamento, in Onit assegnare il valore del **no
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Onit, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di Onit](#create-an-onit-test-user)**: per avere una controparte di Britta Simon in Onit collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di Onit](#create-an-onit-test-user)**: per avere una controparte di Britta Simon in Onit collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -103,11 +103,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Finestra di dialogo Single Sign-On](./media/onit-tutorial/tutorial_onit_samlbase.png)
 
-3. Nella sezione **URL e dominio Onit** seguire questa procedura:
+1. Nella sezione **URL e dominio Onit** seguire questa procedura:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Onit](./media/onit-tutorial/tutorial_onit_url.png)
 
@@ -118,15 +118,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Onit](https://www.onit.com/support). 
  
-4. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
+1. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
 
     ![Collegamento di download del certificato](./media/onit-tutorial/tutorial_onit_certificate.png) 
 
-5. L'applicazione Onit prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda **Attribute (Attributo)** dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione. 
+1. L'applicazione Onit prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda **Attribute (Attributo)** dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione. 
 
     ![Configure Single Sign-On](./media/onit-tutorial/tutorial_onit_attribute.png) 
 
-6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come illustrato nell'immagine e seguire questa procedura:
+1. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come illustrato nell'immagine e seguire questa procedura:
     
     | Nome attributo | Valore attributo |
     | ------------------- | -------------------- |
@@ -146,28 +146,28 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     e. Fare clic su **OK**.
 
-7. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/onit-tutorial/tutorial_general_400.png)
 
-8. Nella sezione **Configurazione di Onit** fare clic su **Configura Onit** per aprire la finestra **Configura accesso**. Copiare **URL di disconnessione e URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido**.
+1. Nella sezione **Configurazione di Onit** fare clic su **Configura Onit** per aprire la finestra **Configura accesso**. Copiare **URL di disconnessione e URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido**.
 
     ![Configurazione di Onit](./media/onit-tutorial/tutorial_onit_configure.png)
 
-9. In un'altra finestra del Web browser accedere al sito aziendale di Onit come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di Onit come amministratore.
 
-10. Scegliere **Amministrazione**dal menu disponibile nella parte superiore.
+1. Scegliere **Amministrazione**dal menu disponibile nella parte superiore.
    
    ![Amministrazione](./media/onit-tutorial/IC791174.png "Amministrazione")
-11. Fare clic su **Edit Corporation**.
+1. Fare clic su **Edit Corporation**.
    
    ![Modificare l'azienda](./media/onit-tutorial/IC791175.png "Modificare l'azienda")
    
-12. Fare clic sulla scheda **Security** .
+1. Fare clic sulla scheda **Security** .
     
     ![Modificare le informazioni sulla società](./media/onit-tutorial/IC791176.png "Modificare le informazioni sulla società")
 
-13. Nella scheda **Sicurezza** eseguire la procedura seguente:
+1. Nella scheda **Sicurezza** eseguire la procedura seguente:
 
     ![Single Sign-On](./media/onit-tutorial/IC791177.png "Single Sign-On")
 
@@ -195,15 +195,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/onit-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/onit-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/onit-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/onit-tutorial/create_aaduser_04.png)
 
@@ -213,7 +213,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-an-onit-test-user"></a>Creare un utente di test di Onit
 
@@ -224,15 +224,15 @@ Nel caso di Onit, il provisioning è un'attività manuale.
 **Per configurare il provisioning utenti, seguire questa procedura:**
 
 1. Accedere al sito aziendale di **Onit** come amministratore.
-2. Fare clic su **Add User**.
+1. Fare clic su **Add User**.
    
    ![Amministrazione](./media/onit-tutorial/IC791180.png "Amministrazione")
-3. Nella pagina della finestra di dialogo **Aggiungi utente** eseguire la procedura seguente:
+1. Nella pagina della finestra di dialogo **Aggiungi utente** eseguire la procedura seguente:
    
    ![Aggiungere un utente](./media/onit-tutorial/IC791181.png "Aggiungere un utente")
    
   1. Digitare il **nome** e l'**indirizzo e-mail** di un account Azure AD valido di cui si vuole effettuare il provisioning nelle caselle di testo correlate.
-  2. Fare clic su **Crea**.    
+  1. Fare clic su **Create**(Crea).    
    
  > [!NOTE]
  > Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
@@ -249,23 +249,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **Onit**.
+1. Nell'elenco delle applicazioni selezionare **Onit**.
 
     ![Collegamento di Onit nell'elenco delle applicazioni](./media/onit-tutorial/tutorial_onit_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
