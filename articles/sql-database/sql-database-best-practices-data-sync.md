@@ -8,12 +8,12 @@ ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445161"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620801"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
 
@@ -87,7 +87,7 @@ Per quanto riguarda il provisioning automatico, la sincronizzazione dati SQL pre
 -   Non vengono create viste e stored procedure nel database di destinazione.
 -   Le azioni ON UPDATE CASCADE e ON DELETE CASCADE su vincoli di chiave esterna non vengono ricreate nelle tabelle di destinazione.
 
-#### <a name="recommendations"></a>Raccomandazioni
+#### <a name="recommendations"></a>Consigli
 
 -   Usare la funzionalità di provisioning automatico della sincronizzazione dati SQL solo per testare il servizio.  
 -   Per la fase di produzione eseguire il provisioning dello schema del database.
@@ -219,7 +219,6 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 -   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL:  
     -   [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Scaricare la documentazione dell'API REST di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Per altre informazioni sul database SQL, vedere:
 

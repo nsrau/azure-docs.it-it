@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917694"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578766"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 Questo articolo descrive come Azure Site Recovery si integra con Automazione di Azure per facilitare l'estensione dei piani di ripristino. I piani di ripristino possono orchestrare il ripristino di macchine virtuali protette con Site Recovery. I piani di ripristino possono essere usati sia per la replica in un cloud secondario che per la replica in Azure e consentono anche di ottenere un ripristino **costantemente accurato**, **ripetibile** e **automatizzato**. Se si esegue il failover delle macchine virtuali in Azure, l'integrazione con Automazione di Azure estende i piani di ripristino. È possibile usare questa funzionalità per eseguire runbook, che offrono attività di automazione dalle grandi potenzialità.
@@ -196,7 +196,7 @@ Creare variabili indipendenti per ogni piano di ripristino, in modo che sia poss
 
 Si consideri uno scenario in cui si vuole usare un singolo script per attivare un indirizzo IP pubblico in macchine virtuali specifiche. In un altro scenario potrebbe essere necessario applicare gruppi di sicurezza di rete diversi in diverse macchine virtuali e non in tutte le macchine virtuali. È possibile creare uno script riutilizzabile per qualsiasi piano di ripristino. Ogni piano di ripristino può avere un numero variabile di macchine virtuali. Ad esempio, un ripristino di SharePoint ha due front-end. Un'applicazione line-of-business (LOB) semplice ha un solo front-end. Non è possibile creare variabili separate per ogni piano di ripristino.
 
-Nell'esempio seguente viene usata una nuova tecnica e viene creata una [variabile complessa](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) negli asset dell'account di Automazione di Azure. Questo risultato si ottiene specificando più valori. Per eseguire questa procedura, è necessario usare Azure PowerShell:
+Nell'esempio seguente viene usata una nuova tecnica e viene creata una [variabile complessa](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) negli asset dell'account di Automazione di Azure. Questo risultato si ottiene specificando più valori. Per eseguire questa procedura, è necessario usare Azure PowerShell:
 
 1. In PowerShell accedere alla sottoscrizione di Azure:
 

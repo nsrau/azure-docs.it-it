@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c4edb4fbf7271331affb2559018e53480aa7a85
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588863"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577163"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durata dei token configurabili in Azure Active Directory (anteprima pubblica)
 È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
@@ -49,7 +49,7 @@ In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole
 I client usano i token di accesso per accedere a una risorsa protetta. I token di accesso possono essere usati solo per una combinazione specifica di utente, client e risorsa. Non è possibile revocare i token di accesso, che rimangono validi fino alla scadenza. Un attore malintenzionato può usare un eventuale token di accesso ottenuto per la sua intera durata. Regolare la durata dei token di accesso significa trovare un compromesso tra il miglioramento delle prestazioni di sistema e l'aumento dell'intervallo di tempo durante il quale il client conserva l'accesso dopo che l'account dell'utente è stato disabilitato. Il miglioramento delle prestazioni di sistema si ottiene riducendo il numero delle volte in cui un client deve acquisire un token di accesso aggiornato.  Il valore predefinito è un'ora. Dopo un'ora, il client deve usare il token di aggiornamento per acquisire un nuovo token di aggiornamento e un nuovo token di accesso (in genere in modo automatico). 
 
 ### <a name="refresh-tokens"></a>Token di aggiornamento
-Quando un client acquisisce un token di accesso per accedere a una risorsa protetta, riceve anche un token di aggiornamento. Il token di aggiornamento consente di ottenere nuove coppie di token di accesso/aggiornamento alla scadenza del token di accesso attuale. Il token di aggiornamento è associato a una combinazione di utente e client e può essere [revocato in qualsiasi momento](develop/active-directory-token-and-claims.md#token-revocation). La validità del token di aggiornamento viene quindi controllata ogni volta che viene usato.  
+Quando un client acquisisce un token di accesso per accedere a una risorsa protetta, riceve anche un token di aggiornamento. Il token di aggiornamento consente di ottenere nuove coppie di token di accesso/aggiornamento alla scadenza del token di accesso attuale. Il token di aggiornamento è associato a una combinazione di utente e client e può essere [revocato in qualsiasi momento](develop/v1-id-and-access-tokens.md#token-revocation). La validità del token di aggiornamento viene quindi controllata ogni volta che viene usato.  
 
 È importante distinguere tra client riservati e client pubblici, perché questa caratteristica influisce sulla durata del periodo in cui i token di aggiornamento possono essere usati. Per altre informazioni sui diversi tipi di client, vedere la specifica [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
@@ -106,7 +106,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 * Se all'entità servizio o all'organizzazione non sono assegnati criteri in modo esplicito, vengono applicati i criteri assegnati all'applicazione.
 * Se all'entità servizio, all'organizzazione o all'oggetto applicazione non sono stati assegnati criteri, vengono applicati i valori predefiniti. Vedere in proposito la tabella in [Proprietà configurabili per la durata dei token](#configurable-token-lifetime-properties).
 
-Per altre informazioni sulla relazione tra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](active-directory-application-objects.md).
+Per altre informazioni sulla relazione tra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](develop/app-objects-and-service-principals.md).
 
 La validità di un token viene valutata quando questo viene usato. Vengono applicati i criteri con la priorità più alta per l'applicazione a cui si accede.
 
@@ -202,8 +202,8 @@ Gli esempi illustrano come:
 * Creare criteri per un'app nativa che chiama un'API Web
 * Gestire criteri avanzati
 
-### <a name="prerequisites"></a>prerequisiti
-Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le app, le entità servizio e l'intera organizzazione. Se non si ha familiarità con Azure AD, è consigliabile vedere [come ottenere un tenant di Azure AD](active-directory-howto-tenant.md) prima di procedere con questi esempi.  
+### <a name="prerequisites"></a>Prerequisiti
+Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le app, le entità servizio e l'intera organizzazione. Se non si ha familiarità con Azure AD, è consigliabile vedere [come ottenere un tenant di Azure AD](develop/quickstart-create-new-tenant.md) prima di procedere con questi esempi.  
 
 Per iniziare, seguire questa procedura:
 
@@ -335,7 +335,7 @@ In questo esempio vengono creati alcuni criteri per illustrare il funzionamento 
 
     A questo punto sono disponibili criteri che si applicano all'intera organizzazione. Si supponga di voler conservare tali criteri della durata di 30 giorni per un'entità servizio specifica, impostando però i criteri predefiniti dell'organizzazione sul valore limite superiore, ovvero fino alla revoca.
 
-    1.  Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). È anche possibile testare questa funzione in [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/)e [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) usando l'account di Azure AD.
+    1.  Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). È anche possibile testare questa funzione in [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/)e [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) usando l'account di Azure AD.
 
     2.  Dopo aver ottenuto l'**ObjectId** dell'entità servizio, eseguire questo comando:
 

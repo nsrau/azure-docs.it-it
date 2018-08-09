@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 56ad633807a59eaa7ae75dc334aa630fb3bf94a3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127592"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436727"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
 
@@ -44,9 +44,9 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | **Origine connessa** | **Supporto** | **Descrizione** |
 | --- | --- | --- |
-| [Agenti di Windows](log-analytics-windows-agent.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
+| [Agenti di Windows](log-analytics-windows-agent.md) | Yes | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
 | [Agenti Linux](log-analytics-linux-agents.md) | No  | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
-| [Gruppo di gestione di System Center Operations Manager](log-analytics-om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Operations Management Suite. I dati vengono inoltrati dal gruppo di gestione al repository Operations Management Suite. |
+| [Gruppo di gestione di System Center Operations Manager](log-analytics-om-agents.md) | Yes | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Operations Management Suite. I dati vengono inoltrati dal gruppo di gestione al repository Operations Management Suite. |
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non usa le risorse di archiviazione di Azure. |
 
 ### <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
@@ -133,11 +133,11 @@ Le informazioni consentono di identificare quanto segue:
 
 1. Trovare la zona rilevante per il nome che il client sta tentando di aggiornare.
 
-2. Usare la soluzione per controllare le informazioni di inventario di tale zona.
+1. Usare la soluzione per controllare le informazioni di inventario di tale zona.
 
-3. Verificare che per la zona sia abilitato l'aggiornamento dinamico.
+1. Verificare che per la zona sia abilitato l'aggiornamento dinamico.
 
-4. Controllare se la zona è configurata o meno per l'aggiornamento dinamico sicuro.
+1. Controllare se la zona è configurata o meno per l'aggiornamento dinamico sicuro.
 
     ![Pannello Registrazioni di DNS dinamici](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
 
@@ -177,7 +177,7 @@ Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i 
 
     c. Per visualizzare i dati di log per modifiche di configurazione, selezionare **ConfigurationChange** come filtro **sottotipo** nel controllo facet sul lato sinistro. Viene visualizzata una tabella contenente tutti gli eventi relativi a modifiche di configurazione per il periodo di tempo selezionato.
 
-2. Nella **casella della query di ricerca** digitare `DnsInventory` per visualizzare tutti i dati relativi all'inventario DNS per i server DNS gestiti dalla soluzione. Nei risultati vengono elencati i dati di log relativi ai server DNS, alle zone DNS e ai record di risorse.
+1. Nella **casella della query di ricerca** digitare `DnsInventory` per visualizzare tutti i dati relativi all'inventario DNS per i server DNS gestiti dalla soluzione. Nei risultati vengono elencati i dati di log relativi ai server DNS, alle zone DNS e ai record di risorse.
 
     ![Ricerca log: inventario DNS](./media/log-analytics-dns/log-search-dnsinventory.png)
 

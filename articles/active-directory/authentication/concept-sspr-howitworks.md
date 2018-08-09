@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248220"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413104"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -50,6 +50,7 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
        * Se i metodi di autenticazione non sono configurati, l'utente verrà invitato a contattare l'amministratore per reimpostare la password.
      * Se i criteri prevedono due metodi, viene verificato se per l'utente sono definiti i dati appropriati per almeno due dei metodi di autenticazione abilitati dai criteri dell'amministratore.
        * Se i metodi di autenticazione non sono configurati, l'utente verrà invitato a contattare l'amministratore per reimpostare la password.
+     * Se un ruolo di amministratore di Azure viene assegnato all'utente, vengono applicati i criteri di password complessa con due attività di controllo. Altre informazioni su questi criteri sono disponibili nella sezione [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Verifica se la gestione della password dell'utente viene eseguita in locale, con federazione, autenticazione pass-through o con sincronizzazione degli hash delle password.
      * Se il writeback è stato distribuito e la password dell'utente è gestita in locale, l'utente può continuare con il processo di autenticazione e di reimpostazione della password.
      * Se il writeback non è stato distribuito e la password dell'utente viene gestita in locale, all'utente viene richiesto di contattare l'amministratore per reimpostare la password.
@@ -68,6 +69,9 @@ Se è abilitata la reimpostazione della password self-service, è necessario sel
 
 Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati dall'amministratore.
 
+> [!WARNING]
+> Gli account assegnati i ruoli di amministratore di Azure verrà richiesto di utilizzare i metodi definiti nella sezione [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).
+
 ![Autenticazione][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
@@ -80,13 +84,16 @@ Se un utente non ha registrato il numero minimo di metodi richiesti, viene visua
 
 #### <a name="mobile-app-and-sspr-preview"></a>App per dispositivi mobili e reimpostazione della password self-service (anteprima)
 
-Quando si usa un'app per dispositivi mobili, ad esempio l'app Microsoft Authenticator, come un metodo per la reimpostazione della password, gli utenti devono essere a conoscenza delle seguenti informazioni. Allo scopo di reimpostare la password in modalità self-service quando viene richiesto un solo metodo di ripristino, il codice di verifica rappresenta l'unica opzione disponibile per gli utenti. Quando vengono richiesti due metodi, gli utenti sono in grado di eseguire la reimpostazione usando **O** la notifica **O** il codice di verifica, oltre a qualsiasi altro metodo abilitato.
+Quando si usa un'app per dispositivi mobili, ad esempio l'app Microsoft Authenticator, come un metodo per la reimpostazione della password, è necessario essere a conoscenza delle seguenti informazioni:
+
+* Quando gli amministratori richiedono l'uso di un solo metodo per la reimpostazione di una password, il codice di verifica è l'unica opzione disponibile.
+* Quando gli amministratori richiedono l'uso di due metodi per la reimpostazione della password, gli utenti possono **usare** la notifica **OPPURE** il codice di verifica, oltre a qualsiasi altro metodo abilitato.
 
 | Numero di metodi da reimpostare | Uno | Due |
 | :---: | :---: | :---: |
 | Funzionalità disponibili delle app per dispositivi mobili | Codice | Codice o notifica |
 
-Gli utenti non avranno la possibilità di registrare l'app per dispositivi mobili quando ci si registra per la reimpostazione della password in modalità self-service. Al contrario, gli utenti possono registrare l'app per dispositivi mobili al link aka.ms/mfasetup o nell'anteprima di registrazione delle informazioni di sicurezza alla pagina aka.ms/setupsecurityinfo. 
+Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili durante la registrazione per la reimpostazione della password in modalità self-service da [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Gli utenti possono registrare l'app per dispositivi mobili al link in [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o nella nuova anteprima di registrazione delle informazioni di sicurezza alla pagina [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Modifica dei metodi di autenticazione
 

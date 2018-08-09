@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860004"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577063"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novità di Azure Data Catalog
 Gli aggiornamenti ad **Azure Data Catalog** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio Azure Data Catalog.
@@ -27,7 +27,7 @@ Gli aggiornamenti ad **Azure Data Catalog** vengono rilasciati a intervalli rego
 A partire da novembre 2017 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
 
 * Supporto per il collegamento diretto ai termini del glossario aziendale specifico nel portale Data Catalog. Gli utenti possono copiare i collegamenti dal glossario aziendale e incorporarli nei documenti, messaggi di posta elettronica, report o altre posizioni per collegarli direttamente alla definizione dei termini del glossario.
-* Supporto per le entità servizio di Azure Active Directory. Gli amministratori di Data Catalog possono autorizzare applicazioni client che usano le entità servizio ad accedere al catalogo e possono concedere a tali applicazioni autorizzazioni specifiche nello stesso modo in cui possono concedere autorizzazioni a utenti e gruppi di sicurezza. Per altre informazioni vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Supporto per le entità servizio di Azure Active Directory. Gli amministratori di Data Catalog possono autorizzare applicazioni client che usano le entità servizio ad accedere al catalogo e possono concedere a tali applicazioni autorizzazioni specifiche nello stesso modo in cui possono concedere autorizzazioni a utenti e gruppi di sicurezza. Per altre informazioni vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 * Supporto per l'autenticazione di Azure Active Directory durante la connessione al Database SQL di Azure e alle origini dati di Azure SQL Data Warehouse usando lo strumento di registrazione origine dati Data Catalog. Per altre informazioni vedere [Usare l'autenticazione di Azure Active Directory per l'autenticazione di un database SQL o di SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 747189c7cab2c76c6695bdb8e13f77532adc46d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216074"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578586"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorare e risolvere i problemi di Azure Site Recovery
 
@@ -88,7 +88,7 @@ In **Visualizzazione dell'infrastruttura** vengono mostrati i componenti dell'in
 - Una linea rossa con un'icona di errore sovrapposta indica la presenza di uno o più sintomi di errore che influiscono sulla connettività.
 -  Passare il puntatore del mouse sopra l'icona di errore per visualizzare l'errore e il numero di entità interessate. Fare clic sull'icona per visualizzare un elenco filtrato delle entità interessate.
 
-    ![Visualizzazione dell'infrastruttura di Site Recovery (insieme di credenziali)]Re(./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+    ![Visualizzazione dell'infrastruttura di Site Recovery (insieme di credenziali)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## <a name="tips-for-monitoring-the-infrastructure"></a>Suggerimenti per il monitoraggio dell'infrastruttura
 

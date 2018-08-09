@@ -3,7 +3,7 @@ title: Introduzione ad Azure WebJobs SDK
 description: Introduzione a WebJobs SDK per l'elaborazione in background guidata dagli eventi. Informazioni su come accedere ai dati nei servizi di Azure e di terze parti.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: app-service-web
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
-ms.openlocfilehash: 68377ffd53d5f2b99ddc08386529a40dda12e1b2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.author: glenga
+ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901552"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577306"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -52,7 +52,7 @@ Le istruzioni indicano come creare un progetto WebJobs SDK versione 2.x. La vers
 
 Il servizio [Funzioni di Azure](../azure-functions/functions-overview.md) è basato su WebJobs SDK ed è un'opzione valida quando non è necessario usare direttamente WebJobs SDK. Funzioni di Azure 1.x usa WebJobs SDK 2.x. Per altre informazioni, vedere il [confronto tra Funzioni di Azure e WebJobs SDK](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia un [account Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ed esperienza con le [app nel servizio app di Azure](app-service-web-overview.md). Per seguire la procedura descritta in questo articolo:
 
@@ -63,9 +63,9 @@ Questo articolo presuppone che l'utente abbia un [account Azure](https://azure.m
 
 1. In Visual Studio selezionare **File -> Nuovo progetto**.
 
-2. Selezionare **Desktop classico di Windows > App console (.NET Framework)**.
+1. Selezionare **Desktop classico di Windows > App console (.NET Framework)**.
 
-3. Assegnare al progetto il nome *WebJobsSDKSample* e quindi selezionare **OK**.
+1. Assegnare al progetto il nome *WebJobsSDKSample* e quindi selezionare **OK**.
 
    ![Finestra di dialogo Nuovo progetto](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -121,13 +121,13 @@ In questa sezione si configura la registrazione nella console con il nuovo frame
    Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
    ``` 
 
-2. In *Program.cs* aggiungere un'istruzione `using`:
+1. In *Program.cs* aggiungere un'istruzione `using`:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
 
-3. Nel metodo `Main` aggiungere il codice per aggiornare `JobHostConfiguration` prima della creazione di `JobHost`:
+1. Nel metodo `Main` aggiungere il codice per aggiornare `JobHostConfiguration` prima della creazione di `JobHost`:
  
    ```
    config.DashboardConnectionString = "";
@@ -190,11 +190,11 @@ L'emulatore di archiviazione di Azure eseguito in locale non include tutte le fu
 
    ![Menu per creare un account di archiviazione](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
-2. Nella finestra di dialogo **Crea account di archiviazione** immettere un nome univoco per l'account di archiviazione.
+1. Nella finestra di dialogo **Crea account di archiviazione** immettere un nome univoco per l'account di archiviazione.
 
-3. Scegliere la stessa **area** in cui è stata creata l'app del servizio app o un'area vicina all'utente.
+1. Scegliere la stessa **area** in cui è stata creata l'app del servizio app o un'area vicina all'utente.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
 
    ![Creare l'account di archiviazione](./media/webjobs-sdk-get-started/create-storage-account.png)
 
@@ -202,7 +202,7 @@ L'emulatore di archiviazione di Azure eseguito in locale non include tutte le fu
 
    ![Puntini di sospensione di Stringa di connessione](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
-2. Copiare la stringa di connessione e salvare questo valore in una posizione da cui possa essere copiato di nuovo facilmente.
+1. Copiare la stringa di connessione e salvare questo valore in una posizione da cui possa essere copiato di nuovo facilmente.
 
    ![Copiare la stringa di connessione](./media/webjobs-sdk-get-started/copy-key.png)
 
@@ -218,7 +218,7 @@ WebJobs SDK cerca la stringa di connessione di archiviazione nella raccolta dell
    </connectionStrings>
    ```
 
-2. Sostituire *{storage connection string}* con la stringa di connessione copiata in precedenza.
+1. Sostituire *{storage connection string}* con la stringa di connessione copiata in precedenza.
 
    La stringa di connessione verrà usata di nuovo in seguito durante la configurazione dell'app del servizio app in Azure.
 
@@ -243,27 +243,27 @@ In questa sezione si compila e si esegue il progetto in locale e si attiva la fu
 
    Potrebbe essere visualizzato un messaggio di avviso relativo a un'impostazione `ServicePointManager`. Per il test eseguito con questo progetto, si può ignorare l'avviso. Per altre informazioni in merito, vedere l'articolo su [come usare WebJobs SDK](webjobs-sdk-how-to.md#jobhost-servicepointmanager-settings).
 
-2. Chiudere la finestra della console.
+1. Chiudere la finestra della console.
 
 1. In **Esplora server** espandere il nodo del nuovo account di archiviazione e quindi fare clic con il pulsante destro del mouse su **Code**. 
 
-2. Scegliere **Crea coda**. 
+1. Scegliere **Crea coda**. 
 
-3. Immettere *queue* come nome della coda e quindi selezionare **OK**.
+1. Immettere *queue* come nome della coda e quindi selezionare **OK**.
 
    ![Crea coda](./media/webjobs-sdk-get-started/create-queue.png)
 
-4. Fare clic con il pulsante destro del mouse sul nodo della nuova coda e quindi scegliere **Visualizza coda**.
+1. Fare clic con il pulsante destro del mouse sul nodo della nuova coda e quindi scegliere **Visualizza coda**.
 
-5. Selezionare l'icona **Aggiungi messaggio**.
+1. Selezionare l'icona **Aggiungi messaggio**.
 
    ![Crea coda](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-6. Nella finestra di dialogo **Aggiungi messaggio** immettere *Hello World!* come **Testo messaggio** e quindi selezionare **OK**.
+1. Nella finestra di dialogo **Aggiungi messaggio** immettere *Hello World!* come **Testo messaggio** e quindi selezionare **OK**.
 
    ![Crea coda](./media/webjobs-sdk-get-started/hello-world-text.png)
 
-7. Eseguire di nuovo il progetto.
+1. Eseguire di nuovo il progetto.
 
    Dato che è stato usato l'attributo `QueueTrigger` nella funzione `ProcessQueueMessage`, il runtime di WeJobs SDK avviato è in ascolto di messaggi nella coda, trova un nuovo messaggio nella coda denominata *queue* e chiama la funzione.
 
@@ -288,7 +288,7 @@ In questa sezione si compila e si esegue il progetto in locale e si attiva la fu
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=ebcb275d-0d7c-4293-a1af-93e0804b9e49)
    ```
 
-8. Chiudere la finestra della console.
+1. Chiudere la finestra della console.
 
 ## <a name="add-application-insights-logging"></a>Aggiungere la registrazione in Application Insights
 
@@ -304,9 +304,9 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
 1. Se non si ha già un'app del servizio app utilizzabile, [crearne una](app-service-web-get-started-dotnet-framework.md).
 
-2. Se non si ha già una risorsa di Application Insights utilizzabile, [crearne una](../application-insights/app-insights-create-new-resource.md). Impostare **Tipo di applicazione** su **Generale** e ignorare le sezioni successive a **Eseguire una copia della chiave di strumentazione**.
+1. Se non si ha già una risorsa di Application Insights utilizzabile, [crearne una](../application-insights/app-insights-create-new-resource.md). Impostare **Tipo di applicazione** su **Generale** e ignorare le sezioni successive a **Eseguire una copia della chiave di strumentazione**.
 
-3. Se si ha già una risorsa di Application Insights da usare, [copiare la chiave di strumentazione](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. Se si ha già una risorsa di Application Insights da usare, [copiare la chiave di strumentazione](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Configurare le impostazioni applicazione 
 
@@ -314,23 +314,23 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
 1. Espandere il gruppo di risorse in cui si trova l'app del servizio app e quindi fare clic con il pulsante destro del mouse sull'app del servizio app.
 
-3. Scegliere **Visualizza impostazioni**.
+1. Scegliere **Visualizza impostazioni**.
 
-4. Nella casella **Stringhe di connessione** aggiungere la voce seguente.
+1. Nella casella **Stringhe di connessione** aggiungere la voce seguente.
 
    |NOME  |Stringa di connessione  |Tipo di database|
    |---------|---------|------|
    |AzureWebJobsStorage | {stringa di connessione di archiviazione copiata in precedenza}|Personalizzate|
    
-6. Se la casella **Impostazioni applicazione** non contiene una chiave di strumentazione di Application Insights, aggiungere quella copiata in precedenza. La presenza o meno della chiave di strumentazione dipende da come è stata creata l'app del servizio app.
+1. Se la casella **Impostazioni applicazione** non contiene una chiave di strumentazione di Application Insights, aggiungere quella copiata in precedenza. La presenza o meno della chiave di strumentazione dipende da come è stata creata l'app del servizio app.
 
    |NOME  |Valore  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {instrumentation key} |
 
-2. Sostituire *{instrumentation key}* con la chiave di strumentazione della risorsa di Application Insights usata.
+1. Sostituire *{instrumentation key}* con la chiave di strumentazione della risorsa di Application Insights usata.
 
-2. Selezionare **Salva**.
+1. Selezionare **Salva**.
 
 1. Aggiungere il codice XML seguente al file *App.config*, subito dopo la raccolta delle stringhe di connessione.
 
@@ -340,11 +340,11 @@ In questa sezione si configura la registrazione in Application Insights prima de
    </appSettings>
    ```
 
-2. Sostituire *{instrumentation key}* con la chiave di strumentazione della risorsa di Application Insights usata.
+1. Sostituire *{instrumentation key}* con la chiave di strumentazione della risorsa di Application Insights usata.
 
    L'aggiunta di questi dati al file *App.config* consente di testare la connessione di Application Insights quando si esegue il progetto in locale. 
 
-3. Salvare le modifiche.
+1. Salvare le modifiche.
 
 ### <a name="add-application-insights-logging-provider"></a>Aggiungere il provider di registrazione di Application Insights
 
@@ -364,13 +364,13 @@ In questa sezione si configura la registrazione in Application Insights prima de
    Install-Package System.Configuration.ConfigurationManager -version 4.4.1
    ``` 
 
-2. Aprire *Program.cs* e aggiungere un'istruzione `using` per lo strumento di gestione configurazione:
+1. Aprire *Program.cs* e aggiungere un'istruzione `using` per lo strumento di gestione configurazione:
 
    ```csharp
    using System.Configuration;
    ```
 
-2. Sostituire il codice nel metodo `Main` con il codice seguente:
+1. Sostituire il codice nel metodo `Main` con il codice seguente:
 
    ```csharp
    using (var loggerFactory = new LoggerFactory())
@@ -406,7 +406,7 @@ In questa sezione si ripete l'esecuzione in locale per verificare che i dati di 
 
 1. Aprire il [portale di Azure](https://portal.azure.com/) e passare alla risorsa di Application Insights.
 
-2. Selezionare **Cerca**.
+1. Selezionare **Cerca**.
 
    ![Selezionare Cerca](./media/webjobs-sdk-get-started/select-search.png)
 
@@ -414,7 +414,7 @@ In questa sezione si ripete l'esecuzione in locale per verificare che i dati di 
 
    ![Log in Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
-3. Chiudere la finestra della console.
+1. Chiudere la finestra della console.
 
 ## <a name="deploy-as-a-webjob"></a>Eseguire la distribuzione come processo Web
 
@@ -444,7 +444,7 @@ In questa sezione si distribuisce il progetto come processo Web in un'app del se
 
 1. Usare **Esplora server** per creare un messaggio nella coda così come è stato fatto [in precedenza](#trigger-the-function), immettendo però *Hello Azure!*.
 
-7. Aggiornare la pagina **Coda** in Visual Studio. Il nuovo messaggio non sarà presente perché è stato elaborato dalla funzione eseguita nel servizio app di Azure.
+1. Aggiornare la pagina **Coda** in Visual Studio. Il nuovo messaggio non sarà presente perché è stato elaborato dalla funzione eseguita nel servizio app di Azure.
 
    > [!TIP]
    > Quando si esegue il test in Azure, usare la [modalità di sviluppo](webjobs-sdk-how-to.md#jobhost-development-settings) in modo da richiamare immediatamente la funzione trigger della coda ed evitare i ritardi causati dal [backoff esponenziale del polling delle code](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
@@ -453,7 +453,7 @@ In questa sezione si distribuisce il progetto come processo Web in un'app del se
 
 1. Aprire il [portale di Azure](https://portal.azure.com/) e passare alla risorsa di Application Insights.
 
-2. Selezionare **Cerca**.
+1. Selezionare **Cerca**.
 
 1. Se il messaggio *Hello Azure!* non viene visualizzato, selezionare periodicamente **Aggiorna** per alcuni minuti.
 
@@ -477,19 +477,19 @@ Le associazioni di input semplificano il codice per la lettura di dati. Per ques
 
    In questo codice, `queueTrigger` è un'[espressione di associazione](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns) che viene risolta in un diverso valore in fase di esecuzione.  In fase di esecuzione corrisponde al contenuto del messaggio nella coda.
 
-2. Aggiungere un'istruzione `using`:
+1. Aggiungere un'istruzione `using`:
 
    ```cs
    using System.IO;
    ```
 
-3. Creare un contenitore BLOB nell'account di archiviazione.
+1. Creare un contenitore BLOB nell'account di archiviazione.
 
    a. In **Esplora server** espandere il nodo dell'account di archiviazione, fare clic con il pulsante destro del mouse su **BLOB** e quindi scegliere **Crea contenitore BLOB**.
 
    b. Nella finestra di dialogo **Crea contenitore BLOB** immettere *container* come nome del contenitore e quindi fare clic su **OK**.
 
-4. Caricare il file *Program.cs* nel contenitore BLOB. Questo file viene qui usato come esempio. È possibile caricare qualsiasi file di testo e creare un messaggio nella coda con il nome del file.
+1. Caricare il file *Program.cs* nel contenitore BLOB. Questo file viene qui usato come esempio. È possibile caricare qualsiasi file di testo e creare un messaggio nella coda con il nome del file.
 
    a. In **Esplora server** fare doppio clic sul nodo del contenitore appena creato.
 
@@ -499,11 +499,11 @@ Le associazioni di input semplificano il codice per la lettura di dati. Per ques
 
    c. Trovare e selezionare *Program.cs* e quindi selezionare **OK**.
 
-5. Creare un messaggio nella coda creata in precedenza, con *Program.cs* come testo del messaggio.
+1. Creare un messaggio nella coda creata in precedenza, con *Program.cs* come testo del messaggio.
 
    ![Messaggio nella coda per Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-6. Eseguire il progetto.
+1. Eseguire il progetto.
 
    Il messaggio nella coda attiva la funzione, che legge quindi il BLOB e ne registra la lunghezza. L'output della console è simile al seguente:
 
@@ -535,9 +535,9 @@ Le associazioni di output semplificano il codice per la scrittura di dati. Quest
    }
    ```
 
-5. Creare un altro messaggio nella coda con *Program.cs* come testo del messaggio.
+1. Creare un altro messaggio nella coda con *Program.cs* come testo del messaggio.
 
-6. Eseguire il progetto.
+1. Eseguire il progetto.
 
    Il messaggio nella coda attiva la funzione, che legge quindi il BLOB, ne registra la lunghezza e crea un nuovo BLOB. L'output della console è uguale, ma passando alla finestra del contenitore BLOB e selezionando **Aggiorna** verrà visualizzato un nuovo BLOB denominato *copy-Program.cs*.
 

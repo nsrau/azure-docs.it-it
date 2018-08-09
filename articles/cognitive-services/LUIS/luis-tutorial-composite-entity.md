@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9c84afc231ff4b086e76f50702870e30da7add6e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5f11409ff49830be97d9a13a0ab7f033d9cc1041
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364903"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494466"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>Esercitazione: 6. Aggiungere un'entità composita 
 Questa esercitazione aggiunge un'entità composita per aggregare i dati estratti in un'entità contenitore.
@@ -99,7 +99,6 @@ I dati estratti dall'endpoint dovrebbero contenere queste informazioni e restitu
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Schermata di LUIS in 'MoveEmployee' con tutte le espressioni etichettate")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
-LUIS non è conoscenza della nuova entità composita fino a quando non viene eseguito il training dell'app. 
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 

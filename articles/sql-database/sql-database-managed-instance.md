@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: bonova
-ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ff571035c9360730546732205f34d75ace38fbff
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091994"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414317"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
 
-L’Istanza gestita di database SQL di Azure (anteprima) è una nuova funzionalità del database SQL di Azure che offre quasi il 100% di compatibilità con SQL Server in locale (Enterprise Edition), fornendo un'implementazione della [rete virtuale (VNet)](../virtual-network/virtual-networks-overview.md) nativa che risolve problemi di sicurezza comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti di SQL Server in locale. Istanza gestita consente ai clienti di SQL Server esistenti di spostare nel cloud le proprie applicazioni locali con modifiche minime nelle applicazioni e nel database. Allo stesso tempo, consente di mantenere tutte le funzionalità PaaS (applicazione automatica di patch e aggiornamenti di versione, backup, disponibilità elevata), che riducono drasticamente il carico di gestione e il TCO.
+L’Istanza gestita di database SQL di Azure (anteprima) è una nuova funzionalità del database SQL di Azure che offre quasi il 100% di compatibilità con SQL Server in locale (Enterprise Edition), fornendo un'implementazione della [rete virtuale (VNet)](../virtual-network/virtual-networks-overview.md) nativa che risolve problemi di sicurezza comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti di SQL Server in locale. Istanza gestita consente ai clienti di SQL Server esistenti di spostare nel cloud le proprie applicazioni locali con modifiche minime nelle applicazioni e nel database. Allo stesso tempo, consente di mantenere tutte le funzionalità PaaS (applicazione automatica di patch e aggiornamenti di versione, backup, disponibilità elevata), che riducono drasticamente il carico di gestione e il costo totale di proprietà.
 
 > [!IMPORTANT]
 > Per un elenco delle aree geografiche in cui è attualmente disponibile Istanza gestita, vedere [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Eseguire la migrazione dei database a un servizio completamente gestito con Istanza gestita di database SQL di Azure).
@@ -120,13 +120,13 @@ L'elenco seguente descrive le caratteristiche principali del livello di servizio
 | Archiviazione IOPS prevista | 500-7500 IOPS per ogni file di dati (dipende dal file di dati). Vedere [Archiviazione Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Numero di file di dati (RIGHE) per il database | Multipli | 
 | Numero di file di log (LOG) per il database | 1 | 
-| Backup automatici gestiti | sì |
+| Backup automatici gestiti | Yes |
 | DISPONIBILITÀ ELEVATA | Basata sull'archiviazione remota e [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Monitoraggio predefinito e metriche dell'istanza e del database | sì |
-| Applicazione automatica di patch software | sì |
-| Rete virtuale: distribuzione di Azure Resource Manager | sì |
+| Monitoraggio predefinito e metriche dell'istanza e del database | Yes |
+| Applicazione automatica di patch software | Yes |
+| Rete virtuale: distribuzione di Azure Resource Manager | Yes |
 | Rete virtuale: modello di distribuzione classica | No  |
-| Supporto del portale | sì|
+| Supporto del portale | Yes|
 |||
 
 \* La memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware. Le CPU logiche di quarta generazione sono basate su processori Intel E5-2673 v3 (Haswell) a 2,4 GHz e le CPU logiche di quinta generazione sono basate su processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. 
@@ -139,25 +139,26 @@ Il livello di servizio business critical è progettato per applicazioni con requ
 
 L'elenco seguente descrive le caratteristiche principali del livello di servizio per business critical: 
 -   Progettato per applicazioni aziendali con le prestazioni e i requisiti di disponibilità più elevati 
--   Viene fornito con l'archiviazione SSD estremamente rapida (fino a 1 TB nella 4° generazione e fino a 4 TB nella 5° generazione). Supporta fino a 100 database per ogni istanza 
+-   Viene fornito con l'archiviazione SSD estremamente rapida (fino a 1 TB nella quarta generazione e fino a 4 TB nella quinta generazione)
+-   Supporta fino a 100 database per istanza 
 
 |Funzionalità | DESCRIZIONE|
 |---|---|
-| Numero di vCore* | 8, 16, 24 (Generazione 4)<br>8, 16, 24, 32, 40, 64, 80 (5° generazione)|
+| Numero di vCore* | 8, 16, 24, 32 (quarta generazione)<br>8, 16, 24, 32, 40, 64, 80 (5° generazione)|
 | Versione/build di SQL Server | SQL Server (versione più recente disponibile) |
 | Funzionalità aggiuntive | [OLTP in memoria](sql-database-in-memory.md)<br> 1 replica di sola lettura ([scalabilità in lettura](sql-database-read-scale-out.md))
 | Dimensione minima archiviazione | 32 GB |
-| Dimensione massima archiviazione | 4° generazione: 1 TB (tutte le dimensioni vCore)<br> 5° generazione:<ul><li>1 TB per 8, 16 vCore</li><li>2 TB per 24 vCore</li><li>4 TB per 40, 60, 80 vCore</ul>|
+| Dimensione massima archiviazione | 4° generazione: 1 TB (tutte le dimensioni vCore)<br> 5° generazione:<ul><li>1 TB per 8, 16 vCore</li><li>2 TB per 24 vCore</li><li>4 TB per 32, 40, 64, 80 vCore</ul>|
 | Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero di file di dati (RIGHE) per il database | Multipli | 
 | Numero di file di log (LOG) per il database | 1 | 
-| Backup automatici gestiti | sì |
+| Backup automatici gestiti | Yes |
 | DISPONIBILITÀ ELEVATA | In base ai [gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Monitoraggio predefinito e metriche dell'istanza e del database | sì |
-| Applicazione automatica di patch software | sì |
-| Rete virtuale: distribuzione di Azure Resource Manager | sì |
+| Monitoraggio predefinito e metriche dell'istanza e del database | Yes |
+| Applicazione automatica di patch software | Yes |
+| Rete virtuale: distribuzione di Azure Resource Manager | Yes |
 | Rete virtuale: modello di distribuzione classica | No  |
-| Supporto del portale | sì|
+| Supporto del portale | Yes|
 |||
 
 ## <a name="advanced-security-and-compliance"></a>Sicurezza e conformità avanzate 

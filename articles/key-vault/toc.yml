@@ -44,30 +44,24 @@
       href: key-vault-ovw-throttling.md
 - name: Guide alle procedure
   items:
-    - name: Gestisci
-      items:
-        - name: Registrazione di Azure Key Vault
-          href: key-vault-logging.md
-        - name: Accesso protetto da firewall
-          href: key-vault-access-behind-firewall.md
-        - name: Disponibilità e ridondanza
-          href: key-vault-disaster-recovery-guidance.md
-        - name: Modificare l'ID tenant
-          href: key-vault-subscription-move-fix.md
-        - name: Creare e gestire con l'interfaccia della riga di comando di Azure
-          href: key-vault-manage-with-cli2.md
-        - name: Usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
-          href: key-vault-soft-delete-cli.md
-        - name: Usare l'eliminazione temporanea di Key Vault con Azure PowerShell
-          href: key-vault-soft-delete-powershell.md
-        - name: Usare i gruppi per concedere l'accesso
-          href: key-vault-group-permissions-for-apps.md
-        - name: Proteggere l'insieme di credenziali delle chiavi
-          href: key-vault-secure-your-key-vault.md
-    - name: Automatizzare
-      items:
-        - name: Automazione di Azure
-          href: automation-manage-key-vault.md
+    - name: Registrazione di Azure Key Vault
+      href: key-vault-logging.md
+    - name: Accesso protetto da firewall
+      href: key-vault-access-behind-firewall.md
+    - name: Disponibilità e ridondanza
+      href: key-vault-disaster-recovery-guidance.md
+    - name: Modificare l'ID tenant
+      href: key-vault-subscription-move-fix.md
+    - name: Creare e gestire con l'interfaccia della riga di comando di Azure
+      href: key-vault-manage-with-cli2.md
+    - name: Usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
+      href: key-vault-soft-delete-cli.md
+    - name: Usare l'eliminazione temporanea di Key Vault con Azure PowerShell
+      href: key-vault-soft-delete-powershell.md
+    - name: Usare i gruppi per concedere l'accesso
+      href: key-vault-group-permissions-for-apps.md
+    - name: Proteggere l'insieme di credenziali delle chiavi
+      href: key-vault-secure-your-key-vault.md
 - name: riferimento
   items:
     - name: Azure PowerShell

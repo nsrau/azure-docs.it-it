@@ -9,7 +9,7 @@
     - name: Registrazione e controllo di Azure
       href: azure-log-audit.md
     - name: Sicurezza di rete di Azure
-      href: azure-network-security.md
+      href: abstract-azure-network-security.md
     - name: Sicurezza della piattaforma senza server di Azure
       href: abstract-serverless-platform-security.md
     - name: Abilitazione della sicurezza operativa

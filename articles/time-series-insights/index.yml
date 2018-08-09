@@ -1,24 +1,24 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: b5ef9d9c464ff9968e6a3ad8a9771271aa492abe
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629277"
 documentType: LandingData
 title: Documentazione di Azure Time Series Insights
 metadata:
   title: Documentazione di Azure Time Series Insights - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
   description: Informazioni su come eseguire analisi IoT nel cloud con un'elaborazione degli eventi completamente gestita. Analisi in tempo reale da applicazioni, sensori, dispositivi e altro ancora.
   services: time-series-insights
-  author: bryanla
-  manager: timlt
+  author: anshan
+  manager: cshankar
   ms.service: time-series-insights
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/16/2018
-  ms.author: bryanla
-  ms.openlocfilehash: 5ea126c2095e6bada8752f4b4187f504bbd67a46
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34651023"
+  ms.author: anshan
 abstract:
   description: Informazioni su come configurare un ambiente di Time Series Insights, esplorare e analizzare i dati delle serie temporali delle soluzioni IoT o dei dispositivi connessi. La documentazione descrive i prerequisiti, le procedure, i riferimenti alle API e altri articoli utili per velocizzare le operazioni iniziali.
   aside:
@@ -42,7 +42,7 @@ sections:
         src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
       text: Esplorare Azure Time Series Insights
       href: /azure/time-series-insights/time-series-quickstart
-- title: Riferimenti
+- title: riferimento
   items:
   - type: list
     style: cards

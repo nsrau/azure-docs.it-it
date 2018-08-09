@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: bd4a32575067b3de94935322ead9a7f0966d2969
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b79dc4a65193b04390f64cfbfc8cedb6758af0f0
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784133"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492128"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)?
 
@@ -33,7 +33,7 @@ Per informazioni sull'uso del servizio connesso, vedere l'[introduzione](vs-acti
 
 Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimenti NuGet).
 
-| type | Riferimenti |
+| type | riferimento |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -48,7 +48,7 @@ Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimen
 
 Riferimenti aggiuntivi se è stata selezionata l'opzione **Lettura dati directory**:
 
-| type | Riferimenti |
+| type | riferimento |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
@@ -164,5 +164,5 @@ Quando si aggiunge il servizio connesso, Visual Studio 2015 esegue il backup dei
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scenari di autenticazione per Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Aggiungere l'accesso con Microsoft a un'app Web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Scenari di autenticazione per Azure Active Directory](authentication-scenarios.md)
+- [Aggiungere l'accesso con Microsoft a un'app Web ASP.NET](quickstart-v1-aspnet-webapp.md)

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f1c2b028521983081ba5f276789af9701b568b7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972469"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619091"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1017,7 +1017,7 @@ Per caricare una VM o un disco rigido virtuale esistente dalla rete locale per u
 * Usare *sysprep* in Windows o *waagent-deprovision* in Linux per generalizzare la VM. Vedere [Documentazione tecnica su Sysprep](https://technet.microsoft.com/library/cc766049.aspx) per Windows o [Come acquisire una macchina virtuale Linux da usare come modello di Resource Manager][capture-image-linux-step-2-create-vm-image] per Linux
 * Caricare il disco rigido virtuale con Powershell o con l'interfaccia della riga di comando di Azure
 * (Opzionale) Creare un’immagine del disco gestito dal disco rigido virtuale tramite Powershell, interfaccia della riga di comando di Azure o portale di Azure
-* Distribuire la VM con un modello JSON facendo riferimento all’immagine del disco rigido virtuale, come mostrato in [questo modello JSON di esempio](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) o utilizzando l’immagine del disco gestito, come visualizzato [in questo esempio di modello JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
+* Distribuire la VM con un modello JSON facendo riferimento all’immagine del disco rigido virtuale, come mostrato in [questo modello JSON di esempio](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) o utilizzando l’immagine del disco gestito, come visualizzato [in questo esempio di modello JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Download dei dischi rigidi virtuali o dei dischi gestiti in locale
 L'infrastruttura distribuita come servizio (IaaS) di Azure non consente solo di caricare dischi rigidi virtuali e sistemi SAP, ma anche di spostare i sistemi SAP da Azure ai sistemi locali.
@@ -1156,8 +1156,8 @@ Questa attività non può essere eseguita nel portale di Azure. È possibile usa
 
 Il flusso di base della logica dei cmdlet di PS è simile al seguente:
 
-* Creare un contesto per l'account di archiviazione di **origine** con *New-AzureStorageContext*. Vedere <https://msdn.microsoft.com/library/dn806380.aspx>
-* Creare un contesto per l'account di archiviazione di **destinazione** con *New-AzureStorageContext*. Vedere <https://msdn.microsoft.com/library/dn806380.aspx>
+* Creare un contesto per l'account di archiviazione di **origine** con *New-AzureStorageContext*. Vedere <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* Creare un contesto per l'account di archiviazione di **destinazione** con *New-AzureStorageContext*. Vedere <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
 * Avviare la copia con
 
 ```powershell

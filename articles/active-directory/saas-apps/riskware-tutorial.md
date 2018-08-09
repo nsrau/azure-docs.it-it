@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 7705baa0ba912f24d7859110c75d36703aeb4a77
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4c664fac99e93e94b46f5d917a63aa6530b695bd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041960"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437774"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Esercitazione: Integrazione di Azure Active Directory con Riskware
 
@@ -53,7 +53,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Riskware dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-riskware-from-the-gallery"></a>Aggiunta di Riskware dalla raccolta
 Per configurare l'integrazione di Riskware in Azure AD, è necessario aggiungere Riskware dalla raccolta al proprio elenco di app SaaS gestite.
@@ -64,15 +64,15 @@ Per configurare l'integrazione di Riskware in Azure AD, è necessario aggiungere
 
     ![Pulsante Azure Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
 
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **Riskware**, selezionare **Riskware** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **Riskware**, selezionare **Riskware** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Riskware nell'elenco risultati](./media/riskware-tutorial/tutorial_riskware_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual �
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Riskware, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di Riskware](#create-a-riskware-test-user)**: per avere una controparte di Britta Simon in Riskware collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creare un utente di test di Riskware](#create-a-riskware-test-user)**: per avere una controparte di Britta Simon in Riskware collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -100,11 +100,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
 
     ![Finestra di dialogo Single Sign-On](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
-3. Nella sezione **URL e dominio Riskware** seguire questa procedura:
+1. Nella sezione **URL e dominio Riskware** seguire questa procedura:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Riskware](./media/riskware-tutorial/tutorial_riskware_url.png)
 
@@ -127,29 +127,29 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Il valore dell'URL di accesso non è reale. è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto client di Riskware](mailto:support@pansoftware.com.au).
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Collegamento di download del certificato](./media/riskware-tutorial/tutorial_riskware_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/riskware-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Riskware** fare clic su **Configura Riskware** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML e l'URL di disconnessione** dalla sezione **Riferimento rapido**.
+1. Nella sezione **Configurazione di Riskware** fare clic su **Configura Riskware** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML e l'URL di disconnessione** dalla sezione **Riferimento rapido**.
 
     ![Configurazione Riskware](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
-7. In un'altra finestra del Web browser accedere al sito aziendale di Riskware come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di Riskware come amministratore.
 
-8. In alto a destra, fare clic su **Manutenzione** per aprire la pagina di manutenzione.
+1. In alto a destra, fare clic su **Manutenzione** per aprire la pagina di manutenzione.
 
     ![Manutenzione di Configurazione Riskware](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
-9. Nella pagina di manutenzione, fare clic su **Autenticazione**.
+1. Nella pagina di manutenzione, fare clic su **Autenticazione**.
 
     ![Autenticazione di Configurazione Riskware](./media/riskware-tutorial/tutorial_riskware_authen.png)
 
-10. Nella pagina **Configurazione di autenticazione** seguire questa procedura:
+1. Nella pagina **Configurazione di autenticazione** seguire questa procedura:
 
     ![Configurazione di autenticazione di Configurazione Riskware](./media/riskware-tutorial/tutorial_riskware_config.png)
 
@@ -194,15 +194,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/riskware-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/riskware-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/riskware-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/riskware-tutorial/create_aaduser_04.png)
 
@@ -212,7 +212,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
 ### <a name="create-a-riskware-test-user"></a>Creare un utente test Riskware
 
@@ -222,15 +222,15 @@ Per consentire agli utenti di Azure AD di accedere a Riskware, è necessario eff
 
 1. Accedere a Riskware come amministratore della sicurezza.
 
-2. In alto a destra, fare clic su **Manutenzione** per aprire la pagina di manutenzione. 
+1. In alto a destra, fare clic su **Manutenzione** per aprire la pagina di manutenzione. 
 
     ![Manutenzione di Configurazione Riskware](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
-3. Nella pagina di manutenzione, fare clic su **Persone**.
+1. Nella pagina di manutenzione, fare clic su **Persone**.
 
     ![Persone di Configurazione Riskware](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. Selezionare la scheda **Dettagli** ed eseguire questa procedura:
+1. Selezionare la scheda **Dettagli** ed eseguire questa procedura:
 
     ![Dettagli di Configurazione Riskware](./media/riskware-tutorial/tutorial_riskware_details.png)
 
@@ -240,7 +240,7 @@ Per consentire agli utenti di Azure AD di accedere a Riskware, è necessario eff
 
     c. Nella casella di testo **Cognome** immettere il cognome dell'utente, ad esempio **Simon**.
 
-5. Nella scheda **Sicurezza** eseguire la procedura seguente:
+1. Nella scheda **Sicurezza** eseguire la procedura seguente:
 
     ![Protezione di Configurazione Riskware](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -250,7 +250,7 @@ Per consentire agli utenti di Azure AD di accedere a Riskware, è necessario eff
 
     c. Nella casella di testo **Password** digitare la password dell'utente.
 
-6. Nella scheda **Organizzazione** eseguire questa procedura:
+1. Nella scheda **Organizzazione** eseguire questa procedura:
 
     ![Organizzazione di Configurazione Riskware](./media/riskware-tutorial/tutorial_riskware_org.png)
 
@@ -260,7 +260,7 @@ Per consentire agli utenti di Azure AD di accedere a Riskware, è necessario eff
 
     c. Nella sezione **Dipendente**, impostare **Stato dipendente** come generico.
 
-7. Fare clic su **Save**.
+1. Fare clic su **Save**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -274,23 +274,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco applicazioni, selezionare **Riskware**.
+1. Nell'elenco applicazioni, selezionare **Riskware**.
 
     ![Collegamento di Riskware nell'elenco delle applicazioni](./media/riskware-tutorial/tutorial_riskware_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

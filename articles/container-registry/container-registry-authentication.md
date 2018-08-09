@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8fcebae21d73db75e19bd1091faa8f389f0ba40
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165515"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579521"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Eseguire l'autenticazione con un registro contenitori Docker privato
 
@@ -26,7 +26,7 @@ Il registro contenitori di Azure non supporta le operazioni di Docker non autent
 
 ## <a name="individual-login-with-azure-ad"></a>Accesso individuale con Azure AD
 
-Quando si usa direttamente il registro, ad esempio per eseguire il pull o il push delle immagini dalla workstation di sviluppo, eseguire l'autenticazione usando il comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) nell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli):
+Quando si usa direttamente il registro, ad esempio per eseguire il pull o il push delle immagini dalla workstation di sviluppo, eseguire l'autenticazione usando il comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) nell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
@@ -36,7 +36,7 @@ Quando si esegue l'accesso con `az acr login`, l'interfaccia della riga di coman
 
 ## <a name="service-principal"></a>Entità servizio
 
-È possibile assegnare al registro un'[entità servizio](../active-directory/develop/active-directory-application-objects.md), che l'applicazione o il servizio può successivamente usare per eseguire l'autenticazione headless. Le entità servizio consentono di eseguire l'[accesso in base al ruolo](../role-based-access-control/role-assignments-portal.md) a un registro. È possibile assegnare più entità servizio a un registro. L'uso di più entità servizio consente di definire un accesso diverso per applicazioni diverse.
+È possibile assegnare al registro un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md), che l'applicazione o il servizio può successivamente usare per eseguire l'autenticazione headless. Le entità servizio consentono di eseguire l'[accesso in base al ruolo](../role-based-access-control/role-assignments-portal.md) a un registro. È possibile assegnare più entità servizio a un registro. L'uso di più entità servizio consente di definire un accesso diverso per applicazioni diverse.
 
 I ruoli disponibili sono:
 
@@ -51,7 +51,7 @@ Le entità servizio consentono la connettività headless a un registro in entram
   * *Collaboratore*: soluzioni di distribuzione e integrazione continua come Visual Studio Team Services o Jenkins, che creano immagini dei contenitori e ne eseguono il push a un registro.
 
 > [!TIP]
-> È possibile rigenerare la password di un'entità servizio eseguendo il comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials).
+> È possibile rigenerare la password di un'entità servizio eseguendo il comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
 >
 
 È inoltre possibile accedere direttamente con un'entità servizio. Specificare l'ID app e la password dell'entità servizio nel comando `docker login`:
@@ -82,7 +82,7 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 
 Anche in questo caso, in Docker è consigliabile usare il parametro `--password-stdin` invece di specificarlo nella riga di comando, per una maggiore sicurezza. È inoltre possibile specificare solo il nome utente, senza `-p`, e immettere la password quando viene richiesto.
 
-Per consentire a un utente amministratore di accedere a un registro esistente, è possibile usare il parametro `--admin-enabled` del comando [az acr update](/cli/azure/acr?view=azure-cli-latest#az_acr_update) nell'interfaccia della riga di comando di Azure:
+Per consentire a un utente amministratore di accedere a un registro esistente, è possibile usare il parametro `--admin-enabled` del comando [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) nell'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

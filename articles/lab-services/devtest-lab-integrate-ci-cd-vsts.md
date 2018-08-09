@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 1af195e644fe93e0c59f5e4402dd8942f5fe1aba
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635507"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438784"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integrare Azure DevTest Labs nella pipeline di integrazione e distribuzione continue di Visual Studio Team Services
 È possibile usare l'estensione *Azure DevTest Labs Tasks*, installata in Visual Studio Team Services (VSTS), per integrare facilmente la pipeline di compilazione e rilascio di integrazione continua/distribuzione continua con Azure DevTest Labs. L'estensione installa tre attività: 
@@ -91,10 +91,10 @@ Questa sezione descrive come creare il modello di Azure Resource Manager usato p
 Per creare una definizione di versione, eseguire le operazioni seguenti:
 
 1. Nella scheda **Versioni** dell'hub **Compilazione e versione** selezionare il segno di addizione (+).
-2. Nella finestra **Crea definizione di versione** selezionare il modello **Vuoto** e quindi fare clic su **Avanti**.
-3. Selezionare **Scegli dopo** e quindi **Crea** per creare una nuova definizione di versione con un ambiente predefinito e nessun elemento collegato.
-4. Per aprire il menu di scelta rapida, nella nuova definizione di versione selezionare i puntini di sospensione (...) accanto al nome dell'ambiente e quindi fare clic su **Configura variabili**. 
-5. Nella finestra **Configura ambiente** immettere i valori seguenti per le variabili usate nelle attività della definizione di versione:
+1. Nella finestra **Crea definizione di versione** selezionare il modello **Vuoto** e quindi fare clic su **Avanti**.
+1. Selezionare **Scegli dopo** e quindi **Crea** per creare una nuova definizione di versione con un ambiente predefinito e nessun elemento collegato.
+1. Per aprire il menu di scelta rapida, nella nuova definizione di versione selezionare i puntini di sospensione (...) accanto al nome dell'ambiente e quindi fare clic su **Configura variabili**. 
+1. Nella finestra **Configura ambiente** immettere i valori seguenti per le variabili usate nelle attività della definizione di versione:
 
    a. Per **vmName** immettere il nome assegnato alla macchina virtuale durante la creazione del modello di Resource Manager nel portale di Azure.
 
@@ -107,7 +107,7 @@ Per creare una definizione di versione, eseguire le operazioni seguenti:
 La fase successiva della distribuzione consiste nel creare la macchina virtuale da usare come "immagine finale" per le distribuzioni successive. È necessario creare la macchina virtuale all'interno dell'istanza di Azure DevTest Labs usando l'attività sviluppata appositamente a questo scopo. 
 
 1. Nella definizione di versione selezionare **Aggiungi attività**.
-2. Nella scheda **Distribuisci** aggiungere un'attività *Crea macchina virtuale* di Azure DevTest Labs. Configurare le attività in questo modo:
+1. Nella scheda **Distribuisci** aggiungere un'attività *Crea macchina virtuale* di Azure DevTest Labs. Configurare le attività in questo modo:
 
    > [!NOTE]
    > Per creare la macchina virtuale da usare per le distribuzioni successive, vedere [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -134,8 +134,8 @@ La fase successiva della distribuzione consiste nel creare la macchina virtuale 
    /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
    ```
 
-3. Eseguire lo script creato in precedenza per raccogliere i dettagli della macchina virtuale DevTest Labs. 
-4. Nella definizione di versione selezionare **Aggiungi attività** e quindi aggiungere un'attività **Azure PowerShell** nella scheda *Distribuisci*. Configurare le attività in questo modo:
+1. Eseguire lo script creato in precedenza per raccogliere i dettagli della macchina virtuale DevTest Labs. 
+1. Nella definizione di versione selezionare **Aggiungi attività** e quindi aggiungere un'attività **Azure PowerShell** nella scheda *Distribuisci*. Configurare le attività in questo modo:
 
    > [!NOTE]
    > Per raccogliere i dettagli della macchina virtuale DevTest Labs, vedere [Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) ed eseguire lo script.
@@ -156,7 +156,7 @@ La fase successiva della distribuzione consiste nel creare la macchina virtuale 
       ```
     Lo script raccoglie i valori necessari e li archivia in variabili di ambiente all'interno della definizione di versione, per permettere di farvi riferimento facilmente nei passaggi successivi.
 
-5. Distribuire l'app nella nuova macchina virtuale DevTest Labs. Le attività usate normalmente per distribuire l'app sono *Copia dei file di Azure* e *PowerShell in computer di destinazione*.
+1. Distribuire l'app nella nuova macchina virtuale DevTest Labs. Le attività usate normalmente per distribuire l'app sono *Copia dei file di Azure* e *PowerShell in computer di destinazione*.
    Le informazioni sulla macchina virtuale necessaria per i parametri di queste attività sono archiviate in tre variabili di configurazione denominate **labVmRgName**, **labVMIpAddress** e **labVMFqdn** all'interno della definizione di versione. Se si vuole solo provare a creare una macchina virtuale DevTest Labs e un'immagine personalizzata, senza distribuirvi un'app, è possibile ignorare questo passaggio.
 
 ### <a name="create-an-image"></a>Creare un'immagine
@@ -164,7 +164,7 @@ La fase successiva della distribuzione consiste nel creare la macchina virtuale 
 La fase successiva consiste nel creare un'immagine della nuova macchina virtuale distribuita nell'istanza di Azure DevTest Labs. È quindi possibile usare l'immagine per creare copie della macchina virtuale on demand ogni volta che si vuole eseguire un'attività di sviluppo o svolgere alcuni test. 
 
 1. Nella definizione di versione selezionare **Aggiungi attività**.
-2. Nella scheda **Distribuisci** aggiungere un'attività **Crea immagine personalizzata** di Azure DevTest Labs. Configurare l'app come segue:
+1. Nella scheda **Distribuisci** aggiungere un'attività **Crea immagine personalizzata** di Azure DevTest Labs. Configurare l'app come segue:
 
    > [!NOTE]
    > Per creare l'immagine, vedere [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -194,8 +194,8 @@ La fase finale consiste nell'eliminare la macchina virtuale distribuita nell'ist
  
    b. Per **Lab VM ID** (ID macchina virtuale lab), se è stato modificato il nome predefinito della variabile di ambiente automaticamente popolata con l'ID della macchina virtuale lab in un'attività precedente, è possibile modificarlo qui. Il valore predefinito è **$(labVMId)**.
 
-2. Immettere un nome per la definizione di versione e quindi salvarla.
-3. Creare una nuova versione, selezionare la build più recente e distribuirla nel singolo ambiente nella definizione.
+1. Immettere un nome per la definizione di versione e quindi salvarla.
+1. Creare una nuova versione, selezionare la build più recente e distribuirla nel singolo ambiente nella definizione.
 
 In ogni fase aggiornare la visualizzazione dell'istanza di DevTest Labs nel portale di Azure per visualizzare la macchina virtuale e l'immagine create, insieme alla macchina virtuale eliminata di nuovo.
 

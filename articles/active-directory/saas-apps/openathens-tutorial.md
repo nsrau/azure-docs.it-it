@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: ddd669bb8ff8e520c5538457789d4f660a82255d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 269b216a94b1233c5f9f9a634fda3c05e46cac90
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051425"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Esercitazione: Integrazione di Azure Active Directory con OpenAthens
 
@@ -50,7 +50,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di OpenAthens dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-openathens-from-the-gallery"></a>Aggiunta di OpenAthens dalla raccolta
 Per configurare l'integrazione di OpenAthens in Azure AD, è necessario aggiungere OpenAthens dalla raccolta all'elenco di app SaaS gestite.
@@ -61,15 +61,15 @@ Per configurare l'integrazione di OpenAthens in Azure AD, è necessario aggiunge
 
     ![Pulsante Azure Active Directory][1]
 
-2. Sfogliare **Applicazioni aziendali** e quindi passare a **Tutte le applicazioni**.
+1. Sfogliare **Applicazioni aziendali** e quindi passare a **Tutte le applicazioni**.
 
     ![Riquadro Applicazioni aziendali][2]
     
-3. Per aggiungere una nuova applicazione, fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
+1. Per aggiungere una nuova applicazione, fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca digitare **OpenAthens** selezionare **OpenAthens** dal pannello dei risultati e quindi selezionare il pulsante **Aggiungi**.
+1. Nella casella di ricerca digitare **OpenAthens** selezionare **OpenAthens** dal pannello dei risultati e quindi selezionare il pulsante **Aggiungi**.
 
     ![OpenAthens nell'elenco risultati](./media/openathens-tutorial/tutorial_openathens_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Per stabilire la relazione di collegamento, in OpenAthens assegnare il valore di
 Per configurare e testare l'accesso Single Sign-On di Azure AD con OpenAthens, è necessario completare le procedure di base seguenti:
 
 1. [Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on) per consentire agli utenti di usare questa funzionalità.
-2. [Creare un utente test di Azure AD](#create-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. [Creare un utente test OpenAthens](#create-a-openathens-test-user) per avere una controparte di Britta Simon in OpenAthens collegata alla rappresentazione dell'utente in Azure AD.
-4. [Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. [Testare l'accesso Single Sign-On](#test-single-sign-on) per verificare se la configurazione funziona.
+1. [Creare un utente test di Azure AD](#create-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. [Creare un utente test OpenAthens](#create-a-openathens-test-user) per avere una controparte di Britta Simon in OpenAthens collegata alla rappresentazione dell'utente in Azure AD.
+1. [Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. [Testare l'accesso Single Sign-On](#test-single-sign-on) per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -99,37 +99,37 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Collegamento Configura l'accesso Single Sign-On][4]
 
-2. Per abilitare single sign-on,nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** come **Modalità**.
+1. Per abilitare single sign-on,nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** come **Modalità**.
  
     ![Finestra di dialogo Single Sign-On](./media/openathens-tutorial/tutorial_openathens_samlbase.png)
 
-3. Nella sezione **URL e dominio OpenAthens** immettere il valore: `https://login.openathens.net/saml/2/metadata-sp` nella casella di testo **Identificatore**.
+1. Nella sezione **URL e dominio OpenAthens** immettere il valore: `https://login.openathens.net/saml/2/metadata-sp` nella casella di testo **Identificatore**.
 
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di OpenAthens](./media/openathens-tutorial/tutorial_openathens_url.png)
 
-4. Nella sezione **Certificato di firma SAML** selezionare **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** selezionare **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Collegamento al download del certificato di firma AMSL](./media/openathens-tutorial/tutorial_openathens_certificate.png) 
 
-5. Fare clic sul pulsante **Salva**.
+1. Fare clic sul pulsante **Salva**.
 
     ![Pulsante Salva di Single Sign-On](./media/openathens-tutorial/tutorial_general_400.png)
 
-6. In un'altra finestra del Web browser accedere al sito aziendale di OpenAthens come amministratore.
+1. In un'altra finestra del Web browser accedere al sito aziendale di OpenAthens come amministratore.
 
-7. Selezionare **Connections** (Connessioni) nella scheda **Management** (Gestione). 
+1. Selezionare **Connections** (Connessioni) nella scheda **Management** (Gestione). 
 
     ![Configura accesso Single Sign-On](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-8. Selezionare **SAML 1.1 o 2.0** e quindi selezionare il pulsante **Configura**.
+1. Selezionare **SAML 1.1 o 2.0** e quindi selezionare il pulsante **Configura**.
 
     ![Configura accesso Single Sign-On](./media/openathens-tutorial/tutorial_openathens_application2.png)
     
-9. Per aggiungere la configurazione, selezionare il pulsante **Sfoglia** per caricare il file di metadati con estensione XML scaricato dal portale di Azure e quindi selezionare **Aggiungi**.
+1. Per aggiungere la configurazione, selezionare il pulsante **Sfoglia** per caricare il file di metadati con estensione XML scaricato dal portale di Azure e quindi selezionare **Aggiungi**.
 
     ![Configura accesso Single Sign-On](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-10. Nella scheda **Dettagli** seguire questa procedura.
+1. Nella scheda **Dettagli** seguire questa procedura.
 
     ![Configura accesso Single Sign-On](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
@@ -162,15 +162,15 @@ L'obiettivo di questa sezione consiste nel creare un utente di test nel portale 
 
     ![Pulsante Azure Active Directory](./media/openathens-tutorial/create_aaduser_01.png)
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/openathens-tutorial/create_aaduser_02.png)
 
-3. Per aprire la finestra di dialogo **Utente** selezionare **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Per aprire la finestra di dialogo **Utente** selezionare **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
 
     ![Pulsante Aggiungi](./media/openathens-tutorial/create_aaduser_03.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+1. Nella finestra di dialogo **Utente** seguire questa procedura:
 
     ![Finestra di dialogo Utente](./media/openathens-tutorial/create_aaduser_04.png)
 
@@ -180,7 +180,7 @@ L'obiettivo di questa sezione consiste nel creare un utente di test nel portale 
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella di testo **Password**.
 
-    d. Selezionare **Crea**.
+    d. Selezionare **Create**.
   
 ### <a name="create-an-openathens-test-user"></a>Creare un utente test di OpenAthens
 
@@ -198,23 +198,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle **Applicazioni** selezionare **OpenAthens**.
+1. Nell'elenco delle **Applicazioni** selezionare **OpenAthens**.
 
     ![Collegamento OpenAthens nell'elenco delle applicazioni](./media/openathens-tutorial/tutorial_openathens_app.png)  
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Collegamento "Utenti e gruppi"][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Quindi nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+1. Fare clic sul pulsante **Aggiungi**. Quindi nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
 
     ![Riquadro Aggiungi assegnazione][203]
 
-5. Nell'elenco di **Utenti e gruppi** selezionare **Britta Simon**.
+1. Nell'elenco di **Utenti e gruppi** selezionare **Britta Simon**.
 
-6. Selezionare il pulsante **Seleziona** dall'elenco **Utenti e gruppi**.
+1. Selezionare il pulsante **Seleziona** dall'elenco **Utenti e gruppi**.
 
-7. Selezionare il pulsante **Assegna** nel pannello **Aggiungi assegnazione**.
+1. Selezionare il pulsante **Assegna** nel pannello **Aggiungi assegnazione**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

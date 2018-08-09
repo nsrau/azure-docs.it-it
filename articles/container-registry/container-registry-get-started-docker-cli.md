@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d729a45b28ad02a652c265974d46fe1aaf752198
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 24cccd4745d611196046168f0125e7ef2a184e15
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768278"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576492"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro per contenitori Docker privati tramite l'interfaccia della riga di comando di Docker
 
@@ -22,20 +22,20 @@ Un registro di contenitori di Azure archivia e gestisce le immagini dei contenit
 
 La procedura seguente esegue il download di un'[immagine di Nginx](https://store.docker.com/images/nginx) ufficiale dal registro pubblico di Docker Hub, la contrassegna per il registro di contenitori di Azure privato, ne effettua il push nel registro e quindi ne effettua il pull dal registro.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* **Registro di contenitori di Azure**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio, usare il [Portale di Azure](container-registry-get-started-portal.md) o l'[interfaccia della riga di comando di Azure 2.0](container-registry-get-started-azure-cli.md).
+* **Registro di contenitori di Azure**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
 * **Interfaccia della riga di comando di Docker**: per configurare il computer locale come host Docker e accedere ai comandi della riga di comando di Docker, installare [Docker](https://docs.docker.com/engine/installation/).
 
 ## <a name="log-in-to-a-registry"></a>Accedere a un registro
 
-Esistono [diversi modi per eseguire l'autenticazione](container-registry-authentication.md) nel registro contenitori privato. È il metodo consigliato quando si usa una riga di comando è rappresentato dal comando dell'interfaccia della riga di comando di Azure [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login). Ad esempio, per accedere a un registro denominato *myregistry*:
+Esistono [diversi modi per eseguire l'autenticazione](container-registry-authentication.md) nel registro contenitori privato. È il metodo consigliato quando si usa una riga di comando è rappresentato dal comando dell'interfaccia della riga di comando di Azure [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Ad esempio, per accedere a un registro denominato *myregistry*:
 
 ```azurecli
 az acr login --name myregistry
 ```
 
-È anche possibile eseguire l'accesso con il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). L'esempio seguente passa l'ID e la password di un'[entità servizio](../active-directory/active-directory-application-objects.md) di Azure Active Directory. Ad esempio, è possibile che sia stata [assegnata un'entità servizio](container-registry-authentication.md#service-principal) al registro per uno scenario di automazione.
+È anche possibile eseguire l'accesso con il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). L'esempio seguente passa l'ID e la password di un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) di Azure Active Directory. Ad esempio, è possibile che sia stata [assegnata un'entità servizio](container-registry-authentication.md#service-principal) al registro per uno scenario di automazione.
 
 ```Bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -116,7 +116,7 @@ Se l'immagine di Nginx non è più necessaria, è possibile eliminarla in locale
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Per rimuovere le immagini dal Registro contenitori di Azure, è possibile usare il comando dell'interfaccia della riga di comando di Azure [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete). Ad esempio, il comando seguente elimina il manifesto a cui un tag fa riferimento, i dati livello associati e tutti gli altri tag che fanno riferimento al manifesto.
+Per rimuovere le immagini dal Registro contenitori di Azure, è possibile usare il comando dell'interfaccia della riga di comando di Azure [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Ad esempio, il comando seguente elimina il manifesto a cui un tag fa riferimento, i dati livello associati e tutti gli altri tag che fanno riferimento al manifesto.
 
 ```azurecli
 az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest

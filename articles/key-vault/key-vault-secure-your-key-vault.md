@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070380"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576968"
 ---
 # <a name="secure-your-key-vault"></a>Proteggere l'insieme di credenziali delle chiavi
 Insieme di credenziali delle chiavi di Azure è un servizio cloud che consente di proteggere le chiavi di crittografia e i segreti (ad esempio, certificati, stringhe di connessione e password) per le applicazioni cloud. Poiché questi dati sono riservati e importanti per l'azienda, è opportuno limitare l'accesso agli insiemi di credenziali delle chiavi alle applicazioni e agli utenti autorizzati. Questo articolo offre una panoramica del modello di accesso all'insieme di credenziali delle chiavi, illustra i criteri di autenticazione e autorizzazione e spiega come proteggere l'accesso all'insieme di credenziali delle chiavi per le applicazioni cloud presentando un esempio.
@@ -47,7 +47,7 @@ Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di A
 * **accesso utente+app**: in genere questo meccanismo viene usato per le applicazioni che accedono all'insieme di credenziali delle chiavi per conto di un utente connesso. Azure PowerShell e il portale di Azure offrono un esempio di questo tipo di accesso. Esistono due modi per concedere l'accesso agli utenti: gli utenti possono accedere all'insieme di credenziali delle chiavi da qualsiasi applicazione oppure solo da un'applicazione specifica, definita identità composta. 
 * **accesso solo app**: questo meccanismo viene usato per le applicazioni che eseguono servizi daemon, processi in background e così via. L'accesso all'insieme di credenziali delle chiavi viene concesso all'identità dell'applicazione.
 
-In entrambi i casi, l'applicazione esegue l'autenticazione con Azure Active Directory usando uno dei [metodi di autenticazione supportati](../active-directory/active-directory-authentication-scenarios.md) e acquisisce un token. Il metodo di autenticazione usato dipende dal tipo di applicazione. L'applicazione usa quindi questo token e invia una richiesta API REST all'insieme di credenziali delle chiavi. In caso di accesso al piano di gestione, le richieste vengono instradate attraverso l'endpoint di Azure Resource Manager. Quando invece si accede al piano dati, le applicazioni interagiscono direttamente con un endpoint dell'insieme di credenziali delle chiavi. Sono disponibili informazioni più dettagliate sull'[intero flusso di autenticazione](../active-directory/active-directory-protocols-oauth-code.md). 
+In entrambi i casi, l'applicazione esegue l'autenticazione con Azure Active Directory usando uno dei [metodi di autenticazione supportati](../active-directory/develop/authentication-scenarios.md) e acquisisce un token. Il metodo di autenticazione usato dipende dal tipo di applicazione. L'applicazione usa quindi questo token e invia una richiesta API REST all'insieme di credenziali delle chiavi. In caso di accesso al piano di gestione, le richieste vengono instradate attraverso l'endpoint di Azure Resource Manager. Quando invece si accede al piano dati, le applicazioni interagiscono direttamente con un endpoint dell'insieme di credenziali delle chiavi. Sono disponibili informazioni più dettagliate sull'[intero flusso di autenticazione](../active-directory/develop/v1-protocols-oauth-code.md). 
 
 Il nome della risorsa per cui l'applicazione richiede un token è diverso a seconda che l'applicazione acceda al piano di gestione o al piano dati. Di conseguenza, il nome della risorsa corrisponde all'endpoint del piano di gestione o a quello del piano dati descritto nella tabella di una sezione successiva, a seconda dell'ambiente di Azure.
 
@@ -223,7 +223,7 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 * [Controllo degli accessi in base al ruolo per Microsoft Azure da Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   Questo è un collegamento a un video su Channel 9 della conferenza Microsoft Ignite 2015. In questa sessione vengono illustrate le funzionalità di creazione report e gestione degli accessi di Azure, oltre alle procedure consigliate per la protezione dell'accesso alle sottoscrizioni di Azure con Azure Active Directory.
-* [Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+* [Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory](../active-directory/develop/v1-protocols-oauth-code.md)
   
   Questo articolo descrive l'intero flusso di OAuth 2.0 per l'autenticazione con Azure Active Directory.
 * [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) (API REST di gestione dell'insieme di credenziali delle chiavi)
@@ -238,7 +238,7 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 * [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl) (Controllo di accesso per i segreti)
   
   Questa sezione include informazioni di riferimento sul controllo di accesso per i segreti.
-* [Impostare](https://msdn.microsoft.com/library/mt603625.aspx) e [rimuovere](https://msdn.microsoft.com/library/mt619427.aspx) i criteri di accesso dell'insieme di credenziali delle chiavi usando PowerShell
+* [Impostare](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) e [rimuovere](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) i criteri di accesso dell'insieme di credenziali delle chiavi usando PowerShell
   
   Questi documenti includono informazioni di riferimento per consentire ai cmdlet di PowerShell di gestire i criteri di accesso dell'insieme di credenziali delle chiavi.
 

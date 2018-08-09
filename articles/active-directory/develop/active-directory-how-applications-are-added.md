@@ -17,21 +17,21 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316960"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577231"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 
 In Azure AD ci sono due rappresentazioni delle applicazioni: 
-* [Oggetti applicazione](active-directory-application-objects.md#application-object): anche se ci sono alcune [eccezioni](#notes-and-exceptions), questi oggetti possono essere considerati la definizione di un'applicazione.
-* [Entità servizio](active-directory-application-objects.md#service-principal-object): questi oggetti possono essere considerati un'istanza di un'applicazione. Le entità servizio in genere fanno riferimento a un oggetto applicazione e a ogni oggetto applicazione possono fare riferimento più entità servizio in diverse directory.
+* [Oggetti applicazione](app-objects-and-service-principals.md#application-object): anche se ci sono alcune [eccezioni](#notes-and-exceptions), questi oggetti possono essere considerati la definizione di un'applicazione.
+* [Entità servizio](app-objects-and-service-principals.md#service-principal-object): questi oggetti possono essere considerati un'istanza di un'applicazione. Le entità servizio in genere fanno riferimento a un oggetto applicazione e a ogni oggetto applicazione possono fare riferimento più entità servizio in diverse directory.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Cosa sono gli oggetti applicazione e da dove provengono?
-È possibile gestire gli [oggetti applicazione](active-directory-application-objects.md#application-object) nel portale di Azure tramite l'esperienza [Registrazioni per l'app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade). Gli oggetti applicazione descrivono l'applicazione ad Azure AD e possono essere considerati la definizione dell'applicazione, che consente al servizio di sapere come rilasciare token per l'applicazione in base alle relative impostazioni. L'oggetto applicazione è disponibile solo nella relativa home directory, anche se si tratta di un'applicazione multi-tenant che supporta entità servizio in altre directory. L'oggetto applicazione può includere gli elementi seguenti (oltre che informazioni aggiuntive non elencate):
+È possibile gestire gli [oggetti applicazione](app-objects-and-service-principals.md#application-object) nel portale di Azure tramite l'esperienza [Registrazioni per l'app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade). Gli oggetti applicazione descrivono l'applicazione ad Azure AD e possono essere considerati la definizione dell'applicazione, che consente al servizio di sapere come rilasciare token per l'applicazione in base alle relative impostazioni. L'oggetto applicazione è disponibile solo nella relativa home directory, anche se si tratta di un'applicazione multi-tenant che supporta entità servizio in altre directory. L'oggetto applicazione può includere gli elementi seguenti (oltre che informazioni aggiuntive non elencate):
 * Nome, logo ed editore
 * URL di risposta
 * Segreti (chiavi simmetriche e/o asimmetriche usate per autenticare l'applicazione)
@@ -50,7 +50,7 @@ In Azure AD ci sono due rappresentazioni delle applicazioni:
 * Molti altri modi, tra cui diverse esperienze di sviluppo in Azure ed esperienze di esplorazione API nei centri per sviluppatori
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Cosa sono le entità servizio e da dove provengono?
-È possibile gestire le [entità servizio](active-directory-application-objects.md#service-principal-object) nel portale di Azure tramite l'esperienza [Applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Le entità servizio sono oggetti che governano un'applicazione che si connette ad Azure AD e possono essere considerate come l'istanza dell'applicazione nella directory. Per ogni applicazione specifica possono esserci più di un oggetto applicazione (registrato in una "home" directory) e uno o più oggetti entità servizio che rappresentano le istanze dell'applicazione in ogni directory in cui è in funzione. 
+È possibile gestire le [entità servizio](app-objects-and-service-principals.md#service-principal-object) nel portale di Azure tramite l'esperienza [Applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Le entità servizio sono oggetti che governano un'applicazione che si connette ad Azure AD e possono essere considerate come l'istanza dell'applicazione nella directory. Per ogni applicazione specifica possono esserci più di un oggetto applicazione (registrato in una "home" directory) e uno o più oggetti entità servizio che rappresentano le istanze dell'applicazione in ogni directory in cui è in funzione. 
 
 L'entità servizio può includere:
 

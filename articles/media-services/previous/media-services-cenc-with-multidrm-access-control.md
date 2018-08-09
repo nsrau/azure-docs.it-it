@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c125d5a741331d5c9476da23766057ac0c42cdbf
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075317"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493728"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure
 
@@ -225,7 +225,7 @@ Per altre informazioni, vedere [JWT token authentication in Azure Media Services
 
 Per informazioni su Azure AD:
 
-* Le informazioni per gli sviluppatori sono disponibili nella [Guida per gli sviluppatori di Azure Active Directory](../../active-directory/active-directory-developers-guide.md).
+* Le informazioni per gli sviluppatori sono disponibili nella [Guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
 * Le informazioni per gli amministratori sono disponibili in [Amministrare la directory di Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Problematiche di implementazione
@@ -312,9 +312,9 @@ Che cosa accade se il rollover della chiave viene eseguito dopo che Azure AD ha 
 Poiché il rollover di una chiave può essere eseguito in qualsiasi momento, nel documento metadati federazione è sempre disponibile più di una chiave pubblica valida. Il servizio di distribuzione delle licenze di Servizi multimediali può usare una qualsiasi delle chiavi specificate nel documento. Poiché di una chiave può essere eseguito il rollback immediatamente, un'altra può sostituirla e così via.
 
 ### <a name="where-is-the-access-token"></a>Dov'è il token di accesso?
-Se si esamina come un'app Web chiama un'app per le API in [Identità applicazione con concessione delle credenziali client OAuth 2.0](../../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), il flusso di autenticazione è il seguente:
+Se si esamina come un'app Web chiama un'app per le API in [Identità applicazione con concessione delle credenziali client OAuth 2.0](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), il flusso di autenticazione è il seguente:
 
-* Un utente accede ad Azure AD nell'applicazione Web. Per altre informazioni, vedere [Da Web browser ad applicazione Web](../../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application).
+* Un utente accede ad Azure AD nell'applicazione Web. Per altre informazioni, vedere [Da Web browser ad applicazione Web](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
 * L'endpoint di autorizzazione di Azure AD reindirizza di nuovo l'agente utente all'applicazione client con un codice di autorizzazione. L'agente utente restituisce il codice di autorizzazione all'URI di reindirizzamento dell'applicazione client.
 * L'applicazione Web deve acquisire un token di accesso per l'autenticazione nell'API Web e il recupero della risorsa desiderata. Esegue una richiesta all'endpoint di token di Azure AD e fornisce credenziali, ID client e URI dell'ID applicazione dell'API Web. Presenta il codice di autorizzazione per dimostrare che l'utente ha acconsentito.
 * Azure AD autentica l'applicazione e restituisce un token di accesso JWT che viene usato per chiamare l'API Web.

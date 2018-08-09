@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 33b92ebf91b07c15b25f48b54da1ed6fcc89c5ff
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b988d908b995b1144837c8642a8864a87e2fc61a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052109"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Esercitazione: Integrazione di Azure Active Directory con Jostle
 
@@ -53,7 +53,7 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Jostle dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-jostle-from-the-gallery"></a>Aggiunta di Jostle dalla raccolta
 Per configurare l'integrazione di Jostle in Azure AD, è necessario aggiungere Jostle dalla raccolta al proprio elenco di app SaaS gestite.
@@ -64,19 +64,19 @@ Per configurare l'integrazione di Jostle in Azure AD, è necessario aggiungere J
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
 
-3. Selezionare **Aggiungi** nella parte superiore della finestra.
+1. Selezionare **Aggiungi** nella parte superiore della finestra.
 
     ![add_01](./media/jostle-tutorial/add_01.png)
 
-4. Nella casella di ricerca in **Aggiungi un'applicazione** di tipo **Jostle**.
+1. Nella casella di ricerca in **Aggiungi un'applicazione** di tipo **Jostle**.
 
     ![add_02](./media/jostle-tutorial/add_02.png)
 
-5. Nel pannello dei risultati selezionare **Jostle** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **Jostle** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/jostle-tutorial/tutorial_jostle_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Per stabilire la relazione di collegamento, in Jostle assegnare il valore di **n
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Jostle, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Jostle](#creating-a-jostle-test-user)** : per avere una controparte di Britta Simon in Jostle collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente test di Jostle](#creating-a-jostle-test-user)** : per avere una controparte di Britta Simon in Jostle collegata alla relativa rappresentazione in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -105,11 +105,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
 
     ![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_samlbase.png)
 
-3. Nella sezione **URL e dominio Jostle** seguire questa procedura:
+1. Nella sezione **URL e dominio Jostle** seguire questa procedura:
 
     ![url_01](./media/jostle-tutorial/url_01.png)
 
@@ -121,17 +121,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Nella casella di testo **URL di risposta** inserire: `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
 
-4. Nella sezione **Attributi utente** per il campo **Identificatore utente** inserire: `user.userprincipalname`
+1. Nella sezione **Attributi utente** per il campo **Identificatore utente** inserire: `user.userprincipalname`
 
     ![url_02](./media/jostle-tutorial/url_02.png)
 
-5. Fare clic su **Salva** nella parte superiore della finestra.
+1. Fare clic su **Salva** nella parte superiore della finestra.
 
-6. Passare a **Certificato di firma SAML** e verificare che sia impostato su **Attivo**. Quindi fare clic su **XML metadati** per scaricare il file di metadati.
+1. Passare a **Certificato di firma SAML** e verificare che sia impostato su **Attivo**. Quindi fare clic su **XML metadati** per scaricare il file di metadati.
 
     ![url_03](./media/jostle-tutorial/url_03.png)
 
-7. Per configurare l'accesso Single Sign-On sul lato Jostle è necessario inviare il file XML metadati scaricato al [team di supporto di Jostle](mailto:support@jostle.me). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato Jostle è necessario inviare il file XML metadati scaricato al [team di supporto di Jostle](mailto:support@jostle.me). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -148,15 +148,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/jostle-tutorial/create_aaduser_01.png)
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
 
     ![Creazione di un utente test di Azure AD](./media/jostle-tutorial/create_aaduser_02.png)
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
 
     ![Creazione di un utente test di Azure AD](./media/jostle-tutorial/create_aaduser_03.png)
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
 
     ![Creazione di un utente test di Azure AD](./media/jostle-tutorial/create_aaduser_04.png)
 
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
 ### <a name="creating-a-jostle-test-user"></a>Creazione di un utente test di Jostle
 
@@ -187,23 +187,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201]
 
-2. Nell'elenco delle applicazioni, selezionare **Jostle**.
+1. Nell'elenco delle applicazioni, selezionare **Jostle**.
 
     ![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_app.png)
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202]
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
 
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

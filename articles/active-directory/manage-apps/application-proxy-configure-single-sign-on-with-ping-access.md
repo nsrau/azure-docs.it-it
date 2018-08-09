@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e7976cf0574952fdafbdc8b40db47af3a5420fd5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368819"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577187"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -140,7 +140,7 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Facoltativo: aggiornare GraphAPI per inviare campi personalizzati
 
-Per un elenco dei token di sicurezza che Azure AD invia per l'autenticazione, vedere [Riferimento al token di Azure AD](./../develop/active-directory-token-and-claims.md). Se è necessaria un'attestazione personalizzata che invia altri token, usare Graph explorer o il manifesto dell'applicazione nel portale di Azure per impostare il campo dell'app *acceptMappedClaims* su **True**.    
+Per un elenco dei token di sicurezza che Azure AD invia per l'autenticazione, vedere [Riferimento al token di Azure AD](../develop/v1-id-and-access-tokens.md). Se è necessaria un'attestazione personalizzata che invia altri token, usare Graph explorer o il manifesto dell'applicazione nel portale di Azure per impostare il campo dell'app *acceptMappedClaims* su **True**.    
 
 In questo esempio viene usato Graph Explorer:
 

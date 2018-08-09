@@ -3,7 +3,7 @@ title: Come usare Azure WebJobs SDK
 description: Altre informazioni su come scrivere codice per WebJobs SDK. Creare processi di elaborazione in background guidata dagli eventi che accedono ai dati nei servizi di Azure e di terze parti.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: app-service-web
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
-ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.author: glenga
+ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234651"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577012"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -26,7 +26,7 @@ Questo articolo offre materiale sussidiario su come scrivere codice per [Azure W
 
 >[!NOTE]
 > [Funzioni di Azure](../azure-functions/functions-overview.md) si basa su WebJobs SDK e per alcuni argomenti questo articolo include collegamenti alla documentazione su Funzioni di Azure. Si notino le differenze seguenti tra Funzioni e WebJobs SDK:
-> * La versione 1.x di Funzioni di Azure corrisponde alla versione 2.x di WebJobs SDK, mentre la versione 2.x di Funzioni di Azure corrisponde alla versione 3.x di WebJobs SDK. I repository di codice sorgente seguono la numerazione di WebJobs SDK e molti di loro hanno avere rami della versione 2. x, mentre il ramo principale ha attualmente il codice 3.x.
+> * La versione 1.x di Funzioni di Azure corrisponde alla versione 2.x di WebJobs SDK, mentre la versione 2.x di Funzioni di Azure corrisponde alla versione 3.x di WebJobs SDK. I repository di codice sorgente seguono la numerazione di WebJobs SDK e molti di loro hanno rami della versione 2. x, mentre il ramo principale ha attualmente il codice 3.x.
 > * Il codice di esempio per le librerie di classe C# di Funzioni di Azure è simile al codice di WebJobs SDK, con la differenza che in un progetto WebJobs SDK non è necessario un attributo `FunctionName`.
 > * Alcuni tipi di associazione sono supportati solo in Funzioni, ad esempio HTTP, webhook e Griglia di eventi (basata su HTTP). 
 > 
@@ -34,11 +34,11 @@ Questo articolo offre materiale sussidiario su come scrivere codice per [Azure W
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Questo articolo presuppone che sia stato letto [Get started with the WebJobs SDK](webjobs-sdk-get-started.md) (Introduzione a WebJobs SDK).
+Questo articolo presuppone che sia stato letto [Introduzione a WebJobs SDK](webjobs-sdk-get-started.md).
 
 ## <a name="jobhost"></a>JobHost
 
-L'oggetto `JobHost` è il contenitore di runtime per le funzioni: ascolta i trigger e chiama le funzioni. Creare `JobHost` nel codice e scrivere il codice per personalizzarne il comportamento.
+L'oggetto `JobHost` è il contenitore di runtime per le funzioni: ascolta i trigger e chiama le funzioni. L'utente crea `JobHost` nel codice e scrive il codice per personalizzarne il comportamento.
 
 Questa è una differenza chiave tra l'uso diretto di WebJobs SDK e il suo uso indiretto tramite Funzioni di Azure. In Funzioni di Azure il servizio controlla `JobHost`, che non può essere personalizzato mediante la scrittura di codice. Funzioni di Azure consente di personalizzare il comportamento dell'host tramite le impostazioni del file *host.json*. Tali impostazioni sono stringhe, non codice, di conseguenza i tipi di personalizzazioni possibile sono limitati.
 
@@ -70,7 +70,7 @@ La classe `JobHostConfiguration` ha un metodo `UseDevelopmentSettings` che è po
 | Proprietà | Impostazione di sviluppo |
 | ------------- | ------------- |
 | `Tracing.ConsoleLevel` | `TraceLevel.Verbose` per massimizzare l'output del log. |
-| `Queues.MaxPollingInterval`  | Un valore basso per verificare che i metodi di coda vengano attivati immediatamente.  |
+| `Queues.MaxPollingInterval`  | Un valore basso per garantire che i metodi di coda vengano attivati immediatamente.  |
 | `Singleton.ListenerLockPeriod` | 15 secondi per rendere più rapido lo sviluppo iterativo. |
 
 L'esempio seguente mostra come usare le impostazioni di sviluppo. Per fare in modo che `config.IsDevelopment` restituisca `true` se eseguito in locale, impostare una variabile di ambiente locale denominata `AzureWebJobsEnv` con il valore `Development`.
@@ -92,13 +92,13 @@ static void Main()
 
 ### <a name="jobhost-servicepointmanager-settings"></a>Impostazioni ServicePointManager di JobHost
 
-.NET Framework contiene un'API denominata [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit), che controlla il numero di connessioni simultanee a un host. È consigliabile aumentare questo valore dal valore predefinito di 2 prima di avviare l'host WebJobs.
+.NET Framework contiene un'API denominata [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit), che controlla il numero di connessioni simultanee a un host. È consigliabile aumentare questo valore rispetto al valore predefinito di 2 prima di avviare l'host WebJobs.
 
 Tutte le richieste HTTP in uscita effettuate da una funzione attraverso `HttpClient` passano attraverso `ServicePointManager`. Dopo aver raggiunto il valore `DefaultConnectionLimit`, `ServicePointManager` inizia a inserire nella coda le richieste per poi inviarle. Si supponga che il valore `DefaultConnectionLimit` sia impostato su 2 e che il codice effettui 1000 richieste HTTP. All'inizio sono consentite solo 2 richieste al sistema operativo. Le altre 998 vengono inserite nella coda finché ci sarà spazio. Ciò significa che `HttpClient` potrebbe raggiungere il timeout perché *crede* di aver effettuato la richiesta, che però non è mai stata inviata al server di destinazione dal sistema operativo. Pertanto si potrebbe osservare un comportamento apparentemente senza senso: `HttpClient` locale richiede 10 secondi per completare una richiesta, ma il servizio restituisce ogni richiesta in 200 ms. 
 
-Il valore predefinito per le applicazioni ASP.NET è `Int32.MaxValue` ed è probabile che funzioni bene per WebJobs in esecuzione in un piano di servizio app di base o superiore. Generalmente, WebJobs richiede l'impostazione Always On, supportata solo dai piani di servizio app di base e superiori. 
+Il valore predefinito per le applicazioni ASP.NET è `Int32.MaxValue` ed è probabile che funzioni bene per WebJobs in esecuzione in un piano di servizio app Basic o superiore. Generalmente, WebJobs richiede l'impostazione Always On, supportata solo dai piani di servizio app Basic e superiori. 
 
-Se WebJob è in esecuzione in un piano di servizio app gratuito o condiviso, l'applicazione è limitata dalla sandbox del servizio app, che al momento ha un [limite di connessioni pari a 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). Con un limite di connessioni non associate in `ServicePointManager`, c'è maggiore probabilità che venga raggiunto il limite di connessioni della sandbox e che il sito venga arrestato. In tal caso, l'impostazione di `DefaultConnectionLimit` su un valore inferiore, ad esempio 50 o 100, può impedire che si verifichi questa situazione e allo stesso tempo consentire una velocità effettiva sufficiente.
+Se WebJob è in esecuzione in un piano di servizio app Gratuito o Condiviso, l'applicazione è limitata dalla sandbox del servizio app, che al momento ha un [limite di connessioni pari a 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). Con un limite di connessioni non associate in `ServicePointManager`, c'è maggiore probabilità che venga raggiunto il limite di connessioni della sandbox e che il sito venga arrestato. In tal caso, l'impostazione di `DefaultConnectionLimit` su un valore inferiore, ad esempio 50 o 100, può impedire che si verifichi questa situazione e allo stesso tempo consentire una velocità effettiva sufficiente.
 
 L'impostazione deve essere configurata prima che venga effettuata qualsiasi richiesta HTTP. Per questo motivo, l'host WebJobs non deve provare a regolare automaticamente l'impostazione; alcune richieste HTTP potrebbero verificarsi prima dell'avvio dell'host e questo può causare un comportamento imprevisto. L'approccio migliore consiste nell'impostare immediatamente il valore nel metodo `Main`prima di inizializzare `JobHost`, come mostrato nell'esempio seguente
 
@@ -119,7 +119,7 @@ Le funzioni devono essere metodi pubblici e devono avere un attributo di trigger
 
 ### <a name="automatic-trigger"></a>Trigger automatico
 
-I trigger automatici chiamano una funzione in risposta a un evento. Per trovare un esempio, vedere il trigger della coda nell'[articolo Get started with the WebJobs SDK](webjobs-sdk-get-started.md).
+I trigger automatici chiamano una funzione in risposta a un evento. Per trovare un esempio, vedere il trigger della coda nell'articolo [Introduzione a WebJobs SDK](webjobs-sdk-get-started.md).
 
 ### <a name="manual-trigger"></a>Trigger manuale
 
@@ -147,13 +147,13 @@ public static void CreateQueueMessage(
 
 ## <a name="input-and-output-bindings"></a>Associazioni di input e output
 
-Le associazioni di input offrono una modalità dichiarativa per rendere disponibili nel codice i dati dei servizi di Azure o di terze parti. Le associazioni di output garantiscono un modo per aggiornare i dati. L'[articolo Get started with the WebJobs SDK](webjobs-sdk-get-started.md) illustra un esempio di ciascun tipo di associazione.
+Le associazioni di input offrono una modalità dichiarativa per rendere disponibili nel codice i dati dei servizi di Azure o di terze parti. Le associazioni di output garantiscono un modo per aggiornare i dati. L'articolo [Introduzione a WebJobs SDK](webjobs-sdk-get-started.md) illustra un esempio di ciascun tipo di associazione.
 
 È possibile usare un valore restituito dal metodo per un'associazione di output applicando l'attributo a tale valore. Vedere l'esempio nell'articolo [Trigger e associazioni di Funzioni di Azure](../azure-functions/functions-triggers-bindings.md#using-the-function-return-value).
 
 ## <a name="binding-types"></a>Tipi di associazioni
 
-Il pacchetto `Microsoft.Azure.WebJobs` include i seguenti tipi di trigger e associazioni:
+Il pacchetto `Microsoft.Azure.WebJobs` include i tipi di trigger e associazioni seguenti:
 
 * Archiviazione BLOB
 * Archiviazione code
@@ -458,7 +458,7 @@ I filtri funzione (anteprima) offrono un modo per personalizzare la pipeline di 
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-È consigliabile usare il framework di registrazione sviluppato per ASP.NET. L'articolo [Get started with the WebJobs SDK](webjobs-sdk-get-started.md) illustra come usarlo. 
+È consigliabile usare il framework di registrazione sviluppato per ASP.NET. L'articolo [Introduzione a WebJobs SDK](webjobs-sdk-get-started.md) illustra come usarlo. 
 
 ### <a name="log-filtering"></a>Filtro del log
 

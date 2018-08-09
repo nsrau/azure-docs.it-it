@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 42ec8aa6119dbf01297743cd509285145c7bea29
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1dc00e62a297b55d05c5bf96081974fd95bae3a3
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34594081"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493779"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio
 
@@ -27,7 +27,7 @@ Questo articolo e gli articoli correlati forniscono i dettagli dell'uso del serv
 
 Al momento, il servizio connesso di Active Directory non supporta applicazioni ASP.NET Core.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Account di Azure: se non si ha un account di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 - **Visual Studio 2015** o versione successiva. [Scaricare Visual Studio 2017 ora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -74,5 +74,5 @@ Quando si aggiunge il servizio connesso, Visual Studio aggiunge Azure Active Dir
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scenari di autenticazione per Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Aggiungere l'accesso con Microsoft a un'app Web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Scenari di autenticazione per Azure Active Directory](authentication-scenarios.md)
+- [Aggiungere l'accesso con Microsoft a un'app Web ASP.NET](quickstart-v1-aspnet-webapp.md)

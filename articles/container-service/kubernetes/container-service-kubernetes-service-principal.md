@@ -9,21 +9,21 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 84215daac950f602c815e1ffc5ae6dd5269d9bdf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efedb7cde06ed03ec330027a18b00bcc897919cf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167113"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576920"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurare un'entità servizio di Azure AD per un cluster Kubernetes nel servizio contenitore
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Un cluster Kubernetes richiede un'[entità servizio di Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) nel servizio contenitore di Azure per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le [route definite dall'utente](../../virtual-network/virtual-networks-udr-overview.md) e [Azure Load Balancer di livello 4](../../load-balancer/load-balancer-overview.md).
+Un cluster Kubernetes richiede un'[entità servizio di Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) nel servizio contenitore di Azure per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le [route definite dall'utente](../../virtual-network/virtual-networks-udr-overview.md) e [Azure Load Balancer di livello 4](../../load-balancer/load-balancer-overview.md).
 
 
-Questo articolo illustra le diverse opzioni disponibili per configurare un'entità servizio per il cluster Kubernetes. Se, ad esempio, l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) è già stata installata e configurata, è possibile eseguire il comando [`az acs create`](/cli/azure/acs#az_acs_create) per creare il cluster Kubernetes e l'entità servizio contemporaneamente.
+Questo articolo illustra le diverse opzioni disponibili per configurare un'entità servizio per il cluster Kubernetes. Se, ad esempio, l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) è già stata installata e configurata, è possibile eseguire il comando [`az acs create`](/cli/azure/acs#az-acs-create) per creare il cluster Kubernetes e l'entità servizio contemporaneamente.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Requisiti per l'entità servizio
@@ -96,7 +96,7 @@ L'esempio seguente illustra un modo per passare i parametri con l'interfaccia de
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opzione 2: generare un'entità servizio durante la creazione del cluster con `az acs create`
 
-Se si esegue il comando [`az acs create`](/cli/azure/acs#az_acs_create) per creare il cluster Kubernetes, è possibile scegliere di generare automaticamente un'entità servizio.
+Se si esegue il comando [`az acs create`](/cli/azure/acs#az-acs-create) per creare il cluster Kubernetes, è possibile scegliere di generare automaticamente un'entità servizio.
 
 Analogamente alle altre opzioni di creazione del cluster Kubernetes, è possibile specificare i parametri per un'entità servizio esistente quando si esegue `az acs create`. Quando tuttavia si omettono questi parametri, l'interfaccia della riga di comando di Azure crea automaticamente un'entità servizio da usare con il servizio contenitore. Questa operazione viene eseguita in modo trasparente durante la distribuzione.
 
@@ -132,7 +132,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Se non si specifica una finestra di validità personalizzata con il parametro `--years` quando si crea un'entità servizio, le relative credenziali sono valide per un anno dal momento della creazione. Quando le credenziali scadono, i nodi del cluster possono passare a uno stato **Non pronto**.
 
-Per verificare la data di scadenza di un'entità servizio, eseguire il comando [az ad app show](/cli/azure/ad/app#az_ad_app_show) con il parametro `--debug` e cercare il valore `endDate` di `passwordCredentials` nella parte inferiore dell'output:
+Per verificare la data di scadenza di un'entità servizio, eseguire il comando [az ad app show](/cli/azure/ad/app#az-ad-app-show) con il parametro `--debug` e cercare il valore `endDate` di `passwordCredentials` nella parte inferiore dell'output:
 
 ```azurecli
 az ad app show --id <appId> --debug
@@ -146,7 +146,7 @@ Output (troncato):
 ...
 ```
 
-Se le credenziali dell'entità servizio sono scadute, usare il comando [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) per aggiornarle:
+Se le credenziali dell'entità servizio sono scadute, usare il comando [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) per aggiornarle:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

@@ -2,24 +2,18 @@
 title: Preparazione dei dischi rigidi per un processo di importazione in Importazione/Esportazione di Azure - versione 1 | Documentazione Microsoft
 description: Informazioni su come preparare i dischi rigidi usando lo strumento WAImportExport v1 per creare un processo di importazione per il servizio Importazione/Esportazione di Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 3d818245-8b1b-4435-a41f-8e5ec1f194b2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 361e16262e528c7dea1bab4b9d945a28af8be399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 861b3302e065689a4ea9c0df0879f9c0df12e619
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23107849"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526947"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 Per preparare uno o più dischi rigidi per il processo di importazione, seguire questi passaggi:
@@ -135,7 +129,7 @@ Per preparare uno o più dischi rigidi per il processo di importazione, seguire 
 |----------------------------|-----------------|
 |**/srcdir:**<SourceDirectory\>|`Required.` Directory di origine contenente i file da copiare nell'unità di destinazione. Il percorso di directory deve essere un percorso assoluto, non un percorso relativo.|
 |**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.` Percorso alla directory virtuale di destinazione nell'account di archiviazione di Windows Azure. La directory virtuale può esistere già o meno.<br /><br /> È possibile specificare un contenitore o un prefisso di BLOB come `music/70s/`. La directory di destinazione deve iniziare con il nome del contenitore, seguito da una barra "/" e può facoltativamente includere una directory di BLOB virtuale che termina con "/".<br /><br /> Quando il contenitore di destinazione è il contenitore radice, è necessario specificare in modo esplicito il contenitore radice, inclusa la barra, ad esempio `$root/`. Poiché i BLOB nel contenitore radice non possono includere "/" nel nome, quando la directory di destinazione è il contenitore radice tutte le sottodirectory nella directory di origine non verranno copiate.<br /><br /> Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole. Per le regole sulla denominazione dei contenitori, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Assegnazione di nome e riferimento a contenitori, BLOB e metadati).|
-|**/Disposition:**<rename&#124;no-overwrite&#124;overwrite>|`Optional.` Specifica il comportamento quando esiste già un BLOB con l'indirizzo specificato. I valori validi per questo parametro sono: `rename`, `no-overwrite` e `overwrite`. Si noti che questi valori distinguono tra maiuscole e minuscole. Se non si specifica alcun valore, il valore predefinito è `rename`.<br /><br /> Il valore specificato per questo parametro ha effetto su tutti i file nella directory specificati dal parametro `/srcdir`.|
+|**/Disposition:**&lt;rename&amp;#124;no-overwrite&amp;#124;overwrite&gt;|`Optional.` Specifica il comportamento quando esiste già un BLOB con l'indirizzo specificato. I valori validi per questo parametro sono: `rename`, `no-overwrite` e `overwrite`. Si noti che questi valori distinguono tra maiuscole e minuscole. Se non si specifica alcun valore, il valore predefinito è `rename`.<br /><br /> Il valore specificato per questo parametro ha effetto su tutti i file nella directory specificati dal parametro `/srcdir`.|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Specifica il tipo di BLOB per i BLOB di destinazione. I valori validi sono: `BlockBlob` e `PageBlob`. Si noti che questi valori distinguono tra maiuscole e minuscole. Se non si specifica alcun valore, il valore predefinito è `BlockBlob`.<br /><br /> Nella maggior parte dei casi, è consigliato `BlockBlob`. Se si specifica `PageBlob`, la lunghezza di ogni file nella directory deve essere un multiplo di 512, le dimensioni di una pagina per i BLOB di pagine.|
 |**/PropertyFile:**<PropertyFile\>|`Optional.` Percorso del file delle proprietà per i BLOB di destinazione. Per altre informazioni, vedere [Import/Export service Metadata and Properties File Format](../storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione).|
 |**/MetadataFile:**<MetadataFile\>|`Optional.` Percorso del file dei metadati per i BLOB di destinazione. Per altre informazioni, vedere [Import/Export service Metadata and Properties File Format](../storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione).|
