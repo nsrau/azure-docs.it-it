@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 07/31/2018
 ms.author: tamram
-ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 931b711d67db2b20c653fe6515735fdedc358b48
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322914"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364360"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -38,16 +38,11 @@ ms.locfileid: "30322914"
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Account di archiviazione**e quindi il nome dell'account di archiviazione per aprire il dashboard dell'account.
 1. Selezionare **Diagnostica** nella sezione **Monitoraggio** del pannello del menu.
 
-    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
 1. Selezionare il **tipo** di dati di metrica per ogni **servizio** che si vuole monitorare e i **criteri di conservazione** per i dati. È anche possibile disabilitare il monitoraggio impostando **Stato** su **Disattivato**.
 
-    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-01.png)
-
-   Per ogni servizio è possibile abilitare due tipi di metriche, che per i nuovi account di archiviazione sono entrambi abilitati per impostazione predefinita.
-
-   * **Metriche aggregate**: vengono raccolte metriche come ingresso/uscita, disponibilità, latenza e percentuale di operazioni riuscite, che vengono aggregate per i servizi BLOB, di accodamento, tabelle e file.
-   * **Per API**: oltre alle metriche aggregate, lo stesso set di metriche viene raccolto per ogni operazione di archiviazione nell'API del servizio Archiviazione di Azure.
+    ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-01.png)
 
    Per impostare i criteri di conservazione dei dati, spostare il dispositivo di scorrimento **Conservazione (in giorni)** oppure immettere il numero desiderato di giorni, da 1 a 365. L'impostazione predefinita per i nuovi account di archiviazione è sette giorni. Se non si desidera impostare criteri di conservazione, immettere zero. Se non vengono impostati criteri di conservazione, i dati di monitoraggio dovranno essere eliminati manualmente.
 
@@ -71,23 +66,21 @@ Per scegliere le metriche di archiviazione da visualizzare in un grafico, seguir
 
 1. Per iniziare, visualizzare un grafico delle metriche di archiviazione nel portale di Azure. I grafici sono riportati nel **pannello dell'account di archiviazione** e nel pannello **Metriche** di un singolo servizio (BLOB, accodamento, tabelle o file).
 
-   In questo esempio verrà usato il grafico seguente, visualizzato nel **pannello dell'account di archiviazione**:
+   In questo esempio viene usato il seguente grafico che compare nel **pannello dell'account di archiviazione**:
 
    ![Selezione del grafico nel portale di Azure](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
 
-1. Fare quindi clic in qualsiasi punto del grafico per aprire il pannello **Metrica**. Selezionare **Modifica grafico** per aprire il pannello **Modifica grafico**.
+1. Fare clic in qualsiasi punto del grafico per modificarlo.
 
-   ![Pulsante Modifica grafico nel pannello del grafico](./media/storage-monitor-storage-account/stg-customize-chart-01.png)
+1. Selezionare l'**Intervallo di tempo** delle metriche da visualizzare nel grafico e il **servizio** (blob, coda, tabella, file) di cui si desidera visualizzare le metriche. In questo caso sono selezionate le metriche della scorsa settimana da visualizzare per il servizio blob:
 
-1. Nel pannello **Modifica grafico** selezionare l'**intervallo di tempo** delle metriche da visualizzare nel grafico e il **servizio** (BLOB, accodamento, tabelle o file) di cui si vogliono visualizzare le metriche. In questo esempio si è scelto di visualizzare le metriche della settimana precedente per il servizio BLOB:
+   ![Selezione dell'intervallo di tempo e del servizio nel pannello Modifica grafico](./media/storage-monitor-storage-account/storage-edit-metric-time-range.png)
 
-   ![Selezione dell'intervallo di tempo e del servizio nel pannello Modifica grafico](./media/storage-monitor-storage-account/stg-customize-chart-02.png)
+1. Selezionare le singole **metriche** da visualizzare nel grafico e quindi fare clic su **OK**.
 
-1. Selezionare le singole **metriche** da visualizzare nel grafico e quindi fare clic su **OK**. In questo esempio si è scelto di visualizzare le metriche *ContainerCount* e *ObjectCount*:
+   ![Selezione delle singole metriche nel pannello Modifica grafico](./media/storage-monitor-storage-account/storage-edit-metric-selections.png)
 
-   ![Selezione delle singole metriche nel pannello Modifica grafico](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
-
-Le impostazioni del grafico non influiscono sulla raccolta, l'aggregazione o l'archiviazione dei dati di monitoraggio nell'account di archiviazione, ma solo sulla visualizzazione dei dati di metrica.
+Le impostazioni del grafico non incidono su raccolta, aggregazione o archiviazione dei dati di monitoraggio nell'account di archiviazione.
 
 ### <a name="metrics-availability-in-charts"></a>Metriche disponibili nei grafici
 
@@ -97,7 +90,7 @@ L'elenco delle metriche disponibili varia in base al servizio selezionato nell'e
 
 ### <a name="metrics-resolution"></a>Risoluzione delle metriche
 
-Le metriche selezionate in Diagnostica determinano la risoluzione delle metriche disponibili per l'account:
+Le metriche selezionate in **Diagnostica** determinano la risoluzione delle metriche disponibili per l'account:
 
 * Il monitoraggio **aggregato** offre metriche come ingresso/uscita, disponibilità, latenza e percentuale di operazioni riuscite, che vengono aggregate dai servizi BLOB, tabelle, file e di accodamento.
 * **Per API** offre una risoluzione più dettagliata, con disponibilità di metriche per le singole operazioni di archiviazione in aggiunta alle aggregazioni a livello di servizio.
@@ -106,14 +99,14 @@ Le metriche selezionate in Diagnostica determinano la risoluzione delle metriche
 
 È possibile creare avvisi per ricevere una notifica quando sono state raggiunte le soglie per le metriche delle risorse di archiviazione.
 
-1. Per aprire il pannello **Regole di avviso**, scorrere verso il basso fino alla sezione **Monitoraggio** del **pannello del menu** e selezionare **Regole di avviso**.
-1. Selezionare **Aggiungi avviso** per aprire il pannello **Aggiungi una regola di avviso**.
-1. Selezionare una **risorsa** (BLOB, file, coda o tabella) nell'elenco a discesa e immettere un **nome** e una **descrizione** per la nuova regola di avviso.
-1. Selezionare la **metrica** per cui si vuole aggiungere un avviso, una **condizione** di avviso e una **soglia**. Il tipo di unità della soglia varia a seconda della metrica scelta. Ad esempio, il tipo di unità per *ContainerCount* è "conteggio", mentre l'unità per la metrica *PercentNetworkError* è una percentuale.
-1. Selezionare il **periodo**. Le metriche che raggiungono o superano la soglia nel periodo specificato attivano un avviso.
-1. (Facoltativo) Configurare le notifiche per **posta elettronica** e **webhook**. Per altre informazioni sui webhook, vedere [Configurare un webhook in un avviso relativo alle metriche di Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Se non si configurano notifiche per posta elettronica o webhook, gli avvisi verranno visualizzati solo nel portale di Azure.
+1. Per aprire il **pannello delle regole di avviso** scorrere alla sezione **MONITORAGGIO** del **pannello Menu** e selezionare **Avvisi (classico)**.
+2. Selezionare **Aggiungi avviso per la metrica (versione classica)** per aprire il pannello **Aggiungi una regola di avviso**
+3. Immettere un **Nome** e una **Descrizione** per la nuova regola di avviso.
+4. Selezionare la **metrica** per cui si vuole aggiungere un avviso, una **condizione** di avviso e una **soglia**. Il tipo di unità della soglia varia a seconda della metrica scelta. Ad esempio, il tipo di unità per *ContainerCount* è "conteggio", mentre l'unità per la metrica *PercentNetworkError* è una percentuale.
+5. Selezionare il **periodo**. Le metriche che raggiungono o superano la soglia nel periodo specificato attivano un avviso.
+6. (Facoltativo) Configurare le notifiche per **posta elettronica** e **webhook**. Per altre informazioni sui webhook, vedere [Configurare un webhook in un avviso relativo alle metriche di Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Se non si configurano notifiche per posta elettronica o webhook, gli avvisi verranno visualizzati solo nel portale di Azure.
 
-![Pannello Aggiungi una regola di avviso nel portale di Azure](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
+![Pannello Aggiungi una regola di avviso nel portale di Azure](./media/storage-monitor-storage-account/add-alert-rule.png)
 
 ## <a name="add-metrics-charts-to-the-portal-dashboard"></a>Aggiungere i grafici delle metriche al dashboard del portale
 
@@ -126,7 +119,7 @@ Le metriche selezionate in Diagnostica determinano la risoluzione delle metriche
 1. Selezionare **Categorie** > **Monitoraggio**.
 1. Trascinare il riquadro del grafico per la metrica da visualizzare sul dashboard. Ripetere l'operazione per tutte le metriche che si vogliono visualizzare nel dashboard. Nell'immagine seguente è evidenziato il grafico "BLOB - Richieste totali" come esempio, ma tutti i grafici sono posizionabili nel dashboard.
 
-   ![Raccolta riquadri nel portale di Azure](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
+   ![Raccolta riquadri nel portale di Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Dopo aver completato l'aggiunta dei grafici, selezionare **Fine personalizzazione** nella parte superiore del dashboard.
 
 Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriormente personalizzati come descritto in [Personalizzare i grafici delle metriche](#how-to-customize-metrics-charts).
@@ -142,14 +135,14 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Account di archiviazione** e quindi il nome dell'account di archiviazione per aprire il relativo pannello.
 1. Selezionare **Diagnostica** nella sezione **Monitoraggio** del pannello del menu.
 
-    ![Voce di menu Diagnostica in Monitoraggio nel portale di Azure.](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    ![Voce di menu Diagnostica in Monitoraggio nel portale di Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
     
 1. Verificare che l'opzione **Stato** sia impostata su **Attivato** e selezionare i **servizi** per cui si vuole abilitare la registrazione.
 
-    ![Configurare la registrazione nel portale di Azure.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
+    ![Configurare la registrazione nel portale di Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Fare clic su **Save**.
 
-I log di diagnostica vengono salvati in un contenitore BLOB denominato $logs nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](http://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
+I log di diagnostica sono salvati in un contenitore blob denominato *$logs* nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](http://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
 
 Per informazioni sull'accesso al contenitore $logs, vedere [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data) (Abilitazione della registrazione di archiviazione e accesso ai dati dei log).
 

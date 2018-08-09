@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f739917b201d5255716d22930d7c4bd9e6602f37
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 62a55672a4326df585fc84699dfd72424be362dc
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224518"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627492"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Configurare località denominate in Azure Active Directory
 
 Con le località denominate è possibile etichettare gli intervalli di indirizzi IP attendibili all'interno dell'organizzazione. Azure Active Directory usa le località denominate nel contesto seguente:
 
-- Il rilevamento di [eventi di rischio](active-directory-reporting-risk-events.md) per ridurre il numero di falsi positivi segnalati.  
+- Il rilevamento di [eventi di rischio](reports-monitoring/concept-risk-events.md) per ridurre il numero di falsi positivi segnalati.  
 
-- [Accesso condizionale basato sulla località](active-directory-conditional-access-locations.md).
+- [Accesso condizionale basato sulla località](conditional-access/location-condition.md).
 
 
 Questo articolo descrive come configurare le località denominate nell'ambiente in uso.
@@ -97,8 +97,8 @@ Per altre informazioni, vedere:
 
 - [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
-- [Condizioni della posizione nell'accesso condizionale di Azure Active Directory](active-directory-conditional-access-locations.md)
+- [Condizioni della posizione nell'accesso condizionale di Azure Active Directory](conditional-access/location-condition.md)
 
-- [Eventi di rischio di Azure Active Directory](active-directory-reporting-risk-events.md)
+- [Eventi di rischio di Azure Active Directory](reports-monitoring/concept-risk-events.md)
 
-- [Report degli accessi a rischio nel portale di Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)  
+- [Report degli accessi a rischio nel portale di Azure Active Directory](reports-monitoring/concept-risky-sign-ins.md)  

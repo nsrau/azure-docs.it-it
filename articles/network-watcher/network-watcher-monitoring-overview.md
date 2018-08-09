@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639344"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626356"
 ---
 # <a name="what-is-azure-network-watcher"></a>Informazioni su Azure Network Watcher
 
@@ -35,7 +35,7 @@ Gli endpoint possono essere un'altra macchina virtuale (VM), un nome di dominio 
 
 Se un endpoint smette di essere raggiungibile, la funzionalità di risoluzione dei problemi di connessione informa l'utente del motivo. Le cause possibili sono un problema di risoluzione del nome DNS, la CPU, la memoria o un firewall nel sistema operativo di una macchina virtuale oppure il tipo di hop di una route personalizzata o una regola di sicurezza per la macchina virtuale o la subnet della connessione in uscita. Leggere altre informazioni sulle [regole di sicurezza](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) e sui [tipi di hop delle route](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in Azure.
 
-La funzionalità di monitoraggio connessione indica anche la latenza minima, media e massima osservata nel corso del tempo. Dopo aver appreso la latenza per una connessione, è possibile riuscire a ridurla spostando le risorse di Azure in aree di Azure diverse. Leggere altre informazioni su come determinare le [latenze relative tra aree di Azure e provider di servizi Internet](#determine-relative-latencies-between-azure- regions-and-internet-service-providers) e su come monitorare la comunicazione tra una macchina virtuale e un endpoint con la funzionalità di [monitoraggio connessione](connection-monitor.md). Se si preferisce testare una connessione in un determinato momento invece che monitorarla nel tempo come con la funzionalità di monitoraggio connessione, usare la funzionalità di [risoluzione dei problemi di connessione](#connection-troubleshoot).
+La funzionalità di monitoraggio connessione indica anche la latenza minima, media e massima osservata nel corso del tempo. Dopo aver appreso la latenza per una connessione, è possibile riuscire a ridurla spostando le risorse di Azure in aree di Azure diverse. Leggere altre informazioni su come determinare le [latenze relative tra aree di Azure e provider di servizi Internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) e su come monitorare la comunicazione tra una macchina virtuale e un endpoint con la funzionalità di [monitoraggio connessione](connection-monitor.md). Se si preferisce testare una connessione in un determinato momento invece che monitorarla nel tempo come con la funzionalità di monitoraggio connessione, usare la funzionalità di [risoluzione dei problemi di connessione](#connection-troubleshoot).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visualizzare le risorse in una rete virtuale e le relative relazioni
 

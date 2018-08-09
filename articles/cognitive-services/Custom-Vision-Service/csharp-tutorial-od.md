@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: areddish
 ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
+ms.lasthandoff: 08/06/2018
 ms.locfileid: "36301081"
 ---
 # <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Usare l'API Visione personalizzata per compilare un progetto di rilevamento degli oggetti con C&#35; 
 Informazioni su come usare un'applicazione Windows di base che usa l'API Visione artificiale per creare un progetto di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app per Windows usando l'API Visione personalizzata.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="get-the-custom-vision-sdk-and-samples"></a>Ottenere l'SDK e gli esempi di Visione personalizzata
 Per compilare questo esempio sono necessari i pacchetti NuGet dell'SDK del Servizio visione artificiale personalizzato:

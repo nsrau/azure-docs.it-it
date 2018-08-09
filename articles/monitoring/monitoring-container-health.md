@@ -3,7 +3,7 @@ title: Monitorare l'integrità del servizio Kubernetes di Azure (AKS) (anteprima
 description: Questo articolo descrive come esaminare le prestazioni del contenitore AKS per comprendere rapidamente l'uso dell'ambiente Kubernetes ospitato.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 07/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249098"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366097"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorare l'integrità del servizio Kubernetes di Azure (AKS) (anteprima)
 
@@ -39,22 +39,28 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 - Un cluster AKS nuovo o esistente.
 - Un agente di OMS per Linux incluso in un contenitore, versione microsoft/oms:ciprod04202018 o successiva. Il numero di versione è rappresentato da una data nel formato seguente: *mmggaaaa*. L'agente viene installato automaticamente durante l'onboarding dell'integrità dei contenitori. 
-- Un'area di lavoro di Log Analytics. È possibile crearne una quando si abilita il monitoraggio del nuovo cluster AKS oppure tramite [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../log-analytics/log-analytics-quick-create-workspace.md).
+- Un'area di lavoro di Log Analytics. È possibile crearla quando si abilita il monitoraggio del nuovo cluster AKS o lasciare che l'esperienza di onboarding crei un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster AKS. Se si è scelto di crearla in autonomia, è possibile procedere attraverso [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 - Il ruolo di collaboratore di Log Analytics per abilitare il monitoraggio dei contenitori. Per altre informazioni su come controllare l'accesso a un'area di lavoro di Log Analytics, vedere [Gestire le aree di lavoro](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Componenti 
 
-La capacità di monitorare le prestazioni si basa su un agente di OMS per Linux incluso in un contenitore che raccoglie i dati su prestazioni ed eventi da tutti i nodi del cluster. L'agente viene distribuito e registrato automaticamente con l'area di lavoro di Log Analytics specificata dopo aver abilitato il monitoraggio dei contenitori. 
+La capacità di monitorare le prestazioni si basa su un agente di OMS per Linux incluso in un contenitore che raccoglie i dati su prestazioni ed eventi da tutti i nodi del cluster. L'agente viene distribuito e registrato automaticamente con l'area di lavoro di Log Analytics specificata dopo aver abilitato il monitoraggio del contenitore. 
 
 >[!NOTE] 
->Se è già stato distribuito un cluster AKS, il monitoraggio può essere abilitato usando un modello di Azure Resource Manager, come illustrato più avanti in questo articolo. Non è possibile usare `kubectl` per aggiornare, eliminare, distribuire o ridistribuire l'agente. 
+>Se è già stato distribuito un cluster AKS, si abilita il monitoraggio usando l'interfaccia della riga di comando di Azure o un modello di Azure Resource Manager fornito, come illustrato più avanti in questo articolo. Non è possibile usare `kubectl` per aggiornare, eliminare, distribuire o ridistribuire l'agente. 
 >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 Accedere al [portale di Azure](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Abilitare il monitoraggio dell'integrità dei contenitori per un nuovo cluster
-Durante la distribuzione è possibile abilitare il monitoraggio di un nuovo cluster AKS nel portale di Azure. Seguire la procedura descritta nell'articolo introduttivo [Distribuire un cluster Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md). Nella pagina **Monitoraggio** selezionare **Sì** per l'opzione **Abilita monitoraggio** e quindi selezionare un'area di lavoro di Log Analytics esistente o crearne una nuova. 
+Durante la distribuzione, è possibile abilitare il monitoraggio di un nuovo cluster AKS nel portale di Azure o con l'interfaccia della riga di comando di Azure. Seguire la procedura nell'articolo introduttivo [Distribuire un cluster Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md) se si desidera abilitarlo dal portale. Nella pagina **Monitoraggio** selezionare **Sì** per l'opzione **Abilita monitoraggio** e quindi selezionare un'area di lavoro di Log Analytics esistente o crearne una nuova. 
+
+Per abilitare il monitoraggio di un nuovo cluster AKS creato con l'interfaccia della riga di comando di Azure, seguire la procedura nell'articolo introduttivo nella sezione [Creare il cluster AKS](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
+
+>[!NOTE]
+>Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>
 
 Dopo aver abilitato il monitoraggio e completato tutte le attività di configurazione, è possibile monitorare le prestazioni del cluster in uno dei due modi seguenti:
 
@@ -66,7 +72,20 @@ Dopo aver abilitato il monitoraggio e completato tutte le attività di configura
 Dopo aver abilitato il monitoraggio, può essere necessario attendere circa 15 minuti prima di poter visualizzare i dati operativi per il cluster. 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Abilitare il monitoraggio dell'integrità dei contenitori per cluster gestiti esistenti
-È possibile abilitare il monitoraggio di un cluster AKS già distribuito tramite il portale di Azure o il modello di Azure Resource Manager fornito usando il cmdlet `New-AzureRmResourceGroupDeployment` di PowerShell o l'interfaccia della riga di comando di Azure. 
+È possibile abilitare il monitoraggio di un cluster AKS già distribuito usando l'interfaccia della riga di comando di Azure, dal portale o con il modello di Azure Resource Manager fornito usando il cmdlet di PowerShell `New-AzureRmResourceGroupDeployment`. 
+
+### <a name="enable-monitoring-using-azure-cli"></a>Abilitare il monitoraggio usando l'interfaccia della riga di comando di Azure
+La procedura seguente abilita il monitoraggio del cluster AKS usando l'interfaccia della riga di comando di Azure. In questo esempio non è necessario creare o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster AKS se non ne esiste già una nella regione.  L'area di lavoro predefinita creata ricorda il formato di *DefaultWorkspace-<GUID>-<Region>*.  
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+L'output sarà simile al seguente:
+
+```azurecli
+provisioningState       : Succeeded
+```
 
 ### <a name="enable-monitoring-in-the-azure-portal"></a>Abilitare il monitoraggio nel portale di Azure
 Per abilitare il monitoraggio del contenitore AKS nel portale di Azure completare la procedura seguente:
@@ -298,6 +317,26 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
+## <a name="view-configuration-with-cli"></a>Visualizzare la configurazione con l'interfaccia della riga di comando di Azure
+Usare il comando `aks show` per ottenere dettagli, ad esempio se la soluzione è abilitata o meno, qual è l'ID risorsa dell'area di lavoro di Log Analytics e dati di riepilogo sul cluster.  
+
+```azurecli
+az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+```
+
+Dopo alcuni minuti, il comando viene completato e vengono restituite informazioni in formato JSON sulla soluzione.  I risultati del comando dovrebbero mostrare il profilo del componente aggiuntivo di monitoraggio ed essere simili al seguente output di esempio:
+
+```
+"addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+      },
+      "enabled": true
+    }
+  }
+```
+
 ## <a name="view-performance-utilization"></a>Visualizzare l'uso delle prestazioni
 Quando si apre l'integrità dei contenitori, nella pagina viene visualizzato immediatamente l'uso dell'intero cluster. La visualizzazione delle informazioni sul cluster AKS è organizzata in base a quattro prospettive:
 
@@ -337,15 +376,15 @@ In questo modo, è possibile determinare rapidamente se i contenitori sono ripar
 
 Le informazioni presentate quando si visualizzano i nodi sono descritte nella tabella seguente:
 
-| Colonna | Descrizione | 
+| Colonna | DESCRIZIONE | 
 |--------|-------------|
-| Name (Nome) | Nome dell'host. |
-| Status (Stato) | Visualizzazione Kubernetes dello stato del nodo. |
+| NOME | Nome dell'host. |
+| Status | Visualizzazione Kubernetes dello stato del nodo. |
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (% media, % min, % max, % 50°, % 90°) | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
-| Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°) | Valore medio effettivo dei nodi durante l'intervallo di tempo selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
-| Containers (Contenitori) | Numero di contenitori. |
-| Uptime (Tempo di attività) | Rappresenta il tempo dall'avvio o dal riavvio di un nodo. |
-| Controllers (Controller) | Solo per i contenitori e i pod. Mostra il controller in cui è presente. Non tutti i pod sono presenti in un controller. È quindi possibile che per alcuni sia visualizzato **N/A** per indicare che non sono disponibili. | 
+| Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°) | Valore effettivo dei nodi medio durante l'intervallo di tempo selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
+| Contenitori | Numero di contenitori. |
+| Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un nodo. |
+| Controller | Solo per i contenitori e i pod. Mostra il controller in cui è presente. Non tutti i pod sono presenti in un controller. È quindi possibile che per alcuni sia visualizzato **N/A** per indicare che non sono disponibili. | 
 | Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (Tendenza % media, % min, % max, % 50°, % 90°) | Grafico a barre della tendenza che presenta il valore percentuale delle metriche di percentile del controller. |
 
 
@@ -361,21 +400,21 @@ La gerarchia di righe inizia con un controller e lo espande, visualizzando uno o
 
 Le informazioni presentate quando si visualizzano i controller sono descritte nella tabella seguente:
 
-| Colonna | Descrizione | 
+| Colonna | DESCRIZIONE | 
 |--------|-------------|
-| Name (Nome) | Nome del controller.|
-| Status (Stato) | Stato di rollup dei contenitori quando l'esecuzione è stata completata con uno stato, ad esempio *OK*, *Terminated* (Terminato), *Failed* (Non riuscito), *Stopped* (Arrestato) o *Paused* (In pausa). Se il contenitore è in esecuzione, ma lo stato non è stato presentato correttamente o non è stato rilevato dall'agente e non è stata inviata alcuna risposta per più di 30 minuti, lo stato è *Unknown* (Sconosciuto). La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
+| NOME | Nome del controller.|
+| Status | Stato di rollup dei contenitori quando l'esecuzione è stata completata con uno stato, ad esempio *OK*, *Terminated* (Terminato), *Failed* (Non riuscito), *Stopped* (Arrestato) o *Paused* (In pausa). Se il contenitore è in esecuzione, ma lo stato non è stato presentato correttamente o non è stato rilevato dall'agente e non è stata inviata alcuna risposta per più di 30 minuti, lo stato è *Unknown* (Sconosciuto). La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (% media, % min, % max, % 50°, % 90°) | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°)  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
-| Containers (Contenitori) | Numero totale di contenitori per il controller o il pod. |
-| Restarts (Riavvii) | Rollup del numero di riavvii dai contenitori. |
-| Uptime (Tempo di attività) | Rappresenta il tempo dall'avvio di un contenitore. |
-| Node (Nodo) | Solo per i contenitori e i pod. Mostra il controller in cui è presente. | 
+| Contenitori | Numero totale di contenitori per il controller o il pod. |
+| Riavvii | Rollup del numero di riavvii dai contenitori. |
+| Uptime | Rappresenta il tempo dall'avvio di un contenitore. |
+| Nodo | Solo per i contenitori e i pod. Mostra il controller in cui è presente. | 
 | Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (Tendenza % media, % min, % max, % 50°, % 90°)| Grafico a barre della tendenza che presenta il valore del percentile del controller. |
 
 Le icone nel campo relativo allo stato indicano lo stato online dei contenitori:
  
-| Icona | Stato | 
+| Icona | Status | 
 |--------|-------------|
 | ![Icona di stato In esecuzione (Pronto)](./media/monitoring-container-health/container-health-ready-icon.png) | In esecuzione (Pronto)|
 | ![Icona di stato In attesa o In pausa](./media/monitoring-container-health/container-health-waiting-icon.png) | In attesa o In pausa|
@@ -394,21 +433,21 @@ Qui è possibile visualizzare l'integrità delle prestazioni dei contenitori.
 
 Le informazioni presentate quando si visualizzano i contenitori sono descritte nella tabella seguente:
 
-| Colonna | Descrizione | 
+| Colonna | DESCRIZIONE | 
 |--------|-------------|
-| Name (Nome) | Nome del controller.|
-| Status (Stato) | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
+| NOME | Nome del controller.|
+| Status | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (% media, % min, % max, % 50°, % 90°) | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°)  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Pod | Contenitore in cui è presente il pod.| 
-| Node (Nodo) |  Nodo in cui è presente il contenitore. | 
-| Restarts (Riavvii) | Rappresenta il tempo dall'avvio di un contenitore. |
-| Uptime (Tempo di attività) | Rappresenta il tempo dall'avvio o dal riavvio di un contenitore. |
+| Nodo |  Nodo in cui è presente il contenitore. | 
+| Riavvii | Rappresenta il tempo dall'avvio di un contenitore. |
+| Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un contenitore. |
 | Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (Tendenza % media, % min, % max, % 50°, % 90°) | Grafico a barre della tendenza che presenta il valore medio percentuale delle metriche del contenitore. |
 
 Le icone nel campo relativo allo stato indicano lo stato online dei pod, come descritto nella tabella seguente:
  
-| Icona | Stato | 
+| Icona | Status | 
 |--------|-------------|
 | ![Icona di stato In esecuzione (Pronto)](./media/monitoring-container-health/container-health-ready-icon.png) | In esecuzione (Pronto)|
 | ![Icona di stato In attesa o In pausa](./media/monitoring-container-health/container-health-waiting-icon.png) | In attesa o In pausa|
@@ -451,7 +490,7 @@ L'output dei log dei contenitori inoltrato a Log Analytics è costituito da STDO
 ### <a name="example-log-search-queries"></a>Esempio di query di ricerca log
 Spesso è utile creare una query a partire da qualche esempio e quindi modificarla in base ai propri requisiti. Per creare query più avanzate, è possibile provare a usare le query di esempio seguenti:
 
-| Query | Descrizione | 
+| Query | DESCRIZIONE | 
 |-------|-------------|
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | Elencare tutte le informazioni sul ciclo di vita di un contenitore| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Eventi di Kubernetes|

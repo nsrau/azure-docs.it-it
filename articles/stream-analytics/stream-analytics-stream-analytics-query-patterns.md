@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971782"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364166"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
 
@@ -24,6 +24,12 @@ Le query in Analisi di flusso di Azure sono espresse in un linguaggio di query d
 La progettazione delle query può definire una logica pass-through semplice per spostare i dati degli eventi da un flusso di input in un altro archivio dati di output. In alternativa, è possibile eseguire criteri di ricerca e analisi temporali avanzate per calcolare le aggregazioni attraverso diverse finestre temporali, come nel TollApp di esempio. È possibile aggiungere dati da più input per combinare flussi di eventi ed eseguire ricerche sui dati di riferimento statici per arricchire i valori degli eventi. È anche possibile scrivere dati per più output.
 
 Questo articolo illustra le soluzioni per diversi modelli di query comuni basati su scenari reali. È un lavoro in corso che continua a essere periodicamente aggiornato con nuovi modelli.
+
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Usare tipi di dati complessi in JSON e AVRO 
+Analisi di flusso di Azure supporta l'elaborazione di eventi nei formati di dati CSV, JSON e Avro.
+Entrambi i formati JSON e Avro possono contenere tipi complessi come le matrici o gli oggetti nidificati (record). Per usare questi tipi di dati complessi, fare riferimento alla [pagina MSDN che spiega come usare i tipi di dati complessi in JSON e AVRO](
+https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+
 
 ## <a name="query-example-convert-data-types"></a>Esempio di query: convertire tipi di dati
 **Descrizione**: definire i tipi di proprietà nel flusso di input.

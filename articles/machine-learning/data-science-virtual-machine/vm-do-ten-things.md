@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8d633a1d3d56f33aad24ca15aea08b5180a6be32
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595753"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368539"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati di Windows
 
@@ -64,9 +64,9 @@ Ecco come appare la configurazione dell'ambiente personalizzato in Visual Studio
 
 ![Configurazione di PTVS](./media/vm-do-ten-things/PTVSSetup.png)
 
-Per altri dettagli su come creare gli ambienti Python, vedere la [documentazione relativa a PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) .
+Per altri dettagli su come creare gli ambienti Python, vedere la [documentazione relativa a PTVS](http://aka.ms/ptvsdocs) .
 
-A questo punto è possibile iniziare a creare un nuovo progetto Python. Passare a **File** -> **Nuovo** -> **Progetto** -> **Python** e selezionare il tipo di applicazione Python da compilare. È possibile impostare la versione di ambiente Python desiderata per il progetto corrente, ad esempio Anaconda 2.7 o 3.6, facendo clic con il pulsante destro del mouse su **Ambienti Python**, scegliendo **Aggiungi/Rimuovi ambienti Python** e quindi selezionando l'ambiente desiderato. È possibile trovare altre informazioni sull'uso di PTVS nella pagina di [documentazione](https://github.com/Microsoft/PTVS/wiki) del prodotto.
+A questo punto è possibile iniziare a creare un nuovo progetto Python. Passare a **File** -> **Nuovo** -> **Progetto** -> **Python** e selezionare il tipo di applicazione Python da compilare. È possibile impostare la versione di ambiente Python desiderata per il progetto corrente, ad esempio Anaconda 2.7 o 3.6, facendo clic con il pulsante destro del mouse su **Ambienti Python**, scegliendo **Aggiungi/Rimuovi ambienti Python** e quindi selezionando l'ambiente desiderato. Ulteriori informazioni sull'uso di PTVS sono disponibili nella [documentazione](http://aka.ms/ptvsdocs) del prodotto.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Uso di un notebook di Jupyter per esplorare e modellare i dati con Python o R
 Il notebook di Jupyter è un ambiente avanzato che fornisce un "IDE" basato su browser per l'esplorazione e la modellazione dei dati. È possibile usare Python 2, Python 3 o R, sia open source che Microsoft R Server, in un notebook di Jupyter.
@@ -251,7 +251,7 @@ In Visual Studio è possibile eseguire la stessa operazione di clonazione. Per a
 
 ![Git in Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
 
-In github.com sono disponibili altre informazioni sull'uso di Git per lavorare con l'archivio GitHub da diverse risorse. Il [foglio informativo](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) è un riferimento utile.
+In github.com sono disponibili altre informazioni sull'uso di Git per lavorare con l'archivio GitHub da diverse risorse. Il [foglio informativo](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) è un riferimento utile.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Accedere a diversi servizi dati e analisi di Azure
 ### <a name="azure-blob"></a>BLOB Azure

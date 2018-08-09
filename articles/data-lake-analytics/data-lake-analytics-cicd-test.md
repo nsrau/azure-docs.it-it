@@ -1,6 +1,6 @@
 ---
 title: Come testare il codice di Azure Data Lake Analytics | Microsoft Docs
-description: Informazioni su come aggiungere test case relativi all'U-SQL e un codice C# esteso per Azure Data Lake Analytics.
+description: Ulteriori informazioni sull'aggiunta di test case per U-SQL e codice C# esteso per Azure Data Lake Analytics.
 services: data-lake-analytics
 documentationcenter: ''
 author: yanancai
@@ -14,61 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.author: yanacai
-ms.openlocfilehash: bfb314348caf1d5bf83c940c0bce79e87d6d2593
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: fa5c113541452a93c25adc7c14bdaa6994434c71
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890810"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365861"
 ---
-# <a name="how-to-test-your-azure-data-lake-analytics-code"></a>Come testare il codice di Azure Data Lake Analytics
+# <a name="test-your-azure-data-lake-analytics-code"></a>Testare il codice Azure Data Lake Analytics
 
-Azure Data Lake offre U-SQL come linguaggio che combina SQL dichiarativo con C# imperativo per consentire di elaborare dati su qualsiasi scala. Questo documento descrive come creare test case per l'U-SQL e un codice UDO C# (operatore definito dall'utente) esteso.
+Azure Data Lake fornisce il linguaggio U-SQL, che combina codice SQL dichiarativo a codice C# imperativo per elaborare i dati a qualsiasi scala. Questo documento spiega come creare test case per codice U-SQL e UDO (operatore definito dall'utente) C# esteso.
 
 ## <a name="test-u-sql-scripts"></a>Testare gli script U-SQL
 
-Lo script U-SQL è compilato e ottimizzato per il codice eseguibile ed eseguito tra più computer nel cloud o nel computer locale. Il processo di compilazione e ottimizzazione considera l'intero script U-SQL nel suo complesso da eseguire. Non è possibile eseguire "unit test" tradizionali per ogni istruzione. Tuttavia, tramite l'SDK di test U-SQL SDK e l'SDK di esecuzione locale, è possibile eseguire test a livello di script.
+Lo script U-SQL viene compilato e ottimizzato per codice eseguibile da eseguire su macchine nel cloud o nel computer locale. Il processo di compilazione e ottimizzazione considera l'intero script U-SQL nel suo complesso. Non è possibile eseguire uno "unit test" tradizionale per ogni istruzione. Tuttavia, usando l'U-SQL test SDK in esecuzione locale è possibile eseguire test a livello di script.
 
 ### <a name="create-test-cases-for-u-sql-script"></a>Creare test case per lo script U-SQL
 
-Strumenti Azure Data Lake per Visual Studio offre un'esperienza ottimale per la creazione di test case per gli script U-SQL.
+Strumenti Azure Data Lake per Visual Studio consente di creare test case dello script U-SQL.
 
-1.  In Esplora soluzioni fare clic con il pulsante destro del mouse su uno script U-SQL e selezionare **Create Unit Test** (Crea unit test).
-2.  Eseguire la configurazione per creare un nuovo progetto di test o inserire il test case in un progetto di test esistente.
+1.  Fare clic con il pulsante destro del mouse su uno script U-SQL in Esplora soluzioni, quindi selezionare **Crea unit test**.
+2.  Creare un nuovo progetto di test o inserire il test case in un progetto di test esistente.
 
-    ![Creare un progetto di test U-SQL con Strumenti Azure Data Lake per Visual Studio](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project.png) 
+    ![Strumenti Data Lake per Visual Studio -- crea un progetto di test U-SQL](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project.png) 
 
-    ![Configurazione di un progetto di test U-SQL con Strumenti Azure Data Lake per Visual Studio](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project-configure.png) 
+    ![Strumenti Data Lake per Visual Studio -- crea una configurazione di progetto di test U-SQL](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project-configure.png) 
 
-### <a name="manage-test-data-source"></a>Gestire l'origine dati di test
+### <a name="manage-the-test-data-source"></a>Gestire l'origine dei dati di test
 
-Per il test degli script U-SQL sono necessari file di input di test. È possibile gestire questi dati di test configurando il **Test origine dati** nelle proprietà del progetto U-SQL. Quando si chiama l'interfaccia `Initialize()` nell'SDK di test U-SQL, una cartella Data-Root locale temporanea viene creata nella directory di lavoro del progetto di test e tutti i file e le sottocartelle (e i file contenuti nelle sottocartelle) vengono copiati nella cartella di origine dei dati locale temporanea prima di eseguire i test case dello script U-SQL. È possibile aggiungere altre cartelle di origine dati di test suddividendo il percorso della cartella di dati di test con punto e virgola.
+Quando si testano script U-SQL, sono necessari file di input di test. È possibile gestire i dati di test configurando **Test origine dati** nelle proprietà del progetto U-SQL. 
 
-![Configurazione dell'origine dati di test del progetto di Strumenti Data Lake per Visual Studio](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
+Quando si chiama l'interfaccia `Initialize()` nell'U-SQL test SDK, viene creata una cartella radice di dati locali temporanei nella directory di lavoro del progetto di test e tutti i file e le sottocartelle (e file in esse contenuti) nella cartella di origine dei dati di test vengono copiati nella cartella radice dei dati locali prima di eseguire i test case dello script U-SQL. È possibile aggiungere più cartelle di origine dei dati di test suddividendo il relativo percorso con un punto e virgola.
 
-### <a name="manage-database-environment-for-test"></a>Gestire l'ambiente del database per il test
+![Strumenti Data Lake per Visual Studio -- configura l'origine dei dati di test del progetto](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
 
-Se gli script U-SQL usano o eseguono query con gli oggetti di database U-SQL, ad esempio stored procedure di chiamata, è necessario inizializzare l'ambiente del database prima di eseguire test case di U-SQL. L'interfaccia `Initialize()` nell'SDK di test di U-SQL consente di distribuire tutti i database cui fa riferimento il progetto U-SQL nella cartella radice dei dati locale temporanea nella directory di lavoro del progetto di test. 
+### <a name="manage-the-database-environment-for-testing"></a>Gestire l'ambiente di database a scopo di test
 
-Altre informazioni su [come gestire i riferimenti a progetti di database U-SQL per progetti U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
+Se gli script U-SQL usano o eseguono query con oggetti di database U-SQL, ad esempio quando si chiamano stored procedure, è necessario inizializzare l'ambiente di database prima di eseguire test case U-SQL. L'interfaccia `Initialize()` nell'U-SQL test SDK consente di distribuire tutti i database a cui fa riferimento il progetto U-SQL nella cartella radice dei dati locali temporanei nella directory di lavoro del progetto di test. 
+
+Ulteriori informazioni sulla [gestione dei riferimenti al progetto di database U-SQL per un progetto U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 
 ### <a name="verify-test-results"></a>Verificare i risultati del test
 
-L'interfaccia `Run()` restituisce il risultato di esecuzione del processo: il valore 0 indica un esito positivo, mentre 1 indica un esito negativo. È possibile usare anche funzioni di asserzione C# per verificare gli output. 
+L'interfaccia `Run()` restituisce un risultato di esecuzione progetto. 0 indica un risultato positivo, 1 indica un risultato negativo. È possibile usare anche funzioni di asserzione C# per verificare gli output. 
 
-### <a name="execute-test-cases-in-visual-studio"></a>Eseguire test case in Visual Studio
+### <a name="run-test-cases-in-visual-studio"></a>Eseguire test case in Visual Studio
 
-Un progetto di test dello script U-SQL si basa su framework di unit test C#. Una volta compilato il progetto, è possibile eseguire tutti i test case tramite **Esplora test > Playlist**, oppure facendo doppio clic sul file .cs e scegliendo **Esegui test**.
+Un progetto di test dello script U-SQL viene creato su un framework di unit test C#. Dopo aver compilato il progetto, è possibile eseguire tutti i test case attraverso **Esplora test > Playlist**. In alternativa, fare clic con il pulsante destro del mouse sul file .cs, quindi selezionare **Esegui test**.
 
 ## <a name="test-c-udos"></a>UDO di test C#
 
 ### <a name="create-test-cases-for-c-udos"></a>Creare test case per UDO C#
 
-È possibile usare framework unit test C# per testare gli UDO (User-Defined Operator) C#. Quando si testa un UDO, è necessario preparare l'oggetto **IRowset** corrispondente come input.
+È possibile usare un framework di unit test C# per testare gli operatori UDO C#. Quando si testano gli UDO, è necessario preparare gli oggetti **IRowset** corrispondenti come input.
 
-Esistono due modi per creare IRowset:
+È possibile creare un oggetto IRowset in due modi:
 
-1.  Caricare dati da un file per creare IRowset
+- Caricare dati da un file per creare IRowset:
 
     ```csharp
     //Schema: "a:int, b:int"
@@ -84,7 +86,7 @@ Esistono due modi per creare IRowset:
     IRowset rowset = UnitTestHelper.GetRowsetFromFile(@"processor.txt", schema, output.AsReadOnly(), discardAdditionalColumns: true, rowDelimiter: null, columnSeparator: '\t');
     ```
 
-2.  Usare dati estratti dalla raccolta dati per creare IRowset
+- Usare i dati da una raccolta dati per creare IRowset:
 
     ```csharp
     //Schema: "a:int, b:int"
@@ -107,39 +109,39 @@ Esistono due modi per creare IRowset:
 
 ### <a name="verify-test-results"></a>Verificare i risultati del test
 
-Dopo la chiamata di funzioni UDO, è possibile verificare il risultato tramite lo schema e la verifica di valore del set di righe tramite le funzioni C# Assert. Un codice di esempio è consultabile Nel progetto di esempio di unit test UDO U-SQL C# in **File > Nuovo > Progetto** in Visual Studio.
+Dopo aver chiamato le funzioni UDO, è possibile verificare i risultati attraverso la verifica dello schema e del valore Rowset usando le funzioni Assert C#. È possibile usare codice di esempio in un progetto di esempio di unit test U-SQL C# UDO attraverso **File > Nuovo > Progetto** in Visual Studio.
 
-### <a name="execute-test-cases-in-visual-studio"></a>Eseguire test case in Visual Studio
+### <a name="run-test-cases-in-visual-studio"></a>Eseguire test case in Visual Studio
 
-Una volta compilato il progetto di test, è possibile eseguire tutti i test case tramite **Esplora test > Playlist**, oppure facendo doppio clic sul file. cs e scegliendo **Esegui test**.
+Dopo aver compilato il progetto di test, è possibile eseguire tutti i test case attraverso **Esplora test > Playlist** o fare clic con il pulsante destro del mouse sul file .cs e scegliere **Esegui test**.
 
 ## <a name="run-test-cases-in-visual-studio-team-service"></a>Eseguire test case in Visual Studio Team Services
 
-Sia il **progetto di test dello script U-SQL** che il **progetto di test UDO C#** ereditano il progetto di unit test C#. [Attività di test di Visual Studio](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Visual Studio Team Service possono eseguire questi test case. 
+Entrambi i **progetti di test di script U-SQL** e i **progetti di test UDO C#** ereditano i progetti di unit test C#. L'[Attività di test di Visual Studio](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Visual Studio Team Services può eseguire questi test case. 
 
 ### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>Eseguire test case U-SQL in Visual Studio Team Services
 
-Per i test U-SQL, assicurarsi di caricare `CPPSDK` nel computer di compilazione e trasferire il percorso `CPPSDK` su USqlScriptTestRunner (cppSdkFolderFullPath: @"").
+Per un test U-SQL, assicurarsi di caricare `CPPSDK` nel computer di compilazione, quindi passare il percorso `CPPSDK` in USqlScriptTestRunner(cppSdkFolderFullPath: @"").
 
 **Definizione di CppSDK**
 
-CPPSDK è un pacchetto che include Microsoft Visual C++ 14 e Windows SDK 10.0.10240.0, l'ambiente necessario per il runtime U-SQL. È possibile ottenere questo pacchetto in nella cartella di installazione di Strumenti Azure Data Lake per Visual Studio:
+CPPSDK è un pacchetto che include Microsoft Visual C++ 14 e Windows SDK 10.0.10240.0. È l'ambiente richiesto dal runtime U-SQL. È possibile ottenere questo pacchetto nella cartella di installazione di Strumenti Azure Data Lake per Visual Studio:
 
 - Per Visual Studio 2015, il pacchetto è disponibile in `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
 - Per Visual Studio 2017, il pacchetto è disponibile in `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK`
 
-**Come preparare CPPSDK nell'agente di compilazione di Visual Studio Team Services**
+**Preparare CPPSDK nell'agente di compilazione di Visual Studio Team Services**
 
-Il modo comune per la preparazione di questa dipendenza CPPSDK in Visual Studio Team Services è il seguente:
+Il modo più comune per preparare la dipendenza CPPSDK in Visual Studio Team Service è il seguente:
 
-1.  Zippare la cartella contenente le librerie CPPSDK.
-2.  Archiviare il file zip nel sistema di controllo del codice sorgente. (Lo zip dei file assicura di archiviare tutte le librerie nella cartella CPPSDK, altrimenti alcuni file verranno ignorati da ".gitignore").
-3.  Decomprimere i file zip nella pipeline di compilazione.
+1.  Comprimere la cartella che include le librerie CPPSDK.
+2.  Archiviare il file .zip nel sistema di controllo di origine. (Il file .zip consente di archiviare tutte le librerie nella cartella CPPSDK in modo che nessun file venga ignorato da ".gitignore".)   
+3.  Decomprimere il file .zip nella pipeline di compilazione.
 4.  Indirizzare `USqlScriptTestRunner` a questa cartella non compressa nel computer di compilazione.
 
-### <a name="run-c-udo-test-cases-in-visual-studio-team-service"></a>Eseguire test case C# UDO in Visual Studio Team Services
+### <a name="run-c-udo-test-cases-in-visual-studio-team-services"></a>Eseguire i test case UDO C# in Visual Studio Team Services
 
-Per i test UDO C#, assicurarsi di referenziare gli assembly seguenti, necessari per l'UDO. Se vengono referenziati tramite [il pacchetto Nuget Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), assicurarsi di aggiungere un'attività di ripristino NuGet nella pipeline di compilazione.
+Per un test UDO C#, assicurarsi di fare riferimento ai seguenti assembly, necessari per gli UDO. Se vengono referenziati tramite [il pacchetto Nuget Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), assicurarsi di aggiungere un'attività di ripristino NuGet nella pipeline di compilazione.
 
 * Microsoft.Analytics.Interfaces
 * Microsoft.Analytics.Types

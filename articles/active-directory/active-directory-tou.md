@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
+ms.component: compliance
 ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: edf8eccf8c0a1cba70ac178ac5863a68b26f14a3
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398955"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622076"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare a usare Condizioni per l'utilizzo di Azure AD.
@@ -73,7 +73,7 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
 
 5. Attivare o disattivare l'opzione **Richiedi agli utenti di espandere le Condizioni d'uso**.  Se questa opzione è attivata, agli utenti finali verrà richiesto di visualizzare le condizioni per l'utilizzo prima dell'accettazione.
 
-6. In **Accesso condizionale** è possibile **applicare** le condizioni per l'utilizzo caricate selezionando un modello dall'elenco a discesa o criteri di accesso condizionale personalizzati.  I criteri personalizzati di accesso condizionale consentono condizioni per l'utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici.  Per altre informazioni, vedere la pagina relativa alla [configurazione dei criteri di accesso condizionale](active-directory-conditional-access-best-practices.md).
+6. In **Accesso condizionale** è possibile **applicare** le condizioni per l'utilizzo caricate selezionando un modello dall'elenco a discesa o criteri di accesso condizionale personalizzati.  I criteri personalizzati di accesso condizionale consentono condizioni per l'utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici.  Per altre informazioni, vedere la pagina relativa alla [configurazione dei criteri di accesso condizionale](conditional-access/best-practices.md).
 
     >[!IMPORTANT]
     >L'applicazione dei controlli dei criteri di accesso condizionale (incluse le condizioni per l'utilizzo) non è supportata per gli account di servizio.  È consigliabile escludere tutti gli account di servizio dai criteri di accesso condizionale.
@@ -240,4 +240,4 @@ R: È possibile [annullare l'accettazione di Condizioni per l'utilizzo accettate
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md)
+- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](conditional-access/best-practices.md)

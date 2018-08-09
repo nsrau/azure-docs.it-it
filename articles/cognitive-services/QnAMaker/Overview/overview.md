@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 06/15/2018
 ms.author: nolachar
 ms.openlocfilehash: f34cec047c18a6db10b5adda82800c51d44c1155
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
+ms.lasthandoff: 08/06/2018
 ms.locfileid: "36295146"
 ---
 # <a name="what-is-qna-maker"></a>Informazioni su QnA Maker
@@ -48,7 +48,7 @@ Lo stack di QnA Maker è costituito dalle parti seguenti:
 
 2. **Runtime di QnA Maker (piano dati)**: i dati e il runtime vengono distribuiti nella sottoscrizione di Azure dell'utente, nell'area scelta. Il contenuto delle domande/risposte del cliente viene archiviato in [Ricerca di Azure](https://azure.microsoft.com/services/search/) e il runtime viene distribuito come [servizio app](https://azure.microsoft.com/services/app-service/). È anche possibile scegliere facoltativamente di distribuire una risorsa di [Application Insights](https://azure.microsoft.com/services/application-insights/) per l'analisi.
 
-![Architecture](../media/qnamaker-overview-learnabout/architecture.png)
+![Architettura](../media/qnamaker-overview-learnabout/architecture.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

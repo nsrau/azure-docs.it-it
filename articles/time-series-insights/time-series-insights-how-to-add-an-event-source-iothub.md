@@ -4,23 +4,23 @@ description: Questo articolo descrive come aggiungere un'origine evento connessa
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 1cc8518e84bd9fe7a1f03a2f5d6ccdbac8fb78e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6beecbf64cee925f62ac4c82919926fcb79940a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330595"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627373"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Come aggiungere un'origine evento hub IoT a un ambiente Time Series Insights
 Questo articolo descrive come usare il portale di Azure per aggiungere all'ambiente Time Series Insights un'origine evento che legge dati da un hub IoT.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 - Creare un ambiente Time Series Insights Per altre informazioni, vedere [Creare un ambiente Azure Time Series Insights](time-series-insights-get-started.md). 
 - Creare un hub IoT. Per altre informazioni sugli hub IoT, vedere [Creare un hub IoT usando il portale di Azure](../iot-hub/iot-hub-create-through-portal.md)
 - Lo hub IoT deve ricevere eventi messaggio attivi.
@@ -93,7 +93,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT, eseguire questa procedur
 
 11. Selezionare **Crea** per aggiungere la nuova origine evento.
 
-   ![Click Create](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+   ![Fare clic su Crea](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
    Dopo la creazione dell'origine evento, Time Series Insights inizierà automaticamente a trasmettere i dati nell'ambiente.
 

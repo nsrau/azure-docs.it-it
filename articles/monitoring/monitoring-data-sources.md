@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036524"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627458"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Origini dei dati di monitoraggio
 Questo articolo descrive i dati disponibili per monitorare l'integrità e le prestazioni delle risorse di Azure e le applicazioni che si basano su tali dati.  Descrive come raccogliere e analizzare i dati con gli strumenti descritti in [Collecting monitoring data in Azure](monitoring-data-collection.md) (Raccolta dei dati di monitoraggio in Azure).
@@ -42,7 +42,7 @@ Il [log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-ac
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Log di controllo di Azure Active Directory
-I [report di Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md) contengono la cronologia dell'attività di accesso e l'audit trail delle modifiche apportate all'interno di un tenant specifico. Non è attualmente possibile combinare i dati di controllo di Azure Active Directory con altri dati di monitoraggio in quanto sono accessibili solo tramite Azure Active Directory e l'[API di creazione report di Azure Active Directory](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+I [report di Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md) contengono la cronologia dell'attività di accesso e l'audit trail delle modifiche apportate all'interno di un tenant specifico. Non è attualmente possibile combinare i dati di controllo di Azure Active Directory con altri dati di monitoraggio in quanto sono accessibili solo tramite Azure Active Directory e l'[API di creazione report di Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 
 ## <a name="azure-services"></a>Servizi di Azure.

@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249081"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364377"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Eseguire un backup dei database SQL Server in Azure
 
@@ -148,7 +148,7 @@ Per configurare le autorizzazioni:
 
     ![Selezionare SQL Server in macchine virtuali di Azure per il backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Il menu **Obiettivo di backup** visualizza due passaggi: **Individuare i database nelle macchine virtuali** e **Configurare il backup**. Il passaggio **Individuare i database nelle macchine virtuali** avvia una ricerca di macchine virtuali di Azure.
+    Il menu **Obiettivo di backup** visualizza due passaggi: **Individuare i database nelle macchine virtuali** e **Configurare il backup**. La fase **Individuare i database nelle macchine virtuali** avvia una ricerca per le macchine virtuali di Azure.
 
     ![Esaminare i due passaggi di Obiettivo di backup](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -258,7 +258,7 @@ Quando si usa lo strumento di **individuazione dei database** Backup di Azure es
 
     ![Selezionare la macchina virtuale e il database](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>Configurare il backup per i database di SQL Server 
+## <a name="configure-backup-for-sql-server-databases"></a>Configurare il backup per i database di SQL Server
 
 Backup di Azure offre servizi di gestione per proteggere i database di SQL Server e gestire i processi di backup. La funzioni di gestione e monitoraggio dipendono dall'insieme di credenziali di Servizi di ripristino. 
 
@@ -317,6 +317,9 @@ Per configurare la protezione per un database SQL:
 
 8. Dall’elenco a discesa **Scegliere i criteri di backup** scegliere un criterio di backup e quindi selezionare **OK**. Per informazioni su come creare un criterio di backup, vedere [Definire un criterio di backup](backup-azure-sql-database.md#define-a-backup-policy).
 
+   > [!NOTE]
+   > Durante l'anteprima non è possibile modificare i criteri di backup. Se è necessario un criterio diverso rispetto a quello disponibile nell'elenco, è necessario crearlo. Per informazioni sulla creazione di un nuovo criterio di backup, vedere la sezione [Definire un criterio di backup](backup-azure-sql-database.md#define-a-backup-policy).
+
     ![Scegliere un criterio di backup dall’elenco](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     Nel menu **Criteri di backup**, dall’elenco a discesa **Scegliere i criteri di backup** è possibile: 
@@ -341,25 +344,32 @@ Per configurare la protezione per un database SQL:
 
 Un criterio di backup definisce una matrice relativa a quando sono stati acquisiti i backup e per quanto tempo vengono conservati. È possibile usare Backup di Azure per pianificare tre tipi di backup per i database SQL:
 
-* Backup completo: un backup completo è un backup eseguito per l'intero database. Un backup completo contiene tutti i dati di un database o un set di file o filegroup specifico e un log sufficiente per recuperare i dati. Al massimo, è possibile attivare un backup completo al giorno. È possibile scegliere di eseguire un backup completo con frequenza giornaliera o settimanale. 
+* Backup completo: un backup completo è un backup eseguito per l'intero database. Un backup completo contiene tutti i dati in un database specifico o un set di file o gruppi di file e un numero sufficiente di log per recuperare quei dati. Al massimo, è possibile attivare un backup completo al giorno. È possibile scegliere di eseguire un backup completo con frequenza giornaliera o settimanale. 
 * Backup differenziale: un backup differenziale si basa sul precedente backup completo dei dati più recente. Un backup differenziale acquisisce solo i dati che sono stati modificati dopo il backup completo. Al massimo, è possibile attivare un backup differenziale al giorno. Non è possibile configurare un backup completo e un backup differenziale nella stessa giornata.
 * Backup del log delle transazioni: un backup del log consente il ripristino temporizzato fino a uno specifico secondo. Al massimo, è possibile configurare backup del log delle transazioni ogni 15 minuti.
 
-Il criterio viene creato a livello di insieme di credenziali di Servizi di ripristino. Più insiemi di credenziali possono usare gli stessi criteri di backup, ma è necessario applicare i criteri di backup a ogni insieme di credenziali. Quando si crea un criterio di backup, il backup completo giornaliero è l'impostazione predefinita. È possibile aggiungere un backup differenziale, ma solo se si configura l'esecuzione settimanale del backup completo. La procedura seguente illustra come creare un criterio di backup per un’istanza SQL Server in una macchina virtuale di Azure.
+Il criterio viene creato a livello di insieme di credenziali di Servizi di ripristino. Più insiemi di credenziali possono usare gli stessi criteri di backup, ma è necessario applicare i criteri di backup a ogni insieme di credenziali. Quando si crea un criterio di backup, il backup completo giornaliero è l'impostazione predefinita. È possibile aggiungere un backup differenziale, ma solo se si configura l'esecuzione settimanale del backup completo. La procedura seguente illustra come creare un criterio di backup per un’istanza SQL Server in una macchina virtuale di Azure. 
 
+> [!NOTE]
+> Nell'anteprima non è possibile modificare un criterio di backup. È invece necessario creare un nuovo criterio con i dettagli desiderati.  
+ 
 Per creare un criterio di backup:
 
-1. Nel menu **Criteri di backup**, dall’elenco a discesa **Scegliere i criteri di backup** selezionare**Crea nuovo**.
+1. Nell'insieme di credenziali Servizi di ripristino che protegge il database SQL fare clic sui **criteri di backup**, quindi scegliere **Aggiungi**. 
 
-   ![Creare un nuovo criterio di backup](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Aprire la finestra di dialogo crea un nuovo criterio di backup](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    Il menu **Criteri di backup** mostra i campi necessari per qualsiasi nuovo criterio di backup di SQL Server.
+   Viene visualizzato il menu **Aggiungi**.
 
-   ![Nuovi campi di criteri di backup](./media/backup-azure-sql-database/blank-new-policy.png)
+2. Nel menu **Aggiungi** fare clic su **SQL Server nella macchina virtuale di Azure**.
 
-2. Nella casella **Nome criterio** immettere un nome.
+   ![Scegliere un tipo per il nuovo criterio di backup](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. Un backup completo è obbligatorio. È possibile accettare i valori predefiniti per il backup completo o selezionare il **Backup completo** per modificare il criterio.
+   La selezione di SQL Server nella macchina virtuale di Azure definisce il tipo di criterio e apre il menu Criteri di backup. Il menu **Criteri di backup** mostra i campi necessari per qualsiasi nuovo criterio di backup di SQL Server.
+
+3. In **Nome criterio** immettere un nome per il nuovo criterio.
+
+4. È obbligatorio eseguire un backup completo. Non è possibile disattivare l'opzione **Backup completo**. Fare clic su **Backup completo** per visualizzare e modificare il criterio. Anche se non si cambia il criterio di backup, è necessario visualizzarne i dettagli.
 
     ![Nuovi campi di criteri di backup](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ Per creare un criterio di backup:
 
    ![Impostazione intervallo settimanale](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. Per impostazione predefinita, sono selezionate tutte le opzioni relative all'**intervallo di conservazione**: giornaliero, settimanale, mensile e annuale. Deselezionare eventuali limiti di intervallo di conservazione indesiderati. Impostare gli intervalli da utilizzare. Nel menu del **criterio Backup completo** selezionare **OK** per accettare le impostazioni.
+5. Per impostazione predefinita, sono selezionate tutte le opzioni relative all'**intervallo di conservazione**: giornaliero, settimanale, mensile e annuale. Deselezionare eventuali limiti di intervallo di conservazione indesiderati. Impostare gli intervalli da utilizzare. Nel menu del **criterio Backup completo** selezionare **OK** per accettare le impostazioni.
 
    ![Impostazione dell'intervallo di conservazione](./media/backup-azure-sql-database/retention-range-interval.png)
 
     I punti di recupero vengono contrassegnati per la conservazione, in base al relativo intervallo. Ad esempio, se si seleziona un backup completo giornaliero, viene attivato solo un backup completo ogni giorno. Il backup del giorno specifico viene contrassegnato e conservato in base all'intervallo di conservazione settimanale e alla conservazione settimanale. L'intervallo di conservazione mensile e annuale si comporta allo stesso modo.
 
-5. Per aggiungere un criterio di backup differenziale, selezionare **Backup differenziale**. Viene visualizzato il menu **Criterio di backup differenziale**. 
+6. Per aggiungere un criterio di backup differenziale, selezionare **Backup differenziale**. Viene visualizzato il menu **Criterio di backup differenziale**. 
 
    ![Aprire il menu del criterio di backup differenziale](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,30 +401,32 @@ Per creare un criterio di backup:
 
     Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
 
-6. Per aggiungere un criterio di backup del log transazionale, selezionare **Backup del log**. Viene visualizzato il menu di **backup del log**.
+7. Per aggiungere un criterio di backup del log transazionale, selezionare **Backup del log**. Viene visualizzato il menu di **backup del log**.
 
     Nel menu **Backup del log** selezionare **Abilita** e quindi impostare i controlli di frequenza e conservazione. I backup del log possono verificarsi ogni 15 minuti ed essere conservati per un massimo di 35 giorni. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
 
    ![Modificare i criteri di backup del log](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. Nel menu **Criterio di backup**, scegliere se abilitare la **compressione dei backup SQL**. La compressione è disabilitata per impostazione predefinita.
+8. Nel menu **Criterio di backup**, scegliere se abilitare la **compressione dei backup SQL**. La compressione è disabilitata per impostazione predefinita.
 
     Nel back-end Backup di Azure usa la compressione di backup nativa di SQL.
 
-8. Dopo aver completato le modifiche ai criteri di backup, selezionare **OK**. 
+9. Dopo aver completato le modifiche ai criteri di backup, selezionare **OK**. 
 
    ![Accettare il nuovo criterio di backup](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Ripristinare un database SQL
-
 Backup di Azure offre una funzionalità che consente di ripristinare singoli database fino a una data o un'ora specifica (fino a un secondo) usando i backup del log delle transazioni. In base ai tempi di ripristino specificati, Backup di Azure determina automaticamente i backup completi, differenziali e la catena di backup del log necessari per ripristinare i dati.
 
 In alternativa è possibile selezionare un backup completo o differenziale specifico per il ripristino fino a un punto di recupero specifico anziché un'ora specifica.
- > [!Note]
- > Prima di attivare il ripristino del database "master", avviare un’istanza SQL Server in modalità utente singolo con opzione `-m AzureWorkloadBackup`. L'argomento dell’opzione `-m` corrisponde al nome del client. Per aprire la connessione è consentito solo questo client. Per tutti i database di sistema (modello, master, msdb), arrestare il servizio SQL Agent prima di attivare il ripristino. Chiudere tutte le applicazioni che potrebbero provare a usare una connessione di uno di questi database.
->
 
-Per ripristinare un database:
+### <a name="pre-requisite-before-triggering-a-restore"></a>Pre-requisito prima di attivare un ripristino
+
+1. È possibile ripristinare il database in un'istanza di SQL Server nella stessa area di Azure. Il server di destinazione deve essere registrato nello stesso insieme di credenziali Servizi di ripristino dell'origine.  
+2. Per ripristinare un database crittografato TDE in un altro SQL Server, ripristinare innanzitutto il certificato nel server di destinazione eseguendo i passaggi documentati [qui](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. Prima di attivare il ripristino del database "master", avviare un’istanza SQL Server in modalità utente singolo con opzione `-m AzureWorkloadBackup`. L'argomento dell’opzione `-m` corrisponde al nome del client. Per aprire la connessione è consentito solo questo client. Per tutti i database di sistema (modello, master, msdb), arrestare il servizio SQL Agent prima di attivare il ripristino. Chiudere tutte le applicazioni che potrebbero provare a usare una connessione di uno di questi database.
+
+### <a name="steps-to-restore-a-database"></a>Passaggi per ripristinare un database:
 
 1. Aprire l'insieme di credenziali di Servizi di ripristino registrato con la macchina virtuale SQL.
 

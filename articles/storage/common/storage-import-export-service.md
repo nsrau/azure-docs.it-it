@@ -1,5 +1,5 @@
 ---
-title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Microsoft Docs
+title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Documentazione Microsoft
 description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure per trasferire dati da e verso Archiviazione di Azure.
 author: alkohli
 manager: jeconnoc
@@ -8,18 +8,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248776"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364526"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
-Il servizio Importazione/Esportazione di Azure viene usato per importare in modo sicuro grandi quantità di dati nell'archivio BLOB di Azure e in File di Azure tramite la spedizione delle unità disco a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati dall'archivio BLOB di Azure a unità disco per la spedizione al sito locale. È possibile importare dati da uno o più dischi nell'archivio BLOB di Azure o in File di Azure. 
+Il servizio Importazione/Esportazione di Azure viene usato per importare in modo sicuro grandi quantità di dati nell'archivio BLOB di Azure e in File di Azure tramite la spedizione delle unità disco a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati dall'archivio BLOB di Azure a unità disco per la spedizione al sito locale. È possibile importare dati da uno o più dischi nell'Archivio Blob di Azure o in File di Azure. 
 
-Per il servizio Importazione/Esportazione di Azure è necessario fornire i dischi. Se si vuole trasferire i dati usando dischi forniti da Microsoft è possibile usare Azure Data Box Disk per importare i dati in Azure. Microsoft spedisce fino a 5 dischi SSD (Solid State Disk) crittografati con capacità di 40 TB per ordine al data center del cliente tramite un corriere locale. È quindi possibile configurare rapidamente i dischi, copiarvi i dati su una connessione USB 3.0 e rispedirli ad Azure. Per altre informazioni, vedere [Panoramica di Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+Specificare le unità disco e trasferire dati con il servizio Importazione/Esportazione di Azure. È anche possibile usare le unità disco fornite da Microsoft. 
+
+Per trasferire i dati usando i dischi forniti da Microsoft, è possibile usare [Azure Data Box Disk](../../databox/data-box-disk-overview.md) per importare dati in Azure. Microsoft spedisce fino a 5 dischi SSD (Solid State Disk) crittografati con una capacità di 40 TB totali per ordine al data center del cliente tramite un corriere locale. È possibile configurare rapidamente i dischi, copiarvi i dati su una connessione USB 3.0 e rispedirli ad Azure. Per altre informazioni, vedere [Panoramica di Azure Data Box Disk](../../databox/data-box-disk-overview.md).
 
 ## <a name="azure-importexport-usecases"></a>Casi d'uso del servizio Importazione/Esportazione di Azure
 
@@ -34,21 +36,21 @@ Per il servizio Importazione/Esportazione di Azure è necessario fornire i disch
 
 Il servizio Importazione/Esportazione usa i componenti seguenti:
 
-- Servizio **Importazione/Esportazione**: questo servizio disponibile nel portale di Azure consente all'utente di creare processi di importazione ed esportazione e di tenerne traccia.  
+- **Servizio Importazione/Esportazione**: questo servizio disponibile nel portale di Azure consente all'utente di creare e tenere traccia dei processi di importazione (upload) ed esportazione (download) di dati.  
 
 - **Strumento WAImportExport**: si tratta di uno strumento da riga di comando che esegue le operazioni seguenti: 
-    - Prepara l'unità da spedire per l'importazione.
+    - Prepara l'unità disco da spedire per l'importazione.
     - Facilita la copia dei dati nell'unità.
     - Crittografa i dati nell'unità con BitLocker.
     - Genera i file journal dell'unità usati durante la creazione dell'importazione.
     - Identifica i numeri di unità necessarie per i processi di esportazione.
-
-    Questo strumento è disponibile in due versioni, versione 1 e 2. È consigliabile usare:
-
-    - La versione 1 per l'importazione/esportazione nell'archivio BLOB di Azure. 
-    - La versione 2 per l'importazione dei dati in File di Azure.
-
-    Lo strumento WAImportExport è compatibile solo con il sistema operativo Windows a 64 bit. Per versioni specifiche di sistemi operativi supportate, vedere [Azure Import/Export requirements](storage-import-export-requirements.md#supported-operating-systems) (Requisiti per Importazione/Esportazione di Azure).
+    
+> [!NOTE]
+> Lo strumento WAImportExport è disponibile in due versioni, 1 e 2. È consigliabile usare:
+> - La versione 1 per l'importazione/esportazione nell'archivio BLOB di Azure. 
+> - La versione 2 per l'importazione dei dati in File di Azure.
+>
+> Lo strumento WAImportExport è compatibile solo con il sistema operativo Windows a 64 bit. Per versioni specifiche di sistemi operativi supportate, vedere [Azure Import/Export requirements](storage-import-export-requirements.md#supported-operating-systems) (Requisiti per Importazione/Esportazione di Azure).
 
 - **Dischi**: è possibile spedire unità SSD (Solid-State Drive) o unità disco rigido (HDD) al data center di Azure. Per la creazione di un processo di importazione, si spediscono le unità disco contenenti i dati. Per la creazione di un processo di esportazione, si spediscono unità vuote al data center di Azure. Per i tipi di disco specifici, vedere i [tipi di disco supportati](storage-import-export-requirements.md#supported-hardware).
 
@@ -57,12 +59,6 @@ Il servizio Importazione/Esportazione usa i componenti seguenti:
 Il servizio Importazione/Esportazione di Azure consente il trasferimento dei dati in BLOB di Azure e in File di Azure mediante la creazione di processi. Per creare i processi, usare il portale di Azure o l'API REST di Azure Resource Manager. Ogni processo è associato a un singolo account di archiviazione. 
 
 I processi possono essere di importazione o di esportazione. Un processo di importazione consente di importare dati in BLOB di Azure o in File di Azure, mentre il processo di esportazione consente l'esportazione dei dati da BLOB di Azure. Per un processo di importazione, si spediscono le unità contenenti i dati. Quando si crea un processo di esportazione, si spediscono unità vuote a un data center di Azure. In ogni caso, è possibile spedire fino a 10 unità disco per ogni processo.
-
-> [!IMPORTANT]
-> L'esportazione di dati in File di Azure non è supportata.
-
-In questa sezione viene presentata una descrizione generale dei passaggi necessari nei processi di importazione ed esportazione. 
-
 
 ### <a name="inside-an-import-job"></a>Analisi di un processo di importazione
 

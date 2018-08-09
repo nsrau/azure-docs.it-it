@@ -135,7 +135,7 @@ Perché la personalizzazione sia proficua, è necessario che sia più efficiente
 
 **Risposta**: È una domanda a cui è difficile dare una risposta precisa, poiché dipende da quanto il vocabolario e le frasi usate nell'applicazione differiscono dai modelli linguistici iniziali. Per tutte le parole nuove è utile specificare il maggior numero possibile di esempi di utilizzo. Per le frasi frequenti usate nell'applicazione, è utile anche includere frasi nei dati linguistici, perché indicano al sistema di rimanere in ascolto anche di questi termini.
 È frequente che nel seti di dati linguistici siano presenti almeno cento espressioni. Di solito ce ne sono almeno diverse centinaia.
-Se inoltre si prevede che alcuni tipi di query siano più comuni di altri, è possibile inserire nel set di dati varie copie delle query più comuni.
+Se inoltre si prevede che alcuni tipi * di query siano più comuni di altri, è possibile inserire nel set di dati varie copie delle query più comuni.
 
 **Domanda**: È possibile caricare semplicemente un elenco di parole?
 
