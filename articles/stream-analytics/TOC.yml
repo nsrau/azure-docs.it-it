@@ -96,6 +96,8 @@
           href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
         - name: Monitorare i processi - Azure .NET SDK
           href: stream-analytics-monitor-jobs.md
+        - name: Monitorare i processi - Visual Studio
+          href: stream-analytics-monitor-jobs-use-vs.md
     - name: Scalabilità
       items:
         - name: Ridimensionare con le unità di streaming
@@ -117,8 +119,10 @@
       items:
         - name: Installare gli strumenti
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Sviluppare un processo cloud
-          href: stream-analytics-tools-for-visual-studio.md
+        - name: Testare un processo in locale
+          href: stream-analytics-vs-tools-local-run.md
+        - name: Visualizzare i processi in Visual Studio
+          href: stream-analytics-vs-tools.md
         - name: Sviluppare un processo Edge
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Configurare una pipeline di integrazione continua/recapito continuo

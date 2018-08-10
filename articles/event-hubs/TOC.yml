@@ -81,6 +81,10 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Ricevere eventi con .NET Framework
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: Inviare eventi con Go
+      href: event-hubs-go-get-started-send.md
+    - name: Ricevere eventi con Go
+      href: event-hubs-go-get-started-receive-eph.md
     - name: Hub eventi per Apache Kafka
       items:
         - name: Creare hub eventi con supporto per Apache Kafka

@@ -110,9 +110,17 @@
     - name: Eseguire query sui dati
       items:
         - name: Documentazione del linguaggio
-          href: 'https://docs.loganalytics.io'
-        - name: Transizione dal linguaggio legacy
-          href: log-analytics-log-search-transition.md
+          items:
+            - name: Transizione dal linguaggio legacy
+              href: log-analytics-log-search-transition.md
+            - name: Introduzione al portale di Analytics
+              href: query-language/get-started-analytics-portal.md
+            - name: Introduzione alle query
+              href: query-language/get-started-queries.md
+            - name: Query di ricerca
+              href: query-language/search-queries.md
+            - name: Informazioni di riferimento sul linguaggio
+              href: 'https://docs.loganalytics.io'
         - name: Ricerche in più risorse
           href: log-analytics-cross-workspace-search.md
         - name: Intervenire dai risultati della ricerca

@@ -27,13 +27,13 @@
           href: search-import-data-rest-api.md
         - name: Ricerca
           href: search-query-rest-api.md
-        - name: Test con client REST
+        - name: Esplorare con Postman o Fiddler
           href: search-fiddler.md
 - name: Esercitazioni
   items:
     - name: Usare gli strumenti predefiniti
       href: search-get-started-portal.md
-    - name: Sviluppo della ricerca cognitiva
+    - name: Informazioni sulle API di ricerca cognitiva
       href: cognitive-search-tutorial-blob.md
     - name: Indicizzare BLOB di Azure
       href: search-semi-structured-data.md
@@ -143,12 +143,12 @@
           href: search-synonyms.md
     - name: Modalità di indicizzazione
       items:
-        - name: Confronto tra indicizzazione push e pull
+        - name: Caricare i dati
           href: search-what-is-data-import.md
-        - name: Importazione guidata (portale)
-          href: search-import-data-portal.md
         - name: Ricompilare un indice
           href: search-howto-reindex.md
+        - name: Importazione guidata (portale)
+          href: search-import-data-portal.md
         - name: Indicizzare set di dati di grandi dimensioni
           href: search-howto-large-index.md
         - name: Gestire gli aggiornamenti simultanei
@@ -175,13 +175,13 @@
               href: search-indexer-field-mappings.md
     - name: Ricerca di dati
       items:
-        - name: Nozioni fondamentali
+        - name: Tipi/Composizione di query
           href: search-query-overview.md
         - name: Esplora ricerche (portale)
           href: search-explorer.md
-        - name: Esempi di sintassi semplice
+        - name: Esempi di sintassi semplici
           href: search-query-simple-examples.md
-        - name: Esempi di sintassi completa
+        - name: Esempi di sintassi completi
           href: search-query-lucene-examples.md
         - name: Informazioni di riferimento sulle query
           items:

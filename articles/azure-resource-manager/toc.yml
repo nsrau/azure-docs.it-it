@@ -32,6 +32,8 @@
       maintainContext: true
     - name: Modelli per la coerenza del cloud
       href: templates-cloud-consistency.md
+    - name: Modalità di distribuzione
+      href: deployment-modes.md
 - name: Procedure
   items:
     - name: Creare modelli

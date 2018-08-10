@@ -25,21 +25,29 @@
       href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
     - name: Informazioni sul limite di spesa
       href: billing-spending-limit.md
-    - name: Risparmiare con le istanze di macchina virtuale riservate
+    - name: Risparmiare con le prenotazioni di Azure
       items:
-        - name: Informazioni sulle istanze riservate
+        - name: Informazioni sulle prenotazioni di Azure
           href: billing-save-compute-costs-reservations.md
-        - name: Acquistare un'istanza riservata
-          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Acquistare una prenotazione
+          items:
+            - name: Macchina virtuale
+              href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+            - name: Database SQL
+              href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: Modalità di applicazione dello sconto
-          href: billing-understand-vm-reservation-charges.md
+          items:
+            - name: Istanze di macchina virtuale riservate
+              href: billing-understand-vm-reservation-charges.md
+            - name: Capacità riservata del database SQL
+              href: billing-understand-reservation-charges.md
         - name: Costi software non inclusi
           href: billing-reserved-instance-windows-software-costs.md
         - name: Utilizzo per l'opzione con pagamento in base al consumo
           href: billing-understand-reserved-instance-usage.md
         - name: Utilizzo per Enterprise
           href: billing-understand-reserved-instance-usage-ea.md
-        - name: Gestire le istanze riservate
+        - name: Gestire le prenotazioni di Azure
           href: billing-manage-reserved-vm-instance.md
 - name: Gestire l'account
   items:

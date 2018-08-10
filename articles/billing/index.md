@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: b04cb7ca3e8e7b292efaed66096c206b268a034a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285849"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626183"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentazione della fatturazione e della gestione dei costi di Azure
 
@@ -101,8 +101,8 @@ Informazioni sulla fatturazione di Azure, su come monitorare l'utilizzo e i cost
                         <p>
                         <a href="/azure/billing/billing-manage-access">Concedere l'accesso alla fatturazione</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">Pagamento con fattura</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Gestire le istanze riservate</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Utilizzo per le istanze riservate</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Gestire le prenotazioni di Azure</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Utilizzo per le prenotazioni di Azure</a>
                         </p>
                     </div>
                 </div>
@@ -131,11 +131,12 @@ Informazioni sulla fatturazione di Azure, su come monitorare l'utilizzo e i cost
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Risparmiare con le istanze di macchina virtuale riservate</h3>
+                        <h3>Risparmiare con le prenotazioni di Azure</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">Informazioni sulle istanze riservate</a> <br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Acquistare un'istanza riservata</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Modalità di applicazione dello sconto</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Informazioni sulle prenotazioni di Azure</a> <br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Acquistare un'istanza di macchina virtuale riservata</a><br/>
+                        <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">Acquistare capacità riservata del database SQL</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Modalità di applicazione dello sconto per VM</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Costi software non inclusi</a>
                         </p>
                     </div>

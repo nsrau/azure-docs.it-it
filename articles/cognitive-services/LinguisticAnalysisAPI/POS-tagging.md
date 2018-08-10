@@ -28,51 +28,51 @@ ad esempio categorie come *nome* (che in genere rappresenta persone, luoghi, cos
 
 | Tag | DESCRIZIONE | Parole di esempio |
 |-----|-------------|---------------|
-| $ | dollar (dollaro) | $ |
-| \`\` | opening quotation mark (virgolette doppie aperte) | \` \`\` |
-| '' | closing quotation mark (virgolette doppie chiuse) | ' '' |
-| ( | opening parenthesis (parentesi aperta) | ( [ { |
-| ) | closing parenthesis (parentesi chiusa) | ) ] } |
-| , | comma (virgola) | , |
-| -- | dash (trattino) | -- |
-| . | sentence terminator (segno di interpunzione forte) | . ! ? |
-| : | colon or ellipsis (due punti o puntini di sospensione) | : ; ... |
-| CC | conjunction, coordinating (congiunzione coordinante) | and but or yet|
-| CD | numeral, cardinal (numerale cardinale) | nine 20 1980 '96 |
-| DT | determiner (determinante) |a the an all both neither|
-| EX | existential there (there esistenziale) | there |
-| FW | foreign word (parola straniera) | enfant terrible hoi polloi je ne sais quoi |
-| IN | preposition or subordinating conjunction (preposizione o congiunzione subordinante)| in inside if upon whether |
-| JJ | adjective or numeral, ordinal (aggettivo o numerale ordinale) | ninth pretty execrable multimodal |
-| JJR | adjective, comparative (aggettivo comparativo) | better faster cheaper |
-| JJS | adjective, superlative (aggettivo superlativo) | best fastest cheapest | 
-| LS | list item marker (indicatore di elemento elenco) | (a) (b) 1 2 A B A. B. |
-| MD | modal auxiliary (ausiliario modale) | can may shall will could might should ought |
-| NN | noun, common, singular or mass (nome comune singolare o collettivo) | potato money shoe |
-| NNP | noun, proper, singular (nome proprio singolare) | Kennedy Roosevelt Chicago Weehauken |
-| NNPS | noun, proper, plural (nome proprio plurale) | Springfields Bushes |
-| NNS | noun, common, plural (nome comune plurale) | pieces mice fields |
-| PDT | pre-determiner (predeterminante) | all both half many quite such sure this |
-| POS | genitive marker (indicatore di genitivo) | ' 's |
-| PRP | pronoun, personal (pronome personale) | she he it I we they you |
-| PRP$ | pronoun, possessive (pronome possessivo) | hers his its my our their your |
-| RB | adverb (avverbio) | clinically only |
-| RBR | adverb, comparative (avverbio comparativo) | further gloomier grander graver greater grimmer harder harsher healthier heavier higher however larger later leaner lengthier less-perfectly lesser lonelier longer louder lower more... |
-| RBS | adverb, superlative (avverbio superlativo) | best biggest bluntest earliest farthest first furthest hardest heartiest highest largest least less most nearest second tightest worst |
-| RP | particle (particella) | on off up out about |
-| SYM | symbol (simbolo) | % & |
-| A | "to" as preposition or infinitive marker ("to" come preposizione o indicatore di infinito) | to |
-| UH | interjection (interiezione) | uh hooray howdy hello |
-| VB | verb, base form (verbo, forma base) | give assign fly |
-| VBD | verb, past tense (verbo, passato) | gave assigned flew |
-| VBG | verb, present participle or gerund (verbo, participio presente o gerundio) | giving assigning flying |
-| VBN | verb, past participle (verbo, participio passato) | given assigned flown |
-| VBP | verb, present tense, not 3rd person singular (verbo, presente, non terza persona singolare) | give assign fly |
-| VBZ | verb, present tense, 3rd person singular (verbo, presente, terza persona singolare) | gives assigns flies |
-| WDT | WH-determiner (determinante WH) | that what which |
-| WP | WH-pronoun (pronome WH) | who whom |
-| WP$ | WH-pronoun, possessive (pronome possessivo WH) | whose |
-| WRB | Wh-adverb (avverbio Wh) | how however whenever where |
+| $ | dollaro | $ |
+| \`\` | virgolette doppie aperte | \` \`\` |
+| '' | virgolette doppie chiuse | ' '' |
+| ( | parentesi aperta | ( [ { |
+| ) | parentesi chiusa | ) ] } |
+| , | virgola | , |
+| -- | trattino | -- |
+| . | segno di interpunzione forte | . ! ? |
+| : | due punti o puntini di sospensione | : ; ... |
+| CC | congiunzione coordinante | e ma o tuttavia|
+| CD | numerale cardinale | nove 20 1980 '96 |
+| DT | determinante |un il uno tutto entrambi qualunque|
+| EX | "there" esistenziale | there |
+| FW | parola straniera | enfant terrible hoi polloi je ne sais quoi |
+| IN | preposizione o congiunzione subordinante| in nel se dopo affinché |
+| JJ | aggettivo o numerale ordinale | nono grazioso esecrabile multimodale |
+| JJR | aggettivo comparativo | migliore più veloce più economico |
+| JJS | aggettivo superlativo | il migliore velocissimo il più economico | 
+| LS | indicatore di elemento elenco | (a) (b) 1 2 A B A. B. |
+| MD | ausiliario modale | dovere volere potere sapere |
+| NN | nome comune singolare o collettivo | patata denaro scarpa |
+| NNP | nome proprio singolare | Kennedy Roosevelt Firenze Fiumicino |
+| NNPS | nome proprio plurale | Montagne Rocciose |
+| NNS | nome comune plurale | pezzi topi campi |
+| PDT | predeterminante | tutto entrambi metà molti piuttosto tale questo |
+| POS | indicatore di genitivo | ' 's |
+| PRP | pronome personale | io tu lui lei egli ella esso noi voi essi |
+| PRP$ | pronome possessivo | mio suo tuo nostro vostro loro |
+| RB | avverbio | clinicamente solo |
+| RBR | avverbio comparativo | più velocemente tanto perfettamente meno stancamente tanto dolcemente quanto naturalmente meglio peggio maggiormente più meno |
+| RBS | avverbio superlativo | velocissimamente molto stancamente il più lentamente assai chiaramente ottimamente pessimamente massimamente minimamente benissimo malissimo grandissimamente pochissimo |
+| RP | particella | mi ti vi ci si ne |
+| SYM | simbolo | % & |
+| A | "to" come preposizione o indicatore di infinito | to |
+| UH | interiezione | ehi ah eh toh ahimè boh |
+| VB | verbo, forma base | dare assegnare volare |
+| VBD | verbo, passato | davo assegnavo volavo |
+| VBG | verbo, participio presente o gerundio | dando assegnando volando |
+| VBN | verbo, participio passato | dato assegnato volato |
+| VBP | verbo, presente, non terza persona singolare | danno assegnano volano |
+| VBZ | verbo, presente, terza persona singolare | dà assegna vola |
+| WDT | determinante WH | that what which |
+| WP | pronome WH | who whom |
+| WP$ | pronome possessivo WH | whose |
+| WRB | avverbio WH | how however whenever where |
 
 ## <a name="specification"></a>Specifiche
 

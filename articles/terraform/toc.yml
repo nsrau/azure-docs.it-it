@@ -37,9 +37,15 @@
   items:
     - name: Modelli di configurazione
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Registro moduli per Azure
       href: 'https://registry.terraform.io/modules/Azure'
     - name: Informazioni di riferimento su Terraform
       href: 'http://aka.ms/terraform'
+- name: Risorse
+  items:
+    - name: Azure e Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'

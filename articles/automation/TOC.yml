@@ -131,13 +131,13 @@
           href: automation-linux-hrw-install.md
         - name: Eseguire runbook in un ruolo di lavoro ibrido per runbook
           href: automation-hrw-run-runbooks.md
-    - name: Distribuire la gestione della configurazione (DSC)
+    - name: Configurazione dello stato
       items:
-        - name: Panoramica di DSC (Desired State Configuration)
+        - name: Panoramica della configurazione dello stato
           href: automation-dsc-overview.md
         - name: Introduzione
           href: automation-dsc-getting-started.md
-        - name: Configurare i server allo stato desiderato e gestire la deviazione con Automazione di Azure
+        - name: Configurare i server allo stato desiderato e gestire la deviazione con la configurazione dello stato
           href: tutorial-configure-servers-desired-state.md
         - name: Onboarding di computer per la gestione
           href: automation-dsc-onboarding.md
@@ -145,7 +145,7 @@
           href: automation-dsc-compile.md
         - name: Distribuzione continua tramite Chocolatey
           href: automation-dsc-cd-chocolatey.md
-        - name: Inoltrare i dati dei report di Automation DSC per Azure a Log Analytics di OMS
+        - name: Inoltrare i dati di report della configurazione dello stato a Log Analytics
           href: automation-dsc-diagnostics.md
     - name: Gestire le risorse condivise
       items:
