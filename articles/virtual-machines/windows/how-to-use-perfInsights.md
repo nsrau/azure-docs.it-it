@@ -140,7 +140,7 @@ Esegue in background un motore basato su regole per raccogliere dati e diagnosti
 > [!NOTE] 
 > Sono attualmente supportate le versioni di Windows che includono .NET Framework 3.5 o versioni successive.
 
-### <a name="performance-counter-trace-"></a>Traccia del contatore delle prestazioni (**)
+### <a name="performance-counter-trace-"></a>Traccia del contatore delle prestazioni (\*\*)
 
 Raccoglie i contatori delle prestazioni seguenti:
 

@@ -298,7 +298,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 24. Selezionare l'attività **Stored procedure** nella finestra di progettazione della pipeline e modificarne il nome in **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Attività stored procedure: nome](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
-25. Passare alla scheda **Account SQL** e selezionare *AzureSqlDatabaseLinkedService* per **Servizio collegato**. 
+25. Passare alla scheda **Account SQL** e selezionare *AzureSqlDatabaseLinkedService*\* per **Servizio collegato**. 
 
     ![Attività stored procedure: account SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Passare alla scheda **Stored procedure** e seguire questa procedura: 
