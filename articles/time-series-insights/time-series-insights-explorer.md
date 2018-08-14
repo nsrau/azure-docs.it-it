@@ -3,27 +3,27 @@ title: Esplorare i dati tramite lo strumento di esplorazione di Azure Time Serie
 description: In questo articolo viene descritto come usare lo strumento di esplorazione di Azure Time Series Insights nel Web browser per avere in modo semplice e rapido una visualizzazione globale dei Big Data e convalidare l'ambiente IoT.
 ms.service: time-series-insights
 services: time-series-insights
-author: MarkMcGeeAtAquent
-ms.author: kfile
-manager: jhubbard
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: de676efdd7dd2a4035bbeca4bddd8b1d7ee7e989
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651778"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629141"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 In questo articolo vengono descritte le funzionalità e le opzioni disponibili nell'app Web dello strumento di esplorazione di Time Series Insights. Usare lo strumento di esplorazione di Time Series Insights nel Web browser per creare visualizzazioni di dati.
  
 Azure Time Series Insights è un servizio completamente gestito per analisi, archiviazione e visualizzazione, che semplifica l'esplorazione e l'analisi di miliardi di eventi IoT contemporaneamente. Offre una visualizzazione globale dei dati e consente di convalidare rapidamente le soluzioni IoT e di evitare così costosi periodi di inattività per i dispositivi di importanza strategica. È possibile individuare tendenze nascoste e anomalie, nonché eseguire analisi della causa radice. Lo strumento di esplorazione di Time Series Insights è attualmente disponibile nella versione di anteprima pubblica.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter usare lo strumento di esplorazione di Time Series Insights, è necessario:
 - Creare un ambiente Time Series Insights

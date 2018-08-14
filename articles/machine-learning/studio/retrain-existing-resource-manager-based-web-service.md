@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: d399c8c3a47d374549d7ea7815567d7b879b49c8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b06e3d742a0bed778dc7671128980708ba379e39
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835301"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714894"
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Ripetere il training di un servizio Web predittivo esistente
 Questo documento descrive il processo di ripetizione del training nello scenario seguente:
@@ -141,7 +141,7 @@ Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizion
 È prima necessario accedere al proprio account Azure dall'interno dell'ambiente di PowerShell tramite il cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 ## <a name="get-the-web-service-definition-object"></a>Ottenere l'oggetto definizione del servizio Web
-È quindi necessario ottenere l'oggetto definizione del servizio Web chiamando il cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx).
+È quindi necessario ottenere l'oggetto definizione del servizio Web chiamando il cmdlet [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice).
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
@@ -160,7 +160,7 @@ In alternativa, per determinare il nome del gruppo di risorse di un servizio Web
 
 
 ## <a name="export-the-web-service-definition-object-as-json"></a>Esportare l'oggetto definizione del servizio Web in un file in formato JSON
-Per modificare la definizione in modo da poter usare il modello appena sottoposto a training, è prima necessario usare il cmdlet [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) per esportare la definizione in un file in formato JSON.
+Per modificare la definizione in modo da poter usare il modello appena sottoposto a training, è prima necessario usare il cmdlet [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) per esportare la definizione in un file in formato JSON.
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
@@ -181,13 +181,13 @@ Negli asset individuare il [modello con training] e aggiornare il valore *uri* n
       },
 
 ## <a name="import-the-json-into-a-web-service-definition-object"></a>Importare il file JSON in un oggetto definizione del servizio Web
-È necessario usare il cmdlet [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) per convertire di nuovo il file JSON modificato in un oggetto definizione del servizio Web che è possibile usare per aggiornare l'esperimento predicativo.
+È necessario usare il cmdlet [Import-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) per convertire di nuovo il file JSON modificato in un oggetto definizione del servizio Web che è possibile usare per aggiornare l'esperimento predicativo.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
 ## <a name="update-the-web-service"></a>Aggiornare il servizio Web
-Usare infine il cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) per aggiornare l'esperimento predittivo.
+Usare infine il cmdlet [Update-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) per aggiornare l'esperimento predittivo.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 

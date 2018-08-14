@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 625894738b6cbf680baef0a1eeeea518586e4506
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 52ae7da666acaf234920a7f03afe3766f29a1e85
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870791"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629124"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 Questo articolo illustra due modi per acquisire la proprietà di un nome di dominio DNS in una directory non gestita in Azure Active Directory (Azure AD). Quando un utente self-service si iscrive a un servizio cloud che usa Azure AD, viene aggiunto a una directory di Azure AD non gestita basata sul dominio di posta elettronica. Per altre informazioni sull'iscrizione self-service o "virale" a un servizio, vedere [Informazioni sull'iscrizione self-service per Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup).
@@ -104,7 +104,7 @@ L'acquisizione esterna della proprietà da parte dell'amministratore non è supp
 
 #### <a name="more-information-about-rms-for-individuals"></a>Altre informazioni su RMS per utenti singoli
 
-Per [RMS per utenti singoli](/information-protection/understand-explore/rms-for-individuals), quando il tenant non gestito si trova nella stessa area del tenant di cui si è proprietari, anche la [chiave del tenant Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) creata automaticamente e i [modelli di protezione predefiniti](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) vengono spostati con il nome di dominio. 
+Per [RMS per utenti singoli](/azure/information-protection/rms-for-individuals), quando il tenant non gestito si trova nella stessa area del tenant di cui si è proprietari, anche la [chiave del tenant Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) creata automaticamente e i [modelli di protezione predefiniti](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) vengono spostati con il nome di dominio. 
 
 La chiave e i modelli non vengono invece spostati quando il tenant si trova in un'area diversa, ad esempio se il tenant non gestito è in Europa e il tenant di cui si è proprietari è in America del Nord. 
 

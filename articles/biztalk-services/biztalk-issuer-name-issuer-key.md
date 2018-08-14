@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24103430"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628648"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>Servizi BizTalk: nome e chiave dell'autorità emittente
 
@@ -71,7 +71,7 @@ Per riepilogare:
 Nome dell'autorità emittente = SharedSecretIssuer  
 Chiave dell'autorità emittente = SharedSecretKey
 
-Altre informazioni sul cmdlet [New-AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx). 
+Altre informazioni sul cmdlet [New-AzureSBNamespace](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace). 
 
 ## <a name="service-bus-issuer-name-and-issuer-key"></a>Nome e chiave dell'autorità emittente del bus di servizio
 Il nome e la chiave dell'autorità emittente del bus di servizio vengono utilizzati dai servizi dell'adapter di BizTalk. Nel progetto di Servizi BizTalk in Visual Studio è possibile usare Servizi Adapter BizTalk per la connessione a un sistema LOB (Line-of-Business) locale. Per effettuare la connessione, creare l'inoltro LOB e immettere i dettagli relativi al sistema LOB. Quando si esegue questa operazione, è necessario immettere anche il nome e la chiave dell'autorità emittente del bus di servizio.

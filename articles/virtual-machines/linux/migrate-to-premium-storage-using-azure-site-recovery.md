@@ -1,25 +1,21 @@
 ---
 title: Migrare le VM Linux ad Archiviazione Premium di Azure con Azure Site Recovery | Microsoft Docs
 description: Eseguire la migrazione delle macchine virtuali esistenti ad Archiviazione Premium di Azure usando Site Recovery. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
-services: virtual-machines-linux
+services: virtual-machines-linux,storage
 cloud: Azure
-documentationcenter: na
 author: luywang
-manager: jeconnoc
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 0ab8ce25e3be85061c3fc0417b30b63e04b764ab
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: disks
+ms.openlocfilehash: 5c7a136149bac2fb5b6368bf891e5d8021e12bdd
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777986"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715353"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
@@ -69,7 +65,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 * Una rete virtuale di Azure a cui le macchine virtuali di Azure possano connettersi quando vengono create in fase di failover. La rete virtuale di Azure deve trovarsi nella stessa area dell'insieme di esecuzione di Site Recovery.
 * Un account di archiviazione Standard di Azure in cui archiviare i log delle repliche. Può essere lo stesso account di archiviazione dei dischi delle macchine virtuali di cui viene eseguita la migrazione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Conoscere i componenti dello scenario di migrazione pertinenti nella sezione precedente.
 * Pianificare il tempo di inattività dopo avere letto le informazioni sul [failover in Site Recovery](../../site-recovery/site-recovery-failover.md).

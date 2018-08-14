@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399178"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038216"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -286,7 +286,7 @@ Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una p
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Come si determina lo stato di integrità corrente di ogni endpoint?
 
-Lo stato di monitoraggio corrente di ogni endpoint viene visualizzato nel portale di Azure, insieme al profilo complessivo. Queste informazioni sono anche disponibili con l'[API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) di Gestione traffico, i [cmdlet PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) e l'[interfaccia della riga di comando multipiattaforma di Azure](../cli-install-nodejs.md).
+Lo stato di monitoraggio corrente di ogni endpoint viene visualizzato nel portale di Azure, insieme al profilo complessivo. Queste informazioni sono anche disponibili con l'[API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) di Gestione traffico, i [cmdlet PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager) e l'[interfaccia della riga di comando multipiattaforma di Azure](../cli-install-nodejs.md).
 
 È anche possibile usare Monitoraggio di Azure per monitorare l'integrità degli endpoint e vedere una rappresentazione visiva dei risultati. Per altre informazioni su Monitoraggio di Azure, vedere la [documentazione del Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 

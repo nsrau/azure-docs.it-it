@@ -3,19 +3,19 @@ title: Endpoint del servizio e regole della rete virtuale per Hub eventi di Azur
 description: Aggiungere un endpoint del servizio Microsoft.EventHub a una rete virtuale.
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 3746c4b7d1b53d7522f317fd2e349d31ba77f406
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.author: shvija
+ms.openlocfilehash: c5114af69a24ac2f2723becf846ff3712a7afdbb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136339"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002822"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint del servizio della rete virtuale con Hub eventi di Azure
 

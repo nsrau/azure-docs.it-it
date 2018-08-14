@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 1d08518a23dfe4a9cc63bf3f35ee69ea1815595f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239952"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627934"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -380,7 +380,7 @@ Determinare se è necessario [trasferire la proprietà di una sottoscrizione di 
 
 4. Chiedere aiuto a Microsoft [creando una richiesta di supporto di Azure](../../azure-supportability/how-to-create-azure-support-request.md).
 
-5. Esaminare i [report di accesso di Azure AD](../active-directory-reporting-azure-portal.md). Potrebbe esserci un ritardo tra il momento in cui si verifica un evento e quello in cui viene incluso nel report.
+5. Esaminare i [report di accesso di Azure AD](../reports-monitoring/overview-reports.md). Potrebbe esserci un ritardo tra il momento in cui si verifica un evento e quello in cui viene incluso nel report.
 
 6. Per gli ambienti ibridi, in caso di federazione e se il server AD FS non è disponibile, potrebbe essere necessario passare temporaneamente dall'autenticazione federata all'uso della sincronizzazione degli hash delle password. In questo modo, si passa dalla federazione del dominio all'autenticazione gestita fino a quando il server AD FS non ritorna disponibile.
 

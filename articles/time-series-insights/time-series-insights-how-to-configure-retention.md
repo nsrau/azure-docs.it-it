@@ -5,17 +5,17 @@ ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: kfile
+manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: b1280549d43aac42c3ea3567a1411f42354c2b11
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: a87a12e08e78cf8a7f0b4d2af3e8029b233cf02b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293734"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629889"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurazione della conservazione in Time Series Insights
 Questo articolo descrive come configurare il **periodo di conservazione dei dati** e il **comportamento limite di archiviazione superato** in Azure Time Series Insights.

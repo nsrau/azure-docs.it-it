@@ -1,25 +1,20 @@
 ---
 title: Archiviazione Premium a prestazioni elevate e Managed Disks di Azure per VM Linux | Microsoft Docs
 description: Informazioni su Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM di Azure. Le VM di Azure serie DS, DSv2 e GS e Fs supportano Archiviazione Premium.
-services: virtual-machines-linux
-documentationcenter: ''
+services: virtual-machines-linux,storage
 author: ramankumarlive
-manager: jeconnoc
-editor: tysonn
-ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.openlocfilehash: fa64f1f1b25646eeaaf701bb98b1a9bfd7b2166d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: disks
+ms.openlocfilehash: ea027bf19ae87e5875d9d590a98416a04c600921
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38478087"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713449"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 

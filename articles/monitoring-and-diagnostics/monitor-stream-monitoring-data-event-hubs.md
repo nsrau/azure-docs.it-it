@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389610"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628172"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -50,11 +50,11 @@ Vedere anche le [domande frequenti su Hub eventi di Azure](../event-hubs/event-h
 
 ## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Come si configurano i dati di monitoraggio del tenat di Azure per poterli trasmettere a un hub eventi?
 
-I dati di monitoraggio del tenant di Azure sono attualmente disponibili solo per Azure Active Directory. È possibile usare i dati dei [report di Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md), che contengono la cronologia degli accessi e l'audit trail delle modifiche apportate all'interno di un particolare tenant.
+I dati di monitoraggio del tenant di Azure sono attualmente disponibili solo per Azure Active Directory. È possibile usare i dati dei [report di Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md), che contengono la cronologia degli accessi e l'audit trail delle modifiche apportate all'interno di un particolare tenant.
 
 ### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Trasmettere i dati di Azure Active Directory in un hub eventi
 
-Per inviare dati dal log di Azure Active Directory in uno spazio dei nomi di Hub eventi, è necessario configurare un'impostazione di diagnostica del tenant nel tenant di AAD. [Seguire questa guida](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) per configurare un'impostazione di diagnostica del tenant.
+Per inviare dati dal log di Azure Active Directory in uno spazio dei nomi di Hub eventi, è necessario configurare un'impostazione di diagnostica del tenant nel tenant di AAD. [Seguire questa guida](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) per configurare un'impostazione di diagnostica del tenant.
 
 ## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Come si configurano i dati di monitoraggio della sottoscrizione di Azure per poterli trasmettere a un hub eventi?
 

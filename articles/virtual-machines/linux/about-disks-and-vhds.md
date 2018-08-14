@@ -1,21 +1,20 @@
 ---
 title: Informazione sull'archiviazione su disco non gestita (BLOB di pagine) e gestita per le VM Linux di Microsoft Azure | Microsoft Docs
 description: Nozioni di base sull'archiviazione su disco non gestita (BLOB di pagine) e gestita per le VM Linux in Azure.
-services: virtual-machines
+services: virtual-machines-linux,storage
 author: roygara
-manager: twooley
-ms.service: virtual-machines
-ms.workload: storage
+ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: a1c867e97879b1830a8596683b8314fd6535aa7c
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.component: disks
+ms.openlocfilehash: feb3e60ee1b43ec85c81912fbce086858bb33742
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036000"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715931"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Informazioni sull'archiviazione su disco per le VM Linux di Azure
 Analogamente a qualsiasi altro computer, le macchine virtuali in Azure utilizzano i dischi come posizioni per archiviare un sistema operativo, le applicazioni e i dati. Tutte le macchine virtuali di Azure dispongono di almeno due dischi: un disco del sistema operativo Linux e un disco temporaneo. Il disco del sistema operativo viene creato da un'immagine e sia il disco del sistema operativo sia l'immagine sono dischi rigidi virtuali archiviati in un account di archiviazione di Azure. Anche le macchine virtuali possono disporre di uno o più dischi dati archiviati in dischi rigidi virtuali.

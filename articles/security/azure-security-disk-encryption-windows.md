@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 772ab272603d0f8e0badf899c439592b20b7c8a3
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 50d43984e1df693cb5a6fd944805972ff775f3bb
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392578"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714513"
 ---
 #  <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali Iaas Windows 
 
-È possibile abilitare molti scenari di crittografia dei dischi e la procedura può variare in base allo scenario. Le sezioni seguenti illustrano in modo più dettagliato gli scenari per le macchine virtuali IaaS Windows. Prima di poter usare crittografia dei dischi, è necessario soddisfare i [prerequisiti di Crittografia dischi di Azure](/articles/security/azure-security-disk-encryption-prerequisites.md). 
+È possibile abilitare molti scenari di crittografia dei dischi e la procedura può variare in base allo scenario. Le sezioni seguenti illustrano in modo più dettagliato gli scenari per le macchine virtuali IaaS Windows. Prima di poter usare crittografia dei dischi, è necessario soddisfare i [prerequisiti di Crittografia dischi di Azure](../security/azure-security-disk-encryption-prerequisites.md). 
 
 Catturare uno [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/o eseguire il backup prima che i dischi vengono crittografati. I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Le macchine virtuali con dischi gestiti richiedono il backup prima della crittografia. Dopo aver eseguito il backup, è possibile usare il cmdlet Set-AzureRmVMDiskEncryptionExtension per crittografare i dischi gestiti specificando il parametro -skipVmBackup. Per altre informazioni su come eseguire il backup e il ripristino di macchine virtuali crittografate, vedere l'articolo [Backup di Azure](../backup/backup-azure-vms-encryption.md). 
 

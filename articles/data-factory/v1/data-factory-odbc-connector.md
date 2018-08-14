@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 200b3c36c28cd61ca34e57875d030bf308c387ec
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049282"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628546"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Spostare dati da archivi dati ODBC con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,13 +66,13 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OnPremisesOdbc** |Sì |
-| connectionString |La parte delle credenziali non di accesso della stringa di connessione e una credenziale crittografata facoltativa. Vedere gli esempi nelle sezioni seguenti. <br/><br/>È possibile specificare la stringa di connessione con un modello come `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, o usare il sistema DSN, ovvero il nome dell'origine dati, per eseguire la configurazione nel computer del gateway con `"DSN=<name of the DSN>;"`. È necessario comunque specificare la parte delle credenziali nel servizio collegato in base alle esigenze. |Sì |
+| type |La proprietà type deve essere impostata su: **OnPremisesOdbc** |Yes |
+| connectionString |La parte delle credenziali non di accesso della stringa di connessione e una credenziale crittografata facoltativa. Vedere gli esempi nelle sezioni seguenti. <br/><br/>È possibile specificare la stringa di connessione con un modello come `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, o usare il sistema DSN, ovvero il nome dell'origine dati, per eseguire la configurazione nel computer del gateway con `"DSN=<name of the DSN>;"`. È necessario comunque specificare la parte delle credenziali nel servizio collegato in base alle esigenze. |Yes |
 | credential |La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Esempio: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |No  |
-| authenticationType |Tipo di autenticazione usato per connettersi all'archivio dati ODBC. I valori possibili sono: anonima e di base. |Sì |
+| authenticationType |Tipo di autenticazione usato per connettersi all'archivio dati ODBC. I valori possibili sono: anonima e di base. |Yes |
 | username |Specificare il nome utente se si usa l'autenticazione di base. |No  |
 | password |Specificare la password per l'account utente specificato per il nome utente. |No  |
-| gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi all'archivio dati ODBC. |Sì |
+| gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi all'archivio dati ODBC. |Yes |
 
 ### <a name="using-basic-authentication"></a>Uso dell'autenticazione di base
 
@@ -94,7 +94,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Uso dell'autenticazione di base con credenziali crittografate
-È possibile crittografare le credenziali usando il cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx), in Azure PowerShell versione 1.0, oppure [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx), in Azure PowerShell versione 0.9 o precedente.  
+È possibile crittografare le credenziali usando il cmdlet [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue), in Azure PowerShell versione 1.0, oppure [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx), in Azure PowerShell versione 0.9 o precedente.  
 
 ```json
 {
@@ -139,7 +139,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| tableName |Nome della tabella nell'archivio dati ODBC. |Sì |
+| tableName |Nome della tabella nell'archivio dati ODBC. |Yes |
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
@@ -150,7 +150,7 @@ Nell'attività di copia con origine di tipo **RelationalSource** , incluso ODBC,
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |Sì |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |Yes |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Esempio JSON: Copiare dati da un archivio dati ODBC al BLOB di Azure

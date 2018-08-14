@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: fa4005d1f09a2e0abca1e0083603d4335fb023c9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902922"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715421"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i diversi tipi di output disponibili per un processo di Analisi di flusso di Azure. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire altre analisi di business e il data warehousing dei dati. 
 
 Quando si progetta la query di Analisi di flusso, fare riferimento al nome dell'output usando la [clausola INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). È possibile usare un singolo output per ogni processo o più output per ogni processo di streaming se occorre, specificando più clausole INTO nella query.
 
-Per creare, modificare e testare gli output dei processi di Analisi di flusso, è possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), l'[API .NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), l'[API REST](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output) e [Visual Studio](stream-analytics-tools-for-visual-studio.md).
+Per creare, modificare e testare gli output dei processi di Analisi di flusso, è possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), l'[API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), l'[API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) e [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimensioni batch dell'output](#output-batch-size) variano per ottimizzare la velocità effettiva.
 
@@ -296,15 +296,15 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 
 | Tipo di output | Supporto del partizionamento | Chiave di partizione  | Numero di writer di output | 
 | --- | --- | --- | --- |
-| Archivio Azure Data Lake | Sì | Use i token {date} e {time} nello schema prefisso percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
+| Archivio Azure Data Lake | Yes | Use i token {date} e {time} nello schema prefisso percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
 | database SQL di Azure | No  | Nessuna | Non applicabile | 
-| Archivio BLOB di Azure | Sì | Usare i token {date} e {time} dai campi dell'evento nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. Nell'ambito dell'[anteprima](https://aka.ms/ASAPreview), l'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname} o {datetime:\<specifier>}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
-| Hub eventi di Azure | Sì | Sì | Varia a seconda dell'allineamento della partizione.</br> Quando la chiave di partizione di output di Hub eventi è ugualmente allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni di Hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) di EventHub per inviare eventi alla partizione specifica. </br> Quando la chiave di partizione di output di Hub eventi non è allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passo precedente. Ogni writer usa la [classe SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) di EventHubClient per inviare eventi a tutte le partizioni di output. |
+| Archivio BLOB di Azure | Yes | Usare i token {date} e {time} dai campi dell'evento nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. Nell'ambito dell'[anteprima](https://aka.ms/ASAPreview), l'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname} o {datetime:\<specifier>}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
+| Hub eventi di Azure | Yes | Yes | Varia a seconda dell'allineamento della partizione.</br> Quando la chiave di partizione di output di Hub eventi è ugualmente allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni di Hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) di EventHub per inviare eventi alla partizione specifica. </br> Quando la chiave di partizione di output di Hub eventi non è allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passo precedente. Ogni writer usa la [classe SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) di EventHubClient per inviare eventi a tutte le partizioni di output. |
 | Power BI | No  | Nessuna | Non applicabile | 
-| Archiviazione tabelle di Azure | Sì | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
-| Argomento del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |
-| Coda del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.| Corrisponde al numero di partizioni nella coda di output. |
-| Azure Cosmos DB | Sì | Usare il token {partition} nel modello del nome della raccolta. Il valore di {partition} è basato sulla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
+| Archiviazione tabelle di Azure | Yes | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
+| Argomento del bus di servizio di Azure | Yes | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |
+| Coda del bus di servizio di Azure | Yes | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.| Corrisponde al numero di partizioni nella coda di output. |
+| Azure Cosmos DB | Yes | Usare il token {partition} nel modello del nome della raccolta. Il valore di {partition} è basato sulla clausola PARTITION BY nella query. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Funzioni di Azure | No  | Nessuna | Non applicabile | 
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output

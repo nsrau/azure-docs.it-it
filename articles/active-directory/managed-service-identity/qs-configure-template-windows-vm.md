@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 15a743f524c58e56247ec46fee27611b33595bad
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 79b499f8063e5c15f76d89182955cbd90fb1039f
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258695"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629311"
 ---
-# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurare un'identità del servizio gestita in una macchina virtuale tramite un modello
+# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurare un'Identità del servizio gestito della macchina virtuale tramite un modello
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-L'identità del servizio gestita offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-Questo articolo illustra come eseguire le seguenti operazioni di identità del servizio gestita in una macchina virtuale di Azure usando il modello di distribuzione Azure Resource Manager:
+Questo articolo illustra come eseguire le seguenti operazioni di identità del servizio gestita in una macchina virtuale di Azure usando il Modello di distribuzione Azure Resource Manager:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
-    - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare una macchina virtuale e abilitare e rimuovere da una macchina virtuale di Azure l'identità gestita assegnata dall'utente e/o dal sistema.
+    - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare una macchina virtuale e abilitare e rimuovere da una macchina virtuale di Azure il sistema e/o l'identità gestita assegnata dall'utente.
     - [Collaboratore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare un'identità assegnata dall'utente.
-    - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare un'identità assegnata dall'utente a una macchina virtuale e rimuoverla.
+    - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare e rimuovere un'identità assegnata dall'utente da e verso una macchina virtuale.
 
 ## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
@@ -47,7 +47,7 @@ Analogamente al portale di Azure e all'esecuzione dello script, i modelli di ges
    - Usare un [editor JSON, ad esempio il codice di Visual Studio,](../../azure-resource-manager/resource-manager-create-first-template.md) locale e di caricarlo e distribuirlo tramite PowerShell o l'interfaccia della riga di comando.
    - Usare il [progetto del gruppo di risorse di Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) di Visual Studio per creare e distribuire un modello.  
 
-Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa durante la distribuzione iniziale e la ridistribuzione. L'abilitazione di un sistema o di un'identità assegnata dall'utente in una macchina virtuale nuova o esistente viene eseguita allo stesso modo. Per impostazione predefinita Azure Resource Manager esegue inoltre un [aggiornamento incrementale](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) per le distribuzioni.
+Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa durante la distribuzione iniziale e la ridistribuzione. L'abilitazione di un sistema o di un'identità assegnata dall'utente in una macchina virtuale nuova o esistente viene eseguita allo stesso modo. Per impostazione predefinita Azure Resource Manager esegue inoltre un [aggiornamento incrementale](../../azure-resource-manager/deployment-modes.md) per le distribuzioni.
 
 ## <a name="system-assigned-identity"></a>Identità assegnata dal sistema
 
@@ -191,7 +191,7 @@ In questa sezione si assegna un'identità assegnata dall'utente a una macchina v
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
             ]
         },
     ```

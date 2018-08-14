@@ -3,20 +3,20 @@ title: Come configurare l'autenticazione e l'autorizzazione per l'API in Azure T
 description: Questo articolo descrive come configurare l'autenticazione e l'autorizzazione per un'applicazione personalizzata che chiama l'API Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: dmdenmsft
-ms.author: dmden
-manager: jhubbard
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: a18caf03dbc5377f0adc540c8550129ef3bdb9e1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cc19cc95a620d59def240dfd298cd87953028fa
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652434"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630579"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 

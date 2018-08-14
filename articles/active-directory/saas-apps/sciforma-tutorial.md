@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: edfa9d31688cc88fb8e50ec0f5f7d2d366487030
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4dc7c9c9c702db7c0a10b89d33169a97541f3b30
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042062"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Esercitazione: Integrazione di Azure Active Directory con Sciforma
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Sciforma dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-sciforma-from-the-gallery"></a>Aggiunta di Sciforma dalla raccolta
 Per configurare l'integrazione di Sciforma in Azure AD, è necessario aggiungere Sciforma dalla raccolta all'elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di Sciforma in Azure AD, è necessario aggiungere
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **Sciforma**.
+1. Nella casella di ricerca digitare **Sciforma**.
 
     ![Creazione di un utente test di Azure AD](./media/sciforma-tutorial/tutorial_sciforma_search.png)
 
-5. Nel pannello dei risultati selezionare **Sciforma** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **Sciforma** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/sciforma-tutorial/tutorial_sciforma_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Per stabilire la relazione di collegamento, in Sciforma assegnare il valore del 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Sciforma, è necessario completare le procedure di base seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di Sciforma](#creating-a-sciforma-test-user)**: per avere una controparte di Britta Simon in Sciforma collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente di test di Sciforma](#creating-a-sciforma-test-user)**: per avere una controparte di Britta Simon in Sciforma collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_sciforma_samlbase.png)
 
-3. Nella sezione **URL e dominio Sciforma** seguire questa procedura:
+1. Nella sezione **URL e dominio Sciforma** seguire questa procedura:
 
     ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_sciforma_url.png)
 
@@ -117,19 +117,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.sciforma.net/sciforma/saml`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Sciforma](http://www.sciforma.com/company/contact_us). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Sciforma](https://www.sciforma.com/about/contact). 
  
 
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_sciforma_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso Single Sign-On sul lato **Sciforma**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Sciforma](http://www.sciforma.com/company/contact_us).
+1. Per configurare l'accesso Single Sign-On sul lato **Sciforma**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Sciforma](https://www.sciforma.com/about/contact).
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -146,15 +146,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/sciforma-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/sciforma-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/sciforma-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/sciforma-tutorial/create_aaduser_04.png) 
 
@@ -164,7 +164,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-sciforma-test-user"></a>Creazione di un utente di test di Sciforma
 
@@ -184,23 +184,23 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **Sciforma**.
+1. Nell'elenco delle applicazioni selezionare **Sciforma**.
 
     ![Configure Single Sign-On](./media/sciforma-tutorial/tutorial_sciforma_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 

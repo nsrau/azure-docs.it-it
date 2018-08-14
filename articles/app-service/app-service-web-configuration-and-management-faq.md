@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: e773435d89a511e6f1f369cc3fd5dc6f06507e45
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 7aa5b00d1497e384377ba4423431eac57c1aa4c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808758"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630404"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -106,7 +106,7 @@ Per altre informazioni, vedere [Domande frequenti per i certificati del servizio
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Perché viene visualizzato il messaggio "Parzialmente completato" quando si tenta di eseguire il backup di un'app web?
 
-Gli errori di backup sono comunemente causati dal fatto che alcuni file sono utilizzati dall'applicazione. I file in uso sono bloccati durante l'esecuzione del backup. Ciò impedisce che ne venga eseguito il backup ed è possibile che venga visualizzato lo stato "Parzialmente completato". È possibile evitare questo problema escludendo i file dal processo di backup. È possibile scegliere di eseguire il backup solo degli elementi necessari. Per altre informazioni, vedere [Backup delle sole parti importanti del sito con app web di Azure](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
+Gli errori di backup sono comunemente causati dal fatto che alcuni file sono utilizzati dall'applicazione. I file in uso sono bloccati durante l'esecuzione del backup. Ciò impedisce che ne venga eseguito il backup ed è possibile che venga visualizzato lo stato "Parzialmente completato". È possibile evitare questo problema escludendo i file dal processo di backup. È possibile scegliere di eseguire il backup solo degli elementi necessari. Per altre informazioni, vedere [Backup delle sole parti importanti del sito con app web di Azure](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Come si rimuove un'intestazione dalla risposta HTTP?
 
@@ -288,7 +288,7 @@ Per la documentazione dettagliata sull'autenticazione e l'autorizzazione nel ser
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Come si reindirizza il dominio predefinito *.azurewebsites.net al dominio personalizzato dell'app Web di Azure?
 
-Quando si crea un nuovo sito Web tramite le app Web in Azure, viene assegnato un dominio predefinito *nomesito*.azurewebsites.net al sito. Se si aggiunge un nome host personalizzato al sito e non si desidera che gli utenti possano accedere al dominio predefinito *.azurewebsites.net, è possibile reindirizzare l'URL predefinito. Per informazioni su come reindirizzare tutto il traffico dal dominio predefinito del sito Web al dominio personalizzato, vedere [Reindirizzare il dominio predefinito al dominio personalizzato nelle app Web di Azure](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/).
+Quando si crea un nuovo sito Web tramite le app Web in Azure, viene assegnato un dominio predefinito *nomesito*.azurewebsites.net al sito. Se si aggiunge un nome host personalizzato al sito e non si desidera che gli utenti possano accedere al dominio predefinito *.azurewebsites.net, è possibile reindirizzare l'URL predefinito. Per informazioni su come reindirizzare tutto il traffico dal dominio predefinito del sito Web al dominio personalizzato, vedere [Reindirizzare il dominio predefinito al dominio personalizzato nelle app Web di Azure](http://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Come si determina la versione di .NET installata nel servizio app?
 

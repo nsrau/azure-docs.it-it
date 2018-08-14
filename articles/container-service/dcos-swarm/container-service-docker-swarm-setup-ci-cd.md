@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 81a07fdfe1c862bc30fb9d567db9a393c0610990
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac3133ac093d578c89d24bddd1cc0a7c9588c2fd
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179555"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714999"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Pipeline CI/CD completa per distribuire un'applicazione multi-contenitore nel servizio contenitore di Azure con Docker Swarm tramite Visual Studio Team Services
 
@@ -31,22 +31,22 @@ L'obiettivo consiste nell'assicurare l'applicazione in modo continuativo in un c
 Una breve spiegazione dei passaggi:
 
 1. Viene eseguito il commit delle modifiche al codice nel repository del codice sorgente (in questo caso GitHub) 
-2. GitHub attiva una compilazione in Visual Studio Team Services 
-3. Visual Studio Team Services recupera la versione più recente delle origini e compila tutte le immagini che compongono l'applicazione 
-4. Visual Studio Team Services effettua il push di ogni immagine a un Registro di sistema Docker creato tramite il servizio Registro di sistema del contenitore di Azure 
-5. Visual Studio Team Services attiva un nuovo rilascio 
-6. Il rilascio esegue alcuni comandi tramite SSH nel nodo principale del cluster del servizio contenitore di Azure 
-7. Docker Swarm nel cluster effettua il pull della versione più recente delle immagini 
-8. La nuova versione dell'applicazione viene distribuita mediante Docker Compose 
+1. GitHub attiva una compilazione in Visual Studio Team Services 
+1. Visual Studio Team Services recupera la versione più recente delle origini e compila tutte le immagini che compongono l'applicazione 
+1. Visual Studio Team Services effettua il push di ogni immagine a un Registro di sistema Docker creato tramite il servizio Registro di sistema del contenitore di Azure 
+1. Visual Studio Team Services attiva un nuovo rilascio 
+1. Il rilascio esegue alcuni comandi tramite SSH nel nodo principale del cluster del servizio contenitore di Azure 
+1. Docker Swarm nel cluster effettua il pull della versione più recente delle immagini 
+1. La nuova versione dell'applicazione viene distribuita mediante Docker Compose 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario soddisfare i requisiti seguenti:
 
 - [Creare un cluster Swarm nel servizio contenitore di Azure](container-service-deployment.md)
 - [Connettersi a un cluster Swarm nel servizio contenitore di Azure](../container-service-connect.md)
 - [Creare un Registro di sistema del contenitore di Azure](../../container-registry/container-registry-get-started-portal.md)
-- [Disporre di un account Visual Studio Team Services e aver creato un progetto di team](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+- [Disporre di un account Visual Studio Team Services e aver creato un progetto di team](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [Creare una fork del repository GitHub nell'account GitHub](https://github.com/jcorioland/MyShop/)
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
@@ -81,11 +81,11 @@ Impostare una connessione tra il progetto VSTS e l'account GitHub.
 
     ![Visual Studio Team Services - Connessione esterna](./media/container-service-docker-swarm-setup-ci-cd/vsts-services-menu.png)
 
-2. A sinistra fare clic su **Nuovo endpoint del servizio** > **GitHub**.
+1. A sinistra fare clic su **Nuovo endpoint del servizio** > **GitHub**.
 
     ![Visual Studio Team Services - GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
 
-3. Per autorizzare VSTS a lavorare con il proprio account GitHub, fare clic su **Autorizza** e attenersi alla procedura nella finestra visualizzata.
+1. Per autorizzare VSTS a lavorare con il proprio account GitHub, fare clic su **Autorizza** e attenersi alla procedura nella finestra visualizzata.
 
     ![Visual Studio Team Services - Autorizzazione GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-authorize.png)
 
@@ -95,11 +95,11 @@ Gli ultimi passaggi prima di approfondire la pipeline CI/CD consistono nel confi
 
 1. Nelle impostazioni **Servizi** del progetto Visual Studio Team Services aggiungere un endpoint di servizio di tipo **Docker Registry**. 
 
-2. Nel popup che viene visualizzato immettere l'URL e le credenziali del Registro di sistema del contenitore di Azure.
+1. Nel popup che viene visualizzato immettere l'URL e le credenziali del Registro di sistema del contenitore di Azure.
 
     ![Visual Studio Team Services - Docker Registry](./media/container-service-docker-swarm-setup-ci-cd/vsts-registry.png)
 
-3. Per il cluster Docker Swarm, aggiungere un endpoint di tipo **SSH**. Successivamente, immettere le informazioni di connessione SSH del cluster Swarm.
+1. Per il cluster Docker Swarm, aggiungere un endpoint di tipo **SSH**. Successivamente, immettere le informazioni di connessione SSH del cluster Swarm.
 
     ![Visual Studio Team Services - SSH](./media/container-service-docker-swarm-setup-ci-cd/vsts-ssh.png)
 
@@ -113,19 +113,19 @@ In questo passaggio viene configurata una definizione di compilazione per il pro
 
 1. Per creare una definizione di compilazione, connettersi al progetto di Visual Studio Team Services e fare clic su **Build & Release** (Compilazione e rilascio). 
 
-2. Nella sezione **Definizione di compilazione** fare clic su **+ New** (+Nuova). Selezionare il modello **Vuoto**.
+1. Nella sezione **Definizione di compilazione** fare clic su **+ New** (+Nuova). Selezionare il modello **Vuoto**.
 
     ![Visual Studio Team Services - Nuova definizione di compilazione](./media/container-service-docker-swarm-setup-ci-cd/create-build-vsts.png)
 
-3. Configurare la nuova compilazione con un'origine di repository GitHub, selezionare **Integrazione continua**, quindi scegliere la coda dell'agente in cui è registrato l'agente Linux. Fare clic su **Crea** per creare la definizione di compilazione.
+1. Configurare la nuova compilazione con un'origine di repository GitHub, selezionare **Integrazione continua**, quindi scegliere la coda dell'agente in cui è registrato l'agente Linux. Fare clic su **Crea** per creare la definizione di compilazione.
 
     ![Visual Studio Team Services - Creazione definizione di compilazione](./media/container-service-docker-swarm-setup-ci-cd/vsts-create-build-github.png)
 
-4. Nella pagina **Definizioni di compilazione** innanzitutto aprire la scheda **Repository** e configurare la compilazione in modo che usi la fork del progetto MyShop creata nei prerequisiti. Assicurarsi di selezionare *acs-docs* come **ramo predefinito**.
+1. Nella pagina **Definizioni di compilazione** innanzitutto aprire la scheda **Repository** e configurare la compilazione in modo che usi la fork del progetto MyShop creata nei prerequisiti. Assicurarsi di selezionare *acs-docs* come **ramo predefinito**.
 
     ![Visual Studio Team Services - Configurazione repository di compilazione](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-repo-conf.png)
 
-5. Nella scheda **Trigger** configurare la compilazione in modo che venga attivata dopo ciascun commit. Selezionare **Integrazione continua** e **Modifiche bacth**.
+1. Nella scheda **Trigger** configurare la compilazione in modo che venga attivata dopo ciascun commit. Selezionare **Integrazione continua** e **Modifiche bacth**.
 
     ![Visual Studio Team Services - Configurazione trigger di compilazione](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-trigger-conf.png)
 
@@ -144,7 +144,7 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
 
     ![Visual Studio Team Services - Aggiunta passaggi di compilazione](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-add-task.png)
 
-2. Per ogni immagine, configurare un passaggio che usi il comando `docker build`.
+1. Per ogni immagine, configurare un passaggio che usi il comando `docker build`.
 
     ![Visual Studio Team Services - Compilazione Docker](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-build.png)
 
@@ -152,13 +152,13 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
     
     Come mostrato nella schermata precedente, il nome dell'immagine deve iniziare con l'URI del Registro di sistema del contenitore di Azure. È anche possibile usare una variabile di compilazione per assegnare parametri al tag dell'immagine, in questo esempio l'identificatore di compilazione.
 
-3. Per ogni immagine, configurare un secondo passaggio che usi il comando `docker push`.
+1. Per ogni immagine, configurare un secondo passaggio che usi il comando `docker push`.
 
     ![Visual Studio Team Services - Push Docker](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-push.png)
 
     Per l'operazione di push, selezionare il Registro di sistema del contenitore di Azure, l'azione **Push an image** (Push immagine) e immettere il **nome dell'immagine** compilato nel passaggio precedente.
 
-4. Dopo aver configurato i passaggi di compilazione e push per ognuna delle cinque immagini, aggiungere altri due passaggi nel flusso di lavoro di compilazione.
+1. Dopo aver configurato i passaggi di compilazione e push per ognuna delle cinque immagini, aggiungere altri due passaggi nel flusso di lavoro di compilazione.
 
     a. Un'attività della riga di comando che usi uno script bash per sostituire l'occorrenza *BuildNumber* nel file docker-compose.yml con l'ID di compilazione corrente. Vedere i dettagli nella schermata di seguito.
 
@@ -168,7 +168,7 @@ Nei passaggi successivi viene definito il flusso di lavoro di compilazione. Esis
 
     ![Visual Studio Team Services - Pubblicazione file Compose](./media/container-service-docker-swarm-setup-ci-cd/vsts-publish-compose.png) 
 
-5. Fare clic su **Salva** e assegnare un nome alla definizione di compilazione.
+1. Fare clic su **Salva** e assegnare un nome alla definizione di compilazione.
 
 ## <a name="step-3-create-the-release-definition"></a>Passaggio 3: creare la definizione di versione
 
@@ -180,11 +180,11 @@ Visual Studio Team Services consente di [gestire i rilasci nei vari ambienti](ht
 
 1. Per creare una definizione di rilascio, fare clic su **Rilascio** > **+ Rilascio**
 
-2. Per configurare l'origine dell'elemento, fare clic su **Elementi** > **Collega un'origine elemento**. Da qui collegare la nuova definizione di rilascio alla compilazione definita nel passaggio precedente. In questo modo, il file docker-compose.yml è disponibile nel processo di rilascio.
+1. Per configurare l'origine dell'elemento, fare clic su **Elementi** > **Collega un'origine elemento**. Da qui collegare la nuova definizione di rilascio alla compilazione definita nel passaggio precedente. In questo modo, il file docker-compose.yml è disponibile nel processo di rilascio.
 
     ![Visual Studio Team Services - Rilascio elementi](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
 
-3. Per configurare il trigger di rilascio, fare clic su **Trigger** e selezionare **Distribuzione continua**. Impostare il trigger sulla stessa origine dell'elemento. Questa impostazione garantisce che un nuovo rilascio venga avviato non appena la compilazione viene completata correttamente.
+1. Per configurare il trigger di rilascio, fare clic su **Trigger** e selezionare **Distribuzione continua**. Impostare il trigger sulla stessa origine dell'elemento. Questa impostazione garantisce che un nuovo rilascio venga avviato non appena la compilazione viene completata correttamente.
 
     ![Visual Studio Team Services - Rilascio trigger](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-trigger.png) 
 
@@ -196,7 +196,7 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
 
     ![Visual Studio Team Services - Rilascio SCP](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-scp.png)
 
-2. Configurare una seconda attività in modo che esegua un comando bash per i comandi `docker` e `docker-compose` nel nodo principale. Vedere i dettagli nella schermata di seguito.
+1. Configurare una seconda attività in modo che esegua un comando bash per i comandi `docker` e `docker-compose` nel nodo principale. Vedere i dettagli nella schermata di seguito.
 
     ![Visual Studio Team Services - Rilascio bash](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-bash.png)
 
@@ -210,7 +210,7 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
     >[!IMPORTANT]
     > Come illustrato nella schermata precedente, lasciare deselezionata la casella **Interrompi in caso di STDERR**. Questa è un'impostazione importante, perché `docker-compose` stampa diversi messaggi di diagnostica, ad esempio in caso di contenitori arrestati o in fase di eliminazione, nell'output di errore standard. Se si seleziona la casella di controllo, Visual Studio Team Services segnala che si sono verificati errori durante il rilascio, anche se tutto va bene.
     >
-3. Salvare la nuova definizione di rilascio.
+1. Salvare la nuova definizione di rilascio.
 
 
 >[!NOTE]

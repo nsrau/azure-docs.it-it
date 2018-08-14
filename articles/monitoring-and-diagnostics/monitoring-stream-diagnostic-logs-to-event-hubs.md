@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258185"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627917"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Trasmettere log di diagnostica di Azure a un hub eventi
 I **[log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)** possono essere trasmessi quasi in tempo reale a qualsiasi applicazione con l'opzione "Esporta in hub eventi" incorporata nel portale oppure abilitando l'ID della regola di autorizzazione dell'hub eventi in un'impostazione di diagnostica tramite i cmdlet di Azure PowerShell o l'interfaccia della riga di comando di Azure 2.0.
@@ -177,7 +177,7 @@ Di seguito è riportato un esempio di dati di output da Hub eventi:
 }
 ```
 
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | records |Matrice di tutti gli eventi di log nel payload. |
 | time |Ora in cui si è verificato l'evento. |
@@ -195,6 +195,6 @@ Per un elenco di tutti i provider di risorse che supportano la trasmissione a Hu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Stream Azure Active Directory logs with Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) (Trasmettere log di Azure Active Directory tramite Monitoraggio di Azure)
+* [Stream Azure Active Directory logs with Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) (Trasmettere log di Azure Active Directory tramite Monitoraggio di Azure)
 * [Altre informazioni sui log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

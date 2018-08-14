@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fff29f6cfed4989386ca5bbd12184dce525add76
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3d406d6d8f6432b3555e34876854147c4945f7a8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
-ms.locfileid: "27580372"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39632816"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Risolvere i problemi di distribuzione quando si crea una nuova macchina virtuale Windows in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -54,7 +54,7 @@ Per avviare la risoluzione dei problemi, raccogliere i log delle attività per i
 
 **Risoluzione**
 
-Per risolvere entrambi questi errori, usare [Add-AzureRMVhd per caricare il disco rigido virtuale originale](https://msdn.microsoft.com/library/mt603554.aspx), disponibile in locale, con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima sysprep.
+Per risolvere entrambi questi errori, usare [Add-AzureRMVhd per caricare il disco rigido virtuale originale](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd), disponibile in locale, con la stessa impostazione usata per il sistema operativo (generalizzato/specializzato). Per caricare il disco come generalizzato, ricordarsi di eseguire prima sysprep.
 
 **Errori di acquisizione:**
 
