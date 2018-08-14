@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 1aa5c0f259fdb5fce449bc86f9cf293801b4770a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cc6d08de74097ba7566037664fd33d9be85ac390
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368669"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628989"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare un'aggiunta ad Azure Active Directory ibrido per domini federati
 
@@ -50,6 +50,7 @@ Questa esercitazione presuppone che l'utente abbia familiarità con:
 
 -  [Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md)
 
+-  [Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD](hybrid-azuread-join-control.md)
 
 
 Per configurare lo scenario in questa esercitazione, sono necessari gli elementi seguenti:
@@ -212,8 +213,8 @@ Quando si usa il cmdlet **Get-MSolDevice** per controllare i dettagli del serviz
 
 Se si verificano problemi durante il completamento dell'aggiunta ad Azure AD ibrido per dispositivi Windows aggiunti al dominio, vedere:
 
-- [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows correnti](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows di livello inferiore](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows correnti](troubleshoot-hybrid-join-windows-current.md)
+- [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows di livello inferiore](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
@@ -221,7 +222,7 @@ Se si verificano problemi durante il completamento dell'aggiunta ad Azure AD ibr
 
 > [!div class="nextstepaction"]
 > [Configurare l'aggiunta ad Azure Active Directory ibrido per i domini gestiti](hybrid-azuread-join-managed-domains.md)
-> [Configurare manualmente l'aggiunta ad Azure Active Directory ibrido](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [Configurare manualmente l'aggiunta ad Azure Active Directory ibrido](hybrid-azuread-join-manual-steps.md)
 
 
 
