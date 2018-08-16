@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651206"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480955"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduzione a StorSimple Virtual Array
 
@@ -76,8 +76,8 @@ Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati
 
 |Scenario     |Carico di lavoro     |Supportato      |Restrizioni               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |Condivisione di file     |Sì      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
-|Archiviazione nel cloud  |Condivisione file di archiviazione     |Sì      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
+|Sedi remote/succursali  |Condivisione di file     |Yes      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
+|Archiviazione nel cloud  |Condivisione file di archiviazione     |Yes      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
 
 L'array virtuale StorSimple è particolarmente adatto per i dati ad accesso sporadico. Mentre l'array virtuale ha una cache locale per migliorare le prestazioni, gli utenti devono presupporre che il dispositivo gestisce i file al livello più basso dell'archiviazione (il cloud). Ogni array virtuale può scrivere e leggere nell'archiviazione di Azure a circa 100 Mbps. Il collegamento viene condiviso tra tutte le richieste che arrivano al dispositivo e può diventare un collo di bottiglia, come illustrato nel diagramma riportato di seguito.
 

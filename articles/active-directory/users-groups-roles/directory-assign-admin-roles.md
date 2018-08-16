@@ -1,5 +1,5 @@
 ---
-title: Assegnazione dei ruoli di amministratore in Azure Active Directory | Documentazione Microsoft
+title: Assegnazione dei ruoli di amministratore in Azure Active Directory | Microsoft Docs
 description: Il ruolo di amministratore consente di aggiungere utenti, assegnare ruoli amministrativi, reimpostare le password utente, gestire le licenze utente o gestire i domini. Un utente a cui viene assegnato un ruolo amministrativo ha le stesse autorizzazioni in tutti i servizi cloud sottoscritti dall'organizzazione.
 services: active-directory
 documentationcenter: ''
@@ -14,24 +14,27 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399941"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505512"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Assegnazione dei ruoli di amministratore in Azure Active Directory
 
 Azure Active Directory (Azure AD) consente di designare amministratori diversi per le diverse funzioni. Per eseguire attività come l'aggiunta o la modifica di utenti, l’assegnazione di ruoli amministrativi, la reimpostazione delle password utente, la gestione delle licenze utente e dei nomi di dominio, è possibile designare gli amministratori nel portale di Azure AD.
 
 ## <a name="details-about-the-global-administrator-role"></a>Dettagli sul ruolo di amministratore globale
+
 L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo di amministratore globale per la directory. Solo gli amministratori globali possono assegnare altri ruoli di amministratore.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Assegnare o rimuovere ruoli di amministratore
+
 Per informazioni su come assegnare ruoli amministrativi a un utente in Azure Active Directory, vedere [Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Ruoli disponibili
+
 Sono disponibili i ruoli di amministratore seguenti:
 
 * **[Amministratore di applicazioni](#application-administrator)**: gli utenti in questo ruolo possono creare e gestire tutti gli aspetti di applicazioni aziendali, le registrazioni delle applicazioni e le impostazioni proxy dell'applicazione. Questo ruolo concede inoltre la possibilità consentire le autorizzazioni delegate e le autorizzazioni dell'applicazione escluse Microsoft Graph e Azure AD Graph. I membri di questo ruolo non vengono aggiunti come proprietari durante la creazione di nuove registrazioni di applicazione o nelle applicazioni aziendali.
@@ -48,13 +51,13 @@ Sono disponibili i ruoli di amministratore seguenti:
   > [!NOTE]
   > Per distribuire il criterio di accesso condizionale di Exchange ActiveSync in Azure, l'utente deve essere anche amministratore globale.
   
-* **[Amministratori di dispositivi](#device-administrators)**: gli utenti con questo ruolo diventano amministratori di computer locali su tutti i dispositivi Windows 10 che fanno parte di Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory.
+* **[Amministratori dispositivo](#device-administrators)**: questo ruolo è disponibile per l'assegnazione solo come amministratore locale aggiuntivo in [Impostazioni dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory. 
 
-* **[Ruoli con autorizzazioni di lettura nella directory](#directory-readers)**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/active-directory-integrating-applications.md). Non deve essere assegnato agli utenti.
+* **[Ruoli con autorizzazioni di lettura nella directory](#directory-readers)**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Non deve essere assegnato agli utenti.
 
 * **[Account di sincronizzazione della directory](#directory-synchronization-accounts)**: non usare. Questo ruolo viene assegnato automaticamente al servizio Azure AD Connect e non è progettato o supportato per altri usi.
 
-* **[Ruoli con autorizzazioni di scrittura nella directory](#directory-writers)**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/active-directory-integrating-applications.md). Non deve essere assegnato agli utenti.
+* **[Ruoli con autorizzazioni di scrittura nella directory](#directory-writers)**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Non deve essere assegnato agli utenti.
 
 * **[Amministratore del servizio Dynamics 365 / Amministratore del servizio CRM](#dynamics-365-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Dynamics 365 Online, quando il servizio è presente, e possono gestire i ticket di supporto e monitorare l'integrità del servizio. Altre informazioni sono disponibili in [Utilizzare il ruolo di amministratore del servizio per gestire il tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
@@ -353,15 +356,13 @@ Può gestire le funzionalità di accesso condizionale.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Aggiornare la proprietà ConditionalAccessPolicys.Owners in Azure Active Directory. |
 
 ### <a name="device-administrators"></a>Amministratori di dispositivi
-I membri di questo ruolo vengono aggiunti al gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD.
+
+Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory.
 
   > [!NOTE]
   > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
   >
   >
-
-| **Actions** | **Descrizione** |
-| --- | --- |
 
 ### <a name="directory-readers"></a>Ruoli con autorizzazioni di lettura nella directory
 Può leggere le informazioni base della directory. Per concedere l'accesso alle applicazioni.

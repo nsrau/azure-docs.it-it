@@ -3,23 +3,23 @@ title: Operazioni per chiamare l'API REST di Archiviazione di Azure, inclusa l'a
 description: Operazioni per chiamare l'API REST di Archiviazione di Azure, inclusa l'autenticazione
 services: storage
 author: tamram
-manager: twooley
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 6009ebd18eb089b21c98d6f7d9f49044a8d96098
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650452"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529311"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso dell'API REST di Archiviazione di Azure
 
 Questo articolo illustra come usare le API REST del servizio di archiviazione BLOB e come autenticare la chiamata al servizio. L'articolo è stato scritto tenendo conto del punto di vista di uno sviluppatore che non conosce REST e non ha idea di come eseguire una chiamata REST. Non sempre è facile comprendere come trasformare i dati della documentazione di riferimento in un'effettiva chiamata REST, specificando i campi nel modo corretto. Dopo aver appreso come configurare una chiamata REST, sarà possibile sfruttare queste informazioni anche per usare le altre API REST dei servizi di archiviazione.
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 L'applicazione restituisce l'elenco dei contenitori nella risorsa di archiviazione BLOB per un account di archiviazione. Per provare il codice di questo articolo, è necessario quanto segue: 
 
@@ -56,17 +56,17 @@ La conoscenza dell'uso di REST è una competenza utile. Il team di Azure rilasci
 
 L'applicazione di esempio restituisce l'elenco dei contenitori in un account di archiviazione. Dopo aver appreso come mettere in relazione le informazioni presenti nella documentazione dell'API REST con il codice effettivo, sarà più facile capire come configurare le altre chiamate REST. 
 
-Consultando l'articolo [Blob Service REST API](/rest/api/storageservices/fileservices/Blob-Service-REST-API) (API REST del servizio BLOB) è possibile esaminare l'elenco di tutte le operazioni che possono essere eseguite sulle risorse di archiviazione BLOB. Le librerie client di archiviazione sono wrapper per le API REST, ovvero consentono di accedere più facilmente alle risorse di archiviazione senza usare direttamente le API REST. Tuttavia, come indicato in precedenza, talvolta può essere necessario usare l'API REST in sostituzione di una libreria client di archiviazione.
+Consultando l'articolo [Blob Service REST API](/rest/api/storageservices/Blob-Service-REST-API) (API REST del servizio BLOB) è possibile esaminare l'elenco di tutte le operazioni che possono essere eseguite sulle risorse di archiviazione BLOB. Le librerie client di archiviazione sono wrapper per le API REST, ovvero consentono di accedere più facilmente alle risorse di archiviazione senza usare direttamente le API REST. Tuttavia, come indicato in precedenza, talvolta può essere necessario usare l'API REST in sostituzione di una libreria client di archiviazione.
 
 ## <a name="rest-api-reference-list-containers-api"></a>Informazioni di riferimento sulle API REST: API ListContainers
 
-Esaminando la pagina relativa all'operazione [ListContainers](/rest/api/storageservices/fileservices/List-Containers2) nelle informazioni di riferimento sulle API REST è possibile comprendere il significato di alcuni dei campi presenti nella richiesta e nella risposta riportate nella sezione seguente con il codice.
+Esaminando la pagina relativa all'operazione [ListContainers](/rest/api/storageservices/List-Containers2) nelle informazioni di riferimento sulle API REST, è possibile comprendere il significato di alcuni dei campi presenti nella richiesta e nella risposta riportate nella sezione seguente con il codice.
 
 **Metodo della richiesta**: GET. Questo verbo è il metodo HTTP che si specifica come proprietà dell'oggetto della richiesta. Come altri valori per il verbo è possibile usare HEAD, PUT e DELETE, a seconda dell'API che si intende chiamare.
 
 **URI della richiesta**: https://myaccount.blob.core.windows.net/?comp=list Viene creato dall'endpoint dell'account di archiviazione BLOB `http://myaccount.blob.core.windows.net` e dalla stringa della risorsa `/?comp=list`.
 
-[Parametri dell'URI](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): quando si chiama ListContainers è possibile usare parametri di query aggiuntivi, ad esempio *timeout* per definire il timeout della chiamata (in secondi) e *prefix* per applicare un filtro.
+[Parametri dell'URI](/rest/api/storageservices/List-Containers2#uri-parameters): quando si chiama ListContainers è possibile usare parametri di query aggiuntivi, ad esempio *timeout* per definire il timeout della chiamata (in secondi) e *prefix* per applicare un filtro.
 
 Un altro parametro utile è *maxresults*. Con questo parametro, se sono disponibili più contenitori rispetto al valore specificato, il corpo della risposta conterrà un elemento *NextMarker* che indica il contenitore da cui ripartire nella richiesta successiva. Per usare questa funzionalità, è necessario specificare il valore *NextMarker* come parametro *marker* nell'URI della richiesta successiva. Questa funzionalità è analoga al paging attraverso i risultati. 
 
@@ -76,15 +76,15 @@ Per usare parametri aggiuntivi, specificarli dopo la stringa di risorsa con il r
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[Intestazioni della richiesta](/rest/api/storageservices/fileservices/List-Containers2#request-headers)**:** questa sezione include l'elenco delle intestazioni obbligatorie e facoltative della richiesta. Le intestazioni obbligatorie sono tre: *Authorization*, *x-ms-date* (data e ora UTC della richiesta) e *x-ms-version* (versione dell'API REST da usare). L'intestazione *x-ms-client-request-id* è facoltativa. Per questo campo è possibile impostare un valore qualsiasi, che viene scritto nei log dell'analisi di archiviazione quando la registrazione è abilitata.
+[Intestazioni della richiesta](/rest/api/storageservices/List-Containers2#request-headers)**:** questa sezione include l'elenco delle intestazioni obbligatorie e facoltative della richiesta. Le intestazioni obbligatorie sono tre: *Authorization*, *x-ms-date* (data e ora UTC della richiesta) e *x-ms-version* (versione dell'API REST da usare). L'intestazione *x-ms-client-request-id* è facoltativa. Per questo campo è possibile impostare un valore qualsiasi, che viene scritto nei log dell'analisi di archiviazione quando la registrazione è abilitata.
 
-[Corpo della richiesta](/rest/api/storageservices/fileservices/List-Containers2#request-body)**:** per ListContainers non è previsto un corpo della richiesta, che viene usato invece per tutte le operazioni PUT, durante il caricamento di BLOB, e per SetContainerAccessPolicy, che consente di inviare un elenco XML di criteri di accesso archiviati da applicare. Per informazioni su questi criteri, vedere l'articolo [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
+[Corpo della richiesta](/rest/api/storageservices/List-Containers2#request-body)**:** per ListContainers non è previsto un corpo della richiesta, che viene usato invece per tutte le operazioni PUT, durante il caricamento di BLOB, e per SetContainerAccessPolicy, che consente di inviare un elenco XML di criteri di accesso archiviati da applicare. Per informazioni su questi criteri, vedere l'articolo [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
-[Codice di stato della risposta](/rest/api/storageservices/fileservices/List-Containers2#status-code)**:** indica i codici di stato che è necessario conoscere. In questo esempio, il codice di stato HTTP 200 indica che l'operazione è stata eseguita correttamente. Per un elenco completo di codici di stato HTTP, consultare [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (Definizioni dei codici di stato). Per i codici di errore specifici per le API REST di archiviazione, vedere [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes) (Codici di errore comuni delle API REST).
+[Codice di stato della risposta](/rest/api/storageservices/List-Containers2#status-code)**:** indica i codici di stato che è necessario conoscere. In questo esempio, il codice di stato HTTP 200 indica che l'operazione è stata eseguita correttamente. Per un elenco completo di codici di stato HTTP, consultare [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (Definizioni dei codici di stato). Per i codici di errore specifici per le API REST di archiviazione, vedere [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes) (Codici di errore comuni delle API REST).
 
-[Intestazioni della risposta](/rest/api/storageservices/fileservices/List-Containers2#response-headers)**:** sono incluse *Content Type*, *x-ms-request-id* (ID della richiesta passata, se applicabile), *x-ms-version* (versione del servizio BLOB usato) e *Date* (data e ora UTC in cui è stata eseguita la richiesta).
+[Intestazioni della risposta](/rest/api/storageservices/List-Containers2#response-headers)**:** sono incluse *Content Type*, *x-ms-request-id* (ID della richiesta passata, se applicabile), *x-ms-version* (versione del servizio BLOB usato) e *Date* (data e ora UTC in cui è stata eseguita la richiesta).
 
-[Corpo della risposta](/rest/api/storageservices/fileservices/List-Containers2#response-body): questo campo è una struttura XML che contiene i dati richiesti. In questo esempio la risposta è un elenco di contenitori e delle relative proprietà.
+[Corpo della risposta](/rest/api/storageservices/List-Containers2#response-body): questo campo è una struttura XML che contiene i dati richiesti. In questo esempio la risposta è un elenco di contenitori e delle relative proprietà.
 
 ## <a name="creating-the-rest-request"></a>Creazione della richiesta REST
 
@@ -102,7 +102,7 @@ Per creare la richiesta, che è un oggetto HttpRequestMessage, passare a ListCon
 Alcune informazioni di base che è necessario conoscere: 
 
 *  Per ListContainers, il **metodo** è `GET`. Questo valore viene impostato quando si crea l'istanza della richiesta. 
-*  La **risorsa** è la parte di query dell'URI che indica quale API viene chiamata. Il valore della risorsa è pertanto `/?comp=list`. Come indicato in precedenza, la risorsa è riportata nella pagina della documentazione di riferimento che contiene le informazioni relative all'[API ListContainers](/rest/api/storageservices/fileservices/List-Containers2).
+*  La **risorsa** è la parte di query dell'URI che indica quale API viene chiamata. Il valore della risorsa è pertanto `/?comp=list`. Come indicato in precedenza, la risorsa è riportata nella pagina della documentazione di riferimento che contiene le informazioni relative all'[API ListContainers](/rest/api/storageservices/List-Containers2).
 *  L'URI viene creato definendo l'endpoint del servizio BLOB per l'account di archiviazione e concatenando la risorsa. Il valore dell'**URI della richiesta** è quindi `http://contosorest.blob.core.windows.net/?comp=list`.
 *  Per ListContainers, **requestBody** è null e non vi sono altre **intestazioni**.
 
@@ -174,7 +174,7 @@ Dopo aver creato la richiesta, è possibile chiamare SendAsync per inviare la ri
 }
 ```
 
-Se si usa uno sniffer di rete come [Fiddler](https://www.telerik.com/fiddler) quando si esegue la chiamata a SendAsync, è possibile visualizzare le informazioni della richiesta e della risposta, Vediamo. Il nome dell'account di archiviazione è *contosorest*.
+Se si usa uno sniffer di rete come [Fiddler](https://www.telerik.com/fiddler) quando si esegue la chiamata a SendAsync, è possibile visualizzare le informazioni della richiesta e della risposta. Vediamo. Il nome dell'account di archiviazione è *contosorest*.
 
 **Richiesta:**
 
@@ -268,7 +268,7 @@ Ora che si è appreso come creare la richiesta, chiamare il servizio e analizzar
 > [!TIP]
 > Archiviazione di Azure supporta ora l'integrazione di Azure Active Directory (Azure AD) per i servizi BLOB e di accodamento (anteprima). Azure AD offre un'esperienza molto più semplice per l'autorizzazione di una richiesta per Archiviazione di Azure. Per altre informazioni sull'uso di Azure AD per autorizzare le operazioni REST, vedere [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory) (Eseguire l'autenticazione con Azure Active Directory - anteprima). Per una panoramica dell'integrazione di Azure AD con Archiviazione di Azure, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
 
-I concetti di base relativi all'autenticazione (senza esempi di codice) sono illustrati nell'articolo [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services) (Autenticazione per i servizi di archiviazione di Azure),
+I concetti di base relativi all'autenticazione (senza esempi di codice) sono illustrati nell'articolo [Authentication for the Azure Storage Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services) (Autenticazione per i servizi di archiviazione di Azure),
 ma ai fini pratici è possibile concentrarsi sulle nozioni fondamentali ed esaminare in dettaglio il codice.
 
 Prima di tutto, usare un'autenticazione con chiave condivisa. L'intestazione dell'autorizzazione ha un formato simile al seguente:
@@ -431,7 +431,7 @@ A questo punto si hanno tutte le informazioni necessarie, oltre al codice, per c
 
 In questo esempio si vedrà come modificare il codice per chiamare ListBlobs per il contenitore *container-1*. Il codice è quasi identico a quello usato per elencare i contenitori. Le uniche differenze riguardano l'URI e la modalità analisi della risposta. 
 
-Se si consulta la documentazione di riferimento per [ListBlobs](/rest/api/storageservices/fileservices/List-Blobs), si vedrà che il metodo da usare è *GET* e il valore di RequestURI è il seguente:
+Se si consulta la documentazione di riferimento per [ListBlobs](/rest/api/storageservices/List-Blobs), si vedrà che il metodo da usare è *GET* e il valore di RequestURI è il seguente:
 
 ```
 https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list

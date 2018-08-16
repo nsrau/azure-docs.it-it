@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b15fff6e868bfac973f9d2a7277f0fac1e29d845
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36940025"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505610"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -78,7 +78,7 @@ Altre informazioni sul funzionamento della [sincronizzazione dell'hash delle pas
 
 ### <a name="implement-ad-fs-extranet-lockout"></a>Implementare il blocco della Extranet di AD FS
 
-Le organizzazioni che configurano applicazioni per l'autenticazione diretta con Azure AD usufruiscono del [blocco intelligente di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Chi usa AD FS dovrà implementare il [blocco della Extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection) di AD FS. Il blocco della Extranet protegge dagli attacchi di forza bruta che mirano ad AD FS impedendo al contempo agli utenti di essere bloccati in Active Directory.
+Le organizzazioni che configurano applicazioni per l'autenticazione diretta con Azure AD usufruiscono del [blocco intelligente di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Se si usa AD FS in Windows Server 2012 R2, implementare la [protezione di blocco della Extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) di AD FS. Se si usa AD FS in Windows Server 2016, implementare il [blocco intelligente della Extranet](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Il blocco intelligente della Extranet di AD FS protegge dagli attacchi di forza bruta che mirano ad AD FS impedendo al tempo stesso il blocco degli utenti in Active Directory.
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>Sfruttare i vantaggi di credenziali sicure e più facili da usare
 

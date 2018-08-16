@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364166"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578892"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
 
@@ -27,8 +27,7 @@ Questo articolo illustra le soluzioni per diversi modelli di query comuni basati
 
 ## <a name="work-with-complex-data-types-in-json-and-avro"></a>Usare tipi di dati complessi in JSON e AVRO 
 Analisi di flusso di Azure supporta l'elaborazione di eventi nei formati di dati CSV, JSON e Avro.
-Entrambi i formati JSON e Avro possono contenere tipi complessi come le matrici o gli oggetti nidificati (record). Per usare questi tipi di dati complessi, fare riferimento alla [pagina MSDN che spiega come usare i tipi di dati complessi in JSON e AVRO](
-https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+Entrambi i formati JSON e Avro possono contenere tipi complessi come le matrici o gli oggetti nidificati (record). Per usare questi tipi di dati complessi, vedere l'articolo [Analisi di dati JSON e AVRO](stream-analytics-parsing-json.md).
 
 
 ## <a name="query-example-convert-data-types"></a>Esempio di query: convertire tipi di dati

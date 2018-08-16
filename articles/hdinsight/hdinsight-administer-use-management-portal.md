@@ -1,25 +1,20 @@
 ---
-title: Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure | Microsoft Docs
+title: Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure
 description: Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Hadoop.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78541feda8c82be143f91fdde88eac179cf0b1a5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4cbc0c14d0f6c505b391becf33c56dd95bfc251
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405365"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592221"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure
 
@@ -31,7 +26,7 @@ Le informazioni contenute in questo articolo si applicano solo ai cluster HDInsi
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire le procedure descritte nell'articolo è necessario:
 
@@ -83,11 +78,12 @@ L'installazione di software personalizzato nel cluster tramite Connessione Deskt
 
    * Per personalizzare il menu fare clic con il pulsante destro del mouse su un punto qualsiasi del menu e scegliere **Personalizza**.
    * **Impostazioni** e **Tutte le impostazioni**: consentono di visualizzare il pannello **Impostazioni** per il cluster, che consente di accedere a informazioni dettagliate sulla configurazione del cluster.
-   * **Dashboard**, **Dashboard cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web. -** Secure Shell\*\*: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
+   * **Dashboard**, **Dashboard cluster** e **URL**: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web.
+   * **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
    * **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
    * **Elimina**: elimina il cluster.
    * **Avvio rapido**: visualizza le informazioni che consentiranno di iniziare a usare HDInsight.
-   * **Utenti: consente di impostare le autorizzazioni per la *gestione del portale* di questo cluster per altri utenti nella sottoscrizione Azure.
+   * **Utenti**: consente di impostare le autorizzazioni per la *gestione del portale* di questo cluster per altri utenti nella sottoscrizione Azure.
 
      > [!IMPORTANT]
      > Questo influisce *solo* sull'accesso e sulle autorizzazioni per tale cluster nel portale di Azure e non ha alcun effetto su chi può connettersi o inviare processi al cluster HDInsight.
@@ -277,7 +273,7 @@ La console query HDInsight include le funzionalità seguenti:
 
     ![Portale cronologia processi in HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Fare clic su **Nome query** per visualizzare i dettagli, incluse le proprietà del processo, **Job Query** (Query processo) e \*\*Output processo. È anche possibile scaricare sia la query che l'output nella workstation.
+    Fare clic su **Nome query** per visualizzare i dettagli, incluse le proprietà del processo, **Job Query** (Query processo) e **Output processo. È anche possibile scaricare sia la query che l'output nella workstation.
 * **Browser file**: sfoglia l'account di archiviazione predefinito e gli account di archiviazione collegati.
 
     ![Esplorazione del browser file portale in HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
@@ -287,7 +283,7 @@ La console query HDInsight include le funzionalità seguenti:
 
     ![Interfaccia utente Hadoop portale in HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 
-    Dall'\**interfaccia utente di Hadoop*è possibile cercare i file e controllare i log.
+    Dall'*interfaccia utente di Hadoop*è possibile cercare i file e controllare i log.
 * **Interfaccia utente Yarn**.
 
     ![Interfaccia utente YARN portale in HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)

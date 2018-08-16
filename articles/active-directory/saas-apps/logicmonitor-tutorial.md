@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con LogicMonitor | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con LogicMonitor | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e LogicMonitor.
 services: active-directory
 documentationCenter: na
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 10bf78e4ea09b521138d62b29ffd0e4908ffb34d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040998"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Esercitazione: Integrazione di Azure Active Directory con LogicMonitor
 
@@ -52,7 +52,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di LogicMonitor dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+1. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-logicmonitor-from-the-gallery"></a>Aggiunta di LogicMonitor dalla raccolta
 Per configurare l'integrazione di LogicMonitor in Azure AD, è necessario aggiungere LogicMonitor dalla raccolta al proprio elenco di app SaaS gestite.
@@ -63,19 +63,19 @@ Per configurare l'integrazione di LogicMonitor in Azure AD, è necessario aggiun
 
     ![Active Directory][1]
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
     
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-4. Nella casella di ricerca digitare **LogicMonitor**.
+1. Nella casella di ricerca digitare **LogicMonitor**.
 
     ![Creazione di un utente test di Azure AD](./media/logicmonitor-tutorial/tutorial_logicmonitor_search.png)
 
-5. Nel pannello dei risultati selezionare **LogicMonitor** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nel pannello dei risultati selezionare **LogicMonitor** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/logicmonitor-tutorial/tutorial_logicmonitor_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Per stabilire la relazione di collegamento, in LogicMonitor assegnare il valore 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con LogicMonitor, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di LogicMonitor](#creating-a-logicmonitor-test-user)**: per avere una controparte di Britta Simon in LogicMonitor collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+1. **[Creazione di un utente test di LogicMonitor](#creating-a-logicmonitor-test-user)**: per avere una controparte di Britta Simon in LogicMonitor collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -104,11 +104,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_logicmonitor_samlbase.png)
 
-3. Nella sezione **URL e dominio LogicMonitor** seguire questa procedura:
+1. Nella sezione **URL e dominio LogicMonitor** seguire questa procedura:
 
     ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_logicmonitor_url.png)
 
@@ -121,39 +121,35 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_logicmonitor_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+1. Fare clic sul pulsante **Salva** .
 
     ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_general_400.png)
 
-6. Accedere al sito aziendale di **LogicMonitor** come amministratore.
+1. Accedere al sito aziendale di **LogicMonitor** come amministratore.
 
-7. Nel menu in alto fare clic su **Impostazioni**.
+1. Nel menu in alto fare clic su **Impostazioni**.
    
-   ![Impostazioni](./media/logicmonitor-tutorial/ic790052.png "Impostazioni")
+    ![Impostazioni](./media/logicmonitor-tutorial/ic790052.png "Impostazioni")
 
-8. Nella barra di spostamento sul lato sinistro fare clic su **Single Sign-On**
+1. Nella barra di spostamento sul lato sinistro fare clic su **Single Sign-On**
    
-   ![Single Sign-On](./media/logicmonitor-tutorial/ic790053.png "Single Sign-On")
+    ![Single Sign-On](./media/logicmonitor-tutorial/ic790053.png "Single Sign-On")
 
-9. Nella sezione **Impostazioni Single Sign-on (SSO)** eseguire questa procedura:
+1. Nella sezione **Impostazioni Single Sign-on (SSO)** eseguire questa procedura:
    
-   ![Single Sign-On Settings](./media/logicmonitor-tutorial/ic790054.png "Single Sign-On Settings")
+    ![Single Sign-On Settings](./media/logicmonitor-tutorial/ic790054.png "Single Sign-On Settings")
    
-   a. Selezionare **Attiva Single Sign-On**.
+    a. Selezionare **Attiva Single Sign-On**.
 
-   b. In **Default Role Assignment** (Assegnazione ruolo predefinito) selezionare **readonly**.
+    b. In **Default Role Assignment** (Assegnazione ruolo predefinito) selezionare **readonly**.
    
-   c. Aprire il file di metadati scaricato in Blocco note, quindi incollare il contenuto del file nella casella di testo **Metadati del provider di identità** .
+    c. Aprire il file di metadati scaricato in Blocco note, quindi incollare il contenuto del file nella casella di testo **Metadati del provider di identità** .
    
-   d. Fare clic su **Salva modifiche**.
-
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
+    d. Fare clic su **Salva modifiche**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -166,15 +162,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creazione di un utente test di Azure AD](./media/logicmonitor-tutorial/create_aaduser_01.png) 
 
-2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
     ![Creazione di un utente test di Azure AD](./media/logicmonitor-tutorial/create_aaduser_02.png) 
 
-3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
     ![Creazione di un utente test di Azure AD](./media/logicmonitor-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/logicmonitor-tutorial/create_aaduser_04.png) 
 
@@ -184,31 +180,31 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="creating-a-logicmonitor-test-user"></a>Creazione di un utente test di LogicMonitor
 
-Per consentire agli utenti di AAD di accedere, è necessario eseguirne il provisioning nell’applicazione LogicMonitor utilizzando i relativi nomi utente di Azure Active Directory.
+Per consentire agli utenti di Azure AD di accedere, è necessario eseguirne il provisioning nell'applicazione LogicMonitor usando i relativi nomi utente di Azure Active Directory.
 
 **Per configurare il provisioning utenti, seguire questa procedura:**
 
 1. Accedere al sito aziendale di LogicMonitor come amministratore.
 
-2. Nel menu in alto fare clic su **Settings** (Impostazioni) e quindi fare clic su **Roles and Users** (Ruoli e utenti).
+1. Nel menu in alto fare clic su **Settings** (Impostazioni) e quindi fare clic su **Roles and Users** (Ruoli e utenti).
    
-   ![Ruoli e utenti](./media/logicmonitor-tutorial/ic790056.png "Ruoli e utenti")
+    ![Ruoli e utenti](./media/logicmonitor-tutorial/ic790056.png "Ruoli e utenti")
 
-3. Fare clic su **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 
-4. Nella sezione **Aggiungi un account** eseguire la procedura seguente:
+1. Nella sezione **Aggiungi un account** eseguire la procedura seguente:
    
-   ![Aggiungere un account](./media/logicmonitor-tutorial/ic790057.png "Aggiungere un account")
+    ![Aggiungere un account](./media/logicmonitor-tutorial/ic790057.png "Aggiungere un account")
    
-   a. Nelle caselle di testo **Username** (Nome utente), **Email** (Indirizzo di posta elettronica), **Password** e **Retype password** (Conferma password) digitare i valori dell'utente di Azure Active Directory di cui si vuole eseguire il provisioning.
+    a. Nelle caselle di testo **Username** (Nome utente), **Email** (Indirizzo di posta elettronica), **Password** e **Retype password** (Conferma password) digitare i valori dell'utente di Azure Active Directory di cui si vuole eseguire il provisioning.
    
-   b. Selezionare **Roles** (Ruoli), **View Permissions** (Visualizza autorizzazioni) e **Status** (Stato).
+    b. Selezionare **Roles** (Ruoli), **View Permissions** (Visualizza autorizzazioni) e **Status** (Stato).
    
-   c. Fare clic su **Submit**.
+    c. Fare clic su **Submit**.
 
 >[!NOTE]
 >È possibile utilizzare qualsiasi altro strumento di creazione di account utente di LogicMonitor o le API fornite da LogicMonitor per eseguire il provisioning degli account utente di Azure Active Directory. 
@@ -225,30 +221,30 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni selezionare **LogicMonitor**.
+1. Nell'elenco delle applicazioni selezionare **LogicMonitor**.
 
     ![Configure Single Sign-On](./media/logicmonitor-tutorial/tutorial_logicmonitor_app.png) 
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
     ![Assegna utente][202] 
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
  
 Quando si fa clic sul riquadro LogicMonitor nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione LogicMonitor.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

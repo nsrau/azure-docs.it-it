@@ -1,9 +1,9 @@
 ---
-title: Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure | Microsoft Docs
+title: Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure | Documentazione Microsoft
 description: Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza di Azure facilitino la protezione delle risorse di Azure e garantiscano la conformità ai criteri di sicurezza.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367107"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522238"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
 Questo documento illustra come usare le raccomandazioni presenti nel Centro sicurezza di Azure per la protezione delle risorse di Azure.
@@ -50,6 +50,8 @@ Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo st
 Per visualizzare i dettagli di ogni raccomandazione, selezionare il **riquadro Raccomandazioni** in **Overview**. Si apre **Raccomandazioni**.
 
 ![Filtrare le raccomandazioni][2]
+
+È possibile filtrare le raccomandazioni. Per filtrare le raccomandazioni, selezionare **Filtro** nel pannello **Raccomandazioni**. Viene visualizzato il pannello **Filtro** in cui è possibile selezionare i valori relativi a gravità e stato da visualizzare.
 
 Le raccomandazioni vengono visualizzate sotto forma di tabella, in cui ogni riga rappresenta una particolare raccomandazione. Le colonne della tabella sono:
 
@@ -124,13 +126,6 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 | Remove external accounts with owner permissions from your subscription (Rimuovere gli account esterni con autorizzazioni di proprietario dalla sottoscrizione) | Consiglia di rimuovere dalla sottoscrizione gli account esterni con autorizzazioni di proprietario in modo da evitare l'accesso non monitorato. |
 | Rimuovere gli account deprecati dalla sottoscrizione | Consiglia di rimuovere gli account deprecati dalle sottoscrizioni. |
 | Remove deprecated accounts with owner permissions from subscription (Rimuovere gli account deprecati con autorizzazioni di proprietario dalla sottoscrizione) | Consiglia di rimuovere gli account deprecati con autorizzazioni di proprietario dalle sottoscrizioni. |
-È possibile filtrare ed eventualmente ignorare le raccomandazioni.
-
-1. Selezionare **Filtro** nel pannello **Raccomandazioni**. Viene visualizzato il pannello **Filtro** in cui è possibile selezionare i valori relativi a gravità e stato da visualizzare.
-
-2. Se si ritiene che una delle raccomandazioni non sia applicabile, è possibile ignorarla ed escluderla dalla visualizzazione. Esistono due modi per ignorare una raccomandazione. Uno consiste nel fare clic con il pulsante destro del mouse su un elemento e quindi scegliere **Ignora**. L'altro nel passare il puntatore del mouse su un elemento, fare clic sui tre punti che appaiono a destra e selezionare **Ignora**. È possibile visualizzare le raccomandazioni ignorate facendo clic su **Filtro** e scegliendo **Ignorato**.
-
-    ![Ignorare una raccomandazione][3]
 
 ### <a name="apply-recommendations"></a>Applicare le raccomandazioni
 Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima. È consigliabile usare la classificazione di gravità come parametro principale per valutare quali raccomandazioni applicare per prime.
@@ -150,4 +145,3 @@ Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Ce
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

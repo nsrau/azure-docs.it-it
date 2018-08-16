@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
-ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50d1b8fca8e5377c35810e08258a0ecc3770ae75
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399074"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422325"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migrazione di Contoso: valutare i carichi di lavoro in locale per la migrazione ad Azure
 
@@ -84,7 +84,7 @@ Il team dedicato al cloud di Contoso ha identificato alcuni obiettivi per le val
 
 Contoso usa gli strumenti Microsoft per la valutazione della migrazione. Questi strumenti sono in linea con gli obiettivi aziendali prefissati e devono offrire a Contoso tutte le informazioni necessarie.
 
-Tecnologia | DESCRIZIONE | Costi
+Tecnologia | Descrizione | Costi
 --- | --- | ---
 [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso usa Data Migration Assistant per valutare e rilevare i problemi di compatibilità che potrebbero compromettere le funzionalità del database in Azure. Data Migration Assistant valuta la parità delle funzionalità tra origini e destinazioni SQL e consiglia miglioramenti per le prestazioni e l'affidabilità. | Data Migration Assistant è uno strumento gratuito e scaricabile.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso usa il servizio Azure Migrate per valutare le proprie macchine virtuali VMware. Azure Migrate valuta l'idoneità alla migrazione delle macchine. Fornisce stime di dimensioni e costi per l'esecuzione in Azure.  | A partire da maggio 2018, Azure Migrate è un servizio gratuito.
@@ -99,7 +99,7 @@ In questo scenario, Contoso scarica ed esegue Data Migration Assistant per valut
 - Contoso è un nome fittizio che rappresenta un'organizzazione aziendale tipica.
 - Contoso possiede un data center locale (**contoso-datacenter**) e controller di dominio locali (**CONTOSODC1**, **CONTOSODC2**).
 - Le macchine virtuali VMware si trovano in host VMware ESXi che eseguono la versione 6.5(**contosohost1**, **contosohost2**).
-- L'ambiente VMware viene gestito dal server vCenter 6.5 (**vcenter**) in esecuzione in una macchina virtuale.
+- L'ambiente VMware viene gestito dal server vCenter 6.5 (**vcenter.contoso.com** in esecuzione su una macchina virtuale).
 - L'app di viaggi SmartHotel presenta queste caratteristiche:
     - L'app è suddivisa in livelli tra due macchine virtuali VMware (**WEBVM** e **SQLVM**).
     - Le macchine virtuali si trovano nell'host VMware ESXi **contosohost1.contoso.com**.
@@ -123,12 +123,10 @@ Contoso e gli altri utenti devono soddisfare i prerequisiti seguenti per la valu
 - Almeno due VM VMware locali, in una delle quali viene eseguito un database di SQL Server.
 - Autorizzazioni per installare gli agenti di Azure Migrate in ogni macchina virtuale.
 - Connettività diretta a Internet delle VM.  
-        
-- È possibile limitare l'accesso a Internet agli [URL necessari](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-
-- Se le macchine virtuali non hanno connettività Internet, è necessario installare il [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) di Azure Log Analytics.
+        - È possibile limitare l'accesso a Internet agli [URL necessari](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+        - Se le macchine virtuali non hanno connettività Internet, è necessario installare il [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) di Azure Log Analytics e indirizzare ad esse il traffico dell'agente.
 - Nome di dominio completo della VM che esegue l'istanza di SQL Server, per la valutazione del database.
-- Windows Firewall in esecuzione nella macchina virtuale di SQL Server deve consentire le connessioni esterne sulla porta TCP 1433 (predefinita). Il programma di installazione consente la connessione a Data Migration Assistant.
+- Windows Firewall in esecuzione nella macchina virtuale di SQL Server deve consentire le connessioni esterne sulla porta TCP 1433 (predefinita). Questa configurazione consente la connessione di Data Migration Assistant.
 
 ## <a name="assessment-overview"></a>Panoramica della valutazione
 
@@ -297,7 +295,7 @@ Prima di distribuire la macchina virtuale, Contoso verifica che il file OVA sia 
 
 ### <a name="create-the-collector-appliance"></a>Creare l'appliance dell'agente di raccolta
 
-Contoso può ora importare il file scaricato nell'istanza del server vCenter ed eseguire il provisioning della macchina virtuale del server di configurazione:
+Contoso può ora importare il file scaricato nell'istanza del server vCenter ed eseguire il provisioning della macchina virtuale dell'appliance dell'agente di raccolta:
 
 1. Nella console di vSphere Client, Contoso seleziona **File** > **Deploy OVF Template** (Distribuisci modello OVF).
 

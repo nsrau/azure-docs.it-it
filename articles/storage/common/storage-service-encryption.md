@@ -1,33 +1,35 @@
 ---
 title: Crittografia del servizio di archiviazione di Azure per dati inattivi | Microsoft Docs
-description: La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare l'archivio BLOB di Azure sul lato del servizio durante l'archiviazione dei dati e di decrittografarlo durante il recupero dei dati.
+description: La crittografia del servizio di archiviazione di Azure consente di crittografare Azure Managed Disks, Archiviazione BLOB di Azure, File di Azure, Archiviazione code di Azure e Archiviazione tabelle di Azure sul lato del servizio durante l'archiviazione dei dati e di eseguire la decrittografia durante il recupero dei dati.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: f35697139a4be49be8a645cfd4d451ad8e3c8094
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412356"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520725"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
-La crittografia del servizio di archiviazione di Azure per dati inattivi consente di proteggere i dati in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Con questa funzionalità, la piattaforma di archiviazione di Azure è in grado di crittografare automaticamente i dati prima del salvataggio permanente in Archiviazione BLOB di Azure, File di Azure o Archiviazione code di Azure e di decrittografarli prima del recupero. La gestione della crittografia, la crittografia di dati inattivi, la decrittografia e la gestione delle chiavi in Crittografia del servizio di archiviazione sono attività completamente trasparenti per gli utenti. Tutti i dati scritti nella piattaforma di archiviazione di Azure sono crittografati tramite [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, uno dei tipi di crittografia a blocchi più sicuri tra quelli disponibili.
+La crittografia del servizio di archiviazione di Azure per dati inattivi consente di proteggere i dati in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Con questa funzionalità, la piattaforma di archiviazione di Azure è in grado di crittografare automaticamente i dati prima del salvataggio permanente in Azure Managed Disks, Archiviazione BLOB di Azure, File di Azure o Archiviazione code di Azure e di decrittografarli prima del recupero. La gestione della crittografia, la crittografia di dati inattivi, la decrittografia e la gestione delle chiavi in Crittografia del servizio di archiviazione sono attività completamente trasparenti per gli utenti. Tutti i dati scritti nella piattaforma di archiviazione di Azure sono crittografati tramite [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, uno dei tipi di crittografia a blocchi più sicuri tra quelli disponibili.
 
 Crittografia del servizio di archiviazione è abilitata per tutti gli account di archiviazione nuovi ed esistenti e non può essere disabilitata. Poiché i dati sono protetti per impostazione predefinita, non è necessario modificare il codice o le applicazioni per sfruttare i vantaggi offerti da Crittografia del servizio di archiviazione.
 
 La funzionalità esegue automaticamente la crittografia dei dati nelle posizioni seguenti:
 
-- Archiviazione BLOB di Azure, File di Azure, Archiviazione code di Azure, Archiviazione tabelle di Azure.  
+- Servizi di Archiviazione di Azure:
+    - Azure Managed Disks
+    - Archivio BLOB di Azure
+    - File di Azure
+    - Archiviazione code di Azure
+    - Archiviazione tabelle di Azure.  
 - Entrambi i livelli di prestazioni (Standard e Premium).
 - Entrambi i modelli di distribuzione (Azure Resource Manager e classico).
-
-> [!Note]  
-> La crittografia del servizio di archiviazione non è disponibile per [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). È consigliabile usare un tipo di crittografia a livello di sistema operativo, ad esempio [Crittografia dischi di Azure](../../security/azure-security-disk-encryption-overview.md), che usa gli standard di settore [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) in Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per offrire crittografia integrata con Key Vault.
 
 La crittografia del servizio di archiviazione non influisce sulle prestazioni dei servizi di archiviazione di Azure.
 
@@ -55,13 +57,10 @@ La crittografia è abilitata per impostazione predefinita e non ne è prevista l
 Non sono previsti costi aggiuntivi.
 
 **È possibile usare le proprie chiavi di crittografia?**  
-Sì, è possibile usare le proprie chiavi di crittografia. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Sì, per Archiviazione BLOB di Azure e File di Azure, è possibile usare le proprie chiavi di crittografia. Le chiavi gestite dal cliente non sono attualmente supportate da Azure Managed Disks. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **È possibile revocare l'accesso alle chiavi di crittografia?**  
 Sì, se si [usano le proprie chiavi di crittografia](storage-service-encryption-customer-managed-keys.md) in Azure Key Vault.
-
-**La crittografia del servizio di archiviazione è disponibile per Azure Managed Disks?**  
-No, la crittografia del servizio di archiviazione non è disponibile per [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). È consigliabile usare un tipo di crittografia a livello di sistema operativo, ad esempio [Crittografia dischi di Azure](../../security/azure-security-disk-encryption-overview.md), che usa gli standard di settore [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) in Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per offrire crittografia integrata con Key Vault.
 
 **Quali sono le differenze tra la crittografia del servizio di archiviazione e Crittografia dischi di Azure?**  
 Crittografia dischi di Azure offre l'integrazione tra soluzioni basate sul sistema operativo, ad esempio BitLocker e DM-Crypt, e Azure Key Vault. La crittografia del servizio di archiviazione offre la crittografia in modo nativo a livello piattaforma di archiviazione di Azure, al di sotto della macchina virtuale.

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: b792798c64ed0a2eb12a16d868d8a17302466fea
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 053e72ce81f69b267c72ded572e8912a1a09d2e6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215357"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579698"
 ---
 # <a name="azure-cosmos-db-faq"></a>Domande frequenti su Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Nozioni fondamentali su Azure Cosmos DB
@@ -448,7 +448,7 @@ Azure Cosmos DB è un sistema basato su contratti di servizio che offre garanzie
 
 ## <a name="develop-against-the-graph-api"></a>Sviluppare con l'API Graph
 ### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Come si possono applicare le funzionalità dell'API Graph ad Azure Cosmos DB?
-Per applicare le funzionalità dell'API Graph è possibile usare una libreria di estensioni, denominata Microsoft Azure Graphs e disponibile in NuGet. 
+Per applicare le funzionalità dell'API Graph è possibile usare una libreria di estensioni, denominata Microsoft Azure Graphs e disponibile in [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>È supportato il linguaggio per l'attraversamento di grafi Gremlin. È prevista l'aggiunta di altre forme di query?
 Sì. È prevista in futuro l'aggiunta di altri meccanismi di query. 

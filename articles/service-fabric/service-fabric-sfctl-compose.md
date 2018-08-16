@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: cc3d3e35ce3dd457d981dfe9420be765cf9fc45a
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3ce0b63c579412d9d8d35b835803becab09f7ef4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763409"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494153"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Creare, eliminare e gestire applicazioni Docker Compose.
@@ -55,7 +55,7 @@ Crea una distribuzione di composizione di Service Fabric.
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -78,7 +78,7 @@ Mostra lo stato delle distribuzioni di composizione che sono state create oppure
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -100,7 +100,7 @@ Elimina una distribuzione di composizione Service Fabric esistente dal cluster.
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -122,7 +122,7 @@ Restituisce lo stato della distribuzione di composizione che Ã¨ stata creata o Ã
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -162,7 +162,7 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della dis
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -184,10 +184,9 @@ Restituisce le informazioni sullo stato dell'aggiornamento della distribuzione d
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
-
 
 
 ## <a name="next-steps"></a>Passaggi successivi

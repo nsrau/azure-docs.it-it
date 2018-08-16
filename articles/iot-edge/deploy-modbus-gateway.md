@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 4fbcfe4198f2655f77b1a61c86092e3ac727ab31
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115722"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590590"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Connettere dispositivi Modbus TCP tramite un dispositivo gateway IoT Edge
 
@@ -35,7 +35,7 @@ Questo articolo presuppone l'uso del protocollo Modbus TCP. Per altre informazio
 Se si vuole testare la funzionalità del gateway Modbus, Microsoft offre un modulo di esempio che può essere usato a questo scopo. Per usare il modulo di esempio, passare alla sezione [Eseguire la soluzione](#run-the-solution) e immettere il valore seguente per l'URI immagine: 
 
 ```URL
-microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
+mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
 Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponibile un [modulo Modbus per Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) open source in Github. Seguire le indicazioni nel progetto per creare l'immagine del contenitore personalizzata. Se si crea un'immagine del contenitore personalizzata, vedere [Sviluppare e distribuire un modulo C# per IoT Edge in un dispositivo simulato](tutorial-csharp-module.md) per istruzioni sulla pubblicazione di immagini del contenitore in un registro e sulla distribuzione di un modulo personalizzato nel dispositivo. 
@@ -48,7 +48,7 @@ Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponi
 4. Aggiungere il modulo Modbus:
    1. Fare clic su **Aggiungi** e selezionare **Modulo IoT Edge**.
    2. Nel campo **Name** (Nome) immettere "modbus".
-   3. Nel campo **Image** (Immagine) immettere l'URI immagine del contenitore di esempio: `microsoft/azureiotedge-modbus-tcp:GA-preview-amd64`.
+   3. Nel campo **Image** (Immagine) immettere l'URI immagine del contenitore di esempio: `mcr.microsoft.com/azureiotedge/modbus:1.0`.
    4. Selezionare la casella **Enable** (Abilita) per aggiornare le proprietà desiderate del modulo gemello.
    5. Copiare il codice JSON seguente nella casella di testo. Modificare il valore di **SlaveConnection** in base all'indirizzo IPv4 del dispositivo Modbus.
 
@@ -96,7 +96,7 @@ Visualizzare i dati che passano attraverso il modulo modbus:
 docker logs -f modbus
 ```
 
-È anche possibile visualizzare i dati di telemetria inviati dal dispositivo usando lo [strumento IoT Hub Explorer](https://github.com/azure/iothub-explorer) o l'[estensione IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+È anche possibile visualizzare i dati di telemetria inviati dal dispositivo usando l'[estensione IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

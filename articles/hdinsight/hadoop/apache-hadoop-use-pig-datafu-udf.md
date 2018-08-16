@@ -1,26 +1,20 @@
 ---
-title: Usare Apache DataFu con Pig in HDInsight - Azure | Microsoft Docs
+title: Usare Apache DataFu con Pig in HDInsight - Azure
 description: Apache DataFu Pig è una raccolta di librerie per l'uso con Pig in Hadoop. Informazioni su come utilizzare DataFu con Pig sul cluster HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 0016721a-82be-4773-88ad-91e6b2c21cbb
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 51949e763b77aede6df8a8ff6affa3892adbed21
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.author: jasonh
+ms.openlocfilehash: fb0ef63562bfcc98fbfb960ec4869110d38a7700
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090215"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593486"
 ---
 # <a name="use-apache-datafu-pig-with-pig-on-hdinsight"></a>Apache DataFu Pig con Pig in HDInsight
 
@@ -94,9 +88,9 @@ La procedura descritta in questa sezione presuppone che si abbia familiarità co
 > [!IMPORTANT]
 > Se DataFu è stato installato manualmente seguendo la procedura descritta nella sezione precedente, è necessario registrarlo prima di poterlo usare.
 >
-> * Se il cluster usa l'archiviazione di Azure, usare un percorso `wasb://`. Ad esempio, `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
+> * Se il cluster usa l'archiviazione di Azure, usare un percorso `wasb://`. Ad esempio: `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
 >
-> * Se il cluster usa Azure Data Lake Store, usare un percorso `adl://`. Ad esempio, `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
+> * Se il cluster usa Azure Data Lake Store, usare un percorso `adl://`. Ad esempio: `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
 
 Per le funzioni DataFu viene spesso definito un alias. L'esempio seguente definisce un alias di `SHA`:
 

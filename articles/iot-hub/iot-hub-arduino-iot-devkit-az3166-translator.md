@@ -1,6 +1,6 @@
 ---
-title: Traduttore IoT DevKit con Funzioni di Azure e Servizi cognitivi | Microsoft Docs
-description: Usare un microfono sul dispositivo IoT DevKit per ricevere messaggi vocali e Servizi cognitivi di Azure per convertirli in testo tradotto in lingua inglese.
+title: Creare un traduttore IoT DevKit con Funzioni di Azure e Servizi cognitivi | Microsoft Docs
+description: Usare il microfono su un dispositivo IoT DevKit per ricevere un messaggio vocale e Servizi cognitivi di Azure per convertirlo in testo tradotto in lingua inglese.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: ba2325272552a13d6e464797b1fb523415393100
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: acfff95afacfa1e5c75a799ba84d64cfa0579f66
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945939"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592092"
 ---
-# <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Usare IoT DevKit AZ3166 con Funzioni di Azure e Servizi cognitivi per creare un traduttore di lingue
+# <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Usare IoT DevKit AZ3166 con Funzioni di Azure e Servizi cognitivi per creare un traduttore di lingue
 
 Questo articolo illustra come trasformare IoT DevKit in un traduttore di lingue usando [Servizi cognitivi di Azure](https://azure.microsoft.com/services/cognitive-services/). Il dispositivo registrerà la voce e la convertirà in testo in lingua inglese visualizzato sullo schermo del DevKit.
 
@@ -34,27 +34,27 @@ Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registra
 * Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azure.microsoft.com/free/)
 * Richiedere il [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio
 
-## <a name="step-1-open-the-project-folder"></a>Passaggio 1. Aprire la cartella del progetto
+## <a name="open-the-project-folder"></a>Aprire la cartella del progetto
 
-### <a name="a-start-vs-code"></a>R. Avviare Visual Studio Code
+Innanzitutto, aprire la cartella del progetto. 
+
+### <a name="start-vs-code"></a>Avviare Visual Studio Code
 
 - Assicurarsi che il DevKit sia connesso al PC.
-- Avviare Visual Studio Code
+
+- Avviare Visual Studio Code.
+
 - Connettere il dispositivo DevKit al computer.
 
-### <a name="b-open-the-arduino-examples-folder"></a>B. Aprire la cartella degli esempi di Arduino
+### <a name="open-the-arduino-examples-folder"></a>Aprire la cartella degli esempi di Arduino
 
-Espandere la sezione **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT** (ESEMPI ARDUINO > Esempi per MXCHIP AZ3166 e selezionare **DevKitTranslator**. Verrà visualizzata una nuova finestra di Visual Studio Code con la cartella di progetto DEVKITTRANSLATOR all'interno.  
-
-> [!NOTE]
-> Se non è possibile visualizzare gli esempi per la sezione MXCHIP AZ3166, assicurarsi che il dispositivo sia collegato correttamente e riavviare Visual Studio Code.  
+Espandere la sezione **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT** (ESEMPI ARDUINO > Esempi per MXCHIP AZ3166 e selezionare **DevKitTranslator**. Si apre una nuova finestra di Visual Studio Code che visualizza la cartella del progetto. Se non è possibile visualizzare gli esempi per la sezione MXCHIP AZ3166, assicurarsi che il dispositivo sia collegato correttamente e riavviare Visual Studio Code.  
 
 ![Esempi per IoT DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
-> [!NOTE]
-> È anche possibile aprire l'esempio dal riquadro comandi. Premere `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) per aprire il riquadro comandi, digitare **Arduino** e quindi cercare e selezionare **Arduino: Examples**.
+È anche possibile aprire l'esempio dal riquadro comandi. Premere `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) per aprire il riquadro comandi, digitare **Arduino** e quindi cercare e selezionare **Arduino: Examples**.
 
-## <a name="step-2-provision-azure-services"></a>Passaggio 2. Eseguire il provisioning dei servizi di Azure
+## <a name="provision-azure-services"></a>Eseguire il provisioning dei servizi di Azure
 
 Nella finestra della soluzione digitare `Ctrl+P` (macOS: `Cmd+P`) e immettere `task cloud-provision`.
 
@@ -62,9 +62,9 @@ Nel terminale di Visual Studio Code una riga di comando interattiva guiderà nel
 
 ![Attività di provisioning cloud](media/iot-hub-arduino-iot-devkit-az3166-translator/cloud-provision.png)
 
-## <a name="step-3-deploy-azure-functions"></a>Passaggio 3. Distribuire Funzioni di Azure
+## <a name="deploy-the-azure-function"></a>Distribuire la funzione di Azure
 
-Usare `Ctrl+P` (macOS: `Cmd+P`) per eseguire `task cloud-deploy` e distribuire il codice di Funzioni di Azure. Il completamento di questo processo richiede in genere da 2 a 5 minuti:
+Usare `Ctrl+P` (macOS: `Cmd+P`) per eseguire `task cloud-deploy` e distribuire il codice di Funzioni di Azure. Il completamento di questo processo richiede in genere da 2 a 5 minuti.
 
 ![Attività di distribuzione cloud](media/iot-hub-arduino-iot-devkit-az3166-translator/cloud-deploy.png)
 
@@ -73,18 +73,21 @@ Dopo la corretta distribuzione di Funzioni di Azure, compilare il file azure_con
 ![Trovare il nome dell'app per le funzioni di Azure](media/iot-hub-arduino-iot-devkit-az3166-translator/azure-function.png)
 
 > [!NOTE]
-> Se la funzione di Azure non funziona correttamente, consultare questa sezione delle [domande frequenti](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) per risolvere il problema.
+> Se Funzioni di Azure non funziona correttamente, controllare la [pagina relativa all'errore di compilazione per Funzioni di Azure nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) per risolvere il problema.
 
-## <a name="step-4-build-and-upload-the-device-code"></a>Passaggio 4. Compilare e caricare il codice del dispositivo
+## <a name="build-and-upload-the-device-code"></a>Compilare e caricare il codice del dispositivo
 
 1. Usare `Ctrl+P` (macOS: `Cmd+P`) per eseguire `task config-device-connection`.
 
 2. Il terminale chiederà se si vuole usare la stringa di connessione recuperata nel passaggio `task cloud-provision`. È anche possibile immettere una stringa di connessione del dispositivo personalizzata selezionando **"Crea nuovo..."**
 
 3. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, tenere premuto il pulsante A, quindi premere e rilasciare il pulsante di reimpostazione. La schermata visualizza l'ID DevKit e la voce 'Configuration' (Configurazione).
-  ![Verifica e caricamento dello sketch Arduino](media/iot-hub-arduino-iot-devkit-az3166-translator/config-device-connection.png)
 
-4. Al termine di `task config-device-connection`, fare clic su `F1` per caricare i comandi di Visual Studio Code e selezionare `Arduino: Upload`. Visual Studio Code inizia quindi a verificare e a caricare lo sketch Arduino: ![Verifica e caricamento dello sketch Arduino](media/iot-hub-arduino-iot-devkit-az3166-translator/arduino-upload.png)
+   ![Verifica e caricamento della definizione di Arduino](media/iot-hub-arduino-iot-devkit-az3166-translator/config-device-connection.png)
+
+4. Al termine di `task config-device-connection`, fare clic su `F1` per caricare i comandi di Visual Studio Code e selezionare `Arduino: Upload`. Visual Studio Code inizia quindi a verificare e a caricare lo sketch Arduino.
+
+   ![Verifica e caricamento della definizione di Arduino](media/iot-hub-arduino-iot-devkit-az3166-translator/arduino-upload.png)
 
 Il DevKit viene riavviato e inizia a eseguire il codice.
 
@@ -95,9 +98,13 @@ Dopo l'inizializzazione dell'app, seguire le istruzioni sullo schermo del DevKit
 Per selezionare un'altra lingua per la traduzione:
 
 1. Premere il pulsante A per passare alla modalità di configurazione.
+
 2. Premere il pulsante B per scorrere tra le lingue di origine supportate.
+
 3. Premere il pulsante A per confermare la scelta della lingua di origine.
+
 4. Premere e tenere premuto il pulsante B mentre si parla, quindi rilasciarlo per avviare la traduzione.
+
 5. Il testo tradotto in lingua inglese compare sullo schermo.
 
 ![Scorrere per selezionare la lingua](media/iot-hub-arduino-iot-devkit-az3166-translator/select-language.jpg)
@@ -106,34 +113,35 @@ Per selezionare un'altra lingua per la traduzione:
 
 Nella schermata dei risultati della traduzione è possibile:
 
-- Premere il pulsante A e poi B per scorrere e selezionare la lingua di origine.
-- Premere il pulsante B per parlare, rilasciarlo per inviare la voce e ottenere il testo della traduzione
+- Premere i pulsanti A e B per scorrere e selezionare la lingua di origine.
+
+- Premere il pulsante B per parlare. Per inviare la voce e ottenere il testo della traduzione, rilasciare il pulsante B.
 
 ## <a name="how-it-works"></a>Funzionamento
 
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
-Lo sketch Arduino registra la voce e invia una richiesta HTTP per attivare Funzioni di Azure. Funzioni di Azure chiama l'API Traduzione vocale di Servizi cognitivi per eseguire la traduzione. Quando riceve il testo della traduzione, Funzioni di Azure invia al DevKit un messaggio da cloud a dispositivo. La traduzione viene quindi visualizzata sullo schermo.
+Lo sketch Arduino registra la voce e invia una richiesta HTTP per attivare una funzione di Azure. La funzione di Azure chiama l'API Traduzione vocale di Servizi cognitivi per eseguire la traduzione. Quando riceve il testo della traduzione, la funzione di Azure invia al DevKit un messaggio da cloud a dispositivo (C2D). La traduzione viene quindi visualizzata sullo schermo.
 
 ## <a name="change-device-id"></a>Modificare l'ID dispositivo
 
-L'ID dispositivo predefinito registrato nell'hub IoT di Azure è **AZ3166**. Per modificarlo, seguire le [istruzioni qui](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
+L'ID dispositivo predefinito registrato nell'hub IoT di Azure è **AZ3166**. Per modificare l'ID del dispositivo, vedere come [personalizzare l'ID del dispositivo IoT per il DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 
-In caso di problemi, fare riferimento alle [domande frequenti](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o contattare Microsoft tramite i canali seguenti:
+In caso di problemi, fare riferimento alle [domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o contattare i canali seguenti per ricevere assistenza:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora è possibile usare IoT DevKit come traduttore usando Funzioni di Azure e Servizi cognitivi. Questa esercitazione illustra come:
+Si è appreso come usare IoT DevKit come traduttore usando Funzioni di Azure e Servizi cognitivi. In questa procedura si è appreso come:
 
 > [!div class="checklist"]
 > * Usare l'attività di Visual Studio Code per l'automazione del provisioning cloud
 > * Configurare la stringa di connessione al dispositivo IoT Azure
-> * Distribuire Funzioni di Azure
+> * Distribuire la funzione di Azure
 > * Testare la traduzione di messaggi vocali
 
 Procedere alle esercitazioni successive per apprendere come:

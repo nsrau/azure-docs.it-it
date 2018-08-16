@@ -2,23 +2,19 @@
 title: Abilitazione delle metriche di archiviazione nel Portale di Azure | Microsoft Docs
 description: Come abilitare le metriche di archiviazione per i servizi BLOB, di accodamento, di tabelle e file
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 0caa4eff80877ad4bf8d501a276e82922b1a84c7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530429"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Abilitazione di Metriche di archiviazione di Azure e visualizzazione dei dati delle metriche
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -115,8 +111,8 @@ Vedere [Strumento client di Archiviazione di Azure](storage-explorers.md) per un
 
 > [!NOTE]
 > A partire dalla versione 0.8.0 di [Microsoft Azure Storage Explorer](http://storageexplorer.com/) (Esplora archivi di Microsoft Azure), è possibile visualizzare e scaricare le tabelle della metrica di analisi.
-> 
-> 
+>
+>
 
 Per accedere alle tabelle di analisi a livello di codice, si noti che non vengono visualizzate se si elencano tutte le tabelle presenti nell'account di archiviazione. È possibile accedervi direttamente con il nome o usare l' [APICloudAnalyticsClient](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) nella libreria client .NET per eseguire query sui nomi delle tabelle.
 
@@ -148,6 +144,8 @@ Nei dati delle metriche al minuto di questo esempio, la chiave di partizione usa
 * Il tipo di richiesta può essere all, e in questo caso si tratta di una riga di riepilogo, o identificare l'API specifica, ad esempio QueryEntity o UpdateEntity.
 
 I dati di esempio sopra riportati mostrano tutti i record per un solo minuto (a partire dalle 11.00). La somma del numero di richieste QueryEntities, del numero di richieste QueryEntity e del numero di richieste UpdateEntity è sette, che corrisponde al totale visualizzato nella riga user:All. Analogamente, è possibile ricavare la latenza end-to-end media 104,4286 nella riga user:All calcolando ((143,8 * 5) + 3 + 9) / 7.
+
+Si noti che le **impostazioni per le metriche orarie BLOB** vengono applicate sia alla **metrica per la capacità BLOB** ($MetricsCapacityBlob) che alle **metriche per le transazioni BLOB orarie** ($MetricsHourPrimaryTransactionsBlob). Entrambe vengono abilitate o disabilitate insieme e usano gli stessi criteri di conservazione.
 
 ## <a name="metrics-alerts"></a>Avvisi delle metriche
 È consigliabile impostare gli avvisi nel [portale di Azure](https://portal.azure.com) in modo che le metriche di archiviazione possano notificare automaticamente eventuali importanti modifiche nel comportamento dei servizi di archiviazione. Se si usa uno strumento di esplorazione di archiviazione per scaricare i dati di metrica in un formato delimitato, è possibile usare Microsoft Excel per analizzare i dati. Vedere [Strumento client di Archiviazione di Azure](storage-explorers.md) per un elenco di strumenti di esplorazione di archiviazione disponibili. È possibile configurare gli avvisi nel riquadro **Regole di avviso**, accessibile da **Monitoraggio** nel riquadro del menu dell'account di archiviazione.

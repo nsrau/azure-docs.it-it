@@ -14,15 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8907619b802d93cee4463a80155f38ce9030948f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 682e2969725b6ade39f639c7a9fff95ec64703a2
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129672"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492946"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: cronologia delle versioni
 Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect Health con nuove funzionalità. Questo articolo elenca le versioni e le funzionalità che sono state rilasciate.
+Azure AD Connect Health per la sincronizzazione è integrato con l'installazione di Azure AD Connect. Altre informazioni sulla [cronologia versioni di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+
+
+## <a name="august-2018"></a>Agosto 2018 
+*  Agente di Azure AD Connect Health per la sincronizzazione (versione 3.1.7.0) rilasciato con Azure AD Connect versione 1.1.880.0    
+   1. Hotfix per il [problema dell'utilizzo elevato della CPU da parte dell'agente di monitoraggio con le versioni KB di .NET Framework](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
 
 ## <a name="june-2018"></a>Giugno 2018 
 **Nuove funzionalità di anteprima:** 
@@ -30,10 +36,10 @@ Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect Health 
 
 **Aggiornamento dell'agente:** 
 *  Agente di Azure AD Connect Health per Active Directory Domain Services (versione 3.1.7.0)    
-   1. Hotfix per il problema dell'utilizzo elevato della CPU da parte dell'agente di monitoraggio con le versioni KB di .NET Framework
-
+   1. Hotfix per il [problema dell'utilizzo elevato della CPU da parte dell'agente di monitoraggio con le versioni KB di .NET Framework](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
+   
 *   Agente di Azure AD Connect Health per Active Directory Federation Services (versione 3.1.7.0)  
-   1. Hotfix per il problema dell'utilizzo elevato della CPU da parte dell'agente di monitoraggio con le versioni KB di .NET Framework  
+   1. Hotfix per il [problema dell'utilizzo elevato della CPU da parte dell'agente di monitoraggio con le versioni KB di .NET Framework](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
    2. Correzioni di risultati di test nel server secondario di ADFS Server 2016
    
 *   Agente di Azure AD Connect Health per Active Directory Federation Services (versione 3.1.2.0)  
@@ -51,7 +57,7 @@ Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect Health 
  2. Miglioramenti privacy agente  
  3. Correzioni di bug e miglioramenti generali
 
-* Agente di Azure AD Connect Health per la sincronizzazione (versione 3.0.164.0) rilasciato con Azure AD Connect versione 1.1.819.0
+* Agente di Azure AD Connect Health per la sincronizzazione (versione 3.0.164.0) rilasciato con Azure AD Connect versione 1.1.819.0 
  1. Miglioramenti privacy agente  
  2. Correzioni di bug e miglioramenti generali
 
@@ -68,7 +74,7 @@ Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect Health 
 *   Agente di Azure AD Connect Health per AD FS (versione 3.0.176.0)
   1. Miglioramenti della disponibilità dell'agente 
   2. Correzioni di bug e miglioramenti generali
-* Agente di Azure AD Connect Health per la sincronizzazione (versione 3.0.176.0)
+* Agente di Azure AD Connect Health per la sincronizzazione (versione 3.0.129.0) rilasciato con Azure AD Connect versione 1.1.750.0  
   1. Miglioramenti della disponibilità dell'agente 
   2. Correzioni di bug e miglioramenti generali
 

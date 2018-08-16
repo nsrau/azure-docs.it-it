@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004772"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525553"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -43,7 +43,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Letture di dispositivi e moduli gemelli <sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Aggiornamenti di dispositivi e moduli gemelli <sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Operazioni dei processi<sup>1</sup> <br/> (creazione, aggiornamento, elenco, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
-| Velocità effettiva delle operazioni dei processi per dispositivo<sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
+| Operazioni dei dispositivi dei processi<sup>1</sup> <br/> (aggiornamento del dispositivo gemello, chiamata del metodo diretto) | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Configurazioni e distribuzioni Edge<sup>1</sup> <br/> (creazione, aggiornamento, elenco, eliminazione) | 0,33/sec/unità (20/min/unità) | 0,33/sec/unità (20/min/unità) | 0,33/sec/unità (20/min/unità) |
 
 

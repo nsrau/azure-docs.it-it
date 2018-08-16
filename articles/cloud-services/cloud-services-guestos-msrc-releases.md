@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/6/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902164"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522306"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+
+## <a name="july-guest-os"></a>Sistema operativo guest di luglio
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 18-07 | [4338814] |Sicurezza di Windows 10 |5.21 |10 luglio 2018 |
+| Rel 18-07 | [4338823] |Solo sicurezza di Windows |2.76 |10 luglio 2018 |
+| Rel 18-07 | [4338820] |Solo sicurezza di Windows |3.63 |10 luglio 2018 |
+| Rel 18-07 | [4338824] |Solo sicurezza di Windows |4.56 |10 luglio 2018 |
+| Rel 18-07 | [4345459] |Aggiornamento del rollup della sicurezza |2.76 |10 luglio 2018 |
+| Rel 18-07 | [4345425] |Aggiornamento del rollup della sicurezza |3.63 |10 luglio 2018 |
+| Rel 18-07 | [4345424] |Aggiornamento del rollup della sicurezza |4.56 |10 luglio 2018 |
+| Rel 18-07 | [4345418] |Aggiornamento del rollup della sicurezza |5.21 |10 luglio 2018 |
+| Rel 18-07 | [4338612], [4338602] |Sicurezza .NET 3.5, 4.x |2.76 |10 luglio 2018 |
+| Rel 18-07 | [4338601], [4338604] |Sicurezza .NET 3.5, 4.x, 4.5x |3.63 |10 luglio 2018 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |Sicurezza .NET 3.5, 4.x, 4.5x |4.56|10 luglio 2018 |
+| Rel 18-07 | [4338832] |Lampeggiante |3.63, 4.76, 5.21 |10 luglio 2018 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |10 luglio 2018 |
+| N/D | [4284826] |Rollup del mese di giugno non correlato alla sicurezza |2.76 |12 giugno 2018 |
+| N/D | [4284855] |Rollup del mese di giugno non correlato alla sicurezza |3.63 |12 giugno 2018 |
+| N/D | [4284815] |Rollup del mese di giugno non correlato alla sicurezza |4.56 |12 giugno 2018 |
 
 ## <a name="june-guest-os"></a>Sistema operativo guest di giugno
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -674,6 +695,28 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867

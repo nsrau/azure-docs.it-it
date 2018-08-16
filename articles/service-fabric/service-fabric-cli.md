@@ -6,14 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 370c8521127ffc28cc1b604c217544bccc82d705
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763358"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495945"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -21,11 +21,11 @@ L'interfaccia della riga di comando di Azure Service Fabric è un'utilità della
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima dell'installazione, verificare che nell'ambiente siano installati sia Python che pip. Per informazioni, vedere la [documentazione rapida di pip](https://pip.pypa.io/en/latest/quickstart/) e la [documentazione sull'installazione di Python](https://wiki.python.org/moin/BeginnersGuide/Download) ufficiale.
 
-L'interfaccia della riga di comando supporta Python versione 2.7, 3.5 e 3.6. Python 3.6 è la versione consigliata, perché Python 2.7 raggiungerà presto la fine del supporto.
+L'interfaccia della riga di comando supporta Python versione 2.7, 3.5, 3.6 e 3.7. Python 3.x è la versione consigliata, perché Python 2.7 raggiungerà presto la fine del supporto.
 
 ### <a name="service-fabric-target-runtime"></a>Runtime di destinazione di Service Fabric
 
@@ -33,7 +33,8 @@ L'interfaccia della riga di comando di Service Fabric è progettata per supporta
 
 | Versione dell'interfaccia della riga di comando   | Versione runtime supportata |
 |---------------|---------------------------|
-| Più recente (~=5)  | Più recente (~=6.2)            |
+| Più recenti (~=6)  | Più recenti (~=6.3)            |
+| 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
@@ -56,11 +57,11 @@ Per altre informazioni sulle versioni dell'interfaccia della riga di comando di 
 
 Per Windows 10, Windows Server 2016 e Windows Server 2012 R2 usare le istruzioni di installazione standard ufficiali. Il programma di installazione di Python installa anche pip per impostazione predefinita.
 
-1. Passare alla [pagina di download di Python](https://www.python.org/downloads/) ufficiale e scaricare la versione più recente di Python 3.6.
+1. Passare alla [pagina di download di Python](https://www.python.org/downloads/) ufficiale e scaricare la versione più recente di Python 3.7.
 
 2. Avviare il programma di installazione.
 
-3. Nella parte inferiore del prompt selezionare **Add Python 3.6 to PATH** (Aggiungi Python 3.6 a PATH).
+3. Nella parte inferiore del prompt selezionare **Add Python 3.7 to PATH** (Aggiungi Python 3.7 a PATH).
 
 4. Selezionare **Install Now** (Installa) e completare l'installazione.
 
@@ -113,7 +114,7 @@ sudo pip3 install sfctl
 
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (supporto per l'anteprima di Service Fabric)
 
-Per installare l'interfaccia della riga di comando di Service Fabric su Redhat, eseguire questi comandi:
+Per installare l'interfaccia della riga di comando di Service Fabric su Red Hat, eseguire questi comandi:
 
 ```bash
 sudo yum install -y python34
@@ -133,7 +134,7 @@ Per MacOS è consigliabile usare la [gestione pacchetti HomeBrew](https://brew.s
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Dal terminale installare quindi Python 3.6, pip e l'interfaccia della riga di comando di Service Fabric eseguendo i comandi seguenti:
+Dal terminale installare quindi Python 3.7, pip e l'interfaccia della riga di comando di Service Fabric eseguendo i comandi seguenti:
 
 ```bash
 brew install python3

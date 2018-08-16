@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9934e9757b5def444afb39d110e490aa6516521f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 52bbf93d73af281f3959e056a4d5b959e7286cb5
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045076"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590331"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,15 +37,17 @@ In particolare, il connettore SAP Business Warehouse supporta:
 - La copia di dati da **InfoCube e QueryCube** (incluse query BEx) tramite query MDX.
 - La copia di dati usando l'autenticazione di base.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare il connettore SAP Business Warehouse, è necessario:
 
 - Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
 - Installare la **libreria SAP NetWeaver** nel computer del runtime di integrazione. È possibile ottenere la libreria SAP Netweaver dal proprio amministratore SAP o direttamente dall'[area per il download di software SAP](https://support.sap.com/swdc). Per ottenere il percorso di download della versione più recente, cercare **SAP Note #1025361**. Assicurarsi di selezionare la libreria SAP NetWeaver a **64 bit**, che corrisponde all'installazione del runtime di integrazione in uso. Installare quindi tutti i file inclusi in SAP NetWeaver RFC SDK in base alla nota SAP. La libreria SAP NetWeaver è inclusa anche nell'installazione degli strumenti client SAP.
 
-> [!TIP]
-> Inserire le DLL estratte dall'SDK di NetWeaver RFC nella cartella system32.
+>[!TIP]
+>Per risolvere un problema di connettività a SAP BW, assicurarsi che:
+>- Tutte le librerie di dipendenza estratte da NetWeaver RFC SDK siano disponibili nella cartella %windir%\system32. In genere la cartella contiene icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll.
+>- Le porte necessarie per la connessione al server SAP siano abilitate nel computer del runtime di integrazione self-hosted. In genere sono le porte 3300 e 3201.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -59,13 +61,13 @@ Per il servizio collegato di SAP Business Warehouse (BW) sono supportate le prop
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapBw** | Sì |
-| server | Nome del server in cui si trova l'istanza di SAP BW. | Sì |
-| systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | Sì |
-| clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | Sì |
-| userName | Nome dell'utente che ha accesso al server SAP. | Sì |
+| type | La proprietà type deve essere impostata su: **SapBw** | Yes |
+| server | Nome del server in cui si trova l'istanza di SAP BW. | Yes |
+| systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | Yes |
+| clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | Yes |
+| userName | Nome dell'utente che ha accesso al server SAP. | Yes |
 | password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Yes |
 
 **Esempio:**
 
@@ -124,8 +126,8 @@ Per copiare dati da SAP BW, impostare il tipo di origine nell'attività di copia
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **RelationalSource** | Sì |
-| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **RelationalSource** | Yes |
+| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Yes |
 
 **Esempio:**
 

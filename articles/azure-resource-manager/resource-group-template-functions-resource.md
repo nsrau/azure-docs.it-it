@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3d2375b0b633beb56232e518202b09777f60cc8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824337"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524509"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risorse:
 
+* [listAccountSas](#list)
 * [listKeys](#listkeys)
 * [listSecrets](#list)
 * [list*](#list)
@@ -39,7 +40,9 @@ Per ottenere valori dai parametri, dalle variabili o dalla distribuzione corrent
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets e list*
+## <a name="listaccountsas-listkeys-listsecrets-and-list"></a>listAccountSas, listKeys, listSecrets e list*
+`listAccountSas(resourceName or resourceIdentifier, apiVersion, functionValues)`
+
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
 
 `listSecrets(resourceName or resourceIdentifier, apiVersion)`
@@ -52,8 +55,9 @@ Restituisce i valori per qualsiasi tipo di risorsa che supporta l'operazione di 
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sì |stringa |Identificatore univoco della risorsa. |
-| apiVersion |Sì |stringa |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
+| resourceName o resourceIdentifier |Yes |stringa |Identificatore univoco della risorsa. |
+| apiVersion |Yes |stringa |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
+| functionValues |No  |object | Oggetto che contiene valori per la funzione. Specificare solo questo oggetto per le funzioni che supportano la ricezione di un oggetto con valori di parametro, ad esempio **listAccountSas** per un account di archiviazione. | 
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -80,7 +84,7 @@ Altre funzioni list possono avere formati di restituzione diversi. Per visualizz
 
 ### <a name="remarks"></a>Osservazioni
 
-Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Le operazioni disponibili non includono solo listKeys, ma anche operazioni come `list`, `listAdminKeys` e `listStatus`. Non è tuttavia possibile usare operazioni **list** che richiedono valori nel corpo della richiesta. L'operazione [List Account SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS), ad esempio, richiede parametri del corpo della richiesta come *signedExpiry*, quindi non è possibile usarla in un modello.
+Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Le operazioni disponibili non includono solo listKeys, ma anche operazioni come `list`, `listAdminKeys` e `listStatus`. L'operazione[List Account SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) richiede parametri del corpo della richiesta come *signedExpiry*. Per usare questa funzione in un modello, specificare un oggetto con i valori dei parametri del corpo.
 
 Per determinare quali tipi di risorse dispongono di un'operazione list, usare le opzioni seguenti:
 
@@ -100,37 +104,67 @@ Specificare la risorsa usando il nome della risorsa stessa o la [funzione resour
 
 ### <a name="example"></a>Esempio
 
-Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) seguente mostra come restituire le chiavi primaria e secondaria da un account di archiviazione nella sezione outputs.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) seguente mostra come restituire le chiavi primaria e secondaria da un account di archiviazione nella sezione outputs. Restituisce anche un token SAS per l'account di archiviazione. Per ottenere tale token, passa un oggetto alla funzione listAccountSas. Lo scopo di questo esempio è illustrare come usare le funzioni list. In genere, è necessario usare il token SAS in un valore di risorsa invece di restituirlo come valore di output. I valori di output vengono archiviati nella cronologia di distribuzione e non sono protetti. È necessario specificare un'ora di scadenza nel futuro per il completamento della distribuzione.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "storageAccountName": { 
-          "type": "string"
-      }
-  },
-  "resources": [
-    {
-      "name": "[parameters('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-          "type": "object",
-          "value": "[listKeys(parameters('storageAccountName'), '2016-12-01')]"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagename": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "southcentralus"
+        },
+        "requestContent": {
+            "type": "object",
+            "defaultValue": {
+                "signedServices": "b",
+                "signedResourceType": "c",
+                "signedPermission": "r",
+                "signedExpiry": "2018-08-20T11:00:00Z",
+                "signedResourceTypes": "s"
+            }
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('storagename')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "supportsHttpsTrafficOnly": false,
+                "accessTier": "Hot",
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "keys": {
+            "type": "object",
+            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
+        },
+        "accountSAS": {
+            "type": "object",
+            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('requestContent'))]"
+        }
     }
 }
 ``` 
@@ -138,13 +172,13 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
 ```
 
 <a id="providers" />
@@ -158,7 +192,7 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sì |stringa |Spazio dei nomi del provider |
+| providerNamespace |Yes |stringa |Spazio dei nomi del provider |
 | resourceType |No  |stringa |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -246,7 +280,7 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sì |stringa |Nome o identificatore univoco di una risorsa. |
+| resourceName o resourceIdentifier |Yes |stringa |Nome o identificatore univoco di una risorsa. |
 | apiVersion |No  |stringa |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
 | 'Full' |No  |stringa |Valore che specifica se restituire l'oggetto risorsa completo. Se non si specifica `'Full'`, viene restituito solo l'oggetto proprietà della risorsa. L'oggetto completo include valori quali l'ID e la posizione della risorsa. |
 
@@ -540,8 +574,8 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No  |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
 | resourceGroupName |No  |stringa |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
-| resourceType |Sì |stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
-| resourceName1 |Sì |stringa |Nome della risorsa. |
+| resourceType |Yes |stringa |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
+| resourceName1 |Yes |stringa |Nome della risorsa. |
 | resourceName2 |No  |stringa |Segmento successivo del nome della risorsa se la risorsa è annidata. |
 
 ### <a name="return-value"></a>Valore restituito

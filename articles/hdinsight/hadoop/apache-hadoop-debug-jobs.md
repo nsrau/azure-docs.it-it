@@ -1,25 +1,20 @@
 ---
-title: 'Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore - Azure | Microsoft Docs'
+title: 'Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore - Azure '
 description: Informazioni sui messaggi di errore che vengono visualizzati durante l'amministrazione di HDInsight con PowerShell e sulle operazioni da eseguire per risolvere i problemi.
 services: hdinsight
-tags: azure-portal
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 author: ashishthaps
-documentationcenter: ''
-ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 8952e1381d81d153a170f35dd3cfd3f60cd4f73a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00d09619db11ea0026f5386048f1c10a8f831948
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404757"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592782"
 ---
 # <a name="analyze-hadoop-logs"></a>Analizzare i log di Hadoop
 

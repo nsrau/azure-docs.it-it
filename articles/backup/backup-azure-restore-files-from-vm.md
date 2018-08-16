@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: pullabhk
-ms.openlocfilehash: 4be1ffcabed6667ab76ec790326a687d75c8b125
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: fecdb54af58faaf601ab74f89039a47e0d32e650
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958621"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493382"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -27,9 +27,9 @@ Backup di Azure offre la possibilità di ripristinare [dischi e macchine virtual
 
 ## <a name="mount-the-volume-and-copy-files"></a>Montare il volume e copiare i file
 
-Per ripristinare file o cartelle dal punto di recupero, passare alla macchina virtuale e scegliere il punto di recupero desiderato. 
+Per ripristinare file o cartelle dal punto di recupero, passare alla macchina virtuale e scegliere il punto di recupero desiderato.
 
-1. Accedere al [portale di Azure](http://portal.Azure.com) e nel menu a sinistra fare clic su **Macchine virtuali**. Nell'elenco delle macchine virtuali selezionare la macchina virtuale per aprirne il dashboard. 
+1. Accedere al [portale di Azure](http://portal.Azure.com) e, nel riquadro a sinistra, fare clic su **Macchine virtuali**. Nell'elenco delle macchine virtuali selezionare la macchina virtuale per aprirne il dashboard.
 
 2. Nel menu della macchina virtuale fare clic su **Backup** per aprire il dashboard Backup.
 
@@ -41,7 +41,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
 4. Nel menu a discesa **Selezionare il punto di ripristino**, selezionare il punto di ripristino contenente i file desiderati. Per impostazione predefinita, il punto di ripristino più recente è già selezionato.
 
-5. Per scaricare il software usato per copiare i file dal punto di ripristino, fare clic su **Download Executable** (Scarica eseguibile), per una VM Windows di Azure, oppure su **Scarica script**, per una VM Linux di Azure. 
+5. Per scaricare il software usato per copiare i file dal punto di ripristino, fare clic su **Download Executable** (Scarica eseguibile), per una VM Windows di Azure, oppure su **Scarica script**, per una VM Linux di Azure.
 
     ![Password generata](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -62,31 +62,33 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
     Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
 
     - download.microsoft.com
-    - [Endpoint di Azure usati per i backup di VM di Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
+    - URL di servizi di ripristino (il nome geografico si riferisce all'area in cui si trova l'insieme di credenziali di servizi di ripristino)
+        - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Per aree geografiche pubbliche di Azure)
+        - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Per Azure Cina)
+        - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Per Azure per enti pubblici statunitensi)
+        - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Per Azure Germania)
     - porta in uscita 3260
 
     Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se i componenti non sono presenti nel computer in cui viene eseguito, lo script chiede l'autorizzazione per installarli. Acconsentire all'installazione dei componenti necessari.
-    
-    Per accedere a download.microsoft.com è necessario scaricare i componenti usati per creare un canale sicuro tra il computer in cui viene eseguito lo script e i dati nel punto di ripristino.         
+
+    Per accedere a download.microsoft.com è necessario scaricare i componenti usati per creare un canale sicuro tra il computer in cui viene eseguito lo script e i dati nel punto di ripristino.
 
     È possibile eseguire lo script in qualsiasi computer con lo stesso sistema operativo (o compatibile) della macchina virtuale sottoposta a backup. Vedere la [tabella di sistemi operativi compatibili](backup-azure-restore-files-from-vm.md#system-requirements) per informazioni in proposito. Se la macchina virtuale di Azure protetta usa Spazi di archiviazione Windows (per VM Windows di Azure) o array RAID/LVM (per VM Linux), non è possibile eseguire il file eseguibile o lo script nella stessa macchina virtuale. Eseguire invece il file eseguibile o lo script in qualsiasi altro computer con un sistema operativo compatibile.
- 
 
 ### <a name="identifying-volumes"></a>Identificazione dei volumi
 
 #### <a name="for-windows"></a>Per Windows
 
 Quando si esegue il file eseguibile, il sistema operativo monta i nuovi volumi e assegna lettere di unità. È possibile usare Esplora risorse o Esplora file per individuare queste unità. Le lettere di unità assegnate ai volumi potrebbero non essere le stesse lettere della macchina virtuale originale; il nome del volume viene tuttavia mantenuto. Il volume della macchina virtuale originale "Disco dati (E:`\`)", ad esempio, può essere collegato nel computer locale come "Disco dati ('Qualsiasi lettera':`\`)". Esplorare tutti i volumi indicati nell'output dello script fino a individuare il file o la cartella.  
-       
+
    ![Menu Ripristino file](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
-           
+
 #### <a name="for-linux"></a>Per Linux
 
 In Linux i volumi del punto di ripristino sono montati nella cartella in cui viene eseguito lo script. I dischi collegati, i volumi e i percorsi di montaggio corrispondenti vengono visualizzati di conseguenza. Questi percorsi di montaggio sono visibili agli utenti con accesso a livello radice. Esplorare i volumi indicati nell'output dello script.
 
   ![Menu Ripristino file per Linux](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
   
-
 ## <a name="closing-the-connection"></a>Chiusura della connessione
 
 Dopo avere identificato i file e averli copiati in un percorso di archiviazione locale, rimuovere o smontare le unità aggiuntive. Per smontare le unità, nel menu **Ripristino file** del portale di Azure fare clic su **Unmount Disks** (Smonta dischi).
@@ -101,10 +103,10 @@ In Linux, dopo che la connessione al punto di ripristino viene interrotta, il si
 
 ### <a name="dynamic-disks"></a>Dischi dinamici
 
-Se la VM di Azure protetta ha volumi con una o entrambe le caratteristiche seguenti, non è possibile eseguire lo script eseguibile nella stessa VM. 
+Se la VM di Azure protetta ha volumi con una o entrambe le caratteristiche seguenti, non è possibile eseguire lo script eseguibile nella stessa VM.
 
-  - Volumi che includono più dischi (volumi con spanning e con striping)
-  - Volumi a tolleranza di errore (volume RAID-5 e con mirroring) in dischi dinamici 
+    - Volumi che includono più dischi (volumi con spanning e con striping)
+    - Volumi a tolleranza di errore (volume RAID-5 e con mirroring) in dischi dinamici
 
 Eseguire invece lo script eseguibile in qualsiasi altro computer con un sistema operativo compatibile.
 
@@ -121,40 +123,47 @@ In Linux vengono usati la gestione dei volumi logici (LVM) e/o le matrici RAID s
 L'output dello script seguente mostra dischi e volumi di array RAID e/o LVM con il tipo di partizione.
 
    ![Menu dell'output per LVM in Linux](./media/backup-azure-restore-files-from-vm/linux-LVMOutput.png)
-   
-Per portare online queste partizioni, eseguire i comandi riportati nelle sezioni successive. 
 
-**Per le partizioni LVM**
+Per portare online queste partizioni, eseguire i comandi riportati nelle sezioni successive.
+
+#### <a name="for-lvm-partitions"></a>Per le partizioni LVM
 
 Per ottenere un elenco dei nomi del gruppo di volumi in un volume fisico:
+
+```bash
+#!/bin/bash
+$ pvs <volume name as shown above in the script output>
 ```
-$ pvs <volume name as shown above in the script output> 
-```
+
 Per ottenere un elenco di tutti i volumi logici, dei nomi e dei relativi percorsi in un gruppo di volumi:
 
-```
-$ lvdisplay <volume-group-name from the pvs command’s results> 
+```bash
+#!/bin/bash
+$ lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 Per montare i volumi logici nel percorso scelto.
 
-```
+```bash
+#!/bin/bash
 $ mount <LV path> </mountpath>
 ```
 
-
-
-**Per le matrici RAID**
+#### <a name="for-raid-arrays"></a>Per le matrici RAID
 
 Il comando seguente visualizza informazioni dettagliate su tutti i dischi RAID.
 
-```
+```bash
+#!/bin/bash
 $ mdadm –detail –scan
 ```
+
  Il disco RAID pertinente viene visualizzato come `/dev/mdm/<RAID array name in the protected VM>`
 
 Usare il comando mount se il disco RAID dispone di volumi fisici.
-```
+
+```bash
+#!/bin/bash
 $ mount [RAID Disk Path] [/mountpath]
 ```
 
@@ -162,9 +171,9 @@ Se nel disco RAID è configurata un'altra LVM, seguire la procedura precedente p
 
 ## <a name="system-requirements"></a>Requisiti di sistema
 
-### <a name="for-windows"></a>Per Windows
+### <a name="for-windows-os"></a>Per il sistema operativo Windows
 
-La tabella seguente illustra la compatibilità tra i sistemi operativi del server e del computer. Quando si esegue il ripristino di file, non è possibile ripristinare i file in una versione precedente o successiva del sistema operativo. Ad esempio, non è possibile ripristinare un file da una VM Windows Server 2016 a un computer Windows Server 2012 o Windows 8. È possibile ripristinare i file da una VM allo stesso sistema operativo server o al sistema operativo client compatibile.   
+La tabella seguente illustra la compatibilità tra i sistemi operativi del server e del computer. Quando si esegue il ripristino di file, non è possibile ripristinare i file in una versione precedente o successiva del sistema operativo. Ad esempio, non è possibile ripristinare un file da una VM Windows Server 2016 a un computer Windows Server 2012 o Windows 8. È possibile ripristinare i file da una VM allo stesso sistema operativo server o al sistema operativo client compatibile.
 
 |Sistema operativo del server | Sistema operativo compatibile del client  |
 | --------------- | ---- |
@@ -201,10 +210,10 @@ Se si verificano problemi durante il ripristino di file dalle macchine virtuali,
 
 | Messaggio di errore/scenario | Possibile causa | Azione consigliata |
 | ------------------------ | -------------- | ------------------ |
-| Output del file exe: *Eccezione di connessione alla destinazione.* |Lo script non è in grado di accedere al punto di ripristino | Controllare se il computer soddisfa i requisiti di accesso indicati in precedenza. |  
-|   Output del file exe: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. È possibile che NON siano installati con le stesse lettere di unità della VM originale. Esplorare tutti i volumi disponibili in Esplora file per il file |
-| Output di file exe: *Questo script non è valido perché è necessario smontare i dischi tramite il portale/è stato superato il limite di 12 ore. Scaricare un nuovo script dal portale.* | I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore |    Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe|
-| Nella macchina virtuale in cui viene eseguito il file con estensione exe: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di disinstallazione |    L'iniziatore ISCSI nella macchina virtuale non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache |    Attendere alcuni minuti dopo la pressione del pulsante per smontare. Se i nuovi volumi non sono ancora stati smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile|
-| Output del file exe: lo script viene eseguito correttamente ma l'output indicante nuovi volumi associati non viene visualizzato nell'output dello script | Si tratta di un errore temporaneo   | I volumi sono stata già associati. Aprire Explorer per visualizzare lo stato. Se si sta usando la stessa macchina virtuale per eseguire gli script ogni volta, è consigliabile riavviare la macchina; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
+| Output del file exe: *Eccezione di connessione alla destinazione.* |Lo script non è in grado di accedere al punto di ripristino    | Controllare se il computer soddisfa i requisiti di accesso indicati in precedenza. |  
+| Output del file exe: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. È possibile che NON siano installati con le stesse lettere di unità della VM originale. Esplorare tutti i volumi disponibili in Esplora file per il file |
+| Output di file exe: *Questo script non è valido perché è necessario smontare i dischi tramite il portale/è stato superato il limite di 12 ore. Scaricare un nuovo script dal portale.* |    I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore | Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe|
+| Nella macchina virtuale in cui viene eseguito il file con estensione exe: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di disinstallazione | L'iniziatore iSCSI nella macchina virtuale non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache |    Attendere alcuni minuti dopo la pressione del pulsante per smontare. Se i nuovi volumi non sono ancora stati smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile|
+| Output del file exe: lo script viene eseguito correttamente ma l'output indicante nuovi volumi associati non viene visualizzato nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stata già associati. Aprire Explorer per visualizzare lo stato. Se si sta usando la stessa macchina virtuale per eseguire gli script ogni volta, è consigliabile riavviare la macchina; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
 | Specifico per Linux: non è possibile visualizzare i volumi desiderati | Il sistema operativo del computer in cui viene eseguito lo script potrebbe non riconoscere il file system sottostante della VM protetta | Controllare se il punto di ripristino è coerente con l'arresto anomalo del sistema o è coerente a livello di file. Se è coerente a livello di file, eseguire lo script in un altro computer il cui sistema operativo riconosce il file system della VM protetta |
 | Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in stato offline, provare a renderlo online facendo clic con il pulsante destro del mouse sul disco e fare clic su "Online"|

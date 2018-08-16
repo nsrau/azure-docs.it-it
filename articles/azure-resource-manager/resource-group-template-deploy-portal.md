@@ -4,25 +4,23 @@ description: Utilizzare il portale di Azure e Azure Resource Manager per distrib
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c16d584f17aa2c209c9c0ec94d35f6fe78ba1907
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603726"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494085"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure
 
-Questo argomento illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per distribuire le risorse di Azure. Per altre informazioni sulla gestione delle risorse, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
+Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per distribuire le risorse di Azure. Per altre informazioni sulla gestione delle risorse, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
@@ -79,6 +77,9 @@ Dopo aver creato il gruppo di risorse, è possibile distribuire le risorse da Ma
 ## <a name="deploy-resources-from-custom-template"></a>Distribuire risorse da un modello personalizzato
 
 Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace, è possibile creare un modello personalizzato che definisce l'infrastruttura per la soluzione. Per informazioni sulla creazione di modelli, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
+
+> [!NOTE]
+> L'interfaccia del portale non supporta alcun riferimento a un [segreto dell'insieme di credenziali delle chiavi](resource-manager-keyvault-parameter.md). Usare invece [PowerShell](resource-group-template-deploy.md) oppure l'[interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md) per distribuire il modello in locale o da un URI esterno.
 
 1. Per distribuire un modello personalizzato tramite il portale, selezionare **Crea una risorsa** e quindi cercare **Distribuzione modello** fino a quando non è selezionabile nelle opzioni.
 

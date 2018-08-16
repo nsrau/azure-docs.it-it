@@ -1,25 +1,20 @@
 ---
-title: Installare un'applicazione pubblicata - H2O Sparkling Water - HDInsight di Azure | Microsoft Docs
+title: Installare un'applicazione pubblicata - H2O Sparkling Water - Azure HDInsight
 description: Installare e usare l'applicazione Hadoop di terze parti H2O Sparkling Water.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e3c80fe824d87c15a710b133c8e6cddf4ee0e096
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e1e43bc06b30959bc5e7e692d88bd0d053a03ad4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856556"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593554"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Installare un'applicazione pubblicata - H2O Sparkling Water
 
@@ -44,7 +39,7 @@ H2O Sparkling Water offre:
 * [Supporto per H2O.ai](https://support.h2o.ai/)
 * [Base di codici open-source H2O.ai](https://github.com/h2oai/)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per installare questa app in un nuovo cluster HDInsight o in un cluster esistente, è necessario disporre della configurazione seguente:
 

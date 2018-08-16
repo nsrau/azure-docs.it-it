@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 600068113fec0549f3993ac57c1daa93577c6be6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 2a3e94d37a926bd36b780b45eb3d6cb29fb73597
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399754"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521755"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
 
@@ -192,6 +192,6 @@ Vedere gli articoli seguenti:
   * [Proteggere i contenuti con la crittografia AES](protect-with-aes128.md)
   * [Proteggere con DRM](protect-with-drm.md)
 
-Altre informazioni sono reperibili nell'articolo sulla [progettazione e l'implementazione di DRM](../previous/media-services-cenc-with-multidrm-access-control.md)
+Per altre informazioni, vedere [Progettazione di un sistema di protezione del contenuto con il controllo di accesso](design-multi-drm-system-with-access-control.md)
 
 

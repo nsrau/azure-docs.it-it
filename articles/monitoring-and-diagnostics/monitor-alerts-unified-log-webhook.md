@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264256"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426694"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
 Quando [viene creato un avviso in Avvisi di Azure](monitor-alerts-unified-usage.md), è possibile scegliere di [configurarlo con gruppi di azioni](monitoring-action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
@@ -53,6 +53,8 @@ I webhook includono un URL e un payload in fermato JSON che corrisponde ai dati 
 | ID applicazione |#applicationid |ID dell'app Application Insights. |
 | ID sottoscrizione |#subscriptionid |ID della sottoscrizione di Azure usata con Application Insights. 
 
+> [!NOTE]
+> LinkToSearchResults passa i parametri come SearchQuery, Ora di inizio dell'intervallo di ricerca e Ora di fine dell'intervallo di ricerca nell'URL al portale di Azure per visualizzarli nella sezione relativa all'analisi. Il portale di Azure ha un limite di dimensione dell'URI di circa 2.000 caratteri e verrà aperto se i valori dei parametri superano questo limite. Gli utenti possono immettere manualmente i dettagli per visualizzare i risultati nel portale Analytics o usare l'[API REST di Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) o l'[API REST di Log Analytics](https://dev.loganalytics.io/reference) per recuperare i risultati a livello di codice 
 
 Ad esempio, è possibile specificare il payload personalizzato seguente che include un singolo parametro denominato *text*.  Il servizio chiamato da questo webhook si aspetta questo parametro.
 

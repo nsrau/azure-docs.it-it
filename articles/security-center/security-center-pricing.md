@@ -3,7 +3,7 @@ title: Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la si
 description: Questo articolo fornisce informazioni sui prezzi del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
-ms.author: terrylan
-ms.openlocfilehash: 0a8fb526602692db6737842c24649b686bea5dad
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.date: 08/06/2018
+ms.author: rkarlin
+ms.openlocfilehash: 824362c5dab9f226aff84e75b6620221d3a9147f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23473935"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528478"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione a minacce e il rilevamento intelligente che consente di tenere il passo con gli attacchi informatici in rapida evoluzione.
@@ -35,7 +35,7 @@ Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.co
 ## <a name="try-standard-free-for-60-days"></a>Prova gratuita del livello Standard per 60 giorni
 Il livello Standard è gratuito per i primi 60 giorni. Al termine dei 60 giorni, se si sceglie di continuare a usare il servizio, l'uso verrà addebitato automaticamente.
 
-È possibile aggiornare tutta la sottoscrizione di Azure al piano Standard, che viene ereditata da tutte le risorse all'interno della sottoscrizione oppure definire un criterio univoco per l'aggiornamento a un solo gruppo specifico di risorse.
+È possibile aggiornare una sottoscrizione completa di Azure al piano Standard, che viene ereditata da tutte le risorse all'interno della sottoscrizione.
 
 Per ottenere il livello Standard:
 

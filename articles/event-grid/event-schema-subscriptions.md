@@ -6,20 +6,28 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3303050311a30473bb973ac4f49bbeb707c16a33
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173810"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493575"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Schema di eventi di Griglia di eventi di Azure per le sottoscrizioni
 
 Questo articolo illustra le proprietà e lo schema per gli eventi della sottoscrizione di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
 I gruppi di risorse e le sottoscrizioni di Azure generano gli stessi tipi di evento. I tipi di evento sono relativi alle modifiche nelle risorse. La differenza principale è che i gruppi di risorse generano eventi per le risorse all'interno del gruppo di risorse, mentre le sottoscrizioni di Azure generano eventi per le risorse all'interno della sottoscrizione.
+
+Gli eventi per le risorse vengono creati per le operazioni PUT, PATCH e DELETE inviate a `management.azure.com`. Le operazioni GET e POST non creano eventi. Le operazioni inviate al piano dati (ad esempio `myaccount.blob.core.windows.net`) non creano alcun evento.
+
+Quando ci si iscrive agli eventi in una sottoscrizione di Azure, l'endpoint riceve tutti gli eventi per tale sottoscrizione. Gli eventi possono includere l'evento che si desidera visualizzare, ad esempio l'aggiornamento di una macchina virtuale, ma anche eventi probabilmente non importanti, come ad esempio la scrittura di una nuova voce nella cronologia di distribuzione. È possibile ricevere tutti gli eventi in corrispondenza dell'endpoint e scrivere il codice che elabora gli eventi che si desidera gestire, oppure impostare un filtro quando si crea la sottoscrizione dell'evento.
+
+Per gestire gli eventi a livello di programmazione, è possibile ordinare gli eventi esaminando il valore `operationName`. Ad esempio, l'endpoint dell'evento potrebbe elaborare solo gli eventi per le operazioni uguali a `Microsoft.Compute/virtualMachines/write` o `Microsoft.Storage/storageAccounts/write`.
+
+L'oggetto dell'evento è l'ID risorsa della risorsa di destinazione dell'operazione. Per filtrare gli eventi per una risorsa, fornire l'ID della risorsa quando si crea la sottoscrizione dell'evento. Per gli script di esempio, vedere [Subscribe and filter for resource group - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) (Eseguire la sottoscrizione e applicare un filtro per gruppo di risorse - PowerShell) oppure [Subscribe and filter for resource group - Azure CLI](scripts/event-grid-cli-resource-group-filter.md) (Eseguire la sottoscrizione e applicare un filtro per gruppo di risorse - Interfaccia della riga di comando di Azure). Per filtrare in base a un tipo di risorsa, usare un valore nel formato seguente: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 ## <a name="available-event-types"></a>Tipi di evento disponibili
 
@@ -36,7 +44,7 @@ Le sottoscrizioni di Azure generano eventi di gestione da Azure Resource Manager
 
 ## <a name="example-event"></a>Evento di esempio
 
-L'esempio seguente illustra lo schema di un evento creato da una risorsa: 
+L'esempio seguente illustra lo schema di un evento **ResourceWriteSuccess**. Lo stesso schema viene usato per gli eventi **ResourceWriteFailure** e **ResourceWriteCancel** con valori diversi per `eventType`.
 
 ```json
 [{
@@ -96,7 +104,7 @@ L'esempio seguente illustra lo schema di un evento creato da una risorsa:
 }]
 ```
 
-Lo schema di un evento eliminato da una risorsa è simile:
+L'esempio seguente illustra lo schema di un evento **ResourceDeleteSuccess**. Lo stesso schema viene usato per gli eventi **ResourceDeleteFailure** e **ResourceDeleteCancel** con valori diversi per `eventType`.
 
 ```json
 [{
@@ -184,7 +192,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | autorizzazione | object | L'autorizzazione richiesta per l'operazione. |
 | claims | object | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | stringa | Un ID operazione per la risoluzione dei problemi. |
-| httpRequest | object | I dettagli dell'operazione. |
+| httpRequest | object | I dettagli dell'operazione. Questo oggetto è incluso soltanto quando si aggiorna una risorsa esistente o la si elimina. |
 | resourceProvider | stringa | Il provider della risorsa che esegue l'operazione. |
 | resourceUri | stringa | L'URI della risorsa nell'operazione. |
 | operationName | stringa | L'operazione che è stata eseguita. |

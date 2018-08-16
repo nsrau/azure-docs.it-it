@@ -1,6 +1,6 @@
 ---
-title: Registrazione convergente per la reimpostazione password self-service e MFA di Azure AD
-description: Registrazione per Multi-Factor Authentication e la reimpostazione password self-service di Azure AD
+title: Registrazione convergente per la reimpostazione della password self-service e MFA di Azure AD (anteprima pubblica)
+description: Registrazione per Multi-Factor Authentication e la reimpostazione password self-service di Azure AD (anteprima pubblica)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415654"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492893"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>Registrazione convergente per la reimpostazione password self-service e Azure Multi-Factor Authentication
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Registrazione convergente per la reimpostazione password self-service e Azure Multi-Factor Authentication (anteprima pubblica)
 
 Gli utenti sono stati finora obbligati a registrare i metodi di autenticazione per Azure Multi-Factor Authentication (MFA) e la reimpostazione password self-service in due diversi portali. Il fatto che metodi simili fossero usati sia per Azure MFA che per la reimpostazione password self-service creava confusione in molti utenti che finivano per eseguire la registrazione in entrambi i portali. A causa di questa disparità alcuni utenti non riuscivano a usare Azure MFA o la reimpostazione password self-service quando era necessario e chiamavano il supporto tecnico o si sentivano contrariati. Gli utenti possono ora eseguire la registrazione una sola volta e usufruire dei vantaggi sia di Azure MFA che della reimpostazione password self-service, senza dover registrare due volte i metodi di autenticazione per queste funzionalità.  
 
@@ -71,10 +71,12 @@ Per questa nuova esperienza esistono log di controllo nella categoria Metodi di 
 ## <a name="known-issues"></a>Problemi noti
 
 **Il metodo MFA predefinito viene impostato sulla chiamata telefonica quando l'utente registra il telefono con un SMS**
-   * Alcuni utenti potrebbero notare che il metodo MFA predefinito viene impostato sulla chiamata telefonica dopo che hanno registrato il numero di telefono con un SMS. Per risolvere questo problema, gli utenti possono modificare il metodo predefinito seguendo queste istruzioni. 
+
+   * Alcuni utenti potrebbero notare che il metodo MFA predefinito viene impostato sulla chiamata telefonica dopo che hanno registrato il numero di telefono con un SMS. Gli utenti possono risolvere questo problema modificando il metodo predefinito, seguendo le istruzioni disponibili nell'articolo [Gestire le informazioni di sicurezza (anteprima)](../user-help/security-info-manage-settings.md#change-your-info).
 
 **Gli utenti non riescono ad accedere alla nuova esperienza di registrazione dopo che l'amministratore ha disabilito il metodo predefinito**
-   * Alcuni utenti potrebbero non riuscire ad accedere alla nuova esperienza di registrazione se il metodo MFA predefinito registrato in precedenza è stato disabilitato dall'amministratore. Di seguito è riportato uno scenario di esempio: 
+
+   * Alcuni utenti potrebbero non riuscire ad accedere alla nuova esperienza di registrazione se il metodo MFA predefinito registrato in precedenza è stato disabilitato dall'amministratore. Di seguito è riportato uno scenario di esempio:
       1. L'utente ha in precedenza registrato il numero di telefono e impostato il metodo predefinito sulla chiamata telefonica.
       2. L'amministratore disabilita la chiamata telefonica come metodo MFA per il tenant.
       3. All'utente viene chiesto di eseguire la registrazione durante l'accesso perché deve registrare un metodo aggiuntivo per soddisfare il criterio di reimpostazione password self-service del tenant.

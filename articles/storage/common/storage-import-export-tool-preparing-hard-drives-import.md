@@ -2,30 +2,24 @@
 title: Preparazione dei dischi rigidi per un processo di importazione di Importazione/Esportazione di Azure | Documentazione Microsoft
 description: Informazioni su come preparare i dischi rigidi usando lo strumento WAImportExport per creare un processo di importazione per il servizio Importazione/Esportazione di Azure.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.openlocfilehash: 2854822907e818297c8d2f74cab48b0afa0d646c
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.component: common
+ms.openlocfilehash: 9d8509e97ad83dd636f0a1b1892a2fa67c69e0b7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
-ms.locfileid: "23469240"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521796"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 
 WAImportExport è lo strumento di preparazione e ripristino delle unità che è possibile usare con il [servizio Importazione/Esportazione di Microsoft Azure](../storage-import-export-service.md). Questo strumento consente di copiare dati nei dischi rigidi da spedire a un data center di Azure. Al termine di un processo di importazione, è possibile usare lo strumento per ripristinare gli eventuali BLOB danneggiati, mancanti o in conflitto con altri BLOB. Dopo aver ricevuto le unità da un processo di esportazione completato, è possibile usare questo strumento per recuperare eventuali file danneggiati o mancanti nelle unità. In questo articolo viene esaminato il funzionamento di questo strumento.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="requirements-for-waimportexportexe"></a>Requisiti per WAImportExport.exe
 
@@ -113,7 +107,7 @@ H,Format,SilentMode,Encrypt,
 
 ### <a name="driveset-csv-file-fields"></a>Campi del file CSV driveset
 
-| Fields | Valore |
+| Campi | Valore |
 | --- | --- |
 | DriveLetter | **[Obbligatorio]**<br/> Ogni unità fornita allo strumento come destinazione deve includere un volume NTFS semplice e deve avere una lettera di unità assegnata.<br/> <br/>**Esempio**: R o r |
 | FormatOption | **[Obbligatorio]** Format &amp;#124; AlreadyFormatted<br/><br/> **Format**: se si specifica questo valore, tutti i dati sul disco vengono formattati. <br/>**AlreadyFormatted**: quando viene specificato questo valore, lo strumento ignora la formattazione. |
@@ -315,7 +309,7 @@ Se le dimensioni dei dati sono superiori alla dimensione del disco, lo strumento
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>Dove è reperibile la versione precedente dello strumento WAImportExport?
 
-WAImportExport include tutte le funzionalità dello strumento WAImportExport V1. Consente agli utenti di specificare più origini e scrivere in più unità. È inoltre possibile gestire con facilità più percorsi di origine da cui copiare i dati in un singolo file CSV. Tuttavia, se è necessario il supporto SAS o se si vuole copiare una singola origine in un solo disco, è possibile [scaricare lo strumento WAImportExport V1] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) e vedere [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) (Informazioni di riferimento su WAImportExport V1) per indicazioni sull'utilizzo di questo strumento.
+WAImportExport include tutte le funzionalità dello strumento WAImportExport V1. Consente agli utenti di specificare più origini e scrivere in più unità. È inoltre possibile gestire con facilità più percorsi di origine da cui copiare i dati in un singolo file CSV. Tuttavia, se è necessario il supporto SAS o se si vuole copiare una singola origine in un solo disco, è possibile [scaricare lo strumento WAImportExport V1] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) e vedere [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) (Informazioni di riferimento su WAImportExport V1) per indicazioni sull'uso di questo strumento.
 
 #### <a name="what-is-a-session-id"></a>Che cos'è l'ID sessione?
 
@@ -339,7 +333,7 @@ Per ogni disco rigido preparato con lo strumento Importazione/Esportazione di Az
 
 La directory dei log è una directory da usare per archiviare log dettagliati e file manifesto temporanei. Se non è specificata, come directory dei log viene usata la directory corrente. I log sono di tipo dettagliato.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 #### <a name="what-are-the-specifications-of-my-disk"></a>Quali sono le specifiche dei dischi?
 

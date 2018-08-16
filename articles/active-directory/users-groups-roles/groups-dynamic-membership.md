@@ -1,6 +1,6 @@
 ---
-title: Appartenenza dinamica ai gruppi basata su attributi in Azure Active Directory | Microsoft Docs
-description: Procedura per creare regole avanzate per l'appartenenza dinamica ai gruppi, inclusi i parametri e gli operatori supportati per le regole delle espressioni.
+title: Informazioni di riferimento sulle regole di appartenenza a gruppi dinamica automatica in Azure Active Directory | Microsoft Docs
+description: Come creare regole di appartenenza per popolare automaticamente i gruppi e informazioni di riferimento sulle regole.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,167 +10,63 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 08/01/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 9c0bb676cc59820d3ae83612893c8920d5d0aebe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248890"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424372"
 ---
-# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Creare gruppi dinamici con appartenenza basata su attributi in Azure Active Directory
+# <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
-In Azure Active Directory (Azure AD) è possibile creare regole complesse basate su attributi per abilitare appartenenze dinamiche per gruppi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi. È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365.
+In Azure Active Directory (Azure AD) è possibile creare regole complesse basate su attributi per abilitare appartenenze dinamiche per gruppi. L'appartenenza a gruppi dinamica riduce il sovraccarico amministrativo per l'aggiunta e la rimozione di utenti. Questo articolo descrive in dettaglio le proprietà e la sintassi per creare regole di appartenenza dinamica per utenti o dispositivi. È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365.
 
 Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica attiverà aggiunte o rimozioni nel gruppo. Se un utente o un dispositivo soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfano la regola, vengono rimossi.
+
+* Sebbene sia possibile creare un gruppo dinamico per i dispositivi o gli utenti, non è possibile creare una regola che contenga sia oggetti utente che dispositivo.
+* Non è possibile creare un gruppo di dispositivi in base agli attributi dei proprietari dei dispositivi. Le regole di appartenenza dei dispositivi possono fare riferimento solo agli attributi dei dispositivi.
 
 > [!NOTE]
 > Questa funzionalità richiede una licenza Azure AD Premium P1 per ogni utente univoco membro di almeno un gruppo dinamico. Perché gli utenti siano membri dei gruppi dinamici, non è obbligatorio che vengano effettivamente assegnate loro le licenze, ma è necessario avere il numero necessario di licenze nel tenant per coprire tutti gli utenti. Se ad esempio si ha un totale di 1.000 utenti univoci in tutti i gruppi dinamici del tenant, è necessario avere almeno 1.000 licenze di Azure AD Premium P1 per soddisfare il requisito delle licenze.
 >
-> Sebbene sia possibile creare un gruppo dinamico per i dispositivi o gli utenti, non è possibile creare una regola che contenga sia oggetti utente che dispositivo.
-> 
-> Al momento non è possibile creare un gruppo di dispositivi in base agli attributi dell'utente proprietario. Le regole di appartenenza dispositivo possono fare riferimento solo ad attributi immediati degli oggetti dispositivo nella directory.
 
-## <a name="to-create-an-advanced-rule"></a>Per creare una regola avanzata
+## <a name="constructing-the-body-of-a-membership-rule"></a>Creazione del corpo di una regola di appartenenza
 
-1. Accedere al [centro amministrativo Azure AD](https://aad.portal.azure.com) con un account di amministratore globale o amministratore di account utente.
-2. Selezionare **Utenti e gruppi**.
-3. Selezionare **Tutti i gruppi** e selezionare **Nuovo gruppo**.
+Una regola di appartenenza che popola automaticamente un gruppo con utenti o dispositivi è un'espressione binaria che restituisce un risultato true o false. Le tre parti di una regola semplice sono:
 
-   ![Aggiungere un nuovo gruppo](./media/groups-dynamic-membership/new-group-creation.png)
+* Proprietà
+* Operatore
+* Valore
 
-4. Nel pannello **Gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **Tipo di appartenenza** di **Utente dinamico** o **Dispositivo dinamico**, a seconda che si intenda creare una regola per gli utenti o per i dispositivi e quindi selezionare **Aggiungi query dinamica**. È possibile usare il generatore di regole per creare una regola semplice o scrivere una regola avanzata manualmente. Questo articolo contiene ulteriori informazioni sugli attributi disponibili per utenti e dispositivi, oltre a esempi di regole avanzate.
+L'ordine delle parti in un'espressione è importante per evitare gli errori di sintassi.
 
-   ![Aggiungere una regola di appartenenza dinamica](./media/groups-dynamic-membership/add-dynamic-group-rule.png)
+### <a name="rules-with-a-single-expression"></a>Regole con una singola espressione
 
-5. Dopo avere creato la regola, selezionare **Aggiungi query** nella parte inferiore del pannello.
-6. Selezionare **Crea** on the **Gruppo** per creare il gruppo.
+Una singola espressione è la forma più semplice per una regola di appartenenza e include solo le tre parti indicate in precedenza. Una regola con una singola espressione è simile a quanto segue: `Property Operator Value`, dove la sintassi per la proprietà è il nome di oggetto.proprietà.
 
-> [!TIP]
-> La creazione del gruppo non riesce se la regola che è stata immessa è in un formato non corretto o non è valida. Verrà visualizzata una notifica nell'angolo superiore destro del portale, che contiene una spiegazione dei motivi per cui la regola non è stata elaborata. Leggere attentamente per capire come occorre modificare la regola per renderla valida.
-
-## <a name="status-of-the-dynamic-rule"></a>Stato della regola dinamica
-
-È possibile visualizzare lo stato di elaborazione dell'appartenenza e la data dell'ultimo aggiornamento nella Pagina di panoramica per il gruppo dinamico.
-  
-  ![visualizzazione stato del gruppo dinamico](./media/groups-dynamic-membership/group-status.png)
-
-
-I seguenti messaggi di stato possono essere visualizzati per lo stato di **Elaborazione appartenenza**:
-
-* **Valutazione**: la modifica dei gruppi è stata ricevuta e gli aggiornamenti sono in fase di valutazione.
-* **Elaborazione**: gli aggiornamenti sono in fase di elaborazione.
-* **Aggiornamento completato**: l’elaborazione è stata completata e tutti gli aggiornamenti sono stati apportati.
-* **Errore di elaborazione**: si è verificato un errore durante la valutazione della regola di appartenenza e l'elaborazione non è stata completata.
-* **Aggiornamento sospeso**: regola di appartenenza dinamica, gli aggiornamenti sono stati sospesi dall'amministratore. MembershipRuleProcessingState è impostato su "Paused".
-
-I seguenti messaggi di stato possono essere visualizzati per lo stato dell'**Ultimo aggiornamento dell'appartenenza**:
-
-* &lt;**Data e ora**&gt;: ora dell'ultimo aggiornamento dell'appartenenza.
-* **In corso**: aggiornamenti in corso.
-* **Sconosciuto**: non è possibile recuperare l'orario dell'ultimo aggiornamento. Potrebbe essere dovuto alla recente creazione di un gruppo.
-
-Se si verifica un errore durante l'elaborazione della regola di appartenenza per un gruppo specifico, un avviso viene visualizzato nella parte superiore della **Pagina di panoramica** per il gruppo. Se non è possibile elaborare aggiornamenti in sospeso per l'appartenenza dinamica per tutti i gruppi all'interno del tenant per oltre 24 ore, viene visualizzato un avviso nella parte superiore di **Tutti i gruppi** .
-
-![messaggio di errore di elaborazione](./media/groups-dynamic-membership/processing-error.png)
-
-## <a name="constructing-the-body-of-an-advanced-rule"></a>Creazione del corpo di una regola avanzata
-
-La regola avanzata che è possibile creare per le appartenenze dinamiche ai gruppi è essenzialmente un'espressione binaria composta da tre parti che genera un risultato di tipo true o false. Di seguito sono elencate le tre parti:
-
-* Parametro sinistro
-* Operatore binario
-* Costante destra
-
-Una regola avanzata completa ha un aspetto simile al seguente: (leftParameter binaryOperator "RightConstant"), dove le parentesi di apertura e chiusura sono facoltative per l'intera espressione binaria, le virgolette doppie sono anch'esse facoltative e sono obbligatorie solo per la costante a destra quando si tratta di una stringa e la sintassi del parametro a sinistra è user.property. Una regola avanzata può includere più espressioni binarie separate dagli operatori logici -and, -or e -not.
-
-Di seguito sono riportati alcuni esempi di regola avanzata con il formato corretto:
-```
-(user.department -eq "Sales") -or (user.department -eq "Marketing")
-(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
-```
-Per l'elenco completo dei parametri supportati e degli operatori delle regole di espressione, vedere le sezioni riportate di seguito. Per gli attributi usati per le regole di dispositivo, vedere [Uso degli attributi per creare regole per gli oggetti dispositivo](#using-attributes-to-create-rules-for-device-objects).
-
-La lunghezza totale del corpo della regola avanzata non può superare i 2048 caratteri.
-
-> [!NOTE]
-> Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È anche possibile eseguire controlli Null usando *null* come costante, ad esempio user.department -eq *null*.
-> Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
-
-## <a name="supported-expression-rule-operators"></a>Operatori delle regole di espressione supportati
-
-Nella tabella seguente sono elencati tutti gli operatori delle regole di espressione supportati e la relativa sintassi da usare nel corpo della regola avanzata:
-
-| Operatore | Sintassi |
-| --- | --- |
-| Non uguale a |-ne |
-| Uguale a |-eq |
-| Non inizia con |-notStartsWith |
-| Inizia con |-startsWith |
-| Non contiene |-notContains |
-| Contiene |-contains |
-| Non corrispondente |-notMatch |
-| Corrispondente |-match |
-| In ingresso | -in |
-| Non incluso | -notIn |
-
-## <a name="operator-precedence"></a>Precedenza degli operatori
-
-Tutti gli operatori sono elencati di seguito per la precedenza da una posizione inferiore a quelli superiori. Gli operatori nella stessa riga hanno uguale precedenza:
-
-````
--any -all
--or
--and
--not
--eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-````
-
-Tutti gli operatori possono essere usati con o senza trattino come prefisso. Le parentesi sono necessarie solo quando la priorità non soddisfa i requisiti.
-Ad esempio: 
+Di seguito è riportato un esempio di regola di appartenenza strutturata correttamente con una singola espressione:
 
 ```
-   user.department –eq "Marketing" –and user.country –eq "US"
+user.department -eq "Sales"
 ```
 
-Equivale a:
-
-```
-   (user.department –eq "Marketing") –and (user.country –eq "US")
-```
-
-## <a name="using-the--in-and--notin-operators"></a>Uso degli operatori -In e -notIn
-
-Per confrontare il valore di un attributo utente con una serie di valori diversi è possibile usare gli operatori -In o -notIn. Di seguito è illustrato un esempio con l'operatore -In:
-```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
-```
-Si noti l'uso di "[" e "]" all'inizio e alla fine dell'elenco di valori. Questa condizione restituisce True se il valore di user.department è uguale a uno dei valori nell'elenco.
-
-
-## <a name="query-error-remediation"></a>Correzione degli errori di query
-
-La tabella seguente elenca gli errori comuni con la relativa risoluzione
-
-| Errore di analisi della query | Uso errato | Uso corretto |
-| --- | --- | --- |
-| Errore: l'attributo non è supportato |(user.invalidProperty -eq "Valore") |(user.department -eq "valore")<br/><br/>Verificare che l'attributo sia incluso nell'[elenco di proprietà supportate](#supported-properties). |
-| Errore: l'operatore non è supportato sull'attributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>L'operatore usato non è supportato per il tipo di proprietà, in questo esempio contains non può essere usato nel tipo booleano. Usare gli operatori corretti per il tipo di proprietà. |
-| Errore: si è verificato un errore di compilazione della query. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Operatore mancante. Usare i due predicati di join -and oppure -or<br/><br/>(user.department -eq "Vendite") -or (user.department -eq "Marketing")<br/><br/>2. Errore nell'espressione regolare usata con -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), in alternativa: (user.userPrincipalName -match "\@$")|
+Per una singola espressione le parentesi sono facoltative. La lunghezza totale del corpo della regola di appartenenza non può superare i 2048 caratteri.
 
 ## <a name="supported-properties"></a>Proprietà supportate
 
-Di seguito sono elencate tutte le proprietà utente che è possibile usare nelle regole avanzate:
+Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
+
+* boolean
+* string
+* Raccolta di tipi string
+
+Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
-
-Operatori consentiti
-
-* -eq
-* -ne
 
 | Properties | Valori consentiti | Uso |
 | --- | --- | --- |
@@ -178,19 +74,6 @@ Operatori consentiti
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
-
-Operatori consentiti
-
-* -eq
-* -ne
-* -notStartsWith
-* -startsWith
-* -contains
-* -notContains
-* -match
-* -notMatch
-* -in
-* -notIn
 
 | Properties | Valori consentiti | Uso |
 | --- | --- | --- |
@@ -221,44 +104,145 @@ Operatori consentiti
 | userPrincipalName |Qualsiasi valore stringa. |(user.userPrincipalName -eq "alias@domain") |
 | userType |membro guest *null* |(user.userType -eq "Membro") |
 
-### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
-
-Operatori consentiti
-
-* -contains
-* -notContains
+### <a name="properties-of-type-string-collection"></a>Proprietà di tipo raccolta di tipi string
 
 | Properties | Valori consentiti | Uso |
 | --- | --- | --- |
 | otherMails |Qualsiasi valore stringa. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+Per le proprietà usate per le regole dei dispositivi, vedere [Regole per i dispositivi](#rules-for-devices).
+
+## <a name="supported-operators"></a>Operatori supportati
+
+Nella tabella seguente sono elencati tutti gli operatori supportati e la relativa sintassi per un'espressione singola. Gli operatori possono essere usati con o senza trattino (-) come prefisso.
+
+| Operatore | Sintassi |
+| --- | --- |
+| Non uguale a |-ne |
+| Uguale a |-eq |
+| Non inizia con |-notStartsWith |
+| Inizia con |-startsWith |
+| Non contiene |-notContains |
+| Contiene |-contains |
+| Non corrispondente |-notMatch |
+| Corrispondente |-match |
+| In ingresso | -in |
+| Non incluso | -notIn |
+
+### <a name="using-the--in-and--notin-operators"></a>Uso degli operatori -In e -notIn
+
+Per confrontare il valore di un attributo utente con una serie di valori diversi è possibile usare gli operatori -In o -notIn. Usare i simboli di parentesi quadre "[" e "]" per iniziare e terminare l'elenco di valori.
+
+ Nell'esempio seguente l'espressione restituisce true se il valore di user.department è uguale a uno dei valori nell'elenco:
+
+```
+   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+```
+
+## <a name="supported-values"></a>Valori supportati
+
+I valori usati in un'espressione possono essere costituiti da tipi diversi, tra cui:
+
+* Stringhe
+* Valori booleani: true, false
+* Numeri
+* Matrici: matrice di numeri, matrice di stringhe
+
+Quando si specifica un valore in un'espressione, è importante usare la sintassi corretta per evitare errori. Ecco alcuni suggerimenti per la sintassi:
+
+* Le virgolette doppie sono facoltative, a meno che il valore non sia una stringa.
+* Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole.
+* Quando un valore stringa contiene virgolette doppie, per entrambe le virgolette deve venire usato il carattere di escape \`, ad esempio user.department -eq \`"Sales\`" è la sintassi corretta quando "Sales" è il valore.
+* È anche possibile eseguire controlli Null usando null come valore, ad esempio `user.department -eq null`.
+
+### <a name="use-of-null-values"></a>Uso dei valori Null
+
+Per specificare un valore Null in una regola, è possibile usare il valore *null*. 
+
+* Usare -eq o -ne quando si confronta il valore *null* in un'espressione.
+* Racchiudere la parola *null* tra virgolette solo se si vuole che venga interpretata come valore di stringa letterale.
+* L'operatore -not non può essere usato come operatore di confronto per null. Se si usa questo operatore, viene restituito un errore indipendentemente dal fatto che si usi null o $null.
+
+Il modo corretto per fare riferimento al valore Null è il seguente:
+
+```
+   user.mail –ne null
+```
+
+## <a name="rules-with-multiple-expressions"></a>Regole con più espressioni
+
+Una regola di appartenenza a un gruppo può essere costituita da più espressioni connesse dagli operatori logici -and, -or e -not. Gli operatori logici possono anche essere usati in combinazione. 
+
+Di seguito sono riportati esempi di regole di appartenenza strutturate correttamente con più espressioni:
+
+```
+(user.department -eq "Sales") -or (user.department -eq "Marketing")
+(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+```
+
+### <a name="operator-precedence"></a>Precedenza degli operatori
+
+Tutti gli operatori sono elencati di seguito in ordine decrescente di precedenza. Gli operatori sulla stessa riga hanno uguale precedenza:
+
+```
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+-not
+-and
+-or
+-any -all
+```
+
+Di seguito è riportato un esempio di precedenza degli operatori in cui due espressioni vengono valutate per l'utente:
+
+```
+   user.department –eq "Marketing" –and user.country –eq "US"
+```
+
+Le parentesi sono necessarie solo quando la priorità non soddisfa i requisiti. Ad esempio, se si vuole che venga valutato prima department, usare le parentesi come illustrato di seguito per determinare l'ordine:
+
+```
+   user.country –eq "US" –and (user.department –eq "Marketing" –or user.department –eq "Sales")
+```
+
+## <a name="rules-with-complex-expressions"></a>Regole con espressioni complesse
+
+Una regola di appartenenza può essere costituita da espressioni complesse in cui proprietà, operatori e valori acquisiscono forme più complesse. Le espressioni sono considerate complesse in presenza di una delle condizioni seguenti:
+
+* La proprietà è costituita da una raccolta di valori, nello specifico si parla di proprietà multivalore
+* Le espressioni usano gli operatori -any e -all
+* Il valore dell'espressione può essere costituito da una o più espressioni
+
 ## <a name="multi-value-properties"></a>Proprietà multivalore
 
-Operatori consentiti
+Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
+
+| Properties | Valori | Uso |
+| --- | --- | --- |
+| assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
+
+### <a name="using-the--any-and--all-operators"></a>Uso degli operatori -any e -all
+
+È possibile usare gli operatori -any e -all per applicare una condizione rispettivamente a uno o a tutti gli elementi della raccolta.
 
 * -any (soddisfatto quando almeno un elemento della raccolta corrisponde alla condizione)
 * -all (soddisfatto quando tutti gli elementi della raccolta corrispondono alla condizione)
 
-| Properties | Valori | Uso |
-| --- | --- | --- |
-| assignedPlans |Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
-| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
+#### <a name="example-1"></a>Esempio 1
 
-Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. È possibile usare gli operatori -any e -all per applicare una condizione rispettivamente a uno o a tutti gli elementi della raccolta. Ad esempio: 
-
-assignedPlans è una proprietà multivalore che elenca tutti i piani di servizio assegnati all'utente. L'espressione riportata di seguito selezionerà gli utenti che hanno il piano di servizio Exchange Online (Piano 2) con lo stato abilitato:
+assignedPlans è una proprietà multivalore che elenca tutti i piani di servizio assegnati all'utente. L'espressione seguente seleziona gli utenti che hanno il piano di servizio Exchange Online (Piano 2) (come valore GUID) con lo stato abilitato:
 
 ```
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(L'identificatore GUID identifica il piano di servizio Exchange Online (Piano 2.))
+Una regola di questo tipo può essere usata per raggruppare tutti gli utenti per i quali è abilitata la funzionalità di Office 365 (o un altro servizio Microsoft online). È quindi possibile applicare un set di criteri al gruppo.
 
-> [!NOTE]
-> Questa espressione è utile per identificare tutti gli utenti per i quali è stata abilitata una funzionalità di Office 365 o di un altro servizio online Microsoft. Ad esempio, per identificarli come destinatari di un determinato set di criteri.
+#### <a name="example-2"></a>Esempio 2
 
 L'espressione seguente seleziona tutti gli utenti che hanno un piano di servizio qualsiasi associato al servizio Intune (identificato dal nome di servizio "SCO"):
+
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
@@ -273,55 +257,75 @@ Ecco un esempio dell'uso del carattere di sottolineatura (\_) in una regola per 
 (user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
-## <a name="use-of-null-values"></a>Uso dei valori Null
+## <a name="other-properties-and-common-rules"></a>Altre proprietà e regole comuni
 
-Per specificare un valore Null in una regola, è possibile usare il valore *null*. Prestare attenzione a non usare le virgolette per la parola *null*, in caso contrario, verrà interpretato come valore di stringa letterale. L'operatore -not non può essere usato come operatore di confronto per null. Se si usa questo operatore, viene restituito un errore indipendentemente dal fatto che si usi null o $null. In alternativa, usare -eq o -ne. Il modo corretto per fare riferimento al valore Null è il seguente:
+### <a name="create-a-direct-reports-rule"></a>Creare una regola "Dipendenti diretti"
+
+È possibile creare un gruppo contenente tutti i dipendenti diretti di un manager. Quando in futuro i dipendenti diretti del manager cambiano, l'appartenenza al gruppo viene modificata automaticamente.
+
+La regola per i dipendenti diretti viene costruita usando la sintassi seguente:
+
 ```
-   user.mail –ne $null
+Direct Reports for "{objectID_of_manager}"
 ```
 
-## <a name="extension-attributes-and-custom-attributes"></a>Attributi di estensione ed attributi personalizzati
-Gli attributi di estensione e gli attributi personalizzati sono supportati nelle regole di appartenenza dinamica.
+Ecco un esempio di regola valida, dove "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il valore di objectID del manager:
 
-Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15.
-Ecco un esempio di regola che usa un attributo di estensione:
+```
+Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+
+I suggerimenti seguenti sono utili per usare la regola in modo appropriato.
+
+* L'**ID del manager** è l'ID oggetto del manager. È indicato nella sezione **Profilo** del manager.
+* Per il corretto funzionamento della regola, verificare che la proprietà **Manager** sia impostata correttamente per gli utenti inclusi nel tenant. È possibile controllare il valore corrente per un utente nella sezione **Profilo** dell'utente.
+* Questa regola supporta solo i dipendenti diretti del manager. In altre parole, non è possibile creare un gruppo con i dipendenti diretti del manager *e* i loro dipendenti diretti.
+* Questa regola non può essere combinata con altre regole di appartenenza.
+
+### <a name="create-an-all-users-rule"></a>Creare una regola "Tutti gli utenti"
+
+È possibile creare un gruppo contenente tutti gli utenti di un tenant usando una regola di appartenenza. Quando in futuro gli utenti vengono aggiunti o rimossi dal tenant, l'appartenenza al gruppo viene modificata automaticamente.
+
+La regola "Tutti gli utenti" viene costruita usando una singola espressione con l'operatore -ne e il valore null. Questa regola consente di aggiungere al gruppo sia gli utenti guest B2B che gli utenti membri.
+
+```
+user.objectid -ne null
+```
+
+### <a name="create-an-all-devices-rule"></a>Creare una regola "Tutti i dispositivi"
+
+È possibile creare un gruppo contenente tutti i dispositivi di un tenant usando una regola di appartenenza. Quando in futuro i dispositivi vengono aggiunti o rimossi dal tenant, l'appartenenza al gruppo viene modificata automaticamente.
+
+La regola "Tutti i dispositivi" viene costruita usando una singola espressione con l'operatore -ne e il valore null:
+
+```
+device.objectid -ne null
+```
+
+### <a name="extension-properties-and-custom-extension-properties"></a>Proprietà di estensione e proprietà di estensione personalizzate
+
+Gli attributi di estensione e le proprietà di estensione personalizzate sono supportati come proprietà delle stringhe nelle regole di appartenenza dinamica. Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Gli attributi personalizzati vengono sincronizzati dall'istanza locale di Windows Server AD o da un'applicazione SaaS collegata e hanno il formato "user.extension_[GUID]\__[Attributo]", dove [GUID] è l'identificatore univoco in AAD per l'applicazione che ha creato l'attributo in Azure AD e [Attributo] è il nome dell'attributo creato. Ecco un esempio di regola che usa un attributo personalizzato:
+Le proprietà di estensione personalizzate vengono sincronizzate dall'istanza locale di AD di Windows Server o da un'applicazione SaaS connessa e hanno il formato `user.extension_[GUID]__[Attribute]`, dove:
+
+* [GUID] è l'identificatore univoco in Azure AD per l'applicazione che ha creato la proprietà in Azure AD
+* [Attribute] è il nome della proprietà quando è stata creata
+
+Ecco un esempio di regola che usa una proprietà di estensione personalizzata:
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
+user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-È possibile trovare il nome dell'attributo personalizzato nella directory eseguendo una query sull'attributo nell'utente con Esplora grafico e cercando il nome dell'attributo.
+È possibile trovare il nome della proprietà personalizzata nella directory eseguendo una query sulla proprietà dell'utente con Graph explorer e cercando il nome della proprietà.
 
-## <a name="direct-reports-rule"></a>Regola per i dipendenti diretti
-È possibile creare un gruppo contenente tutti i dipendenti diretti di un manager. Quando i dipendenti diretti del manager cambieranno, l'appartenenza al gruppo verrà automaticamente modificata.
+## <a name="rules-for-devices"></a>Regole per i dispositivi
 
-> [!NOTE]
-> 1. Per il corretto funzionamento della regola, verificare che la proprietà **Manager ID** sia impostata correttamente sugli utenti inclusi nel tenant. È possibile controllare il valore corrente per un utente nella **scheda Profilo**.
-> 2. Questa regola supporta solo i dipendenti **diretti**. Attualmente non è possibile creare un gruppo per una gerarchia nidificata, ad esempio un gruppo che include dipendenti diretti e i relativi dipendenti.
-> 3. Questa regola non può essere combinata con altre regole avanzate.
-
-**Per configurare il gruppo**
-
-1. Eseguire i passaggi da 1 a 5 illustrati nella sezione [Per creare la regola avanzata](#to-create-the-advanced-rule) e selezionare **Utente dinamico** come **Tipo di appartenenza**.
-2. Nel pannello **Dynamic membership rules** (Regole di appartenenza dinamica) immettere la regola con la sintassi seguente:
-
-    *Dipendenti diretti per "{objectID_of_manager}"*
-
-    Esempio di una regola valida:
-```
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
-```
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
-3. Dopo aver salvato la regola, tutti gli utenti con il valore Manager ID specificato verranno aggiunti al gruppo.
-
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso degli attributi per creare regole per gli oggetti dispositivo
-È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. È possibile usare gli attributi del dispositivo seguenti.
+È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. Un gruppo non può avere come membri sia utenti che dispositivi. È possibile usare gli attributi del dispositivo seguenti.
 
  Attributo del dispositivo  | Valori | Esempio
  ----- | ----- | ----------------
@@ -341,100 +345,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
  deviceId | ID dispositivo di Azure AD valido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | ID oggetto di Azure AD valido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
-
-
-## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Modifica dell'appartenenza dinamica in statica e viceversa
-È possibile modificare il modo in cui viene gestita l'appartenenza in un gruppo. Ciò è utile per mantenere lo stesso ID e nome di gruppo nel sistema in modo che i riferimenti al gruppo esistenti restino validi. Creando un nuovo gruppo sarebbe infatti necessario aggiornare tali riferimenti.
-
-L'interfaccia di amministrazione di Azure AD è stata aggiornata per aggiungere il supporto per questa funzionalità. Attualmente i clienti possono convertire gruppi esistenti dall'appartenenza dinamica all'appartenenza assegnata e viceversa tramite l'interfaccia di amministrazione di Azure AD o i cmdlet di PowerShell, come illustrato di seguito.
-
-> [!WARNING]
-> Quando si modifica un gruppo statico esistente in gruppo dinamico, tutti i membri esistenti verranno rimossi dal gruppo e verrà quindi elaborata la regola di appartenenza per aggiungere nuovi membri. Se il gruppo viene usato per controllare l'accesso alle app o alle risorse, i membri originali potrebbero perdere l'accesso finché non viene completata l'elaborazione della regola di appartenenza.
->
-> È consigliabile testare prima la nuova regola di appartenenza per verificare che la nuova appartenenza nel gruppo sia quella prevista.
-
-### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>Uso dell'interfaccia di amministrazione di Azure AD per modificare la gestione delle appartenenze in un gruppo 
-
-1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account di amministratore globale o di amministratore di account utente nel tenant.
-2. Selezionare **Gruppi**.
-3. Dall'elenco **Tutti i gruppi** aprire il gruppo che si vuole modificare.
-4. Selezionare **Proprietà**.
-5. Nella pagina **Proprietà** del gruppo selezionare Assegnato (statico), Utente dinamico o Dispositivo dinamico come **Tipo di appartenenza**, a seconda del tipo di appartenenza desiderato. Per l'appartenenza dinamica è possibile usare il generatore di regole per selezionare le opzioni per una regola semplice o per scrivere una regola avanzata manualmente. 
-
-I passaggi seguenti offrono un esempio della procedura da seguire per modificare da statica a dinamica l'appartenenza per un gruppo di utenti. 
-
-1. Nella pagina **Proprietà** del gruppo selezionato selezionare **Utente dinamico** come **Tipo di appartenenza** e quindi selezionare Sì nella finestra di dialogo che descrive le modifiche all'appartenenza del gruppo per continuare. 
-  
-   ![selezionare il tipo di appartenenza Utente dinamico](./media/groups-dynamic-membership/select-group-to-convert.png)
-  
-2. Selezionare **Aggiungi query dinamica** e quindi specificare la regola.
-  
-   ![immettere la regola](./media/groups-dynamic-membership/enter-rule.png)
-  
-3. Dopo aver creato la regola, selezionare **Aggiungi query** nella parte inferiore della pagina.
-4. Selezionare **Salva** nella pagina **Proprietà** del gruppo per salvare le modifiche. Il valore di **Tipo di appartenenza** del gruppo viene aggiornato immediatamente nell'elenco dei gruppi.
-
-> [!TIP]
-> La conversione del gruppo potrebbe non riuscire se la regola avanzata immessa non è corretta. Nell'angolo superiore destro del portale viene visualizzata una notifica che contiene una spiegazione dei motivi per cui la regola non può essere accettata dal sistema. Leggerla attentamente per capire come modificare la regola per renderla valida.
-
-### <a name="using-powershell-to-change-membership-management-on-a-group"></a>Uso di PowerShell per modificare la gestione delle appartenenze in un gruppo
-
-> [!NOTE]
-> Per modificare le proprietà dei gruppi dinamici, sarà necessario usare i cmdlet della **versione di anteprima di** [Azure AD PowerShell versione 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). È possibile installare l'anteprima da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
-
-Di seguito è riportato un esempio delle funzioni che cambiano la gestione delle appartenenze in un gruppo esistente. In questo esempio è necessario prestare attenzione a modificare correttamente la proprietà GroupTypes e a mantenere i valori eventualmente non correlati all'appartenenza dinamica.
-
-```
-#The moniker for dynamic groups as used in the GroupTypes property of a group object
-$dynamicGroupTypeString = "DynamicMembership"
-
-function ConvertDynamicGroupToStatic
-{
-    Param([string]$groupId)
-
-    #existing group types
-    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
-
-    if($groupTypes -eq $null -or !$groupTypes.Contains($dynamicGroupTypeString))
-    {
-        throw "This group is already a static group. Aborting conversion.";
-    }
-
-
-    #remove the type for dynamic groups, but keep the other type values
-    $groupTypes.Remove($dynamicGroupTypeString)
-
-    #modify the group properties to make it a static group: i) change GroupTypes to remove the dynamic type, ii) pause execution of the current rule
-    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "Paused"
-}
-
-function ConvertStaticGroupToDynamic
-{
-    Param([string]$groupId, [string]$dynamicMembershipRule)
-
-    #existing group types
-    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
-
-    if($groupTypes -ne $null -and $groupTypes.Contains($dynamicGroupTypeString))
-    {
-        throw "This group is already a dynamic group. Aborting conversion.";
-    }
-    #add the dynamic group type to existing types
-    $groupTypes.Add($dynamicGroupTypeString)
-
-    #modify the group properties to make it a static group: i) change GroupTypes to add the dynamic type, ii) start execution of the rule, iii) set the rule
-    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "On" -MembershipRule $dynamicMembershipRule
-}
-```
-Per rendere statico un gruppo:
-```
-ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
-```
-Per rendere dinamico un gruppo:
-```
-ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
-```
 ## <a name="next-steps"></a>Passaggi successivi
+
 Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Directory.
 
 * [Vedere i gruppi esistenti](../fundamentals/active-directory-groups-view-azure-portal.md)

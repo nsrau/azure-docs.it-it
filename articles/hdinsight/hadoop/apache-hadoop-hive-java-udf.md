@@ -1,24 +1,20 @@
 ---
-title: Funzione definita dall'utente (UDF) Java con Hive in HDInsight - Azure | Documentazione Microsoft
+title: Funzione definita dall'utente (UDF) Java con Hive in HDInsight - Azure
 description: Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Hive. In questo esempio, UDF converte una tabella di stringhe di testo in caratteri minuscoli.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: eb98b5e4ef2251ad44cbb4b737141fea79adc743
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200759"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590365"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilizzare una UDF Java con Hive in HDInsight
 
@@ -51,7 +47,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
     ```
 
    > [!NOTE]
-   > Se si utilizza PowerShell, è necessario racchiudere i parametri tra virgolette. Ad esempio, `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+   > Se si utilizza PowerShell, è necessario racchiudere i parametri tra virgolette. Ad esempio: `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
 
     Questo comando crea una directory denominata **exampleudf**, che contiene un progetto Maven.
 

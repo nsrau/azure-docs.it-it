@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036769"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493673"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure 
 
@@ -51,7 +51,7 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 ![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Quando si usano gli endpoint servizio con il database SQL di Azure i criteri sono di **reindirizzamento** per impostazione predefinita. Pertanto, per abilitare la connettività dall'interno della rete virtuale è necessario consentire le connessioni in uscita per tutti gli indirizzi IP del database SQL di Azure, non solo per i IP gateway. Questa operazione può essere eseguita usando tag di servizio NSG (gruppo di sicurezza di rete), se si desidera consentire le connessioni in uscita solo per gli indirizzi IP, modificare l'impostazione su **Proxy**.
+> Quando si usano gli endpoint servizio con il database SQL di Azure i criteri sono di **Proxy** per impostazione predefinita. Per abilitare la connettività dall'interno della rete virtuale, consentire le connessioni in uscita agli indirizzi IP del gateway del database SQL di Azure specificate nell'elenco riportato di seguito. Quando si usano endpoint di servizio, è consigliabile modificare il criterio di connessione in **Reindirizzamento** per consentire prestazioni migliori. Se si modifica il criterio di connessione in **Reindirizzamento**, non sarà sufficiente consentire l'uscita dal gruppo di sicurezza di rete ai soli indirizzi IP del gateway del database SQL elencati di seguito, ma a tutti gli indirizzi IP del database SQL di Azure. Ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Indirizzi IP del gateway del database SQL di Azure
 

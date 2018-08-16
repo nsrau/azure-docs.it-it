@@ -7,14 +7,14 @@ manager: carmonm
 keywords: backup e ripristino di emergenza; servizio Backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412952"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493869"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
 Questo articolo risponde alle domande comuni sui componenti di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,6 +29,9 @@ Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristin
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali? <br/>
 È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usano agenti MAB, è possibile registrare fino a 50 agenti MAB per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
+
+### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>È possibile usare un'API REST per eseguire una query per le dimensioni di elementi protetti in un insieme di credenziali? <br/>
+Sì, l'articolo [Usages - List by Vaults](https://t.co/2lgIrIaF0J) (Utilizzi - Elencare per insiemi di credenziali) elenca le informazioni che è possibile ottenere dall'insieme di credenziali di Servizi di ripristino.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se l'organizzazione ha un insieme di credenziali, come è possibile isolare i dati di un server da un altro server durante il ripristino dei dati?<br/>
 Tutti i server che vengono registrati nello stesso insieme di credenziali possono ripristinare i dati dei quali è stato eseguito il backup da altri server *che usano la stessa passphrase*. Se sono presenti server i cui dati di backup devono essere isolati dagli altri server dell'organizzazione, usare una passphrase designata per tali server. Ad esempio, per i server del reparto risorse umane può essere usata una passphrase, per quelli dell'ufficio contabilità un'altra e per quelli di archiviazione un'altra ancora.
@@ -57,6 +60,8 @@ Per un elenco dettagliato delle domande, vedere le [domande frequenti sul backup
 
 Sì. È possibile usare il server di Backup di Azure per eseguire il backup di VMware vCenter ed ESXi in Azure. Per informazioni sulla versione di VMware supportata, vedere l'articolo [Matrice di protezione del server di Backup di Azure](backup-mabs-protection-matrix.md). Per istruzioni dettagliate, vedere [Usare il server di Backup di Azure per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md).
 
+### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>Occorre una licenza separata per il ripristino di un cluster VMware/Hyper-V locale completo da DPM o dal server di Backup di Azure?<br/>
+Per la protezione di VMware/Hyper-V non è necessaria alcuna licenza separata. I clienti System Center possono usare DPM per proteggere le macchine virtuali VMware. Se non si è clienti System Center, per proteggere le macchine virtuali VMware è possibile usare il server di Backup di Azure (con pagamento in base al consumo).
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Server di Backup di Azure e System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>È possibile usare il server di Backup di Azure per creare un backup di ripristino bare metal per un server fisico? <br/>
@@ -90,6 +95,9 @@ Sì. È possibile eseguire processi di backup in Windows Server o nelle workstat
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Perché le dimensioni dei dati trasferiti nell'insieme di credenziali dei servizi di ripristino sono inferiori a quelle dei dati sottoposti a backup?<br/>
  Tutti i dati di cui viene eseguito il backup dall'agente di Backup di Azure, da SCDPM o dal server di Backup di Azure vengono compressi e crittografati prima di essere trasferiti. Dopo l'applicazione della compressione e della crittografia, i dati nell'insieme di credenziali di Servizi di ripristino sono ridotti del 30-40%.
+
+### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vaultbr"></a>È possibile eliminare singoli file da un punto di recupero nell'insieme di credenziali?<br/>
+No, Backup di Azure non supporta l'eliminazione o la cancellazione di singoli elementi dai backup archiviati.
 
 ## <a name="what-can-i-back-up"></a>Backup consentiti
 ### <a name="which-operating-systems-does-azure-backup-support-br"></a>Quali sistemi operativi sono supportati da Backup di Azure? <br/>

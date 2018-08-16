@@ -2,24 +2,18 @@
 title: Elenco di controllo di prestazioni e scalabilità per Archiviazione di Azure | Microsoft Docs
 description: Un elenco di controllo delle procedure consolidate per l'utilizzo dell'archiviazione di Azure nello sviluppo di applicazioni ad elevate prestazioni.
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246220"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530460"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica
@@ -83,7 +77,7 @@ Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure
 | &nbsp; | Queues |Recupero bulk |[Si stanno recuperando più messaggi con un'unica operazione "Get"?](#subheading42) |
 | &nbsp; | Queues |Frequenza di polling |[Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading43) |
 | &nbsp; | Queues |Aggiornamento del messaggio |[Si sta usando UpdateMessage per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#subheading44) |
-| &nbsp; | Queues |Architecture |[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading45) |
+| &nbsp; | Queues |Architettura |[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading45) |
 
 ## <a name="allservices"></a>Tutti i servizi
 Questa sezione elenca le procedure comprovate applicabili all'uso di tutti i servizi di archiviazione di Azure (BLOB, tabelle, code o file).  
@@ -146,7 +140,7 @@ A volte un'applicazione deve fornire lo stesso contenuto a più utenti (ad esemp
 Per altre informazioni sulla rete CDN di Azure, vedere [rete CDN di Azure](https://azure.microsoft.com/services/cdn/).  
 
 ### <a name="subheading6"></a>Uso delle firme di accesso condiviso (SAS) e della condivisione risorse tra le origini (CORS)
-Per autorizzare il codice, ad esempio JavaScript, in un Web browser dell'utente o in un'app di un telefono cellulare per accedere ai dati in Archiviazione di Azure, un approccio consiste nell'usare un'applicazione nel ruolo Web come proxy: il dispositivo dell'utente viene autenticato con il ruolo Web che a sua volta viene autenticato con il servizio di archiviazione. In questo modo si evita di esporre le chiavi dell'account di archiviazione in dispositivi non sicuri. Ciò causa tuttavia un notevole sovraccarico del ruolo Web perché tutti i dati trasferiti tra il dispositivo dell'utente e il servizio di archiviazione devono passare attraverso il ruolo Web. È possibile evitare l'uso di un ruolo Web come proxy per il servizio di archiviazione usando le firme di accesso condiviso, talvolta insieme alle intestazioni di condivisione risorse tra le origini (CORS). Con le firme di accesso condiviso (SAS) è possibile consentire al dispositivo dell'utente di indirizzare le richieste direttamente a un servizio di archiviazione attraverso un token con accesso limitato. Se ad esempio un utente vuole caricare una foto nell'applicazione, il ruolo Web può generare e inviare al dispositivo dell'utente un token SAS che concede un'autorizzazione di scrittura in uno specifico BLOB o in un contenitore per i successivi 30 minuti (dopo i quali il token SAS scade).
+Per autorizzare il codice, ad esempio JavaScript, in un Web browser dell'utente o in un'app di un telefono cellulare per accedere ai dati in Archiviazione di Azure, un approccio consiste nell'usare un'applicazione nel ruolo Web come proxy: il dispositivo dell'utente viene autenticato con il ruolo Web, che a sua volta autorizza l'accesso alle risorse di archiviazione. In questo modo si evita di esporre le chiavi dell'account di archiviazione in dispositivi non sicuri. Ciò causa tuttavia un notevole sovraccarico del ruolo Web perché tutti i dati trasferiti tra il dispositivo dell'utente e il servizio di archiviazione devono passare attraverso il ruolo Web. È possibile evitare l'uso di un ruolo Web come proxy per il servizio di archiviazione usando le firme di accesso condiviso, talvolta insieme alle intestazioni di condivisione risorse tra le origini (CORS). Con le firme di accesso condiviso (SAS) è possibile consentire al dispositivo dell'utente di indirizzare le richieste direttamente a un servizio di archiviazione attraverso un token con accesso limitato. Se ad esempio un utente vuole caricare una foto nell'applicazione, il ruolo Web può generare e inviare al dispositivo dell'utente un token SAS che concede un'autorizzazione di scrittura in uno specifico BLOB o in un contenitore per i successivi 30 minuti (dopo i quali il token SAS scade).
 
 Un browser non consente in genere codice JavaScript in una pagina ospitata da un sito Web in un dominio per l'esecuzione di operazioni specifiche come "PUT" in un altro dominio. Se si ospita ad esempio un ruolo Web in "contosomarketing.cloudapp.net" e si vuole usare JavaScript sul lato client per caricare un BLOB nell'account di archiviazione in "contosoproducts.blob.core.windows.net", i "criteri di corrispondenza all'origine" del browser impediscono l'operazione. CORS è una funzionalità del browser che consente al dominio di destinazione (in questo caso l'account di archiviazione) di comunicare con il browser di cui reputa attendibili le richieste originate nel dominio di origine (in questo caso il ruolo Web).  
 

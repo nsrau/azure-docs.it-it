@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 3ecc5a03ff1847dc11c5a5047e35566a4e68fec2
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763698"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495459"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni.
@@ -71,20 +71,20 @@ Crea un'applicazione di Service Fabric usando la descrizione specificata.
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
 ## <a name="sfctl-application-delete"></a>sfctl application delete
 Elimina un'applicazione di Service Fabric esistente.
 
-Elimina un'applicazione di Service Fabric esistente. Prima di poter essere eliminata, un'applicazione deve essere creata. Se si elimina un'applicazione, si elimineranno tutti i servizi che fanno parte di tale applicazione. Per impostazione predefinita, Service Fabric proverà a chiudere le repliche del servizio in modo normale, per poi eliminare il servizio. Se tuttavia in un servizio si verificano problemi chiudendo normalmente la replica, l'operazione di eliminazione potrebbe richiedere molto tempo o bloccarsi. Usare il flag facoltativo ForceRemove per ignorare la normale sequenza di chiusura ed eliminare l'applicazione e tutti i relativi servizi in modo forzato.
+Prima di poter essere eliminata, un'applicazione deve essere creata. Se si elimina un'applicazione, si elimineranno tutti i servizi che fanno parte di tale applicazione. Per impostazione predefinita, Service Fabric proverà a chiudere le repliche del servizio in modo normale, per poi eliminare il servizio. Se tuttavia in un servizio si verificano problemi chiudendo normalmente la replica, l'operazione di eliminazione potrebbe richiedere molto tempo o bloccarsi. Usare il flag facoltativo ForceRemove per ignorare la normale sequenza di chiusura ed eliminare l'applicazione e tutti i relativi servizi in modo forzato.
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --force-remove | Consente di rimuovere un servizio o un'applicazione di Service Fabric in modo forzato senza passare attraverso la sequenza di arresto normale. Questo parametro può essere usato per eliminare in modo forzato un'applicazione o un servizio per il quale l'operazione di eliminazione è prossima al timeout a causa di problemi nel codice del servizio che impediscono la normale chiusura delle repliche. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
@@ -94,20 +94,20 @@ Elimina un'applicazione di Service Fabric esistente. Prima di poter essere elimi
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
 Recupera le informazioni relative a un'applicazione distribuita in un nodo di Service Fabric.
 
-Recupera le informazioni relative a un'applicazione distribuita in un nodo di Service Fabric.  Questa query restituisce informazioni sull'applicazione di sistema se l'ID applicazione fornito è relativo all'applicazione di sistema. I risultati includono le applicazioni distribuite con stato "attivo", "attivazione in corso" e "download in corso". Questa query richiede che il nome del nodo corrisponda a un nodo nel cluster. La query ha esito negativo se il nome del nodo specificato non fa riferimento ad alcun nodo di Service Fabric attivo nel cluster.
+Questa query restituisce informazioni sull'applicazione di sistema se l'ID applicazione fornito è relativo all'applicazione di sistema. I risultati includono le applicazioni distribuite con stato "attivo", "attivazione in corso" e "download in corso". Questa query richiede che il nome del nodo corrisponda a un nodo nel cluster. La query ha esito negativo se il nome del nodo specificato non fa riferimento ad alcun nodo di Service Fabric attivo nel cluster.
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --node-name [obbligatorio] | Il nome del nodo. |
 | --include-health-state | Include lo stato di integrità di un'entità. Se questo parametro è false o non viene specificato, lo stato di integrità restituito è "Unknown". Quando è impostato su true, la query passa in parallelo al nodo e al servizio di sistema di integrità prima che i risultati vengano uniti. Di conseguenza, la query è più costosa e può richiedere più tempo. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
@@ -118,7 +118,7 @@ Recupera le informazioni relative a un'applicazione distribuita in un nodo di Se
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -131,11 +131,11 @@ Recupera le informazioni sull'integrità di un'applicazione distribuita in un no
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --application-id [Obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-id [Obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --node-name [Obbligatorio] | Il nome del nodo. |
 | --deployed-service-packages-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità dei pacchetti servizio distribuiti restituiti nel risultato della query di integrità dell'applicazione in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo i pacchetti servizio distribuiti che corrispondono al filtro. Tutte i pacchetti servizio distribuiti vengono usati per valutare lo stato di integrità aggregato dell'applicazione distribuita. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, quindi il valore può essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, viene restituito lo stato di integrità dei pacchetti servizio con valore di HealthState OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche mostrano il numero di entità figlio il cui stato di integrità è Ok, Warning ed Error. |
+| --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche indicano il numero di entità figlio il cui stato di integrità è Ok, Avviso ed Errore. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -144,7 +144,7 @@ Recupera le informazioni sull'integrità di un'applicazione distribuita in un no
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -169,7 +169,7 @@ Mostra l'elenco delle applicazioni distribuite in un nodo di Service Fabric. I r
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -182,10 +182,10 @@ Restituisce lo stato di integrità dell'applicazione di Service Fabric. La rispo
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --deployed-applications-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità delle applicazioni distribuite restituiti nel risultato della query di integrità dell'applicazione in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Verranno restituite solo le applicazioni distribuite che corrispondono al filtro. Tutte le applicazioni distribuite vengono usate per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore indicato è 6, viene restituito lo stato di integrità delle applicazioni distribuite il cui valore di HealthState è OK (2) e Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche mostrano il numero di entità figlio il cui stato di integrità è Ok, Warning ed Error. |
+| --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche indicano il numero di entità figlio il cui stato di integrità è Ok, Avviso ed Errore. |
 | --services-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità del servizio restituiti nel risultato della query sull'integrità del servizio in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo i servizi che corrispondono al filtro. Tutti i servizi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore indicato è 6, viene restituito lo stato di integrità dei servizi con valore HealthState OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
@@ -195,7 +195,7 @@ Restituisce lo stato di integrità dell'applicazione di Service Fabric. La rispo
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -208,7 +208,7 @@ Restituisce le informazioni sull'applicazione creata o in corso di creazione nel
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --exclude-application-parameters | Flag che specifica se i parametri dell'applicazione verranno esclusi dal risultato. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
@@ -218,14 +218,14 @@ Restituisce le informazioni sull'applicazione creata o in corso di creazione nel
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
 ## <a name="sfctl-application-list"></a>sfctl application list
 Mostra l'elenco di applicazioni create nel cluster di Service Fabric che corrisponde ai filtri specificati.
 
-Recupera le informazioni sulle applicazioni create o in corso di creazione nel cluster di Service Fabric e che corrispondono ai filtri specificati. La risposta include il nome, il tipo, lo stato, i parametri e altri dettagli relativi all'applicazione. Se le applicazioni non rientrano in una pagina, vengono restituiti una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Non è possibile specificare contemporaneamente i filtri ApplicationTypeName e ApplicationDefinitionKindFilter.
+Recupera le informazioni sulle applicazioni create o in corso di creazione nel cluster di Service Fabric e che corrispondono ai filtri specificati. La risposta include il nome, il tipo, lo stato, i parametri e altri dettagli relativi all'applicazione. Se le applicazioni non rientrano in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Non è possibile specificare contemporaneamente i filtri ApplicationTypeName e ApplicationDefinitionKindFilter.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -244,7 +244,7 @@ Recupera le informazioni sulle applicazioni create o in corso di creazione nel c
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -257,7 +257,7 @@ Restituisce le informazioni di carico sull'applicazione creata o in corso di cre
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -266,14 +266,14 @@ Restituisce le informazioni di carico sull'applicazione creata o in corso di cre
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
 Mostra il manifesto che descrive un tipo di applicazione.
 
-Mostra il manifesto che descrive un tipo di applicazione. La risposta contiene il manifesto dell'applicazione XML sotto forma di stringa.
+La risposta contiene il manifesto dell'applicazione XML sotto forma di stringa.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -289,7 +289,7 @@ Mostra il manifesto che descrive un tipo di applicazione. La risposta contiene i
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -316,7 +316,7 @@ Esegue il provisioning di un tipo di applicazione di Service Fabric con il clust
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -330,15 +330,15 @@ Segnala lo stato di integrità dell'applicazione di Service Fabric specificata. 
 |Argomento|DESCRIZIONE|
 | --- | --- |
 | --application-id [Obbligatorio] | Identità dell'applicazione. <br><br> Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
-| --health-property [Obbligatorio] | Proprietà delle informazioni sull'integrità. <br><br> Un'entità può avere report sull'integrità per proprietà diverse. La proprietà è una stringa e non un'enumerazione fissa, per consentire la flessibilità del generatore di report necessaria per definire la categoria della condizione di stato che attiva il report. Ad esempio, un generatore di report con SourceId "LocalWatchdog" può monitorare lo stato del disco disponibile in un nodo e può quindi segnalare la proprietà "AvailableDisk" in tale nodo. Lo stesso generatore di report può monitorare la connettività del nodo e può quindi segnalare una proprietà "Connectivity" nello stesso nodo. Entrambi questi report vengono considerati come eventi di integrità separati nell'archivio integrità per il nodo specificato. Insieme a SourceId, la proprietà identifica in modo univoco le informazioni sull'integrità. |
-| --health-state [Obbligatorio] | I valori possibili sono\: "Invalid", "Ok", "Warning", "Error", "Unknown". |
-| --source-id [Obbligatorio] | Nome di origine che identifica il componente client/watchdog/sistema che ha generato le informazioni sull'integrità. |
+| --health-property [Obbligatorio] | Proprietà delle informazioni sull'integrità. <br><br> Un'entità può avere report sull'integrità per proprietà diverse. La proprietà è una stringa e non un'enumerazione fissa, che assicura al reporter la flessibilità necessaria per definire la categoria della condizione di stato che attiva il report. Ad esempio, un reporter con SourceId "LocalWatchdog" può monitorare lo stato del disco disponibile in un nodo e può quindi segnalare la proprietà "AvailableDisk" in tale nodo. Lo stesso reporter può monitorare la connettività del nodo e può quindi segnalare una proprietà "Connectivity" nello stesso nodo. Entrambi questi report vengono considerati come eventi di integrità separati nell'archivio integrità per il nodo specificato. Insieme a SourceId, la proprietà identifica in modo univoco le informazioni sull'integrità. |
+| --health-state    [obbligatorio] | I valori possibili sono\: "Invalid", "Ok", "Warning", "Error", "Unknown". |
+| --source-id       [obbligatorio] | Nome di origine che identifica il componente client/watchdog/sistema che ha generato le informazioni sull'integrità. |
 | --description | Descrizione delle informazioni sull'integrità. <br><br> Rappresenta il testo libero usato per aggiungere informazioni leggibili sul report. La lunghezza massima della stringa per la descrizione è pari a 4096 caratteri. Se la stringa immessa è più lunga, verrà automaticamente troncata. Quando viene troncata, gli ultimi caratteri della descrizione contengono un marcatore "[Truncated]" e la dimensione totale della stringa è pari a 4096 caratteri. La presenza del marcatore indica agli utenti che si è verificato un troncamento. Si noti che quando viene troncata, la descrizione contiene meno di 4096 caratteri della stringa originale. |
-| --immediate | Flag che indica se il report deve essere inviato immediatamente. <br><br> Un report sull'integrità viene inviato a un'applicazione del gateway di Service Fabric, che lo inoltra all'archivio integrità. Se Immediate è impostato su true, il report viene inviato immediatamente dal gateway HTTP all'archivio integrità, indipendentemente dalle impostazioni del client Fabric usate dall'applicazione gateway HTTP. Questo è utile per i report critici che devono essere inviati appena possibile. A seconda della tempistica e di altre condizioni, l'invio del report potrebbe tuttavia avere esito negativo, ad esempio se il gateway HTTP è chiuso o il messaggio non raggiunge il gateway. Se Immediate è impostato su false, il report viene inviato in base alle impostazioni del client di integrità dal gateway HTTP. Verrà quindi inviato in batch in base alla configurazione di HealthReportSendInterval. Questa è l'impostazione consigliata perché consente al client di integrità di ottimizzare la segnalazione di messaggi sull'integrità all'archivio integrità e l'elaborazione di report sull'integrità. Per impostazione predefinita, i report non vengono inviati immediatamente. |
-| --remove-when-expired | Valore che indica se il report viene rimosso dall'archivio integrità quando scade. <br><br> Se impostato su true, il report viene rimosso dall'archivio integrità dopo la scadenza. Se impostato su false, il report viene considerato come errore quando è scaduto. Il valore di questa proprietà è false per impostazione predefinita. Quando i client creano report periodicamente, RemoveWhenExpired sarà impostato su false (valore predefinito). In questo modo, se il generatore di report presenta problemi (ad esempio, un deadlock) e non può creare report, l'entità viene considerata in stato di errore quando scade il report sull'integrità. L'entità viene quindi contrassegnata con lo stato di integrità di errore. |
+| --immediate | Flag che indica se il report deve essere inviato immediatamente. <br><br> Un report sull'integrità viene inviato a un'applicazione del gateway di Service Fabric, che lo inoltra all'archivio integrità. Se Immediate è impostato su True, il report viene inviato immediatamente dal gateway HTTP all'archivio integrità, indipendentemente dalle impostazioni del client Fabric usate dall'applicazione gateway HTTP. Questo è utile per i report critici che devono essere inviati appena possibile. A seconda della tempistica e di altre condizioni, l'invio del report può tuttavia avere esito negativo, ad esempio se il gateway HTTP è chiuso o il messaggio non raggiunge il gateway. Se Immediate è impostato su False, il report viene inviato in base alle impostazioni del client di integrità dal gateway HTTP. Verrà quindi inviato in batch in base alla configurazione di HealthReportSendInterval. Questa è l'impostazione consigliata perché consente al client di integrità di ottimizzare la segnalazione di messaggi sull'integrità all'archivio integrità e l'elaborazione di report sull'integrità. Per impostazione predefinita, i report non vengono inviati immediatamente. |
+| --remove-when-expired | Valore che indica se il report viene rimosso dall'archivio integrità quando scade. <br><br> Se impostato su True, il report viene rimosso dall'archivio integrità dopo la scadenza. Se impostato su False, il report viene considerato come errore quando è scaduto. Il valore di questa proprietà è False per impostazione predefinita. Quando i client creano report periodicamente, RemoveWhenExpired sarà impostato su False (valore predefinito). In questo modo, se il reporter presenta problemi (ad esempio, un deadlock) e non può creare report, l'entità viene considerata in stato di errore quando scade il report sull'integrità. L'entità viene quindi contrassegnata con lo stato di integrità di errore. |
 | --sequence-number | Numero di sequenza per questo report sull'integrità come stringa numerica. <br><br> Il numero di sequenza del report viene usato dall'archivio integrità per rilevare i report non aggiornati. Se non specificato, un numero di sequenza viene generato automaticamente dal client di integrità quando viene aggiunto un report. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
-| --ttl | Durata in cui questo report sull'integrità è valido. Questo campo usa il formato ISO8601 per specificare la durata. <br><br> Quando i client creano report periodicamente, invieranno i report con una frequenza maggiore della durata (TTL). Se i client inviano report in caso di transizione, possono impostare la durata (TTL) come infinita. Quando la durata (TTL) scade, l'evento di integrità che contiene le informazioni sull'integrità viene rimosso dall'archivio integrità, se RemoveWhenExpired è true, o considerato in stato di errore, se RemoveWhenExpired è false. Se non è specificato, la durata (TTL) viene impostata su un valore infinito. |
+| --ttl | Durata in cui questo report sull'integrità è valido. Questo campo usa il formato ISO8601 per specificare la durata. <br><br> Quando i client creano report periodicamente, devono inviare i report con una frequenza maggiore della durata (TTL). Se i client inviano report in caso di transizione, possono impostare la durata (TTL) come infinita. Quando la durata (TTL) scade, l'evento di integrità che contiene le informazioni sull'integrità viene rimosso dall'archivio integrità, se RemoveWhenExpired è True, o considerato in stato di errore, se RemoveWhenExpired è False. Se non è specificato, la durata (TTL) viene impostata su un valore infinito. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -346,14 +346,14 @@ Segnala lo stato di integrità dell'applicazione di Service Fabric specificata. 
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
 ## <a name="sfctl-application-type"></a>sfctl application type
 Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato.
 
-Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in corso il provisioning del cluster di Service Fabric. Questi risultati sono tipi di applicazioni il cui nome corrisponde esattamente a quello specificato come parametro e che rispettano i parametri di query specificati. Vengono restituite tutte le versioni del tipo di applicazione corrispondenti al nome del tipo di applicazione, ogni versione viene restituita come un tipo di applicazione. La risposta include il nome, la versione, lo stato e altri dettagli relativi al tipo di applicazione. Si tratta di una query di paging. Se quindi i tipi di applicazione non rientrano tutti in una pagina, vengono restituiti una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Se ad esempio sono presenti 10 tipi di applicazione, ma una pagina contiene solo i primi tre tipi di applicazione oppure il risultato massimo è impostato su 3, ne vengono restituiti 3. Per accedere al resto dei risultati, recuperare le pagine successive usando il token di continuazione restituito nella query successiva. Se non ci sono pagine successive, viene restituito un token di continuazione vuoto.
+Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in corso il provisioning del cluster di Service Fabric. Questi risultati sono tipi di applicazioni il cui nome corrisponde esattamente a quello specificato come parametro e che rispettano i parametri di query specificati. Vengono restituite tutte le versioni del tipo di applicazione corrispondenti al nome del tipo di applicazione, ogni versione viene restituita come un tipo di applicazione. La risposta include il nome, la versione, lo stato e altri dettagli relativi al tipo di applicazione. Si tratta di una query di paging, il che vuol dire che se i tipi di applicazione non rientrano tutti in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Se ad esempio sono presenti 10 tipi di applicazione, ma una pagina contiene solo i primi tre tipi di applicazione oppure il risultato massimo è impostato su 3, ne vengono restituiti tre. Per accedere al resto dei risultati, recuperare le pagine successive usando il token di continuazione restituito nella query successiva. Se non ci sono pagine successive, viene restituito un token di continuazione vuoto.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -372,14 +372,14 @@ Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
 ## <a name="sfctl-application-type-list"></a>sfctl application type-list
 Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric.
 
-Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in corso il provisioning del cluster di Service Fabric. Ogni versione di un tipo di applicazione viene restituito come tipo di applicazione. La risposta include il nome, la versione, lo stato e altri dettagli relativi al tipo di applicazione. Si tratta di una query di paging. Se quindi i tipi di applicazione non rientrano tutti in una pagina, vengono restituiti una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Se ad esempio sono presenti 10 tipi di applicazione, ma una pagina contiene solo i primi tre tipi di applicazione oppure il risultato massimo è impostato su 3, ne vengono restituiti 3. Per accedere al resto dei risultati, recuperare le pagine successive usando il token di continuazione restituito nella query successiva. Se non ci sono pagine successive, viene restituito un token di continuazione vuoto.
+Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in corso il provisioning del cluster di Service Fabric. Ogni versione di un tipo di applicazione viene restituito come tipo di applicazione. La risposta include il nome, la versione, lo stato e altri dettagli relativi al tipo di applicazione. Si tratta di una query di paging, il che vuol dire che se i tipi di applicazione non rientrano tutti in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Se ad esempio sono presenti 10 tipi di applicazione, ma una pagina contiene solo i primi tre tipi di applicazione oppure il risultato massimo è impostato su 3, ne vengono restituiti tre. Per accedere al resto dei risultati, recuperare le pagine successive usando il token di continuazione restituito nella query successiva. Se non ci sono pagine successive, viene restituito un token di continuazione vuoto.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -397,14 +397,14 @@ Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
 ## <a name="sfctl-application-unprovision"></a>sfctl application unprovision
 Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric dal cluster.
 
-Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric dal cluster. Questa operazione può essere eseguita solo se tutte le istanze dell'applicazione del tipo di applicazione sono state eliminate. Dopo aver annullato la registrazione del tipo di applicazione, non è possibile creare nuove istanze di applicazione per questo particolare tipo di applicazione.
+Questa operazione può essere eseguita solo se tutte le istanze dell'applicazione del tipo di applicazione sono state eliminate. Dopo aver annullato la registrazione del tipo di applicazione, non è possibile creare nuove istanze di applicazione per questo particolare tipo di applicazione.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -421,7 +421,7 @@ Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric 
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -458,7 +458,7 @@ Convalida i parametri di aggiornamento dell'applicazione offerta e avvia l'aggio
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -471,7 +471,7 @@ Riprende l'aggiornamento manuale non monitorato di un'applicazione di Service Fa
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --upgrade-domain-name [Obbligatorio] | Nome del dominio di aggiornamento in cui si vuole riprendere l'aggiornamento. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
@@ -481,7 +481,7 @@ Riprende l'aggiornamento manuale non monitorato di un'applicazione di Service Fa
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -494,7 +494,7 @@ Avvia il rollback dell'aggiornamento dell'applicazione corrente alla versione pr
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -503,7 +503,7 @@ Avvia il rollback dell'aggiornamento dell'applicazione corrente alla versione pr
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -516,7 +516,7 @@ Restituisce informazioni sullo stato dell'aggiornamento più recente dell'applic
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -525,7 +525,7 @@ Restituisce informazioni sullo stato dell'aggiornamento più recente dell'applic
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -548,10 +548,9 @@ Facoltativamente, è possibile visualizzare lo stato di caricamento per ogni fil
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
-
 
 
 ## <a name="next-steps"></a>Passaggi successivi

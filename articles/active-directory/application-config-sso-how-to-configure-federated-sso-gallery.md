@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: e79aff1a9bf7a7d151b4973381d0ee9010c2255e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 70e0bce54cdfc3af6e5336a8188724acd11b6a04
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363853"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503224"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Come configurare l'accesso Single Sign-On federato per un'applicazione della raccolta di Azure AD
 
@@ -167,7 +167,7 @@ Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire
 
 8.  Passare alla sezione **Certificato di firma SAML** e quindi fare clic sul valore della colonna **Download**. A seconda di quale applicazione richiede la configurazione dell'accesso Single Sign-On, è visibile l'opzione per scaricare il codice XML dei metadati o l'opzione per scaricare il certificato.
 
-Azure AD fornisce anche un URL per ottenere i metadati. Seguire questo modello per ottenere l'URL dei metadati specifici dell'applicazione: https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
+Azure AD fornisce anche un URL per ottenere i metadati. Seguire questo modello per ottenere l'URL dei metadati specifico dell'applicazione: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 ## <a name="assign-users-to-the-application"></a>Assegnare utenti all'applicazione
 

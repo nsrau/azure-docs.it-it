@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: a7f20c22b39458134d3dcd42b7e13860c03bad58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 08b7f50c3051c174158cff0b4c591a2b22fb4ab4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785910"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502703"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD
  
 L'API di Servizi multimediali di Azure è di tipo RESTful. È possibile usarla per eseguire operazioni sulle risorse multimediali tramite un'API REST o tramite gli SDK client disponibili. Servizi multimediali di Azure offre un SDK client di Servizi multimediali per Microsoft .NET. Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. 
 
-Servizi multimediali supporta l'[autenticazione basata su Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md). Il servizio REST di Servizi multimediali di Azure richiede che l'utente o l'applicazione che invia le richieste all'API REST abbia almeno il ruolo di **Collaboratore** o **Proprietario** per poter accedere alle risorse. Per altre informazioni, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md).  
+Servizi multimediali supporta l'[autenticazione basata su Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Il servizio REST di Servizi multimediali di Azure richiede che l'utente o l'applicazione che invia le richieste all'API REST abbia almeno il ruolo di **Collaboratore** o **Proprietario** per poter accedere alle risorse. Per altre informazioni, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
 > Attualmente, Servizi multimediali supporta il modello di autenticazione del Servizio di controllo di accesso Azure. L'autorizzazione di Controllo di accesso, tuttavia, verrà dichiarata deprecata il 1° giugno 2018. È consigliabile eseguire la migrazione all'autenticazione di Azure AD il più presto possibile.
@@ -100,7 +100,7 @@ Le applicazioni che usano in genere questo metodo di autenticazione sono app che
 
 Quando si usa il metodo di autenticazione basato sull'entità servizio per compilare scenari di consumer, l'autenticazione è gestita in genere nel livello intermedio (tramite alcune API) e non direttamente in un'applicazione desktop o per dispositivi mobili. 
 
-Per usare questo metodo, creare un'applicazione Azure AD e l'entità servizio nel relativo tenant. Dopo aver creato l'applicazione, è possibile assegnare all'app l'accesso associato al ruolo di Collaboratore o Proprietario all'account di Servizi multimediali. È possibile eseguire questa operazione dal portale di Azure mediante l'interfaccia della riga di comando di Azure o uno script di PowerShell. È anche possibile usare un'applicazione Azure AD esistente. Per registrare e gestire l'app e l'entità servizio di Azure AD accedere [al portale di Azure](media-services-portal-get-started-with-aad.md) oppure usare l'[interfaccia della riga di comando di Azure 2.0](media-services-use-aad-auth-to-access-ams-api.md) o [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
+Per usare questo metodo, creare un'applicazione Azure AD e l'entità servizio nel relativo tenant. Dopo aver creato l'applicazione, è possibile assegnare all'app l'accesso associato al ruolo di Collaboratore o Proprietario all'account di Servizi multimediali. È possibile eseguire questa operazione dal portale di Azure mediante l'interfaccia della riga di comando di Azure o uno script di PowerShell. È anche possibile usare un'applicazione Azure AD esistente. Per registrare e gestire l'app e l'entità servizio di Azure AD accedere [al portale di Azure](media-services-portal-get-started-with-aad.md) oppure usare l'[interfaccia della riga di comando di Azure](media-services-use-aad-auth-to-access-ams-api.md) o [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
 
 ![App di livello intermedio](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
@@ -146,8 +146,8 @@ Soluzione: perché la richiesta REST di Servizi multimediali abbia esito positiv
 
 Gli articoli seguenti contengono alcune panoramiche dei concetti di autenticazione di Azure AD: 
 
-- [Scenari di autenticazione per Azure AD](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [Aggiungere, aggiornare o rimuovere un'applicazione in Azure AD](../../active-directory/develop/active-directory-integrating-applications.md)
+- [Scenari di autenticazione per Azure AD](../../active-directory/develop/authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [Aggiungere, aggiornare o rimuovere un'applicazione in Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

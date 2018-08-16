@@ -2,29 +2,24 @@
 title: Supporto di condivisione delle risorse multiorigine (CORS) | Microsoft Docs
 description: Informazioni su come attivare il supporto CORS per i servizi di archiviazione di Microsoft Azure.
 services: storage
-documentationcenter: .net
 author: cbrooksmsft
-manager: carmonm
-editor: tysonn
-ms.assetid: a0229595-5b64-4898-b8d6-fa2625ea6887
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: fd5df50128885f6a96e68c8ad46204bc21d80264
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059846"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530479"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
 A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure supportano la condivisione risorse tra le origini (CORS) per i servizi BLOB, tabelle, code e file. CORS è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Nei browser Web è implementata una restrizione di sicurezza nota come [criterio della stessa origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce a una pagina Web di chiamare API in un dominio differente. CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare API in un altro dominio. Per altri dettagli su CORS, vedere la [specifica CORS](http://www.w3.org/TR/cors/).
 
-È possibile impostare regole CORS singolarmente per ogni servizio di archiviazione chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) e [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Una volta impostate le regole CORS per il servizio, una richiesta correttamente autenticata, eseguita al servizio e autenticata correttamente, verrà valutata per determinare se è consentita in base alle regole specificate.
+È possibile impostare regole CORS singolarmente per ogni servizio di archiviazione chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) e [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Una volta impostate le regole CORS per il servizio, una richiesta correttamente autorizzata, eseguita al servizio da un dominio diverso, verrà valutata per determinare se è consentita in base alle regole specificate.
 
 > [!NOTE]
 > CORS non è un meccanismo di autenticazione. Qualsiasi richiesta eseguita a una risorsa di archiviazione quando è abilitata la condivisione CORS deve disporre di una firma di autenticazione appropriata o deve essere eseguita su una risorsa pubblica.
@@ -87,7 +82,7 @@ Alle regole CORS vengono applicate le limitazioni seguenti:
 * La lunghezza di un'intestazione consentita, di un'intestazione esposta o di un'origine consentita non deve superare 256 caratteri.
 * Le intestazioni consentite e quelle esposte possono essere:
   * Intestazioni letterali, per cui viene fornito il nome esatto dell'intestazione, ad esempio **x-ms-meta-processed**. Nella richiesta è possibile specificare un massimo di 64 intestazioni letterali.
-  * Intestazioni con prefisso, per cui viene fornito un prefisso dell'intestazione, ad esempio **x-ms-meta-data**\*. Specificando un prefisso in questo modo, si consente o si espone qualsiasi intestazione che inizi con il prefisso specificato. Nella richiesta è possibile specificare un massimo di due intestazioni con prefisso.
+  * Intestazioni con prefisso, per cui viene fornito un prefisso dell'intestazione, ad esempio **x-ms-meta-data***. Specificando un prefisso in questo modo, si consente o si espone qualsiasi intestazione che inizi con il prefisso specificato. Nella richiesta è possibile specificare un massimo di due intestazioni con prefisso.
 * I metodi (o verbi HTTP) specificati nell'elemento **AllowedMethods** devono essere conformi ai metodi supportati dalle API del servizio di archiviazione di Azure. I metodi supportati sono DELETE, GET, HEAD, MERGE, POST, OPTIONS e PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Informazioni sulla logica di valutazione delle regole CORS
@@ -168,14 +163,14 @@ Nella tabella seguente viene indicata la risposta del servizio di archiviazione 
 
 | Richiesta | Impostazione account e risultato della valutazione della regola |  |  | Risposta |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Intestazione di origine presente sulla richiesta** |**Regole CORS specificate per questo servizio** |**Presenza di una regola di corrispondenza che consente tutte le origini (*)** |**Presenza di una regola per l'esatta corrispondenza dell'origine** |**Risposta che include l'intestazione Vary impostata su Origin** |**Risposta che include Access-Control-Allowed-Origin: "*"** |**Risposta che include Access-Control-Exposed-Headers** |
+| **Intestazione di origine presente sulla richiesta** |**Regole CORS specificate per questo servizio** |**Presenza di una regola di corrispondenza che consente tutte le origini(*)** |**Presenza di una regola per l'esatta corrispondenza dell'origine** |**Risposta che include l'intestazione Vary impostata su Origin** |**Risposta che include Access-Control-Allowed-Origin: "*"** |**Risposta che include Access-Control-Exposed-Headers** |
 | No  |No  |No  |No  |No  |No  |No  |
-| No  |Sì |No  |No  |Sì |No  |No  |
-| No  |Sì |Sì |No  |No  |Sì |Sì |
-| Sì |No  |No  |No  |No  |No  |No  |
-| Sì |Sì |No  |Sì |Sì |No  |Sì |
-| Sì |Sì |No  |No  |Sì |No  |No  |
-| Sì |Sì |Sì |No  |No  |Sì |Sì |
+| No  |Yes |No  |No  |Yes |No  |No  |
+| No  |Yes |Yes |No  |No  |Yes |Yes |
+| Yes |No  |No  |No  |No  |No  |No  |
+| Yes |Yes |No  |Yes |Yes |No  |Yes |
+| Yes |Yes |No  |No  |Yes |No  |No  |
+| Yes |Yes |Yes |No  |No  |Yes |Yes |
 
 ## <a name="billing-for-cors-requests"></a>Fatturazione per le richieste CORS
 Le richieste preliminari con esito positivo vengono fatturate qualora la condivisione CORS sia stata abilitata per i servizi di archiviazione dell'account, chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) o [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Per ridurre al minimo le spese, impostare l'elemento **MaxAgeInSeconds** nelle regole CORS su un valore elevato, in modo che la richiesta venga memorizzata nella cache dall'agente utente.

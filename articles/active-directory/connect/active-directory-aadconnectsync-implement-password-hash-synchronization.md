@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265047"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494982"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -28,7 +28,7 @@ Questo articolo contiene le informazioni necessarie per sincronizzare le passwor
 ## <a name="what-is-password-hash-synchronization"></a>Informazioni sulla sincronizzazione dell'hash delle password
 La probabilità di restare bloccati e di non poter portare a termine il proprio lavoro per aver dimenticato una password è proporzionale al numero di password diverse che è necessario ricordare. Più password si devono ricordare, maggiore sarà la probabilità di dimenticarne una. Le domande e le chiamate relative alla reimpostazione della password e ad altri problemi correlati impegnano la maggior parte delle risorse di supporto tecnico.
 
-La sincronizzazione dell'hash delle password è una funzionalità usata per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure AD basata sul cloud.
+La sincronizzazione dell'hash delle password è una funzionalità usata per sincronizzare gli hash delle password utente da un'istanza di Active Directory locale a un'istanza di Azure AD basata sul cloud.
 Usare questa funzionalità per accedere a servizi di Azure AD come Office 365, Microsoft Intune, CRM Online e Azure Active Directory Domain Services. Per accedere al servizio, è necessario usare la stessa password usata per accedere all'istanza di Active Directory locale.
 
 ![Cos'è Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)

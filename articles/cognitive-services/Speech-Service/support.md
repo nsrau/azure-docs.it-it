@@ -8,22 +8,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f8cbb5b436930f89ece1a18d4e1e54a88b02650
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: e24008a2208d8dcfbb7f86c66bb7de39f3c75790
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39286172"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528188"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
 
 Se si sta iniziando a esplorare le funzionalità del servizio Voce o si sta per implementare una nuova funzionalità nell'applicazione, di seguito sono elencati i suggerimenti per gli sviluppatori su dove ottenere assistenza.
 
 > [!div class="checklist"]
+> * È possibile rimanere informati sui nuovi sviluppi in *Servizi cognitivi Microsoft* o leggere le ultime novità relative al *servizio di riconoscimento vocale*.
 > * Eseguire una ricerca per verificare se la community non ha ancora risposto alla domanda che si vuole porre per un problema o se esiste già la documentazione della funzionalità che si sta provando a implementare.
 > * Se non si riesce a trovare la risposta che serve, è consigliabile porre una domanda in *Stack Overflow*.
 > * Se si riscontra un problema relativo a uno degli esempi disponibili in GitHub, segnalare il problema in *GitHub*.
 > * Cercare una soluzione nel *forum di UserVoice*.
+
+## <a name="stay-informed"></a>Rimani sempre aggiornato
+
+Le novità sui Servizi cognitivi Microsoft sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Per le informazioni più recenti sul servizio di riconoscimento vocale, vedere il [blog sul servizio di riconoscimento vocale](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
 
 ## <a name="search"></a>Ricerca
 

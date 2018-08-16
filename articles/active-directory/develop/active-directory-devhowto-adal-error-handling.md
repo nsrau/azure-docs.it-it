@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157638"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593044"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 
@@ -44,8 +44,8 @@ Esiste un set di errori generati dal sistema operativo, che potrebbe richiedere 
 
 ### <a name="application-scenarios"></a>Scenari applicativi
 
-- Applicazioni [client native](active-directory-dev-glossary.md#native-client) (iOS, Android, desktop .NET o Xamarin)
-- Applicazioni [client Web](active-directory-dev-glossary.md#web-client) che chiamano una [risorsa](active-directory-dev-glossary.md#resource-server) (.NET)
+- Applicazioni [client native](developer-glossary.md#native-client) (iOS, Android, desktop .NET o Xamarin)
+- Applicazioni [client Web](developer-glossary.md#web-client) che chiamano una [risorsa](developer-glossary.md#resource-server) (.NET)
 
 ### <a name="error-cases-and-actionable-steps"></a>Casi di errore e azioni implementabili
 
@@ -578,20 +578,15 @@ window.Logging = {
 ```
 ## <a name="related-content"></a>Contenuti correlati
 
-* [Guida per sviluppatori di Azure AD][AAD-Dev-Guide]
-* [Azure AD Authentication Libraries][AAD-Auth-Libraries] (Librerie di autenticazione di Azure AD)
-* [Scenari di autenticazione per Azure AD][AAD-Auth-Scenarios]
+* [Guida per gli sviluppatori di Azure Active Directory][AAD-Dev-Guide]
+* [Librerie di autenticazione di Azure AD][AAD-Auth-Libraries]
+* [Scenari di autenticazione di Azure AD][AAD-Auth-Scenarios]
 * [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]
 
 Usare la sezione dei commenti di seguito per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 
 [![Pulsante Accedi][AAD-Sign-In]][AAD-Sign-In]
-<!--Reference style links -->
-[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
-[AZURE-portal]: https://portal.azure.com
+<!--Reference style links --> [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]:authentication-scenarios.md [AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

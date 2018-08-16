@@ -3,7 +3,7 @@ title: Accesso JIT (Just-in-Time) alle macchine virtuali nel Centro sicurezza di
 description: In questo documento viene illustrato come usare l'accesso JIT (Just-in-Time) alle macchine virtuali nel Centro sicurezza di Azure per controllare l'accesso alle macchine virtuali di Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 18c05444c151a87048db71b039845e26796126b8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990579"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525944"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)
 
@@ -168,10 +168,9 @@ Per modificare i criteri Just-In-Time esistenti di una macchina virtuale, viene 
 
 Modificare i filtri e selezionare **Applica** per creare un log ed eseguire ricerche.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Uso dell'accesso Just-In-Time alle macchine virtuali tramite PowerShell
+## <a name="using-just-in-time-vm-access-via-rest-apis"></a>Uso dell'accesso Just-In-Time alle macchine virtuali tramite le API REST
 
-Per usare la soluzione Just-In-Time tramite PowerShell, verificare di disporre della [versione più recente](/powershell/azure/install-azurerm-ps) di Azure PowerShell.
-È quindi necessario installare la [versione più recente](https://aka.ms/asc-psgallery) del Centro sicurezza di Azure da PowerShell Gallery.
+È possibile usare la funzionalità di accesso Just-In-Time alle macchine virtuali tramite l'API Centro sicurezza di Azure. Tramite questa API è possibile ottenere informazioni sulle macchine virtuali configurate, aggiungerne di nuove, richiedere l'accesso a una macchina virtuale e altro ancora. Per informazioni sull'API REST Just-In-Time, vedere [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies) (Criteri di accesso alla rete JIT).
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configurazione dei criteri Just-In-Time per una macchina virtuale
 

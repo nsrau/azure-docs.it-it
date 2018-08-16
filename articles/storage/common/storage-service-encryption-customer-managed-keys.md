@@ -1,19 +1,19 @@
 ---
 title: Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault | Microsoft Docs
-description: La crittografia del servizio di archiviazione di Azure consente di crittografare Archiviazione BLOB di Azure, File di Azure, Archiviazione code di Azure e Archiviazione tabelle di Azure sul lato del servizio durante l'archiviazione dei dati e di eseguire la decrittografia durante il recupero dei dati usando chiavi gestite dal cliente.
+description: La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare Archiviazione BLOB di Azure e File di Azure sul lato del servizio durante l'archiviazione dei dati e di decrittografarlo durante il recupero dei dati usando chiavi gestite dal cliente.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: b92a486ea8dfc148cd10b905f90a0e871602cc61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415704"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527087"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault
 In Microsoft Azure la protezione e la salvaguardia dei dati sono essenziali per soddisfare i criteri di sicurezza e conformità dell'organizzazione. Uno dei metodi usati dalla piattaforma di archiviazione di Azure per proteggere i dati è la crittografia del servizio di archiviazione, che crittografa i dati durante la scrittura nella risorsa di archiviazione e li decrittografa durante il recupero. Le operazioni di crittografia e decrittografia sono automatiche e trasparenti e usano la [crittografia AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, uno dei più efficaci algoritmi di crittografia a blocchi.
@@ -23,7 +23,7 @@ In Microsoft Azure la protezione e la salvaguardia dei dati sono essenziali per 
 La crittografia del servizio di archiviazione per Archiviazione BLOB di Azure e File di Azure è integrata con Azure Key Vault per consentire la gestione delle chiavi di crittografia con un insieme di credenziali delle chiavi. È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi di crittografia. Con Azure Key Vault è possibile gestire e controllare le chiavi e anche controllarne l'utilizzo.
 
 > [!Note]  
-> La crittografia del servizio di archiviazione non è disponibile per [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). È consigliabile usare un tipo di crittografia a livello di sistema operativo, ad esempio [Crittografia dischi di Azure](../../security/azure-security-disk-encryption-overview.md), che usa gli standard di settore [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) in Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per offrire crittografia integrata con Key Vault.
+> La crittografia del servizio di archiviazione con le chiavi gestite dal cliente non è disponibile per [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). [Crittografia dischi di Azure](../../security/azure-security-disk-encryption-overview.md) usa gli standard di settore [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) in Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per offrire una soluzione di crittografia integrata con Key Vault.
 
 Le chiavi personalizzate sono utili perché offrono maggiore flessibilità, consentendo di creare, ruotare, disabilitare e definire i controlli di accesso. Con queste chiavi è anche possibile controllare le chiavi di crittografia usate per proteggere i dati.
 
@@ -121,7 +121,7 @@ Sì.
 Per l'uso di Azure Key Vault è previsto un costo. Per altre informazioni, visitare la [pagina relativa ai prezzi di Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). Non sono previsti costi aggiuntivi per la crittografia SSE, che è abilitata per tutti gli account di archiviazione.
 
 **La crittografia del servizio di archiviazione è disponibile per Azure Managed Disks?**  
-No, la crittografia del servizio di archiviazione non è disponibile per [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). È consigliabile usare un tipo di crittografia a livello di sistema operativo, ad esempio [Crittografia dischi di Azure](../../security/azure-security-disk-encryption-overview.md), che usa gli standard di settore [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) in Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per offrire crittografia integrata con Key Vault.
+La crittografia del servizio di archiviazione è disponibile per Azure Managed Disks con chiavi gestite da Microsoft, ma non con chiavi gestite dal cliente. Invece di Managed Disks che supporta la crittografia del servizio di archiviazione con le chiavi gestite dal cliente, è consigliabile usare [Crittografia dischi di Azure](../../security/azure-security-disk-encryption-overview.md), che usa gli standard di settore [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) in Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per offrire crittografia integrata con Key Vault.
 
 **Quali sono le differenze tra la crittografia del servizio di archiviazione e Crittografia dischi di Azure?**  
 Crittografia dischi di Azure offre l'integrazione tra soluzioni basate sul sistema operativo, ad esempio BitLocker e DM-Crypt, e Azure Key Vault. La crittografia del servizio di archiviazione offre la crittografia in modo nativo a livello piattaforma di archiviazione di Azure, al di sotto della macchina virtuale.

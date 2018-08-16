@@ -4,16 +4,16 @@ description: Usare un dispositivo simulato nel computer Windows per testare il p
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e149886e1ade80d7751f58eb1f77031c4e432b75
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e558f44f9271009b92fbf4ece9aa706801e4176c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307944"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576203"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows
 
@@ -58,6 +58,8 @@ Dopo aver creato la singola registrazione, salvare il valore di **ID registrazio
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 
+Dopo aver completato la sezione precedente, verrà visualizzato il nuovo dispositivo, elencato come dispositivo IoT Edge nell'hub IoT. Sarà quindi necessario installare il runtime IoT Edge nel dispositivo. 
+
 Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale. Nei dispositivi che eseguono Windows, è possibile scegliere se usare contenitori Windows o Linux. Scegliere il tipo di contenitori da usare e seguire la procedura. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale. 
 
 Seguire le istruzioni per installare il runtime IoT Edge nel dispositivo che esegue il dispositivo TPM simulato della sezione precedente. 
@@ -67,30 +69,9 @@ Prima di iniziare gli articoli seguenti, assicurarsi di conoscere il valore di *
 * [Contenitori Windows](how-to-install-iot-edge-windows-with-windows.md)
 * [Contenitori Linux](how-to-install-iot-edge-windows-with-linux.md)
 
-## <a name="create-a-tpm-environment-variable"></a>Creare una variabile di ambiente per il dispositivo TPM
-
-Nel computer che esegue il dispositivo simulato, modificare il registro del servizio **iotedge** per impostare una variabile di ambiente.
-
-1. Dal menu **Start** aprire **regedit**. 
-2. Passare a **Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**. 
-3. Selezionare **Modifica** > **Nuovo** > **Valore multistringa**. 
-4. Immettere il nome **Environment**. 
-5. Fare doppio clic sulla nuova variabile e impostare i dati del valore su **IOTEDGE_USE_TPM_DEVICE=ON**. 
-6. Fare clic su **OK** per salvare le modifiche. 
-
-## <a name="restart-the-iot-edge-runtime"></a>Riavviare il runtime IoT Edge
-
-Riavviare il runtime IoT Edge in modo che accetti tutte le modifiche alla configurazione apportate nel dispositivo. 
-
-```powershell
-Stop-Service iotedge -NoWait
-sleep 5
-Start-Service iotedge
-```
-
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 
-Se il runtime viene avviato correttamente, è possibile accedere all'hub IoT e verificare se è stato eseguito il provisioning automatico del nuovo dispositivo e se è pronto per l'esecuzione di moduli IoT Edge. 
+Se il runtime è stato avviato correttamente, è possibile passare all'hub IoT e iniziare la distribuzione di moduli IoT Edge nel dispositivo. Usare i comandi seguenti sul dispositivo per verificare che il runtime sia stato installato e avviato correttamente.  
 
 Verificare lo stato del servizio IoT Edge.
 

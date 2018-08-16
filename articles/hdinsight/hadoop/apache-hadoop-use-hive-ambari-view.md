@@ -1,25 +1,20 @@
 ---
-title: Usare le visualizzazioni di Ambari per l'uso di Hive in HDInsight (Hadoop) - Azure | Documentazione Microsoft
+title: Usare le visualizzazioni di Ambari per l'uso di Hive in HDInsight (Hadoop) - Azure
 description: Informazioni su come usare la visualizzazione Hive dal Web browser per inviare query Hive. La visualizzazione Hive fa parte delle visualizzazioni di Ambari fornite con il cluster HDInsight basato su Linux.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 6c07e9a45cbfbc5e6ed6787277dcfa1bf4cf4b2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 933f9f88e4924cba7a3ea71c488e23ce5d647463
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201493"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597491"
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Usare la vista Hive di Ambari con Hadoop in HDInsight
 
@@ -27,7 +22,7 @@ ms.locfileid: "34201493"
 
 Informazioni su come eseguire query Hive usando la vista Hive di Ambari. Le viste di Hive consentono di creare, ottimizzare ed eseguire query Hive dal Web browser.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Hadoop basato su Linux in HDInsight versione 3.4 o successiva.
 
@@ -166,7 +161,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Si potrà quindi usare la funzione definita dall'utente nella query, Ad esempio, `SELECT myawesomeudf(name) FROM people;`.
+Si potrà quindi usare la funzione definita dall'utente nella query, Ad esempio: `SELECT myawesomeudf(name) FROM people;`.
 
 Per altre informazioni sull'uso di funzioni definite dall'utente con Hive in HDInsight, vedere gli articoli seguenti:
 

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: acade3d828c785af9468baa30086d3b79542f9b7
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f24d273afa47466fe53b93d9c9c22bbcb1fc6959
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763947"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493520"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Service Fabric.
@@ -52,7 +52,7 @@ Elimina la proprietà di Service Fabric specificata con un determinato nome. Pri
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -75,7 +75,7 @@ Ottiene la proprietà di Service Fabric specificata con un determinato nome. Que
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -99,7 +99,7 @@ Un nome di Service Fabric può avere una o più proprietà denominate che archiv
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -124,9 +124,10 @@ Crea o aggiorna la proprietà di Service Fabric specificata con un determinato n
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.

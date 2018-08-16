@@ -1,25 +1,20 @@
 ---
-title: Usare C# con Hive e Pig in Hadoop in HDInsight - Azure | Microsoft Docs
+title: Usare C# con Hive e Pig in Hadoop in HDInsight - Azure
 description: Informazioni su come usare le funzioni definite dall'utente C# con lo streaming Hive e Pig in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: b776b214b9d46293a3ab97ad226dffd3107f3430
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: a2a5581f62a4aa2d9af8302907a144573fd8d3b8
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404036"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596780"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Usare le funzioni definite dall'utente C# con lo streaming Hive e Pig in Hadoop in HDInsight
 
@@ -30,7 +25,7 @@ Informazioni su come usare le funzioni definite dall'utente C# con Apache Hive e
 
 Sia Hive sia Pig sono in grado di passare i dati alle applicazioni esterne per l'elaborazione. Questo processo è noto come _streaming_. Quando si usa un'applicazione .NET, i dati vengono passati all'applicazione in STDIN e l'applicazione restituisce i risultati in STDOUT. Per leggere e scrivere da STDIN e STDOUT, è possibile usare `Console.ReadLine()` e `Console.WriteLine()` da un'applicazione console.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una familiarità nello scrivere e nel compilare il codice C# destinato a .NET Framework 4.5.
 
@@ -221,7 +216,7 @@ Per altre informazioni sulla versione del framework .NET e di Mono compresa nell
 
 1. Per connettersi al cluster HDInsight, usare uno dei metodi seguenti:
 
-    * Se si usa un cluster HDInsight __basato su Linux__, usare SSH. Ad esempio, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+    * Se si usa un cluster HDInsight __basato su Linux__, usare SSH. Ad esempio: `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
     
     * Se viene usato un cluster HDInsight __basato su Windows__, [Connettersi a cluster con RDP](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 

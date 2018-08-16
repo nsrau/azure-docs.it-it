@@ -253,7 +253,7 @@ Ecco le impostazioni consigliate per la cache su disco per i dischi dati:
 Configurando la memorizzazione nella cache ReadOnly nei dischi dati di Archiviazione Premium, è possibile ottenere una latenza di lettura bassa e valori molto elevati di IOPS e velocità effettiva di lettura per l'applicazione. Questo è dovuto ai due motivi seguenti:
 
 1. Le letture eseguite dalla cache, che si trova nella memoria della VM e nell'unità SSD locale, sono più veloci rispetto alle letture dal disco dati, che si trova nell'archivio BLOB di Azure.  
-2. L'Archiviazione Premium non include le operazioni di lettura fornite dalla cache nel calcolo dei valori di IOPS e velocità effettiva del disco. L'applicazione è quindi in grado di ottenere valori totali di IOPS e velocità effettiva più elevati.
+1. L'Archiviazione Premium non include le operazioni di lettura fornite dalla cache nel calcolo dei valori di IOPS e velocità effettiva del disco. L'applicazione è quindi in grado di ottenere valori totali di IOPS e velocità effettiva più elevati.
 
 *ReadWrite*  
 Per impostazione predefinita, la memorizzazione nella cache ReadWrite è abilitata nei dischi sistema operativo. È stato recentemente aggiunto il supporto per la memorizzazione nella cache ReadWrite anche sui dischi dati. Se si usa la memorizzazione nella cache ReadWrite, è necessario scrivere in modo corretto i dati dalla cache ai dischi persistenti. Ad esempio, SQL Server gestisce automaticamente la scrittura di dati memorizzati nella cache nei dischi di archiviazione permanente. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
@@ -263,7 +263,7 @@ Per impostazione predefinita, la memorizzazione nella cache ReadWrite è abilita
 1. Configurare la cache "ReadOnly" nei dischi di Archiviazione Premium che ospitano i file di dati.  
    a.  Le operazioni rapide di lettura dalla cache riducono il tempo necessario per le query di SQL Server, poiché le pagine di dati vengono recuperate in modo molto più veloce dalla cache rispetto dal recupero diretto dai dischi dati.  
    b.  Le fornitura delle letture dalla cache consente di rendere disponibile velocità effettiva aggiuntiva dai dischi dati Premium. SQL Server può usare questa velocità effettiva aggiuntiva per recuperare un numero superiore di pagine di dati e altre operazioni come il backup/ripristino, i carichi in batch e le ricompilazioni degli indici.  
-2. Configurare la cache "None" nei dischi di Archiviazione Premium che ospitano i file di log.  
+1. Configurare la cache "None" nei dischi di Archiviazione Premium che ospitano i file di log.  
    a.  I file di log hanno principalmente operazioni intensive a livello di lettura. Non ottengono quindi alcun vantaggio dalla cache ReadOnly.
 
 ## <a name="disk-striping"></a>Striping del disco
@@ -381,12 +381,12 @@ Seguire questa procedura per preparare la cache.
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
-2. Eseguire il test di Iometer per l'inizializzazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
+1. Eseguire il test di Iometer per l'inizializzazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
    | Scenario | Volume di destinazione | NOME | Duration |
    | --- | --- | --- | --- |
    | Inizializzare il disco della cache |CacheReads |RandomWrites\_1MB |2 ore |
-3. Eseguire il test di Iometer per la preparazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
+1. Eseguire il test di Iometer per la preparazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
    | Scenario | Volume di destinazione | NOME | Durata |
    | --- | --- | --- | --- |

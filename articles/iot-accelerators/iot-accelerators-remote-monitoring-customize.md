@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e791051fb82197a770bff05f636159c638e3b9a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9700a76284e2ee2a652ae0dbcbaa2885ab515f79
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627852"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596556"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizzare l'acceleratore di soluzioni di monitoraggio remoto
 
@@ -34,6 +34,8 @@ I passaggi seguenti illustrano il processo per configurare un ambiente locale pe
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
+
+    Attivare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [disabilitarlo appena possibile](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
 
 1. Usare il portale di Azure o [l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per trovare il nome e l'indirizzo IP pubblico della macchina virtuale. Ad esempio: 
 
@@ -461,5 +463,5 @@ Questo articolo ha fornito informazioni sulle risorse disponibili per personaliz
 
 Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Architettura della soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere [Customize and redeploy a microservice](iot-accelerators-microservices-example.md) (Personalizzare e ridistribuire un microservizio)
+Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere [Personalizzare e ridistribuire un microservizio](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

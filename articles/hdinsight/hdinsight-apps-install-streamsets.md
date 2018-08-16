@@ -1,25 +1,20 @@
 ---
-title: Installare un'applicazione pubblicata - StreamSets Data Collector - HDInsight di Azure | Microsoft Docs
+title: Installare un'applicazione pubblicata - StreamSets Data Collector - Azure HDInsight
 description: Installare e usare l'applicazione Hadoop di terze parti StreamSets Data Collector.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e433de82576f8b943988881ed0b6673c0dccd77e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c0b458b19abb707305ca609fbd5bfac63c92567e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401024"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591228"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Installare un'applicazione pubblicata - StreamSets Data Collector
 
@@ -42,7 +37,7 @@ Progettato per isolare logicamente ogni fase di una pipeline, StreamSets Data Co
 * [Canale StreamSets pubblico di Slack](https://streamsetters.slack.com/)
 * [Codice sorgente](https://github.com/streamsets)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per installare questa app in un nuovo cluster HDInsight o in un cluster esistente, è necessario disporre della configurazione seguente:
 

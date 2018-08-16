@@ -1,24 +1,20 @@
 ---
-title: Aggiungere librerie Hive durante la creazione del cluster HDInsight - Azure | Microsoft Docs
+title: Aggiungere librerie Hive durante la creazione del cluster HDInsight - Azure
 description: Informazioni su come aggiungere librerie Hive (file con estensione jar) a un cluster HDInsight durante la creazione del cluster.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fe7cb2c3990a5aa161665519490ede90be04e1ee
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400657"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594608"
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aggiungere librerie Hive personalizzate durante la creazione del cluster HDInsight
 

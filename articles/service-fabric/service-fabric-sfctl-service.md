@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: e027bb7f61d19fc274f7eddd8f28e9e6dac099ce
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 84c2faaf137e19d78e7e17527feb50baebf8041b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763545"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494575"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Creare, eliminare e gestire servizi, tipi di servizio e pacchetti di servizi.
@@ -59,8 +59,8 @@ Ottiene il nome dell'applicazione per il servizio specificato. Se un servizio co
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --service-id [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -85,7 +85,7 @@ Ottiene l'elenco di pacchetti di codice distribuiti in un nodo di Service Fabric
 | --node-name [obbligatorio] | Il nome del nodo. |
 | --code-package-name | Nome di un pacchetto di codice specificato nel manifesto del servizio registrato come parte di un tipo di applicazione in un cluster di Service Fabric. |
 | --service-manifest-name | Nome di un manifesto del servizio registrato come parte di un tipo di applicazione in un cluster di Service Fabric. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -104,7 +104,7 @@ Crea il servizio di Service Fabric specificato.
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --app-id       [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
+| --app-id       [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "\~". Se ad esempio il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --name         [obbligatorio] | Nome del servizio. Deve trattarsi di un elemento figlio dell'ID dell'applicazione. Corrisponde al nome intero, incluso l'URI `fabric\:`. Ad esempio, il servizio `fabric\:/A/B` è un elemento figlio dell'applicazione `fabric\:/A`. |
 | --service-type [obbligatorio] | Nome del tipo di servizio. |
 | --activation-mode | Modalità di attivazione del pacchetto di servizi. |
@@ -132,7 +132,7 @@ Crea il servizio di Service Fabric specificato.
 | --stateful | Indica un servizio con stato. |
 | --stateless | Indica un servizio senza stato. |
 | --target-replica-set-size | Dimensioni di un set di repliche di destinazione sotto forma di numero. Si applica solo a servizi con stato. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -153,9 +153,9 @@ Prima di poter essere eliminato, un servizio deve essere creato. Per impostazion
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --service-id [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
 | --force-remove | Consente di rimuovere un servizio o un'applicazione di Service Fabric in modo forzato senza passare attraverso la sequenza di arresto normale. Questo parametro può essere usato per eliminare in modo forzato un'applicazione o un servizio per il quale l'operazione di eliminazione è prossima al timeout a causa di problemi nel codice del servizio che impediscono la normale chiusura delle repliche. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -180,7 +180,7 @@ Ottiene l'elenco contenente le informazioni su un tipo di servizio specifico dal
 | --node-name         [obbligatorio] | Il nome del nodo. |
 | --service-type-name [obbligatorio] | Specifica il nome di un tipo di servizio di Service Fabric. |
 | --service-manifest-name | Nome del manifesto del servizio da usare per filtrare l'elenco delle informazioni sul tipo di servizio distribuito. Se specificato, la risposta conterrà solo le informazioni sui tipi di servizio definiti in questo manifesto del servizio. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -204,7 +204,7 @@ Ottiene l'elenco contenente le informazioni sui tipi di servizio delle applicazi
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --node-name [obbligatorio] | Il nome del nodo. |
 | --service-manifest-name | Nome del manifesto del servizio da usare per filtrare l'elenco delle informazioni sul tipo di servizio distribuito. Se specificato, la risposta conterrà solo le informazioni sui tipi di servizio definiti in questo manifesto del servizio. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -225,8 +225,8 @@ Mostra la descrizione di un servizio di Service Fabric esistente. Prima di poter
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --service-id [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -253,7 +253,7 @@ Ottiene i log dei contenitori per il contenitore distribuito in un nodo di Servi
 | --service-manifest-name [obbligatorio] | Nome di un manifesto del servizio registrato come parte di un tipo di applicazione in un cluster di Service Fabric. |
 | --previous | Specifica se ottenere i log dei contenitori da contenitori dell'istanza del pacchetto di codice da cui si è usciti/che non sono usati. |
 | --tail | Numero di righe da visualizzare alla fine dei log. Il valore predefinito è 100. "all" per visualizzare i log completi. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -274,11 +274,11 @@ Mostra le informazioni di integrità del servizio specificato. Usare EventsHealt
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --service-id          [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --service-id          [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche indicano il numero di entità figlio il cui stato di integrità è Ok, Avviso ed Errore. |
 | --partitions-health-state-filter | Filtra gli oggetti dello stato di integrità delle partizioni restituiti nel risultato della query sull'integrità del servizio in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituite solo partizioni che corrispondono al filtro. Tutte le partizioni vengono usate per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore specificato è 6, vengono restituite le partizioni con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -300,8 +300,8 @@ Restituisce le informazioni sul servizio specifico appartenente all'applicazione
 |Argomento|Descrizione|
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
-| --service-id             [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id             [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -325,7 +325,7 @@ Restituisce le informazioni su tutti i servizi appartenenti all'applicazione spe
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
 | --service-type-name | Nome del tipo servizio usato per filtrare i servizi da cercare. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -349,7 +349,7 @@ Mostra il manifesto che descrive un tipo di servizio. La risposta contiene il ma
 | --application-type-name    [obbligatorio] | Nome del tipo di applicazione. |
 | --application-type-version [obbligatorio] | Versione del tipo di applicazione. |
 | --service-manifest-name    [obbligatorio] | Nome di un manifesto del servizio registrato come parte di un tipo di applicazione in un cluster di Service Fabric. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -372,8 +372,8 @@ Scarica i pacchetti associati al manifesto del servizio specificato per la cache
 | --app-type-version      [obbligatorio] | Versione del manifesto dell'applicazione per il manifesto del servizio richiesto corrispondente. |
 | --node-name             [obbligatorio] | Il nome del nodo. |
 | --service-manifest-name [obbligatorio] | Nome del manifesto del servizio associato ai pacchetti che verranno scaricati. |
-| --share-policy | Elenco con codifica JSON dei criteri di condivisione. Ogni elemento dei criteri di condivisione è costituito da un elemento "name" e "scope". Il nome corrisponde al nome del codice, alla configurazione o al pacchetto dati che deve essere condiviso. L'ambito può avere il valori "None", "All", "Code", "Config" o "Data". |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --share-policy | Elenco con codifica JSON dei criteri di condivisione. Ogni elemento dei criteri di condivisione è costituito da un elemento "name" e "scope". Il nome corrisponde al nome del codice, alla configurazione o al pacchetto dati che deve essere condiviso. L'ambito può avere il valore "None", "All", "Code", "Config" o "Data". |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -398,7 +398,7 @@ Ottiene le informazioni sull'integrità di un pacchetto di servizi per una speci
 | --node-name            [obbligatorio] | Il nome del nodo. |
 | --service-package-name [obbligatorio] | Nome del pacchetto del servizio. |
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -422,7 +422,7 @@ Restituisce le informazioni sui pacchetti del servizio distribuiti in un nodo di
 | --application-id       [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --node-name            [obbligatorio] | Il nome del nodo. |
 | --service-package-name [obbligatorio] | Nome del pacchetto del servizio. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -445,7 +445,7 @@ Restituisce le informazioni sui pacchetti del servizio distribuiti in un nodo di
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --node-name [obbligatorio] | Il nome del nodo. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -466,8 +466,8 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare il servizio
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --service-id [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -491,12 +491,12 @@ Segnala lo stato di integrità del servizio di Service Fabric specificato. Il re
 | --health-property [obbligatorio] | Proprietà delle informazioni sull'integrità. <br><br> Un'entità può avere report sull'integrità per proprietà diverse. La proprietà è una stringa e non un'enumerazione fissa, che assicura al reporter la flessibilità necessaria per definire la categoria della condizione di stato che attiva il report. Ad esempio, un reporter con SourceId "LocalWatchdog" può monitorare lo stato del disco disponibile in un nodo e può quindi segnalare la proprietà "AvailableDisk" in tale nodo. Lo stesso reporter può monitorare la connettività del nodo e può quindi segnalare una proprietà "Connectivity" nello stesso nodo. Entrambi questi report vengono considerati come eventi di integrità separati nell'archivio integrità per il nodo specificato. Insieme a SourceId, la proprietà identifica in modo univoco le informazioni sull'integrità. |
 | --health-state    [obbligatorio] | I valori possibili sono\: "Invalid", "Ok", "Warning", "Error", "Unknown". |
 | --service-id      [obbligatorio] | L'identità del servizio. <br><br> Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --source-id       [obbligatorio] | Nome di origine che identifica il componente client/watchdog/sistema che genera le informazioni sull'integrità. |
+| --source-id       [obbligatorio] | Nome di origine che identifica il componente client/watchdog/sistema che ha generato le informazioni sull'integrità. |
 | --description | Descrizione delle informazioni sull'integrità. <br><br> Rappresenta il testo libero usato per aggiungere informazioni leggibili sul report. La lunghezza massima della stringa per la descrizione è pari a 4096 caratteri. Se la stringa immessa è più lunga, verrà automaticamente troncata. Quando viene troncata, gli ultimi caratteri della descrizione contengono un marcatore "[Truncated]" e la dimensione totale della stringa è pari a 4096 caratteri. La presenza del marcatore indica agli utenti che si è verificato un troncamento. Si noti che quando viene troncata, la descrizione contiene meno di 4096 caratteri della stringa originale. |
 | --immediate | Flag che indica se il report deve essere inviato immediatamente. <br><br> Un report sull'integrità viene inviato a un'applicazione del gateway di Service Fabric, che lo inoltra all'archivio integrità. Se Immediate è impostato su True, il report viene inviato immediatamente dal gateway HTTP all'archivio integrità, indipendentemente dalle impostazioni del client Fabric usate dall'applicazione gateway HTTP. Questo è utile per i report critici che devono essere inviati appena possibile. A seconda della tempistica e di altre condizioni, l'invio del report può tuttavia avere esito negativo, ad esempio se il gateway HTTP è chiuso o il messaggio non raggiunge il gateway. Se Immediate è impostato su False, il report viene inviato in base alle impostazioni del client di integrità dal gateway HTTP. Verrà quindi inviato in batch in base alla configurazione di HealthReportSendInterval. Questa è l'impostazione consigliata perché consente al client di integrità di ottimizzare la segnalazione di messaggi sull'integrità all'archivio integrità e l'elaborazione di report sull'integrità. Per impostazione predefinita, i report non vengono inviati immediatamente. |
 | --remove-when-expired | Valore che indica se il report viene rimosso dall'archivio integrità quando scade. <br><br> Se impostato su True, il report viene rimosso dall'archivio integrità dopo la scadenza. Se impostato su False, il report viene considerato come errore quando è scaduto. Il valore di questa proprietà è False per impostazione predefinita. Quando i client creano report periodicamente, RemoveWhenExpired sarà impostato su False (valore predefinito). In questo modo, se il reporter presenta problemi (ad esempio, un deadlock) e non può creare report, l'entità viene considerata in stato di errore quando scade il report sull'integrità. L'entità viene quindi contrassegnata con lo stato di integrità di errore. |
 | --sequence-number | Numero di sequenza per questo report sull'integrità come stringa numerica. <br><br> Il numero di sequenza del report viene usato dall'archivio integrità per rilevare i report non aggiornati. Se non specificato, un numero di sequenza viene generato automaticamente dal client di integrità quando viene aggiunto un report. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 | --ttl | Durata in cui questo report sull'integrità è valido. Questo campo usa il formato ISO8601 per specificare la durata. <br><br> Quando i client creano report periodicamente, devono inviare i report con una frequenza maggiore della durata (TTL). Se i client inviano report in caso di transizione, possono impostare la durata (TTL) come infinita. Quando la durata (TTL) scade, l'evento di integrità che contiene le informazioni sull'integrità viene rimosso dall'archivio integrità, se RemoveWhenExpired è True, o considerato in stato di errore, se RemoveWhenExpired è False. Se non è specificato, la durata (TTL) viene impostata su un valore infinito. |
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -518,11 +518,11 @@ Consente di risolvere una partizione del servizio di Service Fabric per ottenere
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --service-id [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
 | --partition-key-type | Tipo di chiave per la partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. I valori possibili sono i seguenti. -None (1): indica che il parametro PartitionKeyValue non è specificato. È valido per le partizioni con schema di partizionamento Singleton. Si tratta del valore predefinito. Il valore è uguale a 1. -Int64Range (2): indica che il parametro PartitionKeyValue è una chiave di partizione int64. È valido per le partizioni con schema di partizionamento Int64Range. Il valore è 2. - Named (3): indica che il parametro PartitionKeyValue è un nome della partizione. È valido per le partizioni con schema di partizionamento Named. Il valore è 3. |
 | --partition-key-value | Chiave di partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. |
 | --previous-rsp-version | Valore nel campo Version della risposta ricevuta in precedenza. È obbligatorio se l'utente riconosce che il risultato ottenuto in precedenza non è aggiornato. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -545,7 +545,7 @@ Ottiene l'elenco contenente le informazioni sui tipi di servizio supportati da u
 | --- | --- |
 | --application-type-name    [obbligatorio] | Nome del tipo di applicazione. |
 | --application-type-version [obbligatorio] | Versione del tipo di applicazione. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -564,23 +564,23 @@ Aggiorna il servizio specificato usando la descrizione di aggiornamento specific
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --service-id   [obbligatorio] | ID del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --service-id   [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
 | --constraints | Vincoli di posizionamento sotto forma di stringa. I vincoli di posizionamento sono espressioni booleane nelle proprietà del nodo e consentono di limitare un servizio a nodi specifici in base ai requisiti del servizio. Ad esempio, per inserire un servizio nei nodi in cui NodeType è blu, specificare \: "NodeColor == blue". |
 | --correlated-service | Nome del servizio di destinazione con cui creare una corrispondenza. |
 | --correlation | Serve a correlare il servizio con un servizio esistente usando un'affinità di allineamento. |
 | --instance-count | Numero di istanze. Si applica solo a servizi senza stato. |
 | --load-metrics | Elenco con codifica JSON di metriche da usare quando si esegue il bilanciamento del carico tra nodi. |
-| --min-replica-set-size | Dimensioni minime di un set di repliche sotto forma di numero. Queste dimensioni si applicano solo a servizi con stato. |
+| --min-replica-set-size | Dimensioni minime di un set di repliche sotto forma di numero. Si applica solo a servizi con stato. |
 | --move-cost | Specifica il costo di spostamento per il servizio. I valori possibili sono \: "Zero", "Low", "Medium", "High". |
 | --placement-policy-list | Elenco con codifica JSON dei criteri di selezione per il servizio e di eventuali nomi di dominio associati. I criteri possono essere uno o più: \: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --quorum-loss-wait | Durata massima in secondi per cui una partizione può trovarsi in uno stato di perdita del quorum. Questa durata si applica solo a servizi con stato. |
-| --replica-restart-wait | Durata in secondi tra il momento in cui si arresta una replica e la creazione di una nuova replica. Questa durata si applica solo a servizi con stato. |
+| --quorum-loss-wait | Durata massima in secondi per cui una partizione può trovarsi in uno stato di perdita del quorum. Si applica solo a servizi con stato. |
+| --replica-restart-wait | Durata in secondi tra il momento in cui si arresta una replica e la creazione di una nuova replica. Si applica solo a servizi con stato. |
 | --scaling-policies | Elenco con codifica JSON dei criteri di ridimensionamento per questo servizio. |
-| --stand-by-replica-keep | Durata massima in secondi per cui le repliche StandBy vengono mantenute prima di essere rimosse. Questa durata si applica solo a servizi con stato. |
+| --stand-by-replica-keep | Durata massima in secondi per cui le repliche StandBy vengono mantenute prima di essere rimosse. Si applica solo a servizi con stato. |
 | --stateful | Indica un servizio di destinazione con stato. |
 | --stateless | Indica un servizio di destinazione senza stato. |
-| --target-replica-set-size | Dimensioni di un set di repliche di destinazione sotto forma di numero. Queste dimensioni si applicano solo a servizi con stato. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --target-replica-set-size | Dimensioni di un set di repliche di destinazione sotto forma di numero. Si applica solo a servizi con stato. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -591,6 +591,7 @@ Aggiorna il servizio specificato usando la descrizione di aggiornamento specific
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.

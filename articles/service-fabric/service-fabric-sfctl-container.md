@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: cd3725ac547a1ed1fd9207dc48ba3b6227e85ef1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 27108d27ee27346e4cba44e6778faff56df70a36
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763955"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495129"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Esegue i comandi relativi al contenitore in un nodo del cluster.
@@ -41,7 +41,7 @@ Richiama l'API REST del contenitore.
 | --application-id [Obbligatorio] | Identità dell'applicazione. |
 | --code-package-instance-id [Obbligatorio] | ID istanza del pacchetto di codice, che può essere recuperato da "service code-package-list". |
 | --code-package-name [Obbligatorio] | Nome del pacchetto di codice. |
-| --container-api-uri-path [Obbligatorio] | Percorso dell'URI dell'API REST del contenitore. Usare "{ID}" al posto del nome/ID del contenitore. |
+| --container-api-uri-path [Obbligatorio] | Percorso dell'URI dell'API REST del contenitore. Usare "{id}" al posto del nome/ID del contenitore. |
 | --node-name                [Obbligatorio] | Il nome del nodo. |
 | --service-manifest-name    [obbligatorio] | Nome del manifesto del servizio. |
 | --container-api-body | Corpo della richiesta HTTP per l'API REST del contenitore. |
@@ -55,7 +55,7 @@ Richiama l'API REST del contenitore.
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
 
@@ -80,9 +80,10 @@ Recupero dei log dei contenitori.
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug. |
 | --help -h | Mostra questo messaggio della Guida e l'uscita. |
-| --output -o | Formato di output.  Valori consentiti\: json, jsonc, tabella, tsv.  Impostazione predefinita\: json. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.

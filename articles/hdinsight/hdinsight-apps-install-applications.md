@@ -1,25 +1,20 @@
 ---
-title: Installare applicazioni Hadoop di terze parti in Azure HDInsight | Documentazione Microsoft
+title: Installare applicazioni Hadoop di terze parti in Azure HDInsight
 description: Informazioni su come installare applicazioni Hadoop di terze parti in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 3ad112544a703a9b6ec37fa07cbd6df6976d5e26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: c4d8f6fb1804ff48899ebb96d4c4248f337b56ad
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201915"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591976"
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Hadoop di terze parti in Azure HDInsight
 
@@ -32,7 +27,7 @@ L'elenco seguente mostra le applicazioni pubblicate:
 * **AtScale Intelligence Platform** attiva il cluster HDInsight in un server OLAP scale-out. L'applicazione consente di eseguire query a miliardi di righe di dati in modo interattivo tramite gli strumenti di business intelligence di Microsoft Excel, PowerBI, Tableau Software per QlikView.
 * **Cask CDAP for HDInsight**: offre la prima piattaforma di integrazione unificata per Big Data che riduce i tempi per la produzione di applicazioni dati e Data Lake dell'80%. Questa applicazione supporta solo i cluster Standard HBase 3.4.
 * **DATAIKU DDS on HDInsight**: consente ai professionisti che lavorano con i dati di creare prototipi, compilare e distribuire servizi altamente specifici che trasformano i dati non elaborati in stime aziendali di grande impatto.
-* **H2O Artificial Intelligence for HDInsight (Beta)**: H2O Sparkling Water supporta gli algoritmi distribuiti GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-Means, PCA, Generalized Low Rank Models, Anomaly Detection e Autoencoders.
+* **H2O Artificial Intelligence for HDInsight (Beta)**: H2O Sparkling Water supporta i seguenti algoritmi distribuiti: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection e Autoencoders.
 * **Kyligence Analytics Platform**: Kyligence Analytics Platform (KAP) è un data warehouse di livello aziendale con tecnologia Apache Kylin e Apache Hadoop che supporta una latenza di query inferiore al secondo su set di dati di enormi dimensioni e semplifica l'analisi dei dati per gli utenti business e gli analisti. 
 * **Preparazione dei dati self-service di Paxata**
 * **Spark Job Server for KNIME Spark Executor**: Spark Job Server for KNIME Spark Executor consente di connettere la piattaforma di analisi KNIME ai cluster HDInsight.
@@ -42,7 +37,7 @@ L'elenco seguente mostra le applicazioni pubblicate:
 
 Nelle istruzioni illustrate in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resource Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando di Azure e Azure PowerShell per distribuire il modello.  Vedere [Creare cluster Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per installare applicazioni HDInsight in un cluster HDInsight esistente, è necessario un cluster HDInsight. Per crearne uno, vedere [Creare cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). È anche possibile installare applicazioni HDInsight quando si crea un cluster HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Installare applicazioni in cluster esistenti

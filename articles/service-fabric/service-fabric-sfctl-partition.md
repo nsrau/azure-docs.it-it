@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: a9455683c5fad7fad4dda62fd967da617d8a8496
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 93478e5d13ef649b86ebc047f4e53f1486e2ff68
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763647"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493954"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consente di eseguire una query e gestire partizioni per qualsiasi servizio.
@@ -56,10 +56,10 @@ Avvierà una chiamata all'API OnDataLossAsync della partizione.  Questa API dete
 |Argomento|DESCRIZIONE|
 | --- | --- |
 | --data-loss-mode [obbligatorio] | Questa enumerazione viene passata all'API StartDataLoss per indicare il tipo di perdita di dati da eseguire. |
-| --operation-id   [obbligatorio] | GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
+| --operation-id   [obbligatorio] | Una GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
 | --partition-id   [obbligatorio] | L'identità della partizione. |
-| --service-id             [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id             [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -82,8 +82,8 @@ Indica lo stato di avanzamento di un'operazione di perdita di dati avviata con S
 | --- | --- |
 | --operation-id [obbligatorio] | Una GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
-| --service-id   [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id   [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -98,7 +98,7 @@ Indica lo stato di avanzamento di un'operazione di perdita di dati avviata con S
 ## <a name="sfctl-partition-health"></a>sfctl partition health
 Mostra l'integrità della partizione di Service Fabric specificata.
 
-Mostra le informazioni di integrità della partizione specificata. Utilizzare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riportati nel servizio in base allo stato di integrità. Utilizzare ReplicasHealthStateFilter per filtrare la raccolta di oggetti ReplicaHealthState nella partizione. Se si specifica una partizione che non esiste nell'archivio integrità, questa richiesta restituisce un errore.
+Usare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riportati nel servizio in base allo stato di integrità. Utilizzare ReplicasHealthStateFilter per filtrare la raccolta di oggetti ReplicaHealthState nella partizione. Se si specifica una partizione che non esiste nell'archivio integrità, questa richiesta restituisce un errore.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -108,7 +108,7 @@ Mostra le informazioni di integrità della partizione specificata. Utilizzare Ev
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche indicano il numero di entità figlio il cui stato di integrità è Ok, Avviso ed Errore. |
 | --replicas-health-state-filter | Consente di filtrare la raccolta di oggetti ReplicaHealthState nella partizione. Il valore può essere ottenuto da membri o da operazioni bit per bit sui membri di HealthStateFilter. Verranno restituite solo repliche che corrispondono al filtro. Verranno usate tutte le repliche per valutare lo stato di integrità aggregato. Se non specificato diversamente, verranno restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore specificato è 6, verranno restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4). I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità.  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -130,7 +130,7 @@ Ottiene le informazioni sulla partizione specificata. La risposta include l'ID d
 |Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -145,15 +145,15 @@ Ottiene le informazioni sulla partizione specificata. La risposta include l'ID d
 ## <a name="sfctl-partition-list"></a>sfctl partition list
 Mostra l'elenco delle partizioni di un servizio di Service Fabric.
 
-Mostra l'elenco delle partizioni di un servizio di Service Fabric. La risposta include l'ID di partizione, le informazioni dello schema di partizionamento, le chiavi supportate dalla partizione, lo stato, l’integrità e altri dettagli sulla partizione.
+La risposta include l'ID di partizione, le informazioni dello schema di partizionamento, le chiavi supportate dalla partizione, lo stato, l’integrità e altri dettagli sulla partizione.
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --service-id [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --service-id [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -175,7 +175,7 @@ Restituisce informazioni sul carico di una partizione specificata. La risposta i
 |Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -197,7 +197,7 @@ Reimposta il carico corrente di una partizione di Service Fabric sul carico pred
 |Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -212,7 +212,7 @@ Reimposta il carico corrente di una partizione di Service Fabric sul carico pred
 ## <a name="sfctl-partition-quorum-loss"></a>sfctl partition quorum-loss
 Provoca la perdita di quorum per una partizione di servizio con stato specificato.
 
-Provoca la perdita di quorum per una partizione di servizio con stato specificato.  Questa API è utile per un caso di perdita di quorum temporaneo sul servizio. Chiamare l'API GetQuorumLossProgress con lo stesso OperationId per restituire le informazioni sull'operazione avviata con questa API. È possibile eseguire la chiamata solo in servizi permanenti con stato (HasPersistedState==true).  Non usare questa API in servizi senza stato o in servizi con stato solo in memoria.
+Questa API è utile per un caso di perdita di quorum temporaneo sul servizio. Chiamare l'API GetQuorumLossProgress con lo stesso OperationId per restituire le informazioni sull'operazione avviata con questa API. È possibile eseguire la chiamata solo in servizi permanenti con stato (HasPersistedState==true).  Non usare questa API in servizi senza stato o in servizi con stato solo in memoria.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -222,8 +222,8 @@ Provoca la perdita di quorum per una partizione di servizio con stato specificat
 | --partition-id         [obbligatorio] | L'identità della partizione. |
 | --quorum-loss-duration [obbligatorio] | Periodo di tempo in cui la partizione rimarrà in perdita di quorum.  La durata deve essere specificata in secondi. |
 | --quorum-loss-mode     [obbligatorio] | Questa enumerazione viene passata all'API StartQuorumLoss per indicare il tipo di perdita di dati da eseguire. |
-| --service-id           [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id           [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -246,8 +246,8 @@ Indica lo stato di avanzamento di un'operazione di perdita di quorum avviata con
 | --- | --- |
 | --operation-id [obbligatorio] | Una GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
-| --service-id   [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id   [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -262,14 +262,14 @@ Indica lo stato di avanzamento di un'operazione di perdita di quorum avviata con
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 Indica al cluster di Service Fabric che deve tentare di ripristinare una partizione specifica, che è attualmente bloccata in una perdita di quorum.
 
-Indica al cluster di Service Fabric che deve tentare di ripristinare una partizione specifica, che è attualmente bloccata in una perdita di quorum. Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
+Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -284,13 +284,13 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare una partizi
 ## <a name="sfctl-partition-recover-all"></a>sfctl partition recover-all
 Indica al cluster di Service Fabric che deve tentare di ripristinare tutti i servizio (inclusi i servizi di sistema) che sono attualmente bloccati in una perdita di quorum.
 
-Indica al cluster di Service Fabric che deve tentare di ripristinare tutti i servizio (inclusi i servizi di sistema) che sono attualmente bloccati in una perdita di quorum. Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
+Questa operazione può essere eseguita solo se è noto che non è possibile recuperare le repliche che non sono attive. Un uso non corretto di questa API può causare una perdita di dati.
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -319,7 +319,7 @@ Segnala lo stato di integrità della partizione di Service Fabric specificata. I
 | --immediate | Flag che indica se il report deve essere inviato immediatamente. <br><br> Un report sull'integrità viene inviato a un'applicazione del gateway di Service Fabric, che lo inoltra all'archivio integrità. Se Immediate è impostato su True, il report viene inviato immediatamente dal gateway HTTP all'archivio integrità, indipendentemente dalle impostazioni del client Fabric usate dall'applicazione gateway HTTP. Questo è utile per i report critici che devono essere inviati appena possibile. A seconda della tempistica e di altre condizioni, l'invio del report può tuttavia avere esito negativo, ad esempio se il gateway HTTP è chiuso o il messaggio non raggiunge il gateway. Se Immediate è impostato su False, il report viene inviato in base alle impostazioni del client di integrità dal gateway HTTP. Verrà quindi inviato in batch in base alla configurazione di HealthReportSendInterval. Questa è l'impostazione consigliata perché consente al client di integrità di ottimizzare la segnalazione di messaggi sull'integrità all'archivio integrità e l'elaborazione di report sull'integrità. Per impostazione predefinita, i report non vengono inviati immediatamente. |
 | --remove-when-expired | Valore che indica se il report viene rimosso dall'archivio integrità quando scade. <br><br> Se impostato su True, il report viene rimosso dall'archivio integrità dopo la scadenza. Se impostato su False, il report viene considerato come errore quando è scaduto. Il valore di questa proprietà è False per impostazione predefinita. Quando i client creano report periodicamente, RemoveWhenExpired sarà impostato su False (valore predefinito). In questo modo, se il reporter presenta problemi (ad esempio, un deadlock) e non può creare report, l'entità viene considerata in stato di errore quando scade il report sull'integrità. L'entità viene quindi contrassegnata con lo stato di integrità di errore. |
 | --sequence-number | Numero di sequenza per questo report sull'integrità come stringa numerica. <br><br> Il numero di sequenza del report viene usato dall'archivio integrità per rilevare i report non aggiornati. Se non specificato, un numero di sequenza viene generato automaticamente dal client di integrità quando viene aggiunto un report. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 | --ttl | Durata in cui questo report sull'integrità è valido. Questo campo usa il formato ISO8601 per specificare la durata. <br><br> Quando i client creano report periodicamente, devono inviare i report con una frequenza maggiore della durata (TTL). Se i client inviano report in caso di transizione, possono impostare la durata (TTL) come infinita. Quando la durata (TTL) scade, l'evento di integrità che contiene le informazioni sull'integrità viene rimosso dall'archivio integrità, se RemoveWhenExpired è True, o considerato in stato di errore, se RemoveWhenExpired è False. Se non è specificato, la durata (TTL) viene impostata su un valore infinito. |
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -344,8 +344,8 @@ Questa API è utile per il test del failover. Se utilizzato come destinazione di
 | --operation-id             [Obbligatorio] | Una GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --restart-partition-mode [Obbligatorio] | Specifica quali partizioni riavviare. |
-| --service-id             [Obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id             [Obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -368,8 +368,8 @@ Indica lo stato di avanzamento di un'operazione PartitionRestart avviata con Sta
 | --- | --- |
 | --operation-id [obbligatorio] | Una GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
-| --service-id   [obbligatorio] | L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --service-id   [obbligatorio] | L'identità del servizio. L'ID corrisponde in genere al nome completo del servizio senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome del servizio è "fabric\:/myapp/app1/svc1", l'identità del servizio sarà "myapp\~app1\~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -391,7 +391,7 @@ Ottiene il nome del servizio per la partizione specificata. Se l'ID di partizion
 |Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
-| --timeout -t | Timeout del server in secondi.  Valore predefinito\: 60. |
+| --timeout -t | Timeout del server in secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -402,6 +402,7 @@ Ottiene il nome del servizio per la partizione specificata. Se l'ID di partizion
 | --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 470779f80e998c3908cf28328cfb415d98c5e06c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335282"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579256"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Presentazione dello strumento Analisi in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.
@@ -226,7 +226,7 @@ Se si vogliono mantenere tutte le colonne esistenti, [`extend`](https://docs.log
 
 ### <a name="convert-to-local-time"></a>Convertire nell'ora locale
 
-I timestamp sono sempre espressi in formato UTC. Pertanto, se ci si trova sulla costa del Pacifico ed è inverno, potrebbe essere utile quanto riportato di seguito:
+I timestamp sono sempre espressi in formato UTC. Pertanto, se ci si trova sulla costa del Pacifico ed è inverno, l'ora locale sarà -8 ore UTC, per cui potrebbe essere utile quanto riportato di seguito:
 
 ```AIQL
 
@@ -238,7 +238,7 @@ I timestamp sono sempre espressi in formato UTC. Pertanto, se ci si trova sulla 
 ## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): aggregare gruppi di righe
 `Summarize` applica una *funzione di aggregazione* specificata a gruppi di righe.
 
-Ad esempio, il tempo che l'app Web impiega per rispondere a una richiesta viene indicato nel campo `duration`. Verrà visualizzato il tempo medio di risposta a tutte le richieste:
+Ad esempio, il tempo che l'app Web impiega per rispondere a una richiesta viene indicato nel campo `duration`. Verrà visualizzato il tempo medio di risposta per tutte le richieste:
 
 ![](./media/app-insights-analytics-tour/410.png)
 
@@ -461,7 +461,7 @@ Per ottenere una suddivisione separata per ogni paese, è sufficiente visualizza
 ## <a name="join"></a>Join
 È possibile accedere a più tabelle, incluse le richieste e le eccezioni.
 
-Per trovare le eccezioni correlate a una richiesta che ha restituito una risposta di errore, è possibile creare un join delle tabelle in `session_Id`:
+Per trovare le eccezioni correlate a una richiesta che ha restituito una risposta di errore, è possibile creare un join delle tabelle in `operation_Id`:
 
 ```AIQL
 

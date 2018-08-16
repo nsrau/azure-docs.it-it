@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 8b257a6f4c32b4013ac0478d82dc1f7f32675b9b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325191"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578161"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C# per .NET Framework su Windows con Speech SDK | Microsoft Docs
 
@@ -48,7 +48,7 @@ L'applicazione si basa sul [pacchetto NuGet Speech SDK di Servizi cognitivi Micr
 
     ![Installare il pacchetto Microsoft.CognitiveServices.Speech NuGet](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "Installare pacchetto NuGet")
 
-1. Accettare la licenza nella finestra di dialogo visualizzata.
+1. Accettare la licenza visualizzata.
 
     ![Accettare le condizioni di licenza](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accettare le condizioni di licenza")
 
@@ -76,7 +76,7 @@ In questa sezione, si aggiunge una nuova piattaforma alla configurazione che cor
 
 ## <a name="add-the-sample-code"></a>Aggiungere il codice di esempio
 
-1. Aprire `Program.cs` nel progetto Visual Studio e sostituire tutto il codice in questo file come indicato di seguito.
+1. Aprire `Program.cs` e sostituire tutto il codice in questo file con quanto segue.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 

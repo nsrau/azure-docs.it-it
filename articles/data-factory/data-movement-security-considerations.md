@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342403"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493971"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,9 @@ Se l'archivio dati cloud supporta HTTPS o TLS, tutti i trasferimenti di dati tra
 
 > [!NOTE]
 > Tutte le connessioni al database SQL di Azure e ad Azure SQL Data Warehouse richiedono la crittografia (SSL/TLS) quando i dati sono in transito da e verso il database. Quando si crea una pipeline usando JSON, aggiungere la proprietà encryption e impostarla su **true** nella stringa di connessione. Per Archiviazione di Azure è possibile usare **HTTPS** nella stringa di connessione.
+
+> [!NOTE]
+> La versione TLS usata è 1.2.
 
 ### <a name="data-encryption-at-rest"></a>Crittografia di dati inattivi
 Alcuni archivi di dati supportano la crittografia dei dati inattivi. È consigliabile abilitare il meccanismo di crittografia dei dati per gli archivi dati. 
@@ -118,7 +121,7 @@ Rete virtuale di Azure è una rappresentazione logica della propria rete nel clo
 
 La tabella seguente riassume i consigli di configurazione di rete e del runtime di integrazione self-hosted in base alle diverse combinazioni di percorsi di origine e destinazione per lo spostamento dei dati ibridi.
 
-| Sorgente      | Destination                              | Network configuration                    | Impostazione runtime di integrazione                |
+| Sorgente      | Destination                              | Configurazione di rete                    | Impostazione runtime di integrazione                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | VPN IPSec (da punto a sito o da sito a sito) | Il runtime di integrazione self-hosted può essere installato in locale o in una macchina virtuale di Azure in una rete virtuale. |
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | ExpressRoute (peering privato)           | Il runtime di integrazione self-hosted può essere installato in locale o in una macchina virtuale di Azure in una rete virtuale. |
@@ -141,7 +144,7 @@ In un'azienda il firewall aziendale viene eseguito nel router centrale dell'orga
 
 La tabella seguente indica la porta in uscita e i requisiti di dominio per i firewall aziendale:
 
-| Nomi di dominio                  | Porte in uscita | Descrizione                              |
+| Nomi di dominio                  | Porte in uscita | DESCRIZIONE                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Richieste dal runtime di integrazione self-hosted per connettersi ai servizi di spostamento dei dati in Data Factory. |
 | `*.frontend.clouddatahub.net` | 443            | Richiesta dal runtime di integrazione self-hosted per connettersi al servizio Data Factory. |

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: cfbf4dc08ccea95f99216f6cc82c1ee56d65768a
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f70e0bcb68f059618f9b398a00e23498a10df23e
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943352"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39582997"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chiamare l'API di Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -47,6 +47,6 @@ Questa guida usa la libreria seguente:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Authentication Library di Microsoft per l'anteprima di JavaScript|
 
 > [!NOTE]
-> *msal.js* specifica come destinazione l'*endpoint di Azure Active Directory v2*, che consente agli account personali, aziendali e dell'istituto di istruzione di eseguire l'accesso e di acquisire i token. L'*endpoint di Azure Active Directory v2* ha [alcune limitazioni](..\articles\active-directory\develop\active-directory-v2-limitations.md). Se si è interessati solo ad account aziendali e dell'istituto di istruzione, usare *adal.js* e l'*endpoint V1*. Per conoscere le differenze tra gli endpoint v1 e v2, vedere il [confronto tra v1 e v2](..\articles\active-directory\develop\active-directory-v2-compare.md).
+> *msal.js* specifica come destinazione l'*endpoint di Azure Active Directory v2*, che consente agli account personali, aziendali e dell'istituto di istruzione di eseguire l'accesso e di acquisire i token. L'*endpoint di Azure Active Directory v2* ha [alcune limitazioni](..\articles\active-directory\develop\active-directory-v2-limitations.md). Se si è interessati solo ad account aziendali e dell'istituto di istruzione, usare *adal.js* e l'*endpoint V1*. Per conoscere le differenze tra gli endpoint v1 e v2, vedere il [confronto tra v1 e v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

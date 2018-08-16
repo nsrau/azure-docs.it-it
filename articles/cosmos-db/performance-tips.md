@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126351"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480993"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -132,9 +132,10 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     Se si sta eseguendo il test a livelli di velocità effettiva elevati (> 50.000 UR/sec), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a effettuare il push dell'account Azure Cosmos DB aumentando il numero di istanze delle applicazioni client in più server.
 8. **Memorizzare nella cache gli URI dei documenti per una minore latenza di lettura**
 
-    Memorizzare nella cache gli URI dei documenti quando possibile per ottenere prestazioni di lettura ottimali.
+    Memorizzare nella cache gli URI dei documenti quando possibile per ottenere prestazioni di lettura ottimali. È necessario definire la logica per memorizzare nella cache il valore ResourceId quando si crea la risorsa. Le ricerche basate sul valore ResourceId sono più veloci rispetto alle ricerche basate sul nome, per cui la memorizzazione nella cache di questi valori migliora le prestazioni. 
+
    <a id="tune-page-size"></a>
-9. **Modificare le dimensioni di pagina per le query o i feed di lettura per ottenere prestazioni migliori**
+1. **Modificare le dimensioni di pagina per le query o i feed di lettura per ottenere prestazioni migliori**
 
     Quando si esegue una lettura in blocco di documenti usando la funzionalità dei feed di lettura, ad esempio ReadDocumentFeedAsync, oppure quando si emette una query SQL, i risultati vengono restituiti in modo segmentato se il set di risultati è troppo grande. Per impostazione predefinita, i risultati vengono restituiti in blocchi di 100 elementi o 1 MB, a seconda del limite che viene raggiunto prima.
 

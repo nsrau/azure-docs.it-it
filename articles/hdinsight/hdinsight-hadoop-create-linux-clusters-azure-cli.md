@@ -1,25 +1,20 @@
 ---
-title: Creare cluster Hadoop con una riga di comando - Azure HDInsight | Documentazione Microsoft
+title: Creare cluster Hadoop con una riga di comando - Azure HDInsight
 description: Informazioni su come creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure 1.0.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: e56829c771ae47933f79c519920a20c1308873fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 7185e492a2cc42835ce1fa7043a963c7d5d0afb4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31397587"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594798"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 
@@ -32,7 +27,7 @@ La procedura presentata in questo documento illustra come creare un cluster HDIn
 >
 > Per creare e gestire cluster HDInsight, è possibile usare anche Azure PowerShell. Per altre informazioni, vedere il documento [Create HDInsight clusters using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) (Creare cluster HDInsight tramite Azure PowerShell).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

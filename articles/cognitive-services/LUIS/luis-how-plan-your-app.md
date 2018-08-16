@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: diberry
-ms.openlocfilehash: 8cafe2be190988cbcbe8da616fe17c9a35c722f3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226024"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505529"
 ---
 # <a name="plan-your-luis-app"></a>Pianificare l'app LUIS
 
@@ -65,7 +65,7 @@ LUIS fornisce [entità predefinite](luis-prebuilt-entities.md) per tipi comuni c
 
 ![entità predefinita number](./media/luis-plan-your-app/number-entity.png)
 
-Per altre informazioni sull'estrazione di entità di espressione regolare dalla risposta alla query JSON sull'endpoint, vedere [Estrazione di dati](luis-concept-data-extraction.md#prebuilt-entity-data). 
+Per altre informazioni sull'estrazione dell'entità predefinita dalla risposta alla query JSON sull'endpoint, vedere [Estrazione di dati](luis-concept-data-extraction.md#prebuilt-entity-data). 
 
 ### <a name="list-entity"></a>Entità elenco 
 Un'entità elenco è un elenco di valori specificato in modo esplicito. Ogni valore è costituito da uno o più sinonimi. In un'app di viaggi si potrebbe scegliere di creare un'entità elenco per rappresentare i nomi degli aeroporti.

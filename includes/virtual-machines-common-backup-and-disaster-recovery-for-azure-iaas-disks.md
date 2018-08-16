@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 03db1bf84e200d8b66f0395cbd96813e2248eefe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806367"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39486046"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e ripristino di emergenza per dischi IaaS di Azure
 
@@ -88,7 +88,7 @@ Si consideri un carico di lavoro gestito da un cluster di VM che forniscono rido
 
 ### <a name="scenario-3-iaas-application-workload"></a>Scenario 3: Carico di lavoro delle applicazioni IaaS
 
-Verrà ora esaminato un carico di lavoro dell'applicazione IaaS. Ad esempio, l'applicazione potrebbe essere un carico di lavoro di produzione tipico in esecuzione in una macchina virtuale di Azure o un server Web o un file server che include i contenuti e altre risorse di un sito. Potrebbe anche trattarsi di un'applicazione aziendale personalizzata in esecuzione in una VM che ha archiviato i rispettivi dati, le risorse e lo stato dell'applicazione nei dischi della VM. In questo caso è importante assicurarsi di eseguire backup con regolarità. La frequenza dei backup deve essere basata sulla natura del carico di lavoro delle VM. Ad esempio, se l'applicazione viene eseguita ogni giorno e modifica i dati, è necessario eseguire il backup ogni ora.
+Verrà ora esaminato un carico di lavoro dell'applicazione IaaS. Ad esempio, l'applicazione potrebbe essere un carico di lavoro di produzione tipico in esecuzione in una macchina virtuale di Azure o di un server Web o un file server che include i contenuti e altre risorse di un sito. Potrebbe anche trattarsi di un'applicazione aziendale personalizzata in esecuzione in una VM che ha archiviato i rispettivi dati, le risorse e lo stato dell'applicazione nei dischi della VM. In questo caso è importante assicurarsi di eseguire backup con regolarità. La frequenza dei backup deve essere basata sulla natura del carico di lavoro delle VM. Ad esempio, se l'applicazione viene eseguita ogni giorno e modifica i dati, è necessario eseguire il backup ogni ora.
 
 Un altro esempio è costituito da un server di report che esegue il pull dei dati da altre origini e genera report aggregati. La perdita di questa VM o di questi dischi potrebbe comportare la perdita dei report. Potrebbe essere tuttavia possibile eseguire di nuovo il processo di creazione di report e rigenerare l'output. In questo caso non si verifica effettivamente una perdita di dati, anche in caso di emergenza per il server di report. È quindi possibile un livello di tolleranza maggiore per la perdita di parte dei dati nel server di report. In tale caso, una minore frequenza dei backup può consentire di ridurre i costi.
 
@@ -148,15 +148,15 @@ Usare la procedura seguente per abilitare i backup delle VM tramite il [portale 
 
     b. Dal menu **Insiemi di credenziali dei servizi di ripristino** scegliere **Aggiungi** e seguire la procedura per la creazione di un nuovo insieme di credenziali nella stessa area in cui si trova la VM. Se ad esempio la VM si trova nell'area Stati Uniti occidentali, scegliere Stati Uniti occidentali per l'insieme di credenziali.
 
-2.  Verificare la replica delle risorse di archiviazione per l'insieme di credenziali appena creato. Accedere all'insieme di credenziali in **Insiemi di credenziali dei servizi di ripristino** e passare a **Impostazioni** > **Configurazione backup**. Assicurarsi che l'opzione di **archiviazione con ridondanza geografica** sia selezionata per impostazione predefinita. In questo modo si garantisce che l'insieme di credenziali venga replicato automaticamente in un data center secondario. Ad esempio, l'insieme di credenziali nell'area Stati Uniti occidentali viene replicato automaticamente nell'area Stati Uniti orientali.
+1.  Verificare la replica delle risorse di archiviazione per l'insieme di credenziali appena creato. Accedere all'insieme di credenziali in **Insiemi di credenziali dei servizi di ripristino** e passare a **Impostazioni** > **Configurazione backup**. Assicurarsi che l'opzione di **archiviazione con ridondanza geografica** sia selezionata per impostazione predefinita. In questo modo si garantisce che l'insieme di credenziali venga replicato automaticamente in un data center secondario. Ad esempio, l'insieme di credenziali nell'area Stati Uniti occidentali viene replicato automaticamente nell'area Stati Uniti orientali.
 
-3.  Configurare i criteri di backup e selezionare la VM dalla stessa interfaccia utente.
+1.  Configurare i criteri di backup e selezionare la VM dalla stessa interfaccia utente.
 
-4.  Assicurarsi che l'agente di Backup sia installato nella VM. Se la macchina virtuale è stata creata tramite un'immagine della raccolta di Azure, l'agente di backup è già installato. In caso contrario, ovvero se si usa un'immagine personalizzata, seguire le istruzioni per [installare l'agente di macchine virtuali nella macchina virtuale](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Assicurarsi che l'agente di Backup sia installato nella VM. Se la macchina virtuale è stata creata tramite un'immagine della raccolta di Azure, l'agente di backup è già installato. In caso contrario, ovvero se si usa un'immagine personalizzata, seguire le istruzioni per [installare l'agente di macchine virtuali nella macchina virtuale](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Assicurarsi che la VM consenta la connettività di rete per permettere il funzionamento del servizio Backup. Seguire le istruzioni per la [connettività di rete](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+1.  Assicurarsi che la VM consenta la connettività di rete per permettere il funzionamento del servizio Backup. Seguire le istruzioni per la [connettività di rete](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
-6.  Al termine della procedura precedente, il backup viene eseguito a intervalli regolari, come specificato nei criteri di backup. Se necessario, è possibile attivare manualmente il primo backup dal dashboard dell'insieme di credenziali nel portale di Azure.
+1.  Al termine della procedura precedente, il backup viene eseguito a intervalli regolari, come specificato nei criteri di backup. Se necessario, è possibile attivare manualmente il primo backup dal dashboard dell'insieme di credenziali nel portale di Azure.
 
 Per l'automazione di Backup di Azure tramite gli script, fare riferimento ai [cmdlet di PowerShell per il backup delle VM](../articles/backup/backup-azure-vms-automation.md).
 
@@ -188,9 +188,9 @@ Per evitare questo problema, è necessario che il processo di backup implementi 
 
 1.  Blocco di tutti i dischi.
 
-2.  Scaricamento di tutte le operazioni di scrittura in sospeso.
+1.  Scaricamento di tutte le operazioni di scrittura in sospeso.
 
-3.  [Creazione di uno snapshot del BLOB](../articles/storage/blobs/storage-blob-snapshots.md) per tutti i dischi.
+1.  [Creazione di uno snapshot del BLOB](../articles/storage/blobs/storage-blob-snapshots.md) per tutti i dischi.
 
 Alcune applicazioni Windows, ad esempio SQL Server, forniscono un meccanismo di backup coordinato tramite il Servizio Copia Shadow del volume per creare backup coerenti con l'applicazione. In Linux è possibile usare uno strumento come *fsfreeze* per coordinare i dischi. Questo strumento assicura backup coerenti con i file, ma non snapshot coerenti con l'applicazione. Questo processo è complesso, pertanto è consigliabile prendere in considerazione l'uso di [Backup di Azure](../articles/backup/backup-azure-vms-introduction.md) o di una soluzione di backup di terze parti che implementa già questa procedura.
 
@@ -202,11 +202,11 @@ Un'altra opzione per la creazione di backup coerenti consiste nell'arresto della
 
 1. Arrestare la VM.
 
-2. Creare uno snapshot di ogni BLOB di disco rigido virtuale, operazione che richiede solo pochi secondi.
+1. Creare uno snapshot di ogni BLOB di disco rigido virtuale, operazione che richiede solo pochi secondi.
 
     Per creare uno snapshot, è possibile usare [PowerShell](../articles/storage/common/storage-powershell-guide-full.md), l'[API REST di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee691971.aspx), l'[interfaccia della riga di comando di Azure](/cli/azure/) o una delle librerie client di Archiviazione di Azure, come la [libreria client di archiviazione per .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-3. Avviare la VM, in modo da terminare il tempo di inattività. L'intero processo termina in genere in pochi minuti.
+1. Avviare la VM, in modo da terminare il tempo di inattività. L'intero processo termina in genere in pochi minuti.
 
 Questo processo restituisce una raccolta di snapshot coerenti per tutti i dischi, fornendo un punto di ripristino del backup per la VM.
 

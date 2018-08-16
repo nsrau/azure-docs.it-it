@@ -13,18 +13,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
 ms.author: mikhegn
-ms.openlocfilehash: 437c38a8e674fcdf06e26a7191ceecef9d901470
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 180bd3709cc9ffefb17f78e337e6f6995024fdcf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968321"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523428"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Procedura: eseguire il debug dei contenitori Windows in Azure Service Fabric con Visual Studio 2017
 
 Con Visual Studio 2017 Update 7 (15.7) è possibile eseguire il debug delle applicazioni .NET nei contenitori come servizi di Service Fabric. Questo articolo illustra come configurare l'ambiente ed eseguire il debug di un'applicazione .NET in un contenitore in esecuzione in un cluster di Service Fabric locale.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * In Windows 10, seguire questa guida introduttiva per [configurare Windows 10 per l'esecuzione dei contenitori Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 * In Windows Server 2016, seguire questa guida introduttiva per [configurare Windows 2016 per l'esecuzione dei contenitori Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
@@ -34,20 +34,20 @@ Con Visual Studio 2017 Update 7 (15.7) è possibile eseguire il debug delle appl
 
 1. Assicurarsi che il servizio Docker per Windows sia in esecuzione prima di procedere con il passaggio successivo.
 
-1. Per supportare la risoluzione DNS tra i contenitori, sarà necessario configurare il cluster di sviluppo locale usando il nome del computer.
+1. Per supportare la risoluzione DNS tra i contenitori, sarà necessario configurare il cluster di sviluppo locale usando il nome del computer. Questa procedura è necessaria anche per indirizzare i servizi tramite il proxy inverso.
     1. Aprire PowerShell come amministratore
-    1. Passare alla cartella di installazione del cluster SDK, in genere `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`
-    1. Eseguire lo script `DevClusterSetup.ps1` con il parametro `-UseMachineName`
+    2. Passare alla cartella di installazione del cluster SDK, in genere `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+    3. Eseguire lo script `DevClusterSetup.ps1` con il parametro `-UseMachineName`
 
-    ``` PowerShell
-      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
-    ```
+       ``` PowerShell
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+       ```
 
     > [!NOTE]
     > È possibile usare `-CreateOneNodeCluster` per configurare un cluster con un solo nodo. Per impostazione predefinita, verrà creato un cluster locale con cinque nodi.
     >
 
-    Per altre informazioni sul servizio DNS in Service Fabric, vedere [Servizio DNS in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice).
+    Per altre informazioni sul servizio DNS in Service Fabric, vedere [Servizio DNS in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Per altre informazioni sull'uso del proxy inverso di Service Fabric per i servizi in esecuzione in un contenitore, vedere [Reverse proxy special handling for services running in containers](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers) (Gestione speciale del proxy inverso per i servizi in esecuzione nei contenitori).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitazioni note durante il debug dei contenitori in Service Fabric
 

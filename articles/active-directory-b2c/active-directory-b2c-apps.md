@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f4b45c743c0efa1c9df665018b28a8b4ffb76f73
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238404"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480513"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipi di applicazioni che possono essere usate in Active Directory B2C
 
@@ -60,7 +60,13 @@ Per altre informazioni sui tipi di token e attestazioni disponibili per un'appli
 
 Nelle applicazioni Web, ogni esecuzione di [criteri](active-directory-b2c-reference-policies.md) include i passaggi generali seguenti:
 
-![Immagine di corsie di app Web](./media/active-directory-b2c-apps/webapp.png)
+1. L'utente passa all'applicazione Web.
+2. L'applicazione Web reindirizza l'utente ad Azure AD B2C indicando i criteri da eseguire.
+3. L'utente completa i criteri.
+4. Azure AD B2C restituisce un oggetto `id_token` al browser.
+5. `id_token` viene inserito nell'URI di reindirizzamento.
+6. `id_token` viene convalidato e viene impostato un cookie di sessione.
+7. All'utente viene restituita una pagina sicura.
 
 La convalida di `id_token` con una chiave di firma pubblica ricevuta da Azure AD è sufficiente per verificare l'identità dell'utente. Questo imposta anche un cookie di sessione che può essere usato per identificare l'utente nelle richieste di pagina successive.
 
@@ -89,7 +95,15 @@ L'API Web può quindi usare il token per verificare l'identità del chiamante de
 
 Un'API Web può ricevere token da molti tipi di client, tra cui applicazioni Web, applicazioni desktop e per dispositivi mobili, applicazioni a singola pagina, daemon sul lato server e altre API Web. Di seguito è riportato un esempio di flusso completo di un'applicazione Web che chiama un'API Web:
 
-![Immagine di corsie di API Web di app Web](./media/active-directory-b2c-apps/webapi.png)
+1. L'applicazione Web esegue criteri e l'utente completa l'esperienza utente.
+2. Azure AD B2C restituisce un oggetto `access_token` e un codice di autorizzazione al browser.
+3. Il browser inserisce `access_token` e il codice di autenticazione nell'URI di reindirizzamento.
+4. Il server Web convalida `access token` e imposta un cookie di sessione.
+5. `access_token` viene fornito ad Azure AD B2C con il codice di autenticazione, l'ID client applicazione e le credenziali.
+6. Vengono restituiti `access_token` e `refresh_token` al server Web.
+7. Viene chiamata l'API Web con `access_token` in un'intestazione dell'autorizzazione.
+8. L'API Web convalida il token.
+9. Al server Web vengono restituiti dati sicuri.
 
 Per altre informazioni su codici di autorizzazione, token di aggiornamento e procedure di recupero dei token, vedere l'articolo relativo al [protocollo OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 
@@ -105,8 +119,6 @@ In questo flusso l'applicazione esegue i [criteri](active-directory-b2c-referenc
 > Azure AD B2C attualmente supporta solo i token usati per accedere al servizio Web back-end di un'applicazione. Ad esempio, l'applicazione completa può includere un'applicazione per iOS, un'applicazione per Android e un'API Web back-end. Questa architettura è completamente supportata. L'accesso a un'API Web di partner da parte di un'applicazione iOS con i token di accesso OAuth 2.0 attualmente non è supportato. Tutti i componenti dell'applicazione completa devono condividere un singolo ID applicazione.
 >
 >
-
-![Immagine di corsie di app native](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 

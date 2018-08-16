@@ -7,19 +7,17 @@ manager: shreeshd
 keywords: backup e ripristino di emergenza; servizio Backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/25/2018
-ms.author: trinadhk
-ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 8/6/2018
+ms.author: saurse;trinadhk
+ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016489"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577882"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Domande sull'agente di Backup di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti dell'agente di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="configure-backup"></a>Configurare il backup
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Dov'è possibile scaricare l'agente di Backup di Azure più recente? <br/>
@@ -66,6 +64,10 @@ I dati di backup vengono inviati al data center dell'insieme di credenziali in c
 ### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>L'agente di Backup di Azure funziona in un server che usa la deduplicazione di Windows Server 2012? <br/>
 Sì. Il servizio agente converte i dati deduplicati in dati normali quando si prepara l'operazione di backup. Quindi ottimizza i dati per il backup, crittografa i dati e infine invia i dati crittografati al servizio di backup online.
 
+## <a name="prerequisites-and-dependencies"></a>Prerequisiti e dipendenze
+### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Quali funzionalità dell'agente di Servizi di ripristino di Microsoft Azure richiedono un framework .NET versione 4.5.2 o successiva?
+La funzionalità di [ripristino istantaneo](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine), che consente il ripristino di singoli file e cartelle dalla procedura guidata *Recupera dati*, richiede .NET Framework 4.5.2 o versione successiva.
+
 ## <a name="backup"></a>Backup
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Come si modifica il percorso della cache specificato per l'agente di Backup di Azure?<br/>
 Per modificare il percorso della cache, usare l'elenco seguente.
@@ -92,8 +94,8 @@ Una volta completata la creazione del backup nel nuovo percorso della cache, è 
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Dove è possibile salvare la cartella della cache perché l'agente di Backup di Azure funzioni come previsto?<br/>
 I percorsi seguenti per la cartella della cache non sono consigliati:
 
-* Condivisione di rete o supporti rimovibili: la cartella della cache deve essere locale nel server di cui eseguire il backup con il backup online. I percorsi di rete o i supporti rimovibili, ad esempio le unità USB, non sono supportati.
-* Volumi offline: la cartella della cache deve essere online per il backup previsto con l'agente di Backup di Azure.
+* Condivisione di rete o supporti rimovibili: la cartella della cache deve essere locale nel server di cui eseguire il backup con il backup online. I percorsi di rete o i supporti rimovibili, ad esempio le unità USB, non sono supportati
+* Volumi offline: la cartella della cache deve essere online per il backup previsto con l'agente di Backup di Azure
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Esistono attributi della cartella della cache non supportati?<br/>
 Per la cartella della cache non sono supportati gli attributi seguenti o le relative combinazioni:
@@ -111,8 +113,7 @@ La cartella della cache e il disco rigido virtuale dei metadati non hanno gli at
 
 ## <a name="manage-backups"></a>Gestire i backup
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Cosa accade se si rinomina un server Windows che esegue il backup dei dati in Azure?<br/>
-Quando si rinomina un server, tutti i backup attualmente configurati vengono arrestati.
-Registrare il nuovo nome del server con l'insieme di credenziali di backup. Quando si registra il nuovo nome con l'insieme di credenziali, la prima operazione di backup sarà *completa*. Se è necessario recuperare i dati sottoposti a backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione [**Un altro server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) nella procedura guidata **Ripristina dati**.
+Quando si rinomina un server, tutti i backup attualmente configurati vengono arrestati. Registrare il nuovo nome del server con l'insieme di credenziali di backup. Quando si registra il nuovo nome con l'insieme di credenziali, la prima operazione di backup sarà *completa*. Se è necessario recuperare i dati sottoposti a backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione [**Un altro server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) nella procedura guidata **Ripristina dati**.
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Qual è la lunghezza massima del percorso file specificabile nei criteri di backup usando l'agente di Backup di Azure? <br/>
 L'agente di Backup di Azure si basa su NTFS. La [lunghezza del percorso del file è limitata dall'API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se il percorso dei file da proteggere ha una lunghezza superiore a quella consentita dall'API Windows, eseguire il backup della cartella padre o dell'unità disco.  

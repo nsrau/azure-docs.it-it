@@ -1,21 +1,21 @@
 ---
-title: Eseguire l'autenticazione con Azure AD da un'applicazione di Archiviazione (anteprima) | Microsoft Docs
-description: Eseguire l'autenticazione con Azure AD da un'applicazione di Archiviazione di Azure (anteprima).
+title: Eseguire l'autenticazione con Azure Active Directory per accedere ai dati BLOB e della coda dalle applicazioni (anteprima) | Microsoft Docs
+description: Usare Azure Active Directory per eseguire l'autenticazione dall'interno di un'applicazione e quindi autorizzare le richieste alle risorse di archiviazione di Azure (anteprima).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/12/2018
 ms.author: tamram
-ms.openlocfilehash: 1bf4a8bba3b93c16f67d46f65292709ef2a1bba2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659695"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577705"
 ---
-# <a name="authenticate-with-azure-ad-from-an-azure-storage-application-preview"></a>Eseguire l'autenticazione con Azure AD da un'applicazione di Archiviazione di Azure (anteprima)
+# <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Eseguire l'autenticazione con Azure Active Directory da un'applicazione di Archiviazione di Azure (anteprima)
 
 Un vantaggio fondamentale dell'uso di Azure Active Directory (Azure AD) con Archiviazione di Azure è che le credenziali non devono più essere archiviate nel codice. È invece possibile richiedere un token di accesso OAuth 2.0 da Azure AD. Azure AD gestisce l'autenticazione dell'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione riesce, Azure AD restituisce il token di accesso all'applicazione e questa può quindi usare il token di accesso per autorizzare le richieste ad Archiviazione di Azure.
 
@@ -23,7 +23,7 @@ Questo articolo mostra come configurare l'applicazione per l'autenticazione con 
 
 Prima di poter autenticare un'entità di sicurezza dall'applicazione di Archiviazione di Azure, configurare le impostazioni di controllo degli accessi in base al ruolo per l'entità di sicurezza. Archiviazione di Azure definisce ruoli di controllo degli accessi in base al ruolo che includono autorizzazioni per contenitori e code. Quando il ruolo di controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza, a questa viene concesso l'accesso a tale risorsa. Per altre informazioni, vedere [Gestire i diritti di accesso a dati di archiviazione con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md).
 
-Per una panoramica del flusso di concessione del codice di OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web di Azure Active Directory mediante il flusso di concessione di OAuth 2.0](../../active-directory/develop/active-directory-protocols-oauth-code.md).
+Per una panoramica del flusso di concessione del codice di OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web di Azure Active Directory mediante il flusso di concessione di OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 > [!IMPORTANT]
 > Questa versione di anteprima è destinata solo per l'uso in ambienti non di produzione. Non saranno disponibili contratti di servizio per ambienti di produzione finché l'integrazione di Azure AD per Archiviazione di Azure non verrà dichiarata disponibile a livello generale. Se l'integrazione di Azure AD non è ancora supportata per il proprio scenario, continuare a usare l'autorizzazione con chiave condivisa o token di firma di accesso condiviso nelle applicazioni. Per altre informazioni sulla versione di anteprima, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
@@ -34,9 +34,9 @@ Per una panoramica del flusso di concessione del codice di OAuth 2.0, vedere [Au
 
 Il primo passaggio per l'uso di Azure AD per autorizzare l'accesso a risorse di archiviazione consiste nella registrazione dell'applicazione client in un tenant di Azure AD. La registrazione dell'applicazione permette di chiamare [Active Directory Authentication Library](../../active-directory/active-directory-authentication-libraries.md) dal codice. ADAL offre un'API per eseguire l'autenticazione con Azure AD dall'applicazione. La registrazione dell'applicazione permette anche di autorizzare chiamate dall'applicazione ad API di Archiviazione di Azure con un token di accesso.
 
-Quando si registra l'applicazione, si danno informazioni sull'applicazione ad Azure AD. Azure AD fornisce quindi un ID client, chiamato anche *ID applicazione*, da usare per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID client, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md).
+Quando si registra l'applicazione, si danno informazioni sull'applicazione ad Azure AD. Azure AD fornisce quindi un ID client, chiamato anche *ID applicazione*, da usare per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID client, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Per registrare l'applicazione di Archiviazione di Azure, seguire i passaggi descritti nella sezione [Aggiunta di un'applicazione](../../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) in [Integrazione di applicazioni con Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido come **URI di reindirizzamento**. Il valore non deve essere un endpoint reale.
+Per registrare l'applicazione di Archiviazione di Azure, seguire i passaggi descritti nella sezione [Aggiunta di un'applicazione](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) in [Integrazione di applicazioni con Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido come **URI di reindirizzamento**. Il valore non deve essere un endpoint reale.
 
 ![Screenshot che mostra come registrare l'applicazione di archiviazione in Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -44,7 +44,7 @@ Al termine della registrazione dell'applicazione, verrà visualizzato l'ID appli
 
 ![Screenshot che mostra l'ID client](./media/storage-auth-aad-app/app-registration-client-id.png)
 
-Per altre informazioni sulla registrazione di un'applicazione in Azure AD, vedere [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md). 
+Per altre informazioni sulla registrazione di un'applicazione in Azure AD, vedere [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). 
 
 ## <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Concedere all'app registrata autorizzazioni per Archiviazione di Azure
 
@@ -104,15 +104,22 @@ Per ottenere l'ID tenant, seguire questa procedura:
 
 ### <a name="add-references-and-using-statements"></a>Aggiungere riferimenti e istruzioni using  
 
-In Visual Studio installare la versione di anteprima della libreria client di Archiviazione di Azure. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi fare clic su **Console di Gestione pacchetti**. Digitare il comando seguente nella console:
+In Visual Studio installare la versione di anteprima della libreria client di Archiviazione di Azure. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi fare clic su **Console di Gestione pacchetti**. Digitare il comando seguente nella console per installare la versione più recente della libreria client per .NET:
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
+Install-Package WindowsAzure.Storage
+```
+
+Installare anche la versione più recente di ADAL:
+
+```
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
 Aggiungere quindi le istruzioni using seguenti al codice:
 
 ```dotnet
+using System.Globalization;
 using Microsoft.IdentityModel.Clients.ActiveDirectory; //ADAL client library for getting the access token
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -120,13 +127,17 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 ### <a name="get-an-oauth-token-from-azure-ad"></a>Ottenere un token OAuth da Azure AD
 
-Aggiungere quindi un metodo per richiedere un token da Azure AD. Per richiedere il token, chiamare il metodo [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync).
+Aggiungere quindi un metodo per richiedere un token da Azure AD. Per richiedere il token, chiamare il metodo [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync). Assicurarsi di avere annotato i valori seguenti nei passaggi eseguiti in precedenza:
+
+- ID Tenant (directory)
+- ID Client (applicazione)
+- URI di reindirizzamento del client
 
 ```dotnet
 static string GetUserOAuthToken()
 {
-    const string ResourceId = "https://storage.azure.com/"; // Storage resource endpoint
-    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token"; // Azure AD OAuth endpoint
+    const string ResourceId = "https://storage.azure.com/";
+    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token";
     const string TenantId = "<tenant-id>"; // Tenant or directory ID
 
     // Construct the authority string from the Azure AD OAuth endpoint and the tenant ID. 
@@ -164,7 +175,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sui ruoli di controllo degli accessi in base al ruolo per l'archiviazione di Azure, vedere [Gestire i diritti di accesso a dati di archiviazione con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md).
+- Per altre informazioni sui ruoli RBAC per Archiviazione di Azure, vedere [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md) (Gestire i diritti di accesso ai dati di archiviazione con il controllo degli accessi in base al ruolo - anteprima).
 - Per informazioni sull'uso dell'identità del servizio gestita con Archiviazione di Azure, vedere [Eseguire l'autenticazione con Azure AD da un'identità del servizio gestita di Azure (anteprima)](storage-auth-aad-msi.md).
 - Per informazioni su come accedere all'interfaccia della riga di comando di Azure e a PowerShell con un'identità di Azure AD, vedere [Usare un'identità di Azure AD per accedere ad Archiviazione di Azure con l'interfaccia della riga di comando o PowerShell (anteprima)](storage-auth-aad-script.md).
 - Per altre informazioni sull'integrazione di Azure AD per BLOB e code di Azure, vedere il post di blog del team di Archiviazione di Azure sull'[annuncio della versione di anteprima di Autenticazione di Azure AD per Archiviazione di Azure](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

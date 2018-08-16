@@ -1,5 +1,5 @@
 ---
-title: Avvisi del log in Monitoraggio di Azure
+title: Avvisi dei log in Monitoraggio di Azure
 description: Attivare messaggi di posta elettronica e notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni di query di analisi specificate per Avvisi di Azure.
 author: msvijayn
 services: monitoring
@@ -8,19 +8,23 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971721"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440430"
 ---
-# <a name="log-alerts-in-azure-monitor---alerts"></a>Avvisi del log nel Monitoraggio di Azure - Avvisi 
-Questo articolo contiene informazioni dettagliate sugli avvisi di log, uno dei tipi di avvisi supportati nel nuovo servizio [Avvisi di Azure](monitoring-overview-unified-alerts.md), che permette agli utenti di usare la piattaforma di analisi di Azure come base per la generazione di avvisi. Per informazioni sugli avvisi delle metriche basati su log, vedere [Avvisi delle metriche near real time](monitoring-near-real-time-metric-alerts.md).
+# <a name="log-alerts-in-azure-monitor---alerts"></a>Avvisi dei log in Monitoraggio di Azure - Avvisi 
+Questo articolo contiene informazioni dettagliate sugli avvisi dei log, uno dei tipi di avvisi supportati nel nuovo servizio [Avvisi di Azure](monitoring-overview-unified-alerts.md) che consente agli utenti di usare la piattaforma di analisi di Azure come base per la generazione di avvisi.
 
 
-Un avviso di log è costituito da regole di ricerca log create per [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) o [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
+Un avviso di log è costituito da regole di ricerca log create per [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) o [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). I dettagli sui prezzi per gli avvisi dei log sono disponibili nella pagina [Prezzi di Monitoraggio di Azure](https://azure.microsoft.com/en-us/pricing/details/monitor/). Nelle fatture di Azure gli avvisi dei log sono rappresentati come tipo `microsoft.insights/scheduledqueryrules` con:
+- Avvisi dei log in Application Insights visualizzati con il nome esatto insieme al gruppo di risorse e alle proprietà dell'avviso
+- Avvisi dei log in Log Analytics visualizzati con il nome `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` insieme al gruppo di risorse e alle proprietà dell'avviso
 
+    > [!NOTE]
+    > Il nome per tutte le ricerche salvate, per le pianificazioni e per le azioni create con l'API Log Analytics deve essere in minuscolo. Se vengono usati caratteri non validi, ad esempio `<, >, %, &, \, ?, /`, nella fattura saranno sostituiti con `_`.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regole di avviso di ricerca log - Definizioni e tipi
 
@@ -104,7 +108,7 @@ Un avviso di log, insieme alla regola di avviso di ricerca log che lo costituisc
 - Modelli di Azure Resource Manager
 
 ### <a name="azure-portal"></a>Portale di Azure
-Dall'introduzione del [nuovo servizio Avvisi di Azure](monitoring-overview-unified-alerts.md), gli utenti possono ora gestire tutti i tipi di avvisi nel portale di Azure da un'unica posizione e con una procedura simile. Per altre informazioni, vedere [Uso del nuovo servizio Avvisi di Azure](monitor-alerts-unified-usage.md).
+Da quando è stato introdotto il [nuovo servizio Avvisi di Azure](monitoring-overview-unified-alerts.md), gli utenti possono gestire tutti i tipi di avvisi nel portale di Azure da un'unica posizione e con una procedura d'uso simile. Per altre informazioni, vedere [Uso del nuovo servizio Avvisi di Azure](monitor-alerts-unified-usage.md).
 
 Gli utenti possono anche perfezionare le query nella piattaforma Analytics preferita in Azure e quindi *importarle per l'uso in Avvisi salvandole*. Procedura da seguire:
 - *Per Application Insights*: passare al portale di Analytics e convalidare la query e i suoi risultati. Salvare quindi con nome univoco in *Query condivise*.
@@ -131,7 +135,7 @@ Per informazioni dettagliate e alcuni esempi sull'uso di modelli di Resource Man
  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Acquisire familiarità con gli [avvisi di log in Azure](monitor-alerts-unified-log-webhook.md).
+* Acquisire familiarità con i [webhook negli avvisi dei log in Azure](monitor-alerts-unified-log-webhook.md).
 * Leggere altre informazioni sul nuovo servizio [Avvisi di Azure ](monitoring-overview-unified-alerts.md).
 * Altre informazioni su [Application Insights](../application-insights/app-insights-analytics.md).
 * Altre informazioni su [Log Analytics](../log-analytics/log-analytics-overview.md).    
