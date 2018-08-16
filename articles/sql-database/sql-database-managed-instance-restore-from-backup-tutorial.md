@@ -57,7 +57,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/#create/Microsoft.SQLMan
    |**Tipo di account**|Archiviazione BLOB||
    |**Prestazioni**|Standard o Premium|Unità magnetiche o SSD|
    |**Replica**|Archiviazione con ridondanza locale||
-   |**Livello di accesso (predefinito)|Sporadico o Frequente||
+   |\*\*Livello di accesso (predefinito)|Sporadico o Frequente||
    |**Trasferimento sicuro necessario**|Disabled||
    |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni).|
    |**Gruppo di risorse**|Gruppo di risorse creato in precedenza|| 
