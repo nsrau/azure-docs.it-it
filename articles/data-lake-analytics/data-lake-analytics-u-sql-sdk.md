@@ -73,7 +73,7 @@ Quando si esegue lo script U-SQL localmente, durante la compilazione viene creat
 | | |\_ScopeCodeGenEngine\_.*|Output del compilatore|Codice nativo generato|
 | | |referenced assemblies|Riferimento assembly|File assembly di riferimento|
 | | |deployed_resources|Distribuzione risorse|File di distribuzione risorse|
-| | |xxxxxxxx.xxx[1..n]\_\*.*|Log di esecuzione|Log dei passaggi di esecuzione|
+| | |xxxxxxxx.xxx[1..n]\_\*.\*|Log di esecuzione|Log dei passaggi di esecuzione|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Usare l'SDK dalla riga di comando
