@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: ae2c6b6a53c6a195bbc79a5776161aab07e42f3d
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215265"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618768"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
 
@@ -323,9 +323,9 @@ In Azure Cosmos DB è possibile apportare modifiche in tempo reale ai criteri di
 
 ![Funzionamento dell'indicizzazione - Trasformazioni di indici online di Azure Cosmos DB](./media/indexing-policies/index-transformations.png)
 
-Le trasformazioni degli indici vengono eseguite online. Questo significa che i documenti indicizzati in base ai vecchi criteri vengono trasformati in modo efficiente in base ai nuovi criteri *senza modificare la disponibilità di scrittura o la velocità effettiva di provisioning* della raccolta. La coerenza delle operazioni di lettura e scrittura eseguite tramite l'API REST, gli SDK o all'interno di stored procedure e trigger non cambia durante la trasformazione dell'indice. Quando si apporta una modifica ai criteri di indicizzazione, non si verificano cali di prestazioni o tempo di inattività per le app.
+Le trasformazioni degli indici vengono eseguite online. Questo significa che i documenti indicizzati in base ai vecchi criteri vengono trasformati in modo efficiente in base ai nuovi criteri *senza modificare la disponibilità di scrittura o la velocità effettiva di provisioning* della raccolta. La coerenza delle operazioni di lettura e scrittura eseguite tramite l'API REST, gli SDK o all'interno di stored procedure e trigger non cambia durante la trasformazione dell'indice. 
 
-Tuttavia, durante la fase di trasformazione dell’indice, le query sono alla fine coerenti indipendentemente dalla configurazione della modalità indicizzazione (coerente o differita). Questo si applica alle query eseguite usando qualsiasi interfaccia: SDK, API REST o all'interno di stored procedure e trigger. Come per l'indicizzazione differita, la trasformazione dell'indice viene eseguita in modo asincrono in background nelle repliche usando le risorse di riserva disponibili per una replica specifica. 
+La modifica dei criteri di indicizzazione è un processo asincrono e il tempo necessario per completare l'operazione dipende dal numero di documenti e di UR sottoposte a provisioning e dalle dimensioni dei documenti. Durante la reindicizzazione, la query potrebbe non restituire tutti i risultati corrispondenti se usa l'indice che si sta modificando. Le query non restituiranno alcun guasto/errore. Durante la reindicizzazione, le query sono alla fine coerenti indipendentemente dalla configurazione della modalità indicizzazione (coerente o differita). Una volta completata la trasformazione dell'indice, si continueranno a vedere risultati coerenti. Questo si applica alle query eseguite usando qualsiasi interfaccia: SDK, API REST o all'interno di stored procedure e trigger. Come per l'indicizzazione differita, la trasformazione dell'indice viene eseguita in modo asincrono in background nelle repliche usando le risorse di riserva disponibili per una replica specifica. 
 
 Le trasformazioni degli indici vengono anche eseguite sul posto. Azure Cosmos DB non conserva due copie dell'indice e scambia l'indice precedente con quello nuovo. Questo significa che non è necessario né viene usato ulteriore spazio su disco nelle raccolte durante la trasformazione dell'indice.
 

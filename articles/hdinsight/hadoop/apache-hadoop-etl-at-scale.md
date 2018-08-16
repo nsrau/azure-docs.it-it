@@ -1,25 +1,20 @@
 ---
-title: Estrarre, trasformare e caricare (ETL) su larga scala - Azure HDInsight | Microsoft Docs
+title: Estrarre, trasformare e caricare (ETL) su larga scala - Azure HDInsight
 description: Informazioni sull'uso di ETL in HDInsight con Hadoop.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 9314b8ae8dceb29a9aee63ba3093ab191d4fdef3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: bae6fde75e0939fc1f3f2f9c14f275d18ea2c4e2
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115606"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598613"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 

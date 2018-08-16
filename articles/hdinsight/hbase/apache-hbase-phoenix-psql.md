@@ -1,24 +1,20 @@
 ---
-title: Caricamento bulk di dati in Apache Phoenix tramite psql - Azure HDInsight | Microsoft Docs
+title: Caricamento bulk di dati in Apache Phoenix tramite psql - Azure HDInsight
 description: Usare lo strumento psql per il caricamento bulk dei dati nelle tabelle di Phoenix.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 54d3b7ae22162d84ef6287945d4ff95fa1274874
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: dab9465a5319e3e3df46771349373fc6996d0bd2
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164739"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600143"
 ---
 # <a name="bulk-load-data-into-phoenix-using-psql"></a>Caricamento bulk di dati in Phoenix tramite psql
 
@@ -129,7 +125,7 @@ Per un caricamento con velocità effettiva più elevata distribuito nel cluster,
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/temp/input/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure --output  adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/output1
     ```
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Consigli
 
 * Usare lo stesso supporto di archiviazione per le cartelle di input e di output WASB o ADLS. Per trasferire dati da WASB ad ADLS, usare il comando `distcp`:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b41b1fcb437dac381a17bef4f1e5a7cebe213b98
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 329653e7494d2f993acb462d7d989db07a18f790
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435916"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600864"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introduzione a Storage Explorer
 
@@ -29,7 +29,7 @@ Azure Storage Explorer è un'app autonoma che consente di usare facilmente dati 
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -125,7 +125,7 @@ A partire dalla versione 1.1.0, l'emulatore di archiviazione locale è supportat
 > [!NOTE]
 > Il supporto per funzionalità e servizi di archiviazione può variare notevolmente a seconda dell'emulatore che si sceglie. Assicurarsi che l'emulatore supporti i servizi e le funzionalità che si intende usare.
 
-1. Configurare l'emulatore scelto per l'ascolto sugli endpoint predefiniti.
+1. Configurare i servizi dell'emulatore preferito per l'ascolto su una porta inutilizzata.
 
    Servizio emulato | Endpoint predefinito
    -----------------|-------------------------
@@ -134,16 +134,19 @@ A partire dalla versione 1.1.0, l'emulatore di archiviazione locale è supportat
    Tabelle           | `http://127.0.0.1:10002`
 
 2. Avviare l'emulatore.
+   > [!IMPORTANT]
+   > Storage Explorer non avvia automaticamente l'emulatore. È necessario avviarlo manualmente.
 
-3. Nel riquadro sinistro di Storage Explorer espandere il nodo **(Local and Attached) (Locale e collegato)** > **Storage Accounts (Account di archiviazione)** > **(Development) (Sviluppo)**.
+3. In Storage Explorer fare clic sul pulsante **Add Account** (Aggiungi account). Selezionare **Attach to a local emulator** (Collega a un emulatore locale) e fare clic su **Avanti**.
+
+4. Immettere i numeri di porta per i servizi configurati in precedenza (lasciare vuoto se non si prevede di usare un servizio). Fare clic su **Avanti**, quindi **Connetti** per creare la connessione.
+
+5. Espandere **Local & Attached** (Locale e collegato)  > **Account di archiviazione** > Nodi, quindi espandere i nodi del servizio sotto il nodo corrispondente alla connessione dell'emulatore.
 
    È possibile usare questo nodo per creare e usare tabelle, code e BLOB locali. Per informazioni su come usare i vari tipi di account di archiviazione, fare riferimento a una delle guide seguenti:
 
    * [Manage Azure blob storage resources (Gestire risorse di archiviazione BLOB di Azure)](vs-azure-tools-storage-explorer-blobs.md)
    * [Manage Azure File storage resources (Gestire risorse di archiviazione file di Azure)](vs-azure-tools-storage-explorer-files.md)
-
-> [!NOTE]
-> Storage Explorer supporta solo la connessione a emulatori locali che usano endpoint predefiniti. Quando si avvia l'emulatore, assicurarsi che siano configurati solo gli endpoint predefiniti.
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Collegare o scollegare un account di archiviazione esterno
 

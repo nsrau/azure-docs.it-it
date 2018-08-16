@@ -10,23 +10,25 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602118"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622637"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
  Esistono due versioni principali del runtime di Funzioni di Azure: 1.x e 2.x. Solo 1. x viene approvata per la produzione. Questo articolo illustra quali sono le novità della versione 2.x, disponibile in anteprima.
 
-| Runtime | Status |
+| Runtime | Stato |
 |---------|---------|
 |1.x|Disponibile a livello generale|
-|2.x|Preview|
+|2.x|Anteprima<sup>*</sup>|
+
+<sup>*</sup>Per ricevere aggiornamenti importanti sulla versione 2.x, tra cui gli annunci relativi a modifiche di rilievo, guardare il repository degli [annunci del Servizio app di Azure](https://github.com/Azure/app-service-announcements/issues).
 
 > [!NOTE] 
 > Questo articolo si riferisce al servizio cloud di Funzioni di Azure. Per informazioni sul prodotto che consente di eseguire Funzioni di Azure in locale, vedere [Panoramica sul runtime di Funzioni di Azure](functions-runtime-overview.md).

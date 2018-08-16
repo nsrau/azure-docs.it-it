@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368679"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622171"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD
 
@@ -110,6 +110,9 @@ Se si è verificato che tutto funzioni come previsto, si è pronti per abilitare
     
 
 È necessario collegare questa impostazione client a una posizione di propria scelta. Ad esempio, per configurare questa impostazione client per tutti i dispositivi correnti di Windows nell'organizzazione, collegare l'impostazione client al dominio. Per eseguire una distribuzione controllata, è possibile configurare questa impostazione client sui dispositivi correnti di Windows aggiunti a un dominio che appartengono a un'unità organizzativa o a un gruppo di sicurezza.
+
+> [!Important]
+> Mentre la configurazione precedente interessa dispositivi Windows 10 aggiunti al dominio esistenti, è possibile che i dispositivi appena aggiunti al dominio tentino ancora di completare l'aggiunta ad Azure AD ibrido a causa di potenziali ritardi nell'applicazione effettiva dei criteri di gruppo o delle impostazioni di Gestione configurazione nel dispositivo Windows 10 appena aggiunto al dominio. Per evitare questo problema, è consigliabile creare una nuova immagine sysprep (usata come esempio per un metodo di provisioning) da un dispositivo mai aggiunto ad Azure AD ibrido e al quale sia già stata applicata la precedente impostazione di criteri di gruppo o l'impostazione client di Gestione configurazione. È anche necessario usare la nuova immagine per il provisioning di nuovi computer che si aggiungono al dominio dell'organizzazione. 
 
 ## <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore
 

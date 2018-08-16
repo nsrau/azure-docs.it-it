@@ -1,23 +1,20 @@
 ---
-title: Usare flussi di lavoro Oozie con Hadoop in HDInsight basato su Linux | Microsoft Docs
+title: Usare flussi di lavoro Oozie con Hadoop in HDInsight basato su Linux
 description: Usare Oozie di Hadoop in HDInsight basati su Linux. Informazioni su come definire un flusso di lavoro Oozie e inviare un processo Oozie.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: a8a1b45d28b8d762a659ccdcc6986dcacb3a9d3e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019280"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599174"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux
 
@@ -36,7 +33,7 @@ Oozie può anche essere usato per pianificare processi specifici di un sistema, 
 > Per definire i flussi di lavoro con HDInsight, è anche possibile usare Azure Data Factory. Per altre informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data Factory][azure-data-factory-pig-hive].
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Un cluster di HDInsight**: vedere [Introduzione a HDInsight in Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
@@ -259,7 +256,7 @@ Per creare un database SQL, attenersi alla procedura illustrata nel documento [C
         Default database being set to oozietest
         1>
 
-3. Al prompt di `1>` , immettere il codice seguente:
+3. Al prompt `1>`, immettere il codice seguente:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](

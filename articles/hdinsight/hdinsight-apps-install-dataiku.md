@@ -1,25 +1,20 @@
 ---
-title: Installare un'applicazione pubblicata - Dataiku DDS - HDInsight di Azure | Microsoft Docs
+title: Installare un'applicazione pubblicata - Dataiku DDS - Azure HDInsight
 description: Installare e usare l'applicazione Hadoop di terze parti Dataiku DDS.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: facee9187528fa0c6a74f71ee73636dc23ca35ba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8d01b94ce4af6e3f5bcdc05ce84ef6deb1d3cae6
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31394619"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598772"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Installare un'applicazione pubblicata - Dataiku DDS
 
@@ -35,7 +30,7 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 È possibile usare DSS per compilare progetti, che possono quindi generare processi MapReduce o Spark. Questi processi vengono eseguiti come normali processi MapReduce o Spark in HDInsight e, quindi, è possibile ridimensionare il cluster in base alle necessità.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per installare questa app in un nuovo cluster HDInsight o in un cluster esistente, è necessario disporre della configurazione seguente:
 

@@ -1,25 +1,20 @@
 ---
-title: Accedere ai log applicazioni YARN Hadoop a livello di codice - Azure | Microsoft Docs
+title: Accedere ai log applicazioni YARN Hadoop a livello di codice - Azure
 description: Accedere ai log applicazioni a livello di codice su un cluster Hadoop in HDInsight.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: aab7865548c034cb550874c31977b05936dc45b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 42484f2a93ab5effdcafca0f0769c3fb4cdbb926
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403935"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600184"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Accesso ai log applicazioni YARN in HDInsight basato su Windows
 Questo documento illustra come accedere ai log delle applicazioni YARN che sono finite in un cluster Hadoop basato su Windows in Azure HDInsight
@@ -29,7 +24,7 @@ Questo documento illustra come accedere ai log delle applicazioni YARN che sono 
 >
 
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 * Un cluster HDInsight basato su Windows.  Vedere [Creare cluster Hadoop basati su Windows in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>Server di sequenza temporale YARN

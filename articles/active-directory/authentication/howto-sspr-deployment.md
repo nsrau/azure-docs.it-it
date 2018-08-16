@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158863"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622321"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Come implementare la reimpostazione della password self-service
 
@@ -75,12 +75,13 @@ Dopo aver abilitato questa opzione, quando gli utenti accedono, visualizzano un 
 
 ## <a name="disable-self-service-password-reset"></a>Disabilitare la reimpostazione password self-service
 
-Se l'organizzazione decide di disabilitare la reimpostazione della password self-service, la procedura da seguire è molto semplice. Aprire il tenant di Azure AD e passare a **Reimpostazione password** > **Proprietà** e scegliere **Nessuno** in **Reimpostazione password self-service abilitata**. Gli utenti manterranno i propri
+Se l'organizzazione decide di disabilitare la reimpostazione della password self-service, la procedura da seguire è molto semplice. Aprire il tenant di Azure AD e passare a **Reimpostazione password** > **Proprietà** e scegliere **Nessuno** in **Reimpostazione password self-service abilitata**. Gli utenti manterranno i metodi di autenticazione registrati per un uso futuro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
+* [Abilitare la registrazione convergente per Azure Multi-Factor Authentication e la reimpostazione della password self-service di Azure AD](concept-registration-mfa-sspr-converged.md)
 * [Domande sulle licenze](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)

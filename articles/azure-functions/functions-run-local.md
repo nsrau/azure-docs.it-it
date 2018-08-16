@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126215"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618615"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -33,9 +33,9 @@ Sono disponibili due versioni degli strumenti di base di Funzioni di Azure. La v
 
 + [Versione 1.x](#v1): supporta la versione 1.x del runtime, che è disponibile a livello generale. Questa versione degli strumenti è supportata solo nei computer Windows e viene installata da un [pacchetto npm](https://docs.npmjs.com/getting-started/what-is-npm). Con questa versione, è possibile creare funzioni nei linguaggi sperimentali che non sono ufficialmente supportati. Per altre informazioni, vedere [Linguaggi supportati nelle Funzioni di Azure](supported-languages.md)
 
-+ [Versione 2.x](#v2): supporta la versione 2.x del runtime. Questa versione supporta [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux). Usa gestori di pacchetti specifici della piattaforma o npm per l'installazione. Come la versione 2.x del runtime, questa versione di strumenti di base è attualmente in anteprima.
++ [Versione 2.x](#v2): supporta la [versione 2.x del runtime](functions-versions.md). Questa versione supporta [Windows](#windows-npm), [macOS](#brew) e [Linux](#linux). Usa gestori di pacchetti specifici della piattaforma o npm per l'installazione. Come la versione 2.x del runtime, questa versione di strumenti di base è attualmente in anteprima. 
 
-Se non specificato diversamente, gli esempi in questo articolo si riferiscono alla versione 2.x.
+Se non specificato diversamente, gli esempi in questo articolo si riferiscono alla versione 2.x. Per ricevere aggiornamenti importanti sulla versione 2.x, tra cui gli annunci relativi a modifiche di rilievo, guardare il repository degli [annunci del Servizio app di Azure](https://github.com/Azure/app-service-announcements/issues).
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installare gli strumenti di base per Funzioni di Azure
 
@@ -274,7 +274,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 | Argomento     | DESCRIZIONE                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--language -l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2.x, non usare questa opzione o scegliere il linguaggio predefinito del progetto. |
+| **`--language -l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2.x, non usare questa opzione o scegliere la lingua predefinita del progetto. |
 | **`--template -t`** | Usare il comando `func templates list` per visualizzare l'elenco completo dei modelli disponibili per ogni linguaggio supportato.   |
 | **`--name -n`** | Il nome della funzione. |
 | **`--csx`** | (Versione 2.x) Genera gli stessi modelli script C# (con estensione csx) usati nella versione 1.x e nel portale. |

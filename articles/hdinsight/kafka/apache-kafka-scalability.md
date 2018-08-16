@@ -1,25 +1,20 @@
 ---
-title: Aumento della scalabilità in Apache Kafka - Azure HDInsight | Microsoft Docs
+title: Aumento della scalabilità in Apache Kafka - Azure HDInsight
 description: Informazioni su come configurare i dischi gestiti per i cluster di Apache Kafka in Azure HDInsight per aumentare la scalabilità.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 1a104f4b4dee340f43c1dba01b83cb80e138a9ec
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71dc4090d0dbce17322af8f41d8f35c397681f33
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626724"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621736"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configurare l'archiviazione e la scalabilità per Apache Kafka in HDInsight
 

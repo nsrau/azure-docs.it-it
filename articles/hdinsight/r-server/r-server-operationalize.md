@@ -1,29 +1,26 @@
 ---
-title: Rendere operativo ML Services in HDInsight - Azure | Microsoft Docs
+title: Rendere operativo ML Services in HDInsight - Azure
 description: Informazioni su come rendere operativo ML Services in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aef34fea2252cdc875fa1ea1c73a8df14fdf1b9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046140"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622304"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
 Dopo avere usato il cluster ML Services in HDInsight per completare la modellazione dei dati, è possibile rendere operativo il modello per eseguire stime. Questo articolo include istruzioni per eseguire questa attività.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Un cluster ML Services in HDInsight**: per istruzioni, vedere [Introduzione all'uso di ML Services in HDInsight](r-server-get-started.md).
 
@@ -40,7 +37,7 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
     Per istruzioni su come usare SSH con Azure HDInsight, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Passare alla directory della versione corrispondente ed eseguire sudo sulla DLL di .NET: 
+1. Passare alla directory della versione corrispondente ed eseguire sudo sulla DLL di .NET: 
 
     - Per Microsoft ML Server 9.1:
 
@@ -52,21 +49,21 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization**.
+1. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization**.
 
     ![Opzione per una casella](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo ML Server. Tra le opzioni presentate scegliere la prima immettendo **A**.
+1. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo ML Server. Tra le opzioni presentate scegliere la prima immettendo **A**.
 
     ![Opzione per una casella](./media/r-server-operationalize/admin-util-one-box-2.png)
 
-5. Quando richiesto, immettere due volte la password per un utente amministratore locale.
+1. Quando richiesto, immettere due volte la password per un utente amministratore locale.
 
-6. Verranno visualizzati gli output indicanti che l'operazione è riuscita. Viene anche chiesto di selezionare un'altra opzione dal menu. Selezionare E per tornare al menu principale.
+1. Verranno visualizzati gli output indicanti che l'operazione è riuscita. Viene anche chiesto di selezionare un'altra opzione dal menu. Selezionare E per tornare al menu principale.
 
     ![Opzione per una casella](./media/r-server-operationalize/admin-util-one-box-3.png)
 
-7. È facoltativamente possibile effettuare controlli diagnostici eseguendo un test di diagnostica, come illustrato di seguito:
+1. È facoltativamente possibile effettuare controlli diagnostici eseguendo un test di diagnostica, come illustrato di seguito:
 
     a. Dal menu principale selezionare **6** per eseguire i test diagnostici.
 
@@ -124,7 +121,7 @@ Se il cluster non è configurato sulla rete virtuale o si riscontrano problemi r
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Quando la sessione SSH è attiva, il traffico proveniente dalla porta 12800 del computer viene inoltrato alla porta 12800 del nodo perimetrale tramite la sessione SSH. Assicurarsi di usare `127.0.0.1:12800` nel metodo `remoteLogin()`. Viene così eseguito l'accesso all'operazionalizzazione del nodo perimetrale tramite port forwarding.
+Quando la sessione SSH è attiva, il traffico proveniente dalla porta 12800 del computer locale viene inoltrato alla porta 12800 del nodo perimetrale tramite la sessione SSH. Assicurarsi di usare `127.0.0.1:12800` nel metodo `remoteLogin()`. Viene così eseguito l'accesso all'operazionalizzazione del nodo perimetrale tramite port forwarding.
 
 
     library(mrsdeploy)
@@ -148,9 +145,9 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 1. Accedere alla console Ambari del cluster e fare clic sulla scheda **Hosts** (Host).
 
-2. Selezionare i nodi di lavoro (da cui rimuovere le autorizzazioni).
+1. Selezionare i nodi di lavoro (da cui rimuovere le autorizzazioni).
 
-3. Fare clic su **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **Hosts** (Host) > **Turn ON Maintenance Mode** (Attiva modalità di manutenzione). Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
+1. Fare clic su **Actions** (Azioni) > **Selected Hosts** (Host selezionati) > **Hosts** (Host) > **Turn ON Maintenance Mode** (Attiva modalità di manutenzione). Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
 
    ![Rimozione delle autorizzazioni dei nodi del ruolo di lavoro](./media/r-server-operationalize/get-started-operationalization.png)  
 
@@ -166,15 +163,15 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 1. Accedere tramite SSH a ogni nodo del ruolo di lavoro per il quale è stata rimossa l'autorizzazione.
 
-2. Eseguire l'utilità di amministrazione usando la DLL pertinente per il proprio cluster ML Services. Per ML Server 9.1, eseguire il codice seguente:
+1. Eseguire l'utilità di amministrazione usando la DLL pertinente per il proprio cluster ML Services. Per ML Server 9.1, eseguire il codice seguente:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Immettere **1** per selezionare l'opzione **Configure ML Server for Operationalization**.
+1. Immettere **1** per selezionare l'opzione **Configure ML Server for Operationalization**.
 
-4. Immettere **C** per selezionare l'opzione `C. Compute node`. Il nodo di calcolo viene configurato sul nodo del ruolo di lavoro.
+1. Immettere **C** per selezionare l'opzione `C. Compute node`. Il nodo di calcolo viene configurato sul nodo del ruolo di lavoro.
 
-5. Uscire dall'utilità di amministrazione.
+1. Uscire dall'utilità di amministrazione.
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Passaggio 3: Aggiungere i dettagli dei nodi di calcolo nel nodo Web
 
@@ -182,9 +179,9 @@ Dopo che tutti i nodi di lavoro per i quali è stata rimossa l'autorizzazione so
 
 1. Accedere tramite SSH al nodo perimetrale.
 
-2. Eseguire `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
+1. Eseguire `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 
-3. Cercare la sezione "Uris" e aggiungere i dettagli relativi alla porta e all'IP del nodo di lavoro.
+1. Cercare la sezione "Uris" e aggiungere i dettagli relativi alla porta e all'IP del nodo di lavoro.
 
        "Uris": {
          "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",

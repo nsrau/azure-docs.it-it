@@ -3,8 +3,8 @@ title: Panoramica della cache locale del servizio app di Azure | Microsoft Docs
 description: Questo articolo descrive come abilitare, ridimensionare ed eseguire query sullo stato della funzionalità relativa alla cache locale del servizio app di Azure
 services: app-service
 documentationcenter: app-service
-author: SyntaxC4
-manager: yochayk
+author: cephalin
+manager: jpconnock
 editor: ''
 tags: optional
 keywords: ''
@@ -15,15 +15,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
-ms.author: cfowler
-ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cephalin
+ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22985946"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597731"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
+
+> [!NOTE]
+> La cache locale non è supportata nelle app del servizio app in contenitori, come ad esempio nel [servizio app in Linux](containers/app-service-linux-intro.md).
+
 Il contenuto delle app Web di Azure viene memorizzato nell'archiviazione di Azure e presentato in modo permanente come condivisione del contenuto. Questa progettazione è concepita per consentire l'interazione con un'ampia gamma di app e ha gli attributi seguenti:  
 
 * Il contenuto è condiviso tra più istanze di macchina virtuale (VM) dell'app Web.
@@ -44,7 +48,7 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 * La cache locale è di lettura/scrittura. Le eventuali modifiche vengono tuttavia rimosse quando l'app Web sposta le macchine virtuali o viene riavviata. Non usare la cache locale per le app che archiviano dati cruciali nell'archivio del contenuto.
 * Le app Web possono continuare a scrivere file di log e dati di diagnostica come avviene attualmente. File di log e dati vengono tuttavia archiviati in locale nella VM, quindi vengono copiati periodicamente nell'archivio del contenuto condiviso. La copia nell'archivio del contenuto condiviso è una soluzione basata sul principio del "massimo sforzo". I writeback potrebbero infatti andare persi a seguito di un arresto anomalo improvviso dell'istanza di una VM.
 * La struttura delle cartelle LogFiles e Data delle app Web che usano la cache locale è stata modificata. Le cartelle LogFiles e Data della risorsa di archiviazione includono ora sottocartelle che seguono il modello di denominazione "identificatore univoco" + timestamp. Ogni sottocartella corrisponde a un'istanza di VM in cui l'app Web è o era in esecuzione.  
-* Le modifiche di pubblicazione nell'app Web con uno dei meccanismi di pubblicazione saranno pubblicate nell'archivio del contenuto condiviso. Si tratta di un comportamento previsto da progettazione finalizzato a rendere permanente il contenuto pubblicato. Per aggiornare la cache locale dell'app Web, è necessario riavviarla. Se questa può sembrare una misura eccessiva, vedere le informazioni più avanti in questo articolo per rendere il ciclo di vita più lineare.
+* Le modifiche di pubblicazione nell'app Web con uno dei meccanismi di pubblicazione saranno pubblicate nell'archivio durevole del contenuto condiviso. Per aggiornare la cache locale dell'app Web, è necessario riavviarla. vedere le informazioni più avanti in questo articolo per rendere il ciclo di vita più lineare.
 * D:\Home punta alla cache locale. D:\local continua a puntare all'archivio temporaneo specifico della macchina virtuale.
 * La visualizzazione del contenuto predefinita del sito SCM continua a essere quella dell'archivio del contenuto condiviso.
 

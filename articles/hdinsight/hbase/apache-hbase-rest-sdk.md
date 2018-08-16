@@ -1,25 +1,20 @@
 ---
-title: Usare HBase .NET SDK - Azure HDInsight | Microsoft Docs
+title: Usare HBase .NET SDK - Azure HDInsight
 description: Usare HBase .NET SDK per creare ed eliminare tabelle e per leggere e scrivere dati.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: f0e2c6412a965c73b0055a24c799e05ad582a8c7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 1a26b8623ab046d7076c67d37657f19cf8d9c261
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164517"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600201"
 ---
 # <a name="use-the-hbase-net-sdk"></a>Usare HBase .NET SDK
 

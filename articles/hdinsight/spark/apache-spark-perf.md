@@ -1,24 +1,20 @@
 ---
-title: Ottimizzare i processi Spark per ottenere prestazioni ottimali - Azure HDInsight | Microsoft Docs
+title: Ottimizzare i processi Spark per ottenere prestazioni ottimali - Azure HDInsight
 description: Illustra alcune strategie comuni per ottenere prestazioni ottimali dai cluster Spark.
 services: hdinsight
-documentationcenter: ''
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
+author: maxluk
 ms.author: maxluk
-ms.openlocfilehash: f35ed98efb26dfa0d75a57ca3646f567a7949dae
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/11/2018
+ms.openlocfilehash: 7d542a4fe8c63bb44e073f3af05aed926fc4ba81
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164367"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619550"
 ---
 # <a name="optimize-spark-jobs"></a>Ottimizzare i processi Spark
 
@@ -64,8 +60,8 @@ Quando si crea un nuovo cluster Spark, è possibile selezionare Archiviazione BL
 
 | Tipo di store | File system | speed | Temporaneo | Casi di utilizzo |
 | --- | --- | --- | --- | --- |
-| Archiviazione BLOB di Azure | **wasb:**//url/ | **Standard** | Sì | Cluster temporaneo |
-| Archivio Azure Data Lake | **adl:**//url/ | **Più rapido** | Sì | Cluster temporaneo |
+| Archiviazione BLOB di Azure | **wasb:**//url/ | **Standard** | Yes | Cluster temporaneo |
+| Archivio Azure Data Lake | **adl:**//url/ | **Più rapido** | Yes | Cluster temporaneo |
 | Hadoop Distributed File System locale | **hdfs:**//url/ | **Il più rapido** | No  | Cluster interattivo 24/7 |
 
 ## <a name="use-the-cache"></a>Usare la cache

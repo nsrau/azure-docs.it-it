@@ -1,39 +1,41 @@
 ---
-title: Ricerca cognitiva per l'estrazione di dati, elaborazione del linguaggio naturale in Ricerca di Azure | Microsoft Docs
-description: Estrazione dei dati, elaborazione del linguaggio naturale (NLP) ed elaborazione di immagini per creare contenuti che supportano la ricerca nell'indicizzazione di Ricerca di Azure tramite competenze cognitive.
+title: Ricerca cognitiva per l'estrazione di dati, elaborazione con intelligenza artificiale del linguaggio naturale in Ricerca di Azure | Microsoft Docs
+description: Estrazione dei contenuti, elaborazione del linguaggio naturale (NLP) ed elaborazione di immagini per creare contenuti che supportano la ricerca nell'indicizzazione di Ricerca di Azure tramite competenze cognitive e algoritmi di intelligenza artificiale
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304282"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617959"
 ---
 # <a name="what-is-cognitive-search"></a>Che cos'è la ricerca cognitiva?
 
-La ricerca cognitiva è una funzionalità di anteprima di [Ricerca di Azure](search-what-is-azure-search.md) disponibile a tutti i livelli negli Stati Uniti centro-meridionali e in Europa occidentale, che aggiunge IA a carichi di lavoro di indicizzazione. Estrazione dei dati, elaborazione del linguaggio naturale ed elaborazione di immagini durante l'indicizzazione rilevano le informazioni latenti in contenuti non strutturati o che non supportano la ricerca e rendono possibile eseguirvi ricerche in Ricerca di Azure.
+La ricerca cognitiva crea informazioni disponibili per la ricerca partendo da contenuti non ricercabili, allegando algoritmi di intelligenza artificiale a una pipeline di indicizzazione. L'integrazione IA avviene tramite *competenze cognitive* che arricchiscono i documenti indirizzati verso un indice di ricerca. 
 
-L'integrazione IA avviene tramite *competenze cognitive* che arricchiscono i documenti di origine tramite processi sequenziali, indirizzati verso un indice di ricerca. 
+Le competenze di **elaborazione in linguaggio naturale** includono il [riconoscimento di entità](cognitive-search-skill-named-entity-recognition.md), il rilevamento della lingua, l'[estrazione delle frasi chiave](cognitive-search-skill-keyphrases.md), la modifica del testo e il rilevamento delle valutazioni. Con queste competenze, è possibile strutturare testo non strutturato, eseguendone il mapping su campi ricercabili e filtrabili in un indice.
+
+L'**elaborazione di immagini** comprende [OCR](cognitive-search-skill-ocr.md) e l'identificazione delle [caratteristiche visive](cognitive-search-skill-image-analysis.md), ad esempio il rilevamento del viso, l'interpretazione delle immagini o il loro riconoscimento (persone o luoghi famosi) o attributi come colori e orientamento. È possibile creare rappresentazioni testuali di immagini, ricercabili tramite tutte le funzionalità di query di Ricerca di Azure.
 
 ![Diagramma della pipeline di ricerca cognitiva](./media/cognitive-search-intro/cogsearch-architecture.png "Panoramica della pipeline di ricerca cognitiva")
 
-Le competenze usate durante l'indicizzazione possono essere predefinite o personalizzate:
+Le competenze cognitive in Ricerca di Azure si basano sugli stessi algoritmi IA usati nelle API Servizi cognitivi: [API Riconoscimento di entità denominate](cognitive-search-skill-named-entity-recognition.md), [API Estrazione frasi chiave](cognitive-search-skill-keyphrases.md) e [API OCR](cognitive-search-skill-ocr.md) sono soltanto alcuni esempi. 
 
-+ Le [competenze predefinite](cognitive-search-predefined-skills.md) si basano sugli stessi algoritmi IA usati nelle API Servizi cognitivi: [Riconoscimento di entità denominate](cognitive-search-skill-named-entity-recognition.md), [Estrazione frasi chiave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) sono soltanto alcuni esempi. 
-
-+ Le [Competenze personalizzate](cognitive-search-create-custom-skill-example.md) possono essere sviluppate dall'utente per operazioni di elaborazione specializzate. Esempi di competenze personalizzate possono essere un modulo di entità personalizzato o un classificatore di documenti destinato a un dominio specifico, ad esempio pubblicazioni finanziarie, scientifiche o mediche.
+Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante la fase di inserimento dei dati e i risultati diventano parte della composizione di un documento in un indice di ricerca consultabile in Ricerca di Azure. I dati vengono originati come set di dati di Azure e quindi attraverso una pipeline di indicizzazione che usa le [competenze predefinite](cognitive-search-predefined-skills.md) necessarie. L'architettura è estendibile per permettere di creare e associare [competenze personalizzate](cognitive-search-create-custom-skill-example.md) per integrare l'elaborazione personalizzata nel caso in cui le competenze predefinite non siano sufficienti. Esempi possono essere un modulo di entità personalizzato o un classificatore di documenti destinato a un dominio specifico, ad esempio pubblicazioni finanziarie, scientifiche o mediche.
 
 > [!NOTE]
-> La ricerca cognitiva è disponibile in anteprima pubblica e l'esecuzione del set di competenze è attualmente offerta gratuitamente. Il prezzo per questa funzionalità verrà annunciato in un momento successivo.
+> La ricerca cognitiva è disponibile in anteprima pubblica e l'esecuzione del set di competenze è attualmente offerta gratuitamente. Il prezzo per questa funzionalità verrà annunciato in un momento successivo. 
 
 ## <a name="components-of-cognitive-search"></a>Componenti della ricerca cognitiva
+
+La ricerca cognitiva è una funzionalità di anteprima di [Ricerca di Azure](search-what-is-azure-search.md) disponibile a tutti i livelli negli Stati Uniti centro-meridionali e in Europa occidentale. 
 
 La pipeline della ricerca cognitiva si basa su indicizzatori di [Ricerca di Azure *che effettuano*](search-indexer-overview.md) ricerche nelle origini dati e garantiscono l'elaborazione degli indici end-to-end. Le competenze sono ora associate agli indicizzatori, intercettando e arricchendo i documenti in base al set di competenze definito. Terminata l'indicizzazione è possibile accedere al contenuto tramite richieste di ricerca attraverso tutti i [tipi di query supportati da Ricerca di Azure](search-query-overview.md).  Se non si ha familiarità con gli indicizzatori, in questa sezione viene illustrata la procedura da seguire.
 

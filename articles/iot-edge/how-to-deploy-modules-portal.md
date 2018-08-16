@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4082189d451f670c1ae3f76b8ec785d8bd0518b3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 83f199c49209210ec577017534f93e36d05bd70a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034918"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620366"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
 Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne il funzionamento nella rete perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono. 
 
-Questo articolo illustra come il portale di Azure consente di creare un manifesto della distribuzione ed eseguire il push della distribuzione a un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione da assegnare a più dispositivi in base ai relativi tag condivisi, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md)
+Questo articolo illustra come il portale di Azure consente di creare un manifesto della distribuzione ed eseguire il push della distribuzione a un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione da assegnare a più dispositivi in base ai relativi tag condivisi, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,7 +32,7 @@ Questo articolo illustra come il portale di Azure consente di creare un manifest
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
 2. Selezionare **IoT Edge** dal menu.
 3. Fare clic sull'ID del dispositivo di destinazione nell'elenco dei dispositivi. 
-4. Selezionare **Imposta moduli**.
+4. Selezionare **Set Modules** (Configura i moduli).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
@@ -44,17 +44,17 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 1. Nella sezione **Impostazioni registro** della pagina specificare le credenziali per accedere ai registri contenitori privati che contengono le immagini di modulo. 
 2. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**. 
-3. Selezionare il tipo di modulo dall'elenco a discesa: 
+3. Scorrere i tipi di modulo dall'elenco a discesa: 
    * **Modulo IoT Edge**: opzione predefinita.
    * **Azure Stream Analytics Module** (Modulo di Analisi di flusso di Azure): solo i moduli generati da un carico di lavoro di Analisi di flusso di Azure. 
-
-4. Specificare un nome per il modulo e quindi l'immagine del contenitore. Ad esempio:  
+4. Selezionare il **Modulo IoT Edge**.
+5. Specificare un nome per il modulo e quindi l'immagine del contenitore. Ad esempio:  
    * **Nome**: tempSensor
    * **URI immagine**: mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-5. Specificare i campi facoltativi, se necessario. Per altre informazioni sulle opzioni di creazione dei contenitore, i criteri di riavvio e lo stato desiderato, vedere [Proprietà desiderate di EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](module-composition.md#define-or-update-desired-properties).
-6. Selezionare **Salva**.
-7. Ripetere i passaggi da 2 a 6 per aggiungere altri moduli alla distribuzione. 
-8. Scegliere **Avanti** per proseguire con la sezione relativa alle route.
+6. Specificare i campi facoltativi, se necessario. Per altre informazioni sulle opzioni di creazione dei contenitore, i criteri di riavvio e lo stato desiderato, vedere [Proprietà desiderate di EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](module-composition.md#define-or-update-desired-properties).
+7. Selezionare **Salva**.
+8. Ripetere i passaggi da 2 a 6 per aggiungere altri moduli alla distribuzione. 
+9. Scegliere **Avanti** per proseguire con la sezione relativa alle route.
 
 ### <a name="specify-routes"></a>Specificare le route
 
