@@ -2,7 +2,7 @@
 title: 'Guida introduttiva di Azure: elaborare flussi di eventi con PowerShell | Microsoft Docs'
 description: Questa guida introduttiva descrive come inviare e ricevere eventi di Hub eventi di Azure con PowerShell e include un'applicazione .NET di esempio.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 9216372038db7a6f97cfc8034f715b34de08d83c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: fd2b8b2e8bd075e029a07519ced186424798fd9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132297"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003611"
 ---
 # <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>Guida introduttiva: elaborare flussi di eventi con PowerShell e .NET Standard
 

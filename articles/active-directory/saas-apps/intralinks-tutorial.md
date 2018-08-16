@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c74631515301498aedcb035fae32b0a451e308
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cae95cfd01f8d6fbd6ddb4a11e9af290042ffa
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424778"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Esercitazione: Integrazione di Azure Active Directory con Intralinks
 
@@ -115,7 +115,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il criterio seguente: `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE] 
-    > Poiché non è reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto client di Intralinks](https://www.intralinks.com/contact-1). 
+    > Poiché non è reale, aggiornarlo con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto client di Intralinks](https://www.intralinks.com/contact). 
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -125,7 +125,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_general_400.png)
 
-1. Per configurare l'accesso Single Sign-On sul lato **Intralinks**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Intralinks](https://www.intralinks.com/contact-1). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+1. Per configurare l'accesso Single Sign-On sul lato **Intralinks**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Intralinks](https://www.intralinks.com/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -163,7 +163,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-an-intralinks-test-user"></a>Creazione di un utente test di Intralinks
 
-In questa sezione viene creato un utente chiamato Britta Simon in Intralinks. Collaborare con il [team di supporto di Intralinks](https://www.intralinks.com/contact-1) per aggiungere gli utenti nella piattaforma Intralinks.
+In questa sezione viene creato un utente chiamato Britta Simon in Intralinks. Collaborare con il [team di supporto di Intralinks](https://www.intralinks.com/contact) per aggiungere gli utenti nella piattaforma Intralinks.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -237,7 +237,7 @@ Si potrà quindi usare la procedura seguente per aggiungere un'altra applicazion
  
     ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-1. Ottenere l'URL SSO avviato dal provider di servizi dal [team Intralinks](https://www.intralinks.com/contact-1) per l'altra applicazione Intralinks e immetterlo in **Configurare l'URL di accesso** come illustrato di seguito. 
+1. Ottenere l'URL SSO avviato dal provider di servizi dal [team Intralinks](https://www.intralinks.com/contact) per l'altra applicazione Intralinks e immetterlo in **Configurare l'URL di accesso** come illustrato di seguito. 
     
      ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

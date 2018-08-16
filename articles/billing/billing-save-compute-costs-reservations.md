@@ -1,6 +1,6 @@
 ---
-title: Cosa sono le istanze riservate di Azure? | Microsoft Docs
-description: Informazioni sulle istanze di macchina virtuale riservate di Azure e sui prezzi per risparmiare i costi sostenuti per le macchine virtuali e ottenere il prezzo migliore.
+title: Cosa sono le prenotazioni di Azure? | Microsoft Docs
+description: Informazioni sulle prenotazioni e sui prezzi di Azure per risparmiare sui costi di macchine virtuali, database SQL e altre risorse.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -11,65 +11,73 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 12fc88596b4283b6f809575328ab801704cc1c8d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 93c11852a11e0bb57a0b92090368298fc14b8c2a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064523"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626305"
 ---
-# <a name="what-are-azure-reserved-vm-instances"></a>Cosa sono le istanze di macchina virtuale riservate di Azure?
-Le [istanze di macchina virtuale riservate di Azure](https://azure.microsoft.com/pricing/reserved-vm-instances) consentono di risparmiare effettuando il pagamento anticipato della capacità di calcolo per un intervallo di tempo di uno o tre anni e pertanto di ottenere uno sconto sulle macchine virtuali in uso. Le istanze riservate di Azure consentono di ridurre in modo significativo i costi delle macchine virtuali, ovvero fino al 72% rispetto ai prezzi con pagamento in base al consumo, con un impegno anticipato di uno o tre anni. Le istanze riservate rappresentano uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle macchine virtuali.
+# <a name="what-are-azure-reservations"></a>Cosa sono le prenotazioni di Azure?
 
-È possibile acquistare le istanze riservate nel [portale di Azure](https://aka.ms/reservations). Per altre informazioni, vedere [Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze riservate](https://go.microsoft.com/fwlink/?linkid=861721).
+Le prenotazioni di Azure consentono di risparmiare effettuando il pagamento anticipato della capacità di calcolo delle macchine virtuali o dei database SQL per un periodo di uno o tre anni. Il pagamento anticipato consente di ottenere uno sconto sulle risorse usate. Le prenotazioni di Azure possono ridurre in modo significativo i costi di calcolo delle macchine virtuali o dei database SQL, ovvero fino al 72% rispetto ai prezzi con pagamento in base al consumo, a fronte di un impegno anticipato di uno o tre anni. Le prenotazioni offrono uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle macchine virtuali o dei database SQL.
 
-## <a name="why-should-i-buy-a-reserved-instance"></a>Perché acquistare un'istanza riservata?
-Se sono presenti macchine virtuali in esecuzione per lunghi periodi di tempo, l'acquisto di un'istanza riservata offre il prezzo effettivo migliore. Ad esempio, se si eseguono in modo continuo quattro istanze di macchine virtuali Standard D2 nell'area Stati Uniti occidentali, senza istanze riservate verranno applicate le tariffe in base al consumo. Se si acquista un'istanza riservata per le quattro macchine virtuali, si otterrà un immediato vantaggio a livello di fatturazione. Infatti non verranno più addebitate tariffe in base al consumo. 
+È possibile acquistare una prenotazione nel [portale di Azure](https://aka.ms/reservations). Per altre informazioni, vedere gli argomenti seguenti:
 
-## <a name="what-charges-does-a-reserved-instance-cover"></a>Quali sono le spese coperte da un'istanza riservata?
-Un'istanza riservata copre solo i costi dell'infrastruttura di macchine virtuali Windows o Linux e non i costi aggiuntivi relativi a software, rete o archiviazione. Per le macchine virtuali Windows è possibile coprire i costi delle licenze Windows tramite le offerte descritte nella pagina [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md) (Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure)
 
-## <a name="whos-eligible-to-purchase-a-reserved-instance"></a>Chi è idoneo per l'acquisto di un'istanza riservata?
-Possono acquistare un'istanza riservata i clienti di Azure con i tipi di sottoscrizione seguenti:
--   Tipo di offerta di sottoscrizione Contratto Enterprise (MS-AZR-0017P).
--   Tipo di offerta di sottoscrizione [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Per poter acquistare un'istanza riservata, l'utente deve avere il ruolo "Proprietario" nella sottoscrizione. Per l'acquisto di istanze riservate con un contratto Enterprise, l'amministratore Enterprise deve abilitare l'acquisto di istanze riservate nel portale EA. Per impostazione predefinita, questa impostazione è abilitata.
--   I partner CSP (Cloud Solution Provider) possono usare il portale di Azure o il [Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations) per acquistare istanze riservate.
+## <a name="why-should-i-buy-a-reservation"></a>Perché acquistare una prenotazione?
 
-## <a name="how-is-a-reserved-instance-purchase-billed"></a>Come viene fatturato l'acquisto delle istanze riservate?
-L'acquisto delle istanze riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Se si ha una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se tale saldo non copre il costo delle istanze riservate, l'eccedenza verrà fatturata.
-Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo verrà addebitato immediatamente sulla carta di credito associata all'account. Se invece l'addebito avviene tramite fattura, il costo risulterà visibile sulla fattura successiva.
+Se si hanno macchine virtuali o database SQL in esecuzione per lunghi periodi di tempo, l'acquisto di una prenotazione è l'opzione più conveniente. Se ad esempio si eseguono costantemente quattro istanze di un servizio senza una prenotazione, verranno applicate le tariffe in base al consumo. Se invece si acquista una prenotazione per tali risorse, si otterrà immediatamente lo sconto per la prenotazione. Per le risorse non verranno più addebitate tariffe in base al consumo.
 
-## <a name="how-is-the-purchased-reserved-instance-discount-applied"></a>Come viene applicato lo sconto relativo alle istanze riservate acquistate?
-Lo sconto relativo alle istanze riservate viene applicato alle macchine virtuali corrispondenti agli attributi selezionati in fase di acquisto. Gli attributi includono l'ambito in cui vengono eseguite le macchine virtuali corrispondenti. Ad esempio, se si intende avvalersi dello sconto per istanze riservate per quattro macchine virtuali Standard D2 nell'area Stati Uniti occidentali, selezionare la sottoscrizione in cui le macchine virtuali sono in esecuzione. Se le macchine virtuali sono in esecuzione in diverse sottoscrizioni all'interno della sottoscrizione o dell'account corrente, selezionare l'ambito condiviso. L'ambito condiviso consente l'applicazione dello sconto relativo all'acquisto di istanze riservate tra sottoscrizioni. Dopo l'acquisto di un'istanza riservata è possibile modificare l'ambito. Per modificare l'ambito, vedere [Gestire le istanze riservate in Azure](billing-manage-reserved-vm-instance.md).
+## <a name="what-charges-does-a-reservation-cover"></a>Quali spese vengono coperte da una prenotazione?
 
-Lo sconto sull'acquisto di istanze riservate viene applicato solo alle macchine virtuali con sottoscrizioni di tipo Enterprise o con pagamento in base al consumo. Le macchine virtuali in esecuzione in una sottoscrizione con altri tipi di offerta non ricevono alcun tipo di sconto per le istanze riservate. Per le iscrizioni Enterprise, le sottoscrizioni di tipo Sviluppo/test Enterprise non sono idonee per i vantaggi validi per le istanze riservate.
+- Istanza di macchina virtuale riservata: una prenotazione copre solo i costi di calcolo della macchina virtuale e non i costi aggiuntivi relativi a software, rete o archiviazione.
+- vCore riservato del database SQL: in una prenotazione sono inclusi solo i costi di calcolo. I costi della licenza vengono fatturati separatamente.
 
-Per comprendere meglio in che modo l'istanza riservata influisca sulla fatturazione della macchina virtuale, vedere [Informazioni su come viene applicato lo sconto per le istanze riservate](billing-understand-vm-reservation-charges.md).
+Per le macchine virtuali Windows e il database SQL, i costi delle licenze possono essere coperti con le offerte di [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-## <a name="what-happens-when-the-reserved-instance-term-expires"></a>Cosa succede quando scade il termine dell'istanza riservata?
-La scadenza dell'istanza riservata comporta la scadenza anche dello sconto sulla fatturazione. L'infrastruttura di macchine virtuali verrà pertanto fatturata in base a tariffe con pagamento in base al consumo. Le istanze riservate di Azure non vengono rinnovate automaticamente. Per continuare a ottenere lo sconto sulla fatturazione è necessario acquistare una nuova istanza riservata. 
+## <a name="whos-eligible-to-purchase-a-reservation"></a>Chi è idoneo all'acquisto di una prenotazione?
 
-## <a name="sizes-and-regional-availability"></a>Dimensioni e disponibilità internazionale
-Le istanze riservate sono disponibili per la maggior parte delle dimensioni delle macchine virtuali con alcune eccezioni:
-- Macchine virtuali in anteprima: qualsiasi serie di macchine virtuali o dimensione non disponibile in anteprima per l'acquisto di istanze riservate.
-- Cloud: le istanze riservate non sono disponibili per l'acquisto nelle aree Azure Governo degli Stati Uniti, Germania o Cina. 
-- Quota insufficiente: un'istanza riservata con ambito riferito a una singola sottoscrizione deve avere una quota di CPU virtuali disponibile nell'istanza riservata. Ad esempio, se la sottoscrizione di destinazione ha un limite di quota pari a 10 vCPU per la serie D, non sarà possibile acquistare un'istanza riservata per 11 istanze Standard_D1. Il controllo della quota per le istanze riservate include le macchine virtuali già distribuite nella sottoscrizione. Ad esempio, se la sottoscrizione include una quota di 10 vCPU per la serie D e distribuisce due istanze standard_D1, sarà possibile acquistare un'istanza riservata per le 10 istanze standard_D1 nella sottoscrizione. 
-- Restrizioni della capacità: in situazioni rare Azure limita l'acquisto di nuove istanze riservate per subset di dimensioni di macchine virtuali a causa della bassa capacità in un'area specifica.
+Possono acquistare una prenotazione i clienti di Azure con i tipi di sottoscrizione seguenti:
+
+- Tipo di offerta di sottoscrizione Contratto Enterprise (MS-AZR-0017P).
+- Tipo di offerta di sottoscrizione [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Per poter acquistare una prenotazione, l'utente deve avere il ruolo "Proprietario" nella sottoscrizione. Per l'acquisto di prenotazioni con un'iscrizione Enterprise, l'amministratore Enterprise deve abilitare l'acquisto di prenotazioni nel portale EA. Per impostazione predefinita, questa impostazione è abilitata.
+- Per acquistare prenotazioni di Azure, i partner CSP (Cloud Solution Provider) possono usare il portale di Azure o il [Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations). 
+
+Lo sconto sull'acquisto di prenotazioni di Azure viene applicato solo alle macchine virtuali o ai database SQL con sottoscrizioni di tipo Enterprise, con pagamento in base al consumo o CSP.
+
+## <a name="how-is-a-reservation-billed"></a>Come viene fatturata una prenotazione?
+
+La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Se si dispone di una sottoscrizione Enterprise, il costo della prenotazione viene sottratto dal saldo dell'impegno monetario prescelto. Se tale saldo non copre il costo della prenotazione, l'eccedenza verrà fatturata. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo verrà addebitato immediatamente sulla carta di credito associata all'account. Se invece l'addebito avviene tramite fattura, il costo risulterà visibile sulla fattura successiva.
+
+## <a name="how-is-the-reservation-discount-applied"></a>Come viene applicato lo sconto per la prenotazione?
+
+Lo sconto relativo alla prenotazione viene applicato all'utilizzo delle risorse corrispondenti agli attributi selezionati in fase di acquisto. Gli attributi includono l'ambito in cui vengono eseguiti i database SQL, le macchine virtuali o le altre risorse corrispondenti. Se ad esempio si vuole usufruire di uno sconto relativo alla prenotazione per quattro macchine virtuali Standard D2 nell'area Stati Uniti occidentali, selezionare la sottoscrizione in cui sono in esecuzione le macchine virtuali. Se le macchine virtuali sono in esecuzione in diverse sottoscrizioni all'interno della sottoscrizione o dell'account corrente, selezionare l'ambito condiviso. L'ambito condiviso consente l'applicazione dello sconto relativo alla prenotazione tra sottoscrizioni. Dopo aver acquistato una prenotazione è possibile modificare l'ambito. Per altre informazioni, vedere [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md).
+
+Lo sconto relativo alla prenotazione viene applicato solo alle macchine virtuali o ai database SQL con sottoscrizioni di tipo Enterprise o con pagamento in base al consumo. Le macchine virtuali o i database SQL in esecuzione in una sottoscrizione con altri tipi di offerta non prevedono questo tipo di sconto. Per le iscrizioni Enterprise, le sottoscrizioni di tipo Sviluppo/test Enterprise non possono usufruire dei vantaggi relativi alle prenotazioni.
+
+Per comprendere meglio in che modo le prenotazioni influiscono sulla fatturazione relativa alle macchine virtuali o ai database SQL, vedere [Informazioni su come viene applicato lo sconto per la prenotazione](billing-understand-vm-reservation-charges.md).
+
+## <a name="what-happens-when-the-reservation-term-expires"></a>Cosa accade alla scadenza del periodo di prenotazione?
+
+La scadenza del periodo di prenotazione comporta anche la scadenza dello sconto sulla fatturazione. Al termine di questo periodo, le macchine virtuali, i database SQL o le altre risorse verranno fatturati in base alle tariffe con pagamento in base al consumo. Le prenotazioni di Azure non vengono rinnovate automaticamente. Per continuare a usufruire dello sconto sulla fatturazione è necessario acquistare una nuova prenotazione per i servizi idonei.
 
 ## <a name="next-steps"></a>Passaggi successivi
-È possibile iniziare subito a risparmiare sui costi delle macchine virtuali con l'acquisto di un'[istanza riservata di Azure](https://go.microsoft.com/fwlink/?linkid=861721). 
 
-Per altre informazioni sulle istanze riservate, vedere gli articoli seguenti:
+È possibile iniziare subito a risparmiare sui costi delle macchine virtuali con l'acquisto di un'[istanza di macchina virtuale riservata](../virtual-machines/windows/prepay-reserved-vm-instances.md) o di [capacità riservata del database SQL](../sql-database/sql-database-reserved-capacity.md).
 
-- [Cosa sono le istanze di macchina virtuale riservate di Azure?](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gestire le istanze riservate in Azure](billing-manage-reserved-vm-instance.md)
-- [Informazioni su come viene applicato lo sconto per le istanze riservate](billing-understand-vm-reservation-charges.md)
-- [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
-- [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
-- [Windows software costs not included with reserved instances](billing-reserved-instance-windows-software-costs.md) (Costi del software Windows non inclusi nelle istanze riservate)
-- [Reserved instances in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Istanze riservate nel programma Cloud Solution Provider (CSP) del Centro per i partner)
+Per altre informazioni sulle prenotazioni, vedere gli articoli seguenti:
+
+- [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)
+- [Informazioni su come viene applicato lo sconto per le prenotazioni](billing-understand-vm-reservation-charges.md)
+- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [I costi del software Windows non sono inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
+- [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

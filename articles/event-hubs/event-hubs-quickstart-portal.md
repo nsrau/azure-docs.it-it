@@ -3,19 +3,19 @@ title: 'Guida introduttiva di Azure: elaborare flussi di eventi con il portale d
 description: Questa guida introduttiva descrive come elaborare i flussi di eventi con il portale di Azure.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: da48294962dc5af5f9d623c84f9bbff1d49be03e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132294"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004311"
 ---
 # <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Guida introduttiva: elaborare flussi di eventi con il portale di Azure e .NET
 
@@ -168,7 +168,7 @@ Eseguire l'app **SampleEphReceiver** e osservare i messaggi ricevuti nell'host d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono stati creati lo spazio dei nomi di Hub eventi e altre risorse necessarie per inviare e ricevere eventi dall'hub eventi. Per altre informazioni, continuare con l'esercitazione successiva:
+In questo articolo sono stati creati lo spazio dei nomi di Hub eventi e altre risorse necessarie per inviare e ricevere eventi dall'hub eventi. Per altre informazioni, passare all'esercitazione successiva:
 
 > [!div class="nextstepaction"]
 > [Visualizzare anomalie dei dati nei flussi di dati di Hub eventi](event-hubs-tutorial-visualize-anomalies.md)

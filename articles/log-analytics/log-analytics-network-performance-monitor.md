@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 28f5ac882051250903fc2f45def95eb65d1b1ce3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3640f5bb2c2e9457e269bd189cbec3b627ee7349
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635539"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626873"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -48,6 +48,7 @@ NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi
 * Europa occidentale
 * Stati Uniti centro-occidentali
 * Stati Uniti orientali
+* Giappone orientale
 * Asia sudorientale
 * Australia sud-orientale
 * Regno Unito meridionale

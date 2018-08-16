@@ -1,25 +1,20 @@
 ---
-title: Distribuire e gestire topologie Apache Storm in HDInsight | Documentazione Microsoft
-description: Informazioni su come distribuire, monitorare e gestire le topologie Apache Storm mediante Storm Dashboard in HDInsight. Utilizzare gli strumenti Hadoop per Visual Studio
+title: Distribuire e gestire le topologie Apache Storm in Azure HDInsight
+description: Informazioni su come distribuire, monitorare e gestire le topologie Apache Storm usando Storm Dashboard in HDInsight basato su Windows. Utilizzare gli strumenti Hadoop per Visual Studio
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
-ms.devlang: java
+author: jasonwhowell
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1ad1d6662d276039ae1e01e49c60fc06682cb54a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414984"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622817"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Distribuire e gestire topologie Apache Storm in HDInsight basato su Windows
 
@@ -32,7 +27,7 @@ Storm Dashboard e le funzionalità Storm di HDInsight Tools si basano sull'API R
 >
 > Per informazioni sulla distribuzione e gestione di topologie Storm con un cluster HDInsight che usa Linux, vedere [Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux](apache-storm-deploy-monitor-topology-linux.md)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Apache Storm in HDInsight**: per i passaggi relativi alla creazione di un cluster, vedere [Introduzione ad Apache Storm con HDInsight](apache-storm-tutorial-get-started-linux.md).
 
@@ -133,7 +128,7 @@ Eseguire i passaggi seguenti per distribuire una topologia di esempio nel cluste
 
 3. Nella finestra di dialogo **Nuovo progetto** espandere **Installato** > **Modelli** e quindi selezionare **HDInsight**. Dall'elenco dei modelli selezionare **Storm Sample**. Nella parte inferiore della finestra di dialogo digitare un nome per l'applicazione.
 
-    ![immagine](./media/apache-storm-deploy-monitor-topology/sample.png)
+    ![image](./media/apache-storm-deploy-monitor-topology/sample.png)
 
 4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e selezionare **Submit to Storm on HDInsight**.
 

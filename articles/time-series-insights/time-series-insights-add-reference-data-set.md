@@ -3,19 +3,19 @@ title: Come aggiungere un set di dati di riferimento all'ambiente Azure Time Ser
 description: In questo articolo viene descritto come aggiungere un set di dati di riferimento per aumentare i dati nell'ambiente Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: jasonwhowell
-ms.author: jasonh
-manager: kfile
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 7da2393bb5114de20747581e366a8f416c9ff9a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2cf9c8baf715acf0eef36d640c22f355435c9ca5
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653638"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631045"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Azure
 

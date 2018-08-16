@@ -1,25 +1,21 @@
 ---
-title: Messaggi di errore di analisi dello stack di Hadoop in Azure HDInsight | Documentazione Microsoft
+title: Messaggi di errore di analisi dello stack di Hadoop in Azure HDInsight
 description: Indice dei messaggi di errore di analisi dello stack di Hadoop in Azure HDInsight. Individuare l'errore nell'elenco per visualizzare informazioni sulla risoluzione.
 keywords: analisi dello stack,  messaggi di errore
 services: hdinsight
-documentationcenter: NA
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 7b0bb58dcf255ee14dd18de3a3ac7489ae0ed1de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ecd6ec6d3d72dc5193c82558dbd7c7cae682ecc0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200157"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038318"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Indice di Hadoop negli articoli sulla risoluzione dei problemi di HDInsight
 Gli articoli sono organizzati per tipi di errori.

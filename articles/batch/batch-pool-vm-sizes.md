@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 08/09/2018
 ms.author: danlep
-ms.openlocfilehash: 8f428df07de029bc79f26d5941d22e7472addb95
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1669d5a2237322f72dce3b172c32e7199900a4e0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915997"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038263"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -41,6 +41,7 @@ I pool di Batch in configurazione macchina virtuale supportano tutte le dimensio
 | Serie A Basic | Basic_A0 (A0) |
 | Serie A | Standard_A0 |
 | Serie B | Tutti |
+| Serie M | Tutti |
 
 
 

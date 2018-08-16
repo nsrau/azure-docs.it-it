@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968620"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627441"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrare Cloud Foundry con Azure
 
@@ -81,8 +81,8 @@ Mentre le macchine virtuali serie F e D erano comunemente consigliate per l'ambi
 #### <a name="managed-standard-disk"></a>Managed Disks Standard: 
 Per prestazioni affidabili nell'ambiente di produzione erano consigliati i dischi Premium.  Con [Managed Disks](https://azure.microsoft.com/services/managed-disks/), l'archiviazione Standard può offrire un livello di affidabilità simile, con prestazioni diverse. Per i carichi di lavoro per cui le prestazioni non sono importanti, ad esempio per un ambiente non critico o di sviluppo/test, il servizio Managed Disks Standard offre un'opzione alternativa a un costo inferiore.  
 ### <a name="cost-saving-in-general"></a>Risparmio sui costi in generale 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Risparmio significativo sui costi delle macchine virtuali con le istanze riservate: 
-Oggi tutte le macchine virtuali CF vengono fatturate in base ai prezzi "on demand", anche se gli ambienti in genere rimangono attivi all'infinito. Ora è possibile riservare la capacità delle macchine virtuali per un periodo di 1 o 3 anni, ottenendo sconti dal 45 al 65%. Gli sconti vengono applicati nel sistema di fatturazione, senza alcuna modifica all'ambiente. Per informazioni dettagliate, vedere l'articolo su [come funzionano le istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
+#### <a name="significant-vm-cost-saving-with-azure-reservations"></a>Risparmio significativo sui costi delle macchine virtuali con le prenotazioni di Azure: 
+Oggi tutte le macchine virtuali CF vengono fatturate in base ai prezzi "on demand", anche se gli ambienti in genere rimangono attivi all'infinito. Ora è possibile riservare la capacità delle macchine virtuali per un periodo di 1 o 3 anni, ottenendo sconti dal 45 al 65%. Gli sconti vengono applicati nel sistema di fatturazione, senza alcuna modifica all'ambiente. Per informazioni dettagliate, vedere [come funzionano le prenotazioni di Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Managed Disks Premium con dimensioni più piccole: 
 Il servizio Managed Disks supporta dimensioni dei dischi più piccole, ad esempio P4 (32 GB) e P6 (64 GB) sia per i dischi Premium che per quelli Standard. Se si hanno carichi di lavoro di piccole dimensioni, è possibile risparmiare sui costi eseguendo la migrazione dai dischi Premium standard ai dischi Premium gestiti.
 #### <a name="utilizing-azure-first-party-services"></a>Utilizzo dei servizi di Azure proprietari: 

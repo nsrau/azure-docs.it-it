@@ -2,61 +2,60 @@
 title: Gestione dello spazio file del database SQL di Azure| Microsoft Docs
 description: Questa pagina descrive come gestire lo spazio file con il database SQL di Azure e fornisce esempi di codice per determinare se è necessario compattare un database e come eseguire un'operazione di compattazione del database.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 1ecc0ce08ef42f5f5935bca29e8269be2ea142f0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 08/08/2018
+ms.author: moslake
+ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416004"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003859"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gestire lo spazio file nel database SQL di Azure
-
-Questo articolo descrive i diversi tipi di spazio di archiviazione nel database SQL di Azure e le operazioni che è possibile eseguire quando lo spazio file allocato per i database e i pool elastici deve essere gestito dal cliente.
+Questo articolo descrive i diversi tipi di spazio di archiviazione nel database SQL di Azure e le operazioni che è possibile eseguire quando lo spazio file allocato per i database e i pool elastici deve essere gestito esplicitamente.
 
 ## <a name="overview"></a>Panoramica
 
-Nel database SQL di Azure, le metriche per le dimensioni dello spazio di archiviazione visualizzate nel portale di Azure e le API seguenti misurano il numero di pagine di dati usate per i database e i pool elastici:
+Nel database SQL di Azure, la maggior parte delle metriche per lo spazio di archiviazione visualizzate nel portale di Azure e le API seguenti misura il numero di pagine di dati usate per i database e i pool elastici:
 - API per le metriche basate su Azure Resource Manager tra cui [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) di PowerShell
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Ci sono modelli di carico di lavoro in cui l'allocazione dello spazio nei file di dati sottostanti per i database diventa superiore al numero di pagine di dati usate nei file di dati. Questo scenario può verificarsi quando lo spazio usato aumenta e quindi i dati vengono successivamente eliminati. Quando i dati vengono eliminati, lo spazio file allocato non viene recuperato automaticamente. In questi scenari, lo spazio allocato per un database o un pool può superare i limiti massimi supportati definiti (o supportati) per il database e, di conseguenza, impedire l'aumento dei dati o le modifiche ai livelli di prestazioni, anche se lo spazio del database effettivamente usato è inferiore al limite di spazio massimo. Per ovviare a questo problema, può essere necessario compattare il database per ridurre lo spazio allocato ma non usato al suo interno.
+Sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate.  Questo problema si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati.  Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.  In questi scenari lo spazio allocato per un database o un pool potrebbe superare i limiti supportati e potrebbe impedire la crescita dei dati o le modifiche ai livelli di prestazioni e richiedere quindi la compattazione dei file di dati per l'attenuazione.
 
-Il servizio di database SQL non compatta automaticamente i file di database per recuperare lo spazio allocato non usato, a causa del potenziale impatto sulle prestazioni del database. È tuttavia possibile compattare il file in un database quando si vuole, seguendo la procedura descritta in [Recuperare lo spazio allocato non usato](#reclaim-unused-allocated-space). 
+Il servizio database SQL non compatta automaticamente i file di dati per recuperare spazio allocato non usato a causa del potenziale impatto sulle prestazioni dei database.  I clienti possono tuttavia compattare i file di dati in modalità self-service quando preferiscono, seguendo la procedura illustrata in [Recuperare lo spazio allocato non usato](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> A differenza dei file di dati, il servizio di database SQL compatta automaticamente i file di log, in quanto tale operazione non influisce sulle prestazioni del database.
+> A differenza dei file di dati, il servizio di database SQL compatta automaticamente i file di log, in quanto tale operazione non influisce sulle prestazioni del database. 
 
-## <a name="understanding-the-types-of-storage-space-for-a-database"></a>Informazioni sui tipi di spazio di archiviazione per un database
+## <a name="understanding-types-of-storage-space-for-a-database"></a>Informazioni sui tipi di spazio di archiviazione per un database
 
-Per gestire lo spazio file, è necessario comprendere i termini seguenti correlati all'archiviazione di database sia per un database singolo che per un pool elastico.
+La comprensione delle quantità di spazio di archiviazione seguenti è importante per la gestione dello spazio file di un database.
 
-|Termine relativo allo spazio di archiviazione|Definizione|Commenti|
+|Quantità di database|Definizione|Commenti|
 |---|---|---|
-|**Spazio dati usato**|Quantità di spazio usato per archiviare i dati del database in pagine da 8 KB.|In genere, questo spazio usato aumenta quando vengono inseriti i dati e diminuisce quando vengono eliminati. In alcuni casi, lo spazio usato non cambia in caso di inserimenti o eliminazioni, a seconda della quantità e del modello di dati coinvolti nell'operazione e dell'eventuale frammentazione. Ad esempio, se si elimina una riga da ogni pagina di dati, non si riduce necessariamente lo spazio usato.|
-|**Spazio allocato**|Quantità di spazio file formattato messo a disposizione per l'archiviazione dei dati del database|Lo spazio allocato aumenta automaticamente, ma non diminuisce mai dopo le eliminazioni. Questo comportamento assicura che gli inserimenti futuri avvengano più velocemente, perché non è necessario riformattare lo spazio.|
-|**Spazio allocato ma non usato**|Quantità di spazio file di dati non usato allocato per il database.|Questa quantità è la differenza tra la quantità di spazio allocato e lo spazio usato e rappresenta la quantità massima di spazio che è possibile recuperare compattando i file di database.|
-|**Dimensioni massime**|Quantità massima di spazio dati che il database può usare.|Lo spazio dati allocato non può superare le dimensioni massime dei dati.|
+|**Spazio dati usato**|Quantità di spazio usato per archiviare i dati del database in pagine da 8 KB.|In genere, lo spazio usato aumenta quando vengono inseriti i dati e diminuisce quando vengono eliminati. In alcuni casi, lo spazio usato non cambia in caso di inserimenti o eliminazioni, a seconda della quantità e del modello di dati coinvolti nell'operazione e dell'eventuale frammentazione. Ad esempio, se si elimina una riga da ogni pagina di dati, non si riduce necessariamente lo spazio usato.|
+|**Spazio dati allocato**|Quantità di spazio file formattato messo a disposizione per l'archiviazione dei dati del database.|La quantità di spazio allocato aumenta automaticamente, ma non diminuisce mai dopo le eliminazioni. Questo comportamento assicura che gli inserimenti futuri avvengano più velocemente, perché non è necessario riformattare lo spazio.|
+|**Spazio dati allocato ma non usato**|Differenza tra la quantità di spazio dati allocato e lo spazio dati usato.|Questa quantità rappresenta la quantità massima di spazio libero che può essere recuperata compattando i file di dati del database.|
+|**Dimensioni massime dei dati**|Quantità massima di spazio che può essere usata per l'archiviazione dei dati del database.|La quantità di spazio dati allocato non può superare le dimensioni massime dei dati.|
 ||||
 
-Il diagramma seguente illustra la relazione tra i tipi di spazio di archiviazione.
+Il diagramma seguente illustra la relazione tra i diversi tipi di spazio di archiviazione per un database.
 
-![Tipi di spazio di archiviazione e relazioni](./media/sql-database-file-space-management/storage-types.png)
+![Tipi di spazio di archiviazione e relazioni](./media/sql-database-file-space-management/storage-types.png) 
 
 ## <a name="query-a-database-for-storage-space-information"></a>Eseguire una query su un database per ottenere informazioni sullo spazio di archiviazione
 
-Per determinare se per un singolo database è presente spazio dati allocato ma non usato che si potrebbe voler recuperare, usare le query seguenti:
+Le query seguenti possono essere usate per determinare le quantità di spazio di archiviazione per un database.  
 
 ### <a name="database-data-space-used"></a>Spazio dati del database usato
-Modificare la query seguente per restituire la quantità di spazio dati del database usato, in MB.
+Modificare la query seguente per restituire la quantità di spazio dati del database usato.  L'unità di misura dei risultati di query è costituita da MB.
 
 ```sql
 -- Connect to master
@@ -67,8 +66,8 @@ WHERE database_name = 'db1'
 ORDER BY end_time DESC
 ```
 
-### <a name="database-data-allocated-and-allocated-space-unused"></a>Dati del database allocati e spazio allocato non usato
-Modificare la query seguente per restituire la quantità di dati del database allocati e lo spazio allocato non usato.
+### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Spazio di dati del database allocato e spazio allocato non usato
+Usare la query seguente per restituire la quantità di spazio dati di database allocato e la quantità di spazio non usato allocato.  L'unità di misura dei risultati di query è costituita da MB.
 
 ```sql
 -- Connect to database
@@ -80,8 +79,8 @@ GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
  
-### <a name="database-max-size"></a>Dimensioni massime del database
-Modificare la query seguente per restituire le dimensioni massime del database, in byte.
+### <a name="database-data-max-size"></a>Dimensioni massime dei dati del database
+Modificare la query seguente per restituire le dimensioni massime dei dati del database.  L'unità di misura dei risultati di query è costituita da byte.
 
 ```sql
 -- Connect to database
@@ -89,12 +88,24 @@ Modificare la query seguente per restituire le dimensioni massime del database, 
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
+## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Informazioni sui tipi di spazio di archiviazione per un pool elastico
+
+La comprensione delle quantità di spazio di archiviazione seguenti è importante per la gestione dello spazio file di un pool elastico.
+
+|Quantità di pool elastico|Definizione|Commenti|
+|---|---|---|
+|**Spazio dati usato**|Somma dello spazio dati usato da tutti i database nel pool elastico.||
+|**Spazio dati allocato**|Somma dello spazio dati allocato da tutti i database nel pool elastico.||
+|**Spazio dati allocato ma non usato**|Differenza tra la quantità di spazio dati allocato e lo spazio dati usato da tutti i database nel pool elastico.|Questa quantità rappresenta la quantità massima di spazio allocato per il pool elastico che può essere recuperata compattando i file di dati del database.|
+|**Dimensioni massime dei dati**|Quantità massima di spazio dati che può essere usata dal pool elastico per tutti i rispettivi database.|Lo spazio allocato per il pool elastico non deve superare le dimensioni massime del pool elastico.  Se si verifica tale situazione, lo spazio allocato e non usato può essere recuperato compattando i file di dati del database.|
+||||
+
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Eseguire una query su un pool elastico per ottenere informazioni sullo spazio di archiviazione
 
-Per determinare se in un pool elastico e per ogni database del pool è presente spazio dati allocato ma non usato che si potrebbe voler recuperare, usare le query seguenti:
+Le query seguenti possono essere usate per determinare le quantità di spazio di archiviazione per un pool elastico.  
 
 ### <a name="elastic-pool-data-space-used"></a>Spazio dati del pool elastico usato
-Modificare la query seguente per restituire la quantità di spazio dati del pool elastico usato, in MB.
+Modificare la query seguente per restituire la quantità di spazio dati del pool elastico usato.  L'unità di misura dei risultati di query è costituita da MB.
 
 ```sql
 -- Connect to master
@@ -105,11 +116,11 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-### <a name="elastic-pool-data-allocated-and-allocated-space-unused"></a>Dati del pool elastico allocati e spazio allocato non usato
+### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Spazio di dati del pool elastico allocato e spazio allocato non usato
 
-Modificare lo script di PowerShell seguente per restituire una tabella che elenca lo spazio totale allocato e lo spazio allocato non usato per ogni database in un pool elastico. Nella tabella i database sono disposti in ordine decrescente di quantità di spazio allocato non usato.  
+Modificare lo script di PowerShell seguente per restituire una tabella che elenca lo spazio allocato e lo spazio allocato non usato per ogni database in un pool elastico. La tabella dispone i database in ordine decrescente in base alla quantità di spazio allocato non usato.  L'unità di misura dei risultati di query è costituita da MB.  
 
-I risultati della query per determinare lo spazio allocato per ogni database nel pool possono essere sommati per determinare lo spazio allocato del pool elastico. Lo spazio allocato del pool elastico non deve superare le dimensioni massime del pool elastico.  
+I risultati delle query per determinare lo spazio allocato per ogni database nel pool possono essere sommati per determinare lo spazio totale allocato per il pool elastico. Lo spazio allocato del pool elastico non deve superare le dimensioni massime del pool elastico.  
 
 ```powershell
 # Resource group name
@@ -160,9 +171,9 @@ Lo screenshot seguente mostra un esempio di output dello script:
 
 ![Esempio di spazio allocato del pool elastico e spazio allocato non usato](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
-### <a name="elastic-pool-max-size"></a>Dimensioni massime del pool elastico
+### <a name="elastic-pool-data-max-size"></a>Dimensioni massime dei dati del pool elastico
 
-Usare la query T-SQL seguente per restituire le dimensioni massime del database elastico, in MB.
+Modificare la query T-SQL seguente per restituire le dimensioni massime dei dati del pool elastico.  L'unità di misura dei risultati di query è costituita da MB.
 
 ```sql
 -- Connect to master
@@ -175,19 +186,14 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Recuperare lo spazio allocato non usato
 
-Dopo aver determinato la presenza di spazio allocato non usato che si vuole recuperare, usare il comando seguente per compattare lo spazio allocato del database. 
-
-> [!IMPORTANT]
-> Per i database in un pool elastico, quelli con la maggior quantità di spazio allocato non usato devono essere compattati per primi per recuperare spazio file più rapidamente.  
-
-Per compattare tutti i file di dati nel database specificato, usare il comando seguente:
+Dopo l'identificazione dei database per il recupero di spazio allocato non usato, modificare il comando seguente per compattare i file di dati per ogni database.
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'<database_name>')
+DBCC SHRINKDATABASE (N'db1')
 ```
 
-Per altre informazioni su questo comando, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Per altre informazioni su questo comando, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
 > [!IMPORTANT] 
 > Prendere in considerazione la ricompilazione degli indici di database dopo la compattazione dei file di dati del database, in quanto gli indici possono diventare frammentati e perdere l'efficacia di ottimizzazione delle prestazioni. Se ciò si verifica, è necessario ricompilare gli indici. Per altre informazioni sulla frammentazione e sulla ricompilazione degli indici, vedere [Riorganizzare e ricompilare gli indici](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

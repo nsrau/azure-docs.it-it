@@ -2,23 +2,18 @@
 title: Uso di Azure PowerShell con Archiviazione di Azure | Microsoft Docs
 description: Informazioni su come usare i cmdlet di Azure PowerShell per Archiviazione di Azure.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 06/13/2018
 ms.author: rogarana
-ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 6cf7f35e60502d0e21ffa2b777f1700a57add965
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652502"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038137"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -55,7 +50,7 @@ Connect-AzureRmAccount
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Elencare gli account di archiviazione nella sottoscrizione
 
-Eseguire il cdmlet [Get-AzureRMStorageAccount](/powershell/module/azurerm.resources/get-azurermstorageaccount) per recuperare l'elenco degli account di archiviazione disponibili nella sottoscrizione corrente. 
+Eseguire il cdmlet [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) per recuperare l'elenco degli account di archiviazione disponibili nella sottoscrizione corrente. 
 
 ```powershell
 Get-AzureRMStorageAccount | Select StorageAccountName, Location
@@ -108,11 +103,11 @@ $ctx = $storageAccount.Context
 
 Lo script usa i cmdlet di PowerShell seguenti: 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.storage/Get-AzureRmLocation): recupera un elenco delle posizioni valide. Nell'esempio viene usata la posizione `eastus`.
+*   [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation): recupera un elenco delle posizioni valide. Nell'esempio viene usata la posizione `eastus`.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup): crea un nuovo gruppo di risorse. Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse dell'esempio è chiamato `teststoragerg`. 
+*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): crea un nuovo gruppo di risorse. Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse dell'esempio è chiamato `teststoragerg`. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount): crea l'account di archiviazione effettivo. Nell'esempio viene usato `testpshstorage`.
+*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount): crea l'account di archiviazione. Nell'esempio viene usato `testpshstorage`.
 
 Il nome dello SKU indica il tipo di replica per l'account di archiviazione, ad esempio l'archiviazione con ridondanza locale. Per altre informazioni sulla replica, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
@@ -128,7 +123,7 @@ Si dispone ora di un nuovo account di archiviazione e di un riferimento ad esso.
 
 ### <a name="storage-account-properties"></a>Proprietà dell'account di archiviazione
 
-Per modificare le impostazioni di un account di archiviazione, usare [Set-AzureRmStorageAccount](/powershell/module/azurerm.resources/Set-AzureRmStorageAccount). Sebbene non sia possibile modificare la posizione di un account di archiviazione o del gruppo di risorse in cui si trova, è possibile modificare molte altre proprietà. Di seguito sono elencate alcune delle proprietà che è possibile modificare tramite PowerShell.
+Per modificare le impostazioni di un account di archiviazione, usare [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount). Sebbene non sia possibile modificare la posizione di un account di archiviazione o del gruppo di risorse in cui si trova, è possibile modificare molte altre proprietà. Di seguito sono elencate alcune delle proprietà che è possibile modificare tramite PowerShell.
 
 * Il **dominio personalizzato** assegnato all'account di archiviazione.
 
@@ -220,7 +215,6 @@ Fino a qui si è appreso come gestire l'account di archiviazione con PowerShell.
 L'API di tabella di Azure Cosmos DB offre funzionalità Premium per l'archiviazione di tabelle, ad esempio distribuzione globale chiavi in mano, operazioni di lettura e scrittura a bassa latenza, indicizzazione secondaria automatica e velocità effettiva dedicata. 
 
 * Per altre informazioni, vedere [API di tabella di Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
-* Per informazioni su come usare PowerShell per eseguire operazioni dell'API di tabella di Azure Cosmos DB, vedere [Eseguire operazioni dell'API di tabella di Azure Cosmos DB con PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="independent-cloud-deployments-of-azure"></a>Distribuzioni cloud indipendenti di Azure
 

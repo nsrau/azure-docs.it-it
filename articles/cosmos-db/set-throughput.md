@@ -2,19 +2,19 @@
 title: Effettuare il provisioning della velocità effettiva per Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come configurare la velocità effettiva di provisioning per i container, le raccolte, i grafici e le tabelle di Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
-ms.openlocfilehash: a454bfc06cf119d43e545a5a911a2f6686fb755b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600160"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038173"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Impostare e ottenere la velocità effettiva per i contenitori e il database Azure Cosmos DB
 
@@ -262,20 +262,6 @@ Un metodo per stimare la quantità di velocità effettiva riservata richiesta da
 > Se sono presenti tipi di elementi che variano notevolmente in termini di dimensioni e numero di proprietà indicizzate, registrare l'addebito delle unità richiesta per le operazioni applicabili associato a ogni *tipo* di elemento tipico.
 > 
 > 
-
-## <a id="RequestchargeGraphAPI"></a>Ottenere l'addebito della richiesta per gli account dell'API Gremlin 
-
-Ecco un esempio su come ottenere l'addebito della richiesta per gli account dell'API Gremlin tramite la libreria Gremlin.Net. 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-Oltre al metodo precedente, per i calcoli delle unità richiesta è anche possibile usare l'intestazione "x-ms-total-request-charge".
-
 
 ## <a name="throughput-faq"></a>Domande frequenti sulla velocità effettiva
 

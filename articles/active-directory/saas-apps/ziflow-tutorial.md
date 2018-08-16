@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fdde8cbec7fc249eecfcc0c1682bb5eed94c1585
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050490"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Esercitazione: Integrazione di Azure Active Directory con Ziflow
 
@@ -101,20 +101,20 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
+
     ![Finestra di dialogo Single Sign-On](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
 
 3. Nella sezione **URL e dominio Ziflow** seguire questa procedura:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Ziflow](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `urn:auth0:ziflow-production:<Unique ID>`
+    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `urn:auth0:ziflow-production:<UniqueID>`
 
-    > [!NOTE] 
-    > I valori precedenti non sono valori reali. È necessario aggiornare il valore dell'ID univoco nell'identificatore e nell'URL di accesso con il valore effettivo, come descritto più avanti nell'esercitazione. Contattare il [team di supporto di Ziflow](mailto:support@ziflow.com) per conoscere il valore del sottodominio nell'URL di accesso.
-    
+    > [!NOTE]
+    > I valori precedenti non sono valori reali. È necessario aggiornare il valore dell'ID univoco nell'identificatore e nell'URL di accesso con il valore effettivo, come descritto più avanti nell'esercitazione.
+
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Collegamento di download del certificato](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
@@ -128,7 +128,6 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Configurazione di Ziflow](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
 
 7. In un'altra finestra del Web browser accedere a Ziflow come amministratore della sicurezza.
-
 
 8. Fare clic su Avatar nell'angolo in alto a destra e quindi fare clic su **Manage account** (Gestisci account).
 
@@ -182,7 +181,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
   
 ### <a name="create-a-ziflow-test-user"></a>Creare un utente di test di Ziflow
 

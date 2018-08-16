@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a760e66d40d7af7178ec9a2d5fc14afec2a55b10
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115398"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627407"
 ---
 # <a name="durable-functions-overview"></a>Panoramica di Funzioni permanenti
 
@@ -44,7 +44,7 @@ Il *concatenamento di funzioni* fa riferimento al modello di esecuzione di una s
 
 Funzioni permanenti consente di implementare questo modello nel codice in modo conciso.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -62,6 +62,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> Vi sono lievi differenze tra la scrittura di una funzione permanente precompilata in C# e l'esempio di script C# illustrato in precedenza. In una funzione precompilata in C# è necessario che per i parametri permanenti siano definiti i rispettivi attributi. Un esempio è rappresentato dall'attributo `[OrchestrationTrigger]` per il parametro `DurableOrchestrationContext`. Se per i parametri non sono definiti gli attributi corretti, il runtime non è in grado di inserire le variabili della funzione e restituisce un errore. Per altri esempi, visitare [questa pagina](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
 
@@ -88,7 +90,7 @@ Il parametro `ctx` ([DurableOrchestrationContext](https://azure.github.io/azure-
 
 Nelle funzioni normali, il fan-out può essere effettuato facendo in modo che la funzione invii più messaggi a una coda. Effettuare di nuovo il fan-in, tuttavia, è molto più complesso. È necessario scrivere codice per rilevare il completamento delle funzioni attivate dalla coda e archiviare l'output delle funzioni. L'estensione Funzioni permanenti gestisce questo modello con codice relativamente semplice.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -203,7 +205,7 @@ Un esempio può essere l'inversione dello scenario API HTTP asincrono precedente
 
 Usando Funzioni durevoli, in poche righe di codice si possono creare più monitoraggi che osservano gli endpoint arbitrari. I monitoraggi possono terminare l'esecuzione quando una condizione viene soddisfatta oppure essere terminati da [DurableOrchestrationClient](durable-functions-instance-management.md) e l'intervallo di attesa può essere modificato in base ad alcune condizioni (ad esempio, il backoff esponenziale). Il codice seguente implementa un monitoraggio di base.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -271,7 +273,7 @@ Un esempio di processo di business con interazione umana è un processo di appro
 
 Questo modello può essere implementato usando una funzione di orchestrazione. L'agente di orchestrazione userà un [timer permanente](durable-functions-timers.md) per richiedere l'approvazione ed eseguire l'escalation in caso di timeout. Attenderà un [evento esterno](durable-functions-external-events.md), che potrebbe essere la notifica generata da un'interazione umana.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)

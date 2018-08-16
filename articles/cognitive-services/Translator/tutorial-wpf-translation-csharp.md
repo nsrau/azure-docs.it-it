@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214918"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716373"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Esercitazione: Scrivere un'applicazione WPF per Traduzione testuale con C&#35;
 
@@ -666,9 +666,9 @@ Passare quindi il testo all'API `Translate` in una matrice JSON serializzata nel
 L'intestazione HTTP denominata `X-ClientTraceId` è facoltativa. Il valore deve essere un GUID. L'ID di traccia specificato dal client è utile per tenere traccia delle richieste quando il funzionamento non è quello previsto. Per essere utile, il valore di X-ClientTraceID deve essere tuttavia registrato dal client. Un ID di traccia client e la data delle richieste consentono a Microsoft di diagnosticare i problemi che possono verificarsi.
 
 > [!NOTE]
-> Questa esercitazione è incentrata sul servizio Microsoft Translator e di conseguenza i metodi `DetectLanguage()` e `CorrectSpelling()` non vengono trattati in modo dettagliato. I servizi Analisi del testo e Controllo ortografico Bing restituiscono risposte in JSON anziché in XML e Analisi del testo richiede che anche la richiesta sia formattata in JSON. Queste caratteristiche determinano la maggior parte delle differenze di codice per i metodi esaminati.
+> Questa esercitazione è incentrata sul servizio Microsoft Translator e di conseguenza i metodi `DetectLanguage()` e `CorrectSpelling()` non vengono trattati in modo dettagliato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Text API reference](http://docs.microsofttranslator.com/text-translate.html) (Riferimento all'API Traduzione testuale di Microsoft)
+> [Microsoft Translator Text API reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) (Riferimento all'API Traduzione testuale di Microsoft)
