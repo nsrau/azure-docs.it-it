@@ -107,7 +107,7 @@ Utilizzare la procedura seguente per modificare un gruppo di volumi.
 #### <a name="to-edit-a-volume-group"></a>Per modificare un gruppo di volumi
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
 2. Nel riquadro **Ambito** espandere il nodo **Gruppi di volumi**, fare clic con il pulsante destro del mouse sul nome di un gruppo di volumi, quindi fare clic su **Modifica**.
-3. Viene visualizzata la finestra di dialogo **Crea un gruppo di volumi**. È possibile modificare le voci **Nome**, **Applicazioni** e **Volumi**.
+3. Viene visualizzata la finestra di dialogo Crea un gruppo di volumi. È possibile modificare le voci **Nome**, **Applicazioni** e **Volumi**.
 4. Fare clic su **OK** per salvare le modifiche.
 
 ## <a name="delete-a-volume-group"></a>Eliminare un gruppo di volumi

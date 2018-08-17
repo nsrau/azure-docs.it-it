@@ -25,7 +25,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/Suggestions.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio, https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/Suggestions.
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 

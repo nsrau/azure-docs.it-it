@@ -1,0 +1,32 @@
+items:
+- name: Documentazione su Project Acoustics
+- name: Panoramica
+  items:
+  - name: Informazioni su Project Acoustics
+    href: what-is-acoustics.md
+- name: Guide introduttive
+  items:
+  - name: Introduzione
+    href: getting-started.md
+- name: Procedure
+  items:
+  - name: Creare un account Azure Batch
+    href: create-azure-account.md
+  - name: Preparare l'acustica
+    href: bake-ui-walkthrough.md
+  - name: Progettare l'acustica
+    href: design-process.md
+- name: Risorse
+  items:
+  - name: Scena di esempio di Acoustics
+    href: sample-walkthrough.md
+  - name: Domande frequenti
+    href: faq.md
+  - name: Problemi noti
+    href: known-issues.md
+ms.openlocfilehash: 225d620cddfd68f3d5fb6d6d841c8f33254f1309
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40181835"

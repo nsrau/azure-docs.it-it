@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 9e78d534579a89f0fc97830616d7b5cd550253f7
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40177333"
+documentType: LandingData
+title: Documentazione sull'accesso condizionale di Azure AD
+metadata:
+  document_id: 
+  title: "Documentazione sull'accesso condizionale di Azure Active Directory: esercitazioni, guide introduttive, concetti e informazioni di riferimento | Microsoft Docs"
+  description: Informazioni su come configurare e testare l'accesso condizionale di Azure Active Directory.
+  services: active-directory
+  ms.component: authentication
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: markvi
+abstract:
+  description: Informazioni su come raggiungere un equilibrio tra sicurezza e produttività configurando l'accesso condizionale di Azure AD. Con i criteri di accesso condizionale, è possibile considerare nelle decisioni relative all'accesso il modo in cui si accede alle app cloud. Ad esempio, si possono integrare nelle decisioni relative all'accesso le domande seguenti:<ul><li>Qual è il percorso di rete dell'utente?</li><li>Il tentativo di accesso è stato avviato da un dispositivo gestito?</li><li>Da quale app client è stato avviato un tentativo di connessione?</li><li>Un tentativo di accesso è stato effettuato da un accesso a rischio?</li></ul>Le risorse seguenti consentono di iniziare rapidamente.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 246
+    title: Spiegazione dell'accesso condizionale
+    href: https://www.youtube.com/watch?v=A7IrxAH87wc
+    width: 246
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: Informazioni su come configurare i criteri di accesso condizionale per scenari di accesso comuni.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Richiedere MFA per app specifiche
+      href: app-based-mfa.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Bloccare l'accesso quando viene rilevato un rischio nella sessione
+      href: app-sign-in-risk.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Richiedere l'accettazione delle condizioni per l'utilizzo
+      href: require-tou.md
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come eseguire la migrazione dei criteri di accesso condizionale della distribuzione classica.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Eseguire la migrazione di criteri classici che richiedono l'autenticazione a più fattori</a>

@@ -29,7 +29,7 @@ Questa funzionalità offre un controllo dettagliato, in base ai [singoli criteri
 Per i criteri predefiniti, è possibile usare questa funzionalità nella directory Azure AD B2C come segue:
 
 1. Seguire questa procedura per [passare al menu delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
-2. Fare clic su **Criteri di iscrizione o di accesso**. *Nota: è possibile usare questa funzionalità per qualsiasi tipo di criterio, non solo per i **criteri di iscrizione o di accesso***.
+2. Fare clic su **Criteri di iscrizione o di accesso**. *Nota: è possibile usare questa funzionalità per qualsiasi tipo di criterio, non solo per i **criteri di iscrizione o di accesso*\*\*.
 3. Fare clic su un criterio per aprirlo. Ad esempio, fare clic su **B2C_1_SiUpIn**.
 4. Fare clic su **Modifica** nella parte superiore del menu.
 5. Fare clic su **Token, session & single sign-on config** (Configurazione di token, sessione e accesso Single Sign-On).
