@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e926bfb023fe3edfd564aa6389e21f6594bec169
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117061"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002679"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Creare la prima funzione con Java e IntelliJ (anteprima)
 
@@ -32,7 +32,7 @@ Questo articolo illustra come creare un progetto per funzioni [senza server](htt
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Configurare l'ambiente di sviluppo
+## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
 
 Per sviluppare un'app per le funzioni con Java e IntelliJ, è necessario che siano installati gli elementi seguenti:
 
@@ -74,8 +74,15 @@ Maven crea i file di progetto in una nuova cartella denominata _artifactId_. Il 
 Dopo avere testato la funzione, chiudere la finestra di dialogo per l'esecuzione. Può essere attivo e in esecuzione in locale un solo host di funzioni alla volta.
 
 ### <a name="debug-the-function-in-intellij"></a>Eseguire il debug della funzione in IntelliJ
+Per avviare l'host di funzioni in modalità di debug, aggiungere **- DenableDebug** come argomento quando si esegue la funzione. È possibile eseguire la seguente riga di comando nel terminale o configurarla negli [obiettivi Maven](https://www.jetbrains.com/help/idea/maven-support.html#run_goal). Quindi l'host di funzioni aprirà una porta di debug 5005. 
 
-È possibile eseguire il debug delle funzioni in IntelliJ connettendosi all'host di funzioni dopo l'avvio.  Eseguire Funzioni di Azure in locale usando la procedura precedente e quindi scegliere **Attach to local process** (Associa a processo locale) dal menu **Run** (Esegui).  Verrà visualizzato un processo sulla porta 5005 disponibile.  Dopo la connessione, è possibile raggiungere i punti di interruzione ed eseguire il debug all'interno dell'app per le funzioni.
+```
+mvn azure-functions:run -DenableDebug
+```
+
+Per eseguire il debug in IntelliJ, nel menu **Run** (Esegui) selezionare **Edit Configurations** (Modifica configurazioni). Fare clic su **+** per aggiungere **Remote** (Remoto). Compilare **Name** (Nome) e **Settings** (Impostazioni), quindi fare clic su **OK** per salvare la configurazione. Al termine dell'installazione, fare clic su **Debug** "Your Remote Configuration Name" (Esegui il debug del nome della configurazione remota) o premere **MAIUSC+F9** per avviare il debug.
+
+![Funzioni di debug in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
 Al termine, arrestare il debugger e il processo in esecuzione. Può essere attivo e in esecuzione in locale un solo host di funzioni alla volta.
 

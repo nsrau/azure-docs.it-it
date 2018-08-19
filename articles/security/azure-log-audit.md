@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e4144ca0d87abda3d9f8de47e56af59d0e4af312
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938367"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038233"
 ---
 # <a name="azure-logging-and-auditing"></a>Registrazione e controllo di Azure
 
@@ -60,7 +60,7 @@ In questo articolo i termini PUT, POST e DELETE si riferiscono a tutte le operaz
 
 ![Diagramma del log di attività](./media/azure-log-audit/azure-log-audit-fig1.png)
 
-Per recuperare eventi da un log attività, è possibile usare il portale di Azure, l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli), i cmdlet di PowerShell e l'[API REST di Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Il periodo di conservazione dei dati per i log attività è di 19 giorni.
+Per recuperare eventi da un log attività, è possibile usare il portale di Azure, l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli), i cmdlet di PowerShell e l'[API REST di Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Il periodo di conservazione dei dati per i log attività è di 90 giorni.
 
 Scenari di integrazione per un evento del log attività:
 
@@ -361,10 +361,10 @@ Integrazione log supporta attualmente l'integrazione dei log attività di Azure,
 
 | Tipo di log | Log Analytics con supporto JSON (Splunk, ArcSight e IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
-|Log di controllo di Azure AD|   Sì|
-|Log attività| Sì|
-|Avvisi del Centro sicurezza |Sì|
-|Log di diagnostica (log di risorse)|  Sì|
+|Log di controllo di Azure AD|   Yes|
+|Log attività| Yes|
+|Avvisi del Centro sicurezza |Yes|
+|Log di diagnostica (log di risorse)|  Yes|
 |Log VM|   Sì, tramite eventi inoltrati e non attraverso JSON|
 
 [Introduzione a Integrazione log di Azure](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): questa esercitazione illustra come installare Integrazione log di Azure e integrare i log dall'archiviazione di Azure, dai log attività di Azure, dagli avvisi del Centro sicurezza di Azure e dai log di controllo di Azure AD.
