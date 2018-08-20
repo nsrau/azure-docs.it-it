@@ -8,24 +8,28 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 02/28/2018
-ms.openlocfilehash: c47c0a90535a4749ae3fd467b86102aa668285b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 07/27/2018
+ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574973"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39514138"
 ---
-Se non si intende continuare a usare l'app, eliminare tutte le risorse create tramite questa guida di avvio rapido eseguendo i passaggi seguenti, per evitare qualsiasi addebito:
+>[!IMPORTANT]
+>Le risorse create possono essere usate come prerequisiti per altre esercitazioni e procedure dettagliate per Azure Machine Learning. 
 
->[!NOTE]
->Queste risorse sono utili per completare ora le altre esercitazioni sui servizi di Azure Machine Learning.
+
+Se non si intende usarle, eliminare le risorse appena create con questa guida introduttiva per evitare addebiti.
 
 1. Nel portale di Azure fare clic su **Gruppi di risorse** all'estrema sinistra.  
  
    ![Eseguire l'eliminazione nel portale di Azure](./media/aml-delete-resource-group/delete-resources.png)
 
-2. Nell'elenco dei gruppi di risorse selezionare il gruppo di risorse creato e quindi fare clic su **Elimina gruppo di risorse**.
+1. Nell'elenco selezionare il gruppo di risorse creato.
 
-3. Digitare il nome del gruppo di risorse da eliminare e fare clic su **Elimina**.
+1. Selezionare **Elimina gruppo di risorse**.
 
+1. Digitare il nome del gruppo di risorse e quindi selezionare **Elimina**.
+
+   Se viene visualizzato l'errore "Non è possibile eliminare la risorsa se prima non vengono eliminate le risorse annidate", è prima necessario eliminare le risorse annidate. Per informazioni dettagliate, [vedere questa sezione relativa alla risoluzione dei problemi](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 

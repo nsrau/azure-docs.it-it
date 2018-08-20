@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/02/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 68127a38e28524b5f093cf0aafb0d0b7bb9ae1b6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445450"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714095"
 ---
 # <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classica, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD
 
@@ -63,7 +63,7 @@ Le sottoscrizioni di Azure consentono di organizzare l'accesso alle risorse di A
 Gli account e le sottoscrizioni sono gestiti nel [Centro account di Azure](https://account.azure.com/Subscriptions).
 ## <a name="azure-rbac-roles"></a>Ruoli di controllo degli accessi in base al ruolo di Azure
 
-Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) che offre una gestione degli accessi dettagliata alle risorse in Azure, ad esempio alle risorse di calcolo e di archiviazione. Il controllo degli accessi in base al ruolo di Azure include più di 60 ruoli predefiniti. Sono disponibili quattro ruoli principali di controllo degli accessi in base al ruolo. I primi tre si applicano a tutti i tipi di risorse:
+Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) che offre una gestione degli accessi dettagliata alle risorse in Azure, ad esempio alle risorse di calcolo e di archiviazione. Il controllo degli accessi in base al ruolo di Azure include oltre 70 ruoli predefiniti. Sono disponibili quattro ruoli principali di controllo degli accessi in base al ruolo. I primi tre si applicano a tutti i tipi di risorse:
 
 | Ruolo Controllo degli accessi in base al ruolo di Azure | Autorizzazioni | Note |
 | --- | --- | --- |

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344750"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714452"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Che cos'è il controllo degli accessi in base al ruolo?
 
@@ -79,16 +79,15 @@ Azure ha introdotto operazioni sui dati (attualmente in anteprima) che consenton
 
 *Ambito* è il limite al quale si applica l'accesso. Quando si assegna un ruolo, è possibile limitare ulteriormente le azioni consentite definendo un ambito. Ciò è utile se si intende creare un [collaboratore di siti Web](built-in-roles.md#website-contributor), ma solo per un gruppo di risorse.
 
-In Azure, è possibile specificare un ambito su più livelli: sottoscrizione, gruppo di risorse o risorsa. Gli ambiti sono strutturati in base a una relazione padre-figlio in cui ogni elemento figlio avrà un solo padre.
+In Azure, è possibile specificare un ambito su più livelli: [gruppo di gestione](../azure-resource-manager/management-groups-overview.md), sottoscrizione, gruppo di risorse o risorsa. Gli ambiti sono strutturati in una relazione padre-figlio.
 
 ![Ambito per un'assegnazione di ruolo](./media/overview/rbac-scope.png)
 
-L'accesso assegnato a un ambito padre viene ereditato dall'ambito figlio. Ad esempio: 
+Quando si concede l'accesso in un ambito padre, tali autorizzazioni vengono ereditate negli ambiti figlio. Ad esempio: 
 
+- Se si assegna il ruolo [Proprietario](built-in-roles.md#owner) a un utente nell'ambito del gruppo di gestione, tale utente può gestire tutto in tutte le sottoscrizioni nel gruppo di gestione.
 - Se si assegna il ruolo [Lettore](built-in-roles.md#reader) a un gruppo nell'ambito di sottoscrizione, i membri di tale gruppo possono visualizzare ogni gruppo di risorse e risorsa nella sottoscrizione.
 - Se si assegna il ruolo [Collaboratore](built-in-roles.md#contributor) a un'applicazione nell'ambito del gruppo di risorse, è possibile gestire risorse di tutti i tipi in quel gruppo di risorse, ma non altri gruppi di risorse nella sottoscrizione.
-
-Azure include anche un ambito oltre le sottoscrizioni chiamato [gruppi di gestione](../azure-resource-manager/management-groups-overview.md), che è disponibile in anteprima. I gruppi di gestione rappresentano un modo per gestire più sottoscrizioni. Quando si specifica l'ambito per il controllo degli accessi in base al ruolo, è possibile specificare un gruppo di gestione o una sottoscrizione, un gruppo di risorse o una gerarchia di risorse.
 
 ### <a name="role-assignment"></a>Assegnazione di ruolo
 

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950681"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713928"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
 
@@ -60,7 +60,7 @@ Ricerca di Azure, in qualità di servizio di Azure, può essere ospitato nei dat
 ## <a name="select-a-pricing-tier-sku"></a>Selezionare un piano tariffario (SKU)
 [Ricerca di Azure attualmente è disponibile con vari piani tariffari](https://azure.microsoft.com/pricing/details/search/): Gratuito, Basic o Standard. Ogni piano tariffario prevede una specifica [capacità e limiti](search-limits-quotas-capacity.md). Per indicazioni, vedere [Scegliere uno SKU o un piano tariffario per Ricerca di Azure](search-sku-tier.md) .
 
-In questa procedura dettagliata è stato scelto il piano tariffario Standard per il servizio.
+Per carichi di lavoro di produzione viene in genere scelto il piano Standard, ma la maggior parte dei clienti inizia con il servizio gratuito.
 
 Non è possibile modificare il piano tariffario dopo aver creato il servizio. Se in un secondo momento si vuole passare a un piano tariffario superiore o inferiore, è necessario creare nuovamente il servizio.
 
