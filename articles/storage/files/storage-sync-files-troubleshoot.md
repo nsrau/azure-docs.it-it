@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1475e1955a282581c66235c13d4dbe7153735a35
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e0c9708107139ec899cd5902a68ff90b57b741f7
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526743"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005920"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -674,6 +674,12 @@ if ($fileShare -eq $null) {
 2. Verificare che **servizio di Sincronizzazione file di ibrido** venga visualizzato nell'elenco con il ruolo di **Lettore e accesso ai dati**. 
 
     ![Schermata dell'entità servizio del servizio Sincronizzazione file ibrida nella scheda di controllo di accesso dell'account di archiviazione](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+
+    Se il **servizio Sincronizzazione file ibrida** non è visualizzato nell'elenco, procedere come segue:
+
+    - Fare clic su **Aggiungi**.
+    - Nel campo **Ruolo** selezionare **Lettore e accesso ai dati**.
+    - Nel campo **Seleziona** digitare **Servizio Sincronizzazione file ibrida**, selezionare il ruolo e fare clic su **Salva**.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 ```PowerShell    

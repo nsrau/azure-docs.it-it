@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325252"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005876"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -64,7 +64,15 @@ Il pool back-end può contenere le macchine virtuali autonome, set di disponibil
 
 Quando si considera come progettare il pool back-end, è possibile progettare per il minor numero di singole risorse di pool di back-end per ottimizzare ulteriormente la durata delle operazioni di gestione.  Non vi è alcuna differenza nelle prestazioni del piano dati o la scala.
 
-## <a name="az"></a>Zone di disponibilità
+### <a name="probes"></a>Probe di integrità
+  
+Load Balancer Standard aggiunge il supporto per i [probe di integrità HTTPS](load-balancer-custom-probe-overview.md#httpprobe), ovvero i probe HTTP con wrapper Transport Layer Security (TLS), per monitorare in modo accurato le applicazioni HTTPS.  
+
+Inoltre, in caso di [inattività dei probe](load-balancer-custom-probe-overview.md#probedown) dell'intero pool di back-end, Load Balancer Standard consente a tutte le connessioni TCP stabilite di continuare. Diversamente da questo, Load Balancer Basic terminerà tutte le connessioni TCP a tutte le istanze.
+
+Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](load-balancer-custom-probe-overview.md).
+
+### <a name="az"></a>Zone di disponibilità
 
 Load Balancer Standard supporta funzionalità aggiuntive in aree in cui sono disponibili zone di disponibilità.  Queste funzionalità sono incrementali rispetto a tutte le funzioni di Load Balancer Standard.  Le configurazioni delle zone di disponibilità sono disponibili per Load Balancer Standard pubblico e interno.
 
@@ -80,7 +88,7 @@ Consultare [per ulteriori dettagli sulle abilità associate alle zone di disponi
 
 Load Balancer Standard fornisce le metriche multidimensionali tramite il Monitoraggio di Azure.  Queste metriche possono essere filtrate, raggruppate e suddivise in una determinata dimensione.  Forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio.  Integrità risorse di Azure è supportato.  Ecco di seguito una breve panoramica della diagnostica supportata:
 
-| Metrica | DESCRIZIONE |
+| Metrica | Descrizione |
 | --- | --- |
 | Disponibilità IP virtuale | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.|
 | Disponibilità DIP | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni singolo endpoint dell'istanza nel pool di Load Balancer.  In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità.
@@ -167,7 +175,7 @@ Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare 
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migrare dallo SKU Basic a Standard
 
-1. Creare una nuova risorsa Standard, Load Balancer o IP pubblico in base alle esigenze. Ricreare le regole e le definizioni dei probe.
+1. Creare una nuova risorsa Standard, Load Balancer o IP pubblico in base alle esigenze. Ricreare le regole e le definizioni dei probe.  Se in precedenza si è usato un probe TCP su 443/tcp, valutare l'opportunità di sostituirlo con un probe HTTPS e aggiungere un percorso.
 
 2. Creare un nuovo gruppo di sicurezza di rete o aggiornare quello esistente per la NIC o la subnet per avere un elenco elementi consentiti relativo a probe e traffico con carico bilanciato, nonché per qualsiasi altro tipo di traffico che si vuole consentire.
 
@@ -177,7 +185,7 @@ Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare 
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migrare dallo SKU Standard a Basic
 
-1. Creare una nuova risorsa Basic, Load Balancer o IP pubblico in base alle esigenze. Ricreare le regole e le definizioni dei probe. 
+1. Creare una nuova risorsa Basic, Load Balancer o IP pubblico in base alle esigenze. Ricreare le regole e le definizioni dei probe.  Sostituire un probe HTTPS con un probe TCP su 443/tcp. 
 
 2. Rimuovere le risorse SKU Standard (Load Balancer e IP pubblici, secondo il caso) da tutte le istanze VM. Assicurarsi di rimuovere anche tutte le istanze VM di un set di disponibilità.
 
@@ -218,15 +226,16 @@ Load Balancer Standard è un prodotto addebitato in base al numero di regole di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sull'uso di [Load Balancer Standard e delle zone di disponibilità](load-balancer-standard-availability-zones.md)
+- Informazioni sull'uso di [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
+- Informazioni sui [probe di integrità](load-balancer-custom-probe-overview.md).
 - Altre informazioni sulle [zone di disponibilità](../availability-zones/az-overview.md).
 - Altre informazioni sulla diagnostica per [Azure Load Balancer Standard](load-balancer-standard-diagnostics.md).
 - Altre informazioni sulle [metriche multidimensionali supportate](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) per la diagnostica in [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md).
-- Informazioni sull'uso di [Load Balancer per le connessioni in uscita](load-balancer-outbound-connections.md)
-- Informazione su [Azure Load Balancer Standard con regole di bilanciamento del carico di porte a disponibilità elevata](load-balancer-ha-ports-overview.md)
-- Informazioni sull'uso di [Load Balancer con front-end multipli](load-balancer-multivip-overview.md)
+- Informazioni sull'uso di [Load Balancer per le connessioni in uscita](load-balancer-outbound-connections.md).
+- Informazioni su [Load Balancer Standard con regole di bilanciamento del carico di porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
+- Informazioni sull'uso di [Load Balancer con più front-end](load-balancer-multivip-overview.md).
 - Informazioni sulle [reti virtuali](../virtual-network/virtual-networks-overview.md).
-- Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
-- Informazioni sugli [endpoint del servizio Rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+- Informazioni sugli [endpoint del servizio Rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 - Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.
-- Vedere altre informazioni su [Azure Load Balancer](load-balancer-overview.md).
+- Altre informazioni su [Azure Load Balancer](load-balancer-overview.md).

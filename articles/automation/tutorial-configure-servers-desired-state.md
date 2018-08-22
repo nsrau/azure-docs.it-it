@@ -1,42 +1,40 @@
 ---
 title: Configurare i server allo stato desiderato e gestire la deviazione con Automazione di Azure
-description: 'Esercitazione: Gestire configurazioni di server con Automation DSC per Azure'
+description: 'Esercitazione: Gestire le configurazioni dei server con Configurazione stato di Automazione di Azure'
 services: automation
 ms.service: automation
 ms.component: dsc
-author: georgewallace
-ms.author: gwallace
+author: DCtheGeek
+ms.author: dacoulte
 manager: carmonm
 ms.topic: conceptual
-ms.date: 09/25/2017
-ms.openlocfilehash: 6203cc8679561fa342a2e15a3819dd5513774dde
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 08/08/2018
+ms.openlocfilehash: 3b4ecc7596af52312785ea7acaad18a7af8a5087
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195210"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005958"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurare i server sullo stato desiderato e gestire gli orientamenti
 
-Configurazione dello stato desiderato di automazione di Azure consente di specificare le configurazioni per i server e assicurarsi che tali server rimangano nello stato specificato nel tempo.
-
-
+Configurazione stato di Automazione di Azure consente di specificare le configurazioni per i server e verificare che tali server rimangano nello stato specificato nel corso del tempo.
 
 > [!div class="checklist"]
-> * Eseguire l'onboarding di una VM in modo che sia gestita da Automation DSC per Azure
-> * Caricare una configurazione in Automazione di Azure
-> * Compilare una configurazione in una configurazione nodo
-> * Assegnare una configurazione nodo a un nodo gestito
-> * Controllare lo stato di conformità di un nodo gestito
+> - Eseguire l'onboarding di una VM in modo che sia gestita da Automation DSC per Azure
+> - Caricare una configurazione in Automazione di Azure
+> - Compilare una configurazione in una configurazione nodo
+> - Assegnare una configurazione nodo a un nodo gestito
+> - Controllare lo stato di conformità di un nodo gestito
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, è necessario:
 
-* Un account di automazione di Azure. Per istruzioni sulla creazione di un account RunAs di Automazione di Azure, vedere [Autenticare runbook con account RunAs di Azure](automation-sec-configure-azure-runas-account.md).
-* Una VM di Azure Resource Manager (non classica) che esegue Windows Server 2008 R2 o versioni successive. Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-* Modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
-* Familiarità con DSC. Per informazioni su DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/dsc/overview)
+- Un account di automazione di Azure. Per istruzioni sulla creazione di un account RunAs di Automazione di Azure, vedere [Autenticare runbook con account RunAs di Azure](automation-sec-configure-azure-runas-account.md).
+- Una VM di Azure Resource Manager (non classica) che esegue Windows Server 2008 R2 o versioni successive. Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Modulo Azure PowerShell 3.6 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- Familiarità con DSC (Desired State Configuration). Per informazioni su DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -50,15 +48,13 @@ Connect-AzureRmAccount
 
 Per questa esercitazione si userà una semplice configurazione DSC che assicura che IIS sia installato nella VM.
 
-Per informazioni sulle configurazioni DSC, vedere [Configurazioni DSC](https://docs.microsoft.com/powershell/dsc/configurations).
+Per informazioni sulle configurazioni DSC, vedere [Configurazioni DSC](/powershell/dsc/configurations).
 
 In un editor di testo digitare quanto segue e salvarlo in locale con il nome `TestConfig.ps1`.
 
 ```powershell
 configuration TestConfig {
-
    Node WebServer {
-
       WindowsFeature IIS {
          Ensure               = 'Present'
          Name                 = 'Web-Server'
@@ -78,7 +74,7 @@ Chiamare il cmdlet `Import-AzureRmAutomationDscConfiguration` per caricare la co
 
 Una configurazione DSC deve essere compilata in una configurazione nodo affinché possa essere assegnata a un nodo.
 
-Per altre informazioni sulla compilazione di configurazioni, vedere [Configurazioni DSC](https://docs.microsoft.com/powershell/dsc/configurations).
+Per altre informazioni sulla compilazione di configurazioni, vedere [Configurazioni DSC](/powershell/dsc/configurations).
 
 Chiamare il cmdlet `Start-AzureRmAutomationDscCompilationJob` per compilare la configurazione `TestConfig` in una configurazione nodo:
 
@@ -88,38 +84,36 @@ Start-AzureRmAutomationDscCompilationJob -ConfigurationName 'TestConfig' -Resour
 
 Verrà creata una configurazione nodo denominata `TestConfig.WebServer` nell'account di Automazione.
 
-## <a name="register-a-vm-to-be-managed-by-dsc"></a>Registrare una VM in modo che sia gestita da DSC
+## <a name="register-a-vm-to-be-managed-by-state-configuration"></a>Registrare una VM in modo che sia gestita da Configurazione stato
 
-È possibile usare Automation DSC per Azure per gestire VM di Azure (sia classiche che di Resource Manager), VM locali, computer Linux, VM di AWS e computer fisici locali. Questo argomento descrive soltanto come registrare VM di Azure Resource Manager.
-Per informazioni sulla registrazione di altri tipi di computer, vedere [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
+È possibile usare Configurazione stato di Automazione di Azure per gestire macchine virtuali di Azure (sia classiche sia Resource Manager), macchine virtuali locali, computer Linux, macchine virtuali AWS e computer fisici locali. Questo argomento descrive soltanto come registrare VM di Azure Resource Manager. Per informazioni sulla registrazione di altri tipi di computer, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md).
 
-Chiamare il cmdlet `Register-AzureRmAutomationDscNode` per registrare la VM con Automation DSC per Azure.
+Chiamare il cmdlet `Register-AzureRmAutomationDscNode` per registrare la VM con Configurazione stato di Automazione di Azure.
 
 ```powershell
-Register-AzureRmAutomationDscNode -ResourceGroupName "MyResourceGroup" -AutomationAccountName "myAutomationAccount" -AzureVMName "DscVm"
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
 ```
 
-In questo modo viene registrata la VM specificata come nodo DSC nell'account di Automazione di Azure.
+In questo modo la VM specificata viene registrata come nodo gestito in Configurazione stato.
 
 ### <a name="specify-configuration-mode-settings"></a>Specificare le impostazioni delle modalità di configurazione
 
-Quando si registra una VM come nodo gestito, è anche possibile specificare le proprietà della configurazione.
-Ad esempio, è possibile specificare che lo stato della macchina deve essere applicato una sola volta (DSC non tenta di applicare la configurazione dopo il controllo iniziale) specificando `ApplyOnly` come valore della proprietà **ConfigurationMode**:
+Quando si registra una VM come nodo gestito, è anche possibile specificare le proprietà della configurazione. Ad esempio, è possibile specificare che lo stato della macchina deve essere applicato una sola volta (DSC non tenta di applicare la configurazione dopo il controllo iniziale) specificando `ApplyOnly` come valore della proprietà **ConfigurationMode**:
 
 ```powershell
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName "DscVm" -ConfigurationMode 'ApplyOnly'
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationMode 'ApplyOnly'
 ```
 
 È anche possibile specificare la frequenza con cui DSC controlla lo stato della configurazione usando la proprietà **ConfigurationModeFrequencyMins**:
 
 ```powershell
 # Run a DSC check every 60 minutes
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName "DscVm" -ConfigurationModeFrequencyMins 60
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationModeFrequencyMins 60
 ```
 
-Per altre informazioni sull'impostazione delle proprietà di configurazione per un nodo gestito, vedere [Register-AzureRmAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-4.3.1&viewFallbackFrom=azurermps-4.2.0).
+Per altre informazioni sull'impostazione delle proprietà di configurazione per un nodo gestito, vedere [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode).
 
-Per altre informazioni sulle impostazioni di configurazione DSC, vedere [Configuring the Local Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig)(Configurazione di Gestione configurazione locale).
+Per altre informazioni sulle impostazioni di configurazione DSC, vedere [Configuring the Local Configuration Manager](/powershell/dsc/metaconfig)(Configurazione di Gestione configurazione locale).
 
 ## <a name="assign-a-node-configuration-to-a-managed-node"></a>Assegnare una configurazione nodo a un nodo gestito
 
@@ -135,11 +129,11 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 
 In questo modo si assegna la configurazione nodo denominata `TestConfig.WebServer` al nodo DSC registrato denominato `DscVm`.
 Per impostazione predefinita, il nodo DSC viene verificato per la conformità con la configurazione nodo ogni 30 minuti.
-Per informazioni su come modificare l'intervallo di controllo della conformità, vedere [Configuring the Local Configuration Manager](https://docs.microsoft.com/PowerShell/DSC/metaConfig) (Configurazione di Gestione configurazione locale)
+Per informazioni su come modificare l'intervallo di controllo della conformità, vedere [Configuring the Local Configuration Manager](/PowerShell/DSC/metaConfig) (Configurazione di Gestione configurazione locale).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Controllare lo stato di conformità di un nodo gestito
 
-È possibile ottenere report sullo stato di conformità di un nodo DSC chiamando il cmdlet `Get-AzureRmAutomationDscNodeReport`:
+È possibile ottenere report sullo stato di conformità di un nodo gestito chiamando il cmdlet `Get-AzureRmAutomationDscNodeReport`:
 
 ```powershell
 # Get the ID of the DSC node
@@ -154,9 +148,9 @@ $reports[0]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come caricare i nodi da gestire con Automation DSC per Azure, vedere [Onboarding di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md)
-* Per informazioni su come usare il portale di Azure con Automation DSC, vedere [Introduzione ad Automation DSC per Azure](automation-dsc-getting-started.md)
-* Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Automation DSC per Azure](automation-dsc-compile.md)
-* Per informazioni di riferimento sui cmdlet di PowerShell per Automation DSC per Azure, vedere [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet di Automation DSC per Azure)
-* Per informazioni sui prezzi, vedere [Prezzi di Automation DSC per Azure](https://azure.microsoft.com/pricing/details/automation/)
-* Per vedere un esempio dell'uso di Automation DSC per Azure in una pipeline di distribuzione continua, vedere [Distribuzione continua in macchine virtuali IaaS tramite Automation DSC per Azure e Chocolatey](automation-dsc-cd-chocolatey.md)
+- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per informazioni sull'onboarding dei nodi, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md)
+- Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
+- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet per Configurazione stato di Automazione di Azure)
+- Per informazioni sui prezzi, vedere [Prezzi di Configurazione stato di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/)
+- Per un esempio dell'uso di Configurazione stato di Automazione di Azure in una pipeline di distribuzione continua, vedere [Continuous Deployment Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md) (Distribuzione continua tramite Configurazione stato di Automazione di Azure e Chocolatey)

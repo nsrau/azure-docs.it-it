@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: e5ecd3ab5133150368be935d8208a3e93a713df3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 59a48d06ca3c3bced73ed4043691b33784a4f81a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435829"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006028"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -51,7 +51,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 Per un servizio collegato al database SQL di Azure sono supportate queste proprietà:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **AzureSqlDatabase**. | Yes |
 | connectionString | Specifica le informazioni necessarie per connettersi all'istanza del database SQL di Azure per la proprietà **connectionString**. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
@@ -202,7 +202,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da o verso il database SQL di Azure, impostare la proprietà **type** del set di dati su **AzureSqlTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del set di dati deve essere impostata su **AzureSqlTable**. | Yes |
 | tableName | Il nome della tabella o della vista nell'istanza del database SQL di Azure a cui fa riferimento il servizio collegato. | Yes |
@@ -234,7 +234,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da un database SQL di Azure, impostare la proprietà **type** nell'origine dell'attività di copia su **SqlSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **SqlSource**. | Yes |
 | SqlReaderQuery | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No  |
@@ -338,7 +338,7 @@ GO
 
 Per copiare i dati in un database SQL di Azure, impostare la proprietà **type** dell'attività di copia su **SqlSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **SqlSink**. | Yes |
 | writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge **writeBatchSize**.<br/> Il valore consentito è **integer** (numero di righe). | No. Il valore predefinito è 10000. |
@@ -537,7 +537,7 @@ Definire la sezione **SqlSink** nell'attività di copia:
 }
 ```
 
-Nel database definire la stored procedure con lo stesso nome di **SqlWriterStoredProcedureName**, che gestisce i dati di input dell'origine specificata e li unisce nella tabella di output. Il nome del parametro della stored procedure deve essere identico al valore **tableName** definito nel set di dati.
+Nel database definire la stored procedure con lo stesso nome di **SqlWriterStoredProcedureName**, che gestisce i dati di input dell'origine specificata e li unisce nella tabella di output. Il nome del parametro del tipo di tabella nella stored procedure deve essere identico al valore **tableName** definito nel set di dati.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
