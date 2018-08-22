@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d00a6d3c476e10b13d00ff1738cb54c2eeea104c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c230b08089f22dbd0ea46cdff331f1c8b354ef62
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521823"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038179"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -151,7 +151,7 @@ Un antivirus esegue l'analisi dei file alla ricerca di codice dannoso noto e pu�
 Le soluzioni seguenti supportano l'esclusione dei file offline:
 
 - [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender ignora automaticamente tali file e non li legge. Un test su Defender ha identificato un problema secondario: quando si aggiunge un server a un gruppo di sincronizzazione esistente, i file di dimensioni inferiori a 800 byte vengono richiamati (scaricati) nel nuovo server. Questi file rimangono nel nuovo server e non vengono suddivisi in livelli, poiché non soddisfano il requisito relativo alle dimensioni della suddivisione in livelli (> 64 KB).
+    - Windows Defender ignora automaticamente la lettura dei file per cui è impostato l'attributo offline. Un test su Defender ha identificato un problema secondario: quando si aggiunge un server a un gruppo di sincronizzazione esistente, i file di dimensioni inferiori a 800 byte vengono richiamati (scaricati) nel nuovo server. Questi file rimangono nel nuovo server e non vengono suddivisi in livelli, poiché non soddisfano il requisito relativo alle dimensioni della suddivisione in livelli (> 64 KB).
 - [System Center Endpoint Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - System Center Endpoint Protection funziona come Defender; vedere sopra
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
@@ -192,11 +192,13 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Australia sud-orientale | Victoria |
 | Canada centrale | Toronto |
 | Canada orientale | Quebec City |
+| India centrale | Pune |
 | Stati Uniti centrali | Iowa |
 | Asia orientale | RAS di Hong Kong |
 | Stati Uniti orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
 | Europa settentrionale | Irlanda |
+| India meridionale | Chennai |
 | Asia sud-orientale | Singapore |
 | Regno Unito meridionale | Londra |
 | Regno Unito occidentale | Cardiff |
@@ -216,11 +218,13 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | Australia sud-orientale | Australia orientale     |
 | Canada centrale      | Canada orientale        |
 | Canada orientale         | Canada centrale     |
+| India centrale       | India meridionale        |
 | Stati Uniti centrali          | Stati Uniti orientali 2          |
 | Asia orientale           | Asia sud-orientale     |
 | Stati Uniti orientali             | Stati Uniti occidentali            |
 | Stati Uniti orientali 2           | Stati Uniti centrali         |
 | Europa settentrionale        | Europa occidentale        |
+| India meridionale         | India centrale      |
 | Asia sud-orientale      | Asia orientale          |
 | Regno Unito meridionale            | Regno Unito occidentale            |
 | Regno Unito occidentale             | Regno Unito meridionale           |

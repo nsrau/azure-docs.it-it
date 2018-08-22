@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ellacroi
-ms.openlocfilehash: ce862758d97737d16ef26ca7172cad39f8d8336a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 46cd5dbc044cbd0b7e38e5f0d0c8aa1916387a2d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359533"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038191"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -55,23 +55,8 @@ L’aggiunta di un GUID è una singola modifica al file del modello principale:
 
 ## <a name="sample-template-code"></a>Codice del modello di esempio
 
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG?token=Ak8ZDB0JzsBdUGlKEIeHNJRS7b0BWn4Gks5bbMwwwA%3D%3D)
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
-      "apiVersion": "2018-02-01",
-      "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your GUID here
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": []
-        }
-      }
-    } // remove all comments from the file when done
-
-```
 
 ## <a name="method-2-azure-resource-manager-apis"></a>Metodo 2: API di Azure Resource Manager
 
@@ -81,6 +66,8 @@ Se si usa un modello Azure Resource Manager, è consigliabile assegnare tag alla
 
 **Come assegnare tag a una distribuzione usando l'API di Azure Resource Manager:** per questo approccio, quando si progettano le chiamate all'API si includerà un GUID nell'intestazione agente utente all’interno della richiesta. Il GUID deve essere aggiunto per ogni offerta o SKU.  La stringa deve essere formattata con il prefisso pid - e quindi includere il GUID generato dal partner.   
 
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG?token=Ak8ZDDiokRcj4PJj0aMkZmfF8BdOuOTzks5bbM35wA%3D%3D)
+
 >[!Note] 
 >Formato GUID da inserire nell'agente utente: pid-eb7927c8-dd66-43e1-b0cf-c346a422063 // inserire il proprio GUID dopo "pid-"
 
@@ -88,13 +75,7 @@ Il formato della stringa è importante. Se non è incluso il prefisso "pid-", no
 
 **Esempio di utilizzo di Python SDK:** per Python, è necessario usare l'attributo "config". È possibile aggiungere un GUID solo a un agente utente. Di seguito è fornito un esempio: 
 
-```python
-
-client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
-        client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
-
-
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/python-for-lu.PNG?token=Ak8ZDK5Um4J6oY-7x25tuBpa168BEiYMks5bbMuUwA%3D%3D)
 
 >Questa azione deve essere eseguita per ogni client, non c'è una configurazione statica globale (si può scegliere di eseguire un factory client per essere sicuri che ogni client lo stia eseguendo). 
 >[Informazioni di riferimento aggiuntive](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
@@ -123,13 +104,38 @@ Affinché il GUID possa essere incluso nel rilevamento, deve essere registrato.
 
 Tutte le registrazioni per i modelli GUID verranno eseguite tramite il portale Cloud Partner (CPP) di Azure Marketplace. 
 
-Registrarsi ad [Azure Marketplace](http://aka.ms/listonazuremarketplace) oggi stesso e accedere al portale Cloud Partner.
+1. Registrarsi ad [Azure Marketplace](http://aka.ms/listonazuremarketplace) oggi stesso e accedere al portale Cloud Partner.
 
-*   I partner dovranno [disporre di un profilo in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher) e saranno invitati a inserire l'offerta in Azure Marketplace o AppSource 
-*   I partner saranno in grado di registrare più GUID 
-*   I partner saranno anche in grado di registrare una GUID per i modelli/offerte di soluzioni non di marketplace
+ *  I partner dovranno [disporre di un profilo in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher) e saranno invitati a inserire l'offerta in Azure Marketplace o AppSource 
+ *  I partner saranno in grado di registrare più GUID 
+ *  I partner saranno anche in grado di registrare una GUID per i modelli/offerte di soluzioni non di marketplace
+ 
+2. Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
+3. Nell'angolo in alto a destra del portale fare clic sull'icona dell'account e quindi su **Publisher profile** (Profilo di pubblicazione)
 
-Dopo aver aggiunto il GUID per il modello o nell'agente utente e registrato il GUID nel CPP verranno tracciate tutte le distribuzioni. 
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-image-for-lu.png)
+
+4. Nella pagina Profile (Profilo) fare clic su **Add Tracking GUID** (Aggiungi GUID di rilevamento).
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+
+5. Nel campo espanso immettere il GUID di rilevamento (solo il GUID, senza il prefisso "pid-") nel campo **Tracking GUID** (GUID di rilevamento) e il nome o la descrizione dell'offerta nel campo **Custom Description** (Descrizione personalizzata).
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-login.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example.png)
+
+6. Per registrare più GUID, fare di nuovo clic su **Add Tracking GUID** (Aggiungi GUID di rilevamento). Verrà visualizzato un altro campo espanso. 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+
+7. Al termine delle modifiche, fare clic su **Save** (Salva) per salvare le modifiche apportate. 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-save.png)
+
+
 
 ## <a name="verification-of-guid-deployment"></a>Verifica della distribuzione del GUID 
 
@@ -204,15 +210,18 @@ Durante la distribuzione del software del PARTNER, Microsoft sarà in grado di i
 Per ottenere assistenza, seguire questi passaggi:
  1. Visita la pagina del supporto disponibile all'indirizzo [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
  2. Per problemi relativi all'associazione dell'utilizzo: selezionare tipo di problema: **Marketplace Onboarding** e categoria: **Altro** e quindi fare clic su **Avvia richiesta.** 
->[!Note]
->Per problemi relativi all'accesso al portale Cloud Partner di Azure Marketplace: selezionare tipo di problema: **Marketplace Onboarding** e categoria: **Problema di accesso** e quindi fare clic su **Avvia richiesta.**
- 3. Completare i campi obbligatori nella pagina successiva e fare clic su **Continua.**
- 4. Completare i campi di testo libero nella pagina successiva.  
+
+Per problemi relativi all'accesso al portale Cloud Partner di Azure Marketplace: selezionare tipo di problema: **Marketplace Onboarding** e categoria: **Problema di accesso** e quindi fare clic su **Avvia richiesta.**
+
+ ![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/lu-article-incident.png)
  
 
+ 3. Completare i campi obbligatori nella pagina successiva e fare clic su **Continua.**
+ 4. Completare i campi di testo libero nella pagina successiva. **Importante**: come titolo dell'evento imprevisto specificare **"ISV Usage Tracking"** (Rilevamento dell'utilizzo di ISV) e descrivere il problema in modo dettagliato nell'ampio campo di testo libero successivo.  Completare il resto del modulo e fare clic su **Invia**. 
  
->[!Important] 
->Compilare il titolo evento imprevisto con **"Rilevamento dell'utilizzo di ISV"** e descrivere il problema in modo dettagliato nel campo di testo libero di grandi dimensioni successivo.  Completare il resto del modulo e fare clic su **Invia**.
+  ![](https://github.com/qianw211/azure-docs-pr/blob/MyImgAdded-2/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-help.png)
+
+ 
 
 ## <a name="faqs"></a>Domande frequenti
 

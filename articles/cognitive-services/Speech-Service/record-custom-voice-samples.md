@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ebd9943ad7f54a329dee16d57ab980b882d508f3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284167"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715108"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Come registrare campioni vocali per una voce personalizzata
 
@@ -74,7 +74,7 @@ Se l'uniformità è il fattore chiave nella scelta dello speaker, la varietà è
 
 Il testo deve anche incorporare tutti i modi in cui un suono specifico può essere rappresentato in forma scritta e posizionare ogni suono in punti diversi nelle frasi. È necessario includere sia frasi dichiarative che domande ed entrambe devono essere lette con l'intonazione appropriata.
 
-La scrittura di uno script caratterizzato da un numero *sufficiente* di dati per consentire al portale del Servizio di riconoscimento vocale personalizzato di creare una voce valida non è semplice. In pratica, il modo più semplice di creare uno script che consenta di ottenere una solida copertura fonetica consiste nell'includere un elevato numero di campioni. Le voci standard di Microsoft sono state ottenute da decine di migliaia di espressioni. Per creare una voce personalizzata di qualità, è opportuno essere preparati a registrare alcune migliaia di espressioni.
+La scrittura di uno script caratterizzato da un numero *sufficiente* di dati per consentire al portale del Servizio di riconoscimento vocale personalizzato di creare una voce valida non è semplice. In pratica, il modo più semplice di creare uno script che consenta di ottenere una solida copertura fonetica consiste nell'includere un elevato numero di campioni. Le voci standard di Microsoft sono state ottenute da decine di migliaia di espressioni. Per creare una voce personalizzata di qualità, è opportuno essere preparati almeno a registrare alcune migliaia di espressioni.
 
 Controllare lo script con attenzione per verificare la presenza di errori. Se possibile, far eseguire il controllo anche a un'altra persona. Quando si rivede lo script con lo speaker, è possibile che vengano rilevati altri errori.
 
@@ -113,7 +113,7 @@ In base alle norme sul copyright, la lettura di un testo protetto da copyright d
 
 ## <a name="recording-your-script"></a>Registrazione dello script
 
-È preferibile registrare lo script in uno studio di registrazione professionale specializzato in attività vocali. In uno studio di questo tipo sono disponibili un banco di registrazione, le apparecchiature adeguate e le persone esperte per farle funzionare. Quando di tratta di eseguire una registrazione, è opportuno non risparmiare.
+Registrare lo script in uno studio di registrazione professionale specializzato in attività vocali. In uno studio di questo tipo sono disponibili un banco di registrazione, le apparecchiature adeguate e le persone esperte per farle funzionare. Quando di tratta di eseguire una registrazione, è opportuno non risparmiare.
 
 Discutere il progetto con il tecnico di registrazione di studio e ascoltarne i consigli. La registrazione deve avere minima o nessuna compressione di intervallo dinamico (massimo 4:1). È fondamentale che l'audio sia caratterizzato da un volume uniforme e da un rapporto segnale/rumore elevato e che sia privo di suoni non desiderati.
 
@@ -161,7 +161,7 @@ Per evitare di sprecare tempo in studio, esaminare lo script con lo speaker prim
 > [!NOTE]
 > La maggior parte degli studi di registrazione consente di visualizzare in modo elettronico gli script nel banco di registrazione. In questo caso digitare le note direttamente nel documento dello script. È tuttavia opportuno disporre di una copia cartacea per prendere appunti durante la sessione. Anche la maggior parte dei tecnici vuole in genere una copia cartacea. Predisporre anche una terza copia stampata come backup per lo speaker qualora il computer si arresti.
 
-Lo speaker potrebbe chiedere quale parola deve enfatizzare in un'espressione. Tale parole viene definita dagli attori "parola chiave". Comunicare allo speaker che si vuole una lettura naturale senza alcuna enfasi particolare. L'enfasi può essere aggiunta in fase di sintesi vocale, ma non deve far parte della registrazione originale.
+Lo speaker potrebbe chiedere quale parola deve enfatizzare in un'espressione ("parola operativa"). Comunicare allo speaker che si vuole una lettura naturale senza alcuna enfasi particolare. L'enfasi può essere aggiunta in fase di sintesi vocale, ma non deve far parte della registrazione originale.
 
 Indicare allo speaker di pronunciare distintamente le parole. Ogni parola dello script deve essere pronunciata come è stata scritta. I suoni non devono essere omessi né confusi, come talvolta avviene in un discorso casuale, *a meno che non siano stati scritti in tal modo nello script.*
 
@@ -176,7 +176,7 @@ Lo speaker *non* deve aggiungere pause distinte tra le parole. La frase deve flu
 
 ### <a name="the-recording-session"></a>Sessione di registrazione
 
-Creare una registrazione di riferimento, denominata *file di corrispondenza,* di un'espressione tipica all'inizio della sessione. Chiedere allo speaker di ripetere questa riga a ogni pagina oppure a ogni pagina e mezzo. Confrontare ogni volta la nuova registrazione al riferimento. Questa procedura consente allo speaker di mantenere l'uniformità in volume, tempo, tono e intonazione. Nel frattempo il tecnico può usare il file di corrispondenza come riferimento per controllare i livelli e l'uniformità complessiva del suono.
+Creare una registrazione di riferimento, denominata *file di corrispondenza,* di un'espressione tipica all'inizio della sessione. Chiedere allo speaker di ripetere questa riga all'incirca a ogni pagina. Confrontare ogni volta la nuova registrazione al riferimento. Questa procedura consente allo speaker di mantenere l'uniformità in volume, tempo, tono e intonazione. Nel frattempo il tecnico può usare il file di corrispondenza come riferimento per controllare i livelli e l'uniformità complessiva del suono.
 
 Il file di corrispondenza è particolarmente importante quando si riprende la registrazione dopo un'interruzione o in un altro giorno. È opportuno eseguirlo più volte per lo speaker e farlo ripetere ogni volta fino a quando la corrispondenza non sarà perfetta.
 
@@ -185,12 +185,12 @@ Invitare lo speaker a respirare profondamente e a fare una pausa prima di ogni e
 Registrare cinque secondi di silenzio prima che la prima registrazione acquisisca il rumore di fondo della stanza. In questo modo il portale per la voce personalizzata può compensare eventuali rumori rimanenti nelle registrazioni.
 
 > [!TIP]
-> Ciò che è effettivamente necessario sono le righe dello speaker, pertanto è possibile creare una registrazione monofonica (a singolo canale) delle sole righe. Se tuttavia si registra in formato stereo, è possibile usare il secondo canale per registrare la conversazione nella sala di controllo per acquisire le discussioni di righe o take particolari. Rimuovere questa traccia dalla versione caricata nel portale per la voce personalizzata.
+> Ciò che è effettivamente necessario è lo speaker, pertanto è possibile creare una registrazione monofonica (a singolo canale) delle sole righe. Se tuttavia si registra in formato stereo, è possibile usare il secondo canale per registrare la conversazione nella sala di controllo per acquisire le discussioni di righe o take particolari. Rimuovere questa traccia dalla versione caricata nel portale per la voce personalizzata.
 
 Ascoltare con attenzione, usando le cuffie, la prestazione dello speaker. Verificare che la dizione sia buona, ma naturale, che la pronuncia sia corretta e che non siano presenti suoni non desiderati. Non esitare a chiedere allo speaker di registrare nuovamente un'espressione che non soddisfa gli standard. 
 
 > [!TIP] 
-> Quando si registra un volume elevato di espressioni, una singola espressione può non avere un effetto evidente sulla voce personalizzata risultante. Può risultare pertanto più vantaggioso prendere nota di eventuali espressioni con problemi, escluderle dal set di dati e scoprire com'è la voce personalizzata risultante. È sempre possibile tornare nello studio e registrare i campioni mancanti in un secondo momento.
+> Quando si usa un volume elevato di espressioni, una singola espressione può non avere un effetto evidente sulla voce personalizzata risultante. Può risultare pertanto più vantaggioso prendere nota di eventuali espressioni con problemi, escluderle dal set di dati e scoprire com'è la voce personalizzata risultante. È sempre possibile tornare nello studio e registrare i campioni mancanti in un secondo momento.
 
 Prendere nota del numero del take o del time code per ogni espressione. Chiedere al tecnico se può contrassegnare ogni espressione nei metadati o nel file cue della registrazione.
 
