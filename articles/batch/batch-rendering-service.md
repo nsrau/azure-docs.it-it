@@ -1,276 +1,104 @@
 ---
-title: Rendering di Azure Batch - Rendering a livello del cloud | Microsoft Docs
-description: Eseguire il rendering di processi nelle macchine virtuali di Azure direttamente da Maya e con pagamento in base al consumo.
+title: Panoramica del rendering di Azure Batch
+description: Introduzione all'uso di Azure per il rendering e panoramica delle funzionalità di rendering di Azure Batch
 services: batch
-author: dlepow
-manager: jeconnoc
-ms.service: batch
-ms.topic: hero-article
-ms.date: 05/10/2018
-ms.author: danlep
-ms.openlocfilehash: cdec9c29d7f4f2832e175153ec50e400a735211a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+author: mscurrell
+ms.author: markscu
+ms.date: 08/02/2018
+ms.topic: conceptual
+ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172273"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40036760"
 ---
-# <a name="get-started-with-batch-rendering"></a>Guida introduttiva all'uso di Rendering di Batch 
+# <a name="rendering-using-azure"></a>Rendering tramite Azure
 
-Rendering di Azure Batch offre funzionalità di rendering su scala cloud con pagamento in base al consumo. Rendering di Batch gestisce la pianificazione e l'accodamento dei processi, la gestione degli errori e dei tentativi e il ridimensionamento automatico per i processi di rendering. Rendering di Batch supporta app di rendering tra cui [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) e [V-Ray](https://www.chaosgroup.com/vray/maya). Il plug-in Batch per Maya 2017 semplifica l'avvio di un processo di rendering in Azure direttamente dal desktop.
+Il rendering è il processo di conversione di modelli 3D in immagini 2D. I file delle scene 3D vengono creati in applicazioni come Autodesk 3ds Max, Autodesk Maya e Blender.  Le applicazioni di rendering come Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray e Blender Cycles producono immagini 2D.  A volte dai file delle scene vengono create singole immagini. Tuttavia, è prassi comune eseguire la modellazione e il rendering di più immagini e quindi combinarle in un'animazione.
 
-Con Maya e 3ds Max è possibile eseguire processi con l'applicazione desktop [Batch Explorer](https://github.com/Azure/BatchExplorer) o l'[interfaccia della riga di comando per i modelli di Batch](batch-cli-templates.md). Usando l'interfaccia della riga di comando di Azure Batch è possibile eseguire processi di Batch senza scrivere codice. È invece possibile usare file di modello per creare pool, processi e attività di Batch. Per altre informazioni, vedere [Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch](batch-cli-templates.md).
+Il carico di lavoro di rendering viene usato in modo intensivo per gli effetti speciali (VFX) nel settore dei media e dell'intrattenimento. Il rendering viene usato anche in molti altri settori, tra cui quelli pubblicitario, manifatturiero, della vendita al dettaglio e di gas e petrolio.
 
+Il processo di rendering usa risorse di calcolo in modo intensivo, in quanto possono essere presenti molti fotogrammi/immagini da produrre e il rendering di ogni immagine può richiedere molte ore.  Di conseguenza, il rendering è un carico di lavoro di elaborazione batch perfetto, che può sfruttare Azure e Azure Batch per eseguire molte attività di rendering in parallelo.
 
-## <a name="supported-applications"></a>Applicazioni supportate
+## <a name="why-use-azure-for-rendering"></a>Perché usare Azure per il rendering?
 
-Rendering di Batch supporta attualmente le applicazioni seguenti:
+Per molti motivi, il rendering è un carico di lavoro assolutamente ideale per Azure e Azure Batch:
 
-Nei nodi di rendering CentOS 7:
-- Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
-- Autodesk Maya I/O 2018 Update 2 cut 201711281015
-- Autodesk Arnold per Maya 2017 (Arnold versione 5.0.1.1) MtoA-2.0.1.1-2017
-- Autodesk Arnold per Maya 2018 (Arnold versione 5.0.1.4) MtoA-2.1.0.3-2018
-- Chaos Group V-Ray per Maya 2017 (versione 3.60.04) 
-- Chaos Group V-Ray per Maya 2018 (versione 3.60.04) 
-- Blender (2.68)
+* I processi di rendering possono essere suddivisi in molte parti, che a loro volta possono essere eseguite in parallelo usando diverse macchine virtuali:
+  * Le animazioni sono costituite da molti fotogrammi, di ciascuno dei quali è possibile eseguire il rendering in parallelo.  Più sono le macchine virtuali disponibili per elaborare ogni fotogramma, più velocemente possono essere prodotti tutti i fotogrammi e l'animazione.
+  * Alcuni software di rendering permettono la suddivisione di singoli fotogrammi in più parti, ad esempio in riquadri o sezioni.  Di ogni parte è possibile eseguire il rendering separatamente, per poi ricombinarle nell'immagine finale al termine di tutte le operazioni.  Più sono le macchine virtuali disponibili, più rapidamente avverrà il rendering di un fotogramma.
+* I progetti di rendering possono richiedere una scalabilità elevatissima:
+  * Il rendering di singoli fotogrammi, che possono essere anche molto complessi, può richiedere molte ore, anche su hardware di fascia alta. Le animazioni possono essere costituite da centinaia di migliaia di fotogrammi.  Per il rendering di animazioni di qualità elevata, è necessaria una notevole capacità di calcolo in un periodo di tempo ragionevole.  In alcuni casi, sono stati usati oltre 100.000 core per il rendering di migliaia di fotogrammi in parallelo.
+* Le attività di rendering sono basate sul progetto e richiedono capacità di calcolo variabili:
+  * Allocare la capacità di calcolo e archiviazione nel modo necessario, aumentarla o ridurla in base al carico durante un progetto e rimuoverla al termine del progetto.
+  * Pagare per la capacità solo dopo che è stata allocata, evitando di pagare in assenza di carico, ad esempio tra progetti.
+  * Predisporre l'ambiente per i picchi dovuti a modifiche impreviste: aumentare la capacità in caso di modifiche impreviste nelle fasi successive di un progetto se queste modifiche devono essere elaborate in tempi ridotti.
+* Scegliere tra un'ampia gamma di opzioni hardware in base ad applicazione, carico di lavoro e intervallo di tempo:
+  * In Azure è disponibile una vasta gamma di soluzioni hardware che possono essere allocate e gestite con Batch.
+  * A seconda del progetto, il requisito più importante può essere il miglior rapporto tra prezzo e prestazioni o migliori prestazioni nel complesso.  Scene e/o applicazioni di rendering diverse avranno requisiti di memoria diversi.  Alcune applicazioni di rendering possono sfruttare le GPU per ottenere prestazioni ottimali o determinate funzionalità. 
+* Le macchine virtuali con priorità bassa riducono i costi:
+  * Le macchine virtuali con priorità bassa sono ora disponibili a un prezzo notevolmente scontato rispetto alle normali macchine virtuali on demand e sono adatte per alcuni tipi di processo.
+  * Le macchine virtuali con priorità bassa possono essere allocate da Azure Batch, che offre flessibilità di utilizzo per soddisfare un ampio insieme di requisiti.  I pool di Batch possono essere costituiti da macchine virtuali sia dedicate sia con priorità bassa, con la possibilità di modificare la combinazione dei tipi di macchina virtuale in qualsiasi momento.
 
-Nei nodi di rendering Windows Server 2016:
-- Autodesk Maya I/O 2017 Update 5 (versione 17.4.5459) 
-- Autodesk Maya I/O 2018 Update 2 (versione 18.2.0.6476) 
-- Autodesk 3ds Max I/O 2018 Update 4 (versione 20.4.0.4254) 
-- Autodesk Arnold per Maya (Arnold versione 5.0.1.1) MtoA-2.0.1.1-2017
-- Autodesk Arnold per Maya (Arnold versione 5.0.1.4) MtoA-2.0.2.3-2018
-- Autodesk Arnold per 3ds Max (Arnold versione 5.0.2.4 )(versione 1.2.926) 
-- Chaos Group V-Ray per Maya (versione 3.52.03) 
-- Chaos Group V-Ray per 3ds Max (versione 3.60.02)
-- Blender (2.79)
+## <a name="options-for-rendering-on-azure"></a>Opzioni per il rendering in Azure
 
+Azure offre un'ampia gamma di funzionalità che possono essere usate per carichi di lavoro di rendering.  La scelta delle funzionalità da usare dipende dall'ambiente esistente e dai requisiti.
 
-## <a name="prerequisites"></a>Prerequisiti
+### <a name="existing-on-premises-rendering-environment-using-a-render-management-application"></a>Ambiente di rendering locale esistente con un'applicazione di gestione del rendering
 
-Per usare Rendering di Batch, è necessario disporre di:
+Il caso più comune prevede la presenza di una farm di rendering locale esistente gestita da un'applicazione di gestione del rendering come PipelineFX Qube, Royal Render o Thinkbox Deadline.  Il requisito consiste nell'estendere la capacità della farm di rendering locale tramite macchine virtuali di Azure.
 
-- [Account Azure](https://azure.microsoft.com/free/).
-- **Account Azure Batch**. Per indicazioni sulla creazione di un account Batch nel portale di Azure, vedere [Creare un account Batch nel portale di Azure](batch-account-create-portal.md).
-- **Account di archiviazione di Azure**. Gli asset usati per il processo di rendering vengono in genere archiviati in Archiviazione di Azure. È possibile creare automaticamente un account di archiviazione quando si configura l'account Batch. È possibile anche usare un account di archiviazione esistente. Per le opzioni dell'account di archiviazione in Batch, vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#azure-storage-account).
-- **Variabili di ambiente**. Se la soluzione modifica le variabili di ambiente, assicurarsi che i valori di `AZ_BATCH_ACCOUNT_URL` e `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` non vengano modificati e siano presenti quando viene chiamata una delle applicazioni con licenza indicate in precedenza. In caso contrario, potrebbero verificarsi problemi di attivazione software.
-- **Batch Explorer** (facoltativo). [Batch Explorer](https://azure.github.io/BatchExplorer) (in precedenza denominato Batch Labs) è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare, eseguire il debug e monitorare le applicazioni di Azure Batch. Benché questo strumento non sia obbligatorio per usare il servizio Rendering, è un'opzione utile per sviluppare soluzioni Batch ed eseguirne il debug.
+Il software di gestione del rendering include il supporto di Azure integrato oppure Microsoft rende disponibili alcuni plug-in che aggiungono tale supporto di Azure. Per altre informazioni sugli strumenti di gestione del rendering supportati e sulle funzionalità abilitate, vedere l'articolo sull'[uso di applicazioni di gestione del rendering](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers).
 
-Per usare il plug-in di Batch per Maya, è necessario quanto segue:
+### <a name="custom-rendering-workflow"></a>Flusso di lavoro di rendering personalizzato
 
-- [Autodesk Maya 2017](https://www.autodesk.com/products/maya/overview).
-- Un renderer supportato, ad esempio Arnold for Maya o V-Ray for Maya.
+Il requisito è che le macchine virtuali estendano una farm di rendering esistente.  I pool di Azure Batch possono allocare numeri elevati di macchine virtuali, permettere l'uso e la scalabilità automatica dinamica di macchine virtuali con priorità bassa con macchine virtuali a prezzo pieno e fornire licenze con pagamento in base al consumo per le applicazioni di rendering più diffuse.
 
-## <a name="basic-batch-concepts"></a>Concetti di base relativi a Batch
+### <a name="no-existing-render-farm"></a>Nessuna farm di rendering esistente
 
-Prima di iniziare a usare Rendering di Batch, è consigliabile acquisire familiarità con alcuni concetti relativi a Batch, inclusi i nodi, i pool e i processi. Per altre informazioni generali su Azure Batch, vedere [Eseguire carichi di lavoro intrinsecamente paralleli con Batch](batch-technical-overview.md).
+Le workstation client possono eseguire il rendering, ma il carico di lavoro di rendering aumenta e impiega troppo tempo per poter usare unicamente la capacità delle workstation.  È possibile usare Azure Batch per allocare alla farm di rendering capacità di calcolo on demand e pianificare i processi di rendering nella farm di rendering di Azure.
 
-### <a name="pools"></a>Pool
+## <a name="azure-batch-rendering-capabilities"></a>Funzionalità di rendering di Azure Batch
 
-Batch è un servizio piattaforma per l'esecuzione di operazioni a elevato utilizzo di calcolo, come il rendering, in un **pool** di **nodi di calcolo**. Ogni nodo di calcolo in un pool è una macchina virtuale di Azure che esegue Linux o Windows. 
+Azure Batch permette l'esecuzione di carichi di lavoro paralleli in Azure.  Permette inoltre la creazione e la gestione di un numero elevato di macchine virtuali sulle quali vengono installate ed eseguite le applicazioni.  Offre anche funzionalità di pianificazione dei processi complete per l'esecuzione di istanze nelle applicazioni, fornendo l'assegnazione di attività alle macchine virtuali, l'accodamento, il monitoraggio delle applicazioni e così via.
 
-Per altre informazioni sui pool e sui nodi di calcolo di Batch, vedere le sezioni [Pool](batch-api-basics.md#pool) e [Nodi di calcolo](batch-api-basics.md#compute-node) in [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
+Azure Batch viene usato per molti carichi di lavoro, ma sono disponibili le funzionalità seguenti per semplificare e accelerare in particolare l'esecuzione dei carichi di lavoro di rendering.
 
-### <a name="jobs"></a>Processi
+* Immagini di macchina virtuale con applicazioni di rendering e grafica preinstallate:
+  * Sono disponibili immagini di macchina virtuale di Azure Marketplace, che contengono applicazioni di grafica e rendering tra le più diffuse, per evitare la necessità di installare personalmente le applicazioni o di creare immagini personalizzate con le applicazioni installate. 
+* Licenze con pagamento in base al consumo per applicazioni di rendering:
+  * È possibile scegliere di pagare per le applicazioni in tempo reale, oltre al pagamento delle macchine virtuali di calcolo, evitando di dover acquistare licenze ed eventualmente configurare un server licenze per le applicazioni.  Il pagamento in base al consumo significa che è possibile gestire carichi variabili e imprevisti, in quanto il numero di licenze non è fisso.
+  * È anche possibile usare le applicazioni preinstallate con licenze proprie, evitando di usare le licenze con pagamento in base al consumo.
+* Plug-in per applicazioni di progettazione e modellazione client:
+  * I plug-in permettono agli utenti finali di utilizzare Azure Batch direttamente dall'applicazione client, ad esempio Autodesk Maya, per poter creare pool, inviare processi e fare uso di una maggiore capacità di calcolo per eseguire rendering più rapidi.
+* Integrazione di applicazioni di gestione del rendering:
+  * Azure Batch è integrato in applicazioni di gestione del rendering oppure sono disponibili plug-in per fornire questa integrazione.
 
-Un **processo** di Batch è una raccolta di attività in esecuzione nei nodi di calcolo in un pool. Quando si invia un processo di rendering, Batch divide il processo in attività e distribuisce le attività per l'esecuzione nei nodi di calcolo nel pool.
+È possibile usare Azure Batch in diversi modi, tutti validi anche per il rendering di Azure Batch.
 
-È possibile usare il [portale di Azure](https://ms.portal.azure.com/) per monitorare i processi e diagnosticare le attività non riuscite scaricando i log delle applicazioni e connettendosi in modalità remota alle singole VM usando RDP o SSH. È anche possibile gestire, monitorare ed eseguire il debug usando lo [strumento Batch Explorer](https://azure.github.io/BatchExplorer).
+* API:
+  * Scrivere codice tramite API [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch) o altre API supportate.  Gli sviluppatori possono integrare funzionalità di Azure Batch nelle applicazioni o nel flusso di lavoro esistenti, nel cloud o in locale.  Ad esempio, il [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utilizza l'API Phyton per Batch per richiamare Batch, creare e gestire pool, inviare processi e attività e monitorare lo stato.
+* Strumenti da riga di comando:
+  * Per scrivere script per l'uso di Batch, è possibile usare la [riga di comando di Azure](https://docs.microsoft.com/cli/azure/) o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+  * In particolare, il supporto dei modelli dell'interfaccia della riga di comando di Batch semplifica notevolmente la creazione di pool e l'invio di processi.
+* Interfacce utente:
+  * [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client multipiattaforma che permette anche la gestione e il monitoraggio degli account di Batch, ma offre alcune funzionalità avanzate rispetto all'interfaccia utente del portale di Azure.  Viene fornito un set di modelli di pool e di processo ottimizzati per ogni applicazione supportata, che possono essere usati per creare pool e inviare processi in tutta semplicità.
+  * Il portale di Azure può essere usato per gestire e monitorare Azure Batch.
+* Plug-in per le applicazioni client:
+  * Sono disponibili plug-in che permettono l'uso del rendering di Batch direttamente dalle applicazioni di progettazione e modellazione client. I plug-in principalmente richiamano l'applicazione Batch Explorer con informazioni contestuali sul modello 3D corrente.
+  * Sono disponibili i plug-in seguenti:
+    * [Azure Batch per Maya](https://github.com/Azure/azure-batch-maya)
+    * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
+    * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 
-Per altre informazioni sui processi di Batch, vedere la sezione [Processo](batch-api-basics.md#job) in [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
+## <a name="getting-started-with-azure-batch-rendering"></a>Introduzione al rendering di Azure Batch
 
-## <a name="options-for-provisioning-required-applications"></a>Opzioni per il provisioning delle applicazioni necessarie
+Per provare il rendering di Azure Batch, vedere le esercitazioni introduttive seguenti:
 
-Più applicazioni potrebbero dover eseguire il rendering di un processo, ad esempio la combinazione di Maya e Arnold o di 3ds Max e V-Ray, nonché altri plug-in di terze parti, se necessario. Alcuni clienti potrebbero anche richiedere versioni specifiche di queste applicazioni. Di conseguenza, sono disponibili diversi metodi per il provisioning delle applicazioni e del software necessari:
-
-### <a name="pre-configured-vm-images"></a>Immagini di macchina virtuale preconfigurate
-
-Azure offre immagini Windows e Linux, ognuna con una singola versione di Maya, 3ds Max, Arnold e V-Ray preinstallate e pronte per l'uso. È possibile selezionare queste immagini nel [portale di Azure](https://portal.azure.com), nel plug-in per Maya o in [Batch Explorer](https://azure.github.io/BatchExplorer) quando si crea un pool.
-
-Nel portale di Azure e in Batch Explorer è possibile installare una delle immagini di macchina virtuale con le applicazioni preinstallate in questo modo: nella sezione Pool dell'account Batch selezionare **Nuovo**, quindi in **Aggiungi pool** selezionare **Grafica e rendering (Linux/Windows)** nell'elenco a discesa **Tipo di immagine**:
-
-![Selezionare il tipo di immagine per l'account Batch](./media/batch-rendering-service/add-pool.png)
-
-Scorrere verso il basso e in **Licenza per grafica e rendering** fare clic su **Selezionare il software e il prezzo**. Scegliere una o più delle licenze software:
-
-![Selezione della licenza per grafica e rendering per il pool](./media/batch-rendering-service/graphics-licensing.png)
-
-Le versioni di licenza specifiche fornite corrispondono alle versioni nella sezione "Applicazioni supportate" precedente.
-
-### <a name="custom-images"></a>Immagini personalizzate
-
-Azure Batch permette di specificare un'immagine personalizzata. Con questa opzione, è possibile configurare la macchina virtuale esattamente con le applicazioni e le versioni specifiche necessarie. Per altre informazioni, vedere [Usare un'immagine personalizzata per creare un pool di macchine virtuali](https://docs.microsoft.com/azure/batch/batch-custom-images). Si noti che Autodesk e Chaos Group hanno modificato rispettivamente Arnold e V-Ray per convalidare le proprie applicazioni in base al servizio di licenze Microsoft. È necessario verificare di avere le versioni di queste applicazioni con questo supporto. In caso contrario, le licenze con pagamento in base al consumo non funzioneranno. La convalida della licenza non è necessaria per Maya o 3ds Max, in quanto le attuali versioni pubblicate non richiedono un server licenze con esecuzioni di tipo headless (in modalità batch/riga di comando). In caso di dubbi su come procedere con questa opzione, contattare il supporto di Azure.
-
-## <a name="options-for-submitting-a-render-job"></a>Opzioni per l'invio di un processo di rendering
-
-A seconda dell'applicazione 3D usata, sono disponibili diverse opzioni per l'invio di processi di rendering:
-
-### <a name="maya"></a>Maya
-
-Con Maya è possibile usare:
-
-- [Plug-in di Batch per Maya](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- Applicazione desktop [Batch Explorer](https://azure.github.io/BatchExplorer)
-- [Interfaccia della riga di comando per i modelli di Batch](batch-cli-templates.md)
-
-### <a name="3ds-max"></a>3ds Max
-
-Con 3ds Max è possibile usare:
-
-- Applicazione desktop [Batch Explorer](https://azure.github.io/BatchExplorer) (per indicazioni sull'uso dei modelli 3ds Max, vedere [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax))
-- [Interfaccia della riga di comando per i modelli di Batch](batch-cli-templates.md)
-
-I modelli di Batch Labs per 3ds Max permettono di eseguire il rendering di scene V-Ray e Arnold usando Rendering di Batch. Esistono due varianti del modello per V-Ray e Arnold, uno per le scene standard e uno per le scene più complesse che richiedono un file di percorso 3ds Max per asset e trame (file MXP). Per altre informazioni sui modelli 3ds Max, vedere il repository [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax) su GitHub.
-
-È anche possibile usare [Batch Python SDK](/python/api/overview/azure/batch) per integrare il servizio di rendering con la pipeline esistente.
-
-
-## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Usare il plug-in di Batch per Maya per inviare un processo di rendering
-
-Con il plug-in di Batch per Maya è possibile inviare un processo a Rendering di Batch direttamente da Maya. Le sezioni seguenti illustrano come configurare il processo dal plug-in e quindi inviarlo. 
-
-### <a name="load-the-batch-plug-in-for-maya"></a>Caricare il plug-in di Batch per Maya
-
-Il plug-in di Batch è disponibile su [GitHub](https://github.com/Azure/azure-batch-maya/releases). Decomprimere il file compresso in una directory appropriata. È possibile caricare il plug-in direttamente dalla directory *azure_batch_maya*.
-
-Per caricare il plug-in in Maya:
-
-1. Eseguire Maya.
-2. Aprire **Window** (Finestra)  > **Settings/Preferences** (Impostazioni/Preferenze)  > **Plug-in Manager** (Gestione plug-in).
-3. Fare clic su **Sfoglia**.
-4. Passare ad *azure_batch_maya/plug-in/AzureBatch.py* e selezionarlo.
-
-### <a name="authenticate-access-to-your-batch-and-storage-accounts"></a>Autenticare l'accesso agli account Batch e di archiviazione
-
-Per usare il plug-in, è necessario eseguire l'autenticazione usando le chiavi dell'account Azure e dell'account di archiviazione di Azure. Per recuperare le chiavi dell'account:
-
-1. Visualizzare il plug-in in Maya e quindi selezionare la scheda **Config**.
-2. Passare al [portale di Azure](https://portal.azure.com).
-3. Selezionare **Account Batch** dal menu a sinistra. Se necessario, fare clic su **Altri servizi** e specificare _Batch_ come criterio per il filtro.
-4. Individuare l'account Batch da usare nell'elenco.
-5. Selezionare la voce di menu **Chiavi** per visualizzare il nome dell'account, l'URL dell'account e le chiavi di accesso:
-    - Incollare l'URL dell'account Batch nel campo **Servizio** del plug-in Batch.
-    - Incollare il nome dell'account nel campo **Account Batch**.
-    - Incollare la chiave dell'account primaria nel campo **Batch Key** (Chiave Batch).
-7. Selezionare Account di archiviazione dal menu a sinistra. Se necessario, fare clic su **Altri servizi** e specificare _Archiviazione_ come criterio per il filtro.
-8. Individuare l'account di archiviazione da usare nell'elenco.
-9. Selezionare la voce di menu **Chiavi di accesso** per visualizzare il nome e le chiavi dell'account di archiviazione.
-    - Incollare il nome dell'account di archiviazione nel campo **Account di archiviazione** del plug-in di Batch.
-    - Incollare la chiave dell'account primaria nel campo **Chiave di archiviazione**.
-10. Fare clic su **Autenticazione** per assicurarsi che il plug-in possa accedere a entrambi gli account.
-
-Dopo avere completato correttamente l'autenticazione, il plug-in imposta il campo relativo allo stato su **Autenticazione eseguita**: 
-
-![Autenticare gli account Batch e di archiviazione](./media/batch-rendering-service/authentication.png)
-
-### <a name="configure-a-pool-for-a-render-job"></a>Configurare un pool per un processo di rendering
-
-Dopo avere completato l'autenticazione degli account Batch e di archiviazione, configurare un pool per il processo di rendering. Il plug-in salva le opzioni selezionate tra le sessioni. Dopo avere impostato la configurazione preferita, sarà necessario modificarla solo in caso di cambiamenti.
-
-Le sezioni seguenti illustrano in modo dettagliato le opzioni disponibili nella scheda **Invia**:
-
-#### <a name="specify-a-new-or-existing-pool"></a>Specificare un pool nuovo o esistente
-
-Per specificare un pool in cui eseguire il processo di rendering, selezionare la scheda **Invia**. Questa scheda offre opzioni per la creazione di un pool o per la selezione di un pool esistente:
-
-- È possibile scegliere l'opzione predefinita, **Auto provision a pool for this job** (Effettua automaticamente il provisioning di un pool per questo processo). Quando si sceglie questa opzione, Batch crea il pool esclusivamente per il processo corrente ed elimina automaticamente il pool al termine del processo di rendering. Questa opzione è ideale quando è presente un singolo processo di rendering da completare.
-- È possibile scegliere l'opzione **Reuse an existing persistent pool** (Riutilizza un pool persistente esistente). Se è presente un pool esistente inattivo, è possibile specificare tale pool per l'esecuzione del processo di rendering selezionandolo dall'elenco a discesa. Il riutilizzo di un pool persistente esistente consente di ridurre il tempo necessario per il provisioning del pool.  
-- È possibile scegliere l'opzione **Create a new persistent pool** (Crea un nuovo pool persistente). Se si seleziona questa opzione, verrà creato un nuovo pool per l'esecuzione del processo. Il pool non viene eliminato al termine del processo, quindi è possibile riutilizzarlo per processi futuri. Selezionare questa opzione quando è necessario eseguire continuamente processi di rendering. Nei processi successivi è possibile selezionare l'opzione **Reuse an existing persistent pool** (Riutilizza un pool persistente esistente) per usare il pool persistente creato per il primo processo.
-
-![Specificare il pool, l'immagine del sistema operativo, le dimensioni della VM e la licenza](./media/batch-rendering-service/submit.png)
-
-Per altre informazioni sul calcolo degli addebiti per le VM di Azure, vedere [Domande frequenti sui prezzi per Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#faq) e [Domande frequenti sui prezzi per Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#faq).
-
-#### <a name="specify-the-os-image-to-provision"></a>Specificare l'immagine del sistema operativo di cui effettuare il provisioning
-
-È possibile specificare il tipo di immagine del sistema operativo da usare per il provisioning dei nodi di calcolo nel pool nella scheda **Env** (Ambiente). Batch supporta attualmente le opzioni di immagine seguenti per i processi di rendering:
-
-|Sistema operativo  |Image  |
-|---------|---------|
-|Linux     |Batch CentOS |
-|Windows     |Batch Windows |
-
-#### <a name="choose-a-vm-size"></a>Scegliere le dimensioni per la macchina virtuale
-
-È possibile specificare le dimensioni della VM nella scheda **Env** (Ambiente). Per altre informazioni sulle dimensioni di VM disponibili, vedere [Dimensioni delle macchine virtuali Linux in Azure](../virtual-machines/linux/sizes.md) e [Dimensioni per le macchine virtuali Windows in Azure](../virtual-machines/windows/sizes.md). 
-
-![Specificare l'immagine del sistema operativo e le dimensioni della VM nella scheda Env (Ambiente)](./media/batch-rendering-service/environment.png)
-
-#### <a name="specify-licensing-options"></a>Specificare le opzioni di licenza
-
-È possibile specificare le licenze da usare nella scheda **Env** (Ambiente). Le opzioni includono:
-
-- **Maya**, abilitata per impostazione predefinita.
-- **Arnold**, abilitata se viene rilevato Arnold come motore di rendering attivo in Maya.
-
- Se si vuole eseguire il rendering usando la propria licenza, è possibile configurare l'endpoint della licenza aggiungendo le variabili di ambiente appropriate alla tabella. In questo caso, assicurarsi di deselezionare le opzioni di licenza predefinite.
-
-> [!IMPORTANT]
-> Viene addebitato l'uso delle licenze quando le VM sono in esecuzione nel pool, anche se le VM non sono attualmente usate per il rendering. Per evitare addebiti supplementari, passare alla scheda **Pool** e ridimensionare il pool specificando 0 nodi, fino a quando non si è pronti per eseguire un altro processo di rendering. 
->
->
-
-#### <a name="manage-persistent-pools"></a>Gestire i pool persistenti
-
-È possibile gestire un pool persistente esistente nella scheda **Pool**. Se si seleziona un pool dall'elenco, viene visualizzato lo stato corrente del pool.
-
-Dalla scheda **Pool** è anche possibile eliminare il pool e ridimensionare il numero di VM nel pool. È possibile ridimensionare un pool specificando 0 nodi per evitare addebiti tra i carichi di lavoro.
-
-![Visualizzare, ridimensionare ed eliminare i pool](./media/batch-rendering-service/pools.png)
-
-### <a name="configure-a-render-job-for-submission"></a>Configurare un processo di rendering per l'invio
-
-Dopo avere specificato i parametri per il pool che eseguirà il processo di rendering, configurare il processo stesso. 
-
-#### <a name="specify-scene-parameters"></a>Specificare i parametri della scena
-
-Il plug-in di Batch rileva il motore di rendering attualmente in uso in Maya e mostra le impostazioni di rendering appropriate nella scheda **Invia**. Queste impostazioni includono il fotogramma iniziale, il fotogramma finale, il prefisso di output e il passaggio di fotogramma. È possibile eseguire l'override delle impostazioni di rendering del file della scena, specificando impostazioni diverse nel plug-in. Le modifiche apportate alle impostazioni del plug-in non vengono salvate in modo permanente nelle impostazioni di rendering del file della scena, quindi è possibile apportare modifiche per i singoli processi, senza che sia necessario ricaricare il file della scena.
-
-Il plug-in avvisa nel caso in cui il motore di rendering selezionato in Maya non sia supportato.
-
-Se si carica una nuova scena quando il plug-in è aperto, fare clic sul pulsante **Aggiorna** per assicurarsi che le impostazioni siano aggiornate.
-
-#### <a name="resolve-asset-paths"></a>Risolvere i percorsi degli asset
-
-Quando si carica il plug-in, viene eseguita l'analisi del file della scena per individuare eventuali riferimenti a file esterni. Questi riferimenti vengono visualizzati nella scheda **Asset**. Se non è possibile risolvere un percorso a cui si fa riferimento, il plug-in prova a individuare il file in alcuni percorsi predefiniti, ad esempio:
-
-- Percorso del file della scena 
-- Directory _sourceimages_ del progetto corrente
-- Directory di lavoro corrente 
-
-Se non è comunque possibile individuare l'asset, accanto all'asset viene visualizzata un'icona di avviso:
-
-![Gli asset mancanti vengono visualizzati con un'icona di avviso](./media/batch-rendering-service/missing_assets.png)
-
-Se si conosce il percorso di un riferimento di file non risolto, è possibile fare clic sull'icona di avviso, in modo che venga visualizzata la richiesta di aggiunta di un percorso di ricerca. Il plug-in usa quindi il percorso di ricerca per provare a risolvere eventuali asset mancanti. È possibile aggiungere qualsiasi numero di percorsi di ricerca aggiuntivi.
-
-Quando viene risolto, il riferimento viene elencato con un'icona di colore verde chiaro:
-
-![Asset risolti con icona di colore verde chiaro](./media/batch-rendering-service/found_assets.png)
-
-Se la scena richiede altri file non rilevati dal plug-in, è possibile aggiungere altri file o directory. Usare i pulsanti **Aggiungi file** e **Aggiungi directory**. Se si carica una nuova scena quando il plug-in è aperto, assicurarsi di fare clic su **Aggiorna** per aggiornare i riferimenti della scena.
-
-#### <a name="upload-assets-to-an-asset-project"></a>Caricare asset in un progetto asset
-
-Quando si invia un processo di rendering, i file visualizzati nella scheda **Asset** vengono caricati automaticamente in Archiviazione di Azure come progetto asset. È anche possibile caricare indipendentemente i file di asset di un processo di rendering, usando il pulsante **Carica** nella scheda **Asset**. Il nome del progetto asset viene specificato nel campo **Progetto** e il nome viene specificato per impostazione predefinita in base al progetto Maya corrente. Quando vengono caricati file di asset, viene mantenuta la struttura di file locale. 
-
-Dopo il caricamento, qualsiasi processo di rendering può fare riferimento agli asset. Tutti gli asset caricati sono disponibili a qualsiasi processo che fa riferimento al progetto asset, indipendentemente dal fatto che siano inclusi nella scena. Per modificare il progetto asset a cui fa riferimento il processo successivo, cambiare il nome nel campo **Progetto** della scheda **Asset**. Se sono presenti file a cui si fa riferimento da escludere dal caricamento, deselezionarli usando il pulsante verde accanto a ogni voce dell'elenco.
-
-#### <a name="submit-and-monitor-the-render-job"></a>Inviare e monitorare il processo di rendering
-
-Dopo aver configurato il processo di rendering nel plug-in, fare clic sul pulsante **Invia processo** nella scheda **Invia** per inviare il processo a Batch:
-
-![Inviare il processo di rendering](./media/batch-rendering-service/submit_job.png)
-
-È possibile monitorare un processo in corso dalla scheda **Processi** del plug-in. Selezionare un processo dall'elenco per visualizzare lo stato corrente del processo. È anche possibile usare questa scheda per annullare ed eliminare processi, oltre che per scaricare gli output e i log di rendering. 
-
-Per scaricare gli output, modificare il campo **Output** per impostare la directory di destinazione da usare. Fare clic sull'icona a forma di ingranaggio per avviare un processo in background che controlla il processo e scarica gli output nel corso dell'esecuzione del processo: 
-
-![Visualizzare lo stato del processo e scaricare gli output](./media/batch-rendering-service/jobs.png)
-
-È possibile chiudere Maya senza interrompere il processo di download.
+* [Eseguire il rendering di una scena di Blender con Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Usare l'interfaccia della riga di comando di Batch per eseguire il rendering di una scena di Autodesk 3ds Max](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Batch, vedere [Eseguire carichi di lavoro intrinsecamente paralleli con Batch](batch-technical-overview.md).
+Determinare l'elenco di applicazioni di rendering e le versioni incluse nelle immagini di macchina virtuale di Azure Marketplace in [questo articolo](https://docs.microsoft.com/azure/batch/batch-rendering-applications).

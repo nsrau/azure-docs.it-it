@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f7cf471a69395cef0aef7d5dd2e3c77218bf97a3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210925"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715281"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Scegliere un piano tariffario per Ricerca di Azure
 
@@ -36,14 +36,14 @@ Per la selezione del piano è necessario tenere presente concetti come le defini
 
 ### <a name="capacity"></a>Capacity
 
-La capacità è strutturata in *repliche* e *partizioni*. Le repliche sono istanze del servizio di ricerca, in cui ogni replica ospita una copia con carico bilanciato di un indice. Ad esempio, un servizio con 6 repliche ha 6 copie di ogni indice caricato nel servizio. Le partizioni archiviano gli indici e suddividono automaticamente i dati ricercabili: due partizioni suddividono l'indice in due parti, tre partizioni in tre parti e così via. In termini di capacità la *dimensione della partizione* è la principale caratteristica di differenziazione tra i livelli.
+La capacità è strutturata in *repliche* e *partizioni*. 
+
++ Le repliche sono istanze del servizio di ricerca, in cui ogni replica ospita una copia con carico bilanciato di un indice. Ad esempio, un servizio con 6 repliche ha 6 copie di ogni indice caricato nel servizio. 
+
++ Le partizioni archiviano gli indici e suddividono automaticamente i dati ricercabili: due partizioni suddividono l'indice in due parti, tre partizioni in tre parti e così via. In termini di capacità la *dimensione della partizione* è la principale caratteristica di differenziazione tra i livelli.
 
 > [!NOTE]
 > Tutti i livelli **Standard** supportano [combinazioni flessibili di repliche e partizioni](search-capacity-planning.md#chart) che consentono di [definire il sistema in termini di velocità o archiviazione](search-performance-optimization.md) modificando il bilanciamento. Il livello **Basic** offre tre repliche per una disponibilità elevata ma include un'unica partizione. I livelli **gratuiti** non offrono risorse dedicate: le risorse di calcolo sono condivise da più servizi gratuiti.
-
-### <a name="limits"></a>Limiti
-
-I servizi ospitano le risorse, ad esempio indici, indicizzatori e così via. Ogni livello impone [limiti del servizio](search-limits-quotas-capacity.md) sulla quantità di risorse che è possibile creare. Di conseguenza, un limite al numero di indici e altri oggetti è la seconda caratteristica di differenziazione tra i livelli. Quando si esamina ogni opzione nel portale, tenere presente i limiti sul numero di indici. Altre risorse, come gli indicizzatori, le origini dati e i set di competenze, sono sottoposte ai limiti degli indici.
 
 ### <a name="search-units"></a>Unità di ricerca
 
@@ -52,6 +52,10 @@ Il concetto di fatturazione più importante è l'*unità di ricerca* (SU, Search
 Sebbene ogni livello tenda progressivamente a una capacità più elevata, è possibile portare online una parte della capacità totale e mantenere la parte rimanente come riserva. In termini di fatturazione, l'effettivo importo del pagamento corrisponde al numero di partizioni e repliche portate online, calcolato usando la formula delle unità di ricerca.
 
 La tariffa di fatturazione è oraria per ogni unità di ricerca e diversa per ogni livello. Le tariffe per ogni livello sono disponibili in [Prezzi di Ricerca](https://azure.microsoft.com/pricing/details/search/).
+
+### <a name="limits"></a>Limiti
+
+I servizi ospitano le risorse, ad esempio indici, indicizzatori e così via. Ogni livello impone [limiti del servizio](search-limits-quotas-capacity.md) sulla quantità di risorse che è possibile creare. Di conseguenza, un limite al numero di indici e altri oggetti è la seconda caratteristica di differenziazione tra i livelli. Quando si esamina ogni opzione nel portale, tenere presente i limiti sul numero di indici. Altre risorse, come gli indicizzatori, le origini dati e i set di competenze, sono sottoposte ai limiti degli indici.
 
 ## <a name="consumption-patterns"></a>Modelli di consumo
 
@@ -86,7 +90,7 @@ In genere i requisiti aziendali definiscono il numero di indici necessario. Ad e
 
 Per determinare le dimensioni di un indice, è necessario [crearne uno](search-create-index-portal.md). La struttura dei dati in Ricerca di Azure è fondamentalmente un [indice invertito](https://en.wikipedia.org/wiki/Inverted_index) con caratteristiche diverse rispetto ai dati di origine. In un indice invertito le dimensioni e la complessità dipendono dal contenuto, non necessariamente dalla quantità di dati inseriti. Un'origine dati di grandi dimensioni con una ridondanza massiccia può generare un indice più piccolo rispetto a un set di dati di dimensioni minori che include contenuto altamente variabile.  Per questa ragione raramente è possibile dedurre le dimensioni dell'indice in base alle dimensioni del set di dati originale.
 
-### <a name="preliminary-estimates-using-the-free-tier"></a>Stime preliminari tramite il livello gratuito
+### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>Passaggio 1: Preparare delle stime approssimative tramite il livello gratuito
 
 Un approccio per la stima della capacità consiste nell'iniziare con il livello **gratuito**. Tenere presente che il servizio **gratuito** offre un massimo di 3 indici, 50 MB di archiviazione e 2 minuti di indicizzazione. Sebbene la stima delle dimensioni previste per un indice con questi vincoli può risultare complessa, l'esempio seguente descrive un possibile approccio:
 
@@ -96,7 +100,7 @@ Un approccio per la stima della capacità consiste nell'iniziare con il livello 
 
 Presupponendo che l'esempio sia rappresentativo e corrisponda al 10% dell'intera origine dati, un indice di 30 MB diventa un indice di circa 300 MB se vengono indicizzati tutti i documenti. Con questo numero preliminare, è possibile raddoppiare la quantità da destinare a due indici (sviluppo e produzione) per un totale di 600 MB nei requisiti di indicizzazione. Poiché i requisiti possono essere facilmente soddisfatti dal livello **Basic**, iniziare con questo livello.
 
-### <a name="advanced-estimates-using-a-billable-tier"></a>Stime avanzate tramite un livello fatturabile
+### <a name="step-2-develop-refined-estimates-using-a-billable-tier"></a>Passaggio 2: Preparare delle stime affinate tramite un livello fatturabile
 
 Alcuni clienti preferiscono iniziare con risorse dedicate adatte a tempi di campionamento ed elaborazione maggiori e quindi sviluppare stime realistiche della quantità di indici, delle dimensioni e dei volumi di query durante lo sviluppo. Inizialmente, il provisioning di un servizio viene eseguito in base alla stima migliore quindi, man mano che il progetto di sviluppo avanza, i team sono in grado di determinare se la capacità del servizio esistente è superiore o inferiore a quella necessaria per i carichi di lavoro di produzione previsti. 
 

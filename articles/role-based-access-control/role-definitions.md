@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116062"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715771"
 ---
 # <a name="understand-role-definitions"></a>Informazioni sulle definizioni del ruolo
 
@@ -214,7 +214,7 @@ L'autorizzazione `NotDataActions` specifica le operazioni sui dati che sono escl
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-La proprietà `AssignableScopes` specifica gli ambiti (gruppi di gestione, attualmente in anteprima, sottoscrizioni, gruppi di risorse o risorse) in cui il ruolo è disponibile per l'assegnazione. È possibile rendere disponibile il ruolo per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono, in modo da non complicare l'esperienza utente per le altre sottoscrizioni o gli altri gruppi di risorse. È necessario usare almeno un gruppo di gestione, una sottoscrizione, un gruppo di risorse o un ID di risorsa.
+La proprietà `AssignableScopes` specifica gli ambiti (sottoscrizioni, gruppi di risorse o risorse) in cui il ruolo è disponibile per l'assegnazione. È possibile rendere disponibile il ruolo per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono, in modo da non complicare l'esperienza utente per le altre sottoscrizioni o gli altri gruppi di risorse. È necessario usare almeno una sottoscrizione, un gruppo di risorse o un ID della risorsa.
 
 Per i ruoli predefiniti, `AssignableScopes` è impostato sull'ambito radice (`"/"`), per indicare che il ruolo è disponibile per l'assegnazione in tutti gli ambiti. Ecco alcuni esempi di ambiti assegnabili validi:
 

@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adf2f555e907976f8b8efa863f255aa283098be9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448957"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716145"
 ---
-# <a name="manage-user-access-in-azure-ad-b2c"></a>Gestire l'accesso utente in Azure AD B2C
+# <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gestire l'accesso utente in Azure Active Directory B2C
 
 Questo articolo spiega come gestire l'accesso utente alle applicazioni usando Azure Active Directory (Azure AD) B2C. La gestione dell'accesso nell'applicazione include le operazioni seguenti:
 
@@ -27,9 +27,6 @@ Questo articolo spiega come gestire l'accesso utente alle applicazioni usando Az
 - Acquisizione del contratto per le condizioni per l'utilizzo e controllo dell'accesso.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
->[!Note] 
->Questo articolo contiene informazioni che possono essere usate per supportare i requisiti nell'ambito del Regolamento generale sulla protezione dei dati (GDPR). Per informazioni generali sul GDPR, vedere la [sezione di Service Trust Portal dedicata al GDPR](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="control-minor-access"></a>Controllare l'accesso dei minorenni
 
@@ -109,7 +106,7 @@ I passaggi seguenti descrivono come gestire le condizioni per l'utilizzo:
 È possibile acquisire l'accettazione delle condizioni per l'utilizzo negli scenari seguenti:
 
 - Un nuovo esegue l'iscrizione. Le condizioni per l'utilizzo vengono visualizzate e il risultato dell'accettazione viene archiviato.
-- Un utente accede e in precedenza ha già accettato le condizioni del contratto attive o più recenti. Le condizioni per l'utilizzo non vengono visualizzate.
+- Un utente accede e in precedenza ha già accettato le condizioni per l'utilizzo attive o più recenti. Le condizioni per l'utilizzo non vengono visualizzate.
 - Un utente accede e in precedenza non ha accettato le condizioni per l'utilizzo attive o più recenti. Le condizioni per l'utilizzo vengono visualizzate e il risultato dell'accettazione viene archiviato.
 - Un utente esegue l'accesso e ha già accettato una versione precedente delle condizioni per l'utilizzo, che ora vengono aggiornate alla versione più recente. Le condizioni per l'utilizzo vengono visualizzate e il risultato dell'accettazione viene archiviato.
 

@@ -1,6 +1,6 @@
 ---
-title: Informazioni su Utilizzo istanze riservate di Azure per la sottoscrizione con pagamento in base al consumo | Microsoft Docs
-description: Informazioni su come leggere l'utilizzo per comprendere come viene applicata l'istanza di macchina virtuale riservata di Azure per la sottoscrizione con pagamento in base al consumo.
+title: Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo | Microsoft Docs
+description: Informazioni su come leggere l'utilizzo per identificare come viene applicata la prenotazione di Azure per la sottoscrizione con pagamento in base al consumo.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,24 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 7e303f3e5ce0e618d941be4190f6fadb40f2e09d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064493"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627884"
 ---
-# <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo
+# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo
 
-Per informazioni sull'utilizzo di un'istanza di macchina virtuale riservata di Azure, usare ReservationId della [pagina Prenotazione](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e il file di utilizzo del [portale degli account di Azure](https://account.azure.com).
+Usare ReservationId della [pagina Prenotazioni](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e il file relativo all'utilizzo dal [portale degli account di Azure](https://account.azure.com) per valutare l'utilizzo della prenotazione.
 
+I clienti con Contratto Enterprise possono vedere l'articolo [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md).
 
->[!NOTE]
->Questo articolo non si applica ai clienti con Contratto Enterprise. I clienti con Contratto Enterprise possono vedere l'articolo [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md). In questo articolo si presuppone anche che l'istanza riservata venga applicata a una sottoscrizione singola. Se l'istanza riservata viene applicata a più di una sottoscrizione, il vantaggio dell'istanza riservata può estendersi a più file CSV di utilizzo. 
+Questo articolo presuppone che la prenotazione venga applicata a una sottoscrizione singola. Se la prenotazione viene applicata a più di una sottoscrizione, il vantaggio della prenotazione può estendersi a più file CSV di utilizzo.
 
-Per la sezione seguente, si presupponga di eseguire una macchina virtuale Windows Standard_DS1_v2 nell'area Stati Uniti orientali e che le informazioni sull'istanza riservata siano simili a quelle della tabella seguente:
+## <a name="usage-for-reserved-virtual-machine-instances"></a>Utilizzo delle istanze di macchina virtuale riservate
+
+Per le sezioni seguenti si presuppone di eseguire una macchina virtuale Windows Standard_DS1_v2 nell'area Stati Uniti orientali e che le informazioni sull'istanza riservata siano simili a quelle della tabella seguente:
 
 | Campo | Valore |
 |---| :---: |
@@ -38,35 +40,68 @@ Per la sezione seguente, si presupponga di eseguire una macchina virtuale Window
 |SKU | Standard_DS1_v2|
 |Region | eastus |
 
-## <a name="reserved-instance-application"></a>Applicazione dell'istanza riservata
+La parte hardware della VM è coperta perché la VM distribuita corrisponde agli attributi della prenotazione. Per identificare quale software Windows non è coperto dall'istanza di macchina virtuale riservata, vedere [Costi del software Windows per le istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md)
 
-La parte hardware della macchina virtuale è coperta perché la VM distribuita corrisponde agli attributi dell'istanza riservata. Per sapere quale software Windows non è coperto da Istanza riservata, andare a [Costi del software Windows con le istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md).
+### <a name="statement-section-of-csv-file-for-vms"></a>Sezione relativa al rendiconto nel file CSV per le macchine virtuali
 
-### <a name="statement-section-of-csv"></a>Sezione relativa al rendiconto nel CSV
-Questa sezione del file CSV indica l'utilizzo totale per l'istanza riservata. Nel campo Sottocategoria misuratore filtrare le voci contenenti "Istanze riservate di" per ottenere dati simili a quelli nello screenshot seguente: ![Screenshot dei dettagli sull'utilizzo e gli addebiti per l'istanza riservata filtrata](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
+Questa sezione del file CSV indica l'utilizzo totale della prenotazione. Nel campo **Sottocategoria contatore** applicare il filtro che contiene **"Istanze riservate"**. Il contenuto visualizzato sarà simile allo screenshot seguente:
 
-La riga Istanze riservate di VM di base indica il numero totale di ore coperte dall'istanza riservata. Questa riga contiene il valore $ 0,00 perché è coperta dall'istanza riservata. La riga Istanze riservate di Windows Server (1 core) indica il costo del software Windows.
+![Screenshot dei dettagli filtrati sull'utilizzo della prenotazione e addebiti](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
-### <a name="daily-usage-section-of-csv"></a>Sezione Utilizzo giornaliero nel CSV
-Filtrare per informazioni aggiuntive e tipo nell'**ID prenotazione**. Lo screenshot seguente illustra i campi correlati all'istanza riservata. 
+La riga **Istanze riservate di VM di base** indica il numero totale di ore coperte dalla prenotazione. Questa riga contiene il valore $ 0,00 perché è coperta dalla prenotazione. La riga **Istanze riservate di Windows Server (1 core)** indica il costo del software Windows.
+
+### <a name="daily-usage-section-of-csv-file"></a>Sezione relativa all'utilizzo giornaliero nel file CSV
+
+Applicare un filtro in **Informazioni aggiuntive** e digitare l'**ID prenotazione**. Lo screenshot seguente illustra i campi correlati alla prenotazione.
 
 ![Screenshot dei dettagli di utilizzo giornaliero e degli addebiti](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
 
-1. **ReservationId** nel campo Informazioni aggiuntive è l'istanza riservata usata per applicare il vantaggio alla macchina virtuale.
-2. ConsumptionMeter è l'ID contatore per la VM.
-3. La riga Istanze riservate di VM di base in Sottocategoria misuratore rappresenta la riga del costo pari a $ 0 nella sezione del rendiconto. Il costo dell'esecuzione di questa VM è già coperto dall'istanza riservata.
-4. Questo è l'ID contatore per l'istanza riservata. Il costo di questo contatore è pari a $ 0. Le VM qualificate per l'istanza riservata hanno questo ID contatore nel CSV per tenere conto del costo. 
-5. Standard_DS1_v2 è una VM con vCPU che viene distribuita senza il vantaggio Azure Hybrid. Questo contatore copre quindi i costi aggiuntivi del software Windows. Vedere [Costi del software Windows per le istanze di macchina virtuale riservata di Azure](billing-reserved-instance-windows-software-costs.md) per trovare il contatore corrispondente alla VM con 1 core serie D. Se si usa il vantaggio Azure Hybrid, questo costo aggiuntivo non viene applicato. 
+1. **ReservationId** nel campo **Informazioni aggiuntive** rappresenta la prenotazione applicata alla macchina virtuale.
+2. **ConsumptionMeter** è l'ID contatore per la macchina virtuale.
+3. La riga **Istanze riservate di VM di base** in **Sottocategoria contatore** rappresenta la riga del costo con valore $ 0 nella sezione del rendiconto. Il costo dell'esecuzione di questa macchina virtuale è già coperto dalla prenotazione.
+4. **ID contatore** è l'ID contatore della prenotazione. Il costo di questo contatore è $ 0. Questo ID contatore è visualizzato per qualsiasi macchina virtuale idonea per lo sconto sulla prenotazione.
+5. Standard_DS1_v2 è una VM con vCPU che viene distribuita senza il vantaggio Azure Hybrid. Di conseguenza, questo contatore copre il costo aggiuntivo del software Windows. Per trovare il contatore corrispondente alla macchina virtuale serie D con 1 core, vedere [Costi del software Windows delle istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md). Se si ha il Vantaggio Azure Hybrid, questo costo aggiuntivo non viene applicato.
+
+## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Utilizzo delle prenotazioni di capacità riservata del database SQL
+
+Per le sezioni seguenti si presuppone di eseguire un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
+
+| Campo | Valore |
+|---| --- |
+|ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
+|Quantità |2|
+|Prodotto| Database SQL Gen4 (2 core)|
+|Region | eastus |
+
+### <a name="statement-section-of-csv-file"></a>Sezione relativa al rendiconto nel file CSV
+
+Filtrare in base al nome di contatore **Utilizzo istanze riservate**. Il contenuto visualizzato sarà simile allo screenshot seguente:
+
+![File CSV per la capacità riservata del database SQL](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+
+La riga **Utilizzo istanze riservate** include il numero totale di ore core coperte dalla prenotazione. La tariffa per questa riga è $ 0, perché la prenotazione copre tutti i costi.
+
+### <a name="detail-section-of-csv-file"></a>Sezione relativa ai dettagli nel file CSV
+
+Applicare un filtro in **Informazioni aggiuntive** e digitare l'**ID prenotazione**. Lo screenshot mostra i campi correlati alla prenotazione di capacità riservata per il database SQL.
+
+![File CSV per la capacità riservata del database SQL](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+
+1. **ReservationId** nel campo **Informazioni aggiuntive** rappresenta la prenotazione di capacità riservata del database SQL applicata alla risorsa database SQL.
+2. **ConsumptionMeter** è l'ID contatore per la risorsa database SQL.
+3. **ID contatore** è il contatore della prenotazione. Il costo di questo contatore è $ 0. Questo ID contatore è presente nel file CSV per qualsiasi risorsa database SQL idonea per lo sconto sulla prenotazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle istanze riservate, vedere gli articoli seguenti:
 
-- [Cosa sono le istanze di macchina virtuale riservate di Azure?](billing-save-compute-costs-reservations.md)
+Per altre informazioni sulle prenotazioni, vedere gli articoli seguenti:
+
+- [Cosa sono le prenotazioni di Azure?](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gestire le istanze riservate in Azure](billing-manage-reserved-vm-instance.md)
-- [Informazioni su come viene applicato lo sconto per le istanze riservate](billing-understand-vm-reservation-charges.md)
-- [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
-- [Windows software costs not included with reserved instances](billing-reserved-instance-windows-software-costs.md) (Costi del software Windows non inclusi nelle istanze riservate)
+- [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
+- [Gestire le prenotazioni in Azure](billing-manage-reserved-vm-instance.md)
+- [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
+- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

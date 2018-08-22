@@ -1,5 +1,5 @@
 ---
-title: Costi del software Windows per le istanze di macchina virtuale riservate di Azure | Microsoft Docs
+title: Costi del software Windows per la prenotazione di Azure | Microsoft Docs
 description: Informazioni sui contatori relativi al software Windows non inclusi nei costi dell'istanza di macchina virtuale riservata di Azure.
 services: billing
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 6602424e2b2e4a4c2c3c51b5cb4bb1024a39d2e0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8ff2d126fd491ddc40f6223b6d4ec1fc4505b8fb
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064464"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630112"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>I costi del software Windows non sono inclusi nelle istanze riservate di Azure
+# <a name="windows-software-costs-not-included-with-azure-reservations"></a>I costi del software Windows non sono inclusi nelle prenotazioni di Azure
 
-Se non si possiede l'offerta Vantaggio Azure Hybrid Use per l'istanza di macchina virtuale riservata in uso, i costi verranno addebitati in base ai contatori relativi al software Windows elencati nella sezione seguente.
+Se non si possiede l'offerta Vantaggio Azure Hybrid Use per le istanze di macchina virtuale riservate in uso, i costi verranno addebitati in base ai contatori relativi al software Windows elencati nella sezione seguente.
 
-## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Costi dei contatori relativi al software Windows non inclusi nell'istanza riservata
+## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Costi dei contatori relativi al software Windows non inclusi nella prenotazione
 
 | ID contatore | Nome del contatore nel file di uso | Usato da VM |
 | ------- | ------------------------| --- |
@@ -53,14 +53,14 @@ Se non si possiede l'offerta Vantaggio Azure Hybrid Use per l'istanza di macchin
 È possibile ottenere il costo di ognuno di questi contatori tramite l'API RateCard di Azure. Per informazioni su come ottenere le tariffe per un contatore di Azure specifico, vedere l'argomento relativo a come [ottenere informazioni su prezzi e metadati per le risorse usate in una sottoscrizione di Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle istanze riservate di Azure, vedere gli articoli seguenti:
+Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Cosa sono le istanze di macchina virtuale riservate di Azure?](billing-save-compute-costs-reservations.md)
+- [Cosa sono le prenotazioni di Azure?](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gestire le istanze riservate in Azure](billing-manage-reserved-vm-instance.md)
-- [Informazioni su come viene applicato lo sconto per le istanze riservate](billing-understand-vm-reservation-charges.md)
-- [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
-- [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Gestire le prenotazioni in Azure](billing-manage-reserved-vm-instance.md)
+- [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
+- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

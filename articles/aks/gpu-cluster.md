@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7fb60f3c440b4804ad8c5e6c013ecfa454358833
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070567"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716118"
 ---
 # <a name="using-gpus-on-aks"></a>Uso di GPU nel servizio contenitore di Azure
 
@@ -63,7 +63,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-Descrivere uno dei nodi per verificare che le GPU siano pianificabili. Queste informazioni sono disponibili nella sezione `Capacity`. Ad esempio, `alpha.kubernetes.io/nvidia-gpu:  1`.
+Descrivere uno dei nodi per verificare che le GPU siano pianificabili. Queste informazioni sono disponibili nella sezione `Capacity`. Ad esempio: `alpha.kubernetes.io/nvidia-gpu:  1`.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -270,6 +270,64 @@ Rimuovere gli oggetti Kubernetes associati creati in questo passaggio.
 ```
 $ kubectl delete jobs samples-tf-mnist-demo
 job "samples-tf-mnist-demo" deleted
+```
+
+## <a name="troubleshoot"></a>Risolvere problemi
+
+In alcuni scenari potrebbe non essere possibile visualizzare le risorse GPU nell'opzione Capacity (Capacità). Ad esempio, dopo aver aggiornato un cluster alla versione 1.10 di Kubernetes o dopo aver creato un cluster Kubernetes versione 1.10, la risorsa `nvidia.com/gpu` prevista non è presente in `Capacity` quando si esegue `kubectl describe node <node-name>`. 
+
+Per risolvere il problema, applicare il seguente aggiornamento o post-provisioning del DaemonSet. La risorsa `nvidia.com/gpu` verrà quindi visualizzata come risorsa pianificabile. 
+
+Copiare il manifesto e salvarlo come **nvidia-device-plugin-ds.yaml**. Per il tag immagine di `image: nvidia/k8s-device-plugin:1.10` di seguito, aggiornare il tag affinché corrisponda alla versione di Kubernetes in uso. Ad esempio, usare il tag `1.11` per Kubernetes versione 1.11.
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    kubernetes.io/cluster-service: "true"
+  name: nvidia-device-plugin
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
+      # reserves resources for critical add-on pods so that they can be rescheduled after
+      # a failure.  This annotation works in tandem with the toleration below.
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      labels:
+        name: nvidia-device-plugin-ds
+    spec:
+      tolerations:
+      # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
+      # This, along with the annotation above marks this pod as a critical add-on.
+      - key: CriticalAddonsOnly
+        operator: Exists
+      containers:
+      - image: nvidia/k8s-device-plugin:1.10 # Update this tag to match your Kubernetes version
+        name: nvidia-device-plugin-ctr
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+        volumeMounts:
+          - name: device-plugin
+            mountPath: /var/lib/kubelet/device-plugins
+      volumes:
+        - name: device-plugin
+          hostPath:
+            path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+        accelerator: nvidia
+```
+
+Usare il comando [kubectl apply][kubectl-apply] per creare il DaemonSet.
+
+```
+$ kubectl apply -f nvidia-device-plugin-ds.yaml
+daemonset "nvidia-device-plugin" created
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

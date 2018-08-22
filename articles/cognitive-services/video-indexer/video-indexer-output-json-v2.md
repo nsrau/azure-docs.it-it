@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 9a926eb274e5e4cec721864d1d9c5faee8ec58ef
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 43cc02417fad8a2fa46bd309235951393cd55b8a
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618339"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40187382"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Esaminare l'output di Video Indexer generato dall'API v2
 
@@ -107,7 +107,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |metadata|Metadati esterni del video (se specificati dall'utente).|
 |isAdult|Indica se il video è stato esaminato e identificato manualmente come un video per adulti.|
 |insights|Oggetto insights. Per altre informazioni, vedere [insights](#insights).|
-|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passare l'ID del video e thumbnailId.|
+|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail)) e passare l'ID del video e thumbnailId.|
 |publishedUrl|URL per lo streaming del video.|
 |publishedUrlProxy|URL da cui eseguire lo streaming del video (per i dispositivi Apple).|
 |viewToken|Token di visualizzazione di breve durata per lo streaming del video.|
@@ -670,7 +670,7 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[API Video Indexer](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4)
+[API Video Indexer](https://api-portal.videoindexer.ai)
 
 Per informazioni su come incorporare i widget nell'applicazione, vedere [Embed Video Indexer widgets into your applications](video-indexer-embed-widgets.md) (Incorporare i widget di Video Indexer nelle applicazioni). 
 

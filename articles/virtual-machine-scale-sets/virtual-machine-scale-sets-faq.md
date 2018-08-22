@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34656442"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715064"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -65,7 +65,7 @@ Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in 
 
 **D.** I set di scalabilità si integrano con i set di disponibilità di Azure?
 
-**R.** Un set di scalabilità basato sull'area e non sulla zona usa i *gruppi di posizionamento*, ciascuno dei quali può essere configurato come set di disponibilità implicito con cinque domini di errore e cinque domini di aggiornamento. I set di scalabilità di più di 100 macchine virtuali includono più gruppi di posizionamento. Per altre informazioni sui gruppi di posizionamento, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md). Un set di disponibilità di macchine virtuali può trovarsi nella stessa rete virtuale di un set di scalabilità di macchine virtuali. Una configurazione comune consiste nell'inserire le VM del nodo di controllo, che spesso richiedono una configurazione univoca, in un set di disponibilità e i nodi di dati nel set di scalabilità.
+**R.** Un set di scalabilità basato sull'area e non sulla zona usa i *gruppi di posizionamento* che fungono da set di disponibilità implicito con cinque domini di errore e cinque domini di aggiornamento. I set di scalabilità di più di 100 macchine virtuali includono più gruppi di posizionamento. Per altre informazioni sui gruppi di posizionamento, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md). Un set di disponibilità di macchine virtuali può trovarsi nella stessa rete virtuale di un set di scalabilità di macchine virtuali. Una configurazione comune consiste nell'inserire le VM del nodo di controllo, che spesso richiedono una configurazione univoca, in un set di disponibilità e i nodi di dati nel set di scalabilità.
 
 **D.** I set di scalabilità si integrano con le zone di disponibilità di Azure?
 
@@ -269,8 +269,8 @@ Quando si crea una VM Linux è possibile fornire le chiavi pubbliche SSH in test
 Nome dell'elemento linuxConfiguration | Obbligatoria | type | DESCRIZIONE
 --- | --- | --- | --- |  ---
 ssh | No  | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
-path | Sì | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
-keyData | Sì | string | Specifica una chiave pubblica SSH con codifica Base64
+path | Yes | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
+keyData | Yes | string | Specifica una chiave pubblica SSH con codifica Base64
 
 Per un esempio, vedere il [modello di avvio rapido 101-vm-sshkey di GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 

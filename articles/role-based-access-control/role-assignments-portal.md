@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008162"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715370"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "39008162"
 
 ## <a name="list-roles"></a>Elenco dei ruoli
 
-Una definizione di ruolo è una raccolta di autorizzazioni usata per l'assegnazione dei ruoli. Azure offre oltre 60 [ruoli predefiniti](built-in-roles.md).
+Una definizione di ruolo è una raccolta di autorizzazioni usata per l'assegnazione dei ruoli. Azure ha oltre 70 [ruoli predefiniti](built-in-roles.md). Per elencare i ruoli nel portale, eseguire questa procedura.
 
 1. Nel portale di Azure scegliere **Tutti i servizi** e quindi **Sottoscrizioni**.
 
@@ -47,32 +47,7 @@ Una definizione di ruolo è una raccolta di autorizzazioni usata per l'assegnazi
 
 ## <a name="list-access"></a>Elencare l'accesso
 
-Quando si gestisce l'accesso, si ha l'esigenza di sapere chi ha accesso, quali sono le sue autorizzazioni e il relativo livello. Per visualizzare le informazioni sull'accesso, elencare le assegnazioni dei ruoli.
-
-### <a name="list-role-assignments-for-a-subscription"></a>Elencare i ruoli assegnati a una sottoscrizione
-
-1. Nel portale di Azure scegliere **Tutti i servizi** e quindi **Sottoscrizioni**.
-
-1. Scegliere la propria sottoscrizione.
-
-1. Scegliere **Controllo di accesso (IAM)**.
-
-    Nel pannello Controllo di accesso (IAM), usato per la gestione delle identità e degli accessi, è possibile vedere chi ha accesso alla sottoscrizione e il relativo ruolo.
-
-    ![Pannello Controllo di accesso (IAM)](./media/role-assignments-portal/subscription-access-control.png)
-
-    Gli utenti con i ruoli Amministratore sottoscrizione classico e Coamministratore sono considerati proprietari della sottoscrizione nel modello di controllo degli accessi in base al ruolo.
-
-
-### <a name="list-role-assignments-for-a-resource-group"></a>Elencare le assegnazioni di ruolo per un gruppo di risorse
-
-1. Nell'elenco di spostamento scegliere **Gruppi di risorse**.
-
-1. Scegliere un gruppo di risorse, quindi scegliere **Controllo di accesso (IAM)**.
-
-   Nel pannello Controllo di accesso (IAM) è possibile vedere chi ha accesso al gruppo di risorse. Si noterà che l'ambito di alcuni ruoli è **Questa risorsa**, mentre quello di altri è **(Ereditato)** da un altro ambito. L'accesso viene assegnato in modo specifico al gruppo di risorse oppure ereditato da un'assegnazione nella sottoscrizione padre.
-
-   ![Gruppi di risorse](./media/role-assignments-portal/resource-group-access-control.png)
+Quando si gestisce l'accesso, si ha l'esigenza di sapere chi ha accesso, quali sono le sue autorizzazioni e il relativo livello. Per visualizzare le informazioni sull'accesso, elencare le assegnazioni dei ruoli. Eseguire la procedura seguente per elencare l'accesso per gli utenti e l'accesso ad ambiti diversi.
 
 ### <a name="list-role-assignments-for-a-user"></a>Elencare i ruoli assegnati a un utente
 
@@ -92,33 +67,49 @@ Quando si gestisce l'accesso, si ha l'esigenza di sapere chi ha accesso, quali s
 
 1. Se si hanno più sottoscrizioni, è possibile scegliere l'elenco a discesa **Sottoscrizione** per visualizzare le assegnazioni di ruoli in un'altra sottoscrizione.
 
-## <a name="grant-access"></a>Concedere l'accesso
+### <a name="list-role-assignments-for-a-resource-group"></a>Elencare le assegnazioni di ruolo per un gruppo di risorse
 
-Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo.
+1. Nell'elenco di spostamento scegliere **Gruppi di risorse**.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Creare un'assegnazione di ruolo per l'ambito di una sottoscrizione
+1. Scegliere un gruppo di risorse, quindi scegliere **Controllo di accesso (IAM)**.
+
+   Nel pannello Controllo di accesso (IAM), usato per la gestione delle identità e degli accessi, è possibile vedere chi ha accesso a questo gruppo di risorse. Si noterà che l'ambito di alcuni ruoli è **Questa risorsa**, mentre quello di altri è **(Ereditato)** da un altro ambito. L'accesso viene assegnato in modo specifico al gruppo di risorse oppure ereditato da un'assegnazione nella sottoscrizione padre.
+
+   ![Gruppi di risorse](./media/role-assignments-portal/resource-group-access-control.png)
+
+### <a name="list-role-assignments-for-a-subscription"></a>Elencare i ruoli assegnati a una sottoscrizione
 
 1. Nel portale di Azure scegliere **Tutti i servizi** e quindi **Sottoscrizioni**.
 
 1. Scegliere la propria sottoscrizione.
 
-1. Scegliere **Controllo di accesso (IAM)** per visualizzare l'elenco corrente delle assegnazioni di ruoli per l'ambito della sottoscrizione.
+1. Scegliere **Controllo di accesso (IAM)**.
 
-   ![Pannello Controllo di accesso (IAM) per il gruppo di risorse](./media/role-assignments-portal/grant-subscription-access-control.png)
+    Nel pannello Controllo di accesso (IAM) è possibile vedere chi ha accesso a questa sottoscrizione e il ruolo corrispondente.
 
-1. Scegliere **Aggiungi** per aprire il riquadro **Aggiungi autorizzazioni**.
+    ![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/subscription-access-control.png)
 
-   Se non si hanno le autorizzazioni per assegnare i ruoli, l'opzione **Aggiungi** non verrà visualizzata.
+    Gli utenti con i ruoli Amministratore sottoscrizione classico e Coamministratore sono considerati proprietari della sottoscrizione nel modello di controllo degli accessi in base al ruolo.
 
-   ![Riquadro Aggiungi autorizzazioni](./media/role-assignments-portal/add-permissions.png)
+### <a name="list-role-assignments-for-a-management-group"></a>Elencare le assegnazioni di ruolo per un gruppo di gestione
 
-1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
+1. Nel portale di Azure scegliere **Tutti i servizi** e quindi **Gruppi di gestione**.
 
-1. Nell'elenco **Selezione** selezionare un utente, un gruppo o un'applicazione. Se l'entità di sicurezza non è visualizzata nell'elenco, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati, gli indirizzi e-mail e gli identificatori di oggetto.
+1. Scegliere un gruppo di gestione.
 
-1. Scegliere **Salva** per creare l'assegnazione di ruolo.
+1. Scegli **(dettagli)** per il gruppo di gestione selezionato.
 
-   Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'ambito della sottoscrizione.
+    ![Gruppi di gestione](./media/role-assignments-portal/management-groups-list.png)
+
+1. Scegliere **Controllo di accesso (IAM)**.
+
+    Nel pannello Controllo di accesso (IAM) è possibile vedere chi ha accesso a questo gruppo di gestione e il ruolo corrispondente.
+
+    ![Pannello Controllo di accesso (IAM) per un gruppo di gestione](./media/role-assignments-portal/management-groups-access-control.png)
+
+## <a name="grant-access"></a>Concedere l'accesso
+
+Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo. Eseguire questa procedura per concedere l'accesso ad ambiti diversi.
 
 ### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Creare un'assegnazione di ruolo per l'ambito di un gruppo di risorse
 
@@ -128,7 +119,7 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 
 1. Scegliere **Controllo di accesso (IAM)** per visualizzare l'elenco corrente delle assegnazioni di ruoli per l'ambito del gruppo di risorse.
 
-   ![Pannello Controllo di accesso (IAM) per il gruppo di risorse](./media/role-assignments-portal/grant-resource-group-access-control.png)
+   ![Pannello Controllo di accesso (IAM) per un gruppo di risorse](./media/role-assignments-portal/grant-resource-group-access-control.png)
 
 1. Scegliere **Aggiungi** per aprire il riquadro **Aggiungi autorizzazioni**.
 
@@ -144,13 +135,67 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 
    Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'ambito del gruppo di risorse.
 
+### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Creare un'assegnazione di ruolo per l'ambito di una sottoscrizione
+
+1. Nel portale di Azure scegliere **Tutti i servizi** e quindi **Sottoscrizioni**.
+
+1. Scegliere la propria sottoscrizione.
+
+1. Scegliere **Controllo di accesso (IAM)** per visualizzare l'elenco corrente delle assegnazioni di ruoli per l'ambito della sottoscrizione.
+
+   ![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. Scegliere **Aggiungi** per aprire il riquadro **Aggiungi autorizzazioni**.
+
+   Se non si hanno le autorizzazioni per assegnare i ruoli, l'opzione **Aggiungi** non verrà visualizzata.
+
+   ![Riquadro Aggiungi autorizzazioni](./media/role-assignments-portal/add-permissions.png)
+
+1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
+
+1. Nell'elenco **Selezione** selezionare un utente, un gruppo o un'applicazione. Se l'entità di sicurezza non è visualizzata nell'elenco, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati, gli indirizzi e-mail e gli identificatori di oggetto.
+
+1. Scegliere **Salva** per creare l'assegnazione di ruolo.
+
+   Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'ambito della sottoscrizione.
+
+### <a name="create-a-role-assignment-at-a-management-group-scope"></a>Creare un'assegnazione di ruolo per l'ambito di un gruppo di gestione
+
+1. Nel portale di Azure scegliere **Tutti i servizi** e quindi **Gruppi di gestione**.
+
+1. Scegliere un gruppo di gestione.
+
+1. Scegli **(dettagli)** per il gruppo di gestione selezionato.
+
+    ![Gruppi di gestione](./media/role-assignments-portal/management-groups-list.png)
+
+1. Scegliere **Controllo di accesso (IAM)** per visualizzare l'elenco corrente delle assegnazioni di ruoli per l'ambito della sottoscrizione.
+
+   ![Pannello Controllo di accesso (IAM) per un gruppo di gestione](./media/role-assignments-portal/grant-management-groups-access-control.png)
+
+1. Scegliere **Aggiungi** per aprire il riquadro **Aggiungi autorizzazioni**.
+
+   Se non si hanno le autorizzazioni per assegnare i ruoli, l'opzione **Aggiungi** non verrà visualizzata.
+
+   ![Riquadro Aggiungi autorizzazioni](./media/role-assignments-portal/add-permissions-management-groups.png)
+
+1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore gruppo di gestione**.
+
+    Per informazioni sulle azioni supportate nei gruppi di gestione per i vari ruoli, vedere [Organizzare le risorse con i gruppi di gestione di Azure](../azure-resource-manager/management-groups-overview.md#management-group-access).
+
+1. Nell'elenco **Selezione** selezionare un utente, un gruppo o un'applicazione. Se l'entità di sicurezza non è visualizzata nell'elenco, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati, gli indirizzi e-mail e gli identificatori di oggetto.
+
+1. Scegliere **Salva** per creare l'assegnazione di ruolo.
+
+   Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'ambito del gruppo di gestione.
+
 ## <a name="remove-access"></a>Rimuovere un accesso
 
-Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, si rimuove un'assegnazione di ruolo.
+Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, si rimuove un'assegnazione di ruolo. Eseguire la procedura seguente per rimuovere l'accesso.
 
 ### <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
 
-1. Aprire il pannello **Controllo di accesso (IAM)** per la sottoscrizione, il gruppo di risorse o la risorsa con l'assegnazione di ruolo che si vuole rimuovere.
+1. Aprire il pannello **Controllo di accesso (IAM)** per il gruppo di gestione, la sottoscrizione, il gruppo di risorse o la risorsa con l'assegnazione di ruolo che si vuole rimuovere.
 
 1. Nell'elenco delle assegnazioni di ruolo aggiungere un segno di spunta accanto all'entità di sicurezza con l'assegnazione di ruolo che si vuole rimuovere.
 
@@ -162,10 +207,13 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 1. Nella finestra con il messaggio di rimozione dell'assegnazione di ruolo scegliere **Sì**.
 
-Le assegnazioni di ruolo ereditate non possono essere rimosse. Per rimuovere un'assegnazione di ruolo ereditata, è necessario eseguire questa operazione nell'ambito di creazione dell'assegnazione di ruolo. Nella colonna **Ambito**, accanto a **Ereditato** è presente un collegamento che consente di visualizzare le risorse in cui è stato assegnato questo ruolo. Passare all'ambito indicato nell'elenco per rimuovere l'assegnazione di ruolo.
+    Le assegnazioni di ruolo ereditate non possono essere rimosse. Per rimuovere un'assegnazione di ruolo ereditata, è necessario eseguire questa operazione nell'ambito di creazione dell'assegnazione di ruolo. Nella colonna **Ambito**, accanto a **(ereditato)** è presente un collegamento che consente di passare all'ambito in cui è stato assegnato questo ruolo. Passare all'ambito indicato nell'elenco per rimuovere l'assegnazione di ruolo.
+
+   ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md) (Guida introduttiva: Concedere l'accesso a un utente tramite il controllo degli accessi in base al ruolo e il portale di Azure)
 * [Esercitazione: Concedere l'accesso a un utente tramite il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [Ruoli predefiniti](built-in-roles.md)
+* [Organizzare le risorse con i gruppi di gestione di Azure ](../azure-resource-manager/management-groups-overview.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 69e148089f48ebe04faceff87b08eb3f7127f8a3
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c37ff7e2f81b3dbca42193777287dae873768e24
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248368"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630501"
 ---
 # <a name="azure-consumption-api-overview"></a>Panoramica delle API per il consumo di Azure 
 
@@ -103,7 +103,7 @@ Per altre informazioni, vedere le specifiche tecniche per l'[API Budget](https:/
 
 ## <a name="reservation-recommendations-api"></a>API Raccomandazioni di prenotazione
 
-Usare questa API per ottenere raccomandazioni per l'acquisto di istanze riservate di macchine virtuali. Le raccomandazioni hanno lo scopo di consentire ai clienti l'analisi dei risparmi previsti sui costi e degli importi degli acquisti. 
+Usare questa API per ottenere consigli per l'acquisto di istanze di macchina virtuale riservate. Le raccomandazioni hanno lo scopo di consentire ai clienti l'analisi dei risparmi previsti sui costi e degli importi degli acquisti. 
 
 L'API include:
 

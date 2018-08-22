@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: amberb
-ms.openlocfilehash: 344d4032b59a920630a18f026aa3765fbc69d6d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 7c4152140d291270386203e121da169b2a8deff5
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077736"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630807"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Visualizzare tutti gli account di fatturazione nel portale di Azure  
 
@@ -27,7 +27,7 @@ Gli account di fatturazione definiscono le relazioni di fatturazione di Azure. �
 
 Attualmente è possibile visualizzare solo gli account di fatturazione personale e del Contratto Enterprise. Per impostazione predefinita, la pagina [Gestione dei costi e fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) mostra l'account di fatturazione personale. Tuttavia, è possibile passare ad **Account di fatturazione** e cambiare l'account.
 
-Per gli account di fatturazione personali è possibile gestire e visualizzare tutti gli addebiti nel [portale di Azure](https://portal.azure.com). Tuttavia, per gli account del Contratto Enterprise, è possibile visualizzare solo gli acquisti di istanze riservate, il saldo e gli addebiti da inizio mese. Queste funzionalità del Contratto Enterprise sono attualmente in anteprima e sono disponibili solo se si ha un ruolo di amministratore dell'organizzazione.
+Per gli account di fatturazione personali è possibile gestire e visualizzare tutti gli addebiti nel [portale di Azure](https://portal.azure.com). Tuttavia, per gli account del Contratto Enterprise, è possibile visualizzare solo gli acquisti di prenotazioni di Azure, il saldo e gli addebiti da inizio mese. Queste funzionalità del Contratto Enterprise sono attualmente in anteprima e sono disponibili solo se si ha un ruolo di amministratore dell'organizzazione.
 
 ## <a name="change-billing-account-view"></a>Cambiare la visualizzazione dell'account di fatturazione 
 

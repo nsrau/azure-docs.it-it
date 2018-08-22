@@ -8,23 +8,23 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: fdf69003566f704354a17335b1f46fc3077aedbc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a458a46f3775a593f369d5acb967fc90d61efde8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598391"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628342"
 ---
 # <a name="install-azure-backup-server-v2"></a>Installare il server di Backup di Azure v2
 
-Il server di Backup di Azure consente di proteggere macchine virtuali (VM), carichi di lavoro, file e cartelle, e altro ancora. Il server di Backup di Azure v2 si basa sul server di Backup di Azure v1 e offre nuove funzionalità che non sono disponibili nella v1. Per un confronto delle funzionalità fra la v1 e la v2, vedere [Matrice di protezione del server di Backup di Azure](backup-mabs-protection-matrix.md). 
+Il server di Backup di Azure consente di proteggere macchine virtuali (VM), carichi di lavoro, file e cartelle, e altro ancora. Il server di Backup di Azure v2 si basa sul server di Backup di Azure v1 e offre nuove funzionalità che non sono disponibili nella v1. Per un confronto tra le funzionalità delle versioni v1 e v2, vedere [Matrice di protezione del server di Backup di Azure](backup-mabs-protection-matrix.md). 
 
 Le funzionalità aggiuntive nel server di backup v2 rappresentano un aggiornamento dal server di backup v1. Tuttavia, il server di backup v1 non è un prerequisito per l'installazione del server di backup v2. Se si desidera eseguire l'aggiornamento dal server di backup v1 a al server di backup v2, installare il server di backup v2 nel server di protezione del server di backup. Le impostazioni del server di backup esistenti rimangono invariate.
 
-È possibile installare il server di backup v2 in Windows Server 2012 R2 o in Windows Server 2016. Per sfruttare i vantaggi delle nuove funzionalità, come Modern Backup Storage di System Center 2016 Data Protection Manager, è necessario installare il server di backup v2 in Windows Server 2016. Prima di eseguire l'aggiornamento a di installare il server di backup v2, leggere i [prerequisiti di installazione](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
+È possibile installare il server di Backup v2 in Windows Server 2016 o in Windows Server 2012 R2. Per sfruttare i vantaggi delle nuove funzionalità, come Modern Backup Storage di System Center 2016 Data Protection Manager, è necessario installare il server di backup v2 in Windows Server 2016. Prima di eseguire l'aggiornamento a di installare il server di backup v2, leggere i [prerequisiti di installazione](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
 
 > [!NOTE]
-> Il server di Backup di Azure ha la stessa base di codice di System Center Data Protection Manager. Il server di backup v1 è equivalente a Data Protection Manager 2012 R2 e il server di backup v2 è equivalente a Data Protection Manager 2016. Questo articolo fa riferimento in alcuni casi alla documentazione di Data Protection Manager.
+> Il server di Backup di Azure ha la stessa base di codice di System Center Data Protection Manager. Il server di Backup v1 corrisponde a Data Protection Manager 2012 R2. Il server di Backup v2 corrisponde a Data Protection Manager 2016. Questo articolo fa riferimento in alcuni casi alla documentazione di Data Protection Manager.
 >
 >
 
@@ -47,15 +47,15 @@ Per eseguire l'aggiornamento dal server di backup v1 al server di backup v2, ass
 
 3. Nella procedura guidata del server di Backup di Microsoft Azure, sotto **Installare** selezionare **Server di Backup di Microsoft Azure**.
 
-   ![Programma di installazione - Selezionare cosa installare](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+  ![Programma di installazione - Selezionare gli elementi da installare](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. Nella pagina **Benvenuti** esaminare gli avvisi e quindi selezionare **Avanti**.
 
-   ![Programma di installazione - Pagina di benvenuto](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+  ![Programma di installazione - Pagina di benvenuto](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
 5. L'installazione guidata esegue i controlli dei prerequisiti per verificare che sia possibile aggiornare l'ambiente. Nella pagina **Controlli dei prerequisiti** selezionare **Controlla**.
 
-   ![Programma di installazione - Pagina del controllo dei prerequisiti](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+  ![Programma di installazione - Pagina del controllo dei prerequisiti](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
 6. L'ambiente deve superare i controlli dei prerequisiti. Se l'ambiente non supera i controlli, prendere nota dei problemi e correggerli. Selezionare quindi **Controlla di nuovo**. Dopo avere superato i controlli dei prerequisiti, selezionare **Avanti**.
 
@@ -63,11 +63,11 @@ Per eseguire l'aggiornamento dal server di backup v1 al server di backup v2, ass
 
 7. Nella pagina **Impostazioni SQL** selezionare l'opzione appropriata per l'installazione di SQL, quindi selezionare **Controlla e installa**.
 
-   ![Programma di installazione - Pagina delle impostazioni di SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+  ![Programma di installazione - Pagina delle impostazioni di SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
   I controlli potrebbero richiedere alcuni minuti. Al termine dell'operazione selezionare **Avanti**.
 
-   ![Programma di installazione - Controllo delle impostazioni di SQL e pulsante di installazione](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
+  ![Programma di installazione - Controllo delle impostazioni di SQL e pulsante di installazione](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
 8. Nella pagina **Impostazioni di installazione** apportare le modifiche necessarie al percorso in cui è installato il server di Backup o al percorso dei file temporanei. Selezionare **Avanti**.
 
@@ -77,33 +77,33 @@ Per eseguire l'aggiornamento dal server di backup v1 al server di backup v2, ass
 
   ![Programma di installazione - Fine](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
-
-
 ## <a name="add-storage-for-modern-backup-storage"></a>Aggiungere spazio di archiviazione per Modern Backup Storage
 
-Per migliorare l'efficienza dell'archiviazione di backup, il server di backup v2 aggiunge il supporto per i volumi. Come il server di backup v1, la v2 supporta i dischi.
+Per migliorare l'efficienza dell'archiviazione di backup, il server di backup v2 aggiunge il supporto per i volumi. Il server di Backup v1 e il server di Backup v2 supportano entrambi i dischi.
 
 ### <a name="add-volumes-and-disks"></a>Aggiungere volumi e dischi
+
 Se si esegue il server di backup v2 in Windows Server 2016, è possibile usare i volumi per archiviare i dati di backup. I volumi consentono di risparmiare spazio di archiviazione e offrono backup più veloci. Poiché i volumi sono una nuova funzione del server di backup, è necessario aggiungerli. 
 
-Quando si aggiunge un volume al server di backup, è possibile assegnare al volume un nome descrittivo. Fare clic nella colonna **Nome descrittivo** del volume a cui assegnare il nome. Il nome può essere modificato in un secondo momento, se necessario. È possibile usare PowerShell per aggiungere o modificare i nomi descrittivi per i volumi.
+Quando si aggiunge un volume al server di backup, è possibile assegnare al volume un nome descrittivo. Selezionare la colonna **Nome descrittivo** del volume cui si vuole assegnare un nome. Il nome può essere modificato in un secondo momento, se necessario. È possibile usare PowerShell per aggiungere o modificare i nomi descrittivi per i volumi.
 
 Per aggiungere un volume nella Console di amministrazione:
 
 1. Nella Console di amministrazione del server di Backup di Azure, selezionare **Gestione** > **Spazio di archiviazione su disco** > **Aggiungi**.
 
-    ![Aprire la procedura guidata Aggiungi spazio di archiviazione su disco](./media//backup-mabs-upgrade-to-v2/open-add-disk-storage-wizard.png)
+  ![Aprire la procedura guidata Aggiungi spazio di archiviazione su disco](./media//backup-mabs-upgrade-to-v2/open-add-disk-storage-wizard.png)
 
-    Si avvia la procedura guidata Aggiungi spazio di archiviazione su disco.
+  Viene avviata la procedura guidata Aggiungi spazio di archiviazione su disco.
 
 2. Nella pagina **Aggiungi spazio di archiviazione su disco**, nella casella **Volumi disponibili**, selezionare un volume e quindi selezionare **Aggiungi**.
+
 3. Nella casella **Volumi selezionati** immettere un nome descrittivo per il volume e quindi selezionare **OK**.
 
-      ![Procedura guidata Aggiungi spazio di archiviazione su disco - Aggiungi volume](./media/backup-mabs-upgrade-to-v2/add-volume.png)
+  ![Procedura guidata Aggiungi spazio di archiviazione su disco - Aggiungi volume](./media/backup-mabs-upgrade-to-v2/add-volume.png)
 
-  Se si desidera aggiungere un disco, il disco deve appartenere a un gruppo di protezione dati che abbia spazio di archiviazione legacy. Tali dischi possono essere usati solo per questi gruppi protezione dati. Se il server di backup non dispone di origini con protezione legacy, il disco non è elencato.
+  Se si desidera aggiungere un disco, il disco deve appartenere a un gruppo di protezione dati che abbia spazio di archiviazione legacy. I dischi possono essere usati solo per questi gruppi protezione dati. Se il server di backup non dispone di origini con protezione legacy, il disco non è elencato.
 
-  Per altre informazioni sull'aggiunta di dischi, vedere [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage) (Aggiunta di dischi per aumentare lo spazio di archiviazione legacy). È possibile assegnare un nome descrittivo al disco.
+  Per altre informazioni sull'aggiunta di dischi, vedere [Aggiungere dischi per aumentare lo spazio di archiviazione legacy](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). È possibile assegnare un nome descrittivo al disco.
 
 
 ### <a name="assign-workloads-to-volumes"></a>Assegnare carichi di lavoro ai volumi
@@ -112,14 +112,14 @@ Nel server di backup specificare quali carichi di lavoro sono assegnati ai volum
 
 #### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Per aggiornare le proprietà di un volume del pool di archiviazione nel server di backup, usare il cmdlet PowerShell Update-DPMDiskStorage.
+Per aggiornare le proprietà di un volume del pool di archiviazione nel server di Backup, usare il cmdlet di PowerShell **Update-DPMDiskStorage**.
 
 Sintassi:
 
 `Parameter Set: Volume`
 
 ```
-Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
+Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 Tutte le modifiche apportate tramite PowerShell si riflettono nell'interfaccia utente.
@@ -134,20 +134,21 @@ Per creare un gruppo di protezione:
 
 2. Nella barra multifunzione dello strumento selezionare **Nuovo**.
 
-    Verrà visualizzata la procedura guidata Crea nuovo gruppo protezione dati.
+  Verrà visualizzata la procedura guidata Crea nuovo gruppo protezione dati.
 
   ![Procedura guidata Crea nuovo gruppo protezione dati](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
 3. Nella pagina di **benvenuto** selezionare **Avanti**.
+
 4. Nella pagina **Seleziona tipo di gruppo di protezione dati** selezionare il tipo di gruppo protezione dati che si desidera creare e quindi selezionare **Avanti**.
 
   ![Pagina Seleziona tipo di gruppo di protezione dati](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. Nella pagina **Seleziona membri del gruppo**, nel riquadro **Membri disponibili**, sono elencati i membri con agenti protezione. Per questo esempio selezionare i volumi D:\ ed E:\ e aggiungerli al riquadro **Membri selezionati**. Selezionare **Avanti**.
+5. Nel riquadro **Membri disponibili** nella pagina **Selezione membri del gruppo** sono elencati i membri con agenti protezione. Per questo esempio, selezionare i volumi D:\ ed E:\, quindi aggiungerli in **Membri selezionati**. Selezionare **Avanti**.
 
   ![Pagina Seleziona membri del gruppo](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
-6. Nella pagina **Seleziona metodo protezione dati** digitare il nome del **Gruppo protezione dati**, selezionare il metodo di protezione e fare clic su **Avanti**. Se si desidera una protezione a breve termine, è necessario selezionare il metodo di backup **Disco**.
+6. Nella pagina **Seleziona metodo protezione dati** digitare il nome del **Gruppo protezione dati**, selezionare il metodo di protezione e fare clic su **Avanti**. Se si desidera una protezione a breve termine, selezionare il metodo di backup **Disco**.
 
   ![Pagina Seleziona metodo protezione dati](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-4.png)
 
@@ -155,7 +156,7 @@ Per creare un gruppo di protezione:
 
   ![Pagina Specifica obiettivi a breve termine](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-5.png)
 
-8. Nella pagina **Verificare l'allocazione dello spazio di archiviazione su disco** esaminare i dettagli sulle origini dati selezionate, le dimensioni e i valori per lo spazio di cui eseguire il provisioning e il volume di archiviazione di destinazione.
+8. Nella pagina **Verificare l'allocazione dello spazio di archiviazione su disco** esaminare i dettagli sulle origini dati selezionate, tra cui dimensioni dell'origine dati, valori per lo spazio di cui effettuare il provisioning e volume di archiviazione di destinazione.
 
   ![Pagina di verifica allocazione dell'archiviazione su disco](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
@@ -165,18 +166,18 @@ Per creare un gruppo di protezione:
 
   ![Spazio di archiviazione su disco sottoallocato](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
 
-   Per completare la creazione del gruppo di protezione, completare la procedura guidata.
+  Per completare la creazione del gruppo di protezione, completare la procedura guidata.
 
 ## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrare lo spazio di archiviazione legacy a Modern Backup Storage
-Dopo l'aggiornamento o l'istallazione del server di backup v2 e l'aggiornamento del sistema operativo a Windows Server 2016, aggiornare i gruppi protezione dati per l'uso di Modern Backup Storage. Per impostazione predefinita, i gruppi protezione dati non vengono modificati. Continuano a funzionare nel modo in cui erano stati configurati inizialmente. 
+Dopo l'aggiornamento o l'istallazione del server di Backup v2 e l'aggiornamento del sistema operativo a Windows Server 2016, aggiornare i gruppi protezione dati per l'uso di Modern Backup Storage. Per impostazione predefinita, i gruppi protezione dati non vengono modificati. Continuano a funzionare nel modo in cui erano stati configurati inizialmente. 
 
 L'aggiornamento dei gruppi protezione dati per l'uso di Modern Backup Storage è facoltativo. Per aggiornare il gruppo protezione dati, arrestare la protezione di tutte le origini dati usando l'opzione di conservazione dei dati. Quindi aggiungere le origini dati a un nuovo gruppo protezione dati.
 
-1. Nella Console di amministrazione selezionare la funzione **Protezione**. Nell'elenco **Membro del gruppo protezione dati** fare clic con il pulsante destro del mouse sul membro e quindi scegliere **Arresta protezione dati del membro**.
+1. Nella Console amministrazione DPM di System Center 2016 selezionare la funzione **Protezione**. Nell'elenco **Membro del gruppo protezione dati** fare clic con il pulsante destro del mouse sul membro e quindi scegliere **Arresta protezione dati del membro**.
 
   ![Arresto della protezione del membro](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. Nella finestra di dialogo **Rimuovi da gruppo** esaminare lo spazio su disco utilizzato e lo spazio disponibile per il pool di archiviazione. L'impostazione predefinita è lasciare i punti di recupero sul disco e consentire che scadano in base ai criteri di conservazione associati. Fare clic su **OK**.
+2. Nella finestra di dialogo **Rimuovi da gruppo** esaminare lo spazio su disco utilizzato e lo spazio disponibile per il pool di archiviazione. L'impostazione predefinita è lasciare i punti di recupero sul disco e consentire che scadano in base ai criteri di conservazione associati. Selezionare **OK**.
 
   Se si desidera restituire immediatamente lo spazio su disco utilizzato al pool di archiviazione disponibile, selezionare la casella di controllo **Elimina replica su disco** per eliminare i dati di backup (e i punti di recupero) associati a tale membro.
 
@@ -191,19 +192,19 @@ Se si desidera usare lo spazio di archiviazione legacy con il server di backup, 
 
 Per aggiungere spazio di archiviazione su disco:
 
-1. Nella Console di amministrazione selezionare **Gestione** > **Spazio di archiviazione su disco** > **Aggiungi**.
+1. Nella Console amministrazione DPM di System Center 2016 selezionare **Gestione** > **Spazio di archiviazione su disco** > **Aggiungi**.
 
-    ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. Nella finestra di dialogo **Aggiungi spazio di archiviazione su disco** selezionare **Aggiungi dischi**.
+2. Nella finestra di dialogo **Aggiungi spazio di archiviazione su disco** selezionare **Aggiungi dischi**.
 
-5. Nell'elenco dei dischi disponibili selezionare i dischi che si desidera aggiungere, selezionare **Aggiungi** e poi **OK**.
+3. Nell'elenco dei dischi disponibili selezionare i dischi da aggiungere. Selezionare **Aggiungi** e quindi **OK**.
 
 ## <a name="update-the-data-protection-manager-protection-agent"></a>Aggiornare l'agente protezione Data Protection Manager
 
-Il server di backup usa l'agente protezione System Center Data Protection Manager per gli aggiornamenti. Se si aggiorna un agente protezione che non è connesso alla rete, non è possibile usare la Console di amministrazione di Data Protection Manager per completare un aggiornamento dell'agente connesso. È necessario aggiornare l'agente protezione in un ambiente di dominio non attivo. Fino a quando il computer client è connesso alla rete, la Console di amministrazione di Data Protection Manager mostra che l'aggiornamento dell'agente protezione è in sospeso.
+Il server di backup usa l'agente protezione System Center Data Protection Manager per gli aggiornamenti. Se si aggiorna un agente protezione che non è connesso alla rete, non è possibile usare la Console di amministrazione DPM per completare l'aggiornamento di un agente connesso. È necessario aggiornare l'agente protezione in un ambiente di dominio non attivo. Fino a quando il computer client è connesso alla rete, la Console di amministrazione di Data Protection Manager mostra che l'aggiornamento dell'agente protezione è in sospeso.
 
-Le sezioni seguenti descrivono come aggiornare gli agenti protezione per i computer client connessi e i computer client non connessi.
+Le sezioni seguenti descrivono come aggiornare agenti protezione per i computer client connessi e per i computer client non connessi.
 
 ### <a name="update-a-protection-agent-for-a-connected-client-computer"></a>Aggiornare un agente protezione per un computer client connesso
 
@@ -213,8 +214,6 @@ Le sezioni seguenti descrivono come aggiornare gli agenti protezione per i compu
 
   > [!NOTE]
   > La colonna **Aggiornamenti agente** indica quando un aggiornamento dell'agente protezione è disponibile per ogni computer protetto. Nel riquadro **Azioni** l'azione **Aggiornamento** è disponibile solo quando è selezionato un computer protetto e sono disponibili aggiornamenti.
-  >
-  >
 
 3. Per installare gli agenti protezione aggiornati nei computer selezionati, nel riquadro **Azioni** selezionare **Aggiornamento**.
 
@@ -225,50 +224,69 @@ Le sezioni seguenti descrivono come aggiornare gli agenti protezione per i compu
 2. Nel riquadro informazioni selezionare i computer client per i quali si desidera aggiornare l'agente protezione.
 
   > [!NOTE]
-   > La colonna **Aggiornamenti agente** indica quando un aggiornamento dell'agente protezione è disponibile per ogni computer protetto. Nel riquadro **Azioni** l'azione **Aggiornamento** non è disponibile quando è selezionato un computer protetto a meno che siano disponibili aggiornamenti.
-  >
-  >
+  > La colonna **Aggiornamenti agente** indica quando un aggiornamento dell'agente protezione è disponibile per ogni computer protetto. Nel riquadro **Azioni** l'azione **Aggiornamento** non è disponibile quando è selezionato un computer protetto, a meno che non siano disponibili aggiornamenti.
 
 3. Per installare gli agenti protezione aggiornati nei computer selezionati, selezionare **Aggiornamento**.
 
-4. Per un computer client che non è connesso alla rete, fino a quando il computer non viene connesso alla rete, la colonna **Stato dell'agente** mostra lo stato **In attesa di aggiornamento**.
+4. Per un computer client che non è connesso alla rete e fino a quando il computer non viene connesso alla rete, la colonna **Stato agente** indica lo stato **Aggiornamento in sospeso**.
 
-  Dopo che un computer client è connesso alla rete, la colonna **Aggiornamenti agente** per il computer client mostra lo stato **Aggiornamento in corso**.
+  Quando un computer client è connesso alla rete, la colonna **Aggiornamenti agente** per il computer client indica lo stato **Aggiornamento in corso**.
   
-### <a name="move-legacy-protection-groups-from-old-version-and-sync-the-new-version-with-azure"></a>Spostare i gruppi di protezione legacy dalla versione precedente e sincronizzare la nuova versione con Azure
+### <a name="move-legacy-protection-groups-from-the-old-version-and-sync-the-new-version-with-azure"></a>Spostare i gruppi protezione dati legacy della versione precedente e sincronizzare la nuova versione con Azure
 
-Quando il server di Backup di Azure e il sistema operativo sono entrambi aggiornati, è possibile proteggere le nuove origini dati tramite l'archiviazione dei backup moderna. Benché già protette, le origini dati continuano a essere protette nel modo legacy come lo erano nel server di Backup di Azure, ma la nuova protezione usa l'archiviazione dei backup moderna.
+Quando il server di Backup di Azure e il sistema operativo sono entrambi aggiornati, è possibile proteggere nuove origini dati tramite Modern Backup Storage. Le origini dati già protette continuano a essere protette come avviene nel server di Backup di Azure (legacy). Tutti i nuovi gruppi protezione dati usano Modern Backup Storage.
 
-I passaggi seguenti permettono di eseguire la migrazione delle origini dati dalla modalità legacy di protezione all'archiviazione dei backup moderna.
+Per eseguire la migrazione di origini dati dalla modalità di protezione legacy a Modern Backup Storage:
 
-• Aggiungere i nuovi volumi al pool di archiviazione DPM e assegnare nomi descrittivi e tag di origine dati, se lo si desidera.
-• Per ogni origine dati in modalità legacy, arrestare la protezione delle origini dati e conservare i dati protetti.  Questo permetterà il ripristino dei vecchi punti di recupero dopo la migrazione.
+1.  Aggiungere i nuovi volumi al pool di archiviazione Data Protection Manager. È anche possibile assegnare un nome descrittivo e selezionare tag di origine dati.
 
-• Creare un nuovo gruppo di protezione e selezionare le origini dati da archiviare con il nuovo formato.
-• DPM eseguirà una copia di replica dall'archiviazione dei backup legacy nel volume di archiviazione dei backup moderna in locale.
-Nota: questo verrà considerato un processo dell'operazione successiva al ripristino • Tutti i nuovi punti di sincronizzazione e recupero verranno quindi archiviati nell'archiviazione dei backup moderna.
-• I vecchi punti di recupero verranno esclusi man mano che scadono e finiranno per liberare spazio su disco.
-• Quando tutti i volumi legacy saranno stati eliminati dalla vecchia archiviazione, il disco può essere rimosso da Backup di Azure e dal sistema.
-• Eseguire un backup del DPMDB di Azure.
+2. Per ogni origine dati in modalità legacy, arrestare la protezione delle origini dati. Selezionare quindi **Mantieni dati protetti**.  In questo modo, sarà possibile ripristinare i punti di recupero precedenti dopo la migrazione.
 
-Parte 2: - Informazioni importanti > Il nuovo server dovrà avere lo stesso nome del server di Backup di Azure originale. Non è possibile modificare il nome del nuovo server di Backup di Azure se si vuole usare il vecchio pool di archiviazione e il vecchio DPMDB per conservare i punti di recupero. - Deve essere presente una copia di backup del DPMDB, perché dovrà essere ripristinata
+3. Creare un nuovo gruppo protezione dati. Selezionare quindi le origini dati che si vuole archiviare usando il nuovo formato.
 
-1) Arrestare il server di Backup di Azure originale o portarlo offline.
-2) Reimpostare l'account del computer in Active Directory.
-3) Installare SQL Server 2016 nel nuovo computer e assegnare al computer lo stesso nome del server di Backup di Azure originale.
-4) Eseguire l'aggiunta al dominio
-5) Installare il server di Backup di Azure V2 (spostare i dischi del pool di archiviazione DPM dal vecchio server ed eseguire l'importazione)
-6) Ripristinare il DPMDB acquisito alla fine della parte 2
-7) Collegare l'archiviazione dal server di backup originale a quello nuovo.
-8) Ripristinare il DPMDB da SQL
-9) Dalla riga di comando di amministratore nel nuovo server cambiare directory per passare al percorso di installazione e alla cartella bin di Backup di Microsoft Azure
+  Data Protection Manager archivia una copia di replica dallo spazio di archiviazione di backup legacy al volume di Modern Backup Storage in locale.
+    > [!NOTE] 
+    > La creazione della copia appare come processo di operazione post-ripristino.
 
-Esempio di percorso: C:\windows\system32>cd "c:\Programmi\Microsoft Azure Backup\DPM\DPM\bin\"
-a Backup di Azure. Eseguire DPMSYNC -SYNC
+  Tutti i nuovi punti di sincronizzazione e recupero vengono quindi archiviati in Modern Backup Storage.
 
-10) Eseguire DPMSYNC -SYNC. Nota: se sono stati aggiunti NUOVI dischi al pool di archiviazione DPM invece di spostare quelli vecchi, eseguire DPMSYNC -Reallocatereplica
+  I punti di recupero precedenti vengono esclusi man mano che scadono. Con l'eliminazione dei punti di recupero precedenti, viene liberato spazio su disco.
 
-## <a name="new-powershell-cmdlets-in-v2"></a>Nuovi cmdlet PowerShell della v2
+  Quando tutti i volumi legacy saranno stati eliminati dallo spazio di archiviazione precedente, è possibile rimuovere il disco da Backup di Azure. È quindi possibile rimuovere il disco dal sistema.
+
+4. Eseguire un backup del database di Data Protection Manager.
+
+  > [!IMPORTANT]
+  > - Il nuovo server dovrà avere lo stesso nome dell'istanza del server di Backup di Azure originale. Non è possibile modificare il nome della nuova istanza del server di Backup di Azure se si vuole usare il pool di archiviazione e il database di Data Protection Manager precedenti per conservare i punti di recupero.
+  > - È necessario avere un backup del database di Data Protection Manager. Sarà necessario ripristinare il database.
+
+5. Arrestare l'istanza del server di Backup di Azure originale o portare il server offline.
+
+6. Reimpostare l'account del computer in Active Directory.
+
+7. Installare Windows Server 2016 in un nuovo computer. Per il nome del server, usare lo stesso nome di computer dell'istanza del server di Backup di Azure originale.
+
+8. Eseguire l'aggiunta al dominio.
+
+9. Installare il server di Backup di Azure v2. Rimuovere i dischi del pool di archiviazione Data Protection Manager dal server precedente e importarli nel nuovo server.
+
+10. Ripristinare il database di Data Protection Manager creato nel passaggio 4.
+
+11. Collegare l'archiviazione dal server di backup originale a quello nuovo.
+
+12. In SQL Server ripristinare il database di Data Protection Manager.
+
+13. Dalla riga di comando di amministratore nel nuovo server usare `cd` per passare al percorso di installazione e alla cartella bin di Backup di Microsoft Azure.  
+
+  Esempio:  
+  C:\windows\system32>cd "c:\Programmi\Microsoft Azure Backup\DPM\DPM\bin\ in Backup di Azure
+
+14. Eseguire `DPMSYNC -SYNC`.
+  
+  > [!NOTE]
+  > Se sono stati aggiunti *nuovi* dischi al pool di archiviazione Data Protection Manager invece di spostare quelli precedenti, eseguire `DPMSYNC -Reallocatereplica`.
+
+## <a name="new-powershell-cmdlets-in-backup-server-v2"></a>Nuovi cmdlet di PowerShell nel server di Backup di Azure v2
 
 Quando si installa il server di Backup di Azure v2, sono disponibili due nuovi cmdlet: 
 * [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)

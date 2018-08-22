@@ -3,7 +3,7 @@ title: Esempi di Hub eventi di Azure | Microsoft Docs
 description: Esempi di Hub eventi di Azure
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,63 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
-ms.author: sethm
-ms.openlocfilehash: 9d2c38ac589e5120441daf972217e61738fd57a1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.date: 07/17/2018
+ms.author: shvija
+ms.openlocfilehash: fbde6e5a5ed053d6c151b3af25535c397a496ef4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131356"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005335"
 ---
 # <a name="event-hubs-samples"></a>Esempi di Hub eventi 
+È possibile trovare gli esempi di Hub eventi in [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Questi esempi illustrano le funzionalità principali di [Hub eventi di Azure](/azure/event-hubs/). Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
 
-Il set di esempi di Hub eventi di Azure illustra le funzionalità principali di [Hub eventi di Azure](/azure/event-hubs/). Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
+## <a name="net-samples"></a>Esempi .NET
 
-Al momento della stesura di questo articolo, gli esempi di Hub eventi si trovano in diverse posizioni:
+| Nome esempio | DESCRIZIONE | 
+| ----------- | ----------- | 
+| [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | Questo esempio illustra come scrivere un'applicazione console .NET Core che invia un set di eventi a un hub eventi. |
+| [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | Questo esempio illustra come scrivere un'applicazione console .NET Core che riceve un set di eventi da un hub eventi usando la libreria dell'host processore di eventi.  | 
 
-- [Esempi di codice per sviluppatori MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+## <a name="java-samples"></a>Esempi di Java
 
-Per altre informazioni sulle diverse versioni di .NET Framework, vedere [Framework di destinazione](/dotnet/articles/standard/frameworks).
-
-Altri esempi saranno aggiunti in seguito, è consigliabile quindi controllare spesso gli aggiornamenti.
-
-## <a name="net-standard"></a>.NET Standard
-
-Negli esempi seguenti viene illustrato come inviare e ricevere eventi tramite il [client di Hub eventi](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) per la [libreria .NET Standard](/dotnet/articles/standard/library).
-
-### <a name="send-events"></a>Inviare eventi 
-
-L'esempio per la [guida introduttiva all'invio](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) illustra come scrivere un'applicazione console .NET Core che invii gli eventi a un hub eventi.
-
-### <a name="receive-events"></a>Ricevere eventi 
-
-L'esempio [Get started receiving with the Event Processor Host](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) (Guida introduttiva alla ricezione con l'host processore di eventi) è un'applicazione console .NET Core che riceve i messaggi da un hub eventi usando l'host processore di eventi.
-
-## <a name="net-framework"></a>.NET Framework   
-
-Questi esempi illustrano altre funzionalità di Hub eventi di Azure, indirizzati alla [libreria .NET Framework](/dotnet/framework/index).
- 
-### <a name="notify-users-of-events-received"></a>Inviare notifiche agli utenti sugli eventi ricevuti
-
-L'esempio [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications) invia notifiche agli utenti sui dati ricevuti dai sensori o da altri sistemi.
-
-### <a name="get-started-with-event-hubs"></a>Introduzione all'Hub eventi 
-
-L'esempio per l'[introduzione a Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) illustra le funzionalità di base di Hub eventi, come la creazione di un hub eventi, l'invio di eventi a un hub eventi e l'uso di eventi tramite l'[host processore di eventi](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).
-
-### <a name="scale-out-event-processing"></a>Elaborazione di eventi con aumento delle istanze 
-
-L'esempio sull'[elaborazione di eventi con aumento delle istanze](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) illustra come usare l'[Host processore di eventi](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) per distribuire il carico di lavoro del consumo di flusso di Hub eventi. Viene illustrato come implementare gli oggetti **EventProcessor** e **EventProcessorFactory** per gestire il flusso di eventi. 
+| Nome esempio | DESCRIZIONE | 
+| ----------- | ----------- | 
+| [SendBatch](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SendBatch)  | Questo esempio illustra come inserire batch di eventi nell'hub eventi. | 
+| [SimpleSend](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) | Questo esempio illustra come inserire eventi nell'hub eventi. |
+| [AdvanceSendOptions](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/AdvancedSendOptions) | Questo esempio illustra le diverse opzioni disponibili con Hub eventi per l'inserimento di eventi. |
+| [ReceiveByDateTime](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveByDateTime) | Questo esempio illustra come ricevere eventi da una partizione dell'hub eventi usando un offset di data e ora specifico. |
+| [ReceiveUsingOffset](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingOffset) | Questo esempio illustra come ricevere eventi da una partizione dell'hub eventi usando un offset di data specifico. |  
+| [ReceiveUsingSequenceNumber](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingSequenceNumber) | Questo esempio illustra come ricevere eventi dalle partizioni di un hub eventi usando un numero di sequenza. |   
+| [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |Questo esempio illustra come ricevere eventi da un hub eventi usando l'host processore di eventi, che offre la selezione automatica delle partizioni e il failover tra più ricevitori simultanei. | 
+| [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | Questo esempio illustra come è possibile aumentare automaticamente le prestazioni di un hub eventi in caso di carichi elevati. L'esempio invia eventi a una velocità superiore a quella configurata per un hub eventi, causando l'aumento delle prestazioni dell'hub eventi. | 
+| [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | Questo esempio consente di misurare la velocità in ingresso. | 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Per altre informazioni sulle versioni .NET Framework visitare i collegamenti seguenti:
-
-- [Framework e destinazioni](/dotnet/articles/standard/frameworks)
-- [.NET Framework 4.6 e 4.5](/dotnet/framework/index)
-
 Per altre informazioni su Hub eventi consultare i seguenti articoli:
 
 - [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)

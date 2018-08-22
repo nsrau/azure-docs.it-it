@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d121f2744292ba64436f0722ae60cc3bc2b8dfa7
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186714"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714129"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Ridimensionamento automatico del cluster su Azure Kubernetes Service (AKS) - Anteprima
 
-Il servizio Kubernetes di Azure (AKS) fornisce una soluzione flessibile per la distribuzione di un cluster Kubernetes gestito in Azure. Con la crescita delle richieste di risorsa, il ridimensionamento automatico del cluster consente l'aumento delle dimensioni del cluster per soddisfare tale richiesta, in base ai vincoli impostati. Il ridimensionamento automatico del cluster (CA) esegue tale operazione, ridimensionando i nodi agente in base ai pod in sospeso. Analizza il cluster periodicamente per cercare in pod in sospeso o nodi vuoti e ne aumenta la dimensione, se possibile. Per impostazione predefinita, CA analizza i pod in sospeso ogni 10 secondi e rimuove un nodo, se non risulta necessario per più di 10 minuti. Se usato con il ridimensionamento automatico orizzontale dei pod (HPA), l'attributo di protezione host aggiornerà le repliche di pod e le risorse in base alla richiesta. Se non vi sono nodi sufficienti o nodi non necessari seguendo la scalabilità del pod, CA risponderà e pianificherà i pod nel nuovo set di nodi.
+Il servizio Kubernetes di Azure (AKS) fornisce una soluzione flessibile per la distribuzione di un cluster Kubernetes gestito in Azure. Con la crescita delle richieste di risorsa, il ridimensionamento automatico del cluster consente l'aumento delle dimensioni del cluster per soddisfare tale richiesta, in base ai vincoli impostati. Il ridimensionamento automatico del cluster (CA) esegue tale operazione, ridimensionando i nodi agente in base ai pod in sospeso. Analizza il cluster periodicamente per cercare in pod in sospeso o nodi vuoti e ne aumenta la dimensione, se possibile. Per impostazione predefinita, CA analizza i pod in sospeso ogni 10 secondi e rimuove un nodo, se non risulta necessario per più di 10 minuti. Se usato con il [ridimensionamento automatico orizzontale dei pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA), l'attributo di protezione host aggiornerà le repliche di pod e le risorse in base alla richiesta. Se non vi sono nodi sufficienti o nodi non necessari applicando la scalabilità del pod, la CA risponderà e pianificherà i pod nel nuovo set di nodi.
+
+Questo articolo descrive come distribuire il ridimensionamento automatico del cluster nei nodi agente. Tuttavia, poiché il ridimensionamento automatico del cluster viene distribuito nello spazio dei nomi kube-system, non ridurrà le prestazioni del nodo che esegue questo pod.
 
 > [!IMPORTANT]
 > L'integrazione di ridimensionamento automatico del cluster di Azure AD per il servizio Kubernetes di Azure (AKS) è attualmente in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
@@ -32,41 +34,70 @@ Questo documento presuppone che si abbia già un cluster AKS di RBAC abilitato. 
 
 ## <a name="gather-information"></a>Raccogliere informazioni
 
-L'elenco seguente mostra tutte le informazioni che è necessario specificare nella definizione del ridimensionamento automatico.
+Per generare le autorizzazioni per il ridimensionamento automatico del cluster per l'esecuzione nel cluster, eseguire questo script bash:
 
-- *ID sottoscrizione*: ID corrispondente alla sottoscrizione usata per questo cluster
-- *Nome gruppo di risorse* : nome del gruppo di risorse a cui appartiene il cluster 
-- *Nome cluster*: il nome del cluster
-- *ID client*: ID dell'app concesso dal passaggio di generazione dell'autorizzazione
-- *Segreto client*: segreto dell'app concesso dal passaggio di generazione dell'autorizzazione
-- *ID tenant*: ID del tenant (proprietario dell'account)
-- *Gruppo di risorse del nodo*: nome del gruppo di risorse che include i nodi agente nel cluster
-- *Nome del pool di nodi*: nome del pool di nodi che si desidera ridimensionare
-- *Numero minimo di nodi*: numero minimo di nodi presenti nel cluster
-- *Numero massimo di nodi*: numero massimo di nodi presenti nel cluster
-- *Tipo di macchina virtuale*: servizio usato per generare il cluster Kubernetes
+```sh
+#! /bin/bash
+ID=`az account show --query id -o json`
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-Ottieni l'ID di sottoscrizione con: 
+TENANT=`az account show --query tenantId -o json`
+TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
-``` azurecli
-az account show --query id
+read -p "What's your cluster name? " cluster_name
+read -p "Resource group name? " resource_group
+
+CLUSTER_NAME=`echo $cluster_name | base64`
+RESOURCE_GROUP=`echo $resource_group | base64`
+
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID" -o json`
+CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+
+CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
+NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+echo "---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: cluster-autoscaler-azure
+    namespace: kube-system
+data:
+    ClientID: $CLIENT_ID
+    ClientSecret: $CLIENT_SECRET
+    ResourceGroup: $RESOURCE_GROUP
+    SubscriptionID: $SUBSCRIPTION_ID
+    TenantID: $TENANT_ID
+    VMType: QUtTCg==
+    ClusterName: $CLUSTER_NAME
+    NodeResourceGroup: $NODE_RESOURCE_GROUP
+---"
 ```
 
-Generare un set di credenziali di Azure eseguendo il comando seguente:
+Una volta completati i passaggi nello script, lo script restituirà i dettagli sotto forma di segreto, in questo modo:
 
-```console
-$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
-
-"appId": <app-id>,
-"displayName": <display-name>,
-"name": <name>,
-"password": <app-password>,
-"tenant": <tenant-id>
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>$
+  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
 ```
 
-L'ID dell'app, password e ID tenant saranno l'ID client, segreto client e ID tenant nei passaggi seguenti.
-
-Ottenere il nome del pool di nodi eseguendo il comando seguente. 
+Ottenere quindi il nome del pool di nodi eseguendo il comando seguente. 
 
 ```console
 $ kubectl get nodes --show-labels
@@ -81,49 +112,7 @@ aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nod
 
 Quindi, estrarre il valore dell'etichetta **agentpool**. Il nome predefinito per il pool di nodi di un cluster è "nodepool1".
 
-Per ottenere il nome del gruppo di risorse di nodi, estrarre il valore dell'etichetta **kubernetes.azure.com<span></span>/cluster**. Il nome del gruppo di risorse del nodo è in genere nel formato MC _ [gruppo di risorse]\__ [nome del cluster]_[percorso].
-
-Il parametro vmType fa riferimento al servizio in uso, ovvero in questo caso, servizio Kubernetes di Azure.
-
-Adesso, si dovrebbero avere le informazioni seguenti:
-
-- SubscriptionID
-- ResourceGroup
-- ClusterName
-- ClientID
-- ClientSecret
-- ID tenant
-- NodeResourceGroup
-- VMType
-
-Successivamente, codificare tutti questi valori con codifica base64. Ad esempio, per codificare il valore VMType con codifica base64:
-
-```console
-$ echo AKS | base64
-QUtTCg==
-```
-
-## <a name="create-secret"></a>Creare un segreto
-Usando questi dati, creare un segreto per la distribuzione usando i valori presenti nei passaggi precedenti nel formato seguente:
-
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cluster-autoscaler-azure
-  namespace: kube-system
-data:
-  ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
-  TenantID: <base64-encoded-tenant-id>
-  VMType: QUtTCg==
-  ClusterName: <base64-encoded-clustername>
-  NodeResourceGroup: <base64-encoded-node-resource-group>
----
-```
+Usando ora il segreto e il pool di nodi, è possibile creare un grafico di distribuzione.
 
 ## <a name="create-a-deployment-chart"></a>Creare un grafico di distribuzione
 
@@ -324,10 +313,10 @@ Quindi, compilare il campo immagine sotto **contenitori** con la versione della 
 Distribuire il ridimensionamento automatico del cluster eseguendo
 
 ```console
-kubectl create -f cluster-autoscaler-containerservice.yaml
+kubectl create -f aks-cluster-autoscaler.yaml
 ```
 
-Per verificare se il ridimensionamento automatico del cluster è in esecuzione, usare il comando seguente e controllare l'elenco dei pod. Se è presente un pod con il prefisso "cluster-autoscaler" in esecuzione, il ridimensionamento automatico del cluster è stato distribuito.
+Per verificare se il ridimensionamento automatico del cluster è in esecuzione, usare il comando seguente e controllare l'elenco dei pod. Dovrebbe essere presente un pod con prefisso "cluster-autoscaler" in esecuzione. Se è presente, il ridimensionamento automatico del cluster è stata distribuito.
 
 ```console
 kubectl -n kube-system get pods
@@ -338,6 +327,68 @@ Per visualizzare lo stato del ridimensionamento automatico del cluster, eseguire
 ```console
 kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
+
+## <a name="interpreting-the-cluster-autoscaler-status"></a>Interpretazione dello stato di ridimensionamento automatico del cluster
+
+```console
+$ kubectl -n kube-system describe configmap cluster-autoscaler-status
+Name:         cluster-autoscaler-status
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  cluster-autoscaler.kubernetes.io/last-updated=2018-07-25 22:59:22.661669494 +0000 UTC
+
+Data
+====
+status:
+----
+Cluster-autoscaler status at 2018-07-25 22:59:22.661669494 +0000 UTC:
+Cluster-wide:
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 registered=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+NodeGroups:
+  Name:        nodepool1
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0 cloudProviderTarget=1 (minSize=1, maxSize=5))
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 cloudProviderTarget=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+
+Events:  <none>
+```
+
+Lo stato di ridimensionamento automatico del cluster può essere visualizzato in due livelli diversi: a livello di cluster e all'interno di ogni gruppo di nodi. Poiché AKS attualmente supporta solo un pool di nodi, queste metriche sono identiche.
+
+* Stato indica lo stato complessivo dei nodi. Se il ridimensionamento automatico del cluster cerca di creare o rimuovere nodi nel cluster, lo stato passa a "Unhealthy". Viene anche presentata un'analisi dello stato dei diversi nodi:
+    * "Ready" significa che un nodo è pronto per includere pod pianificati.
+    * "Unready" significa che un nodo è stato interrotto dopo l'avvio.
+    * "NotStarted" significa che un nodo non è ancora avviato completamente.
+    * "LongNotStarted" significa che un nodo non è stato in grado di avviarsi entro un limite di tempo ragionevole.
+    * "Registered" significa che un nodo è registrato nel gruppo.
+    * "Unregistered" significa che un nodo è presente nel lato provider del cluster, ma non è stato registrato in Kubernetes.
+  
+* "ScaleUp" permette di controllare quando il cluster determina che è necessario un aumento delle prestazioni nel cluster.
+    * Una transizione avviene quando il numero di nodi nel cluster cambia o quando cambia lo stato di un nodo.
+    * Il numero di nodi pronti è il numero di nodi disponibili e pronti nel cluster. 
+    * "cloudProviderTarget" è il numero di nodi che il ridimensionamento automatico del cluster ha determinato come necessario perché il cluster possa gestire il proprio carico di lavoro.
+
+* "ScaleDown" permette di controllare se vi sono candidati per la riduzione delle prestazioni. 
+    * Un candidato per la riduzione delle prestazioni è un nodo che il ridimensionamento automatico del cluster ha determinato come rimovibile senza influire sulla capacità del cluster di gestire il proprio carico di lavoro. 
+    * I tempi forniti indicano l'ultima volta che il cluster è stato controllato per individuare eventuali candidati per la riduzione delle prestazioni e la data e l'ora dell'ultima transazione.
+
+Infine, alla voce Events è possibile visualizzare qualsiasi evento di aumento o riduzione delle prestazioni, riuscito o non riuscito, insieme ai rispettivi momenti, eseguito dal ridimensionamento automatico del cluster.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
