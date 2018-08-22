@@ -3,98 +3,76 @@ title: Guida alla programmazione per Hub eventi di Azure | Documentazione Micros
 description: Scrivere il codice per Hub eventi di Azure mediante Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
-manager: timlt
-editor: ''
-ms.assetid: 64cbfd3d-4a0e-4455-a90a-7f3d4f080323
+author: ShubhaVijayasarathy
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 11/16/2017
-ms.author: sethm
-ms.openlocfilehash: 7d5f14d5a65253cf0aad1811ace419bf2f39f7db
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 06/12/2018
+ms.author: shvija
+ms.openlocfilehash: f2ae9835c412b177a1b80044613a45eb96dfeeb8
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25986835"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007774"
 ---
 # <a name="event-hubs-programming-guide"></a>Guida alla programmazione di Hub eventi
 
-Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure e Azure .NET SDK. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
+Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Autori di eventi
 
 L'invio di eventi a un hub eventi viene eseguito tramite una connessione AMQP 1.0 o HTTP POST. La scelta del protocollo da usare e di quando usarlo dipende dallo scenario specifico. Le connessioni AMQP 1.0 sono misurate come connessioni negoziate nel bus di servizio e sono più appropriate in scenari in cui sono frequenti volumi di messaggi più elevati e con requisiti di latenza inferiori, perché offrono un canale di messaggistica persistente.
 
-È possibile creare e gestire Hub eventi con la classe [NamespaceManager][]. Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) e [EventData][]. [EventHubClient][] offre il canale di comunicazione AMQP tramite il quale gli eventi vengono inviati all'hub eventi. La classe [EventData][] rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati e informazioni di intestazione sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData][] quando passa attraverso un hub eventi.
+Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient][] e [EventData][]. [EventHubClient][] offre il canale di comunicazione AMQP tramite il quale gli eventi vengono inviati all'hub eventi. La classe [EventData][] rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati e informazioni di intestazione sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData][] quando passa attraverso un hub eventi.
 
 ## <a name="get-started"></a>Attività iniziali
 
-Le classi .NET che supportano Hub eventi fanno parte dell'assembly Microsoft.ServiceBus.dll. Il modo più semplice per fare riferimento all'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio consiste nello scaricare il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus). In alternativa, è possibile usare [Console di gestione pacchetti](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. A tale scopo, eseguire il comando seguente nella finestra della [Console di gestione pacchetti](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
+Le classi .NET che supportano Hub eventi vengono fornite con il pacchetto NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). È possibile eseguire l'installazione tramite Esplora soluzioni di Visual Studio o la [Console di gestione pacchetti](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. A tale scopo, eseguire il comando seguente nella finestra della [Console di gestione pacchetti](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
-```
-Install-Package WindowsAzure.ServiceBus
+```shell
+Install-Package Microsoft.Azure.EventHubs
 ```
 
 ## <a name="create-an-event-hub"></a>Creare un hub eventi
-È possibile utilizzare la classe [NamespaceManager][] per creare gli hub di eventi. Ad esempio: 
 
-```csharp
-var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
-var description = manager.CreateEventHub("MyEventHub");
-```
-
-Nella maggior parte dei casi, è consigliabile usare i metodi [CreateEventHubIfNotExists][] per evitare di generare eccezioni se il servizio viene riavviato. Ad esempio: 
-
-```csharp
-var description = manager.CreateEventHubIfNotExists("MyEventHub");
-```
-
-Tutte le operazioni di creazione di Hub eventi, tra cui [CreateEventHubIfNotExists][], richiedono di **gestire** le autorizzazioni per lo spazio dei nomi in questione. Se si desidera limitare le autorizzazioni delle applicazioni publisher o consumer, è possibile evitare queste chiamate alle operazioni di creazione nel codice di produzione quando si usano credenziali con autorizzazioni limitate.
-
-La classe [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) contiene informazioni dettagliate su un hub eventi, tra cui le regole di autorizzazione, l'intervallo di conservazione dei messaggi, gli ID di partizione, lo stato e il percorso. È possibile usare questa classe per aggiornare i metadati in un hub eventi.
+Per creare hub eventi è possibile usare il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure. Per informazioni dettagliate, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il portale di Azure](event-hubs-create.md).
 
 ## <a name="create-an-event-hubs-client"></a>Creare un client di Hub eventi
-La classe primaria per interagire con Hub eventi è [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Questa classe fornisce funzionalità di mittente e destinatario. È possibile creare un'istanza di questa classe usando il metodo [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create), come illustrato nell'esempio seguente:
+
+La classe primaria per interagire con Hub eventi è [Microsoft.Azure.EventHubs.EventHubClient][EventHubClient]. È possibile creare un'istanza di questa classe usando il metodo [CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createfromconnectionstring), come illustrato nell'esempio seguente:
 
 ```csharp
-var client = EventHubClient.Create(description.Path);
+private const string EventHubConnectionString = "Event Hubs namespace connection string";
+private const string EventHubName = "event hub name";
+
+var connectionStringBuilder = new EventHubsConnectionStringBuilder(EventHubConnectionString)
+{
+    EntityPath = EventHubName
+
+};
+eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
 ```
-
-Questo metodo usa le informazioni di connessione del bus di servizio nella sezione `appSettings` del file App.config. Per un esempio dell'XML di `appSettings` usato per archiviare le informazioni di connessione del bus di servizio, vedere la documentazione per il metodo [Microsoft.ServiceBus.Messaging.EventHubClient.Create(System.String)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) .
-
-È anche possibile creare il client da una stringa di connessione. Questa opzione funziona bene quando si usano i ruoli di lavoro di Azure, poiché è possibile archiviare la stringa nelle proprietà di configurazione per il lavoro. Ad esempio: 
-
-```csharp
-EventHubClient.CreateFromConnectionString("your_connection_string");
-```
-
-La stringa di connessione avrà un formato uguale a quello presente nel file App.config per i metodi precedenti:
-
-```
-Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
-```
-
-Infine è anche possibile creare un oggetto [EventHubClient][] da un'istanza di [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory), come illustrato nell'esempio seguente:
-
-```csharp
-var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
-var client = factory.CreateEventHubClient("MyEventHub");
-```
-
-È importante notare che oggetti [EventHubClient][] aggiuntivi creati da un'istanza di factory di messaggistica riusano la stessa connessione TCP sottostante. Di conseguenza, questi oggetti prevedono un limite sul lato client per la velocità effettiva. Il metodo [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) riutilizza una singola factory di messaggistica. Se è necessario molto elevata velocità effettiva di un singolo mittente, è possibile creare più factory di messaggistica e un oggetto [EventHubClient][] factory di messaggistica.
 
 ## <a name="send-events-to-an-event-hub"></a>Inviare eventi a un hub eventi
-Gli eventi vengono inviati a un hub eventi tramite la creazione di un'istanza [EventData][] e l'invio di quest'ultima con il metodo [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_). Questo metodo accetta un singolo parametro dell'istanza di [EventData][] e lo invia in modo sincrono a un hub eventi.
+
+Gli eventi vengono inviati a un hub eventi tramite la creazione di un'istanza di [EventHubClient][] e l'invio di quest'ultima in modo asincrono con il metodo [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync). Questo metodo accetta un singolo parametro dell'istanza di [EventData][] e lo invia in modo sincrono a un hub eventi.
 
 ## <a name="event-serialization"></a>Serializzazione degli eventi
-La classe [EventData][] ha [quattro costruttori di overload](/dotnet/api/microsoft.servicebus.messaging.eventdata#constructors_) che accettano una serie di parametri, ad esempio un oggetto, un serializzatore, una matrice di byte o un flusso. È inoltre possibile creare un'istanza della classe [EventData][] e impostare il flusso del corpo in un secondo momento. Quando si usa JSON con [EventData][]è possibile usare **Encoding.UTF8.GetBytes()** per recuperare la matrice di byte per una stringa con codifica JSON.
+
+La classe [EventData][] ha [due costruttori di overload](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) che accettano una serie di parametri, byte o una matrice di byte, che rappresentano il payload dei dati degli eventi. Quando si usa JSON con [EventData][]è possibile usare **Encoding.UTF8.GetBytes()** per recuperare la matrice di byte per una stringa con codifica JSON. Ad esempio: 
+
+```csharp
+for (var i = 0; i < numMessagesToSend; i++)
+{
+    var message = $"Message {i}";
+    Console.WriteLine($"Sending message: {message}");
+    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
+}
+```
 
 ## <a name="partition-key"></a>Chiave di partizione
-La classe [EventData][] ha una proprietà [PartitionKey][] che consente al mittente di specificare un valore che viene eseguito con hash per produrre un'assegnazione di partizione. L'uso di una chiave di partizione assicura che tutti gli eventi con la stessa chiave vengano inviati alla stessa partizione nell'hub eventi. Le chiavi di partizione comuni includono ID sessione utente e ID mittente univoci. La proprietà [PartitionKey][] è facoltativa e può essere specificata quando si usa il metodo [Microsoft.ServiceBus.Messaging.EventHubClient.Send(Microsoft.ServiceBus.Messaging.EventData)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_)o [Microsoft.ServiceBus.Messaging.EventHubClient.SendAsync(Microsoft.ServiceBus.Messaging.EventData)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendAsync_Microsoft_ServiceBus_Messaging_EventData_). Se non si specifica un valore per [PartitionKey][], gli eventi inviati vengono distribuiti alle partizioni tramite un modello round robin.
+
+Quando si inviano i dati degli eventi, è possibile specificare un valore di cui viene eseguito l'hashing per generare un'assegnazione di partizione. Per specificare la partizione si usa la proprietà [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid). Tuttavia, la decisione di usare le partizioni implica una scelta tra disponibilità e coerenza. 
 
 ### <a name="availability-considerations"></a>Considerazioni sulla disponibilità
 
@@ -107,70 +85,48 @@ Considerati gli aspetti relativi alla disponibilità, in questi scenari è possi
 - Arresto (arresto della lettura da Hub eventi fino alla risoluzione del problema)
 - Eliminazione (i messaggi non sono importanti, eliminarli)
 - Ripetizione (nuovo tentativo di invio dei messaggi quando possibile)
-- [Mancato recapito dei messaggi](../service-bus-messaging/service-bus-dead-letter-queues.md) (usare una coda o un altro hub eventi per evitare il recapito dei soli messaggi che non è possibile elaborare)
 
 Per altre informazioni e una discussione sui compromessi tra disponibilità e coerenza, vedere [Availability and consistency in Event Hubs (Disponibilità e coerenza in Hub eventi)](event-hubs-availability-and-consistency.md). 
 
 ## <a name="batch-event-send-operations"></a>Operazioni di invio di eventi in batch
-L'invio di eventi in batch può aumentare la velocità effettiva. Il metodo [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) accetta un parametro **IEnumerable** di tipo [EventData][] e invia l'intero batch come operazione atomica all'hub eventi.
 
-```csharp
-public void SendBatch(IEnumerable<EventData> eventDataList);
-```
+L'invio di eventi in batch può aumentare la velocità effettiva. È possibile usare l'API [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) per creare un batch a cui è possibile aggiungere oggetti dati in un secondo momento per una chiamata [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync).
 
-Si noti che un singolo batch non deve superare il limite di 256 KB di un evento. Inoltre, ogni messaggio nel batch usa la stessa identità del publisher. È responsabilità del mittente verificare che il batch non superi la dimensione massima dell'evento. In questo caso, viene generato un errore di **invio** del client. È possibile usare il metodo helper [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) per assicurarsi che il batch non superi i 256 KB. Si ottiene un [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) vuoto dall'API [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch), quindi si usa [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) per aggiungere eventi per costruire il batch. Infine, usare [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) per ottenere gli eventi sottostanti da passare all'API [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send).
+Si noti che un singolo batch non deve superare il limite di 256 kB di un evento. Inoltre, ogni messaggio nel batch usa la stessa identità del publisher. È responsabilità del mittente verificare che il batch non superi la dimensione massima dell'evento. In questo caso, viene generato un errore di **invio** del client. È possibile usare il metodo helper [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) per assicurarsi che il batch non superi i 256 KB. Si ottiene un [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) vuoto dall'API [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch), quindi si usa [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) per aggiungere eventi per costruire il batch. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Inviare in modo asincrono e inviare a livello di scalabilità
-È anche possibile inviare eventi a un hub eventi in modo asincrono. L'invio asincrono può consentire di aumentare la velocità con cui un client può inviare gli eventi. Entrambi i metodi [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) e [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) sono disponibili nelle versioni asincrone che restituiscono un oggetto [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Sebbene questa tecnica possa consentire di aumentare la velocità effettiva, può anche provocare l'invio continuo di eventi da parte del client anche in presenza di limitazioni imposte dal servizio Hub eventi e ciò può comportare errori del client o perdita di messaggi, se l'implementazione non avviene correttamente. Inoltre, è possibile usare la proprietà [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) nel client per controllare le opzioni di ripetizione dei tentativi nel client.
 
-## <a name="create-a-partition-sender"></a>Creare un mittente di partizione
-Sebbene sia più comune inviare eventi a un hub eventi senza una chiave di partizione, in alcuni casi è possibile inviare gli eventi direttamente a una partizione specifica. Ad esempio: 
-
-```csharp
-var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
-```
-
-[CreatePartitionedSender](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) restituisce un oggetto [EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) che è possibile usare per pubblicare eventi in una partizione specifica dell'hub eventi.
+È possibile inviare eventi a un hub eventi in modo asincrono. L'invio asincrono può consentire di aumentare la velocità con cui un client può inviare gli eventi. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) restituisce un oggetto [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). È possibile usare la classe [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) nel client per controllare le opzioni di ripetizione dei tentativi del client.
 
 ## <a name="event-consumers"></a>Consumer di eventi
-Hub eventi dispone di due modelli principali per l'utilizzo di eventi: ricevitori diretti e astrazioni di livello superiore, ad esempio [EventProcessorHost][]. I ricevitori diretti sono responsabili del coordinamento del proprio accesso alle partizioni in un *gruppo di consumer*. Un gruppo di consumer è una vista (stato, posizione o offset) di un hub eventi partizionato.
 
-### <a name="direct-consumer"></a>Consumer diretto
-Il modo più diretto per leggere da una partizione consiste nell'uso della classe [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver). Per creare un'istanza di questa classe, è necessario usare un'istanza della classe [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) . Nell'esempio seguente è necessario specificare l'ID di partizione quando si crea il ricevitore per il gruppo di consumer:
-
-```csharp
-EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
-var receiver = group.CreateReceiver(client.GetRuntimeInformation().PartitionIds[0]);
-```
-
-Il metodo [CreateReceiver](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup#methods_summary) dispone di diversi overload che facilitano il controllo sul lettore creato. Questi metodi includono la specifica di un offset sotto forma di stringa o timestamp e la possibilità di specificare se includere questo offset nel flusso restituito o iniziare dopo di esso. Dopo aver creato il ricevitore, è possibile iniziare a ricevere gli eventi nell'oggetto restituito. Il metodo [Receive](/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver#methods_summary) dispone di quattro overload che controllano i parametri dell'operazione receive, ad esempio le dimensioni di batch e il tempo di attesa. È possibile usare le versioni asincrone di questi metodi per aumentare la velocità effettiva di un consumer. Ad esempio: 
-
-```csharp
-bool receive = true;
-string myOffset;
-while(receive)
-{
-    var message = receiver.Receive();
-    myOffset = message.Offset;
-    string body = Encoding.UTF8.GetString(message.GetBytes());
-    Console.WriteLine(String.Format("Received message offset: {0} \nbody: {1}", myOffset, body));
-}
-```
-
-Per una partizione specifica, i messaggi vengono ricevuti nell'ordine in cui sono stati inviati all'hub eventi. L'offset è un token di stringa usato per identificare un messaggio in una partizione.
-
-Si noti che una singola partizione non può avere più di cinque lettori concorrenti connessi in un determinato momento. Quando i reader si connettono o si disconnettono, le relative sessioni potrebbero rimanere attive per alcuni minuti prima che il servizio riconosca che si sono disconnessi. In questo intervallo, la riconnessione a una partizione potrebbe non riuscire. Per un esempio completo di scrittura di un ricevitore diretto per Hub eventi, vedere l'esempio relativo ai [ricevitori diretti per gli hub eventi](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) .
-
-### <a name="event-processor-host"></a>Host processore di eventi
 La classe [EventProcessorHost][] elabora i dati da Hub eventi. È consigliabile usare questa implementazione durante la creazione di reader di eventi sulla piattaforma .NET. [EventProcessorHost][] fornisce un ambiente di runtime thread-safe, multiprocesso e sicuro per le implementazioni del processore di eventi che fornisce inoltre la gestione di lease di Checkpoint e la partizione.
 
-Per usare la classe [EventProcessorHost][], è possibile implementare [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor). Questa interfaccia contiene tre metodi:
+Per usare la classe [EventProcessorHost][], è possibile implementare [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor). Questa interfaccia contiene quattro metodi:
 
-* [OpenAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_OpenAsync_Microsoft_ServiceBus_Messaging_PartitionContext_)
-* [CloseAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_CloseAsync_Microsoft_ServiceBus_Messaging_PartitionContext_Microsoft_ServiceBus_Messaging_CloseReason_)
-* [ProcessEventsAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_ProcessEventsAsync_Microsoft_ServiceBus_Messaging_PartitionContext_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__)
+* [OpenAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.openasync)
+* [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.closeasync)
+* [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
+* [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost][]fornendo i parametri appropriati per l'hub eventi. Chiamare quindi [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1) per registrare l'implementazione di [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) con il runtime. A questo punto, l'host tenta di acquisire un lease per ogni partizione nell'hub eventi tramite un algoritmo "greedy". Tali lease durano per un determinato intervallo di tempo e quindi devono essere rinnovati. Appena nuovi nodi, in questo caso istanze di lavoro, passano online, inviano prenotazioni di lease e nel tempo il carico passa tra i nodi man mano che ognuno tenta di acquisire più lease.
+Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost][]fornendo i parametri appropriati per l'hub eventi. Ad esempio: 
+
+```csharp
+var eventProcessorHost = new EventProcessorHost(
+        EventHubName,
+        PartitionReceiver.DefaultConsumerGroupName,
+        EventHubConnectionString,
+        StorageConnectionString,
+        StorageContainerName);
+```
+
+Chiamare quindi [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync) per registrare l'implementazione di [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) con il runtime:
+
+```csharp
+await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
+```
+
+A questo punto, l'host tenta di acquisire un lease per ogni partizione nell'hub eventi tramite un algoritmo "greedy". Tali lease durano per un determinato intervallo di tempo e quindi devono essere rinnovati. Appena nuovi nodi, in questo caso istanze di lavoro, passano online, inviano prenotazioni di lease e nel tempo il carico passa tra i nodi man mano che ognuno tenta di acquisire più lease.
 
 ![Host processore di eventi](./media/event-hubs-programming-guide/IC759863.png)
 
@@ -179,11 +135,13 @@ Con il passare del tempo, viene stabilito un equilibrio. Questa funzionalità di
 La classe [EventProcessorHost][] implementa inoltre un meccanismo di impostazione di checkpoint basato sull'archiviazione di Azure. Questo meccanismo archivia l'offset per ogni partizione, in modo che ogni consumer possa determinare qual è stato l'ultimo checkpoint per il consumer precedente. Man mano che le partizioni passano tra i nodi tramite lease, questo è il meccanismo di sincronizzazione che semplifica lo spostamento del carico.
 
 ## <a name="publisher-revocation"></a>Revoca di publisher
+
 Oltre alle funzionalità di runtime avanzate di [EventProcessorHost][], Hub eventi consente anche di revocare i publisher per impedire a publisher specifici di inviare eventi a un hub eventi. Queste funzionalità sono utili in situazioni in cui il token di un autore è stato compromesso o un aggiornamento software sta causando un comportamento non appropriato. In queste situazioni, l'identità dell'autore, che fa parte del relativo token di firma di accesso condiviso, può essere bloccata impedendo la pubblicazione di eventi.
 
 Per altre informazioni sulla revoca di publisher e su come eseguire l'invio a Hub eventi come publisher, vedere l'esempio relativo alla [pubblicazione sicura su larga scala in Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
 
 * [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
@@ -192,8 +150,8 @@ Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti segu
 * [Riferimento all'API dell'host processore di eventi](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
-[EventHubClient]: /dotnet/api/microsoft.servicebus.messaging.eventhubclient
-[EventData]: /dotnet/api/microsoft.servicebus.messaging.eventdata
+[EventHubClient]: /dotnet/api/microsoft.azure.eventhubs.eventhubclient
+[EventData]: /dotnet/api/microsoft.azure.eventhubs.eventdata
 [CreateEventHubIfNotExists]: /dotnet/api/microsoft.servicebus.namespacemanager.createeventhubifnotexists
 [PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.eventdata#Microsoft_ServiceBus_Messaging_EventData_PartitionKey
-[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[EventProcessorHost]: /dotnet/api/microsoft.azure.eventhubs.processor

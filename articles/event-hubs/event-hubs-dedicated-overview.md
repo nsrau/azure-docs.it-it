@@ -3,7 +3,7 @@ title: Panoramica della capacità di Hub eventi dedicato di Azure | Microsoft Do
 description: Panoramica della capacità di Hub eventi dedicato di Microsoft Azure.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 7009710328c96660accdcf9c88313ad92d25d41c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: shvija
+ms.openlocfilehash: 1a7a7593e80f08296e3163e528e880f343366b8a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311417"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005705"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
@@ -32,12 +32,12 @@ La tabella seguente confronta i livelli di servizio disponibili per Hub eventi. 
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
 | Unità di velocità effettiva (in entrata 1 MB/secondo, in uscita di 2 MB/secondo) | Pagamento per ogni ora | Incluso |
 | Dimensioni del messaggio | 256 KB | 1 MB |
-| Criteri per i server di pubblicazione | Sì | Sì |   
+| Criteri per i server di pubblicazione | Yes | Yes |   
 | Gruppi di consumer | 20 | 20 |
-| Risposta a messaggi | Sì | Sì |
-| Numero massimo di unità di velocità effettiva | 20 (con flessibilità fino a 100)   | 1 unità di capacità ≈ 50 |
+| Risposta a messaggi | Yes | Yes |
+| Numero massimo di unità di velocità effettiva | 20 (con flessibilità fino a 100)   | 1 unità di capacità (CU) ≈ 50 |
 | Connessioni negoziate | 1.000 incluse | 100 K incluse |
-| Connessioni negoziate aggiuntive | Sì | Sì |
+| Connessioni negoziate aggiuntive | Yes | Yes |
 | Conservazione dei messaggi | 1 giorno incluso | Fino a 7 giorni inclusi |
 | Acquisizione | Pagamento per ogni ora | Incluso |
 

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 373a35ea7b93c7717cd251e276be60b14df0920f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4da8ec3bb20f2af2b8172731bbf9f43c302ffa94
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400164"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004750"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Creare la prima funzione con Java ed Eclipse (anteprima)
 
@@ -73,7 +73,7 @@ Dopo aver completato la procedura di test della funzione, terminare il runtime n
 
 ### <a name="debug-the-function-in-eclipse"></a>Eseguire il debug della funzione in Eclipse
 
-Nella procedura di configurazione RunAs descritta nel passaggio precedente, modificare `azure-functions:run` in `mvn azure-functions:run -DenableDebug` ed eseguire la configurazione aggiornata per avviare l'app per le funzioni in modalità di debug.
+Nella procedura di configurazione **Run As** descritta nel passaggio precedente, sostituire `azure-functions:run` con `mvn azure-functions:run -DenableDebug` ed eseguire la configurazione aggiornata per avviare l'app per le funzioni in modalità di debug.
 
 Selezionare il menu **Run** (Esegui) e aprire **Debug Configurations** (Configurazioni di debug). Scegliere **Remote Java Application** (Applicazione Java remota) e crearne una nuova. Assegnare un nome alla configurazione e specificare le impostazioni. La porta deve essere coerente con la porta di debug aperta dall'host di funzioni, che per impostazione predefinita è `5005`. Al termine dell'installazione, fare clic su `Debug` per avviare il debug.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391181"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005476"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -94,7 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Comunica al runtime che l'esecuzione è stata completata. La chiamata a `context.done` è necessaria. In caso contrario, il runtime non saprà mai che la funzione è stata completata e l'esecuzione raggiungerà il timeout. 
+Comunica al runtime che l'esecuzione è stata completata. Se la funzione usa la dichiarazione `async function` (disponibile con Node 8+ in Funzioni versione 2.x), non è necessario usare `context.done()`. Il callback `context.done` viene chiamato in modo implicito.
+
+Se la funzione non è asincrona, **è necessario chiamare `context.done`** per informare il runtime che la funzione è stata completata. Se la funzione risulta assente, l'esecuzione raggiungerà il timeout.
 
 Il metodo `context.done` consente di passare di nuovo al runtime sia un errore definito dall'utente sia un contenitore delle proprietà con proprietà che sovrascriveranno quelle presenti nell'oggetto `context.bindings`.
 
@@ -221,12 +223,12 @@ Di seguito sono elencate le proprietà dell'oggetto `request`:
 
 Di seguito sono elencate le proprietà dell'oggetto `response`:
 
-| Proprietà  | DESCRIZIONE                                               |
+| Proprietà  | Descrizione                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
 | _isRaw_   | Indica che la formattazione viene ignorata per la risposta.    |
-| _Stato_  | Codice di stato HTTP della risposta.                     |
+| _status_  | Codice di stato HTTP della risposta.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Accesso a richiesta e risposta 
 
