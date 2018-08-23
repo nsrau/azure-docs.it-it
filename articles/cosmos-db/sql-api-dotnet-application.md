@@ -7,22 +7,24 @@ author: SnehaGunda
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
+ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.custom: devcenter
-ms.openlocfilehash: aec23339a6c29ab9645bf1d801c1a3b159b56d68
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.custom: devcenter, vs-azure
+ms.openlocfilehash: f62388c649d576cc4b52ebea0af1e9c8743f3127
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344188"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42440290"
 ---
 # <a name="_Toc395809351"></a>Esercitazione su ASP.NET MVC: Sviluppo di applicazioni Web con Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.JS](sql-api-nodejs-application.md)
+> * [Node.js v2.0 (anteprima)](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 

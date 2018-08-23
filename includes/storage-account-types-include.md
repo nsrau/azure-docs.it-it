@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: f60c23e34962396d4ea6e030912d1ca3f3e4571b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40260293"
+---
 Sono disponibili due tipi di account di archiviazione:
 
 ### <a name="general-purpose-storage-accounts"></a>Account di archiviazione di uso generico
@@ -25,5 +42,5 @@ Per informazioni dettagliate sugli account di archiviazione BLOB, vedere [Archiv
 
 Prima di creare un account di archiviazione, è necessario effettuare una sottoscrizione di Azure, ovvero a un piano per accedere ai diversi servizi di Azure. Per iniziare a usare Azure, è possibile usare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/). Se si decide di acquistare un piano di sottoscrizione, è possibile scegliere una delle numerose [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/). Gli utenti [iscritti a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)ricevono crediti mensili gratuiti che possono essere usati con i servizi di Azure, incluso il servizio Archiviazione di Azure. Per informazioni sui prezzi in base al volume, vedere la pagina relativa ai [prezzi di Archiviazione di Azure ](https://azure.microsoft.com/pricing/details/storage/) .
 
-Per informazioni su come creare un account di archiviazione, vedere [Creare un account di archiviazione](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) . Con una singola sottoscrizione è possibile creare fino a 200 account di archiviazione con denominazione univoca. Per informazioni dettagliate sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/common/storage-scalability-targets.md) .
+Per informazioni su come creare un account di archiviazione, vedere [Creare un account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md) . Con una singola sottoscrizione è possibile creare fino a 200 account di archiviazione con denominazione univoca. Per informazioni dettagliate sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/common/storage-scalability-targets.md) .
 

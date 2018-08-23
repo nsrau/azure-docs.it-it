@@ -3,7 +3,7 @@ title: Introduzione alle richieste HTTP per Connessioni ibride di Inoltro di Azu
 description: Scrivere un'applicazione console C# per le richieste HTTP per Connessioni ibride di Inoltro di Azure in .NET.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/15/2017
-ms.author: sethm
-ms.openlocfilehash: 743e5c5a44f2ed9e6f6d2df9388ef3f01c501bff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 08/16/2018
+ms.author: spelluru
+ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611099"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41917743"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introduzione alle richieste HTTP per Connessioni ibride di Inoltro di Azure in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -34,7 +34,7 @@ Le connessioni ibride richiedono sia un componente client che un componente serv
 3. Scrivere un'applicazione console server (listener) per ricevere richieste.
 4. Scrivere un'applicazione console client (mittente) per inviare richieste.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
