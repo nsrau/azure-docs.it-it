@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 6d63a443da0fd331d02039ed3a3715dbc59f273b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f1803dd051b380743b56f4f026ee5c5fb684ce69
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051468"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920779"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Caricare i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure. 
@@ -63,9 +63,9 @@ Di seguito sono descritti i passaggi fondamentali per la creazione di questa sol
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Database SQL di Azure**. Usare il database come archivio dati di origine. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md) per crearne uno.
-* **Archiviazione di Azure**. Usare l'archivio BLOB come archivio dati sink. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno. Creare un contenitore denominato adftutorial. 
+* **Archiviazione di Azure**. Usare l'archivio BLOB come archivio dati sink. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno. Creare un contenitore denominato adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creare una tabella di origine dati nel database SQL
 1. Aprire SQL Server Management Studio. In **Esplora server** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
@@ -148,7 +148,7 @@ WHERE [TableName] = @TableName
 END
 ```
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Scegliere **Nuovo** dal menu a sinistra, fare clic su **Dati e analisi** e quindi fare clic su **Data factory**. 
@@ -167,11 +167,11 @@ END
       - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selezionare **V2** per la **versione**.
+        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+4. Selezionare **V2** per **version**.
 5. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 6. Selezionare **Aggiungi al dashboard**.     
-7. Fare clic su **Crea**.      
+7. Fare clic su **Create**(Crea).      
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-incremental-copy-portal/deploying-data-factory.png)

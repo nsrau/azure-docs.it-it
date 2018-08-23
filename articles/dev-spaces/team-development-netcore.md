@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: e186676b9c912d5c8453d9882e61b90c57a6362c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6b97baac6bb27166581c1dc6312e112a156ed6c3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933426"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918804"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Team di sviluppo con Azure Dev Spaces
 

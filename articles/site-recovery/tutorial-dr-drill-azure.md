@@ -4,14 +4,14 @@ description: Informazioni sull'esecuzione di un'analisi di ripristino di emergen
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920172"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41919765"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 > * Preparare la connessione alla macchina virtuale di Azure dopo il failover
 > * Eseguire un failover di test per un singolo computer
 
-Questa esercitazione
+
 
 ## <a name="verify-vm-properties"></a>Verificare le proprietà della macchina virtuale
 

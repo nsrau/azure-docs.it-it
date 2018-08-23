@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/21/2018
+ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: f6252b09078bcce936fc3102725519e5e433f8c4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 67d514fe6315604016dc10b7dfc8154c3919f914
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481799"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616544"
 ---
 # <a name="get-started"></a>Guida introduttiva - Creare un'istanza di Load Balancer Standard usando Azure PowerShell
 Questa guida introduttiva mostra come creare un'istanza di Load Balancer Standard usando Azure PowerShell. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali che eseguono Windows Server e si bilancia il carico di un'app Web tra le due macchine virtuali. Per saperne di più su Load Balancer Standard, vedere [Panoramica di Azure Load Balancer Standard](load-balancer-standard-overview.md).
@@ -44,10 +44,12 @@ Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio
 
 ```azurepowershell-interactive
 $publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
-  -Name "myPublicIP"
+-Name "myPublicIP" `
+-ResourceGroupName "myResourceGroupLB" `
+-Location "EastUS" `
+-Sku "Standard" `
+-AllocationMethod "Static"
+  
 ```
 ## <a name="create-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
  In questa sezione viene configurato l'indirizzo IP front-end e il pool di indirizzi back-end del servizio di bilanciamento del carico e quindi viene creata un'istanza di Load Balancer Basic.

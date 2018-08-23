@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 34ee673ee1cf870e376ac8c954a9f3fc468abaa2
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29461843"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142359"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Risoluzione dei problemi di rallentamento delle prestazioni delle app Web nel Servizio app di Azure
 Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app Web nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -91,7 +91,7 @@ Ogni app Web del servizio app fornisce un endpoint di gestione estensibile che c
 - Editor di codice sorgente come [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Strumenti di gestione per risorse connesse come un database MySQL connesso a un'app Web.
 
-[Azure Application Insights](/services/application-insights/) è un'altra estensione del sito disponibile per il monitoraggio delle prestazioni. Per usare Application Insights è necessario ricompilare il codice con un SDK. È anche possibile installare un'estensione che consente l'accesso a dati aggiuntivi. SDK consente di scrivere il codice per monitorare l'utilizzo e prestazioni dell'applicazione in modo più dettagliato. Per altre informazioni, vedere [Monitorare le prestazioni di applicazioni Web](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) è un'altra estensione del sito disponibile per il monitoraggio delle prestazioni. Per usare Application Insights è necessario ricompilare il codice con un SDK. È anche possibile installare un'estensione che consente l'accesso a dati aggiuntivi. SDK consente di scrivere il codice per monitorare l'utilizzo e prestazioni dell'applicazione in modo più dettagliato. Per altre informazioni, vedere [Monitorare le prestazioni di applicazioni Web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 

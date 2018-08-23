@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d5858ba7d10093264e1565d88ae518055b814d34
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 3d1d77e585ae8d608a8f9a4e3de0943315d897af
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085743"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918531"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Creare una data factory e una pipeline con .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro dei ruoli **collaboratore** o **proprietario** oppure un **amministratore** della sottoscrizione di Azure. Nel portale di Azure fare clic sul **nome utente** nell'angolo in alto a destra e selezionare **Autorizzazioni** per visualizzare le autorizzazioni disponibili nella sottoscrizione. Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere l'articolo [Aggiungere i ruoli](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### <a name="azure-storage-account"></a>Account di archiviazione di Azure
-In questa guida introduttiva si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB) come archivio dati sia di **origine** che di **destinazione**. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno. 
+In questa guida introduttiva si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB) come archivio dati sia di **origine** che di **destinazione**. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno. 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Recuperare il nome e la chiave dell'account di archiviazione
 In questa guida introduttiva si usano il nome e la chiave dell'account di archiviazione di Azure. La procedura seguente illustra i passaggi per recuperare il nome e la chiave dell'account di archiviazione. 
@@ -145,7 +145,7 @@ Usando Visual Studio 2013/2015/2017, creare un'applicazione console .NET per C#.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Aggiungere il codice seguente al metodo **Main** per impostare le variabili. Sostituire i segnaposto con i propri valori. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+2. Aggiungere il codice seguente al metodo **Main** per impostare le variabili. Sostituire i segnaposto con i propri valori. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
     ```csharp
     // Set variables
@@ -179,7 +179,7 @@ Usando Visual Studio 2013/2015/2017, creare un'applicazione console .NET per C#.
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 Aggiungere il codice seguente al metodo **Main** per creare una **data factory**. 
 
@@ -314,7 +314,7 @@ Dictionary<string, object> parameters = new Dictionary<string, object>
     { "inputPath", inputBlobPath },
     { "outputPath", outputBlobPath }
 };
-CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters).Result.Body;
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters: parameters).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 

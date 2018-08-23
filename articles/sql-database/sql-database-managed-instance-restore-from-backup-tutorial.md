@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5dd8b1f662f1ae6d6502743c6d976db4b58e962f
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949885"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918510"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Ripristinare un backup di database in un'istanza gestita di database SQL di Azure
 
@@ -27,9 +27,9 @@ Questa esercitazione illustra come ripristinare un backup di un database archivi
 > * Creare un account di archiviazione di Azure e caricare il file di backup
 > * Ripristinare il database Wide World Importers da un file di backup
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-In questa esercitazione vengono usate come punto di partenza le risorse create nell'esercitazione [Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-create-tutorial-portal.md).
+In questa esercitazione vengono usate come punto di partenza le risorse create nell'esercitazione [Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started.md).
 
 ## <a name="download-the-wide-world-importers---standard-backup-file"></a>Scaricare il file di backup standard di Wide World Importers
 
@@ -59,12 +59,12 @@ Accedere al [Portale di Azure](https://portal.azure.com/#create/Microsoft.SQLMan
    |**Replica**|Archiviazione con ridondanza locale||
    |\*\*Livello di accesso (predefinito)|Sporadico o Frequente||
    |**Trasferimento sicuro necessario**|Disabled||
-   |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni).|
+   |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions).|
    |**Gruppo di risorse**|Gruppo di risorse creato in precedenza|| 
    |**Posizione**|Località selezionata in precedenza||
    |**Reti virtuali**|Disabled||
 
-4. Fare clic su **Crea**.
+4. Fare clic su **Create**(Crea).
 
    ![Dettagli dell'account di archiviazione](./media/sql-database-managed-instance-tutorial/storage-account-details.png)
 

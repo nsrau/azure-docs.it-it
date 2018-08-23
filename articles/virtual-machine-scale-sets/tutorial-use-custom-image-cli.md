@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8024033c8eb059fd0c7cc8d226a630f2bc47f01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d5ee37b8ab79e29efcb4d12f36e927b2ed9e9e71
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618326"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918641"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure 2.0
 Quando si crea un set di scalabilità, si specifica un'immagine da usare quando vengono distribuite le istanze di macchina virtuale. Per ridurre il numero di attività dopo la distribuzione delle istanze di macchina virtuale, è possibile usare un'immagine di VM personalizzata. Questa immagine di VM personalizzata include le installazioni o le configurazioni delle applicazioni necessarie. Le istanze di macchina virtuale create nel set di scalabilità usano l'immagine di VM personalizzata e sono pronte per gestire il traffico delle applicazioni. In questa esercitazione si apprenderà come:
@@ -107,7 +107,7 @@ az image create \
 
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Creare un set di scalabilità dall'immagine di macchina virtuale personalizzata
-Creare un set di scalabilità con [az vmss create](/cli/az/vmss#az_vmss_create). Invece di un'immagine di una piattaforma, ad esempio *UbuntuLTS* o *CentOS*, specificare il nome dell'immagine di macchina virtuale personalizzata. L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che usa l'immagine personalizzata denominata *myImage* del passaggio precedente:
+Creare un set di scalabilità con [az vmss create](/cli/azure/vmss#az-vmss-create). Invece di un'immagine di una piattaforma, ad esempio *UbuntuLTS* o *CentOS*, specificare il nome dell'immagine di macchina virtuale personalizzata. L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che usa l'immagine personalizzata denominata *myImage* del passaggio precedente:
 
 ```azurecli-interactive
 az vmss create \

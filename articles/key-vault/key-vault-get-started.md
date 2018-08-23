@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505714"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918493"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introduzione all'insieme di credenziali delle chiavi di Azure
 Questo articolo consente di iniziare a usare Azure Key Vault con PowerShell e illustra in dettaglio le attività seguenti:
@@ -28,9 +28,6 @@ Questo articolo consente di iniziare a usare Azure Key Vault con PowerShell e il
 - Come un'applicazione può usare tale chiave o password.
 
 L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
-
-> [!NOTE]
-> Questo articolo non include istruzioni su come scrivere un'applicazione Azure. Per queste procedure è possibile usare l'[applicazione di esempio per Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45343).
 
 Per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli2.md).
 
@@ -269,7 +266,7 @@ Per modificare l'autorizzazione di un'applicazione in modo che usi chiavi o segr
 ## <a id="HSM"></a>Uso di un modulo di protezione hardware
 Per una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali chiave e le chiavi e i segreti associati](#delete).
 
-Per creare queste chiavi protette dal modulo di protezione hardware, è necessario usare il [livello di servizio Premium dell'insieme di credenziali delle chiavi di Azure che supporta le chiavi protette dal modulo di protezione hardware](https://azure.microsoft.com/pricing/free-trial/). Si noti anche che questa funzionalità non è disponibile nella versione Azure per la Cina.
+Per creare queste chiavi protette dal modulo di protezione hardware, è necessario usare il [livello di servizio Premium dell'insieme di credenziali delle chiavi di Azure che supporta le chiavi protette dal modulo di protezione hardware](https://azure.microsoft.com/pricing/details/key-vault/). Si noti anche che questa funzionalità non è disponibile nella versione Azure per la Cina.
 
 Quando si crea l'insieme di credenziali delle chiavi, aggiungere il parametro **-SKU**:
 

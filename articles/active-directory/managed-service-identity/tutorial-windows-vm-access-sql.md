@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ace7f11eeea081077855a409824272b4b55f3c33
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247228"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920748"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure SQL
 
@@ -147,8 +147,8 @@ Dopo aver creato il gruppo e aggiunto l'identità del servizio gestita della mac
 
 Per il passaggio successivo, sarà necessario [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Prima di iniziare, potrebbe essere utile consultare anche gli articoli seguenti per avere informazioni sull'integrazione di Azure AD:
 
-- [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
-- [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL oppure con SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure.md)
+- [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL oppure con SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 1.  Avviare SQL Server Management Studio.
 2.  Nella finestra di dialogo **Connetti al server** immettere il nome del server SQL nel campo **Nome server**.

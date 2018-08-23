@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345944"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143209"
 ---
 # <a name="what-is-the-access-panel"></a>Che cos'è il pannello di accesso?
 
@@ -79,7 +79,7 @@ Per usare l'accesso Single Sign-On basato su password, è necessario usare l'est
 - È possibile accedere direttamente a un'app usando l'**URL di accesso** dell'app. Quando si usa l'URL dell'app, l'estensione rileva l'azione e consente di accedere dall'estensione.
 - È possibile avviare qualsiasi app dal pannello di accesso usando la funzionalità di *ricerca rapida* dell'estensione. 
 - L'estensione mostra le ultime tre applicazioni che sono state avviate nella sezione **Usati di recente**.
-- È possibile usare URL aziendali interne in remoto tramite [Proxy dell'applicazione](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
+- È possibile usare URL aziendali interne in remoto tramite [Proxy dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Sono disponibili funzionalità aggiuntive per Microsoft Edge, Chrome e Firefox.
@@ -97,8 +97,8 @@ Se si usa un URL delle app personali diverso da `https://myapps.microsoft.com`, 
 5. Selezionare **Accedere per iniziare**.
 
 Per usare gli URL aziendali interni in remoto con l'estensione, procedere come segue:
-1. [Configurare il proxy dell'applicazione](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) nel tenant.
-2. [Pubblicare l'applicazione](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) e l'URL con il proxy dell'applicazione.
+1. [Configurare il proxy dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) nel tenant.
+2. [Pubblicare l'applicazione](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) e l'URL con il proxy dell'applicazione.
 3. Installare l'estensione e accedervi selezionando Accedi per iniziare.
 4. È ora possibile passare all'URL aziendale interno anche in remoto.
 

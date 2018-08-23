@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: b560022f1f727949021a599e1ab342551f64c084
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: ac81525c107fcc291a8c3ef0163bf0ef2bbfdc3b
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129133"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142787"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in Log Analytics
 Progettazione viste di Azure Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
@@ -324,7 +324,7 @@ Il separatore di nome e valore è il delimitatore dei singoli caratteri da usare
 Si consideri, ad esempio, una proprietà denominata *Sede* nella quale vengono inclusi valori come *Redmond-Building 41* e *Bellevue-Building12*. È possibile specificare un trattino (-) come separatore di nome e valore e *City-Building* come nome. Ciò comporta l'analisi di ciascun valore in due proprietà chiamate *City* e *Building*.
 
 ### <a name="click-through-navigation"></a>Navigazione click-through
-Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Si aprirà una query nel [portale per la ricerca log](log-analytics-log-search-portals.md#log-search) o verrà avviata un'altra visualizzazione.
+Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Si aprirà una query nel [portale per la ricerca log](log-analytics-log-search-portals.md) o verrà avviata un'altra visualizzazione.
 
 La tabella seguente illustra le impostazioni relative alla navigazione click-through.
 

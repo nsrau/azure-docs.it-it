@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7d348bf2372ff3bc48590b6c5e97e8eee8a4136b
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 80046bf39bd3973322b799f588fb9ee149d95950
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084944"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920615"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Creare una data factory e una pipeline con Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,9 +31,9 @@ Questa guida introduttiva descrive come usare Python per creare una data factory
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine** e **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
+* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine** e **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 * **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Annotare i valori seguenti, da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo "**Collaboratore**" seguendo le istruzioni disponibili nello stesso articolo.
 
 ### <a name="create-and-upload-an-input-file"></a>Creare e caricare un file di input
@@ -106,7 +106,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Aggiungere il codice seguente al metodo **Main** per creare un'istanza della classe DataFactoryManagementClient. Usare questo oggetto per creare la data factory, il servizio collegato, i set di dati e la pipeline. È possibile usare questo oggetto anche per monitorare i dettagli sull'esecuzione della pipeline. Impostare la variabile **subscription_id** sull'ID della sottoscrizione di Azure. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+3. Aggiungere il codice seguente al metodo **Main** per creare un'istanza della classe DataFactoryManagementClient. Usare questo oggetto per creare la data factory, il servizio collegato, i set di dati e la pipeline. È possibile usare questo oggetto anche per monitorare i dettagli sull'esecuzione della pipeline. Impostare la variabile **subscription_id** sull'ID della sottoscrizione di Azure. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
     ```python   
     def main():
@@ -129,7 +129,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
         df_params = {'location':'eastus'}    
     ```
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 Aggiungere il codice seguente al metodo **Main** per creare una **data factory**. Se il gruppo di risorse esiste già, impostare come commento la prima istruzione `create_or_update`.
 

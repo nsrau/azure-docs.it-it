@@ -2,18 +2,18 @@
 title: Pacchetto FPGA per l'accelerazione hardware di Azure Machine Learning
 description: Informazioni sui pacchetti Python disponibili per gli utenti di Azure Machine Learning.
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: routlaw
-author: rloutlaw
+ms.author: tedway
+author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832979"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142677"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Pacchetto di accelerazione hardware di Azure Machine Learning
 
@@ -25,7 +25,7 @@ Il pacchetto di accelerazione hardware di Azure Machine Learning è un'estension
 
 + Distribuire i modelli in dispositivi [FPGA (Field Programmable Gate Array)](concept-accelerate-with-fpgas.md) in Azure per inferenze a latenza estremamente bassa
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -40,18 +40,18 @@ Il pacchetto di accelerazione hardware di Azure Machine Learning è un'estension
 
 2. Installare [Anaconda (Python 3.6)](https://conda.io/miniconda.html).
 
-3. Per scaricare un ambiente Anaconda preconfigurato, usare il comando seguente dal prompt di Git:
+   Per scaricare un ambiente Anaconda preconfigurato, usare il comando seguente dal prompt di Git:
 
     ```
     git clone https://aka.ms/aml-real-time-ai
     ```
-5. Per creare l'ambiente, aprire un**prompt di Anaconda** e usare il comando seguente:
+1. Per creare l'ambiente, aprire un**prompt di Anaconda** e usare il comando seguente:
 
     ```
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. Per attivare l'ambiente, usare il comando seguente:
+1. Per attivare l'ambiente, usare il comando seguente:
 
     ```
     conda activate amlrealtimeai

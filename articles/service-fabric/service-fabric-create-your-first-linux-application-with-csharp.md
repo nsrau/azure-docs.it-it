@@ -1,5 +1,5 @@
 ---
-title: Creare la prima app di microservizi di Azure in Linux con C# | Microsoft Docs
+title: Creare la prima app di microservizi di Azure in Linux con C# | Documentazione Microsoft
 description: Creare e distribuire un'applicazione di Service Fabric con C#
 services: service-fabric
 documentationcenter: csharp
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020546"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617087"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creare la prima applicazione di Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37020546"
 
 Service Fabric mette a disposizione SDK per la compilazione di servizi su Linux in .NET Core e Java. In questa esercitazione verrà esaminata la creazione di un'applicazione per Linux e la compilazione di un servizio con C# in .NET Core 2.0.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di avere [configurato l'ambiente di sviluppo di Linux](service-fabric-get-started-linux.md). Se si usa Mac OS X è possibile [configurare un ambiente con un solo computer Linux in una macchina virtuale usando Vagrant](service-fabric-get-started-mac.md).
 
 È consigliabile installare anche l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md).
@@ -41,27 +41,19 @@ Service Fabric offre gli strumenti di scaffolding che consentono di creare appli
 
 1. Installare nodejs e NPM nella macchina virtuale
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4 (supporto per l'anteprima di Service Fabric)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. Installare il generatore di modelli [Yeoman](http://yeoman.io/) nella macchina virtuale da NPM
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. Installare il generatore di applicazioni C# Yeoman di Service Fabric da NPM
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
@@ -78,7 +70,7 @@ Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ogn
 >
 >
 
-## <a name="build-the-application"></a>Compilare l'applicazione.
+## <a name="build-the-application"></a>Compilare l'applicazione
 I modelli Yeoman di Service Fabric includono uno script di compilazione che è possibile usare per compilare l'app dal terminale (dopo il passaggio alla cartella dell'applicazione).
 
   ```sh
@@ -109,7 +101,7 @@ I parametri per questi comandi si trovano nei manifesti generati nel pacchetto d
 Dopo la distribuzione dell'applicazione, aprire un browser e passare a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) all'indirizzo [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Espandere quindi il nodo **Applicazioni**, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
 
 > [!IMPORTANT]
-> Per distribuire l'applicazione a un cluster Linux protetto in Azure, è necessario configurare un certificato per convalidare l'applicazione con il runtime di Service Fabric. In questo modo i servizi di Reliable Services possono comunicare con le API di runtime di Service Fabric sottostanti. Per altre informazioni, vedere [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters) (Configurare un'app di Reliable Services da eseguire su cluster Linux).  
+> Per distribuire l'applicazione a un cluster Linux protetto in Azure, è necessario configurare un certificato per convalidare l'applicazione con il runtime di Service Fabric. In questo modo i servizi di Reliable Services possono comunicare con le API di runtime di Service Fabric sottostanti. Per altre informazioni, vedere [Configurare un'app di Reliable Services da eseguire su cluster Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Avviare il client di test ed eseguire un failover

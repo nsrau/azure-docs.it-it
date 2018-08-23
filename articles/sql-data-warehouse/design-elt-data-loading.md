@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799448"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142163"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Progettazione ELT (Extract, Load, Transform) per Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Per formattare i file di testo:
 ## <a name="load-to-a-staging-table"></a>Eseguire il caricamento in una tabella di staging
 Per trasferire i dati nel data warehouse, è anche possibile caricare prima di tutto i dati in una tabella d staging. L'uso di una tabella di staging consente di gestire gli errori senza interferire con le tabelle di produzione, evitando di eseguire operazioni di rollback sulla tabella di produzione. Una tabella di staging offre anche l'opportunità di usare SQL Data Warehouse per eseguire trasformazioni prima di inserire i dati nelle tabelle di produzione.
 
-Per eseguire il caricamento con T-SQL, eseguire l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md). Questo comando inserisce i risultati di un'istruzione di selezione in una nuova tabella. Quando l'istruzione effettua la selezione da una tabella esterna, importa i dati esterni. 
+Per eseguire il caricamento con T-SQL, eseguire l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse). Questo comando inserisce i risultati di un'istruzione di selezione in una nuova tabella. Quando l'istruzione effettua la selezione da una tabella esterna, importa i dati esterni. 
 
 Nell'esempio seguente, ext.Date è una tabella esterna. Tutte le righe vengono importate in una nuova tabella denominata dbo.Date.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77bb891dd8e7d6a3cb6363b06eaf361d09db594c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422417"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142573"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -91,10 +91,10 @@ La soluzione di esempio è volutamente semplice. È progettata per illustrare co
 Se non si dispone di una sottoscrizione di Azure, è possibile creare un account di valutazione gratuita. Per altre informazioni, vedere [Valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Account di archiviazione di Azure
-Usare un account di archiviazione per archiviare i dati di questa esercitazione. Se non si dispone di un account di archiviazione, vedere [Create a storage account (Creare un account di archiviazione)](../../storage/common/storage-create-storage-account.md#create-a-storage-account). La soluzione di esempio usa l'archivio BLOB.
+Usare un account di archiviazione per archiviare i dati di questa esercitazione. Se non si dispone di un account di archiviazione, vedere [Create a storage account (Creare un account di archiviazione)](../../storage/common/storage-quickstart-create-account.md). La soluzione di esempio usa l'archivio BLOB.
 
 #### <a name="azure-batch-account"></a>Account Azure Batch
-Creare un account di Batch usando il [portale di Azure](http://portal.azure.com/). Per altre informazioni, vedere [Creare e gestire un account di Batch](../../batch/batch-account-create-portal.md). Annotare il nome dell'account di Batch e della relativa chiave. È possibile anche usare il cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) per creare un account di Batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Batch](../../batch/batch-powershell-cmdlets-get-started.md).
+Creare un account di Batch usando il [portale di Azure](http://portal.azure.com/). Per altre informazioni, vedere [Creare e gestire un account di Batch](../../batch/batch-account-create-portal.md). Annotare il nome dell'account di Batch e della relativa chiave. È possibile anche usare il cmdlet [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) per creare un account di Batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Per elaborare i dati in modalità parallela in un pool di nodi di calcolo, ovvero una raccolta gestita di macchine virtuali, la soluzione di esempio usa Batch indirettamente tramite una pipeline di data factory.
 

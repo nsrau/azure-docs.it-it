@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 4c368c3f06347b1164731d056a7341bdabb759b4
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: b368bf76516b0b6f87ad8ff57ca886a44b71926c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34837345"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142682"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
 
@@ -64,7 +64,7 @@ Questa procedura dettagliata illustra due problemi di stima di esempio:
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creazione di soluzioni di analisi predittiva con i cluster HDInsight, sono necessari tre passaggi:
 
-1. [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
+1. [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
 2. [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](customize-hadoop-cluster.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza il cluster HDInsight, occorre completare due importanti passaggi descritti in questo argomento.
    
    * È necessario collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione viene usato per accedere ai dati che possono essere elaborati all'interno del cluster.

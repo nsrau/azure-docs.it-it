@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 27754395e0be5bffab3c63b42fff9ddbf93cf338
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: ecdebad7217e27e4439562a6b3002cb203f803e2
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084609"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920359"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Creare una data factory di Azure e una pipeline usando l'API REST
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,9 +34,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile creare un account di [valutazione gratuito](http://azure.microsoft.com/pricing/free-trial/).
-* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine** e **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
+* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine** e **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 * Creare un **contenitore BLOB** in Archiviazione BLOB, creare una **cartella** di input nel contenitore e caricare alcuni file nella cartella. È possibile usare strumenti come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per connettersi all'archivio BLOB di Azure, creare un contenitore BLOB, caricare il file di input e verificare il file di output.
-* Installare **Azure PowerShell**. Seguire le istruzioni in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Come installare e configurare Azure PowerShell). Questa guida introduttiva usa PowerShell per richiamare le chiamate API REST.
+* Installare **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Questa guida introduttiva usa PowerShell per richiamare le chiamate API REST.
 * **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Annotare i valori seguenti, da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore**.
 
 ## <a name="set-global-variables"></a>Configurare le variabili globali
@@ -85,7 +85,7 @@ $authHeader = @{
 } 
 ```
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 Eseguire i comandi seguenti per creare una data factory:
 
@@ -112,7 +112,7 @@ Tenere presente quanto segue:
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
-* Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+* Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 Ecco la risposta di esempio:
 

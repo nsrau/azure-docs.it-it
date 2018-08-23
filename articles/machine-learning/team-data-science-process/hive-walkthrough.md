@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 556a7d9d921e0f2307445f8f6738b9b845c83112
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006598"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142453"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
@@ -75,7 +75,7 @@ Determinare il tipo di stime che si vuole eseguire in base all'analisi dei dati.
 
 Per impostare un ambiente Azure per l'analisi avanzata basato su un cluster HDInsight è necessario seguire questa procedura composta da tre passaggi:
 
-1. [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md): questo account di archiviazione viene usato per archiviare i dati nell'archiviazione BLOB di Azure. Anche i dati usati nei cluster HDInsight vengono archiviati in questa posizione.
+1. [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md): questo account di archiviazione viene usato per archiviare i dati nell'archiviazione BLOB di Azure. Anche i dati usati nei cluster HDInsight vengono archiviati in questa posizione.
 2. [Personalizzare i cluster Hadoop di Azure HDInsight per Advanced Analytics Process and Technology](customize-hadoop-cluster.md). Questo passaggio crea un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza un cluster HDInsight, è importante non dimenticare due passaggi importanti.
    
    * Ricordare di collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione accede ai dati elaborati all'interno del cluster.

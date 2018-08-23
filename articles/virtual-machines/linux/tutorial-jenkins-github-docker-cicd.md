@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931729"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919829"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Esercitazione: Creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker
 
@@ -151,7 +151,7 @@ Nel sito Web di Jenkins selezionare **Create new jobs** (Crea nuovi processi) da
 - Nella sezione **General** (Generale) selezionare **GitHub project** (Progetto GirHub) e immettere l'URL della copia del repository creata tramite fork, ad esempio *https://github.com/cynthn/nodejs-docs-hello-world*
 - Nella sezione **Source code management** (Gestione del codice sorgente) selezionare **Git** e immettere l'URL *.git* del repository con fork, ad esempio *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
-- Nella sezione **Build** (Compilazione) scegliere **Add build step** (Aggiungi istruzione di compilazione). Selezionare **Execute shell** (Esegui shell) e quindi immettere `echo "Testing"` nella finestra di comando.
+- Nella sezione **Build** (Compilazione) scegliere **Add build step** (Aggiungi istruzione di compilazione). Selezionare **Execute shell** (Esegui shell) e quindi immettere `echo "Test"` nella finestra di comando.
 - Selezionare **Save** (Salva) nella parte inferiore della finestra dei processi.
 
 

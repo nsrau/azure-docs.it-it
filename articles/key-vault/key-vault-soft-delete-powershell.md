@@ -3,19 +3,19 @@ ms.assetid: ''
 title: Azure Key Vault - Come usare la funzionalità di eliminazione temporanea con PowerShell
 description: Esempi di casi d'uso della funzionalità di eliminazione temporanea con frammenti di codice di PowerShell
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/21/2017
-ms.author: alleonar
-ms.openlocfilehash: 48569e31e6400e3ec8958e0bceda1fd3b72207ea
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.author: bryanla
+ms.openlocfilehash: 174a5b41e6a48ea74cd813746b7c070463a8185b
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27927992"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142168"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Come usare l'eliminazione temporanea di Key Vault con PowerShell
 
@@ -24,7 +24,7 @@ La funzionalità di eliminazione temporanea di Azure Key Vault consente il recup
 - Supporto per l'eliminazione reversibile di un insieme di credenziali delle chiavi
 - Supporto per l'eliminazione reversibile di oggetti di insiemi di credenziali delle chiavi: chiavi, segreti e certificati
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Azure PowerShell 4.0.0 o versione successiva - Se non è già installato, installare Azure PowerShell e associarlo alla sottoscrizione di Azure. A questo proposito, vedere [Come installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2caa9a5137edd4e012adf704c01dc5c470e1bb51
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f6b0ea7479910f7026974e37f8c05099453c0b26
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972445"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142463"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Distribuzione di DBMS in macchine virtuali di Azure per SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1161,7 +1161,7 @@ L'installazione e il funzionamento di SRS sono altrettanto efficaci sia in una V
 ASE HADR tramite SAP Replication Server NON è attualmente supportato. È possibile che venga testato e rilasciato per le piattaforme Microsoft Azure in futuro.
 
 ## <a name="specifics-to-oracle-database-on-windows"></a>Specifiche per Oracle Database in Windows
-Oracle supporta l'esecuzione di software Oracle in Microsoft Windows Hyper-V e Azure. Per informazioni dettagliate sul supporto generale di Windows Hyper-V e Azure, vedere: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle supporta l'esecuzione di software Oracle in Microsoft Windows Hyper-V e Azure. 
 
 In base al supporto generale, è supportato anche lo scenario specifico delle applicazioni SAP che sfruttano i database Oracle. I dettagli sono disponibili in questa parte del documento.
 
@@ -1199,7 +1199,7 @@ Oracle Data Guard è supportato per motivi di disponibilità elevata e ripristin
 Tutti gli altri argomenti generali, ad esempio i set di disponibilità di Azure o il monitoraggio SAP, si applicano come descritto nei primi tre capitoli di questo documento anche per le distribuzioni di VM con Oracle Database.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Specifiche per Oracle Database in Oracle Linux
-Oracle supporta l'esecuzione di software Oracle in Microsoft Windows Hyper-V e Azure. Per informazioni dettagliate sul supporto generale di Windows Hyper-V e Azure, vedere: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle supporta l'esecuzione di software Oracle in Microsoft Windows Hyper-V e Azure. 
 
 In base al supporto generale, è supportato anche lo scenario specifico delle applicazioni SAP che sfruttano i database Oracle. I dettagli sono disponibili in questa parte del documento.
 

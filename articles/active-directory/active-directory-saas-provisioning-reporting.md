@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: e3be74fbb571a806fc03a92d0b1b373e35d196be
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3231792ed1cb7f80cd2a106faf3760c48dd13c19
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363615"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142754"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: creazione di report sul provisioning automatico degli account utente
 
 
-Azure Active Directory include un [servizio di provisioning dell'account utente](active-directory-saas-app-provisioning.md) che consente di automatizzare il provisioning del deprovisioning degli account utente nelle app SaaS e in altri sistemi, ai fini della gestione del ciclo di vita delle identità end-to-end. Azure AD supporta i connettori preintegrati di provisioning dell'utente per tutte le applicazioni e i sistemi nella sezione "In primo piano" della [raccolta delle applicazioni di Azure AD](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+Azure Active Directory include un [servizio di provisioning dell'account utente](active-directory-saas-app-provisioning.md) che consente di automatizzare il provisioning del deprovisioning degli account utente nelle app SaaS e in altri sistemi, ai fini della gestione del ciclo di vita delle identità end-to-end. Azure AD supporta i connettori preintegrati di provisioning dell'utente per tutte le applicazioni e i sistemi nella sezione "In primo piano" della [raccolta delle applicazioni di Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
 In questo articolo viene descritto come controllare lo stato dei processi di provisioning in seguito alla loro configurazione e come risolvere i problemi di provisioning di singoli utenti e gruppi.
 

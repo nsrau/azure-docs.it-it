@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 5610a4ec726b296f54beca65a58d6c0e63a5b375
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: fd056a0eb0a4e35b30d246274372b61a0806d48c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084869"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920116"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Caricare i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure. 
@@ -60,7 +60,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Database SQL di Azure**. Usare il database come archivio dati di origine. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md) per crearne uno.
-* **Archiviazione di Azure**. Usare l'archivio BLOB come archivio dati sink. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno. Creare un contenitore denominato adftutorial. 
+* **Archiviazione di Azure**. Usare l'archivio BLOB come archivio dati sink. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno. Creare un contenitore denominato adftutorial. 
 * **Azure PowerShell**. Seguire le istruzioni descritte in [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creare una tabella di origine dati nel database SQL

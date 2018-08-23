@@ -2,20 +2,20 @@
 title: Esercitazione per la funzionalità di anteprima di Azure Machine Learning - Interfaccia della riga di comando | Microsoft Docs
 description: Questa esercitazione descrive in modo dettagliato tutti i passaggi necessari per completare un classificazione Iris end-to-end dall'interfaccia della riga di comando.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: jpe316
+ms.author: jordane
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 05238c27a5654ae24c619b52d769abbf90b940e7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920624"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Esercitazione: Classificazione di Iris tramite l'interfaccia della riga di comando
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -28,7 +28,7 @@ Questa esercitazione illustra come usare gli strumenti di interfaccia della riga
 > * Alzare di livello e registrare un modello sottoposto a training
 > * Distribuire un servizio Web per assegnare un punteggio a nuovi dati
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, sono necessari:
 - Accedere a una sottoscrizione di Azure e avere le autorizzazioni per creare le risorse in tale sottoscrizione. 
   
@@ -252,7 +252,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 l'ID del servizio Web restituito nel passaggio precedente consente di chiamare il servizio e di testarlo. 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:

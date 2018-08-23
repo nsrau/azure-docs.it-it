@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 4d2339ace047a5aacda74f6b1ccb9f1eb77aab0c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2f56cba26f4f21e81734f68663d0054e77ab23a4
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054043"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918420"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche 
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **rilevamento delle modifiche** nel database SQL di Azure di origine in una risorsa di archiviazione BLOB di Azure.  
@@ -68,9 +68,9 @@ In questa esercitazione vengono create due pipeline che eseguono le due operazio
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Database SQL di Azure**. Usare il database come archivio dati di **origine**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
-* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno. Creare un contenitore denominato **adftutorial**. 
+* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno. Creare un contenitore denominato **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creare una tabella di origine dati nel database SQL di Azure
 1. Avviare **SQL Server Management Studio** e connettersi al server SQL di Azure. 
@@ -147,7 +147,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 ### <a name="azure-powershell"></a>Azure PowerShell
 Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Scegliere **Nuovo** dal menu a sinistra, fare clic su **Dati e analisi** e quindi fare clic su **Data factory**. 
@@ -166,11 +166,11 @@ Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni desc
       - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+        Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Selezionare **V2 (anteprima)** per **Versione**.
 5. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 6. Selezionare **Aggiungi al dashboard**.     
-7. Fare clic su **Crea**.      
+7. Fare clic su **Create**(Crea).      
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
@@ -402,7 +402,7 @@ In questo passaggio viene creata una pipeline con le attività seguenti, eseguit
 11. Trascinare l'attività **Stored procedure** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. Impostare il nome dell'attività su **StoredProceduretoUpdateChangeTrackingActivity**. Questa attività aggiorna la versione del rilevamento modifiche nella tabella **table_store_ChangeTracking_version**.
 
     ![Attività stored procedure: nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-activity-name.png)
-12. Passare alla scheda *Account SQL* e selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**. 
+12. Passare alla scheda *Account SQL*\* e selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**. 
 
     ![Attività stored procedure: account SQL](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. Passare alla scheda **Stored procedure** e seguire questa procedura: 

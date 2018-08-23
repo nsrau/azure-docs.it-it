@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4b37a073f41295bf800d4e6c34681e0a06799c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450321"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617250"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Hosting di applicazioni Web PaaS per carichi di lavoro UK OFFICIAL
 
@@ -23,7 +23,7 @@ I progetti di Azure sono costituiti da documenti con linee guida e modelli di au
 
 ## <a name="overview"></a>Panoramica
 
-Questo progetto Azure Security and Compliance Blueprint include linee guida e script di automazione per realizzare un'architettura di applicazione Web ospitata [piattaforma distribuita come servizio (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) di Microsoft Azure, appropriata per la gestione dei carichi di lavoro classificati come [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf). Questa classificazione di sicurezza comprende la maggior parte delle informazioni create o elaborate dal settore pubblico. Sono inclusi i servizi e le attività aziendali di routine con potenziali conseguenze dannose in caso di smarrimento, furto o divulgazione. Il profilo di rischio tipico per la classificazione OFFICIAL è analogo a quello di un'azienda privata che fornisce servizi e informazioni di valore. La classificazione UK OFFICIAL tiene conto della necessità di difendere i dati o i servizi del governo del Regno Unito da minacce o compromissioni attuate da utenti malintenzionati con capacità e risorse delimitate, come (a titolo puramente esemplificativo) attivisti, gruppi di pressione monotematici, giornalisti investigativi, singoli pirati informatici competenti e la maggior parte dei singoli criminali e delle organizzazioni criminali.
+Questo progetto Azure Security and Compliance Blueprint include linee guida e script di automazione per realizzare un'architettura di applicazione Web ospitata [piattaforma distribuita come servizio (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) di Microsoft Azure, appropriata per la gestione dei carichi di lavoro classificati come [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Questa classificazione di sicurezza comprende la maggior parte delle informazioni create o elaborate dal settore pubblico. Sono inclusi i servizi e le attività aziendali di routine con potenziali conseguenze dannose in caso di smarrimento, furto o divulgazione. Il profilo di rischio tipico per la classificazione OFFICIAL è analogo a quello di un'azienda privata che fornisce servizi e informazioni di valore. La classificazione UK OFFICIAL tiene conto della necessità di difendere i dati o i servizi del governo del Regno Unito da minacce o compromissioni attuate da utenti malintenzionati con capacità e risorse delimitate, come (a titolo puramente esemplificativo) attivisti, gruppi di pressione monotematici, giornalisti investigativi, singoli pirati informatici competenti e la maggior parte dei singoli criminali e delle organizzazioni criminali.
 
 Questo progetto è stato rivisto dal UK National Cyber Security Centre (NCSC) ed è conforme ai principi di sicurezza del cloud NCSC 14.
 

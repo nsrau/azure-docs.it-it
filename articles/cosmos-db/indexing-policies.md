@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618768"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143355"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
 
@@ -36,6 +36,22 @@ Alla fine della lettura, si avranno le risposte alle domande seguenti:
 * Come si configura l'indicizzazione per eseguire query ORDER BY o di intervallo?
 * Come è possibile apportare modifiche ai criteri di indicizzazione di una raccolta?
 * Come confrontare archiviazione e prestazioni dei diversi criteri di indicizzazione?
+
+## <a id="Indexing"></a> Indicizzatore di Cosmos DB
+
+Lo scopo degli indici di database è gestire le query in varie forme con un consumo di risorse ridotto al minimo (ad esempio CPU, input/output), offrendo al contempo una buona velocità effettiva e basse latenze. Spesso, la scelta dell'indice corretto per l'interrogazione di un database richiede una lunga pianificazione e sperimentazione. Questo approccio costituisce una sfida per i database senza schema, in cui i dati non si conformano a un rigido schema ed evolvono rapidamente. 
+
+Di conseguenza, durante la progettazione del sottosistema di indicizzazione di Cosmos DB sono stati fissati gli obiettivi seguenti:
+
+* Indicizzare i documenti senza schema: il sottosistema di indicizzazione non richiede alcuna informazione sullo schema o supposizioni sullo schema dei documenti.  
+
+* Supporto di query relazionali e gerarchiche efficienti e complesse: l'indice supporta il linguaggio di query Cosmos DB in modo efficiente, incluso il supporto per le proiezioni relazionali e gerarchiche.  
+
+* Supporto per le query coerente sia un volume di scritture sostenuta: per la scrittura ad alta velocità effettiva dei carichi di lavoro con query coerenti, l'indice viene aggiornato in modo incrementale, in modo efficiente e in linea con un volume sostenuto delle operazioni di scrittura. L'aggiornamento coerente dell'indice è fondamentale per la gestione delle query secondo il livello di coerenza con cui l'utente ha configurato il servizio documenti.  
+
+* Supporto per multi-tenancy: dato il modello basato sulla prenotazione per la governance delle risorse tra tenant, gli aggiornamenti dell'indice vengono eseguiti mantenendosi nel budget delle risorse di sistema (CPU, memoria e operazioni di input/output al secondo) allocate per ogni replica.  
+
+* Per conseguire l'efficienza dei costi, le risorse di archiviazione su disco dell'indice sono vincolate e prevedibili. Questo è fondamentale perché Cosmos DB consente allo sviluppatore di accettare compromessi basati sul costo tra spese relative all'indice e prestazioni delle query.  
 
 ## Personalizzare i criteri di indicizzazione di una raccolta <a id="CustomizingIndexingPolicy"></a>  
 È possibile personalizzare alcuni aspetti per ottenere il compromesso desiderato tra archiviazione, prestazioni di scrittura e query e coerenza delle query sostituendo i criteri di indicizzazione predefiniti in una raccolta di Azure Cosmos DB. È possibile configurare gli aspetti seguenti:

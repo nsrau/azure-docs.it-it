@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6bb757fe072f0fc3ecbda5ae125aa2bf928479fb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736249"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41924802"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accedere a Insieme di credenziali delle chiavi di Azure protetto da firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>D: L'applicazione client dell'insieme di credenziali delle chiavi deve essere protetta da firewall. Quali porte, host o indirizzi IP è necessario aprire per consentire l'accesso a un insieme di credenziali delle chiavi?
@@ -43,7 +43,7 @@ Le applicazioni client dell'insieme di credenziali delle chiavi dovrà accedere 
 | Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443 |
 | Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione oltre ad Active Directory Federation Services (AD FS) o un altro endpoint federato (ad esempio, user@contoso.com) |Tutti gli endpoint per un account aziendale o dell'istituto di istruzione oltre ad AD FS o altri endpoint federati |
 
-Esistono altri possibili scenari complessi. Per altre informazioni, vedere [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/) (Flussi di autenticazione di Azure Active Directory), [Integrazione di applicazioni con Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) e [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) (Protocolli di autenticazione di Active Directory Authentication).  
+Esistono altri possibili scenari complessi. Per altre informazioni, vedere [Azure Active Directory Authentication Flow](../active-directory/develop/authentication-scenarios.md) (Flussi di autenticazione di Azure Active Directory), [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md) e [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) (Protocolli di autenticazione di Active Directory Authentication).  
 
 ## <a name="key-vault-management"></a>Gestione dell'insieme di credenziali delle chiavi
 Per la gestione dell'insieme di credenziali delle chiavi (CRUD e impostazione dei criteri di accesso), l'applicazione client dell'insieme di credenziali delle chiavi deve accedere all'endpoint di Azure Resource Manager.  

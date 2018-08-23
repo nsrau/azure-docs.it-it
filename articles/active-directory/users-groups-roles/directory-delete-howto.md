@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 44781c976afa94ebe3c8df8c7fd70c3e16956916
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870684"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142536"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminare un tenant di Azure Active Directory
 Quando viene eliminato un tenant, vengono eliminate anche tutte le risorse in esso contenute. È necessario preparare il tenant, riducendo al minimo le risorse ad esso associate prima di eliminarlo. Solo un amministratore globale di Azure Active Directory (Azure AD) può eliminare un tenant di Azure AD dal portale.
@@ -63,7 +63,7 @@ Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eli
 
 È possibile inserire una sottoscrizione con stato **Deprovisoning eseguito** per essere eliminata dopo 3 giorni tramite l'interfaccia di amministrazione di Microsoft Store Business. Questa funzionalità sarà presto disponibile all'interfaccia di amministrazione di Office 365.
 
-1. Accedere all'[interfaccia di amministrazione di Microsoft Store Business](https://businessstore.microsoft.com/en-us/manage/) con un account di amministratore globale nel tenant. Se si sta tentando di eliminare il tenant "Contoso" che presenta contoso.onmicrosoft.com come dominio predefinito iniziale, accedere con un nome UPN, ad esempio admin@contoso.onmicrosoft.com.
+1. Accedere all'[interfaccia di amministrazione di Microsoft Store Business](https://businessstore.microsoft.com/manage/) con un account di amministratore globale nel tenant. Se si sta tentando di eliminare il tenant "Contoso" che presenta contoso.onmicrosoft.com come dominio predefinito iniziale, accedere con un nome UPN, ad esempio admin@contoso.onmicrosoft.com.
 
 2. Andare alla scheda **Gestisci** e selezionare **Prodotti e servizi**, quindi scegliere la sottoscrizione da annullare. Dopo aver fatto clic su **Annulla**, aggiornare la pagina.
   

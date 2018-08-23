@@ -2,6 +2,8 @@
 title: Distribuire un set di scalabilità di macchine virtuali tramite Visual Studio | Microsoft Docs
 description: Distribuire set di scalabilità di macchine virtuali tramite Visual Studio e un modello di Resource Manager
 services: virtual-machine-scale-sets
+ms.custom: H1Hack27Feb2017
+ms.workload: na
 documentationcenter: ''
 author: gatneil
 manager: jeconnoc
@@ -9,19 +11,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
-ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: negat
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f0bd57836d6d54fe3e3460af27ebea4cffe3ee40
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782147"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443933"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Come creare un set di scalabilità di macchine virtuali con Visual Studio
 Questo articolo descrive come distribuire un set di scalabilità della macchina virtuale di Azure usando una distribuzione del gruppo di risorse di Visual Studio.
@@ -54,7 +54,7 @@ Per iniziare a distribuire set di scalabilità di macchine virtuali in Visual St
 
 4. Dopo aver creato il progetto saranno disponibili gli script di distribuzione di PowerShell, un modello di Azure Resource Manager e un file di parametri per il set di scalabilità di macchine virtuali.
    
-    ![Controllers\HomeController.cs][solution_explorer]
+    ![Esplora soluzioni][solution_explorer]
 
 ## <a name="customize-your-project"></a>Personalizzare il progetto
 È ora possibile modificare il modello per personalizzarlo in base alle esigenze dell'applicazione, ad esempio aggiungendo proprietà di estensione della macchina virtuale o modificando le regole di bilanciamento del carico. Per impostazione predefinita, i modelli del set di scalabilità di macchine virtuali sono configurati in modo da distribuire l'estensione AzureDiagnostics, che semplifica l'aggiunta di regole di scalabilità automatica. L'estensione inoltre distribuisce un servizio di bilanciamento del carico con un indirizzo IP pubblico, configurato con regole NAT in entrata. 
@@ -84,7 +84,7 @@ Il servizio di bilanciamento del carico consente di connettersi alle istanze del
 
 5. Fare quindi clic su **Distribuisci**. La finestra **Output** visualizza lo stato della distribuzione. Si noti che l'azione esegue lo script **Deploy-AzureResourceGroup.ps1** .
    
-   ![Finestra Output][output_window]
+   ![Finestra di output][output_window]
 
 ## <a name="exploring-your-virtual-machine-scale-set"></a>Esplorare il set di scalabilità di macchine virtuali
 Al termine della distribuzione, è possibile visualizzare il nuovo set di scalabilità di macchine virtuali in **Cloud Explorer** di Visual Studio (aggiornare l'elenco). Cloud Explorer consente di gestire le risorse di Azure in Visual Studio durante lo sviluppo di applicazioni. È anche possibile visualizzare il set di scalabilità di macchine virtuali nel [Portale di Azure](https://portal.azure.com) e in [Esplora inventario risorse di Azure](https://resources.azure.com/).

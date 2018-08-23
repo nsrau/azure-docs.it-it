@@ -10,12 +10,12 @@ ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 52c49475fb9014308db4ae5510d82fe9f423a828
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 7ca8e786a8284fd958948e313b79e34a6f502120
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205409"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920090"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Come usare il servizio Tabella di archiviazione di Azure o l'API Tabelle di Azure Cosmos DB da PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -507,7 +507,7 @@ Dopo aver appreso le nozioni di base sul servizio tabelle di Azure e su Azure Co
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
-* [Centro sviluppatori PHP](/develop/php/).
+* [Centro sviluppatori PHP](https://azure.microsoft.com/develop/php/).
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
 [require_once]: http://php.net/require_once

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1121bc9e34f0e544ba5d7acb9179944ee2382efd
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: aad2b4c3edcdc488257940062e8861613ece25e8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415734"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142433"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -57,7 +57,7 @@ Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.
 
 - È possibile ottenere più voci per un dispositivo nella scheda delle informazioni sull'utente in seguito a una reinstallazione del sistema operativo o a una nuova registrazione manuale. 
 
-- Nel caso di Windows 7 SP1 o Windows Server 2008 R2 SP1 verificare che l'aggiornamento [KB4284842](https://support.microsoft.com/en-us/help/4284842) sia installato. Questo aggiornamento impedisce che si verifichino errori di autenticazione futuri a causa della perdita di accesso del cliente alle chiavi protette dopo la modifica della password.
+- Nel caso di Windows 7 SP1 o Windows Server 2008 R2 SP1 verificare che l'aggiornamento [KB4284842](https://support.microsoft.com/help/4284842) sia installato. Questo aggiornamento impedisce che si verifichino errori di autenticazione futuri a causa della perdita di accesso del cliente alle chiavi protette dopo la modifica della password.
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Passaggio 1: Recuperare lo stato della registrazione 
 

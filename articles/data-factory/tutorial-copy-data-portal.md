@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: d8e2d6f18ea1c66404ceed475d1522bd631961fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ef61b94a52d88ad2919e5a70fcdcc0a8d7c3f8ec
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444556"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918976"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con Azure Data Factory
 In questa esercitazione viene creata una data factory con l'interfaccia utente di Azure Data Factory. La pipeline in questa data factory copia i dati da un archivio BLOB di Azure a un database SQL. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -38,7 +38,7 @@ In questa esercitazione si segue questa procedura:
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**. Come archivio dati di *origine* si usa un archivio BLOB. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
+* **Account di archiviazione di Azure**. Come archivio dati di *origine* si usa un archivio BLOB. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 * **Database SQL di Azure**. Il database viene usato come archivio dati *sink*. Se non si ha un database SQL, vedere la procedura per crearne uno in [Creare un database SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creare un BLOB e una tabella SQL

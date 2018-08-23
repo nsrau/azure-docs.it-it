@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020442"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617418"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creare la prima applicazione Java Reliable Actors di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37020442"
 
 Questa guida introduttiva consente di creare in pochi minuti la prima applicazione Java di Azure Service Fabric in un ambiente di sviluppo Linux.  Al termine, si avrà una semplice applicazione Java con un singolo servizio in esecuzione nel cluster di sviluppo locale.  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, installare Service Fabric SDK, l'interfaccia della riga di comando di Service Fabric e Yeoman, configurare l'ambiente di sviluppo Java e un cluster di sviluppo nell'[ambiente di sviluppo Linux](service-fabric-get-started-linux.md). Se si usa Mac OS X, è possibile [Configurare un ambiente di sviluppo in Mac tramite Docker](service-fabric-get-started-mac.md).
 
 Installare anche l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md).
@@ -40,7 +40,7 @@ Installare anche l'[interfaccia della riga di comando di Service Fabric](service
 Service Fabric offre gli strumenti di scaffolding che consentono di creare un'applicazione Java di Service Fabric dal terminale tramite il generatore di modelli Yeoman.  Se Yeoman non è già installato, vedere [Introduzione a Service Fabric con Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) per istruzioni sulla configurazione di Yeoman. Eseguire il comando seguente per installare il generatore di modelli Yeoman di Service Fabric per Java.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## <a name="basic-concepts"></a>Concetti di base
@@ -186,7 +186,7 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## <a name="build-the-application"></a>Compilare l'applicazione.
+## <a name="build-the-application"></a>Compilare l'applicazione
 I modelli Yeoman di Service Fabric includono uno script di compilazione per [Gradle](https://gradle.org/), che può essere usato per compilare l'applicazione dal terminale.
 Le dipendenze Java di Service Fabric vengono recuperate da Maven. Per compilare e usare le applicazioni Java di Service Fabric, è necessario verificare che siano installati JDK e Gradle. Se non sono installati, vedere [Introduzione a Service Fabric con Linux](service-fabric-get-started-linux.md#set-up-java-development) per istruzioni sull'installazione di JDK e Gradle.
 

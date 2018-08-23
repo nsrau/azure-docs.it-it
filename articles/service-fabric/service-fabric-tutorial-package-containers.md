@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: be4ac20f578dc670a3d9c83124504c37e57ee9bf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 952550225f2bdd8559d72a9d283993451ae7f60b
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108774"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616344"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
 
@@ -31,11 +31,11 @@ Questa è la seconda di una serie di esercitazioni. In questa esercitazione vien
 > * Installare Yeoman
 > * Creare un pacchetto dell'applicazione usando Yeoman
 > * Configurare le impostazioni nel pacchetto dell'applicazione per l'uso con i contenitori
-> * Compilare l'applicazione.
+> * Compilare l'applicazione
 > * Distribuire ed eseguire l'applicazione
 > * Eseguire la pulizia dell'applicazione
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Vengono usate le immagini del contenitore di cui è stato eseguito il push nel Registro contenitori di Azure creato nella [prima](service-fabric-tutorial-create-container-images.md) di questa serie di esercitazioni.
 * Viene [configurato](service-fabric-tutorial-create-container-images.md) l'ambiente di sviluppo Linux.
@@ -47,18 +47,18 @@ Service Fabric offre gli strumenti di scaffolding per la creazione di applicazio
 1. Installare nodejs e NPM nel computer. Si noti che gli utenti Mac OSX dovranno usare la gestione pacchetti Homebrew
 
     ```bash
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-    sudo apt-get install -y nodejs 
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node 
     ```
 2. Installare il generatore di modelli Yeoman nel computer da NPM
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. Installare il generatore di contenitori Yeoman di Service Fabric
 
-    ```bash
-    sudo npm install -g generator-azuresfcontainer
+    ```bash 
+    npm install -g generator-azuresfcontainer
     ```
 
 ## <a name="package-a-docker-image-container-with-yeoman"></a>Creare un pacchetto di un contenitore di un'immagine Docker con Yeoman
@@ -388,7 +388,7 @@ In questa esercitazione più contenitori sono stati inseriti nel pacchetto in un
 > * Installare Yeoman
 > * Creare un pacchetto dell'applicazione usando Yeoman
 > * Configurare le impostazioni nel pacchetto dell'applicazione per l'uso con i contenitori
-> * Compilare l'applicazione.
+> * Compilare l'applicazione
 > * Distribuire ed eseguire l'applicazione
 > * Eseguire la pulizia dell'applicazione
 

@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: john.papa
+ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: d38d6048a59b1a284f4dc24157b2105a748c348d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 4fdc37eac071660b1af0fc85001dd157c286c283
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249037"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41920764"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Creare un'app MongoDB con Angular e Azure Cosmos DB - Parte 3: Creare l'interfaccia utente con Angular
 

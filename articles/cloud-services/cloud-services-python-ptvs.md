@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003643"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920849"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
 
@@ -42,7 +42,7 @@ Per altre informazioni, vedere [Informazioni sul servizio cloud].
 
 > [!NOTE]
 > *Come creare un semplice sito Web*
-> Se si intende creare un semplice sito Web front-end, è possibile usare la funzionalità App Web in Azure App Service. È possibile procedere all'aggiornamento a un servizio cloud con facilità, in base alla crescita del sito Web e all'insorgere di nuove esigenze. Per articoli che trattano lo sviluppo della funzionalità App Web in Servizio app di Azure, vedere il <a href="/develop/python/">Centro per sviluppatori Python</a>.
+> Se si intende creare un semplice sito Web front-end, è possibile usare la funzionalità App Web in Azure App Service. È possibile procedere all'aggiornamento a un servizio cloud con facilità, in base alla crescita del sito Web e all'insorgere di nuove esigenze. Per articoli che trattano lo sviluppo della funzionalità App Web in Servizio app di Azure, vedere il [Centro per sviluppatori Python](https://azure.microsoft.com/develop/python/).
 > <br />
 > 
 > 

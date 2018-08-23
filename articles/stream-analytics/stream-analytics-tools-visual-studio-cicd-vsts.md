@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: 303c1cfaf2b91712f706c5b78e027bb02739c770
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074367"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918507"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>Esercitazione: Distribuire un processo di Analisi di flusso di Azure con CI/CD tramite VSTS
 Questa esercitazione illustra come configurare l'integrazione e la distribuzione continue per un processo di Analisi di flusso di Azure tramite Visual Studio Team Services. 
@@ -32,8 +32,8 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installare [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e i carichi di lavoro **Sviluppo di Azure** o **Elaborazione ed archiviazione dati**.
-* Creare un [progetto di Analisi di flusso in Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Creare un account di [Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+* Creare un [progetto di Analisi di flusso in Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Creare un account di [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/).
 
 ## <a name="configure-nuget-package-dependency"></a>Configurare la dipendenza del pacchetto NuGet
 Per la compilazione e la distribuzione automatiche in un computer arbitrario, è necessario usare il pacchetto NuGet `Microsoft.Azure.StreamAnalytics.CICD`. Fornisce MSBuild, l'esecuzione locale e gli strumenti di distribuzione che supportano l'integrazione continua e il processo di distribuzione dei progetti di Analisi di flusso per Visual Studio. Per altre informazioni, vedere [Strumenti CI/CD di Analisi di flusso](stream-analytics-tools-for-visual-studio-cicd.md).

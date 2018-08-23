@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 14e365d90942a09db8bbd2f3eeb4c72a8be3819b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 391e3126fe3f4e02083e609b7e5f9bbe5f33605d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38631793"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918331"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Ripristinare un server di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando di Azure ripristina a un momento precedente un singolo server di Database di Azure per PostgreSQL.
@@ -39,8 +39,8 @@ Questo script usa i comandi illustrati nella tabella seguente:
 | **Comando** | **Note** |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az postgresql server create](/cli/azure/postgresql/server#az_msql_server_create) | Crea un server PostgreSQL che ospita i database. |
-| [az postgresql server restore](/cli/azure/postgresql/server#az_msql_server_restore) | Ripristina un server da un backup. |
+| [az postgresql server create](/cli/azure/postgres/server#az-postgres-server-create) | Crea un server PostgreSQL che ospita i database. |
+| [az postgresql server restore](/cli/azure/postgres/server#az-postgres-server-restore) | Ripristina un server da un backup. |
 | [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi

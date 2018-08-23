@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 9b9e3b910162653c14c398e2c3392709abcd5fd8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b95f3f4b45b0a4e32c4ce08c58bedf68c9dc44c2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38631745"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41924796"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Esercitazione: inviare notifiche push a dispositivi Windows specifici che eseguono applicazioni della piattaforma UWP (Universal Windows Platform)
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -43,7 +43,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Inviare notifiche con tag
 > * Eseguire l'app e generare notifiche
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Completare l'[Esercitazione: inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure][get-started] prima di iniziare questa esercitazione.  
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
@@ -262,9 +262,9 @@ In questo articolo si è appreso come trasmettere le ultime notizie divise per c
 [19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
-[get-started]: /azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification
-[Use Notification Hubs to broadcast localized breaking news]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx

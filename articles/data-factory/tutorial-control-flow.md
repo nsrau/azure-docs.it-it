@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: afab1b868f3fc4cdb9d88dea301df9750f55d355
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 7f555c727db88efd54aeae57da0b8ac626672ced
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084454"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920767"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, si vogliono inviare i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, si vogliono inviare i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
@@ -41,9 +41,9 @@ In questa esercitazione viene usato .NET SDK. È possibile usare altri meccanism
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
+* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 * **Database SQL di Azure**. Usare il database come archivio dati **sink**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
 * **Visual Studio** 2013, 2015 o 2017. Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 2017.
 * **Scaricare e installare [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
@@ -93,8 +93,9 @@ Creare un'applicazione console .NET in C# con Visual Studio 2015 o 2017.
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```
 
-2. Add these static variables to the **Program class**. Replace place-holders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+2. Aggiungere queste variabili statiche alla **classe Program**. Sostituire i segnaposto con i valori personalizzati. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
     ```csharp
         // Set variables
@@ -138,7 +139,7 @@ Creare un'applicazione console .NET in C# con Visual Studio 2015 o 2017.
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 Creare una funzione "CreateOrUpdateDataFactory" nel file Program.cs:
 
 ```csharp
@@ -201,7 +202,7 @@ In questa sezione vengono creati due set di dati: uno per l'origine e l'altro pe
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Creare un set di dati per il BLOB di Azure di origine
 Aggiungere il codice seguente al metodo **Main** per creare un **set di dati del BLOB di Azure**. Per informazioni sulle proprietà supportate e altri dettagli, vedere le [proprietà dei set di dati dei BLOB di Azure](connector-azure-blob-storage.md#dataset-properties).
 
-Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Questo set di dati del BLOB fa riferimento al servizio collegato Archiviazione di Azure creato nel passaggio precedente e descrive quanto segue.
+Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Questo set di dati del BLOB fa riferimento al servizio collegato Archiviazione di Azure creato nel passaggio precedente e descrive quanto segue:
 
 - Posizione del BLOB da cui eseguire la copia: **FolderPath** e **FileName**.
 - Si noti l'uso dei parametri per FolderPath. "sourceBlobContainer" è il nome del parametro e l'espressione viene sostituita con i valori passati nell'esecuzione della pipeline. La sintassi per definire i parametri è `@pipeline().parameters.<parameterName>`

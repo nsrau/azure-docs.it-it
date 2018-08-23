@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 92b505e698f2d56a2678ac53f42bb49dbaf22463
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: cc87985404ef8c9ee625f32b359e6ac1a29e73ae
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046771"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Esercitazione: integrazione di Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -148,7 +148,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon1.png)
 
-8. Scaricare il plug-in dall'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Caricare manualmente il plug-in fornito da Microsoft tramite il menu **Upload add-on** (Carica componente aggiuntivo). Il download del plug-in è coperto dal [Contratto di Servizi Microsoft](https://www.microsoft.com/en-us/servicesagreement/).
+8. Scaricare il plug-in dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=56506). Caricare manualmente il plug-in fornito da Microsoft tramite il menu **Upload add-on** (Carica componente aggiuntivo). Il download del plug-in è coperto dal [Contratto di Servizi Microsoft](https://www.microsoft.com/servicesagreement/).
 
     ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon12.png)
 
@@ -217,7 +217,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
 ### <a name="create-a-jira-saml-sso-by-microsoft-test-user"></a>Creare un utente test di JIRA SAML SSO by Microsoft
 

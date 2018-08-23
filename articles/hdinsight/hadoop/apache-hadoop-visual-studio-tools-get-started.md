@@ -1,28 +1,21 @@
 ---
-title: Connettersi ad Azure HDInsight usando Strumenti Data Lake per Visual Studio | Microsoft Docs
+title: Connettersi ad Azure HDInsight tramite Strumenti Data Lake per Visual Studio
 description: Informazioni su come installare e usare Strumenti Data Lake per Visual Studio per connettersi a cluster Hadoop in Azure HDInsight e quindi eseguire query Hive.
 keywords: strumenti Hadoop, query Hive, Visual Studio, Hadoop in Visual Studio
-services: HDInsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ce9c572a-1e98-46bf-9581-13a9767f1fa5
+services: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
+ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 1707a681315fbb53f21df95664188463968bb855
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d4f444133e8fe6f5ba1a8c12ce08d5c66e8fc18e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202476"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920366"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Usare Strumenti Data Lake per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Hive
 
@@ -34,7 +27,7 @@ Per altre informazioni sulla connessione a un cluster Storm, vedere [Sviluppare 
 
 È possibile usare Strumenti Data Lake per Visual Studio per accedere ad Azure Data Lake Analytics e a HDInsight. Per informazioni su Strumenti Data Lake, vedere [Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione e usare Strumenti Data Lake per Visual Studio, sono necessari gli elementi seguenti:
 

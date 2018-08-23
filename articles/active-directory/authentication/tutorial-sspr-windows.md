@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413747"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920339"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione della password self-service di Azure AD dalla schermata di accesso
 
@@ -86,8 +86,6 @@ Per altre informazioni sulla creazione di gruppi, vedere l'articolo [Gestire l'a
 Ora sono stati creati e assegnati criteri di configurazione dei dispositivi per abilitare il collegamento di reimpostazione della password nella schermata di accesso con Intune.
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>Configurare il collegamento di reimpostazione della password con il Registro di sistema
-
-È consigliabile usare questo metodo solo per testare la modifica dell'impostazione.
 
 1. Accedere al PC Windows con credenziali amministrative
 2. Eseguire **regedit** come amministratore

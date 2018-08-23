@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4322f1837c9b7fffba180f7106911d010a9ad8aa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8525dd443e80bb7d67bc48cc007ab1632ee3e611
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448537"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142667"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Caricare dati in Azure SQL Data Warehouse tramite Azure Data Factory
 
@@ -40,7 +40,7 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 * Sottoscrizione di Azure: se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Azure SQL Data Warehouse: il data warehouse contiene i dati copiati dal database SQL. Se non è disponibile un'istanza di Azure SQL Data Warehouse, vedere le istruzioni fornite in [Creare un'istanza di SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Database SQL di Azure: questa esercitazione copia i dati da un database SQL di Azure con dati di esempio di Adventure Works LT. È possibile creare un database SQL seguendo le istruzioni fornite in [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md). 
-* Account di archiviazione di Azure: Archiviazione di Azure viene usato come BLOB di _staging_ nell'operazione di copia in blocco. Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Account di archiviazione di Azure: Archiviazione di Azure viene usato come BLOB di _staging_ nell'operazione di copia in blocco. Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 

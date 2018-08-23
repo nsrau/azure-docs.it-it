@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 6e7de0a7b580c0028982895487117ab98d0cd612
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 028a8f35b6ffc4b429725e91045e70112f2bdabd
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503452"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142376"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurazione di PHP nelle app Web di Servizio app di Azure
 
@@ -189,7 +189,7 @@ Per impostazione predefinita, il servizio app non esegue operazioni relative a c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](https://azure.microsoft.com/develop/php/).
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.

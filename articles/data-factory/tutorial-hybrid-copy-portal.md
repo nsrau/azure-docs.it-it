@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e007fd5e616b24b3a802b7ded0cd879bb0d7f34b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 994df42557ebd99d159e531f11ffa892be2e9870
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436009"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920772"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure
 In questa esercitazione si usa l'interfaccia utente di Azure Data Factory per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud.
@@ -75,7 +75,7 @@ In questa esercitazione si usa un database di SQL Server locale come archivio da
 1. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse sul database creato e scegliere **Nuova query**.
 
 ### <a name="azure-storage-account"></a>Account di archiviazione di Azure
-In questa esercitazione, come archivio dati di destinazione/sink si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB). Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account). La pipeline nella data factory creata in questa esercitazione copia i dati dal database di SQL Server locale (origine) a un archivio BLOB (sink). 
+In questa esercitazione, come archivio dati di destinazione/sink si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB). Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md). La pipeline nella data factory creata in questa esercitazione copia i dati dal database di SQL Server locale (origine) a un archivio BLOB (sink). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Recuperare il nome e la chiave dell'account di archiviazione
 In questa esercitazione si usano il nome e la chiave dell'account di archiviazione. Per recuperare il nome e la chiave dell'account di archiviazione, seguire questa procedura: 
@@ -269,15 +269,15 @@ Il nome della data factory deve essere *univoco a livello globale*. Se viene vis
 
 1. Verrà visualizzata di nuovo la finestra con il set di dati sink aperto. Nella scheda **Connessione** seguire questa procedura: 
 
-       a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
+    a. In **Servizio collegato** verificare che sia selezionato **AzureStorageLinkedService**.
 
-       b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
+    b. Nella parte **cartella**/ **directory** di **Percorso file** immettere **adftutorial/fromonprem**. Se la cartella di output non esiste nel contenitore adftutorial, verrà creata automaticamente da Data Factory.
 
-       c. For the **file name** part of **File path**, select **Add dynamic content**.   
+    c. Nella parte **nome file** di **Percorso file** selezionare **Aggiungi contenuto dinamico**.   
 
     ![valore nome file dinamico](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-       d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
+    d. Aggiungere `@CONCAT(pipeline().RunId, '.txt')`, selezionare **Fine**. In questo modo è possibile rinominare il file in PipelineRunID.txt. 
 
     ![espressione dinamica per la risoluzione del nome file](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 

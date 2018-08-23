@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 4839b1aaa56be1ad93fa1dd685ca3176d1cc8a27
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264962"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142457"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 Questo articolo descrive i passaggi necessari per configurare i report per Backup di Azure usando l'insieme di credenziali di Servizi di ripristino e per accedere a questi report tramite Power BI. Dopo aver seguito questa procedura, è possibile passare direttamente a Power BI per visualizzare tutti i report, personalizzare e creare report. 
@@ -26,7 +26,7 @@ Questo articolo descrive i passaggi necessari per configurare i report per Backu
 4. La frequenza di aggiornamento pianificato per il report è 24 ore in Power BI. È anche possibile eseguire un aggiornamento ad hoc dei report in Power BI, nel qual caso i dati più aggiornati nell'account di archiviazione del cliente vengono usati per il rendering dei report. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Creare un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
+1. Creare un [account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
 2. [Creare un account di Power BI](https://powerbi.microsoft.com/landing/signin/) per visualizzare, personalizzare e creare report personalizzati usando il portale di Power BI.
 3. Registrare il provider di risorse **Microsoft.Insights** se non è stato già registrato, con la sottoscrizione dell'account di archiviazione e con la sottoscrizione dell'insieme di credenziali di Servizi di ripristino per consentire il trasferimento dei dati dei report nell'account. A tale scopo, è necessario passare al portale di Azure > Sottoscrizione > Provider di risorse e selezionare questo provider per registrarlo. 
 
