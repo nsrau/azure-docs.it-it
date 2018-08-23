@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 23d99c498c139da3a145a1df230f419b4591b256
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e057d7a649397083240e9f67080808a3057c7f50
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598442"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139379"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Attività post-installazione ASDK configurazione
 
@@ -43,7 +43,7 @@ Set-PSRepository `
 È possibile installare il modulo di PowerShell per Azure Stack più recente con o senza connettività Internet per il computer host ASDK:
 
 > [!IMPORTANT]
-> Prima di installare la versione richiesta, assicurarsi che si [disinstallare tutti i moduli Azure PowerShell esistenti](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-the-azure-stack-powershell-modules).
+> Prima di installare la versione richiesta, assicurarsi che si [disinstallare tutti i moduli Azure PowerShell esistenti](.\.\azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
 - **Con una connessione internet** dal computer host ASDK. Eseguire lo script di PowerShell seguente per installare i moduli nell'installazione del kit di sviluppo:
 
@@ -56,8 +56,8 @@ Set-PSRepository `
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile -Force
 
-  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
-  Install-Module -Name AzureStack -RequiredVersion 1.3.0 
+  # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+  Install-Module -Name AzureStack -RequiredVersion 1.4.0 
 
   ```
 
@@ -82,8 +82,8 @@ Set-PSRepository `
     -Name AzureStack `
     -Path $Path `
     -Force `
-  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
-    -RequiredVersion 1.3.0
+  # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
+    -RequiredVersion 1.4.0
   ```
 
   Successivamente, copiare i pacchetti scaricati nel computer ASDK e registrare il percorso come il repository predefinito e installare i moduli AzureRM e AzureStack da questo repository:

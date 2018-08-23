@@ -11,29 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 1fb7716ff1b5ce661dff55c3a8dac90a062fad53
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630783"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42139468"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Distribuire un cluster Kubernetes in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!Note]  
-> I servizi contenitore di Azure (ACS) su Kubernetes in Azure Stack è disponibile in anteprima privata. L'operatore di Azure Stack sarà necessario richiedere l'accesso per l'elemento del Marketplace di Kubernetes necessario per eseguire le istruzioni riportate in questo articolo.
-<!-- Should "Azure Container Services" be replaced globally with Azure Kubernetes Services? It seems the Azure container page is now redirectin to Azure Kubernetes https://azure.microsoft.com/en-us/services/container-service -->
+> I servizi Kubernetes di Azure (AKS) su Kubernetes in Azure Stack è disponibile in anteprima privata. L'operatore di Azure Stack sarà necessario richiedere l'accesso per l'elemento del Marketplace di Kubernetes necessario per eseguire le istruzioni riportate in questo articolo.
 
 L'articolo seguente esamina usando un modello di soluzione di Azure Resource Manager per la distribuzione e provisioning delle risorse di Kubernetes in un'unica operazione coordinata. Verrà necessario per raccogliere le informazioni necessarie relative all'installazione di Azure Stack, generare il modello e quindi distribuire il cloud.
 
 ## <a name="kubernetes-and-containers"></a>Contenitori e Kubernetes
 
-È possibile installare Kubernetes usando i modelli di Azure Resource Manager generati dal motore di servizi contenitore di Azure (ACS) in Azure Stack. [Kubernetes](https://kubernetes.io) è un sistema open source per automatizzare la distribuzione, ridimensionamento e la gestione delle applicazioni nei contenitori. Oggetto [contenitore](https://www.docker.com/what-container) è contenuta in un'immagine, simile a una macchina virtuale. A differenza di una macchina virtuale, l'immagine del contenitore include solo le risorse che necessarie per eseguire un'applicazione, ad esempio il codice, eseguire il codice, librerie specifiche e le impostazioni di runtime.
+È possibile installare Kubernetes usando i modelli di Azure Resource Manager generati dal motore di servizi di Kubernetes di Azure (AKS) in Azure Stack. [Kubernetes](https://kubernetes.io) è un sistema open source per automatizzare la distribuzione, ridimensionamento e la gestione delle applicazioni nei contenitori. Oggetto [contenitore](https://www.docker.com/what-container) è contenuta in un'immagine, simile a una macchina virtuale. A differenza di una macchina virtuale, l'immagine del contenitore include solo le risorse che necessarie per eseguire un'applicazione, ad esempio il codice, eseguire il codice, librerie specifiche e le impostazioni di runtime.
 
 È possibile usare Kubernetes per:
 
@@ -73,7 +72,7 @@ Per iniziare, assicurarsi che si abbia le autorizzazioni appropriate e che Azure
 
     c. Fare clic su **Create**(Crea).
 
-1. Assicurarsi di annotare il **ID applicazione**. È necessario l'ID quando si crea il cluster. L'ID viene fatto riferimento come **Client ID dell'entità servizio**.
+1. Annotare l'**ID applicazione**. È necessario l'ID quando si crea il cluster. L'ID viene fatto riferimento come **Client ID dell'entità servizio**.
 
 1. Selezionare **le impostazioni** > **chiavi**.
 

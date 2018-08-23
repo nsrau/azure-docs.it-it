@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 7cf41a10f13e2edeb4ab1944c0d38cc7064c02bb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161489"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432290"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Servizio App in note sulla versione update 3 di Azure Stack
 
@@ -70,6 +70,10 @@ Servizio App di Azure in Azure Stack Update 3 include le correzioni e i migliora
   - Aggiunta di Wincache 2.0.0.8
   - Git aggiornato per Windows a v 2.17.1.2
   - Kudu aggiornata a 74.10611.3437
+  
+- **Aggiornamenti del sistema operativo sottostante di tutti i ruoli**:
+  - [Aggiornamento dello stack di manutenzione per Windows Server 2016 per sistemi basati su x64 (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [Aggiornamento cumulativo per Windows Server 2016-07 2018 per sistemi basati su x64 (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
 ### <a name="post-update-steps-optional"></a>Registra i passaggi di aggiornamento (facoltativo)
 
@@ -80,7 +84,7 @@ Per i clienti che desiderano eseguire la migrazione al database indipendente per
 >
 >
 
-1. Aggiungere [database a un gruppo di disponibilità](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. Aggiungere [database AppService (appservice_hosting e appservice_metering) a un gruppo di disponibilità](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
 
 1. Attivare contenuti il database
     ```sql

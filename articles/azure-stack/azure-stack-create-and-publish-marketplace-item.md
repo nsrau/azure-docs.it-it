@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da1619c5dc536ee143a8cc5ed17e995bc2d1eab7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35651593"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42139695"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creare e pubblicare un elemento del Marketplace
 
@@ -102,7 +102,7 @@ ms.locfileid: "35651593"
 
 6. È possibile rimuovere un elemento del Marketplace tramite il **Remove-AzureRMGalleryItem** cmdlet. Esempio:
    
-        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > L'interfaccia utente di Marketplace può visualizzare un errore dopo la rimozione di un elemento. Per correggere l'errore, fare clic su **impostazioni** nel portale. Quindi, selezionare **Annulla modifiche** sotto **personalizzazione del portale**.
@@ -111,14 +111,14 @@ ms.locfileid: "35651593"
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Informazioni di riferimento: Marketplace elemento manifest
 ### <a name="identity-information"></a>Informazioni sull'identità
-| NOME | Obbligatoria | type | Vincoli | DESCRIZIONE |
+| NOME | Obbligatorio | type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | NOME |X |string |[A-Za-z0-9] + | |
 | Editore |X |string |[A-Za-z0-9] + | |
 | Version |X |string |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
-| NOME | Obbligatoria | type | Vincoli | DESCRIZIONE |
+| NOME | Obbligatorio | type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Consiglio di 80 caratteri |Il portale potrebbe non visualizzare correttamente il nome dell'elemento se è più lungo di 80 caratteri. |
 | PublisherDisplayName |X |string |Consiglio di 30 caratteri |Il portale potrebbe non visualizzare correttamente il nome del server di pubblicazione se è più lungo di 30 caratteri. |
@@ -144,7 +144,7 @@ Ogni elemento del Marketplace deve essere contrassegnato con una categoria che i
 ### <a name="links"></a>Collegamenti
 Ogni elemento del Marketplace può includere diversi collegamenti a contenuti aggiuntivi. I collegamenti vengono specificati come un elenco di nomi e di URI.
 
-| NOME | Obbligatoria | type | Vincoli | DESCRIZIONE |
+| NOME | Obbligatorio | type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Numero massimo di 64 caratteri | |
 | Uri |X |URI | | |
@@ -152,7 +152,7 @@ Ogni elemento del Marketplace può includere diversi collegamenti a contenuti ag
 ### <a name="additional-properties"></a>Proprietà aggiuntive
 Oltre ai metadati precedenti, gli autori del Marketplace possono fornire dati di coppia chiave/valore personalizzato nel formato seguente:
 
-| NOME | Obbligatoria | type | Vincoli | DESCRIZIONE |
+| NOME | Obbligatorio | type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Numero massimo di 25 caratteri | |
 | Valore |X |string |Numero massimo di 30 caratteri | |

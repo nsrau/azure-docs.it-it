@@ -1,9 +1,9 @@
 ---
-title: Configurare l'ambiente di PowerShell dell'utente Azure Stack | Documenti Microsoft
-description: Configurare l'ambiente di PowerShell dell'utente Azure Stack
+title: Configurare l'ambiente PowerShell dell'utente di Azure Stack | Microsoft Docs
+description: Configurare l'ambiente PowerShell dell'utente di Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
@@ -12,99 +12,86 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/15/2018
-ms.author: mabrigg
+ms.date: 08/17/2018
+ms.author: sethm
 ms.reviewer: Balsu.G
-ms.openlocfilehash: bcd1c53221028a852550fa429abcb9f8e9523ed4
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d8b245666989552208f8cbcf0dddfdfc310f65e0
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752422"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139739"
 ---
-# <a name="configure-the-azure-stack-users-powershell-environment"></a>Configurare l'ambiente di PowerShell dell'utente Azure Stack
+# <a name="configure-the-azure-stack-users-powershell-environment"></a>Configurare l'ambiente PowerShell dell'utente di Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Utilizzare le istruzioni in questo articolo per configurare l'ambiente di PowerShell per un utente di Azure Stack.
-Dopo aver configurato l'ambiente, è possibile utilizzare PowerShell per gestire le risorse di Azure Stack. Ad esempio, è possibile utilizzare PowerShell per effettuare la sottoscrizione, creare le macchine virtuali e distribuire modelli di gestione risorse di Azure.
+Questo articolo offre i passaggi per connettersi all'istanza di Azure Stack. È necessario connettersi per gestire le risorse di Azure Stack con PowerShell. Ad esempio, è possibile usare PowerShell per effettuare la sottoscrizione, creare macchine virtuali e distribuire modelli di Azure Resource Manager. Per eseguire i cmdlet di PowerShell.
 
->[!NOTE]
->In questo articolo è l'ambito per gli ambienti utente dello Stack di Azure. Se si desidera configurare PowerShell per l'ambiente di operatore cloud, vedere la [configurare l'ambiente di PowerShell dell'operatore Azure Stack](../azure-stack-powershell-configure-admin.md) articolo.
+Per configurare:
+  - Assicurarsi di avere i requisiti.
+  - Connessione con Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS). 
+  - Registrare i provider di risorse.
+  - Testare la connettività.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È possibile configurare questi prerequisiti dal [kit di sviluppo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o da un client esterno con codifica basata su Windows se sono [connessi tramite VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+È possibile configurare questi prerequisiti dal [kit di sviluppo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o da un client esterno con codifica basata su Windows se sei [connesse tramite VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-* Installare [i moduli di PowerShell Azure compatibile con Stack Azure](azure-stack-powershell-install.md).
+* Installare [moduli di Azure Stack-compatibili con Azure PowerShell](azure-stack-powershell-install.md).
 * Scaricare il [gli strumenti necessari per lavorare con Azure Stack](azure-stack-powershell-download.md).
 
-## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Configurare l'ambiente utente e accedere a Azure Stack
+Assicurarsi di sostituire le variabili dello script seguente con i valori dalla configurazione di Azure Stack:
 
-In base al tipo di distribuzione dello Stack di Azure (Azure Active Directory o AD FS), eseguire uno degli script di seguito per configurare PowerShell per Azure Stack.
+- **Nome del tenant Azure AD**  
+  Il nome del tenant di Azure AD consente di gestire Azure Stack, ad esempio, yourdirectory.onmicrosoft.com.
+- **Endpoint di Azure Resource Manager**  
+  Per il kit di sviluppo di Azure Stack, questo valore è impostato su https://management.local.azurestack.external. Per ottenere questo valore per i sistemi integrati di Azure Stack, contattare il provider di servizi.
 
-Assicurarsi di sostituire le seguenti variabili di script con i valori dalla configurazione dello Stack di Azure:
+## <a name="connect-with-azure-ad"></a>Connettersi con Azure AD
 
-* TenantName AAD
-* ArmEndpoint
+  ```PowerShell
+  $AADTenantName = "yourdirectory.onmicrosoft.com"
+  $ArmEndpoint = "https://management.local.azurestack.external"
 
-### <a name="azure-active-directory-aad-based-deployments"></a>Distribuzioni basate su Azure Active Directory (AAD)
-
-  ```powershell
-  # Navigate to the downloaded folder and import the **Connect** PowerShell module
-  Set-ExecutionPolicy RemoteSigned
-  Import-Module .\Connect\AzureStack.Connect.psm1
-
-  # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-  # Register an AzureRM environment that targets your Azure Stack instance
+  # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
 
-  # Get the Active Directory tenantId that is used to deploy Azure Stack
-  $TenantID = Get-AzsDirectoryTenantId `
-    -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-    -EnvironmentName "AzureStackUser"
+  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+  $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
   # Sign in to your environment
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantID
+    -TenantId $TenantId
    ```
 
-### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Distribuzioni basate su Active Directory Federation Services (ADFS)
+## <a name="connect-with-ad-fs"></a>Connect con AD FS
 
-  ```powershell
-  # Navigate to the downloaded folder and import the **Connect** PowerShell module
-  Set-ExecutionPolicy RemoteSigned
-  Import-Module .\Connect\AzureStack.Connect.psm1
+  ```PowerShell  
+  $ArmEndpoint = "https://management.local.azurestack.external"
 
-  # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-  # Register an AzureRM environment that targets your Azure Stack instance
+  # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
 
-  # Get the Active Directory tenantId that is used to deploy Azure Stack
-  $TenantID = Get-AzsDirectoryTenantId `
-    -ADFS `
-    -EnvironmentName "AzureStackUser"
+  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
   # Sign in to your environment
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantID
+    -TenantId $tenantId
   ```
 
 ## <a name="register-resource-providers"></a>Registrare i provider di risorse
 
-I provider di risorse non sono registrati automaticamente per le nuove sottoscrizioni utente che non dispongono di tutte le risorse distribuite tramite il portale. È possibile registrare un provider di risorse in modo esplicito eseguendo lo script seguente:
+I provider di risorse non vengono registrati automaticamente per le nuove sottoscrizioni utente che non sono presenti eventuali risorse distribuite tramite il portale. È possibile registrare un provider di risorse in modo esplicito eseguendo lo script seguente:
 
-```powershell
+```PowerShell  
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
@@ -114,13 +101,14 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 ## <a name="test-the-connectivity"></a>Testare la connettività
 
-Quando è pronto impostato, testare la connettività tramite PowerShell per creare risorse nello Stack di Azure. Come un test, creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Eseguire il comando seguente per creare un gruppo di risorse denominato "MyResourceGroup":
+Dopo aver ottenuto tutte le impostazioni, testare la connettività dall'uso di PowerShell per creare le risorse in Azure Stack. Come un test, creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Eseguire il comando seguente per creare un gruppo di risorse denominato "MyResourceGroup":
 
-```powershell
+```PowerShell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)
-* [Distribuire modelli con PowerShell](azure-stack-deploy-template-powershell.md)
+- [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)
+- [Distribuire modelli con PowerShell](azure-stack-deploy-template-powershell.md)
+- Se si desidera configurare PowerShell per l'ambiente di operatore cloud, vedere la [configurare l'ambiente PowerShell dell'operatore Azure Stack](../azure-stack-powershell-configure-admin.md) articolo.

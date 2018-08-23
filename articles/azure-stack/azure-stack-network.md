@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414426"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617022"
 ---
 # <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack per decidere come per integrarsi al meglio Azure Stack nell'ambiente di rete esistente. 
@@ -41,7 +41,7 @@ Nella tabella seguente mostra le reti logiche e intervalli di subnet IPv4 associ
 
 | Rete logica | DESCRIZIONE | Dimensione | 
 | -------- | ------------- | ------------ | 
-| Indirizzo VIP pubblico | Azure Stack viene utilizzato un totale di 32 indirizzi da questa rete. Otto indirizzi IP pubblici vengono usati per un piccolo set di servizi di Azure Stack e gli altri vengono usati dalle macchine virtuali tenant. Se si prevede di usare servizio App e i provider di risorse SQL, vengono utilizzati 7 più indirizzi. | / 26 (62 host) - /22 (1022 host)<br><br>Consigliato = da/24 (254 host) | 
+| Indirizzo VIP pubblico | Azure Stack viene utilizzato un totale di 31 indirizzi da questa rete. Otto indirizzi IP pubblici vengono usati per un piccolo set di servizi di Azure Stack e gli altri vengono usati dalle macchine virtuali tenant. Se si prevede di usare servizio App e i provider di risorse SQL, vengono utilizzati 7 più indirizzi. Gli indirizzi IP 15 rimanenti sono riservati per futuri servizi di Azure. | / 26 (62 host) - /22 (1022 host)<br><br>Consigliato = da/24 (254 host) | 
 | Infrastruttura di switch | Gli indirizzi IP da punto a punto per il routing, dedicato switch interfacce di gestione e indirizzo di loopback assegnata al commutatore. | /26 | 
 | Infrastruttura | Utilizzato per i componenti interni di Azure Stack per comunicare. | /24 |
 | Privato | Utilizzato per la rete di archiviazione e gli indirizzi VIP privati. | /24 | 

@@ -3,45 +3,46 @@ title: Distribuire modelli in Azure Stack con Visual Studio | Documentazione Mic
 description: Informazioni su come distribuire modelli in Azure Stack con Visual Studio.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 628da2ae-64cc-42e0-b8b7-a6a3724cb974
 ms.service: azure-stack
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 6cd722fedc0483e37ce6ee491d74a7c985111353
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 585f890b11ab71f9c10479ff65aff74922a30ed1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605124"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42147052"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Distribuire modelli in Azure Stack tramite Visual Studio
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-È possibile utilizzare Visual Studio per distribuire modelli di Azure Resource Manager allo Stack di Azure.
+È possibile usare Visual Studio per distribuire modelli di Azure Resource Manager di Azure Stack.
 
-## <a name="to-deploy-a-template"></a>Per distribuire un modello
+## <a name="to-deploy-a-template"></a>Distribuire un modello
 
 1. [Installazione e connessione](azure-stack-install-visual-studio.md) ad Azure Stack con Visual Studio.
 2. Aprire Visual Studio.
-3. Selezionare **File**, quindi selezionare **New**. In **nuovo progetto**, selezionare **gruppo di risorse di Azure**.
-4. Immettere un **nome** per il nuovo progetto e quindi selezionare **OK**.
-5. In **Seleziona modello di Azure**, selezionare **Guida introduttiva di Azure Stack** dall'elenco a discesa.
-6. Selezionare **101-crea--account di archiviazione**, quindi selezionare **OK**.
-7. Nel nuovo progetto, espandere la **modelli** nodo **Esplora** per visualizzare i modelli disponibili.
-8. In **Esplora soluzioni**, selezionare il nome del progetto e quindi selezionare **Distribuisci**. Selezionare **nuova distribuzione**.
-9. In **Distribuisci a gruppo di risorse**, utilizzare il **sottoscrizione** elenco a discesa per selezionare la sottoscrizione di Microsoft Azure Stack.
+3. Selezionare **File**, quindi selezionare **New**. Nelle **nuovo progetto**, selezionare **gruppo di risorse di Azure**.
+4. Immettere un **Name** per il nuovo progetto e quindi selezionare **OK**.
+5. Nelle **Seleziona modello di Azure**, selezionare **Azure Stack Quickstart** nell'elenco a discesa.
+6. Selezionare **101-create-storage-account**, quindi selezionare **OK**.
+7. Nel nuovo progetto, espandere la **modelli** nodo **Esplora soluzioni** per visualizzare i modelli disponibili.
+8. Nelle **Esplora soluzioni**, selezionare il nome del progetto e quindi selezionare **Distribuisci**. Selezionare **nuova distribuzione**.
+9. Nelle **Distribuisci in gruppo di risorse**, utilizzare il **sottoscrizione** elenco a discesa per selezionare la sottoscrizione di Microsoft Azure Stack.
 10. Dal **gruppo di risorse** elenco, scegliere un gruppo di risorse esistente o crearne uno nuovo.
-11. Dal **percorso del gruppo di risorse** elenco, scegliere un percorso e quindi selezionare **Distribuisci**.
-12. In **modifica parametri**, specificare i valori per i parametri (che variano da modello), quindi selezionare **salvare**.
+11. Dal **località del gruppo di risorse** elenco, scegliere un percorso e quindi selezionare **Distribuisci**.
+12. Nella **modifica parametri**, specificare i valori per i parametri (che variano in base al modello), quindi selezionare **salvare**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,9 +1,9 @@
 ---
-title: Distribuire i modelli dalla riga di comando nello Stack di Azure | Documenti Microsoft
-description: Informazioni su come utilizzare l'interfaccia della riga di comando (CLI) multipiattaforma per distribuire modelli dello Stack di Azure.
+title: Distribuire modelli con riga di comando di Azure Stack | Microsoft Docs
+description: Informazioni su come usare l'interfaccia della riga di comando multipiattaforma (CLI) per distribuire modelli di Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 9584177f-4af3-4834-864d-930b09ae0995
@@ -12,32 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 761e09889a230642c42697b6bc4f96dc32fe03a0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7814552256f17c5265bbeb4ce8c069dd8dca1bb2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316196"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139566"
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Distribuire modelli in Azure Stack tramite la riga di comando
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Utilizzare la riga di comando per distribuire modelli di gestione risorse di Azure il Kit di sviluppo dello Stack di Azure. Modelli di gestione risorse di Azure distribuiscono ed eseguire il provisioning di tutte le risorse per l'applicazione in un'operazione singola, coordinata.
+Usare la riga di comando per distribuire modelli di Azure Resource Manager di Azure Stack Development Kit. I modelli di Azure Resource Manager distribuiscono ed effettuare il provisioning di tutte le risorse per l'applicazione in un'unica operazione coordinata.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
- - [Installazione e la connessione](azure-stack-version-profiles-azurecli2.md) allo Stack di Azure con CLI di Azure
- - Scaricare i file *azuredeploy.json* e *azuredeploy.parameters.json* dal [creare il modello di esempio account di archiviazione](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
+ - [Installare e connettere](azure-stack-version-profiles-azurecli2.md) ad Azure Stack con CLI di Azure
+ - Scaricare i file *azuredeploy. JSON* e *azuredeploy* dal [creare modello di esempio di account di archiviazione](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
  
 ## <a name="deploy-template"></a>Distribuire il modello
 Passare alla cartella in cui questi file sono stati scaricati ed eseguire il comando seguente per distribuire il modello:
 
     azure group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
 
-Questo comando consente di distribuire il modello al gruppo di risorse **cliRG** nel percorso predefinito della prova di Stack Azure.
+Questo comando distribuisce il modello per il gruppo di risorse **cliRG** nel percorso predefinito dell'architettura POC di Azure Stack.
 
 ## <a name="validate-template-deployment"></a>Convalidare la distribuzione dei modelli
 Per visualizzare questo gruppo di risorse e l'account di archiviazione, usare i comandi seguenti:

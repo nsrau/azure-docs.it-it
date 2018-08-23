@@ -3,7 +3,7 @@ title: Differenze e considerazioni per le macchine virtuali in Azure Stack | Mic
 description: Informazioni sulle differenze e considerazioni quando si lavora con le macchine virtuali in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
-ms.author: brenduns
-ms.openlocfilehash: 4d475ec93bd8bfa5cc84848ed61afa6a9d6e319b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 08/15/2018
+ms.author: mabrigg
+ms.openlocfilehash: 7eb82457d8c8d7e306dcbdac39510ce328cd925b
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902181"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139286"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerazioni sull'utilizzo delle macchine virtuali in Azure Stack
 

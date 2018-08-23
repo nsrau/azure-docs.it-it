@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 22593fc470325fbfb74cfb432207abeea7d96ac2
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342784"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139687"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "37342784"
 Usare le indicazioni fornite in questo articolo per distribuire il servizio App in Azure Stack.
 
 >[!IMPORTANT]  
->Applicare l'aggiornamento 1804 per il sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima della distribuzione del servizio App di Azure 1.2.
+>Applicare l'aggiornamento 1807 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima della distribuzione del servizio App di Azure 1.3.
 
 È possibile concedere agli utenti la possibilità di creare applicazioni web e API. Per consentire agli utenti di creare queste applicazioni, è necessario:
 
@@ -70,7 +70,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
     a. Selezionare **Connect** accanto al **sottoscrizioni di Azure Stack**.
 
      - Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password specificata quando è stato distribuito Azure Stack. Selezionare **Accedi**.
-     - Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio, cloudadmin@azurestack.local. Immettere la password e quindi selezionare **Accedi**.
+     - Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio: cloudadmin@azurestack.local. Immettere la password e quindi selezionare **Accedi**.
 
    b. Nelle **sottoscrizioni di Azure Stack**, selezionare la **sottoscrizione del Provider predefinito**.
 
@@ -131,6 +131,18 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
     > [!NOTE]
     > Il programma di installazione prova a verificare la connettività a SQL Server prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, potrebbe essere file di questo test di connettività. Si riceve un avviso e un prompt dei comandi per continuare. Se le informazioni di SQL Server siano corrette, continuare la distribuzione.
+    >
+    > Servizio App di Azure in Azure Stack 1.3 e versioni successive, il programma di installazione verificherà che SQL Server disponga di indipendenza del database abilitata a livello di SQL Server.  In caso contrario, verrà richiesto con l'eccezione seguente:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Vedere le [note sulla versione per il servizio App di Azure in Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) per altri dettagli.
 
     ![Programma di installazione del servizio App][11]
 

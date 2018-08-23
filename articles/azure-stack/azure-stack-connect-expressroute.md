@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9322c364832a12e711ee7e1b6ad9722ec82d8468
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449970"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139732"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connettere Azure Stack per Azure tramite Azure ExpressRoute
 
@@ -117,7 +117,7 @@ Usare le procedure seguenti per creare le risorse di rete necessarie in Azure St
 
     * Sotto **gruppo di risorse**, selezionare **Crea nuovo** per creare un nuovo gruppo di risorse o se già presente, selezionare **Usa esistente**.
     * Verificare il valore predefinito **posizione**.
-    * Selezionare **Crea**.
+    * Selezionare **Create**.
     * (Facoltativo) Selezionare **Aggiungi al dashboard**.
 
 #### <a name="create-the-gateway-subnet"></a>Creare la subnet del gateway
@@ -140,7 +140,7 @@ Usare le procedure seguenti per creare le risorse di rete necessarie in Azure St
 1. Selezionare **indirizzo IP pubblico**>**Scegli indirizzo IP pubblico**, quindi selezionare **Crea nuovo**.
 1. Nel **Name** immettere **GW1-PiP** e selezionare **OK**.
 1. Per **Tipo VPN** deve essere selezionata l'opzione **Basato su route** per impostazione predefinita. Mantenere questa impostazione.
-1. Verificare che la **Sottoscrizione** e la **Località** siano corrette. Selezionare **Crea**.
+1. Verificare che la **Sottoscrizione** e la **Località** siano corrette. Selezionare **Create**.
 
 #### <a name="create-the-local-network-gateway"></a>Creare il gateway di rete locale
 
@@ -159,7 +159,7 @@ La risorsa gateway di rete locale identifica il gateway remoto a altra estremit�
    > [!IMPORTANT]
    > Questo esempio si presuppone che si usi route statiche per la connessione VPN Site-to-Site tra il gateway di Azure Stack e il router di ExpressRoute.
 
-1. Verificare che il **abbonamento**, **gruppo di risorse**, e **percorso** siano corretti. Selezionare **Crea**.
+1. Verificare che il **abbonamento**, **gruppo di risorse**, e **percorso** siano corretti. Selezionare **Create**.
 
 #### <a name="create-the-connection"></a>Creare la connessione
 
@@ -180,7 +180,7 @@ Dopo aver creato il gateway di rete virtuale è possibile ottenere l'indirizzo I
 
 1. Nel portale per gli utenti Azure Stack, selezionare **tutte le risorse**.
 1. Sotto **tutte le risorse**, selezionare il gateway di rete virtuale, ovvero **GW1** nell'esempio.
-1. Sotto **gateway di rete virtuale**, selezionare **Panoramica**. dall'elenco di risorse. In alternativa, è possibile selezionare **proprietà**.
+1. Sotto **gateway di rete virtuale**, selezionare **Panoramica** dall'elenco di risorse. In alternativa, è possibile selezionare **proprietà**.
 1. L'indirizzo IP che si desidera tenere presente è elencato in **indirizzo IP pubblico**. Per la configurazione di esempio, questo indirizzo è 192.68.102.1.
 
 #### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
@@ -360,7 +360,7 @@ Ripetere questi passaggi per qualsiasi tenant aggiuntivo, le reti virtuali si vu
 
 ## <a name="configure-the-router"></a>Configurare il router
 
-È possibile usare quanto segue *configurazione del router ExpressRoute* diagramma come guida per la configurazione di ExpressRoute Router. Questo diagramma mostra due tenant (Tenant 1 e 2 Tenant) con i rispettivi circuiti di Expressroute. Ogni tenant è collegato al proprio VRF (Routing virtuale e l'inoltro) sul lato LAN e WAN del router ExpressRoute. Questa configurazione garantisce un isolamento end-to-end tra i due tenant. Prendere nota degli indirizzi IP usati nelle interfacce di router mentre si esegue l'esempio di configurazione.
+È possibile usare quanto segue *configurazione del router ExpressRoute* diagramma come guida per la configurazione di ExpressRoute Router. Questo diagramma mostra due tenant (Tenant 1 e 2 Tenant) con i rispettivi circuiti di ExpressRoute. Ogni tenant è collegato al proprio VRF (Routing virtuale e l'inoltro) sul lato LAN e WAN del router ExpressRoute. Questa configurazione garantisce un isolamento end-to-end tra i due tenant. Prendere nota degli indirizzi IP usati nelle interfacce di router mentre si esegue l'esempio di configurazione.
 
 *Figura 4. Configurazione di router ExpressRoute*
 
@@ -368,7 +368,7 @@ Ripetere questi passaggi per qualsiasi tenant aggiuntivo, le reti virtuali si vu
 
 È possibile usare qualsiasi router che supporta VPN IKEv2 e BGP per terminare la connessione Site-to-Site VPN di Azure Stack. Il router stesso viene usato per connettersi ad Azure tramite un circuito ExpressRoute.
 
-Il seguente esempio di configurazione di Cisco Azure Site Recovery 1000 supporta l'infrastruttura di rete visualizzato nel *configurazione del router ExpressRoute* diagramma.
+Il seguente esempio di configurazione di Router servizi aggregazione di serie 1000 ASR Cisco supporta l'infrastruttura di rete visualizzato nel *configurazione del router ExpressRoute* diagramma.
 
 **Esempio di configurazione di 1000 ASR Cisco**
 
@@ -457,7 +457,7 @@ description S2S VPN Tunnel for Tenant 2
  tunnel protection ipsec profile V4-PROFILE
 !
 interface GigabitEthernet0/0/1
- description PRIMARY Express Route Link to AZURE over Equinix
+ description PRIMARY ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
@@ -476,7 +476,7 @@ description Primary WAN interface of Tenant 2
  ip address 192.168.1.17 255.255.255.252
 !
 interface GigabitEthernet0/0/2
- description BACKUP Express Route Link to AZURE over Equinix
+ description BACKUP ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !

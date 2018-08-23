@@ -1,9 +1,9 @@
 ---
-title: Utilizzare lo strumento di convalida un modello per controllare i modelli per lo Stack di Azure | Documenti Microsoft
-description: Modelli di controllo per la distribuzione in Azure Stack
+title: Usare uno strumento di convalida del modello per cercare i modelli di Azure Stack | Microsoft Docs
+description: Controllare modelli per la distribuzione in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
@@ -12,53 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1800db8cd25aa37bffb76adf00901e11c75d49fe
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604081"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139523"
 ---
-# <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Controllare i modelli per lo Stack di Azure con lo strumento di convalida modello
+# <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Controllare i modelli per Azure Stack con lo strumento di convalida modello
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-È possibile utilizzare lo strumento di convalida del modello per controllare se il gestore delle risorse Azure [modelli](azure-stack-arm-templates.md) pronti per la distribuzione allo Stack di Azure. Lo strumento di convalida del modello è disponibile come parte degli strumenti di Azure Stack. Scaricare gli strumenti di Azure Stack utilizzando la procedura descritta nel [scaricare gli strumenti da GitHub](azure-stack-powershell-download.md) articolo.
+È possibile usare lo strumento di convalida del modello per controllare se il gestore di risorse di Azure [modelli](azure-stack-arm-templates.md) sono pronti per la distribuzione in Azure Stack. Lo strumento di convalida del modello è disponibile come parte degli strumenti di Azure Stack. Scaricare gli strumenti di Azure Stack usando i passaggi descritti nel [scaricare gli strumenti da GitHub](azure-stack-powershell-download.md) articolo.
 
 ## <a name="overview"></a>Panoramica
 
-Per convalidare un modello, è necessario creare un cloud le funzionalità prima di file e quindi eseguire lo strumento di convalida. Utilizzare i seguenti moduli di PowerShell da strumenti di Azure Stack:
+Per convalidare un modello, è necessario creare un cloud le funzionalità prima di file e quindi eseguire lo strumento di convalida. Si usano i moduli di PowerShell seguenti da strumenti di Azure Stack:
 
-- Nel **TemplateValidator** cartella:<br>         AzureRM.CloudCapabilities.psm1 crea un file JSON delle funzionalità cloud che rappresentano i servizi e le versioni in un cloud di Azure Stack.
-- Nel **CloudCapabilities** cartella:<br>
-AzureRM.TemplateValidator.psm1 utilizza un file JSON delle funzionalità cloud per testare i modelli per la distribuzione nello Stack di Azure.
+- Nel **CloudCapabilities** cartella:<br>         AzureRM.CloudCapabilities.psm1 crea un file JSON delle funzionalità cloud che rappresentano i servizi e le versioni in un cloud di Azure Stack.
+- Nel **TemplateValidator** cartella:<br>
+AzureRM.TemplateValidator.psm1 Usa un file JSON delle funzionalità cloud per testare i modelli per la distribuzione in Azure Stack.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Compilare il file di capacità cloud
 
-Prima di usare il validator del modello, è possibile eseguire il modulo di AzureRM.CloudCapabilities PowerShell per compilare un file JSON.
+Prima di utilizzare il validator del modello, eseguire il modulo AzureRM.CloudCapabilities PowerShell per compilare un file JSON.
 
 >[!NOTE]
->Se si aggiorna il sistema integrato o aggiungere estensioni virtuali o i nuovi servizi, sarà necessario eseguire nuovamente questo modulo.
+>Se si aggiorna il sistema integrato, o aggiungere eventuali nuovi servizi o le estensioni virtuale, è necessario eseguire nuovamente questo modulo.
 
-1. Assicurarsi di disporre della connettività allo Stack di Azure. Questi passaggi possono essere eseguiti dall'host del kit di sviluppo dello Stack di Azure, oppure è possibile utilizzare un [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) per la connessione dalla propria workstation.
+1. Assicurarsi di avere la connettività ad Azure Stack. Questi passaggi possono essere eseguiti dall'host Azure Stack development kit oppure è possibile usare una [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) per la connessione dalla workstation.
 2. Importare il modulo AzureRM.CloudCapabilities PowerShell:
 
     ```PowerShell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Usare il cmdlet Get-CloudCapabilities per recuperare le versioni di servizio e creare un file JSON delle funzionalità cloud. Se non si specifica **- OutputPath**, il file AzureCloudCapabilities.Json viene creato nella directory corrente. Utilizzare il percorso effettivo:
+3. Usare il cmdlet Get-CloudCapabilities per recuperare le versioni del servizio e creare un file JSON delle funzionalità cloud. Se non si specifica **- OutputPath**, il file AzureCloudCapabilities.Json viene creato nella directory corrente. Usare il percorso effettivo:
 
     ```PowerShell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
     ```
 
-## <a name="validate-templates"></a>Convalidare modelli
+## <a name="validate-templates"></a>Convalidare i modelli
 
-Utilizzare questi passaggi per convalidare i modelli mediante il modulo AzureRM.TemplateValidator PowerShell. È possibile utilizzare i modelli personalizzati o convalidare la [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Usare questi passaggi per convalidare i modelli usando il modulo AzureRM.TemplateValidator PowerShell. È possibile usare i propri modelli o convalidare la [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
 1. Importare il modulo PowerShell AzureRM.TemplateValidator.psm1:
 
@@ -75,7 +75,7 @@ Utilizzare questi passaggi per convalidare i modelli mediante il modulo AzureRM.
     -Verbose
     ```
 
-Gli errori o avvisi di convalida modello vengono registrati nella console di PowerShell e un file HTML nella directory di origine. Nella schermata seguente mostra un esempio di un report di convalida:
+Gli avvisi di convalida di modelli o gli errori vengono registrati nella console di PowerShell e un file HTML nella directory di origine. La schermata seguente mostra un esempio di un report di convalida:
 
 ![Report di convalida modello](./media/azure-stack-validate-templates/image1.png)
 
@@ -83,19 +83,19 @@ Gli errori o avvisi di convalida modello vengono registrati nella console di Pow
 
 Il validator del modello supporta i parametri seguenti.
 
-| Parametro | DESCRIZIONE | Obbligatoria |
+| Parametro | DESCRIZIONE | Obbligatorio |
 | ----- | -----| ----- |
-| TemplatePath | Specifica il percorso in modo ricorsivo trovare modelli di gestione risorse di Azure | Sì | 
-| TemplatePattern | Specifica il nome di file di modello per la corrispondenza. | No  |
+| TemplatePath | Specifica il percorso in modo ricorsivo trova i modelli Azure Resource Manager | Sì | 
+| TemplatePattern | Specifica il nome del file di modello in modo che corrispondano. | No  |
 | CapabilitiesPath | Specifica il percorso di file JSON di capacità cloud | Sì | 
-| IncludeComputeCapabilities | Include una valutazione delle risorse IaaS come dimensioni delle macchine Virtuali e le estensioni VM | No  |
-| IncludeStorageCapabilities | Include la valutazione delle risorse di archiviazione come tipi SKU | No  |
+| IncludeComputeCapabilities | Include la valutazione delle risorse IaaS, ad esempio dimensioni delle macchine Virtuali ed estensioni di VM | No  |
+| IncludeStorageCapabilities | Include la valutazione delle risorse di archiviazione, ad esempio tipi di SKU | No  |
 | Report | Specifica nome del report HTML generato | No  |
 | Dettagliato | Registra errori e avvisi nella console | No |
 
 ### <a name="examples"></a>Esempi
 
-Questo esempio viene convalidato tutte le [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) scaricato nell'archivio locale. Nell'esempio viene convalidato anche le dimensioni delle macchine virtuali e le estensioni rispetto alle funzionalità del Kit di sviluppo dello Stack di Azure.
+In questo esempio verifica tutte le [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) scaricato nell'archivio locale. L'esempio convalida anche dimensioni di macchine virtuali ed estensioni rispetto alle funzionalità di Azure Stack Development Kit.
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
@@ -107,5 +107,5 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Distribuire modelli allo Stack di Azure](azure-stack-arm-templates.md)
+- [Distribuire modelli di Azure Stack](azure-stack-arm-templates.md)
 - [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)

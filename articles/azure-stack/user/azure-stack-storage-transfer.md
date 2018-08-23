@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 1adfd5dc21a7cab207fa14eeecc21d02507277f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444137"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139727"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Usare gli strumenti di trasferimento dei dati per l'archiviazione di Azure Stack
 
@@ -221,9 +221,9 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 ### <a name="powershell-known-issues"></a>Problemi noti di PowerShell
 
-La versione del modulo Azure PowerShell compatibile corrente per Azure Stack è 1.3.0. È diversa dalla versione più recente di Azure PowerShell. Questa differenza influisce sull'operazione di servizi di archiviazione:
+La versione del modulo Azure PowerShell compatibile corrente per Azure Stack è 1.2.11 per le operazioni dell'utente. È diversa dalla versione più recente di Azure PowerShell. Questa differenza influisce sull'operazione di servizi di archiviazione:
 
-* Il formato del valore restituito del `Get-AzureRmStorageAccountKey` nella versione 1.3.0 ha due proprietà: `Key1` e `Key2`, mentre la versione corrente di Azure restituisce una matrice contenente tutte le chiavi dell'account.
+* Il formato del valore restituito del `Get-AzureRmStorageAccountKey` nella versione 1.2.11 ha due proprietà: `Key1` e `Key2`, mentre la versione corrente di Azure restituisce una matrice contenente tutte le chiavi dell'account.
 
    ```
    # This command gets a specific key for a storage account, 

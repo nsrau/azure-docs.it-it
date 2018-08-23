@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857866"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139693"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "37857866"
 Prima di distribuire il servizio App di Azure in Azure Stack, è necessario completare i passaggi dei prerequisiti in questo articolo.
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1804 per il sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima della distribuzione del servizio App di Azure 1.2.
+> Applicare l'aggiornamento 1807 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima della distribuzione del servizio App di Azure 1.3.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Scaricare il programma di installazione e script helper
 
@@ -71,8 +71,8 @@ Quando si esegue il comando PowerShell seguente è possibile specificare l'endpo
 
 | Parametro | Obbligatoria o facoltativa | Valore predefinito | DESCRIZIONE |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Obbligatoria | AzS-ERCS01 | Endpoint con privilegi |
-| CloudAdminCredential | Obbligatoria | AzureStack\CloudAdmin | Credenziale dell'account di dominio per gli amministratori cloud di Azure Stack |
+| PrivilegedEndpoint | Obbligatorio | AzS-ERCS01 | Endpoint con privilegi |
+| CloudAdminCredential | Obbligatorio | AzureStack\CloudAdmin | Credenziale dell'account di dominio per gli amministratori cloud di Azure Stack |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Certificati necessari per la distribuzione ASDK del servizio App di Azure
 
@@ -96,8 +96,8 @@ Per creare i certificati, seguire questa procedura:
 
 | Parametro | Obbligatoria o facoltativa | Valore predefinito | DESCRIZIONE |
 | --- | --- | --- | --- |
-| pfxPassword | Obbligatoria | Null | Password che consente di proteggere la chiave privata del certificato |
-| DomainName | Obbligatoria | local.azurestack.external | Suffisso area e il dominio di Azure Stack |
+| pfxPassword | Obbligatorio | Null | Password che consente di proteggere la chiave privata del certificato |
+| DomainName | Obbligatorio | local.azurestack.external | Suffisso area e il dominio di Azure Stack |
 
 ### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Certificati necessari per la distribuzione di produzione di Azure Stack del servizio App di Azure
 
@@ -241,27 +241,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>Aggiungere il gruppo fileshareowners al gruppo Administrators locale
-
-Per la gestione remota Windows per il corretto funzionamento, è necessario aggiungere il gruppo FileShareOwners al gruppo Administrators locale.
-
-#### <a name="active-directory"></a>Active Directory
-
-Eseguire i comandi seguenti in un prompt dei comandi con privilegi elevati nel file server o in ogni file server che funge da un nodo del cluster di failover. Sostituire il valore di `<DOMAIN>` con il nome di dominio che si desidera utilizzare.
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### <a name="workgroup"></a>Gruppo di lavoro
-
-Eseguire il comando seguente in un prompt dei comandi con privilegi elevati nel file server:
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### <a name="configure-access-control-to-the-shares"></a>Configurare il controllo di accesso alle condivisioni
 
 Eseguire i comandi seguenti in un prompt dei comandi con privilegi elevati nel file server o nel nodo del cluster di failover, che è il proprietario della risorsa cluster corrente. Sostituire i valori in corsivo con i valori che sono specifici dell'ambiente.
@@ -347,12 +326,13 @@ A tale scopo, seguire questa procedura:
 
 | Parametro | Obbligatoria o facoltativa | Valore predefinito | DESCRIZIONE |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Obbligatoria | Null | ID tenant di Azure AD. Specificare il GUID o una stringa. Un esempio è myazureaaddirectory.onmicrosoft.com. |
-| AdminArmEndpoint | Obbligatoria | Null | Endpoint amministratore Azure Resource Manager. Un esempio è adminmanagement.local.azurestack.external. |
-| TenantARMEndpoint | Obbligatoria | Null | Endpoint tenant di Azure Resource Manager. Un esempio è management.local.azurestack.external. |
-| AzureStackAdminCredential | Obbligatoria | Null | Credenziali di amministratore del servizio Azure AD. |
-| CertificateFilePath | Obbligatoria | Null | **Percorso completo** nel file di certificato dell'applicazione di identità generato in precedenza. |
-| CertificatePassword | Obbligatoria | Null | Password che consente di proteggere la chiave privata del certificato. |
+| DirectoryTenantName | Obbligatorio | Null | ID tenant di Azure AD. Specificare il GUID o una stringa. Un esempio è myazureaaddirectory.onmicrosoft.com. |
+| AdminArmEndpoint | Obbligatorio | Null | Endpoint amministratore Azure Resource Manager. Un esempio è adminmanagement.local.azurestack.external. |
+| TenantARMEndpoint | Obbligatorio | Null | Endpoint tenant di Azure Resource Manager. Un esempio è management.local.azurestack.external. |
+| AzureStackAdminCredential | Obbligatorio | Null | Credenziali di amministratore del servizio Azure AD. |
+| CertificateFilePath | Obbligatorio | Null | **Percorso completo** nel file di certificato dell'applicazione di identità generato in precedenza. |
+| CertificatePassword | Obbligatorio | Null | Password che consente di proteggere la chiave privata del certificato. |
+| Environment | Facoltativo | AzureCloud | Il nome dell'ambiente Cloud supportati in cui è disponibile il servizio di Azure Active Directory Graph di destinazione.  I valori consentiti: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Creare un'applicazione di Active Directory Federation Services
 
@@ -382,11 +362,11 @@ A tale scopo, seguire questa procedura:
 
 | Parametro | Obbligatoria o facoltativa | Valore predefinito | DESCRIZIONE |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Obbligatoria | Null | Endpoint amministratore Azure Resource Manager. Un esempio è adminmanagement.local.azurestack.external. |
-| PrivilegedEndpoint | Obbligatoria | Null | Endpoint con privilegi. Un esempio è AzS-ERCS01. |
-| CloudAdminCredential | Obbligatoria | Null | Credenziale dell'account di dominio per gli amministratori cloud di Azure Stack. Un esempio è Azurestack\CloudAdmin. |
-| CertificateFilePath | Obbligatoria | Null | **Percorso completo** al file PFX del certificato dell'applicazione di identità. |
-| CertificatePassword | Obbligatoria | Null | Password che consente di proteggere la chiave privata del certificato. |
+| AdminArmEndpoint | Obbligatorio | Null | Endpoint amministratore Azure Resource Manager. Un esempio è adminmanagement.local.azurestack.external. |
+| PrivilegedEndpoint | Obbligatorio | Null | Endpoint con privilegi. Un esempio è AzS-ERCS01. |
+| CloudAdminCredential | Obbligatorio | Null | Credenziale dell'account di dominio per gli amministratori cloud di Azure Stack. Un esempio è Azurestack\CloudAdmin. |
+| CertificateFilePath | Obbligatorio | Null | **Percorso completo** al file PFX del certificato dell'applicazione di identità. |
+| CertificatePassword | Obbligatorio | Null | Password che consente di proteggere la chiave privata del certificato. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

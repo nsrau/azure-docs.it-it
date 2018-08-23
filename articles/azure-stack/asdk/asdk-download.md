@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b55bc7f6aab522a6313498b6fdccc88870796224
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213028"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139703"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Scaricare ed estrarre Azure Stack Development Kit (ASDK)
 Dopo aver verificato che il computer host kit di sviluppo soddisfi i requisiti di base per l'installazione di ASDK, il passaggio successivo è per scaricare ed estrarre il pacchetto di distribuzione ASDK per ottenere il Cloudbuilder.vhdx.
@@ -43,7 +43,7 @@ Dopo aver verificato che il computer host kit di sviluppo soddisfi i requisiti d
 2. Leggere e accettare il contratto di licenza visualizzati il **contratto di licenza** pagina della procedura guidata di Self-Extractor e quindi fare clic su **successivo**.
 3. Esaminare le informazioni di informativa sulla privacy visualizzate nella **avviso importante** pagina della procedura guidata di Self-Extractor e quindi fare clic su **successivo**.
 4. Selezionare il percorso di file di installazione di Azure Stack da estrarre on la **Seleziona posizione di destinazione** pagina della procedura guidata di Self-Extractor e quindi fare clic su **successivo**. Il percorso predefinito è *cartella corrente*\Azure Stack Development Kit. 
-5. Esaminare il percorso di destinazione riepilogo il **pronto per l'estrazione** pagina della procedura guidata di Self-Extractor e quindi fare clic su **estrarre** estrarre CloudBuilder.vhdx (circa 25 GB) e File ThirdPartyLicenses.rtf. Questo processo richiede alcuni minuti.
+5. Esaminare il percorso di destinazione riepilogo il **pronto per l'estrazione** pagina della procedura guidata di Self-Extractor e quindi fare clic su **estrarre** estrarre CloudBuilder.vhdx (circa 28 GB) e File ThirdPartyLicenses.rtf. Questo processo richiede alcuni minuti.
 6. Copiare o spostare il file CloudBuilder.vhdx alla radice dell'unità C:\ (C:\CloudBuilder.vhdx) nel computer host ASDK.
 
 > [!NOTE]

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2a447931ea850c4ccbe618270de5fbbc9b9eaea7
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 95ab06685452f647884bf92f110e3ab56f3c2714
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366597"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139731"
 ---
 # <a name="azure-stack-registration"></a>Registrazione con Azure Stack
 È possibile registrare l'installazione di Azure Stack Development Kit (ASDK) con Azure per scaricare elementi di marketplace di Azure e per impostare i dati di e-commerce segnalazioni a Microsoft. È necessario eseguire la registrazione per supportare la funzionalità di Azure Stack completa, tra cui diffusione di marketplace. La registrazione è consigliata perché consente di testare le funzionalità di Azure Stack importanti come la diffusione di marketplace e report sull'utilizzo. Dopo la registrazione di Azure Stack, sull'utilizzo viene segnalato ad Azure commerce. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione. Tuttavia, gli utenti ASDK non vengono addebitate spese per qualsiasi utilizzo che generano report.
@@ -47,23 +47,26 @@ Seguire questi passaggi per registrare il ASDK con Azure.
 
 2. Eseguire i comandi di PowerShell seguenti per registrare l'installazione ASDK con Azure. È necessario accedere a sia la sottoscrizione di Azure e l'installazione ASDK locale. Se non hai una sottoscrizione di Azure, è possibile [crea qui un account Azure gratuito](https://azure.microsoft.com/free/?b=17.06). La registrazione di Azure Stack viene addebitata alcuna tariffa nella sottoscrizione di Azure.  
 
+Se si esegue lo script di registrazione in più di un'istanza di Azure Stack usando lo stesso ID di sottoscrizione di Azure, impostare un nome univoco per la registrazione quando si esegue la **Set-AzsRegistration** cmdlet. Il **RegistrationName** parametro ha valore predefinito è **AzureStackRegistration**. Tuttavia, se si usa lo stesso nome in più di un'istanza di Azure Stack, lo script avrà esito negativo.
+
   ```PowerShell  
-  # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
-  Add-AzureRmAccount -EnvironmentName "AzureCloud"
+    # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
+    Add-AzureRmAccount -EnvironmentName "AzureCloud"
 
-  # Register the Azure Stack resource provider in your Azure subscription
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+    # Register the Azure Stack resource provider in your Azure subscription
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
-  #Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+    #Import the registration module that was downloaded with the GitHub tools
+    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-  #Register Azure Stack
-  $AzureContext = Get-AzureRmContext
-  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
-  Set-AzsRegistration `
-      -PrivilegedEndpointCredential $CloudAdminCred `
-      -PrivilegedEndpoint AzS-ERCS01 `
-      -BillingModel Development
+    #Register Azure Stack
+    $AzureContext = Get-AzureRmContext
+    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+    Set-AzsRegistration `
+    -PrivilegedEndpointCredential $CloudAdminCred `
+    -PrivilegedEndpoint AzS-ERCS01 `
+    -BillingModel Development `
+    -RegistrationName "<Unique-name>"
   ```
 3. Al termine dell'esecuzione dello script, verrà visualizzato questo messaggio: **l'ambiente è ora registrato e attivati mediante i parametri specificati.**
 

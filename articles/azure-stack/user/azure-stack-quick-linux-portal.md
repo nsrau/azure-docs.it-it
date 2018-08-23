@@ -3,20 +3,20 @@ title: Azure Stack Guida introduttiva - creare un portale di VM
 description: Azure Stack Quick Start - creare una VM Linux usando il portale
 services: azure-stack
 cloud: azure-stack
-author: brenduns
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 04/24/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: c364a9ba5a9606967fa86262417ccd1ac3aeffc3
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: c692bc461c116b4c0497c2378ae4e21e1b841c8f
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866271"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139707"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Guida introduttiva: creare una macchina virtuale di server con il portale di Azure Stack
 
@@ -66,7 +66,7 @@ Accedere al portale di Azure Stack. L'indirizzo del portale di Azure Stack dipen
 1. Fare clic su **crea una risorsa** nell'angolo superiore sinistro del portale di Azure Stack.
 
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
-3. Fare clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 
 4. Digitare le informazioni della macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH**. Incollare la chiave pubblica SSH che è stato salvato e quindi fare clic su **OK**.
 
