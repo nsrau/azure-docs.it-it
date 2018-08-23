@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: db1d449e5c9f66446f00b637c5550dc9144920ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446766"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246787"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale di data science CentOS di Linux in Azure
 
@@ -38,7 +38,7 @@ La macchina virtuale Linux per l'analisi scientifica dei dati è una macchina vi
   * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): toolkit per software di apprendimento avanzato sviluppato da Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema di apprendimento automatico rapido che supporta tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): strumento che consente un'implementazione dell'albero con boosting rapida e accurata.
-  * [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): strumento che rende semplice la fase introduttiva all'analisi dei dati e al Machine Learning in R, grazie a funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R.
+  * [Rattle](https://togaware.com/rattle/) (R Analytical Tool To Learn Easily): strumento che rende semplice la fase introduttiva all'analisi dei dati e al Machine Learning in R, grazie a funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R.
 * Azure SDK in Java, Python, Node.js, Ruby, PHP
 * Librerie in R e Python da usare in Azure Machine Learning e altri servizi di Azure
 * Editor e strumenti di sviluppo (RStudio, PyCharm, IntelliJ, Emacs, gedit, VI)
@@ -63,7 +63,7 @@ Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti c
 Prima di creare una macchina virtuale Linux per l'analisi scientifica dei dati, è necessario avere gli elementi seguenti:
 
 * **Sottoscrizione di Azure**: per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
-* **Account di archiviazione di Azure**: per crearne uno, vedere [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md#create-a-storage-account). In alternativa, se non si vuole usare un account esistente è possibile creare l'account di archiviazione come parte del processo di creazione della macchina virtuale.
+* **Account di archiviazione di Azure**: per crearne uno, vedere [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md). In alternativa, se non si vuole usare un account esistente è possibile creare l'account di archiviazione come parte del processo di creazione della macchina virtuale.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Creare la macchina virtuale Linux per l'analisi scientifica dei dati
 Ecco i passaggi necessari per creare un'istanza della macchina virtuale Linux per l'analisi scientifica dei dati:

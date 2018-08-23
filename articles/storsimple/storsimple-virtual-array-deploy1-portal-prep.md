@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2126ff7ffd503e1d7b30997f3f32f30429cffefb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477925"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146523"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
 
@@ -55,7 +55,7 @@ L'elenco di controllo configurazione descrive le informazioni che è necessario 
 * Scaricare l' [elenco di controllo configurazione StorSimple Virtual Array come file server](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Scaricare l' [elenco di controllo configurazione StorSimple Virtual Array come server iSCSI](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Ecco i prerequisiti di configurazione per il servizio Gestione dispositivi StorSimple, l'array virtuale StorSimple e la rete del datacenter.
 
@@ -144,7 +144,7 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
 
 Si tratta di un passaggio facoltativo che è necessario eseguire solo se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio.
 
-Se è necessario creare un account di archiviazione di Azure in un'area diversa, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per istruzioni dettagliate.
+Se è necessario creare un account di archiviazione di Azure in un'area diversa, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per istruzioni dettagliate.
 
 Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/), nella pagina del servizio Gestione dispositivi StorSimple, per aggiungere un account di archiviazione di Microsoft Azure esistente.
 

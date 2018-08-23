@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440627"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246767"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
 
@@ -56,7 +56,7 @@ Di seguito viene illustrata la procedura usata in genere per creare una pipeline
 * Creare una pipeline con attività Spark che faccia riferimento al servizio collegato HDInsight creato. L'attività è configurata con il set di dati creato nel passaggio precedente come un set di dati di output. Il set di dati di output è ciò su cui si basa la pianificazione (oraria, giornaliera). È pertanto necessario specificare il set di dati di output anche se l'attività non genera in realtà alcun output.
 
 ### <a name="prerequisites"></a>Prerequisiti
-1. Creare un account di archiviazione generico seguendo le istruzioni in [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. Creare un account di archiviazione generico seguendo le istruzioni in [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md).
 
 1. Creare un cluster Spark in HDInsight seguendo le istruzioni riportate nell'esercitazione [Creare un cluster Spark in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associare l'account di archiviazione creato al passaggio 1 a questo cluster.
 

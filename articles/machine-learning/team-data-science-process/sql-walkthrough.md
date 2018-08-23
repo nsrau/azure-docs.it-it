@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: dae8549cb951a463688869454e2f4c71103c1363
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226394"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246798"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
 Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
@@ -70,7 +70,7 @@ In questa esercitazione verrà illustrato come eseguire l'importazione in blocco
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
-1. [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md)
+1. [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md)
 2. [Creare un'area di lavoro di Machine Learning di Azure](../studio/create-workspace.md)
 3. [Eseguire il provisioning di una macchina virtuale Data Science](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), che fornirà SQL Server e un server IPython Notebook.
    

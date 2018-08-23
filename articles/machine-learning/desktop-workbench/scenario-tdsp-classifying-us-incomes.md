@@ -3,25 +3,25 @@ title: Classificazione del reddito - Team Data Science Process - Azure Machine L
 description: Come usare il modello di Team Data Science Process per creare un progetto in Azure Machine Learning per la classificazione dei redditi negli Stati Uniti.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b1d2be46b2f142adff966991997891e44e850ec
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832680"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146525"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificazione dei redditi con un progetto di Team Data Science Process (TDSP)
 
@@ -50,7 +50,7 @@ Vedere [Team Data Science Process (TDSP) Lifecycle](https://github.com/Azure/Mic
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 ### <a name="required-subscription-hardware-software"></a>Requisiti obbligatori: sottoscrizione, hardware, software
 1. Una [sottoscrizione di Azure](https://azure.microsoft.com). È anche possibile ottenere una [sottoscrizione gratuita](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) per eseguire questo esempio.
 2. Una [macchina virtuale di data science di Azure con Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm). Dimensioni della macchina virtuale: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), con 4 CPU virtuali e 14 GB di RAM. Benché questo esempio sia stato testato su una macchina virtuale di data science di Azure, è probabile che funzionerà su qualsiasi computer Windows 10.

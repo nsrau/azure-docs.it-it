@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 05bfa4a65098245c43b97af296bf6f26950d018f
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 04afd71183bcb8001d017b0027f29338b8d67ddb
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330667"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442368"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Abilitare e controllare i log del nodo master di Kubernetes nel servizio Kubernetes di Azure
 
@@ -127,4 +127,4 @@ In questo articolo è stato descritto come abilitare e analizzare i log per i co
 [log-analytics-overview]: ../log-analytics/log-analytics-overview.md
 [analyze-log-analytics]: ../log-analytics/log-analytics-tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
