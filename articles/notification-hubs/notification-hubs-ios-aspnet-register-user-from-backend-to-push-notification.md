@@ -1,5 +1,5 @@
 ---
-title: Registrare l'utente corrente per le notifiche push mediante l'API Web | Microsoft Docs
+title: Registrare l'utente corrente per le notifiche push mediante l'API Web | Documentazione Microsoft
 description: Informazioni su come chiedere la registrazione per le notifiche push in un'app per iOS con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET.
 services: notification-hubs
 documentationcenter: ios
@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f89c97f1220c0e949912a3002021eca20f91441d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776373"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145393"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registrazione dell'utente corrente per le notifiche push mediante ASP.NET
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "33776373"
 > 
 
 ## <a name="overview"></a>Panoramica
-Questo argomento illustra come richiedere la registrazione per le notifiche push con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET. In questo argomento viene estesa l'esercitazione [Utilizzo di Hub di notifica per inviare notifiche agli utenti]. Per creare il servizio mobile autenticato è necessario aver già completato i passaggi richiesti in tale esercitazione. Per ulteriori informazioni sullo scenario di notifica agli utenti, vedere [Utilizzo di Hub di notifica per inviare notifiche agli utenti].
+Questo argomento illustra come richiedere la registrazione per le notifiche push con Hub di notifica di Azure quando la registrazione viene eseguita mediante l'API Web ASP.NET. In questo argomento viene estesa l'esercitazione [Uso di Hub di notifica di Azure per inviare notifiche agli utenti]. Per creare il servizio mobile autenticato è necessario aver già completato i passaggi richiesti in tale esercitazione. Per ulteriori informazioni sullo scenario di notifica agli utenti, vedere [Uso di Hub di notifica di Azure per inviare notifiche agli utenti].
 
 ## <a name="update-your-app"></a>Aggiornamento dell'app
 1. Nel file MainStoryboard_iPhone.storyboard aggiungere i componenti seguenti dalla libreria di oggetti:
@@ -107,7 +107,7 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
     Questo codice consente di impostare il token di dispositivo per la richiesta.
    
    > [!NOTE]
-   > A questo punto, il metodo non dovrebbe contenere altro codice. Se è già presente una chiamata al metodo **registerNativeWithDeviceToken** aggiunto durante l'esercitazione [Introduzione ad Hub di notifica](/manage/services/notification-hubs/get-started-notification-hubs-ios/) , è necessario impostare la chiamata come commento oppure rimuoverla.
+   > A questo punto, il metodo non dovrebbe contenere altro codice. Se è già presente una chiamata al metodo **registerNativeWithDeviceToken** aggiunto durante l'esercitazione [Introduzione ad Hub di notifica](notification-hubs-ios-apple-push-notification-apns-get-started.md) , è necessario impostare la chiamata come commento oppure rimuoverla.
    > 
    > 
 8. Nel file PushToUserAppDelegate.m aggiungere il metodo del seguente gestore:
@@ -207,9 +207,9 @@ Questo argomento illustra come richiedere la registrazione per le notifiche push
                 }
             }];
     
-    Questo metodo ottiene un ID di installazione e un canale per le notifiche push e li invia, insieme al tipo di dispositivo, al metodo API Web di autenticazione che crea una registrazione in Hub di notifica. Questa API Web è stata definita in [Utilizzo di Hub di notifica per inviare notifiche agli utenti].
+    Questo metodo ottiene un ID di installazione e un canale per le notifiche push e li invia, insieme al tipo di dispositivo, al metodo API Web di autenticazione che crea una registrazione in Hub di notifica. Questa API Web è stata definita in [Uso di Hub di notifica di Azure per inviare notifiche agli utenti].
 
-Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica per inviare notifiche agli utenti] e aggiornare il servizio mobile per l'invio di notifiche con Hub di notifica.
+Ora che l'app client è stata aggiornata, tornare a [Uso di Hub di notifica di Azure per inviare notifiche agli utenti] e aggiornare il servizio mobile per l'invio di notifiche con Hub di notifica.
 
 <!-- Anchors. -->
 
@@ -218,6 +218,6 @@ Ora che l'app client è stata aggiornata, tornare a [Utilizzo di Hub di notifica
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Utilizzo di Hub di notifica per inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users-aspnet
+[Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[Introduzione ad Hub di notifica]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Introduzione ad Hub di notifica]: notification-hubs-ios-apple-push-notification-apns-get-started.md

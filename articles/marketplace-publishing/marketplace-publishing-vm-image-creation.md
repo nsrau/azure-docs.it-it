@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 9199c9fc9a46e6b09eb066be5125c74420ad6cd6
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715336"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246813"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
 Questo articolo, **Passaggio 2**, illustra la preparazione di dischi rigidi virtuali (VHD) da distribuire in Azure Marketplace. I dischi rigidi virtuali costituiscono la base dello SKU. Il processo varia a seconda che si stia offrendo uno SKU basato su Linux o su Windows. In questo articolo vengono descritti entrambi gli scenari. Questo processo può essere eseguito parallelamente alla [creazione e registrazione dell'account][link-acct-creation].
@@ -70,8 +70,8 @@ Il VHD del sistema operativo per l'immagine di macchina virtuale deve essere bas
 Per iniziare, creare una macchina virtuale da una delle immagini seguenti, disponibili nel [portale di Microsoft Azure][link-azure-portal]:
 
 * Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
+* SQL Server 2014 
+* SQL Server 2012 SP2 
 
 Questi collegamenti sono disponibili anche nella pagina degli SKU del portale di pubblicazione.
 
@@ -515,11 +515,11 @@ Dopo aver creato l'offerta e lo SKU, è necessario immettere i dettagli relativi
 
 |Problema|Messaggio di errore|Correzione|Link alla documentazione|
 |---|---|---|---|
-|Errore durante la copia di immagini: "?" non è presente nell'URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS.|Aggiornare l'URL SAS con gli strumenti consigliati|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Errore durante la copia di immagini: parametri "st" e "se" non presenti nell'URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS.|Aggiornare le date di inizio e fine nell'URL SAS|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Errore durante la copia di immagini: "sp=rl" non è presente nell'URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS|Aggiornare l'URL SAS con le autorizzazioni impostate come "Lettura" ed "Elenco"|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Errore nella copia di immagini: l'URL SAS presenta spazi vuoti nel nome del file con estensione vhd|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS.|Aggiornare l'URL SAS eliminando gli spazi vuoti|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Errore nella copia di immagini: errore di autorizzazione URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB a causa dell'errore di autorizzazione|Rigenerare l'URL SAS|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Errore durante la copia di immagini: "?" non è presente nell'URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS.|Aggiornare l'URL SAS con gli strumenti consigliati|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Errore durante la copia di immagini: parametri "st" e "se" non presenti nell'URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS.|Aggiornare le date di inizio e fine nell'URL SAS|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Errore durante la copia di immagini: "sp=rl" non è presente nell'URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS|Aggiornare l'URL SAS con le autorizzazioni impostate come "Lettura" ed "Elenco"|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Errore nella copia di immagini: l'URL SAS presenta spazi vuoti nel nome del file con estensione vhd|Errore: copia di immagini. Non è possibile scaricare il BLOB fornito nell'URI SAS.|Aggiornare l'URL SAS eliminando gli spazi vuoti|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Errore nella copia di immagini: errore di autorizzazione URL SAS|Errore: copia di immagini. Non è possibile scaricare il BLOB a causa dell'errore di autorizzazione|Rigenerare l'URL SAS|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Errore durante la copia di immagini: i parametri "st" e "se" dell'URL SAS non dispongono di una specifica data e ora completa|Errore: copia di immagini. Non è possibile scaricare il BLOB a causa di un URL SAS errato |I parametri di Date di inizio e fine ("st", "se") dell'URL SAS devono disporre di una specifica data-ora completa, ad esempio 02-11-2017T00:00:00Z e non solo la data o versioni abbreviate dell'ora. È possibile riscontrare questo scenario mediante la versione 2.0 dell'interfaccia della riga di comando di Azure (comando az). Assicurarsi di fornire la specifica completa di data e ora e di rigenerare l'URL SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Passaggio successivo
@@ -557,15 +557,6 @@ Dopo aver specificato i dettagli dello SKU, passare alla [Guida ai contenuti di 
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
 [link-pubportal]:https://publish.windowsazure.com
-[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/
