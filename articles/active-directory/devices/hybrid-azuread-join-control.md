@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d49b5404f1a2b4ac7fa4cc170ccc010a28bf98a2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622171"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146872"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD
 
@@ -116,7 +116,7 @@ Se si è verificato che tutto funzioni come previsto, si è pronti per abilitare
 
 ## <a name="control-windows-down-level-devices"></a>Controllare i dispositivi Windows di livello inferiore
 
-Per registrare i dispositivi Windows di livello inferiore, è necessario scaricare e installare il pacchetto di Windows Installer (con estensione msi) dalla pagina [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) (Microsoft Workplace Join per computer non Windows 10) dell'Area download.
+Per registrare i dispositivi Windows di livello inferiore, è necessario scaricare e installare il pacchetto di Windows Installer (con estensione msi) dalla pagina [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) (Microsoft Workplace Join per computer non Windows 10) dell'Area download.
 
 È possibile distribuire il pacchetto usando un sistema di distribuzione software come System Center Configuration Manager. Il pacchetto supporta le opzioni standard di installazione invisibile all'utente con il parametro quiet. Current Branch di [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) offre vantaggi aggiuntivi rispetto alle versioni precedenti, come la possibilità di tenere traccia delle registrazioni completate.
 

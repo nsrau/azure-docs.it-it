@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589833"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42139931"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
@@ -78,7 +78,7 @@ Sì, è possibile gestire Gestione API a livello di codice usando:
 
 * L'[API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 * [Microsoft Azure ApiManagement Service Management Library SDK](http://aka.ms/apimsdk).
-* I cmdlet di PowerShell per la [distribuzione del servizio](https://msdn.microsoft.com/library/mt619282.aspx) e per la [gestione del servizio](https://msdn.microsoft.com/library/mt613507.aspx).
+* I cmdlet di PowerShell per la [distribuzione del servizio](https://docs.microsoft.com/powershell/module/wds) e per la [gestione del servizio](https://docs.microsoft.com/powershell/azure/servicemanagement/overview).
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Come si aggiunge un utente al gruppo di amministratori?
 Ecco come è possibile aggiungere un utente al gruppo di amministratori:
@@ -87,7 +87,7 @@ Ecco come è possibile aggiungere un utente al gruppo di amministratori:
 2. Passare al gruppo di risorse con l'istanza di Gestione API che si vuole aggiornare.
 3. In Gestione API assegnare il ruolo **Api Management Contributor** (Collaboratore Gestione API) all'utente.
 
-Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://msdn.microsoft.com/library/mt613507.aspx) di Azure PowerShell. Ecco come accedere come amministratore:
+Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://docs.microsoft.com/powershell/azure/overview) di Azure PowerShell. Ecco come accedere come amministratore:
 
 1. Usare il cmdlet `Connect-AzureRmAccount` per accedere.
 2. Impostare il contesto sulla sottoscrizione che contiene il servizio usando `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.

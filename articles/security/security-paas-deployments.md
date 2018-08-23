@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: da5d59aaaea8e6186609eb5f3419fba5e67d4279
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794736"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145403"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -101,7 +101,7 @@ In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribu
 
 - [servizio app di Azure](security-paas-applications-using-app-services.md)
 - [Database SQL di Azure e SQL Data Warehouse di Azure](security-paas-applications-using-sql.md)
-- Archiviazione di Azure
+- [Archiviazione di Azure](security-paas-applications-using-storage.md)
 - Cache REDIS di Azure
 - Bus di servizio di Azure
 - Web application firewall

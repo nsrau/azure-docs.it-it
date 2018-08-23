@@ -6,20 +6,20 @@ documentationcenter: ''
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/2/2018
+ms.date: 08/20/2018
 ms.author: brenduns
-ms.openlocfilehash: eed715a7c2cb967f6c9ea0b7d4442a4f9976bd17
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.reviewer: efemmano
+ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345890"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139362"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Creare un'offerta in Azure Stack
 
@@ -46,20 +46,16 @@ ms.locfileid: "37345890"
    > [!TIP]  
    > Le modifiche all'offerta non sono immediatamente visibili all'utente. Per visualizzare le modifiche, gli utenti potrebbero essere necessario disconnettersi e accedere nuovamente al portale utenti per visualizzare la nuova offerta.
 
-   Per modificare lo stato dell'offerta:
-
-   - **Versione 1803 e versioni successive**:  
-     Nella panoramica dell'offerta, selezionare **lo stato di accessibilità**. Scegliere lo stato da usare (ad esempio, *pubbliche*) e quindi selezionare **salvare**.
+   Nella panoramica dell'offerta, selezionare **lo stato di accessibilità**. Scegliere lo stato da usare (ad esempio, **pubbliche**) e quindi selezionare **salvare**.
  
-     ![Selezionare lo stato di accesso facilitato](media/azure-stack-create-offer/change-state.png)
+     ![Scegliere lo stato](media/azure-stack-create-offer/change-stage-1807.png)
 
-     In alternativa, dopo l'accesso a un'offerta è possibile passare a **impostazioni dell'offerta**. Selezionare **lo stato di accessibilità** per modificare lo stato.
+     In alternativa, selezionare **modifica stato** e quindi scegliere uno stato.
 
-   - **Prima della versione 1803**:  
-     Selezionare **tutte le risorse**, cercare la nuova offerta e quindi selezionare la nuova offerta. Selezionare **modifica stato**, quindi selezionare **pubblico**.
+    ![Selezionare lo stato di accesso facilitato](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > È anche possibile usare PowerShell per creare predefinite offerte, quote e piani. Per altre informazioni, vedere [modulo di Azure Stack PowerShell 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0).
+   > È anche possibile usare PowerShell per creare predefinite offerte, quote e piani. Per altre informazioni, vedere [modulo di PowerShell di Azure Stack 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113341"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144087"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
 > [!NOTE]
@@ -169,7 +169,7 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 - I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare ***.domain.contoso.com** come nome del soggetto del certificato.
 - I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. ad esempio se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
 - Deve supportare tutte le dimensioni chiave supportate da Windows Server 2012 R2 per i certificati SSL.
-- Non sono supportati i certificati che usano chiavi CNG. Non sono supportati i certificati che usano chiavi CNG.
+- Non sono supportati i certificati che usano chiavi CNG.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>Domande frequenti: Quando non è consigliabile abilitare questo tipo di crittografia?
 L'abilitazione della crittografia può generare costi a livello di infrastruttura proprietaria del certificato pubblico. È pertanto consigliabile evitare di abilitare la crittografia nei casi seguenti:

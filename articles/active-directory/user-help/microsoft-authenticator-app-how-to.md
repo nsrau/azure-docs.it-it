@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c8e14091d7a3fb5b925735824b1dd3ce26f034e8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346488"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146883"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introduzione all'app Microsoft Authenticator
 
-L'app Microsoft Authenticator impedisce l'accesso non autorizzato agli account e permette di arrestare transazioni fraudolente offrendo un livello di sicurezza aggiuntivo per l'account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com, o per l'account Microsoft personale, ad esempio alain@outlook.com. È possibile usarla come secondo metodo di verifica o al posto della password quando si usa l'accesso tramite telefono. Per altre informazioni su come configurare e usare l'accesso tramite telefono senza password, vedere [Accedere con il telefono, non con la password](microsoft-authenticator-app-phone-signin-faq.md).
+L'app Microsoft Authenticator impedisce l'accesso non autorizzato agli account e permette di arrestare transazioni fraudolente offrendo un livello di sicurezza aggiuntivo per l'account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com, o per l'account Microsoft personale, ad esempio alain@outlook.com.
 
 Quando si usa l'app per la verifica in due passaggi, questa può operare in due modi diversi:
 
@@ -110,8 +110,6 @@ Se si è scelto di usare codici di verifica nell'app, questi verranno visualizza
 ## <a name="next-steps"></a>Passaggi successivi
 
 - In caso di domande generali sull'app, vedere [Domande frequenti su Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
-- In caso di domande su come usare l'accesso tramite telefono, vedere [Accesso con il telefono, non con la password](microsoft-authenticator-app-phone-signin-faq.md)
 
 - Per altre informazioni sulla verifica in due passaggi, vedere [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md)
 

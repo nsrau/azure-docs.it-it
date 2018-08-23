@@ -1,6 +1,6 @@
 ---
 title: 'Query elastiche: accedere ai dati in Azure SQL Data Warehouse dal database SQL di Azure | Microsoft Docs'
-description: Informazioni sulle procedure consigliate per l'uso delle query elastiche per accedere ai dati in Azure SQL Data Warehouse dal database SQL di Azure.
+description: Informazioni sulle procedure consigliate per l'uso di query elastiche per accedere ai dati in Azure SQL Data Warehouse dal database SQL di Azure.
 services: sql-data-warehouse
 author: hirokib
 manager: craigg-msft
@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: ceda0399ae98e2a36fd41b954a741e0379c77fe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 344cb1bed56b0b6af7bd3704f8674ae30695f885
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797159"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141152"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Procedure consigliate per l'uso delle query elastiche nel database SQL di Azure per accedere ai dati in Azure SQL Data Warehouse
 Informazioni sulle procedure consigliate per l'uso di query elastiche per accedere ai dati in Azure SQL Data Warehouse dal database SQL di Azure. 

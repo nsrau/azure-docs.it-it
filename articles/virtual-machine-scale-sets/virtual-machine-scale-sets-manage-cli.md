@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308054"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142160"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gestire il set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0
 Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. Questo articolo descrive alcuni dei comandi comuni dell'interfaccia della riga di comando di Azure 2.0 che consentono di eseguire queste attività.
@@ -92,7 +92,7 @@ Sono necessari alcuni minuti per aggiornare la capacità del set di scalabilità
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Arrestare e avviare le macchine virtuali in un set di scalabilità
-Per arrestare una o più macchine virtuali in un set di scalabilità, usare [az vmss stop](/cli/azure/vmss/stop). Il parametro `--instance-ids` consente di specificare una o più macchine virtuali da arrestare. Se non si specifica un ID istanza, vengono arrestate tutte le macchine virtuali del set di scalabilità. Per arrestare più macchine virtuali, separare gli ID istanza con uno spazio.
+Per arrestare una o più macchine virtuali in un set di scalabilità, usare [az vmss stop](/cli/azure/vmss#az-vmss-stop). Il parametro `--instance-ids` consente di specificare una o più macchine virtuali da arrestare. Se non si specifica un ID istanza, vengono arrestate tutte le macchine virtuali del set di scalabilità. Per arrestare più macchine virtuali, separare gli ID istanza con uno spazio.
 
 L'esempio seguente arresta l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 

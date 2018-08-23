@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629651"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141601"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory
 
@@ -97,7 +97,7 @@ Se ci si basa sullo snapshot di una macchina virtuale (VM) per creare altre VM, 
 
 La registrazione dei dispositivi Windows di livello inferiore non è supportata per i dispositivi configurati per il roaming dei profili utente o per il roaming delle credenziali. In caso di roaming delle impostazioni o dei profili, usare Windows 10.
 
-- La registrazione dei dispositivi legacy di Windows **è** supportata in ambienti non federati tramite l'accesso Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- La registrazione dei dispositivi legacy di Windows **è** supportata in ambienti non federati tramite l'accesso Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
  
 - Le registrazione di dispositivi Windows di livello inferiore **non è** supportata quando si usa l'autenticazione pass-through di Azure AD senza accesso ininterrotto Single Sign-On.
 

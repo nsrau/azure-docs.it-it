@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3de8711c2e99459ccf5d85dcb12d6ff2d38b700d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192973"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140509"
 ---
 # <a name="managing-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.
@@ -34,7 +34,7 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 | Runbook |Rimossi definitivamente 90 giorni dopo l'eliminazione della risorsa da parte di un utente o 90 giorni dopo l'eliminazione dell'account che include la risorsa da parte di un utente. |
 | Processi |Eliminati e rimossi definitivamente 90 giorni dopo l'ultima modifica, ad esempio dopo il completamento, l'arresto o la sospensione del processo. |
 | Configurazioni di nodo/File MOF |La configurazione di nodo precedente verrà rimossa definitivamente 90 giorni dopo che viene generata una nuova configurazione di nodo. |
-| Nodi DSC |Vengono rimossi in modo permanente 90 giorni dopo l’annullamento della registrazione del nodo dall’Account di automazione tramite il portale di Azure o il cmdlet [Unregister AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) in Windows PowerShell. I nodi vengono rimossi in modo permanente anche 90 giorni dopo che l'account che possiede il nodo viene eliminato da un utente. |
+| Nodi DSC |Vengono rimossi in modo permanente 90 giorni dopo l’annullamento della registrazione del nodo dall’Account di automazione tramite il portale di Azure o il cmdlet [Unregister AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) in Windows PowerShell. I nodi vengono rimossi in modo permanente anche 90 giorni dopo che l'account che possiede il nodo viene eliminato da un utente. |
 | Report sul nodo |Vengono rimossi in modo permanente 90 giorni dopo la generazione di un nuovo report per quel nodo |
 
 I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli.
@@ -45,7 +45,7 @@ Tuttavia, se si desidera conservare i dati per un periodo di tempo più lungo, �
 Quando si elimina un account di automazione in Microsoft Azure, vengono eliminati tutti gli oggetti presenti nell'account, ad esempio Runbook, moduli, configurazioni, impostazioni, processi e asset. Non sarà possibile ripristinare gli oggetti dopo l'eliminazione dell'account.  È possibile usare le informazioni seguenti per eseguire il backup dei contenuti dell'account di Automazione prima di eliminarlo. 
 
 ### <a name="runbooks"></a>Runbook
-È possibile esportare i runbook in file di script usando il portale di Azure o il cmdlet [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) in Windows PowerShell.  Questi file di script possono essere importati in un account di Automazione, come illustrato in [Creazione o importazione di un Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+È possibile esportare i runbook in file di script usando il portale di Azure o il cmdlet [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) in Windows PowerShell.  Questi file di script possono essere importati in un account di Automazione, come illustrato in [Creazione o importazione di un Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Moduli di integrazione
 Non è possibile esportare i moduli di integrazione da Automazione di Azure.  È necessario assicurare che siano disponibili all'esterno dell'account di Automazione.
@@ -53,14 +53,14 @@ Non è possibile esportare i moduli di integrazione da Automazione di Azure.  È
 ### <a name="assets"></a>Asset
 Non è possibile esportare [asset](https://msdn.microsoft.com/library/dn939988.aspx) da Automazione di Azure.  Usando il portale di Azure, è necessario annotare i dettagli di variabili, credenziali, certificati, connessioni e pianificazioni.  È quindi necessario creare manualmente eventuali asset usati dai Runbook importati in un altro account di Automazione.
 
-È possibile usare i [cmdlet di Azure](https://msdn.microsoft.com/library/dn690262.aspx) per recuperare i dettagli di asset non crittografati e salvarli come riferimento futuro o creare asset equivalenti in un altro account di Automazione.
+È possibile usare i [cmdlet di Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) per recuperare i dettagli di asset non crittografati e salvarli come riferimento futuro o creare asset equivalenti in un altro account di Automazione.
 
 Non è possibile recuperare il valore delle variabili crittografate o il campo password delle credenziali mediante i cmdlet.  Se non si conoscono questi valori, sarà possibile recuperarli da un Runbook attraverso le attività [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) e [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx).
 
 Non è possibile esportare certificati da Automazione di Azure.  È necessario assicurarsi che eventuali certificati siano disponibili all'esterno di Azure.
 
 ### <a name="dsc-configurations"></a>Configurazioni DSC
-È possibile esportare le configurazioni in file di script tramite il portale di Azure o il cmdlet [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) in Windows PowerShell. Queste configurazioni possono essere importate e usate in un altro account di automazione.
+È possibile esportare le configurazioni in file di script tramite il portale di Azure o il cmdlet [Export-AzureRmAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/export-azurermautomationdscconfiguration) in Windows PowerShell. Queste configurazioni possono essere importate e usate in un altro account di automazione.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replica geografica in Automazione di Azure
 Replica geografica, standard negli account di automazione di Azure, backup dei dati di account in un'area geografica diversa per la ridondanza. È possibile scegliere un'area primaria quando si configura l’account, poi un'area secondaria viene assegnata automaticamente. I dati secondari, copiati dall'area primaria, vengono continuamente aggiornati in caso di perdita di dati.  

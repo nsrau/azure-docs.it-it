@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6602dc52675344b2e68fefd9eb97d3edcbd1745b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 6ca3128cd265b614dc1a1e4f21074018eacbed89
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413256"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140552"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query nel portale di Azure
 
@@ -135,7 +135,7 @@ Ottenere il nome completo del server SQL nel portale di Azure. Questo nome verr√
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Connettersi al server come amministratore del server
 
-In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) per stabilire una connessione al server SQL di Azure.
+In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per stabilire una connessione al server SQL di Azure.
 
 1. Aprire SQL Server Management Studio.
 

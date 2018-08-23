@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c688de79c985eda9b0898d0f7d989de58f7dbc71
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 32be46fb0c41909ce8a8014b13843970555d366f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038228"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146890"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
 > [!IMPORTANT] 
@@ -599,7 +599,6 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 ## <a name="more-information"></a>Altre informazioni
 ### <a name="resources"></a>Risorse
 * Per contenuti analoghi relativi alla distribuzione di un server singolo di SQL Server Business Intelligence e SharePoint 2013, vedere l'articolo relativo all' [uso di Windows PowerShell per creare una macchina virtuale di Azure con SQL Server BI e SharePoint 2013](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/).
-* Per contenuti analoghi relativi a una distribuzione con più server di SQL Server Business Intelligence e SharePoint 2013, vedere l'articolo relativo alla [distribuzione di SQL Server Business Intelligence in Macchine virtuali di Azure](https://msdn.microsoft.com/library/dn321998.aspx).
 * Per informazioni generali relative alle distribuzioni di SQL Server Business Intelligence in Macchine virtuali di Azure, vedere [SQL Server Business Intelligence in Macchine virtuali di Azure](virtual-machines-windows-classic-ps-sql-bi.md).
 * Per altre informazioni sul calcolo delle spese di calcolo di Azure, vedere la scheda Macchine virtuali del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 

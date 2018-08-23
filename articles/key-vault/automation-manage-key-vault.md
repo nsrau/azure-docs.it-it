@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte
-ms.openlocfilehash: b5f8a1b826717d51729b0bb621bf26e35d4bdd36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6484c8c9ae1ad109820c3b3912c3a7ea8d49c2a2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406875"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141561"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gestione dell'insieme di credenziali chiave usando Automazione di Azure
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'utilizzo per semplificare la gestione delle chiavi e dei segreti nell'insieme di credenziali chiave di Azure.
@@ -32,7 +32,7 @@ Automazione di Azure offre un motore di esecuzione del flusso di lavoro a elevat
 Il servizio consente di ridurre i costi operativi e di liberare risorse dello staff IT e DevOp consentendo loro di concentrarsi su attività a valore aggiunto grazie al trasferimento delle attività di gestione del cloud all'esecuzione automatica di Automazione di Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>In che modo è possibile gestire l'insieme di credenziali chiave di Azure con Automazione di Azure?
-L'insieme di credenziali delle chiavi può essere gestito in Automazione di Azure usando i [cmdlet per l'insieme di credenziali delle chiavi di AzureRM](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e i [cmdlet per l'insieme di credenziali delle chiavi di Azure classico](https://msdn.microsoft.com/library/azure/dn868052.aspx). Il modulo Azure per la gestione dell'insieme di credenziali delle chiavi classico è disponibile automaticamente in Automazione di Azure ed è possibile importare il [modulo per l'insieme di credenziali delle chiavi di AzureRM](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) in Automazione di Azure, in modo da poter eseguire molte delle attività di gestione dell'insieme di credenziali delle chiavi all'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
+L'insieme di credenziali delle chiavi può essere gestito in Automazione di Azure usando i [cmdlet per l'insieme di credenziali delle chiavi di AzureRM](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e i [cmdlet per l'insieme di credenziali delle chiavi di Azure classico](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Il modulo Azure per la gestione dell'insieme di credenziali delle chiavi classico è disponibile automaticamente in Automazione di Azure ed è possibile importare il [modulo per l'insieme di credenziali delle chiavi di AzureRM](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) in Automazione di Azure, in modo da poter eseguire molte delle attività di gestione dell'insieme di credenziali delle chiavi all'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
 
 Con i cmdlet dell'insieme di credenziali delle chiavi di Azure è possibile eseguire, ad esempio, queste attività: 
 

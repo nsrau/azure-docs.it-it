@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 07/12/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 4db70fa93914ba0544d9beb8e523241513a2e5ce
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012119"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141125"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limiti di Azure Data Box Disk (anteprima)
 
@@ -64,7 +64,7 @@ Per informazioni aggiornate su limiti del servizio Archiviazione di Azure e le p
 
 ## <a name="azure-storage-account-size-limits"></a>Limiti delle dimensioni dell'account di archiviazione di Azure
 
-Di seguito vengono indicati i limiti sulle dimensioni dei dati copiati nell'account di archiviazione. Verificare che i dati caricati siano conformi a tali limiti. Per informazioni più aggiornate su questi limiti, vedere [Obiettivi di scalabilità dell'archiviazione BLOB di Azure](https://docs.microsoft.com/en-us/azure/storage/cstorage-scalability-targets#azure-blob-storage-scale-targets) e [Obiettivi di scalabilità di File di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Di seguito vengono indicati i limiti sulle dimensioni dei dati copiati nell'account di archiviazione. Verificare che i dati caricati siano conformi a tali limiti. Per informazioni più aggiornate su questi limiti, vedere [Obiettivi di scalabilità dell'archiviazione BLOB di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [Obiettivi di scalabilità di File di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Dimensioni dei dati copiati nell'account di archiviazione di Azure                      | Limite predefinito          |
 |---------------------------------------------------------------------|------------------------|

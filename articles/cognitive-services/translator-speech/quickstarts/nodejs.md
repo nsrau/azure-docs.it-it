@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0c0f3120811bba164a07783bc7ce3b7af389fd2b
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: e652ee1e201e60d0d75f10bb8fceb4fbcd205381
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205215"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41929818"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Guida introduttiva per l'API Traduzione vocale Microsoft con Node.js 
 <a name="HOLTop"></a>
@@ -169,4 +169,4 @@ Se il risultato è positivo, viene creato un file denominato "speak2.wav" conten
 ## <a name="see-also"></a>Vedere anche  
 
 [Panoramica di Traduzione vocale](../overview.md)
-[Informazioni di riferimento sull'API](http://docs.microsofttranslator.com/speech-translate.html)
+[Informazioni di riferimento sull'API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

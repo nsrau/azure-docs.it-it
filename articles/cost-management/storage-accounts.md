@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297836"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145965"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Configurare gli account di archiviazione per Gestione costi
 
@@ -23,11 +23,11 @@ ms.locfileid: "35297836"
 
 È possibile salvare i report di Gestione costi nel portale di Cloudyn, nell'archiviazione di Azure o nei bucket di archiviazione di AWS. Il salvataggio dei report nel portale di Cloudyn è gratuito. Il salvataggio dei report in una risorsa di archiviazione del provider di servizi cloud è tuttavia facoltativo e comporta un costo aggiuntivo. Questo articolo consente di configurare gli account di archiviazione di Azure e i bucket di archiviazione di Amazon Web Services (AWS) per l'archiviazione dei report.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario un account di archiviazione di Azure o un bucket di archiviazione di Amazon.
 
-Se non si ha un account di archiviazione di Azure, è necessario crearne uno. Per altre informazioni sulla creazione di un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Se non si ha un account di archiviazione di Azure, è necessario crearne uno. Per altre informazioni sulla creazione di un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
 
 Se non si ha un bucket di archiviazione di AWS Simple Storage Service (S3), è necessario crearne uno. Per altre informazioni sulla creazione di un bucket di S3, vedere [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) (Creare un bucket).
 

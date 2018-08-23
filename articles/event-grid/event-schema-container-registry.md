@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188651"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141768"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Schema di eventi di Griglia di eventi di Azure per il Registro contenitori
 
@@ -117,8 +117,6 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | action | stringa | L'azione che comprende l'evento specificato. |
 | target | object | L'URL di destinazione dell'evento. |
 | richiesta | object | La richiesta che ha generato l'evento. |
-| actor | object | L'agente che ha avviato l'evento. Nella maggior parte dei casi, questo valore potrebbe essere dedotto dal contesto di autorizzazione della richiesta. |
-| una sezione source | object | Il nodo del registro che ha generato l'evento. In altre parole: quando l'attore avvia l'evento, l'origine lo genera. |
 
 Di seguito sono elencate le proprietà dell'oggetto di destinazione:
 
@@ -129,7 +127,6 @@ Di seguito sono elencate le proprietà dell'oggetto di destinazione:
 | digest | stringa | Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2. |
 | length | numero intero | Numero di byte del contenuto. Uguale al campo Size. |
 | repository | stringa | Nome del repository. |
-| URL | stringa | L'URL diretto al contenuto. |
 | tag | stringa | Nome tag. |
 
 Di seguito sono elencate le proprietà dell'oggetto della richiesta:
@@ -141,19 +138,6 @@ Di seguito sono elencate le proprietà dell'oggetto della richiesta:
 | host | stringa | Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host http nelle richieste in ingresso. |
 | statico | stringa | Metodo di richiesta che ha generato l'evento. |
 | userAgent | stringa | Intestazione agente utente della richiesta. |
-
-Di seguito sono elencate le proprietà dell'oggetto attore:
-
-| Proprietà | type | DESCRIZIONE |
-| -------- | ---- | ----------- |
-| name | stringa | Il soggetto o nome utente associato al contesto di richiesta che ha generato l'evento. |
-
-Di seguito sono elencate le proprietà dell'oggetto di origine:
-
-| Proprietà | type | DESCRIZIONE |
-| -------- | ---- | ----------- |
-| indirizzo | stringa | L'indirizzo IP o nome host e la porta del nodo del registro che ha generato l'evento. In genere, questo valore verrà risolto da os.Hostname() insieme alla porta in esecuzione. |
-| instanceID | stringa | L'istanza in esecuzione di un'applicazione. Modifiche apportate dopo ogni riavvio. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

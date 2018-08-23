@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: d7275bb0399ae5832e85089e44f4b9a1fe412747
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c6189291a9e944acde751a66cdb58f2052c73999
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262420"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145815"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Esempi di avvio rapido con PowerShell per Monitoraggio di Azure
 Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamente alle funzionalità di Monitoraggio di Azure.
@@ -27,7 +27,7 @@ Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamen
 Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per altre informazioni, vedere [Come installare e configurare PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Esempi in questo articolo
-Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure. È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
+Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure. È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](https://docs.microsoft.com/powershell/module/azurerm.insights).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Eseguire l'acccesso e usare le sottoscrizioni
 Per prima cosa, accedere alla sottoscrizione di Azure.

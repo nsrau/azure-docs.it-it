@@ -6,16 +6,17 @@ author: ghogen
 manager: douge
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: cd305801f10c899682aa6d751e48f30b6e8303fa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3ca62d47d8e7682c80985bf5409b8540382fbf45
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781620"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146870"
 ---
 # <a name="get-started-with-key-vault-connected-service-in-visual-studio-aspnet-projects"></a>Introduzione al Servizio connesso Key Vault in Visual Studio (progetti ASP.NET)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752684"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140309"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
 
@@ -34,26 +34,25 @@ Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registra
 
 ## <a name="open-the-project-folder"></a>Aprire la cartella del progetto
 
+Iniziare aprendo la cartella del progetto. 
+
 ### <a name="start-vs-code"></a>Avviare Visual Studio Code
 
-- Assicurarsi che il DevKit sia connesso al computer.
-- Avviare Visual Studio Code.
-- Connettere il dispositivo DevKit al computer.
+* Assicurarsi che il DevKit sia connesso al computer.
 
-> [!NOTE]
-> Quando si avvia Visual Studio Code può essere visualizzato un messaggio di errore che indica che l'IDE Arduino o il pacchetto della scheda correlato non è stato trovato. Se si verifica questo errore, chiudere Visual Studio Code e avviare nuovamente l'IDE Arduino. Visual Studio Code dovrebbe a questo punto individuare correttamente il percorso dell'IDE Arduino.
+* Avviare Visual Studio Code.
 
-### <a name="open-arduino-examples-folder"></a>Aprire la cartella degli esempi di Arduino
+* Connettere il dispositivo DevKit al computer.
 
-Espandere la sezione **ARDUINO EXAMPLES** (ESEMPI ARDUINO) a sinistra, passare a **Examples for MXCHIP AZ3166 > AzureIoT** (Esempi per MXCHIP AZ3166 > AzureIoT) e selezionare **ShakeShake**. Si apre una nuova finestra di Visual Studio Code con una cartella di progetto all'interno.  
+   > [!NOTE]
+   > Quando si avvia Visual Studio Code può essere visualizzato un messaggio di errore che indica che l'IDE Arduino o il pacchetto della scheda correlato non è stato trovato. Se si verifica questo errore, chiudere Visual Studio Code e avviare nuovamente l'IDE Arduino. Visual Studio Code dovrebbe a questo punto individuare correttamente il percorso dell'IDE Arduino.
 
-> [!NOTE]
-> Se non è possibile visualizzare la sezione MXCHIP AZ3166, assicurarsi che il dispositivo sia collegato correttamente e riavviare Visual Studio Code.  
+### <a name="open-the-arduino-examples-folder"></a>Aprire la cartella degli esempi di Arduino
 
+Espandere la sezione **ARDUINO EXAMPLES** (ESEMPI ARDUINO) a sinistra, passare a **Examples for MXCHIP AZ3166 > AzureIoT** (Esempi per MXCHIP AZ3166 > AzureIoT) e selezionare **ShakeShake**. Si apre una nuova finestra di Visual Studio Code che visualizza la cartella del progetto. Se non è possibile visualizzare la sezione MXCHIP AZ3166, assicurarsi che il dispositivo sia collegato correttamente e riavviare Visual Studio Code.  
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-> [!NOTE]
-> È anche possibile aprire l'esempio dal riquadro comandi. Premere `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) per aprire il riquadro comandi, digitare **Arduino** e quindi cercare e selezionare **Arduino: Examples**.
+È anche possibile aprire il progetto di esempio dal riquadro comandi. Fare clic su `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) per aprire il riquadro comandi, digitare **Arduino** e quindi cercare e selezionare **Arduino: Examples**.
 
 ## <a name="provision-azure-services"></a>Eseguire il provisioning dei servizi di Azure
 
@@ -64,7 +63,7 @@ Nel terminale di Visual Studio Code una riga di comando interattiva guiderà nel
 ![cloud-provision](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> Se la pagina resta in stato di caricamento quando si prova ad accedere ad Azure, vedere questa [domanda frequente](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
+> Se la pagina resta in stato di caricamento quando si prova ad accedere ad Azure, fare riferimento al [passaggio "login page hangs" (blocco della pagina di accesso) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
  
 ## <a name="modify-the-hashtag"></a>Modificare l'hashtag
 
@@ -74,7 +73,7 @@ Aprire `ShakeShake.ino` e cercare la riga di codice seguente:
 static const char* iot_event = "{\"topic\":\"iot\"}";
 ```
 
-Sostituire la stringa `iot` tra le parentesi graffe con il proprio hashtag preferito. Più avanti, il dispositivo DevKit recupererà un tweet casuale che include l'hashtag specificato in questo passaggio.
+Sostituire la stringa `iot` tra le parentesi graffe con il proprio hashtag preferito. Più avanti, il dispositivo DevKit recupera un tweet casuale che include l'hashtag specificato in questo passaggio.
 
 ## <a name="deploy-azure-functions"></a>Distribuire Funzioni di Azure
 
@@ -83,56 +82,70 @@ Usare `Ctrl+P` (macOS: `Cmd+P`) per eseguire `task cloud-deploy` e avviare la di
 ![cloud-deploy](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
 
 > [!NOTE]
-> In alcuni casi la funzione di Azure potrebbe non funzionare correttamente. Per risolvere il problema, fare riferimento a questo [passaggio delle domande frequenti](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function).
+> In alcuni casi la funzione di Azure potrebbe non funzionare correttamente. Per risolvere questo problema quando si verifica, vedere la [sezione "compilation error" (errore di compilazione) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function).
 
 ## <a name="build-and-upload-the-device-code"></a>Compilare e caricare il codice del dispositivo
+
+Compilare e caricare quindi il codice del dispositivo.
 
 ### <a name="windows"></a>Windows
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
+
 2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, procedere come segue:
 
    * Tenere premuto il pulsante A
+
    * Premere e rilasciare il pulsante di reimpostazione.
 
 3. La schermata visualizza l'ID DevKit e la voce 'Configuration' (Configurazione).
-4. Questo imposta la stringa di connessione recuperata dal passaggio `task cloud-provision`.
-5. Visual Studio Code inizia a verificare e caricare lo sketch Arduino nel DevKit: ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
-6. Il DevKit viene riavviato e inizia a eseguire il codice.
-
-> [!NOTE]
-> È possibile che venga visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere il problema, fare riferimento a questo [passaggio delle domande frequenti](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ### <a name="macos"></a>macOS
 
-1. Impostare il DevKit in modalità di configurazione: tenere premuto il pulsante A e quindi premere e rilasciare il pulsante di reimpostazione. Verrà visualizzata la schermata 'Configuration'.
-2. Usare `Cmd+P` per eseguire `task device-upload` e impostare la stringa di connessione recuperata dal passaggio `task cloud-provision`.
-3. Visual Studio Code inizia a verificare e caricare lo sketch Arduino nel DevKit: ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
-4. Il DevKit viene riavviato e inizia a eseguire il codice.
+1. Attivare la modalità di configurazione per DevKit:
 
-> [!NOTE]
-> È possibile che venga visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere il problema, fare riferimento a questo [passaggio delle domande frequenti](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+   Tenere premuto il pulsante A, quindi premere e rilasciare il pulsante di reimpostazione. Verrà visualizzata la schermata 'Configuration'.
+
+2. Usare `Cmd+P` per eseguire `task device-upload` e impostare la stringa di connessione recuperata dal passaggio `task cloud-provision`.
+
+### <a name="verify-upload-and-run"></a>Verificare, caricare ed eseguire
+
+A questo punto la stringa di connessione è impostata, verifica e carica l'app, quindi esegue l'app. 
+
+1. Visual Studio Code inizia a verificare e a caricare lo sketch Arduino nel dispositivo DevKit:
+
+   ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
+
+2. Il DevKit viene riavviato e inizia a eseguire il codice.
+
+È possibile che venga visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo problema, vedere l'[errore "unknown package" (pacchetto sconosciuto) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Verificare il progetto
 
 Dopo l'inizializzazione dell'app, premere e rilasciare il pulsante A, quindi scuotere delicatamente la scheda DevKit. Questa azione recupera un tweet casuale, che contiene l'hashtag specificato in precedenza. Entro pochi secondi, sullo schermo del DevKit compare un tweet:
 
 ### <a name="arduino-application-initializing"></a>Inizializzazione dell'applicazione Arduino...
+
 ![Inizializzazione dell'applicazione Arduino](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-1.png)
 
 ### <a name="press-a-to-shake"></a>Premere A per scuotere...
+
 ![Premere A per scuotere](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-2.png)
 
 ### <a name="ready-to-shake"></a>Pronto allo scuotimento...
+
 ![Pronto allo scuotimento](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-3.png)
 
 ### <a name="processing"></a>Elaborazione in corso...
+
 ![Elaborazione in corso](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-4.png)
 
 ### <a name="press-b-to-read"></a>Premere B per leggere...
+
 ![Premere B per leggere](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-5.png)
 
 ### <a name="display-a-random-tweet"></a>Visualizzazione di un tweet casuale...
+
 ![Visualizzazione di un tweet casuale](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
 
 - Premere di nuovo il pulsante A, quindi scuotere per visualizzare un nuovo tweet.
@@ -150,37 +163,43 @@ A scopo di test, questo progetto di esempio usa un token di connessione a Twitte
 
 1. Passare al [portale per sviluppatori di Twitter](https://dev.twitter.com/) per registrare una nuova app Twitter.
 
-2. [Recuperare i valori chiave utente e segreto consumer](https://support.yapsody.com/hc/en-us/articles/203068116-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) dell'app.
+2. [Recuperare i valori chiave utente e segreto consumer](https://support.yapsody.com/hc/en-us/articles/360003291573-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) dell'app.
 
 3. Servirsi di [un'utilità](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) per generare un token di connessione a Twitter da queste due chiavi.
 
 4. Nel [portale di Azure](https://portal.azure.com/){:target="_blank"} passare a **Gruppo di risorse** e trovare la funzione di Azure (Tipo: Servizio app) per questo progetto. Il nome contiene sempre la stringa "shake".
-  ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
+
+   ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
 5. Aggiornare il codice per `run.csx`in **Funzioni > shakeshake-cs** con il proprio token:
-  ```csharp
-  ...
-  string authHeader = "Bearer " + "[your own token]";
-  ...
+
+   ```csharp
+   string authHeader = "Bearer " + "[your own token]";
   ```
+  
   ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Salvare il file e fare clic su **Esegui**.
 
-
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 
-### <a name="the-screen-displays-no-tweets-while-every-step-has-run-successfully"></a>Ogni passaggio è stato eseguito correttamente, ma sullo schermo non compaiono tweet
+Come risolvere i problemi o fornire commenti e suggerimenti. 
 
-Questa condizione si verifica in genere la prima volta che si distribuisce ed esegue l'esempio, perché l'avvio a freddo dell'app per le funzioni richiede da due secondi a un minuto. Può anche capitare che, durante l'esecuzione del codice, si verifichi un problema che causa il riavvio dell'app. Quando si verifica questa condizione, l'app per il dispositivo non riceve un timeout per il recupero del tweet. In questo caso si può provare a risolvere il problema applicando uno dei metodi seguenti o entrambi:
+### <a name="problems"></a>I problemi
+
+Uno dei problemi che può verificarsi è che sullo schermo non compaiono tweet anche se ogni passaggio è stato eseguito correttamente. Questa condizione si verifica in genere la prima volta che si distribuisce ed esegue l'esempio, perché l'avvio a freddo dell'app per le funzioni richiede da due secondi a un minuto. 
+
+Può anche capitare che, durante l'esecuzione del codice, si verifichi un problema che causa il riavvio dell'app. Quando si verifica questa condizione, l'app per il dispositivo non riceve un timeout per il recupero del tweet. In questo caso si può provare a risolvere il problema applicando uno dei metodi seguenti o entrambi:
 
 1. Fare clic sul pulsante di reimpostazione sul DevKit per eseguire di nuovo di sviluppo per eseguire di nuovo l'app per il dispositivo.
 
-2. Nel [portale di Azure](https://portal.azure.com/) trovare l'app Funzioni di Azure creata e riavviarla: ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
+2. Nel [portale di Azure](https://portal.azure.com/) trovare l'app Funzioni di Azure creata e riavviarla:
+
+   ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
 
 ### <a name="feedback"></a>Commenti e suggerimenti
 
-Se si verificano altri problemi, fare riferimento alle [domande frequenti](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o contattare Microsoft tramite i canali seguenti:
+Se si verificano altri problemi, fare riferimento alle [domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o contattare i canali seguenti:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)

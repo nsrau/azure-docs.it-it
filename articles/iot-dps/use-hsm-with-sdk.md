@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "34630426"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141598"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Come usare meccanismi di attestazione diversi con Device Provisioning Service Client SDK per C
 
 Questo articolo illustra come usare diversi [meccanismi di attestazione](concepts-security.md#attestation-mechanism) con Device Provisioning Service Client SDK per C. È possibile usare un dispositivo fisico o un simulatore. Il servizio di provisioning supporta l'autenticazione per due tipi di meccanismi di attestazione: X **.** 509 e Trusted Platform Module (TPM).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Preparare l'ambiente di sviluppo in base alle indicazioni disponibili nella sezione "Preparare l'ambiente di sviluppo" nella Guida [Creare ed effettuare il provisioning di un dispositivo simulato](./quick-create-simulated-device.md).
 

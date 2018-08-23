@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c3a91509238534bed37cfd169c66f37732546bfb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 06cccaeaea3ff43bd5a4100ef0d4628e8cc77254
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425120"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Esercitazione: Integrazione di Azure Active Directory con Envoy
 
@@ -110,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Envoy](./media/envoy-tutorial/tutorial_envoy_url.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenant-name>.Envoy.com`
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
     
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere il valore contattare il [team di supporto clienti di Envoy](https://envoy.com/contact/).

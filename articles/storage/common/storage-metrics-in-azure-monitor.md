@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 880632a39332f7d9ad24b0f7aa2301660eb2f9b8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528574"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42145372"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -332,14 +332,14 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
-| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
+| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Esempio di valore: 1024 |
 
 ### <a name="blob-storage"></a>Archiviazione BLOB
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
-| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 <br/> Dimensione: BlobType ([definizione](#metrics-dimensions)) |
-| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 <br/> Dimensione: BlobType ([definizione](#metrics-dimensions)) |
+| BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Esempio di valore: 1024 <br/> Dimensione: BlobType ([definizione](#metrics-dimensions)) |
+| BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Esempio di valore: 1024 <br/> Dimensione: BlobType ([definizione](#metrics-dimensions)) |
 | ContainerCount    | Numero di contenitori nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 
 ### <a name="table-storage"></a>Archiviazione tabelle

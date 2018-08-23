@@ -9,16 +9,16 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: ronitr
-ms.openlocfilehash: 9b47345278bd74449c16e4e17ed1748dba489f82
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7720555a3cfc39ce9e9b5ad2c392bab74b64ca
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645515"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141370"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introduzione alla funzione Maschera dati dinamica del database SQL nel portale di Azure
 
-Questo articolo illustra come implementare la funzione [Maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md) con il portale di Azure. È anche possibile implementare tale funzione tramite [cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) o l'[API REST](https://msdn.microsoft.com/library/dn505719.aspx).
+Questo articolo illustra come implementare la funzione [Maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md) con il portale di Azure. È anche possibile implementare tale funzione tramite [cmdlet del database SQL di Azure](https://docs.microsoft.com/powershell/module/azurerm.sql/) o l'[API REST](https://msdn.microsoft.com/library/dn505719.aspx).
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configurare il mascheramento dei dati dinamici per il database tramite il portale di Azure
@@ -54,4 +54,4 @@ Questo articolo illustra come implementare la funzione [Maschera dati dinamica](
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per una panoramica, vedere l'articolo su [Maschera dati dinamica](sql-database-dynamic-data-masking-get-started.md).
-* È anche possibile implementare tale funzione tramite [cmdlet del database SQL di Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) o l'[API REST](https://msdn.microsoft.com/library/dn505719.aspx).
+* È anche possibile implementare tale funzione tramite [cmdlet del database SQL di Azure](https://docs.microsoft.com/powershell/module/azurerm.sql/) o l'[API REST](https://msdn.microsoft.com/library/dn505719.aspx).

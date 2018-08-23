@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2017
+ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1307fc455cacde81cb25ad58c5e99df21f126568
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ca4da794aaa6c96908976400d9a8452f6a644f39
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448255"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140155"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: eseguire l'accesso con account Salesforce tramite SAML
 
@@ -23,7 +23,7 @@ ms.locfileid: "37448255"
 
 Questo articolo illustra come usare i [criteri personalizzati](active-directory-b2c-overview-custom.md) per impostare l'accesso per gli utenti da un'organizzazione Salesforce specifica.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="azure-ad-b2c-setup"></a>Configurazione di Azure AD B2C
 
@@ -114,7 +114,7 @@ Caricare il certificato di firma nel tenant di Azure AD B2C:
     2. Immettere un **Nome**, ad esempio SAMLSigningCert. Verrà automaticamente aggiunto il prefisso *B2C_1A_* al nome della chiave.
     3. Per selezionare il certificato, selezionare **upload file control** (controllo carica file). 
     4. Immettere la password del certificato impostato nello script di PowerShell.
-3. Fare clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 4. Verificare di avere creato una chiave, ad esempio B2C_1A_SAMLSigningCert. Prendere nota del nome completo, incluso *B2C_1A_*. Si farà riferimento a questa chiave in un secondo momento nei criteri.
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>Creare il provider di attestazioni SAML Salesforce nei criteri di base
@@ -150,7 +150,7 @@ Per consentire agli utenti di accedere usando Salesforce, è necessario definire
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
           <OutputClaimsTransformations>

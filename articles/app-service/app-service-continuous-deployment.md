@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233845"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140342"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
 Questo articolo illustra come configurare la distribuzione continua per il [servizio app di Azure](app-service-web-overview.md). Il servizio app consente la distribuzione continua da BitBucket, GitHub e [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) effettuando il pull degli aggiornamenti più recenti dal repository esistente in uno di questi servizi.
@@ -62,7 +62,7 @@ Nella sezione **Compila** della pagina **Configura** configurare un nuovo accoun
 
 Nella pagina **Test** scegliere se abilitare i test di carico e fare clic su **Continua**.
 
-In base al [piano tariffario](/pricing/details/app-service/plans/) del piano di servizio app, è anche possibile visualizzare la pagina **Distribuisci nell'ambiente di staging**. Scegliere se [abilitare gli slot di distribuzione](web-sites-staged-publishing.md) e fare clic su **Continua**.
+In base al [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/) del piano di servizio app, è anche possibile visualizzare la pagina **Distribuisci nell'ambiente di staging**. Scegliere se [abilitare gli slot di distribuzione](web-sites-staged-publishing.md) e fare clic su **Continua**.
 
 ### <a name="finish-configuration"></a>Concludere la configurazione
 
@@ -119,7 +119,7 @@ Nella sezione **Compila** della pagina **Configura** specificare il framework de
 
 Nella pagina **Test** scegliere se abilitare i test di carico e fare clic su **Continua**.
 
-In base al [piano tariffario](/pricing/details/app-service/plans/) del piano di servizio app, è anche possibile visualizzare la pagina **Distribuisci nell'ambiente di staging**. Scegliere se [abilitare gli slot di distribuzione](web-sites-staged-publishing.md) e fare clic su **Continua**. 
+In base al [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/) del piano di servizio app, è anche possibile visualizzare la pagina **Distribuisci nell'ambiente di staging**. Scegliere se [abilitare gli slot di distribuzione](web-sites-staged-publishing.md) e fare clic su **Continua**. 
 
 ### <a name="finish-configuration"></a>Concludere la configurazione
 

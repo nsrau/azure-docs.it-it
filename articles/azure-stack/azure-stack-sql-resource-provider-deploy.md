@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: f53b1e08da1cb2d0dc02381bf47c27e8f84cb1d0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d33ca1a4ab08ab25855f8b3992157ad3d086a180
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044833"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139496"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuire il provider di risorse di SQL Server in Azure Stack
 Usare il provider di risorse di Server SQL di Azure Stack per esporre i database SQL come servizio di Azure Stack. Il provider di risorse SQL viene eseguito come servizio in una macchina virtuale di Windows Server 2016 Server Core (VM).
@@ -95,7 +95,7 @@ Per eliminare qualsiasi configurazione manuale quando si distribuisce il provide
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module  -Name AzureStack -RequiredVersion 1.3.0
+Install-Module  -Name AzureStack -RequiredVersion 1.4.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

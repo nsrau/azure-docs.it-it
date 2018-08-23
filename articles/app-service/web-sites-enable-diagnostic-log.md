@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 0eefb8ecb7c9641b3e025054f54e2b7cf97b94bd
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206004"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145199"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -171,7 +171,7 @@ Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **-Path*
 Per visualizzare un elenco di percorsi disponibili usare il parametro -ListPath.
 
 > [!NOTE]
-> Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Come usare Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Come usare Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 

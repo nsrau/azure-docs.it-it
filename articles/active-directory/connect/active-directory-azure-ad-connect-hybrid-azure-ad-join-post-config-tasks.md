@@ -4,7 +4,7 @@ description: Questo documento illustra nel dettaglio le attività di configurazi
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9949275b18206ca66f38bab036337a00fdde6ee5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05cb6d10a7e4269cbe5f9c97ef70cd9eb5a4d68e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916548"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145237"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Attività successive di configurazione per Aggiunta ad Azure AD ibrido
 
@@ -62,7 +62,7 @@ Se l'organizzazione usa un servizio di federazione per accedere ad Azure AD, le 
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Abilitare l'accesso Single Sign-On facile di Azure Active Directory per i Dispositivi Windows di livello inferiore
 
-Se l'organizzazione usa la sincronizzazione del codice Hash della Password o l'autenticazione pass-through per eseguire l'accesso ad Azure AD, abilitare SSO facile di Azure Active Directory con tale metodo di accesso per autenticare i dispositivi Windows di livello inferiore:  https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso. 
+Se l'organizzazione usa la sincronizzazione del codice Hash della Password o l'autenticazione pass-through per eseguire l'accesso ad Azure AD, abilitare SSO facile di Azure Active Directory con tale metodo di accesso per autenticare i dispositivi Windows di livello inferiore:  https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Impostare i criteri di Azure AD per i dispositivi Windows di livello inferiore
 
@@ -81,7 +81,7 @@ Se si usa [SSO facile](https://aka.ms/hybrid/sso), abilitare anche "Consentire a
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installare Microsoft Workplace Join nei Dispositivi Windows di livello inferiore
 
-Questo programma di installazione crea nel sistema del dispositivo un'attività pianificata che viene eseguita nel contesto dell'utente. e attivata nel momento in cui l'utente accede a Windows. L'attività aggiunge automaticamente il dispositivo ad Azure AD con le credenziali utente dopo aver usato l'autenticazione integrata di Windows. L'area download è in https://www.microsoft.com/en-us/download/details.aspx?id=53554. 
+Questo programma di installazione crea nel sistema del dispositivo un'attività pianificata che viene eseguita nel contesto dell'utente. e attivata nel momento in cui l'utente accede a Windows. L'attività aggiunge automaticamente il dispositivo ad Azure AD con le credenziali utente dopo aver usato l'autenticazione integrata di Windows. L'area download è in https://www.microsoft.com/download/details.aspx?id=53554. 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Configurare i criteri di gruppo per consentire la registrazione del dispositivo
 

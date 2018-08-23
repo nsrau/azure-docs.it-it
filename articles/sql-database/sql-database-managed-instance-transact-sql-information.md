@@ -7,15 +7,15 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 89544ea72a4356fb8d4f3a192e6fc546eb6b3cff
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f05f6f785ec8466fc6d0ae2c94c975312ef37fa2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092011"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141133"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server 
 
@@ -267,7 +267,7 @@ Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archivio BLOB di
 
 ### <a name="replication"></a>Replica 
  
-La replica è supportata in Istanza gestita. Per informazioni sulla replica, vedere [Replica di SQL Server](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+La replica è supportata in Istanza gestita. Per informazioni sulla replica, vedere [Replica di SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>Istruzione RESTORE 
  

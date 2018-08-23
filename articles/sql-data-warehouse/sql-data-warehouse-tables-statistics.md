@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 778da6d244561d87e7070ab244fd92dba043488e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643431"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140971"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Creazione e aggiornamento delle statistiche nelle tabelle di Azure SQL Data Warehouse.
 Suggerimenti ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query nelle tabelle in Azure SQL Data Warehouse.
@@ -65,7 +65,10 @@ Una procedura consigliata consiste nell'aggiornare le statistiche sulle colonne 
 
 Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle statistiche:
 
-| **Frequenza degli aggiornamenti delle statistiche** | Conservativa: giornaliera <br></br> Dopo il caricamento o la trasformazione dei dati | | **Campionamento** | Con meno di 1 miliardo di righe, usare il campionamento predefinito (20%) <br></br> Con più di 1 miliardo di righe, sono considerate ottimali le statistiche in un intervallo del 2% |
+|||
+|-|-|
+| **Frequenza degli aggiornamenti delle statistiche**  | Conservativa: giornaliera <br></br> Dopo il caricamento o la trasformazione dei dati |
+| **Campionamento** |  Inferiore a 1 miliardo di righe, usare il campionamento predefinito (20%) <br></br> Con più di 1 miliardo di righe, sono considerate ottimali le statistiche in un intervallo del 2% |
 
 Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
 

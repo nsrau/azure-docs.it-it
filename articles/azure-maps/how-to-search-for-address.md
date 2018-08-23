@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990014"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145581"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Come trovare un indirizzo usando il servizio di ricerca di Mappe di Azure
 
@@ -164,19 +164,11 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     | Chiave | Valore |
     |-----|------------|
-    | spatialKeys | true |
-
-    Quando è impostato il parametro di query [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta contiene informazioni proprietarie relative alla chiave geospaziale per la località specificata.
-
-6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
-
-    | Chiave | Valore |
-    |-----|------------|
     | returnSpeedLimit | true |
     
     Quando è impostato il parametro di query [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta restituisce il limite di velocità pubblicato.
 
-7. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
+6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
     | Chiave | Valore |
     |-----|------------|
@@ -184,7 +176,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     Quando è impostato il parametro di query [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta restituisce la matrice degli usi stradali per codifiche geografiche inverse a livello di via.
 
-8. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
+7. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
     | Chiave | Valore |
     |-----|------------|

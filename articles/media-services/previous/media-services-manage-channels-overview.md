@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e8dc926fd796e82ea531aba6cb3a682649dff41
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943230"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246598"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Panoramica dello streaming live con Servizi multimediali di Azure
 
@@ -67,17 +67,16 @@ Nella tabella seguente vengono confrontati i due tipi di canale supportati in Se
 
 | Funzionalità | Canale pass-through | Canale standard |
 | --- | --- | --- |
-| Input a bitrate singolo codificato in bitrate multipli nel cloud |No  |Sì |
+| Input a bitrate singolo codificato in bitrate multipli nel cloud |No  |Yes |
 | Risoluzione massima, numero di livelli |1080p, 8 livelli, oltre 60 fps |720p, 6 livelli, 30 fps |
 | Protocolli di input |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Prezzo |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live" |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo di esecuzione massimo |24 x 7 |8 ore |
-| Supporto per l'inserimento di slate |No  |Sì |
-| Supporto per annunci pubblicitari |No  |Sì |
-| Pass-through di sottotitoli CEA 608/708 |Sì |Sì |
-| Possibilità di recuperare brevi fasi di stallo in feed di contributo |Sì |No (senza dati di input, il canale avvierà lo slate dopo 6 secondi) |
-| Supporto per GOP di input non uniformi |Sì |No: l'input deve essere fisso (GOP di 2 secondi) |
-| Supporto per input con frequenza dei fotogrammi variabile |Sì |No: l'input deve essere una frequenza di fotogrammi fissa.<br/>Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Il codificatore, tuttavia, non può scendere a 10 fotogrammi al secondo. |
+| Supporto per l'inserimento di slate |No  |Yes |
+| Supporto per annunci pubblicitari |No  |Yes |
+| Pass-through di sottotitoli CEA 608/708 |Yes |Yes |
+| Supporto per GOP di input non uniformi |Yes |No: l'input deve essere fisso (GOP di 2 secondi) |
+| Supporto per input con frequenza dei fotogrammi variabile |Yes |No: l'input deve essere una frequenza di fotogrammi fissa.<br/>Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Il codificatore, tuttavia, non può scendere a 10 fotogrammi al secondo. |
 | Arresto automatico dei canali in caso di perdita del feed di input |No  |Dopo 12 ore, nessun programma è in esecuzione |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Utilizzo di canali che ricevono il flusso live a bitrate multiplo da codificatori locali con il metodo pass-through

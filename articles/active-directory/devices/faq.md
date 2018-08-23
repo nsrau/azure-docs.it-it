@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597154"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139964"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -99,12 +99,12 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 **D: Gli utenti non possono eseguire la ricerca delle stampanti da dispositivi aggiunti ad Azure AD. In che modo è possibile abilitare la stampa a partire dai dispositivi aggiunti ad Azure AD?**
 
-**R:** Per la distribuzione delle stampanti nei dispositivi aggiunti ad Azure AD, vedere [Stampa di cloud ibrido](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). È necessario un Server Windows locale per la distribuzione della stampa di cloud ibrido. Il servizio di stampa basato sul cloud non è attualmente disponibile. 
+**R:** Per la distribuzione delle stampanti nei dispositivi aggiunti ad Azure AD, vedere [Stampa di cloud ibrido](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). È necessario un Server Windows locale per la distribuzione della stampa di cloud ibrido. Il servizio di stampa basato sul cloud non è attualmente disponibile. 
 
 ---
 
 **D: Come è possibile connettersi a un dispositivo aggiunto a un'istanza remota di Azure AD?**
-**R:** Per i dettagli, vedere l'articolo https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc.
+**R:** Per i dettagli, vedere l'articolo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
 
 ---
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: 5c0252e42dd3dd53a0a95684553b193b983e95ee
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c3bc9f04777a9153fd8683b221e7d0aeef4609b3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30166875"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246678"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Usare PowerShell per creare una pipeline di Data Factory per copiare dati in locale in Azure
 
@@ -25,10 +25,10 @@ In questo esempio si usa PowerShell per creare una pipeline di Azure Data Factor
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - **SQL Server**. In questo esempio si usa un database di SQL Server locale come archivio dati di **origine**.
-- **Account di archiviazione di Azure**. In questo esempio l'archivio BLOB di Azure viene usato come archivio dati di **destinazione/sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
+- **Account di archiviazione di Azure**. In questo esempio l'archivio BLOB di Azure viene usato come archivio dati di **destinazione/sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 - **Runtime di integrazione self-hosted**. Scaricare il file con estensione msi dall'[area download](https://www.microsoft.com/download/details.aspx?id=39717) ed eseguirlo per installare un runtime di integrazione self-hosted nel computer.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Creare un database di esempio in SQL Server

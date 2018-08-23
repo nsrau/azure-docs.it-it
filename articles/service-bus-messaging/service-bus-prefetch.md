@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a61b7b08d883c1b5a7fde93c249fc8de1473d15d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28928162"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141350"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prelettura dei messaggi del bus di servizio di Azure
 
@@ -40,9 +40,9 @@ La prelettura funziona allo stesso modo anche con le API [OnMessage](/dotnet/api
 
 La Prelettura accelera il flusso di messaggi facendo in modo che un messaggio sia immediatamente disponibile per il recupero locale quando e prima che un'applicazione ne richieda uno. Questo vantaggio a livello di velocità effettiva è il risultato di un compromesso che l'autore dell'applicazione deve effettuare in modo esplicito:
 
-Con la modalità di ricezione [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete), tutti i messaggi acquisiti nel buffer di prelettura non sono più disponibili nella coda e si trovano nel buffer di prelettura in memoria solo fino a quando non vengono ricevuti nell'applicazione tramite le API **Receive**/**ReceiveAsync** o **OnMessage**/**OnMessageAsync**. Se l'applicazione viene terminata prima della ricezione dei messaggi nell'applicazione, tali messaggi vengono irrimediabilmente persi.
+Con la modalità di ricezione [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode), tutti i messaggi acquisiti nel buffer di prelettura non sono più disponibili nella coda e si trovano nel buffer di prelettura in memoria solo fino a quando non vengono ricevuti nell'applicazione tramite le API **Receive**/**ReceiveAsync** o **OnMessage**/**OnMessageAsync**. Se l'applicazione viene terminata prima della ricezione dei messaggi nell'applicazione, tali messaggi vengono irrimediabilmente persi.
 
-Nella modalità di ricezione [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode.peeklock) i messaggi recuperati nel buffer di Prelettura vengono acquisiti nel buffer in uno stato di blocco e il clock di timeout per il blocco è attivato. Se il buffer di prelettura è di grandi dimensioni e l'elaborazione richiede una quantità di tempo tale che i blocchi del messaggio scadono durante la permanenza nel buffer di prelettura o addirittura mentre l'applicazione elabora il messaggio, è possibile che l'applicazione debba gestire alcuni eventi confusi.
+Nella modalità di ricezione [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) i messaggi recuperati nel buffer di Prelettura vengono acquisiti nel buffer in uno stato di blocco e il clock di timeout per il blocco è attivato. Se il buffer di prelettura è di grandi dimensioni e l'elaborazione richiede una quantità di tempo tale che i blocchi del messaggio scadono durante la permanenza nel buffer di prelettura o addirittura mentre l'applicazione elabora il messaggio, è possibile che l'applicazione debba gestire alcuni eventi confusi.
 
 È possibile che l'applicazione acquisisca un messaggio con un blocco scaduto o con scadenza imminente. In questo caso è possibile che l'applicazione elabori il messaggio ma non riesca a completarlo a causa della scadenza di un blocco. L'applicazione può verificare la proprietà [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc), che è soggetta allo sfasamento di orario del clock del broker e del clock del computer locale. Se il blocco del messaggio è scaduto, l'applicazione deve ignorare il messaggio. Non deve essere effettuata alcuna chiamata API sul messaggio o con il messaggio. Se il messaggio non è scaduto ma la scadenza è imminente, il blocco può essere rinnovato ed esteso di un altro periodo di blocco predefinito chiamando [message.RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
 

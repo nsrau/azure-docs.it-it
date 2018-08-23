@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: genli
-ms.openlocfilehash: 5f11129e562ec47f4c81790cf21c9a390cc697b8
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621406"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144951"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemi delle appliance virtuali di rete in Azure
 
@@ -132,5 +132,5 @@ Acquisire una traccia di rete simultanea nella macchina virtuale di origine, nel
 
 Se non è possibile visualizzare i pacchetti in ingresso nella traccia della macchina virtuale di back-end, è probabile che sia presente un'interferenza dovuta a un gruppo di sicurezza di rete o a una route definita dall'utente oppure che le tabelle di dell'appliance virtuale di rete non siano corrette.
 
-Se si visualizzano i pacchetti in entrata, ma non viene restituita alcuna risposta, può essere necessario risolvere un problema di firewall o di un'applicazione di VM. Se si verifica uno di questi problemi, [contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza](Let's link customer to 3rd party vendor again here: https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), in base alla necessità.
+Se si visualizzano i pacchetti in entrata, ma non viene restituita alcuna risposta, può essere necessario risolvere un problema di firewall o di un'applicazione di VM. Se si verifica uno di questi problemi, [contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), in base alla necessità.
 

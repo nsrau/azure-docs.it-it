@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c38187221e7cd4e3244199e713f41be0005eb024
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 5b6eefbeb279b76717c775cc220f088612908add
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801882"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146875"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Risoluzione degli problemi durante la sincronizzazione
 Gli errori potrebbero verificarsi durante la sincronizzazione dei dati dell'identità da Windows Server Active Directory (AD DS) ad Azure Active Directory (Azure AD). L'articolo offre una panoramica delle diverse tipologie di errori di sincronizzazione, di alcuni scenari possibili che causano tali errori e delle possibili soluzioni per correggere questi errori. In questo articolo vengono descritti soltanto gli errori più comuni.
@@ -105,7 +105,7 @@ I report sugli errori di sincronizzazione all'interno di Azure AD Connect Health
 >
 
 #### <a name="related-articles"></a>Articoli correlati
-* [Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/en-us/kb/2647098)
+* [Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
 #### <a name="description"></a>DESCRIZIONE
@@ -163,7 +163,7 @@ La causa più comune dell'errore AttributeValueMustBeUnique è che due oggetti c
 4. Se si apporta la modifica nell'Active Directory locale, consentire ad Azure AD Connect di sincronizzare la modifica per correggere l'errore.
 
 #### <a name="related-articles"></a>Articoli correlati
--[Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/en-us/kb/2647098)
+-[Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/kb/2647098)
 
 ## <a name="data-validation-failures"></a>Errori di convalida dei dati
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
@@ -200,7 +200,7 @@ Se il suffisso dell'attributo UserPrincipalName dell'utente è stato aggiornato 
 2. Consentire al ciclo di sincronizzazione successivo di eseguire un nuovo tentativo di sincronizzazione. Questa volta la sincronizzazione andrà a buon fine e permetterà di aggiornare l'attributo UserPrincipalName di Bob su bob@fabrikam.com, come previsto.
 
 #### <a name="related-articles"></a>Articoli correlati
-* [Le modifiche non sono sincronizzate dallo strumento di sincronizzazione di Azure Active Directory dopo aver modificato l'UPN di un account utente per usare un dominio federato diverso](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+* [Le modifiche non sono sincronizzate dallo strumento di sincronizzazione di Azure Active Directory dopo aver modificato l'UPN di un account utente per usare un dominio federato diverso](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>DESCRIZIONE

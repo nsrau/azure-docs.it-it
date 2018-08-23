@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262685"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146614"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -21,7 +21,7 @@ Gli eventi di Archiviazione di Azure consentono alle applicazioni di reagire all
 
 Tra gli scenari comuni di eventi di Archiviazione BLOB sono inclusi l'elaborazione di immagini o video, l'indicizzazione delle ricerche o qualsiasi flusso di lavoro orientato ai file.  I caricamenti asincroni di file sono operazioni perfette per gli eventi.  Quando le modifiche non sono frequenti, ma lo scenario richiede tempi di risposta immediata, un'architettura basata su eventi può essere particolarmente efficiente.
 
-La disponibilità degli eventi di archiviazione è legata alla [disponibilità](../../event-grid/overview.md) di Griglia di eventi. Gli eventi di archiviazione saranno disponibili nelle aree geografiche in cui si renderà disponibile Griglia di eventi. Per un rapido esempio, vedere [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - Interfaccia della riga di comando](storage-blob-event-quickstart.md) o [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - PowerShell](storage-blob-event-quickstart-powershell.md). 
+Per un rapido esempio, vedere [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - Interfaccia della riga di comando](storage-blob-event-quickstart.md) o [Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato - PowerShell](storage-blob-event-quickstart-powershell.md). 
 
 ![Modello di Griglia di eventi di Azure](./media/storage-blob-event-overview/event-grid-functional-model.png)
 

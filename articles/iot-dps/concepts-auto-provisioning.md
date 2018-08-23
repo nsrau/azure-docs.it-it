@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9a45f8269e0ca2bc4188016af0ace06831c762b6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521279"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145596"
 ---
 # <a name="auto-provisioning-concepts"></a>Concetti relativi al provisioning automatico
 
@@ -62,7 +62,7 @@ Nel diagramma seguente vengono riepilogati i ruoli e la sequenza di operazioni e
 [![Sequenza di provisioning automatico per un dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
-> Facoltativamente, il produttore può anche eseguire l'operazione "Registrazione dell'identità del dispositivo" usando le API del servizio Device Provisioning, anziché tramite il ruolo Operatore. Per un'analisi approfondita di questa sequenza e altre informazioni, vedere il video [Zero touch device registration with Azure IoT](https://myignite.microsoft.com/sessions/55087) (Registrazione automatica dei dispositivi con Azure IoT), a partire dal minuto 41:00.
+> Facoltativamente, il produttore può anche eseguire l'operazione "Registrazione dell'identità del dispositivo" usando le API del servizio Device Provisioning, anziché tramite il ruolo Operatore. Per un'analisi approfondita di questa sequenza e altre informazioni, vedere il video [Zero touch device registration with Azure IoT](https://youtu.be/cSbDRNg72cU?t=2460) (Registrazione automatica dei dispositivi con Azure IoT), a partire dal minuto 41:00.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

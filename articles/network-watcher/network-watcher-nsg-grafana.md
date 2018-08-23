@@ -3,8 +3,8 @@ title: Gestire i log di flusso dei gruppi di sicurezza di rete con Network Watch
 description: Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Grafana.
 services: network-watcher
 documentationcenter: na
-author: kumudD
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: kumud
-ms.openlocfilehash: 44cf074223c88b8fa539144c0d948e68ae6cbd13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mareat
+ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036526"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146628"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete con Network Watcher e Grafana
 
@@ -63,7 +63,7 @@ Logstash consente di rendere flat i log di flusso in formato JSON a un livello d
 
 3. Aggiungere il contenuto seguente al file. Modificare il nome e la chiave di accesso dell'account di archiviazione in modo da riflettere i dettagli dell'account di archiviazione:
 
-    ```bash
+   ```bash
     input {
       azureblob
       {
@@ -133,9 +133,10 @@ Logstash consente di rendere flat i log di flusso in formato JSON a un livello d
         index => "nsg-flow-logs"
       }
     }
-    ```
+   ```
 
-Il file di configurazione di Logstash è composto da tre parti, ovvero input, filtro e output. La sezione input indica l'origine di input dei log che verranno elaborati da Logstash. In questo caso occorre usare un plug-in "azureblob" (che verrà installato nei passaggi successivi) che consentirà di accedere ai file JSON dei log di flusso dei gruppi di sicurezza di rete archiviati nell'archiviazione BLOB. 
+Il file di configurazione di Logstash è composto da tre parti, ovvero input, filtro e output.
+La sezione input indica l'origine di input dei log che verranno elaborati da Logstash. In questo caso occorre usare un plug-in "azureblob" (che verrà installato nei passaggi successivi) che consentirà di accedere ai file JSON dei log di flusso dei gruppi di sicurezza di rete archiviati nell'archiviazione BLOB. 
 
 La sezione filtro rende quindi flat tutti i file di log di flusso in modo che ogni tupla dei flussi e le relative proprietà associate diventino un evento Logstash separato.
 

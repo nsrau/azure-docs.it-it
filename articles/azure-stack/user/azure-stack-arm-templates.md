@@ -1,9 +1,9 @@
 ---
-title: Utilizzare i modelli di gestione risorse di Azure nello Stack di Azure | Documenti Microsoft
-description: Informazioni su come utilizzare i modelli di gestione risorse di Azure nello Stack di Azure per le risorse di provisioning.
+title: Usare i modelli di Azure Resource Manager in Azure Stack | Microsoft Docs
+description: Informazioni su come usare i modelli di Azure Resource Manager in Azure Stack per il provisioning delle risorse.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
@@ -12,49 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
-ms.author: brenduns
-ms.reviewer: ''
-ms.openlocfilehash: 9c4d538f77ae056163fd17aa547162a4ad3eff63
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 08/15/2018
+ms.author: sethm
+ms.reviewer: jeffgo
+ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301679"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139344"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Usare i modelli di Gestione risorse di Azure in Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-È possibile utilizzare i modelli di Azure Resource Manager per distribuire ed eseguire il provisioning di tutte le risorse per l'applicazione in un'operazione singola, coordinata. È anche possibile ridistribuire i modelli per apportare modifiche alle risorse in un gruppo di risorse.
+È possibile usare i modelli Azure Resource Manager per distribuire ed eseguire il provisioning di tutte le risorse per l'applicazione in un'unica operazione coordinata. È anche possibile ridistribuire i modelli per apportare modifiche alle risorse in un gruppo di risorse.
 
 Questi modelli possono essere distribuiti con il portale di Microsoft Azure Stack, PowerShell, la riga di comando e Visual Studio.
 
-I seguenti modelli di avvio rapido sono disponibili nel [GitHub](http://aka.ms/azurestackgithub).
+I modelli di Guida introduttiva seguenti sono disponibili sul [GitHub](http://aka.ms/azurestackgithub).
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Distribuire SharePoint Server (distribuzione della disponibilità elevata)
 
-Utilizzare l'estensione DSC PowerShell per creare una farm di SharePoint Server 2013 che include le risorse seguenti:
+Usare l'estensione DSC di PowerShell per creare una farm di SharePoint Server 2013 che include le risorse seguenti:
 
 * Una rete virtuale
 * Tre account di archiviazione
 * Due servizi di bilanciamento del carico esterni
 * Una macchina virtuale (VM) configurata come controller di dominio per una nuova foresta con un singolo dominio
 * Una VM configurata come server autonomo di SQL Server 2014
-* Una macchina virtuale configurata come una farm di SharePoint Server 2013 una macchina
+* Una VM configurata come una farm di SharePoint Server 2013 un solo computer
 
-## <a name="deploy-ad-non-high-availability-deployment"></a>Distribuire Active Directory (non-elevata--distribuzione con disponibilità)
+## <a name="deploy-ad-non-high-availability-deployment"></a>Distribuire Active Directory (non-elevata--distribuzione a disponibilità)
 
-Utilizzare l'estensione DSC PowerShell per creare un server di controller di dominio Active Directory che include le risorse seguenti:
+Usare l'estensione DSC di PowerShell per creare un server di controller di dominio Active Directory che include le risorse seguenti:
 
 * Una rete virtuale
 * Un account di archiviazione
 * Un servizio di bilanciamento del carico esterno
 * Una macchina virtuale (VM) configurata come controller di dominio per una nuova foresta con un singolo dominio
 
-## <a name="deploy-adsql-non-high-availability-deployment"></a>Distribuire Active Directory/SQL (non-elevata--distribuzione con disponibilità)
+## <a name="deploy-adsql-non-high-availability-deployment"></a>Distribuire AD/SQL (non-elevata--distribuzione a disponibilità)
 
-Utilizzare l'estensione DSC PowerShell per creare un server autonomo di SQL Server 2014 che include le risorse seguenti:
+Usare l'estensione DSC di PowerShell per creare un server autonomo di SQL Server 2014 che include le risorse seguenti:
 
 * Una rete virtuale
 * Due account di archiviazione
@@ -72,11 +72,11 @@ Creare una macchina virtuale da un'immagine dell'utente personalizzata. Questo m
 
 ## <a name="basic-virtual-machine"></a>Macchina virtuale di base
 
-Distribuire una macchina virtuale di Windows che include un'interfaccia di rete, indirizzo IP pubblico e una rete virtuale (con DNS).
+Distribuire una VM Windows che include una rete virtuale (con DNS), indirizzo IP pubblico e un'interfaccia di rete.
 
 ## <a name="cancel-a-running-template-deployment"></a>Annullare la distribuzione di un modello in esecuzione
 
-Per annullare una distribuzione modello in esecuzione, utilizzare il `Stop-AzureRmResourceGroupDeployment` cmdlet di PowerShell.
+Per annullare una distribuzione modello in esecuzione, usare il `Stop-AzureRmResourceGroupDeployment` cmdlet di PowerShell.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

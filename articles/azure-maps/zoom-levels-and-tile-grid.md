@@ -1,24 +1,24 @@
 ---
 title: Livelli di zoom e griglia riquadri in Mappe di Azure | Microsoft Docs
 description: Informazioni su livelli di zoom e griglia riquadri in Mappe di Azure
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 55441cda7a6fc65ac8103d19510823a7c84a9cbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c6d38dbb7ee292172fe081c2b77a49db61856d5c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599926"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140108"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Livelli di zoom e griglia riquadri
 Mappe di Azure usa il sistema di coordinate sferiche per le proiezioni di Mercatore (EPSG: 3857).
 
-Il mondo è suddiviso in riquadri quadrati. Il rendering (raster) ha 19 livelli di zoom numerati da 0 a 18. Il rendering (vettoriale) ha 21 livelli di zoom numerati da 0 a 20. Al livello di zoom 0 il mondo è incluso in un unico riquadro:
+Il mondo è suddiviso in riquadri quadrati. Il rendering (Raster) ha 21 livelli di zoom, numerati da 0 a 20. Il rendering (Vettore) ha 23 livelli di zoom, numerati da 0 a 22. Al livello di zoom 0 il mondo è incluso in un unico riquadro:
 
 ![Riquadro contenente il mondo](./media/zoom-levels-and-tile-grid/world0.png)
 
@@ -29,7 +29,7 @@ Per il rendering del mondo il livello di zoom 1 usa quattro riquadri, ovvero un 
 ![Riquadro del mondo inferiore sinistro](./media/zoom-levels-and-tile-grid/world1b.png)     ![Riquadro del mondo inferiore destro](./media/zoom-levels-and-tile-grid/world1d.png) 
 
 
-Ogni livello di zoom successivo suddivide in quattro i riquadri di quello precedente in modo da creare una griglia con di 2<sup>zoom</sup> x 2<sup>zoom</sup>. Il livello di zoom 20 è una griglia di 2<sup>20</sup> x 2<sup>20</sup> ovvero 1.048.576 x 1.048.576 riquadri (per un totale di 109.951.162.778 riquadri).
+Ogni livello di zoom successivo suddivide in quattro i riquadri di quello precedente in modo da creare una griglia con di 2<sup>zoom</sup> x 2<sup>zoom</sup>. Il livello di zoom 22 è una griglia di 2<sup>22</sup> x 2<sup>22</sup> ovvero 4.194.304 x 4.194.304 riquadri (per un totale di 17.592.186.044.416 riquadri).
 
 La tabella seguente fornisce i valori dell'elenco completo per i livelli di zoom:
 
@@ -56,6 +56,8 @@ La tabella seguente fornisce i valori dell'elenco completo per i livelli di zoom
 |18|0,6|152,8|
 |19|0,3|76,4|
 |20|0,15|38,2|
+|21|0,075|19,1|
+|22|0,0375|9,55|
 
 I riquadri vengono chiamati dal livello di zoom e dalle coordinate x e y corrispondenti alla posizione del riquadro sulla griglia per il livello di zoom specifico.
 

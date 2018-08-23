@@ -1,9 +1,9 @@
 ---
-title: Gestire l'insieme di credenziali chiave nello Stack di Azure tramite il portale | Documenti Microsoft
-description: Informazioni su come gestire l'insieme di credenziali chiave nello Stack di Azure tramite il portale
+title: Gestire Key Vault in Azure Stack tramite il portale | Microsoft Docs
+description: Informazioni su come gestire Key Vault in Azure Stack tramite il portale
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
@@ -13,90 +13,90 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: mabrigg
-ms.openlocfilehash: e387e365b2de3412c23c995939f75400a03eeb80
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: sethm
+ms.openlocfilehash: 91035f84d02810d838127ecf6a2f6424ef5df6cf
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070465"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139519"
 ---
-# <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gestire l'insieme di credenziali chiave nello Stack di Azure tramite il portale
+# <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gestire Key Vault in Azure Stack tramite il portale
 
-È possibile gestire l'insieme di credenziali chiave nello Stack di Azure tramite il portale di Azure Stack. In questo articolo consente di iniziare a creare e gestire un insieme di credenziali chiave nello Stack di Azure.
+È possibile gestire Key Vault in Azure Stack tramite il portale di Azure Stack. Questo articolo consente di iniziare a creare e gestire un insieme di credenziali delle chiavi in Azure Stack.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario sottoscrivere un'offerta che include il servizio insieme credenziali chiavi Azure.
+È necessario sottoscrivere un'offerta che include il servizio Azure Key Vault.
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-1. Accedi al [portale per gli utenti](https://portal.local.azurestack.external).
+1. Accedi per il [portale per gli utenti](https://portal.local.azurestack.external).
 
-2. Dal dashboard, selezionare **New** > **sicurezza + identità** > **insieme di credenziali chiave**.
+2. Dal dashboard, selezionare **New** > **sicurezza e identità** > **Key Vault**.
 
-    ![Schermata di insieme di credenziali chiave](media/azure-stack-kv-manage-portal/image1.png)
+    ![Schermata di Key Vault](media/azure-stack-kv-manage-portal/image1.png)
 
-3. Nel **Crea insieme di credenziali chiave** riquadro, assegnare un **nome** per l'insieme di credenziali. I nomi di archivio possono contenere solo caratteri alfanumerici e caratteri speciali trattino (-). Essi non devono iniziare con un numero.
+3. Nel **creazione Key Vault** riquadro, assegnare un **nome** dell'insieme di credenziali. I nomi dell'insieme di credenziali possono contenere solo caratteri alfanumerici e caratteri speciali trattini (-). Essi non devono iniziare con un numero.
 
-4. Scegliere un **sottoscrizione** dall'elenco delle sottoscrizioni disponibili. Tutte le sottoscrizioni che offrono il servizio insieme di credenziali chiave vengono visualizzate nell'elenco a discesa.
+4. Scegliere una **sottoscrizione** dall'elenco delle sottoscrizioni disponibili. Nell'elenco a discesa vengono visualizzate tutte le sottoscrizioni che offrono il servizio Key Vault.
 
 5. Selezionare un oggetto esistente **gruppo di risorse** o crearne uno nuovo.
 
 6. Selezionare il **tariffario**.
     >[!NOTE]
-    > Chiave di insiemi di credenziali per il supporto di Azure Stack Development Kit **Standard** solo SKU.
+    > Chiave di insiemi di credenziali di supporto di Azure Stack Development Kit **Standard** solo gli SKU.
 
 7. Scegliere una delle esistente **criteri di accesso** o crearne uno nuovo. Un criterio di accesso consente di concedere le autorizzazioni per un utente, applicazione o un gruppo di sicurezza eseguire operazioni con questo insieme di credenziali.
 
-8. Facoltativamente, scegliere un' **criteri di accesso avanzato** per abilitare l'accesso alle funzionalità. Ad esempio: macchine virtuali (VM) per la distribuzione, Gestione risorse per la distribuzione dei modelli e l'accesso a Azure crittografia del disco per la crittografia del volume.
+8. Facoltativamente, scegliere un' **criteri di accesso avanzati** per abilitare l'accesso alle funzionalità. Ad esempio: macchine virtuali (VM) per la distribuzione, Resource Manager per la distribuzione del modello e l'accesso a crittografia dischi di Azure per la crittografia del volume.
 
-9. Dopo aver configurato le impostazioni, selezionare **OK**, quindi selezionare **crea**. Verrà avviata la distribuzione della chiave dell'insieme di credenziali.
+9. Dopo aver configurato le impostazioni, selezionare **OK**, quindi selezionare **crea**. Verrà avviata la distribuzione di insieme di credenziali delle chiavi.
 
-## <a name="manage-keys-and-secrets"></a>Gestire le chiavi e segreti
+## <a name="manage-keys-and-secrets"></a>Gestire chiavi e segreti
 
-Dopo aver creato un insieme di credenziali, utilizzare la procedura seguente per creare e gestire le chiavi e segreti nell'insieme di credenziali.
+Dopo aver creato un insieme di credenziali, usare la procedura seguente per creare e gestire chiavi e segreti nell'insieme di credenziali.
 
 ### <a name="create-a-key"></a>Creare una chiave
 
-1. Accedi al [portale per gli utenti](https://portal.local.azurestack.external).
+1. Accedi per il [portale per gli utenti](https://portal.local.azurestack.external).
 
-2. Dal dashboard, selezionare **tutte le risorse**, selezionare l'insieme di credenziali chiave creato in precedenza e quindi selezionare il **chiavi** riquadro.
+2. Dal dashboard, selezionare **tutte le risorse**, selezionare l'insieme di credenziali delle chiavi creato in precedenza e quindi selezionare la **chiavi** riquadro.
 
-3. Nel **chiavi** riquadro, selezionare **Aggiungi**.
+3. Nel **tasti** riquadro, selezionare **Add**.
 
-4. Nel **creare una chiave** riquadro, dall'elenco di **opzioni**, scegliere il metodo che si desidera utilizzare per creare una chiave. È possibile **genera** una nuova chiave, **caricare** esistente della chiave, o utilizzare **ripristinare Backup** per selezionare un backup di una chiave.
+4. Nel **creare una chiave** riquadro, dall'elenco dei **opzioni**, scegliere il metodo che si desidera utilizzare per creare una chiave. È possibile **genera** una nuova chiave **caricare** esistente della chiave oppure usare **Restore Backup** per selezionare un backup di una chiave.
 
-5. Immettere un **nome** per la chiave. Il nome della chiave può contenere solo caratteri alfanumerici e il trattino (-) di un carattere speciale.
+5. Immettere un **nome** relative alla chiave. Il nome della chiave può contenere solo caratteri alfanumerici e trattini (-) carattere speciale.
 
-6. Facoltativamente, configurare il **impostare la data di attivazione** e **impostare la data di scadenza** i valori della chiave.
+6. Facoltativamente, configurare il **impostare la data di attivazione** e **impostare la data di scadenza** i valori per la chiave.
 
-7. Selezionare **crea** per avviare la distribuzione.
+7. Selezionare **Create** per avviare la distribuzione.
 
-Dopo la chiave viene creata correttamente, è possibile selezionare in **chiavi** e consente di visualizzare o modificare le relative proprietà. La sezione di proprietà contiene il **identificatore chiave**, ovvero un Uniform Resource (Identifier) che le applicazioni esterne utilizzano per accedere a questa chiave. Per limitare le operazioni su questa chiave, configurare le impostazioni in **operazioni consentite**.
+Dopo che la chiave viene creata correttamente, è possibile selezionarlo in **chiavi** e visualizzare o modificare le relative proprietà. La sezione properties contiene il **identificatore di chiave**, ovvero un URI Uniform Resource Identifier () usata dalle applicazioni esterne per accedere a questa chiave. Per limitare le operazioni su questa chiave, configurare le impostazioni in **operazioni consentite**.
 
 ![Chiave URI](media/azure-stack-kv-manage-portal/image4.png)
 
 ### <a name="create-a-secret"></a>Creare un segreto
 
-1. Accedi al [portale per gli utenti](https://portal.local.azurestack.external).
-2. Dal dashboard, selezionare **tutte le risorse**, selezionare l'insieme di credenziali chiave creato in precedenza e quindi selezionare il **segreti** riquadro.
+1. Accedi per il [portale per gli utenti](https://portal.local.azurestack.external).
+2. Dal dashboard, selezionare **tutte le risorse**, selezionare l'insieme di credenziali delle chiavi creato in precedenza e quindi selezionare la **segreti** riquadro.
 
-3. In **segreti**selezionare **Aggiungi**.
+3. Sotto **segreti**, selezionare **Add**.
 
-4. In **creare un segreto**, dall'elenco di **opzioni di caricamento**, scegliere un'opzione mediante il quale si desidera creare una chiave privata. È possibile creare un segreto **manualmente** se si immette un valore per la chiave privata o caricare un **certificato** dal computer locale.
+4. Sotto **creare un segreto**, nell'elenco dei **opzioni di caricamento**, scegliere un'opzione in base al quale si desidera creare un segreto. È possibile creare una chiave privata **manualmente** se si immette un valore per la chiave privata o caricare un **certificato** dal computer locale.
 
-5. Immettere un **nome** per la chiave privata. Il nome del segreto può contenere solo caratteri alfanumerici e il trattino (-) di un carattere speciale.
+5. Immettere un **nome** per la chiave privata. Il nome del segreto può contenere solo caratteri alfanumerici e trattini (-) carattere speciale.
 
-6. Facoltativamente, specificare il **tipo di contenuto**e configurare i valori per **impostare la data di attivazione** e **impostare la data di scadenza** per la chiave privata.
+6. Facoltativamente, specificare il **tipo di contenuto**, configurare i valori per **impostare la data di attivazione** e **impostare la data di scadenza** per la chiave privata.
 
-7. Selezionare **crea** per avviare la distribuzione.
+7. Selezionare **Create** per avviare la distribuzione.
 
-Dopo il segreto viene creato correttamente, è possibile selezionare in **segreti** e consente di visualizzare o modificare le relative proprietà. Il **identificatore di segreto** è un URI che le applicazioni esterne è possono utilizzare per il segreto di accesso.
+Dopo aver creata la chiave privata, è possibile selezionarlo in **segreti** e visualizzare o modificare le relative proprietà. Il **identificatore di segreto** è un URI che le applicazioni esterne è possono usare per accedere a questo segreto.
 
 ![Segreto URI](media/azure-stack-kv-manage-portal/image5.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Distribuire una macchina virtuale per il recupero della password archiviata nell'insieme di credenziali chiave](azure-stack-kv-deploy-vm-with-secret.md)
-* [Distribuire una macchina virtuale con certificato archiviato nell'insieme di credenziali chiave](azure-stack-kv-push-secret-into-vm.md)
+* [Distribuire una macchina virtuale per il recupero della password archiviata in Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
+* [Distribuire una macchina virtuale con certificato archiviato in Key Vault](azure-stack-kv-push-secret-into-vm.md)

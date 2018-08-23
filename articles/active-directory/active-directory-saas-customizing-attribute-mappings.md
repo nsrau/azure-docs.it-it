@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365193"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146486"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 Microsoft Azure AD fornisce supporto per il provisioning degli utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, Google Apps e altre. Se il provisioning degli utenti è abilitato per un'applicazione SaaS di terze parti, il portale di Azure ne controlla i valori degli attributi tramite il mapping degli attributi.
@@ -121,7 +121,7 @@ Quando si modifica l'elenco degli attributi supportati, vengono fornite le propr
 * **Multivalore?**: specifica se l'attributo supporta o meno più valori.
 * **Maiuscole/minuscole esatte?**: specifica se i valori degli attributi vengono o meno valutati facendo distinzione tra maiuscole e minuscole.
 * **API Expression** (Espressione API): non usare questa opzione a meno che non sia specificato nella documentazione per un determinato connettore di provisioning, ad esempio Workday.
-* **Attributo oggetto di riferimento**: se l'attributo è di tipo Riferimento, in questo menu è possibile selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati tramite il portale di Azure, ma possono essere modificati usando l'[API Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Attributo oggetto di riferimento**: se l'attributo è di tipo Riferimento, in questo menu è possibile selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati tramite il portale di Azure, ma possono essere modificati usando l'[API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Per aggiungere un nuovo attributo, scorrere fino alla fine dell'elenco degli attributi supportati, completare i campi sopra con gli input indicati e quindi selezionare **Aggiungi attributo**. Selezionare **Salva** dopo aver aggiunto gli attributi. Sarà quindi necessario ricaricare la scheda **Provisioning** perché i nuovi attributi diventino disponibili nell'editor dei mapping degli attributi.
 

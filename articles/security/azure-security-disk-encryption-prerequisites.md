@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 19fe03a6d06b0f058a90e8bdc40d862601db4f7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5421858fd7f31f18c2e6a1e3693b67b3c47a6945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399899"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42145588"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prerequisiti di Crittografia dischi di Azure 
  Questo articolo illustra i prerequisiti per l'uso di Crittografia dischi di Azure. Oltre ai prerequisiti generali, Crittografia dischi di Azure è integrato con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) e usa un'applicazione Azure AD per fornire l'autenticazione al fine di gestire le chiavi di crittografia nell'insieme di credenziali delle chiavi. Può anche essere utile usare [Azure PowerShell](/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](/cli/azure/) per impostare o configurare Key Vault e l'applicazione Azure AD.
@@ -109,7 +109,7 @@ Un esempio dei comandi che è possibile usare per montare i dischi dati e creare
 
 ## <a name="bkmk_CLI"></a> Interfaccia della riga di comando di Azure
 
-L'[interfaccia della riga di comando di Azure 2.0](/cli/azure) è uno strumento da riga di comando per la gestione delle risorse di Azure. L'interfaccia della riga di comando è progettata per eseguire query sui dati in modo flessibile, supportare operazioni a esecuzione prolungata come processi non bloccanti e semplificare la creazione di script. È possibile usarlo nel browser con [Azure Cloud Shell](/cloud-shell/overview.md) oppure installarlo nel computer locale e usarlo in una sessione di PowerShell.
+L'[interfaccia della riga di comando di Azure 2.0](/cli/azure) è uno strumento da riga di comando per la gestione delle risorse di Azure. L'interfaccia della riga di comando è progettata per eseguire query sui dati in modo flessibile, supportare operazioni a esecuzione prolungata come processi non bloccanti e semplificare la creazione di script. È possibile usarlo nel browser con [Azure Cloud Shell](../cloud-shell/overview.md) oppure installarlo nel computer locale e usarlo in una sessione di PowerShell.
 
 1. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) per l'uso nel computer locale (facoltativo):
 
@@ -174,7 +174,7 @@ La soluzione Crittografia dischi di Azure è integrata con [Azure Key Vault](htt
 È possibile gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando di Azure usando i comandi [az keyvault](/cli/azure/keyvault#commands). Per creare un insieme di credenziali delle chiavi, usare [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
 
 1. Se necessario, [connettersi alla sottoscrizione di Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
-2. Se necessario, creare un nuovo gruppo di risorse usando [az group create](/cli/azure/groupt#az-group-create). Per un elenco delle posizioni, usare [az account list-locations](/cli/azure/account#az-account-list) 
+2. Se necessario, creare un nuovo gruppo di risorse usando [az group create](/cli/azure/group#az-group-create). Per un elenco delle posizioni, usare [az account list-locations](/cli/azure/account#az-account-list) 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
@@ -260,7 +260,7 @@ L'applicazione Azure AD deve avere i diritti di accesso alle chiavi o ai segreti
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Configurare i criteri di accesso dell'insieme di credenziali delle chiavi per l'app Azure AD con l'interfaccia della riga di comando di Azure
-Usare [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) per impostare i criteri di accesso. Per altre informazioni, vedere [Gestire Key Vault tramite l'interfaccia della riga di comando 2.0](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
+Usare [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) per impostare i criteri di accesso. Per altre informazioni, vedere [Gestire Key Vault tramite l'interfaccia della riga di comando 2.0](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
 
 1. Se necessario, [connettersi alla sottoscrizione di Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Assegnare all'entità servizio creata tramite l'interfaccia della riga di comando di Azure l'accesso per ottenere i segreti ed eseguire il wrapping delle chiavi con il comando seguente:
