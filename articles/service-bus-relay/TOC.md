@@ -5,14 +5,12 @@
 ## [DOMANDE FREQUENTI](relay-faq.md)
 
 # Guide introduttive
-## [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 ## [Creare un'applicazione ibrida cloud/locale](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## connessioni ibride
 ### [.NET WebSocket](relay-hybrid-connections-dotnet-get-started.md)
 ### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 ### [Node WebSocket](relay-hybrid-connections-node-get-started.md)
 ### [Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
-## [Inoltro WCF](relay-wcf-dotnet-get-started.md)
 ## [Esercitazione sull'inoltro WCF](service-bus-relay-tutorial.md)
 ## [Esercitazione su REST per l'inoltro WCF](service-bus-relay-rest-tutorial.md)
 
@@ -22,13 +20,15 @@
 #### [Eseguire la migrazione da Servizio di controllo di accesso a firma di accesso condiviso](relay-migrate-acs-sas.md)
 ### [Protocollo per connessioni ibride](relay-hybrid-connections-protocol.md)
 ## Sviluppo
+### [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
+### [Usare Inoltro WCF per esporre servizi WCF a client esterni](relay-wcf-dotnet-get-started.md)
 ### [API disponibili](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
 ## Gestisci
 ### [Monitorare il servizio di inoltro di Azure con Monitoraggio di Azure](relay-metrics-azure-monitor.md)
 
-# Riferimenti
+# riferimento
 ## .NET
 ### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 ### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)

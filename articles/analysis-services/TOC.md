@@ -34,6 +34,7 @@
 ### [Configurare un alias del nome server](analysis-services-server-alias.md)
 ### [Configurare l'aumento del numero di istanze](analysis-services-scale-out.md)
 ### [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md)
+### [Usare il gateway per le origini dati in una rete virtuale di Azure](analysis-services-vnet-gateway.md)
 ### [Gestire un server](analysis-services-manage.md)
 ### [Monitorare le metriche del server](analysis-services-monitor.md)
 ### [Configurare la registrazione diagnostica](analysis-services-logging.md)
@@ -73,7 +74,7 @@
 ### [Stabilire la connessione con Power BI](analysis-services-connect-pbi.md)
 ### [Creare un file con estensione odc](analysis-services-odc.md)
 
-# Riferimenti
+# riferimento
 
 ## [PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)

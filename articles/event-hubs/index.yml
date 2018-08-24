@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: cb280602f48504069e5ac5e89a470d154cc855fc
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41929211"
 documentType: LandingData
 title: Documentazione di Hub eventi di Azure
 metadata:
@@ -12,14 +18,8 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/14/2018
   ms.author: sethm
-  ms.openlocfilehash: 84ef019b64bba2d5b581593ae293ea612ecb4bc4
-  ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39170933"
 abstract:
-  description: Hub eventi di Azure è una piattaforma di streaming di dati e un servizio di elaborazione di eventi in grado di ricevere ed elaborare milioni di eventi al secondo. Il servizio supporta i protocolli HTTPS e AMQP 1.0 e l'ecosistema Apache Kafka per la pubblicazione di eventi.
+  description: Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. <p>Per la pubblicazione di eventi in un hub eventi, il servizio supporta i protocolli HTTPS, AMQP 1.0 e Apache Kafka 1.0. Negli ecosistemi Apache Kafka supporta Apache Kafka MirrorMaker, Apache Flink e Akka Streams.</p>
   aside:
     image:
       alt: 

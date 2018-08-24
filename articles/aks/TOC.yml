@@ -1,161 +1,170 @@
+items:
 - name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sul servizio contenitore di Azure
-      href: intro-kubernetes.md
+  - name: Informazioni sul servizio contenitore di Azure
+    href: intro-kubernetes.md
 - name: Guide introduttive
-  expanded: true
   items:
-    - name: 'Creare un cluster del servizio contenitore di Azure: interfaccia della riga di comando'
-      href: kubernetes-walkthrough.md
-    - name: 'Creare un cluster del servizio contenitore di Azure: portale'
-      href: kubernetes-walkthrough-portal.md
+  - name: 'Creare un cluster del servizio contenitore di Azure: interfaccia della riga di comando'
+    href: kubernetes-walkthrough.md
+  - name: 'Creare un cluster del servizio contenitore di Azure: portale'
+    href: kubernetes-walkthrough-portal.md
+  expanded: true
 - name: Esercitazioni
   items:
-    - name: '1: Preparare l''applicazione per il servizio contenitore di Azure'
-      href: tutorial-kubernetes-prepare-app.md
-    - name: '2: Creare un registro contenitori'
-      href: tutorial-kubernetes-prepare-acr.md
-    - name: '3: Creare un cluster Kubernetes'
-      href: tutorial-kubernetes-deploy-cluster.md
-    - name: '4: Eseguire l''applicazione'
-      href: tutorial-kubernetes-deploy-application.md
-    - name: '5: Ridimensionare l''applicazione'
-      href: tutorial-kubernetes-scale.md
-    - name: '6: Aggiornare l''applicazione'
-      href: tutorial-kubernetes-app-update.md
-    - name: 7 - Aggiornare il cluster
-      href: tutorial-kubernetes-upgrade-cluster.md
+  - name: "1: Preparare l'applicazione per il servizio contenitore di Azure"
+    href: tutorial-kubernetes-prepare-app.md
+  - name: '2: Creare un registro contenitori'
+    href: tutorial-kubernetes-prepare-acr.md
+  - name: '3: Creare un cluster Kubernetes'
+    href: tutorial-kubernetes-deploy-cluster.md
+  - name: "4: Eseguire l'applicazione"
+    href: tutorial-kubernetes-deploy-application.md
+  - name: "5: Ridimensionare l'applicazione"
+    href: tutorial-kubernetes-scale.md
+  - name: "6: Aggiornare l'applicazione"
+    href: tutorial-kubernetes-app-update.md
+  - name: 7 - Aggiornare il cluster
+    href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concetti
   items:
-    - name: Quote e limiti a livello di area
-      href: container-service-quotas.md
-    - name: Eseguire la migrazione dal servizio contenitore di Azure ad AKS
-      href: acs-aks-migration.md
+  - name: Quote e limiti a livello di area
+    href: container-service-quotas.md
+  - name: Eseguire la migrazione dal servizio contenitore di Azure ad AKS
+    href: acs-aks-migration.md
 - name: Guide alle procedure
   items:
-    - name: Operazioni del cluster
-      items:
-        - name: Creare un cluster del servizio contenitore di Azure
-          href: create-cluster.md
-        - name: Ridimensionare un cluster del servizio contenitore di Azure
-          href: scale-cluster.md
-        - name: Aggiornare un cluster del servizio contenitore di Azure
-          href: upgrade-cluster.md
-        - name: Eliminare un cluster del servizio contenitore di Azure
-          href: delete-cluster.md
-        - name: AKS abilitato per Azure AD
-          href: aad-integration.md
-        - name: Usare Virtual Kubelet
-          href: virtual-kubelet.md
-        - name: Usare il ridimensionamento automatico del cluster
-          href: autoscaler.md
-        - name: Distribuire AKS con Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
-          maintainContext: true
-    - name: Configurare i volumi di dati
-      items:
-        - name: Disco di Azure - Configurazione dinamica
-          href: azure-disks-dynamic-pv.md
-        - name: Disco di Azure - Configurazione statica
-          href: azure-disk-volume.md
-        - name: File di Azure - Configurazione dinamica
-          href: azure-files-dynamic-pv.md
-        - name: File di Azure - Configurazione statica
-          href: azure-files-volume.md
-    - name: Configurare le impostazioni di rete
-      items:
-        - name: Panoramica delle reti
-          href: networking-overview.md
-        - name: Indirizzo IP statico
-          href: static-ip.md
-        - name: Servizio di bilanciamento del carico interno
-          href: internal-lb.md
-        - name: Traffico in ingresso e TLS
-          href: ingress.md
-        - name: Traffico in uscita
-          href: egress.md
-        - name: Routing di applicazioni HTTP
-          href: http-application-routing.md
-    - name: Sicurezza e autenticazione
-      items:
-        - name: Creare un'entità servizio
-          href: kubernetes-service-principal.md
-        - name: Eseguire l'autenticazione con Registro contenitori di Azure
-          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Monitoraggio e registrazione
-      items:
-        - name: Soluzione per l'integrità dei contenitori di Azure
-          href: ../monitoring/monitoring-container-health.md
-          maintainContext: true
-        - name: Visualizzare i log dei componenti master
-          href: view-master-logs.md
-        - name: Visualizzare i log di kubelet
-          href: kubelet-logs.md
-    - name: Sviluppare ed eseguire applicazioni
-      items:
-        - name: Eseguire applicazioni con Helm
-          href: kubernetes-helm.md
-        - name: Sviluppare con Dev Spaces
-          href: ../dev-spaces/azure-dev-spaces.md
-          maintainContext: true
-        - name: Sviluppare applicazioni con Draft
-          href: kubernetes-draft.md
-        - name: Open Service Broker for Azure
-          href: integrate-azure.md
-        - name: Uso di OpenFaaS con il servizio contenitore di Azure
-          href: openfaas.md
-        - name: Eseguire processi Spark nel servizio contenitore di Azure
-          href: spark-job.md
-        - name: Uso di GPU nel servizio contenitore di Azure
-          href: gpu-cluster.md
-    - name: DevOps in AKS
-      items:
-        - name: Distribuzione continua di Jenkins
-          href: jenkins-continuous-deployment.md
-        - name: Progetto DevOps di Azure per AKS
-          href: ../devops-project/azure-devops-project-aks.md
-          maintainContext: true
-    - name: Nozioni di base di Kubernetes
-      items:
-        - name: Usare il dashboard Kubernetes
-          href: kubernetes-dashboard.md
-    - name: Risolvere problemi
-      items:
-        - name: Accesso SSH ai nodi
-          href: aks-ssh.md
+  - name: Operazioni del cluster
+    items:
+    - name: Creare un cluster del servizio contenitore di Azure
+      href: create-cluster.md
+    - name: Ridimensionare un cluster del servizio contenitore di Azure
+      href: scale-cluster.md
+    - name: Aggiornare un cluster del servizio contenitore di Azure
+      href: upgrade-cluster.md
+    - name: Eliminare un cluster del servizio contenitore di Azure
+      href: delete-cluster.md
+    - name: AKS abilitato per Azure AD
+      href: aad-integration.md
+    - name: Usare Virtual Kubelet
+      href: virtual-kubelet.md
+    - name: Usare il ridimensionamento automatico del cluster
+      href: autoscaler.md
+    - name: Distribuire AKS con Terraform
+      href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+      maintainContext: true
+  - name: Configurare i volumi di dati
+    items:
+    - name: Disco di Azure - Configurazione dinamica
+      href: azure-disks-dynamic-pv.md
+    - name: Disco di Azure - Configurazione statica
+      href: azure-disk-volume.md
+    - name: File di Azure - Configurazione dinamica
+      href: azure-files-dynamic-pv.md
+    - name: File di Azure - Configurazione statica
+      href: azure-files-volume.md
+  - name: Configurare le impostazioni di rete
+    items:
+    - name: Panoramica delle reti
+      href: networking-overview.md
+    - name: Indirizzo IP statico
+      href: static-ip.md
+    - name: Servizio di bilanciamento del carico interno
+      href: internal-lb.md
+    - name: Traffico in ingresso e TLS
+      href: ingress.md
+    - name: Traffico in uscita
+      href: egress.md
+    - name: Routing di applicazioni HTTP
+      href: http-application-routing.md
+  - name: Sicurezza e autenticazione
+    items:
+    - name: Creare un'entità servizio
+      href: kubernetes-service-principal.md
+    - name: Eseguire l'autenticazione con Registro contenitori di Azure
+      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+  - name: Monitoraggio e registrazione
+    items:
+    - name: Soluzione per l'integrità dei contenitori di Azure
+      href: ../monitoring/monitoring-container-health.md
+      maintainContext: true
+    - name: Visualizzare i log dei componenti master
+      href: view-master-logs.md
+    - name: Visualizzare i log di kubelet
+      href: kubelet-logs.md
+  - name: Sviluppare ed eseguire applicazioni
+    items:
+    - name: Eseguire applicazioni con Helm
+      href: kubernetes-helm.md
+    - name: Sviluppare con Dev Spaces
+      href: ../dev-spaces/azure-dev-spaces.md
+      maintainContext: true
+    - name: Sviluppare applicazioni con Draft
+      href: kubernetes-draft.md
+    - name: Open Service Broker for Azure
+      href: integrate-azure.md
+    - name: Uso di OpenFaaS
+      href: openfaas.md
+    - name: Eseguire processi Spark
+      href: spark-job.md
+    - name: Uso di GPU
+      href: gpu-cluster.md
+  - name: DevOps
+    items:
+    - name: Distribuzione continua di Jenkins
+      href: jenkins-continuous-deployment.md
+    - name: Progetto DevOps di Azure
+      href: ../devops-project/azure-devops-project-aks.md
+      maintainContext: true
+  - name: Nozioni di base di Kubernetes
+    items:
+    - name: Usare il dashboard Kubernetes
+      href: kubernetes-dashboard.md
+  - name: Risolvere problemi
+    items:
+    - name: Problemi comuni
+      href: troubleshooting.md
+    - name: Accesso SSH ai nodi
+      href: ssh.md
 - name: riferimento
   items:
-    - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/aks
-    - name: REST
-      href: /rest/api/aks
-    - name: PowerShell
-      href: '/powershell/module/azurerm.aks#aks'
-    - name: .NET
-      href: /dotnet/api/overview/azure/containerservice
-    - name: Python
-      href: /python/api/overview/azure/containerservice
-    - name: Java
-      href: /java/api/overview/azure/containerservice
-    - name: Node.js
-      href: /javascript/api/overview/azure/container-service
-    - name: Modello di Resource Manager
-      href: /azure/templates/microsoft.containerservice/managedclusters
+  - name: Interfaccia della riga di comando di Azure
+    href: /cli/azure/aks
+  - name: REST
+    href: /rest/api/aks
+  - name: PowerShell
+    href: /powershell/module/azurerm.aks#aks
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerservice
+  - name: Python
+    href: /python/api/overview/azure/containerservice
+  - name: Java
+    href: /java/api/overview/azure/containerservice
+  - name: Node.js
+    href: /javascript/api/overview/azure/container-service
+  - name: Modello di Resource Manager
+    href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Risorse
   items:
-    - name: Aree di disponibilità
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
-    - name: Guida di orientamento
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Inviare commenti e suggerimenti per il prodotto
-      href: 'https://github.com/Azure/AKS/issues'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: Video
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
-    - name: Domande frequenti
-      href: faq.md
+  - name: Aree di disponibilità
+    href: https://azure.microsoft.com/regions/services/
+  - name: Prezzi
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Guida di orientamento
+    href: https://azure.microsoft.com/roadmap/
+  - name: Inviare commenti e suggerimenti per il prodotto
+    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-service
+  - name: Video
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
+  - name: Domande frequenti
+    href: faq.md
+ms.openlocfilehash: be17978b91f1664ea4917f7d9fcb0da5657d4832
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41944103"

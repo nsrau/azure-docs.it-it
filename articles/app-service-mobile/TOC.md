@@ -74,9 +74,9 @@
 #### [Controllo delle versioni client e server](app-service-mobile-client-and-server-versioning.md)
 
 ### Ambiente del servizio app
-#### [Creare un'App Web in un ambiente del servizio app](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Uso di un servizio di bilanciamento del carico interno](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Creare un'app Web in un ambiente del servizio app](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Creare e usare un servizio di bilanciamento del carico interno](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Creare un ambiente del servizio app usando un modello](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Distribuire
 ### [Distribuzione della sincronizzazione cloud](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -155,7 +155,7 @@
 ### [Abilitare la registrazione diagnostica](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Risolvere i problemi con Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Riferimenti
+# riferimento
 ## [.NET backend SDK](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 ## [Node.js backend SDK](https://azure.github.io/azure-mobile-apps-node/)
 ## [Android client SDK](https://azure.github.io/azure-mobile-apps-android-client/)

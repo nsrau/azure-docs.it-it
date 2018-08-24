@@ -1,95 +1,112 @@
+items:
 - name: Documentazione di Ricerca immagini Bing
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni su Ricerca immagini Bing
-      href: overview.md
-- name: Guide introduttive per l'API REST
-  expanded: true
+  - name: Informazioni su Ricerca immagini Bing
+    href: overview.md
+- name: Guide introduttive
   items:
-    - name: 'C#'
+  - name: Inviare query di ricerca con l'API REST
+    items:
+    - name: Uso di C#
       href: quickstarts/csharp.md
-    - name: Java
+    - name: Uso di Java
       href: quickstarts/java.md
-    - name: Node.js
+    - name: Uso di Node.js
       href: quickstarts/nodejs.md
-    - name: PHP
+    - name: Uso di PHP
       href: quickstarts/php.md
-    - name: Python
+    - name: Uso di Python
       href: quickstarts/python.md
-    - name: Ruby
+    - name: Uso di Ruby
       href: quickstarts/ruby.md
-- name: Guide introduttive per SDK
-  items:
-    - name: Panoramica degli esempi di SDK
-      href: sdk.md
-    - name: 'Guida introduttiva per Image search SDK in C#'
+    expanded: true
+  - name: Richiedere e filtrare immagini con l'SDK
+    items:
+    - name: Uso di C#
       href: image-search-sdk-quickstart.md
-    - name: Guida introduttiva per Image search SDK in Node.js
+    - name: Uso di Node.js
       href: image-search-sdk-node-quickstart.md
-    - name: Guida introduttiva per Image search SDK in Python
+    - name: Uso di Python
       href: image-sdk-python-quickstart.md
-    - name: Guida introduttiva per Image search SDK in Java
+    - name: Uso di Java
       href: image-sdk-java-quickstart.md
 - name: Esercitazioni
   items:
-    - name: App Web a singola pagina
-      href: tutorial-bing-image-search-single-page-app.md
-    - name: App Web a singola pagina (codice sorgente)
-      href: tutorial-bing-image-search-single-page-app-source.md
-    - name: Caricamento di immagini Bing per ottenere informazioni dettagliate
-      href: tutorial-image-post.md
-    - name: Caricamento di immagini Bing per ottenere informazioni dettagliate (codice sorgente)
-      href: tutorial-image-post-source.md
+  - name: App Web a singola pagina
+    href: tutorial-bing-image-search-single-page-app.md
+  - name: App Web a singola pagina (codice sorgente)
+    href: tutorial-bing-image-search-single-page-app-source.md
+  - name: Caricamento di immagini Bing per ottenere informazioni dettagliate
+    href: tutorial-image-post.md
+  - name: Caricamento di immagini Bing per ottenere informazioni dettagliate (codice sorgente)
+    href: tutorial-image-post-source.md
 - name: Esempi
   items:
-    - name: Esempi di codice
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
+  - name: Esempi di codice
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search
 - name: Guide alle procedure
   items:
-    - name: Ottenere informazioni dettagliate sulle immagini
-      href: image-insights.md
-    - name: Ottenere immagini con estensione gif
-      href: gif-images.md
-    - name: Ottenere immagini di tendenza
-      href: trending-images.md
-    - name: Sfogliare le immagini
-      href: paging-images.md
-    - name: Ridimensionare e ritagliare le anteprime
-      href: resize-and-crop-thumbnails.md
-    - name: Aggiornamento da v5 a v7
-      href: bing-image-upgrade-guide-v5-to-v7.md
+  - name: Ottenere informazioni dettagliate sulle immagini
+    href: image-insights.md
+  - name: Ottenere immagini con estensione gif
+    href: gif-images.md
+  - name: Ottenere immagini di tendenza
+    href: trending-images.md
+  - name: Sfogliare le immagini
+    href: paging-images.md
+  - name: Ridimensionare e ritagliare le anteprime
+    href: resize-and-crop-thumbnails.md
+  - name: Aggiornamento da v5 a v7
+    href: bing-image-upgrade-guide-v5-to-v7.md
+- name: Concetti
+  items:
+  - name: Recupero di immagini dal Web
+    href: concepts/bing-image-search-get-images.md
+  - name: Invio e uso di query di ricerca
+    href: concepts/bing-image-search-sending-queries.md
 - name: riferimento
   items:
-    - name: API Ricerca immagini Bing v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
-    - name: API Ricerca immagini Bing v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+  - name: API Ricerca immagini Bing v7
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
+  - name: API Ricerca immagini Bing v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
+  - name: Informazioni di riferimento su PowerShell per Servizi cognitivi di Azure
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Informazioni di riferimento sull'interfaccia della riga di comando per Servizi cognitivi di Azure
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
 - name: Risorse
   items:
-    - name: Domande frequenti
-      href: bing-image-search-resource-faq.md
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/bing-search'
-    - name: Disponibilità internazionale
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Knowledge Base
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
-    - name: Ottenere una chiave API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api'
-    - name: Prova
-      href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
-    - name: Endpoint di Ricerca immagini Bing
-      href: image-search-endpoint.md
-    - name: Paesi e mercati supportati
-      href: supported-countries-markets.md
-    - name: Requisiti per l'uso e la visualizzazione
-      href: UseAndDisplayRequirements.md
-    - name: Analisi per l'API Ricerca immagini Bing
-      href: bing-image-stats.md
+  - name: Domande frequenti
+    href: bing-image-search-resource-faq.md
+  - name: Prezzi
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/555907-bing-search
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/bing-search
+  - name: Disponibilità internazionale
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Ottenere una chiave API
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
+  - name: Prova
+    href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
+  - name: Endpoint di Ricerca immagini Bing
+    href: image-search-endpoint.md
+  - name: Paesi e mercati supportati
+    href: supported-countries-markets.md
+  - name: Requisiti per l'uso e la visualizzazione
+    href: UseAndDisplayRequirements.md
+  - name: Analisi per l'API Ricerca immagini Bing
+    href: bing-image-stats.md
+ms.openlocfilehash: 02b54baef02d40373bb574d12575e2df739f1703
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42440199"

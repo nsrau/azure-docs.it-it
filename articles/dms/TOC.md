@@ -9,7 +9,8 @@
 ## [Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure](tutorial-sql-server-to-managed-instance.md)
 
 # Guide alle procedure
-## [Usare PowerShell per eseguire la migrazione di SQL Server](howto-sql-server-to-azure-sql-powershell.md)
+## [Usare PowerShell per eseguire la migrazione di SQL Server al database SQL di Azure](howto-sql-server-to-azure-sql-powershell.md)
+## [Usare PowerShell per eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure](howto-sql-server-to-azure-sql-mi-powershell.md)
 
 # Risorse
 ## [Commenti e suggerimenti di UserVoice](https://feedback.azure.com/forums/906100-azure-database-migration-service)

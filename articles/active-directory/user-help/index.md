@@ -10,12 +10,12 @@ ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 00232a24310b13658fbfa04d2d410e7039c42bfe
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358401"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929389"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Guida dell'utente per l'autenticazione, le app e la gestione dei dispositivi
 
@@ -87,7 +87,6 @@ Questo contenuto è utile per configurare e usare le informazioni di sicurezza e
                         <h3>Guida all'app Microsoft Authenticator</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Introduzione</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">Domande frequenti sull'accesso tramite telefono</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Backup e ripristino delle credenziali dell'account</a>
                         </p>
                     </div>
@@ -117,8 +116,8 @@ Questo contenuto è utile per configurare e usare le informazioni di sicurezza e
                     <div class="cardText">
                         <h3>Guida alla gestione dei dispositivi</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Aggiungere i dispositivi</a><br/>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Registrare i dispositivi Windows 10</a>
+                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">Aggiungere un dispositivo aziendale</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">Registrare un dispositivo personale per l'uso aziendale</a>
                         </p>
                     </div>
                 </div>
