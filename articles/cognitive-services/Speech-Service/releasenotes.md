@@ -1,22 +1,49 @@
 ---
-title: Documentazione di Speech SDK di Servizi cognitivi
+title: Documentazione di Speech SDK di Servizi cognitivi | Microsoft Docs
 description: 'Note sulla versione: modifiche alle versioni più recenti'
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f346241e1d10d16eae08e389296f4be9149ec086
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502459"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929824"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Speech SDK 0.6.0 di Servizi cognitivi: versione di agosto 2018
+
+**Nuove funzionalità**
+
+* Le app UWP compilate con Speech SDK ora superano il Kit di certificazione app Windows (WACK).
+  Consultare la [Guida introduttiva della piattaforma UWP](quickstart-csharp-uwp.md).
+* Supporto per .NET Standard 2.0 in Linux (Ubuntu 16.04 x64).
+* Sperimentale: supporto di Java 8 in Windows (64 bit) e Linux (Ubuntu 16.04 x64).
+  Consulta [avvio rapido di Java Runtime Environment](quickstart-java-jre.md)
+
+**Modifiche funzionali**
+
+* Informazioni aggiuntive dettagliate sull'errore in caso di errori di connessione.
+
+**Modifiche di rilievo**
+
+* In Java (Android), la funzione `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` non richiede più un parametro di percorso. Il percorso viene ora rilevato automaticamente in tutte le piattaforme supportate.
+* La funzione di accesso get della proprietà `EndpointUrl` in Java e C# è stata rimossa.
+
+**Correzioni di bug**
+
+* In Java, il risultato di sintesi audio sul sistema di riconoscimento di traduzione è ora implementato.
+* Risolto un bug che potrebbe causare un maggior numero di socket aperti e inutilizzati e thread inattivi.
+* Risolto un problema in cui un riconoscimento con esecuzione prolungata terminava la trasmissione a metà.
+* Correzione di una race condition nel sistema di riconoscimento di arresto.
 
 ## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Speech SDK 0.5.0 di Servizi cognitivi: versione di luglio 2018
 

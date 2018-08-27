@@ -5,18 +5,24 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/31/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264283"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142400"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitoraggio dell'utilizzo e dei costi stimati
+
+> [!NOTE]
+> Questo articolo descrive come visualizzare l'utilizzo e costi stimati tra più funzionalità di monitoraggio di Azure per diversi modelli di determinazione prezzi.  Per le informazioni correlate, vedere gli articoli seguenti.
+> - [Gestire i costi controllando i volumi dei dati e la conservazione in Log Analytics](../log-analytics/log-analytics-manage-cost-storage.md) descrive come controllare i costi modificando il periodo di conservazione dei dati.
+> - [Analizzare l'utilizzo dei dati in Log Analytics](../log-analytics/log-analytics-usage.md) descrive l'analisi e gli avvisi per l'utilizzo dei dati in Log Analytics.
+> - [Gestire volumi di dati e di prezzi in Application Insights](../application-insights/app-insights-pricing.md) descrive come analizzare l'utilizzo dei dati in Application Insights.
 
 La pagina **Utilizzo e costi stimati** dell'hub Monitoraggio del portale di Azure descrive l'utilizzo delle funzionalità di monitoraggio di base, come [avvisi, metriche, notifiche](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Per i clienti con piani tariffari disponibili prima di aprile 2018, è incluso anche l'utilizzo di Log Analytics acquistato tramite l'offerta Insights e Analytics.
 
@@ -53,8 +59,8 @@ La nuova pagina mostra una versione simile della pagina precedente con un'intest
 
 La pagina mostra anche un set diverso di contatori, corrispondenti al nuovo modello tariffario. Questo elenco è un esempio:
 
-- Insight & Analytics\Eccedenza per nodo
-- Insight & Analytics\Inclusi per nodo
+- Informazioni dettagliate e analisi\Eccedenza per nodo
+- Informazioni dettagliate e analisi\Inclusi per nodo
 - Application Insights\Dati in eccedenza Basic
 - Application Insights\Dati inclusi
 

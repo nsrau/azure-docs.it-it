@@ -1,6 +1,6 @@
 ---
 title: Endpoint di sicurezza nel servizio Device Provisioning in hub IoT | Microsoft Docs
-description: Concetti - Come controllare l'accesso al servizio Device Provisioning in hub IoT per app back-end. Include informazioni sui token di sicurezza.
+description: Concetti - Come controllare l'accesso al servizio di provisioning di dispositivi in hub IoT per app back-end. Include informazioni sui token di sicurezza.
 author: wesmc7777
 manager: timlt
 ms.service: iot-dps
@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: b4776ef3589d994fff692e450d252c491c20f7b2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522867"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142413"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controllo dell'accesso al servizio Device Provisioning in hub IoT di Azure
 
-Questo articolo illustra le opzioni per la protezione del servizio Device Provisioning in hub IoT. Il servizio di provisioning usa le *autorizzazioni* per concedere l'accesso a ogni endpoint. Le autorizzazioni limitano l'accesso all'istanza del servizio in base alla funzionalità.
+Questo articolo illustra le opzioni per la protezione del servizio di provisioning di dispositivi in hub IoT. Il servizio di provisioning usa le *autorizzazioni* per concedere l'accesso a ogni endpoint. Le autorizzazioni limitano l'accesso all'istanza del servizio in base alla funzionalità.
 
 L'articolo illustra:
 
@@ -34,7 +34,7 @@ Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è p
 
 * **Criteri di autorizzazione dell'accesso condiviso**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#device-provisioning-service-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice usando le [API REST del servizio Device Provisioning][lnk-resource-provider-apis]. Un servizio di provisioning appena creato ha i criteri predefiniti seguenti:
 
-  * **provisioningserviceowner**: criteri con tutte le autorizzazioni.
+   **provisioningserviceowner**: criteri con tutte le autorizzazioni.
 
 > [!NOTE]
 > Per informazioni dettagliate, vedere [Autorizzazioni](#device-provisioning-service-permissions).
@@ -51,12 +51,16 @@ Per altre informazioni sulla creazione e sull'uso di token di sicurezza, vedere 
 Il protocollo HTTP è l'unico protocollo supportato e implementa l'autenticazione includendo un token valido nell'intestazione della richiesta **Authorization**.
 
 #### <a name="example"></a>Esempio
-`SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
+```csharp
+SharedAccessSignature sr = 
+   mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
+```
 
 > [!NOTE]
 > Gli [SDK del servizio Device Provisioning in hub IoT][lnk-sdks] generano automaticamente i token durante la connessione al servizio.
 
 ## <a name="security-tokens"></a>Token di sicurezza
+
 Il servizio Device Provisioning usa i token di sicurezza per autenticare i servizi ed evitare l'invio in rete delle chiavi. Inoltre, i token di sicurezza hanno una validità limitata in termini di tempo e portata. Gli [SDK del servizio Device Provisioning in hub IoT][lnk-sdks] generano automaticamente i token senza richiedere una configurazione speciale. In alcuni scenari è necessario generare e usare direttamente i token di sicurezza. Questi scenari includono l'uso diretto di superfici HTTP.
 
 ### <a name="security-token-structure"></a>Formato del token di sicurezza
@@ -131,7 +135,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Poiché la validità temporale del token viene verificata sui computer del servizio Device Provisioning in hub IoT, lo sfasamento dell'orologio del computer che genera il token deve essere minimo.
 
-
 ### <a name="use-security-tokens-from-service-components"></a>Usare token di sicurezza da componenti del servizio
 
 I componenti del servizio possono generare token di sicurezza solo usando criteri di accesso condiviso che concedono le autorizzazioni appropriate, come illustrato prima.
@@ -150,9 +153,9 @@ Ad esempio, un servizio generato con il criterio di accesso condiviso già esist
 * URI della risorsa: `{mydps}.azure-devices-provisioning.net`,
 * chiave di firma: una delle chiavi del criterio `enrollmentread` ,
 * nome criterio: `enrollmentread`,
-* Qualsiasi ora di scadenza.
+* qualsiasi ora di scadenza time.backn
 
-![Creare i criteri di accesso condiviso per l'istanza del servizio Device Provisioning nel portale][img-add-shared-access-policy]
+![Creare i criteri di accesso condiviso per l'istanza del servizio di provisioning di dispositivi nel portale][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -170,7 +173,7 @@ Il risultato, che concede l'accesso in lettura a tutti i record di registrazione
 
 Gli argomenti di riferimento seguenti offrono altre informazioni sul controllo dell'accesso al servizio Device Provisioning in hub IoT.
 
-## <a name="device-provisioning-service-permissions"></a>Autorizzazioni per il servizio Device Provisioning
+### <a name="device-provisioning-service-permissions"></a>Autorizzazioni per il servizio Device Provisioning
 
 La tabella seguente elenca le autorizzazioni che è possibile usare per controllare l'accesso al servizio Device Provisioning in hub IoT.
 

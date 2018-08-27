@@ -1,6 +1,6 @@
 ---
 title: Come rinnovare i certificati X.509 nel servizio Device Provisioning in hub IoT di Azure | Microsoft Docs
-description: Come rinnovare i certificati X.509 in un'istanza del servizio Device Provisioning
+description: Come rinnovare i certificati X.509 in un'istanza del servizio di provisioning di dispositivi
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9c73ce159ae7cf5778210e0fb587135f37c73f57
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024741"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142410"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Come rinnovare i certificati X.509 dei dispositivi
 
@@ -46,7 +46,7 @@ Se si gestiscono i certificati dei dispositivi in modo autonomo, sarà necessari
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Rinnovare il certificato nell'hub IoT
 
-Il certificato di un dispositivo può essere aggiunto manualmente a un hub IoT. Il certificato può anche essere gestito automaticamente tramite un'istanza del servizio Device Provisioning. In questo articolo si presuppone che per supportare il provisioning automatico venga usata un'istanza del servizio di provisioning.
+Il certificato di un dispositivo può essere aggiunto manualmente a un hub IoT. Il certificato può anche essere gestito automaticamente tramite un'istanza del servizio di provisioning di dispositivi. In questo articolo si presuppone che per supportare il provisioning automatico venga usata un'istanza del servizio di provisioning.
 
 Quando è inizialmente sottoposto a provisioning automatico, il dispositivo viene avviato e contatta il servizio di provisioning. Quest'ultimo risponde eseguendo un controllo di identità prima di creare un'identità del dispositivo in un hub IoT con il certificato foglia del dispositivo come credenziale. Il servizio di provisioning indica quindi al dispositivo l'hub IoT a cui è assegnato e il dispositivo usa il proprio certificato foglia per autenticarsi e connettersi all'hub IoT. 
 
@@ -92,7 +92,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Registrazioni singole** e quindi sulla voce dell'ID di registrazione nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
 
     ![Gestire le registrazioni singole usando il certificato secondario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -104,7 +104,7 @@ Per aggiornare una registrazione di gruppo in risposta a una violazione della si
 
 #### <a name="update-compromised-root-ca-certificates"></a>Aggiornare i certificati della CA radice compromessi
 
-1. Fare clic sulla scheda **Certificati** per l'istanza del servizio di provisioning.
+1. Fare clic sulla scheda **Certificati** per l'istanza del servizio di provisioning di dispositivi.
 
 2. Fare clic sul certificato compromesso nell'elenco e quindi sul pulsante **Elimina**. Confermare l'eliminazione digitando il nome del certificato e fare clic su **OK**. Ripetere questa procedura per tutti i certificati compromessi.
 
@@ -112,7 +112,7 @@ Per aggiornare una registrazione di gruppo in risposta a una violazione della si
 
 3. Seguire la procedura illustrata in [Configurare i certificati della CA verificati](how-to-verify-certificates.md) per aggiungere e verificare i nuovi certificati della CA radice.
 
-4. Fare clic sulla scheda **Gestisci registrazioni** per l'istanza del servizio di provisioning e quindi sull'elenco **Gruppi di registrazioni**. Fare clic sul nome del gruppo di registrazioni nell'elenco.
+4. Fare clic sulla scheda **Gestisci registrazioni** per l'istanza del servizio di provisioning di dispositivi e quindi sull'elenco **Gruppi di registrazioni**. Fare clic sul nome del gruppo di registrazioni nell'elenco.
 
 5. Fare clic su **Certificato CA** e selezionare il nuovo certificato della CA radice. Fare quindi clic su **Salva**. 
 
@@ -149,13 +149,13 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Seguire la procedura illustrata in [Configurare i certificati della CA verificati](how-to-verify-certificates.md) per aggiungere e verificare i nuovi certificati della CA radice.
 
-2. Fare clic sulla scheda **Gestisci registrazioni** per l'istanza del servizio di provisioning e quindi sull'elenco **Gruppi di registrazioni**. Fare clic sul nome del gruppo di registrazioni nell'elenco.
+2. Fare clic sulla scheda **Gestisci registrazioni** per l'istanza del servizio di provisioning di dispositivi e quindi sull'elenco **Gruppi di registrazioni**. Fare clic sul nome del gruppo di registrazioni nell'elenco.
 
 3. Fare clic su **Certificato CA** e selezionare il nuovo certificato della CA radice nella configurazione **Certificato secondario**. Fare quindi clic su **Salva**. 
 
     ![Selezionare il nuovo certificato della CA radice](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. In un secondo momento, quando il certificato primario è scaduto, fare clic sulla scheda **Certificati** per l'istanza del servizio di provisioning. Fare clic sul certificato scaduto nell'elenco e quindi sul pulsante **Elimina**. Confermare l'eliminazione digitando il nome del certificato e fare clic su **OK**.
+4. In un secondo momento, quando il certificato primario è scaduto, fare clic sulla scheda **Certificati** per l'istanza del servizio di provisioning di dispositivi. Fare clic sul certificato scaduto nell'elenco e quindi sul pulsante **Elimina**. Confermare l'eliminazione digitando il nome del certificato e fare clic su **OK**.
 
     ![Eliminare un certificato della CA radice](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -166,7 +166,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Gruppi di registrazioni** e quindi sul nome del gruppo nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
 
     Il nuovo certificato intermedio deve essere firmato da un certificato della CA radice verificato che sia già stato aggiunto al servizio di provisioning. Per altre informazioni, vedere [Certificati X.509](concepts-security.md#x509-certificates).
 
@@ -177,7 +177,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 ## <a name="reprovision-the-device"></a>Eseguire un nuovo provisioning del dispositivo
 
-Dopo che il certificato è stato rinnovato nel dispositivo e nel servizio Device Provisioning, il dispositivo può procedere a un nuovo provisioning contattando il servizio Device Provisioning. 
+Dopo che il certificato è stato rinnovato nel dispositivo e nel servizio di provisioning di dispositivi, il dispositivo può procedere a un nuovo provisioning contattando il servizio di provisioning di dispositivi. 
 
 Un modo semplice per programmare un nuovo provisioning per un dispositivo consiste nel configurare il dispositivo in modo da contattare il servizio di provisioning per passare attraverso il flusso di provisioning, nel caso in cui il dispositivo riceva un errore di connessione "non autorizzata" durante il tentativo di connettersi all'hub IoT.
 

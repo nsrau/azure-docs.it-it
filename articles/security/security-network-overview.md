@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 08/17/2018
 ms.author: terrylan
-ms.openlocfilehash: 7533f9db25da8e69d3fcfa76a61a06af2f1bc78c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345958"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144480"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 
@@ -57,6 +57,9 @@ Azure supporta numerosi tipi di controllo di accesso alla rete, tra cui:
 ### <a name="network-layer-control"></a>Controllo a livello rete
 
 Qualsiasi distribuzione sicura richiede alcune misure di controllo di accesso alla rete. Lo scopo del controllo di accesso alla rete è di limitare la comunicazione delle macchine virtuali ai sistemi necessari e di bloccare gli altri tentativi di comunicazione.
+
+>[!NOTE]
+I firewall di archiviazione vengono analizzati nell’articolo[Panoramica sulla sicurezza di archiviazione di Azure](security-storage-overview.md)
 
 #### <a name="network-security-rules-nsgs"></a>Regole di sicurezza di rete (NSG)
 
@@ -323,7 +326,6 @@ Per visualizzare e analizzare questi log è anche possibile usare [Microsoft Pow
 Altre informazioni:
 
 * [Log Analytics per i gruppi di sicurezza di rete (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="azure-ddos-protection"></a>Protezione DDoS di Azure
 

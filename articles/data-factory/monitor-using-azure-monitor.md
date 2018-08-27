@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495299"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616845"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Avvisi e monitoraggio delle data factory con Monitoraggio di Azure
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
@@ -398,6 +398,70 @@ ADFV2 genera le metriche seguenti
 | TriggerFailedRuns    | Failed trigger runs metrics (Metrica esecuzioni trigger non riuscite)     | Conteggio    | Totale                | Esecuzioni trigger totali non riuscite in un minuto      |
 
 Per accedere alle metriche, seguire le istruzioni nell'articolo: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Monitoraggio delle metriche di Data Factory con Monitoraggio di Azure
+
+È possibile usare l'integrazione di Azure Data Factory con Monitoraggio di Azure per indirizzare i dati a Monitoraggio di Azure. Questa integrazione è utile negli scenari seguenti:
+
+1.  Per scrivere query complesse in un set completo di metriche pubblicate da Data Factory in Monitoraggio di Azure e per creare avvisi personalizzati per queste query tramite Monitoraggio di Azure.
+
+2.  Per eseguire il monitoraggio nelle data factory e indirizzare i dati da più data factory a una singola area di lavoro di Monitoraggio di Azure.
+
+Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità, guardare il video seguente:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>Configurare le impostazioni di diagnostica e l'area di lavoro
+
+Abilitare le impostazioni di diagnostica per una data factory.
+
+1.  Selezionare **Monitoraggio di Azure** -> **Impostazioni di diagnostica** -> Seleziona data factory -> Abilita diagnostica.
+
+    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  Fornire le impostazioni di diagnostica, inclusa la configurazione dell'area di lavoro.
+
+    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Installare il pacchetto di Azure Data Factory Analytics dal Marketplace di Azure
+
+![monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+Fare clic su **Crea** e selezionare l'area di lavoro e le relative impostazioni.
+
+![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>Monitoraggio delle metriche di Data Factory
+
+L'installazione di **Azure Data Factory Analytics** crea un set predefinito di visualizzazioni che abilita le metriche seguenti:
+
+- Esecuzioni di Azure Data Factory - 1) Esecuzioni di pipeline di Data Factory
+
+- Esecuzioni di Azure Data Factory - 2) Esecuzioni di attività di Data Factory
+
+- Esecuzioni di Azure Data Factory - 3) Esecuzioni di trigger di Data Factory
+
+- Errori di Azure Data Factory - 1) Primi 10 errori di pipeline di Data Factory
+
+- Errori di Azure Data Factory - 2) Prime 10 esecuzioni di attività di pipeline di Data Factory
+
+- Errori di Azure Data Factory - 3) Primi 10 errori di trigger di Data Factory
+
+- Statistiche di Azure Data Factory - 1) Esecuzioni di attività per tipo
+
+- Statistiche di Azure Data Factory - 2) Esecuzioni di trigger per tipo
+
+- Statistiche di Azure Data Factory - 3) Durata massima esecuzioni di pipeline
+
+![monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+È possibile visualizzare tutte le metriche indicate sopra, esaminare le query alla base di queste metriche, modificare le query, creare avvisi e così via.
+
+![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Avvisi
 

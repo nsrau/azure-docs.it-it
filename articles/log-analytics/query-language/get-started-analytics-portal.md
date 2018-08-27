@@ -1,6 +1,6 @@
 ---
-title: Introduzione al portale di analisi in Azure Log Analytics| Microsoft Docs
-description: Questo articolo fornisce un'esercitazione per l'uso del portale di analisi per la scrittura di query in Log Analytics.
+title: Introduzione alla pagina di Log Analytics nel portale di Azure | Microsoft Docs
+description: Questo articolo fornisce un'esercitazione per l'uso della pagina di Log Analytics per la scrittura di query.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6f6916b27aa251bc0a0c25be060378c11faab607
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632912"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142461"
 ---
-# <a name="get-started-with-the-analytics-portal"></a>Introduzione al portale di analisi
+# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Introduzione alla pagina di Log Analytics nel portale di Azure
 
-In questa esercitazione si apprenderà come usare il portale di analisi per scrivere query di Azure Log Analytics. Si apprenderà come:
+In questa esercitazione si apprenderà come usare la pagina di Log Analytics nel portale di Azure (attualmente in anteprima) per scrivere query di Log Analytics. Si apprenderà come:
 
 - Scrivere query semplici
 - Comprendere lo schema dei dati
@@ -35,12 +35,12 @@ In questa esercitazione si apprenderà come usare il portale di analisi per scri
 - Esportare e condividere query
 
 
-## <a name="meet-the-analytics-portal"></a>Presentazione del portale di analisi
-Il portale di analisi è uno strumento Web usato per scrivere ed eseguire query di Azure Log Analytics. 
+## <a name="meet-the-log-analytics-page"></a>La pagina Log Analytics 
+La pagina di Log Analytics è uno strumento Web usato per scrivere ed eseguire query di Azure Log Analytics. Aprirla selezionando **Registri (anteprima)** nel menu Log Analytics. Viene visualizzata una nuova query vuota.
 
 ![Home page](media/get-started-analytics-portal/homepage.png)
 
-La home page offre un semplice accesso a risorse utili, come query recenti e salvate ed esempi. Aprire una nuova scheda per iniziare a scrivere query personalizzate.
+
 
 ## <a name="basic-queries"></a>Query di base
 È possibile usare le query per cercare termini, identificare le tendenze, analizzare i modelli e ottenere molte altre informazioni dettagliate basate sui dati. Iniziare con una query di base:
@@ -83,7 +83,7 @@ Per iniziare, recuperare tutti gli elementi della tabella _Event_.
 Event
 ```
 
-Il portale di analisi definisce automaticamente l'ambito dei risultati in base a:
+La pagina di Log Analytics definisce automaticamente l'ambito dei risultati in base a:
 
 - Intervallo di tempo: per impostazione predefinita, le query sono limitate alle ultime 24 ore.
 - Numero di risultati: i risultati sono limitati a un massimo di 10.000 record.
@@ -121,7 +121,7 @@ La tabella dei risultati include spesso molte colonne. Alcune colonne restituite
 
 
 ## <a name="select-a-time-range"></a>Selezionare un intervallo di tempo
-Per impostazione predefinita, il portale di analisi applica un intervallo di tempo corrispondente alle _ultime 24 ore_. Per usare un intervallo diverso, selezionare un valore diverso tramite il controllo di selezione di data e ora e fare clic su **Esegui**. Oltre ai valori predefiniti, è possibile usare l'opzione _Intervallo di tempo personalizzato_ per selezionare un intervallo assoluto per la query.
+Per impostazione predefinita, la pagina di Log Analytics applica un intervallo di tempo corrispondente alle _ultime 24 ore_. Per usare un intervallo diverso, selezionare un valore diverso tramite il controllo di selezione di data e ora e fare clic su **Esegui**. Oltre ai valori predefiniti, è possibile usare l'opzione _Intervallo di tempo personalizzato_ per selezionare un intervallo assoluto per la query.
 
 ![Controllo di selezione di data e ora](media/get-started-analytics-portal/time-picker.png)
 
@@ -173,7 +173,7 @@ Una volta creata una query utile, è possibile salvarla o condividerla con altri
 
 È possibile salvare l'intera pagina di query o una singola query come funzione. Le funzioni sono query a cui altre query possono fare riferimento. Per salvare una query come funzione, è necessario specificare un alias di funzione, ovvero il nome usato per chiamare la query quando altre query vi fanno riferimento.
 
-![Funzione di salvataggio](media/get-started-analytics-portal/save-function.png)
+![Salvare la funzione](media/get-started-analytics-portal/save-function.png)
 
 Le query di Log Analytics vengono sempre salvate in un'area di lavoro selezionata e condivise con altri utenti dell'area di lavoro.
 
@@ -183,7 +183,7 @@ L'icona Esplora query si trova nell'area in alto a destra. Permette di elencare 
 ![Esplora query](media/get-started-analytics-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Esportare e condividere come collegamento
-Il portale di analisi supporta diversi metodi di esportazione:
+La pagina di Log Analytics supporta diversi metodi di esportazione:
 
 - Excel: salvare i risultati come file CSV.
 - Power BI: esportare i risultati in Power BI. Per informazioni dettagliate, vedere [Importare dati di Azure Log Analytics in Power BI](../log-analytics-powerbi.md).

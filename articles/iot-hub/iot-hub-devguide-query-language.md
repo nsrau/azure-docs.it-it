@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444185"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144304"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
@@ -309,7 +309,7 @@ Attualmente le query su **devices.jobs** non supportano:
 
 Usando [route da dispositivo a cloud][lnk-devguide-messaging-routes], è possibile configurare l'hub IoT per l'invio di messaggi da dispositivo a cloud a endpoint diversi in base a espressioni valutate a fronte di messaggi singoli.
 
-La [condizione][lnk-query-expressions] route usa lo stesso linguaggio di query dell'hub IoT come condizione nelle query gemelle e di processo. Le condizioni di routing vengono valutate nel corpo e nelle intestazioni del messaggio. L'espressione di query di routing può interessare solo intestazioni di messaggi, solo il corpo dei messaggi oppure entrambi. Per il routing dei messaggi, l'hub IoT presuppone uno schema specifico per le intestazioni e il corpo del messaggio. Nelle sezioni seguenti vengono descritti i requisiti dell'hub IoT per un routing corretto.
+La route [condition][lnk-query-expressions] usa la sintassi del linguaggio di query di hub IoT come condizioni nella query dei dispositivi gemelli e dei processi, ma solo un subset delle funzioni sono disponibili. Le condizioni di routing vengono valutate nel corpo e nelle intestazioni del messaggio. L'espressione di query del routing potrebbe riguardare solo le intestazioni dei messaggi, solo il corpo del messaggio oppure entrambi. L'hub IoT presuppone uno schema specifico per le intestazioni e il corpo del messaggio per instradare i messaggi, mentre le sezioni seguenti descrivono gli elementi necessari affinché l'hub IoT esegua il routing correttamente.
 
 ### <a name="routing-on-message-headers"></a>Routing delle intestazioni dei messaggi
 
