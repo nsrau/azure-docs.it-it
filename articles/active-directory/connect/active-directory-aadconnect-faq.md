@@ -109,7 +109,7 @@ Fatta eccezione per i cmdlet documentati in questo sito, i cmdlet di PowerShell 
 **D: È possibile usare le opzioni "Server esportazione e "Server importazione" disponibili in Synchronization Service Manager per spostare la configurazione da un server all'altro?**  
 No. Questa opzione non recupera tutte le impostazioni di configurazione e non deve essere usata. Usare invece la procedura guidata per creare la configurazione di base per il secondo server e usare l'editor delle regole di sincronizzazione per generare script di PowerShell e spostare regole personalizzate da un server all'altro. Per altre informazioni, vedere [Migrazione swing](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
 
-**D: È possibile memorizzare nella cache le password per la pagina di accesso di Azure ed è possibile evitare questa memorizzazione se la password contiene un elemento di input con l'attributo *autocomplete = "false"?***  
+**D: È possibile memorizzare nella cache le password per la pagina di accesso di Azure ed è possibile evitare questa memorizzazione se la password contiene un elemento di input con l'attributo *autocomplete = "false"*?**  
 La modifica degli attributi HTML del campo **Password**, tra cui il tag autocomplete, non è attualmente supportata. È attualmente in fase di elaborazione una funzionalità che consente la creazione di codice JavaScript personalizzato che consenta di aggiungere qualsiasi attributo al campo **Password**.
 
 **D: La pagina di accesso di Azure visualizza i nomi utente che in precedenza hanno eseguito l'accesso correttamente. Questo comportamento può essere disattivato?**  

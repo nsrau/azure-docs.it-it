@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494209"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617219"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
@@ -82,7 +82,8 @@ Il livello di durabilità viene usato per indicare al sistema i privilegi delle 
 
 > [!WARNING]
 > I tipi di nodo in esecuzione con durabilità Bronze _non ottengono privilegi_. Ciò significa che i processi di infrastruttura che influiscono sui carichi di lavoro senza stato non verranno interrotti o posticipati, il che potrebbe influire sui carichi di lavoro. Usare il livello Bronze solo per i tipi di nodo che eseguono esclusivamente carichi di lavoro senza stato. Per i carichi di lavoro di produzione è consigliabile eseguire il livello Silver o superiore. 
->
+
+> Indipendentemente dal livello di durabilità, l'operazione di [deallocazione](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) nel set di scalabilità delle macchine virtuali comporta l'eliminazione del cluster
 
 **Vantaggi dell'uso di livelli di durabilità Silver o Gold**
  
@@ -150,7 +151,7 @@ Ecco la raccomandazione per la scelta del livello di affidabilità.
 
 Ecco le indicazioni per pianificare la capacità del tipo di nodo primario:
 
-- **Numero di istanze delle VM per eseguire qualsiasi carico di lavoro di produzione in Azure:** è necessario specificare una dimensione minima del tipo di nodo primario pari a 5. 
+- **Numero di istanze delle VM per eseguire qualsiasi carico di lavoro di produzione in Azure:** è necessario specificare una dimensione minima del tipo di nodo primario pari a 5 e un livello di affidabilità Silver.  
 - **Numero di istanze delle VM per eseguire carichi di lavoro di test in Azure:** è possibile specificare una dimensione minima del tipo di nodo primario pari a 1 o 3. Il cluster a un nodo viene eseguito con una configurazione speciale, pertanto la scalabilità orizzontale di tale cluster non è supportata. Il cluster a un nodo non ha alcun livello di affidabilità, di conseguenza nel modello di Resource Manager è necessario rimuovere/non specificare tale configurazione (non è sufficiente non impostare il valore di configurazione). Se si configura il cluster a un nodo tramite il portale, la configurazione viene gestita automaticamente. I cluster a uno e tre nodi non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
 - **SKU di VM:** nel tipo di nodo primario vengono eseguiti i servizi di sistema, quindi lo SKU della VM scelto deve tenere in considerazione il carico massimo totale che si prevede di inserire nel cluster. Per comprendere questo concetto, si pensi all'analogia seguente: il tipo di nodo primario è come i polmoni che forniscono ossigeno al cervello e quindi, se il cervello non riceve abbastanza ossigeno, il corpo ne risente. 
 
@@ -166,8 +167,7 @@ Per i carichi di lavoro di produzione:
 - Lo SKU Standard A1 non è supportato per i carichi di lavoro di produzione per motivi di prestazioni.
 
 > [!WARNING]
-> La modifica delle dimensioni dello SKU di VM del nodo primario in un cluster in esecuzione non è attualmente supportata. Scegliere quindi lo SKU di VM del tipo di nodo primario con attenzione, tenendo conto delle future esigenze di capacità. Al momento, l'unica modalità supportata per trasferire il tipo di nodo primario in un nuovo SKU di VM (di dimensioni maggiori o minori) consiste nel creare un nuovo cluster con la capacità appropriata, distribuire le applicazioni nel cluster e quindi ripristinare lo stato dell'applicazione (se applicabile) dai [backup più recenti del servizio](service-fabric-reliable-services-backup-restore.md) del cluster precedente. Non è necessario ripristinare lo stato dei servizi di sistema, perché verrà ricreato quando si distribuiscono le applicazioni nel nuovo cluster. Se nel cluster venivano eseguite solo applicazioni senza stato, è sufficiente distribuire le applicazioni nel nuovo cluster, non sono necessarie operazioni di ripristino.
-> 
+> Modificare le dimensioni di SKU di VM in un nodo primario in un cluster in esecuzione è un'operazione di ridimensionamento illustrata nella documentazione relativa a [Scalare orizzontalmente il set di scalabilità di macchine virtuali](virtual-machine-scale-set-scale-node-type-scale-out.md).
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Tipo di nodo non primario: guida alla capacità per carichi di lavoro con stato
 

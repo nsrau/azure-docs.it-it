@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 24954cfc128834313bf13a1917e67d5c1812cf66
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0399836191050996ac3eaf0fbe59496e10e2b426
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055530"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142554"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,9 +47,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureStorage**. |Sì |
+| type | La proprietà type deve essere impostata su: **AzureTableStorage**. |Yes |
 | connectionString | Specificare le informazioni necessarie per connettersi all'archiviazione per la proprietà connectionString. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+
+>[!NOTE]
+>L'uso di un servizio collegato di tipo "AzureStorage", è ancora supportato così com'è, tuttavia in futuro verrà consigliato di usare il nuovo tipo di servizio collegato "AzureTableStorage".
 
 **Esempio:**
 
@@ -57,7 +60,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureTableStorage",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -72,27 +75,30 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 }
 ```
 
-### <a name="use-service-shared-access-signature-authentication"></a>Usare l'autenticazione della firma di accesso condiviso per il servizio
+### <a name="use-shared-access-signature-authentication"></a>Uso dell'autenticazione con firma di accesso condiviso
 
 È anche possibile creare un servizio collegato di archiviazione tramite una firma di accesso condiviso. Consente alla data factory l'accesso con restrizioni o limiti di tempo a tutte le risorse o a risorse specifiche nell'archiviazione.
 
 Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione. È possibile usarla per concedere a un client autorizzazioni limitate per gli oggetti nell'account di archiviazione per un periodo di tempo e con un set di autorizzazioni specificati. Non è necessario condividere le chiavi di accesso degli account. La firma di accesso condiviso è un URI che racchiude nei parametri di query tutte le informazioni necessarie per l'accesso autenticato a una risorsa di archiviazione. Per accedere alle risorse di archiviazione con la firma di accesso condiviso, il client deve solo passare la firma di accesso condiviso al costruttore o al metodo appropriato. Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Data Factory supporta attualmente sia le firme di accesso condiviso del servizio che le firme di accesso condiviso dell'account. Per altre informazioni su questi due tipi e sulla modalità di costruzione, vedere [Tipi di firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
+> Data Factory supporta attualmente sia le **firme di accesso condiviso del servizio** che le **firme di accesso condiviso dell'account**. Per altre informazioni su questi due tipi e sulla modalità di costruzione, vedere [Tipi di firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
 > Per generare una firma di accesso condiviso del servizio per l'account di archiviazione, è possibile eseguire i comandi di PowerShell seguenti. Sostituire i segnaposto e concedere l'autorizzazione necessaria.
 > `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-Per usare l'autenticazione basata sulla firma di accesso condiviso del servizio, sono supportate le proprietà seguenti.
+Per usare l'autenticazione basata sulla firma di accesso condiviso, sono supportate le proprietà seguenti.
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureStorage**. |Sì |
+| type | La proprietà type deve essere impostata su: **AzureTableStorage**. |Yes |
 | sasUri | Specificare l'URI della firma di accesso condiviso per le risorse di archiviazione come BLOB, contenitore o tabella. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+
+>[!NOTE]
+>L'uso di un servizio collegato di tipo "AzureStorage", è ancora supportato così com'è, tuttavia in futuro verrà consigliato di usare il nuovo tipo di servizio collegato "AzureTableStorage".
 
 **Esempio:**
 
@@ -100,7 +106,7 @@ Per usare l'autenticazione basata sulla firma di accesso condiviso del servizio,
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureTableStorage",
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
@@ -129,8 +135,8 @@ Per copiare dati in e da Tabella di Azure, impostare la proprietà type del set 
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su **AzureTable**. |Sì |
-| tableName |Nome della tabella nell'istanza del database di Archiviazione tabelle a cui fa riferimento il servizio collegato. |Sì |
+| type | La proprietà type del set di dati deve essere impostata su **AzureTable**. |Yes |
+| tableName |Nome della tabella nell'istanza del database di Archiviazione tabelle a cui fa riferimento il servizio collegato. |Yes |
 
 **Esempio:**
 
@@ -141,7 +147,7 @@ Per copiare dati in e da Tabella di Azure, impostare la proprietà type del set 
     {
         "type": "AzureTable",
         "linkedServiceName": {
-            "referenceName": "<Azure Storage linked service name>",
+            "referenceName": "<Azure Table storage linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -170,7 +176,7 @@ Per copiare dati da Tabella di Azure, impostare il tipo di origine nell'attivit�
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **AzureTableSource**. |Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **AzureTableSource**. |Yes |
 | AzureTableSourceQuery |Usare la query di Archiviazione tabelle personalizzata per leggere i dati. Vedere gli esempi nella sezione seguente. |No  |
 | azureTableSourceIgnoreTableNotFound |Indica se consentire l'eccezione di tabella non esistente.<br/>I valori consentiti sono **True** e **False** (predefinito). |No  |
 
@@ -196,7 +202,7 @@ Per copiare dati in Tabella di Azure, impostare il tipo di sink nell'attività d
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su **AzureTableSink**. |Sì |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su **AzureTableSink**. |Yes |
 | azureTableDefaultPartitionKeyValue |Valore predefinito della chiave di partizione che può essere usato dal sink. |No  |
 | azureTablePartitionKeyName |Specificare il nome della colonna i cui valori vengono usati come chiavi di partizione. Se non specificato, viene usato "AzureTableDefaultPartitionKeyValue" come chiave di partizione. |No  |
 | azureTableRowKeyName |Specificare il nome della colonna i cui valori vengono usati come chiave di riga. Se non specificato, usare un GUID per ogni riga. |No  |
