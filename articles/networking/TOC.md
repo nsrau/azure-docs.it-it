@@ -1,7 +1,7 @@
 # Panoramica
 ## [Informazioni sulla rete di Azure](networking-overview.md)
-## Architecture
-### [Data center virtuali](networking-virtual-datacenter.md)
+## Architettura
+### [Data center virtuali](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [Routing asimmetrico con più percorsi di rete](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Progettazioni di reti protette](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Topologia hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -56,7 +56,7 @@
 ### [Bilanciare il carico delle VM](../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettere un computer a una rete virtuale](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-# Riferimenti
+# riferimento
 ## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)

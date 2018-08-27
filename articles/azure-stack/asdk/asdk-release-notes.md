@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 08/24/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: b77772ce69afbc32bfe8a6826fdf8420076074d9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ed1c47830cbc4a629d827853c7d440b9bbd80d64
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139692"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888187"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit  
 Queste note sulla versione offrono informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit. Se non si conosce quale versione in esecuzione, è possibile [usare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -171,7 +171,9 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack.
 
 - <!-- 1662991 - IS ASDK --> Diagnostica delle VM di Linux non è supportata in Azure Stack. Quando si distribuisce una VM Linux con abilitata la diagnostica della macchina virtuale, la distribuzione ha esito negativo. La distribuzione ha esito negativo anche se si abilitano le metriche di base della VM Linux tramite le impostazioni di diagnostica.
 
-- <!-- 2724961- IS ASDK --> Quando si registra il **Microsoft.Insight** provider di risorse nelle impostazioni di sottoscrizione e creare una VM Windows con Guest OS diagnostica è abilitata, il grafico della percentuale di CPU nella pagina di panoramica della macchina virtuale non sarà in grado di mostrare i dati di metrica. Per trovare il grafico della percentuale di CPU per la macchina virtuale, andare alla **metriche** pannello e Mostra tutte le macchine Virtuali di Windows supportate guest metriche.
+- <!-- 2724961- IS ASDK --> Quando si registra il **Microsoft.Insight** provider di risorse nelle impostazioni di sottoscrizione e creare una VM Windows con Guest OS diagnostica abilitata, la pagina di panoramica della macchina virtuale non mostra i dati delle metriche. 
+
+   Per trovare i dati delle metriche, ad esempio il grafico della percentuale di CPU per la macchina virtuale, passare al **metriche** pannello e Mostra tutte le macchine Virtuali di Windows supportate guest metriche.
 
 #### <a name="networking"></a>Rete
 - <!-- 1766332 - IS, ASDK --> Sotto **Networking**, se si fa clic su **creare Gateway VPN** per configurare una connessione VPN, **basata su criteri** viene elencato come un tipo di VPN. Non selezionare questa opzione. Solo le **basato su Route** opzione è supportata in Azure Stack.

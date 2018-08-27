@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 316c7212c30e9fe1151cdf5ceabf875439ad4c65
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373385"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41936738"
 ---
 # <a name="facebook-content-moderation-with-content-moderator"></a>Moderazione del contenuto di Facebook con Content Moderator
 
@@ -82,17 +82,17 @@ Accedere al [portale di gestione di Azure](https://portal.azure.com/) per creare
     3. Invece dei modelli predefiniti, scegliere l'opzione **Iniziare da zero/funzione personalizzata**.
     4. Fare clic sul riquadro che indica **HttpTrigger-CSharp**.
     5. Immettere il nome **FBListener**. Il campo **Livello di autorizzazione** deve essere impostato su **Funzione**.
-    6. Fare clic su **Crea**.
+    6. Fare clic su **Create**(Crea).
     7. Sostituire il contenuto di **run.csx** con il contenuto da [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
 
-6. Creare una nuova funzione **HttpTrigger CSharp** denominata **CMListener**. Questa funzione riceve eventi da Facebook. Seguire questa procedura per creare la funzione.
+6. Creare una nuova funzione **HttpTrigger CSharp** denominata **CMListener**. Questa funzione riceve eventi da Content Moderator. Seguire questa procedura per creare la funzione.
 
     1. Mantenere la pagina [Creare un'app per le funzioni](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) aperta per riferimento.
     2. Fare clic su **+** (Aggiungi) per creare una nuova funzione.
     3. Invece dei modelli predefiniti, scegliere l'opzione **Iniziare da zero/funzione personalizzata**.
     4. Fare clic sul riquadro che indica **HttpTrigger-CSharp**
     5. Immettere il nome **CMListener**. Il campo **Livello di autorizzazione** deve essere impostato su **Funzione**.
-    6. Fare clic su **Crea**.
+    6. Fare clic su **Create**(Crea).
     7. Sostituire il contenuto di **run.csx** con il contenuto da [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
 
 ## <a name="configure-the-facebook-page-and-app"></a>Configurare la pagina e l'app Facebook

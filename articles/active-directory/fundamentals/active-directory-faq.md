@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 787178b2c1582729249fcf549356fa7445f5ecbe
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494965"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144498"
 ---
 # <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -213,4 +213,4 @@ Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisionin
 - - -
 **D: È possibile configurare una connessione LDAP sicura con Azure AD?**
 
-**R:** No. Azure AD non supporta il protocollo LDAP.
+**R:** No. Azure AD non supporta il protocollo LDAP. Tuttavia, è possibile configurare un LDAP sicuro con Azure Active Directory Domain Services.

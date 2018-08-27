@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dba43f0823282bd385dca30402a9b16fa3b99de6
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 5e5ebac221060058a44f7605f77d33a133f5e72c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42139401"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887224"
 ---
 # <a name="azure-stack-1807-update"></a>Aggiornamento di Azure Stack 1807
 
@@ -245,7 +245,9 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 - <!-- 1662991 IS ASDK --> Diagnostica delle VM di Linux non è supportata in Azure Stack. Quando si distribuisce una VM Linux con abilitata la diagnostica della macchina virtuale, la distribuzione ha esito negativo. La distribuzione ha esito negativo anche se si abilitano le metriche di base della VM Linux tramite le impostazioni di diagnostica.  
 
-- <!-- 2724961- IS ASDK --> Quando si registra il **Microsoft.Insight** provider di risorse nelle impostazioni di sottoscrizione e creare una VM Windows con Guest OS diagnostica è abilitata, il grafico della percentuale di CPU nella pagina di panoramica della macchina virtuale non sarà in grado di mostrare i dati di metrica. Per trovare il grafico della percentuale di CPU per la macchina virtuale, andare alla **metriche** pannello e Mostra tutte le macchine Virtuali di Windows supportate guest metriche.
+- <!-- 2724961- IS ASDK --> Quando si registra il **Microsoft.Insight** provider di risorse nelle impostazioni di sottoscrizione e creare una VM Windows con Guest OS diagnostica abilitata, la pagina di panoramica della macchina virtuale non mostra i dati delle metriche. 
+
+   Per trovare i dati delle metriche, ad esempio il grafico della percentuale di CPU per la macchina virtuale, passare al **metriche** pannello e Mostra tutte le macchine Virtuali di Windows supportate guest metriche.
 
 ### <a name="networking"></a>Rete  
 

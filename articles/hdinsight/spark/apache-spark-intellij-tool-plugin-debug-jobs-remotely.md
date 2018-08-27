@@ -54,7 +54,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 1. Nell'interfaccia utente di Ambari selezionare **Hosts** (Host).
 
     ![Selezionare Hosts (Host) in Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
-1. Viene visualizzato un elenco di nodi head, nodi del ruolo di lavoro e nodi zookeeper. I nodi head hanno un prefisso **hn***. Selezionare il primo nodo head.
+1. Viene visualizzato un elenco di nodi head, nodi del ruolo di lavoro e nodi zookeeper. I nodi head hanno un prefisso **hn**\*. Selezionare il primo nodo head.
 
     ![Trovare il nodo head in Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 1. Nella parte inferiore della pagina visualizzata, nel riquadro **Summary** (Riepilogo) copiare l'**indirizzo IP** del nodo head e il **nome host**.

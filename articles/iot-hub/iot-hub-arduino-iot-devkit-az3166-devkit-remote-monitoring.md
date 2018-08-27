@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 806ae38f614c44ce25b8fcc159b74f1bda3f00f3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 79a44e3f5303aaf0d337333b482c2df670e0b3da
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343118"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144499"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Connettere MXChip IoT DevKit all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT
 
@@ -120,7 +120,7 @@ Quando viene eseguita l'app di esempio, DevKit invia i dati dei sensori tramite 
 
 ## <a name="change-device-id"></a>Modificare l'ID dispositivo
 
-È possibile modificare l'ID dispositivo nell'hub IoT seguendo le istruzioni contenute nella [guida per la personalizzazione dell'ID dispositivo](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/). Se si vuole modificare il dispositivo **AZ3166** hardcoded in base all'ID dispositivo personalizzato nel codice, modificare la riga di codice visualizzata nell'[esempio di monitoraggio remoto](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23).
+Se si vuole modificare il dispositivo **AZ3166** hardcoded in base all'ID dispositivo personalizzato nel codice, modificare la riga di codice visualizzata nell'[esempio di monitoraggio remoto](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23).
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 
@@ -136,3 +136,5 @@ Dopo aver appreso come connettere un dispositivo DevKit all'acceleratore di solu
 * [Panoramica degli acceleratori di soluzioni Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
 
 * [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)
+
+* [Kit per sviluppatori IoT](https://microsoft.github.io/azure-iot-developer-kit/) 
