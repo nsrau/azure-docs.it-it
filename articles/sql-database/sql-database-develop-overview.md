@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308867"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144092"
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure.
@@ -35,10 +35,10 @@ Sono disponibili esempi di codice per svariati linguaggi di programmazione e pia
 ## <a name="resource-limitations"></a>Limiti delle risorse
 Il database SQL di Azure gestisce le risorse disponibili per un database usando due meccanismi diversi: la governance delle risorse e l'imposizione di limiti. Per altre informazioni, vedere:
 
-- [Limiti del modello di risorse basate su DTU - Database singolo](sql-database-dtu-resource-limits-elastic-pools.md)
-- [Limiti del modello di risorse basate su DTU - Database singolo](sql-database-dtu-resource-limits-elastic-pools.md)
-- [Limiti delle risorse basate su vCore - database singoli](sql-database-vcore-resource-limits-single-databases.md)
-- [Limiti delle risorse basate su vCore - pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
+- [Limiti del modello di risorse basate su DTU - Database singolo](sql-database-dtu-resource-limits-single-databases.md)
+- [Limiti delle risorse basate su DTU- Pool elastici](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Limiti delle risorse basate su vCore - Database singoli](sql-database-vcore-resource-limits-single-databases.md)
+- [Limiti delle risorse basate su vCore - Pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Sicurezza
 Il database SQL di Azure fornisce risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database SQL.

@@ -9,19 +9,19 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325126"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929719"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Java su Android con Speech SDK
 
 [!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come creare un'applicazione Java per Android usando Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
-L'applicazione si basa sul pacchetto NuGet Speech SDK Maven di Servizi cognitivi Microsoft versione 0.5.0 e su Android Studio 3.1.
+L'applicazione si basa sul pacchetto NuGet Speech SDK Maven di Servizi cognitivi Microsoft versione 0.6.0 e su Android Studio 3.1.
 
 > [!NOTE]
 > Per Speech Device SDK e il dispositivo Roobo, visitare la pagina [Speech Devices SDK](speech-devices-sdk.md).
@@ -63,7 +63,7 @@ Dopo qualche minuto di esecuzione, dovrebbe apparire il progetto Android Studio 
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `0.5.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `0.6.0`.
 
 Speech SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste per usarlo.
 È ospitato in un repository Maven in https://csspeechstorage.blob.core.windows.net/maven/.
@@ -81,7 +81,7 @@ Nella finestra visualizzata apportare le modifiche seguenti (fare clic su **OK**
 
   ![](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Nella finestra visualizzata immettere il nome e la versione di Speech SDK per Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`, quindi fare clic su **OK**.
+1. Nella finestra visualizzata immettere il nome e la versione di Speech SDK per Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`, quindi fare clic su **OK**.
    A questo punto Speech SDK viene aggiunto all'elenco delle dipendenze come illustrato di seguito:
 
   ![](media/sdk/qs-java-android-08-dependency-added.png)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.openlocfilehash: 19a129ec4646f13f1bd095dffd423f3b90bb32a7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345461"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42144265"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -21,6 +21,8 @@ L'hub IoT consente ai dispositivi di comunicare con gli endpoint dei dispositivi
 
 * [MQTT v3.1.1][lnk-mqtt-org] sulla porta 8883
 * MQTT v3.1.1 sul WebSocket sulla porta 443.
+
+L'hub IoT non è un broker MQTT completo e non supporta tutti i comportamenti specificati nello standard MQTT v3.1.1. Questo articolo descrive come i dispositivi possono utilizzare comportamenti MQTT supportati per comunicare con l'hub IoT.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 

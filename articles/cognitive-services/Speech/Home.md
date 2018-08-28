@@ -1,5 +1,5 @@
 ---
-title: Servizio di riconoscimento e sintesi vocale Microsoft | Microsoft Docs
+title: API Riconoscimento vocale Bing di Microsoft | Microsoft Docs
 description: Usare Microsoft Speech API per aggiungere alle app azioni basate su contenuto vocale, inclusa l'interazione in tempo reale con gli utenti.
 services: cognitive-services
 author: zhouwangzw
@@ -9,19 +9,22 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: c041132e992f07e94e4b6669ec7ce174f7c2d0dd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373836"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929876"
 ---
-# <a name="microsoft-speech-api-overview"></a>Panoramica di Microsoft Speech API
+# <a name="microsoft-bing-speech-api-overview"></a>Panoramica API Riconoscimento vocale Bing di Microsoft
 
-Microsoft Speech API è un'API basata sul cloud che offre agli sviluppatori un modo semplice per creare funzioni vocali avanzate nelle applicazioni, come comandi vocali, dialoghi con conversazioni naturali, trascrizione del parlato e dettatura. Microsoft Speech API supporta sia il *riconoscimento vocale* sia la *sintesi vocale*.
+API Riconoscimento vocale Bing di Microsoft è un'API basata sul cloud che offre agli sviluppatori un modo semplice per creare funzioni vocali avanzate nelle applicazioni, come comandi vocali, dialoghi con conversazioni naturali, trascrizione del parlato e dettatura. Microsoft Speech API supporta sia il *riconoscimento vocale* sia la *sintesi vocale*.
 
 - L'API **Riconoscimento vocale** converte il parlato in testo che può essere usato come input o come comandi per controllare l'applicazione.
 - L'API **Sintesi vocale** converte il testo in flussi audio che possono essere riprodotti agli utenti dell'applicazione.
+
+> [!NOTE] 
+> Nel mese di maggio 2018, è stato rilasciato il nuovo [servizio di riconoscimento vocale](/speech-service/overview.md) in anteprima pubblica. Si consiglia di [provarlo gratuitamente](/speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Riconoscimento vocale
 
@@ -32,10 +35,10 @@ L'API Riconoscimento vocale Microsoft *trascrive* i flussi audio in testo che l'
 
 | Casi d'uso | [API REST](GetStarted/GetStartedREST.md) | [Librerie client](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Sì | Sì |
-| Convertire contenuto audio lungo (> 15 secondi) | No  | Sì |
-| Trasmettere un flusso audio con risultati temporanei desiderati | No  | Sì |
-| Comprendere il testo convertito dall'audio tramite LUIS | No  | Sì |
+| Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Yes | Yes |
+| Convertire contenuto audio lungo (> 15 secondi) | No  | Yes |
+| Trasmettere un flusso audio con risultati temporanei desiderati | No  | Yes |
+| Comprendere il testo convertito dall'audio tramite LUIS | No  | Yes |
 
 Indipendentemente dall'approccio scelto dagli sviluppatori (API REST o librerie client), il Servizio di riconoscimento vocale Microsoft supporta le funzionalità seguenti:
 
@@ -43,7 +46,7 @@ Indipendentemente dall'approccio scelto dagli sviluppatori (API REST o librerie 
 - Riconoscimento continuo in tempo reale. L'API Riconoscimento vocale consente agli utenti di trascrivere l'audio in testo in tempo reale e supporta la ricezione dei risultati intermedi relativi alle parole riconosciute fino a quel momento. Il Servizio di riconoscimento vocale supporta anche il rilevamento della fine del parlato. Gli utenti possono anche scegliere funzionalità di formattazione aggiuntive, come l'uso di lettere maiuscole e minuscole e della punteggiatura, il mascheramento di contenuto volgare e la normalizzazione del testo.
 - Supporta risultati ottimizzati di riconoscimento vocale per scenari *interattivi*, di *conversazione* e di *dettatura*. Per gli scenari utente che richiedono modelli di lingua personalizzati e modelli acustici, il [Servizio di riconoscimento vocale personalizzato](../custom-speech-service/cognitive-services-custom-speech-home.md) consente di creare modelli di riconoscimento vocale personalizzati per l'applicazione e per gli utenti.
 - Supporta molte lingue parlate in più dialetti. Per l'elenco completo delle lingue supportate in ogni modalità di riconoscimento, vedere l'articolo relativo alle [lingue di riconoscimento](api-reference-rest/supportedlanguages.md).
-- Integrazione con Language Understanding. Oltre a convertire l'input audio in testo, il *riconoscimento vocale* offre alle applicazioni una funzionalità aggiuntiva per comprendere il significato del testo. Usa il servizio [Language Understanding Intelligent Services (LUIS)](../LUIS/Home.md) per estrarre finalità ed entità dal testo riconosciuto.
+- Integrazione con Language Understanding. Oltre a convertire l'input audio in testo, il *riconoscimento vocale* offre alle applicazioni una funzionalità aggiuntiva per comprendere il significato del testo. Usa il servizio [Language Understanding Intelligent Services (LUIS)](../LUIS/what-is-luis.md) per estrarre finalità ed entità dal testo riconosciuto.
 
 ### <a name="next-steps"></a>Passaggi successivi
 

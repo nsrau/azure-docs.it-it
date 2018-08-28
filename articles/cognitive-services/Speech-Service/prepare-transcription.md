@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: a219db14d659348ef3ed4de1dffa640a948f1954
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283337"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41929819"
 ---
 # <a name="transcription-guidelines-for-using-speech-service"></a>Linee guida per la trascrizione per l'utilizzo del servizio Voce
 
@@ -154,7 +154,7 @@ Applicare la seguente normalizzazione al testo prima di importarlo.
 *   Il separatore decimale deve essere "," e non ".",
 *   Il separatore dell'ora tra ore e minuti deve essere ":"e non".": 12:00 Uhr
 *   Le abbreviazioni, ad esempio "ca." non vengono sostituiti. È consigliabile utilizzare la forma estesa.
-*   I cinque principali operatori matematici vengono eliminati: +, -, \*, /. Si consiglia di sostituirli con la loro forma letterale: plus, minus, mal, geteilt.
+*   I quattro principali operatori matematici vengono eliminati: +, -, \*, /. Si consiglia di sostituirli con la loro forma letterale: plus, minus, mal, geteilt.
 *   Ciò vale anche per gli operatori di confronto (=, <, >): gleich, kleiner als, grösser als
 *   Utilizzare frazioni, come 3/4, in forma scritta (come "drei viertel" invece di ¾)
 *   Sostituire il simbolo di € con il formato scritto "Euro"

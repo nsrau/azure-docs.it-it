@@ -9,18 +9,18 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317680"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41929934"
 ---
 # <a name="anomaly-detection-c-application"></a>Rilevamento anomalie in un'app C#
 
 Esplorare un'applicazione Windows di base che usa l'API Rilevamento anomalie per rilevare le anomalie nell'input. Nell'esempio vengono inviati i dati di una serie temporale all'API Rilevamento anomalie con la chiave di sottoscrizione dell'utente e si ottengono quindi dall'API tutti i punti di anomalie e il valore previsto per ogni punto dati.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="platform-requirements"></a>Requisiti di piattaforma
 
@@ -48,7 +48,7 @@ Premere CTRL+MAIUSC+B oppure fare clic su Build (Compila) nel menu della barra m
 
 1. Al termine della compilazione, premere **F5** o fare clic su **Start** (Avvia) nel menu della barra multifunzione per eseguire l'esempio.
 2. Individuare la finestra dell'interfaccia utente di Rilevamento anomalie con la casella di modifica testo "{chiave_sottoscrizione}".
-3. Sostituire il file request.json, che contiene i dati di esempio, con i propri dati, quindi fare clic sul pulsante "Send" (Invia). Microsoft riceve i dati caricati e li usa per rilevare eventuali punti di anomalie presenti. I dati aggiornati non saranno salvati in modo permanente nel server Microsoft. Per rilevare nuovamente i punti di anomalie, è necessario caricare nuovamente i dati.
+3. Sostituire il file request.json, che contiene i dati di esempio, con i propri dati, quindi fare clic sul pulsante "Send" (Invia). Microsoft riceve i dati caricati e li usa per rilevare eventuali punti di anomalie presenti. I dati caricati non saranno salvati in modo permanente nel server Microsoft. Per rilevare nuovamente i punti di anomalie, è necessario caricare nuovamente i dati.
 4. Se i dati sono validi, il risultato del rilevamento delle anomalie si troverà nel campo "Response" (Risposta). Altrimenti, se si verifica un errore, lo stesso campo conterrà informazioni sull'errore.
 
 <a name="Review"></a>
@@ -63,7 +63,7 @@ Con l'applicazione in esecuzione, è ora possibile esaminare in che modo l'appli
 
 Quest'app di esempio usa l'endpoint dell'API RESTful Rilevamento anomalie.
 
-Per vedere in che modo l'API RESTful viene usata nell'applicazione di esempio, si esamina ora un frammento di codice nel file **AnomalyDetectionClient.cs**. Il file contiene commenti di codice che indicano "KEY SAMPLE CODE STARTS HERE" e "KEY SAMPLE CODE ENDS HERE", che aiutano a individuare i frammenti di codice riportati di seguito.
+Per vedere in che modo l'API RESTful viene usata nell'applicazione di esempio, si esamina ora un frammento di codice nel file **AnomalyDetectionClient.cs**. Il file contiene commenti al codice che indicano "KEY SAMPLE CODE STARTS HERE" e "KEY SAMPLE CODE ENDS HERE" che aiutano a individuare i frammenti di codice riportati di seguito.
 
 ```csharp
             // ----------------------------------------------------------------------
@@ -77,7 +77,8 @@ Per vedere in che modo l'API RESTful viene usata nell'applicazione di esempio, s
             // ----------------------------------------------------------------------
 
 ```
-**Request(...)** Il frammento di codice riportato sotto mostra come usare HttlClient per inviare la chiave di sottoscrizione e i punti dati all'endpoint dell'API Rilevamento anomalie.
+### <a name="request"></a>**Richiesta**
+Il frammento di codice riportato sotto mostra come usare HttpClient per inviare la chiave di sottoscrizione e i punti dati all'endpoint dell'API Rilevamento anomalie.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

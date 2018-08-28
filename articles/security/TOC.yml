@@ -40,22 +40,35 @@ items:
     - name: Crittografia dei dati inattivi
       href: azure-security-encryption-atrest.md
     - name: Crittografia dischi per macchine virtuali IaaS
-      href: azure-security-disk-encryption-overview.md
       items:
-      - name: Prerequisiti per la crittografia del disco
-        href: azure-security-disk-encryption-prerequisites.md
-      - name: Crittografia del disco per le macchine virtuali Windows
-        href: azure-security-disk-encryption-windows.md
-      - name: Crittografia del disco per le macchine virtuali Linux
-        href: azure-security-disk-encryption-linux.md
+      - name: Informazioni su Crittografia dischi di Azure
+        href: azure-security-disk-encryption-overview.md
+      - name: Guide introduttive
+        items:
+        - name: Crittografare una VM - Azure PowerShell
+          href: quick-encrypt-vm-powershell.md
+      - name: Azure Disk Encryption
+        items:
+        - name: Prerequisiti per la crittografia del disco
+          href: azure-security-disk-encryption-prerequisites.md
+        - name: Crittografia del disco per le macchine virtuali Windows
+          href: azure-security-disk-encryption-windows.md
+        - name: Crittografia del disco per le macchine virtuali Linux
+          href: azure-security-disk-encryption-linux.md
       - name: Appendice per la crittografia del disco
         href: azure-security-disk-encryption-appendix.md
       - name: Domande frequenti sulla crittografia del disco
         href: azure-security-disk-encryption-faq.md
       - name: risoluzione dei problemi
         href: azure-security-disk-encryption-tsg.md
-    - name: Crittografare una macchina virtuale di Azure
-      href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Crittografia dischi di Azure con un'app Azure AD (versione precedente)
+        items:
+        - name: Prerequisiti di Crittografia dischi con un'app Azure AD
+          href: azure-security-disk-encryption-prerequisites-aad.md
+        - name: Crittografia dischi con un'app Azure AD per VM Windows
+          href: azure-security-disk-encryption-windows-aad.md
+        - name: Crittografia dischi con un'app Azure AD per VM Linux
+          href: azure-security-disk-encryption-linux-aad.md
   - name: Sicurezza di Archiviazione di Azure
     href: security-storage-overview.md
   - name: Guida alla sicurezza di Archiviazione
@@ -303,9 +316,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: Gestione delle sessioni
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: 0ec99adbb53dda738eeaa3edb5bd181b8a91c0e7
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: cb321a012d89f87022d66f50c3bc8fdcc921d6d6
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41926963"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887834"

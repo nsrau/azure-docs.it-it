@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido di C# per i Servizi cognitivi di Azure, API Analisi del testo | Microsoft Docs
+title: Avvio rapido di C# per i Servizi cognitivi, API Analisi del testo | Microsoft Docs
 description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo nei Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -9,46 +9,46 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: 59e2254054f51a8d5f30e1b38dc5e6c23899c054
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 4bf5179ade6f49b847b8b674d33652071e19a769
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284330"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929774"
 ---
-# <a name="quickstart-for-text-analytics-api-with-c"></a>Avvio rapido per l'API Analisi del testo con C# 
+# <a name="quickstart-for-the-text-analytics-api-with-c"></a>Avvio rapido per l'API Analisi del testo con C# 
 <a name="HOLTop"></a>
 
-Questo articolo mostra come rilevare il linguaggio, analizzare il sentiment ed estrarre frasi chiave usando le [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711) con C#. Il codice è stato scritto per lavorare su un'applicazione .Net Core, con riferimenti minimi a librerie esterne, in modo che sia possibile eseguirlo in Linux o MacOS.
+Questo articolo mostra come rilevare il linguaggio, analizzare la valutazione ed estrarre frasi chiave usando le [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711) con C#. Il codice è stato scritto per lavorare su un'applicazione .NET Core, con riferimenti minimi a librerie esterne, in modo che sia possibile eseguirlo in Linux o MacOS.
 
 Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Analisi del testo**. Per completare questo Avvio rapido è possibile usare il **livello gratuito per 5.000 transazioni/mese**.
+È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'API Analisi del testo. Per completare questo Avvio rapido è possibile usare il *livello gratuito per 5.000 transazioni/mese*.
 
-È inoltre necessario disporre della [chiave di accesso e dell'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
+È anche necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
 
 
-## <a name="install-the-nuget-sdk-package"></a>Installare il pacchetto Nuget SDK
-1. Creare una nuova soluzione Console in Visual Studio.
-1. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Manage NuGet Packages for Solution** (Gestisci pacchetti NuGet per la soluzione)
-1. Selezionare la casella di controllo **Include Prerelease** (Includi versione provvisoria).
-1. Selezionare la scheda **Browse** (Sfoglia) e cercare **Microsoft.Azure.CognitiveServices.Language**
-1. Selezionare il pacchetto Nuget e installarlo.
+## <a name="install-the-nuget-sdk-package"></a>Installare il pacchetto NuGet SDK
+1. Creare una nuova soluzione console in Visual Studio.
+1. Fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet per la soluzione**.
+1. Selezionare la casella di controllo **Includi versione preliminare**.
+1. Selezionare la scheda **Sfoglia** e cercare **Microsoft.Azure.CognitiveServices.Language**.
+1. Selezionare il pacchetto NuGet e installarlo.
 
 > [!Tip]
->  Sebbene sia possibile chiamare direttamente gli [endpoint HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) da C#, Microsoft.Azure.CognitiveServices.Language SDK agevola la chiamata al servizio perché non rende più necessarie la serializzazione e la deserializzazione di JSON.
+> Sebbene sia possibile chiamare direttamente gli [endpoint HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) da C#, Microsoft.Azure.CognitiveServices.Language SDK agevola la chiamata al servizio perché non rende più necessarie la serializzazione e la deserializzazione di JSON.
 >
 > Collegamenti utili:
-> - [Pagina SDK Nuget](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [Pagina SDK NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 > - [Codice SDK](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
-## <a name="call-the-text-analytics-api-using-the-sdk"></a>Chiamare l'API Analisi del testo usando l'SDK
-1. Sostituire Program.cs con il codice fornito di seguito. Questo programma illustra le funzionalità dell'API Analisi del testo in 3 sezioni (estrazione del linguaggio, estrazione di frasi chiave e analisi del sentiment).
+## <a name="call-the-text-analytics-api-by-using-the-sdk"></a>Chiamare l'API Analisi del testo usando l'SDK
+1. Sostituire Program.cs con il codice seguente. Questo programma illustra le funzionalità dell'API Analisi del testo in tre sezioni (estrazione del linguaggio, estrazione di frasi chiave e analisi del sentiment).
 1. Sostituire il valore dell'intestazione `Ocp-Apim-Subscription-Key` con una chiave di accesso valida per la sottoscrizione.
-1. Sostituire la località in `Endpoint` con l'endpoint per cui è stata fatta l'iscrizione. È possibile trovare l'endpoint nella risorsa del portale di Azure. L'endpoint inizia in genere con "https://[region].api.cognitive.microsoft.com". Includere solo il protocollo e il nome host.
+1. Sostituire la località in `Endpoint` con l'endpoint per cui è stata fatta l'iscrizione. È possibile trovare l'endpoint nella risorsa del portale di Azure. L'endpoint in genere inizia con "https://[region].api.cognitive.microsoft.com." Includere solo il protocollo e il nome host.
 1. Eseguire il programma.
 
 ```csharp
@@ -88,7 +88,7 @@ namespace ConsoleApp1
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            // Extracting language
+            // Extracting language.
             Console.WriteLine("===== LANGUAGE EXTRACTION ======");
 
             var result =  client.DetectLanguageAsync(new BatchInput(
@@ -105,7 +105,7 @@ namespace ConsoleApp1
                 Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
             }
 
-            // Getting key-phrases
+            // Getting key phrases.
             Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
 
             KeyPhraseBatchResult result2 = client.KeyPhrasesAsync(new MultiLanguageBatchInput(
@@ -117,7 +117,7 @@ namespace ConsoleApp1
                           new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
                         })).Result;
 
-            // Printing keyphrases
+            // Printing key phrases.
             foreach (var document in result2.Documents)
             {
                 Console.WriteLine("Document ID: {0} ", document.Id);
@@ -130,7 +130,7 @@ namespace ConsoleApp1
                 }
             }
 
-            // Extracting sentiment
+            // Extracting sentiment.
             Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
 
             SentimentBatchResult result3 = client.SentimentAsync(
@@ -144,7 +144,7 @@ namespace ConsoleApp1
                         })).Result;
 
 
-            // Printing sentiment results
+            // Printing sentiment results.
             foreach (var document in result3.Documents)
             {
                 Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);

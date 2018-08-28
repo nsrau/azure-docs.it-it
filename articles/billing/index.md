@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: b04cb7ca3e8e7b292efaed66096c206b268a034a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: db2c6f9995356abc233e971a2fae5a1ee6233ed1
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626183"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915697"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentazione della fatturazione e della gestione dei costi di Azure
 
 Informazioni sulla fatturazione di Azure, su come monitorare l'utilizzo e i costi e su come gestire l'account e le sottoscrizioni.
+
+> [!div class="nextstepaction"]
+> [Contribuire al miglioramento della documentazione sulla fatturazione di Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 <ul class="panelContent cardsF">
     <li>

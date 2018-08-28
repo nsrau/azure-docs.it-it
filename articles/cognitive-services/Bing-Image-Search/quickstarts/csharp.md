@@ -1,22 +1,22 @@
 ---
-title: Chiamata e risposta - Avvio rapido di C# per Servizi cognitivi di Azure, API Ricerca immagini Bing | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca immagini Bing in Servizi cognitivi Microsoft in Azure.
+title: "Guida introduttiva: inviare query di ricerca con l'API REST per l'API Ricerca immagini Bing usando C#"
+description: In questa guida introduttiva, è possibile inviare le query di ricerca all'API di ricerca Bing per ottenere un elenco di immagini pertinenti usando C#.
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e5a506b9a25e94c827815323d209bf7c175bac4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 8/9/2018
+ms.author: aahi
+ms.openlocfilehash: 7a5ef36f02d82ee17698af9c647f043792280fbc
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377004"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929712"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-c"></a>Chiamata e risposta: la prima query di Ricerca immagini Bing in C#
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-c"></a>Guida introduttiva: inviare query di ricerca con l'API REST e C#
 
 L'API Ricerca immagini Bing offre un'esperienza simile a quella di Bing.com/Images. Consente infatti di inviare una query di ricerca utente a Bing e di ottenere un elenco di immagini pertinenti.
 
@@ -24,20 +24,20 @@ Questo articolo include una semplice applicazione console che esegue una query d
 
 Il programma di esempio usa solo le classi di .NET Core e viene eseguito in Windows con CLR .NET o in Linux o in macOS con [Mono](http://www.mono-project.com/).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-È necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/) per ottenere questo codice in esecuzione su Windows. La Community Edition va bene.
+È necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/) perché questo codice possa essere eseguito su Windows. È possibile usare la versione gratuita Community Edition.
 
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Esecuzione dell'applicazione
 
-Per eseguire l'applicazione seguire questa procedura.
+Per eseguire l'applicazione, seguire questa procedura.
 
 1. Creare una nuova soluzione di Console in Visual Studio.
-1. Sostituire `Program.cs` con il codice fornito.
-2. Sostituire il valore `accessKey` con una chiave di accesso valida per la sottoscrizione.
-3. Eseguire il programma.
+2. Sostituire `Program.cs` con il codice fornito.
+3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
+4. Eseguire il programma.
 
 ```csharp
 using System;
@@ -208,7 +208,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="json-response"></a>Risposta JSON
 
-Segue una risposta di esempio. Per limitare la lunghezza del file JSON, è mostrato solo un singolo risultato e altre parti della risposta sono state troncate. 
+Di seguito è illustrata una risposta di esempio. Per limitare la lunghezza del codice JSON, viene illustrato un solo risultato, mentre altre parti della risposta sono state troncate. 
 
 ```json
 {
@@ -297,7 +297,7 @@ Segue una risposta di esempio. Per limitare la lunghezza del file JSON, è mostr
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione dell'applicazione a pagina singola di Ricerca immagini Bing](../tutorial-bing-image-search-single-page-app.md)
+> [Esercitazione sull'app a singola pagina di Ricerca immagini Bing](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Vedere anche  
 

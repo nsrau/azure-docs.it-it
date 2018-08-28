@@ -290,22 +290,22 @@ items:
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDK
     items:
+    - name: Creazione .NET
+      href: https://aka.ms/luis-sdk-dotnet-authoring
+    - name: Runtime .NET
+      href: https://aka.ms/luis-sdk-dotnet-runtime
     - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
-    - name: Creazione Node.js
-      href: http://aka.ms/luis-sdk-node-authoring
-    - name: Endpoint Node.js
-      href: http://aka.ms/luis-sdk-node-endpoint
     - name: Go
       href: https://aka.ms/luis-sdk-go
     - name: Java
       href: https://aka.ms/luis-java-sdk
+    - name: Creazione Node.js
+      href: http://aka.ms/luis-sdk-node-authoring
+    - name: Runtime Node.js
+      href: http://aka.ms/luis-sdk-node-endpoint
     - name: Python
       href: https://aka.ms/luis-python-sdk
-    - name: Endpoint .Net
-      href: https://aka.ms/luis-endpoint-sdk
-    - name: Creazione .Net
-      href: https://aka.ms/luis-authoring-sdk
 - name: Risorse correlate
   items:
   - name: Servizio Azure Bot
@@ -346,9 +346,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: c7bf2aa43abdfc69a07618afd1f028918374ea86
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3499c5a00b5b4ea4758a7895e44beceeed09973d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42440352"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915865"

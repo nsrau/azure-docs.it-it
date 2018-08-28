@@ -1,24 +1,24 @@
 ---
-title: Integrare LUIS con un bot usando Bot Builder SDK per C# in Azure | Microsoft Docs
-description: Compilare un bot integrato con un'applicazione LUIS usando Bot Framework.
+title: Usando C#, integrare LUIS con un bot usando Bot Builder SDK in Azure | Microsoft Docs
+description: Usando C#, creare un chat bot integrato con Language Understanding (LUIS). Questo bot chat utilizza il dominio di HomeAutomation precompilato per implementare rapidamente una soluzione di bot.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 08/13/2018
 ms.author: diberry
-ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225959"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41929884"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>App Bot Web usando il modello LUIS per C#
 
-Compilare un chatbot con Language Understanding integrato.
+Usando C#, creare un chat bot integrato con Language Understanding (LUIS). Questo bot chat utilizza il dominio di HomeAutomation precompilato per implementare rapidamente una soluzione di bot. 
 
 ## <a name="prerequisite"></a>Prerequisito
 
@@ -148,7 +148,7 @@ Nel portale di Azure fare clic su **Test in Web Chat** (Testa nella chat Web) pe
 > È possibile rieseguire il training dell'app LUIS senza alcuna modifica al codice del bot. Vedere [Aggiungere espressioni di esempio](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ed [eseguire il training e il testing dell'app LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Scaricare il bot per eseguire il debug
-Se il bot non funziona, scaricare il progetto nel computer locale e continuare il [debug](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
+Se il bot non funziona, scaricare il progetto nel computer locale e continuare il [debug](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
 
 ## <a name="learn-more-about-bot-framework"></a>Ulteriori informazioni su Bot Framework
 Ulteriori informazioni su [Bot Framework](https://dev.botframework.com/) e [3.x](https://github.com/Microsoft/BotBuilder) e [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK.
