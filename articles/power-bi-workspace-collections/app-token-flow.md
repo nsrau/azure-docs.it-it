@@ -16,12 +16,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4bf92638e15767ea254b33e5804977f0d6ab5476
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412186"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144876"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI
 
@@ -44,10 +44,10 @@ I token dell'app sono token JSON Web (JWT, JSON Web Token) firmati da una delle 
 
 Il token dell'app può contenere le attestazioni seguenti:
 
-| Attestazione | DESCRIZIONE |
+| Attestazione | DESCRIZIONE |    
 | --- | --- |
 | **ver** |Versione del token dell'app. La versione corrente è 0.2.0. |
-| **aud** |Destinatario previsto per il token. Per le raccolte di aree di lavoro di Power BI usare: "https://analysis.windows.net/powerbi/api". |
+| **aud** |Destinatario previsto per il token. Per le raccolte di aree di lavoro di Power BI usare: *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |Stringa che indica l'applicazione che ha rilasciato il token. |
 | **type** |Tipo di token dell'app da creare. L'unico tipo attualmente supportato è **embed**. |
 | **wcn** |Nome della raccolta di aree di lavoro per cui viene emesso il token. |

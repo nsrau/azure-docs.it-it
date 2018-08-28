@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: b89f1aad46621d35728934ea068a5893ba674094
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ab2a05c55ee248d8a74f70d36b06277db3a0f38a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124800"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144878"
 ---
 # <a name="use-service-management-from-python"></a>Usare la gestione dei servizi da Python
 La guida descrive come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](https://github.com/Azure/azure-sdk-for-python) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure][management-portal]. È possibile usare questa funzionalità per creare, aggiornare ed eliminare servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali. Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
@@ -105,7 +105,7 @@ Quando si crea un servizio cloud o un servizio di archiviazione, è necessario f
 
 * Europa occidentale
 * Europa settentrionale
-* Asia sudorientale
+* Asia sud-orientale
 * Asia orientale
 * Stati Uniti centrali
 * Stati Uniti centro-settentrionali
@@ -116,7 +116,7 @@ Quando si crea un servizio cloud o un servizio di archiviazione, è necessario f
 * Giappone occidentale
 * Brasile meridionale
 * Australia orientale
-* Australia sudorientale
+* Australia sud-orientale
 
 ## <a name="CreateCloudService"> </a>Creare un servizio cloud
 Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud][cloud service] di Azure (noto come *servizio ospitato* nelle versioni precedenti di Azure). È possibile usare il metodo **create\_hosted\_service** per creare un nuovo servizio ospitato. Creare il servizio specificando un nome di servizio ospitato univoco in Azure, un'etichetta con codifica base64 automatica, una descrizione e una località.
@@ -402,7 +402,7 @@ Per altre informazioni su come acquisire una macchina virtuale Windows nel model
 ## <a name="What's Next"> </a>Passaggi successivi
 A questo punto, dopo avere appreso le nozioni di base della gestione dei servizi, è possibile accedere alla [documentazione completa di riferimento all'API per Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) ed eseguire facilmente le complesse attività di gestione dell'applicazione Python.
 
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/develop/python/).
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](https://azure.microsoft.com/develop/python/).
 
 [What is service management?]: #WhatIs
 [Concepts]: #Concepts
