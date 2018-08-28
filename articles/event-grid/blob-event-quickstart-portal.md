@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 423995aecc6e5f29464ad140349ba27f89c75b5d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 141e8f2a01c057f613b7668e64a0ec9503fcfb39
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068744"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42024270"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Creare e instradare eventi di archiviazione BLOB con il portale di Azure e Griglia di eventi
 
@@ -27,8 +27,6 @@ Al termine, i dati degli eventi saranno stati inviati all'app Web.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Per usare eventi di archiviazione BLOB, è necessario un [account di archiviazione BLOB](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o un [account di archiviazione per utilizzo generico versione 2](../storage/common/storage-account-options.md#general-purpose-v2-accounts). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi quelli relativi a BLOB, file, code e tabelle. Gli **account di archiviazione BLOB** sono account specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
-
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Per creare un account di archiviazione BLOB, selezionare **Crea una risorsa**. 
@@ -39,7 +37,7 @@ Per usare eventi di archiviazione BLOB, è necessario un [account di archiviazio
 
    ![Selezionare Archiviazione](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Specificare i valori per l'account di archiviazione BLOB, incluso un nome univoco per l'account. Per il tipo di account selezionare **Archivio BLOB**. Per la località, selezionare una delle [località](overview.md) che supporta Griglia di eventi. Dopo avere specificato i valori, selezionare **Crea**.
+1. Per gli eventi è necessario creare un [account di archiviazione BLOB](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o un [account di archiviazione per utilizzo generico versione 2](../storage/common/storage-account-options.md#general-purpose-v2-accounts). Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. Specificare i valori per l'account di archiviazione BLOB o per l'account di archiviazione versione 2. Fornire un nome univoco per l'account. Dopo avere specificato i valori, selezionare **Crea**.
 
    ![Passaggi iniziali](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 8/8/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 179db61777fe60ae53d7fee553c8124d7a9f7abf
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781181"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42024255"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
@@ -37,7 +37,10 @@ Rete virtuale di Azure consente a diversi tipi di risorse di Azure, ad esempio M
 
 ## <a name="communicate-with-the-internet"></a>Comunicare con Internet
 
-Per impostazione predefinita, tutte le risorse in una rete virtuale possono comunicare verso l'esterno su Internet. Per la comunicazione in ingresso con una risorsa, è possibile assegnarle un indirizzo IP pubblico. Per altre informazioni, vedere [Indirizzi IP pubblici](virtual-network-public-ip-address.md).
+Per impostazione predefinita, tutte le risorse in una rete virtuale possono comunicare verso l'esterno su Internet. Per la comunicazione in ingresso con una risorsa, è possibile assegnarle un indirizzo IP pubblico o un servizio di bilanciamento del carico pubblico. Si può usare un indirizzo IP pubblico o un servizio di bilanciamento del carico pubblico anche per gestire le connessioni in uscita.  Per altre informazioni sulle connessioni in uscita in Azure, vedere [Connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md), [Indirizzi IP pubblici](virtual-network-public-ip-address.md) e [Informazioni su Azure Load Balancer](../load-balancer/load-balancer-overview.md).
+
+>[!NOTE]
+>Quando si usa solo un'istanza di [Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) interna, la connettività in uscita non è disponibile finché non si definisce la modalità di funzionamento desiderata per le [connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md) con un IP pubblico a livello di istanza o un servizio di bilanciamento del carico pubblico.
 
 ## <a name="communicate-between-azure-resources"></a>Comunicare tra risorse di Azure
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/03/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a110998505ed49c36e1ec722b1dfbf0969def060
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fb9b5cd1379f39796f984f0436900f629c66436
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449559"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40209335"
 ---
 Per iniziare a usare le entità di messaggistica del bus di servizio in Azure, prima di tutto è necessario creare uno spazio dei nomi con un nome univoco in Azure. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
@@ -39,7 +39,7 @@ Con la creazione di un nuovo spazio dei nomi viene generata automaticamente una 
 3. Nella schermata **Criteri di accesso condiviso** fare clic su **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. Nella finestra **Criteri: RootManageSharedAccessKey** fare clic sul pulsante Copia accanto a **Stringa di connessione - chiave primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento. Incollare questo valore nel Blocco note o in un'altra posizione temporanea.
+4. Nella finestra **Criteri: RootManageSharedAccessKey** fare clic sul pulsante Copia accanto a **Stringa di connessione primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento. Incollare questo valore nel Blocco note o in un'altra posizione temporanea.
    
     ![connection-string][connection-string]
 

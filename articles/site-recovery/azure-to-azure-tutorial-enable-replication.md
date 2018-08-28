@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aaed3dd5a2a7b32d24aa8b19dab870c28e6f58ec
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216183"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42154782"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria
 
@@ -114,8 +114,9 @@ Maggiori informazioni sui [ruoli predefiniti del Controllo degli accessi in base
 2. In **Source** (Origine) selezionare **Azure**.
 3. In **Percorso di origine** selezionare l'area di Azure di origine in cui le VM sono attualmente in esecuzione.
 4. Selezionare il **modello di distribuzione delle macchine virtuali di Azure**: **Resource Manager** o **Classica**.
-5. Selezionare il **Gruppo di risorse di origine** per le VM di Resource Manager o **Servizio cloud** per le VM classiche.
-6. Fare clic su **OK** per salvare le impostazioni.
+5. Selezionare la **sottoscrizione di origine** in cui sono in esecuzione le macchine virtuali. Può essere qualsiasi sottoscrizione che si trova nello stesso tenant di Azure Active Directory in cui è presente l'insieme di credenziali di Servizi di ripristino.
+6. Selezionare il **Gruppo di risorse di origine** per le macchine virtuali di Resource Manager o il **Servizio cloud** per le macchine virtuali classiche.
+7. Fare clic su **OK** per salvare le impostazioni.
 
 ### <a name="select-the-vms"></a>Selezionare le macchine virtuali
 
@@ -134,9 +135,11 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
   ![Configurare le impostazioni](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
+- **Sottoscrizione di destinazione**: sottoscrizione di destinazione usata per il ripristino di emergenza. Per impostazione predefinita, la sottoscrizione di destinazione sarà uguale alla sottoscrizione di origine. Fare clic su "Personalizza" per selezionare una sottoscrizione di destinazione diversa nello stesso tenant di Azure Active Directory.
+
 - **Percorso di destinazione**: area di destinazione usata per il ripristino di emergenza. È consigliabile che il percorso di destinazione corrisponda al percorso dell'insieme di credenziali di Site Recovery.
 
-- **Gruppo di risorse di destinazione**: gruppo di risorse nell'area di destinazione in cui si trovano le macchine virtuali di Azure dopo il failover. Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con suffisso "asr". Il percorso del gruppo di risorse di destinazione può essere qualsiasi area, ad eccezione di quella in cui sono ospitate le macchine virtuali di origine. 
+- **Gruppo di risorse di destinazione**: gruppo di risorse nell'area di destinazione in cui si trovano le macchine virtuali di Azure dopo il failover. Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con suffisso "asr". Il percorso del gruppo di risorse di destinazione può essere qualsiasi area, ad eccezione di quella in cui sono ospitate le macchine virtuali di origine.
 
 - **Rete virtuale di destinazione**: rete nell'area di destinazione in cui si trovano le macchine virtuali dopo il failover.
   Per impostazione predefinita, Site Recovery crea una nuova rete virtuale e subnet nell'area di destinazione con suffisso "asr".

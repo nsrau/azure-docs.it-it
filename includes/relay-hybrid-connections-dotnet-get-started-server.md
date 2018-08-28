@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: service-bus-relay
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 08/16/2018
+ms.author: clemensv
+ms.custom: include file
+ms.openlocfilehash: fbc5bbff62a13d9b4301271031105ecd7d17fa86
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40182508"
+---
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
 
 In Visual Studio creare un nuovo progetto **App console (.NET Framework)**.
@@ -5,8 +22,10 @@ In Visual Studio creare un nuovo progetto **App console (.NET Framework)**.
 ### <a name="add-the-relay-nuget-package"></a>Aggiungere il pacchetto NuGet di inoltro
 
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e quindi scegliere **Gestisci pacchetti NuGet**.
-2. Selezionare **Sfoglia** e quindi cercare **Microsoft.Azure.Relay**. Nei risultati della ricerca selezionare **Inoltro di Microsoft Azure**. 
-3. Selezionare **Installa** per completare l'installazione. Chiudere la finestra di dialogo.
+2. Selezionare l'opzione **Includi versione preliminare**. 
+3. Selezionare **Sfoglia** e quindi cercare **Microsoft.Azure.Relay**. Nei risultati della ricerca selezionare **Inoltro di Microsoft Azure**.
+4. Per la versione selezionare **2.0.0-preview1-20180523**. 
+5. Selezionare **Installa** per completare l'installazione. Chiudere la finestra di dialogo.
 
 ### <a name="write-code-to-receive-messages"></a>Scrivere codice per ricevere messaggi
 
@@ -17,6 +36,7 @@ In Visual Studio creare un nuovo progetto **App console (.NET Framework)**.
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net;
     using Microsoft.Azure.Relay;
     ```
 2. Aggiungere costanti alla classe `Program` per i dettagli della connessione ibrida. Sostituire i segnaposto tra parentesi con i valori ottenuti durante la creazione della connessione ibrida. Usare il nome completo dello spazio dei nomi.

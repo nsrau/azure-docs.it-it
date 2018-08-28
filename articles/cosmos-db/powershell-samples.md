@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 10/16/2017
 ms.author: sngun
-ms.openlocfilehash: 066826661381f40af2943359eb75abae8306bb7b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9ee5c7a008f375beffd6bbdf00cca8b28752b1fb
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855584"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41920536"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Esempi di Azure PowerShell per Azure Cosmos DB
 
@@ -28,6 +28,8 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 |[Creare un account API SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un singolo account API di Azure Cosmos DB da usare con l'API SQL. |
 |[Creare un account di API MongoDB](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un singolo account di Azure Cosmos DB da usare con l'API MongoDB. |
 |[Creare un account API Gremlin](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un singolo account di Azure Cosmos DB da usare con l'API Gremlin. |
+|[Creare un account di API Cassandra](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un singolo account di Azure Cosmos DB da usare con l'API Cassandra. |
+|[Creare un account di API di tabella](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un singolo account API di Azure Cosmos DB da usare con l'API di tabella. |
 |**Scalare Azure Cosmos DB**||
 |[Replicare l'account di Azure Cosmos DB in più aree e configurare le priorità di failover](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Replica a livello globale i dati dell'account in più aree con una priorità di failover specificata.|
 |**Proteggere Azure Cosmos DB**||

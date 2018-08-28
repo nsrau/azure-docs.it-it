@@ -3,23 +3,19 @@ title: Integrazione di Automazione di Azure con Griglia di eventi | Microsoft Do
 description: Informazioni su come aggiungere automaticamente un tag quando viene creata una nuova macchina virtuale e inviare una notifica a Microsoft Teams.
 keywords: automazione, runbook, team, griglia di eventi, macchina virtuale, VM
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 manager: ''
-editor: ''
 ms.service: automation
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049865"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918335"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrazione di Automazione di Azure con Griglia di eventi e Microsoft Teams
 
@@ -87,28 +83,30 @@ Per completare questa esercitazione, è necessario un [account di Automazione di
 
     ![Configurare i parametri del webhook](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
-5. Selezionare **OK** per creare il webhook del runbook di Automazione.
-
+5. Selezionare **Crea** per creare il webhook del runbook di Automazione.
 
 ## <a name="create-an-event-grid-subscription"></a>Creare una sottoscrizione di Griglia di eventi
+
 1. Nella pagina della panoramica di **Account di automazione**, selezionare **Griglia di eventi**.
 
     ![Selezionare Griglia di eventi](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Selezionare il pulsante **+ Sottoscrizione di eventi**.
+2. Fare clic su **+ Sottoscrizione di eventi**.
 
 3. Configurare la sottoscrizione con le informazioni seguenti:
 
-    *   Immettere **AzureAutomation** come nome.
-    *   In **Tipo di argomento** selezionare **Sottoscrizioni di Azure**.
-    *   Deselezionare la casella di controllo **Esegui la sottoscrizione di tutti i tipi di eventi**.
-    *   In **Tipi di evento** selezionare **Resource Write Success** (Scrittura risorse corretta).
-    *   In **Endpoint sottoscrittore**, immettere l'URL del webhook per il runbook Watch-VMWrite.
-    *   In **Filtro per prefisso** immettere la sottoscrizione e il gruppo di risorse in cui si intende ricercare le nuove macchine virtuali create. L'aspetto dovrebbe essere simile al seguente: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+   * Per **Tipo di argomento** selezionare **Sottoscrizioni di Azure**.
+   * Deselezionare la casella di controllo **Esegui la sottoscrizione di tutti i tipi di eventi**.
+   * Immettere **AzureAutomation** come nome.
+   * Nell'elenco a discesa **Tipi di evento definiti**deselezionare tutte le opzioni ad eccezione di **Resource Write Success** (Scrittura risorse corretta).
+   * Per **Tipo di endpoint**: selezionare **Webhook**.
+   * Fare clic su **Seleziona endpoint**. Nella pagina **Selezionare il webhook** visualizzata incollare l'URL del webhook creato per il runbook Watch-VMWrite.
+   * In **FILTRI** immettere la sottoscrizione e il gruppo di risorse in cui si vuole cercare le nuove macchine virtuali create. L'aspetto dovrebbe essere simile al seguente: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Selezionare **Crea** per salvare la sottoscrizione della Griglia di eventi.
 
 ## <a name="create-a-vm-that-triggers-the-runbook"></a>Creare una macchina virtuale che attivi il runbook
+
 1. Creare una nuova macchina virtuale nel gruppo di risorse specificato nel filtro per prefisso della sottoscrizione della Griglia di eventi.
 
 2. Il runbook Watch-VMWrite dovrebbe essere richiamato e alla macchina virtuale dovrebbe essere aggiunto un nuovo tag.
@@ -120,6 +118,7 @@ Per completare questa esercitazione, è necessario un [account di Automazione di
     ![Notifica Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 In questa esercitazione, è stata impostata l'integrazione tra l'Automazione e la Griglia di eventi. Si è appreso come:
 
 > [!div class="checklist"]

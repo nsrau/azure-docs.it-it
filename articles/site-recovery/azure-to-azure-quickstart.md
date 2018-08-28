@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: abba75e731d2550b4719eec70d475884bd7f3c8e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990864"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023099"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicare una macchina virtuale di Azure in un'altra area di Azure
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo operative le app aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
 
-Questa guida introduttiva illustra come replicare una macchina virtuale di Azure in un'area di Azure diversa. 
+Questa guida introduttiva illustra come replicare una macchina virtuale di Azure in un'area di Azure diversa.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -62,8 +62,7 @@ La replica della macchina virtuale nell'area primaria viene arrestata nel moment
 Per arrestare la replica, seguire questa procedura:
 
 1. Selezionare la macchina virtuale.
-2. In **Ripristino di emergenza** fare clic su **Altro**.
-3. Fare clic su **Disable Replication** (Disabilitazione della replica).
+2. In **Ripristino di emergenza** fare clic su **Disabilita replica**.
 
    ![Disabilitare la replica](media/azure-to-azure-quickstart/disable2-replication.png)
 

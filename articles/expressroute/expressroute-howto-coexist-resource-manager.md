@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 08/17/2018
 ms.author: charwen,cherylmc,rambala
-ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 0e69a85f320a0a8d77bd07fc0dedb77eb99efb36
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262873"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41924821"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurare connessioni coesistenti ExpressRoute e da sito a sito
 > [!div class="op_single_selector"]
@@ -183,14 +183,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
   ```
 
 ## <a name="add"></a>Per configurare connessioni coesistenti per una rete virtuale esistente
-Se esiste già una rete virtuale, controllare le dimensioni della subnet del gateway. Se la subnet del gateway è /29 o /28, è necessario eliminare prima di tutto il gateway di rete virtuale e aumentare le dimensioni della subnet del gateway. I passaggi descritti in questa sezione illustrano come eseguire questa operazione.
-
-Se la subnet del gateway è /27 o superiore e la rete virtuale è connessa tramite ExpressRoute, è possibile ignorare i passaggi seguenti e andare al ["Passaggio 4 - Creare un gateway VPN da sito a sito"](#vpngw) nella sezione precedente. 
-
-> [!NOTE]
-> Quando si elimina il gateway esistente, gli ambienti locali perderanno la connessione alla rete virtuale mentre si lavora a questa configurazione. 
-> 
-> 
+Se è presente una rete virtuale che include un solo gateway di rete virtuale (ad esempio, un gateway VPN da sito a sito) e si vuole aggiungere un altro gateway di un tipo diverso (ad esempio, un gateway ExpressRoute), controllare le dimensioni della subnet del gateway. Se la subnet del gateway ha dimensioni pari a /27 o superiori, è possibile ignorare i passaggi seguenti e seguire invece i passaggi della sezione precedente per aggiungere un gateway VPN da sito a sito o un gateway ExpressRoute. Se la subnet del gateway è /29 o /28, è necessario eliminare prima di tutto il gateway di rete virtuale e aumentare le dimensioni della subnet del gateway. I passaggi descritti in questa sezione illustrano come eseguire questa operazione.
 
 1. È necessario installare l'ultima versione dei cmdlet di Azure PowerShell. Per altre informazioni sull'installazione dei cmdlet, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). I cmdlet usati per questa configurazione possono essere leggermente diversi da quelli con cui si ha familiarità. Assicurarsi di usare i cmdlet specificati in queste istruzioni. 
 2. Eliminare il gateway ExpressRoute o VPN da sito a sito esistente.
@@ -220,7 +213,7 @@ Se la subnet del gateway è /27 o superiore e la rete virtuale è connessa trami
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. A questo punto, si ha una rete virtuale senza gateway. Per creare nuovi gateway e completare le connessioni, è possibile procedere con il [Passaggio 4 - Creare un gateway VPN da sito a sito](#vpngw), disponibile tra i passaggi precedenti.
+5. A questo punto, la rete virtuale è priva di gateway. Per creare nuovi gateway e configurare le connessioni, seguire i passaggi della sezione precedente.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Per aggiungere una configurazione da punto a sito al gateway VPN
 Per aggiungere una configurazione da punto a sito al gateway VPN in una configurazione di coesistenza, è possibile seguire questa procedura.

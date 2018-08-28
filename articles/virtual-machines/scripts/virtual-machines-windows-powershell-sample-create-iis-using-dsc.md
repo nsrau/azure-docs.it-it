@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
-ms.openlocfilehash: d546af60b1e6a1c2c551c1824e0add0e83f806d5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7269165da046a688dd27aa9f5b325896ad3f65e7
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930223"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41962292"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>Creare una VM IIS con PowerShell
 
@@ -50,7 +50,7 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando apre anche la porta 80 e imposta le credenziali amministrative. |
-| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Aggiungere un'estensione di VM alla macchina virtuale. In questo esempio, l'estensione dello script personalizzato è usata per installare IIS. |
+| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Aggiungere un'estensione di VM alla macchina virtuale. In questo esempio, l'estensione DSC è usata per installare IIS. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576968"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41917739"
 ---
 # <a name="secure-your-key-vault"></a>Proteggere l'insieme di credenziali delle chiavi
 Insieme di credenziali delle chiavi di Azure è un servizio cloud che consente di proteggere le chiavi di crittografia e i segreti (ad esempio, certificati, stringhe di connessione e password) per le applicazioni cloud. Poiché questi dati sono riservati e importanti per l'azienda, è opportuno limitare l'accesso agli insiemi di credenziali delle chiavi alle applicazioni e agli utenti autorizzati. Questo articolo offre una panoramica del modello di accesso all'insieme di credenziali delle chiavi, illustra i criteri di autenticazione e autorizzazione e spiega come proteggere l'accesso all'insieme di credenziali delle chiavi per le applicazioni cloud presentando un esempio.
@@ -87,7 +87,7 @@ Con il modello di Azure Resource Manager si crea l'insieme di credenziali delle 
 ## <a name="data-plane-access-control"></a>Controllo di accesso al piano dati
 Il piano dati dell'insieme di credenziali delle chiavi è costituito da operazioni che influiscono sugli oggetti in un insieme di credenziali delle chiavi, ad esempio chiavi, segreti e certificati.  Sono incluse le operazioni relative alle chiavi, come la creazione, l'importazione, l'aggiornamento, la generazione di un elenco, il backup e il ripristino, le operazioni di crittografia, come la firma, la verifica, la crittografia, la decrittografia, l'esecuzione e la rimozione del wrapping, nonché l'impostazione di tag e altri attributi per le chiavi. Analogamente, per i segreti sono incluse le operazioni per ottenere, impostare, elencare ed eliminare i segreti.
 
-L'accesso al piano dati viene concesso impostando criteri di accesso per un insieme di credenziali delle chiavi. Per essere in grado di impostare i criteri di accesso per un insieme di credenziali delle chiavi, un utente, un gruppo o un'applicazione deve disporre delle autorizzazioni di collaboratore (controllo degli accessi in base al ruolo) per il piano di gestione relativo a tale insieme. A un utente, un gruppo o un'applicazione può essere concesso l'accesso per eseguire operazioni specifiche relative a segreti o chiavi in un insieme di credenziali delle chiavi. Per un insieme di credenziali delle chiavi sono supportate fino a 16 voci di criteri di accesso. Per concedere a più utenti l'accesso del piano dati a un insieme di credenziali delle chiavi, creare un gruppo di sicurezza di Azure Active Directory e aggiungere utenti a tale gruppo.
+L'accesso al piano dati viene concesso impostando criteri di accesso per un insieme di credenziali delle chiavi. Per essere in grado di impostare i criteri di accesso per un insieme di credenziali delle chiavi, un utente, un gruppo o un'applicazione deve disporre delle autorizzazioni di collaboratore (controllo degli accessi in base al ruolo) per il piano di gestione relativo a tale insieme. A un utente, un gruppo o un'applicazione può essere concesso l'accesso per eseguire operazioni specifiche relative a segreti o chiavi in un insieme di credenziali delle chiavi. Key Vault supporta fino a 1024 voci dei criteri di accesso per un insieme di credenziali delle chiavi. Per concedere a più utenti l'accesso del piano dati a un insieme di credenziali delle chiavi, creare un gruppo di sicurezza di Azure Active Directory e aggiungere utenti a tale gruppo.
 
 ### <a name="key-vault-access-policies"></a>Criteri di accesso di Key Vault
 I criteri di accesso di Key Vault concedono autorizzazioni separate per chiavi, segreti e certificati. È ad esempio possibile concedere a un utente l'accesso alle chiavi, ma non le autorizzazioni per i segreti. Tuttavia, le autorizzazioni per accedere a chiavi, segreti o certificati vengono definite a livello di insieme di credenziali. In altre parole, i criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni a livello di oggetto. Per impostare i criteri di accesso per un insieme di credenziali delle chiavi è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia dalla riga di comando di Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di gestione dell'insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620024.aspx).

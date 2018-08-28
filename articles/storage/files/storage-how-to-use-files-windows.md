@@ -2,24 +2,18 @@
 title: Usare una condivisione file di Azure con Windows | Microsoft Docs
 description: Informazioni su come usare una condivisione file di Azure con Windows e Windows Server.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.openlocfilehash: 54e084e6480c872ff6dd4625b8c87d5a60a181ba
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: files
+ms.openlocfilehash: 96ad812aff8f6ea4f47035188940730e5dc2992c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392268"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918075"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -52,20 +46,11 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 
 * **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave dell'account primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
-* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Il codice PowerShell seguente presuppone che sia installato il modulo AzureRM di PowerShell. Per altre informazioni, vedere l'articolo su come [installare il modulo di Azure PowerShell](/powershell/azure/install-azurerm-ps). Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resoure-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
+* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Ricordarsi di sostituire `your-storage-account-name` con il nome pertinente per il proprio account di archiviazione.
 
     ```PowerShell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    
     ```
 
     Se la connessione ha avuto esito positivo, verrà visualizzato l'output seguente:
@@ -208,6 +193,26 @@ Remove-PSDrive -Name <desired-drive-letter>
     ![Condivisione file di Azure montata](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
 7. Quando si è pronti per smontare la condivisione file di Azure, fare clic con il pulsante destro del mouse sulla voce relativa alla condivisione in **Percorsi di rete** in Esplora file e scegliere **Disconnetti**.
+
+### <a name="accessing-share-snapshots-from-windows"></a>Accedere agli snapshot di condivisione da Windows
+Se è stato creato uno snapshot di condivisione manualmente o automaticamente con uno script o un servizio come Backup di Azure, è possibile visualizzare le versioni precedenti di una condivisione, di una directory o di un determinato file dalla condivisione file in Windows. È possibile creare uno snapshot di condivisione con il [portale di Azure](storage-how-to-use-files-portal.md), con [Azure PowerShell](storage-how-to-use-files-powershell.md) o con l'[interfaccia della riga di comando di Azure](storage-how-to-use-files-cli.md).
+
+#### <a name="list-previous-versions"></a>Elencare le versioni precedenti
+Passare all'elemento o all'elemento padre da ripristinare. Fare doppio clic per passare alla directory desiderata. Fare clic con il pulsante destro del mouse e scegliere **Proprietà** dal menu.
+
+![Fare clic con il pulsante destro del mouse sul menu per scegliere una directory specifica](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
+
+Selezionare **Versioni precedenti** per visualizzare l'elenco di snapshot di condivisione per questa directory. Il caricamento dell'elenco potrebbe richiedere alcuni secondi in base alla velocità della rete e al numero di snapshot di condivisione presenti nella directory.
+
+![Scheda Versioni precedenti](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
+
+È possibile selezionare **Apri** per aprire un determinato snapshot. 
+
+![Snapshot aperto](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+
+#### <a name="restore-from-a-previous-version"></a>Eseguire il ripristino da una versione precedente
+Selezionare **Ripristina** per copiare il contenuto dell'intera directory in modo ricorsivo al momento della creazione dello snapshot di condivisione nel percorso originale.
+ ![Pulsante Ripristina nel messaggio di avviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Protezione di Windows/Windows Server
 Per montare una condivisione file di Azure in Windows, è necessario che la porta 445 sia accessibile. Molte organizzazioni bloccano la porta 445 a causa dei rischi per la sicurezza associati a SMB 1. SMB 1, denominato anche CIFS (Common Internet File System), è un protocollo di file system legacy incluso in Windows e Windows Server. SMB 1 è un protocollo obsoleto, inefficiente e, soprattutto, non sicuro. La buona notizia è che File di Azure non supporta SMB 1 e tutte le versioni supportate di Windows e Windows Server consentono di rimuovere o disabilitare SMB 1. È sempre [consigliabile](https://aka.ms/stopusingsmb1) rimuovere o disabilitare il server e il client SMB 1 in Windows prima di usare condivisioni file di Azure nell'ambiente di produzione.

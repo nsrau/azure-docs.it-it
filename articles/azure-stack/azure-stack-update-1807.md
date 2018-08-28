@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 5e5ebac221060058a44f7605f77d33a133f5e72c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: afbe3ff2e6be4e03f8de8ac2490922c3ec788733
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887224"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091381"
 ---
 # <a name="azure-stack-1807-update"></a>Aggiornamento di Azure Stack 1807
 
@@ -168,6 +168,8 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 Di seguito sono problemi noti di post-installazione per questa versione di build.
 
 ### <a name="portal"></a>Portale
+- <!-- 2931230 – IS  ASDK --> Impossibile eliminare i piani che vengono aggiunti a una sottoscrizione utente come un piano del componente aggiuntivo, anche quando si rimuove il piano dalla sottoscrizione utente. Il piano rimarrà fino a quando non vengono eliminate anche le sottoscrizioni che fanno riferimento il piano aggiuntivo. 
+
 - <!--2760466 – IS  ASDK --> Quando si installa un nuovo ambiente di Azure Stack che esegue questa versione, l'avviso che indica *attivazione obbligatoria* potrebbe non essere visualizzato. [Attivazione](azure-stack-registration.md) è necessario prima di poter usare diffusione di marketplace.  
 
 - <!-- TBD - IS ASDK --> I due tipi di sottoscrizione amministrativo che erano [introdotta con la versione 1804](azure-stack-update-1804.md#new-features) non deve essere utilizzato. I tipi di sottoscrizione siano **sottoscrizione di misurazione**, e **sottoscrizione consumo**. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il **Provider predefinito** tipo di sottoscrizione.

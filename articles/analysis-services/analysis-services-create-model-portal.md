@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17ff6ebed615971b4157831431d9e2395ca68b48
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441676"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144919"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Creare un modello nel portale di Azure
 
@@ -23,9 +23,10 @@ Tenere presente che la finestra di progettazione Web è in versione di **antepri
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-- Un server di Azure Analysis Services, livello Standard o Developer. I nuovi modelli creati usando la finestra di progettazione Web sono di tipo DirectQuery e sono supportati solo da questi livelli.
+- Il server di Azure Analysis Services deve essere al livello Standard o Developer. I nuovi modelli creati usando la finestra di progettazione Web sono di tipo DirectQuery e sono supportati solo da questi livelli.
 - Un database SQL di Azure, Azure SQL Data Warehouse o un file di Power BI Desktop (con estensione pbix) come origine dati. I nuovi modelli creati a partire da file di Power BI Desktop supportano database SQL di Azure e Azure SQL Data Warehouse.
 - Un account di SQL Server con password per la connessione a origini dati di database SQL di Azure e Azure SQL Data Warehouse.
+- È necessario avere privilegi di amministratore di server per creare un nuovo modello. Per modificare ed eseguire query su un modello usando la finestra di progettazione sono necessari i privilegi di amministratore di database.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 

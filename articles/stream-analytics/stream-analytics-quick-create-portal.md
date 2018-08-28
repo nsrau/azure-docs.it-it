@@ -4,17 +4,17 @@ description: Questa guida introduttiva descrive come iniziare a creare un proces
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902905"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023977"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure
 
@@ -34,7 +34,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -146,6 +146,16 @@ In questa sezione viene configurata l'archiviazione BLOB come input per il proce
 3. In questo esempio la query legge i dati dal BLOB e li copia in un nuovo file nel BLOB. Selezionare **Salva**.  
 
    ![Configurare la trasformazione del processo](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+
+## <a name="configure-late-arrival-policy"></a>Configurare il criterio di arrivo in ritardo
+
+1. Passare al processo di Analisi di flusso creato in precedenza.
+
+2. In **Configura** selezionare **Ordinamento eventi**.
+
+3. Impostare **Eventi pervenuti in ritardo** su 20 giorni e selezionare **Salva**.
+
+   ![Configurare il criterio di arrivo in ritardo](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Avviare il processo di Analisi di flusso e controllare l'output
 

@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva di Azure: elaborare flussi di eventi con il portale di Azure | Microsoft Docs'
-description: Questa guida introduttiva descrive come elaborare i flussi di eventi con il portale di Azure.
+title: 'Guida introduttiva di Azure: Creare un hub eventi con il portale di Azure | Microsoft Docs'
+description: Questa guida introduttiva illustra come creare un hub eventi di Azure con il portale di Azure e inviare e ricevere eventi usando .NET Standard SDK.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: shvija
-ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2c2c02d7f06fdca2f92dd9e2324b10b2a712b81f
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004311"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42024069"
 ---
-# <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Guida introduttiva: elaborare flussi di eventi con il portale di Azure e .NET
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guida introduttiva: Creare un hub eventi con il portale di Azure
 
 Hub eventi di Azure è una piattaforma di streaming di dati e un servizio di inserimento degli eventi estremamente scalabile, che consente di ricevere ed elaborare milioni di eventi al secondo. Questa guida introduttiva illustra come creare un hub eventi usando il [portale di Azure](https://portal.azure.com) e inviare e ricevere da un hub eventi usando .NET Standard SDK.
 

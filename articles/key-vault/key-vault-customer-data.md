@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235534"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144868"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funzionalità dei dati dei clienti in Azure Key Vault
 
@@ -60,14 +60,10 @@ I log di diagnostica di Azure Key Vault che contengono dati personali possono es
 
 - [Panoramica dell'eliminazione temporanea di Azure Key Vault](key-vault-soft-delete-cli.md)
 
-- [Vaults](https://docs.microsoft.com/rest/api/keyvault/vaults) (Insiemi di credenziali)
-
 - [Azure Key Vault key operations](https://docs.microsoft.com/rest/api/keyvault/key-operations) (Operazioni relative alle chiavi di Azure Key Vault)
 
 - [Azure Key Vault secret operations](https://docs.microsoft.com/rest/api/keyvault/secret-operations) (Operazioni relative ai segreti di Azure Key Vault)
 
 - [Azure Key Vault certificates and policies](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies) (Certificati e criteri di Azure Key Vault)
-
-- [Autorità di certificazione](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations) (Operazioni relative agli account di archiviazione di Azure Key Vault)

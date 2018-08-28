@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5bb5ed45363216bb1bcd39f85157a3eed68c2f9
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: fcae6d656f6e309b0fdcd60db743d3bebf3cd5a9
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126863"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617039"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure
 
@@ -78,7 +78,9 @@ In questa sezione si crea un account di archiviazione usando il portale di Azure
 
 ## <a name="edit-and-deploy-the-template"></a>Modificare e distribuire il modello
 
-In questa sezione si apre il modello salvato dalla raccolta modelli, si modifica tale modello nel portale e si distribuisce il modello modificato. Per modificare un modello più complesso, valutare la possibilità di usare Visual Studio Code, che offre funzionalità di modifica più avanzate.
+In questa sezione si apre il modello salvato dalla raccolta modelli, si modifica tale modello nel portale e si distribuisce il modello modificato. Per modificare un modello più complesso, valutare la possibilità di usare [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), che offre funzionalità di modifica più avanzate.
+
+Azure richiede che ogni servizio di Azure abbia un nome univoco. Se si immette un nome di account di archiviazione già esistente, la distribuzione ha esito negativo. Per evitare questo problema, è possibile usare una chiamata di funzione di modello uniquestring () per generare un nome di account di archiviazione univoco.
 
 1. Nel portale di Azure selezionare **Tutti i servizi** nel menu a sinistra, immettere **modelli** nella casella del filtro e quindi selezionare **Modelli (ANTEPRIMA)**.
 
@@ -177,6 +179,14 @@ In questa sezione si apre il modello salvato dalla raccolta modelli, si modifica
 
 10. Selezionare **Acquisto**.
 11. Selezionare l'icona a forma di campana delle notifiche nella parte superiore della schermata per visualizzare lo stato della distribuzione.
+
+    ![Notifica della distribuzione di modelli di Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+
+12. Selezionare **Vai al gruppo di risorse** nel riquadro di notifica. Verrà visualizzata una schermata simile alla seguente:
+
+    ![Gruppo di risorse di distribuzione di modelli di Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+
+    Si vede che la distribuzione ha avuto esito positivo ed esiste un solo account di archiviazione nel gruppo di risorse. Il nome dell'account di archiviazione è una stringa univoca generata dal modello. Per altre informazioni sull'uso degli account di archiviazione di Azure, vedere [Guida introduttiva: Caricare, scaricare ed elencare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

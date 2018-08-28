@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 91302f21f3b3f9db50dc0c930a4cdfc02749d151
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 600625f143041eaf983b7ec7e945c5a968b522f5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951006"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022843"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e Visual Studio)
 
@@ -29,9 +29,9 @@ In questa guida si apprenderà come:
 > [!Note]
 > **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md) o inserire un commento in questa pagina. È anche possibile provare l'[esercitazione](get-started-netcore-visualstudio.md) più dettagliata.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-- Un cluster Kubernetes che esegue Kubernetes 1.10.3 nell'area EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral o CanadaEast con il routing HTTP dell'applicazione abilitato.
+- Un cluster Kubernetes che esegue Kubernetes 1.9.6 o versione successiva nell'area EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral o CanadaEast con il routing HTTP dell'applicazione abilitato.
 
   ![Assicurarsi di abilitare il routing HTTP dell'applicazione.](media/common/Kubernetes-Create-Cluster-3.PNG)
 

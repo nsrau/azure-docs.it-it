@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c13cd495f7802f14937321134a975b7a00c791ab
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413074"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918074"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Azure Machine Learning come modulo di IoT Edge (anteprima)
 
@@ -46,9 +46,10 @@ Un dispositivo Azure IoT Edge:
 Risorse cloud:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
+* Un account di Azure Machine Learning. Seguire le istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Non è necessario installare l'applicazione workbench per questa esercitazione. 
 
 Risorse per lo sviluppo:
-* Un account di Azure Machine Learning. Seguire le istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Non è necessario installare l'applicazione workbench per questa esercitazione. 
+
 * Gestione dei modelli per Azure Machine Learning. Per configurare l'ambiente e creare un account, attenersi alle istruzioni riportate in [Configurazione di Gestione modelli](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Durante la configurazione della distribuzione è consigliabile scegliere la procedura locale anziché quella cluster, dove possibile.
 
 ### <a name="disable-process-identification"></a>Disabilitare l'identificazione di un processo
@@ -56,7 +57,7 @@ Risorse per lo sviluppo:
 >[!NOTE]
 >
 > Durante l'anteprima, Azure Machine Learning non supporta la funzionalità di sicurezza di identificazione di un processo abilitata per impostazione predefinita con IoT Edge. 
-> Ecco la procedura per disabilitarla, che tuttavia non è adatta per l'uso nell'ambiente di produzione. Questa procedura è necessaria solo in Linux, perché in Windows è già stata completata durante la procedura di configurazione del runtime IoT Edge.
+> Ecco la procedura per disabilitarla, che tuttavia non è adatta per l'uso nell'ambiente di produzione. Questa procedura è necessaria solo in Linux, perché in Windows è già stata completata durante l'installazione del runtime Windows Edge.
 
 Per disabilitare l'identificazione di un processo nel dispositivo IoT Edge, sarà necessario fornire l'indirizzo IP e la porta per **workload_uri** e **management_uri** nella sezione **connect** della configurazione del daemon IoT Edge.
 
@@ -187,7 +188,7 @@ Se si eseguono questi comandi in un dispositivo Linux, potrebbe essere necessari
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Visualizzare i dati in arrivo all'hub IoT
 
-È possibile visualizzare i messaggi da dispositivo a cloud ricevuti dall'hub IoT tramite [IoT Hub Explorer](https://github.com/azure/iothub-explorer) o l'estensione [Azure IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+È possibile visualizzare i messaggi da dispositivo a cloud ricevuti dall'hub IoT tramite l'[estensione Azure IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 I passaggi seguenti mostrano come configurare Visual Studio Code per il monitoraggio dei messaggi da dispositivo a cloud in arrivo all'hub IoT. 
 
@@ -207,35 +208,14 @@ I passaggi seguenti mostrano come configurare Visual Studio Code per il monitora
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+Se si intende continuare con il prossimo articolo consigliato, è possibile conservare le risorse e le configurazioni create e riutilizzarle. È anche possibile continuare a usare lo stesso dispositivo IoT Edge come dispositivo di test. 
 
-Se si continua con il prossimo articolo consigliato, è possibile conservare le risorse e le configurazioni già create e riutilizzarle.
+In caso contrario, è possibile eliminare le risorse di Azure e le configurazioni locali create in questo articolo per evitare addebiti. 
 
-In caso contrario, è possibile eliminare le configurazioni locali e le risorse di Azure create in questo articolo per evitare addebiti. 
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-> [!IMPORTANT]
-> L'eliminazione delle risorse di Azure e del gruppo di risorse è irreversibile. Dopo l'eliminazione, il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se si è creato l'hub IoT all'interno di un gruppo di risorse esistente che contiene risorse che si vogliono conservare, eliminare solo la risorsa dell'hub IoT invece di eliminare il gruppo di risorse.
->
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-Per eliminare solo l'hub IoT, eseguire il comando seguente usando il nome dell'hub e il nome del gruppo di risorse:
-
-```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
-```
-
-
-Per eliminare l'intero gruppo di risorse per nome:
-
-1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
-
-2. Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse che contiene l'hub IoT. 
-
-3. A destra del gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
-
-<!--
-   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
--->
-4. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere di nuovo il nome del gruppo di risorse per confermare e fare clic su **Elimina**. Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

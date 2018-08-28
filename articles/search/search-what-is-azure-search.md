@@ -6,17 +6,22 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e4d01fdb4c11277af68127e4671a36ad7e2c74d2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002205"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42022410"
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
-Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali.
+Ricerca di Azure è una soluzione cloud di ricerca distribuita come servizio che offre agli sviluppatori le API e gli strumenti per ottenere un'esperienza di ricerca avanzata su contenuti eterogenei e privati nelle applicazioni Web, per dispositivi mobili e aziendali. Le query vengono eseguite su un indice definito dall'utente.
+
++ Compilare un corpus di ricerca contenente solo i propri dati, originati da più piattaforme e tipi di contenuto. 
++ Usare l'indicizzazione basata su intelligenza artificiale per estrarre testo e funzionalità da file di immagine oppure entità e frasi chiave da testo non elaborato.
++ Creare esperienze di ricerca intuitive con esplorazione in base a facet e filtri, sinonimi, completamento automatico e analisi del testo per la correzione automatica dei termini di ricerca in base ad alternative.
++ Aggiungere la ricerca geografica con "ricerca nelle vicinanze", analizzatori del linguaggio per la ricerca full-text non in lingua inglese e logica di assegnazione dei punteggi per la classificazione delle ricerche.
 
 La funzionalità viene esposta tramite una semplice [API REST](/rest/api/searchservice/) o un [SDK .NET](search-howto-dotnet-sdk.md) che maschera la complessità intrinseca del recupero delle informazioni. Oltre alle API, il portale di Azure fornisce il supporto di amministrazione e gestione dei contenuti, con strumenti per la creazione di prototipi e per le query degli indici. Poiché il servizio viene eseguito nel cloud, disponibilità e infrastruttura sono gestite da Microsoft.
 
@@ -51,7 +56,7 @@ Per poter caricare il contenuto ricercabile, è innanzitutto necessario definire
 
 È possibile creare uno schema nel portale di Azure o a livello di codice usando [.NET SDK](search-howto-dotnet-sdk.md) o l'[API REST](/rest/api/searchservice/).
 
-### <a name="step-3-index-data"></a>Passaggio 3: Indicizzare i dati
+### <a name="step-3-load-data"></a>Passaggio 3: Caricare i dati
 Dopo aver definito un indice, si è pronti per caricare il contenuto. È possibile usare un modello push o pull.
 
 Il modello pull recupera i dati da origini dati esterne. È supportato tramite *indicizzatori* che semplificano e automatizzano degli aspetti dell'operazione di inserimento di dati, ad esempio la connessione, la lettura e la serializzazione dei dati. Gli [indicizzatori](/rest/api/searchservice/Indexer-operations) sono disponibili per Azure Cosmos DB, Database SQL di Azure, Archiviazione BLOB di Azure e SQL Server ospitato in una macchina virtuale di Azure. È possibile configurare un indicizzatore per l'aggiornamento dati su richiesta o pianificato.
@@ -61,7 +66,7 @@ Il modello push viene fornito tramite il componente SDK o l'API REST per l'invio
 ### <a name="step-4-search"></a>Passaggio 4: Eseguire la ricerca
 Dopo avere compilato un indice, è possibile [eseguire query di ricerca](/rest/api/searchservice/Search-Documents) nell'endpoint di servizio tramite semplici richieste HTTP con l'API REST o .NET SDK.
 
-## <a name="how-azure-search-compares"></a>Ricerca di Azure e altre soluzioni di ricerca
+## <a name="how-it-compares"></a>Confronto
 
 I clienti spesso si chiedono quali siano le differenze tra Ricerca di Azure e le altre soluzioni di ricerca. Nella tabella seguente sono riepilogate le principali differenze.
 
@@ -104,13 +109,16 @@ In alternativa, è possibile [attivare i benefici della sottoscrizione MSDN](htt
 
 ## <a name="how-to-get-started"></a>Attività iniziali
 
-1. Creare un servizio nel [livello gratuito](search-create-service-portal.md).
+1. Creare un [servizio gratuito](search-create-service-portal.md). Tutte le guide introduttive e le esercitazioni possono essere completate nel servizio gratuito.
 
-2. Eseguire una o più esercitazioni tra quelle indicate di seguito. 
+2. Eseguire l'[esercitazione sull'uso degli strumenti predefiniti per indicizzazione e query](search-get-started-portal.md). Apprendere concetti importanti e acquisire familiarità con le informazioni disponibili nel portale.
 
-  + [Come usare .NET SDK](search-howto-dotnet-sdk.md) illustra i passaggi principali nella gestione del codice.  
-  + [Introduzione all'API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra gli stessi passaggi con l'API REST.  
-  + [Creare il primo indice nel portale](search-get-started-portal.md) usando le funzionalità di indicizzazione e prototipo incorporate.   
+3. Procedere con il codice usando l'API REST o .NET:
+
+  + [Come usare .NET SDK](search-howto-dotnet-sdk.md) illustra il flusso di lavoro principale nel codice gestito.  
+  + [Introduzione all'API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra gli stessi passaggi con l'API REST. È anche possibile usare questa guida introduttiva per chiamare le API REST da Postman o Fiddler: [Esplorare le API REST di Ricerca di Azure](search-fiddler.md).
+
+## <a name="watch-this-video"></a>Guardare questo video
 
 I motori di ricerca sono i principali fautori del recupero delle informazioni nelle app per dispositivi mobili, sul Web e negli archivi dati aziendali. La Ricerca di Azure offre gli strumenti per creare un'esperienza di ricerca simile a quella dei siti Web commerciali di grandi dimensioni.
 
@@ -122,5 +130,3 @@ In questo video di 9 minuti prodotto dal program manager Liam Cavanagh, sono pre
 + Da 3 a 4 minuti: provisioning del servizio. 
 + Da 4 a 6 minuti: procedura guidata di importazione dei dati per creare un indice usando il set di dati predefinito per il mercato immobiliare.
 + Da 6 a 9 minuti: Esplora ricerche e varie query.
-
-

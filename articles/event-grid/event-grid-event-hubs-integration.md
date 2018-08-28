@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302940"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616516"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Trasmettere Big Data a un data warehouse
 
-[Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche inviate da app e servizi. L'[esempio della funzionalità di acquisizione di Hub eventi e della Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) descrive come usare la funzionalità di acquisizione di Hub eventi di Azure con Griglia di eventi di Azure per migrare facilmente i dati da un hub eventi a un SQL Data Warehouse.
+[Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche inviate da app e servizi. Ad esempio, può attivare una funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un'archiviazione BLOB di Azure o Data Lake Store ed eseguire la migrazione dei dati agli altri repository dei dati. L'[esempio della funzionalità di acquisizione di Hub eventi e della Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) descrive come usare la funzionalità di acquisizione di Hub eventi con Griglia di eventi per migrare facilmente i dati di Hub eventi da un'archiviazione BLOB a un SQL Data Warehouse.
 
 ![Panoramica dell'applicazione](media/event-grid-event-hubs-integration/overview.png)
 
@@ -65,7 +65,7 @@ Griglia di eventi distribuisce i dati dell'evento ai sottoscrittori. L'esempio s
 ]
 ```
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari:
 
@@ -75,7 +75,7 @@ Per completare l'esercitazione, sono necessari:
 
 ## <a name="deploy-the-infrastructure"></a>Distribuire l'infrastruttura
 
-Per semplificare questo articolo, distribuire l'infrastruttura necessaria con un modello di Resource Manager. Per esaminare le risorse che vengono distribuite, visualizzare il [modello](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Usare una delle [aree supportate](overview.md) per la località del gruppo di risorse.
+Per semplificare questo articolo, distribuire l'infrastruttura necessaria con un modello di Resource Manager. Per esaminare le risorse che vengono distribuite, visualizzare il [modello](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
 
 Per l'interfaccia della riga di comando di Azure usare:
 

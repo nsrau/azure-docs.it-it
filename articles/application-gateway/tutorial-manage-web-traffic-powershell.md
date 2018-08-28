@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 6/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f9b506fbcf5356d02e2c77346b47b17541929704
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0ece839777747ac7f3683f6f475f3af9d050190e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045003"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918516"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gestire il traffico Web con un gateway applicazione tramite Azure PowerShell
 
@@ -255,7 +255,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Configurare la rete

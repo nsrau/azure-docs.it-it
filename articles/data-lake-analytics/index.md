@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.openlocfilehash: 74ffc5f6a80ca21f679e6a345e9a482cd83a027e
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 07bf3f5013d288934fec6146f52ddc43a2779d98
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340448"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043148"
 ---
 # <a name="azure-data-lake-analytics-documentation"></a>Documentazione di Azure Data Lake Analytics
 
@@ -101,7 +100,7 @@ Informazioni su come usare Azure Data Lake Analytics per eseguire processi di an
 
 ---
  
-<h2>Riferimenti</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

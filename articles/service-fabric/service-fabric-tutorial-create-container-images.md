@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a2814ff299d1bfb003b6133e2b75b47a312f8728
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 15fcea6ca8f9c66ee4907018a11481b6c714b81a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114041"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616284"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Esercitazione: Creare immagini del contenitore su un cluster Linux di Service Fabric
 
@@ -41,7 +41,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Creare ed eseguire un'applicazione di Service Fabric con i contenitori](service-fabric-tutorial-package-containers.md)
 > * [Come vengono gestiti i failover e il ridimensionamento in Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Configurare l'ambiente di sviluppo Linux di Service Fabric. Seguire le istruzioni [qui](service-fabric-get-started-linux.md) per configurare l'ambiente Linux.
 * Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
@@ -68,6 +68,8 @@ All'interno della directory **azure-vote** eseguire il comando seguente per crea
 ```bash
 docker build -t azure-vote-front .
 ```
+> [!Note]
+> Se si riceve un messaggio di autorizzazione negata, seguire le istruzioni contenute in [questa](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) documentazione per usare Docker senza Sudo.
 
 L'esecuzione di questo comando può richiedere tempo perché è necessario eseguire il pull di tutte le dipendenze necessarie da Hub Docker. Al termine usare il comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) per vedere le immagini create.
 

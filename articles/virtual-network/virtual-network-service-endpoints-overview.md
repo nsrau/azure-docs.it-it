@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: a8ff6abd392b91ba553a92ac161421ced5a045bb
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: d10525e6fd2cc55007a5abe1f5d61f0d6ef9d68a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136469"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920856"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint del servizio Rete virtuale
 
@@ -31,12 +31,12 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti:
 - **[Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: disponibile a livello generale in tutte le aree di Azure.
 - **[Database SQL di Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile a livello generale in tutte le aree di Azure.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile a livello generale in tutte le aree di cloud pubblico di Azure. 
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile anteprima in tutte le aree del cloud pubblico di Azure.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima in tutte le aree del cloud pubblico di Azure.
 - **[Bus di servizio di Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima.
 - **[Hub eventi di Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima.
 - **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: disponibile in anteprima.
-- **[Server di Database di Azure per PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima nelle aree di Azure in cui è disponibile il servizio di database.
-- **[Server di Database di Azure per MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima nelle aree di Azure in cui è disponibile il servizio di database.
+- **[Server di Database di Azure per PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
+- **[Server di Database di Azure per MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
 
 Per le notifiche più aggiornate, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

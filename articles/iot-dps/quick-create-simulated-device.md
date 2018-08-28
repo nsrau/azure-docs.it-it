@@ -1,5 +1,5 @@
 ---
-title: Questa guida introduttiva illustra come effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di Azure usando C | Microsoft Docs
+title: Effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di Azure usando C# | Microsoft Docs
 description: In questa guida introduttiva verrà creato ed effettuato il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi C per il servizio Device Provisioning in hub IoT di Azure
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15c0ce5a545b0bd6b2d1f320b50e9990f8278296
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4e03268db32b4be6900234abe58e7a308110520a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091466"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023094"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato TPM tramite Azure IoT C SDK
 

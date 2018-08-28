@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257872"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919823"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -77,6 +77,11 @@ Per verificare un peering di rete virtuale, è possibile [verificare le route va
 
 ## <a name="requirements-and-constraints"></a>Requisiti e vincoli
 
+I vincoli seguenti si applicano quando il peering viene eseguito globalmente nelle reti virtuali:
+- Le reti virtuali possono trovarsi in qualsiasi area di cloud pubblico di Azure, ma non nei cloud nazionali di Azure.
+- Le risorse in una rete virtuale non possono comunicare con l'indirizzo IP front-end di un servizio di bilanciamento del carico interno di Azure nella rete virtuale con peering globale. Il servizio di bilanciamento del carico e le risorse che comunicano con quest'ultimo devono essere nella stessa area.
+- Non è possibile usare i gateway remoti o consentire il transito del gateway. Per usare i gateway remoti o per consentire il transito gateway,  le reti virtuali con peering devono trovarsi nella stessa area.
+
 Per altre informazioni su requisiti e vincoli, vedere i [requisiti e i vincoli del peering di rete virtuale](virtual-network-manage-peering.md#requirements-and-constraints). Per altre informazioni sul numero massimo di peering che è possibile creare per una rete virtuale, vedere i [limiti relativi alle reti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 ## <a name="permissions"></a>Autorizzazioni
@@ -102,3 +107,4 @@ Il transito nel gateway è una proprietà del peering che consente a una rete vi
 
 * Altre informazioni su come creare una [topologia di rete hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Acquisire informazioni più dettagliate su tutte le [impostazioni per il peering di rete virtuale e su come modificarle](virtual-network-manage-peering.md).
+* Ottenere risposte alle domande comuni sul peering reti virtuali e il peering reti virtuali globale nelle [Domande frequenti sul peering reti virtuali](virtual-networks-faq.md#vnet-peering)

@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva di Azure: Configurare un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi | Microsoft Docs"
-description: Questa guida introduttiva illustra come configurare un'applicazione ASP.Net Core per la lettura di un segreto da un insieme di credenziali delle chiavi
+title: Guida introduttiva - Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node | Microsoft Docs
+description: Guida introduttiva - Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 07a7bc5713f093e34a775aacab27094780ac6c7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 0188d06e5c58287e1040f6a15456d3ffe291b04a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247826"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42023081"
 ---
-# <a name="quickstart-set-and-read-a-secret-from-key-vault-in-a-net-web-app"></a>Guida introduttiva: Impostare e leggere un segreto da un insieme di credenziali delle chiavi in un'app Web .NET
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
 
 In questa guida introduttiva vengono presentati i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni dall'insieme di credenziali delle chiavi usando le identità del servizio gestito. Si apprenderà come:
 
@@ -28,7 +28,10 @@ In questa guida introduttiva vengono presentati i passaggi necessari per ottener
 > * [Abilitare le identità del servizio gestite](../active-directory/managed-service-identity/overview.md).
 > * Concedere le autorizzazioni necessarie per l'applicazione Web per la lettura dei dati da un insieme di credenziali delle chiavi.
 
-Prima di continuare, leggere i [concetti di base](key-vault-whatis.md#basic-concepts), in particolare in relazione all'[identità del servizio gestita](../active-directory/managed-service-identity/overview.md)
+Prima di continuare, leggere i [concetti di base](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+Per capire i motivi per cui l'esercitazione seguente rappresenta la procedura consigliata, è necessario comprendere alcuni concetti. Key Vault è un repository centrale per archiviare i segreti a livello di codice. Per farlo, tuttavia, le applicazioni o gli utenti devono prima autenticarsi in Key Vault, ad esempio presentando un segreto. Per seguire le procedure consigliate per la sicurezza, questo primo segreto deve essere ruotato periodicamente. Con l'[identità del servizio gestita](../active-directory/managed-service-identity/overview.md), alle applicazioni in esecuzione in Azure viene assegnata un'identità gestita automaticamente da Azure. Ciò aiuta a risolvere il **problema di introduzione del segreto**, con utenti o applicazioni che possono seguire le procedure consigliate senza doversi preoccupare della rotazione del primo segreto
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +59,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 Selezionare il nome di un gruppo di risorse e compilare il segnaposto.
 L'esempio seguente crea un gruppo di risorse denominato *<YourResourceGroupName>* nella località *eastus*.
@@ -130,7 +133,7 @@ L'app verrà pubblicata in Azure per visualizzarla come un'app Web e anche per v
 2. Selezionare **Publish** (Pubblica), quindi **Start** (Inizia).
 3. Creare un nuovo **servizio app** e selezionare **Publish**.
 4. Modificare il nome dell'app in "keyvaultdotnetcorequickstart"
-5. Selezionare **Crea**.
+5. Selezionare **Create**.
 
 >[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
 
@@ -165,6 +168,8 @@ Eseguire quindi questo comando usando il nome dell'insieme di credenziali delle 
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
 
 ```
+
+**A questo punto, quando si esegue l'applicazione viene visualizzato il valore del segreto recuperato**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

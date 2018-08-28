@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva di Azure: elaborare flussi di eventi con PowerShell | Microsoft Docs'
-description: Questa guida introduttiva descrive come inviare e ricevere eventi di Hub eventi di Azure con PowerShell e include un'applicazione .NET di esempio.
+title: 'Guida introduttiva di Azure: Creare un hub eventi usando PowerShell | Microsoft Docs'
+description: Questa guida introduttiva illustra come creare un hub eventi usando Azure PowerShell e inviare e ricevere eventi usando .NET Standard SDK.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: shvija
-ms.openlocfilehash: fd2b8b2e8bd075e029a07519ced186424798fd9c
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: a8a29484af7c95e9cffa1c7048c0f7b8d642c868
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003611"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023016"
 ---
-# <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>Guida introduttiva: elaborare flussi di eventi con PowerShell e .NET Standard
+# <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Guida introduttiva: Creare un hub eventi usando Azure PowerShell
 
 Hub eventi di Azure è una piattaforma di streaming di dati e un servizio di inserimento degli eventi estremamente scalabile, che consente di ricevere ed elaborare milioni di eventi al secondo. Questa guida introduttiva illustra come creare un hub eventi usando Azure PowerShell e inviare e ricevere da un hub eventi usando .NET Standard SDK.
 

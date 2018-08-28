@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un endpoint HTTPS a un'applicazione Service Fabric di Azure | Microsoft Docs
-description: Questa esercitazione illustra come aggiungere un endpoint HTTPS a un servizio Web front-end ASP.NET Core e distribuire l'applicazione in un cluster.
+title: Aggiungere un endpoint HTTPS a un'applicazione Service Fabric di Azure usando Kestrel | Microsoft Docs
+description: Questa esercitazione illustra come aggiungere un endpoint HTTPS a un servizio Web front-end ASP.NET Core usando Kestrel e distribuire l'applicazione in un cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 70bbeabe2c2b14e8e0dcccac9ffa63f2e19230a2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130051"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41920331"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando Kestrel
 
 Questa è la terza di una serie di esercitazioni.  Verrà illustrato come abilitare HTTPS in un servizio ASP.NET Core eseguito in Service Fabric. Al termine, si avrà un'applicazione di voto con un front-end Web ASP.NET Core abilitato per HTTPS in ascolto sulla porta 443. Se non si vuole creare manualmente l'applicazione di voto come illustrato in [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-deploy-app-to-party-cluster.md), è possibile [scaricare il codice sorgente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) per l'applicazione completa.
 

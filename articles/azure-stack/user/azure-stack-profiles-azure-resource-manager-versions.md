@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9ba954db7003e062444e57bd56f87ff5d279b07f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139399"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050650"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versioni di API del provider di risorse supportate da profili in Azure Stack
 
@@ -197,26 +197,26 @@ Azure Resource Manager consente di distribuire e gestire l'infrastruttura per le
 | Provider delegati | 2015-01-01 |
 | I provider/offerte Delegate | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
-| Deployments | 2016-0209-01 |
-| Le distribuzioni/operazioni | 2016-0209-01 |
+| Deployments | 2016-09-01 |
+| Le distribuzioni/operazioni | 2016-09-01 |
 | Le estensioni metadati | 2015-01-01 |
 | Collegamenti | 2016-09-01 |
 | Località | 2015-01-01 |
 | Offerte | 2015-01-01 |
 | Operazioni | 2015-01-01 |
-| Providers | 2015-012017-08-01 |
+| Providers | 2017-08-01 |
 | Gruppi di risorse | 2016-09-01 |
 | Risorse | 2016-09-01 |
 | Sottoscrizioni | 2016-09-01 |
 | Le sottoscrizioni/località | 2016-09-01 |
 | Risultati dell'operazione/sottoscrizioni | 2016-09-01 |
-| Le sottoscrizioni/provider | 2015-012017-08-01 |
+| Le sottoscrizioni/provider | 2017-08-01 |
 | Gruppi di risorse/sottoscrizioni | 2016-09-01 |
 | Le sottoscrizioni/resourceGroups/risorse | 2016-09-01 |
 | Le sottoscrizioni e risorse | 2016-09-01 |
-| Le sottoscrizioni/tagNames | 2016-0609-01 |
-| Le sottoscrizioni/tagNames/tagValues | 2016-0609-01 |
-| Tenant | 2015-012017-08-01 |
+| Le sottoscrizioni/tagNames | 2016-09-01 |
+| Le sottoscrizioni/tagNames/tagValues | 2016-09-01 |
+| Tenant | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 

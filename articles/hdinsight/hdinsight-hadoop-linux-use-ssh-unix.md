@@ -1,28 +1,21 @@
 ---
-title: 'Usare SSH con Hadoop: Azure HDInsight | Microsoft Docs'
+title: Usare SSH con Hadoop - Azure HDInsight
 description: È possibile accedere a HDInsight tramite Secure Shell (SSH). Questo documento offre informazioni sulla connessione a HDInsight con i comandi ssh e scp da client Windows, Linux, Unix o macOS.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 keywords: comandi Hadoop in Linux, comandi Linux per Hadoop, Hadoop in macOS, Hadoop SSH, cluster Hadoop SSH
-ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/26/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7685c68aeaac745528bc38fde160270b36913ec3
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446606"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41918647"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Connettersi a HDInsight (Hadoop) con SSH
 
@@ -143,7 +136,7 @@ Se si usa un __cluster HDInsight aggiunto al dominio__, è necessario usare il c
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```
-rimuovere il commento e modificare `KerberosAuthentication` in `yes`
+rimuovere il commento e modificare `KerberosAuthentication` su `yes`
 
 ```bash
 sudo service sshd restart

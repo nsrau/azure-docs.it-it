@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841789"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918339"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Esercitazione: Connettere reti virtuali con il peering reti virtuali usando il portale di Azure
 
-È possibile connettere due reti virtuali tra loro con il peering reti virtuali. Dopo che è stato eseguito il peering, le risorse delle due reti virtuali possono comunicare tra loro con la stessa larghezza di banda e la stessa latenza che sarebbero disponibili se si trovassero nella stessa rete virtuale. In questa esercitazione si apprenderà come:
+È possibile connettere due reti virtuali tra loro con il peering reti virtuali. Queste reti virtuali possono trovarsi in aree geografiche uguali o diverse (detto anche peering di reti virtuali globale). Dopo che è stato eseguito il peering, le risorse delle due reti virtuali possono comunicare tra loro con la stessa larghezza di banda e la stessa latenza che sarebbero disponibili se si trovassero nella stessa rete virtuale. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare due reti virtuali
@@ -82,7 +82,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
     |---|---|
     |NOME|myVirtualNetwork1-myVirtualNetwork2|
     |Sottoscrizione| Selezionare la propria sottoscrizione.|
-    |Rete virtuale|myVirtualNetwork2 - per selezionare la rete virtuale *myVirtualNetwork2*, selezionare **Rete virtuale** e quindi **myVirtualNetwork2**.|
+    |Rete virtuale|myVirtualNetwork2 - per selezionare la rete virtuale *myVirtualNetwork2*, selezionare **Rete virtuale** e quindi **myVirtualNetwork2**. È possibile selezionare una rete virtuale nella stessa area o in un'area differente.|
 
     ![Impostazioni del peering](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 

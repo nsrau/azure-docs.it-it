@@ -1,6 +1,6 @@
 ---
-title: Chiamata e risposta - Avvio rapido di Node.js per Servizi cognitivi di Azure, API Ricerca immagini Bing | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca immagini Bing in Servizi cognitivi Microsoft in Azure.
+title: "Guida introduttiva: inviare query di ricerca con l'API REST per l'API Ricerca immagini Bing usando Node.js"
+description: In questa guida introduttiva, è possibile inviare le query di ricerca all'API di ricerca Bing per ottenere un elenco di immagini pertinenti usando Node.js.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,32 +9,32 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 00408677d15a00d58720c142cabed96e310c69b2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 975275bea61a5903c06da394b762b1aceb18023f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376913"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929795"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-for-nodejs"></a>Chiamata e risposta: la prima query di Ricerca immagini Bing per Node.js
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-nodejs"></a>Guida introduttiva: inviare query di ricerca con l'API REST e Node.js
 
 L'API Ricerca immagini Bing offre un'esperienza simile a quella di Bing.com/Images. Consente infatti di inviare una query di ricerca utente a Bing e di ottenere un elenco di immagini pertinenti.
 
 Questo articolo include una semplice applicazione console che esegue una query dell'API Ricerca immagini Bing e visualizza i risultati della ricerca non elaborati restituiti, che sono in formato JSON. L'applicazione è scritta in JavaScript e si esegue in Node.js, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare una stringa JSON. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice è necessario [Node.js 6](https://nodejs.org/en/download/).
 
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Esecuzione dell'applicazione
 
-Per eseguire l'applicazione seguire questa procedura.
+Per eseguire l'applicazione, seguire questa procedura.
 
 1. Creare un nuovo progetto Node.js nell'IDE o nell'editor preferito.
 2. Aggiungere il codice fornito.
-3. Sostituire il valore `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```javascript
@@ -103,7 +103,7 @@ if (subscriptionKey.length === 32) {
 
 ## <a name="json-response"></a>Risposta JSON
 
-Segue una risposta di esempio. Per limitare la lunghezza del file JSON, è mostrato solo un singolo risultato e altre parti della risposta sono state troncate. 
+Di seguito è illustrata una risposta di esempio. Per limitare la lunghezza del codice JSON, viene illustrato un solo risultato, mentre altre parti della risposta sono state troncate. 
 
 ```json
 {
@@ -192,7 +192,7 @@ Segue una risposta di esempio. Per limitare la lunghezza del file JSON, è mostr
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione dell'applicazione a pagina singola di Ricerca immagini Bing](../tutorial-bing-image-search-single-page-app.md)
+> [Esercitazione sull'app a singola pagina di Ricerca immagini Bing](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Vedere anche  
 

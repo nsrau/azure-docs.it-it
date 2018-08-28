@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dcde63c4bce17993ec9e1a9d83889a001d7880e1
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 2d019f9600177f0ad300146733dfcba1a3fbb4a8
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264437"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41919762"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
 **Impostazioni personalizzate** di Azure AD Connect viene usato quando sono necessarie altre opzioni per l'installazione. Viene usato se sono presenti più foreste o per configurare funzionalità facoltative non incluse nell'installazione rapida. Viene usato in tutti i casi in cui l'opzione di [**installazione rapida**](active-directory-aadconnect-get-started-express.md) non soddisfa la distribuzione o la topologia.
@@ -136,7 +136,7 @@ L'attributo sourceAnchor non può essere modificato per l'intera durata di un og
 
 | Impostazione | DESCRIZIONE |
 | --- | --- |
-| Consenti ad Azure di gestire automaticamente l'ancoraggio di origine | Selezionare questa opzione se si vuole che Azure AD selezioni automaticamente l'attributo. Se si seleziona questa opzione, la procedura guidata di Azure AD Connect applica la logica di selezione dell'attributo sourceAnchor descritta nella sezione relativa all'[uso di msDS-ConsistencyGuid come sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor) dell'articolo sui concetti di progettazione per Azure AD Connect. La procedura guidata informa l'utente dell'attributo selezionato come attributo dell'ancoraggio di origine al termine dell'installazione personalizzata. |
+| Consenti ad Azure di gestire automaticamente l'ancoraggio di origine | Selezionare questa opzione se si vuole che Azure AD selezioni automaticamente l'attributo. Se si seleziona questa opzione, la procedura guidata di Azure AD Connect applica la logica di selezione dell'attributo sourceAnchor descritta nella sezione [Azure AD Connect: Concetti relativi alla progettazione - Uso di ms-DS-ConsistencyGuid come sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). La procedura guidata informa l'utente dell'attributo selezionato come attributo dell'ancoraggio di origine al termine dell'installazione personalizzata. |
 | Attributo specifico | Selezionare questa opzione se si vuole specificare un attributo di AD esistente come attributo sourceAnchor. |
 
 Poiché l'attributo non può essere modificato, è necessario pianificare un attributo valido da usare. objectGUID è un candidato valido. Questo attributo non subisce modifiche, a meno che l'account utente non venga spostato tra foreste/domini. In un ambiente a più foreste, nel quale è possibile spostare account tra foreste, è necessario usare un altro attributo, ad esempio un attributo con il valore employeeID. Evitare gli attributi che subirebbero modifiche in caso di matrimonio o nuova assegnazione dell'utente. Non è possibile usare attributi con @-sign, quindi non è possibile usare email e userPrincipalName. L'attributo rispetta anche la distinzione tra maiuscole e minuscole. Quando si sposta un oggetto tra foreste, occorre quindi assicurarsi di mantenere tale distinzione. Gli attributo binari hanno una codifica di tipo base64, ma altri tipi di attributi mantengono lo stato non codificato. Negli scenari di federazione e in alcune interfacce di Azure AD questo attributo è noto anche come immutableID. In [Concetti relativi alla progettazione](active-directory-aadconnect-design-concepts.md#sourceanchor) sono disponibili altre informazioni sull'ancoraggio di origine.
@@ -379,7 +379,7 @@ Per verificare che l'autenticazione end-to-end avvenga correttamente, è necessa
 * Assicurarsi che sia possibile accedere da un dispositivo dalla Extranet. In un computer di casa o in un dispositivo mobile connettersi a https://myapps.microsoft.com e fornire le credenziali.
 * Convalidare l'accesso rich client. Connettersi a https://testconnectivity.microsoft.com, scegliere la scheda **Office 365**, quindi scegliere **Test di Single Sign-On in Office 365**.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 La sezione seguente contiene informazioni sulla risoluzione dei problemi che possono essere utili se si verifica un problema durante l'installazione di Azure AD Connect.
 
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>"Il database ADSync contiene già dati e non può essere sovrascritto" 

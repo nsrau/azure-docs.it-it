@@ -1,24 +1,24 @@
 ---
-title: Configurare un ambiente di sviluppo Windows per app Service Fabric Mesh | Microsoft Docs
+title: Configurare un ambiente di sviluppo Windows per compilare app Service Fabric Mesh | Microsoft Docs
 description: È possibile configurare l'ambiente di sviluppo Windows per creare un'applicazione Service Fabric Mesh e distribuirla in Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 589bef1894a3bee1e6974a0ea2516200fae2891f
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+manager: jeconnoc
+ms.openlocfilehash: e95c0ad90503410601cc0764fdc559579a1dd13d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185544"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41917957"
 ---
-# <a name="set-up-your-windows-development-environment-to-build-service-fabric-applications"></a>Configurare l'ambiente di sviluppo Windows per creare applicazioni Service Fabric
+# <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurare l'ambiente di sviluppo Windows per compilare app Service Fabric Mesh
 
-Per compilare ed eseguire app di Azure Service Fabric nel computer di sviluppo Windows, installare il runtime di Service Fabric, l'SDK e gli strumenti.
+Per compilare ed eseguire applicazioni Azure Service Fabric Mesh nel computer di sviluppo Windows, installare il runtime di Service Fabric Mesh, l'SDK e gli strumenti.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -31,28 +31,30 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Per distribuire app di Service Fabric, è richiesto Visual Studio 2017. [Installare la versione 15.6.0][download-visual-studio] o successiva e abilitare i carichi di lavoro seguenti:
+Per distribuire applicazioni Service Fabric Mesh, è richiesto Visual Studio 2017. [Installare la versione 15.6.0][download-visual-studio] o successiva e abilitare i carichi di lavoro seguenti:
 
-- Sviluppo Web e ASP.NET
-- Sviluppo di Azure
- 
-## <a name="windows-10---install-docker"></a>Windows 10 - Installare Docker
+* Sviluppo Web e ASP.NET
+* Sviluppo di Azure
+
+## <a name="install-docker"></a>Installare Docker
+
+#### <a name="windows-10"></a>Windows 10
 
 Scaricare e installare la versione più recente di [Docker Community Edition per Windows][download-docker] per supportare le app di Service Fabric in contenitori usate da Service Fabric Mesh.
 
-Durante l'installazione, selezionare **Use Windows containers instead of Linux containers** (Usa contenitori Windows invece di contenitori Linux) quando viene richiesto. Se Hyper-V non è abilitato nel computer, l'installazione di Docker offrirà di abilitarlo. Fare clic su **OK** per farlo se viene richiesto.
+Durante l'installazione, selezionare **Use Windows containers instead of Linux containers** (Usa contenitori Windows invece di contenitori Linux) quando viene richiesto.
 
-## <a name="windows-server-2016---install-hyper-v-and-docker"></a>Windows Server 2016 - Installare Hyper-V e Docker
+Se Hyper-V non è abilitato nel computer, l'installazione di Docker offrirà di abilitarlo. Fare clic su **OK** per farlo se viene richiesto.
 
-**Installare Hyper-V**
+#### <a name="windows-server-2016"></a>Windows Server 2016
 
-Prima di tutto, aprire PowerShell come amministratore ed eseguire il comando seguente per installare Hyper-V e riavviare il computer. Per altre informazioni, vedere [Docker Enterprise Edition for Windows Server][download-docker-server] (Docker Enterprise Edition per Windows Server).
+Se il ruolo Hyper-V non è abilitato, aprire PowerShell come amministratore ed eseguire il comando seguente per abilitare Hyper-V, quindi riavviare il computer. Per altre informazioni, vedere [Docker Enterprise Edition for Windows Server][download-docker-server] (Docker Enterprise Edition per Windows Server).
 
 ```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
 ```
 
-**Installare Docker**
+Riavviare il computer.
 
 Aprire PowerShell come amministratore ed eseguire il comando seguente per installare Docker:
 
@@ -61,8 +63,6 @@ Install-Module DockerMsftProvider -Force
 Install-Package Docker -ProviderName DockerMsftProvider -Force
 Install-WindowsFeature Containers
 ```
-
-Riavviare il computer.
 
 ## <a name="sdk-and-tools"></a>SDK e strumenti
 

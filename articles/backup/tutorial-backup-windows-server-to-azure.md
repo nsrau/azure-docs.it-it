@@ -7,15 +7,15 @@ manager: shivamg
 keywords: eseguire il backup di windows server; eseguire il backup di windows server; eseguire il backup e il ripristino di emergenza
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609019"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616190"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Eseguire il backup di Windows Server in Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "34609019"
 > * Eseguire un backup ad hoc
 
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
@@ -41,11 +41,11 @@ Prima di eseguire il backup di Windows Server, è necessario creare una posizion
 
    ![aprire l'insieme di credenziali dei servizi di ripristino](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.  Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
+2. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
 
    ![specificare informazioni per l'insieme di credenziali](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  Nel menu **Insieme di credenziali dei servizi di ripristino**
+3. Nel menu **Insieme di credenziali dei servizi di ripristino**
 
     - digitare *myRecoveryServicesVault* in **Nome**.
     - L’ID di sottoscrizione corrente viene visualizzato in **Sottoscrizione**.
@@ -59,27 +59,28 @@ L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli ins
 
 L'agente di Servizi di ripristino di Microsoft Azure (MARS) crea un'associazione tra Windows Server e l'insieme di credenziali dei servizi di ripristino. La procedura seguente illustra come scaricare l'agente nel server.
 
-1.  Dall'elenco degli insiemi di credenziali dei servizi di ripristino selezionare **myRecoveryServicesVault** per aprire il relativo dashboard.
+1. Dall'elenco degli insiemi di credenziali dei servizi di ripristino selezionare **myRecoveryServicesVault** per aprire il relativo dashboard.
 
    ![specificare informazioni per l'insieme di credenziali](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  Selezionare **Backup** dal menu del dashboard dell'insieme di credenziali.
+2. Selezionare **Backup** dal menu del dashboard dell'insieme di credenziali.
 
-3.  Nel menu **Obiettivo del backup**:
+3. Nel menu **Obiettivo del backup**:
 
-    - per **Posizione di esecuzione del carico di lavoro**, selezionare**locale**, 
-    - per **Elementi di cui eseguire il backup**, selezionare **File e cartelle** e **Stato del sistema** 
+   * per **Posizione di esecuzione del carico di lavoro**, selezionare**locale**, 
+   * per **Elementi di cui eseguire il backup**, selezionare **File e cartelle** e **Stato del sistema**
 
-    ![specificare informazioni per l'insieme di credenziali](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
-    
-4.  Fare clic su **Preparare l'infrastruttura** per aprire il menu **Prepare infrastruttura**.
-5.  Nel menu **Preparare l'infrastruttura** fare clic su **Scaricare l'agente per Windows Server o Windows Client** per scaricare il file *MARSAgentInstaller.exe*. 
+   ![specificare informazioni per l'insieme di credenziali](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+
+4. Fare clic su **Preparare l'infrastruttura** per aprire il menu **Prepare infrastruttura**.
+
+5. Nel menu **Preparare l'infrastruttura** fare clic su **Scaricare l'agente per Windows Server o Windows Client** per scaricare il file *MARSAgentInstaller.exe*. 
 
     ![Preparare l'infrastruttura](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     Il programma di installazione apre un finestra separata del browser e scarica il file **MARSAgentInstaller.exe**.
  
-6.  Prima di eseguire il file scaricato, fare clic sul pulsante **Scarica** nel pannello Preparare l'infrastruttura per scaricare e salvare il file dell'**Insieme di credenziali**. Questo file è necessario per connettere l'agente di MARS all'insieme di credenziali dei servizi di ripristino.
+6. Prima di eseguire il file scaricato, scegliere **Scarica** dal menu Preparare l'infrastruttura e salvare il file **Credenziali dell'insieme di credenziali**. Le credenziali dell'insieme di credenziali sono necessarie per connettere l'agente MARS all'insieme di credenziali di Servizi di ripristino.
 
     ![Preparare l'infrastruttura](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
@@ -115,13 +116,17 @@ Usare l'agente di Servizi di ripristino di Microsoft Azure per la pianificazione
 
 5. Fare clic su **Avanti**.
 
-6. Nella pagina **Specificare la pianificazione del backup (stato del sistema)**  specificare l'ora del giorno o la settimana in cui deve essere eseguito il backup dello stato del sistema e fare clic su **Avanti**. 
+6. Nella pagina **Specificare la pianificazione del backup (stato del sistema)**  specificare l'ora del giorno o la settimana in cui deve essere eseguito il backup dello stato del sistema e fare clic su **Avanti**.
 
-7.  Nella pagina **Selezionare i criteri di conservazione (stato del sistema)** selezionare i criteri di conservazione per lo stato del sistema e fare cluc su **Avanti**.
+7. Nella pagina **Selezionare i criteri di conservazione (stato del sistema)** selezionare i criteri di conservazione per la copia di backup dello stato del sistema e fare clic su **Avanti**.
+
 8. Analogamente, selezionare il criterio di pianificazione e conservazione dei backup per i file e le cartelle selezionate. 
-8.  Nella pagina **Scegliere il tipo di backup iniziale** lasciare selezionata l'opzione **Automaticamente tramite rete** e fare clic su **Avanti**.
-9.  Nella pagina **Conferma** esaminare le informazioni e fare clic su **Fine**.
-10. Dopo aver creato la pianificazione del backup tramite la procedura guidata, fare clic su **Chiudi**.
+
+9. Nella pagina **Scegliere il tipo di backup iniziale** selezionare **Automaticamente tramite rete** e fare clic su **Avanti**.
+
+10. Nella pagina **Conferma** esaminare le informazioni e fare clic su **Fine**.
+
+11. Dopo aver creato la pianificazione del backup tramite la procedura guidata, fare clic su **Chiudi**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Eseguire un backup ad hoc
 

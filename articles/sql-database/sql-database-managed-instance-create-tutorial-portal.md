@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a019b21c130bebfe27925e90d7f7843d92654e01
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850611"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920346"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Creare un'istanza gestita di database SQL di Azure nel portale di Azure
 
@@ -33,15 +33,17 @@ Questa esercitazione illustra come creare un'istanza gestita di database SQL di 
 > * Connettersi alla macchina virtuale
 > * Installare SSMS e connettersi all'istanza gestita
 
+> [!Note]
+> Questa esercitazione illustra come configurare la rete, le subnet, l'istanza e la macchina virtuale usando il portale di Azure. Potrebbe trattarsi di una procedura più lunga. Se è necessaria un'esercitazione introduttiva più breve in cui la rete e la macchina virtuale usate per accedere all'istanza vengono create con un solo clic sul pulsante "Distribuzione in Azure", è consigliabile vedere l'[esercitazione introduttiva](sql-database-managed-instance-get-started.md).
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 > [!IMPORTANT]
 > Per un elenco delle aree geografiche in cui è attualmente disponibile Istanza gestita, vedere [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Eseguire la migrazione dei database a un servizio completamente gestito con Istanza gestita di database SQL di Azure).
  
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
+## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Accedere al [Portale di Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
+Accedere al [portale di Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
 ## <a name="whitelist-your-subscription"></a>Inserire la sottoscrizione nell'elenco elementi consentiti
 
@@ -49,7 +51,7 @@ La funzionalità Istanza gestita è stata inizialmente rilasciata come anteprima
 
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 2. Individuare **Istanza gestita** e quindi selezionare **Azure SQL Database Managed Instance (preview)** (Istanza gestita di database SQL di Azure - anteprima).
-3. Fare clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 
    ![Creazione dell'istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
@@ -79,7 +81,7 @@ La procedura seguente illustra come creare una nuova rete virtuale [Azure Resour
    | ------ | --------------- | ----------- |
    |**Nome**|Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Spazio degli indirizzi**|Qualsiasi intervallo di indirizzi valido, ad esempio 10.14.0.0/24|Nome dell'indirizzo della rete virtuale nella notazione CIDR.|
-   |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni).|
+   |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions).|
    |**Gruppo di risorse**|Qualsiasi gruppo di risorse valido (nuovo o esistente)|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Posizione**|Qualsiasi località valida| Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
    |**Nome della subnet**|Qualsiasi nome di subnet valido, ad esempio mi_subnet|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
@@ -89,7 +91,7 @@ La procedura seguente illustra come creare una nuova rete virtuale [Azure Resour
 
    ![Modulo per la creazione della rete virtuale](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
-4. Fare clic su **Crea**.
+4. Fare clic su **Create**(Crea).
 
 ## <a name="create-new-route-table-and-a-route"></a>Creare una nuova tabella di route e una route
 
@@ -105,7 +107,7 @@ La procedura seguente illustra come creare una route 0.0.0.0/0 con hop successiv
    | Impostazione| Valore consigliato | Descrizione |
    | ------ | --------------- | ----------- |
    |**Nome**|Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni).|
+   |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions).|
    |**Gruppo di risorse**|Selezionare il gruppo di risorse creato nella procedura precedente|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Posizione**|Selezionare la località specificata nella procedura precedente| Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
    |**Disabilita propagazione route BGP**|Attivato||
@@ -113,7 +115,7 @@ La procedura seguente illustra come creare una route 0.0.0.0/0 con hop successiv
 
    ![Modulo per la creazione della tabella di route](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
-4. Fare clic su **Crea**.
+4. Fare clic su **Create**(Crea).
 5. Al termine della creazione della tabella di route, aprire la tabella di route appena creata.
 
    ![Tabella di route](./media/sql-database-managed-instance-tutorial/route-table.png)
@@ -158,9 +160,9 @@ La procedura seguente illustra come creare un'istanza gestita dopo che l'antepri
 
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 2. Individuare **Istanza gestita** e quindi selezionare **Azure SQL Database Managed Instance (preview)** (Istanza gestita di database SQL di Azure - anteprima).
-3. Fare clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 
-   ![Creazione dell'istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Creare un'istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. Selezionare la sottoscrizione e verificare che le condizioni per l'anteprima risultino **Accettate**.
 
@@ -241,7 +243,7 @@ La procedura seguente illustra come creare una macchina virtuale nella stessa re
    | **Tipo di disco VM**|SSD|Le unità SSD offrono il miglior rapporto tra prezzo e prestazioni.|   
    |**Nome utente**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
    |**Password**|Qualsiasi password valida|La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).| 
-   |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni).|
+   |**Sottoscrizione**|Sottoscrizione in uso|Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions).|
    |**Gruppo di risorse**|Gruppo di risorse creato in precedenza||
    |**Posizione**|Località selezionata in precedenza||
    |**Si possiede già una licenza di Windows?**|No |Se si possiedono licenze di Windows con un contratto Software Assurance attivo, è possibile usare il Vantaggio Azure Hybrid per risparmiare sui costi delle risorse di calcolo.|
@@ -302,7 +304,7 @@ La procedura seguente illustra come scaricare e installare SSMS e quindi connett
 8. Quando richiesto, fare clic su **Installa** per iniziare.
 9. Al termine dell'installazione, fare clic su **Chiudi**.
 10. Aprire SQL Server Management Studio.
-11. Nella finestra di dialogo **Connetti al server** immettere il *nome host* per l'istanza gestita nella casella **Nome server**, selezionare **Autenticazione di SQL Server**, specificare account di accesso e password e quindi fare clic su **Connetti**.
+11. Nella finestra di dialogo **Connetti al server** immettere il **nome host** per l'istanza gestita nella casella **Nome server**, selezionare **Autenticazione di SQL Server**, specificare account di accesso e password e quindi fare clic su **Connetti**.
 
     ![connessione a ssms](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 

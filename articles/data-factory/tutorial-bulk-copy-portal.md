@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 651f9ba71d08698c64f3e90de59b5f29a8afc77d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6d7b926a414c95d4e05834bafc91a2aa9c047fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433511"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41920864"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 Questa esercitazione illustra la **copia di alcune tabelle dal database SQL di Azure ad Azure SQL Data Warehouse**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/SQL Data Warehouse/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
@@ -265,7 +265,7 @@ La pipeline **GetTableListAndTriggerCopyData** esegue due passaggi:
     1. Fare clic sulla casella di input per il VALORE del parametro DWTableName -> selezionare **Aggiungi contenuto dinamico**, immettere l'espressione `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` come script -> selezionare **Fine**.
     1. Espandere **Polybase Settings** (Impostazioni PolyBase) e selezionare **Allow polybase** (Consenti PolyBase). 
     1. Deselezionare l'opzione **Tipo di uso predefinito**. 
-    1. Fare clic sulla casella di input **Script di pulizia** -> selezionare **Aggiungi contenuto dinamico** -> immettere l'espressione seguente come script -> selezionare **Fine**. 
+    1. Fare clic sulla casella di input **Pre-copy Script** (Script di pre-copia) -> selezionare **Aggiungi contenuto dinamico** -> immettere l'espressione seguente come script -> selezionare **Fine**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]

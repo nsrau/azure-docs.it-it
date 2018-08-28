@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145537"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918343"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurare risorse cloud per il provisioning dei dispositivi con il servizio Device Provisioning in hub IoT
 
@@ -48,7 +48,7 @@ Seguire questa procedura per creare una nuova istanza del servizio Device Provis
    | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |   
 
-   ![Immettere le informazioni di base su DPS nel portale](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Immettere le informazioni di base sul servizio Device Provisioning nel portale](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Fare clic su **Create**(Crea). Dopo alcuni istanti viene creata l'istanza del servizio Device Provisioning e viene visualizzata la pagina **Panoramica**.
 6. Nella pagina **Panoramica** della nuova istanza del servizio copiare il valore dell'**ambito ID** per usarlo successivamente. Questo valore viene usato per identificare gli ID di registrazione e offre una garanzia in merito al fatto che l'ID di registrazione sia univoco.
@@ -71,7 +71,7 @@ Il passaggio successivo consiste nel collegare il servizio Device Provisioning e
     * **Hub IoT:**  scegliere il nome dell'hub IoT che si vuole collegare con la nuova istanza del servizio Device Provisioning.
     * **Criteri di accesso:** selezionare **iothubowner** come credenziali da usare per stabilire il collegamento con l'hub IoT.
 
-   ![Collegare il nome dell'hub da associare a DPS nel portale](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![Collegare il nome dell'hub da associare al servizio Device Provisioning nel portale](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Impostare criteri di allocazione sul servizio Device Provisioning
 
@@ -94,7 +94,7 @@ Altre esercitazioni della raccolta si basano su questa. Se si prevede di continu
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Usare il portale di Azure per creare un servizio Device Provisioning in hub IoT e ottenere l'ambito ID

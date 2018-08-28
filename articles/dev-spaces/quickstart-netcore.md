@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 3bb190570cbdf795668dd6e9f9d36630b6f3201b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 7ff3a2b3547874fd10d35867574c020500c48cd4
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949867"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022918"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e VS Code)
 
@@ -29,10 +29,10 @@ In questa guida si apprenderà come:
 > [!Note]
 > **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md) o inserire un commento in questa pagina. È anche possibile provare l'[esercitazione](get-started-netcore.md) più dettagliata.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha un account, è possibile [crearne uno gratuito](https://azure.microsoft.com/free).
-- Un [cluster Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) che esegue Kubernetes 1.10.3 nell'area EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral o CanadaEast con il **routing HTTP dell'applicazione** abilitato.
+- Un [cluster Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) che esegue Kubernetes 1.9.6 o versione successiva nell'area EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral o CanadaEast con il **routing HTTP dell'applicazione** abilitato.
 
   ![Assicurarsi di abilitare il routing HTTP dell'applicazione.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -40,7 +40,11 @@ In questa guida si apprenderà come:
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurare Azure Dev Spaces
 
-1. Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versione 2.0.38 o successiva).
+L'interfaccia della riga di comando di Azure e l'estensione Azure Dev Spaces possono essere installate ed eseguite nei computer Windows, Mac o Linux. Per Linux, sono supportate le distribuzioni seguenti: Ubuntu (18.04, 16.04 e 14.04), Debian 8 e 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 e SLES 12.
+
+Seguire questa procedura per configurare Azure Dev Spaces:
+
+1. Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versione 2.0.43 o successiva).
 1. Configurare Dev Spaces nel cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Scaricare l'[estensione Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) per Visual Studio Code. Fare clic su Installa nella pagina del Marketplace dell'estensione e di nuovo in VS Code.
 
@@ -139,7 +143,7 @@ Aggiornare l'app Web nel browser e passare alla pagina delle informazioni. Nell'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come Azure Dev Spaces consente di sviluppare app più complesse in più contenitori e su come è possibile semplificare lo sviluppo collaborativo usando versioni o rami doversi del codice in spazi diversi. 
+Informazioni su come Azure Dev Spaces consente di sviluppare app più complesse in più contenitori e su come è possibile semplificare lo sviluppo collaborativo usando versioni o rami diversi del codice in spazi diversi. 
 
 > [!div class="nextstepaction"]
 > [Uso di più contenitori e sviluppo in team](team-development-netcore.md)

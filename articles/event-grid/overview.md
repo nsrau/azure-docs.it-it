@@ -6,47 +6,35 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 06/01/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 90e8d6a3ef093046c5ee6324f6e6590e59124da7
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725242"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022468"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
 
-Griglia di eventi di Azure consente di compilare facilmente applicazioni con architetture basate su eventi. Si seleziona la risorsa di Azure che si vuole sottoscrivere e si specifica il gestore dell'evento o l'endpoint di webhook a cui inviare l'evento. Griglia di eventi offre il supporto predefinito per gli eventi generati dai servizi di Azure, ad esempio BLOB di archiviazione e gruppi di risorse. Griglia di eventi offre anche il supporto personalizzato per gli eventi dell'applicazione e di terze parti, tramite argomenti personalizzati e webhook personalizzati. 
+Griglia di eventi di Azure consente di compilare facilmente applicazioni con architetture basate su eventi. Selezionare prima di tutto la risorsa di Azure da sottoscrivere e quindi specificare il gestore dell'evento o l'endpoint del webhook a cui inviare l'evento. Griglia di eventi offre il supporto predefinito per gli eventi generati dai servizi di Azure, ad esempio BLOB di archiviazione e gruppi di risorse. Griglia di eventi offre anche supporto per gli eventi personalizzati, tramite argomenti personalizzati. 
 
-È possibile usare i filtri per instradare eventi specifici a endpoint diversi, trasmetterli a più endpoint e verificare che gli eventi vengano recapitati in modo affidabile. Griglia di eventi offre anche il supporto predefinito per eventi personalizzati e di terze parti.
+È possibile usare i filtri per instradare eventi specifici a endpoint diversi, trasmetterli a più endpoint e verificare che gli eventi vengano recapitati in modo affidabile.
 
-Attualmente Griglia di eventi supporta le aree seguenti:
+Al momento, Griglia di eventi di Azure è disponibile in tutte le aree pubbliche. Non è ancora disponibile nel cloud di Azure Germania, Azure Cina o Azure per enti pubblici.
 
-* Asia sudorientale
-* Asia orientale
-* Australia orientale
-* Australia sudorientale
-* Stati Uniti centrali
-*   Stati Uniti orientali
-*   Stati Uniti orientali 2
-* Europa occidentale
-* Europa settentrionale
-* Giappone orientale
-* Giappone occidentale
-*   Stati Uniti centro-occidentali
-*   Stati Uniti occidentali
-*   Stati Uniti occidentali 2
-
-Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). L'immagine seguente illustra come Griglia di eventi collega origini e gestori ma non fornisce un elenco completo di opzioni supportate.
+Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). 
 
 ![Modello funzionale di Griglia di eventi](./media/overview/functional-model.png)
 
+Questa immagine illustra in che modo Griglia di eventi collega origini e gestori, ma non fornisce un elenco completo delle integrazioni supportate.
+
 ## <a name="event-sources"></a>Origini eventi
 
-Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Griglia di eventi:
+Per informazioni dettagliate complete sulle funzionalità di ogni origine, con articoli correlati, vedere [Origini evento](event-sources.md). Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Griglia di eventi:
 
 * Sottoscrizioni di Azure (operazioni di gestione)
+* Registro di sistema del contenitore
 * Argomenti personalizzati
 * Hub eventi
 * Hub IoT
@@ -56,11 +44,9 @@ Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Grigli
 * Archiviazione BLOB
 * Utilizzo generico dell'archiviazione v2 (GPv2)
 
-Per i collegamento agli articoli che illustrano come usare ogni origine evento, vedere [Event sources in Azure Event Grid](event-sources.md) (Origini eventi nella Griglia di eventi di Azure).
-
 ## <a name="event-handlers"></a>Gestori eventi
 
-Attualmente i servizi di Azure seguenti supportano la gestione degli eventi da Griglia di eventi: 
+Per informazioni dettagliate complete sulle funzionalità di ogni gestore, con articoli correlati, vedere [Gestori eventi](event-handlers.md). Attualmente i servizi di Azure seguenti supportano la gestione degli eventi da Griglia di eventi: 
 
 * Automazione di Azure
 * Funzioni di Azure
@@ -70,8 +56,6 @@ Attualmente i servizi di Azure seguenti supportano la gestione degli eventi da G
 * Microsoft Flow
 * Archiviazione code
 * Webhook
-
-Per i collegamenti agli articoli che illustrano come usare ogni origine evento, vedere [Event sources in Azure Event Grid](event-handlers.md) (Origini eventi nella Griglia di eventi di Azure).
 
 ## <a name="concepts"></a>Concetti
 

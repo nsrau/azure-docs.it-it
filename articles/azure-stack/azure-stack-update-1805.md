@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4db0ce5e877f3054cc41e8940e8d9e672f7632c6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414634"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110349"
 ---
 # <a name="azure-stack-1805-update"></a>Aggiornamento di Azure Stack 1805
 
@@ -91,6 +91,8 @@ Dopo l'installazione di 1805, installare eventuali hotfix applicabili. Per altre
 Di seguito sono problemi noti di post-installazione per questa versione di build.
 
 ### <a name="portal"></a>Portale  
+- <!-- 2931230 – IS  ASDK --> Impossibile eliminare i piani che vengono aggiunti a una sottoscrizione utente come un piano del componente aggiuntivo, anche quando si rimuove il piano dalla sottoscrizione utente. Il piano rimarrà fino a quando non vengono eliminate anche le sottoscrizioni che fanno riferimento il piano aggiuntivo. 
+
 - <!-- TBD - IS ASDK --> È possibile applicare gli aggiornamenti dei driver tramite un pacchetto di estensione OEM con questa versione di Azure Stack.  Non è disponibile alcuna soluzione per questo problema.
 
 - <!-- 2551834 - IS, ASDK --> Quando si seleziona **Overview** per un account di archiviazione nei portali di amministratore o utente, le informazioni dalle *Essentials* riquadro non viene visualizzata.  Il riquadro Essentials Visualizza informazioni sull'account, ad esempio relativi *gruppo di risorse*, *posizione*, e *Subscription ID*.  Altre opzioni per la panoramica sono accessibili, ad esempio *Services* e *Monitoring*, nonché le opzioni per *Apri in Esplora* o a *Elimina account di archiviazione* . 

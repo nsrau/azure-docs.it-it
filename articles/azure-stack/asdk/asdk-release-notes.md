@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: ed1c47830cbc4a629d827853c7d440b9bbd80d64
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 6016d6fd4dcae699efba49667676373a6586e723
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888187"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43101646"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit  
 Queste note sulla versione offrono informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit. Se non si conosce quale versione in esecuzione, è possibile [usare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -106,6 +106,8 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack.
 ### <a name="known-issues"></a>Problemi noti
 
 #### <a name="portal"></a>Portale  
+- <!-- 2931230 – IS  ASDK --> Impossibile eliminare i piani che vengono aggiunti a una sottoscrizione utente come un piano del componente aggiuntivo, anche quando si rimuove il piano dalla sottoscrizione utente. Il piano rimarrà fino a quando non vengono eliminate anche le sottoscrizioni che fanno riferimento il piano aggiuntivo. 
+
 - <!--2760466 – IS  ASDK --> Quando si installa un nuovo ambiente di Azure Stack che esegue questa versione, l'avviso che indica *attivazione obbligatoria* potrebbe non essere visualizzato. [Attivazione](.\.\azure-stack-registration.md) è necessario prima di poter usare diffusione di marketplace. 
 
 - <!-- TBD - IS ASDK --> I due tipi di sottoscrizione amministrativo che erano [introdotta con la versione 1804](.\.\azure-stack-update-1804.md#new-features) non deve essere utilizzato. I tipi di sottoscrizione siano **sottoscrizione di misurazione**, e **sottoscrizione consumo**. Questi tipi di sottoscrizione vengono **sottoscrizione di misurazione**, e **sottoscrizione consumo**. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il **sottoscrizione del Provider predefinito** tipo.
@@ -251,6 +253,8 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack.
 ### <a name="known-issues"></a>Problemi noti
 
 #### <a name="portal"></a>Portale
+- <!-- 2931230 – IS  ASDK --> Impossibile eliminare i piani che vengono aggiunti a una sottoscrizione utente come un piano del componente aggiuntivo, anche quando si rimuove il piano dalla sottoscrizione utente. Il piano rimarrà fino a quando non vengono eliminate anche le sottoscrizioni che fanno riferimento il piano aggiuntivo. 
+
 - <!-- 2551834 - IS, ASDK --> Quando si seleziona **Overview** per un account di archiviazione nei portali di amministratore o utente, le informazioni dalle *Essentials* riquadro non viene visualizzata.  Il riquadro Essentials Visualizza informazioni sull'account, ad esempio relativi *gruppo di risorse*, *posizione*, e *Subscription ID*.  Altre opzioni per la panoramica sono accessibili, ad esempio *Services* e *Monitoring*, nonché le opzioni per *Apri in Esplora* o a *Elimina account di archiviazione* .  
 
   Per visualizzare le informazioni non disponibili, usare il [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) cmdlet di PowerShell.

@@ -1,6 +1,6 @@
 ---
-title: Soluzioni di integrazione Enterprise con App per la logica di Azure | Microsoft Docs
-description: Informazioni su come usare App per la logica di Azure per creare flussi di lavoro automatizzati e processi aziendali che integrano dati, servizi, app e sistemi in aziende e organizzazioni, nonché su come creare soluzioni per scenari di integrazione dei dati, integrazione di sistemi, Enterprise Application Integration (EAI) e di orchestrazione.
+title: Integrazione aziendale con App per la logica di Azure | Microsoft Docs
+description: Questa panoramica descrive come creare soluzioni di integrazione aziendale automatizzando attività, flussi di lavoro e processi aziendali che integrano app, dati, servizi e sistemi tra aziende e organizzazioni. Creare soluzioni per scenari di integrazione dei dati, integrazione di sistemi, Enterprise Application Integration (EAI) e di orchestrazione.
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,25 +11,25 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: d3640710b3ba209c8e701cf5e340103c1d3d6fa7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: f9a59187b8de994e9ebfcab01ae2f3046f8f7971
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082220"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022681"
 ---
 # <a name="what-is-azure-logic-apps"></a>Informazioni su App per la logica di Azure
 
-[App per la logica](https://azure.microsoft.com/services/logic-apps) consente di creare soluzioni che integrano app, dati, sistemi e servizi in aziende e organizzazioni automatizzando attività e processi sotto forma di [flussi di lavoro](#logic-app-concepts). App per la logica fa parte del servizio cloud di Azure e semplifica la progettazione e la creazione di soluzioni scalabili per l'integrazione di app, l'integrazione dei dati, l'integrazione di sistemi, Enterprise Application Integration (EAI) e le comunicazioni business-to-business (B2B) nel cloud, a livello locale o in entrambi gli ambienti.
+[App per la logica di Azure](https://azure.microsoft.com/services/logic-apps) è un servizio cloud che consente di automatizzare e orchestrare attività, processi aziendali e [flussi di lavoro](#logic-app-concepts) quando è necessario integrare app, dati, sistemi e servizi tra aziende o organizzazioni. App per la logica semplifica la progettazione e la creazione di soluzioni scalabili per l'integrazione di app, dati e sistemi, per il servizio Enterprise Application Integration (EAI) e per le comunicazioni business-to-business (B2B) nel cloud, in locale o in entrambi gli ambienti.
 
 Ecco, ad esempio, alcuni carichi di lavoro che è possibile automatizzare con le app per la logica:
 
 * Elaborazione e instradamento di ordini in sistemi locali e servizi cloud.
-* Spostamento di file caricati su un server SFTP o FTP in Archiviazione di Azure. 
 * Invio di notifiche di posta elettronica con Office 365 quando si verificano eventi in vari sistemi, app e servizi.
+* Spostamento di file caricati su un server SFTP o FTP in Archiviazione di Azure. 
 * Monitoraggio dei tweet su un determinato argomento, analisi del sentiment e creazione di avvisi o attività per gli elementi che devono essere esaminati.
 
-Per compilare soluzioni di integrazione con App per la logica, scegliere da una raccolta in continua crescita dotata di [oltre 200 connettori](../connectors/apis-list.md) e altri servizi di Azure, ad esempio, Bus di servizio, Funzioni e Archiviazione; SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, condivisioni file e molto altro ancora. Questi [connettori](#logic-app-concepts) forniscono[trigger](#logic-app-concepts), [azioni](#logic-app-concepts) o entrambi per la creazione di app per la logica in grado di accedere ai dati in modo sicuro ed elaborarli in tempo reale.
+Per creare soluzioni di integrazione aziendale con App per la logica di Azure, è possibile scegliere da una raccolta in continua crescita che include [oltre 200 connettori](../connectors/apis-list.md) con servizi come il bus di servizio di Azure, Funzioni e Archiviazione, SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, condivisioni file e molto altro. I [connettori](#logic-app-concepts) forniscono[trigger](#logic-app-concepts), [azioni](#logic-app-concepts) o entrambi per la creazione di app per la logica in grado di accedere ai dati in modo sicuro ed elaborarli in tempo reale.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
@@ -37,17 +37,17 @@ Per compilare soluzioni di integrazione con App per la logica, scegliere da una 
 
 Ogni flusso di lavoro delle app per la logica inizia con un trigger, che viene attivato quando si verifica un evento specifico oppure quando nuovi dati disponibili soddisfano criteri specifici. Molti trigger includono funzionalità di pianificazione di base e consentono quindi di specificare la frequenza di esecuzione dei carichi di lavoro. Per altri scenari di pianificazione personalizzati, avviare i flussi di lavoro con il trigger di pianificazione. Per altre informazioni, vedere l'articolo su [come creare flussi di lavoro basati su pianificazione](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
 
-Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica che esegue le azioni del flusso di lavoro. Queste azioni possono anche includere conversioni di dati e controlli di flusso, ad esempio istruzioni condizionali, istruzioni switch, cicli e diramazioni. Ad esempio, questa app per la logica viene avviata con un trigger di Dynamics 365 che include il criterio predefinito "Quando un record viene aggiornato". Se il trigger rileva un evento che soddisfa questo criterio, il trigger viene attivato ed esegue le azioni del flusso di lavoro. In questo caso, le azioni includono la trasformazione XML, gli aggiornamenti dei dati, la diramazione delle decisioni e le notifiche tramite posta elettronica.
+Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica che esegue le azioni nel flusso di lavoro. Queste azioni possono anche includere conversioni di dati e controlli di flusso, ad esempio istruzioni condizionali, istruzioni switch, cicli e diramazioni. Ad esempio, questa app per la logica viene avviata con un trigger di Dynamics 365 che include il criterio predefinito "Quando un record viene aggiornato". Se il trigger rileva un evento che soddisfa questo criterio, il trigger viene attivato ed esegue le azioni del flusso di lavoro. In questo caso, le azioni includono la trasformazione XML, gli aggiornamenti dei dati, la diramazione delle decisioni e le notifiche tramite posta elettronica.
 
 ![Finestra di progettazione di App per la logica - app per la logica di esempio](./media/logic-apps-overview/overview.png)
 
-È possibile creare visivamente le app per la logica con la finestra di progettazione di App per la logica, disponibile nel portale di Azure tramite il browser e in Visual Studio. Per altre app per la logica personalizzate è possibile creare e modificare definizioni di app per la logica in JSON (JavaScript Object Notation) operando in modalità "visualizzazione codice". È anche possibile usare i comandi di Azure PowerShell e i modelli di Azure Resource Manager per le attività di selezione. Le app per la logica vengono distribuite ed eseguite nel cloud in Azure. Per un'introduzione più dettagliata, guardare questo video: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/) (Usare Azure Enterprise Integration Services per eseguire app cloud su larga scala)
+È possibile creare visivamente le app per la logica con Progettazione app per la logica, disponibile nel portale di Azure tramite il browser e in Visual Studio. Per altre app per la logica personalizzate, è possibile creare o modificare le definizioni delle app per la logica in JSON (JavaScript Object Notation) usando l'editor "Visualizzazione Codice". È anche possibile usare i comandi di Azure PowerShell e i modelli di Azure Resource Manager per le attività di selezione. Le app per la logica vengono distribuite ed eseguite nel cloud in Azure. Per un'introduzione più dettagliata, guardare questo video: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/) (Usare Azure Enterprise Integration Services per eseguire app cloud su larga scala)
 
 ## <a name="why-use-logic-apps"></a>Perché usare App per la logica
 
-Con l'affermazione della digitalizzazione in ambito aziendale, le app per la logica consentono di connettere sistemi legacy e sistemi moderni e all'avanguardia in modo più semplice e rapido grazie ad API predefinite fornite come connettori gestiti da Microsoft. In questo modo, è possibile concentrarsi sulla logica di business e sulla funzionalità delle proprie app. Non è infatti necessario preoccuparsi di creare, ospitare, ridimensionare, gestire e monitorare le app. perché tutte queste operazioni vengono gestite da App per la logica. Senza contare che si paga solo per quello che si usa, in base a un [modello di determinazione prezzi](../logic-apps/logic-apps-pricing.md) a consumo. 
+Con l'affermazione della digitalizzazione in ambito aziendale, le app per la logica consentono di connettere sistemi legacy, moderni e all'avanguardia in modo più semplice e rapido grazie ad API predefinite fornite come connettori gestiti da Microsoft. In questo modo, è possibile concentrarsi sulla logica di business e sulla funzionalità delle proprie app. Non è infatti necessario preoccuparsi di creare, ospitare, ridimensionare, gestire e monitorare le app. perché tutte queste operazioni vengono gestite da App per la logica. Senza contare che si paga solo per quello che si usa, in base a un [modello di determinazione prezzi](../logic-apps/logic-apps-pricing.md) a consumo. 
 
-In molti casi non sarà neanche necessario scrivere codice. Nel caso sia necessario scrivere codice, è possibile creare frammenti di codice con [Funzioni di Azure](../azure-functions/functions-overview.md) ed eseguire tale codice su richiesta dalle app per la logica. Se inoltre le app per la logica devono interagire con gli eventi di servizi di Azure, app personalizzate o soluzioni di terze parti, è possibile usare [Griglia di eventi di Azure](../event-grid/overview.md) con le app per la logica per la pubblicazione, l'instradamento e il monitoraggio degli eventi.
+In molti casi non sarà neanche necessario scrivere codice. Nel caso sia necessario scrivere codice, è possibile creare frammenti di codice con [Funzioni di Azure](../azure-functions/functions-overview.md) ed eseguire tale codice su richiesta dalle app per la logica. Se inoltre le app per la logica devono interagire con eventi dei servizi di Azure, app personalizzate o altre soluzioni, è possibile usare [Griglia di eventi di Azure](../event-grid/overview.md) con le app per la logica per il monitoraggio, il routing e la pubblicazione degli eventi.
 
 App per la logica, Funzioni e Griglia di eventi sono completamente gestiti da Microsoft Azure, di conseguenza non è più necessario preoccuparsi di creare, ospitare, ridimensionare, gestire, monitorare e manutenere le soluzioni. Grazie alla possibilità di creare [app e soluzioni "senza server"](../logic-apps/logic-apps-serverless-overview.md), è possibile concentrarsi solo sulla logica di business. Questi servizi vengono automaticamente ridimensionati in base alle esigenze, velocizzano le integrazioni e consentono di creare app cloud affidabili con una quantità minima di codice. Senza contare che si paga solo per quello che si usa, in base a un [modello di determinazione prezzi](../logic-apps/logic-apps-pricing.md) a consumo. 
 
@@ -76,9 +76,9 @@ Per comunicare tra loro in formato elettronico, aziende e organizzazioni usano f
 * Prodotti e servizi per iniziare:
 
   * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Funzioni di Azure](../azure-functions/functions-overview.md)
   * [Gestione API di Azure](../api-management/api-management-key-concepts.md)
-  * [Bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md)
 
 * Elaborare [messaggi XML](../logic-apps/logic-apps-enterprise-integration-xml.md)
 * Elaborare [file flat](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
@@ -90,7 +90,7 @@ Per comunicare tra loro in formato elettronico, aziende e organizzazioni usano f
   * [Mappe di trasformazione XML](../logic-apps/logic-apps-enterprise-integration-maps.md)
   * [Schemi di convalida XML](../logic-apps/logic-apps-enterprise-integration-schemas.md)
    
-Ad esempio, se si usa Microsoft BizTalk Server, le App per la logica possono connettersi e comunicare con BizTalk Server tramite il [connettore BizTalk Server](../connectors/apis-list.md#on-premises-connectors). È quindi possibile estendere o eseguire operazioni di tipo BizTalk in App per la logica includendo [connettori dell'account di integrazione](../connectors/apis-list.md#integration-account-connectors), disponibili con Enterprise Integration Pack. 
+Se, ad esempio, si usa Microsoft BizTalk Server, le app per la logica possono comunicare con BizTalk Server tramite il [connettore per BizTalk Server](../connectors/apis-list.md#on-premises-connectors). È quindi possibile estendere o eseguire operazioni di tipo BizTalk in App per la logica includendo [connettori dell'account di integrazione](../connectors/apis-list.md#integration-account-connectors), disponibili con Enterprise Integration Pack. 
 
 Ragionando sull'altra direzione, BizTalk Server può connettersi a e comunicare con App per la logica usando il [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Imparare come [impostare e usare BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) in BizTalk Server.
 

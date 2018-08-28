@@ -6,15 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
+ms.date: 08/20/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582302"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918535"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Esercitazione: Distribuire un'app Web dal Registro contenitori di Azure
 
@@ -42,11 +42,13 @@ In questo passaggio viene creata un'istanza di App Web per contenitori nell'area
 
 Accedere al [portale di Azure](https://portal.azure.com) e passare al registro contenitori creato nell'esercitazione precedente.
 
-Selezionare **Repository** > **acr-helloworld**, quindi fare clic con il pulsante destro del mouse sul tag **v1** in **Tag** e selezionare **Deploy to web app** (Distribuisci nell'app Web).
+Selezionare **Repository** > **acr-helloworld**, quindi fare clic con il pulsante destro del mouse sul tag **v1** in **Tag** e selezionare **Distribuisci nell'app Web**:
 
 ![Distribuzione nel servizio app nel portale di Azure][deploy-app-portal-01]
 
-In **App Web per contenitori** specificare i valori seguenti per ogni impostazione:
+Se l'opzione "Distribuisci nell'app Web" è disabilitata, potrebbe non essere stato abilitato l'utente amministratore del registro come indicato in [Creare un registro di contenitori](container-registry-tutorial-prepare-registry.md#create-a-container-registry) nella prima esercitazione. È possibile abilitare l'utente amministratore in **Impostazioni** > **Chiavi di accesso** nel portale di Azure.
+
+In **App Web per contenitori** che viene visualizzata dopo aver selezionato "Distribuisci nell'app Web" specificare i valori seguenti per ogni impostazione:
 
 | Impostazione | Valore |
 |---|---|

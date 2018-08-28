@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bef88f09f182b1bb450ee0e045985ed59d5b5648
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641323"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920858"
 ---
 # <a name="azure-service-bus"></a>Bus di servizio di Azure
 
@@ -36,7 +36,12 @@ All'interno di uno spazio dei nomi è possibile utilizzare una o più istanze di
 * *Argomenti*: forniscono la comunicazione unidirezionale tramite le *sottoscrizioni*. Un singolo argomento può avere più sottoscrizioni. Come la coda, un argomento funge da broker ma ogni sottoscrizione può facoltativamente usare un filtro per ricevere solo messaggi corrispondenti a criteri specifici.
 * *Inoltri*: forniscono funzionalità di comunicazione bidirezionale. Diversamente da code e argomenti, un inoltro non archivia i messaggi in elaborazione, perché non si tratta di un broker. Al contrario, li passa semplicemente all'applicazione di destinazione.
 
-Quando si crea una coda, un argomento o un inoltro, occorre assegnargli un nome. Questo nome, associato a quello assegnato allo spazio dei nomi, costituisce un identificatore univoco per l'oggetto. Le applicazioni possono fornire questo nome al bus di servizio e quindi usare tale coda, argomento o inoltro per comunicare tra loro. 
+Quando si crea una coda, un argomento o un inoltro, occorre assegnargli un nome. Questo nome, associato a quello assegnato allo spazio dei nomi, costituisce un identificatore univoco per l'oggetto. Le applicazioni possono fornire questo nome al bus di servizio e quindi usare tale coda, argomento o inoltro per comunicare tra loro.
+
+ >**Esempio:**   
+     *https://&lt;nome-spaziodeinomi-busdiservizio&gt;.servicebus.windows.net/&lt;nome-coda&gt;*  
+     *https://&lt;nome-spaziodeinomi-busdiservizio&gt;.servicebus.windows.net/&lt;nome-argomento&gt;*  
+     *https://&lt;nome-spaziodeinomi-busdiservizio&gt;.servicebus.windows.net/&lt;nome-inoltro&gt;*  
 
 In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti tramite Windows Communication Foundation (WCF). Questo servizio è noto come [inoltro WCF](../service-bus-relay/relay-what-is-it.md). Per le code e gli argomenti, le applicazioni Windows possono usare API del sistema di messaggistica definite dal bus di servizio. Per rendere questi oggetti più semplici da usare da applicazioni non Windows, Microsoft fornisce SDK per Java, Node.js e altri linguaggi. È anche possibile accedere a code e argomenti tramite le [API REST](/rest/api/servicebus/) su HTTP. 
 

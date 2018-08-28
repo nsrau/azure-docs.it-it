@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ff2071a703b0b5e94cd68122a878b51e9d97669a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112752"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144649"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 L'analisi di flusso può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
@@ -40,6 +40,8 @@ Analisi di flusso di Azure usa un approccio upsert ottimistico in cui gli aggior
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Partizionamento dei dati in Cosmos DB
 Azure Cosmos DB con partizionamento [senza limiti](../cosmos-db/partition-data.md) costituisce l'approccio consigliato per il partizionamento dei dati, in quanto Azure Cosmos DB ridimensiona le partizioni automaticamente in base al carico di lavoro. Durante la scrittura in contenitori senza limiti, Analisi di flusso di Azure usa un numero di writer paralleli uguale a quello usato nel passaggio di query precedente o nello schema di partizionamento di input.
+> [!Note]
+> A questo punto, Analisi di flusso di Azure supporta solo un numero illimitato di raccolte con chiavi di partizione di primo livello. Ad esempio, `/region` è supportata. Le chiavi di partizione annidate (ad esempio `/region/name`) non sono supportate. 
 
 Per le raccolte di Azure Cosmos DB fisse, Analisi di flusso di Azure non consente alcuna possibilità di ridimensionamento se le raccolte sono al completo. Tali raccolte hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR al secondo.  Per eseguire la migrazione dei dati da un contenitore fisso a un contenitore senza limiti, ad esempio con una velocità effettiva di almeno 1000 UR al secondo e una chiave di partizione, è necessario usare l'[utilità di migrazione dati](../cosmos-db/import-data.md) o la [libreria di feed di modifiche](../cosmos-db/change-feed.md).
 
@@ -51,11 +53,11 @@ La creazione di Cosmos DB come output nell'analisi di flusso genera una richiest
 
 ![documentdb analisi di flusso schermata di output](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-Campo           | Descrizione 
+Campo           | DESCRIZIONE 
 -------------   | -------------
 Alias di output    | Alias per fare riferimento a questo output nella query ASA   
 Nome account    | Nome o URI endpoint dell'account Azure Cosmos DB 
 Chiave account     | Chiave di accesso condiviso per l'account Azure Cosmos DB
 Database        | Nome del database Azure Cosmos DB
 Nome raccolta | Nome di raccolta per le raccolte da usare. `MyCollection` è un esempio di input valido. Una raccolta denominata `MyCollection` deve essere presente.  
-ID documento     | Facoltativo. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lasciato vuoto, tutti gli eventi verranno inseriti senza alcuna opzione di aggiornamento.
+Document ID     | facoltativo. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lasciato vuoto, tutti gli eventi verranno inseriti senza alcuna opzione di aggiornamento.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e3852ffc01312f01843a90de5f5565784b1c0b5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114252"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616327"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Guida introduttiva: Distribuire un'applicazione Reliable Services Java su Service Fabric
 
@@ -37,7 +37,7 @@ In questa guida introduttiva si apprende come:
 * Distribuire l'applicazione in un cluster in Azure
 * Scalare orizzontalmente l'applicazione in più nodi
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 
@@ -66,8 +66,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Cluster locale integro](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Aprire Eclipse.
-3. Fare clic su File -> Open Projects from File System (Apri progetti da file system).
-4. Fare clic su Directory e scegliere la directory `Voting` nella cartella `service-fabric-java-quickstart` clonata da Github. Fare clic su Finish.
+3. Fare clic su File -> Import (Importa) -> Gradle -> Existing Gradle Project (Progetto Gradle esistente) e seguire la procedura guidata.
+4. Fare clic su Directory e scegliere la directory `Voting` nella cartella `service-fabric-java-quickstart` clonata da Github. Fare clic su Finish. 
 
     ![Finestra di dialogo Import (Importa) di Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 

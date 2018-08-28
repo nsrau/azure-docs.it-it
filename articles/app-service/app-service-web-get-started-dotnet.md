@@ -1,6 +1,6 @@
 ---
-title: Creare un'app Web ASP.NET Core in Azure | Microsoft Docs
-description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo l'app Web ASP.NET predefinita.
+title: Creare un'app Web ASP.NET Core in C# in Azure | Microsoft Docs
+description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo l'app Web ASP.NET in C# predefinita.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 06/11/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 811f4df807292b9d539084a049cc643dbee07a7e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432056"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Creare un'app Web ASP.NET Core in Azure
 
@@ -39,13 +40,9 @@ Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hos
 
 Per completare questa esercitazione:
 
-* Installare <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> con i carichi di lavoro seguenti:
-    - **Sviluppo Web e ASP.NET**
-    - **Sviluppo di Azure**
+Installare <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> con il carico di lavoro **Sviluppo ASP.NET e Web**.
 
-    ![Sviluppo Web e ASP.NET e sviluppo di Azure (in Web e Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-Se Visual Studio è già stato installato, aggiungere i carichi di lavoro in Visual Studio facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
+Se Visual Studio è già stato installato, aggiungere il carico di lavoro in Visual Studio facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
 
@@ -62,10 +59,6 @@ Assegnare all'applicazione il nome _myFirstAzureWebApp_ e fare clic su **OK**.
 Selezionare **OK**.
 
 ![Finestra di dialogo Nuovo progetto ASP.NET](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-Dopo che è stato creato il progetto ASP.NET Core, verrà visualizzata la home page di ASP.NET Core con vari collegamenti alle risorse con informazioni utili per iniziare. 
-
-![Home page](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 Nel menu selezionare **Debug > Avvia senza eseguire debug** per eseguire l'app Web in locale.
 
@@ -85,11 +78,10 @@ Verrà visualizzata la finestra di dialogo **Crea servizio app**, che consente d
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Nella finestra di dialogo **Crea servizio app** fare clic su **Aggiungi un account** e accedere alla sottoscrizione di Azure. Se è già stato eseguito l'accesso, selezionare l'account contenente la sottoscrizione desiderata dall'elenco a discesa.
+Nella finestra di dialogo **Crea servizio App** fare clic su **Aggiungi un account** e accedere alla sottoscrizione di Azure. Se è già stato eseguito l'accesso, selezionare l'account contenente la sottoscrizione desiderata dall'elenco a discesa.
 
 > [!NOTE]
 > Se si è già connessi, non selezionare ancora l'opzione **Crea**.
->
 >
    
 ![Accedere ad Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
@@ -151,7 +143,8 @@ Trovare il tag HTML `<div id="myCarousel" class="carousel slide" data-ride="caro
 
 Per la ridistribuzione in Azure, fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** in **Esplora soluzioni** e selezionare **Pubblica**.
 
-Nella pagina di pubblicazione selezionare **Pubblica**.
+Nella pagina di riepilogo della pubblicazione selezionare **Pubblica**.
+![Pagina di riepilogo della pubblicazione di Visual Studio](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 Al termine del processo di pubblicazione, Visual Studio avvia un browser sull'URL dell'app Web.
 

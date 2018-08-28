@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869582"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41921044"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central
 
@@ -25,7 +25,7 @@ Per permettere all'utente di testare l'applicazione prima di collegare un dispos
 In questa esercitazione, si crea un modello di dispositivo per un **condizionatore connesso**. Un condizionatore connesso:
 
 * Invia dati di telemetria, ad esempio temperatura e umidità.
-* Segnala lo stato, ad esempio se è attivato o disattivato.
+* Segnala lo stato, ad esempio se è acceso o spento.
 * Ha proprietà come il numero di serie e la versione del firmware.
 * Ha impostazioni come la temperatura di destinazione e la velocità della ventola.
 
@@ -43,9 +43,9 @@ In questa esercitazione si apprenderà come:
 > * Usare le impostazioni del dispositivo
 > * Usare i comandi
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, è necessaria un'applicazione Azure IoT Central. Se è stato completata la guida introduttiva [Creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md) è possibile usare nuovamente l'applicazione creata nella guida. In caso contrario, completare i passaggi seguenti per creare un'applicazione Azure IoT Central vuota:
+Per completare questa esercitazione, è necessaria un'applicazione Azure IoT Central. Se è stato completato l'avvio rapido [Creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md), è possibile usare nuovamente l'applicazione creata nella guida. In caso contrario, completare i passaggi seguenti per creare un'applicazione Azure IoT Central vuota:
 
 1. Passare alla pagina [Application Manager](https://aka.ms/iotcentral) (Gestione applicazioni) di Azure IoT Central.
 
@@ -89,9 +89,9 @@ Per aggiungere un nuovo modello di dispositivo all'applicazione, è necessario p
 
 La procedura seguente mostra come creare un nuovo modello di dispositivo **Condizionatore connesso** per i dispositivi che inviano all'applicazione dati di telemetria sulla temperatura:
 
-1. Nella pagina **Application Builder**, scegliere **Crea modello di dispositivo**:
+1. Nella pagina **Application Builder**, scegliere **Create Device Template** (Crea modello di dispositivo):
 
-    ![Pagina Application Builder, Crea modello di dispositivo](./media/tutorial-define-device-type/builderhomedevices.png)
+    ![Pagina Application Builder, Create Device Template](./media/tutorial-define-device-type/builderhomedevices.png)
 
 2. Nella pagina **Modelli di dispositivo**, scegliere **Personalizzato**. Un modello di dispositivo **Personalizzato** consente di definire tutte le caratteristiche e i comportamenti del condizionatore connesso:
 
@@ -155,7 +155,7 @@ La procedura seguente mostra come creare un nuovo modello di dispositivo **Condi
 
 ## <a name="define-event-measurement"></a>Definire la misura Evento
 
-È possibile usare Evento per definire dati temporizzati inviati al dispositivo, in modo che indichino eventi significativi come un errore o il guasto di un componente. Come le misure di telemetria, Azure IoT Central consente di simulare eventi di dispositivo che permettono di testare il comportamento dell'applicazione prima di collegare un dispositivo fisico. Si definiscono le misurazioni di evento per il tipo di dispositivo nella vista **Misure**.
+È possibile usare Evento per definire dati temporizzati inviati al dispositivo, in modo che indichino eventi significativi come un errore o il guasto di un componente. Come per le misure di telemetria, Azure IoT Central consente di simulare eventi di dispositivo che permettono di testare il comportamento dell'applicazione prima di collegare un dispositivo fisico. Si definiscono le misurazioni di evento per il tipo di dispositivo nella vista **Misure**.
 
 1. Per aggiungere la misura dell'evento **Errore motore ventola**, scegliere **Nuova misura**. Quindi scegliere **Evento** come tipo di misura:
 
@@ -181,7 +181,7 @@ La procedura seguente mostra come creare un nuovo modello di dispositivo **Condi
 
     ![Configurare la misura Evento](./media/tutorial-define-device-type/eventconfiguration.png)
 
-3. Dopo un breve periodo di tempo, la pagina **Misure** mostra un grafico degli eventi generati casualmente dal condizionatore connesso simulato. Usare i controlli per gestire la visibilità o per modificare la definizione dell'evento:
+3. Dopo un breve periodo di tempo, la pagina **Misure** mostra un grafico degli eventi generato casualmente dal condizionatore connesso simulato. Usare i controlli per gestire la visibilità o per modificare la definizione dell'evento:
 
     ![Visualizzare una simulazione dell'evento](./media/tutorial-define-device-type/eventview.png)
 
@@ -191,7 +191,7 @@ La procedura seguente mostra come creare un nuovo modello di dispositivo **Condi
 
 ## <a name="define-state-measurement"></a>Definire una misura Stato
 
-È possibile usare Stato per definire e visualizzare lo stato del dispositivo o del suo componente in un periodo di tempo. Come le misure di telemetria, Azure IoT Central consente di simulare uno stato di dispositivo che permette di testare il comportamento dell'applicazione prima di collegare un dispositivo fisico. Si definiscono le misurazioni di stato per il tipo di dispositivo nella vista **Misure**.
+È possibile usare Stato per definire e visualizzare lo stato del dispositivo o del suo componente in un periodo di tempo. Come per le misure di telemetria, Azure IoT Central consente di simulare uno stato del dispositivo che permette di testare il comportamento dell'applicazione prima di collegare un dispositivo fisico. Si definiscono le misurazioni di stato per il tipo di dispositivo nella vista **Misure**.
 
 1. Per aggiungere la misura **Modalità ventola**, scegliere **Nuova misura**. Quindi scegliere **Stato** come tipo di misura:
 
@@ -222,7 +222,7 @@ La procedura seguente mostra come creare un nuovo modello di dispositivo **Condi
 
     ![Configurare una misura Stato](./media/tutorial-define-device-type/stateconfiguration.png)
 
-3. Dopo un breve periodo di tempo, la pagina **Misure** mostra un grafico degli stati generati casualmente dal condizionatore connesso simulato. Usare i controlli per gestire la visibilità o per modificare la definizione dello stato:
+3. Dopo un breve periodo di tempo, la pagina **Misure** mostra un grafico degli stati generato casualmente dal condizionatore connesso simulato. Usare i controlli per gestire la visibilità o per modificare la definizione dello stato:
 
     ![Visualizzare una simulazione di stato](./media/tutorial-define-device-type/stateview.png)
 
@@ -342,8 +342,8 @@ I _comandi_ si usano per consentire a un operatore di eseguire i comandi diretta
     | Nome visualizzato         | Echo Command (Comando eco)    |
     | Nome campo           | echo (eco)            |
     | Timeout predefinito      | 30              |
-    | Nome visualizzato         | Testo visualizzato    |
-    | Tipo schermo         | text            |  
+    | Tipo schermo         | text            |
+    | DESCRIZIONE          | Comando del dispositivo  |  
 
 È possibile aggiungere altri input al comando facendo clic su **+** per gli input.
 

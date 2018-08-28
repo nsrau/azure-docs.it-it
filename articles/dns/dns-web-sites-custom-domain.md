@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 2abe6c11b2a6fe9a9146f5c5689597fe3e29fa82
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204943"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41921014"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Esercitazione: Creare record DNS in un dominio personalizzato per un'app Web 
 
@@ -56,7 +56,7 @@ Dopo la creazione di una zona e la relativa delega a DNS di Azure, è quindi pos
 
 ## <a name="create-an-a-record-and-txt-record"></a>Creare un record e un record TXT
 
-Un record A viene usato per eseguire il mapping di un nome al relativo indirizzo IP. Nell'esempio seguente assegnare "@" come record A a un indirizzo IPv4 dell'app Web. @ in genere rappresenta il dominio radice.
+Un record A viene usato per eseguire il mapping di un nome al relativo indirizzo IP. Nell'esempio seguente assegnare "\@" come record A usando l'indirizzo IPv4 dell'app Web. \@ in genere rappresenta il dominio radice.
 
 ### <a name="get-the-ipv4-address"></a>Ottenere l'indirizzo IPv4
 

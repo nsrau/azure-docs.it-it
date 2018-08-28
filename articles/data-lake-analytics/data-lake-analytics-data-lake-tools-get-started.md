@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: get-started-article
-ms.date: 05/02/2018
-ms.openlocfilehash: 0acaace474d62f18b9b6ca4aaae324405a2f43db
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 08/13/2018
+ms.openlocfilehash: 852840fc29589292e7a74390026b78b15f81e721
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735794"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41924829"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -36,7 +36,7 @@ Informazioni su come usare Visual Studio per creare account Azure Data Lake Anal
 >    - [Per Visual Studio 2013 e 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Visual Studio**: sono supportate tutte le versioni ad eccezione della versione Express.
     * Visual Studio 2017
@@ -52,16 +52,20 @@ Per questa esercitazione è necessario che sia installato Data Lake Tools per Vi
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Connettersi a un account Azure Data Lake Analytics
 
 1. Aprire Visual Studio.
-2. Aprire Esplora server selezionando **Visualizza** > **Esplora Server**.
-3. Fare clic con il pulsante destro del mouse su **Azure**. Scegliere quindi **Connetti a sottoscrizione di Microsoft Azure** e seguire le istruzioni.
-4. In Esplora server selezionare **Azure** > **Data Lake Analytics**. Verrà visualizzato un elenco degli account Data Lake Analytics.
 
+2. Aprire Esplora server selezionando **Visualizza** > **Esplora Server**.
+
+3. Fare clic con il pulsante destro del mouse su **Azure**. Scegliere quindi **Connetti a sottoscrizione di Microsoft Azure** e seguire le istruzioni.
+
+4. In Esplora server selezionare **Azure** > **Data Lake Analytics**. Verrà visualizzato un elenco degli account Data Lake Analytics.
 
 ## <a name="write-your-first-u-sql-script"></a>Scrivere il primo script U-SQL
 
 Il testo seguente è un semplice script U-SQL. Definisce un set di dati di piccole dimensioni e scrive tale set di dati nell'istanza predefinita di Data Lake Store come file denominato `/data.csv`.
 
 ```
+USE DATABASE master;
+USE SCHEMA dbo;
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -74,7 +78,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-### <a name="submit-a-data-lake-analytics-job"></a>Inviare un processo di Data Lake Analytics
+## <a name="submit-a-data-lake-analytics-job"></a>Inviare un processo di Data Lake Analytics
 
 1. Selezionare **File** > **Nuovo** > **Progetto**.
 
@@ -87,31 +91,35 @@ OUTPUT @a
     ![Invio progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
 5. Nell'angolo superiore sinistro della finestra **Script.usql** selezionare **Invia**.
-6. Verificare il nome presente in **Account Analytics** e quindi selezionare **Invia**. Al termine dell'invio, nella finestra dei risultati di Strumenti Data Lake per Visual Studio saranno disponibili i risultati dell'operazione di invio.
 
-    ![Invio progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-7. Per visualizzare lo stato più aggiornato del processo e aggiornare la schermata, fare clic su **Aggiorna**. Quando il processo ha esito positivo, vengono visualizzate le schede **Grafico del processo**, **Operazioni metadati**, **Cronologia dello stato** e **Diagnostica**:
+6. Dopo che il processo è stato inviato, viene aperta la scheda **Visualizzazione del processo** che mostra lo stato dei processi. Per visualizzare lo stato più aggiornato del processo e aggiornare la schermata, fare clic su **Aggiorna**.
 
     ![Grafico delle prestazioni del processo di Analisi Data Lake per Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
    * **Riepilogo processo** mostra il riepilogo del processo.   
-   * **Dettagli processo** mostra informazioni più specifiche sul processo, inclusi script, risorse e vertici.
    * **Grafico del processo** visualizza l'andamento del processo.
    * **Operazioni metadati** mostra tutte le azioni eseguite nel catalogo U-SQL.
    * **Dati** mostra tutti gli input e gli output.
+   * **Cronologia dello stato** mostra i dettagli sulla sequenza temporale e sullo stato.
+   * **Analisi unità di analisi** mostra quante unità di analisi sono state usate nel processo e consente di esplorare le simulazioni di diverse strategie di allocazione di unità di analisi.
    * **Diagnostica** fornisce un'analisi avanzata per l'ottimizzazione dell'esecuzione e delle prestazioni del processo.
 
-### <a name="to-check-job-state"></a>Per controllare lo stato del processo
+## <a name="check-job-status"></a>Controllare lo stato del processo
 
-1. In Esplora server selezionare **Azure** > **Data Lake Analytics**. 
+1. In Esplora server selezionare **Azure** > **Data Lake Analytics**.
+
 2. Espandere il nome dell'account Data Lake Analytics.
+
 3. Fare doppio clic su **Processi**.
+
 4. Selezionare il processo inviato in precedenza.
 
-### <a name="to-see-the-output-of-a-job"></a>Per visualizzare l'output di un processo
+## <a name="see-the-job-output"></a>Visualizzare l'output del processo
 
 1. In Esplora server cercare il processo inviato.
+
 2. Fare clic sulla scheda **Dati** .
+
 3. Nella scheda **Output del processo** selezionare il file `"/data.csv"`.
 
 ## <a name="next-steps"></a>Passaggi successivi

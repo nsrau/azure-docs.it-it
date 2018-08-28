@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: 064b5355da10fe683563fa078cfafc65080f7ea2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2905747b6ece93f018bd6ef67fae1b23ec9c9d5d
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23116499"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41920104"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Copiare lo snapshot di un disco gestito nella stessa sottoscrizione o in una sottoscrizione diversa con PowerShell
 
-Questo script crea una copia di uno snapshot nella stessa sottoscrizione stessa o in una sottoscrizione diversa. Usare questo script per spostare uno snapshot in un'altra sottoscrizione per la conservazione dei dati. L'archiviazione di snapshot in una sottoscrizione diversa impedisce l'eliminazione accidentale di snapshot nella sottoscrizione principale. 
+Questo script crea una copia di uno snapshot nella stessa sottoscrizione o in una sottoscrizione diversa. Usare questo script per spostare uno snapshot in un'altra sottoscrizione per la conservazione dei dati. L'archiviazione di snapshot in una sottoscrizione diversa impedisce l'eliminazione accidentale di snapshot nella sottoscrizione principale. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 

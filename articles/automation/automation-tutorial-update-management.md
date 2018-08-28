@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216967"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920362"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gestire gli aggiornamenti di Windows con Automazione di Azure
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 > * Pianificare la distribuzione degli aggiornamenti
 > * Visualizzare i risultati di una distribuzione
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 
@@ -126,9 +126,6 @@ Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, in **
 
 Pianificare quindi una distribuzione che rispetti la pianificazione dei rilasci e l'intervallo di servizio per installare gli aggiornamenti. È possibile scegliere i tipi di aggiornamento da includere nella distribuzione. È possibile ad esempio includere gli aggiornamenti critici o della sicurezza ed escludere gli aggiornamenti cumulativi.
 
-> [!WARNING]
-> Quando gli aggiornamenti richiedono un riavvio, la macchina virtuale viene riavviata automaticamente.
-
 Per pianificare una nuova distribuzione di aggiornamenti per la macchina virtuale, passare a **Gestione aggiornamenti** e quindi selezionare **Pianifica la distribuzione di aggiornamenti**.
 
 In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti:
@@ -136,6 +133,8 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 * **Nome**: immettere un nome univoco per la distribuzione di aggiornamenti.
 
 * **Sistema operativo**: selezionare il sistema operativo di destinazione per la distribuzione degli aggiornamenti.
+
+* **Computer da aggiornare**: selezionare una ricerca salvata o un gruppo importato, oppure scegliere un computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie **Computer**, l'idoneità del computer è indicata nella colonna **UPDATE AGENT READINESS** (Idoneità agente di aggiornamento). Per informazioni sui vari metodi per creare gruppi di computer in Log Analytics, vedere [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Gruppi di computer in Log Analytics)
 
 * **Classificazioni aggiornamenti**: selezionare i tipi di software inclusi nella distribuzione di aggiornamenti. Per questa esercitazione, lasciare tutti i tipi selezionati.
 
@@ -154,9 +153,17 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 
 * **Finestra di manutenzione (minuti)**: lasciare il valore predefinito. È possibile impostare il periodo di tempo nel quale eseguire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
 
+* **Opzioni di riavvio**: questa impostazione determina come vengono gestiti i riavvii. Le opzioni disponibili sono:
+  * Riavvia se necessario (opzione predefinita)
+  * Riavvia sempre
+  * Non riavviare mai
+  * Riavvia solamente: gli aggiornamenti non verranno installati
+
+Al termine della configurazione della pianificazione, selezionare **Crea**.
+
 ![Riquadro di impostazioni della pianificazione di aggiornamenti](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Al termine della configurazione della pianificazione, selezionare **Crea**. Verrà nuovamente visualizzato il dashboard dello stato. Selezionare **Distribuzioni di aggiornamenti pianificate** per visualizzare la pianificazione della distribuzione creata.
+Verrà nuovamente visualizzato il dashboard dello stato. Selezionare **Distribuzioni di aggiornamenti pianificate** per visualizzare la pianificazione della distribuzione creata.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti
 

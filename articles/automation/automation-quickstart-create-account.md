@@ -4,17 +4,17 @@ description: Informazioni su come creare un account di Automazione di Azure ed e
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/13/2017
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055155"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616597"
 ---
 # <a name="create-an-azure-automation-account"></a>Creare un account di Automazione di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "34055155"
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere ad Azure all'indirizzo https://portal.azure.com
 
@@ -30,13 +30,13 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 1. Fare clic sul pulsante **Crea una risorsa** nell'angolo superiore sinistro di Azure.
 
-1. Selezionare **Monitoraggio e gestione** e quindi selezionare **Automazione**.
+1. Selezionare **Strumenti di gestione** e quindi selezionare **Automazione**.
 
-1. Immettere le informazioni account. Per **Crea un account RunAs di Azure** scegliere **Sì** per abilitare automaticamente gli elementi che consentono di semplificare l'autenticazione in Azure. Al termine fare clic su **Crea**, per avviare la distribuzione dell'account di Automazione.
+1. Immettere le informazioni account. Per **Crea un account RunAs di Azure** scegliere **Sì** per abilitare automaticamente gli elementi che consentono di semplificare l'autenticazione in Azure. Quando si crea un account di automazione, è importante notare che non è possibile modificarne il nome dopo che viene scelto. Al termine fare clic su **Crea**, per avviare la distribuzione dell'account di Automazione.
 
     ![Immettere le informazioni sull'account di Automazione nella pagina](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-1. L'account di Automazione viene aggiunto al dashboard di Azure. Al termine della distribuzione, si apre automaticamente la panoramica dell'account di Automazione.
+1. Al termine della distribuzione fare clic su ** **Tutti i servizi**, selezionare **Account di automazione** e quindi scegliere l'account di automazione creato.
 
     ![Panoramica dell'account di Automazione](./media/automation-quickstart-create-account/automation-account-overview.png)
 

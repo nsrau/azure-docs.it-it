@@ -1,6 +1,6 @@
 ---
-title: Esercitazione sulla configurazione di un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi | Microsoft Docs
-description: "Esercitazione: Configurare un'applicazione Node.js per la lettura di un segreto da Key Vault"
+title: Guida introduttiva - Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node | Microsoft Docs
+description: Guida introduttiva - Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -8,19 +8,19 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/01/2018
+ms.date: 08/08/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: cc43081463667eba06af6538f3d78f16544ed2a5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412243"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023754"
 ---
-# <a name="quickstart-how-to-set-and-read-a-secret-from-key-vault-in-a-node-web-app"></a>Guida introduttiva: Come impostare e leggere un segreto da Key Vault in un'app Web Node 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Guida introduttiva - Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node 
 
-Questa guida introduttiva illustra come archiviare un segreto in Key Vault e come recuperarlo usando un'app Web. Questa app Web può essere eseguita in locale o in Azure. La guida introduttiva usa Node.js e identità del servizio gestite
+Questa guida introduttiva illustra come archiviare un segreto in Key Vault e come recuperarlo usando un'app Web. Per visualizzare il valore del segreto, è necessario eseguire la procedura in Azure. La guida introduttiva usa Node.js e identità del servizio gestite
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali delle chiavi.
@@ -31,6 +31,9 @@ Questa guida introduttiva illustra come archiviare un segreto in Key Vault e com
 > * Concedere le autorizzazioni necessarie per l'applicazione Web per la lettura dei dati da un insieme di credenziali delle chiavi.
 
 Prima di procedere, assicurarsi di avere familiarità con i [concetti di base](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+Per capire i motivi per cui l'esercitazione seguente rappresenta la procedura consigliata, è necessario comprendere alcuni concetti. Key Vault è un repository centrale per archiviare i segreti a livello di codice. Per farlo, tuttavia, le applicazioni o gli utenti devono prima autenticarsi in Key Vault, ad esempio presentando un segreto. Per seguire le procedure consigliate per la sicurezza, questo primo segreto deve essere ruotato periodicamente. Con l'[identità del servizio gestita](../active-directory/managed-service-identity/overview.md), alle applicazioni in esecuzione in Azure viene assegnata un'identità gestita automaticamente da Azure. Ciò aiuta a risolvere il **problema di introduzione del segreto**, con utenti o applicazioni che possono seguire le procedure consigliate senza doversi preoccupare della rotazione del primo segreto
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -49,7 +52,7 @@ az login
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 Selezionare il nome di un gruppo di risorse e compilare il segnaposto.
 L'esempio seguente crea un gruppo di risorse denominato *<YourResourceGroupName>* nella località *eastus*.
@@ -123,8 +126,6 @@ Di seguito sono riportati i pochi passaggi necessari
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mostra un output simile all'esempio seguente:
     ```

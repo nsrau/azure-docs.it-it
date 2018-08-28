@@ -4,17 +4,17 @@ description: In questa esercitazione Analisi di flusso di Azure viene distribuit
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/25/2018
+ms.date: 08/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afbdf2171c1fc1eef95514526a509d171e262d4a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 66d55c07493a540e36a08d48d6abbdc3d082b9b9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435683"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41917965"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge (anteprima)
 
@@ -33,6 +33,10 @@ In questa esercitazione si apprenderà come:
 > * Connettere il nuovo processo di Analisi di flusso di Azure con altri moduli IoT Edge.
 > * Distribuire il processo di Analisi di flusso di Azure in un dispositivo IoT Edge dal portale di Azure.
 
+<center>
+![Diagramma dell'architettura dell'esercitazione](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+</center>
+
 >[!NOTE]
 >I moduli di Analisi di flusso di Azure per IoT Edge sono in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -43,7 +47,6 @@ In questa esercitazione si apprenderà come:
 Un dispositivo Azure IoT Edge:
 
 * È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
-* Il modulo Azure Machine Learning non supporta i processori ARM.
 
 Risorse cloud:
 
@@ -52,57 +55,72 @@ Risorse cloud:
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Creare un processo di Analisi di flusso di Azure
 
-In questa sezione si crea un processo di Analisi di flusso di Azure per prelevare i dati dall'hub IoT, eseguire una query sui dati di telemetria inviati dal dispositivo e inoltrare i risultati a un contenitore di archiviazione BLOB di Azure. Per altre informazioni, vedere la sezione "Panoramica" della [documentazione di Analisi di flusso][azure-stream]. 
+In questa sezione si crea un processo di Analisi di flusso di Azure per prelevare i dati dall'hub IoT, eseguire una query sui dati di telemetria inviati dal dispositivo e inoltrare i risultati a un contenitore di archiviazione BLOB di Azure. 
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-È necessario un account di archiviazione di Azure per i processi di Analisi di flusso di Azure, che funga da endpoint per l'output del processo. L'esempio in questa sezione usa il tipo di archiviazione BLOB. Per altre informazioni, vedere la sezione "BLOB" della [documentazione di Archiviazione di Azure][azure-storage].
+Quando si crea un processo di Analisi di flusso di Azure da eseguire in un dispositivo IoT Edge, è necessario archiviarlo in modo che possa essere chiamato dal dispositivo. È possibile usare un account di archiviazione di Azure esistente o crearne uno nuovo ora. 
 
-1. Nel portale di Azure passare a **Crea una risorsa**, immettere **account di archiviazione** nella casella di ricerca e quindi selezionare **Account di archiviazione - BLOB, file, tabella e coda**.
+1. Nel portale di Azure andare a **Crea una risorsa** > **Archiviazione** > **Account di archiviazione: BLOB, File, Tabelle, Code**. 
 
-1. Nel riquadro **Crea account di archiviazione** immettere un nome per l'account di archiviazione, selezionare la stessa posizione in cui è archiviato l'hub IoT, selezionare lo stesso gruppo di risorse di hub IoT e quindi selezionare **Crea**. Prendere nota del nome per usarlo in seguito.
+1. Specificare i valori seguenti per creare l'account di archiviazione:
 
-    ![Creare un account di archiviazione][1]
+   | Campo | Valore |
+   | ----- | ----- |
+   | NOME | Immettere un nome univoco per l'account di archiviazione. | 
+   | Località | Scegliere una località vicina. |
+   | Sottoscrizione | Scegliere la stessa sottoscrizione dell'hub IoT. |
+   | Gruppo di risorse | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
 
+1. Mantenere i valori predefiniti per gli altri campi e selezionare **Crea**. 
 
-### <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
+### <a name="create-a-new-job"></a>Creare un nuovo processo
 
-1. Nel portale di Azure passare a **Crea una risorsa** > **Internet delle cose** e selezionare **Processo di Analisi di flusso**.
+1. Nel portale di Azure andare a **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**.
 
-1. Nel riquadro **Nuovo processo di Analisi di flusso** seguire questa procedura:
+1. Specificare i valori seguenti per creare il processo:
 
-   1. Nella casella **Nome processo** digitare un nome di processo.
-   
-   1. Usare lo stesso **gruppo di risorse** e la stessa **località** dell'hub IoT. 
-
-      > [!NOTE]
-      > I processi di Analisi di flusso di Azure in IoT Edge non sono al momento supportati nell'area Stati Uniti occidentali 2. 
-
-   1. In **Ambiente host** selezionare **Edge**.
-    
+   | Campo | Valore |
+   | ----- | ----- |
+   | Nome processo | Dare un nome al processo. Ad esempio, **IoTEdgeJob** | 
+   | Sottoscrizione | Scegliere la stessa sottoscrizione dell'hub IoT. |
+   | Gruppo di risorse | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
+   | Località | Scegliere una località vicina. | 
+   | Ambiente di hosting | Selezionare **Edge**. |
+ 
 1. Selezionare **Create**.
 
-1. Nel processo creato, in **Topologia processo**, aprire **Input**.
+### <a name="configure-your-job"></a>Configurare il processo
+
+Dopo avere creato il processo di Analisi di flusso nel portale di Azure, è possibile configurarlo con un input, un output e una query da eseguire sui dati di cui viene eseguito il pass-through. 
+
+Usando i tre elementi di input, di output e di query, questa sezione crea un processo che riceve i dati sulla temperatura dal dispositivo IoT Edge. Analizza tali dati in una finestra mobile di 30 secondi. Se la temperatura media in tale finestra supera i 70 gradi, viene inviato un avviso al dispositivo IoT Edge. L'origine e la destinazione dei dati verranno specificate con esattezza nella sezione successiva quando si distribuirà il processo.  
+
+1. Passare al processo di Analisi di flusso nel portale di Azure. 
+
+1. In **Topologia processo** selezionare **Input**, quindi **Aggiungi input del flusso**.
 
    ![Input di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-1. Selezionare **Aggiungi input del flusso**, quindi selezionare **Hub Edge**.
+1. Scegliere **Hub Edge** dall'elenco a discesa.
 
 1. Nel riquadro **Nuovo input** inserire la **temperatura** come alias di input. 
 
-1. Selezionare **Salva**.
+1. Mantenere i valori predefiniti per gli altri campi e selezionare **Salva**.
 
-1. In **Topologia processo** aprire **Output**.
+1. In **Topologia processo** aprire **Output**, quindi selezionare **Aggiungi**.
 
    ![Output di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-1. Selezionare **Aggiungi**, quindi selezionare **Hub Edge**.
+1. Scegliere **Hub Edge** dall'elenco a discesa.
 
 1. Nel riquadro **Nuovo output** inserire **avviso** come alias di output. 
 
-1. Selezionare **Salva**.
+1. Mantenere i valori predefiniti per gli altri campi e selezionare **Salva**.
 
-1. In **Topologia processo** selezionare **Query** e quindi sostituire il testo predefinito con la query seguente che crea un avviso se la temperatura media del computer raggiunge i 70 gradi in un arco di 30 secondi:
+1. In **Topologia processo** selezionare **Query**.
+
+1. Sostituire il testo predefinito con la query seguente. Il codice SQL invia un comando reset all'output dell'avviso se la temperatura media della macchina in una finestra di 30 secondi raggiunge i 70 gradi. Il comando reset è stato pre-programmato nel sensore come azione che può essere eseguita. 
 
     ```sql
     SELECT  
@@ -117,6 +135,10 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
 
 1. Selezionare **Salva**.
 
+### <a name="configure-iot-edge-settings"></a>Configurare le impostazioni di IoT Edge
+
+Per preparare la distribuzione del processo di Analisi di flusso in un dispositivo IoT Edge, è necessario associare il processo a un contenitore in un account di archiviazione. Quando si inizia a distribuire il processo, la definizione del processo viene esportata nel contenitore di archiviazione. 
+
 1. In **Configura** selezionare **Impostazioni di IoT Edge**.
 
 1. Selezionare il proprio **account di archiviazione** dal menu a discesa.
@@ -125,22 +147,24 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
 
 1. Selezionare **Salva**. 
 
-
 ## <a name="deploy-the-job"></a>Distribuire il processo
 
-È ora possibile iniziare la distribuzione del processo di Analisi di flusso di Azure nel dispositivo IoT Edge.
+È ora possibile iniziare la distribuzione del processo di Analisi di flusso di Azure nel dispositivo IoT Edge. 
+
+In questa sezione si usa la procedura guidata **Imposta moduli** nel portale di Azure per creare un *manifesto della distribuzione*. Un manifesto della distribuzione è un file JSON che descrive tutti i moduli che verranno distribuiti in un dispositivo, i registri di contenitori che archiviano le immagini dei moduli, come i moduli devono essere gestiti e come i moduli possono comunicare tra loro. Il dispositivo IoT Edge recupera il manifesto della distribuzione dall'hub IoT, quindi usa le informazioni contenute per distribuire e configurare tutti i moduli assegnati. 
+
+Per questa esercitazione, si distribuiscono due moduli. Il primo è **tempSensor**, un modulo che simula un sensore di temperatura e umidità. Il secondo è il processo di Analisi di flusso. Il modulo del sensore fornisce il flusso di dati che verranno analizzati dalla query del processo. 
 
 1. Nel portale di Azure, nell'hub IoT passare a **IoT Edge** e aprire la pagina dei dettagli del dispositivo IoT Edge.
 
 1. Selezionare **Imposta moduli**.  
 
-   Se il modulo tempSensor è stato distribuito in precedenza in questo dispositivo, la compilazione dei campi potrebbe essere automatica. In caso contrario, aggiungere il modulo seguendo questa procedura:
+1. Se il modulo tempSensor è stato distribuito in precedenza in questo dispositivo, la compilazione dei campi potrebbe essere automatica. In caso contrario, aggiungere il modulo con questa procedura:
 
    1. Fare clic su **Aggiungi** e selezionare **Modulo IoT Edge**.
    1. Per il nome, digitare **tempSensor**.
    1. Per l'URI dell'immagine, immettere **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
-   1. Lasciare invariate le altre impostazioni.
-   1. Selezionare **Salva**.
+   1. Lasciare invariate le altre impostazioni e fare clic su **Save** (Salva).
 
 1. Aggiungere il processo Edge di Analisi di flusso di Azure seguendo questa procedura:
 
@@ -148,9 +172,17 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
    1. Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. 
    1. Selezionare **Salva**.
 
-1. Selezionare **Avanti**.
+1. Dopo la pubblicazione del processo di Analisi di flusso nel contenitore di archiviazione creato, fare clic sul nome del modulo per visualizzare la struttura di un modulo di Analisi di flusso. 
 
-1. Sostituire il valore predefinito in **Route** con il codice seguente. Aggiornare _{moduleName}_ con il nome del modulo di Analisi di flusso di Azure. Il modulo deve avere lo stesso nome del processo da cui è stato creato. 
+   L'URI dell'immagine punta a un'immagine standard di Analisi di flusso di Azure standard. Questa è la stessa immagine usata per ogni processo che viene distribuito in un dispositivo IoT Edge. 
+
+   Il modulo gemello viene configurato con una proprietà desiderata denominata **ASAJobInfo**. Il valore di tale proprietà punta alla definizione del processo nel contenitore di archiviazione. Questa proprietà determina come l'immagine di Analisi di flusso viene configurata con le informazioni specifiche del processo. 
+
+1. Chiudere la pagina del modulo.
+
+1. Prendere nota del nome del modulo di Analisi di flusso perché sarà necessario nel passaggio successivo, quindi selezionare **Avanti** per continuare.
+
+1. Sostituire il valore predefinito in **Route** con il codice seguente. Aggiornare tutte e tre le istanze di _{moduleName}_ con il nome del modulo di Analisi di flusso di Azure. 
 
     ```json
     {
@@ -162,6 +194,8 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
         }
     }
     ```
+
+   Le route dichiarate qui definiscono il flusso di dati attraverso il dispositivo IoT Edge. I dati di telemetria vengono inviati da tempSensor all'hub IoT e all'input **temperature** configurato nel processo di Analisi di flusso. I messaggi di output **alert** vengono inviati all'hub IoT e al modulo tempSensor per attivare il comando reset. 
 
 1. Selezionare **Avanti**.
 
@@ -197,35 +231,14 @@ Dovrebbe essere possibile osservare un progressivo aumento della temperatura del
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+Se si intende continuare con il prossimo articolo consigliato, è possibile conservare le risorse e le configurazioni create e riutilizzarle. È anche possibile continuare a usare lo stesso dispositivo IoT Edge come dispositivo di test. 
 
-Se si continua con il prossimo articolo consigliato, è possibile conservare le risorse e le configurazioni già create e riutilizzarle.
+In caso contrario, è possibile eliminare le risorse di Azure e le configurazioni locali create in questo articolo per evitare addebiti. 
+ 
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-In caso contrario, è possibile eliminare le configurazioni locali e le risorse di Azure create in questo articolo per evitare addebiti. 
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-> [!IMPORTANT]
-> L'eliminazione delle risorse di Azure e del gruppo di risorse è irreversibile. Dopo l'eliminazione, il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se si è creato l'hub IoT all'interno di un gruppo di risorse esistente che contiene risorse che si vogliono conservare, eliminare solo la risorsa dell'hub IoT invece di eliminare il gruppo di risorse.
->
-
-Per eliminare solo l'hub IoT, eseguire il comando seguente usando il nome dell'hub e il nome del gruppo di risorse:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Per eliminare l'intero gruppo di risorse per nome:
-
-1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
-
-1. Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse che contiene l'hub IoT. 
-
-1. A destra del gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
-
-<!--
-   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
--->
-1. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere di nuovo il nome del gruppo di risorse per confermare e fare clic su **Elimina**. Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -235,7 +248,6 @@ In questa esercitazione è stato configurato un processo Analisi di flusso di Az
 > [Distribuire un modello di Azure Machine Learning come modulo][lnk-ml-tutorial]
 
 <!-- Images. -->
-[1]: ./media/tutorial-deploy-stream-analytics/storage.png
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png

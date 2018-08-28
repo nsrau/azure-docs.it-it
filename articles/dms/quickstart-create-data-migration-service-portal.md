@@ -3,20 +3,20 @@ title: Creare un'istanza del Servizio Migrazione del database di Azure mediante 
 description: Usare il portale di Azure per creare un'istanza del Servizio Migrazione del database di Azure
 services: database-migration
 author: edmacauley
-ms.author: edmaca
+ms.author: jtoland
 manager: craigg
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/01/2018
-ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/13/2018
+ms.openlocfilehash: f4dcc659d72edff1d8c2523cce1de059f1cf3fdf
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772195"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42022764"
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Creare un'istanza del Servizio Migrazione del database di Azure usando il portale di Azure
 In questa guida introduttiva usare il portale di Azure per creare un'istanza del servizio Migrazione del database di Azure.  Dopo aver creato il servizio, è possibile usarlo per eseguire la migrazione dei dati da SQL Server locale a un database SQL di Azure.
@@ -33,34 +33,41 @@ Prima di creare la prima istanza del servizio Migrazione del database, registrar
 
 1. Nel portale di Azure selezionare **Tutti i servizi** e quindi **Sottoscrizioni**.
 
-2. Selezionare la sottoscrizione in cui si vuole creare l'istanza del Servizio Migrazione del database di Azure e quindi selezionare **Provider di risorse**.
+2. Selezionare la sottoscrizione in cui si desidera creare l'istanza del Servizio Migrazione del database di Azure e quindi selezionare **Provider di risorse**.
 
-3. Cercare la migrazione e quindi a destra di Microsoft.DataMigration selezionare **Registra**.
+3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
 
-![Registrare il provider di risorse](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
+    ![Registrare il provider di risorse](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Creare un'istanza del servizio
-1. Fare clic su **+ Crea una risorsa** per creare un'istanza del Servizio Migrazione del database di Azure.
+1. Selezionare **+ Crea una risorsa** per creare un'istanza del Servizio Migrazione del database di Azure.
 
-2. Cercare "migrazione" nel marketplace, selezionare **Servizio Migrazione del database di Azure** e quindi nella schermata **Servizio Migrazione del database di Azure** fare clic su **Crea**.
+2. Cercare "migrazione" nel marketplace, selezionare **Servizio Migrazione del database di Azure** e quindi nella schermata **Servizio Migrazione del database di Azure** selezionare **Crea**.
 
-3. Nella schermata **Servizio Migrazione del database**: 
+3. Nella schermata **Crea servizio Migrazione**: 
 
-    - Scegliere un **nome servizio** facile da ricordare e univoco per identificare l'istanza del servizio Migrazione del database di Azure.
+    - Per **Nome servizio** scegliere un nome facile da ricordare e univoco per identificare l'istanza del Servizio Migrazione del database di Azure.
     - Selezionare la **sottoscrizione** di Azure in cui creare l'istanza.
-    - Creare una nuova **Rete** con un nome univoco.
+    - Selezionare un gruppo esistente in **Gruppo di risorse** oppure creare un nuovo gruppo.
     - Scegliere la **Posizione** più vicina al server di origine o di destinazione.
+    - Selezionare una rete virtuale esistente in **Rete virtuale** (VNET) oppure crearne una nuova.
+
+        La rete virtuale consente al Servizio Migrazione del database di Azure di accedere al database di origine e all'ambiente di destinazione.
+
+        Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo [Creare una rete virtuale con il portale di Azure](https://aka.ms/vnet).
+
     - Selezionare Basic: 1 vCore per il **Piano tariffario**.
 
-    ![Creare il servizio migrazione](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
+        ![Creare il servizio migrazione](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
+
 4. Selezionare **Create**.
 
-Dopo qualche istante, l'istanza del servizio Migrazione del database di Azure viene creata ed è pronta per l'uso. Il servizio Migrazione del database viene visualizzato come illustrato nell'immagine seguente:
+    Dopo qualche istante, l'istanza del servizio Migrazione del database di Azure viene creata ed è pronta per l'uso. Il servizio Migrazione del database viene visualizzato come illustrato nell'immagine seguente:
 
-![Creare il servizio migrazione](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
+    ![Creare il servizio migrazione](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-È possibile pulire le risorse create in questa guida introduttiva eliminando il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md).  Per eliminare il gruppo di risorse, passare all'istanza del servizio Migrazione del database di Azure creata. Selezionare il nome **Gruppo di risorse** e quindi selezionare **Elimina gruppo di risorse**.  Questa azione elimina tutti gli asset nel gruppo di risorse, nonché il gruppo stesso.
+È possibile pulire le risorse create in questa guida introduttiva eliminando il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md). Per eliminare il gruppo di risorse, passare all'istanza del servizio Migrazione del database di Azure creata. Selezionare il nome **Gruppo di risorse** e quindi selezionare **Elimina gruppo di risorse**. Questa azione elimina tutti gli asset nel gruppo di risorse, nonché il gruppo stesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

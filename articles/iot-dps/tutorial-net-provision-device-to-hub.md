@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520667"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917981"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrare il dispositivo in un hub IoT usando il client del servizio Device Provisioning in hub IoT di Azure (.NET)
 
@@ -70,10 +70,10 @@ Questo passaggio prevede l'aggiunta di elementi di sicurezza esclusivi del dispo
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione DPS annotata nella sezione precedente.
+1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione del servizio Device Provisioning annotata nella sezione precedente.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =

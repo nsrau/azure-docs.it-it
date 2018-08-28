@@ -1,4 +1,21 @@
-## <a name="prerequisites"></a>prerequisiti
+---
+title: File di inclusione
+description: File di inclusione
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617608"
+---
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="azure-subscription"></a>Sottoscrizione di Azure
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -6,8 +23,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ### <a name="azure-roles"></a>Ruoli di Azure
 Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro del ruolo *collaboratore* o *proprietario* oppure un *amministratore* della sottoscrizione di Azure. Nel portale di Azure selezionare il nome utente nell'angolo in alto a destra e quindi **Autorizzazioni** per visualizzare le autorizzazioni disponibili nella sottoscrizione. Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere l'articolo [Aggiungere i ruoli](../articles/billing/billing-add-change-azure-subscription-administrator.md).
 
+Per creare e gestire risorse figlio (inclusi set di dati, servizi collegati, pipeline, trigger e runtime di integrazione) per Data Factory tramite l'interfaccia utente "Crea e monitora" nel portale di Azure, è necessario appartenere al ruolo **Collaboratore Data Factory**. Per creare e gestire le risorse figlio con PowerShell o l'SDK, è sufficiente il ruolo di **collaboratore**.
+
 ### <a name="azure-storage-account"></a>Account di archiviazione di Azure
-In questa guida introduttiva si usa un account di archiviazione di Azure per utilizzo generico (specificamente, di archiviazione BLOB) come archivio dati sia di *origine* che di *destinazione*. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno. 
+In questa guida introduttiva si usa un account di archiviazione di Azure per utilizzo generico (specificamente, di archiviazione BLOB) come archivio dati sia di *origine* che di *destinazione*. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Recuperare il nome e la chiave dell'account di archiviazione
 In questa guida introduttiva si usano il nome e la chiave dell'account di archiviazione di Azure. La procedura seguente illustra i passaggi per recuperare il nome e la chiave dell'account di archiviazione: 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8a98b12a42dff186c9226df39ce02c71cbc40c7e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 30dd3f4a467f19efd2edc7ca26305ee2e7ff05a5
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113324"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918677"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Esercitazione: monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric usando Application Insights
 
@@ -41,7 +41,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare l'integrazione continua e la distribuzione continua usando Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurare il monitoraggio e la diagnostica per l'applicazione
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -100,7 +100,7 @@ Di seguito sono riportati i passaggi per configurare NuGet:
 3. Cercare `Microsoft.ApplicationInsights.ServiceFabric.Native` e fare clic sul pacchetto NuGet appropriato.
 
 >[!NOTE]
->Potrebbe essere necessario installare il pacchetto Microsoft.ServiceFabric.Diagnistics.Internal in modo simile, se non è preinstallato, prima di installare il pacchetto Application Insights
+>Potrebbe essere necessario installare il pacchetto Microsoft.ServiceFabric.Diagnostics.Internal in modo simile, se non è preinstallato, prima di installare il pacchetto Application Insights
 
 4. Sulla destra, fare clic su due caselle di controllo accanto ai due servizi dell'applicazione, **VotingWeb** e **VotingData** e fare clic su **Installa**.
     ![NuGet AI SDK](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
@@ -113,7 +113,8 @@ Di seguito sono riportati i passaggi per configurare NuGet:
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. Nell'istruzione *return* annidata di *CreateServiceInstanceListeners()* o *CreateServiceReplicaListeners()* aggiungere quanto riportato di seguito in *ConfigureServices* > *services*, tra i due servizi Singleton dichiarati: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))` In questo modo, ai dati di telemetria verrà aggiunto il *contesto del servizio*, che consentirà di comprendere meglio l'origine dei dati di telemetria in Application Insights. L'istruzione *restituita* annidata in *VotingWeb.cs* dovrebbe essere simile a quella riportata di seguito:
+    2. Nell'istruzione *restituita* annidata di *CreateServiceInstanceListeners()* o *CreateServiceReplicaListeners()*, in servizi *ConfigureServices* > *,* tra i due servizi Singleton dichiarati, aggiungere: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`
+    Verrà aggiunto il *Contesto servizio* ai dati di telemetria, consentendo di comprendere meglio l'origine dei dati di telemetria in Application Insights. L'istruzione *restituita* annidata in *VotingWeb.cs* dovrebbe essere simile a quella riportata di seguito:
 
     ```csharp
     return new WebHostBuilder()

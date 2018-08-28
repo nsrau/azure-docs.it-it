@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 07/19/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 51b54de39e24cfd69b7823c17dc5f7c9d7e885a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 31f5b2792aa83d15a1478cf201ca674995816430
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524074"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144656"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -191,6 +191,10 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Si è verificato un problema di Sincronizzazione file di Azure nel server (sincronizzazione, suddivisione in livelli cloud e così via). È consigliabile rimuovere l'endpoint server e ricrearlo?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
+    
+* <a id="afs-resource-move"></a>
+**È possibile spostare il servizio di sincronizzazione archiviazione e/o account di archiviazione in un gruppo di risorse o in una sottoscrizione diversi?**  
+   Sì, è possibile spostare il servizio di sincronizzazione archiviazione e/o account di archiviazione in un gruppo di risorse o in una sottoscrizione diversi. Se l'account di archiviazione viene spostato, è necessario concedere l'accesso al servizio di sincronizzazione dei file ibridi nell'account di archiviazione (vedere [Assicurarsi che la sincronizzazione file di Azure possa accedere all'account di archiviazione](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
 ## <a name="security-authentication-and-access-control"></a>Sicurezza, autenticazione e controllo di accesso
 * <a id="ad-support"></a>
@@ -221,7 +225,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="data-compliance-policies"></a>
 **Quali criteri di conformità dei dati sono supportati da File di Azure?**  
-   L'esecuzione di File di Azure si basa sulla stessa architettura di archiviazione usata in altri servizi di archiviazione in Archiviazione di Azure. File di Azure applica gli stessi criteri di conformità dei dati usati in altri servizi di archiviazione di Azure. Per altre informazioni sulla conformità dei dati di Archiviazione di Azure, è possibile scaricare e fare riferimento al [documento sulla protezione dei dati di Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409) e al [Centro protezione Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
+   L'esecuzione di File di Azure si basa sulla stessa architettura di archiviazione usata in altri servizi di archiviazione in Archiviazione di Azure. File di Azure applica gli stessi criteri di conformità dei dati usati in altri servizi di archiviazione di Azure. Per ulteriori informazioni sulla conformità dei dati di Archiviazione di Azure, è possibile fare riferimento a [Offerte di conformità dell’archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings) e al [Centro protezione Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Accesso locale
 * <a id="expressroute-not-required"></a>

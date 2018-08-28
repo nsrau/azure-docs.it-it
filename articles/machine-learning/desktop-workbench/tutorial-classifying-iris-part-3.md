@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445537"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920630"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Esercitazione 3: Classificare i dati Iris - Distribuire un modello
 Azure Machine Learning (anteprima) è una soluzione integrata di data science e analisi avanzata end-to-end per i data scientist professionisti. Consente ai data scientist di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -247,7 +247,7 @@ A questo punto è possibile creare il servizio Web in tempo reale.
    >[!IMPORTANT]
    >Il nome del servizio, che è anche il nome della nuova immagine Docker, deve contenere solo lettere minuscole. In caso contrario, viene visualizzato un errore. 
 
-1. Quando si esegue il comando, il modello e il file di assegnazione dei punteggi vengono caricati nell'account di archiviazione creato nell'ambito della configurazione dell'ambiente. Il processo di distribuzione crea un'immagine Docker contenente il modello, lo schema e il file di assegnazione dei punteggi e ne esegue il push nel registro contenitori di Azure: **\<nome_registro_contenitori_Azure\>.azureacr.io/\<nomeimmagine\>:\<versione\>**. 
+1. Quando si esegue il comando, il modello e il file di assegnazione dei punteggi vengono caricati nell'account di archiviazione creato nell'ambito della configurazione dell'ambiente. Il processo di distribuzione crea un'immagine Docker contenente il modello, lo schema e il file di assegnazione dei punteggi e ne esegue il push nel registro contenitori di Azure: **\<nome_registro_contenitori_Azure\>.azurecr.io/\<nomeimmagine\>:\<versione\>**. 
 
    Il comando scarica quindi l'immagine nel computer locale e avvia un contenitore Docker basato su tale immagine. Se l'ambiente viene configurato in modalità cluster, il contenitore Docker viene invece distribuito nel cluster Kubernetes di Servizi cloud di Azure.
 
@@ -313,7 +313,7 @@ Per testare il servizio Web **irisapp** in esecuzione, usare un record con codif
 1. Per testare il servizio, eseguire il comando di esecuzione del servizio restituito:
     
    ```azurecli
-   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d '{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}'
    ```
 
    L'output è **"Iris-setosa"**, che corrisponde alla classe stimata. L'output effettivamente ottenuto potrebbe essere diverso. 

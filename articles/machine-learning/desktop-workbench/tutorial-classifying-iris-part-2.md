@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722780"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917614"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Esercitazione 2: Classificare i dati Iris - Creare un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -35,7 +35,7 @@ Questa esercitazione è la **seconda di una serie in tre parti**. In questa part
 
 Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
@@ -388,13 +388,13 @@ In Azure Machine Learning Workbench l'esecuzione di ogni script viene acquisita 
 1. Nella finestra dell'interfaccia della riga di comando eseguire lo script **iris_sklearn.py** di Python usando di nuovo un ambiente di esecuzione Docker, se Docker è installato nel computer.
 
    + Se il contenitore si trova su Windows: 
-     |Esecuzione<br/>Environment|Comando in Windows|
+     |Esecuzione<br/>environment|Comando in Windows|
      |---------------------|------------------|
      |Python|`az ml experiment submit -c docker-python .\iris_sklearn.py 0.01`|
      |Spark|`az ml experiment submit -c docker-spark .\iris_spark.py 0.1`|
 
    + Se il contenitore si trova su MacOS: 
-     |Esecuzione<br/>Environment|Comando in Windows|
+     |Esecuzione<br/>environment|Comando in Windows|
      |---------------------|------------------|
      |Python|`az ml experiment submit -c docker-python iris_sklearn.py 0.01`|
      |Spark|`az ml experiment submit -c docker-spark iris_spark.py 0.1`|
@@ -442,7 +442,7 @@ Per eseguire lo script in un contenitore Docker in un computer Linux remoto, è 
    >L'indirizzo IP può anche essere un nome di dominio completo (FQDN) indirizzabile pubblicamente, ad esempio `vm-name.southcentralus.cloudapp.azure.com`. È consigliabile aggiungere un nome FQDN alla DSVM e usarlo al posto di un indirizzo IP. Questa procedura è utile perché consente di disattivare la VM in futuro per risparmiare sui costi. Al successivo avvio della macchina virtuale, inoltre, l'indirizzo IP potrebbe essere cambiato.
 
    >[!NOTE]
-   >Oltre all'autenticazione con nome utente e password, è possibile specificare una chiave privata e la passphrase corrispondente (se presente) usando `--private-key-file` ed eventualmente le opzioni `--private-key-passphrase`.
+   >Oltre all'autenticazione con nome utente e password, è possibile specificare una chiave privata e la passphrase corrispondente (se presente) usando `--private-key-file` ed eventualmente le opzioni `--private-key-passphrase`. Per usare la chiave privata usata durante la creazione della DSVM, specificare l'opzione `--use-azureml-ssh-key`.
 
    Preparare quindi la risorsa di calcolo di destinazione **myvm** eseguendo questo comando.
    

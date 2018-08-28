@@ -1,6 +1,6 @@
 ---
-title: Monitorare operazioni, eventi e contatori per Azure Load Balancer | Documentazione Microsoft
-description: Informazioni su come abilitare gli eventi di avviso e la registrazione dello stato di integrità del probe per il servizio di bilanciamento del carico di Azure
+title: Monitorare operazioni, eventi e contatori per Load Balancer Basic pubblico | Documentazione Microsoft
+description: Informazioni su come abilitare gli eventi di avviso e la registrazione dello stato di integrità del probe per Load Balancer Basic pubblico
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c196a24d5cc9e4343762e55b5885c1264c2fcad
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179056"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144657"
 ---
-# <a name="log-analytics-for-azure-load-balancer"></a>Analisi dei log per il servizio di bilanciamento del carico di Azure
+# <a name="log-analytics-for-public-basic-load-balancer"></a>Log Analytics per Load Balancer Basic
 
->[!NOTE] 
->Azure Load Balancer supporta due tipi diversi: Basic e Standard. Questo articolo illustra Load Balancer Basic. Per altre informazioni su Load Balancer Standard, vedere la [panoramica di Load Balancer Standard](load-balancer-standard-overview.md).
+>[!IMPORTANT] 
+>Azure Load Balancer supporta due tipi diversi: Basic e Standard. Questo articolo illustra Load Balancer Basic. Per ulteriori informazioni su Load Balancer Standard, vedere [Panoramica di Load Balancer Standard](load-balancer-standard-overview.md) che espone i dati di telemetria tramite le metriche multidimensionali in Monitoraggio di Azure.
 
-In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei bilanciamenti del carico. Alcuni di questi log sono accessibili tramite il portale Tutti i log possono essere estratti da Archiviazione BLOB di Azure e visualizzati in strumenti differenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
+È possibile usare diversi tipi di log in Azure per gestire e risolvere i problemi di Load Balancer Basic. Alcuni di questi log sono accessibili tramite il portale Tutti i log possono essere estratti da Archiviazione BLOB di Azure e visualizzati in strumenti differenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
 
 * **Log di controllo:** è possibile usare i [log di controllo di Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (noti in precedenza come log operativi) per visualizzare tutte le operazioni da inviare alle sottoscrizioni di Azure e il relativo stato. I log di controllo sono abilitati per impostazione predefinita e possono essere visualizzati nel portale di Azure.
 * **Log eventi di avviso:** è possibile usare questo log per visualizzare gli avvisi generati per il bilanciamento del carico. Le informazioni di stato per il bilanciamento del carico vengono raccolte ogni cinque minuti. Questo log viene scritto solo se viene generato un evento di avviso del bilanciamento del carico.
 * **Log del probe di integrità:** è possibile usare questo registro per visualizzare i problemi rilevati dal probe di integrità, ad esempio il numero di istanze del pool di back-end che non stanno ricevendo richieste dal servizio di bilanciamento del carico a causa di problemi del probe di integrità. Questo log viene scritto quando si apporta una modifica nello stato del probe di integrità.
 
 > [!IMPORTANT]
-> Attualmente l'analisi di log funziona solo per i servizi di bilanciamento del carico con connessione Internet. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
+> Attualmente l'analisi di log funziona solo per i servizi di bilanciamento del carico pubblici Basic. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
@@ -56,7 +56,9 @@ Accedere al [portale di Azure](http://portal.azure.com). Prima di procedere, [cr
 7. In **LOG** selezionare un account di archiviazione esistente o crearne uno nuovo. Usare il dispositivo di scorrimento per stabilire per quanti giorni i dati dell'evento verranno archiviati nei registri eventi. 
 8. Fare clic su **Save**.
 
-    ![Portale - Log di diagnostica](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+I dati della diagnostica verranno salvati in archiviazione tabelle nell’account di archiviazione specificato. Se i log non vengono salvati, significa che non sono stati prodotti log rilevanti.
+
+![Portale - Log di diagnostica](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
 > I log di controllo non richiedono un account di archiviazione separato. Per l'uso del servizio di archiviazione per la registrazione di eventi e del probe di integrità è previsto un addebito.

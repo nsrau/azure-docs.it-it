@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 50ece1d1f74ace494e6bebb84f9f121c1fad7a6c
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642683"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41921027"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Esercitazione: Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > * Creare un registro contenitori di Azure
 > * Distribuire un'applicazione di Service Fabric in Azure
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. Installare [Docker CE per Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) in modo da poter eseguire i contenitori in Windows 10.
@@ -122,7 +122,7 @@ Tornare al progetto **FabrikamFiber.Web** e aggiornare la stringa di connessione
 >Per il debug locale è possibile usare un'istanza di SQL Server a scelta, a condizione che sia raggiungibile dall'host. **localdb**, tuttavia, non supporta la comunicazione `container -> host`. Se si vuole usare un database SQL diverso durante la creazione di una compilazione di rilascio dell'applicazione Web, aggiungere un'altra stringa di connessione al file *web.release.config*.
 
 ## <a name="run-the-containerized-application-locally"></a>Eseguire l'applicazione in un contenitore in locale
-Premere **F5** per eseguire l'applicazione ed eseguirne il debug in un contenitore nel cluster di sviluppo locale di Service Fabric. Fare clic su **Sì** se viene visualizzata una finestra di messaggio che richiede di concedere al gruppo 'ServiceFabricAllowedUsers' le autorizzazioni di lettura ed esecuzione per la directory del progetto di Visual Studio.
+Premere **F5** per eseguire l'applicazione ed eseguirne il debug in un contenitore nel cluster di sviluppo locale di Service Fabric. Fare clic su **Sì** se viene visualizzata una finestra di messaggio che richiede di concedere al gruppo "ServiceFabricAllowedUsers" le autorizzazioni di lettura ed esecuzione per la directory del progetto di Visual Studio.
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
 Ora che l'applicazione viene eseguita in locale, iniziare a preparare la distribuzione in Azure.  Le immagini dei contenitori devono essere archiviate in un registro contenitori.  Creare un [registro contenitori di Azure](/azure/container-registry/container-registry-intro) usando lo script seguente. Il nome del registro contenitori è visibile per le altre sottoscrizioni di Azure, pertanto deve essere univoco.
@@ -220,9 +220,12 @@ Ora che l'applicazione è pronta, è possibile distribuirla nel cluster in Azure
 
 ![Pubblicare l'applicazione][publish-app]
 
-Seguire lo stato della distribuzione nella finestra di output.  Al termine della distribuzione dell'applicazione, aprire un browser e digitare l'indirizzo del cluster e la porta dell'applicazione. Ad esempio, http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Seguire lo stato della distribuzione nella finestra di output.  Al termine della distribuzione dell'applicazione, aprire un browser e digitare l'indirizzo del cluster e la porta dell'applicazione. Ad esempio: http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Esempio Web Fabrikam][fabrikam-web-page-deployed]
+
+## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurare l'integrazione e la distribuzione continue con un cluster di Service Fabric
+Per informazioni su come usare VSTS per configurare la distribuzione di un'applicazione con CI/CD in un cluster di Service Fabric, vedere [Esercitazione: distribuire un'applicazione con CI/CD in un cluster di Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). La procedura descritta nell'esercitazione è la stessa per il progetto FabrikamFiber. Ignorare il download dell'esempio Voting e sostituire Voting con FabrikamFiber come nome del repository.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Se l'operazione è terminata, assicurarsi di rimuovere tutte le risorse create.  Il modo più semplice consiste nel rimuovere i gruppi di risorse che contengono il cluster di Service Fabric, il database SQL di Azure e Registro contenitori di Azure.

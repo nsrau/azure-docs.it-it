@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cd32d78987ab8d718c813cf8c47018ac2ecbe823
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1bd6f048682b93e3dfa1e19f6b3c50bff2ed232e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283546"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918330"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati nei dispositivi perimetrali con database di SQL Server
 
@@ -34,12 +34,21 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Il dispositivo Azure IoT Edge creato nella guida introduttiva per [dispositivi Linux](quickstart-linux.md) o [Windows](quickstart.md).
+Un dispositivo Azure IoT Edge:
+
+* È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
+
+Risorse cloud:
+
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
+
+Risorse per lo sviluppo:
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
-* [Estensione Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [C# per Visual Studio Code (con tecnologia OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp): estensione per Visual Studio Code. 
+* [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge): estensione per Visual Studio Code. 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
-* [Docker CE](https://docs.docker.com/install/) installato nel computer di sviluppo. 
+* [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
 In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
@@ -331,45 +340,13 @@ Dallo strumento di comando SQL eseguire il comando seguente per visualizzare i d
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
+Se si intende continuare con il prossimo articolo consigliato, è possibile conservare le risorse e le configurazioni create e riutilizzarle. È anche possibile continuare a usare lo stesso dispositivo IoT Edge come dispositivo di test. 
 
-Rimuovere il runtime del servizio IoT Edge in base alla piattaforma del dispositivo IoT (Linux o Windows).
+In caso contrario, è possibile eliminare le risorse di Azure e le configurazioni locali create in questo articolo per evitare addebiti. 
 
-#### <a name="windows"></a>Windows
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Rimuovere il runtime IoT Edge.
-
-```Powershell
-stop-service iotedge -NoWait
-sleep 5
-sc.exe delete iotedge
-```
-
-Eliminare i contenitori creati nel dispositivo. 
-
-```Powershell
-docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-#### <a name="linux"></a>Linux
-
-Rimuovere il runtime IoT Edge.
-
-```bash
-sudo apt-get remove --purge iotedge
-```
-
-Eliminare i contenitori creati nel dispositivo. 
-
-```bash
-sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-Rimuovere il runtime del contenitore.
-
-```bash
-sudo apt-get remove --purge moby
-```
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 
