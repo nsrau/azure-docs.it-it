@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: d46ff5563df1423e3c01ba945b328b748b5979b4
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2f8a22c6cda6c63a225fbfe8fba4cf4c8396b53e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091572"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146452"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtri e pre-elaborazione della telemetria in Application Insights SDK
 
@@ -280,6 +280,25 @@ In ApplicationInsights.config:
 [Vedere questo esempio nel dettaglio.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
 <a name="js-initializer"></a>
+
+### <a name="java-telemetry-initializers"></a>Inizializzatori di telemetria Java
+
+[Documentazione di Java SDK](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility._telemetry_initializer?view=azure-java-stable)
+
+```Java
+public interface TelemetryInitializer
+{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
+
+void initialize(Telemetry telemetry); }
+```
+
+Registrare quindi l'inizializzatore personalizzato nel file applicationinsights.xml.
+
+```xml
+<Add type="mypackage.MyConfigurableContextInitializer">
+<Param name="some_config_property" value="some_value" />
+</Add>
+```
 
 ### <a name="javascript-telemetry-initializers"></a>Inizializzatori di telemetria JavaScript
 *JavaScript*

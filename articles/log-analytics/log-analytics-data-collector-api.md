@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: a2aab89bcd550cc2b1dcc4f980f09b5c1e0e9464
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3c4c2d8f49fbddc4875d7a4abf5d7629bc8f942e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436380"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146464"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Inviare dati a Log Analytics con l'API dell'agente di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API dell'agente di raccolta dati HTTP per inviare dati a Log Analytics da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Log Analytics.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -49,14 +49,14 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 | Tipo di contenuto |application/json |
 
 ### <a name="request-uri-parameters"></a>Parametri URI della richiesta
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:--- |:--- |
 | CustomerID |Identificatore univoco per l'area di lavoro di Log Analytics. |
 | Risorsa |Nome della risorsa API: /api/logs. |
 | Versione dell'API |Versione dell'API da usare con questa richiesta. La versione attuale è 2016-04-01. |
 
 ### <a name="request-headers"></a>Intestazioni della richiesta
-| Intestazione | DESCRIZIONE |
+| Intestazione | Descrizione |
 |:--- |:--- |
 | Authorization |Firma di autorizzazione. Più avanti nell'articolo sono disponibili informazioni sulla creazione di un'intestazione HMAC-SHA256. |
 | Log-Type |Specificare il tipo di record dei dati inviati. Il tipo di log supporta attualmente solo caratteri alfabetici. Non supporta valori numerici o caratteri speciali. Il limite di dimensione per questo parametro è di 100 caratteri. |
@@ -179,7 +179,7 @@ Il codice di stato HTTP 200 indica che è stata ricevuta la richiesta per l'elab
 
 Questa tabella elenca il set completo di codici di stato che il servizio può restituire:
 
-| Codice | Status | Codice di errore | DESCRIZIONE |
+| Codice | Stato | Codice di errore | Descrizione |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |La richiesta è stata accettata. |
 | 400 |Richiesta non valida |InactiveCustomer |L'area di lavoro è stata chiusa. |
@@ -471,3 +471,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Usare l'[API di ricerca nei log](log-analytics-log-search-api.md) per recuperare dati dal repository di Log Analytics.
+
+- Vedere altre informazioni su come [creare una pipeline di dati con l'API dell'Agente di raccolta dati](log-analytics-create-pipeline-datacollector-api.md) usando il flusso di lavoro di App per la logica in Log Analytics.

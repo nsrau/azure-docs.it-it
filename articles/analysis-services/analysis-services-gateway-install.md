@@ -5,20 +5,20 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444940"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140940"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale. Per altre informazioni sul gateway, vedere [Gateway dati locale](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 **Requisiti minimi:**
 
 * .NET Framework 4.5
@@ -38,6 +38,7 @@ Quando uno o più server Azure Analysis Services nella stessa area si connettono
 * Installare il gateway in un computer che rimane attivo e non passa alla modalità di sospensione.
 * Non installare il gateway in un computer connesso alla rete in modalità wireless. È infatti possibile che si verifichi un calo delle prestazioni.
 * Accedere ad Azure con un account di Azure AD per lo stesso [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) della sottoscrizione in cui si sta registrando il gateway. Gli account Azure B2B (guest) non sono supportati per l'installazione e registrazione di un gateway.
+* Se le origini dati si trovano in un'istanza di Rete virtuale di Azure (VNet), è necessario configurare la proprietà del server [AlwaysUseGateway](analysis-services-vnet-gateway.md).
 * Il gateway (unificato) qui descritto non è supportato in Azure per enti pubblici e nelle aree sovrane Azure Germania e Azure Cina. Usare il **gateway locale dedicato per Azure Analysis Services**, installato da **Avvio rapido** del server nel portale. 
 
 
@@ -114,4 +115,5 @@ Dopo aver installato e registrato il gateway, è necessario creare una risorsa p
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire Analysis Services](analysis-services-manage.md)   
-* [Ottenere dati da Azure Analysis Services](analysis-services-connect.md)
+* [Ottenere dati da Azure Analysis Services](analysis-services-connect.md)   
+* [Usare il gateway per le origini dati in un'istanza di Rete virtuale di Azure](analysis-services-vnet-gateway.md)

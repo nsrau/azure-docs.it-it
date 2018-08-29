@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 21dde5b0199345e9e8faffc6feac4854a3aa7350
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627145"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146478"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -205,7 +205,7 @@ Per rinnovare il certificato manualmente, fare clic su **Rinnovo manuale**. È p
 Se il certificato SSL è configurato per il rinnovo automatico, ma non viene rinnovato automaticamente, è possibile che sia presente una verifica del dominio in sospeso. Si noti che: 
 
 - GoDaddy, che genera i certificati del servizio app, richiede la verifica del dominio una volta ogni due anni. Per la verifica del dominio, l'amministratore di dominio riceve un messaggio di posta elettronica una volta ogni tre anni. Se il messaggio di posta elettronica non viene letto oppure la verifica del dominio non viene eseguita, il certificato del servizio app non potrà essere rinnovato automaticamente. 
-- A causa della modifica delle norme di GoDaddy, tutti i certificati del servizio app rilasciati prima del 1 marzo 2018 richiedono la nuova verifica del dominio al momento del rinnovo successivo, anche se per il certificato è abilitato il rinnovo automatico. Controllare la posta elettronica ed eseguire questa verifica del dominio occasionale per proseguire il rinnovo automatico del certificato del servizio app. 
+- A causa della modifica delle norme di GoDaddy, tutti i certificati del servizio app rilasciati prima del 1° marzo 2017 richiedono la nuova verifica del dominio al momento del rinnovo successivo, anche se per il certificato è abilitato il rinnovo automatico. Controllare la posta elettronica ed eseguire questa verifica del dominio occasionale per proseguire il rinnovo automatico del certificato del servizio app. 
 
 ## <a name="more-resources"></a>Altre risorse
 

@@ -2,18 +2,18 @@
 title: Procedure consigliate per la sincronizzazione dati SQL di Azure | Microsoft Docs
 description: Informazioni sulle procedure consigliate per la configurazione e l'esecuzione della sincronizzazione dati SQL di Azure.
 services: sql-database
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620801"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145988"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
 
@@ -77,15 +77,14 @@ Questa sezione descrive le limitazioni del provisioning nel servizio di sincroni
 
 Per quanto riguarda il provisioning automatico, la sincronizzazione dati SQL presenta le limitazioni seguenti:
 
--   Nella tabella di destinazione vengono create solo le colonne selezionate.  
-    Nelle tabelle di destinazione non viene eseguito il provisioning delle colonne che non fanno parte del gruppo di sincronizzazione.
--   Gli indici vengono creati solo per le colonne selezionate.  
-    Se gli indici della tabella di origine includono colonne che non fanno parte del gruppo di sincronizzazione, non verrà eseguito il provisioning di questi indici nelle tabelle di destinazione.  
+-   Nella tabella di destinazione vengono create solo le colonne selezionate. Nelle tabelle di destinazione non viene eseguito il provisioning delle colonne che non fanno parte del gruppo di sincronizzazione.
+-   Gli indici vengono creati solo per le colonne selezionate. Se gli indici della tabella di origine includono colonne che non fanno parte del gruppo di sincronizzazione, non verrà eseguito il provisioning di questi indici nelle tabelle di destinazione.  
 -   Non viene eseguito il provisioning degli indici nelle colonne di tipo XML.  
 -   Non viene eseguito il provisioning dei vincoli CHECK.  
 -   Non viene eseguito il provisioning dei trigger esistenti nelle tabelle di origine.  
 -   Non vengono create viste e stored procedure nel database di destinazione.
 -   Le azioni ON UPDATE CASCADE e ON DELETE CASCADE su vincoli di chiave esterna non vengono ricreate nelle tabelle di destinazione.
+-   Se si hanno colonne decimali o numeriche con una precisione superiore a 28, la sincronizzazione dati SQL può riscontrare un problema di overflow di conversione durante la sincronizzazione. È consigliabile limitare la precisione delle colonne decimali o numeriche a un valore inferiore o uguale a 28.
 
 #### <a name="recommendations"></a>Consigli
 

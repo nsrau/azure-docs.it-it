@@ -8,24 +8,26 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303539"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146480"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schema di eventi di Griglia di eventi di Azure per l'hub IoT
 
 Questo articolo illustra le proprietà e lo schema per gli eventi dell'hub IoT di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). 
 
+Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi Hub IoT](event-sources.md#iot-hub).
+
 ## <a name="available-event-types"></a>Tipi di evento disponibili
 
 L'hub IoT genera i tipi di eventi seguenti:
 
-| Tipo evento | DESCRIZIONE |
+| Tipo evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Pubblicato quando un dispositivo viene registrato in un hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Pubblicato quando un dispositivo viene eliminato da un hub IoT. | 
@@ -85,7 +87,7 @@ Lo schema per gli eventi DeviceCreated e DeviceDeleted ha la stessa struttura. Q
 
 Tutti gli eventi contengono gli stessi dati di livello principale: 
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Tipo | Descrizione |
 | -------- | ---- | ----------- |
 | id | stringa | Identificatore univoco dell'evento. |
 | argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
@@ -98,7 +100,7 @@ Tutti gli eventi contengono gli stessi dati di livello principale:
 
 Il contenuto dell'oggetto dati è diverso per ogni autore di eventi. Per gli eventi del'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Tipo | Descrizione |
 | -------- | ---- | ----------- |
 | hubName | stringa | Nome dell'hub IoT in cui il dispositivo è stato creato o eliminato. |
 | deviceId | stringa | Identificatore univoco del dispositivo. Questa stringa con distinzione tra maiuscole e minuscole può avere una lunghezza di massimo 128 caratteri e supporta i caratteri alfanumerici ASCII a 7 bit e i caratteri speciali seguenti: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |

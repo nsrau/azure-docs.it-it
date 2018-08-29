@@ -11,20 +11,18 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247211"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141147"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure
 
-Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a Istanza gestita di database SQL di Azure (anteprima). 
+Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md) (anteprima).
 
-La funzionalità Istanza gestita di database SQL è un'espansione del servizio Database SQL esistente e offre una terza opzione di distribuzione oltre ai database singoli e ai pool elastici.  È stata progettata per consentire il trasferimento in modalità lift-and-shift di database a una soluzione PaaS completamente gestita senza riprogettazione dell'applicazione. Istanza gestita di database SQL offre compatibilità elevata con il modello di programmazione di SQL Server in locale e offre supporto predefinito per la maggior parte delle funzionalità di SQL Server e degli strumenti e dei servizi associati.
-
-A livello generale, il processo di migrazione dell'applicazione è simile a quello indicato di seguito:
+A livello generale, il processo di migrazione del database è simile a quello indicato di seguito:
 
 ![Processo di migrazione](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -41,9 +39,9 @@ A livello generale, il processo di migrazione dell'applicazione è simile a quel
 
 Per prima cosa, determinare se Istanza gestita è compatibile con i requisiti di database dell'applicazione. Il servizio Istanza gestita è progettato per consentire una facile migrazione in modalità lift-and-shift della maggior parte delle applicazioni che usano SQL Server in locale o in macchine virtuali. Talvolta, tuttavia, possono essere necessarie caratteristiche o funzionalità non ancora supportate e il costo di implementazione di una soluzione alternativa è troppo elevato. 
 
-Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). DMA non supporta ancora Istanza gestita come destinazione della migrazione, ma è consigliabile eseguire una valutazione rispetto al database SQL di Azure e confrontare attentamente l'elenco dei problemi di compatibilità e parità di funzionalità segnalati con la documentazione del prodotto. La maggior parte dei problemi che impediscono una migrazione al database SQL di Azure è stata rimossa con Istanza gestita. Nelle istanze gestite, ad esempio, sono disponibili funzionalità come le query tra database, le transazioni tra database nella stessa istanza, il server collegato per altre origini SQL, CLR, le tabelle temporanee globali, le viste a livello di istanza, Service Broker e così via. 
+Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). DMA non supporta ancora Istanza gestita come destinazione della migrazione, ma è consigliabile eseguire una valutazione rispetto al database SQL di Azure e confrontare attentamente l'elenco dei problemi di compatibilità e parità di funzionalità segnalati con la documentazione del prodotto. Vedere le [differenze tra Istanza gestita e database SQL di Azure singleton](sql-database-features.md) per controllare se sono stati segnalati problemi di blocco non presenti in Istanza gestita poiché la maggior parte dei problemi che impediscono la migrazione al database SQL di Azure è stata risolta con Istanza gestita. Nelle istanze gestite, ad esempio, sono disponibili funzionalità come le query tra database, le transazioni tra database nella stessa istanza, il server collegato per altre origini SQL, CLR, le tabelle temporanee globali, le viste a livello di istanza, Service Broker e così via. 
 
-In alcuni casi, tuttavia, è necessario considerare un'opzione alternativa, come [SQL Server in macchine virtuali in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Di seguito sono riportati alcuni esempi:
+Se sono presenti alcuni problemi di blocco che non sono stati risolti in Istanza gestita di database SQL di Azure, può essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in macchine virtuali in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Di seguito sono riportati alcuni esempi:
 
 - Se è necessario l'accesso diretto al sistema operativo o al file system, ad esempio per installare agenti personalizzati o di terze parti nella stessa macchina virtuale con SQL Server.
 - Se è presente una stretta dipendenza da funzionalità non ancora supportate, come FileStream/FileTable, PolyBase e le transazioni tra istanze.
@@ -52,13 +50,13 @@ In alcuni casi, tuttavia, è necessario considerare un'opzione alternativa, come
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali
 
-Il servizio Istanza gestita è progettato appositamente per carichi di lavoro locali che si intende spostare nel cloud. Introduce un nuovo modello di acquisto che offre maggiore flessibilità nella selezione del livello appropriato di risorse per i carichi di lavoro. Nell'ambiente locale, si è probabilmente soliti dimensionare i carichi di lavoro usando core fisici. Il nuovo modello di acquisto di Istanza gestita è basato sui core virtuali, o "vCore", con I/O e spazio di archiviazione aggiuntivi disponibili separatamente. Il modello basato su vCore semplifica la comprensione dei requisiti di calcolo nel cloud rispetto alle risorse usate attualmente in locale. Questo nuovo modello consente di dimensionare correttamente l'ambiente di destinazione nel cloud.
+Il servizio Istanza gestita è progettato appositamente per carichi di lavoro locali che si intende spostare nel cloud. Introduce un [nuovo modello di acquisto](sql-database-service-tiers-vcore.md) che offre maggiore flessibilità nella selezione del livello appropriato di risorse per i carichi di lavoro. Nell'ambiente locale, si è probabilmente soliti dimensionare i carichi di lavoro usando core fisici o larghezza di banda di I/O. Il nuovo modello di acquisto di Istanza gestita è basato sui core virtuali, o "vCore", con I/O e spazio di archiviazione aggiuntivi disponibili separatamente. Il modello basato su vCore semplifica la comprensione dei requisiti di calcolo nel cloud rispetto alle risorse usate attualmente in locale. Questo nuovo modello consente di dimensionare correttamente l'ambiente di destinazione nel cloud.
 
-È possibile selezionare le risorse di calcolo e di archiviazione in fase di distribuzione e quindi modificarle in seguito senza causare tempi di inattività per l'applicazione.
+È possibile selezionare le risorse di calcolo e di archiviazione in fase di distribuzione e quindi modificarle in seguito senza causare tempi di inattività per l'applicazione usando il [portale di Azure](sql-database-scale-resources.md):
 
 ![Dimensionamento dell'istanza gestita](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-Per informazioni su come creare l'infrastruttura di rete virtuale e un'istanza gestita, vedere l'articolo su come [creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md).
+Per informazioni su come creare l'infrastruttura di rete virtuale e un'istanza gestita, vedere l'articolo su come [creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
 > È importante che la rete virtuale e la subnet di destinazione siano sempre conformi ai [requisiti per la rete virtuale di Istanza gestita](sql-database-managed-instance-vnet-configuration.md#requirements). Qualsiasi incompatibilità può impedire la creazione di nuove istanze o l'uso di quelle già create.
@@ -76,8 +74,8 @@ Istanza gestita è un servizio completamente gestito che consente di delegare al
 
 Istanza gestita supporta le opzioni di migrazione di database descritte di seguito, che attualmente sono gli unici metodi di migrazione supportati.
 
-- Servizio Migrazione del database di Azure - Migrazione con tempo di inattività prossimo a zero
-- Ripristino nativo da URL: usa backup nativi di SQL Server e richiede tempo di inattività
+- Servizio Migrazione del database di Azure: migrazione con tempo di inattività prossimo a zero
+- `RESTORE DATABASE FROM URL` nativo: usa backup nativi di SQL Server e comporta un tempo di inattività
 
 ### <a name="azure-database-migration-service"></a>Servizio Migrazione del database di Azure
 
@@ -105,7 +103,7 @@ La tabella seguente contiene altre informazioni sul metodo che è possibile usar
 |Eseguire il ripristino da Archiviazione di Azure a Istanza gestita|[Ripristino da URL con credenziali di firma di accesso condiviso](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - In caso di migrazione di un database protetto tramite [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) a un'istanza gestita di SQL di Azure con l'opzione del ripristino nativo, prima di ripristinare il database è necessario eseguire la migrazione del certificato corrispondente dall'istanza locale o IaaS di SQL Server. Per i dettagli, vedere [Migrazione del certificato TDE a Istanza gestita](sql-database-managed-instance-migrate-tde-certificate.md)
+> - In caso di migrazione di un database protetto tramite [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) a un'istanza gestita di SQL di Azure con l'opzione del ripristino nativo, prima di ripristinare il database è necessario eseguire la migrazione del certificato corrispondente dall'istanza locale o IaaS di SQL Server. Per i dettagli, vedere [Migrazione del certificato TDE a Istanza gestita](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Il ripristino di database di sistema non è supportato. Per eseguire la migrazione di oggetti a livello di istanza (archiviati in database master o msdb), è consigliabile inserirli in script ed eseguire gli script T-SQL nell'istanza di destinazione.
 
 Per un'esercitazione completa con il ripristino del backup di un database in un'istanza gestita con credenziali di firma di accesso condiviso, vedere l'articolo su come [eseguire il ripristino da un backup in un'istanza gestita](sql-database-managed-instance-restore-from-backup-tutorial.md).
@@ -121,11 +119,10 @@ Non è inoltre necessario preoccuparsi della configurazione della disponibilità
 
 Per potenziare la sicurezza, valutare la possibilità di usare alcune delle funzionalità disponibili:
 - Autenticazione di Azure Active Directory a livello di database
-- Controllo e rilevamento delle minacce per monitorare le attività
-- Controllo dell'accesso ai dati sensibili e con privilegi ([sicurezza a livello di riga](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) e [maschera dati dinamica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking))
+- Per proteggere l'istanza, usare le [funzionalità di sicurezza avanzate](sql-database-security-overview.md), ad esempio [Controllo](sql-database-managed-instance-auditing.md), [Rilevamento delle minacce](sql-advanced-threat-protection.md), [Sicurezza a livello di riga](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) e [Maschera dati dinamica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sulle istanze gestite, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
-- Per un'esercitazione con un ripristino da backup, vedere l'articolo su come [creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md).
+- Per un'esercitazione con un ripristino da backup, vedere l'articolo su come [creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 - Per un'esercitazione sulla migrazione con Servizio Migrazione del database, vedere l'articolo su come [eseguire la migrazione di un database locale a Istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md).  

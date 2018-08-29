@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206534"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143624"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partizionare Reliable Services di Service Fabric
 Questo articolo offre un'introduzione ai concetti di base del partizionamento di Reliable Services di Azure Service Fabric. Il codice sorgente usato nell'articolo è disponibile anche in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -363,6 +363,9 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
     ![Schermata del browser](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 L'intero codice sorgente dell'esempio è disponibile in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+
+## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services e sottoprocessi di fork dell’attore
+Service Fabric non supporta servizi reliable services e di conseguenza i sottoprocessi di fork degli attori. Un esempio del motivo per cui non è supportato è che [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) non può essere usato per registrare un sottoprocesso non supportato e i token di annullamento vengono inviati solo per i processi registrati. Questo comporta diversi tipi di problemi, ad esempio errori di aggiornamento, quando i sottoprocessi non vengono chiusi dopo che il processo padre ha ricevuto un token di annullamento. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seguenti:

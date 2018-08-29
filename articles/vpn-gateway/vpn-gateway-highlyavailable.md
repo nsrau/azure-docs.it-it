@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 3708a2f7c445a161f02416cf8427b1707e1db8f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126309"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42146417"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata
 Questo articolo offre una panoramica delle opzioni di configurazione a disponibilità elevata per la connettività cross-premise e da rete virtuale a rete virtuale con gateway VPN di Azure.
@@ -44,7 +44,7 @@ Per offrire una maggiore disponibilità per le connessioni cross premise, sono d
 
 Questa configurazione offre più tunnel attivi dallo stesso gateway VPN di Azure ai dispositivi locali nella stessa località. Esistono alcuni requisiti e vincoli:
 
-1. È necessario creare più connessioni VPN S2S dai dispositivi VPN ad Azure. Quando si connettono più dispositivi VPN dalla stessa rete locale ad Azure, è necessario creare un gateway di rete locale per ogni dispositivo VPN e una connessione dal gateway VPN di Azure al gateway di rete locale.
+1. È necessario creare più connessioni VPN S2S dai dispositivi VPN ad Azure. Quando si connettono più dispositivi VPN dalla stessa rete locale ad Azure, è necessario creare un gateway di rete locale per ogni dispositivo VPN e una connessione dal gateway VPN di Azure a ogni gateway di rete locale.
 2. I gateway di rete locali corrispondenti ai dispositivi VPN devono avere indirizzi IP pubblici univoci nella proprietà "GatewayIpAddress".
 3. Per questa configurazione è necessario BGP. Per ogni gateway di rete locale che rappresenta un dispositivo VPN deve essere specificato un indirizzo IP univoco del peer BGP nella proprietà "BgpPeerIpAddress".
 4. Il campo della proprietà AddressPrefix di ogni gateway di rete locale non deve sovrapporsi. È consigliabile specificare "BgpPeerIpAddress" nel campo AddressPrefix in formato CIDR /32, ad esempio 10.200.200.254/32.

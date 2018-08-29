@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398972"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143254"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 Prima di caricare una macchina virtuale di Windows dall'ambiente locale a Microsoft Azure, è necessario preparare il disco rigido virtuale, VHD o VHDX. Azure supporta **solo macchine virtuali di prima generazione** nel formato di file VHD e con un disco a dimensione fissa. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. È possibile convertire una VM di prima generazione dal file system VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) (Creare una macchina virtuale di prima o seconda generazione in Hyper-V).
@@ -67,7 +67,7 @@ Nella macchina virtuale che si prevede di caricare in Azure eseguire tutti quest
 1. Rimuovere qualsiasi route statica persistente nella tabella di routing:
    
    * Per visualizzare la tabella di route, eseguire `route print` al prompt dei comandi.
-   * Controllare le sezioni **Route persistenti** sezioni. Se è presente una route persistente, utilizzare il comando [Elimina route](https://technet.microsoft.com/library/cc739598.apx) per rimuoverla.
+   * Controllare le sezioni **Route persistenti** sezioni. Se è presente una route persistente, utilizzare il comando **Elimina route** per rimuoverla.
 2. Rimuovere il proxy WinHTTP:
    
     ```PowerShell
@@ -90,7 +90,7 @@ Nella macchina virtuale che si prevede di caricare in Azure eseguire tutti quest
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
 
-    Set-Service -Name w32time -StartupType Auto
+    Set-Service -Name w32time -StartupType Automatic
     ```
 5. Impostare il profilo di potenza su **Prestazioni elevate**:
 
@@ -102,17 +102,17 @@ Nella macchina virtuale che si prevede di caricare in Azure eseguire tutti quest
 Assicurarsi che ciascuno dei seguenti servizi di Windows sia impostato sui **valori predefiniti di Windows**, Si tratta del numero minimo di servizi che devono essere configurati perché la macchina virtuale abbia connettività. Eseguire i comandi seguenti per reimpostare le impostazioni di avvio:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Auto
-Set-Service -Name dhcp -StartupType Auto
-Set-Service -Name dnscache -StartupType Auto
-Set-Service -Name IKEEXT -StartupType Auto
-Set-Service -Name iphlpsvc -StartupType Auto
+Set-Service -Name bfe -StartupType Automatic
+Set-Service -Name dhcp -StartupType Automatic
+Set-Service -Name dnscache -StartupType Automatic
+Set-Service -Name IKEEXT -StartupType Automatic
+Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Auto
+Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Auto
-Set-Service -Name RemoteRegistry -StartupType Auto
+Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## <a name="update-remote-desktop-registry-settings"></a>Aggiornare le impostazioni del registro di Desktop remoto
@@ -307,11 +307,22 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
     - Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti utente\Impedisci accesso tramite Servizi Desktop remoto
 
 
-9. Riavviare la VM per assicurarsi che Windows sia ancora integro e che possa essere raggiunto con la connessione RDP. A questo punto può essere opportuno creare una VM nell'ambiente Hyper-V locale per assicurarsi che la macchina virtuale si avvi completamente e quindi testare se è raggiungibile con la connessione RDP.
+9. Controllare i seguenti criteri AD per assicurarsi di non rimuovere uno dei seguenti account di accesso necessari:
 
-10. Rimuovere qualsiasi filtro TDI (Transport Driver Interface) aggiuntivo, ad esempio il software che analizza i pacchetti TCP o altri firewall. Questa operazione può anche essere eseguita dopo aver distribuito la VM in Azure, se necessario.
+    - Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti utente\Accesso a questo calcolo dalla rete
 
-11. Disinstallare qualsiasi altro software di terze parti e i driver relativi a componenti fisici o altre tecnologie di virtualizzazione.
+    I gruppi seguenti devono essere elencati in questo criterio:
+
+    - Administrators
+    - Operatori di backup
+    - Tutti
+    - Utenti
+
+10. Riavviare la VM per assicurarsi che Windows sia ancora integro e che possa essere raggiunto con la connessione RDP. A questo punto può essere opportuno creare una VM nell'ambiente Hyper-V locale per assicurarsi che la macchina virtuale si avvi completamente e quindi testare se è raggiungibile con la connessione RDP.
+
+11. Rimuovere qualsiasi filtro TDI (Transport Driver Interface) aggiuntivo, ad esempio il software che analizza i pacchetti TCP o altri firewall. Questa operazione può anche essere eseguita dopo aver distribuito la VM in Azure, se necessario.
+
+12. Disinstallare qualsiasi altro software di terze parti e i driver relativi a componenti fisici o altre tecnologie di virtualizzazione.
 
 ### <a name="install-windows-updates"></a>Installare gli aggiornamenti di Windows
 La configurazione ideale è **avere la versione più recente del livello di patch del computer**. Se ciò non è possibile, assicurarsi di aver installato i seguenti aggiornamenti:

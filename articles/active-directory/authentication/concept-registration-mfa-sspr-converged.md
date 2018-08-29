@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492893"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146493"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Registrazione convergente per la reimpostazione password self-service e Azure Multi-Factor Authentication (anteprima pubblica)
 
@@ -55,6 +55,9 @@ Gli utenti a cui viene chiesto di eseguire la registrazione durante l'accesso vi
 > Questa esperienza viene visualizzata solo quando viene chiesto a un utente di eseguire la registrazione durante l'accesso. Gli utenti che passano direttamente alla nuova esperienza all'indirizzo aka.ms/setupsecurityinfo visualizzeranno una versione diversa dell'esperienza, descritta più avanti in questo articolo.
 
 I metodi di autenticazione visualizzati saranno diversi a seconda dei metodi abilitati nei criteri MFA o di reimpostazione password self-service. Agli utenti verrà chiesto di registrare il numero minimo di metodi di autenticazione necessari per la conformità al criterio MFA, al criterio di reimpostazione password self-service o a entrambi. Se c'è flessibilità nei metodi di autenticazione che l'utente può registrare, può selezionare **Scegliere le informazioni di sicurezza** per scegliere altri metodi di autenticazione.  
+
+> [!NOTE]
+> Se si abilita l'uso sia delle notifiche tramite app per dispositivi mobili sia del codice dell'app per dispositivi mobili, gli utenti che registrano l'app Microsoft Authenticator usando una notifica sono in grado di usare sia la notifica sia il codice per verificare la propria identità.
 
 Diversamente dalla precedente esperienza di registrazione MFA, agli utenti non verrà chiesto di registrare una password dell'app nel corso della nuova esperienza di registrazione. Dovranno invece seguire i passaggi elencati nell'esercitazione sulle password delle app per registrare le password delle app nella nuova esperienza.  
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/07/2018
+ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: db6a2279347b5746da706e7ad3629b141afd205b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 09e7a729dbb3e82bce08c06a1af1f0bf3f9c5c2f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271165"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146245"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
 Se nella macchina virtuale Windows in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare il portale di Azure per connettere il disco rigido virtuale a un'altra VM Windows per risolvere eventuali errori e quindi ricreare la VM originale.
@@ -32,7 +32,7 @@ I passaggi per la risoluzione dei problemi sono i seguenti:
 4. Smontare e scollegare il disco rigido virtuale dalla macchina virtuale usata per la risoluzione dei problemi.
 5. Creare una VM usando il disco rigido virtuale originale.
 
-Per la macchina virtuale che usa il disco gestito, vedere [Risolvere i problemi di una macchina virtuale con disco gestito collegando un nuovo disco del sistema operativo](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+Per la VM che usa il disco gestito, è ora possibile usare Azure PowerShell per modificare il disco del sistema operativo per una VM. Non è più necessario eliminare e ricreare la VM. Per altre informazioni, vedere [Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino usando Azure PowerShell](troubleshoot-recovery-disks.md).
 
 ## <a name="determine-boot-issues"></a>Individuare i problemi di avvio
 Per determinare perché la VM non riesce ad avviarsi correttamente, esaminare lo screenshot della VM relativo alla diagnostica di avvio. Un esempio comune è un aggiornamento di un'applicazione non riuscito oppure l'eliminazione o lo spostamento di un disco rigido virtuale sottostante.
@@ -146,13 +146,6 @@ Il modello viene caricato nel portale di Azure per la distribuzione. Immettere i
 Quando si crea la macchina virtuale dal disco rigido virtuale esistente, la diagnostica di avvio potrebbe non essere abilitata automaticamente. Per controllare lo stato della diagnostica di avvio e attivarla se necessario, selezionare la macchina virtuale nel portale. In **Monitoraggio**, fare clic su **Impostazioni di diagnostica**. Verificare che lo stato sia **Attivo** e che il segno di spunta accanto a **Diagnostica di avvio** sia selezionato. Se si apportano modifiche, fare clic su **Salva**:
 
 ![Aggiornare le impostazioni di diagnostica di avvio](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Risolvere i problemi di una macchina virtuale con disco gestito collegando un nuovo disco del sistema operativo
-1. Arrestare la macchina virtuale Windows con disco gestito interessata.
-2. [Creare una copia shadow del disco gestito](snapshot-copy-managed-disk.md) per il disco del sistema operativo della macchina virtuale con disco gestito.
-3. [Creare un disco gestito dalla copia shadow](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Collegare il disco gestito come disco dati della macchina virtuale](attach-disk-ps.md).
-5. [Modificare il disco dati del passaggio 4 nel disco del sistema operativo](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si sono verificati problemi durante la connessione alla VM, vedere [Risolvere i problemi di connessioni RDP a una macchina virtuale di Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Per problemi relativi all'accesso alle applicazioni in esecuzione nella VM, vedere [Risolvere i problemi di connettività a un'applicazione in una macchina virtuale Windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

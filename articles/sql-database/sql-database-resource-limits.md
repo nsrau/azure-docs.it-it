@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412111"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143648"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Panoramica dei limiti delle risorse di Database SQL Azure 
 
@@ -22,15 +22,15 @@ Questo articolo riporta una panoramica dei limite delle risorse del Database SQL
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Che cos'è il numero massimo di server e database?
 
-| Massima | Valore |
-| :--- | :--- |
-| Database per server | 5000 |
-| Numero predefinito di server per sottoscrizione in ogni area | 20 |
-| Numero massimo di server per sottoscrizione in ogni area | 200 |
-| Quota DTU/eDTU per server | 54.000 |
-| Quota vCore per server | 540 |
-| N. max pool per server | limitato dal numero di DTU o vCore |
-|||
+| Massima | Server logico | Istanza gestita |
+| :--- | :--- | :--- |
+| Database per server/istanza | 5000 | 100 |
+| Numero predefinito di server per sottoscrizione in ogni area | 20 | N/D |
+| Numero massimo di server per sottoscrizione in ogni area | 200 | N/D | 
+| Quota DTU/eDTU per server | 54.000 | N/D |  
+| Quota vCore per server/istanza | 540 | 80 |
+| N. max pool per server | Limitato dal numero di DTU o vCore | N/D |
+||||
 
 > [!NOTE]
 > Per ottenere una quota di DTU/eDTU o vCore maggiore o un numero di server più alto rispetto alla quantità predefinita, è possibile inviare una nuova richiesta di supporto nel portale di Azure per la sottoscrizione con il tipo di problema "Quota". La quota di DTU/eDTU e il limite di database per server limita il numero di pool elastici per ogni server. 

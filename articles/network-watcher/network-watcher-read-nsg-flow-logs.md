@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 492a0a63198fe2013cfeac0459fc6da8521a5e6e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056801"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143476"
 ---
 # <a name="read-nsg-flow-logs"></a>Leggere i log dei flussi del gruppo di sicurezza di rete
 
@@ -28,7 +28,7 @@ I log dei flussi del gruppo di sicurezza di rete vengono archiviati in un accoun
 
 ## <a name="scenario"></a>Scenario
 
-Nello scenario seguente, si dispone di un log dei flussi di esempio che viene archiviato in un account di archiviazione. Viene indicato come è possibile leggere in modo selettivo gli eventi più recenti nei log dei flussi del gruppo di sicurezza di rete. In questo articolo si usa PowerShell, tuttavia, i concetti illustrati nell'articolo non sono limitati al linguaggio di programmazione e sono applicabili a tutte i linguaggi supportati dall'API di Archiviazione di Azure
+Nello scenario seguente, si dispone di un log dei flussi di esempio che viene archiviato in un account di archiviazione. Viene indicato come è possibile leggere in modo selettivo gli eventi più recenti nei log dei flussi del gruppo di sicurezza di rete. In questo articolo si usa PowerShell, tuttavia, i concetti illustrati nell'articolo non sono limitati al linguaggio di programmazione e sono applicabili a tutte i linguaggi supportati dall'API di Archiviazione di Azure.
 
 ## <a name="setup"></a>Configurazione
 
@@ -98,7 +98,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Leggere il BLOB in blocchi
 
-Successivamente è necessario leggere la variabile `$blocklist` per recuperare i dati. In questo esempio viene eseguita l'iterazione dell'elenco di blocchi, inoltre vengono letti i byte di ogni blocco e raggruppati poi in una matrice. Per recuperare i dati viene usato il metodo [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
+Successivamente è necessario leggere la variabile `$blocklist` per recuperare i dati. In questo esempio viene eseguita l'iterazione dell'elenco di blocchi, inoltre vengono letti i byte di ogni blocco e raggruppati poi in una matrice. Per recuperare i dati usare il metodo [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -132,7 +132,7 @@ $valuearray += $value
 }
 ```
 
-A questo punto la matrice `$valuearray` contiene il valore di stringa di ciascun blocco. Per verificare la voce, ottenere dal secondo all'ultimo valore dalla matrice eseguendo `$valuearray[$valuearray.Length-2]`. Non è desiderabile che l'ultimo valore sia la parentesi di chiusura.
+A questo punto la matrice `$valuearray` contiene il valore di stringa di ciascun blocco. Per verificare la voce, ottenere dal secondo all'ultimo valore dalla matrice eseguendo `$valuearray[$valuearray.Length-2]`. L’ultimo valore non è desiderabile perché è la parentesi di chiusura.
 
 Nell'esempio seguente vengono visualizzati i risultati di questo valore:
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 Questo scenario è un esempio di come leggere le voci nei log dei flussi del gruppo di sicurezza di rete senza la necessità di analizzare l'intero log. È possibile leggere nuove voci nel log quando vengono scritte usando l'ID blocco o registrando la lunghezza dei blocchi archiviati nel BLOB di blocco. In questo modo è possibile leggere solo le nuove voci.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

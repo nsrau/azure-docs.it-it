@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
-ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072335"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143257"
 ---
-# <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduzione al cloud computing e a Microsoft Azure
+# <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
 Questa guida presenta i concetti principali relativi alla distribuzione e alla gestione di un'infrastruttura di Microsoft Azure. Se non si ha familiarità con il cloud computing o con Azure, questa guida offre un'introduzione rapida ai concetti, alla distribuzione e ai dettagli di gestione. Molte sezioni della guida descrivono un'operazione, ad esempio la distribuzione di una macchina virtuale, e quindi offrono un collegamento per l'approfondimento dei dettagli tecnici.
 
@@ -53,27 +53,33 @@ Per le piccole imprese, Azure rappresenta un punto di ingresso a costo contenuto
 
 Per altre informazioni sulle aree di Azure disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
-### <a name="cloud-computing-is-classified-into-three-categories-saas-paas-and-iaas"></a>Il cloud computing è suddiviso in tre categorie: SaaS, PaaS e IaaS.
+### <a name="cloud-computing-model"></a>Modello di cloud computing
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Software as a Service
-
-Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Un sistema di questo tipo si basa in genere su un'architettura multi-tenant, in base alla quale viene usata un'unica versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale.
-
-Microsoft Office 365 è un buon esempio di offerta SaaS. Pagando una quota di sottoscrizione mensile o annuale, i sottoscrittori possono usufruire di Microsoft Exchange, Microsoft OneDrive e delle altre applicazioni della famiglia di prodotti Microsoft Office come servizi. I sottoscrittori hanno sempre a disposizione la versione più recente delle applicazioni e non devono occuparsi della gestione del server di Exchange. Rispetto all'installazione e all'aggiornamento annuale di Office, questa soluzione è più economica e meno impegnativa.
-
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a Service
-
-L'architettura PaaS (Platform as a Service, piattaforma distribuita come servizio) consente di distribuire le applicazioni in un ambiente messo a disposizione dal fornitore del servizio cloud. La gestione dell'infrastruttura viene interamente svolta dal fornitore. È quindi possibile concentrarsi sullo sviluppo di applicazioni.
-
-Azure offre diverse soluzioni PaaS, ad esempio la funzionalità App Web del servizio app di Azure e Servizi cloud di Azure (ruoli Web e di lavoro). In entrambi i casi gli sviluppatori hanno a disposizione diverse modalità di distribuzione delle applicazioni senza dover conoscere i dettagli alla base del funzionamento di tali modalità. Gli sviluppatori non devono creare le macchine virtuali (VM, Virtual Machine), accedere a ognuna di queste tramite Remote Desktop Protocol (RDP) o installare l'applicazione. Devono solo premere un pulsante (o qualcosa del genere) e gli strumenti forniti da Microsoft effettueranno il provisioning delle VM (Virtual Machine, macchina virtuale) e quindi distribuiranno e installeranno l'applicazione all'interno di queste.
+Azure usa un modello di cloud computing basato sulle categorie dei servizi forniti ai clienti. Le tre categorie di servizi includono l'infrastruttura distribuita come servizio (IaaS, Infrastructure as a Service), la piattaforma distribuita come servizio (PaaS, Platform as a Service) e il software come un servizio (SaaS, Software as a Service). I fornitori condividono alcune o tutte le responsabilità per i componenti nello stack di calcolo in ognuna di queste categorie. Diamo un'occhiata a ognuna delle categorie per il cloud computing.
+![Confronto dello stack del cloud Computing](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infrastructure as a service
 
-Un fornitore di cloud IaaS (Infrastructure as a Service, infrastruttura distribuita come servizio) si occupa del funzionamento e della gestione di tutte le risorse fisiche di calcolo e di tutto il software necessari per consentire la virtualizzazione di computer. Un cliente di questo servizio distribuisce macchine virtuali all'interno di centri dati ospitati. Anche se le macchine virtuali si trovano in un centro dati situato altrove, il consumer IaaS ha il controllo della configurazione e della gestione di queste.
+Un fornitore di cloud IaaS (Infrastructure as a Service, infrastruttura distribuita come servizio) si occupa del funzionamento e della gestione di tutte le risorse fisiche di calcolo e di tutto il software necessari per consentire la virtualizzazione di computer. Un cliente di questo servizio distribuisce macchine virtuali all'interno di centri dati ospitati. Anche se le macchine virtuali si trovano in un centro dati situato altrove, il consumer IaaS ha il controllo della configurazione e della gestione del sistema operativo, lasciando l’infrastruttura sottostante al fornitore del cloud.
 
 Azure include diverse soluzioni IaaS, ad esempio macchine virtuali e set di scalabilità di macchine virtuali, nonché la relativa infrastruttura di rete. Le macchine virtuali sono una scelta frequente per la migrazione iniziale dei servizi in Azure, poiché consentono di applicare il modello di migrazione "lift-and-shift". È possibile configurare una VM in base all'infrastruttura di esecuzione dei servizi nel centro dati attuale e quindi eseguire la migrazione del software nella nuova VM. Può essere necessario eseguire aggiornamenti di configurazione, ad esempio inserendo gli URL di altri servizi o di altre risorse di archiviazione, ma in questo modo è possibile eseguire la migrazione di molte applicazioni.
 
 I set di scalabilità di macchine virtuali, definiti a un livello superiore rispetto a quello delle macchine virtuali di Azure, rappresentano un modo semplice per distribuire cluster di VM identiche. I set di scalabilità di macchine virtuali supportano anche il ridimensionamento automatico. È quindi possibile distribuire automaticamente nuove VM quando necessario. I set di scalabilità di macchine virtuali rappresentano pertanto la piattaforma ideale per l'hosting di cluster di elaborazione di microservizi di livello superiore, come Azure Service Fabric e il servizio contenitore di Azure.
+
+#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a Service
+
+L'architettura PaaS (Platform as a Service, piattaforma distribuita come servizio) consente di distribuire le applicazioni in un ambiente messo a disposizione dal fornitore del servizio cloud. La gestione dell'infrastruttura viene interamente svolta dal fornitore. È quindi possibile concentrarsi sullo sviluppo di applicazioni e sulla gestione dei dati.
+
+Azure offre diverse soluzioni PaaS, ad esempio la funzionalità App Web del servizio app di Azure e Servizi cloud di Azure (ruoli Web e di lavoro). In entrambi i casi gli sviluppatori hanno a disposizione diverse modalità di distribuzione delle applicazioni senza dover conoscere i dettagli alla base del funzionamento di tali modalità. Gli sviluppatori non devono creare le macchine virtuali (VM, Virtual Machine), accedere a ognuna di queste tramite Remote Desktop Protocol (RDP) o installare l'applicazione. Devono solo premere un pulsante (o qualcosa del genere) e gli strumenti forniti da Microsoft effettueranno il provisioning delle VM (Virtual Machine, macchina virtuale) e quindi distribuiranno e installeranno l'applicazione all'interno di queste.
+
+#### <a name="saas-software-as-a-service"></a>SaaS: Software as a Service
+
+Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Un sistema di questo tipo si basa in genere su un'architettura multi-tenant, in base alla quale viene usata un'unica versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. I fornitori di software SaaS sono responsabili di tutti i componenti dello stack di software, in questo modo si gestiscono solo i servizi forniti.
+
+Microsoft Office 365 è un buon esempio di offerta SaaS. Pagando una quota di sottoscrizione mensile o annuale, i sottoscrittori possono usufruire di Microsoft Exchange, Microsoft OneDrive e delle altre applicazioni della famiglia di prodotti Microsoft Office come servizi. I sottoscrittori hanno sempre a disposizione la versione più recente delle applicazioni e non devono occuparsi della gestione del server di Exchange. Rispetto all'installazione e all'aggiornamento annuale di Office, questa soluzione è più economica e meno impegnativa.
+
+
+
 
 ## <a name="azure-services"></a>Servizi di Azure
 
@@ -175,6 +181,9 @@ L'interfaccia della riga di comando di Azure è uno strumento con cui è possibi
 
 Le **API REST** di Azure si basano su un set di API REST che supportano l'interfaccia utente del Portale di Azure. La maggior parte di queste API REST è supportata anche per consentire il provisioning e la gestione a livello di codice delle risorse e delle app di Azure da qualsiasi dispositivo abilitato per Internet. Per altre informazioni, vedere [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index) (Informazioni di riferimento per Azure REST SDK).
 
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
+
+Gli amministratori possono accedere a Azure PowerShell e all’interfaccia della riga di comando di Azure tramite un'esperienza accessibile tramite browser denominata Azure Cloud Shell. Questa interfaccia interattiva fornisce uno strumento flessibile per gli amministratori di Linux e Windows per usare la propria interfaccia della riga di comando scelta: Bash o PowerShell. È possibile accedere ad Azure Cloud Shell tramite il portale, come un'interfaccia web autonoma su [shell.azure.com](https://shell.azure.com), o da altri punti di accesso. Per altre informazioni, vedere [Panoramica di Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## <a name="azure-subscriptions"></a>Sottoscrizioni Azure
 
 Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite Controllo degli accessi in base al ruolo.
@@ -355,6 +364,7 @@ L'accesso a una macchina virtuale da Internet richiede la configurazione dell'in
 
 La gestione dell'accesso alla macchina virtuale tramite l'indirizzo IP pubblico viene eseguita tramite una risorsa gruppo di sicurezza di rete (NSG, Network Security Group). Un gruppo NSG funge da firewall, consentendo o impedendo il traffico attraverso l'interfaccia di rete o la subnet in un set di porte definite. Ad esempio, per creare una sessione di Desktop remoto con una VM di Azure, è necessario configurare il gruppo NSG in modo che consenta il traffico in ingresso attraverso la porta 3389. Per altre informazioni, vedere [Aprire le porte in una VM in Azure con il Portale di Azure](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
+
 Infine, come nella gestione di qualsiasi computer, è necessario garantire la sicurezza delle macchine virtuali di Azure a livello di sistema operativo usando credenziali di sicurezza e firewall software.
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
@@ -415,7 +425,7 @@ Per la distribuzione di un account di archiviazione sono disponibili diverse opz
 
 **di Microsoft Azure**
 
-Per la distribuzione di un account di archiviazione tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire un nuovo account di archiviazione in un gruppo di risorse nuovo o esistente. Dopo aver creato l'account di archiviazione, è possibile creare un contenitore BLOB o una condivisione file tramite il portale. È possibile creare entità di archiviazione di tabelle e code a livello di codice. Per altre informazioni, vedere [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Per la distribuzione di un account di archiviazione tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire un nuovo account di archiviazione in un gruppo di risorse nuovo o esistente. Dopo aver creato l'account di archiviazione, è possibile creare un contenitore BLOB o una condivisione file tramite il portale. È possibile creare entità di archiviazione di tabelle e code a livello di codice. Per altre informazioni, vedere [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md).
 
 Oltre agli account di archiviazione, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello, compresi eventuali account di archiviazione. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

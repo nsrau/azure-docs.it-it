@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 24bd0e8eff616920dba0eb5353f983444e3161cd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 31fe386cfbe5b6ccf842c05a2dd1d6fcd45bc9b7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019960"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146273"
 ---
 # <a name="security-frame-session-management--articles"></a>Infrastruttura di sicurezza: gestione della sessione - Articoli 
 | Prodotto o servizio | Articolo |
@@ -34,7 +34,7 @@ ms.locfileid: "28019960"
 
 ## <a id="logout-adal"></a>Implementare la disconnessione appropriata con i metodi ADAL quando si usa Azure AD
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase SDL**               | Compilare |  
@@ -69,7 +69,7 @@ Eliminerà anche definitivamente la sessione dell'utente chiamando il metodo Ses
 
 ## <a id="finite-tokens"></a>Usare durate limitate per i token di firma di accesso condiviso generati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Compilare |  
@@ -91,7 +91,7 @@ Eliminerà anche definitivamente la sessione dell'utente chiamando il metodo Ses
 
 ## <a id="wsfederation-logout"></a>Implementare la disconnessione appropriata con i metodi WsFederation quando si usa AD FS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | AD FS | 
 | **Fase SDL**               | Compilare |  
@@ -140,7 +140,7 @@ Eliminerà anche definitivamente la sessione dell'utente chiamando il metodo Ses
 
 ## <a id="proper-logout"></a>Implementare la disconnessione appropriata quando si usa Identity Server
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase SDL**               | Compilare |  
@@ -151,7 +151,7 @@ Eliminerà anche definitivamente la sessione dell'utente chiamando il metodo Ses
 
 ## <a id="https-secure-cookies"></a>Le applicazioni disponibili tramite HTTPS devono usare cookie sicuri
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -192,7 +192,7 @@ L'impostazione viene applicata anche se viene usato HTTP per accedere all'applic
 
 ## <a id="cookie-definition"></a>Tutte le applicazioni basate su http devono specificare solo http per la definizione dei cookie
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -213,7 +213,7 @@ Tutte le applicazioni basate su HTTP che usano cookie devono specificare HttpOnl
 </system.web>
 ```
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -230,7 +230,7 @@ L'esempio di codice seguente imposta l'attributo requireSSL nel file Web.config.
 </authentication>
 ```
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -264,7 +264,7 @@ La configurazione seguente illustra la configurazione corretta:
 | **Riferimenti**              | N/D  |
 | **Passaggi** | Richiesta intersito falsa (CSRF o XSRF) è un tipo di attacco in cui un utente malintenzionato può eseguire azioni nel contesto di protezione della sessione stabilita di un utente diverso in un sito web. L'obiettivo è quello di modificare o eliminare il contenuto, se il sito web di destinazione si affida esclusivamente ai cookie di sessione per autenticare la richiesta ricevuta. Un utente malintenzionato potrebbe sfruttare questa vulnerabilità acquisendo il browser di un altro utente per caricare un URL con un comando da un sito vulnerabile a cui l'utente è già connesso. Un utente malintenzionato può raggiungere questo scopo in diversi modi, ad esempio ospitando un sito Web diverso che carica una risorsa dal server vulnerabile o spingendo l'utente a fare clic su un collegamento. L'attacco può essere evitato se il server invia un token aggiuntivo al client, richiede al client di includere tale token in tutte le richieste future e verifica che tutte le richieste future includano un token relativo alla sessione corrente, ad esempio usando AntiForgeryToken o ViewState di ASP.NET. |
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -350,7 +350,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 }
 ```
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -386,7 +386,7 @@ void Page_Init (object sender, EventArgs e) {
 ## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
 ```
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -446,7 +446,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ## <a id="csrf-api"></a>Mitigare il rischio di attacchi basati su richieste intersito false nelle API Web ASP.NET
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -455,7 +455,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Riferimenti**              | N/D  |
 | **Passaggi** | Richiesta intersito falsa (CSRF o XSRF) è un tipo di attacco in cui un utente malintenzionato può eseguire azioni nel contesto di protezione della sessione stabilita di un utente diverso in un sito web. L'obiettivo è quello di modificare o eliminare il contenuto, se il sito web di destinazione si affida esclusivamente ai cookie di sessione per autenticare la richiesta ricevuta. Un utente malintenzionato potrebbe sfruttare questa vulnerabilità acquisendo il browser di un altro utente per caricare un URL con un comando da un sito vulnerabile a cui l'utente è già connesso. Un utente malintenzionato può raggiungere questo scopo in diversi modi, ad esempio ospitando un sito Web diverso che carica una risorsa dal server vulnerabile o spingendo l'utente a fare clic su un collegamento. L'attacco può essere evitato se il server invia un token aggiuntivo al client, richiede al client di includere tale token in tutte le richieste future e verifica che tutte le richieste future includano un token relativo alla sessione corrente, ad esempio usando AntiForgeryToken o ViewState di ASP.NET. |
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -542,7 +542,7 @@ Filtro di autorizzazione che controlla che:
 * La richiesta in ingresso ha un cookie `Request.Form` denominato __RequestVerificationToken
 * Questi valori del cookie e di `Request.Form` corrispondono. Presumendo che sia tutto a posto, la richiesta viene completata normalmente. In caso contrario, si verifica un errore di autorizzazione e viene visualizzato il messaggio "Token antifalsificazione non specificato o non valido".
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -552,6 +552,11 @@ Filtro di autorizzazione che controlla che:
 | **Passaggi** | Se l'API Web viene protetta con OAuth 2.0, è previsto un token di connessione nell'intestazione della richiesta di autorizzazione e l'accesso alla richiesta viene concesso solo se il token è valido. Diversamente dall'autenticazione basata su cookie, i browser non allegano i token di connessione alle richieste. Il client richiedente deve allegare esplicitamente il token di connessione nell'intestazione della richiesta. Per le API Web ASP.NET protette con OAuth 2.0, i token di connessione vengono quindi considerati una difesa contro gli attacchi basati su richieste intersito false. Tenere presente che, se la parte MVC dell'applicazione usa l'autenticazione basata su form (ad esempio, usa i cookie), dall'app Web MVC devono essere usati token antifalsificazione. |
 
 ### <a name="example"></a>Esempio
-All'API Web deve essere comunicato di basarsi SOLO sui token di connessione e non sui cookie. È possibile seguire la configurazione nel metodo `WebApiConfig.Register`: ```C-Sharp code config.SuppressDefaultHostAuthentication(); config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+All'API Web deve essere comunicato di basarsi SOLO sui token di connessione e non sui cookie. Per questa comunicazione è possibile usare la configurazione seguente nel metodo `WebApiConfig.Register`:
+
+```csharp
+config.SuppressDefaultHostAuthentication();
+config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 ```
-The SuppressDefaultHostAuthentication method tells Web API to ignore any authentication that happens before the request reaches the Web API pipeline, either by IIS or by OWIN middleware. That way, we can restrict Web API to authenticate only using bearer tokens.
+
+Il metodo SuppressDefaultHostAuthentication indica all'API Web di ignorare qualsiasi tipo di autenticazione che si verifica prima che la richiesta raggiunga la pipeline dell'API Web, tramite IIS o il middleware OWIN. In questo modo, è possibile limitare l'autenticazione dell'API Web usando solo i token di connessione.

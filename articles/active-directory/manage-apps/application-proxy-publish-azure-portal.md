@@ -2,25 +2,22 @@
 title: Pubblicare app con il proxy di applicazione di Azure AD | Documentazione Microsoft
 description: Pubblicare applicazioni locali nel cloud con il proxy dell'applicazione di Azure AD nel portale di Azure.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 1224642bb7e6fc0c51b3f839a78449132db5b4bb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364258"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143255"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Pubblicare applicazioni mediante il proxy di applicazione AD Azure
 
@@ -72,6 +69,7 @@ Seguire questa procedura per pubblicare le app con il proxy dell'applicazione. S
    ![Configurare l'applicazione](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Se necessario, configurare le impostazioni aggiuntive. Per la maggior parte delle applicazioni, è consigliabile mantenere queste impostazioni nei rispettivi stati predefiniti. 
    - **Timeout applicazione back-end**: impostare questo valore su **Lungo** solo se l'applicazione è lenta nell'autenticazione e nella connessione. 
+   - **Usa solo cookie HTTP**: impostare questo valore su **Sì** per includere nei cookie proxy dell’applicazione il flag HTTPOnly nell'intestazione della risposta HTTP.
    - **Convertire l'URL nelle intestazioni**: mantenere questo valore su **Sì**, a meno che l'applicazione non richieda l'intestazione host originale nella richiesta di autenticazione.
    - **Convertire gli URL nel corpo dell'applicazione**: mantenere questo valore su **No**, a meno che non si sia in possesso di collegamenti HTML hardcoded ad altre applicazioni locali e non si usino domini personalizzati. Per altre informazioni, vedere [Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD](application-proxy-configure-hard-coded-link-translation.md).
    

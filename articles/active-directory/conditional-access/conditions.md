@@ -17,16 +17,16 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f5e2051f9c67fa4e37ce0e1213e14e197222f05
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627543"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146279"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? 
 
-Con l'[accesso condizionale di Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Nei criteri di accesso condizionale, si definisce la risposta al motivo che ha attivato i criteri. Un esempio di risposta è **Fare questo**. Un esempio di motivo è **Quando accade questo**.
+Con l'[accesso condizionale di Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. In un criterio di accesso condizionale si definisce la risposta ("Allora fare questo") al motivo per cui viene attivato il criterio ("Quando accade questo"). 
 
 ![Motivo e risposta](./media/conditions/10.png)
 
@@ -64,15 +64,17 @@ La definizione di insiemi di utenti specifici come destinazione è utile per la 
 
 ## <a name="cloud-apps"></a>App cloud 
 
-Un'app cloud è un servizio o un sito Web. Anche siti Web protetti da Azure AD Application Proxy sono app cloud. Per una descrizione dettagliata delle app cloud supportate, vedere [Assegnazioni di app cloud](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+Un'app cloud è un servizio o un sito Web. Anche siti Web protetti da Azure AD Application Proxy sono app cloud. Per una descrizione dettagliata delle app cloud supportate, vedere [Assegnazioni di app cloud](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
 
 La condizione delle **app cloud** è obbligatoria in un criterio di accesso condizionale. Nei criteri è possibile selezionare **Tutte le app cloud** o selezionare app specifiche.
 
 ![Includere le app cloud](./media/conditions/03.png)
 
-- Selezionare **Tutte le app cloud** per applicare i criteri di base all'intera organizzazione. Usare questa selezione per un criterio che richiede l'autenticazione a più fattori quando viene rilevato il rischio di accesso per qualsiasi app cloud. I criteri applicati a **Tutte le app cloud** riguardano l'accesso a tutti i servizi e siti Web. Questa impostazione non è limitata alle app cloud presenti nell'elenco **Seleziona app**. 
+Selezionare:
 
-- Selezionare app cloud singole per definire come destinazione servizi specifici in base al criterio. Ad esempio, è possibile richiedere agli utenti di avere un [dispositivo conforme](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) per accedere a SharePoint Online. Questo criterio viene applicato anche ad altri servizi quando accedono a contenuto di SharePoint. Un esempio è Microsoft Teams. 
+- **Tutte le app cloud** per applicare i criteri di base all'intera organizzazione. Usare questa selezione per un criterio che richiede l'autenticazione a più fattori quando viene rilevato il rischio di accesso per qualsiasi app cloud. I criteri applicati a **Tutte le app cloud** riguardano l'accesso a tutti i servizi e siti Web. Questa impostazione non è limitata alle app cloud presenti nell'elenco **Seleziona app**. 
+
+- App cloud singole per definire come destinazione servizi specifici in base al criterio. Ad esempio, è possibile richiedere agli utenti di avere un [dispositivo conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) per accedere a SharePoint Online. Questo criterio viene applicato anche ad altri servizi quando accedono a contenuto di SharePoint. Un esempio è Microsoft Teams. 
 
 È possibile escludere App specifiche da un criterio. Tuttavia, queste app sono comunque soggette ai criteri applicati ai servizi a cui accedono. 
 
@@ -80,18 +82,18 @@ La condizione delle **app cloud** è obbligatoria in un criterio di accesso cond
 
 ## <a name="sign-in-risk"></a>Rischio di accesso
 
-Il rischio di accesso è un'indicazione della probabilità (elevata, media o bassa) che un tentativo di accesso non sia stato eseguito dal legittimo proprietario di un account utente. Azure AD calcola il livello di rischio di accesso durante l'accesso di un utente. È possibile usare il livello di rischio di accesso calcolato come condizione nei criteri di accesso condizionale. 
+Il rischio di accesso è un'indicazione della probabilità (alta, media o bassa) che un tentativo di accesso non sia stato eseguito dal legittimo proprietario di un account utente. Azure AD calcola il livello di rischio di accesso durante l'accesso di un utente. È possibile usare il livello di rischio di accesso calcolato come condizione nei criteri di accesso condizionale.
 
 ![Livelli di rischio di accesso](./media/conditions/22.png)
 
-Per usare questa condizione, è necessario che sia abilitato [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection-enable).
+Per usare questa condizione, è necessario che sia abilitato [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable).
  
 Casi d'uso comuni per questa condizione sono criteri che hanno le seguenti protezioni: 
 
 - Blocco degli utenti con un rischio di accesso elevato. Questa protezione impedisce agli utenti potenzialmente non legittimi di accedere alle app cloud. 
 - Richiesta di autenticazione a più fattori per gli utenti con un rischio di accesso medio. Tramite l'applicazione dell'autenticazione a più fattori, si aumenta la certezza che l'accesso venga eseguito dal legittimo proprietario di un account.
 
-Per altre informazioni, vedere [Accessi a rischio](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+Per altre informazioni, vedere [Accessi a rischio](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
 
 ## <a name="device-platforms"></a>Piattaforme del dispositivo
 
@@ -114,7 +116,7 @@ La condizione dello stato del dispositivo consente all'aggiunta all'identità ib
 
 ![Configurazione dello stato del dispositivo](./media/conditions/112.png)
 
-Se si desidera bloccare l'accesso ai dispositivi non gestiti, implementare [l'accesso condizionale basato sul dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+Se si desidera bloccare l'accesso ai dispositivi non gestiti, implementare [l'accesso condizionale basato sul dispositivo](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 
 ## <a name="locations"></a>Località
@@ -148,7 +150,7 @@ Per un elenco delle app client che è possibile usare nei criteri di accesso con
 
 Casi d'uso comuni per questa condizione sono criteri che hanno le seguenti protezioni: 
 
-- Richiedono un [dispositivo conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) per applicazioni desktop e app per dispositivi mobili che scaricano grandi quantità di dati nel dispositivo. Allo stesso tempo, consentono l'accesso al browser da qualsiasi dispositivo.
+- Richiedono un [dispositivo conforme](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) per applicazioni desktop e app per dispositivi mobili che scaricano grandi quantità di dati nel dispositivo. Allo stesso tempo, consentono l'accesso al browser da qualsiasi dispositivo.
 
 - Bloccano l'accesso da applicazioni Web, ma lo consentono dalle applicazioni desktop e per dispositivi mobili.
 
@@ -163,7 +165,7 @@ La selezione di **Exchange ActiveSync** come condizione per le app client è sup
  
 ![Applicazione dei criteri solo alle piattaforme supportate](./media/conditions/33.png)
 
-L'applicazione di questa condizione solo alle piattaforme supportate equivale all'applicazione a tutte le piattaforme di dispositivi per una [condizione per le piattaforme di dispositivi](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+L'applicazione di questa condizione solo alle piattaforme supportate equivale all'applicazione a tutte le piattaforme di dispositivi per una [condizione per le piattaforme di dispositivi](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 ![Configurazione delle piattaforme del dispositivo](./media/conditions/34.png)
 
@@ -172,7 +174,7 @@ L'applicazione di questa condizione solo alle piattaforme supportate equivale al
 
 - [Configurare SharePoint Online ed Exchange Online per l'accesso condizionale di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
-- [Accesso condizionale basato su app di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). 
+- [Accesso condizionale basato su app di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 
 ### <a name="legacy-authentication"></a>Autenticazione legacy  

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 0f6a0e2fe3aa632137392efe806aaab265eedf10
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435543"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146252"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione dell'archivio Git locale nel servizio app di Azure
 
@@ -124,7 +124,7 @@ Nella pagina **Configura** configurare un nuovo account VSTS o specificare un ac
 
 Nella pagina **Test** scegliere se abilitare i test di carico e fare clic su **Continua**.
 
-In base al [piano tariffario](/pricing/details/app-service/plans/) del piano di servizio app, è anche possibile visualizzare la pagina **Distribuisci nell'ambiente di staging**. Scegliere se abilitare gli slot di distribuzione e fare clic su **Continua**.
+In base al [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/) del piano di servizio app, è anche possibile visualizzare la pagina **Distribuisci nell'ambiente di staging**. Scegliere se abilitare gli slot di distribuzione e fare clic su **Continua**.
 
 Nella pagina **Riepilogo** verificare le opzioni e fare clic su **Fine**.
 
