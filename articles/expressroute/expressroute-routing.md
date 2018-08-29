@@ -194,8 +194,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | India meridionale | 12076:51019 |
 | India occidentale | 12076:51018 |
 | India centrale | 12076:51017 |
-| 
-  **Corea del Sud** | |
+| **Corea del Sud** | |
 | Corea del Sud meridionale | 12076:51028 |
 | Corea del Sud centrale | 12076:51029 |
 
