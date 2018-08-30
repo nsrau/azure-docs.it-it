@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e10f6cdb60a2c03bfb42e46f179546b623d625dd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5803bf2c71b2cf3fe7bb145b4d3d664c60642294
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443767"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141384"
 ---
 # <a name="get-data"></a>Ottenere i dati
 
@@ -26,7 +26,7 @@ Con Recupera dati è possibile importare dati da un'ampia gamma di origini: data
   
 Tempo previsto per il completamento della lezione: **10 minuti**  
   
-## <a name="prerequisites"></a>prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 1: Creare un nuovo progetto di modello tabulare](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Creare una connessione  
@@ -52,11 +52,11 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
   
 5.  Nello strumento di navigazione selezionare il database **AdventureWorksDW2014** e quindi fare clic su **OK**. Verrà creata la connessione al database. 
   
-6.  Nello strumento di navigazione selezionare la casella di controllo per le tabelle seguenti: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** e **FactInternetSales**.  
+6.  Nello strumento di navigazione selezionare la casella di controllo per le tabelle seguenti: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** e **FactInternetSales**, quindi fare clic su **Modifica**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-Dopo aver fatto clic su OK verrà aperto l'Editor di query. Nella sezione successiva si selezioneranno solo i dati da importare.
+    Si apre l'editor di query. Nella sezione successiva si selezioneranno solo i dati da importare.
 
   
 ## <a name="filter-the-table-data"></a>Filtrare i dati della tabella  

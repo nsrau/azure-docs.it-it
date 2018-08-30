@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a9aa4680d91a4ab95933ae636c4467217fd162b2
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: e2e8da3d2dec2c74bbd1c0ca0f52b7eaba5c024e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39277938"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42358293"
 ---
 | Risorsa | Destinazione | Limite rigido |
 |----------|--------------|------------|
@@ -27,5 +27,6 @@ ms.locfileid: "39277938"
 | Oggetti file system (directory e file) per gruppo di sincronizzazione | 25 milioni di oggetti | No  |
 | Numero massimo di oggetti file system (directory e file) in una directory | 200.000 oggetti | Yes |
 | Lunghezza massima del nome dell'oggetto (directory e file) | 255 caratteri | Yes |
+| Dimensioni massime del descrittore di protezione (directory e file) dell'oggetto | 4 KiB | Yes |
 | Dimensioni complete | 100 GiB | No  |
 | Dimensioni minime per un file da rendere a livelli | 64 KiB | Yes |

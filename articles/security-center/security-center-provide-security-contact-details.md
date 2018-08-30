@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 726b59c45e2eb18eebe28a180db23336ae141408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c268538cf401b29f68210c6d017c2eac55e88939
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040706"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146892"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglierà di specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure, se non è già stato fatto. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Microsoft Security Response Center esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi.
@@ -35,7 +35,7 @@ Alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata 
 1. In **Raccomandazioni** selezionare **Specificare i dettagli dei contatti di sicurezza**.
    ![Specificare contatti per la sicurezza][1]
 2. Selezionare la sottoscrizione di Azure per cui specificare le informazioni di contatto.
-3. Si apre **Criteri di sicurezza - Notifiche tramite posta elettronica**.
+3. Si aprirà **Notifiche tramite posta elettronica**.
 
    ![Specificare dettagli del contatto per la sicurezza][2]
 

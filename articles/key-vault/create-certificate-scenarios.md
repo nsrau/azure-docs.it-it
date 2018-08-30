@@ -3,7 +3,7 @@ title: Monitorare e gestire la creazione di certificati
 description: Scenari che illustrano diverse opzioni per creare e monitorare il processo di creazione di certificati con Key Vault e interagirvi.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: e1ea77304fa59b67e0e28a4c7e0b13633eeeff6f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: 80f350b9b83438ee04540527cce0ea6821d148ca
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011984"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141339"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorare e gestire la creazione di certificati
 Si applica a: Azure  
@@ -46,7 +46,7 @@ In questo articolo sono illustrati gli scenari e le operazioni seguenti:
 |------------|-----------------|  
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-Per gli esempi seguenti è necessario che sia già disponibile un oggetto denominato "mydigicert" nell'insieme di credenziali delle chiavi, con DigiCert come provider autorità di certificazione. Per ulteriori informazioni sull'uso delle autorità di certificazione, vedere [Certificate issuers](/rest/api/keyvault/certificate-issuers.md) (Autorità di certificazione).  
+Per gli esempi seguenti è necessario che sia già disponibile un oggetto denominato "mydigicert" nell'insieme di credenziali delle chiavi, con DigiCert come provider autorità di certificazione. L'autorità di certificazione è un'entità rappresentata in Azure Key Vault come risorsa CertificateIssuer. Viene usata per rendere disponibili informazioni sull'origine di un certificato di un insieme di credenziali delle chiavi: nome dell'autorità di certificazione, provider, credenziali e altri dettagli amministrativi.  
 
 ### <a name="request"></a>Richiesta  
 
@@ -429,7 +429,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Nome dell'elemento|Obbligatoria|type|Version|DESCRIZIONE|  
 |------------------|--------------|----------|-------------|-----------------|  
-|x5c|Sì|array|\<versione di introduzione>|Catena di certificati X509 sotto forma di matrice di stringhe Base 64.|  
+|x5c|Yes|array|\<versione di introduzione>|Catena di certificati X509 sotto forma di matrice di stringhe Base 64.|  
 
 ### <a name="response"></a>Risposta  
 

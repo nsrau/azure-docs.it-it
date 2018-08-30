@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448442"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146637"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integrazione e distribuzione continue in Azure Data Factory
 
@@ -47,6 +47,10 @@ Questa azione consente di passare al portale di Azure, in cui è possibile impor
 Selezionare **Carica file** per selezionare il modello di Resource Manager esportato e specificare tutti i valori di configurazione (ad esempio, i servizi collegati).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Stringhe di connessione**. È possibile trovare le informazioni necessarie per creare stringhe di connessione negli articoli relativi ai singoli connettori. Ad esempio, per il database SQL di Azure, vedere [Copiare dati da o nel database SQL di Azure tramite Azure Data Factory](connector-azure-sql-database.md). Per verificare la stringa di connessione corretta, ad esempio per un servizio collegato, è possibile anche aprire la visualizzazione codice per la risorsa nell'interfaccia utente di Data Factory. Nella vista codice, tuttavia, la password o la porzione di chiave della stringa di connessione vengono rimosse. Per aprire la vista codice, selezionare l'icona evidenziata nello screenshot riportato di seguito.
+
+![Aprire la vista codice per visualizzare la stringa di connessione](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Ciclo di vita di integrazione continua
 Ecco l'intero ciclo di vita per l'integrazione e la distribuzione continue che è possibile usare dopo avere abilitato l'integrazione GIT per VSTS nell'interfaccia utente di Data Factory:
@@ -174,11 +178,7 @@ La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. P
 
 È possibile seguire una procedura simile e usare un codice simile (con la funzione `Start-AzureRmDataFactoryV2Trigger`) per riavviare i trigger dopo la distribuzione.
 
-## <a name="sample-template-and-script"></a>Script e modello di esempio
-Ecco due esempi che è possibile usare per iniziare a usare l'integrazione e la distribuzione continue per Data Factory:
-
--   Un modello di distribuzione di esempio che è possibile importare in VSTS.
--   Uno script di esempio per arrestare i trigger prima della distribuzione e riavviarli in seguito. Lo script include anche il codice per eliminare le risorse che sono state rimosse.
+## <a name="sample-deployment-template"></a>Esempio di modello di distribuzione
 
 Ecco un modello di distribuzione di esempio che è possibile importare in VSTS.
 
@@ -718,7 +718,9 @@ Ecco un modello di distribuzione di esempio che è possibile importare in VSTS.
 }
 ```
 
-Ecco uno script di esempio per arrestare i trigger prima della distribuzione e riavviarli in seguito:
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Script di esempio per arrestare e riavviare i trigger ed eseguire la pulizia
+
+Ecco uno script di esempio per arrestare i trigger prima della distribuzione e riavviarli in seguito. Lo script include anche il codice per eliminare le risorse che sono state rimosse.
 
 ```powershell
 param

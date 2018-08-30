@@ -3,19 +3,19 @@ title: Esempio Java di topologia Apache Storm - Azure HDInsight
 description: Informazioni su come creare topologie apache Storm in Java mediante la creazione di una topologia di conteggio parole di esempio.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 keywords: apache storm, esempio di apache storm, storm java, esempio di topologia storm
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 9376d80e3c856df570f3709ca52c353b81579100
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 10ea0eb3907abc0a90e589e57970c0e4622a4d56
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619006"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043930"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Creare una topologia Apache Storm in Java
 
@@ -30,7 +30,7 @@ Dopo aver completato i passaggi descritti in questo documento, è possibile dist
 
 * [Java Developer Kit (JDK) versione 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* [Mavenhttps://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven è un sistema di compilazione per progetti Java.
+* [Maven https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven è un sistema di compilazione per progetti Java.
 
 * Un editor di testo o ambiente IDE.
 
@@ -76,7 +76,7 @@ Eliminare i file dell'applicazione e il test generato:
 
 ## <a name="add-maven-repositories"></a>Aggiungere archivi Maven
 
-HDInsight si basa su Hortonworks Data Platform (HDP), perciò è consigliabile usare l'archivio Hortonworks per scaricare le dipendenze per i progetti Apache Storm. Aggiungere il seguente XML al file __pom.xml__, dopo la riga `<url>http://maven.apache.org</url>`:
+HDInsight si basa su Hortonworks Data Platform (HDP), perciò è consigliabile usare l'archivio Hortonworks per scaricare le dipendenze per i progetti Apache Storm. Aggiungere il seguente XML al file __pom.xml__, dopo la riga `<url> http://maven.apache.org</url>`:
 
 ```xml
 <repositories>

@@ -1,26 +1,23 @@
 ---
 title: Azure Active Directory Application Proxy e Tableau | Microsoft Docs
-description: Informazioni su come usare Azure Active Directory Application Proxy per fornire l'accesso remoto alla distribuzione Tableau.  .
+description: Informazioni su come usare Azure Active Directory Application Proxy per fornire l'accesso remoto alla distribuzione Tableau.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7cace1af527c1c7c80bf0e23f7a88aa9ac9f9d03
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365023"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246608"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy e Tableau 
 
@@ -35,19 +32,10 @@ Per configurare lo scenario presentato in questo articolo si presuppone che l'ut
 - Installato un [connettore proxy di applicazione](application-proxy-enable.md). 
 
  
-
 ## <a name="enabling-application-proxy-for-tableau"></a>Abilitazione del proxy di applicazione per Tableau 
 
-Per usare il proxy di applicazione per Tableau, è necessario inviare un'e-mail all'indirizzo [aadapfeedback@microsoft.com ](mailto:aadapfeedback@microsoft.com) per abilitare questo scenario.
-Nel messaggio di posta elettronica:
+Il proxy di applicazione supporta il flusso di concessione di OAuth 2.0, necessario perché Tableau funzioni correttamente. Ciò significa che non sono più presenti passaggi speciali necessari per abilitare questa applicazione, ma è possibile configurarla seguendo la procedura seguente per la pubblicazione.
 
--   Come oggetto, usare Abilitare il proxy di applicazione per Tableau
--   Includere l'ID del tenant nel corpo del messaggio    
-
-Quando si è pronti a usare l'applicazione viene visualizzato un messaggio di conferma. In attesa della conferma, sarà possibile completare le configurazioni.
-
-
- 
 
 ## <a name="publish-your-applications-in-azure"></a>Pubblicare applicazioni in Azure 
 

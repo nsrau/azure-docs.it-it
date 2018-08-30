@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480557"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141783"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
 Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione, è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
@@ -41,11 +41,11 @@ Alla scadenza (`ttl` + `_ts` <= ora corrente del server), il documento viene con
 
 La logica precedente può essere illustrata in questa matrice:
 
-|  | DefaultTTL mancante o non impostata nella raccolta | DefaultTTL = -1 nella raccolta | DefaultTTL = n nella raccolta |
+|  | DefaultTTL mancante o non impostata nella raccolta | DefaultTTL = -1 nella raccolta | DefaultTTL = n. nella raccolta |
 | --- |:--- |:--- |:--- |
 | TTL mancante nel documento |Non viene eseguito l'override a livello di documento, perché sia il documento che la raccolta sono privi di TTL. |I documenti in questa raccolta non scadono. |I documenti nella raccolta scadono al termine dell'intervallo n. |
 | Durata TTL = -1 nel documento |Non viene eseguito l'override a livello di documento, perché la raccolta non definisce la proprietà DefaultTTL di cui è possibile eseguire l'override a livello di documento. L'impostazione TTL a livello di documento non viene interpretata dal sistema. |I documenti in questa raccolta non scadono. |Il documento con TTL =-1 in questa raccolta non scade. Tutti gli altri documenti scadono dopo l'intervallo di tempo n. |
-| TTL = n nel documento |Non viene eseguito l'override a livello di documento. L'impostazione TTL a livello di documento non viene interpretata dal sistema. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo -1 e non scadono. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo n dalla raccolta. |
+| TTL = n nel documento |Non viene eseguito l'override a livello di documento. L'impostazione TTL a livello di documento non viene interpretata dal sistema. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo -1 e non scadono. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo n. dalla raccolta. |
 
 ## <a name="configuring-ttl"></a>Configurazione di TTL
 Per impostazione predefinita, la durata è disabilitata in tutte le raccolte di Cosmos DB e in tutti i documenti. Il valore TTL può essere impostato a livello di codice o tramite il portale di Azure. Seguire questa procedura per configurare il TTL dal portale di Azure:

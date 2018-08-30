@@ -4,21 +4,22 @@ description: Come usare il codificatore AS2 in Enterprise Integration Pack in Ap
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bccc8f81a3a664e090796ae8a3cbb38c890c0479
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b3b57b2505c4185f3a81530cbc9eeb464dcfa518
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42141934"
 ---
 # <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Encode AS2 in App per la logica di Azure con Enterprise Integration Pack
 
@@ -70,6 +71,14 @@ Il connettore Encode AS2 esegue queste attività:
 * Firma i messaggi in uscita (se configurata)
 * Crittografa i messaggi in uscita (se configurata)
 * Comprime i messaggi (se configurata)
+* Trasmetti nome file in intestazione MIME (se configurato)
+
+
+  > [!NOTE]
+  > Se si usa Azure Key Vault per la gestione dei certificati, assicurarsi di configurare le chiavi per consentire l'operazione di **crittografia**.
+  > In caso contrario, la codifica AS2 avrà esito negativo.
+  >
+  > ![Key Vault esegue la decrittografia](media/logic-apps-enterprise-integration-as2-encode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Provare questo esempio
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9469a5827765a9b82469ac1eedc66666231d82d6
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117001"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141356"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure
 
@@ -45,7 +45,7 @@ In futuro sarà possibile passare direttamente al portale di Azure seguendo ques
 
 Tutte le distribuzioni di aggiornamenti create nel portale di OMS hanno una [ricerca salvata](../log-analytics/log-analytics-computer-groups.md), definita anche gruppo di computer, con lo stesso nome della distribuzione di aggiornamenti esistente. La ricerca salvata contiene l'elenco dei computer per cui è stata pianificata la distribuzione di aggiornamenti.
 
-![Gestione aggiornamenti](media/migrate-oms-update-deployments/oms-deployment.png)
+![Gestione degli aggiornamenti](media/migrate-oms-update-deployments/oms-deployment.png)
 
 Per usare la ricerca salvata esistente, seguire questa procedura:
 
@@ -57,14 +57,16 @@ Si apre il riquadro **Nuova distribuzione di aggiornamenti**. Specificare i valo
 
 Per i computer da aggiornare, selezionare la ricerca salvata usata per la distribuzione di OMS esistente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
-|Nome |Nome univoco che identifica la distribuzione degli aggiornamenti. |
+|NOME |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Selezionare **Linux** o **Windows**.|
-|Computer da aggiornare |Per i computer da aggiornare, selezionare la ricerca salvata usata per la distribuzione di OMS esistente. |
+|Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere un computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie. CentOS non supporta questa operazione per impostazione predefinita.|
 |Aggiornamenti da escludere|Immettere gli aggiornamenti da escludere. Per Windows, immettere l'articolo della Knowledge Base senza il prefisso **KB**. Per Linux, immettere il nome del pacchetto o usare un carattere jolly.  |
 |Impostazioni di pianificazione|Selezionare l'ora di inizio e quindi selezionare **Una sola volta** o **Ricorrente** per la ricorrenza.|| Finestra di manutenzione |Numero di minuti impostato per gli aggiornamenti. Il valore non può essere inferiore a 30 minuti o superiore a 6 ore. |
+| Finestra di manutenzione |Numero di minuti impostato per gli aggiornamenti. Il valore non può essere inferiore a 30 minuti e superiore a 6 ore |
+| Controllo riavvio| Determina come vengono gestiti i riavvii.</br>Le opzioni disponibili sono:</br>Riavvia se necessario (opzione predefinita)</br>Riavvia sempre</br>Non riavviare mai</br>Riavvia solamente: gli aggiornamenti non verranno installati|
 
 Fare clic su **Distribuzioni di aggiornamenti pianificate** per visualizzare lo stato della nuova distribuzione di aggiornamenti creata.
 

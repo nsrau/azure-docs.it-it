@@ -1,20 +1,8 @@
+---Titolo dati: Eseguire il rehosting di un'app locale di Contoso tramite la migrazione in macchine virtuali di Azure e in Istanza gestita di database SQL di Azure | Microsoft Docs descrizione: Informazioni su come Contoso esegue il rehosting di un'app locale in macchine virtuali di Azure e tramite Istanza gestita di database SQL di Azure.
+servizi: autore di site recovery: rayne-wiselman manager: carmonm ms.service: ms.topic site recovery: ms. date concettuale: 13/08/2018 ms.author: raynew
+
 ---
-title: Eseguire il rehosting di un'app locale di Contoso tramite la migrazione in macchine virtuali di Azure e in Istanza gestita di database SQL di Azure | Microsoft Docs
-description: Informazioni su come Contoso esegue il rehosting di un'app locale in macchine virtuali di Azure e tramite Istanza gestita di database SQL di Azure.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/12/2018
-ms.author: raynew
-ms.openlocfilehash: 3e3f8dffbaa7109423aacdbfbaa658bada8bb84a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215340"
----
+
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migrazione Contoso: esecuzione del rehosting di un'app locale in una macchina virtuale di Azure e in Istanza gestita di database SQL
 
 In questo articolo Contoso esegue la migrazione della macchina virtuale front-end della propria app SmartHotel in una macchina virtuale di Azure tramite il servizio Azure Site Recovery. Esegue anche la migrazione del database dell'app in Istanza gestita di database SQL di Azure.
@@ -29,8 +17,8 @@ Articolo | Dettagli | Status
 --- | --- | ---
 [Articolo 1: Panoramica](contoso-migration-overview.md) | Panoramica della strategia di migrazione di Contoso, della serie di articoli e delle app di esempio usate nella serie. | Disponibile
 [Articolo 2: Distribuire un'infrastruttura di Azure](contoso-migration-infrastructure.md) | Contoso prepara la propria infrastruttura locale e l'infrastruttura di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli della serie relativi alla migrazione. | Disponibile
-[Articolo 3: Valutare le risorse locali per la migrazione in Azure](contoso-migration-assessment.md) | Contoso esegue una valutazione dell'app SmartHotel a due livelli locale in esecuzione su VMware. Valuta le macchine virtuali dell'app tramite il servizio [Azure Migrate](migrate-overview.md). e il database di SQL Server dell'app tramite [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponibile
-Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in Istanza gestita di database SQL | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel locale. Esegue la migrazione della macchina virtuale front-end dell'app tramite [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). e del database dell'app in un'Istanza gestita di database SQL di Azure tramite il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Questo articolo
+[Articolo 3: Valutare le risorse locali per la migrazione in Azure](contoso-migration-assessment.md) | Contoso esegue una valutazione dell'app SmartHotel a due livelli locale in esecuzione su VMware. Valuta le macchine virtuali dell'app tramite il servizio [Azure Migrate](migrate-overview.md) e il database di SQL Server dell'app tramite [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponibile
+Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in Istanza gestita di database SQL | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel locale. Esegue la migrazione della macchina virtuale front-end dell'app tramite [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e del database dell'app in un'Istanza gestita di database SQL di Azure tramite il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Questo articolo
 [Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel alle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
 [Articolo 6: Eseguire il rehosting di un'app in macchine virtuali di Azure e in un gruppo di disponibilità AlwaysOn di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso esegue la migrazione dell'app SmartHotel. Usa Site Recovery per eseguire la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app in un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile
 [Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Contoso completa una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando Site Recovery. | Disponibile
@@ -94,7 +82,7 @@ In questo scenario:
 
 Service | DESCRIZIONE | Costi
 --- | --- | ---
-[Servizio Migrazione del database](https://docs.microsoft.com/azure/dms/dms-overview) | Il Servizio Migrazione del database consente di eseguire facilmente la migrazione di più origini di database nelle piattaforme dati di Azure, con tempi di inattività minimi. | Altre informazioni sulle [aree supportate](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) e sui [prezzi del Servizio Migrazione del database](https://azure.microsoft.com/pricing/details/database-migration/).
+[Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview) | Il Servizio Migrazione del database consente di eseguire facilmente la migrazione di più origini di database nelle piattaforme dati di Azure, con tempi di inattività minimi. | Altre informazioni sulle [aree supportate](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) e sui [prezzi del Servizio Migrazione del database](https://azure.microsoft.com/pricing/details/database-migration/).
 [Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | L'istanza gestita è un servizio di database gestito che rappresenta un'istanza completamente gestita di SQL Server nel cloud di Azure. Usa lo stesso codice della versione più recente del motore di database di SQL Server e dispone delle funzionalità, dei miglioramenti delle prestazioni e delle patch di sicurezza più recenti. | L'esecuzione di Istanza gestita di database SQL di Azure è soggetta a costi in base alla capacità. Altre informazioni sui [prezzi dell'istanza gestita](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Questo servizio orchestra e gestisce la migrazione e il ripristino di emergenza per le macchine virtuali di Azure e per le macchine virtuali e i server fisici locali.  | Durante la replica in Azure vengono addebitati costi relativi all'archiviazione di Azure.  In caso di failover vengono create macchine virtuali di Azure, le quali sono soggette a costi. Altre informazioni sui [costi e prezzi di Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
@@ -117,7 +105,7 @@ Requisiti | Dettagli
 **Registrazione nell'anteprima di Istanza gestita** | È necessario essere registrati per l'anteprima pubblica limitata di Istanza gestita di database SQL. La [registrazione](https://portal.azure.com#create/Microsoft.SQLManagedInstance) richiede una sottoscrizione di Azure. Il completamento della registrazione può richiedere qualche giorno. Accertarsi pertanto di effettuare la registrazione prima di iniziare a distribuire questo scenario.
 **Sottoscrizione di Azure** | La sottoscrizione dovrebbe essere già stata creata quando si è eseguita la valutazione nel primo articolo di questa serie. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Se si crea un account gratuito, si è l'amministratore della sottoscrizione e si possono eseguire tutte le azioni.<br/><br/> Se si usa una sottoscrizione esistente e non si ha il ruolo di amministratore per tale sottoscrizione, è necessario rivolgersi all'amministratore per farsi assegnare le autorizzazioni di proprietario o collaboratore.<br/><br/> Se sono necessarie autorizzazioni più specifiche, vedere [Usare il controllo degli accessi in base al ruolo per gestire l'accesso a Site Recovery](../site-recovery/site-recovery-role-based-linked-access-control.md). 
 **Site Recovery (locale)** | L'istanza del server vCenter locale deve eseguire la versione 5.5, 6.0 o 6.5<br/><br/> Host ESXi che esegue la versione 5.5, 6.0 o 6.5<br/><br/> Una o più macchine virtuali VMware in esecuzione nell'host ESXi.<br/><br/> Le macchine virtuali devono soddisfare i [requisiti di Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Configurazione supportata di [rete](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) e [archiviazione](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage).
-**Servizio Migrazione del database** | Per il Servizio Migrazione del database è necessario un [dispositivo VPN locale compatibile](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> È necessario saper configurare il dispositivo VPN locale. Deve avere un indirizzo IPv4 pubblico con connessione esterna che non può trovarsi dietro un dispositivo NAT.<br/><br/> Accertarsi di avere accesso al database di SQL Server locale.<br/><br/> Windows Firewall deve essere in grado di accedere al motore di database di origine. Informazioni su come configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Se il computer in cui si trova il database è protetto da un firewall, aggiungere regole per consentire l'accesso al database e ai file tramite la porta SMB 445.<br/><br/> Le credenziali usate per connettersi all'istanza di SQL Server di origine e che fanno riferimento all'istanza gestita di destinazione devono appartenere a membri del ruolo del server sysadmin.<br/><br/> Nel database locale deve essere presente una condivisione di rete che il Servizio Migrazione del database può usare per eseguire il backup del database di origine.<br/><br/> Verificare che l'account del servizio che esegue l'istanza di SQL Server di origine disponga delle autorizzazioni di scrittura per la condivisione di rete.<br/><br/> Prendere nota di un utente e una password di Windows con autorizzazioni di controllo completo sulla condivisione di rete. Il Servizio Migrazione del database rappresenta queste credenziali utente per caricare i file di backup nel contenitore di Archiviazione di Azure.<br/><br/> L'installazione di SQL Server Express imposta il protocollo TCP/IP su **Disabilitato** per impostazione predefinita. Assicurarsi che sia abilitato.
+**Servizio Migrazione del database di Azure** | Per il Servizio Migrazione del database è necessario un [dispositivo VPN locale compatibile](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> È necessario saper configurare il dispositivo VPN locale. Deve avere un indirizzo IPv4 pubblico con connessione esterna che non può trovarsi dietro un dispositivo NAT.<br/><br/> Accertarsi di avere accesso al database di SQL Server locale.<br/><br/> Windows Firewall deve essere in grado di accedere al motore di database di origine. Informazioni su come configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Se il computer in cui si trova il database è protetto da un firewall, aggiungere regole per consentire l'accesso al database e ai file tramite la porta SMB 445.<br/><br/> Le credenziali usate per connettersi all'istanza di SQL Server di origine e che fanno riferimento all'istanza gestita di destinazione devono appartenere a membri del ruolo del server sysadmin.<br/><br/> Nel database locale deve essere presente una condivisione di rete che il Servizio Migrazione del database può usare per eseguire il backup del database di origine.<br/><br/> Verificare che l'account del servizio che esegue l'istanza di SQL Server di origine disponga delle autorizzazioni di scrittura per la condivisione di rete.<br/><br/> Prendere nota di un utente e una password di Windows con autorizzazioni di controllo completo sulla condivisione di rete. Il Servizio Migrazione del database rappresenta queste credenziali utente per caricare i file di backup nel contenitore di archiviazione di Azure.<br/><br/> L'installazione di SQL Server Express imposta il protocollo TCP/IP su **Disabilitato** per impostazione predefinita. Assicurarsi che sia abilitato.
 
 ## <a name="scenario-steps"></a>Passaggi dello scenario
 
@@ -229,18 +217,18 @@ Ora Contoso può eseguire il provisioning di un'istanza gestita di database SQL 
 
 Altre informazioni su come [effettuare il provisioning di un'istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
-## <a name="step-2-prepare-the-database-management-service"></a>Passaggio 2: Preparare il Servizio Migrazione del database
+## <a name="step-2-prepare-the-database-migration-service"></a>Passaggio 2: Preparare il Servizio Migrazione del database
 
 Per preparare il Servizio Migrazione del database, Contoso deve eseguire alcune operazioni:
 
 - Registrare il provider del Servizio Migrazione del database in Azure.
 - Fornire al Servizio Migrazione del database l'accesso ad Archiviazione di Azure per caricare i file di backup usati per eseguire la migrazione di un database. Per fornire l'accesso ad Archiviazione di Azure, Contoso crea un contenitore di archiviazione BLOB di Azure. Genera quindi un URI di firma di accesso condiviso per il contenitore di archiviazione BLOB, 
-- crea un progetto di Servizio Migrazione del database,
+- Creare il progetto del Servizio Migrazione del database.
 
 e infine completa i passaggi seguenti:
 
 1. Registra il provider di migrazione del database nella propria sottoscrizione.
-    ![Servizio Migrazione del database: registrazione](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
+    ![Servizio Migrazione del database - Registro](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
 2. Crea un contenitore di archiviazione BLOB. Genera un URI di firma di accesso condiviso in modo che il Servizio Migrazione del database possa accedervi.
 
@@ -451,11 +439,11 @@ Ora Contoso può iniziare a replicare WebVM.
 
 È possibile leggere una procedura dettagliata completa di tutti questi in [Abilitare la replica](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-## <a name="step-6-migrate-the-database-by-using-the-database-management-service"></a>Passaggio 6: Eseguire la migrazione del database tramite il Servizio Migrazione del database
+## <a name="step-6-migrate-the-database-by-using-the-database-migration-service"></a>Passaggio 6: Eseguire la migrazione del database tramite il Servizio Migrazione del database
 
 Contoso deve creare un progetto di Servizio Migrazione del database e quindi eseguire la migrazione del database.
 
-### <a name="create-a-database-management-service-project"></a>Creare un progetto di Servizio Migrazione del database
+### <a name="create-a-database-migration-service-project"></a>Creare il progetto del Servizio Migrazione del database
 
 1. Contoso crea un progetto del Servizio Migrazione del database. Seleziona il tipo di server di origine **SQL Server**. Seleziona **Istanza gestita di database SQL di Azure** come destinazione.
 
@@ -471,11 +459,11 @@ Contoso deve creare un progetto di Servizio Migrazione del database e quindi ese
 
 2. Seleziona quindi il database di cui eseguire la migrazione (**SmartHotel.Registration**):
 
-    ![Servizio Migrazione del database: selezione dei database di origine](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
+    ![Servizio Migrazione del database: Seleziona database di origine](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
 3. Per la destinazione, Contoso immette il nome dell'istanza gestita in Azure e inserisce le credenziali di accesso per l'istanza gestita.
 
-    ![Servizio Migrazione del database: dettagli della destinazione](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
+    ![Servizio Migrazione del database: dettagli destinazione](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
 
 4. In **Nuova attività** > **Esegui migrazione** Contoso specifica le impostazioni per eseguire la migrazione:
     - Credenziali di origine e di destinazione.

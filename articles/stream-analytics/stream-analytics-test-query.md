@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 3dc9091934f3db8ededc13f74d2f302eccace4d6
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312991"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141348"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testare una query di Analisi di flusso con dati di esempio
 
@@ -29,9 +29,7 @@ Analisi di flusso di Azure consente di caricare i dati di esempio e testare le q
 
 3. Nella pagina del processo di Analisi di flusso selezionare **Query** nell'intestazione **Topologia processo** per aprire la finestra dell'editor Query. 
 
-4. Per eseguire il test della query con dati di input di esempio, fare clic con il pulsante destro del mouse su uno degli input.  Selezionare quindi **Upload sample data from file** (Carica dati di esempio da file).
-
-   I dati devono essere solo in formato JSON. Se i dati sono in un formato diverso, ad esempio CSV, è necessario convertirli in formato JSON prima del caricamento. Per convertire i dati in formato JSON, è possibile usare qualsiasi strumento di conversione open source, ad esempio il [convertitore da CSV a JSON](http://www.convertcsv.com/csv-to-json.htm).
+4. Per eseguire il test della query con dati di input di esempio, fare clic con il pulsante destro del mouse su uno degli input.  Selezionare quindi **Upload sample data from file** (Carica dati di esempio da file). I dati devono essere serializzati in JSON, CSV o AVRO.
 
     ![Pulsante per il testo delle query nell'editor query della funzione di analisi di flusso](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

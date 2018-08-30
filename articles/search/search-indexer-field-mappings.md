@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 041866cd1c290bc576577771abcae31db747095e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 51fa689030c4a8ce4e900ecd600cdd0524aa13d9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796853"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141349"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapping dei campi negli indicizzatori di Ricerca di Azure
 Quando si usano gli indicizzatori di Ricerca di Azure, a volte è possibile che i dati di input non corrispondano allo schema dell'indice di destinazione. In questi casi è possibile usare i **mapping dei campi** per trasformare i dati nella forma desiderata.
@@ -106,7 +106,7 @@ La chiave del documento di Ricerca di Azure può includere solo caratteri sicuri
     "targetFieldName" : "IndexKey",
     "mappingFunction" : { "name" : "base64Encode", "parameters" : { "useHttpServerUtilityUrlTokenEncode" : false } }
   }]
-```
+ ```
 
 Se non è necessario cercare documenti in base alle chiavi né decodificare il contenuto codificato, è sufficiente escludere `parameters` per la funzione di mapping, in modo che il valore predefinito di `useHttpServerUtilityUrlTokenEncode` sia `true`. In caso contrario, vedere la sezione [Dettagli della codifica e della decodifica Base64](#base64details) per determinare le impostazioni da usare.
 
@@ -136,9 +136,9 @@ Se non si specifica alcun valore `parameters`, il valore predefinito di `useHttp
 ### <a name="details-of-base64-encoding-and-decoding"></a>Dettagli della codifica e della decodifica Base64
 Ricerca di Azure supporta due codifiche Base64: la codifica con token URL HttpServerUtility e la codifica sicura per gli URL senza spaziatura interna. È necessario usare la stessa codifica delle funzioni di mapping se si vuole codificare la chiave di un documento per la ricerca, codificare un valore da decodificare tramite l'indicizzatore o decodificare un campo codificato dall'indicizzatore.
 
-Se si usa .NET Framework, è possibile impostare `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` su `true` rispettivamente per la codifica e la decodifica. `base64Encode` si comporta quindi come [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx), mentre `base64Decode` si comporta come [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Se i parametri `useHttpServerUtilityUrlTokenEncode` oppure `useHttpServerUtilityUrlTokenDecode` per la codifica e decodifica vengono rispettivamente impostati su `true`, allora `base64Encode` si comporta come [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) e `base64Decode` si comporta come [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Se non si usa .NET Framework, è necessario impostare `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` su `false`. A seconda della libreria usata, le funzioni dell'utilità di codifica e decodifica Base64 possono essere diverse rispetto a Ricerca di Azure.
+Se non si usa la versione completa di .NET Framework (ad esempio, si usa .NET Core o un altro ambiente di programmazione) per produrre i valori delle chiavi per emulare il comportamento di ricerca di Azure, è necessario impostare `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` su `false`. A seconda della libreria usata, le funzioni dell'utilità di codifica e decodifica Base64 possono essere diverse rispetto a Ricerca di Azure.
 
 La tabella seguente confronta diverse codifiche Base64 della stringa `00>00?00`. Per determinare l'eventuale elaborazione aggiuntiva necessaria per le funzioni Base64, applicare la funzione di codifica della libreria nella stringa `00>00?00` e confrontare l'output con l'output previsto `MDA-MDA_MDA`.
 

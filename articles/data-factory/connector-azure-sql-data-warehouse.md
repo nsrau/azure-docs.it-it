@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430740"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442240"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -71,6 +71,9 @@ Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relativ
 - [Autenticazione SQL](#sql-authentication)
 - Autenticazione token dell'applicazione Azure AD: [entità servizio](#service-principal-authentication)
 - Autenticazione token dell'applicazione Azure AD: [identità del servizio gestita](#managed-service-identity-authentication)
+
+>[!TIP]
+>Se viene restituito l'errore con codice "UserErrorFailedToConnectToSqlServer" e un messaggio quale "Il limite di sessioni per il database è XXX ed è stato raggiunto.", aggiungere `Pooling=false` alla stringa di connessione e riprovare.
 
 ### <a name="sql-authentication"></a>Autenticazione in SQL
 
@@ -397,7 +400,7 @@ PolyBase di SQL Data Warehouse supporta direttamente Archiviazione BLOB di Azure
 
 Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostazioni e usa automaticamente il meccanismo BULKINSERT per lo spostamento dei dati.
 
-1. Il tipo di **servizio collegato all'origine** è **AzureStorage** o **AzureDataLakeStore** con autenticazione entità servizio.
+1. Il **servizio collegato di origine** è di tipo archiviazione BLOB di Azure (**AzureBLobStorage**/**AzureStorage**) con autenticazione mediante chiave dell'account o Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) con autenticazione mediante entità servizio.
 1. Il tipo di **set di dati di input** è **AzureBlob** o **AzureDataLakeStoreFile**. Il tipo di formato nelle proprietà `type` è **OrcFormat**, **ParquetFormat** o **TextFormat**, con le configurazioni seguenti:
 
    1. `rowDelimiter` deve essere **\n**.

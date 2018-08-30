@@ -19,8 +19,8 @@ Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in 
 È possibile passare agli argomenti seguenti:
 
 - [Installare e configurare Ansible su Linux per l'uso in Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Creare una macchina virtuale di base](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Creare un ambiente di macchine virtuali completo che include risorse di supporto](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Creare una macchina virtuale Linux](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Gestire una macchina virtuale Linux](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef
@@ -37,7 +37,7 @@ Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in 
 
 È possibile passare agli argomenti seguenti:
 
-- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview) (Distribuire Puppet da Azure Marketplace).
+- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview) (Distribuire Puppet da Azure Marketplace).
 
 
 ## <a name="cloud-init"></a>cloud-init

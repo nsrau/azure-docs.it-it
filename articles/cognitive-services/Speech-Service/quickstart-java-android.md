@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9f761fed46f0730a64a984111da1bae1229cc93d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929719"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127072"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Java su Android con Speech SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come creare un'applicazione Java per Android usando Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
 L'applicazione si basa sul pacchetto NuGet Speech SDK Maven di Servizi cognitivi Microsoft versione 0.6.0 e su Android Studio 3.1.
@@ -61,7 +61,7 @@ Dopo qualche minuto di esecuzione, dovrebbe apparire il progetto Android Studio 
 
 ## <a name="configure-your-project-for-the-speech-sdk"></a>Configurare il progetto per Speech SDK
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 La versione corrente di Speech SDK di Servizi cognitivi è `0.6.0`.
 
@@ -154,7 +154,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 
 Questo screenshot conclude l'avvio rapido di Android. Il codice di esempio completo del progetto può essere scaricato dal repository degli esempi.
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Ricercare questo esempio nella cartella `quickstart/java-android`.
 
 ## <a name="next-steps"></a>Passaggi successivi

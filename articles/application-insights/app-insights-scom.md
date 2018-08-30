@@ -2,7 +2,7 @@
 title: Integrazione di SCOM con Application Insights | Documentazione Microsoft
 description: Gli utenti di SCOM possono monitorare le prestazioni e diagnosticare i problemi con Application Insights. Dashboard completi, avvisi intelligenti, potenti strumenti di diagnostica e query di analisi.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
@@ -10,19 +10,23 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 08/12/2016
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 35ea37b751909e14e616a965462b832e4e51bae0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8880fbeaad85bc2615292820527c6a9e87000d66
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246668"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Application Performance Monitoring con Application Insights per SCOM
 Se si usa System Center Operations Manager (SCOM) per gestire i server, è possibile monitorare le prestazioni e diagnosticare problemi di prestazioni con [Azure Application Insights](app-insights-asp-net.md). Application Insights monitora le richieste in ingresso dell'applicazione Web, le chiamate REST e SQL in uscita, le eccezioni e le tracce dei log. Fornisce i dashboard con grafici delle metriche e avvisi intelligenti, nonché funzionalità di ricerca diagnostica avanzate e query analitiche di questi dati di telemetria. 
 
 È possibile attivare il monitoraggio di Application Insights tramite un Management Pack di SCOM.
+
+> [!IMPORTANT]
+> Questo Management Pack di System Center Operations Manager è attualmente **deprecato**. Non supporta la versione più recente degli SDK di Application Insights e non è più consigliato.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 Si presuppone quanto segue:
@@ -73,7 +77,7 @@ Nel computer in cui è in esecuzione Operations Manager seguire questa procedura
      ![Nella scheda Impostazioni di Application Insights fare clic su 'accedi' e fornire le credenziali dell'account Microsoft per Azure. Quindi scegliere una sottoscrizione, gruppo di risorse e una risorse.](./media/app-insights-scom/060.png)
 3. Completare la procedura guidata.
    
-    ![Click Create](./media/app-insights-scom/070.png)
+    ![Fare clic su Crea](./media/app-insights-scom/070.png)
 
 Ripetere questa procedura per ogni app da monitorare.
 

@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: a3df91adf7c35343dc890dc734ec052f1aa97134
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 735b152f55a9309e5d5dd85dac64a607de6417b0
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860249"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443970"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage di 1° generazione usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,6 +45,9 @@ In particolare, il connettore Azure Data Lake Store supporta:
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
+>[!NOTE]
+>Quando si usa lo strumento Copia dati per creare pipeline di copia oppure l'interfaccia utente ADF per eseguire test di connessione/esplorare cartelle durante la creazione, è richiesta l'autorizzazione dell'entità servizio o dell'identità del servizio gestita concessa a livello radice. L'esecuzione dell'attività di copia può funzionare nella misura in cui viene concessa l'autorizzazione alla copia dei dati. È possibile ignorare le operazioni di creazione se è necessario limitare l'autorizzazione.
+
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per Azure Data Lake Store.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
@@ -53,8 +56,8 @@ Per il servizio collegato Azure Data Lake Store sono supportate le proprietà se
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **AzureDataLakeStore**. | Sì |
-| dataLakeStoreUri | Informazioni sull'account Azure Data Lake Store. Queste informazioni accettano uno dei seguenti formati: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sì |
+| type | La proprietà type deve essere impostata su **AzureDataLakeStore**. | Yes |
+| dataLakeStoreUri | Informazioni sull'account Azure Data Lake Store. Queste informazioni accettano uno dei seguenti formati: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Yes |
 | subscriptionId | ID sottoscrizione di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
 | resourceGroupName | Nome del gruppo di risorse di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
@@ -74,16 +77,16 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 
 >[!IMPORTANT]
 > Assicurarsi di concedere all'entità servizio un'autorizzazione appropriata in Azure Data Lake Store:
->- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
->- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella e impostare l'aggiunta come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
+>- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta come **Questa cartella e tutti gli elementi figlio** come ricorsiva e aggiungere **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
+>- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella e impostare l'aggiunta di **Questa cartella e tutti gli elementi figlio** come ricorsiva e aggiungere una **voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
 
 Sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. | Yes |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes |
 
 **Esempio:**
 
@@ -122,8 +125,8 @@ Per usare l'autenticazione basata sull'identità del servizio gestito (MSI):
 
 >[!IMPORTANT]
 > Assicurarsi di concedere all'identità del servizio Data factory un'autorizzazione appropriata in Azure Data Lake Store:
->- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
->- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella e impostare l'aggiunta come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
+>- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta come **Questa cartella e tutti gli elementi figlio** come ricorsiva e aggiungere **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
+>- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella e impostare l'aggiunta di **Questa cartella e tutti gli elementi figlio** come ricorsiva e aggiungere una **voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
 
 In Azure Data Factory non è necessario specificare alcuna proprietà oltre alle informazioni generali di Data Lake Store nel servizio collegato.
 
@@ -155,8 +158,8 @@ Per copiare dati da/in Azure Data Lake Store, impostare la proprietà type del s
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AzureDataLakeStoreFile** |Sì |
-| folderPath | Percorso della cartella in Data Lake Store. Il filtro con caratteri jolly non è supportato. Esempio: rootfolder/subfolder/ |Sì |
+| type | La proprietà type del set di dati deve essere impostata su: **AzureDataLakeStoreFile** |Yes |
+| folderPath | Percorso della cartella in Data Lake Store. Il filtro con caratteri jolly non è supportato. Esempio: rootfolder/subfolder/ |Yes |
 | fileName | **Filtro con nome o carattere jolly** per i file nell'elemento "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per un filtro, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.<br/><br/>Se non si specifica fileName per un set di dati di output e non si specifica **preserveHierarchy** nel sink dell'attività, l'attività di copia genera automaticamente il nome del file con il formato seguente: "*Data.[GUID ID esecuzione attività].[GUID se FlattenHierarchy].[formato se configurato].[compressione se configurata]*". Un esempio è "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |No  |
 | format | Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output.<br/><br/>Se si vuole analizzare o generare file con un formato specifico, sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](supported-file-formats-and-compression-codecs.md#text-format), [JsonFormat](supported-file-formats-and-compression-codecs.md#json-format), [AvroFormat](supported-file-formats-and-compression-codecs.md#avro-format), [OrcFormat](supported-file-formats-and-compression-codecs.md#orc-format) e [ParquetFormat](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo per uno scenario di copia binaria) |
 | compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md#compression-support).<br/>I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono **Ottimale** e **Più veloce**. |No  |
@@ -202,7 +205,7 @@ Per copiare dati da Azure Data Lake Store, impostare il tipo di origine nell'att
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureDataLakeStoreSource** |Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureDataLakeStoreSource** |Yes |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che se recursive è impostata su true e il sink è un archivio basato su file, la cartella o la sottocartella vuota non verrà copiata o creata nel sink.<br/>I valori consentiti sono: **true** (predefinito), **false** | No  |
 
 **Esempio:**
@@ -243,7 +246,7 @@ Per copiare dati in Azure Data Lake Store, impostare il tipo di sink nell'attivi
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **AzureDataLakeStoreSink** |Sì |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **AzureDataLakeStoreSink** |Yes |
 | copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. | No  |
 
 **Esempio:**

@@ -6,14 +6,14 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/15/2017
+ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: b6195feb25a7206d7c453e31f0ac312e070b3113
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b755d7ca1ec72b075ecaa4b32a35f5009a938b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606172"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141952"
 ---
 # <a name="recovery-services-vaults-overview"></a>Panoramica di insiemi di credenziali di Servizi di ripristino
 
@@ -38,9 +38,15 @@ Gli insiemi di credenziali di Servizi di ripristino si basano sul modello di Azu
 - **Ripristino immediato delle macchine virtuali IaaS**: con gli insiemi di credenziali di Servizi di ripristino, è possibile ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale, il che consente di avere tempi di ripristino più rapidi. Il ripristino immediato per le macchine virtuali IaaS è disponibile sia per le macchine virtuali Windows che Linux. [Altre informazioni](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gestione degli insiemi di credenziali di Servizi di ripristino nel portale
-La creazione e la gestione degli insiemi di credenziali di Servizi di ripristino nel portale di Azure è semplificata dal fatto che il servizio Backup è integrato nel menu Impostazioni di Azure. Questa integrazione implica la possibile creazione e gestione di un insieme di credenziali di Servizi di ripristino *nel contesto del servizio di destinazione*. Ad esempio, per visualizzare i punti di ripristino di una macchina virtuale, selezionarla e fare clic su **Backup** nel menu Impostazioni. Vengono visualizzate le informazioni di backup specifiche per tale macchina virtuale. Nell'esempio seguente **ContosoVM** è il nome della macchina virtuale. **ContosoVM-demovault** è il nome dell'insieme di credenziali di Servizi di ripristino. Non è necessario ricordare il nome dell'insieme di credenziali di Servizi di ripristino che archivia i punti di ripristino; è possibile accedere a questa informazione dalla macchina virtuale.  
+La creazione e la gestione degli insiemi di credenziali di Servizi di ripristino nel portale di Azure è semplificata dal fatto che il servizio Backup è integrato in altri servizi di Azure. Questa integrazione implica la possibile creazione e gestione di un insieme di credenziali di Servizi di ripristino *nel contesto del servizio di destinazione*. Ad esempio, per visualizzare i punti di ripristino di una macchina virtuale, selezionarla e fare clic su **Backup** nel menu Operazioni. 
 
-![Macchina virtuale con i dettagli dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+![Macchina virtuale con i dettagli dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
+
+Se la macchina virtuale non dispone di un backup configurato, verrà richiesto di configurare il backup. Se il backup è stato configurato, verranno visualizzate informazioni di backup sulla macchina virtuale, incluso un elenco di punti di ripristino.  
+
+![Macchina virtuale con i dettagli dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-recovery-services-vault-overview/vm-recovery-point-list.png)
+
+Nell'esempio precedente **ContosoVM** è il nome della macchina virtuale. **ContosoVM-demovault** è il nome dell'insieme di credenziali di Servizi di ripristino. Non è necessario ricordare il nome dell'insieme di credenziali di Servizi di ripristino che archivia i punti di ripristino; è possibile accedere a questa informazione dalla macchina virtuale.  
 
 Se più server sono protetti mediante lo stesso insieme di credenziali di Servizi di ripristino, conviene esaminare l'insieme di credenziali di Servizi di ripristino. È possibile cercare tutti gli insiemi di credenziali di Servizi di ripristino nella sottoscrizione e sceglierne uno dall'elenco.
 

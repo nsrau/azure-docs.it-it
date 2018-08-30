@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: afd061b026e30378f5e645d11b84b44b7a516143
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341580"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443391"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Come creare e configurare il runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per informazioni dettagliate sul runtime di integrazione, vedere [Integration Runtime Overview](concepts-integration-runtime.md) (Panoramica del runtime di integrazione).
@@ -27,17 +27,20 @@ Un runtime di integrazione self-hosted può eseguire attività di copia tra un a
 Questo documento illustra come creare e configurare il runtime di integrazione self-hosted.
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>Procedura generale per installare il runtime di integrazione self-hosted
-1.  Creare un runtime di integrazione self-hosted. Di seguito è illustrato un esempio di PowerShell:
+1. Creare un runtime di integrazione self-hosted. È possibile usare l'interfaccia utente di ADF per creare il runtime di integrazione self-hosted. Di seguito è illustrato un esempio di PowerShell:
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2.  Scaricare e installare il runtime di integrazione self-hosted (nel computer locale).
-3.  Recuperare la chiave di autenticazione e registrare il runtime di integrazione self-hosted con la chiave. Di seguito è illustrato un esempio di PowerShell:
+2. Scaricare e installare il runtime di integrazione self-hosted (nel computer locale).
+3. Recuperare la chiave di autenticazione e registrare il runtime di integrazione self-hosted con la chiave. Di seguito è illustrato un esempio di PowerShell:
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
+
+## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automatation"></a>Configurazione di runtime di integrazione self-hosted in una macchina virtuale di Azure usando il modello di Azure Resource Manager (automazione)
+È possibile automatizzare l'installazione del runtime di integrazione self-hosted in una macchina virtuale di Azure usando [questo modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Questo fornisce un modo semplice per avere un runtime di integrazione self-hosted completamente funzionante nella rete virtuale di Azure con funzionalità di alta disponibilità e scalabilità (purché il numero di nodi sia impostato almeno su 2).
 
 ## <a name="command-flow-and-data-flow"></a>Flusso dei comandi e flusso di dati
 Quando si spostano i dati tra ambiente cloud e locale, l'attività usa un runtime di integrazione self-hosted per trasferire i dati dall'origine dati locale al cloud e viceversa.
@@ -48,9 +51,9 @@ Di seguito è riportato un flusso di dati generale per il riepilogo dei passaggi
 
 1. Lo sviluppatore di dati crea un runtime di integrazione self-hosted in un'istanza di Azure Data Factory usando un cmdlet di PowerShell. Il portale di Azure attualmente non supporta questa funzionalità.
 2. Lo sviluppatore di dati crea un servizio collegato per un archivio dati locale specificando l'istanza del runtime di integrazione self-hosted da usare per la connessione agli archivi dati. Una parte della configurazione del servizio collegato consiste nell'uso dell'applicazione "Gestione credenziali" (attualmente non supportata) per impostare i tipi di autenticazione e le credenziali. La finestra di dialogo dell'applicazione Gestione credenziali comunica con l'archivio dati per eseguire il test della connessione e con il runtime di integrazione self-hosted per salvare le credenziali.
-4.  Il nodo del runtime di integrazione self-hosted crittografa la credenziale usando Windows Data Protection Application Programming Interface (DPAPI) e la salva in locale. Se più nodi vengono impostati per la disponibilità elevata, le credenziali vengono ulteriormente sincronizzate negli altri nodi. Ogni nodo la crittografa usando DPAPI e la archivia in locale. La sincronizzazione delle credenziali è trasparente per lo sviluppatore di dati e viene gestita dal runtime di integrazione self-hosted.    
-5.  Il servizio Data Factory comunica con il runtime di integrazione self-hosted per la pianificazione e la gestione dei processi tramite un **canale di controllo** che usa una coda condivisa del bus di servizio di Azure. Quando è necessario eseguire un processo di attività, Data Factory accoda la richiesta con le informazioni sulle credenziali (se le credenziali non sono già archiviate nel runtime di integrazione self-hosted). Il runtime di integrazione self-hosted avvia il processo dopo il polling della coda.
-6.  Il runtime di integrazione self-hosted copia i dati dall'archivio locale in una risorsa di archiviazione cloud o viceversa in base alla configurazione dell'attività di copia nella pipeline di dati. Per questo passaggio il runtime di integrazione self-hosted comunica direttamente con i servizi di archiviazione basati sul cloud, ad esempio Archiviazione BLOB di Azure, su un canale protetto (HTTPS).
+   - Il nodo del runtime di integrazione self-hosted crittografa la credenziale usando Windows Data Protection Application Programming Interface (DPAPI) e la salva in locale. Se più nodi vengono impostati per la disponibilità elevata, le credenziali vengono ulteriormente sincronizzate negli altri nodi. Ogni nodo la crittografa usando DPAPI e la archivia in locale. La sincronizzazione delle credenziali è trasparente per lo sviluppatore di dati e viene gestita dal runtime di integrazione self-hosted.    
+   - Il servizio Data Factory comunica con il runtime di integrazione self-hosted per la pianificazione e la gestione dei processi tramite un **canale di controllo** che usa una coda condivisa del bus di servizio di Azure. Quando è necessario eseguire un processo di attività, Data Factory accoda la richiesta con le informazioni sulle credenziali (se le credenziali non sono già archiviate nel runtime di integrazione self-hosted). Il runtime di integrazione self-hosted avvia il processo dopo il polling della coda.
+   - Il runtime di integrazione self-hosted copia i dati dall'archivio locale in una risorsa di archiviazione cloud o viceversa in base alla configurazione dell'attività di copia nella pipeline di dati. Per questo passaggio il runtime di integrazione self-hosted comunica direttamente con i servizi di archiviazione basati sul cloud, ad esempio Archiviazione BLOB di Azure, su un canale protetto (HTTPS).
 
 ## <a name="considerations-for-using-self-hosted-ir"></a>Considerazioni sull'uso del runtime di integrazione self-hosted
 
@@ -64,7 +67,7 @@ Di seguito è riportato un flusso di dati generale per il riepilogo dei passaggi
 - È necessario usare il runtime di integrazione self-hosted anche se l'archivio dati è nel cloud su una **macchina virtuale IaaS di Azure**.
 - In un runtime di integrazione self-hosted installato in un'istanza di Windows Server in cui è abilitata la crittografia FIPS compatibile possono verificarsi errori di esecuzione delle attività. Per risolvere questo problema, disabilitare la crittografia FIPS compatibile nel server. Per disabilitare la crittografia FIPS compatibile, modificare il valore del Registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sono supportati i **sistemi operativi** Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. L'installazione del runtime di integrazione self-hosted in un **controller di dominio non è supportata**.
 - È necessario **.NET Framework 4.6.1 o versioni successive**. Se si installa il runtime di integrazione self-hosted in un computer Windows 7, installare .NET Framework 4.6.1 o versioni successive. Per informazioni dettagliate, vedere [Requisiti di sistema di .NET Framework](/dotnet/framework/get-started/system-requirements) .
@@ -113,7 +116,20 @@ Un runtime di integrazione self-hosted può essere associato a più computer loc
 > [!NOTE]
 > Prima di aggiungere un altro nodo per **Disponibilità e scalabilità elevate**, verificare che l'opzione **Accesso remoto da Intranet** sia **abilitata** nel primo nodo (Gestione configurazione di Microsoft Integration Runtime -> Impostazioni -> Accesso remoto da Intranet). 
 
+### <a name="scale-considerations"></a>Considerazioni sulla scalabilità
+
+#### <a name="scale-out"></a>Scalabilità orizzontale
+
+Quando la **memoria disponibile nel runtime di integrazione self-hosted non è sufficiente** e l'**utilizzo della CPU è elevato**, l'aggiunta di un nuovo nodo consente di aumentare il carico nei computer. Se le attività hanno esito negativo perché si verifica un timeout o il nodo del runtime di integrazione self-hosted è offline, è utile aggiungere un nodo al gateway.
+
+#### <a name="scale-up"></a>Aumentare le prestazioni
+
+Quando la memoria disponibile e la CPU non vengono utilizzate correttamente, ma la capacità di esecuzione di processi simultanei sta raggiungendo il limite, è consigliabile aumentare le prestazioni accrescendo il numero di processi simultanei che possono essere eseguiti in un nodo. È anche possibile aumentare le prestazioni quando si verificano timeout delle attività perché il runtime di integrazione self-hosted è sovraccarico. Come illustrato nell'immagine seguente, è possibile aumentare la capacità massima di un nodo.  
+
+![](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+
 ### <a name="tlsssl-certificate-requirements"></a>Requisiti del certificato TLS/SSL
+
 Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazioni tra i nodi di Integration Runtime:
 
 - Deve essere un certificato X509 v3 pubblicamente attendibile. È consigliabile usare certificati rilasciati da un'autorità di certificazione (CA) pubblica (terza parte).
@@ -121,9 +137,57 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 - I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare ***.domain.contoso.com** come nome del soggetto del certificato.
 - I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. ad esempio se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
 - Deve supportare tutte le dimensioni chiave supportate da Windows Server 2012 R2 per i certificati SSL.
-- Non sono supportati i certificati che usano chiavi CNG. Non sono supportati i certificati che usano chiavi CNG.
+- Non sono supportati i certificati che usano chiavi CNG.  
+
+## <a name="sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories"></a>Condivisione del runtime di integrazione self-hosted tra varie data factory
+
+È possibile riutilizzare un'infrastruttura del runtime di integrazione self-hosted esistente che potrebbe già essere stato configurato in una data factory. In questo modo è possibile creare un **runtime di integrazione self-hosted collegato** in una diversa data factory facendo riferimento a un runtime di integrazione self-hosted (condiviso) già esistente.
+
+#### <a name="terminologies"></a>**Termini**
+
+- **Runtime di integrazione condiviso** – Il runtime di integrazione self-hosted originale in esecuzione in un'infrastruttura fisica.  
+- **Runtime di integrazione collegato** - Il runtime di integrazione che fa riferimento a un altro runtime di integrazione condiviso. Si tratta di un runtime di integrazione logico che usa l'infrastruttura di un altro runtime di integrazione self-hosted (condiviso).
+
+#### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Panoramica generale dei passaggi per creare un runtime di integrazione self-hosted collegato
+
+Nel runtime di integrazione self-hosted da condividere:
+
+1. Concedere l'autorizzazione alla data factory in cui si desidera il runtime di integrazione collegato. 
+
+   ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+
+2. Trovare l'**ID risorsa** del runtime di integrazione self-hosted da condividere.
+
+   ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+
+Nella data factory per cui sono state concesse le autorizzazioni:
+
+3. Creare un nuovo runtime di integrazione self-hosted (collegato) e immettere l'**ID risorsa** individuato in precedenza
+
+   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+
+   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitazioni note della condivisione del runtime di integrazione self-hosted
+
+1. Il numero predefinito di runtime di integrazione collegati che possono essere creati in un singolo runtime di integrazione self-hosted è **20**. Se ne servono di più, contattare il supporto tecnico. 
+
+2. La data factory in cui verrà creato il runtime di integrazione collegato deve avere un'[identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Per impostazione predefinita, nelle data factory create nel portale di Ibiza o nei cmdlet di PowerShell è creata in modo implicito un'identità del servizio gestita. Tuttavia, in alcuni casi in cui la data factory viene creata usando un modello di Azure Resource Manager o l'SDK, la proprietà "**Identity**" **deve essere impostata** in modo esplicito per assicurarsi che Azure Resource Manager crei una data factory contenente un'identità del servizio gestita. 
+
+3. La versione del runtime di integrazione self-hosted deve essere 3.8.xxxx.xx o successiva. [Scaricare la versione più recente](https://www.microsoft.com/download/details.aspx?id=39717) del runtime di integrazione self-hosted
+
+4. La data factory in cui verrà creato il runtime di integrazione collegato deve avere un'[identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Per impostazione predefinita, le data factory create nel portale di Ibiza o nei cmdlet di PowerShell avranno l'[identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)
+creata in modo implicito. Tuttavia, le data factory create con il modello di Azure Resource Manager (ARM) o l'SDK richiedono che la proprietà "Identity" venga impostata per assicurarsi che venga creata un'identità del servizio gestita.
+
+5. L'SDK .Net di ADF che supporta questa funzione è 1.1.0 o versione successiva
+
+6. Azure PowerShell che supporta questa funzione è 6.6.0 o versione successiva (AzureRM.DataFactoryV2 > = 0.5.7)
+
+  > [!NOTE]
+  > Questa funzione è disponibile solo in Azure Data Factory versione 2 
 
 ## <a name="system-tray-icons-notifications"></a>Notifiche/icone nell'area di notifica
+
 Spostando il cursore sul messaggio di notifica o sull'icona nell'area di notifica, è possibile trovare i dettagli relativi allo stato del runtime di integrazione self-hosted.
 
 ![Notifiche dell'area di notifica](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
@@ -180,10 +244,10 @@ Il servizio host di runtime di integrazione viene riavviato automaticamente dopo
 
 Dopo aver registrato correttamente il runtime di integrazione self-hosted, se si vuole visualizzare o aggiornare le impostazioni proxy, usare Gestione configurazione di Integration Runtime.
 
-1.  Avviare **Gestione configurazione di Microsoft Integration Runtime**.
-2.  Passare alla scheda **Impostazioni** .
-3.  Fare clic sul collegamento **Cambia** nella sezione **Proxy HTTP** per avviare la finestra di dialogo **Imposta proxy HTTP**.
-4.  Dopo avere fatto clic sul pulsante **Avanti**, una finestra di dialogo di avviso richiede l'autorizzazione per salvare le impostazioni del proxy e riavviare il servizio host di runtime di integrazione.
+1. Avviare **Gestione configurazione di Microsoft Integration Runtime**.
+   - Passare alla scheda **Impostazioni** .
+   - Fare clic sul collegamento **Cambia** nella sezione **Proxy HTTP** per avviare la finestra di dialogo **Imposta proxy HTTP**.
+   - Dopo avere fatto clic sul pulsante **Avanti**, una finestra di dialogo di avviso richiede l'autorizzazione per salvare le impostazioni del proxy e riavviare il servizio host di runtime di integrazione.
 
 È possibile visualizzare e aggiornare il proxy HTTP tramite lo strumento Gestione configurazione.
 
@@ -229,8 +293,8 @@ Oltre ai punti precedenti, è necessario assicurarsi anche Microsoft Azure sia s
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Possibili sintomi di problemi correlati al firewall e al server proxy
 Se si verificano errori simili ai seguenti, potrebbero essere dovuti a una configurazione non corretta del firewall o del server proxy, che impedisce al runtime di integrazione self-hosted di connettersi a Data Factory per l'autenticazione. Per assicurarsi che la configurazione del firewall e del server proxy sia corretta, vedere la sezione precedente.
 
-1.  Quando si prova a registrare il runtime di integrazione self-hosted, viene visualizzato l'errore seguente: "Non è stato possibile registrare questo nodo di Runtime di integrazione. Verificare la validità della chiave di autenticazione e che il servizio host servizio di integrazione sia in esecuzione nel computer. "
-2.  Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere "**Disconnesso**" o "**Connessione**". Quando si visualizzano i registri eventi di Windows, in "Visualizzatore eventi" > "Registri applicazioni e servizi" > "Runtime di integrazione Microsoft", vengono visualizzati messaggi di errore simili al seguente:
+1. Quando si prova a registrare il runtime di integrazione self-hosted, viene visualizzato l'errore seguente: "Non è stato possibile registrare questo nodo di Runtime di integrazione. Verificare la validità della chiave di autenticazione e che il servizio host servizio di integrazione sia in esecuzione nel computer. "
+   - Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere "**Disconnesso**" o "**Connessione**". Quando si visualizzano i registri eventi di Windows, in "Visualizzatore eventi" > "Registri applicazioni e servizi" > "Runtime di integrazione Microsoft", vengono visualizzati messaggi di errore simili al seguente:
 
     ```
     Unable to connect to the remote server

@@ -3,8 +3,8 @@ title: Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Ne
 description: Questa pagina illustra come usare strumenti open source per visualizzare i log dei flussi dei gruppi di sicurezza di rete.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mareat
+ms.openlocfilehash: aa83ba1f428e70cd78cba2af6d39989179d5b30f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29394171"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146636"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source
 
@@ -38,24 +38,23 @@ In questo articolo si configurerà una soluzione che consentirà di visualizzare
 ### <a name="enable-network-security-group-flow-logging"></a>Abilitare la registrazione dei flussi dei gruppi di sicurezza di rete
 Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni in proposito, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 
-
 ### <a name="set-up-the-elastic-stack"></a>Configurare Elastic Stack
 Connettendo i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, è possibile creare un dashboard Kibana che consente di eseguire ricerche e analisi, creare grafici e ottenere informazioni significative dai log.
 
 #### <a name="install-elasticsearch"></a>Installare Elasticsearch
 
-1. Elastic Stack versione 5.0 e successive richiede Java 8. Eseguire il comando `java -version` per controllare la versione in uso. Se Java non è installato, vedere la documentazione sul [sito Web Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
-1. Scaricare il pacchetto binario corretto per il proprio sistema:
+1. Elastic Stack versione 5.0 e successive richiede Java 8. Eseguire il comando `java -version` per controllare la versione in uso. Se Java non è installato, vedere la documentazione sul [sito Web Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+2. Scaricare il pacchetto binario corretto per il proprio sistema:
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
-    sudo dpkg -i elasticsearch-5.2.0.deb
-    sudo /etc/init.d/elasticsearch start
-    ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
+   sudo dpkg -i elasticsearch-5.2.0.deb
+   sudo /etc/init.d/elasticsearch start
+   ```
 
-    Per altri metodi di installazione, vedere [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html) (Installazione di Elasticsearch)
+   Per altri metodi di installazione, vedere [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html) (Installazione di Elasticsearch)
 
-1. Verificare che Elasticsearch sia in esecuzione con questo comando:
+3. Verificare che Elasticsearch sia in esecuzione con questo comando:
 
     ```bash
     curl http://127.0.0.1:9200
@@ -78,7 +77,7 @@ Connettendo i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, 
     }
     ```
 
-Per altre istruzioni sull'installazione di Elasticsearch, vedere la pagina [Installation](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html) (Installazione)
+Per altre istruzioni sull'installazione di Elasticsearch, vedere [Istruzioni di installazione](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
 
 ### <a name="install-logstash"></a>Installare Logstash
 
@@ -88,76 +87,76 @@ Per altre istruzioni sull'installazione di Elasticsearch, vedere la pagina [Inst
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Successivamente è necessario configurare Logstash per accedere ai log dei flussi e analizzarli. Creare un file logstash.conf usando:
+2. Successivamente è necessario configurare Logstash per accedere ai log dei flussi e analizzarli. Creare un file logstash.conf usando:
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-1. Aggiungere il contenuto seguente al file:
+3. Aggiungere il contenuto seguente al file:
 
-  ```
-input {
-   azureblob
-     {
-         storage_account_name => "mystorageaccount"
-         storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
-         container => "insights-logs-networksecuritygroupflowevent"
-         codec => "json"
-         # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
-         # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
-         file_head_bytes => 12
-         file_tail_bytes => 2
-         # Enable / tweak these settings when event is too big for codec to handle.
-         # break_json_down_policy => "with_head_tail"
-         # break_json_batch_count => 2
+   ```
+   input {
+      azureblob
+        {
+            storage_account_name => "mystorageaccount"
+            storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
+            container => "insights-logs-networksecuritygroupflowevent"
+            codec => "json"
+            # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
+            # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
+            file_head_bytes => 12
+            file_tail_bytes => 2
+            # Enable / tweak these settings when event is too big for codec to handle.
+            # break_json_down_policy => "with_head_tail"
+            # break_json_batch_count => 2
+        }
+      }
+
+      filter {
+        split { field => "[records]" }
+        split { field => "[records][properties][flows]"}
+        split { field => "[records][properties][flows][flows]"}
+        split { field => "[records][properties][flows][flows][flowTuples]"}
+
+     mutate{
+      split => { "[records][resourceId]" => "/"}
+      add_field => {"Subscription" => "%{[records][resourceId][2]}"
+                    "ResourceGroup" => "%{[records][resourceId][4]}"
+                    "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
+      convert => {"Subscription" => "string"}
+      convert => {"ResourceGroup" => "string"}
+      convert => {"NetworkSecurityGroup" => "string"}
+      split => { "[records][properties][flows][flows][flowTuples]" => ","}
+      add_field => {
+                  "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
+                  "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
+                  "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
+                  "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
+                  "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
+                  "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
+                  "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
+                  "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                   }
+      convert => {"unixtimestamp" => "integer"}
+      convert => {"srcPort" => "integer"}
+      convert => {"destPort" => "integer"}        
      }
-   }
 
-   filter {
-     split { field => "[records]" }
-     split { field => "[records][properties][flows]"}
-     split { field => "[records][properties][flows][flows]"}
-     split { field => "[records][properties][flows][flows][flowTuples]"}
+     date{
+       match => ["unixtimestamp" , "UNIX"]
+     }
+    }
+   output {
+     stdout { codec => rubydebug }
+     elasticsearch {
+       hosts => "localhost"
+       index => "nsg-flow-logs"
+     }
+   }  
+   ```
 
-  mutate{
-   split => { "[records][resourceId]" => "/"}
-   add_field => {"Subscription" => "%{[records][resourceId][2]}"
-                 "ResourceGroup" => "%{[records][resourceId][4]}"
-                 "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
-   convert => {"Subscription" => "string"}
-   convert => {"ResourceGroup" => "string"}
-   convert => {"NetworkSecurityGroup" => "string"}
-   split => { "[records][properties][flows][flows][flowTuples]" => ","}
-   add_field => {
-               "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
-               "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
-               "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
-               "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
-               "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
-               "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
-               "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
-               "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-                }
-   convert => {"unixtimestamp" => "integer"}
-   convert => {"srcPort" => "integer"}
-   convert => {"destPort" => "integer"}        
-  }
-
-  date{
-    match => ["unixtimestamp" , "UNIX"]
-  }
- }
-output {
-  stdout { codec => rubydebug }
-  elasticsearch {
-    hosts => "localhost"
-    index => "nsg-flow-logs"
-  }
-}  
-  ```
-
-Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
+Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Installare il plug-in di input Logstash per l'archiviazione BLOB di Azure
 
@@ -173,38 +172,37 @@ Per avviare Logstash, eseguire questo comando:
 sudo /etc/init.d/logstash start
 ```
 
-Per altre informazioni sul plug-in, vedere la documentazione [qui](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)
+Per altre informazioni sul plug-in, vedere la [documentazione](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
 ### <a name="install-kibana"></a>Installare Kibana
 
 1. Eseguire questi comandi per installare Kibana:
 
-  ```bash
-  curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
-  tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
-  ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
+   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
+   ```
 
-1. Per eseguire Kibana, usare questi comandi:
+2. Per eseguire Kibana, usare questi comandi:
 
-  ```bash
-  cd kibana-5.2.0-linux-x86_64/
-  ./bin/kibana
-  ```
+   ```bash
+   cd kibana-5.2.0-linux-x86_64/
+   ./bin/kibana
+   ```
 
-1. Per visualizzare l'interfaccia Web di Kibana, passare a `http://localhost:5601`
-1. Per questo scenario, il modello di indice usato per i log dei flussi è "nsg-flow-logs". È possibile modificare il modello di indice nella sezione "output" del file logstash.conf.
-
-1. Per visualizzare il dashboard Kibana in remoto, creare una regola dei gruppi di sicurezza di rete in ingresso che consenta l'accesso alla **porta 5601**.
+3. Per visualizzare l'interfaccia Web di Kibana, passare a `http://localhost:5601`
+4. Per questo scenario, il modello di indice usato per i log dei flussi è "nsg-flow-logs". È possibile modificare il modello di indice nella sezione "output" del file logstash.conf.
+5. Per visualizzare il dashboard Kibana in remoto, creare una regola dei gruppi di sicurezza di rete in ingresso che consenta l'accesso alla **porta 5601**.
 
 ### <a name="create-a-kibana-dashboard"></a>Creare un dashboard Kibana
 
-Per questo articolo, è stato fornito un dashboard di esempio per visualizzare tendenze e dettagli degli avvisi.
+Un dashboard di esempio per visualizzare le tendenze e i dettagli degli avvisi è illustrato nell'immagine seguente:
 
 ![Figura 1][1]
 
-1. Scaricare il file del dashboard [qui](https://aka.ms/networkwatchernsgflowlogdashboard), il file delle visualizzazioni [qui](https://aka.ms/networkwatchernsgflowlogvisualizations) e il file della ricerca salvata [qui](https://aka.ms/networkwatchernsgflowlogsearch).
+Scaricare il [file del dashboard](https://aka.ms/networkwatchernsgflowlogdashboard), il [file delle visualizzazioni](https://aka.ms/networkwatchernsgflowlogvisualizations) e il [file della ricerca salvata](https://aka.ms/networkwatchernsgflowlogsearch).
 
-1. Nella scheda **Management** (Gestione) di Kibana passare a **Saved Objects** (Oggetti salvati) e importare tutti e tre i file. Dalla scheda **Dashboard** è quindi possibile aprire e caricare il dashboard di esempio.
+Nella scheda **Management** (Gestione) di Kibana passare a **Saved Objects** (Oggetti salvati) e importare tutti e tre i file. Dalla scheda **Dashboard** è quindi possibile aprire e caricare il dashboard di esempio.
 
 È anche possibile creare visualizzazioni e dashboard personalizzati per le metriche a cui si è interessati. Per altre informazioni sulla creazione di visualizzazioni Kibana, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/kibana/current/visualize.html) di Kibana.
 
@@ -214,27 +212,27 @@ Il dashboard di esempio offre diverse visualizzazioni dei log dei flussi.
 
 1. Flussi per decisione/direzione nel tempo: grafici di serie temporali che mostrano il numero dei flussi nel periodo di tempo specificato. È possibile modificare l'unità di tempo e l'intervallo di entrambe queste visualizzazioni. Il grafico dei flussi per decisione mostra la proporzione tra le decisioni di consentire e di rifiutare il traffico che sono state prese, mentre quello dei flussi per direzione mostra la proporzione tra traffico in ingresso e in uscita. Questi oggetti visivi consentono di esaminare le tendenze del traffico nel tempo e individuare eventuali picchi o modelli insoliti.
 
-  ![Figura 2][2]
+   ![Figura 2][2]
 
-1. Flussi per porta di origine/destinazione: grafici a torta che mostrano la suddivisione dei flussi sulle rispettive porte. Questa visualizzazione consente di verificare le porte più usate. Facendo clic su una porta specifica nel grafico a torta, il resto del dashboard viene filtrato in modo da visualizzare i flussi di tale porta.
+2. Flussi per porta di origine/destinazione: grafici a torta che mostrano la suddivisione dei flussi sulle rispettive porte. Questa visualizzazione consente di verificare le porte più usate. Facendo clic su una porta specifica nel grafico a torta, il resto del dashboard viene filtrato in modo da visualizzare i flussi di tale porta.
 
-  ![Figura 3][3]
+   ![Figura 3][3]
 
-1. Numero di flussi e data e ora del primo log: metriche che mostrano il numero di flussi registrato e la data del primo log acquisito.
+3. Numero di flussi e data e ora del primo log: metriche che mostrano il numero di flussi registrato e la data del primo log acquisito.
 
-  ![Figura 4][4]
+   ![Figura 4][4]
 
-1. Flussi per gruppo di sicurezza di rete e regola: grafico a barre che mostra la distribuzione dei flussi in ogni gruppo di sicurezza di rete nonché la distribuzione delle regole all'interno di ogni gruppo. Questo grafico consente di determinare il gruppo di sicurezza di rete e le regole che hanno generato la maggiore quantità di traffico.
+4. Flussi per gruppo di sicurezza di rete e regola: grafico a barre che mostra la distribuzione dei flussi in ogni gruppo di sicurezza di rete nonché la distribuzione delle regole all'interno di ogni gruppo. Questo grafico consente di determinare il gruppo di sicurezza di rete e le regole che hanno generato la maggiore quantità di traffico.
 
-  ![Figura 5][5]
+   ![Figura 5][5]
 
-1. 10 principali IP di origine/destinazione: grafici a barre che mostrano i 10 principali indirizzi IP di origine e di destinazione. È possibile modificare i grafici in modo da visualizzare un numero maggiore o minore di indirizzi IP principali. Questi grafici consentono di rilevare gli indirizzi IP più ricorrenti nonché le decisioni di consentire o rifiutare il traffico prese nei confronti di ogni IP.
+5. 10 principali IP di origine/destinazione: grafici a barre che mostrano i 10 principali indirizzi IP di origine e di destinazione. È possibile modificare i grafici in modo da visualizzare un numero maggiore o minore di indirizzi IP principali. Questi grafici consentono di rilevare gli indirizzi IP più ricorrenti nonché le decisioni di consentire o rifiutare il traffico prese nei confronti di ogni IP.
 
-  ![Figura 6][6]
+   ![Figura 6][6]
 
-1. Tuple dei flussi: questa tabella mostra le informazioni contenute in ogni tupla dei flussi, nonché il gruppo di sicurezza di rete e la regola corrispondenti.
+6. Tuple dei flussi: questa tabella mostra le informazioni contenute in ogni tupla dei flussi, nonché il gruppo di sicurezza di rete e la regola corrispondenti.
 
-  ![Figura 7][7]
+   ![Figura 7][7]
 
 Usando la barra per le query nella parte superiore è possibile filtrare il dashboard in base a qualsiasi parametro dei flussi, come ID sottoscrizione, gruppi di risorse, regola o qualsiasi altra variabile a cui si è interessati. Per altre informazioni su query e filtri di Kibana, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
@@ -245,7 +243,6 @@ Combinando i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, s
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI, vedere [Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-
 
 <!--Image references-->
 

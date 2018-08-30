@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 0fea91fb067a6d78ef25cb0ff8014b65a8b6a916
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258101"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246738"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurare una rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -29,7 +29,7 @@ Istanza gestita di database SQL di Azure (anteprima) deve essere distribuita in 
 Pianificare la modalità di distribuzione di un'istanza gestita in una rete virtuale rispondendo alle domande seguenti: 
 - Si prevede di distribuire una sola o più istanze gestite? 
 
-  Il numero di istanze gestite determina le dimensioni minime della subnet da allocare per le istanze gestite. Per altre informazioni, vedere [Determinare le dimensioni della subnet per le istanze gestite](#create-a-new-virtual-network-for-managed-instances). 
+  Il numero di istanze gestite determina le dimensioni minime della subnet da allocare per le istanze gestite. Per altre informazioni, vedere [Determinare le dimensioni della subnet per le istanze gestite](#determine-the-size-of-subnet-for-managed-instances). 
 - Occorre distribuire l'istanza gestita in una rete virtuale esistente o si sta creando una nuova rete? 
 
    Se si prevede di usare una rete virtuale esistente, è necessario modificare la configurazione di rete in base all'istanza gestita. Per altre informazioni, vedere la sezione [Modificare la rete virtuale esistente per l'istanza gestita](#modify-an-existing-virtual-network-for-managed-instances). 
@@ -63,7 +63,28 @@ Se si prevede di distribuire più istanze gestite all'interno della subnet ed è
 
 **Esempio**: si prevede di avere tre istanze gestite di utilizzo generico e due di business critical. Questo significa che sono necessari 5 + 3 * 2 + 2 * 4 = 19 indirizzi IP. Poiché gli intervalli IP sono definiti in potenza di 2, è necessario l'intervallo IP di 32 (2^5) indirizzi IP. Pertanto è necessario riservare la subnet con subnet mask /27. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances"></a>Creare una nuova rete virtuale per le istanze gestite 
+## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Creare una nuova rete virtuale per Istanza gestita con distribuzione Azure Resource Manager
+
+Il modo più semplice per creare e configurare una rete virtuale è usare il modello di distribuzione Azure Resource Manager.
+
+1. Accedere al portale di Azure.
+
+2. Usare **Distribuisci in Azure** per distribuire una rete virtuale nel cloud di Azure:
+
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+
+  Questo pulsante apre un modulo che è possibile usare per configurare l'ambiente di rete in cui distribuire l'istanza gestita.
+
+  > [!Note]
+  > Questo modello di Azure Resource Manager distribuirà una rete virtuale con due subnet. Una subnet denominata **ManagedInstances** è riservata alle istanze gestite e dispone di una tabella di route preconfigurata, mentre l'altra subnet denominata **Default** viene usata per le altre risorse che devono accedere all'istanza gestita (ad esempio, macchine virtuali di Azure). È possibile rimuovere la subnet **Default** subnet se non è necessaria.
+
+3. Configurare l'ambiente di rete. Nel modulo seguente è possibile configurare i parametri dell'ambiente di rete:
+
+![Configurare la rete di Azure](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+
+È possibile modificare facoltativamente i nomi della rete virtuale e delle subnet e gli intervalli IP associati alle risorse di rete. Facendo clic sul pulsante "Acquista", il modulo procederà a creare e configurare l'ambiente. Se non sono necessarie due subnet è possibile eliminare quella predefinita. 
+
+## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Creare una nuova rete virtuale per le istanze gestite tramite il portale
 
 La creazione di una rete virtuale di Azure è un prerequisito per la creazione di un'istanza gestita. È possibile usare il portale di Azure, [PowerShell](../virtual-network/quick-create-powershell.md) o l'[interfaccia della riga di comando di Azure](../virtual-network/quick-create-cli.md). Le sezione seguente mostra la procedura tramite il portale di Azure. I dettagli illustrati qui sono validi per ognuno di questi metodi.
 
@@ -92,7 +113,7 @@ La creazione di una rete virtuale di Azure è un prerequisito per la creazione d
 
    ![Modulo per la creazione della rete virtuale](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## <a name="create-the-required-route-table-and-associate-it"></a>Creare la tabella di route necessaria e associarla
+### <a name="create-the-required-route-table-and-associate-it"></a>Creare la tabella di route necessaria e associarla
 
 1. Accedere al portale di Azure  
 2. Individuare e quindi selezionare **Tabella di route** e infine fare clic su **Crea** nella pagina Tabella di route.

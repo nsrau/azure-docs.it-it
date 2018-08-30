@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216343"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141563"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Esercitazione: DevOps con il portale di Azure
 La piattaforma Azure include diversi flussi di lavoro flessibili di DevOps. Questa esercitazione illustra come sfruttare le funzionalità del portale di Azure per sviluppare, testare, distribuire, risolvere i problemi, monitorare e gestire le applicazioni in esecuzione. L'esercitazione si incentra sugli argomenti seguenti:
@@ -125,7 +125,7 @@ Apportare ora alcune modifiche alla base codici e distribuirle rapidamente. Si c
 12. Tornare al pannello Strumenti e nella categoria Sviluppo fare clic su Test delle prestazioni.
     
     ![Immagine28][image28]
-13. È necessario impostare un account di Team Services. Per altri dettagli, vedere [Create a Team Services Account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+13. È necessario impostare un account di Team Services. Per altri dettagli, vedere [Creare un account di Team Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Fare clic su Nuovo per creare un test delle prestazioni.
     
     ![Immagine29][image29]

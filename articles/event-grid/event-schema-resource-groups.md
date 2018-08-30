@@ -3,17 +3,16 @@ title: Schema di eventi del gruppo di risorse di Griglia di eventi di Azure
 description: Descrive le proprietà disponibili per gli eventi del gruppo di risorse con Griglia di eventi di Azure
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495323"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141804"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Schema di eventi di Griglia di eventi di Azure per i gruppi di risorse
 
@@ -27,7 +26,9 @@ Quando si esegue la sottoscrizione per gli eventi di un gruppo di risorse, l'end
 
 Per gestire gli eventi a livello di programmazione, è possibile ordinare gli eventi esaminando il valore `operationName`. Ad esempio, l'endpoint dell'evento potrebbe elaborare solo gli eventi per le operazioni uguali a `Microsoft.Compute/virtualMachines/write` o `Microsoft.Storage/storageAccounts/write`.
 
-L'oggetto dell'evento è l'ID risorsa della risorsa di destinazione dell'operazione. Per filtrare gli eventi per una risorsa, fornire l'ID della risorsa quando si crea la sottoscrizione dell'evento. Per gli script di esempio, vedere [Subscribe and filter for resource group - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) (Eseguire la sottoscrizione e applicare un filtro per gruppo di risorse - PowerShell) oppure [Subscribe and filter for resource group - Azure CLI](scripts/event-grid-cli-resource-group-filter.md) (Eseguire la sottoscrizione e applicare un filtro per gruppo di risorse - Interfaccia della riga di comando di Azure). Per filtrare in base a un tipo di risorsa, usare un valore nel formato seguente: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+L'oggetto dell'evento è l'ID risorsa della risorsa di destinazione dell'operazione. Per filtrare gli eventi per una risorsa, fornire l'ID della risorsa quando si crea la sottoscrizione dell'evento.  Per filtrare in base a un tipo di risorsa, usare un valore nel formato seguente: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi del gruppo di risorse](event-sources.md#resource-groups).
 
 ## <a name="available-event-types"></a>Tipi di evento disponibili
 

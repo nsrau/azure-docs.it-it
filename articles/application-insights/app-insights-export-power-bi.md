@@ -11,42 +11,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/18/2016
+ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: dee3313082fbe75d76bf27105979cf7e869fafad
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294123"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246618"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](http://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](app-insights-overview.md).
 
-Esistono tre metodi consigliati per esportare i dati di Application Insights in Power BI. Possono essere usati insieme o separatamente.
+Esistono tre metodi per esportare i dati di Application Insights in Power BI:
 
-* [**Adattatore Power BI**](#power-pi-adapter). Configurare un dashboard di dati di telemetria completo dall'app. Il set di tabelle è predefinito, ma è possibile aggiungere query da qualsiasi altra origine.
-* [**Esportare query di Analisi**](#export-analytics-queries). Scrivere le query desiderate ed esportarle in Power BI. Per scrivere una query è possibile usare Analisi o le visualizzazioni Imbuto. La query può essere inserita in un dashboard, insieme a tutti gli altri dati.
-* [**Esportazione continua e Analisi di flusso di Azure**](app-insights-export-stream-analytics.md). Questo metodo è utile se i dati devono essere mantenuti a lungo. In caso contrario, usare uno degli altri metodi, poiché questo richiede un maggiore lavoro di configurazione.
+* [**Esportare query di Analisi**](#export-analytics-queries). Questo è il metodo preferito. Scrivere le query desiderate ed esportarle in Power BI. La query può essere inserita in un dashboard, insieme a tutti gli altri dati.
+* [**Esportazione continua e Analisi di flusso di Azure**](app-insights-export-stream-analytics.md). Questo metodo è utile se i dati devono essere archiviati per lunghi periodi. Se non si dispone di un requisito di conservazione dati esteso, usare il metodo di esportazione query di analisi. Esportazione continua e analisi di flusso comportano una configurazione più impegnativa e un overhead di archiviazione aggiuntivo.
+* [**Adattatore Power BI**](#power-pi-adapter). Il set di tabelle è predefinito, ma è possibile aggiungere query da qualsiasi altra origine.
 
-## <a name="power-bi-adapter"></a>Adattatore Power BI
-Con questo metodo si crea un dashboard di dati di telemetria completo per l'utente. Il set di dati iniziale è predefinito, ma è possibile aggiungere altri dati.
-
-### <a name="get-the-adapter"></a>Scaricare l'adattatore
-1. Accedere a [Power BI](https://app.powerbi.com/).
-2. Aprire **Recupera dati**, **Servizi** e quindi **Application Insights**.
-   
-    ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/app-insights-export-power-bi/power-bi-adapter.png)
-3. Specificare i dettagli della risorsa di Application Insights.
-   
-    ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
-4. Attendere uno o due minuti per il completamento dell'importazione dei dati.
-   
-    ![Screenshot dell'adattatore Power BI](./media/app-insights-export-power-bi/010.png)
-
-È possibile modificare il dashboard unendo i grafici di Application Insights con i grafici di altre origini e con le query di Analisi. Nella raccolta di visualizzazioni sono disponibili più grafici, ciascuno dei quali include parametri che è possibile impostare.
-
-Dopo l'importazione iniziale, il dashboard e i report continuano a essere aggiornati ogni giorno. È possibile controllare la pianificazione dell'aggiornamento nel set di dati.
+> [!NOTE]
+> L'adattatore Power BI è ora **deprecato**. I grafici predefiniti per questa soluzione vengono popolati da query statiche non modificabili. Non è possibile modificare queste query e, a seconda di alcune proprietà dei dati, è possibile che la connessione a Power BI abbia esito positivo, ma nessun dato viene popolato. Ciò è dovuto ai criteri di esclusione impostati all'interno della query hardcoded. Anche se questa soluzione può comunque funzionare per alcuni clienti, a causa della mancanza di flessibilità dell'adattatore la soluzione consigliata consiste nell'usare la funzionalità di [**esportazione query di analisi**](#export-analytics-queries).
 
 ## <a name="export-analytics-queries"></a>Esportare query di Analisi
 Questo metodo consente di scrivere tutte le query di Analisi desiderate, o di esportarle dalle visualizzazioni Imbuto, e quindi di inserirle in un dashboard di Power BI. È possibile aggiungerle al dashboard creato dall'adattatore.
@@ -83,10 +67,10 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-a-funnel"></a>Esportare una visualizzazione Imbuto
 1. [Creare una visualizzazione Imbuto](usage-funnels.md).
-2. Selezionare **Power BI**. 
+2. Selezionare **Power BI**.
 
    ![Screenshot del pulsante Power BI](./media/app-insights-export-power-bi/button.png)
-   
+
 3. In Power BI Desktop selezionare **Recupera dati** > **Query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
 
    ![Screenshot di Power BI Desktop, con il pulsante Query vuota evidenziato](./media/app-insights-export-power-bi/blankquery.png)
@@ -139,6 +123,35 @@ Se la riduzione del set di dati risultante dalla query di Analisi non è una sol
 ## <a name="about-sampling"></a>Informazioni sul campionamento
 Se l'applicazione invia una grande quantità di dati, può essere opportuno usare la funzionalità di campionamento adattivo, che invia solo una percentuale dei dati di telemetria. La stessa considerazione vale se il campionamento è stato impostato manualmente nell'SDK o durante l'inserimento. [Altre informazioni sul campionamento](app-insights-sampling.md).
 
+## <a name="power-bi-adapter-deprecated"></a>Adattatore Power BI (deprecato)
+Con questo metodo si crea un dashboard di dati di telemetria completo per l'utente. Il set di dati iniziale è predefinito, ma è possibile aggiungere altri dati.
+
+### <a name="get-the-adapter"></a>Scaricare l'adattatore
+1. Accedere a [Power BI](https://app.powerbi.com/).
+2. Aprire **Recupera dati** ![Screenshot dell'icona Recupera dati nell'angolo inferiore sinistro](./media/app-insights-export-power-bi/001.png), **Servizi**.
+
+    ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/app-insights-export-power-bi/002.png)
+
+3. Selezionare **Scarica adesso** in Application Insights.
+
+   ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/app-insights-export-power-bi/003.png)
+4. Specificare i dettagli della risorsa di Application Insights, quindi effettuare l'**Accesso**.
+
+    ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/app-insights-export-power-bi/005.png)
+
+     Queste informazioni sono disponibili nel riquadro di Panoramica di Application Insights:
+
+     ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/app-insights-export-power-bi/004.png)
+
+5. Aprire l'App Application Insights Power BI appena creata.
+
+6. Attendere uno o due minuti per il completamento dell'importazione dei dati.
+
+    ![Screenshot dell'adattatore Power BI](./media/app-insights-export-power-bi/010.png)
+
+È possibile modificare il dashboard unendo i grafici di Application Insights con i grafici di altre origini e con le query di Analisi. Nella raccolta di visualizzazioni sono disponibili più grafici, ciascuno dei quali include parametri che è possibile impostare.
+
+Dopo l'importazione iniziale, il dashboard e i report continuano a essere aggiornati ogni giorno. È possibile controllare la pianificazione dell'aggiornamento nel set di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Power BI - Informazioni](http://www.powerbi.com/learning/)

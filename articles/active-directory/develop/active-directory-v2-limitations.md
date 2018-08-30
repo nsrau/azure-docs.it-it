@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9245e85781482a3aa1e45333d8e8a748983675b6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590750"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246677"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Perché usare l'endpoint 2.0
 
@@ -101,6 +101,7 @@ Il supporto delle librerie per l'endpoint 2.0 è attualmente limitato. Per usare
 * Se si compila un'applicazione desktop o portatile, è possibile usare una delle librerie di autenticazione Microsoft (MSAL) di anteprima. Queste librerie sono disponibili in anteprima supportata di produzione ed è quindi consigliabile usarle in applicazioni di produzione. Per altre informazioni sui termini e condizioni dell'anteprima e sulle librerie disponibili, vedere le [informazioni di riferimento sulle librerie di autenticazione](reference-v2-libraries.md).
 * In caso di piattaforme non coperte da librerie Microsoft, è possibile integrarle con l'endpoint 2.0 tramite l'invio e la ricezione diretta di messaggi di protocollo nel codice dell'applicazione. I protocolli OpenID Connect e OAuth della versione 2.0 [sono documentati in modo esplicito](active-directory-v2-protocols.md) per consentire tale integrazione.
 * Per realizzare l'integrazione con l'endpoint 2.0, è anche possibile usare librerie OpenID Connect e OAuth di tipo open source. Il protocollo della versione 2.0 dovrebbe essere compatibile con molte librerie di protocollo open source senza modifiche rilevanti. La disponibilità di questi tipi di librerie varia in base a linguaggio e piattaforma. Nei siti Web di [OpenID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) è disponibile un elenco delle implementazioni più diffuse. Per altre informazioni, vedere [Azure Active Directory 2.0 e librerie di autenticazione](reference-v2-libraries.md), l'elenco di librerie client open source e gli esempi testati con l'endpoint 2.0.
+  * Per riferimento, l'endpoint `.well-known` per l'endpoint comune v2.0 è `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Sostituire `common` con l'ID tenant per ottenere i dati specifici del tenant.  
 
 ## <a name="restrictions-on-protocols"></a>Restrizioni relative ai protocolli
 
@@ -109,7 +110,6 @@ L'endpoint 2.0 non supporta protocolli SAML o WS-Federation, ma solo Open ID Con
 Le funzionalità del protocollo seguenti *non sono attualmente disponibili* nell'endpoint 2.0:
 
 * Correntemente, l'attestazione `email` viene restituita solo se viene configurata un'attestazione facoltativa e l'ambito specificato nella richiesta è scope=email. Questo comportamento, tuttavia, verrà modificato quando l'endpoint 2.0 viene aggiornato per ragioni di compatibilità con gli standard Open ID Connect e OAuth2.0.
-* L'endpoint UserInfo di OpenID Connect non è implementato nell'endpoint 2.0. Tutti i dati del profilo utente potenzialmente ricevuti sull'endpoint sono tuttavia disponibili usando l'endpoint `/me` di Microsoft Graph.
 * L'endpoint 2.0 non supporta attualmente l'emissione di attestazioni basate su ruolo o gruppo nei token ID.
 * La concessione [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3) non è supportata dall'endpoint 2.0.
 

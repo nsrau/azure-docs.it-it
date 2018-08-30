@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162015"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141941"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
 
@@ -54,11 +54,10 @@ Ogni volta che un utente reimposta o modifica la password di Azure AD, viene app
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 
-I vantaggi dell'elenco globale di password escluse si applicano a tutti gli utenti di Azure Active Directory (Azure AD).
-
-L'elenco personalizzato di password escluse richiede licenze di Azure AD Basic.
-
-La protezione password di Azure AD per Windows Server Active Directory richiede licenze di Azure AD Premium. 
+|   | Protezione delle password di Azure AD con elenco globale di password escluse | Protezione delle password di Azure AD con elenco password personalizzate escluse|
+| --- | --- | --- |
+| Solo utenti cloud | Azure AD Free | Azure AD Basic |
+| Utenti sincronizzati da Windows Server Active Directory locale | Azure AD Premium P1 o P2 | Azure AD Premium P1 o P2 |
 
 Informazioni aggiuntive sulle licenze, inclusi i costi, sono disponibili nella pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

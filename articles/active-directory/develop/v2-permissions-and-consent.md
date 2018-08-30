@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
+ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143669"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125117"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Ambiti, autorizzazioni e consenso nell'endpoint di Azure Active Directory v2.0
+
 Le app che si integrano con Azure Active Directory (Azure AD) seguono un modello di autorizzazione che consente agli utenti di controllare la modalità di accesso ai dati da parte di un'app. L'implementazione v2.0 di questo modello di autorizzazione è stata aggiornata, modificando la modalità di interazione di un'app con Azure AD. Questo articolo illustra i concetti di base di questo modello di autorizzazione, inclusi gli ambiti, le autorizzazioni e il consenso.
 
 > [!NOTE]
 > Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint 2.0, vedere l'articolo relativo alle [limitazioni della versione 2.0](active-directory-v2-limitations.md).
->
->
 
 ## <a name="scopes-and-permissions"></a>Ambiti e autorizzazioni
+
 Azure AD implementa il protocollo di autorizzazione [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 è un metodo tramite cui un'applicazione di terze parti può accedere alle risorse ospitate sul Web per conto dell'utente. Qualsiasi risorsa ospitata sul Web che si integra con Azure AD dispoen di un identificatore di risorsa o di un *URI ID dell'applicazione*. Ad esempio, alcune delle risorse ospitate sul Web di Microsoft includono:
 
 * L'API di posta unificata di Office 365: `https://outlook.office.com`
@@ -56,18 +56,23 @@ In Azure AD e OAuth queste autorizzazioni vengono definite *ambiti* o *oAuth2Per
 Un'app può richiedere tali autorizzazioni specificando gli ambiti nelle richieste all'endpoint 2.0.
 
 ## <a name="openid-connect-scopes"></a>Ambiti di OpenID Connect
+
 L'implementazione della versione 2.0 di OpenID Connect presenta alcuni ambiti ben definiti che non si applicano a una risorsa specifica: `openid`, `email`, `profile` e `offline_access`.
 
 ### <a name="openid"></a>openid
+
 Se un'app esegue l'accesso usando [OpenID Connect](active-directory-v2-protocols.md), deve richiedere l'ambito `openid`. L'ambito `openid` viene visualizzato nella pagina di consenso dell'account aziendale come autorizzazione di accesso e nella pagina di consenso dell'account personale Microsoft come autorizzazione per la visualizzazione del profilo e la connessione ad app e servizi tramite l'account Microsoft. Questa autorizzazione consente a un'app di ricevere un identificatore univoco per l'utente sotto forma di attestazione `sub` e concede all'app l'accesso all'endpoint delle informazioni utente. L'ambito `openid` può essere usato nell'endpoint del token 2.0 per acquisire token ID, che possono essere usati per proteggere le chiamate HTTP tra diversi componenti di un'app.
 
 ### <a name="email"></a>email
+
 L'ambito `email` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere all'indirizzo di posta elettronica primario dell'utente sotto forma di attestazione `email`. L'attestazione `email` è inclusa nei token solo quando un indirizzo di posta elettronica è associato all'account utente, condizione che non è sempre vera. Se si usa l'ambito `email`, l'applicazione deve essere pronta per gestire il caso in cui l'attestazione `email` non esiste nel token.
 
 ### <a name="profile"></a>Profilo
+
 L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere a numerose informazioni sull'utente, tra cui il nome e il cognome dell'utente, il nome utente preferito, l'ID dell'oggetto e così via. Per un elenco completo delle attestazioni profilo disponibili nel parametro token ID per un determinato utente, vedere il [riferimento al token della versione 2.0](v2-id-and-access-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
+
 L'ambito [`offline_access`](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) consente all'app di accedere alle risorse per conto dell'utente per un periodo di tempo prolungato. Nella pagina di consenso dell'account aziendale l'ambito viene visualizzato come autorizzazione per l'accesso ai dati in qualsiasi momento. Nella pagina di consenso dell'account personale Microsoft viene visualizzato come autorizzazione per l'accesso alle informazioni in qualsiasi momento. Quando un utente approva l'ambito `offline_access`, l'app è in grado di ricevere token di aggiornamento dall'endpoint del token 2.0. I token di aggiornamento sono di lunga durata. L'applicazione può ottenere nuovi token di accesso quando i vecchi scadono.
 
 Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md), si riceve solo un token di accesso dall'endpoint `/token`. Il token di accesso è valido per un breve periodo. Il token di accesso ha in genere una durata di un'ora. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, a seconda del tipo di app, l'utente potrebbe dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni.
@@ -77,7 +82,7 @@ Per altre informazioni su come ottenere e usare i token di aggiornamento, vedere
 ## <a name="accessing-v10-resources"></a>Accesso alle risorse v1.0
 le applicazioni v2.0 possono richiedere i token e fornire il consenso per le applicazioni v1.0 (ad esempio l'API Power BI `https://analysis.windows.net/powerbi/api` o l'API Sharepoint `https://{tenant}.sharepoint.com`).  A tale scopo, è possibile fare riferimento all’app URI e alla stringa dell’ambito nel parametro `scope`.  Ad esempio, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` richiederà l'autorizzazione di Power BI `View all Datasets` per l'applicazione. 
 
-Per richiedere più autorizzazioni, aggiungere l'intero URI con uno spazio o `+`, ad esempio `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Questo richiede entrambe le autorizzazioni `View all Datasets` e `View all Reports`.  Si noti che come con tutti gli ambiti di Azure AD e le autorizzazioni, le applicazioni possono solo effettuare una richiesta a una risorsa alla volta, pertanto la richiesta `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, che richiede sia l’autorizzazione PowerBI `View all Datasets` e l’autorizzazione Skype for Business `Initiate conversations`, verrà rifiutata a causa delle richieste di autorizzazioni in due risorse diverse.  
+Per richiedere più autorizzazioni, aggiungere l'intero URI con uno spazio o `+`, ad esempio `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://analysis.windows.net/powerbi/api/Report.Read.All`.  Questo richiede entrambe le autorizzazioni `View all Datasets` e `View all Reports`.  Si noti che come con tutti gli ambiti di Azure AD e le autorizzazioni, le applicazioni possono solo effettuare una richiesta a una risorsa alla volta, pertanto la richiesta `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://api.skypeforbusiness.com/Conversations.Initiate`, che richiede sia l’autorizzazione PowerBI `View all Datasets` e l’autorizzazione Skype for Business `Initiate conversations`, verrà rifiutata a causa delle richieste di autorizzazioni in due risorse diverse.  
 
 ### <a name="v10-resources-and-tenancy"></a>tenancy e risorse v1.0
 Sia i protocolli di Azure AD sia v1.0 che v2.0 usano un `{tenant}` parametro incorporati nell'URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Quando si usa l'endpoint v2.0 per accedere a una risorsa aziendale v1.0, non è possibile usare i tenant `common` e `consumers`, poiché queste risorse sono accessibili solo con gli account aziendali (Azure AD).  Di conseguenza, quando si accede a tali risorse, solo il tenant GUID oppure `organizations` può essere utilizzato come parametro `{tenant}`.  
@@ -88,6 +93,7 @@ Se un'applicazione tenta di accedere a una risorsa v1.0 aziendale usando un tena
 
 
 ## <a name="requesting-individual-user-consent"></a>Richiesta di consenso per un singolo utente
+
 In una richiesta di autorizzazione [OpenID Connect o OAuth 2.0](active-directory-v2-protocols.md) un'app può richiedere le autorizzazioni necessarie usando il parametro di query `scope`. Ad esempio, quando un utente accede a un'app, questa può inviare una richiesta simile alla seguente (con interruzioni di riga aggiunte per leggibilità):
 
 ```
@@ -111,11 +117,13 @@ Dopo che l'utente immette le proprie credenziali, l'endpoint 2.0 verifica la dis
 Quando l'utente approva l'autorizzazione, il consenso viene registrato in modo che non debba essere fornito nuovamente agli accessi successivi da parte degli account.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Richiesta di consenso per un intero tenant
+
 Quando un'organizzazione acquista una licenza o una sottoscrizione a un'applicazione, desidera fornire accesso completo ai dipendenti. Come parte di questo processo, un amministratore può concedere il consenso all'applicazione ad agire per conto di qualsiasi dipendente. Se l'amministratore concede il consenso per l'intero tenant, i dipendenti dell'organizzazione non visualizzeranno la pagina di consenso per l'applicazione.
 
 Per richiedere il consenso per tutti gli utenti in un tenant, è possibile usare l'applicazione dell'endpoint di consenso dell'amministratore.
 
 ## <a name="admin-restricted-scopes"></a>Ambiti riservati all'amministratore
+
 Alcune autorizzazioni con privilegi elevati nell'ecosistema Microsoft possono essere impostati come *riservati all'amministratore*. Gli esempi di questi tipi di ambiti includono le autorizzazioni seguenti:
 
 * Lettura di dati in una directory aziendale tramite `Directory.Read`
@@ -129,19 +137,23 @@ Se l'applicazione richiede accesso ad ambiti riservati all'amministratore delle 
 Quando un amministratore concede le autorizzazioni tramite l'endpoint di consenso dell'amministratore, il consenso viene concesso a tutti gli utenti del tenant.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Uso dell'endpoint di consenso dell'amministratore
+
 Seguendo questa procedura, l'applicazione può ottenere le autorizzazioni per tutti gli utenti di un tenant, inclusi gli ambiti riservati all'amministratore. Per un esempio di codice che implementa la procedura, vedere l'[esempio sugli ambiti riservati all'amministratore](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Richiedere le autorizzazioni nel portale di registrazione dell'app
+
 1. Passare all'applicazione nel [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o [creare un'app](quickstart-v2-register-an-app.md), se non se ne possiede già una.
 2. Individuare la sezione **Autorizzazioni di Microsoft Graph**  e aggiungere le autorizzazioni richieste dall'applicazione.
 3. **Salvare** la registrazione dell'app.
 
 ### <a name="recommended-sign-the-user-in-to-your-app"></a>Consigliato: connettere l'utente dall'applicazione
+
 In genere, durante la compilazione di un'applicazione che usa l'endpoint di consenso dell'amministratore, l'app necessita di una pagina o vista che consenta all'amministratore di approvare le autorizzazioni dell'applicazione. Questa pagina può essere parte del flusso di iscrizione all'app, delle impostazioni dell'applicazione o di un flusso di "connessione" dedicato. In molti casi, è utile per l'applicazione visualizzare la pagina di "connessione" solo dopo che un utente ha eseguito l'accesso con un account di lavoro o dell'istituto di istruzione Microsoft.
 
 L'accesso dell'utente nell'app consente di identificarne l'organizzazione di appartenenza dell'amministratore prima di richiedere l'approvazione delle autorizzazioni necessarie. Sebbene non sia strettamente necessario, questo consente di creare un'esperienza più intuitiva per gli utenti dell'organizzazione. Per l'accesso utente, seguire le [esercitazioni sui protocolli 2.0](active-directory-v2-protocols.md).
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Richiedere le autorizzazioni da un amministratore di directory
+
 Quando si è pronti per richiedere le autorizzazioni dall'amministratore dell'azienda, è possibile reindirizzare l'utente sull'*endpoint di consenso dell'amministratore* v2.0.
 
 ```
@@ -163,14 +175,15 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametro | Condizione | DESCRIZIONE |
 | --- | --- | --- |
-| tenant |Obbligatoria |Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico "common" come illustrato nell'esempio. |
-| client_id |Obbligatoria |ID applicazione che il [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ha assegnato all'app. |
-| redirect_uri |Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
-| state |Consigliato |Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
+| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico "common" come illustrato nell'esempio. |
+| `client_id` | Obbligatoria | ID applicazione che il [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ha assegnato all'app. |
+| `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
+| `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. L'amministratore deve approvare tutte le autorizzazioni richieste per l'app nel portale di registrazione delle applicazioni.
 
 #### <a name="successful-response"></a>Risposta con esito positivo
+
 Se l'amministratore approva le autorizzazioni per l'app, la risposta con esito positivo si presenta come segue:
 
 ```
@@ -179,11 +192,12 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parametro | DESCRIZIONE |
 | --- | --- | --- |
-| tenant |Tenant della directory che ha concesso all'applicazione le autorizzazioni richieste, in formato GUID. |
-| state |Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-| admin_consent |Verrà impostato su **true**. |
+| `tenant` | Tenant della directory che ha concesso all'applicazione le autorizzazioni richieste, in formato GUID. |
+| `state` | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
+| `admin_consent` | Verrà impostato su **true**. |
 
 #### <a name="error-response"></a>Risposta di errore
+
 Se l'amministratore non approva le autorizzazioni per l'app, la risposta di errore si presenta come segue:
 
 ```
@@ -192,12 +206,13 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parametro | DESCRIZIONE |
 | --- | --- | --- |
-| error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
-| error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore. |
+| `error` |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
+| `error_description` |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore. |
 
 Dopo aver ricevuto una risposta con esito positivo dall'endpoint di consenso dell'amministratore, l'applicazione ha ottenuto le autorizzazioni richieste. Successivamente, è possibile richiedere un token per la risorsa desiderata.
 
 ## <a name="using-permissions"></a>Uso delle autorizzazioni
+
 Dopo che l'utente fornisce il consenso alle autorizzazioni relative all'app, quest'ultima può acquisire token di accesso che rappresentano l'autorizzazione dell'app ad accedere a una risorsa. Un token di accesso può essere usato per una sola risorsa, ma al suo interno saranno codificate tutte le autorizzazioni della risorsa specifica per cui l'app ha ottenuto il consenso. Per ottenere un token di accesso, l'app può eseguire una richiesta all'endpoint del token 2.0 come quella seguente:
 
 ```

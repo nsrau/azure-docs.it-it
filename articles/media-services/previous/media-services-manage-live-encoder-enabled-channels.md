@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436192"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246788"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
@@ -228,7 +228,8 @@ Se sono necessari set di impostazioni personalizzati, contattare amslived@micros
 | 200 |340 |192 |30 |Di base |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Flusso audio di output
-L'audio viene codificato nel formato stereo AAC-LC a 64 kbps, frequenza di campionamento di 44,1 kHz.
+
+L'audio viene codificato nel formato stereo AAC-LC a 128 kbps, con una frequenza di campionamento di 48 kHz.
 
 ## <a name="signaling-advertisements"></a>Segnalazione di annunci
 Quando nel canale è abilitata la codifica live, nella pipeline è presente un componente che elabora il flusso video ed è in grado di modificarlo. È possibile impostare il segnale in modo che il canale inserisca slate e/o annunci nel flusso in uscita a velocità in bit adattiva. Gli slate sono immagini fisse che è possibile usare per coprire feed live di input in determinati casi (ad esempio durante un'interruzione pubblicitaria). I segnali pubblicitari sono segnali con sincronizzazione temporale incorporati nel flusso in uscita, per indicare al lettore video di eseguire un'azione speciale, ad esempio passare a un annuncio al momento opportuno. Per una panoramica del meccanismo di segnalazione SCTE-35 usato a questo scopo, vedere questo [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) . Di seguito è illustrato uno scenario tipico che è possibile implementare in un evento live.

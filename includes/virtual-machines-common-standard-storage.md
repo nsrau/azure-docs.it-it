@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 70f80b880fadaeb4d5859524b3ba3b55ececbdda
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806299"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40258143"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Archiviazione Standard conveniente e dischi gestiti e non gestiti delle macchine virtuali di Azure
 
@@ -42,7 +42,7 @@ Per informazioni su come creare una macchina virtuale con Managed Disks, vedere 
 
 Di seguito sono illustrate alcune delle funzionalità di Archiviazione Standard. Per altri dettagli, vedere [Introduzione ad Archiviazione di Azure](../articles/storage/common/storage-introduction.md).
 
-**Archiviazione Standard**: Archiviazione Standard di Azure supporta dischi, BLOB, file, tabelle e code di Azure. Per usare i servizi Archiviazione Standard, per prima cosa [creare un account di archiviazione di Azure](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+**Archiviazione Standard**: Archiviazione Standard di Azure supporta dischi, BLOB, file, tabelle e code di Azure. Per usare i servizi Archiviazione Standard, per prima cosa [creare un account di archiviazione di Azure](../articles/storage/common/storage-quickstart-create-account.md).
 
 **Dischi SSD Standard:** i dischi SSD Standard offrono prestazioni più affidabili rispetto ai dischi HDD Standard e sono attualmente disponibili in anteprima. Per altre informazioni sulla disponibilità dei dischi SSD Standard nelle varie aree, vedere la [disponibilità a livello di area dei dischi SSD Standard (anteprima)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
@@ -119,7 +119,12 @@ Quando si usa Archiviazione Standard, tenere conto delle considerazioni seguenti
 
 **Dimensioni dei dischi e dei dati di archiviazione non gestiti:** per i dischi non gestiti e altri dati (BLOB, tabelle, code e file) viene addebitata solo la quantità di spazio usata. Se per il BLOB di pagine di una VM è stato effettuato il provisioning per 127 GB ma la VM usa in realtà solo 10 GB di spazio, verranno fatturati solo 10 GB. È supportato un massimo di archiviazione Standard di 8191 GB e un massimo di dischi non gestiti Standard di 4095 GB. 
 
-**Dischi gestiti:** la fatturazione dei dischi gestiti è basata sulle dimensioni per cui è stato effettuato il provisioning. Se per un disco è stato effettuato il provisioning come disco da 10 GB e si usano solo 5 GB, verranno comunque addebitate le dimensioni di 10 GB del provisioning.
+**Dischi gestiti**: per un disco gestito Standard, la fatturazione dipende dalle dimensioni del disco di cui è stato effettuato il provisioning. Azure associa la dimensione del disco, arrotondata per eccesso, all'opzione relativa a Managed Disks più vicina, come specificato nelle tabelle seguenti. Viene eseguito il mapping di ogni disco gestito a una delle dimensioni di provisioning supportate e viene eseguita la relativa fatturazione. Se, ad esempio, si crea un disco gestito Standard e si specifica una dimensione del disco di cui è stato effettuato il provisioning pari a 200 GB, i costi addebitati si basano sui prezzi del tipo di disco S15.
+
+| **Tipo di disco gestito <br>HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Dimensione disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+
 
 **Snapshot**: gli snapshot dei dischi Standard vengono fatturati in base alla capacità aggiuntiva usata allo scopo. Per informazioni sugli snapshot, vedere [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 

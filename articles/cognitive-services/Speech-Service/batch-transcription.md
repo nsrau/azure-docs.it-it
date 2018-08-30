@@ -8,27 +8,27 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: f21973855ceb3a257627c147490ac50465c54020
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5af829ca076b39758973c28a44d918b9ba5782b1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281940"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42351251"
 ---
 # <a name="batch-transcription"></a>Trascrizione Batch
 
-La trascrizione Batch è ideale per i casi d'uso in cui sono presenti grandi quantità di dati audio. Consente allo sviluppatore di selezionare file audio e ottenere le trascrizioni in modalità asincrona.
+La trascrizione Batch è ideale se sono presenti grandi quantità di dati audio. È possibile fare riferimento a file audio e ottenere le trascrizioni in modalità asincrona.
 
 ## <a name="batch-transcription-api"></a>API di trascrizione Batch
 
-L'API di trascrizione Batch rende possibile lo scenario appena descritto. Offre la trascrizione asincrona della voce in testo scritto insieme ad altre funzionalità.
+L'API di trascrizione batch offre la trascrizione asincrona della voce in testo scritto insieme ad altre funzionalità.
 
 > [!NOTE]
-> L'API di trascrizione Batch è ideale per i call center che in genere accumulano migliaia di ore di audio. Grazie all'approccio di tipo "attiva e dimentica" su cui si basa l'API, la trascrizione di volumi elevati di registrazioni audio risulta piuttosto semplice.
+> L'API di trascrizione Batch è ideale per i call center che in genere accumulano migliaia di ore di audio. L'API di basa su un approccio di tipo "attiva e dimentica" che facilita la trascrizione di volumi elevati di registrazioni audio.
 
 ### <a name="supported-formats"></a>Formati supportati
 
-L'API di trascrizione Batch aspira a diventare la scelta naturale per tutti gli scenari offline relativi ai call center e a offrire supporto per tutti i formati correlati. Formati attualmente supportati:
+L'API di trascrizione Batch supporta i formati seguenti:
 
 NOME| Canale  |
 ----|----------|
@@ -55,28 +55,28 @@ Per i flussi audio stereo, la trascrizione Batch divide i canali sinistro e dest
 ```
 
 > [!NOTE]
-> L'API di trascrizione Batch usa un servizio REST per richiedere le trascrizioni, lo stato e i risultati associati. L'API può essere usata da qualsiasi linguaggio. Nella prossima sezione ne viene descritta la modalità d'uso.
+> L'API di trascrizione Batch usa un servizio REST per richiedere le trascrizioni, lo stato e i risultati associati. È possibile usare l'API da qualsiasi linguaggio. Nella prossima sezione ne viene descritta la modalità d'uso.
 
 ## <a name="authorization-token"></a>Token di autorizzazione
 
-Come per tutte le funzionalità del Servizio di riconoscimento vocale unificato, l'utente deve creare una chiave di sottoscrizione nel [portale di Azure](https://portal.azure.com). È inoltre necessario ottenere una chiave API dal portale del Servizio riconoscimento vocale. Per generare una chiave API seguire questa procedura:
+Come per tutte le funzionalità del Servizio di riconoscimento vocale unificato, è necessario creare una chiave di sottoscrizione nel [portale di Azure](https://portal.azure.com). Inoltre, viene acquisita una chiave API dal portale di riconoscimento vocale: 
 
-1. Accedere a https://customspeech.ai.
+1. Accedere a [Riconoscimento vocale personalizzato](https://customspeech.ai).
 
-2. Fare clic su Sottoscrizioni.
+2. Selezionare **Sottoscrizioni**.
 
-3. Fare clic sull'opzione `Generate API Key`.
+3. Selezionare **Genera chiave API**.
 
-    ![Visualizzazione caricamento](media/stt/Subscriptions.jpg)
+    ![Screenshot della pagina di sottoscrizione di Riconoscimento vocale personalizzato](media/stt/Subscriptions.jpg)
 
 4. Copiare e incollare la chiave nel codice client nell'esempio riportato di seguito.
 
 > [!NOTE]
-> Se si prevede di usare un modello personalizzato sarà necessario anche l'ID del modello. Si noti che non si tratta dell'ID di distribuzione o dell'endpoint che si trova nella visualizzazione Dettagli endpoint, ma dell'ID del modello che è possibile recuperare facendo clic sui dettagli del modello
+> Se si prevede di usare un modello personalizzato sarà necessario anche l'ID del modello. Si noti che questo non è l'ID di distribuzione o dell'endpoint presente dei dettagli dell'Endpoint. Si tratta dell'ID modello che è possibile recuperare quando si selezionano i dettagli di tale modello.
 
 ## <a name="sample-code"></a>Codice di esempio
 
-Usare l'API è piuttosto semplice. Il codice di esempio seguente deve essere personalizzato con una chiave di sottoscrizione e una chiave API, che a sua volta consente allo sviluppatore di ottenere un token di connessione, come mostra il frammento di codice seguente:
+Personalizzare il codice di esempio seguente con una chiave di sottoscrizione e una chiave API. In questo modo è possibile ottenere un token di connessione.
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -93,7 +93,7 @@ Usare l'API è piuttosto semplice. Il codice di esempio seguente deve essere per
         }
 ```
 
-Dopo aver ottenuto il token lo sviluppatore deve specificare l'URI SAS selezionando il file audio che richiede la trascrizione. Il resto del codice semplicemente scorre lo stato e visualizza i risultati.
+Dopo aver ottenuto il token, è necessario specificare l'URI SAS selezionando il file audio che richiede la trascrizione. Il resto del codice esegue l'iterazione con lo stato e visualizza i risultati.
 
 ```cs
    static async Task TranscribeAsync()
@@ -152,17 +152,16 @@ Dopo aver ottenuto il token lo sviluppatore deve specificare l'URI SAS seleziona
 ```
 
 > [!NOTE]
-> La chiave di sottoscrizione indicata nel frammento di codice precedente è la chiave della risorsa del Servizio di riconoscimento vocale (anteprima) creata nel portale di Azure. Le chiavi ottenute dalla risorsa del Servizio di riconoscimento vocale personalizzato non funzioneranno.
+> Nell'esempio precedente, la chiave di sottoscrizione è la chiave della risorsa del Servizio di riconoscimento vocale (anteprima) creata nel portale di Azure. Le chiavi ottenute dalla risorsa del Servizio di riconoscimento vocale personalizzato non funzioneranno.
 
+Si noti la configurazione asincrona per l'inserimento dell'audio e la ricezione dello stato della trascrizione. Il client creato è un client HTTP NET. Il metodo `PostTranscriptions` consente di inviare i dettagli del file audio e il metodo `GetTranscriptions` consente di ricevere i risultati. `PostTranscriptions` restituisce un handle e `GetTranscriptions` usa questo handle per crearne uno per ottenere lo stato della trascrizione.
 
-Si noti la configurazione asincrona per l'inserimento dell'audio e la ricezione dello stato della trascrizione. Il client creato è un client HTTP NET. Il metodo `PostTranscriptions` consente di inviare i dettagli del file audio e il metodo `GetTranscriptions` consente di ricevere i risultati. `PostTranscriptions` restituisce un handle e il metodo `GetTranscriptions` usa questo handle per crearne uno per ottenere lo stato della trascrizione.
+Il codice di esempio attuale non specifica alcun modello personalizzato. Per la trascrizione dei file, il servizio userà i modelli di base. Per specificare i modelli, è possibile passare sullo stesso metodo gli ID modello per il modello acustico e linguistico. 
 
-Il codice di esempio attuale non specifica alcun modello personalizzato. Per la trascrizione dei file, il servizio userà i modelli di base. Se l'utente vuole specificare i modelli, è possibile passare sullo stesso metodo gli ID modello per il modello acustico e linguistico. 
-
-Se non si vuole usare i modelli di base, è necessario passare gli ID modello per i modelli acustico e linguistico.
+Se non si vuole usare la baseline, è necessario passare gli ID modello per i modelli acustico e linguistico.
 
 > [!NOTE]
-> Per la trascrizione di base non è necessario che l'utente dichiari gli endpoint dei modelli di base. Se l'utente vuole usare modelli personalizzati dovrà specificare gli ID degli endpoint come nell'[esempio](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Se l'utente vuole usare una baseline acustica con un modello linguistico di base dovrà dichiarare solo l'ID endpoint del modello personalizzato. Il sistema determinerà internamente il modello di base (acustico o linguistico) partner e lo userà per soddisfare la richiesta di trascrizione.
+> Per la trascrizione di base non è necessario dichiarare gli endpoint dei modelli di base. Per usare modelli personalizzati si dovranno specificare gli ID degli endpoint come nell'[esempio](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Per usare una baseline acustica con un modello linguistico di base si dovrà dichiarare solo l'ID endpoint del modello personalizzato. Microsoft rileva il modello di base (acustico o linguistico) partner e lo userà per soddisfare la richiesta di trascrizione.
 
 ### <a name="supported-storage"></a>Archiviazione supportata
 

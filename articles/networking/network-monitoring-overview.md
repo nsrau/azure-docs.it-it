@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850138"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146615"
 ---
 # <a name="network-monitoring-solutions"></a>Soluzioni di monitoraggio della rete 
 
@@ -35,7 +35,7 @@ Monitoraggio prestazioni rete è una suite di funzionalità che congiuntamente c
 * Applicazioni/microservizi multilivello cruciali
 * Percorsi utente e applicazioni basate sul Web (HTTP/HTTPs) 
 
-Performance Monitor, ExpressRoute Monitor e Service Endpoint Monitor sono funzionalità di monitoraggio integrate in Monitoraggio prestazioni rete, descritte nelle sezioni seguenti.
+Performance Monitor, ExpressRoute Monitor e Service Connectivity Monitor sono funzionalità di monitoraggio integrate in Monitoraggio prestazioni rete, descritte nelle sezioni seguenti.
 
 ## <a name="performance-monitor"></a>Monitoraggio delle prestazioni
 
@@ -73,9 +73,9 @@ Per altre informazioni, vedere gli articoli seguenti:
 * [Configurare Monitoraggio prestazioni rete per ExpressRoute](../expressroute/how-to-npm.md)
 * [Post di blog](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Monitoraggio endpoint di servizio
+## <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
-Con il monitoraggio dell'endpoint di servizio è possibile testare la raggiungibilità delle applicazioni e rilevare eventuali colli di bottiglia a livello di prestazioni in reti dell'operatore, reti locali e data center cloud/privati.
+Con il monitoraggio della connettività di servizio è possibile testare la raggiungibilità delle applicazioni e rilevare eventuali colli di bottiglia a livello di prestazioni in reti dell'operatore, reti locali e data center cloud/privati.
 
 * Monitorare la connettività di rete end-to-end per le applicazioni
 * Correlare la consegna delle applicazioni alle prestazioni di rete, individuare l'esatta posizione della riduzione delle prestazioni nel percorso tra l'utente e l'applicazione

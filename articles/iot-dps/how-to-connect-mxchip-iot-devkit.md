@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 300bde27f956b449d1e0e73f7efb54a13df27b0c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: d8912a5da8c4df2069d8bc53454748b5fb3d5c39
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145666"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146775"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT
 
@@ -39,7 +39,7 @@ Per completare la procedura di questa esercitazione, effettuare le attività seg
 Per connettere il DevKit all'istanza del servizio Device Provisioning creato:
 
 1. Nel portale di Azure selezionare il riquadro **Panoramica** del servizio Device Provisioning e prendere nota dei valori **Endpoint dispositivo globale** e **Ambito ID**.
-  ![Endpoint dispositivo globale e Ambito ID del servizio Device Provisioning](./media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
+  ![Ambito ID ed endpoint globale del servizio Device Provisioning](./media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
 2. Verificare che `git` sia installato nel computer e venga aggiunto alle variabili di ambiente accessibili alla finestra di comando. Vedere gli [strumenti client Git di Software Freedom Conservancy](https://git-scm.com/download/) per installare la versione più recente.
 
@@ -88,6 +88,8 @@ Per salvare un segreto UDS nel DevKit:
 
 ## <a name="generate-an-x509-certificate"></a>Generare un certificato X.509
 
+È ora necessario generare un certificato X.609. 
+
 ### <a name="windows"></a>Windows
 
 1. Aprire Esplora file e passare alla cartella che contiene il codice di esempio del servizio Device Provisioning clonato in precedenza. Nella cartella **.build** trovare e copiare **DPS.ino.bin** e **DPS.ino.map**.
@@ -109,10 +111,11 @@ Per salvare un segreto UDS nel DevKit:
 2. Selezionare **Aggiungi**.
 
 3. Nel pannello "Add Enrollment" (Aggiungi registrazione):
-   - Selezionare **X.509** sotto **Meccanismo**
-   - Fare clic su "Selezionare un file" in **Primary Certificate .pem or .cer file** (File di certificato primario con estensione pem o cer)
-   - Nella finestra di dialogo Apri File individuare e caricare il certificato **PEM** appena generato
-   - Lasciare le altre impostazioni sui valori predefiniti e fare clic su **Salva**
+
+   - Selezionare **X.509** sotto **Meccanismo**.
+   - Fare clic su "Seleziona file" in **File di certificato primario con estensione pem o cer**.
+   - Nella finestra di dialogo Apri File individuare e caricare il certificato **PEM** appena generato.
+   - Lasciare le altre impostazioni sui valori predefiniti e fare clic su **Salva**.
 
    ![Caricamento del certificato](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
 
@@ -125,7 +128,6 @@ Per salvare un segreto UDS nel DevKit:
   >
   > `"-----BEGIN CERTIFICATE-----"` e `"-----END CERTIFICATE-----"`.
   >
-
 
 ## <a name="start-the-devkit"></a>Avviare il DevKit
 
@@ -147,10 +149,6 @@ In seguito all'avvio del dispositivo, si verificano le azioni seguenti:
 4. L'applicazione client dell'hub IoT nel dispositivo si connette all'hub.
 5. Successivamente alla connessione all'hub il dispositivo viene visualizzato in Device Explorer dell'hub IoT.
   ![Dispositivo registrato](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
-
-## <a name="change-the-device-id"></a>Modificare l'ID dispositivo
-
-L'ID dispositivo predefinito registrato nell'hub IoT di Azure è *AZ3166*. Se si vuole modificare l'ID, seguire le istruzioni in [Customize device ID](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/) (Personalizzare l'ID dispositivo).
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 

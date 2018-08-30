@@ -3,19 +3,19 @@ title: Componenti e versioni di Hadoop - Azure HDInsight
 description: Informazioni sui componenti e sulle versioni di Hadoop in HDInsight e sui livelli di servizio disponibili in questa distribuzione cloud di Hortonworks Data Platform.
 keywords: versioni hadoop, componenti ecosistema hadoop, componenti hadoop, come controllare versione hadoop
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: kkampf
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 1dda09896bfe8db5fc78ea64cd20baa78666c593
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 120068cb9dcd92b2b18c2e175793d2072baa2724
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444326"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112164"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Hadoop disponibili in HDInsight
 
