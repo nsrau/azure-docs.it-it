@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 78a0b9bf7f49cc41c8d78287bcbe54c5c88f0809
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "39597906"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185421"
 ---
 # <a name="branding-guidelines-for-applications"></a>Linee guida sulla personalizzazione per le applicazioni
 
@@ -72,7 +72,7 @@ Per scaricare il logo ufficiale di Microsoft per l'uso nell'app, fare clic con i
 
 | Asset                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Logo Microsoft  | ![Logo Microsoft PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.png) | ![Logo Microsoft SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.svg) |
+| Logo Microsoft  | ![Logo Microsoft PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logo Microsoft SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Indicazioni visive per l'accesso
 
@@ -84,16 +84,16 @@ Nell'app dovrà essere visualizzato un pulsante di accesso che reindirizza gli u
 
 Il diagramma seguente mostra le annotazioni consigliate da Microsoft quando si usano gli asset con l'app. Le annotazioni si applicano ad "Accedi con Microsoft" o alla versione più breve "Accedi".
 
-![Annotazioni Accedi con Microsoft](./media/howto-add-branding-in-azure-ad-apps/Sign-in-with-Microsoft-redlines.png)
+![Annotazioni Accedi con Microsoft](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 Per scaricare le immagini ufficiali per l'uso nell'app, fare clic con il pulsante destro del mouse su quelle che si vuole usare e salvarle sul computer.
 
 | Asset                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Accedi con Microsoft (tema scuro)  | ![Pulsante Accedi a tema scuro PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.png) | ![Pulsante Accedi con Microsoft a tema scuro SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.svg) |
-| Accedi con Microsoft (tema chiaro) | ![Pulsante Accedi a tema chiaro PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.png) | ![Pulsante Accedi con Microsoft a tema chiaro SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.svg) |
-| Accedi (tema scuro)                 | ![Pulsante versione breve Accedi a tema scuro PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.png) | ![Pulsante versione breve Accedi a tema scuro SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.svg) |
-| Accedi (tema chiaro)                | ![Pulsante versione breve Accedi a tema chiaro PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.png) | ![Pulsante versione breve Accedi a tema chiaro SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.svg) |
+| Accedi con Microsoft (tema scuro)  | ![Pulsante Accedi a tema scuro PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Pulsante Accedi con Microsoft a tema scuro SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Accedi con Microsoft (tema chiaro) | ![Pulsante Accedi a tema chiaro PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Pulsante Accedi con Microsoft a tema chiaro SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Accedi (tema scuro)                 | ![Pulsante versione breve Accedi a tema scuro PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Pulsante versione breve Accedi a tema scuro SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Accedi (tema chiaro)                | ![Pulsante versione breve Accedi a tema chiaro PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Pulsante versione breve Accedi a tema chiaro SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 
 ## <a name="branding-dos-and-donts"></a>Azioni consentite e non consentite per la personalizzazione

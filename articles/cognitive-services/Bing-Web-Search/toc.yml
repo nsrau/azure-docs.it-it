@@ -26,8 +26,6 @@ items:
     expanded: true
   - name: SDK
     items:
-    - name: Panoramica degli esempi
-      href: sdk.md
     - name: C#
       href: web-search-sdk-quickstart.md
     - name: Java
@@ -44,8 +42,10 @@ items:
     href: tutorial-bing-web-search-single-page-app-source.md
 - name: Esempi
   items:
-  - name: Esempi di codice
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search
+  - name: Esempi REST
+    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples
+  - name: Esempi di SDK
+    href: sdk-samples.md
 - name: Guide alle procedure
   items:
   - name: Filtrare le risposte
@@ -106,9 +106,9 @@ items:
       href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Roadmap per Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 99998c35cedbe0e412c03c568dec65e81f24a6cc
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: bd191b705763133312a7fdef9e77935d28226780
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143024"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189920"

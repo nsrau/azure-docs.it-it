@@ -3,19 +3,19 @@ title: Scheda di riferimento rapido per Azure SQL Data Warehouse | Microsoft Doc
 description: Collegamenti e procedure consigliate per compilare rapidamente soluzioni Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4ef64b9d4e4e5c7f5a628359a8512dcb61b9c941
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190411"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43245894"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Scheda di riferimento rapido per Azure SQL Data Warehouse
 Questa scheda di riferimento fornisce suggerimenti utili e procedure consigliate per creare rapidamente soluzioni Azure SQL Data Warehouse. Prima di iniziare, ottenere altre informazioni dettagliate su ogni passaggio leggendo [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns (Modelli e anti-modelli del carico di lavoro di Azure SQL Data Warehouse)](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), che spiega cos'è e cosa non è SQL Data Warehouse.
@@ -146,7 +146,7 @@ Distribuire con un clic del mouse gli spoke nei database SQL da SQL Data Warehou
 [deeper guidance]:guidance-for-loading-data.md
 [indici]:sql-data-warehouse-tables-index.md
 [partizioni]:sql-data-warehouse-tables-partition.md
-[statistiche]:sql-data-warehouse-tables-statistics.md
+[Statistiche]:sql-data-warehouse-tables-statistics.md
 [classi di risorse e concorrenza]:resource-classes-for-workload-management.md
 [tabelle replicate]:design-guidance-for-replicated-tables.md
 [tabelle distribuite]:sql-data-warehouse-tables-distribute.md

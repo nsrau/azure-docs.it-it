@@ -11,22 +11,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b1b060a2f47bc30cb7b7862fb738aa478238033
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2b23239fd82198747980fd527c478647743028c4
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38644877"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090092"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare un modello di Azure Resource Manager per creare una pipeline di Data Factory per copiare dati 
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -46,7 +46,7 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
 > [!NOTE] 
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Vedere [Panoramica e prerequisiti dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ed eseguire i passaggi relativi ai **prerequisiti**.
 * Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per installare la versione più recente di Azure PowerShell nel computer. In questa esercitazione si usa PowerShell per distribuire le entità di Data Factory. 
 * (facoltativo) Per informazioni sulla creazione di modelli di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).

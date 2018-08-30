@@ -1,24 +1,20 @@
 ---
-title: "Esercitazione: Usare l'API Apache Kafka Streams - Azure HDInsight | Microsoft Docs"
+title: "Esercitazione: Usare l'API Apache Kafka Streams - Azure HDInsight "
 description: Informazioni su come usare l'API Apache Kafka Streams con Kafka in HDInsight. Questa API consente di eseguire l'elaborazione di flussi tra più argomenti in Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
-ms.author: larryfr
-ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c1b45d7db53bd2eb7c9f058eb1c44c762886b80
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626395"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049835"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Esercitazione: API Apache Kafka Streams
 
@@ -40,7 +36,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare gli argomenti Kafka
 > * Eseguire il codice
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Kafka nel cluster HDInsight 3.6. Per informazioni su come creare un cluster Kafka in HDInsight, vedere il documento su come [iniziare a usare Kafka in HDInsight](apache-kafka-get-started.md).
 
@@ -225,7 +221,7 @@ Per creare e distribuire il progetto in un cluster Kafka in HDInsight, seguire q
 2. Per inviare i record all'argomento `test`, usare il comando seguente per avviare l'applicazione producer:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. Al termine dell'elaborazione del producer, usare il comando seguente per visualizzare le informazioni archiviate nell'argomento `wordcounts`:

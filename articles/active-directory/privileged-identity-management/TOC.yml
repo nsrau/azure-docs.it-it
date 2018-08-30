@@ -1,0 +1,99 @@
+items:
+- name: Documentazione di Privileged Identity Management
+- name: Panoramica
+  items:
+  - name: Informazioni su Azure AD PIM
+    href: pim-configure.md
+- name: Concetti
+  items:
+  - name: Requisiti di sottoscrizione
+    href: subscription-requirements.md
+  - name: Ruoli della directory che è possibile gestire
+    href: pim-roles.md
+  - name: Accesso sicuro con privilegi
+    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: Dashboard di panoramica
+    href: pim-resource-roles-overview-dashboards.md
+  - name: Notifiche tramite posta elettronica
+    href: pim-email-notifications.md
+  - name: Tipi di assegnazione
+    href: pim-resource-roles-eligible-visibility.md
+  - name: Procedura guidata relativa alla sicurezza
+    href: pim-security-wizard.md
+- name: Guide alle procedure
+  items:
+  - name: Iniziare a usare PIM
+    href: pim-getting-started.md
+  - name: Attivare i ruoli
+    items:
+    - name: Attivare i ruoli della directory
+      href: pim-how-to-activate-role.md
+    - name: Attivare i ruoli delle risorse
+      href: pim-resource-roles-activate-your-roles.md
+  - name: Configurare PIM
+    items:
+    - name: Individuare le risorse di Azure
+      href: pim-resource-roles-discover-resources.md
+    - name: Concedere l'accesso ad altri utenti per la gestione di PIM
+      href: pim-how-to-give-access-to-pim.md
+    - name: Abilitare la gestione delle sottoscrizioni
+      href: pim-resource-roles-enable-subscription-management.md
+  - name: Gestire i ruoli della directory
+    items:
+    - name: Assegnare ruoli
+      href: pim-how-to-add-role-to-user.md
+    - name: Configurare le impostazioni dei ruoli
+      href: pim-how-to-change-default-settings.md
+    - name: Richiedere l'autenticazione MFA
+      href: pim-how-to-require-mfa.md
+    - name: Configurare gli avvisi
+      href: pim-how-to-configure-security-alerts.md
+    - name: Approvare le richieste
+      href: azure-ad-pim-approval-workflow.md
+    - name: Visualizzare la cronologia di controllo
+      href: pim-how-to-use-audit-log.md
+  - name: Gestire i ruoli delle risorse
+    items:
+    - name: Visualizzare gli utenti autorizzati ad accedere
+      href: azure-pim-resource-rbac.md
+    - name: Assegnare ruoli
+      href: pim-resource-roles-assign-roles.md
+    - name: Configurare le impostazioni dei ruoli
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Richiedere l'autenticazione MFA
+      href: pim-resource-roles-require-mfa.md
+    - name: Configurare gli avvisi
+      href: pim-resource-roles-configure-alerts.md
+    - name: Approvare le richieste
+      href: pim-resource-roles-approval-workflow.md
+    - name: Estendere o rinnovare i ruoli
+      href: pim-resource-roles-renew-extend.md
+    - name: Visualizzare la cronologia di controllo
+      href: pim-resource-roles-use-the-audit-log.md
+    - name: Usare i ruoli personalizzati
+      href: pim-resource-roles-custom-role-policy.md
+  - name: Verificare l'accesso
+    items:
+    - name: Ruoli della directory
+      items:
+      - name: Verificare i ruoli della directory personali
+        href: pim-how-to-perform-security-review.md
+      - name: Avviare una verifica dell'accesso
+        href: pim-how-to-start-security-review.md
+      - name: Completare una verifica di accesso
+        href: pim-how-to-complete-review.md
+    - name: Ruoli delle risorse
+      items:
+      - name: Verificare i ruoli delle risorse personali
+        href: pim-resource-roles-perform-access-review.md
+      - name: Avviare una verifica dell'accesso
+        href: pim-resource-roles-start-access-review.md
+      - name: Completare una verifica di accesso
+        href: pim-resource-roles-complete-access-review.md
+  expanded: true
+ms.openlocfilehash: 7a8fafb4782a02da5b1fbe189cba8cadf7c22bfe
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191239"

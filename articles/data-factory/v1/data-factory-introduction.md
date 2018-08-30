@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1b0838bb3d4fa1f47d906294ce42c318d1f4a0cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0cdf10f4898ba103f9b6f65179300a10c9e33cdf
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623553"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087172"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introduzione a Data factory di Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,7 +80,7 @@ Inviare i dati trasformati dal cloud alle origini locali, ad esempio SQL Server.
 Una sottoscrizione di Azure può includere una o più istanze di Azure Data Factory (o data factory). Azure Data Factory è costituito da quattro componenti chiave. Questi componenti forniscono la piattaforma nella quale è possibile comporre flussi di lavoro basati sui dati con passaggi per lo spostamento e la trasformazione dei dati stessi. 
 
 ### <a name="pipeline"></a>Pipeline
-Una data factory può comprendere una o più pipeline. Una pipeline è un gruppo di attività, che insieme eseguono un'operazione. 
+Una data factory può comprendere una o più pipeline. Una pipeline è un gruppo di attività, L'insieme delle attività di una pipeline esegue un'operazione. 
 
 Una pipeline, ad esempio, può contenere un gruppo di attività che inserisce dati da un BLOB di Azure e quindi esegue una query Hive in un cluster HDInsight per partizionare i dati. La pipeline offre il vantaggio di poter gestire le attività come un set anziché singolarmente. È ad esempio possibile distribuire e pianificare la pipeline invece di pianificare attività separate. 
 

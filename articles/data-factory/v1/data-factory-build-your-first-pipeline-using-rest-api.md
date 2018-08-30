@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25667051fa0a1484204f672c78fb94136ac84469
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d0bb951e7392eb0f818ed0e9b5c17e203f94e753
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054705"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087851"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Esercitazione: Creare la prima data factory di Azure usando l'API REST di Data Factory
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -46,7 +46,7 @@ La pipeline in questa esercitazione include un'attività, l'**attività Hive di 
 > Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Pianificazione ed esecuzione in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi relativi ai **prerequisiti** .
 * Installare [Curl](https://curl.haxx.se/dlwiz/) nel computer. Lo strumento CURL viene usato insieme ai comandi REST per creare una data factory.
 * Seguire le istruzioni disponibili in [questo articolo](../../azure-resource-manager/resource-group-create-service-principal-portal.md) per:

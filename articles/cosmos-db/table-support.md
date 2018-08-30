@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a6ac954caa8341d6d949811f0bb9d7e68c0b5aac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 114286b45df5f47e81bd2b990c8b50c8b7b7a482
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022780"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185367"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Sviluppo con l'API di tabella di Azure Cosmos DB e Archiviazione tabelle di Azure
 
@@ -31,7 +31,7 @@ L'[API Table di Azure Cosmos DB](table-introduction.md) attualmente dispone di q
 - [Java SDK](table-sdk-java.md). Questo SDK di Archiviazione di Azure è in grado di connettersi agli account di Azure Cosmos DB tramite l'API Table.
 - [Node.js SDK](table-sdk-nodejs.md). Questo SDK di Archiviazione di Azure è in grado di connettersi agli account di Azure Cosmos DB tramite l'API Table.
 
-Per altre informazioni sull'uso dell'API di tabella, vedere l'articolo relativo alle [domande frequenti sullo sviluppo con l'API di tabella](faq.md#develop-with-the-table-api).
+Per altre informazioni sull'uso dell'API di tabella, vedere l'articolo relativo alle [domande frequenti sullo sviluppo con l'API di tabella](faq.md#table).
 
 ## <a name="developing-with-azure-table-storage"></a>Sviluppo con Archiviazione tabelle di Azure
 

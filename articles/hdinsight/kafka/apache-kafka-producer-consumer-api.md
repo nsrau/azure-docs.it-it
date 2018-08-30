@@ -1,24 +1,20 @@
 ---
-title: 'Esercitazione: Usare le API Apache Kafka Producer e Consumer - Azure HDInsight | Microsoft Docs'
+title: 'Esercitazione: Usare le API Apache Kafka Producer e Consumer - Azure HDInsight '
 description: Informazioni su come usare l'API Apache Kafka Producer e Consumer con Kafka in HDInsight. In questa esercitazione si apprenderà come usare queste API con Kafka in HDInsight da un'applicazione Java.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: b602f8bfe316e9c11dbff18273f37c99407c3da6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c52f64c2508870bf061e144229cf26ab269c343b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771151"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049237"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Esercitazione: Usare le API Apache Kafka Producer e Consumer
 
@@ -302,17 +298,22 @@ public class Run {
         ```bash
         /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
         ```
+    4. È anche possibile usare il file JAR per creare un argomento. Ad esempio, per creare l'argomento `test2`, usare il comando seguente:
+
+        ```bash
+        java -jar kafka-producer-consumer.jar create test2 $KAFKABROKERS
+        ```
 
 3. Per eseguire il producer e scrivere i dati nell'argomento, usare il comando seguente:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 4. Quando l'esecuzione del producer è terminata, usare il comando seguente per leggere dall'argomento:
    
     ```bash
-    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
     ```
    
     Verranno visualizzati i record letti e il numero di record.
@@ -326,14 +327,14 @@ I consumer Kafka usano un gruppo di consumer durante la lettura dei record. L'us
 L'applicazione Consumer accetta un parametro che viene usato come ID del gruppo. Ad esempio, il comando seguente avvia un consumer usando un ID gruppo denominato `mygroup`:
    
 ```bash
-java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
+java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
 ```
 
 Per verificare il funzionamento del processo, usare il comando seguente:
 
 ```bash
-tmux new-session 'java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup' \; split-w
-indow -h 'java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup' \; attach
+tmux new-session 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; split-w
+indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; attach
 ```
 
 Questo comando usa `tmux` per suddividere il terminale in due colonne. Viene avviato un consumer in ogni colonna, con lo stesso valore di ID di gruppo. Dopo che i consumer hanno completato la lettura, si noti che ognuno di essi ha letto solo una parte dei record. Usare __Ctrl + __ C due volte per uscire da `tmux`.

@@ -2,19 +2,18 @@
 title: Personalizzare le visualizzazioni dell'operatore in Azure IoT Central | Microsoft Docs
 description: Come creatore, l'utente può personalizzare le visualizzazioni dell'operatore nell'applicazione Azure IoT Central.
 author: sandeeppujar
-ms.author: sadeepu
+ms.author: sandeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: ddb6e6d7859227b8eec7f13b95fab06b333dacda
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235369"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185852"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Esercitazione: Personalizzare la visualizzazione dell'operatore in Azure IoT Central
 
@@ -32,7 +31,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare l'home page predefinita
 > * Visualizzare in anteprima l'home page predefinita come operatore
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, si consiglia di completare le due esercitazioni precedenti:
 

@@ -1,1 +1,1 @@
-Se non si ha familiarità con la funzionalità Identità del servizio gestita, vedere questa [panoramica](../articles/active-directory/msi-overview.md). Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
+- Se non si ha familiarità con la funzionalità Identità del servizio gestita, vedere questa [panoramica](../articles/active-directory/msi-overview.md). Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.

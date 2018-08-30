@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 42bf3fca0e30c21e5f8737e37f4ac35db188ee90
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 83e6b6817f33cb19c3839a94a8919f3516576d68
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616491"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886579"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Azure Databricks usando Spark
 
@@ -67,7 +67,7 @@ Il passaggio successivo consiste nel creare un [cluster di Databricks](https://d
     ```bash
     spark.conf.set("fs.azure.account.key.<account_name>.dfs.core.windows.net", "<account_key>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<file_system>@<account_name>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<file_system>@<account_name>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
     ```
 
