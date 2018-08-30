@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a5ca615d984d07513b12399b6f7e7901490f2e41
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298832"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42142138"
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode AS2 in App per la logica di Azure con Enterprise Integration Pack 
 
@@ -67,6 +67,7 @@ Sono necessari gli elementi seguenti:
 
     ![Selezionare Corpo e Intestazioni dagli output della richiesta](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
+
 ## <a name="as2-decoder-details"></a>Dettagli del decodificatore AS2
 
 Il connettore Decode AS2 esegue queste attività: 
@@ -75,6 +76,7 @@ Il connettore Decode AS2 esegue queste attività:
 * Verifica la firma (se configurata)
 * Decrittografa i messaggi (se configurata)
 * Decomprime i messaggi (se configurata)
+* Seleziona e non consente ID messaggio duplicati (se configurata)
 * Riconcilia una notifica sulla ricezione del messaggio ricevuta con il messaggio in uscita originale
 * Aggiorna e mette in correlazione i record nel database di non ripudio
 * Scrive i record per la creazione di report di stato su AS2
@@ -82,6 +84,13 @@ Il connettore Decode AS2 esegue queste attività:
 * Determina se una notifica sulla ricezione del messaggio è obbligatoria, se deve essere sincrona o asincrona in base alla configurazione nel contratto AS2
 * Genera una notifica sulla ricezione del messaggio sincrona o asincrona, in base alle configurazioni nel contratto
 * Imposta le proprietà e il token di correlazione nella notifica sulla ricezione del messaggio
+
+
+  > [!NOTE]
+  > Se si usa Azure Key Vault per la gestione dei certificati, assicurarsi di configurare le chiavi per consentire l'operazione di **decrittografia**.
+  > In caso contrario, la decodifica AS2 avrà esito negativo.
+  >
+  > ![KeyVault esegue la decrittografia](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Provare questo esempio
 

@@ -11,28 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 8468186d545d7aae484b037f3962b01b0ed4cd2e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 532df20a7639f42d8ba1c840a5fd19f0ad0e4042
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127551"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246334"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Creare ricerche log in Azure Log Analytics tramite il portale per la ricerca log
-
-> [!NOTE]
-> Questo articolo descrive il portale per la ricerca log in Azure Log Analytics e l'uso del nuovo linguaggio di query.  In [Aggiornare l'area di lavoro di Azure Log Analytics alla nuova ricerca log](log-analytics-log-search-upgrade.md) sono disponibili altre informazioni sul nuovo linguaggio e istruzioni per l'aggiornamento dell'area di lavoro.  
->
-> Se l'area di lavoro non è stata aggiornata al nuovo linguaggio di query, è consigliabile consultare [Trovare dati tramite ricerche nei log in Log Analytics](log-analytics-log-searches.md) per informazioni sulla versione corrente del portale per la ricerca log.
 
 Questo articolo include un'esercitazione che descrive come creare ricerche log e analizzare i dati archiviati nell'area di lavoro di Log Analytics tramite il portale per la ricerca log.  L'esercitazione include l'esecuzione di alcune semplici query per restituire diversi tipi di dati e l'analisi dei risultati.  È incentrata sulle funzionalità del portale per la ricerca log per la modifica della query, anziché sulla modifica diretta.  Per informazioni dettagliate su come modificare direttamente la query, vedere [Informazioni di riferimento sul linguaggio di query](https://go.microsoft.com/fwlink/?linkid=856079).
 
 Per creare ricerche nel portale Advanced Analytics anziché nel portale per la ricerca log, vedere [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Introduzione al portale di Analytics).  Entrambi i portali utilizzano lo stesso linguaggio di query per accedere agli stessi dati nell'area di lavoro di Log Analytics.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 In questa esercitazione si presuppone che sia già disponibile un'area di lavoro di Log Analytics con almeno un'origine connessa che genera dati analizzabili tramite le query.  
 
 - Se l'area di lavoro non è disponibile, è possibile crearne una gratuitamente seguendo la procedura in [Introduzione a un'area di lavoro di Log Analytics](log-analytics-get-started.md).
@@ -43,9 +38,8 @@ Per iniziare, aprire il portale per la ricerca log.
 
 1. Aprire il Portale di Azure.
 2. Passare a Log Analytics e selezionare l'area di lavoro.
-3. Selezionare **Ricerca log**.
+3. Selezionare **Log**.
 
-![Pulsante di ricerca log](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Creare una ricerca semplice
 Il modo più rapido per recuperare alcuni dati da utilizzare è una query semplice che restituisce tutti i record in una tabella.  In presenza di client Windows o Linux connessi all'area di lavoro, saranno disponibili dati nella tabella Event (Windows) o nella tabella Syslog (Linux).

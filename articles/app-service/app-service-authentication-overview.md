@@ -3,7 +3,7 @@ title: Autenticazione e autorizzazione nel servizio app di Azure | Documentazion
 description: Riferimento concettuale e panoramica della funzionalità di Autenticazione/Autorizzazione per il servizio app di Azure
 services: app-service
 documentationcenter: ''
-author: mattchenderson
+author: cephalin
 manager: erikre
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/29/2016
-ms.author: mahender
-ms.openlocfilehash: 6b536ba7792e66fe09ba2cc8a631dc5e934faaea
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.date: 08/24/2018
+ms.author: mahender,cephalin
+ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937976"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888101"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
 
@@ -95,7 +95,7 @@ Il flusso di autenticazione è uguale per tutti i provider, ma varia a in base a
 - Con l'SDK del provider: l'applicazione consente l'accesso manuale dell'utente e quindi invia il token di autenticazione al servizio app per la convalida. Ciò avviene, in genere, con le app senza browser, che non possono presentare all'utente la pagina di accesso del provider. Il codice dell'applicazione gestisce il processo di accesso, quindi si parla anche di _flusso diretto dal client_ oppure _flusso client_. Questo caso si applica alle API REST, a [Funzioni di Azure](../azure-functions/functions-overview.md) e ai client browser JavaScript, oltre che alle app Web che richiedono una maggiore flessibilità nel processo di accesso. Si applica anche alle app per dispositivi mobili native che consentono l'accesso degli utenti con l'SDK del provider.
 
 > [!NOTE]
-> Le chiamate da un'app browser attendibile nel servizio app e le chiamate da un'altra API REST nel servizio app o in [Funzioni di Azure](../azure-functions/functions-overview.md) possono essere autenticate tramite il flusso diretto dal server. Per altre informazioni, vedere [Autenticare gli utenti con Servizio app di Azure]().
+> Le chiamate da un'app browser attendibile nel servizio app e le chiamate da un'altra API REST nel servizio app o in [Funzioni di Azure](../azure-functions/functions-overview.md) possono essere autenticate tramite il flusso diretto dal server. Per altre informazioni, vedere [Personalizzare l'autenticazione e l'autorizzazione in Servizio app di Azure](app-service-authentication-how-to.md).
 >
 
 La tabella seguente illustra i passaggi del flusso di autenticazione.

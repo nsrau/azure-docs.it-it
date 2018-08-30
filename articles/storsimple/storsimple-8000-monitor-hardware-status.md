@@ -4,7 +4,7 @@ description: Informazioni su come monitorare i componenti hardware del dispositi
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: timlt
+manager: twooley
 editor: ''
 ms.assetid: ''
 ms.service: storsimple
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2017
+ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 90724099842eac513c39dccf113ad1c0a63983f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58007eea9ce25423bc3a9c2847de42db04be43eb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110059"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141971"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usare il servizio Gestione dispositivi StorSimple per monitorare i componenti hardware e lo stato
+
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive i vari componenti fisici e logici del dispositivo StorSimple serie 8000 in locale. Viene inoltre spiegato come monitorare lo stato del componente del dispositivo tramite il pannello **Stato e integrità hardware** nel servizio Gestione dispositivi StorSimple.
 
@@ -29,7 +30,7 @@ Nel pannello **Stato e integrità hardware** è indicato lo stato dell'hardware 
 
 Nell'elenco dei componenti per 8100, sono disponibili tre sezioni che descrivono:
 
-* **Componenti condivisi** : questi non fanno parte dei controller, ad esempio unità disco, chassis, componenti PCM e sensori di temperatura PCM, tensione linea e corrente linea.
+* **Componenti condivisi**: questi non fanno parte dei controller, ad esempio unità disco, chassis, componenti del modulo di alimentazione e raffreddamento (PCM) e sensori di temperatura PCM, tensione linea e corrente linea.
 * **Componenti controller 0** : i componenti che si trovano nel controller 0, ad esempio controller, espansore SAS e connettore, sensori di temperatura controller e le varie interfacce di rete.
 * **Componenti controller 1** : i componenti che costituiscono il controller 1, simili a quelli indicati per il controller 0.
 
@@ -80,18 +81,18 @@ La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure
 
 | Componente | Modulo | type | Località | Unità sostituibile sul campo (FRU)? | DESCRIZIONE |
 | --- | --- | --- | --- | --- | --- |
-| Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale. |
+| Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Yes |Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale. |
 | Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No  |Misura la temperatura all'interno dello chassis. |
 | Sensore di temperatura piano intermedio |Chassis |Fisico |Condiviso |No  |Misura la temperatura del piano intermedio. |
 | Allarme acustico |Chassis |Fisico |Condiviso |No  |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
-| Chassis |Chassis |Fisico |Condiviso |Sì |Indica la presenza di uno chassis. |
+| Chassis |Chassis |Fisico |Condiviso |Yes |Indica la presenza di uno chassis. |
 | Impostazioni chassis |Chassis |Fisico |Condiviso |No  |Fa riferimento al pannello anteriore dello chassis. |
 | Sensori di tensione linea |PCM |Fisico |Condiviso |No  |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
 | Sensori di corrente linea |PCM |Fisico |Condiviso |No  |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
 | Sensori di temperatura in PCM |PCM |Fisico |Condiviso |No  |Numerosi sensori di temperatura come i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
-| Alimentazione [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
-| Raffreddamento [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
-| Batteria [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ognuno dei moduli della batteria di backup inseriti nel PCM. |
+| Alimentazione [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
+| Raffreddamento [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
+| Batteria [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ognuno dei moduli della batteria di backup inseriti nel PCM. |
 | Metis |N/D |Logico |Condiviso |N/D |Visualizza lo stato delle batterie: se devono essere messe in carica e se si stanno avvicinando alla fine del ciclo di vita. |
 | HDInsight |N/D |Logico |Condiviso |N/D |Visualizza lo stato del cluster creato tra i due moduli controller integrato. |
 | Nodo del cluster |N/D |Logico |Condiviso |N/D |Indica lo stato del controller come parte del cluster. |
@@ -104,7 +105,7 @@ La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure
 | Spazio NVRAM SSD |N/D |Logico |Condiviso |N/D |Lo spazio di archiviazione nel pool di archiviazione di unità SSD dedicato per la logica NVRAM. |
 | Pool di archiviazione di unità disco rigido |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD. |
 | Pool di archiviazione di unità SSD |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo SSD. |
-| Controller [0-1] [stato] |I/O |Fisico |Controller |Sì |Visualizza lo stato del controller e se è in modalità attiva o standby all'interno dello chassis. |
+| Controller [0-1] [stato] |I/O |Fisico |Controller |Yes |Visualizza lo stato del controller e se è in modalità attiva o standby all'interno dello chassis. |
 | Sensori di temperatura nel controller |I/O |Fisico |Controller |No  |Numerosi sensori di temperatura, ad esempio modulo I/O, temperatura CPU, sensori DIMM e PCIe hanno lo stato visualizzato, che indica se la temperatura rilevata è compresa o meno nella tolleranza. |
 | Espansore SAS |I/O |Fisico |Controller |No  |Indica lo stato dell'espansore SCSI associato seriale (SAS), che viene utilizzato per connettere al controller l'archiviazione integrata. |
 | Connettore SAS [0-1] |I/O |Fisico |Controller |No  |Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS. |
@@ -121,19 +122,19 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 
 | Componente | Modulo | type | Località | FRU? | DESCRIZIONE |
 | --- | --- | --- | --- | --- | --- |
-| Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD. |
+| Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Yes |Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD. |
 | Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No  |Misura la temperatura all'interno dello chassis. |
 | Sensore di temperatura piano intermedio |Chassis |Fisico |Condiviso |No  |Misura la temperatura del piano intermedio. |
 | Allarme acustico |Chassis |Fisico |Condiviso |No  |Indica se il sottosistema di allarme acustico all'interno dello chassis è funzionale. |
-| Chassis |Chassis |Fisico |Condiviso |Sì |Indica la presenza di uno chassis. |
+| Chassis |Chassis |Fisico |Condiviso |Yes |Indica la presenza di uno chassis. |
 | Impostazioni chassis |Chassis |Fisico |Condiviso |No  |Fa riferimento alle operazioni o al pannello anteriore dello chassis. |
 | Sensori di tensione linea |PCM |Fisico |Condiviso |No  |Numerosi sensori di tensione linea hanno lo stato visualizzato, che indica se la tensione misurata è compresa nella tolleranza. |
 | Sensori di corrente linea |PCM |Fisico |Condiviso |No  |Numerosi sensori di corrente linea hanno lo stato visualizzato, che indica se la corrente misurata è compresa nella tolleranza. |
 | Sensori di temperatura in PCM |PCM |Fisico |Condiviso |No  |Numerosi sensori di temperatura, ad esempio i sensori Inlet e Hotspot hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
-| Alimentazione [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
-| Raffreddamento [0-1] |PCM |Fisico |Condiviso |Sì |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
+| Alimentazione [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ogni alimentatore nei due PCM presenti sulla parte posteriore del dispositivo. |
+| Raffreddamento [0-1] |PCM |Fisico |Condiviso |Yes |Viene visualizzata una riga per ognuno delle quattro ventole di raffreddamento che risiedono nei due PCM. |
 | Archiviazione locale [HDD] |N/D |Logico |Condiviso |N/D |Visualizza lo stato del pool di archiviazione logica creato dal dispositivo HDD. |
-| Controller [0-1] [stato] |I/O |Fisico |Controller |Sì |Visualizza lo stato dei controller nel modulo EBOD. |
+| Controller [0-1] [stato] |I/O |Fisico |Controller |Yes |Visualizza lo stato dei controller nel modulo EBOD. |
 | Sensori di temperatura in EBOD |I/O |Fisico |Controller |No  |Numerosi sensori di temperatura di ogni controller hanno lo stato visualizzato, che indica se la temperatura misurata è compresa nella tolleranza. |
 | Espansore SAS |I/O |Fisico |Controller |No  |Indica lo stato dell'espansore SAS, che viene utilizzato per connettere al controller l'archiviazione integrata. |
 | Connettore SAS [0-2] |I/O |Fisico |Controller |No  |Indica lo stato di ogni connettore SAS, che viene utilizzato per la connessione dell'archiviazione integrata all'espansore SAS. |

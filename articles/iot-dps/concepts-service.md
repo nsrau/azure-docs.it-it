@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2908e08e36f41ebb8a154e7c490e5c6719d911be
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ca2ea3c000e811223ded3022021c2516f547ae66
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628301"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142004"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concetti relativi al servizio Device Provisioning in hub IoT
 
@@ -29,17 +29,20 @@ L'endpoint delle operazioni del servizio è l'endpoint per la gestione delle imp
 
 ## <a name="device-provisioning-endpoint"></a>Endpoint di provisioning dei dispositivi
 
-L'endpoint di provisioning dei dispositivi è il singolo endpoint che tutti i dispositivi usano per il provisioning automatico. L'URL è lo stesso per tutte le istanze del servizio di provisioning, per eliminare la necessità di sovrascrivere la memoria dei dispositivi con nuove informazioni di connessione in scenari di supply chain. L'[ambito ID](#id-scope) garantisce l'isolamento dei tenant.
+L'endpoint di provisioning dei dispositivi è il singolo endpoint che tutti i dispositivi usano per il provisioning automatico. L'URL è lo stesso per tutte le istanze del servizio di provisioning, per eliminare la necessità di sovrascrivere la memoria dei dispositivi con nuove informazioni di connessione in scenari di supply chain. L'ambito ID garantisce l'isolamento dei tenant.
 
 ## <a name="linked-iot-hubs"></a>Hub IoT collegati
 
-Il servizio Device Provisioning può effettuare il provisioning dei dispositivi solo negli hub IoT che sono stati collegati. Il collegamento di un hub IoT al servizio Device Provisioning fornisce al servizio le autorizzazioni di lettura/scrittura nel registro dei dispositivi dell'hub IoT. Con il collegamento, il servizio Device Provisioning può registrare un ID dispositivo e impostare la configurazione iniziale nel dispositivo gemello. Gli hub IoT collegati possono trovarsi in qualsiasi area di Azure. È possibile collegare hub di altre sottoscrizioni al servizio di provisioning.
+Il servizio Device Provisioning può effettuare il provisioning dei dispositivi solo negli hub IoT che sono stati collegati. Il collegamento di un hub IoT a un'istanza del servizio Device Provisioning fornisce al servizio le autorizzazioni di lettura/scrittura nel registro dei dispositivi dell'hub IoT. Con il collegamento, il servizio Device Provisioning può registrare un ID dispositivo e impostare la configurazione iniziale nel dispositivo gemello. Gli hub IoT collegati possono trovarsi in qualsiasi area di Azure. È possibile collegare hub di altre sottoscrizioni al servizio di provisioning.
 
 ## <a name="allocation-policy"></a>Criteri di allocazione
 
 Impostazione a livello di servizio che determina in che modo il servizio Device Provisioning assegna i dispositivi a un hub IoT. Ci sono tre criteri di allocazione supportati:
+
 * **Distribuzione ponderata uniforme**: gli hub IoT collegati hanno le stesse probabilità di essere scelti per il provisioning dei dispositivi. Si tratta dell'impostazione predefinita. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è possibile mantenere questa impostazione.
+
 * **Latenza minima**: il provisioning dei dispositivi viene effettuato in un hub IoT con latenza minima per il dispositivo. Se più hub IoT collegati forniscono la stessa latenza minima, il servizio di provisioning suddivide i dispositivi tra gli hub
+
 * **Configurazione statica tramite l'elenco di registrazione**: la specifica dell'hub IoT desiderato nell'elenco di registrazione ha la priorità rispetto ai criteri di allocazione a livello di servizio.
 
 ## <a name="enrollment"></a>Registrazione
@@ -54,7 +57,7 @@ Il servizio Device Provisioning supporta due tipi di registrazione:
 
 ### <a name="enrollment-group"></a>Gruppo di registrazione
 
-Un gruppo di registrazione è un gruppo di dispositivi che condividono un meccanismo di attestazione specifico. Tutti i dispositivi nel gruppo di registrazione presentano certificati X.509 che sono stati firmati dalla stessa CA radice o intermedia. I gruppi di registrazione possono usare solo il meccanismo di attestazione X.509. Il nome del gruppo di registrazione e il nome di certificato devono essere alfanumerici, in caratteri minuscoli e possono contenere segni meno.
+Un gruppo di registrazione è un gruppo di dispositivi che condividono un meccanismo di attestazione specifico. Tutti i dispositivi nel gruppo di registrazione presentano certificati X.509 che sono stati firmati dalla stessa autorità di certificazione radice o intermedia. I gruppi di registrazione possono usare solo il meccanismo di attestazione X.509. Il nome del gruppo di registrazione e il nome di certificato devono essere alfanumerici, in caratteri minuscoli e possono contenere segni meno.
 
 > [!TIP]
 > È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant.

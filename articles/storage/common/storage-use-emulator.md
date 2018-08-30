@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 4f4c5870bb1bdd804aa4b2da8c46c0698b897798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526182"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141974"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -204,6 +204,12 @@ All'archiviazione tabelle nell'emulatore si applicano le seguenti differenze:
 Non esistono differenze specifiche per l'archiviazione di accodamento nell'emulatore.
 
 ## <a name="storage-emulator-release-notes"></a>Note sulla versione dell'emulatore di archiviazione
+
+### <a name="version-57"></a>Versione 5.7
+È stato risolto un bug che causava l'arresto del sistema quando era abilitata la registrazione.
+
+### <a name="version-56"></a>Versione 5.6
+* L'emulatore di archiviazione supporta ora la versione 2018-03-28 dei servizi di archiviazione per gli endpoint BLOB, della coda e del servizio tabelle.
 
 ### <a name="version-55"></a>Versione 5.5
 * L'emulatore di archiviazione supporta ora la versione 2017-11-09 dei servizi di archiviazione per gli endpoint BLOB, della coda e del servizio tabelle.

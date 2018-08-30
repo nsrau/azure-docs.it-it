@@ -1,304 +1,292 @@
 ---
 title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
-description: Usare questo articolo per gestire i server e gli insiemi di credenziali di Servizi di ripristino di Azure.
+description: Gestire processi e avvisi in un insieme di credenziali di Servizi di ripristino di Azure.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 8/21/2018
 ms.author: markgal
-ms.openlocfilehash: 3d0404654631520909e63853d47b7de2b6cb4361
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9fad5876ce177129d6178052916843b94b33ccf1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606529"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445468"
 ---
-# <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitorare e gestire i server e gli insiemi di credenziali dei servizi di ripristino di Azure per i computer Windows
+# <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
-In questo articolo è presentata una panoramica delle attività di gestione e monitoraggio dei backup disponibili tramite il portale di Azure e l'agente di Backup di Microsoft Azure. Questo articolo presuppone che sia già disponibile una sottoscrizione di Azure e che sia stato creato almeno un insieme di credenziali di Servizi di ripristino.
+Questo articolo illustra come usare il dashboard **Panoramica** dell'insieme di credenziali di Servizi di ripristino per monitorare e gestire gli insiemi di credenziali di Servizi di ripristino. Quando si apre un insieme di credenziali di Servizi di ripristino dall'elenco, viene aperto il dashboard **Panoramica** dell'insieme di credenziali selezionato. Il dashboard fornisce diversi dettagli sull'insieme di credenziali. Sono presenti *riquadri* che mostrano: lo stato degli avvisi critici e delle avvertenze, i processi di backup in corso e non riusciti e la quantità di archiviazione con ridondanza locale e di archiviazione con ridondanza geografica usata. Se si esegue un backup delle VM di Azure nell'insieme di credenziali, il riquadro [**Stato del controllo preliminare di backup** visualizza eventuali avvisi critici o avvertenze](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). L'immagine seguente illustra il dashboard **Panoramica** per **Contoso-vault**. Il riquadro **Elementi di backup** mostra che sono presenti nove elementi registrati nell'insieme di credenziali.
+
+![Dashboard dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+
+I prerequisiti per questo articolo sono: una sottoscrizione di Azure, un insieme di credenziali di Servizi di ripristino e almeno un elemento di backup configurato per l'insieme di credenziali.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 
 ## <a name="open-a-recovery-services-vault"></a>Aprire un insieme di credenziali di Servizi di ripristino
 
-Il dashboard dell'insieme di credenziali di Servizi di ripristino visualizza i dettagli o attributi di un insieme di credenziali di Servizi di ripristino.
+Per monitorare gli avvisi o visualizzare i dati di gestione su un insieme di credenziali di Servizi di ripristino, aprire l'insieme di credenziali.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando la sottoscrizione di Azure.
-2. Fare clic su **Tutti i servizi**. 
 
-3. Si vuole aprire un insieme di credenziali di Servizi di ripristino. Nella finestra di dialogo, iniziare a digitare **Servizi di ripristino**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insiemi di credenziali dei servizi di ripristino** per visualizzare l'elenco degli insiemi di credenziali di Servizi di ripristino presenti nella sottoscrizione.
+2. Nel portale fare clic su **Tutti i servizi**.
 
-     ![Aprire l'elenco degli insiemi di credenziali di Servizi di ripristino](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+   ![Aprire l'elenco degli insiemi di credenziali di Servizi di ripristino](./media/backup-azure-manage-windows-server/open-rs-vault-list.png)
 
-    Verrà visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
+3. Nella finestra di dialogo **Tutti i servizi** digitare **Servizi di ripristino**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando l'opzione **Insiemi di credenziali dei servizi di ripristino** viene visualizzata, fare clic per aprire l'elenco degli insiemi di credenziali di Servizi di ripristino presenti nella sottoscrizione.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Nell'elenco degli insiemi di credenziali di Servizi di ripristino selezionare il nome dell'insieme da aprire. Si apre il menu del dashboard dell'insieme di credenziali dei servizi di ripristino.
+4. Nell'elenco di insiemi di credenziali fare clic su uno di essi per aprire il dashboard **Panoramica**. 
 
     ![Dashboard dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
-    Dopo aver aperto l'insieme di credenziali di Servizi di ripristino, provare una delle attività di monitoraggio o gestione.
+    Il dashboard Panoramica usa i riquadri per fornire avvisi e dati sui processi di backup.
 
 ## <a name="monitor-backup-jobs-and-alerts"></a>Monitorare i processi di backup e gli avvisi
 
-I processi e gli avvisi vengono monitorati dal dashboard dell'insieme di credenziali dei servizi di ripristino, dove vengono visualizzati:
+Il dashboard **Panoramica** dell'insieme di credenziali di Servizi di ripristino include i riquadri delle informazioni relative a monitoraggio e utilizzo. I riquadri nella sezione Monitoraggio visualizzano gli avvisi critici, le avvertenze e i processi in corso e non riusciti. Fare clic su un determinato processo o avviso per aprire il menu Avvisi di backup o Processi di backup, filtrato per tale processo o avviso.
 
-* Dettagli degli avvisi di backup
-* File e cartelle, oltre alle macchine virtuali di Azure protette nel cloud
-* Spazio di archiviazione totale utilizzato in Azure
-* Stato dei processi di backup
+![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
 
-![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
+La sezione Monitoraggio mostra i risultati delle query **Avvisi di backup** e **Processi di backup** predefinite. I riquadri di Monitoraggio forniscono informazioni aggiornate su:
 
-Fare clic sulle informazioni in ogni riquadro per aprire il menu associato dove si gestiscono le attività correlate.
+* Avvisi critici e avvertenze per i processi di backup (nelle ultime 24 ore)
+* Stato del controllo preliminare per le VM di Azure: per informazioni complete sullo stato del controllo preliminare, vedere il [blog sullo stato del controllo preliminare di backup](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/).
+* I processi di backup in corso e i processi non riusciti (nelle ultime 24 ore).
 
-Nella parte superiore del dashboard:
+I riquadri di Utilizzo forniscono:
 
-* Impostazioni: fornisce l'accesso alle attività di backup disponibili.
-* Backup: consente di eseguire il backup di nuovi file e cartelle (o VM di Azure) nell'insieme di credenziali dei servizi di ripristino.
-* Elimina: se un insieme di credenziali dei servizi di ripristino non è più in uso, eliminarlo per liberare spazio di archiviazione. L'opzione Elimina viene abilitata solo dopo l'eliminazione di tutti i server protetti dall'insieme di credenziali.
+* Il numero di elementi di backup configurati per l'insieme di credenziali.
+* Lo spazio di archiviazione di Azure (distinto dall'archiviazione con ridondanza locale e dall'archiviazione con ridondanza geografica) utilizzato dall'insieme di credenziali.
 
-![Eseguire un backup delle attività del dashboard](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
+Fare clic sui riquadri (a eccezione di Archivio backup) per aprire il menu associato. Nell'immagine precedente il riquadro Avvisi di backup mostra tre avvisi critici. Facendo clic sulla riga degli avvisi critici nel riquadro Avvisi di backup, si aprono gli avvisi di backup filtrati per gli avvisi critici.
 
-## <a name="alerts-for-backups-using-azure-backup-agent"></a>Avvisi per i backup con l'agente di Backup di Azure:
-| Livello avviso | Avvisi inviati |
-| --- | --- |
-| Critico | Per un errore di backup, un errore di ripristino e un'eliminazione posticipata, ad esempio quando un utente interrompe la protezione con l'eliminazione di dati |
-| Avviso | Per un backup completato con avvisi (quando non viene eseguito il backup di meno di cento file a causa di problemi di danneggiamento e viene completato il backup di più di un milione di file) |
-| Informazioni | Attualmente non sono disponibili avvisi informativi per Azure Backup Agent |
+![Menu Avvisi di backup filtrato per gli avvisi critici](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
+
+Il menu Avvisi di backup nell'immagine precedente viene filtrato per: stato attivo, gravità critica e intervallo di tempo corrispondente alle 24 ore precedenti.
 
 ## <a name="manage-backup-alerts"></a>Gestire gli avvisi di backup
-Fare clic sul riquadro **Avvisi di backup** per aprire il menu **Avvisi di backup** e gestire gli avvisi.
 
-![Avvisi di backup](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
+Per accedere al menu Avvisi di backup, dal menu dell'insieme di credenziali di Servizi di ripristino scegliere **Avvisi di backup**.
 
-Il riquadro Avvisi di backup mostra il numero di:
+![Avvisi di backup](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-* avvisi critici non risolti nelle ultime 24 ore
-* avvertenze non risolte nelle ultime 24 ore
+Il report Avvisi di backup elenca gli avvisi per l'insieme di credenziali. 
 
-Fare clic sul collegamento per visualizzare il menu **Avvisi di backup** con una visualizzazione filtrata degli avvisi (critici o avvisi).
+![Avvisi di backup](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-Nel menu Avvisi di backup è possibile:
+### <a name="alerts"></a>Avvisi
 
-* Scegliere le informazioni appropriate da includere con gli avvisi.
+L'elenco Avvisi di backup visualizza le informazioni selezionate per gli avvisi filtrati. Nel menu Avvisi di backup è possibile filtrare gli avvisi critici o le avvertenze.
 
-    ![Scegliere le colonne](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
-* Filtrare gli avvisi per gravità, stato e ora di inizio/fine.
+| Livello avviso | Eventi che generano avvisi |
+| ----------- | ----------- |
+| Critico | Si ricevono avvisi critici quando: i processi di backup hanno esito negativo, i processi di ripristino hanno esito negativo e quando si arresta la protezione su un server, ma si conservano i dati.|
+| Avviso | Si ricevono avvertenze quando: i processi di backup vengono completati con avvisi, ad esempio quando non viene eseguito un backup di meno di 100 file a causa di problemi di danneggiamento o quando viene eseguito un backup di più di 1.000.000 di file. |
+| Informazioni | Non sono attualmente in uso avvisi informativi. |
 
-    ![Filtrare gli avvisi](./media/backup-azure-manage-windows-server/filter-alerts.png)
-* Configurare le notifiche in relazione a gravità, frequenza e destinatari, oltre ad attivare o disattivare gli avvisi.
+### <a name="viewing-alert-details"></a>Visualizzazione dei dettagli dell'avviso
 
-    ![Filtrare gli avvisi](./media/backup-azure-manage-windows-server/configure-notifications.png)
+Il report Avvisi di backup tiene traccia di otto dettagli su ogni avviso. Usare il pulsante **Scegli colonne** per modificare i dettagli nel report.
 
-Se si seleziona **Per ogni avviso** come frequenza per **Notifica**, nei messaggi di posta elettronica non vengono eseguiti raggruppamenti o riduzioni. Ogni avviso genera una notifica (impostazione predefinita) e viene inviato immediatamente un messaggio di risoluzione.
+![Avvisi di backup](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-Se si seleziona **Riepilogo orario** come frequenza per **Notifica**, all'utente viene inviato un messaggio di posta elettronica che informa che sono presenti nuovi avvisi non risolti generati nell'ultima ora. Allo scadere dell'ora viene inviato un messaggio di posta elettronica relativo alla risoluzione.
+Per impostazione predefinita, tutti i dettagli, tranne **Ora ultima occorrenza**, vengono visualizzati nel report.
 
-Possono essere inviati avvisi per i livelli di gravità seguenti:
-
-* Critico
 * Avviso
-* Informazioni
+* Elementi di backup
+* Server protetti
+* Gravità
+* Duration
+* Data creazione
+* Status
+* Ora ultima occorrenza
 
-Per disattivare l'avviso, usare il pulsante **Disattiva** nel menu dei dettagli del processo. Quando si fa clic su Disattiva, è possibile inserire note sulla risoluzione.
+### <a name="change-the-details-in-alerts-report"></a>Modificare i dettagli nei report degli avvisi
 
-Per scegliere le colonne da visualizzare nell'avviso, usare il pulsante **Scegli colonne** .
+1. Per modificare le informazioni dei report, nel menu **Avvisi di backup** fare clic su **Scegli colonne**.
+
+   ![Avvisi di backup](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
+
+   Si apre il menu **Scegli colonne**.
+
+2. Nel menu **Scegli colonne** scegliere i dettagli che si vuole visualizzare nel report.
+
+    ![Menu Scegli colonne](./media/backup-azure-manage-windows-server/choose-columns-menu.png)
+
+3. Fare clic su **Fine** per salvare le modifiche e chiudere il menu Scegli colonne.
+
+   Se si apportano modifiche, ma non si vuole conservarle, fare clic su **Reimposta** per ripristinare l'ultima configurazione salvata della selezione.
+
+### <a name="change-the-filter-in-alerts-report"></a>Modificare il filtro nei report degli avvisi
+
+Usare il menu **Filtra** per modificare la gravità, lo stato, l'ora di inizio e l'ora di fine per gli avvisi. 
 
 > [!NOTE]
-> Nel menu **Impostazioni** si gestiscono gli avvisi di backup selezionando **Monitoraggio e report > Avvisi ed eventi > Avvisi di backup** e quindi facendo clic su **Filtro** o su **Configura notifiche**.
->
->
+> Modificando il filtro di Avvisi di backup, gli avvisi critici o le avvertenze nel dashboard Panoramica dell'insieme di credenziali non cambiano.
+>  
+
+1. Per modificare il filtro di Avvisi di backup, dal menu Avvisi di backup scegliere **Filtra**.
+
+   ![Scegliere il menu Filtra](./media/backup-azure-manage-windows-server/alerts-menu-choose-filter.png)
+
+   Viene visualizzato il menu Filtra.
+
+   ![Scegliere il menu Filtra](./media/backup-azure-manage-windows-server/filter-alert-menu.png)
+
+2. Modificare la gravità, lo stato, l'ora di inizio o l'ora di fine e fare clic su **Fine** per salvare le modifiche.
+
+## <a name="configuring-notifications-for-alerts"></a>Configurazione delle notifiche per gli avvisi
+
+Configurare le notifiche per generare messaggi di posta elettronica quando si verifica un'avvertenza o un avviso critico. È possibile inviare avvisi di posta elettronica ogni ora o quando viene generato un avviso particolare.
+
+   ![Filtrare gli avvisi](./media/backup-azure-manage-windows-server/configure-notification.png)
+
+Per impostazione predefinita, le notifiche tramite posta elettronica sono **attive**. Fare clic su **No** per arrestare le notifiche tramite posta elettronica.
+
+Nel controllo **Notify** scegliere **Per ogni avviso** se non vuole evitare il raggruppamento o non si hanno molti elementi che potrebbero generare avvisi. Ogni avviso genera una notifica (impostazione predefinita) e viene inviato immediatamente un messaggio di risoluzione.
+
+Se si seleziona **Digest orario**, viene inviato ai destinatari un messaggio di posta elettronica che descrive gli avvisi non risolti generati nell'ultima ora. Allo scadere dell'ora viene inviato un messaggio di posta elettronica relativo alla risoluzione.
+
+Scegliere la gravità degli avvisi (critici o avvertenze) usata per generare il messaggio di posta elettronica. Attualmente non sono disponibili avvisi informativi.
 
 ## <a name="manage-backup-items"></a>Gestire gli elementi di backup
-Nel portale di gestione ora è disponibile la gestione dei backup locali. Nella sezione Backup del dashboard il riquadro **Elementi di backup** indica il numero di elementi di backup protetti per l'insieme di credenziali.
 
-Fare clic su **File-cartelle** nel riquadro Elementi di backup.
+Un insieme di credenziali di Servizi di ripristino contiene molti tipi di dati di backup. Per un elenco completo dei tipi di backup, vedere [Applicazioni e carichi di lavoro di cui è possibile eseguire un backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). Per gestire i diversi server, computer, database e carichi di lavoro fare clic sul riquadro **Elementi di backup** per visualizzare i contenuti dell'insieme di credenziali.
 
-![Riquadro Elementi di backup](./media/backup-azure-manage-windows-server/backup-items-tile.png)
+![Riquadro Elementi di backup](./media/backup-azure-manage-windows-server/backup-items.png)
 
-Il menu Elementi di backup si apre con il filtro impostato su File-cartella, dove è possibile vedere elencato ogni elemento di backup specifico.
+Viene aperto l'elenco di elementi di backup, organizzati per tipo di gestione di backup.
 
-![Elementi di backup](./media/backup-azure-manage-windows-server/backup-item-list.png)
+![Elenco di elementi di backup](./media/backup-azure-manage-windows-server/list-backup-items.png)
 
-Se si seleziona un elemento di backup specifico nell'elenco, vengono visualizzati i dettagli più importanti dell'elemento.
+Per esplorare uno specifico tipo di istanza protetta, fare clic sull'elemento nella colonna Tipo di gestione di backup. Nell'immagine precedente, ad esempio, sono presenti due macchine virtuali di Azure protette in questo insieme di credenziali. Fare clic su **Macchina virtuale di Azure** per aprire l'elenco di macchine virtuali protette in questo insieme di credenziali.
 
-> [!NOTE]
-> Nel menu **Impostazioni** si gestiscono file e cartelle selezionando **Elementi protetti > Elementi di backup** e quindi scegliendo **File-Cartelle** dal menu a discesa.
->
->
+![Elenco del tipo di backup](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
+L'elenco di macchine virtuali include dati utili: il gruppo di risorse associato, il [controllo preliminare di backup](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/) precedente, lo stato dell'ultimo backup e la data del punto di ripristino più recente. I puntini di sospensione nell'ultima colonna aprono il menu per attivare le attività comuni. I dati utili forniti nelle colonne sono diversi per ogni tipo di backup.
+
+![Elenco del tipo di backup](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
 ## <a name="manage-backup-jobs"></a>Gestire i processi di backup
-I processi di backup per i backup sia locali (quando il server locale esegue il backup in Azure) che di Azure sono visibili nel dashboard.
 
-Nella sezione Backup del dashboard il riquadro Processo di backup indica il numero di processi:
+Il riquadro **Processi di backup** nel dashboard dell'insieme di credenziali mostra il numero di processi in corso o non riusciti nelle ultime 24 ore. Il riquadro offre una rapida panoramica del menu Processi di backup.
 
-* in corso
-* non riusciti nelle ultime 24 ore
+![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
-Per gestire i processi di backup, fare clic sul riquadro **Processi di backup** per aprire il menu Processi di backup.
+Per visualizzare altri dettagli sui processi, fare clic su **In corso** o su **Non riusciti** per aprire il menu Processi di backup filtrato per tale stato.
 
-![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs.png)
+### <a name="backup-jobs-menu"></a>Menu Processi di backup
 
-Per modificare le informazioni disponibili nel menu Processi di backup, usare il pulsante **Scegli colonne** nella parte superiore della pagina.
+Il menu **Processi di backup** visualizza informazioni sul tipo di elemento, sull'operazione, sullo stato, sull'ora di inizio e sulla durata.  
 
-Usare il pulsante **Filtro** per scegliere tra File e cartelle e Backup macchina virtuale di Azure.
+Per aprire il menu Processi di backup, nel menu principale dell'insieme di credenziali fare clic su **Processi di backup**. 
 
-Se i file e le cartelle di backup non vengono visualizzati, fare clic sul pulsante **Filtro** nella parte superiore della pagina e scegliere **File e cartelle** dal menu Tipo di elemento.
+![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
-> [!NOTE]
-> Nel menu **Impostazioni** si gestiscono i processi di Backup selezionando **Monitoraggio e report > Processi > Processi di backup** e quindi scegliendo **File-Cartelle** dal menu a discesa.
->
->
+Viene aperto l'elenco dei processi di backup.
+
+![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+
+Il menu Processi di backup mostra lo stato di tutte le operazioni, in tutti i tipi di backup, per le ultime 24 ore. Usare **Filtra** per modificare i filtri. I filtri vengono illustrati nelle sezioni seguenti.
+
+Per modificare i filtri:
+
+1. Dal menu Processi di backup dell'insieme di credenziali scegliere **Filtra**.
+
+   ![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+
+    Viene aperto il menu Filtra.
+
+   ![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+
+2. Scegliere le impostazioni del filtro e fare clic su **Fine**. L'elenco filtrato viene aggiornato in base alle nuove impostazioni.
+
+#### <a name="item-type"></a>Tipo di elemento
+
+Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne esistono quattro tipi. Vedere l'elenco seguente. È possibile visualizzare tutti i tipi di elemento o un tipo di elemento. Non è possibile selezionare due o tre tipi di elemento. I tipi di elemento disponibili sono:
+
+* Tutti i tipi di elemento
+* Macchina virtuale di Azure
+* File e cartelle
+* Archiviazione di Azure
+* Carico di lavoro di Azure
+
+#### <a name="operation"></a>Operazione
+
+È possibile visualizzare tutte le operazioni o un'operazione. Non è possibile selezionare due o tre operazioni. Le operazioni disponibili sono:
+
+* Tutte le operazioni
+* Register 
+* Configurare il backup
+* Backup
+* Restore
+* Disabilitare il backup
+* Elimina dati di backup
+
+#### <a name="status"></a>Status
+
+È possibile visualizzare tutti gli stati o uno. Non è possibile selezionare due o tre stati. Gli stati disponibili sono:
+
+* Tutti gli stati
+* Completed
+* In corso
+* Operazione non riuscita
+* Canceled
+* Completato con avvisi
+
+#### <a name="start-time"></a>Ora di inizio
+
+Giorno e ora di inizio della query. L'impostazione predefinita è un periodo di 24 ore.
+
+#### <a name="end-time"></a>Ora di fine
+
+Giorno e ora di fine della query.
+
+### <a name="export-jobs"></a>Esporta processi
+
+Usare **Esporta processi** per creare un foglio di calcolo contenente tutte le informazioni del menu Processi. Il foglio di calcolo ha un foglio contenente un riepilogo di tutti i processi e singoli fogli per ogni processo.
+
+Per esportare le informazioni sui processi in un foglio di calcolo, fare clic su **Esporta processi**. Il servizio crea un foglio di calcolo usando il nome dell'insieme di credenziali e la data, ma è possibile modificare il nome.
 
 ## <a name="monitor-backup-usage"></a>Monitorare l'utilizzo del backup
-Nella sezione Backup del dashboard, il riquadro Utilizzo del backup indica lo spazio di archiviazione usato in Azure. L'utilizzo dello spazio di archiviazione viene fornito per:
+
+Il riquadro Utilizzo del backup del dashboard indica lo spazio di archiviazione utilizzato in Azure. L'utilizzo dello spazio di archiviazione viene fornito per:
 
 * Utilizzo dello spazio di archiviazione con ridondanza locale nel cloud associato all'insieme di credenziali
 * Utilizzo dello spazio di archiviazione con ridondanza geografica nel cloud associato all'insieme di credenziali
 
-## <a name="manage-your-production-servers"></a>Gestire i server di produzione
-Per gestire i server di produzione, fare clic su **Impostazioni**.
-
-In Gestisci fare clic su **Infrastruttura di backup > Server di produzione**.
-
-Il menu Server di produzione elenca tutti i server di produzione disponibili. Fare clic su un server nell'elenco per aprire i dettagli del server.
-
-![Elementi protetti](./media/backup-azure-manage-windows-server/production-server-list.png)
-
-
-## <a name="open-the-azure-backup-agent"></a>Aprire l'agente di Backup di Azure
-Aprire l'**agente di Backup di Microsoft Azure**. Per trovarlo, cercare nel computer *Backup di Microsoft Azure*.
-
-![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
-
-Dalle **Azioni** disponibili a destra della console dell'agente di backup è possibile eseguire le attività di gestione seguenti:
-
-* Registra server
-* Pianificazione di un backup
-* Esegui backup
-* Modifica proprietà
-
-![Azioni della console dell'agente Backup di Microsoft Azure](./media/backup-azure-manage-windows-server/console-actions.png)
-
-> [!NOTE]
-> Per **ripristinare i dati**, vedere [Ripristinare file da un computer che esegue Windows Server o un client Windows](backup-azure-restore-windows-server.md).
->
->
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
-
-## <a name="modify-the-backup-schedule"></a>Modificare la pianificazione dei backup
-1. Nell'agente di Backup di Microsoft Azure fare clic su **Pianifica backup**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
-2. Nella **Pianificazione guidata backup** lasciare selezionata l'opzione **Modifica elementi o tempistica del backup** e fare clic su **Avanti**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
-3. Per aggiungere o modificare elementi, nella schermata **Seleziona elementi per backup** fare clic su **Aggiungi elementi**.
-
-    In questa pagina della procedura guidata è anche possibile specificare le **Impostazioni di esclusione** . Per escludere file o tipi di file, leggere la procedura per l'aggiunta di [impostazioni di esclusione](#manage-exclusion-settings).
-4. Selezionare i file e le cartelle di cui si vuole eseguire il backup e fare clic su **OK**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/add-items-modify.png)
-5. Specificare la **pianificazione del backup** e fare clic su **Avanti**.
-
-    È possibile pianificare backup giornalieri (non più di 3 al giorno) o settimanali.
-
-    ![Elementi per il backup di Windows Server](./media/backup-azure-manage-windows-server/specify-backup-schedule-modify-close.png)
-
-   > [!NOTE]
-   > Per informazioni dettagliate su come specificare la pianificazione del backup, vedere questo [articolo](backup-azure-backup-cloud-as-tape.md).
-   >
-
-6. Selezionare i **criteri di conservazione** per la copia di backup e fare clic su **Avanti**.
-
-    ![Elementi per il backup di Windows Server](./media/backup-azure-manage-windows-server/select-retention-policy-modify.png)
-7. Nella schermata **Conferma** riesaminare le informazioni e fare clic su **Fine**.
-8. Al termine della creazione della **pianificazione del backup** da parte della procedura guidata, fare clic su **Chiudi**.
-
-    Dopo aver modificato la protezione, è possibile verificare che i backup vengano attivati correttamente passando alla scheda **Processi** e assicurandosi che le modifiche siano presenti nei processi di backup.
-
-## <a name="enable-network-throttling"></a>Abilitare la limitazione della larghezza di banda della rete
-
-L'agente Backup di Azure offre la scheda Limitazione larghezza di banda rete che consente di controllare la modalità d'uso della larghezza di banda della rete durante il trasferimento dei dati. Questo controllo può essere utile se è necessario eseguire il backup dei dati durante l'orario di lavoro, ma senza che il processo di backup interferisca con il resto del traffico Internet. La limitazione del trasferimento dati si applica alle attività di backup e ripristino.  
-
-Per abilitare la limitazione della larghezza di banda della rete:
-
-1. Nell'**agente di Backup** fare clic su **Modifica proprietà**.
-2. Nella scheda **Limitazione larghezza di banda rete selezionare **Abilita la limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**.
-
-    ![Limitazione della larghezza di banda della rete](./media/backup-azure-manage-windows-server/throttling-dialog.png)
-
-    Dopo aver abilitato la limitazione, specificare la larghezza di banda consentita per il trasferimento dei dati di backup durante le **Ore lavorative** e le **Ore non lavorative**.
-
-    I valori della larghezza di banda partono da 512 kilobyte al secondo (Kbps) e possono arrivare fino a 1023 megabyte al secondo (Mbps). È anche possibile definire l'inizio e la fine per **Ore lavorative**e i giorni della settimana da considerare come giorni lavorativi. Le ore al di fuori delle ore lavorative specificate sono considerate non lavorative.
-3. Fare clic su **OK**.
-
-## <a name="manage-exclusion-settings"></a>Gestire le impostazioni di esclusione
-1. Aprire l'**agente di Backup di Microsoft Azure**. Per trovarlo, cercare nel computer *Backup di Microsoft Azure*.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
-2. Nell'agente di Backup di Microsoft Azure fare clic su **Pianifica backup**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
-3. Nella Pianificazione guidata backup lasciare selezionata l'opzione **Modifica elementi o tempistica del backup** e fare clic su **Avanti**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
-4. Fare clic su **Impostazioni di esclusione**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclusion-settings.png)
-5. Fare clic su **Aggiungi esclusione**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/add-exclusion.png)
-6. Selezionare il percorso e quindi fare clic su **OK**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclusion-location.png)
-7. Aggiungere l'estensione di file nel campo **Tipo file** .
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclude-file-type.png)
-
-    Aggiunta di un'estensione mp3
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclude-mp3.png)
-
-    Per aggiungere un'altra estensione, fare clic su **Aggiungi esclusione** e immettere l'estensione di un altro tipo di file, aggiungendo un'estensione jpeg.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/exclude-jpg.png)
-8. Dopo aver aggiunto tutte le estensioni, fare clic su **OK**.
-9. Continuare con la Pianificazione guidata backup facendo clic su **Avanti** fino alla **pagina Conferma**, quindi fare clic su **Fine**.
-
-    ![Pianificare un backup di Windows Server](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
-**D1. Lo stato del processo di backup risulta completato nell'agente di Backup di Azure. Perché non è visibile immediatamente nel portale?**
 
-R1. C'è un ritardo massimo di 15 minuti tra lo stato del processo di backup visibile nell'agente di Backup di Azure e nel portale di Azure.
+**D1. Dopo quanto tempo lo stato del processo dell'agente di Backup di Azure viene indicato nel portale?**
 
-**D.2 Quando un processo di backup non riesce, quanto tempo passa prima che venga generato un avviso?**
+R1. Il portale di Azure può impiegare fino a 15 minuti per visualizzare lo stato del processo dell'agente di Backup di Azure.
 
-R.2 Un avviso viene generato entro 20 minuti dall'errore di backup di Azure.
+**D2. Quando un processo di backup non riesce, quanto tempo passa prima che venga generato un avviso?**
+
+R2. Un avviso viene generato entro 20 minuti dall'errore di backup di Azure.
 
 **D3. Esiste un caso in cui non viene inviato un messaggio di posta elettronica se le notifiche sono configurate?**
 
-R3. Di seguito sono indicati i casi in cui la notifica non verrà inviata per ridurre la frequenza degli avvisi:
+R3. Sì. Le notifiche non vengono inviate nei casi seguenti.
 
 * Se le notifiche sono configurate su base oraria e un avviso viene generato e risolto entro l'ora
-* Il processo viene annullato.
-* Secondo processo di backup non riuscito perché è in corso il processo di backup originale.
+* Quando un processo viene annullato
+* Se un secondo processo di backup non riesce perché è in corso il processo di backup originale
 
 ## <a name="troubleshooting-monitoring-issues"></a>Risoluzione dei problemi di monitoraggio
+
 **Problema:** i processi e/o gli avvisi generati dall'agente di Backup di Azure non vengono visualizzati nel portale.
 
 **Procedura per la risoluzione del problema:** il processo, ```OBRecoveryServicesManagementAgent```, viene usato per inviare i dati dei processi e degli avvisi al servizio Backup di Azure. A volte questo processo può risultare danneggiato o arrestato.
 
-1. Per controllare se il processo si è arrestato, aprire **Gestione attività** e controllare se il processo ```OBRecoveryServicesManagementAgent``` è in esecuzione.
+1. Per controllare se il processo si è arrestato, aprire **Gestione attività** e controllare se ```OBRecoveryServicesManagementAgent``` è in esecuzione.
+
 2. Se il processo non è in esecuzione, aprire il **Pannello di controllo** e sfogliare l'elenco dei servizi. Avviare o riavviare **Agente di gestione di Servizi di ripristino di Microsoft Azure**.
 
     Per altre informazioni, sfogliare i log in:<br/>

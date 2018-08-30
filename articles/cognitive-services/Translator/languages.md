@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032436"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888142"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Lingue supportate nell'API Traduzione testuale Microsoft
 
@@ -22,7 +22,7 @@ L'API Traduzione testuale Microsoft supporta le lingue seguenti per la traduzion
 
 [Altre informazioni sull'uso della traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
 
-| Lingua    | Tipo di traduzione |Codice lingua |
+| Linguaggio    | Tipo di traduzione |Codice lingua |
 |:----------- |:-------:|:-------------:|
 | Afrikaans      | Statistica |`af`          |
 | Arabo      | Neurale | `ar`          |
@@ -93,7 +93,7 @@ L'API Traduzione testuale Microsoft supporta le lingue seguenti per la traduzion
 
 Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il simbolo "<-->" indica che la lingua può essere traslitterata da o verso entrambi gli alfabeti elencati. Il simbolo "-->" indica che la lingua può essere traslitterata solo da un alfabeto all'altro.
 
-| Lingua    | Codice lingua | Alfabeto | Verso/Da | Alfabeto|
+| Linguaggio    | Codice lingua | Script | Verso/Da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | ar | Arabo | <--> | Latino |
 |Bengalese  | bn | Bengalese | <--> | Latino |
@@ -108,7 +108,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Kannada | kn | Kannada | --> | Latino |
 | Malese | ml | Malayalam | --> | Latino |
 | Marathi | mr | Devanagari | --> | Latino |
-| Oriya | or | Oriya | <--> | Latino |
+| Oriya | oppure | Oriya | <--> | Latino |
 | Punjabi | pa | Gurmukhi | <--> | Latino  |
 | Serbo (alfabeto cirillico) | sr-Cyrl | Cirillico  | --> | Latino |
 | Serbo (alfabeto latino) | sr-Latn | Latino | --> | Cirillico |
@@ -120,12 +120,12 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 
 Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i metodi Lookup ed Examples.
 
-| Lingua    | Codice lingua |
+| Linguaggio    | Codice lingua |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
 | Bengalese      | `bn`          |
-| Bosniaco (alfabeto latino)      | `bs`          |
+| Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Catalano      | `ca`          |
 | Cinese semplificato      | `zh-Hans`          | 
@@ -147,7 +147,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Indonesiano      | `id`          |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
-| Swahili      | `sw`          |
+| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
@@ -177,7 +177,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 
 Il metodo Detect è in grado di rilevare le lingue seguenti. Detect può rilevare lingue non tradotte da Microsoft Translator.
 
-| Lingua    |
+| Linguaggio    |
 |:----------- |
 | Afrikaans |
 | Albanese |
@@ -187,8 +187,8 @@ Il metodo Detect è in grado di rilevare le lingue seguenti. Detect può rilevar
 | Bulgaro |
 | Catalano |
 | Cinese |
-| Cinese semplificato |
-| Cinese tradizionale |
+| Cinese (semplificato) |
+| Cinese (tradizionale) |
 | Croato |
 | Ceco |
 | Danese |
@@ -211,8 +211,8 @@ Il metodo Detect è in grado di rilevare le lingue seguenti. Detect può rilevar
 | Italiano |
 | Giapponese |
 | Coreano |
-| Curdo (arabo) |
-| Curdo (alfabeto latino) |
+| Curdo (paesi arabi) |
+| Curdo (Latino) |
 | Latino |
 | Lettone |
 | Lituano |
@@ -220,7 +220,7 @@ Il metodo Detect è in grado di rilevare le lingue seguenti. Detect può rilevar
 | Malese |
 | Maltese |
 | Norvegese |
-| Norvegese Nynorsk |
+| Norvegese (Nynorsk) |
 | Pashto |
 | Persiano |
 | Polacco |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5f7477671e7be4e6e8fd736ab94fa7e7b1e99a6e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400009"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184404"
 ---
 L'archiviazione con ridondanza della zona (ZRS) replica i dati in modo sincrono in tre cluster di archiviazione in una singola area. Ogni cluster di archiviazione è separato fisicamente dagli altri e si trova nella propria zona di disponibilità (AZ). Ogni zona di disponibilità, con il cluster di archiviazione con ridondanza della zona al suo interno, è autonoma, con funzionalità di rete e utilità separate.
 
@@ -28,6 +28,7 @@ L'archiviazione con ridondanza della zona attualmente supporta gli account di ti
 
 L'archiviazione con ridondanza della zona è disponibile a livello generale nelle aree seguenti:
 
+- Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti occidentali 2
 - Stati Uniti centrali

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 982a5eabf8c6c3012a9b3e8fdbe2ff32ba439972
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f73a9e59c0add664128b506172182afe566ca670
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113593"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444511"
 ---
 # <a name="reference-architecture-simple-enterprise-integration"></a>Architettura di riferimento: integrazione aziendale semplice
 
@@ -38,7 +38,7 @@ L'architettura include i componenti seguenti:
 - **Portale per sviluppatori di Gestione API di Azure**. Ogni istanza di Gestione API di Azure è dotata dell'accesso al [portale per sviluppatori](https://docs.microsoft.com/azure/api-management/api-management-customize-styles). Il portale per sviluppatori di Gestione API consente di accedere alla documentazione e agli esempi di codice. In questo portale è inoltre possibile testare le API.
 - **App per la logica di Azure**. [App per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) è una piattaforma senza server che viene usata per la creazione del flusso di lavoro e dell'integrazione aziendali.
 - **Connettori**. I [connettori](https://docs.microsoft.com/azure/connectors/apis-list) vengono usati da App per la logica per la connessione ai servizi di uso comune. App per la logica dispone già di centinaia di connettori diversi, ma è anche possibile creare connettori personalizzati.
-- **Indirizzo IP**. Il servizio Gestione API di Azure ha un [indirizzo IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) pubblico fisso e un nome di dominio. Il nome di dominio è un sottodominio di azure-api.net, ad esempio contoso.azure-api.net. Anche App per la logica e il bus di servizio hanno un indirizzo IP pubblico. Tuttavia, in questa architettura l'accesso per chiamare gli endpoint di App per la logica è limitato all'indirizzo IP di Gestione API per motivi di sicurezza. Le chiamate al bus di servizio sono protette da una firma di accesso condiviso.
+- **Indirizzo IP**. Il servizio Gestione API di Azure ha un [indirizzo IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) pubblico fisso e un nome di dominio. Il nome di dominio predefinito è un sottodominio di azure-api.net, ad esempio contoso.azure-api.net, ma è possibile configurare anche [domini personalizzati](https://docs.microsoft.com/azure/api-management/configure-custom-domain). Anche App per la logica e il bus di servizio hanno un indirizzo IP pubblico. Tuttavia, in questa architettura l'accesso per chiamare gli endpoint di App per la logica è limitato all'indirizzo IP di Gestione API per motivi di sicurezza. Le chiamate al bus di servizio sono protette da una firma di accesso condiviso.
 - **DNS di Azure**. [DNS di Azure](https://docs.microsoft.com/azure/dns/) è un servizio di hosting per domini DNS che fornisce la risoluzione dei nomi tramite l'infrastruttura di Microsoft Azure. Ospitando i domini in Azure, è possibile gestire i record DNS usando le credenziali, le API, gli strumenti e il sistema di fatturazione degli altri servizi di Azure. Per usare un nome di dominio personalizzato, ad esempio contoso.com, creare record DNS in cui il nome di dominio personalizzato è mappato all'indirizzo IP. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato in Gestione API](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Usare [Azure AD](https://docs.microsoft.com/azure/active-directory/) o un altro provider di identità per l'autenticazione. Azure AD fornisce l'autenticazione per l'accesso agli endpoint di API passando un [token JSON Web per Gestione API](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) da convalidare. Azure AD può proteggere l'accesso al portale per sviluppatori di Gestione API (solo per i piani Standard e Premium).
 
