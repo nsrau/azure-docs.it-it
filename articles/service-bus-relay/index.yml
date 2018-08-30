@@ -1,0 +1,76 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: b741e9fd30119aaeb5248ae3fae906a70cb163e4
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144797"
+documentType: LandingData
+title: Documentazione di Inoltro del bus di servizio di Azure
+metadata:
+  title: Documentazione di Inoltro del bus di servizio di Azure
+  meta.description: Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.
+  services: service-bus-relay
+  author: sethmanheim
+  manager: timlt
+  ms.service: service-bus-relay
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/21/2018
+  ms.author: sethm
+abstract:
+  description: Il servizio di inoltro di Azure consente applicazioni ibride tra ambienti locali e cloud di una rete aziendale e il cloud pubblico, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come inviare e ricevere messaggi con Inoltro di Azure:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/media/index/logo_net.svg
+      text: WebSocket per .NET
+      href: /azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started
+    - image:
+        src: /azure/media/index/logo_net.svg
+      text: HTTP per .NET
+      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started
+    - image:
+        src: /azure/media/index/logo_nodejs.svg
+      text: WebSocket per Node.js
+      href: /azure/service-bus-relay/relay-hybrid-connections-node-get-started
+    - image:
+        src: /azure/media/index/logo_nodejs.svg
+      text: HTTP per Node.js
+      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come creare, gestire, inviare e ricevere messaggi con Inoltro di Azure
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay">Esporre un servizio WCF locale a un'applicazione Web sul cloud</a>
+    - html: <a href="/azure/service-bus-relay/service-bus-relay-tutorial">Esporre un servizio WCF locale a un client WCF esterno alla rete</a>
+    - html: <a href="/azure/service-bus-relay/service-bus-relay-rest-tutorial">Esporre un servizio WCF locale a un'applicazione esterna alla rete</a>
+- title: Esempi
+  items:
+  - type: paragraph
+    text: Trovare script per gestire le attività comuni.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples">Esempi di Inoltro di Azure</a>
+- title: riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Lingue
+      html: <p><a href="/dotnet/api/microsoft.azure.relay?view=azure-dotnet">.NET Framework</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/servicebus/">Informazioni di riferimento sulle API REST</a></p>

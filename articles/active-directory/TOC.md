@@ -54,6 +54,7 @@
 #### [Aggiunta di utenti B2B da parte di amministratori](b2b/add-users-administrator.md)
 #### [Aggiunta di utenti B2B da parte di information worker](b2b/add-users-information-worker.md)
 #### [API e personalizzazione](b2b/customize-invitation-api.md)
+#### [Federazione Google](b2b/google-federation.md)
 #### [Esempi di Azure PowerShell e di codice](b2b/code-samples.md)
 #### [Esempio di portale per l'iscrizione self-service](b2b/self-service-portal.md)
 #### [Invito tramite posta elettronica](b2b/invitation-email-elements.md)
@@ -126,31 +127,6 @@
 #### [Reimpostare o modificare la password](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Registrarsi per la reimpostazione della password self-service](user-help/active-directory-passwords-reset-register.md)
 
-
-## Gestire i dispositivi
-### [Overview](devices/overview.md)
-
-### Guide introduttive
-#### [Configurare i dispositivi Windows 10 registrati in Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [Configurare i dispositivi aggiunti ad Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
-
-### Esercitazioni
-#### [Configure l'aggiunta ad Azure AD ibrido per i domini gestiti](devices/hybrid-azuread-join-managed-domains.md)
-#### [Configure l'aggiunta ad Azure AD ibrido per i domini federati](devices/hybrid-azuread-join-federated-domains.md)
-#### [Configure manualmente l'aggiunta ad Azure AD ibrido](devices/hybrid-azuread-join-manual-steps.md)
-#### [Configurare l'aggiunta ad Azure AD durante il completamento dell'installazione in Windows 10](devices/azuread-joined-devices-frx.md)
-
-### Guide pratiche
-#### [Pianificare l'aggiunta ad Azure AD](devices/azureadjoin-plan.md)
-#### [Pianificare l'implementazione dell'aggiunta ad Azure AD ibrido](devices/hybrid-azuread-join-plan.md)
-#### [Controllare l'aggiunta dei dispositivi ad Azure AD ibrido](devices/hybrid-azuread-join-control.md)
-#### [Assegnare gli amministratori locali ai dispositivi aggiunti ad Azure AD](devices/assign-local-admin.md)
-#### [Risolvere i problemi dei dispositivi Windows correnti aggiunti ad Azure AD ibrido](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Risolvere i problemi dei dispositivi Windows legacy aggiunti ad Azure AD ibrido](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### Concetti
-#### [Gestire i dispositivi tramite il portale di Azure](devices/device-management-azure-portal.md)
-#### [Domande frequenti](devices/faq.md)
 
 ## Gestire le app
 ### [Overview](manage-apps/what-is-application-management.md)

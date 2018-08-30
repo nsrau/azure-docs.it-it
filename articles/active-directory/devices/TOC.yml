@@ -1,0 +1,57 @@
+items:
+- name: Documentazione sulla gestione dei dispositivi
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Informazioni sulla gestione dei dispositivi in Azure AD
+    href: overview.md
+- name: Esercitazioni
+  items:
+  - name: Configurare l'aggiunta ad Azure AD ibrido per i domini gestiti
+    href: hybrid-azuread-join-managed-domains.md
+  - name: Configurare l'aggiunta ad Azure AD ibrido per i domini federati
+    href: hybrid-azuread-join-federated-domains.md
+  - name: Configurare manualmente l'aggiunta ad Azure AD ibrido
+    href: hybrid-azuread-join-manual-steps.md
+  - name: Configurare l'aggiunta ad Azure AD durante il completamento dell'installazione in Windows 10
+    href: azuread-joined-devices-frx.md
+  expanded: false
+- name: Guide alle procedure
+  items:
+  - name: Gestire i dispositivi tramite il portale di Azure
+    href: device-management-azure-portal.md
+  - name: Pianificare l'aggiunta ad Azure AD
+    href: azureadjoin-plan.md
+  - name: Pianificare l'implementazione dell'aggiunta ad Azure AD ibrido
+    href: hybrid-azuread-join-plan.md
+  - name: Controllare l'aggiunta dei dispositivi ad Azure AD ibrido
+    href: hybrid-azuread-join-control.md
+  - name: Assegnare gli amministratori locali ai dispositivi aggiunti ad Azure AD
+    href: assign-local-admin.md
+  - name: Risolvere i problemi dei dispositivi Windows correnti aggiunti ad Azure AD ibrido
+    href: troubleshoot-hybrid-join-windows-current.md
+  - name: Risolvere i problemi dei dispositivi Windows legacy aggiunti ad Azure AD ibrido
+    href: troubleshoot-hybrid-join-windows-legacy.md
+  - name: Domande frequenti
+    href: faq.md
+  expanded: true
+- name: Risorse
+  items:
+  - name: Forum di commenti e suggerimenti su Azure
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Prezzi
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Aggiornamenti del servizio
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Video
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: e20a017ea6ce00749cf0dad990dd7a66907e074b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130620"

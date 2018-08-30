@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 03a96770462e66c897b93ae0790838a9c8f1bd9b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130624"
+documentType: LandingData
+title: Documentazione sulla gestione dei dispositivi in Azure AD
+metadata:
+  document_id: 
+  title: Documentazione sulla gestione dei dispositivi in Azure Active Directory - Esercitazioni, concetti, informazioni di riferimento | Microsoft Docs
+  description: Informazioni su come configurare e testare la gestione dei dispositivi di Azure Active Directory.
+  services: active-directory
+  ms.component: devices
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: markvi
+abstract:
+  description: Tramite i dispositivi gli utenti hanno accesso alle risorse aziendali. Per proteggere le risorse aziendali, gli amministratori IT vogliono avere il controllo su questi dispositivi. Ciò consente di verificare che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard per sicurezza e conformità.<br>La gestione dei dispositivi rappresenta anche il fondamento per l'accesso condizionale basato su dispositivo. Con l'accesso condizionale basato su dispositivo, è possibile assicurarsi che l'accesso alle risorse nell'ambiente sia possibile solo con dispositivi gestiti.
+sections:
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni sull'integrazione dei dispositivi locali aggiunti ad AD con Azure AD.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Domini gestiti
+      href: hybrid-azuread-join-managed-domains.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Domini federati
+      href: hybrid-azuread-join-federated-domains.md
