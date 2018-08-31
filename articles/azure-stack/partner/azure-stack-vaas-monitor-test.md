@@ -1,6 +1,6 @@
 ---
 title: Monitorare un test di convalida di Azure Stack come servizio | Microsoft Docs
-description: Monitorare un test di convalida di Azure Stack come servizio problemi noti.
+description: Monitorare un test di convalida di Azure Stack come servizio.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0bc45ea23cfb3f9b8cf7b117b5c3427d9945878e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 553d2a0e4bf6b23f5d8ab200f533d9245bf72d36
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235417"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286585"
 ---
 # <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>Monitorare un test di convalida di Azure Stack come servizio
 
@@ -55,7 +55,7 @@ Per i test che hanno terminato l'esecuzione, i log possono essere scaricati dall
 
 ### <a name="test-pass-summary"></a>Riepilogo del test di pass
 
-| Colonna | Description |
+| Colonna | DESCRIZIONE |
 | --- | --- |
 | Nome test | Il nome del test. Fa riferimento al numero di convalida. |
 | Data di creazione | Ora che è stato creato il superamento del test. |
@@ -91,14 +91,14 @@ Per i test che hanno terminato l'esecuzione, i log possono essere scaricati dall
 
 **Informazioni sul test**
 
-| NOME | Description |
+| NOME | DESCRIZIONE |
 | -- | -- |
 | Nome test | Il nome del test, ad esempio, OEM aggiornamento in Azure Stack 1806 RC convalida. |
 | Versione di prova | La versione del test, ad esempio, 5.1.4.0. |
 | Editore | Editore di test, ad esempio Microsoft. |
 | Categoria | La categoria del test, ad esempio **funzionale** oppure **affidabilità**. |
 | Servizi di destinazione | I servizi sottoposto a test, ad esempio VirtualMachines |
-| Description | La descrizione del test. |
+| DESCRIZIONE | La descrizione del test. |
 | Durata stimata (minuti) | Il periodo di tempo in minuti per l'esecuzione ha richiesto il test. |
 | Collegamenti | Collegamento a GitHub Issue Tracker. |
 
@@ -109,7 +109,7 @@ Per i test che hanno terminato l'esecuzione, i log possono essere scaricati dall
 
 **Parameters**
 
-| NOME | Description |
+| NOME | DESCRIZIONE |
 | -- | -- |
 | Nome test | Il nome del test, ad esempio, oemupdate1806test. |
 | Versione di prova | La versione del resto, ad esempio, 5.1.4.0. |

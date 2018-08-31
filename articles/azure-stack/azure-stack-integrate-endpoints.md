@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: c5d0bc6a0e7e885f61ba28be0575697b03fece09
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917143"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307609"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter integration - pubblicano endpoint
 Azure Stack consente di impostare indirizzi IP virtuali (VIP) per i ruoli di infrastruttura. Questi indirizzi VIP sono allocati dal pool di indirizzi IP pubblici. Ogni indirizzo IP virtuale è protetta con un elenco di controllo di accesso (ACL) nel livello di software defined Networking. Gli ACL vengono usati anche per i commutatori fisici (tor e BMC) per rafforzare ulteriormente la soluzione. Viene creata una voce DNS per ogni endpoint nella zona DNS esterna specificati in fase di distribuzione.
@@ -27,7 +27,7 @@ Diagramma dell'architettura seguente mostra i vari livelli della rete e gli ACL:
 
 ## <a name="ports-and-protocols-inbound"></a>Porte e protocolli (in ingresso)
 
-Un set di infrastruttura di indirizzi VIP sono necessari per la pubblicazione di endpoint di Azure Stack per le reti esterne. Il *Endpoint (indirizzo VIP)* tabella illustra ogni endpoint, la porta necessaria e protocollo. Vedere la documentazione sulla distribuzione di provider di risorse specifico per gli endpoint che richiedono provider di risorse aggiuntive, ad esempio il provider di risorse SQL.
+Un set di infrastruttura di indirizzi VIP è necessario per la pubblicazione di endpoint di Azure Stack per le reti esterne. Il *Endpoint (indirizzo VIP)* tabella illustra ogni endpoint, la porta necessaria e protocollo. Vedere la documentazione sulla distribuzione di provider di risorse specifico per gli endpoint che richiedono provider di risorse aggiuntive, ad esempio il provider di risorse SQL.
 
 Infrastruttura interna che non sono elencati gli indirizzi VIP perché non sono necessarie per la pubblicazione di Azure Stack.
 
@@ -76,7 +76,8 @@ Azure Stack supporta solo i server proxy trasparente. In una distribuzione in cu
 |DNS|     |TCP<br>UDP|53|
 |     |     |     |     |
 
-
+> [!Note]  
+> Gli URL in uscita sono con carico bilanciato usando Gestione traffico di Azure per fornire la migliore connettività possibili basate sulla posizione geografica. Con carico bilanciato URL, Microsoft è possibile aggiornare e modificare gli endpoint di back-end senza conseguenze per i clienti. Microsoft non condivide l'elenco di indirizzi IP per gli URL con bilanciamento del carico. È consigliabile usare un dispositivo che supporta i filtri dall'URL piuttosto che dall'IP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
