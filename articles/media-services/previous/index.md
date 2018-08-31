@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a38158467664eb12b388ad6bdc4bb5d783aa8762
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778869"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283599"
 ---
 # <a name="media-services-documentation"></a>Documentazione su Servizi multimediali
 
@@ -171,7 +171,7 @@ Informazioni su come riprodurre in streaming video di alta qualità con Servizi 
 
 ---
 
-<h2>Riferimenti</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -179,8 +179,8 @@ Informazioni su come riprodurre in streaming video di alta qualità con Servizi 
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media">PowerShell (Resource Manager)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (gestione dei servizi)</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/azure-resource-manager/powershell-azure-resource-manager">PowerShell (Resource Manager)</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0">PowerShell (gestione dei servizi)</a></p>
                     </div>
                 </div>
             </div>
