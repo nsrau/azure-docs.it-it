@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d3be19c67027746ddb73cf2cd9b4545584fd3ce0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ccc508b8dbfb990639abe24efa2822ff27f2f910
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389782"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341565"
 documentType: LandingData
-title: Documentazione dell'identità del servizio gestita di Azure Active Directory
+title: Identità gestite di Azure AD per la documentazione delle risorse di Azure
 metadata:
   document_id: 
-  title: Documentazione dell'identità del servizio gestita di Azure Active Directory
-  description: Informazioni su come usare l'identità del servizio gestita per l'autenticazione sicura nei servizi cloud di Azure senza che sia necessario conservare le credenziali nel codice sorgente.
+  title: Identità gestite di Azure AD per la documentazione delle risorse di Azure
+  description: Informazioni su come usare le identità gestite per le risorse di Azure per l'autenticazione sicura nei servizi cloud di Azure senza che sia necessario conservare le credenziali nel codice sorgente.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -22,21 +22,21 @@ metadata:
   ms.date: 03/16/2018
   ms.author: daveba
 abstract:
-  description: L'identità del servizio gestita offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.  Informazioni su come creare e gestire le identità del servizio gestite con le guide introduttive e le esercitazioni.
+  description: Le identità gestite per le risorse Azure forniscono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.  Informazioni su come creare e gestire le identità gestite per le risorse di Azure con guide introduttive ed esercitazioni.
   aside:
     image:
       alt: 
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
-    title: Introduzione all'identità del servizio gestita
+    title: Introduzione alle identità gestite per le risorse di Azure
     href: https://www.youtube.com/embed/bBi1bll2928
     width: 200
 sections:
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: Informazioni su come usare l'identità del servizio gestita per accedere all'API Azure Resource Manager
+    text: Informazioni su come usare le identità gestite per le risorse di Azure per accedere all'API Azure Resource Manager
   - type: list
     style: unordered
     items:
@@ -45,7 +45,7 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come usare l'identità del servizio gestita per accedere in modo sicuro alle risorse di Azure
+    text: Informazioni su come usare le identità gestite per le risorse di Azure per accedere alle risorse di Azure in modo sicuro
   - type: paragraph
     text: Macchina virtuale/set di scalabilità di macchine virtuali Windows
   - type: list

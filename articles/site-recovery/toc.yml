@@ -196,20 +196,22 @@ items:
         href: vmware-azure-deploy-configuration-server.md
       - name: Configurare l'ambiente di destinazione per macchine virtuali VMware
         href: vmware-azure-set-up-target.md
-      - name: Configurare le impostazioni di replica
+      - name: Configurare le impostazioni di replica per le VM VMware
         href: vmware-azure-set-up-replication.md
-      - name: Abilitare la replica di macchine virtuali VMware
+      - name: Abilitare la replica per le macchine virtuali VMware
         href: vmware-azure-enable-replication.md
-      - name: Escludere dischi dalla replica
+      - name: Escludere dischi dalla replica di VM VMware
         href: vmware-azure-exclude-disk.md
-      - name: Multi-tenancy con CSP per VM VMWare
+      - name: Impostare la replica con multi-tenancy e CSP per le VM VMWare
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
-      - name: Configurare l'ambiente di origine per server fisici
-        href: physical-azure-set-up-source.md
-      - name: Configurare l'ambiente di destinazione per server fisici
-        href: physical-azure-set-up-target.md
-      - name: Ripristino di emergenza dei server fisici in Azure
+      - name: Configurare il ripristino di emergenza dei server fisici in Azure
         href: physical-azure-disaster-recovery.md
+      - name: Configurare l'ambiente di origine per la replica di server fisici
+        href: physical-azure-set-up-source.md
+      - name: Configurare l'ambiente di destinazione per la replica di server fisici
+        href: physical-azure-set-up-target.md
+      - name: Configurare il ripristino di emergenza per le VM Azure Stack
+        href: azure-stack-site-recovery.md
     - name: Distribuire il servizio Mobility
       items:
       - name: Panoramica del servizio Mobility
@@ -390,9 +392,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 63d404406e3b33d4022974246a227cad1e6535a6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 01f369aede31d44ff404c1ff5e7d2d1e9bb92950
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285107"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343974"
