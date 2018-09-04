@@ -1,28 +1,23 @@
 ---
 title: Panoramica dell'architettura senza server di Azure | Microsoft Docs
-description: Creare potenti soluzioni nel cloud senza preoccuparsi dell'infrastruttura.
-keywords: ''
+description: Informazioni su come creare potenti soluzioni nel cloud senza preoccuparsi dell'infrastruttura
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: klam, estfan, LADocs
+ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 84ff855676215e6b69ec97a1527d14366e763b07
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 97c928c34a18a5d4f3549c348a273df268ee1db0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299927"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123309"
 ---
-# <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Panoramica dell'architettura senza server di Azure con Funzioni e App per la logica
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Panoramica: architettura senza server di Azure con le App per la logica di Azure e Funzioni di Azure
 
 Le applicazioni senza server offrono una serie di vantaggi, tra cui un aumento della velocità di sviluppo, una riduzione del codice necessario e una scalabilità più semplice.  Questo articolo illustra i diversi attributi delle soluzioni senza server e delle offerte senza server di Azure.
 

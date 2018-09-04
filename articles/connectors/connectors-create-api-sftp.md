@@ -1,66 +1,89 @@
 ---
-title: Informazioni su come usare il connettore SFTP nelle app per la logica | Documentazione Microsoft
-description: Creare app per la logica con Servizio app di Azure. Connettersi all'API SFTP per inviare e ricevere file. È possibile eseguire varie operazioni come creare, aggiornare, recuperare o eliminare file.
+title: Connettersi all'account SFTO da App per la logica di Azure | Microsoft Docs
+description: Automatizzare le attività e i flussi di lavoro che monitorano, creano, gestiscono, inviano e ricevono file per un server SFTP usando App per la logica di Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/20/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 28ea02082903f71f619a52672ba41ce65557b0c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296003"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042039"
 ---
-# <a name="get-started-with-the-sftp-connector"></a>Introduzione al connettore SFTP
-Usare il connettore SFTP per accedere a un account SFTP al fine di inviare e ricevere file. È possibile eseguire varie operazioni come creare, aggiornare, recuperare o eliminare file.  
+# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando App per la logica di Azure
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Con App per la logica di Azure e il connettore SFTP, è possibile creare attività automatizzate e flussi di lavoro che monitorano, creano, inviano e ricevono file attraverso il proprio account in un server [SFTP](https://www.ssh.com/ssh/sftp/); possono inoltre eseguire altre azioni, quali:
+
+* Monitorare quando i file vengono aggiunti o modificati.
+* Ottenere, creare, copiare, aggiornare, creare elenchi ed eliminare file.
+* Leggere contenuti e metadati dei file.
+* Estrarre archivi nella cartella.
+
+È possibile usare i trigger per ottenere risposte dal server SFTP e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire attività sul server SFTP. È anche possibile che altre azioni usino l'output delle azioni di SFTP. Ad esempio, se si recuperano regolarmente i file dal server SFTP, è possibile inviare messaggi di posta elettronica riguardanti tali file e il relativo contenuto usando il connettore Outlook di Office 365 o Outlook.com.
+Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+
+* Credenziali dell'account e indirizzo del server host SFTP
+
+   Le credenziali autorizzano l'app per la logica alla creazione di una connessione e all'accesso all'account SFTP.
+
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger di SFTP, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di SFTP, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
 ## <a name="connect-to-sftp"></a>Connettersi a SFTP
-Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio.  
 
-### <a name="create-a-connection-to-sftp"></a>Creare una connessione a SFTP
-> [!INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-an-sftp-trigger"></a>Usare un trigger SFTP
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-In questo esempio il trigger **SFTP - Quando viene aggiunto o modificato un file** viene usato per avviare un flusso di lavoro dell'app per la logica quando viene aggiunto o modificato un file in un server SFTP. Viene aggiunta anche una condizione che controlla il contenuto del file nuovo o modificato e decide di estrarre il file se il relativo contenuto indica che il file deve essere estratto prima di usare il contenuto. Viene infine aggiunta un'azione per estrarre il contenuto di un file e inserire il contenuto estratto in una cartella sul server SFTP. 
+1. Per le app per la logica vuote, nella casella di ricerca immettere "sftp" come filtro. Nell'elenco dei trigger selezionare il trigger desiderato. 
 
-In un esempio riguardante un'organizzazione si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti.  È quindi possibile usare un'azione connettore SFTP come **Recuperare i contenuti del file** per recuperare il contenuto dell'ordine per elaborarlo ulteriormente e archiviarlo nel database degli ordini.
+   -oppure-
 
-> [!INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
-> 
-> 
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. 
+   Nella casella di ricerca immettere "sftp" come filtro. 
+   Nell'elenco delle azioni selezionare l'azione desiderata.
 
-## <a name="add-a-condition"></a>Aggiungere una condizione
-> [!INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
-> 
-> 
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
+   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-## <a name="use-an-sftp-action"></a>Usare un'azione SFTP
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Specificare i dettagli necessari per la connessione, quindi scegliere **Creare**.
 
-> [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
-> 
-> 
+1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
-## <a name="connector-specific-details"></a>Dettagli specifici del connettore
+## <a name="examples"></a>Esempi
 
-Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/sftpconnector/).
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Trigger di SFTP: Quando viene aggiunto o modificato un file
 
-## <a name="more-connectors"></a>Altri connettori
-Tornare all' [elenco di API](apis-list.md).
+Questo trigger avvia il flusso di lavoro di un app per la logica quando il trigger rileva che un file è stato aggiunto o modificato in un server SFTP. Ad esempio, è possibile aggiungere una condizione che controlla il contenuto del file e decide se leggerlo, a seconda che il contenuto soddisfi una condizione specificata. Infine, è possibile aggiungere un'azione che legga il contenuto del file e inserisca tale contenuto in una cartella nel server SFTP. 
+
+**Esempio riguardante un'organizzazione**: si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. È quindi possibile usare un'azione di SFTP come **Recuperare i contenuti del file** per recuperare il contenuto dell'ordine per elaborarlo ulteriormente e archiviarlo nel database degli ordini.
+
+### <a name="sftp-action-get-content"></a>Azione SFTP: recuperare il contenuto
+
+Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto. 
+
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
+
+Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/sftpconnector/) del connettore.
+
+## <a name="get-support"></a>Supporto
+
+* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 66354db65d5e615780ec49683fbc72f1156ac5e1
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ddd30729aa2bcb616efab814dc4046d2817c64fa
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142458"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128678"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console seriale per macchine virtuali (anteprima) 
 
@@ -37,9 +37,15 @@ Per la documentazione della console seriale per macchine virtuali Linux [fare cl
 
 * È necessario usare il modello di distribuzione di Gestione risorse. Non sono supportate le distribuzioni classiche. 
 * La macchina virtuale DEVE avere la [diagnostica di avvio](boot-diagnostics.md) abilitata 
-* L'account che usa la console seriale deve avere il [ruolo Collaboratore](../../role-based-access-control/built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
 
-## <a name="open-the-serial-console"></a>Aprire la console seriale
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+    
+* L'account che usa la console seriale deve avere il [ruolo Collaboratore](../../role-based-access-control/built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
+* La macchina virtuale su cui si sta cercando di accedere alla console seriale deve avere anche un account basato su password. È possibile crearne uno tramite la funzionalità di [reimpostazione della password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) dell'estensione dell'accesso alla macchina virtuale; vedere la schermata seguente.
+
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+
+## <a name="get-started-with-serial-console"></a>Introduzione alla console seriale
 La console seriale per le macchine virtuali è accessibile solo tramite il [portale di Azure](https://portal.azure.com). Di seguito sono riportati i passaggi per accedere alla console seriale per macchine virtuali tramite il portale 
 
   1. Aprire il portale di Azure
@@ -49,66 +55,7 @@ La console seriale per le macchine virtuali è accessibile solo tramite il [port
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="disable-serial-console"></a>Disabilitare la console seriale
-Per impostazione predefinita, tutte le sottoscrizioni hanno accesso alla console seriale in tutte le macchine virtuali. È possibile disabilitare la console seriale a livello di sottoscrizione o a livello di macchina virtuale.
-
-### <a name="subscription-level-disable"></a>Disattivazione a livello di sottoscrizione
-La console seriale può essere disattivata per un'intera sottoscrizione tramite la [chiamata all'API REST di Disabilita console](https://aka.ms/disableserialconsoleapi). È possibile usare la funzionalità "Try It" disponibile nella pagina della documentazione API per disabilitare e abilitare la console seriale per una sottoscrizione. Inserire `subscriptionId`, "predefinito" nel `default` campo e fare clic su Esegui. I comandi dell'interfaccia della riga di comando di Azure non sono ancora disponibili e verranno visualizzati in un secondo momento. [Ripetere la chiamata all'API REST qui](https://aka.ms/disableserialconsoleapi).
-
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
-
-In alternativa, è possibile usare il set di comandi in Cloud Shell seguente (comandi bash mostrati) per disabilitare, abilitare e visualizzare lo stato disabilitato della console seriale per una sottoscrizione. 
-
-* Per ottenere lo stato disabilitato della console seriale per una sottoscrizione:
-    ```
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
-    ```
-* Per disabilitare la console seriale per una sottoscrizione:
-    ```
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-* Per abilitare la console seriale per una sottoscrizione:
-    ```
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-
-### <a name="vm-level-disable"></a>Disabilitazione a livello di macchina virtuale
-La console seriale può essere disabilitata per macchine virtuali specifiche disabilitando l'impostazione della diagnostica di avvio per tali macchine virtuali. È sufficiente disattivare la diagnostica di avvio dal portale di Azure e verrà disabilitata una console seriale per la macchina virtuale.
-
-## <a name="serial-console-security"></a>Sicurezza della console seriale 
-
-### <a name="access-security"></a>Sicurezza dell'accesso 
-L'accesso alla console seriale è limitato agli utenti che hanno l'accesso [Collaboratore macchine virtuali](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) o superiore per la macchina virtuale. Se il tenant di AAD richiede Multi-Factor Authentication, MFA sarà necessario anche per l'accesso alla console seriale perché l'accesso viene stabilito tramite il [portale di Azure](https://portal.azure.com).
-
-### <a name="channel-security"></a>Sicurezza del canale
-Tutti i dati inviati in entrambe le direzioni vengono crittografati durante il transito.
-
-### <a name="audit-logs"></a>Log di controllo
-Ogni accesso alla console seriale viene attualmente registrato nei log di [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) della macchina virtuale. L'accesso a questi log è di proprietà dell'amministratore della macchina virtuale di Azure, che ne ha anche il controllo.  
-
->[!CAUTION] 
-Anche se non vengono registrate password di accesso per la console, se i comandi eseguiti nella console contengono o visualizzano password, segreti, nomi utente o qualsiasi altra forma di informazioni personali, tali elementi verranno scritti nei log di diagnostica di avvio della macchina virtuale, con qualsiasi altro testo visibile, durante l'implementazione della funzionalità di scorrimento all'indietro della console seriale. Questi log sono circolari e solo gli utenti con autorizzazioni di lettura per l'account di archiviazione di diagnostica possono accedervi, ma è preferibile seguire la procedura consigliata che prevede l'uso di Desktop remoto per tutto ciò che può implicare segreti e/o informazioni personali. 
-
-### <a name="concurrent-usage"></a>Utilizzo simultaneo
-Se un utente è connesso alla console seriale e un altro utente ottiene l'accesso alla stessa macchina virtuale, il primo utente verrà disconnesso, mentre il secondo verrà connesso, come se il primo utente si alzasse e lasciasse la console fisica e un nuovo utente ne prendesse il posto.
-
->[!CAUTION] 
-Questo significa che la sessione dell'utente che viene disconnesso non verrà chiusa. Non è ancora possibile imporre la chiusura della sessione in caso di disconnessione (tramite SIGHUP o un meccanismo simile). Nella console SAC è abilitato un timeout automatico per Windows, mentre per Linux è possibile configurare l'impostazione di timeout del terminale. 
-
-
-## <a name="access-serial-console-for-windows"></a>Accesso alla console seriale per Windows 
+## <a name="configure-serial-console-for-windows"></a>Configurare la console seriale per Windows 
 Per le immagini di Windows Server più recenti in Azure la [console amministrativa speciale](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC, Special Administrative Console) è abilitata per impostazione predefinita. La console SAC è supportata nelle versioni server di Windows, ma non è disponibile nelle versioni client (ad esempio, Windows 10, Windows 8 o Windows 7). Per abilitare la console seriale per le macchine virtuali Windows create usando immagini di febbraio 2018 o precedenti, seguire questa procedura: 
 
 1. Connettersi alla macchina virtuale Windows tramite Desktop remoto
@@ -144,6 +91,64 @@ Se è necessario abilitare i prompt del caricatore di avvio di Windows da visual
 > [!NOTE] 
 > A questo punto, il supporto per i tasti funzione non è abilitato. Se sono necessarie opzioni di avvio avanzate, usare bcdedit /set {current} onetimeadvancedoptions on. Per altre informazioni dettagliate, vedere [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set)
 
+## <a name="disable-serial-console"></a>Disabilitare la console seriale
+Per impostazione predefinita, tutte le sottoscrizioni hanno accesso alla console seriale in tutte le macchine virtuali. È possibile disabilitare la console seriale a livello di sottoscrizione o a livello di macchina virtuale.
+
+### <a name="subscription-level-disable"></a>Disattivazione a livello di sottoscrizione
+La console seriale può essere disattivata per un'intera sottoscrizione tramite la [chiamata all'API REST di Disabilita console](https://aka.ms/disableserialconsoleapi). È possibile usare la funzionalità "Try It" disponibile nella pagina della documentazione API per disabilitare e abilitare la console seriale per una sottoscrizione. Inserire `subscriptionId`, "predefinito" nel `default` campo e fare clic su Esegui. I comandi dell'interfaccia della riga di comando di Azure non sono ancora disponibili e verranno visualizzati in un secondo momento. [Ripetere la chiamata all'API REST qui](https://aka.ms/disableserialconsoleapi).
+
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
+
+In alternativa, è possibile usare il set di comandi in Cloud Shell seguente (comandi bash mostrati) per disabilitare, abilitare e visualizzare lo stato disabilitato della console seriale per una sottoscrizione. 
+
+* Per ottenere lo stato disabilitato della console seriale per una sottoscrizione:
+    ```azurecli-interactive
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
+    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
+    ```
+* Per disabilitare la console seriale per una sottoscrizione:
+    ```azurecli-interactive 
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
+    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
+    ```
+* Per abilitare la console seriale per una sottoscrizione:
+    ```azurecli-interactive
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
+    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
+    ```
+
+### <a name="vm-level-disable"></a>Disabilitazione a livello di macchina virtuale
+La console seriale può essere disabilitata per macchine virtuali specifiche disabilitando l'impostazione della diagnostica di avvio per tali macchine virtuali. È sufficiente disattivare la diagnostica di avvio dal portale di Azure e verrà disabilitata una console seriale per la macchina virtuale.
+
+## <a name="serial-console-security"></a>Sicurezza della console seriale 
+
+### <a name="access-security"></a>Sicurezza dell'accesso 
+L'accesso alla console seriale è limitato agli utenti che hanno l'accesso [Collaboratore macchine virtuali](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) o superiore per la macchina virtuale. Se il tenant di AAD richiede Multi-Factor Authentication, MFA sarà necessario anche per l'accesso alla console seriale perché l'accesso viene stabilito tramite il [portale di Azure](https://portal.azure.com).
+
+### <a name="channel-security"></a>Sicurezza del canale
+Tutti i dati inviati in entrambe le direzioni vengono crittografati durante il transito.
+
+### <a name="audit-logs"></a>Log di controllo
+Ogni accesso alla console seriale viene attualmente registrato nei log di [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) della macchina virtuale. L'accesso a questi log è di proprietà dell'amministratore della macchina virtuale di Azure, che ne ha anche il controllo.  
+
+>[!CAUTION] 
+Anche se non vengono registrate password di accesso per la console, se i comandi eseguiti nella console contengono o visualizzano password, segreti, nomi utente o qualsiasi altra forma di informazioni personali, tali elementi verranno scritti nei log di diagnostica di avvio della macchina virtuale, con qualsiasi altro testo visibile, durante l'implementazione della funzionalità di scorrimento all'indietro della console seriale. Questi log sono circolari e solo gli utenti con autorizzazioni di lettura per l'account di archiviazione di diagnostica possono accedervi, ma è preferibile seguire la procedura consigliata che prevede l'uso di Desktop remoto per tutto ciò che può implicare segreti e/o informazioni personali. 
+
+### <a name="concurrent-usage"></a>Utilizzo simultaneo
+Se un utente è connesso alla console seriale e un altro utente ottiene l'accesso alla stessa macchina virtuale, il primo utente verrà disconnesso, mentre il secondo verrà connesso, come se il primo utente si alzasse e lasciasse la console fisica e un nuovo utente ne prendesse il posto.
+
+>[!CAUTION] 
+Questo significa che la sessione dell'utente che viene disconnesso non verrà chiusa. Non è ancora possibile imporre la chiusura della sessione in caso di disconnessione (tramite SIGHUP o un meccanismo simile). Nella console SAC è abilitato un timeout automatico per Windows, mentre per Linux è possibile configurare l'impostazione di timeout del terminale. 
+
 ## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>Usando la console seriale per le chiamate NMI nelle macchine virtuali Windows
 Un interrupt non mascherabile (NMI) è progettato per creare un segnale che il software in una macchina virtuale non ignorerà. In passato, gli NMI sono stati usati per verificare la presenza di problemi hardware in sistemi che necessitavano di tempi di risposta specifici.  Oggi, gli amministratori di sistema e i programmatori usano spesso gli NMI come un meccanismo per eseguire il debug o risolvere i problemi di sistemi che sono bloccati.
 
@@ -155,7 +160,7 @@ Per informazioni sulla configurazione di Windows per creare un dump di arresto a
 
 
 ## <a name="errors"></a>Errors
-La maggior parte degli errori è di natura temporanea e, per risolverli, è sufficiente stabilire di nuovo la connessione. La tabella seguente contiene un elenco di errori e il modo per prevenirli 
+La maggior parte degli errori è di natura temporanea e, per risolverli, è sufficiente stabilire di nuovo la connessione. La tabella seguente contiene un elenco di errori e il modo per prevenirli
 
 Tipi di errore                            |   Mitigazione 
 :---------------------------------|:--------------------------------------------|
@@ -172,8 +177,8 @@ Poiché l'accesso alla console seriale è ancora in fase di anteprima, è in cor
 Problema                             |   Mitigazione 
 :---------------------------------|:--------------------------------------------|
 Non sono disponibili opzioni per la console seriale dell'istanza del set di scalabilità di macchine virtuali | In fase di anteprima l'accesso alla console seriale per le istanze del set di scalabilità di macchine virtuali non è supportato.
-Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
-Durante la connessione a una macchina virtuale Windows, vengono visualizzate solo informazioni sull'integrità| [Segnali di integrità di Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)
+Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | Vedere questa pagina: [L'inserimento non esegue alcuna operazione](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo può verificarsi se è in esecuzione una macchina virtuale personalizzata, un'appliance con protezione avanzata o una configurazione GRUB che non consente a Windows di connettersi correttamente alla porta seriale.
+Durante la connessione a una macchina virtuale Windows, vengono visualizzate solo informazioni sull'integrità| Questi errori vengono visualizzati se la Special Administration Console non è stata abilitata per l'immagine di Windows. Visualizzare [Console di accesso seriale per Windows](#access-serial-console-for-windows) per istruzioni su come attivare manualmente la Special Administration Console (SAC) nella macchina virtuale di Windows. Per altri informazioni, vedere [Segnali di integrità Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Non è possibile digitare nel prompt SAC se è abilitato il debug del kernel | Effettuare una connessione RDP ed eseguire `bcdedit /debug {current} off` da un prompt dei comandi con privilegi elevati. Se non è possibile effettuare una connessione RDP, è invece possibile collegare il disco del sistema operativo a un'altra macchina virtuale di Azure e modificarlo mentre è collegato come disco dati usando `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, quindi effettuare lo swapping del disco.
 Incollare nei risultati SAC di PowerShell usando un terzo carattere se il contenuto originale aveva un carattere ripetuto | Una soluzione alternativa consiste nel rimuovere il modulo PSReadLine. `Remove-Module PSReadLine` rimuoverà il modulo PSReadLine dalla sessione corrente.
 Alcuni input della tastiera producono output di configurazione SAC particolari (es `[A`, `[3~`) | Le sequenze di escape [VT100](https://aka.ms/vtsequences) non sono supportate per il prompt SAC.

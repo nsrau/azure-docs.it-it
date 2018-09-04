@@ -1,26 +1,23 @@
 ---
 title: Trasformare i dati XML con le mappe XSLT - App per la logica di Azure | Microsoft Docs
-description: Aggiungere mappe XSLT per trasformare i dati XML con App per la logica di Azure ed Enterprise Integration Pack
+description: Aggiungere mappe XSLT che trasformano i dati XML in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: anneta
-editor: cgronlun
-ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 4b4d626028eed09e9ce6a45fa8fa69859c082da7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c5e5e0a0a3f8bd5feedc00d5bbfb76a1453ccc84
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123557"
 ---
-# <a name="add-maps-for-xml-data-transform"></a>Aggiungere mappe per la trasformazione dei dati XML
+# <a name="add-maps-for-xml-transformation-in-azure-logic-apps-with-enterprise-integration-pack"></a>Aggiungere mappe per la trasformazione dei dati XML in App per la logica di Azure con Enterprise Integration Pack
 
 Enterprise Integration usa mappe per trasformare i dati XML da un formato all'altro. Una mappa è un documento XML che definisce i dati di un documento che devono essere trasformati in un altro formato. 
 
