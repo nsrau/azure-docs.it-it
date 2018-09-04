@@ -7,14 +7,14 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 08/26/2018
 ms.author: shvija
-ms.openlocfilehash: 1472dd6917b241ee60da316a7f7aeb09e5db646b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007291"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128167"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Ricevere eventi da Hub eventi di Azure usando Java
 
@@ -54,18 +54,18 @@ Per usare EventProcessorHost, è necessario un [account di archiviazione di Azur
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Creare un progetto Java usando EventProcessorHost
 
-La libreria client Java per Hub eventi è disponibile per l'uso nei progetti Maven dal [repository centrale di Maven][Maven Package] ed è possibile farvi riferimento usando la seguente dichiarazione di dipendenza all'interno del file di progetto Maven. La versione corrente è 1.0.0:    
+La libreria client Java per Hub eventi è disponibile per l'uso nei progetti Maven dal [repository centrale di Maven][Maven Package] ed è possibile farvi riferimento usando la seguente dichiarazione di dipendenza all'interno del file di progetto Maven. La versione corrente per l'artefatto azure-eventhubs-eph è 2.0.1 e la versione corrente per l'artefatto azure-eventhubs è la 1.0.2:    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.1</version>
 </dependency>
 ```
 
@@ -242,6 +242,46 @@ Per diversi tipi di ambienti di compilazione è possibile ottenere in modo espli
     ```
 
 Questa esercitazione usa una singola istanza di EventProcessorHost. Per aumentare la velocità effettiva è consigliabile eseguire più istanze di EventProcessorHost, preferibilmente in computer separati.  In questo modo si ottiene anche la ridondanza. In questi casi, le varie istanze si coordinano automaticamente tra loro per ottenere il bilanciamento del carico relativo agli eventi ricevuti. Se si vuole che ognuno dei vari ricevitori elabori *tutti* gli eventi, è necessario usare il concetto **ConsumerGroup** . Quando si ricevono eventi da più macchine, potrebbe risultare utile specificare nomi per le istanze di EventProcessorHost in base alle macchine (o ai ruoli) in cui sono distribuite.
+
+## <a name="publishing-messages-to-eventhub"></a>Pubblicare messaggi in Hub eventi
+
+Prima che i messaggi vengano recuperati da parte dei consumatori, dovranno essere pubblicati nelle partizioni dagli editori. Vale la pena notare che quando vengono pubblicati i messaggi nell'Hub eventi in modo sincrono tramite il metodo sendSync() nell'oggetto com.microsoft.azure.eventhubs.EventHubClient, il messaggio può essere inviato a una partizione specifica o distribuito a tutte le partizioni disponibili in modalità round robin a seconda che la chiave di partizione sia specificata o meno.
+
+Quando viene specificata una stringa che rappresenta la chiave di partizione, la chiave viene sottoposta a hashing per determinare a quale partizione inviare l'evento.
+
+Quando la chiave di partizione non è impostata, i messaggi verranno distribuiti come round robin a tutte le partizioni disponibili
+
+```java
+// Serialize the event into bytes
+byte[] payloadBytes = gson.toJson(messagePayload).getBytes(Charset.defaultCharset());
+
+// Use the bytes to construct an {@link EventData} object
+EventData sendEvent = EventData.create(payloadBytes);
+
+// Transmits the event to event hub without a partition key
+// If a partition key is not set, then we will round-robin to all topic partitions
+eventHubClient.sendSync(sendEvent);
+
+//  the partitionKey will be hash'ed to determine the partitionId to send the eventData to.
+eventHubClient.sendSync(sendEvent, partitionKey);
+
+```
+
+## <a name="implementing-a-custom-checkpointmanager-for-eventprocessorhost-eph"></a>Implementazione di un CheckpointManager personalizzato per EventProcessorHost (EPH)
+
+L'API fornisce un meccanismo per implementare la gestione del checkpoint personalizzati per gli scenari in cui l'implementazione predefinita non è compatibile con il caso d'uso.
+
+La gestione del checkpoint predefinito sfrutta l'archiviazione dei blob, ma se si esegue l'override di gestione di checkpoint utilizzata dall'EPH con la propria implementazione, è possibile usare qualsiasi archivio che si desidera per sostenere la realizzazione dell'implementazione del gestore del checkpoint.
+
+È necessario creare una classe che implementi l'interfaccia com.microsoft.azure.eventprocessorhost.ICheckpointManager
+
+Usare l'implementazione personalizzata di gestione del checkpoint (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
+
+All'interno dell'implementazione, è possibile sostituire il meccanismo di checkpoint predefinito e implementare un checkpoint basato sul proprio archivio dati (SQL Server, COSMOS DB, Redis Cache di Azure e così via). È consigliabile che l'archivio utilizzato per sostenere la realizzazione dell'implementazione del manager del checkpoint sia accessibile a tutte le istanze EPH che elaborano gli eventi per il gruppo di consumer.
+
+È possibile usare qualsiasi archivio dati disponibile nell'ambiente in uso.
+
+La classe com.microsoft.azure.eventprocessorhost.EventProcessorHost offre 2 costruttori che consentono di eseguire l'override di gestione del checkpoint per EventProcessorHost.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

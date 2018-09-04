@@ -1,28 +1,23 @@
 ---
 title: Creare API Web e API REST per App per la logica di Azure | Microsoft Docs
-description: Creare API Web e API REST per chiamare le API, i servizi o i sistemi da flussi di lavoro di app per la logica per le integrazioni di sistema
-keywords: API Web, API REST, flussi di lavoro, integrazioni di sistema
+description: Creare API Web e API REST per chiamare le API, i servizi o i sistemi per integrazioni di sistema in App per la logica di Azure
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
+ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172018"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122247"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Creare API personalizzate che è possibile chiamare da flussi di lavoro di app per la logica
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
 Sebbene le app per la logica di Azure offrano [più di 100 connettori incorporati](../connectors/apis-list.md) che è possibile usare nei flussi di lavoro delle app per la logica, si consiglia di chiamare le API, i sistemi e i servizi che non sono disponibili come connettori. È possibile creare API personalizzate che specificano le azioni e i trigger da usare in app per la logica. Di seguito vengono indicati altri motivi per cui è utile creare API personalizzate da chiamare da flussi di lavoro di app per la logica:
 

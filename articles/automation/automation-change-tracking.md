@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238880"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128127"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -94,8 +94,18 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 |Attivato     | Determina se l'impostazione viene applicata.        |
 |Item Name     | Nome descrittivo del file da rilevare.        |
 |Group     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\myfile.txt"       |
+|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\\\*.txt"<br>È anche possibile usare le variabili di ambiente, ad esempio "%winDir%\System32\\\*.*"       |
+|Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Impostazioni con caratteri jolly, ricorsione e ambiente
+
+Ricorsione consente di specificare i caratteri jolly per semplificare il rilevamento tra le directory e le variabili di ambiente che consentono di tenere traccia dei file tra gli ambienti con nomi di unità multipli o dinamici. Di seguito è riportato un elenco di informazioni comuni che è necessario conoscere quando si configura la ricorsione:
+
+* I caratteri jolly sono necessari per tenere traccia di più file
+* I caratteri jolly possono essere usati solo nell'ultimo segmento di un percorso (ad esempio C:\folder\\**file** o /etc/*.conf).
+* Se una variabile di ambiente dispone di un percorso non valido, la convalida avrà esito positivo, ma tale percorso avrà esito negativo quando si esegue l'inventario.
+* Evitare percorsi generici, ad esempio `c:\*.*`, quando si imposta il percorso, poiché vengono attraversate troppe cartelle.
 
 ## <a name="configure-file-content-tracking"></a>Configurare il rilevamento del contenuto di file
 
@@ -122,13 +132,8 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 
 La soluzione di Rilevamento modifiche non supporta attualmente gli elementi seguenti:
 
-* Cartelle (directory) per Rilevamento file di Windows
-* Ricorsione per Rilevamento file di Windows
-* Caratteri jolly per Rilevamento file di Windows
 * Ricorsione per Rilevamento del Registro di sistema di Windows
-* Variabili di percorso
 * File system di rete
-* File Content
 
 Altre limitazioni:
 

@@ -1,27 +1,23 @@
 ---
 title: Messaggi Decode X12 - App per la logica di Azure | Documentazione Microsoft
-description: Convalidare le proprietà EDI e generare i riconoscimenti con il decodificatore di messaggi X12 in Enterprise Integration Pack in App per la logica di Azure
+description: Convalidare le proprietà EDI e generare i riconoscimenti con il decodificatore di messaggi X12 in App per la logica di Azure tramite Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 14e9f0eefb705eea59a00390494871f5668b0a01
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298662"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121646"
 ---
-# <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode X12 in App per la logica di Azure con Enterprise Integration Pack
+# <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi Decode X12 in App per la logica di Azure con Enterprise Integration Pack
 
 Il connettore di messaggi Decode X12 convalida la busta in base all'accordo tra partner commerciali, convalida le proprietà EDI e specifiche del partner, suddivide gli interscambi in set di transazioni o mantiene gli interscambi interi, nonché genera riconoscimenti per le transazioni elaborate. Per usare questo connettore, è necessario aggiungerlo a un trigger esistente nell'app per la logica.
 

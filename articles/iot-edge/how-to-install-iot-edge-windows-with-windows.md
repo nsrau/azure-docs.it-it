@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 39e0de6b378ed61ab375c6468b58c8c4a87b5fb9
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e92adc5dbd0da6ab4f60f8cc7bf6dbe7a58694c6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575965"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128419"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Installare il runtime di Azure IoT Edge in Windows per l'uso con contenitori Windows
 
-Il runtime di Azure IoT Edge è distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il **daemon di sicurezza di IoT Edge** fornisce e gestisce gli standard di sicurezza nel dispositivo Edge. Il daemon viene avviato a ogni avvio del dispositivo e ne esegue il bootstrap avviando l'agente di IoT Edge. L'**agente di IoT Edge** semplifica la distribuzione e il monitoraggio di moduli nel dispositivo Edge, tra cui l'hub di IoT Edge. L'**hub IoT Edge** gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT.
+Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un dispositivo IoT Edge. Il runtime può essere distribuito nei dispositivi di dimensioni pari a un server industriale o a un dispositivo Raspberry Pi. Dopo aver configurato un dispositivo con il runtime di IoT Edge, è possibile avviare la distribuzione della logica di business dal cloud. 
 
-Questo articolo descrive i passaggi da eseguire per installare il runtime di Azure IoT Edge in un sistema Windows x64 (Intel o AMD). 
+Per altre informazioni sul funzionamento di runtime di IoT Edge e sui componenti inclusi, vedere [Informazioni sul runtime di Azure IoT Edge e la relativa architettura](iot-edge-runtime.md).
+
+Questo articolo descrive i passaggi da eseguire per installare il runtime di Azure IoT Edge con un contenitore Windows in un sistema Windows x64 (Intel o AMD). 
 
 Il supporto per Windows è attualmente disponibile in versione di anteprima.
 
@@ -28,6 +30,8 @@ Il supporto per Windows è attualmente disponibile in versione di anteprima.
 Azure IoT Edge con i contenitori Windows può essere usato con:
   * Windows 10/IoT Enterprise/IoT Core con aggiornamento di aprile 2018 (build 17134).
   * Windows Server 1803
+
+Per altre informazioni sui sistemi operativi attualmente supportati, consultare [Supporto tecnico di Azure IoT Edge](support.md#operating-systems).
 
 ## <a name="install-the-container-runtime"></a>Installare il runtime per contenitori 
 

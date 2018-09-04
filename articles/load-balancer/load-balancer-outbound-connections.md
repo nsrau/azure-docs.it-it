@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2018
+ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825000"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122577"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -122,13 +122,23 @@ Quando si usa [Load Balancer Standard con le zone di disponibilità](load-balanc
 
 Quando una risorsa pubblica di Load Balancer è associata alle istanze VM, ogni origine di connessione in uscita viene riscritta. L'origine viene riscritta dallo spazio dell'indirizzo IP privato della rete virtuale all'indirizzo IP pubblico front-end del bilanciamento del carico. Nello spazio degli indirizzi IP pubblici, le 5 tuple del flusso (indirizzo IP di origine, porta di origine, protocollo di trasporto IP, indirizzo IP di destinazione, porta di destinazione) devono essere univoche.  Il mascheramento delle porte SNAT è utilizzabile con i protocolli TCP o UDP IP.
 
-Per ottenere ciò vengono usate porte temporanee (porte SNAT) dopo la riscrittura dell'indirizzo IP di origine privato, perché più flussi hanno origine da un singolo indirizzo IP pubblico. 
+Per ottenere ciò vengono usate porte temporanee (porte SNAT) dopo la riscrittura dell'indirizzo IP di origine privato, perché più flussi hanno origine da un singolo indirizzo IP pubblico. L'algoritmo SNAT per il mascheramento delle porte alloca in modo diverso le porte SNAT per il protocollo UDP rispetto al protocollo TCP.
 
-Viene utilizzata una singola porta SNAT per flusso verso una singola combinazione di indirizzo IP, porta e protocollo di destinazione. Nel caso di più flussi verso la stessa combinazione di indirizzo IP, porta e protocollo di destinazione, ogni flusso utilizza una singola porta SNAT. Si garantisce così che i flussi siano univoci quando hanno origine dallo stesso indirizzo IP pubblico e quando sono destinati allo stesso indirizzo IP, alla stessa porta e allo stesso protocollo di destinazione. 
+#### <a name="tcp"></a>Porte SNAT TCP
+
+Viene usata una porta SNAT per flusso verso un singolo indirizzo IP e porta di destinazione. Nel caso di più flussi TCP verso la stessa combinazione di indirizzo IP, porta e protocollo di destinazione, ogni flusso TCP utilizza una singola porta SNAT. Si garantisce così che i flussi siano univoci quando hanno origine dallo stesso indirizzo IP pubblico e quando sono destinati allo stesso indirizzo IP, alla stessa porta e allo stesso protocollo di destinazione. 
 
 Più flussi destinati ognuno a un indirizzo IP, una porta e un protocollo diversi condividono una sola porta SNAT. L'indirizzo IP, la porta e il protocollo di destinazione rendono univoci i flussi senza la necessità di porte di origine aggiuntive per distinguere i flussi nello spazio indirizzi IP pubblici.
 
+#### <a name="udp"></a> Porte SNAT UDP
+
+Le porte SNAT UDP vengono gestite da un algoritmo diverso rispetto alle porte SNAT TCP.  Load Balancer usa un algoritmo noto come "port-restricted cone NAT" per UDP.  Per ogni flusso, viene usata una porta SNAT indipendentemente dall'indirizzo IP e porta di destinazione.
+
+#### <a name="exhaustion"></a>Esaurimento
+
 Quando si esauriscono le risorse di porte SNAT, i flussi in uscita vengono completati dopo che i flussi esistenti rilasciano le porte SNAT. Il servizio Load Balancer recupera le porte SNAT alla chiusura del flusso e usa un [timeout per inattività di 4 minuti](#idletimeout) per il recupero delle porte SNAT dai flussi inattivi.
+
+Le porte SNAT UDP in genere si esauriscono molto più rapidamente rispetto alle porte SNAT TCP a causa della differenza tra gli algoritmi utilizzati. È necessario progettare e scalare il test tenendo presente questa differenza.
 
 Per informazioni sui modelli per la mitigazione delle condizioni che portano comunemente all'esaurimento delle porte SNAT, vedere la sezione [Gestione di SNAT](#snatexhaust).
 
@@ -136,7 +146,7 @@ Per informazioni sui modelli per la mitigazione delle condizioni che portano com
 
 Azure usa un algoritmo per determinare il numero di porte SNAT preallocate disponibili in base alla dimensione del pool back-end quando si usa il mascheramento delle porte SNAT ([PAT](#pat)). Le porte SNAT sono porte temporanee disponibili per un particolare indirizzo di origine IP pubblico.
 
-Lo stesso numero di porte SNAT viene allocato rispettivamente per UDP e TCP e utilizzato indipendentemente per ogni protocollo di trasporto IP. 
+Lo stesso numero di porte SNAT viene allocato rispettivamente per UDP e TCP e utilizzato indipendentemente per ogni protocollo di trasporto IP.  Tuttavia, l'uso delle porte SNAT è diverso a seconda che il flusso sia UDP o TCP.
 
 >[!IMPORTANT]
 >La programmazione SNAT per SKU Standard è basata sul protocollo di trasporto IP e viene derivata dalla regola di bilanciamento del carico.  Se esiste una sola regola di bilanciamento del carico TCP, SNAT è disponibile solo per TCP. Se è presente solo una regola di bilanciamento del carico TCP ed è necessaria una connessione SNAT in uscita per UDP, creare una regola di bilanciamento del carico UDP dallo stesso front-end allo stesso pool back-end.  In questo modo, verrà attivata la programmazione SNAT per UDP.  Non è necessario un probe di integrità o una regola di lavoro.  La programmazione SNAT per SKU Basic programma sempre SNAT per il protocollo di trasporto IP, indipendentemente dal protocollo di trasporto specificato nella regole di bilanciamento del carico.
@@ -220,7 +230,7 @@ Le [porte preallocate](#preallocatedports) vengono assegnate in base alle dimens
 
 Ad esempio, due macchine virtuali nel pool back-end devono avere 1024 porte SNAT disponibili per ogni configurazione IP, per un totale di 2048 porte SNAT per la distribuzione.  Se la distribuzione viene aumentata a 50 macchine virtuali, anche se il numero di porte preallocate resta costante per ogni macchina virtuale, potrà essere usato un totale di 51.200 (50 x 1024) porte SNAT dalla distribuzione.  Per aumentare le dimensioni della distribuzione, controllare il numero di [porte preallocate](#preallocatedports) per ogni livello per assicurarsi di definire la scalabilità orizzontale in base alle dimensioni massime per il rispettivo livello.  Se nell'esempio precedente si sceglie di applicare scalabilità orizzontale fino a 51 istanze anziché 50, si passa al livello successivo, finendo con meno porte SNAT per ogni macchina virtuale e in totale.
 
-Al contrario, applicare scalabilità orizzontale fino al successivo livello di dimensioni maggiore del pool back-end per le possibili connessioni in uscita se le porte allocate devono essere riallocate.  Se non si vuole che questo avvenga, è necessario definire la distribuzione in base alle dimensioni del livello.  In alternativa, assicurarsi che l'applicazione possa eseguire il rilevamento delle porte e nuovi tentativi in base alle esigenze.  I keep-alive TCP possono aiutare a rilevare i casi in cui le porte SNAT non funzionano più a causa della riallocazione.
+Se si applica la scalabilità orizzontale fino al successivo livello più alto delle dimensioni del pool back-end, è possibile che si verifichi il timeout di alcune connessioni in uscita se le porte allocate devono essere riallocate.  Se si usano solo alcune delle porte SNAT, la scalabilità orizzontale fino al successivo livello più alto delle dimensioni del pool back-end non è rilevante.  Metà delle porte esistenti verranno riallocate ogni volta che si passerà al successivo livello del pool back-end.  Se non si vuole che questo avvenga, è necessario definire la distribuzione in base alle dimensioni del livello.  In alternativa, assicurarsi che l'applicazione possa eseguire il rilevamento delle porte e nuovi tentativi in base alle esigenze.  I keep-alive TCP possono aiutare a rilevare i casi in cui le porte SNAT non funzionano più a causa della riallocazione.
 
 ### <a name="idletimeout"></a>Usare keep-alive per reimpostare il timeout di inattività per le connessioni uscita
 
