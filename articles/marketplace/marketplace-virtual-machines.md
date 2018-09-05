@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5508b5943e116545297d91e85621d2a11a635299
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058073"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144523"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guida alla pubblicazione di offerte di macchine virtuali
 
@@ -42,7 +42,7 @@ Sono offerte di transazioni che vengono distribuite e fatturate attraverso il Ma
 
 Vengono distribuite una o più macchine virtuali tramite le applicazioni IaaS (infrastructure-as-a-service) o SaaS. Un vantaggio dell'opzione di pubblicazione del test drive è il provisioning automatico di una macchina virtuale o dell'intera soluzione con una presentazione guidata ospitata da un partner. Un test drive fornisce al cliente una valutazione senza alcun costo aggiuntivo. Non è necessario che il cliente sia già un utente di Azure per partecipare all'esperienza di prova. 
 
-Inviare un'email a amp-testdrive@microsoft.com per iniziare. 
+Per iniziare, contattare Microsoft all'indirizzo [amp-testdrive](mailto:amp-testdrive@microsoft.com). 
 
 |Requisiti  |Dettagli |
 |---------|---------|

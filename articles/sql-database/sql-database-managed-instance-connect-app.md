@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c9d656908d265aeb6143e857b0ea4f635203bdd9
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258729"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818403"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a Istanza gestita di database SQL di Azure
 
@@ -75,9 +75,23 @@ Questo scenario è illustrato nel diagramma seguente:
 
 Le istanze gestite sono accessibili solo tramite un indirizzo IP privato, quindi, per accedervi dalla finestra di sviluppo, è necessario prima stabilire una connessione tra la finestra di sviluppo e la rete virtuale dell'istanza gestita.  
  
-Configurare una connessione da punto a sito a una rete virtuale in base agli articoli sull'autenticazione del certificato di Azure nativo ([portale di Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Interfaccia della riga di comando di Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) che descrivono in dettaglio come eseguire questa operazione.  
+Configurare una connessione da punto a sito a una rete virtuale in base agli articoli sull'autenticazione del certificato di Azure nativo ([portale di Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Interfaccia della riga di comando di Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) che descrivono in dettaglio come eseguire questa operazione. 
+
+## <a name="required-versions-of-drivers-and-tools"></a>Versioni richieste di strumenti e driver
+
+Se si desidera connettersi all'istanza gestita, è consigliabili usare le versioni minime di strumenti e driver seguenti:
+
+| Driver/strumento | Version |
+| --- | --- |
+|.NET Framework | 4.6.1 (o .NET Core) | 
+|Driver ODBC    | v17 |
+|PHP driver | 5.2.0 |
+|Driver JDBC    | 6.4.0 |
+|Driver Node.js | 2.1.1 |
+|Driver OLEDB   | 18.0.2.0 |
+|SSMS   | 17.8.1 o [superiore](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni in proposito, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
-- Per un'esercitazione che illustra come creare una nuova istanza gestita, vedere [Creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md).
+- Per un'esercitazione che illustra come creare una nuova istanza gestita, vedere [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).

@@ -1,28 +1,23 @@
 ---
-title: Usare i messaggi XML nei flussi di lavoro - App per la logica di Azure | Microsoft Docs
-description: Elaborare, convalidare, trasformare e migliorare i messaggi XML nelle app per la logica e negli scenari aziendali usando Enterprise Integration Pack
+title: Messaggi XML per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
+description: Elaborare, convalidare, trasformare e migliorare i messaggi XML per le soluzioni B2B in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 85bdaff5cb88bbadaed778458b66c0cce7bce9de
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5f804bf656b423d6dbe8f5c2ed73ba54d8361000
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298975"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124536"
 ---
-# <a name="validate-and-transform-xml-encode-and-decode-flat-files-and-enrich-messages-features-in-logic-apps"></a>Convalidare e trasformare il linguaggio XML, codificare e decodificare file flat e migliorare le funzionalità di messaggi nelle app per la logica
+# <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi XML e file flat in App per la logica di Azure con Enterprise Integration Pack
 
 Grazie all'uso delle app per la logica, è possibile elaborare i messaggi XML che si inviano e si ricevono. Questa funzionalità è inclusa in Enterprise Integration Pack. Per gli utenti con uno sfondo a BizTalk Server, Enterprise Integration Pack offre funzionalità simili per trasformare e convalidare i messaggi, usare i file flat e persino servirsi di XPath per migliorare o estrarre le proprietà specifiche di un messaggio. 
 

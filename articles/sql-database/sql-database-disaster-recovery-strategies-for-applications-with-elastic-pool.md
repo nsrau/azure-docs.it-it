@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 8f365d123a234f367a1415232a714d2c18663b63
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092546"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124071"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per applicazioni che usano i pool elastici del database SQL
 Nel corso degli anni è stato riscontrato che i servizi cloud non sono infallibili e che si verificano incidenti catastrofici. Il database SQL offre diverse funzionalità utili per la continuità aziendale dell'applicazione in caso di eventi imprevisti. [Pool elastici](sql-database-elastic-pool.md) e i database singoli supportano lo stesso tipo di funzionalità per il ripristino di emergenza. Questo articolo illustra alcune strategie di ripristino di emergenza per i pool elastici che sfruttano i vantaggi di queste funzionalità per la continuità aziendale del database SQL.

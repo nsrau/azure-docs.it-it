@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443391"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044731"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Come creare e configurare il runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per informazioni dettagliate sul runtime di integrazione, vedere [Integration Runtime Overview](concepts-integration-runtime.md) (Panoramica del runtime di integrazione).
@@ -156,6 +156,8 @@ Nel runtime di integrazione self-hosted da condividere:
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
+   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+
 2. Trovare l'**ID risorsa** del runtime di integrazione self-hosted da condividere.
 
    ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
@@ -167,6 +169,20 @@ Nella data factory per cui sono state concesse le autorizzazioni:
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### <a name="monitoring"></a>Monitoraggio 
+
+- **IR condiviso**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+
+  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+
+- **IR collegato**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
 #### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitazioni note della condivisione del runtime di integrazione self-hosted
 
@@ -182,6 +198,8 @@ creata in modo implicito. Tuttavia, le data factory create con il modello di Azu
 5. L'SDK .Net di ADF che supporta questa funzione è 1.1.0 o versione successiva
 
 6. Azure PowerShell che supporta questa funzione è 6.6.0 o versione successiva (AzureRM.DataFactoryV2 > = 0.5.7)
+
+7. Per concedere l'autorizzazione, l'utente dovrà disporre di un ruolo "Proprietario" o di un ruolo "Proprietario" ereditato nella Data Factory in cui è presente l'IR condiviso. 
 
   > [!NOTE]
   > Questa funzione è disponibile solo in Azure Data Factory versione 2 

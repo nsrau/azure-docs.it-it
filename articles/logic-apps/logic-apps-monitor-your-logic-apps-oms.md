@@ -1,25 +1,20 @@
 ---
-title: Monitorare e ottenere informazioni dettagliate sulle esecuzioni dell'app per la logica con Log Analytics - App per la logica di Azure | Microsoft Docs
-description: Monitorare le esecuzioni dell'app per la logica con Log Analytics per ottenere informazioni e dati di debug dettagliati per la risoluzione dei problemi e la diagnostica
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
+title: Monitorare le esecuzioni dell'app per la logica con Azure Log Analytics - App per la logica di Azure | Microsoft Docs
+description: Ottenere informazioni e dati di debug dettagliati sulle esecuzioni dell'app per la logica con Log Analytics per la risoluzione dei problemi e la diagnostica
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1aa55728b222c2838026cf5b06175736c5c84194
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294575"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123291"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Monitorare e ottenere informazioni dettagliate sulle esecuzioni dell'app per la logica con Log Analytics
 

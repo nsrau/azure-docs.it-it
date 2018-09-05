@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529498"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818487"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Poiché File di Azure è completamente gestito, la sua distribuzione negli scenari di produzione è molto più semplice rispetto alla distribuzione e alla gestione di un file server o un dispositivo NAS. Questo articolo illustra gli argomenti da considerare quando si distribuisce una condivisione file di Azure per l'uso in produzione all'interno dell'organizzazione.
@@ -81,7 +81,7 @@ File di Azure supporta tre opzioni di ridondanza dei dati: archiviazione con rid
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Modello di crescita dei dati
-Attualmente, la dimensione massima per una condivisione file di Azure è di 5 TiB e include gli snapshot della condivisione. A causa di questa limitazione attuale, durante la distribuzione di una condivisione file di Azure è necessario tenere conto della crescita dei dati stimata. Si noti che un account di Archiviazione di Azure può archiviare più condivisioni per un totale di 500 TiB archiviati in tutte le condivisioni.
+Oggi, la dimensione massima di una condivisione di File di Azure è 5 TiB. A causa di questa limitazione attuale, durante la distribuzione di una condivisione file di Azure è necessario tenere conto della crescita dei dati stimata. Si noti che un account di Archiviazione di Azure può archiviare più condivisioni per un totale di 500 TiB archiviati in tutte le condivisioni.
 
 È possibile sincronizzare più condivisioni file di Azure in un singolo file server Windows con Sincronizzazione file di Azure. In questo modo ci si accerta che le condivisioni di file meno recenti e di grandi dimensioni presenti in locale possano essere inserite in Sincronizzazione file di Azure. Per altre informazioni vedere [Planning for an Azure File Sync Deployment](storage-files-planning.md) (Pianificare una distribuzione di Sincronizzazione file di Azure).
 

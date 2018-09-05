@@ -1,6 +1,6 @@
 ---
-title: Come iniziare una verifica dell'accesso | Microsoft Docs
-description: Informazioni su come creare una verifica dell'accesso per le identità con privilegi con l'applicazione Azure Privileged Identity Management.
+title: Avviare una verifica di accesso per i ruoli della directory di Azure AD in PIM | Microsoft Docs
+description: Informazioni su come avviare una verifica di accesso per i ruoli della directory di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 0c6c1d48d0a78781528b08b3c1d1e9438bf865ee
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a431a0a0000cc8b0838bbe05c703cc548c8977c5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617354"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189403"
 ---
-# <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Come avviare una verifica dell'accesso in Azure AD Privileged Identity Management
+# <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Avviare una verifica di accesso per i ruoli della directory di Azure AD in PIM
 Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi o gli amministratori globali devono creare periodicamente delle verifiche degli accessi, in modo da chiedere agli amministratori di verificare i ruoli assegnati agli utenti. Questo documento illustra i passaggi per l'avvio di una verifica dell'accesso in Azure AD Privileged Identity Management (PIM).
 
 ## <a name="start-an-access-review"></a>Avviare una verifica dell'accesso
@@ -77,5 +77,8 @@ Infine è disponibile l'opzione per richiedere agli utenti di fornire un motivo 
 Fino al termine del periodo di verifica, è possibile ricordare agli utenti di completare la verifica o arrestare la verifica in anticipo nella sezione Verifiche di accesso.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="pim-table-of-contents"></a>Sommario PIM
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Completare una verifica di accesso per i ruoli della directory di Azure AD in PIM](pim-how-to-complete-review.md)
+- [Eseguire una verifica di accesso dei ruoli della directory di Azure AD in PIM](pim-how-to-perform-security-review.md)
+- [Avviare una verifica di accesso per i ruoli delle risorse di Azure in PIM](pim-resource-roles-start-access-review.md)

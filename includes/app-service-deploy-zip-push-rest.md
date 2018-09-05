@@ -12,7 +12,7 @@ L'esempio seguente usa lo strumento cURL per distribuire un file con estensione 
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-Questa richiesta attiva la distribuzione push dal file ZIP caricato. È possibile esaminare le distribuzioni correnti e passate usando l'endpoint https://<app_name>.scm.azurewebsites.net/api/deployments, come illustrato nell'esempio cURL seguente. Anche in questo caso, sostituire il segnaposto `<app_name>` con il nome dell'app e `<deployment_user>` con il nome utente delle credenziali di distribuzione.
+Questa richiesta attiva la distribuzione push dal file ZIP caricato. È possibile esaminare le distribuzioni correnti e passate usando l'endpoint `https://<app_name>.scm.azurewebsites.net/api/deployments`, come illustrato nell'esempio cURL seguente. Anche in questo caso, sostituire il segnaposto `<app_name>` con il nome dell'app e `<deployment_user>` con il nome utente delle credenziali di distribuzione.
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141974"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888084"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -26,9 +26,8 @@ L'emulatore di archiviazione attualmente viene eseguito solo in Windows. Per col
 
 > [!NOTE]
 > I dati creati in una versione dell'emulatore di archiviazione non sono necessariamente accessibili quando si usa una versione diversa. Se è necessario rendere persistenti i dati a lungo termine, è consigliabile archiviare i dati in un account di archiviazione di Azure invece che nell'emulatore di archiviazione.
-> <p/>
+> 
 > L'emulatore di archiviazione dipende dalle versioni specifiche delle librerie OData. La sostituzione delle DLL OData usate dall'emulatore di archiviazione con altre versioni non è supportata e può provocare un comportamento imprevisto. Tutte le versioni di OData supportate dal servizio di archiviazione possono tuttavia essere usate per inviare richieste all'emulatore.
->
 
 ## <a name="how-the-storage-emulator-works"></a>Come funziona l'emulatore di archiviazione
 L'emulatore di archiviazione usa un'istanza di Microsoft SQL Server locale e il file system locale per emulare i servizi di archiviazione di Azure. Per impostazione predefinita, l'emulatore di archiviazione usa un database in Microsoft SQL Server 2012 Express LocalDB. È possibile scegliere di configurare l'emulatore di archiviazione per accedere a un'istanza locale di SQL Server anziché l'istanza LocalDB. Per altre informazioni, vedere la sezione [Avviare e inizializzare l'emulatore di archiviazione](#start-and-initialize-the-storage-emulator) più avanti in questo articolo.
@@ -187,6 +186,7 @@ Poiché l'emulatore di archiviazione è un ambiente emulato eseguito in un'istan
 All'archiviazione BLOB nell'emulatore si applicano le seguenti differenze:
 
 * L'emulatore di archiviazione supporta solo dimensioni BLOB fino a 2 GB.
+* La lunghezza massima di un nome BLOB nell'emulatore di archiviazione è 256 caratteri, mentre la lunghezza massima di un nome BLOB in Archiviazione di Azure è di 1024 caratteri.
 * La copia incrementale consente di copiare gli snapshot dai BLOB sovrascritti, ma viene restituito un errore del servizio.
 * Get Page Ranges Diff non funziona con gli snapshot copiati usando il BLOB di copia incrementale.
 * Un'operazione Put Blob potrebbe avere esito positivo su un BLOB esistente nell'emulatore di archiviazione con un lease attivo, anche se l'ID del lease non è stato specificato nella richiesta.

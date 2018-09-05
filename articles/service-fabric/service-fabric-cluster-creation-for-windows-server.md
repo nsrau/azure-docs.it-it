@@ -1,5 +1,5 @@
 ---
-title: Creare un cluster autonomo di Azure Service Fabric | Documentazione Microsoft
+title: Creare un cluster autonomo di Azure Service Fabric | Microsoft Docs
 description: Creare un cluster di Azure Service Fabric su qualsiasi macchina (fisica o virtuale) che esegue Windows Server, sia locale che nel cloud.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: efa48aa90806b45c99237404af24cb8aba762d15
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3ce47d631e8a2ec7daf96ef95200001e5d4f8327
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209155"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818582"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creare un cluster autonomo in esecuzione su Windows Server
 Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server. In questo modo è possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente che contenga un set di computer Windows Server interconnessi, in locale o con qualsiasi provider di cloud. Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric, denominato pacchetto autonomo per Windows Server.
@@ -57,10 +57,15 @@ Trovare esempi di configurazione di cluster autonomi in: <br>
 <a id="createcluster"></a>
 
 ## <a name="create-the-cluster"></a>Creare il cluster
+Con il pacchetto di installazione vengono installati diversi file di esempio per la configurazione del cluster. *ClusterConfig.Unsecure.DevCluster.json* è la configurazione del cluster più semplice: un cluster non sicuro, con tre nodi in esecuzione in un singolo computer.  Altri file di configurazione descrivono cluster con una o più macchine virtuali protetti con la sicurezza di Windows o certificati X.509.  Non è necessario modificare le impostazioni di configurazione predefinite per questa esercitazione, ma è consigliabile esaminare il file di configurazione per acquisire familiarità con le impostazioni.  La sezione **nodes** descrive i tre nodi nel cluster, indicando nome, indirizzo IP, [tipo di nodo, dominio di errore e dominio di aggiornamento](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  La sezione **properties** definisce le impostazioni per [sicurezza, livello di affidabilità, raccolta di dati di diagnostica e tipi di nodi ](service-fabric-cluster-manifest.md#cluster-properties) del cluster.
+
+Il cluster creato in questo articolo è senza protezione.  Chiunque si può connettere in modo anonimo ed eseguire operazioni di gestione. È quindi necessario proteggere sempre i cluster di produzione usando certificati X.509 o la sicurezza di Windows.  La sicurezza viene configurata solo in fase di creazione del cluster e non è possibile abilitare la sicurezza dopo la creazione del cluster. Per aggiornare il file di configurazione abilitare la [sicurezza basata su certificati](service-fabric-windows-cluster-x509-security.md) oppure la [sicurezza di Windows](service-fabric-windows-cluster-windows-security.md). Vedere [Proteggere un cluster](service-fabric-cluster-security.md) per altre informazioni sulla sicurezza dei cluster di Service Fabric.
+
+### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Passaggio 1A: creare un cluster di sviluppo locale non protetto
 Service Fabric può essere distribuito in un cluster di sviluppo macchine usando il file *ClusterConfig.Unsecure.DevCluster.json* file incluso negli [esempi](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
-Decomprimere il pacchetto autonomo nella macchina, copiare il file di configurazione di esempio nella macchina locale, quindi eseguire lo script *CreateServiceFabricCluster.ps1* tramite una sessione di PowerShell come amministratore, dalla cartella del pacchetto autonomo:
-### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Passaggio 1A: creare un cluster di sviluppo locale non protetto
+Decomprimere il pacchetto autonomo nella macchina, copiare il file di configurazione di esempio nella macchina locale, quindi eseguire lo script *CreateServiceFabricCluster.ps1* tramite una sessione di PowerShell come amministratore, dalla cartella del pacchetto autonomo.
+
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
 ```
@@ -70,18 +75,19 @@ Per informazioni dettagliate sulla risoluzione dei problemi, vedere la sezione C
 Al termine dell'esecuzione degli scenari di sviluppo è possibile rimuovere il cluster Service Fabric dalla macchina facendo riferimento alla procedura della sezione "[Rimuovere un cluster](#removecluster_anchor)". 
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>Passaggio 1B: creare un cluster con più macchine
-Dopo avere eseguito i passaggi di pianificazione e preparazione illustrati nel collegamento seguente, si è pronti per creare il cluster di produzione usando il file di configurazione del cluster. <br>
-[Pianificare e preparare la distribuzione del cluster](service-fabric-cluster-standalone-deployment-preparation.md)
+Dopo avere eseguito i passaggi di pianificazione e preparazione illustrati in [Pianificare e preparare la distribuzione del cluster](service-fabric-cluster-standalone-deployment-preparation.md), si è pronti per creare il cluster di produzione usando il file di configurazione del cluster.
 
-1. Convalidare il file di configurazione scritto eseguendo lo script *TestConfiguration.ps1* nella cartella del pacchetto autonomo:  
+L'amministratore del cluster che distribuisce e configura il cluster deve avere privilegi di amministratore nel computer. Non è possibile installare Service Fabric in un controller di dominio.
+
+1. Lo script *TestConfiguration.ps1* nel pacchetto autonomo viene usato come Best Practices Analyzer per verificare se un cluster possa essere distribuito in un determinato ambiente. La [preparazione della distribuzione](service-fabric-cluster-standalone-deployment-preparation.md) elenca i prerequisiti e i requisiti dell'ambiente. Eseguire lo script per verificare se è possibile creare il cluster di sviluppo:  
 
     ```powershell
     .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
     ```
 
-    Verrà visualizzato un output simile al seguente: Se nel campo in basso "Passed" viene restituito un valore "True", sono stati superati i controlli di integrità ed è possibile distribuire il cluster in base alla configurazione di input.
+    L'output dovrebbe essere simile al seguente. Se nel campo in basso "Passed" viene restituito un valore "True", sono stati superati i controlli di integrità ed è possibile distribuire il cluster in base alla configurazione di input.
 
-    ```
+    ```powershell
     Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
     Running Best Practices Analyzer...
     Best Practices Analyzer completed successfully.
@@ -110,28 +116,46 @@ Dopo avere eseguito i passaggi di pianificazione e preparazione illustrati nel c
 
 ### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Passaggio 1C: Creare un cluster offline (non connesso a Internet)
 Il pacchetto di runtime di Service Fabric viene scaricato automaticamente al momento della creazione del cluster. Quando si distribuisce un cluster a computer non connessi a Internet è necessario scaricare il pacchetto di runtime di Service Fabric separatamente e specificare il percorso del pacchetto al momento della creazione del cluster.
-Il pacchetto di runtime può essere scaricato separatamente da un altro computer connesso a Internet in [Collegamento per il download - Service Fabric Runtime (Runtime di Service Fabric) - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copiare il pacchetto di runtime nella posizione da cui si intende distribuire il cluster offline eseguendo `CreateServiceFabricCluster.ps1` con il parametro `-FabricRuntimePackagePath` incluso, come illustrato di seguito: 
+Il pacchetto di runtime può essere scaricato separatamente da un altro computer connesso a Internet in [Collegamento per il download - Service Fabric Runtime (Runtime di Service Fabric) - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copiare il pacchetto di runtime nella posizione da cui si intende distribuire il cluster offline eseguendo `CreateServiceFabricCluster.ps1` con il parametro `-FabricRuntimePackagePath` incluso, come illustrato in questo esempio: 
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
-dove `.\ClusterConfig.json` e `.\MicrosoftAzureServiceFabric.cab` sono rispettivamente i percorsi per la configurazione del cluster e per il file di runtime con estensione cab.
 
+*.\ClusterConfig.json* e *.\MicrosoftAzureServiceFabric.cab* sono rispettivamente i percorsi per la configurazione del cluster e per il file di runtime con estensione cab.
 
 ### <a name="step-2-connect-to-the-cluster"></a>Passaggio 2: connettersi al cluster
-Per connettersi a un cluster protetto, vedere la sezione relativa alla [connessione di Service Fabric a un cluster protetto](service-fabric-connect-to-secure-cluster.md).
+Connettersi al cluster per verificare che il cluster sia in esecuzione e disponibile. Il modulo ServiceFabric di PowerShell viene installato con il runtime.  È possibile connettersi al cluster da uno dei nodi del cluster o da un computer remoto con il runtime di Service Fabric.  Il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) stabilisce una connessione al cluster.
 
 Per connettersi a un cluster non protetto, eseguire il seguente comando di PowerShell:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
-Esempio:
+
+Ad esempio: 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
-### <a name="step-3-bring-up-service-fabric-explorer"></a>Passaggio 3: Visualizzare Service Fabric Explorer
-È ora possibile connettersi al cluster con Service Fabric Explorer direttamente da uno dei computer con http://localhost:19080/Explorer/index.html o in modalità remota con http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
+
+Per altri esempi di connessione a un cluster, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md). Dopo la connessione al cluster, usare il cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per visualizzare un elenco dei nodi presenti nel cluster e informazioni di stato per ogni nodo. **HealthState** deve essere *OK* per ogni nodo.
+
+```powershell
+PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
+
+NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- -------- --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+                     vm2      localhost       NodeType2 5.6.220.9494 0                     Up 00:03:38   00:00:00              OK
+                     vm1      localhost       NodeType1 5.6.220.9494 0                     Up 00:03:38   00:00:00              OK
+                     vm0      localhost       NodeType0 5.6.220.9494 0                     Up 00:02:43   00:00:00              OK
+```
+
+### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Passaggio 3: visualizzare il cluster con Service Fabric Explorer
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) rappresenta un ottimo strumento per la visualizzazione del cluster e la gestione delle applicazioni.  Service Fabric Explorer è un servizio in esecuzione nel cluster, a cui si accede tramite un browser passando a [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+
+Il dashboard del cluster offre una panoramica del cluster, incluso un riepilogo dell'integrità delle applicazioni e dei nodi. La visualizzazione dei nodi mostra il layout fisico del cluster. Per un determinato nodo, è possibile esaminare le applicazioni con il codice distribuito in quel nodo.
+
+![Service Fabric Explorer][service-fabric-explorer]
 
 ## <a name="add-and-remove-nodes"></a>Aggiungere e rimuovere ruoli
 È possibile aggiungere o rimuovere nodi nel cluster di Service Fabric autonomo al variare delle esigenze aziendali. Per i passaggi dettagliati, leggere le informazioni su [aggiunta e rimozione di nodi in un cluster Service Fabric autonomo](service-fabric-cluster-windows-server-add-remove-nodes.md).
@@ -142,12 +166,12 @@ Per rimuovere un cluster, eseguire lo script *RemoveServiceFabricCluster.ps1* di
 
 Questo script può essere eseguito su qualsiasi macchina con accesso amministrativo a tutte le macchine elencate come nodi nel file di configurazione del cluster. La macchina in cui viene eseguito lo script non deve necessariamente far parte del cluster.
 
-```
+```powershell
 # Removes Service Fabric from each machine in the configuration
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -Force
 ```
 
-```
+```powershell
 # Removes Service Fabric from the current machine
 .\CleanFabric.ps1
 ```
@@ -205,3 +229,4 @@ No.
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
+[service-fabric-explorer]: ./media/service-fabric-cluster-creation-for-windows-server/sfx.png

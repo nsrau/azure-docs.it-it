@@ -1,6 +1,6 @@
 ---
-title: Gestire gli avvisi di sicurezza per le risorse di Azure con Privileged Identity Management | Microsoft Docs
-description: Descrive gli avvisi di sicurezza di PIM.
+title: Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM | Microsoft Docs
+description: Informazioni su come configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 46b19866ec3f276c8337cf9501b779701377d0a5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 33bd13421b0c1574475516da942abe4e8c71ed52
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620417"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188833"
 ---
-# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Gestire gli avvisi di sicurezza per le risorse di Azure con Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM
 Azure Privileged Identity Management (PIM) per le risorse di Azure genera avvisi nel caso di attività sospette o non sicure nell'ambiente. Una volta attivato, un avviso viene visualizzato nella pagina Avvisi. 
 
 ![Pagina degli avvisi](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
@@ -50,3 +50,8 @@ Dalla pagina Avvisi passare a **Impostazioni**.
 
 Personalizzare le impostazioni per i diversi avvisi adattandole all'ambiente e agli obiettivi di sicurezza specifici.
 ![Personalizzare le impostazioni](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Richiedere l'autenticazione MFA (Multi-Factor Authentication) per i ruoli delle risorse di Azure in PIM](pim-resource-roles-require-mfa.md)
+- [Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM](pim-resource-roles-configure-alerts.md)

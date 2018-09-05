@@ -1,28 +1,23 @@
 ---
-title: Creare partner per i messaggi Business to Business (B2B) - App per la logica di Azure | Documentazione Microsoft
-description: Informazioni su come aggiungere partner al proprio account di integrazione con Enterprise Integration Pack e App per la logica
+title: Aggiungere partner commerciali per le integrazioni B2B - App per la logica di Azure | Microsoft Docs
+description: Creare partner commerciali per l'account di integrazione in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4abfdaa8145f14bc6496e57ebce0da10cdd2c365
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 20ca5e06cd1cd0d0abfe6d31f622cd6b61b4178f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299740"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125262"
 ---
-# <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Aggiungere o aggiornare i partner nei contratti Business to Business nel proprio flusso di lavoro
+# <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Aggiungere partner commerciali per gli account di integrazione in App per la logica di Azure con Enterprise Integration Pack
 
 I partner sono le entità che partecipano alle transazioni e allo scambio di messaggi Business-To-Business (B2B). Prima di poter creare i partner che rappresentano l'utente e l'altra organizzazione nelle transazioni, è necessario che entrambe le parti condividano le informazioni che identificano e convalidano i messaggi inviati. Dopo aver definito questi dettagli e quando si è pronti per avviare una relazione commerciale, è possibile creare i partner nell'account di integrazione che rappresentino entrambe le parti.
 

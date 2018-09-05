@@ -3,34 +3,32 @@ title: Backup e ripristino di Azure SQL Data Warehouse - Snapshot e ridondanza g
 description: Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare i backup del data warehouse per ripristinare il data warehouse a un punto di ripristino nell'area primaria. Usare i backup con ridondanza geografica per ripristinare in un'area geografica diversa.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/24/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187600"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248656"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
-Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare i backup del data warehouse per ripristinare il data warehouse a un punto di ripristino nell'area primaria. Usare i backup con ridondanza geografica per ripristinare in un'area geografica diversa. 
+Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare gli snapshot del data warehouse per ripristinare o copiare il data warehouse in un punto di ripristino precedente dell'area primaria. Usare i backup con ridondanza geografica del data warehouse per eseguire il ripristino in un'altra area geografica. 
 
-## <a name="what-is-backup-and-restore"></a>Definizione di backup e ripristino
-Un *backup del data warehouse* è la copia del database che è possibile usare per ripristinare un data warehouse.  Poiché SQL Data Warehouse è un sistema distribuito, un backup di data warehouse è costituito da molti file che si trovano in Archiviazione di Azure. Un backup di data warehouse include sia snapshot del database locale sia backup geografici di tutti i database e i file associati a un data warehouse. 
+## <a name="what-is-a-data-warehouse-snapshot"></a>Cos'è uno snapshot del data warehouse?
+Uno *snapshot del data warehouse* crea un punto di ripristino che è possibile usare per ripristinare o copiare il data warehouse a uno stato precedente.  Poiché SQL Data Warehouse è un sistema distribuito, uno snapshot del data warehouse è costituito da molti file che si trovano in Archiviazione di Azure. Gli snapshot acquisiscono le modifiche incrementali dai dati archiviati nel data warehouse.
 
-Un *ripristino del data warehouse* consiste in un nuovo data warehouse creato da un backup di un data warehouse esistente o eliminato. Il data warehouse ripristinato ricrea il data warehouse di backup in un momento specifico. Il ripristino del data warehouse è un elemento essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza perché ricrea i dati dopo un caso di danneggiamento o eliminazione accidentale.
+Un *ripristino del data warehouse* consiste in un nuovo data warehouse che viene creato da un punto di ripristino di un data warehouse esistente o eliminato. Il ripristino del data warehouse è un elemento essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza perché ricrea i dati dopo un caso di danneggiamento o eliminazione accidentale. Il data warehouse è anche un meccanismo molto utile per creare copie del data warehouse per scopi di sviluppo o test.  SQL Data Warehouse usa meccanismi di ripristino rapidi all'interno della stessa area che richiedono meno di 20 minuti per qualsiasi dimensione dei dati. 
 
-Le funzionalità di ripristino di emergenza di SQL Data Warehouse prevedono sia ripristini locali che geografici. 
+## <a name="automatic-restore-points"></a>Punti di ripristino automatici
+Gli snapshot sono una funzionalità integrata del servizio che crea i punti di ripristino. Non è necessario abilitare questa funzionalità. I punti di ripristino automatici non possono attualmente essere eliminati dagli utenti nei casi in cui il servizio li usa per mantenere i contratti di servizio per il ripristino.
 
-## <a name="local-snapshot-backups"></a>Backup degli snapshot locali
-I backup di snapshot locali sono una funzionalità incorporata del servizio,  non è necessario abilitarli. 
-
-SQL Data Warehouse acquisisce snapshot del data warehouse durante l'intera giornata. Gli snapshot sono disponibili per sette giorni. SQL Data Warehouse supporta un obiettivo del punto di ripristino (RPO) di otto ore. È possibile ripristinare il data warehouse nell'area primaria a uno qualsiasi degli snapshot acquisiti negli ultimi sette giorni.
+SQL Data Warehouse acquisisce snapshot del data warehouse nel corso della giornata creando punti di ripristino che restano disponibili per sette giorni. Questo periodo di conservazione non può essere modificato. SQL Data Warehouse supporta un obiettivo del punto di ripristino (RPO) di otto ore. È possibile ripristinare il data warehouse nell'area primaria da uno qualsiasi degli snapshot acquisiti negli ultimi sette giorni.
 
 Per vedere quando è stato eseguito l'ultimo snapshot, eseguire questa query su SQL Data Warehouse online. 
 
@@ -41,43 +39,51 @@ order by run_id desc
 ;
 ```
 
+## <a name="user-defined-restore-points"></a>Punti di ripristino definiti dall'utente
+Questa funzionalità consente di attivare gli snapshot manualmente per creare punti di ripristino del data warehouse prima e dopo modifiche di grandi dimensioni. Questa funzionalità garantisce la coerenza logica dei punti di ripristino, offrendo così altra protezione dei dati in caso di eventuali interruzioni del carico di lavoro o errori dell'utente e ottenere un tempo di ripristino rapido. I punti di ripristino definiti dall'utente sono disponibili per sette giorni e vengono eliminati automaticamente per conto dell'utente. Non è possibile modificare il periodo di conservazione dei punti di ripristino definiti dall'utente. Poiché in qualsiasi momento sono supportati solo 42 punti di ripristino definiti dall'utente, è necessario [eliminarne uno](https://go.microsoft.com/fwlink/?linkid=875299) prima di creare un nuovo punto di ripristino. È possibile attivare gli snapshot per creare punti di ripristino definiti dall'utente tramite [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) o il portale di Azure.
+
+
+> [!NOTE]
+> Se occorre creare punti di ripristino che durino più di 7 giorni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). È anche possibile creare un punto di ripristino definito dall'utente ed eseguire il ripristino dal punto di ripristino appena creato in un nuovo data warehouse. Dopo avere eseguito il ripristino, il data warehouse diventa disponibile online e può essere messo in pausa per un periodo imprecisato al fine di risparmiare sui costi. Il database messo in pausa comporta costi di archiviazione alla frequenza dell'archiviazione Premium di Azure. Nel momento in cui occorre una copia attiva del data warehouse ripristinato, la ripresa dell'esecuzione del data warehouse richiede solo alcuni minuti.
+>
+
 ### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Conservazione degli snapshot quando un data warehouse viene sospeso
-Mentre un data warehouse è in pausa SQL Data Warehouse non crea snapshot e non fa scadere gli snapshot. L'età degli snapshot non cambia mentre il data warehouse è in pausa. La conservazione degli snapshot è basata sul numero di giorni in cui il data warehouse rimane in linea e non sui giorni di calendario.
+Mentre un data warehouse è in pausa, SQL Data Warehouse non crea snapshot e non fa scadere i punti di ripristino. Mentre il data warehouse è in pausa, i punti di ripristino non cambiano. La conservazione dei punti di ripristino è basata sul numero di giorni in cui il data warehouse rimane in linea e non sui giorni di calendario.
 
-Ad esempio se uno snapshot viene avviato il 1° ottobre alle 16.00 e il data warehouse viene messo in pausa il 3 ottobre alle 16.00, l'età degli snapshot arriva fino a due giorni. Quando il data warehouse ritorna in linea, lo snapshot avrà due giorni. Se il data warehouse torna in linea il 5 ottobre alle 16.00, in quel momento lo snapshot avrà due giorni e gli rimarranno cinque giorni.
+Se ad esempio uno snapshot viene avviato il 1° ottobre alle 16.00 e il data warehouse viene messo in pausa il 3 ottobre alle 16.00, l'età dei punti di ripristino è di due giorni. Quando il data warehouse ritorna in linea, i punti di ripristino hanno due giorni. Se il data warehouse torna in linea il 5 ottobre alle 16.00, il punto di ripristino ha due giorni e viene conservato per altri cinque giorni.
 
-Quando il data warehouse ritorna in linea, SQL Data Warehouse avvia nuovi snapshot e fa scadere gli snapshot quando superano i sette giorni di dati.
+Quando il data warehouse ritorna in linea, SQL Data Warehouse riprende a creare nuovi punti di ripristino e li fa scadere quando superano i sette giorni di dati.
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Conservazione degli snapshot quando un data warehouse viene rilasciato
 Quando si elimina un data warehouse, SQL Data Warehouse Crea uno snapshot finale e lo conserva per sette giorni. È possibile ripristinare il data warehouse al punto di ripristino finale creato al momento dell'eliminazione. 
 
 > [!IMPORTANT]
 > Se si elimina un'istanza logica del server SQL, vengono eliminati anche tutti i database appartenenti all'istanza e non sarà possibile recuperarli. Non è possibile ripristinare un server eliminato.
-> 
+>
 
 ## <a name="geo-backups"></a>Backup geografici
-SQL Data Warehouse esegue un backup geografico una volta al giorno su un [data center abbinato](../best-practices-availability-paired-regions.md). L'obiettivo del punto di ripristino per un ripristino geografico è di 24 ore. È possibile ripristinare il backup geografico in un server in qualsiasi altra area in cui sia supportato SQL Data Warehouse. Un backup geografico assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere agli snapshot nell'area primaria.
+SQL Data Warehouse esegue un backup geografico una volta al giorno su un [data center abbinato](../best-practices-availability-paired-regions.md). L'obiettivo del punto di ripristino per un ripristino geografico è di 24 ore. È possibile ripristinare il backup geografico in un server in qualsiasi altra area in cui sia supportato SQL Data Warehouse. Un backup geografico assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere ai punti di ripristino nell'area primaria.
 
 I backup geografici sono attivi per impostazione predefinita. Se il data warehouse è di prima generazione, è possibile [scegliere di disattivarli](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy). Non è possibile scegliere di disattivare i backup geografici di seconda generazione, in quanto la protezione dei dati è una garanzia integrata.
 
-## <a name="backup-costs"></a>Costi di backup
-Si noterà che la fattura di Azure include una voce per Archiviazione Premium di Azure e una voce per l'archiviazione con ridondanza geografica. Il costo di Archiviazione Premium è il costo totale per l'archiviazione dei dati nell'area primaria, che include gli snapshot.  L'addebito per la ridondanza geografica copre il costo per l'archiviazione dei backup geografici.  
-
-Il costo totale per il data warehouse primario e sette giorni di snapshot BLOB di Azure viene arrotondato al TB più vicino. Ad esempio, se il data warehouse è 1,5 TB e gli snapshot usano 100 GB, verranno fatturati 2 TB di dati in base alle tariffe di archiviazione Premium di Azure. 
-
 > [!NOTE]
-> Ogni snapshot è inizialmente vuoto e aumenta di dimensione quando si apportano modifiche al data warehouse primario. Tutti gli snapshot aumentano di dimensione quando il data warehouse cambia. Perciò i costi di archiviazione per gli snapshot aumentano in base alla frequenza di modifica.
-> 
-> 
+> Se occorre un RPO più breve per i backup geografici, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse). È anche possibile creare un punto di ripristino definito dall'utente ed eseguire il ripristino dal punto di ripristino appena creato in un nuovo data warehouse in un'area diversa. Dopo avere eseguito il ripristino, il data warehouse diventa disponibile online e può essere messo in pausa per un periodo imprecisato al fine di risparmiare sui costi. Il database messo in pausa comporta costi di archiviazione alla frequenza dell'archiviazione Premium di Azure. Se occorre una copia attiva del data warehouse, la ripresa dell'esecuzione del data warehouse dovrebbe richiedere solo alcuni minuti.
+>
+
+
+## <a name="backup-and-restore-costs"></a>Costi di backup e di ripristino
+Nella fattura di Azure è inclusa una voce per l'archiviazione e una voce per l'archiviazione con ripristino di emergenza. Il costo dell'archiviazione è il costo totale per l'archiviazione dei dati nell'area primaria insieme alle modifiche incrementali acquisite dagli snapshot. Per una spiegazione più dettagliata sull'acquisizione degli snapshot, fare riferimento a questa [documentazione](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). L'addebito per la ridondanza geografica copre il costo per l'archiviazione dei backup geografici.  
+
+Il costo totale per il data warehouse primario e i sette giorni di modifiche agli snapshot viene arrotondato al TB più vicino. Se ad esempio il data warehouse è 1,5 TB e gli snapshot usano 100 GB, verranno fatturati 2 TB di dati in base alle tariffe di Archiviazione Premium di Azure. 
 
 Se si usa l'archiviazione con ridondanza geografica, sarà addebitato un costo di archiviazione separato. L'archiviazione con ridondanza geografica è fatturata in base alla tariffa Standard per l'Archiviazione con ridondanza geografica e accesso in lettura.
 
-Per altre informazioni sui prezzi di SQL Data Warehouse, vedere [Prezzi di SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+Per altre informazioni sui piani tariffari di SQL Data Warehouse, vedere [Prezzi di SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) e i [dettagli sui prezzi per i trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/bandwidth/) quando si eseguire il ripristino tra aree.
 
 ## <a name="restoring-from-restore-points"></a>Ripristino dai punti di ripristino
-Ogni snapshot ha un punto di ripristino che rappresenta l'ora di inizio dello snapshot. Per ripristinare un data warehouse, scegliere un punto di ripristino ed eseguire un comando di ripristino.  
+Ogni snapshot crea un punto di ripristino che rappresenta l'ora di inizio dello snapshot. Per ripristinare un data warehouse, scegliere un punto di ripristino ed eseguire un comando di ripristino.  
 
-SQL Data Warehouse ripristina sempre il backup in un nuovo data warehouse. È possibile mantenere il data warehouse ripristinato e quello corrente, oppure eliminare uno di questi. Se si desidera sostituire il data warehouse corrente con il data warehouse ripristinato, è possibile rinominarlo usando [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) con l'opzione MODIFY NAME. 
+È possibile mantenere il data warehouse ripristinato e quello corrente, oppure eliminare uno di questi. Se si desidera sostituire il data warehouse corrente con il data warehouse ripristinato, è possibile rinominarlo usando [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) con l'opzione MODIFY NAME. 
 
 Per ripristinare un data warehouse, vedere [Ripristinare un data warehouse tramite il portale di Azure](sql-data-warehouse-restore-database-portal.md), [Ripristinare un data warehouse tramite PowerShell](sql-data-warehouse-restore-database-powershell.md) o [Ripristinare un data warehouse tramite T-SQL](sql-data-warehouse-restore-database-rest-api.md).
 
@@ -85,27 +91,11 @@ Per ripristinare un data warehouse eliminato o sospeso, è possibile [creare un 
 
 
 ## <a name="geo-redundant-restore"></a>Ripristino con ridondanza geografica
-È possibile ripristinare il data warehouse in qualsiasi area che supporta Azure SQL Data Warehouse con il livello di prestazioni scelto. 
+È possibile [ripristinare il data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) in qualsiasi area che supporta Azure SQL Data Warehouse con il livello di prestazioni scelto. 
 
 > [!NOTE]
 > Per eseguire un ripristino con ridondanza geografica, è necessario non avere rifiutato esplicitamente questa funzionalità.
-> 
-> 
-
-## <a name="restore-timeline"></a>Sequenza temporale del ripristino
-È possibile ripristinare un database a qualsiasi punto di ripristino disponibile degli ultimi sette giorni. Gli snapshot vengono eseguiti ogni quattro-otto ore e sono disponibili per sette giorni. Quando uno snapshot supera i sette giorni di vita, scade e il relativo punto di ripristino non è più disponibile. 
-
-I backup non vengono eseguiti per un data warehouse sospeso. Se il data warehouse viene sospeso per più di sette giorni, non si avranno punti di ripristino. 
-
-## <a name="restore-costs"></a>Costi di ripristino
-Il costo di archiviazione per il data warehouse ripristinato viene fatturato alla tariffa di archiviazione Premium di Azure. 
-
-Se si mette in pausa un data warehouse ripristinato, l'archiviazione viene fatturata alla tariffa di archiviazione Premium di Azure. Il vantaggio della sospensione è che le risorse di calcolo non vengono fatturate.
-
-Per altre informazioni sui prezzi di SQL Data Warehouse, vedere [Prezzi di SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
-
-## <a name="restore-use-cases"></a>Casi d'uso del ripristino
-L'uso primario per il ripristino del data warehouse consiste nel recuperare i dati dopo averli perduti o danneggiati accidentalmente. Inoltre, è possibile usare la funzionalità di ripristino del data warehouse per conservare una copia di backup per più di sette giorni. Dopo aver ripristinato la copia di backup, il data warehouse diventa disponibile online e può essere messo in pausa per un periodo imprecisato al fine di risparmiare sui costi. Il database messo in pausa comporta costi di archiviazione alla frequenza dell'archiviazione Premium di Azure. 
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla pianificazione del ripristino di emergenza, vedere [Panoramica sulla continuità aziendale](../sql-database/sql-database-business-continuity.md)

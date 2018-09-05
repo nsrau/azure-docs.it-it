@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/22/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: e0c9708107139ec899cd5902a68ff90b57b741f7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 4434b67393d34c3418e44e82681a586c268a37e5
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005920"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746997"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -438,14 +438,15 @@ In genere questo errore si verifica perché l'ora del server non è corretta opp
 1. Aprire lo snap-in MMC dei certificati, selezionare l'account del computer e passare a certificati (Computer locale)\Personale\Certificati.
 2. Eliminare il certificato di autenticazione client se scaduto e chiudere lo snap-in MMC dei certificati.
 3. Aprire Regedit ed eliminare la chiave ServerSetting nel registro: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. Eseguire i comandi di PowerShell seguenti sul server:
+4. Nel portale di Azure passare alla sezione Server registrati del servizio di sincronizzazione archiviazione. Fare doppio clic sul server con il certificato scaduto e fare clic su "Annulla registrazione server".
+5. Eseguire i comandi di PowerShell seguenti sul server:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Reset-StorageSyncServer
     ```
 
-5. Registrare nuovamente il server eseguendo ServerRegistration.exe (il percorso predefinito è C:\File di programma\Azure\StorageSyncAgent).
+6. Registrare nuovamente il server eseguendo ServerRegistration.exe (il percorso predefinito è C:\File di programma\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Lo spazio su disco del volume in cui risiede l'endpoint server è insufficiente.**  
 | | |

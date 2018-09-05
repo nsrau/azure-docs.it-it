@@ -4,16 +4,16 @@ description: Descrizione di come la definizione dei criteri delle risorse viene 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524108"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818698"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -107,7 +107,7 @@ Nella proprietà dei metadati è possibile usare **strongType** per fornire un e
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-Nella regola dei criteri, fare riferimento ai parametri con la sintassi seguente:
+Nella regola dei criteri fare riferimento ai parametri con la sintassi della funzione del valore di distribuzione `parameters` seguente:
 
 ```json
 {
@@ -245,6 +245,53 @@ Con **AuditIfNotExists** e **DeployIfNotExists** è possibile valutare l'esisten
 Per un esempio di controllo quando non è stata distribuita un'estensione della macchina virtuale, vedere [Audit if extension does not exist](scripts/audit-ext-not-exist.md) (Controllare se l'estensione esiste).
 
 Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere [Informazioni sugli effetti di Criteri](policy-effects.md).
+
+### <a name="policy-functions"></a>Funzioni dei criteri
+
+È disponibile un subset delle [funzioni del modello di Resource Manager](../azure-resource-manager/resource-group-template-functions.md) per l'utilizzo all'interno di una regola dei criteri. Le funzioni attualmente supportate sono:
+
+- [parameters](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [sottoscrizione](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+Inoltre, la funzione `field` è disponibile per le regole dei criteri. Questa funzione viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Un esempio può essere visualizzato nell'[esempio DeployIfNotExists](policy-effects.md#deployifnotexists-example).
+
+#### <a name="policy-function-examples"></a>Esempi di funzione dei criteri
+
+Questo esempio di regola dei criteri usa la `resourceGroup` funzione risorsa per ottenere la proprietà **name**, in combinazione con la matrice `concat` e la funzione oggetto per creare una condizione `like` che fa in modo che il nome della risorsa inizi con il nome del gruppo di risorse.
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Questo esempio di regola dei criteri usa la funzione risorse `resourceGroup` per ottenere il valore della matrice della proprietà **tags** nel tag **CostCenter** nel gruppo di risorse e aggiungerlo al tag **CostCenter**  nella nuova risorsa.
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>Alias
 

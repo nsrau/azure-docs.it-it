@@ -1,27 +1,23 @@
 ---
-title: Messaggi X12 per l'integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
-description: Scambiare messaggi X12 in formato EDI per l'integrazione aziendale B2B con App per la logica di Azure
+title: Messaggi X12 per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
+description: Scambiare messaggi X12 in formato EDI per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: b269a5171dcb8867f7ea40215d6b8a75d5d918bc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299080"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123958"
 ---
-# <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Scambiare messaggi X12 per l'integrazione aziendale con le app per la logica
+# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi X12 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
 Per poter scambiare messaggi X12 con App per la logica di Azure, è necessario creare un contratto X12 e archiviarlo nell'account di integrazione. Di seguito viene illustrata la procedura per la creazione di un contratto X12.
 

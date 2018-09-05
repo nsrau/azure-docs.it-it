@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 08/29/2018
 ms.author: douglasl
-ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f4a88c5495fc3297699110d8a12a22ff7d6c2bbb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055510"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144355"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,15 +99,19 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 
 | Proprietà              | DESCRIZIONE                              | Obbligatoria |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nome dell'attività nella pipeline     | Sì      |
+| name                  | Nome dell'attività nella pipeline     | Yes      |
 | description           | Testo che descrive l'attività.  | No        |
-| type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Sì      |
-| linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Sì      |
-| command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
+| type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Yes      |
+| linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Yes      |
+| command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Yes      |
 | resourceLinkedService | Servizio di Archiviazione di Azure collegato all'account di archiviazione in cui è archiviata l'applicazione personalizzata | No        |
 | folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze | No        |
 | referenceObjects      | Matrice di servizi collegati e set di dati esistenti. I servizi collegati e i set di dati a cui si fa riferimento vengono passati all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a risorse di Data Factory | No        |
 | extendedProperties    | Proprietà definite dall'utente che possono essere passate all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a proprietà aggiuntive | No        |
+
+## <a name="custom-activity-permissions"></a>Autorizzazioni per le attività personalizzate
+
+L'attività personalizzata imposta l'account utente automatico di Azure Batch sull'*accesso senza privilegi di amministratore con ambito di attività* (specifica di utente automatico predefinito). Non è possibile modificare il livello di autorizzazione dell'account utente automatico. Per altre informazioni, vedere [Eseguire attività con account utente in Batch | Account utente automatici](../batch/batch-user-accounts.md#auto-user-accounts).
 
 ## <a name="executing-commands"></a>Esecuzione di comandi
 

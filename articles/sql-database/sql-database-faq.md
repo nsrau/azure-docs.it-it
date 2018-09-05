@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246778"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091825"
 ---
 # <a name="sql-database-faq"></a>Domande frequenti sul database SQL
 
@@ -155,7 +155,7 @@ Ad esempio:
 - Se si crea un'istanza gestita nel livello Utilizzo generico con 8 vCore e dopo si esegue immediatamente l'aggiornamento a 16 vCore, verrà addebitata la tariffa per 16 vCore per la prima ora.
 
 > [!NOTE]
-> Per un periodo limitato di tempo, fino al 30 giugno 2018, non vengono applicati addebiti per i backup e le operazioni di I/O.
+> Per un periodo limitato di tempo non vengono applicati addebiti per i backup e le operazioni di I/O.
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Come viene indicato in fattura l'uso della replica geografica attiva in un pool elastico?
 A differenza dei database singoli, l'uso della [replica geografica attiva](sql-database-geo-replication-overview.md) con i database elastici non ha un impatto diretto sulla fatturazione.  Vengono addebitate solo le risorse delle quali è stato eseguito il provisioning per ognuno dei pool (pool primario e secondario).

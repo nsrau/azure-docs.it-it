@@ -1,5 +1,5 @@
 ---
-title: Considerazioni sulla sicurezza in Azure Data Factory | Documentazione Microsoft
+title: Considerazioni sulla sicurezza in Azure Data Factory | Microsoft Docs
 description: Descrive l'infrastruttura di sicurezza di base usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493971"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745669"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,11 @@ Se l'archivio dati cloud supporta HTTPS o TLS, tutti i trasferimenti di dati tra
 
 > [!NOTE]
 > Tutte le connessioni al database SQL di Azure e ad Azure SQL Data Warehouse richiedono la crittografia (SSL/TLS) quando i dati sono in transito da e verso il database. Quando si crea una pipeline usando JSON, aggiungere la proprietà encryption e impostarla su **true** nella stringa di connessione. Per Archiviazione di Azure è possibile usare **HTTPS** nella stringa di connessione.
+
+> [!NOTE]
+> Per abilitare la crittografia in transito durante lo spostamento dei dati da Oracle seguire uno delle opzioni seguenti:
+> 1. Nel server Oracle passare a Oracle Advanced Security (OAS) e configurare le impostazioni di crittografia, che supporta la crittografia Triple DES (3DES) e Advanced Encryption Standard (AES). Per informazioni dettagliate, vedere [qui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Azure Data Factory negozia automaticamente il metodo di crittografia per usare uno dei due configurati in OAS per stabilire la connessione a Oracle.
+> 2. In Azure Data Factory è possibile aggiungere EncryptionMethod = 1 nella stringa di connessione (nel servizio collegato). Questo userà SSL/TLS come metodo di crittografia. Per usarlo, è necessario disabilitare le impostazioni di crittografia non SSL in OAS sul lato server Oracle per evitare conflitti di crittografia.
 
 > [!NOTE]
 > La versione TLS usata è 1.2.

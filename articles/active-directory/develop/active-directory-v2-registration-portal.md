@@ -13,25 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 9d38f6e6d6b9fa47b1cd1497820f7ff887954ad5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156188"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190116"
 ---
 # <a name="app-registration-reference"></a>Riferimento alla registrazione delle app
-Questo documento fornisce il contesto e le descrizioni di varie funzionalità disponibili nel portale di registrazione delle app di Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+Questo documento contiene il contesto e le descrizioni di varie funzionalità disponibili nel [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
-## <a name="my-applications"></a>Applicazioni personali
+## <a name="my-applications-or-converged-applications"></a>Applicazioni personali o con convergenza
 Questo elenco include tutte le applicazioni registrate per l'uso con l'endpoint Azure AD 2.0. Queste applicazioni permettono di eseguire l'accesso sia con account Microsoft personali che aziendali o dell'istituto d'istruzione da Azure Active Directory. Per altre informazioni sull'endpoint Azure AD 2.0, vedere la [panoramica della versione 2.0](active-directory-appmodel-v2-overview.md). Queste applicazioni possono essere usate anche per l'integrazione con l'endpoint di autenticazione dell'account Microsoft, `https://login.live.com`.
 
+## <a name="azure-ad-only-applications"></a>Solo applicazioni Azure AD
+Questo elenco include tutte le applicazioni registrate per essere usate con l'endpoint Azure AD v1.0. A tali possono accedere solo gli utenti con account aziendale o dell'istituto di istruzione di Azure Active Directory. L'elenco include le applicazioni che sono state registrate usando l'esperienza di **registrazioni per l'app** nel [portale di Azure](https://portal.azure.com).
+
 ## <a name="live-sdk-applications"></a>Applicazioni Live SDK
-Questo elenco include tutte le applicazioni registrate per l'uso solo con l'account Microsoft. Non sono abilitate per l'uso con Azure Active Directory. Qui è possibile trovare tutte le applicazioni registrate in precedenza con il portale per sviluppatori di account del servizio gestito, all'indirizzo `https://account.live.com/developers/applications`. Tutte le funzioni eseguite in precedenza in `https://account.live.com/developers/applications` ora possono essere eseguite nel nuovo portale, `https://apps.dev.microsoft.com`. Per altre domande relative alle applicazioni dell'account Microsoft, contattare Microsoft.
+Questo elenco include tutte le applicazioni registrate per l'uso solo con l'account Microsoft. Non sono abilitate per l'uso con Azure Active Directory. Qui è possibile trovare tutte le applicazioni registrate in precedenza con il portale per sviluppatori di account del servizio gestito, all'indirizzo `https://account.live.com/developers/applications`. Tutte le funzioni eseguite in precedenza in `https://account.live.com/developers/applications` ora possono essere eseguite nel nuovo portale, `https://apps.dev.microsoft.com`.
 
 ## <a name="application-secrets"></a>Segreti applicazione
 I segreti applicazione sono credenziali che consentono all'applicazione di eseguire [l'autenticazione client](http://tools.ietf.org/html/rfc6749#section-2.3) in modo affidabile con Azure AD. In OAuth e OpenID Connect il segreto dell'applicazione è noto come `client_secret`. Nel protocollo della versione 2.0, qualsiasi applicazione che riceve un token di sicurezza in una posizione con indirizzo Web, usando uno schema `https` , deve fare uso di un segreto applicazione per identificarsi in Azure AD al momento del riscatto del token di sicurezza. Inoltre i client nativi che ricevono i token in un dispositivo non possono usare un segreto dell'applicazione per eseguire l'autenticazione client. Questo scoraggia l'archiviazione dei segreti in ambienti non protetti.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528444"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247783"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestione del ciclo di vita di Archiviazione BLOB di Azure (anteprima)
 
@@ -37,7 +37,7 @@ I criteri di gestione del ciclo di vita sono disponibili sia con l'account per u
 La funzionalità di gestione del ciclo di vita è gratuita in anteprima. Ai clienti viene addebitato il normale costo dell'operazione per le chiamate API [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (Elenca BLOB) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (Imposta livello BLOB). Vedere [Prezzi per i BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/) per altre informazioni sui prezzi.
 
 ## <a name="register-for-preview"></a>Eseguire la registrazione per l'anteprima 
-Per registrarsi nell'anteprima pubblica è necessario inviare una richiesta per registrare questa funzionalità nella propria sottoscrizione. Dopo che la richiesta è stata approvata (entro pochi giorni), gli account GPv2 o di Archiviazione BLOB nuovi ed esistenti nelle aree Stati Uniti occidentali 2 e Stati Uniti centro-occidentali avranno la funzionalità abilitata. Durante l'anteprima è supportato solo il BLOB in blocchi. Come per la maggior parte delle versioni di anteprima, questa funzionalità non deve essere usata per i carichi di lavoro in produzione fino al momento della disponibilità generale.
+Per registrarsi nell'anteprima pubblica è necessario inviare una richiesta per registrare questa funzionalità nella propria sottoscrizione. Dopo che la richiesta è stata approvata (entro pochi giorni), gli account GPv2 o di Archiviazione BLOB nuovi ed esistenti nelle aree Stati Uniti occidentali 2, Stati Uniti centro-occidentali e Europa occidentale avranno la funzionalità abilitata. Durante l'anteprima è supportato solo il BLOB in blocchi. Come per la maggior parte delle versioni di anteprima, questa funzionalità non deve essere usata per i carichi di lavoro in produzione fino al momento della disponibilità generale.
 
 Per inviare una richiesta, eseguire i comandi PowerShell o dell'interfaccia della riga di comando seguenti.
 

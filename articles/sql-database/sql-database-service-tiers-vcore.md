@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: e833cb0e7f98933fd106a92a9aac6c4c2677d50d
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443583"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124998"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Scelta del livello di servizio vCore e delle risorse di calcolo, memoria, archiviazione e I/O
 
@@ -35,8 +35,8 @@ La tabella seguente consente di comprendere le differenze tra questi due livelli
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione scalabili e bilanciate a prezzi convenienti.|Applicazioni aziendali con requisiti di I/O elevati. Offre massima resilienza agli errori tramite diverse repliche isolate.|
 |Calcolo|Gen4: Da 1 a 24 vCore<br/>Gen5: Da 1 a 80 vCore|Gen4: Da 1 a 24 vCore<br/>Gen5: Da 1 a 80 vCore|
 |Memoria|4° generazione: 7 GB per core<br>5° generazione: 5,5 GB per core | 4° generazione: 7 GB per core<br>5° generazione: 5,5 GB per core |
-|Archiviazione|[Archiviazione remota Premium](../virtual-machines/windows/premium-storage.md),<br/>Database singleton: da 5 GB a 4 TB<br/>Istanza gestita: da 32 GB a 8 TB |Archiviazione SSD locale,<br/>Database singolo: da 5 GB a 4 TB<br/>Istanza gestita: da 32 GB a 4 TB |
-|Velocità effettiva di I/O (approssimativa)|Database singleton: 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000</br>Istanza gestita: dipende dalle [dimensioni dei file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|
+|Archiviazione|[Archiviazione remota Premium](../virtual-machines/windows/premium-storage.md),<br/>Database singolo: da 5 GB a 4 TB<br/>Istanza gestita: da 32 GB a 8 TB |Archiviazione SSD locale,<br/>Database singolo: da 5 GB a 1 TB<br/>Istanza gestita: da 32 GB a 4 TB |
+|Velocità effettiva di I/O (approssimativa)|Database singolo: 500 operazioni di I/O al secondo per vCore fino a un massimo di 7000</br>Istanza gestita: dipende dalle [dimensioni dei file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|
 |Disponibilità|1 replica, senza scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](sql-database-read-scale-out.md),<br/>DISPONIBILITÀ ELEVATA con ridondanza|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|
 |In memoria|N/D|Supportato|
@@ -53,8 +53,8 @@ Per le risposte alle domande più frequenti, vedere [Domande frequenti sul datab
 
 Valutare gli aspetti seguenti:
 - Le risorse di archiviazione allocate vengono usate dai file di dati (MDF) e dai file di log (LDF).
-- Ogni livello di prestazioni del database singleton supporta una dimensione massima del database. La dimensione massima predefinita è di 32 GB.
-- Quando si configura la dimensione del database singleton desiderata (dimensione dei file MDF), viene aggiunto automaticamente il 30% delle risorse di archiviazione per il supporto dei file LDF
+- Ogni livello di prestazioni del database singolo supporta una dimensione massima del database. La dimensione massima predefinita è di 32 GB.
+- Quando si configura la dimensione del database singolo desiderata (dimensione dei file MDF), viene aggiunto automaticamente il 30% delle risorse di archiviazione per il supporto dei file LDF
 - Le dimensioni di archiviazione in istanza gestita devono essere specificate in multipli di 32 GB.
 - È possibile selezionare qualsiasi dimensione di database singleton compresa tra 10 GB e il valore massimo supportato
  - Per l'archiviazione Standard, aumentare o diminuire la dimensione in base a incrementi di 10 GB

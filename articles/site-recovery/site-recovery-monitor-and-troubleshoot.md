@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 89270a0bd1914a2486c8cc634563bdded743adaa
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578586"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746474"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorare e risolvere i problemi di Azure Site Recovery
 
@@ -153,13 +153,14 @@ Monitorare i processi come indicato di seguito:
 3.  Fare clic su **Colonne** per visualizzare colonne aggiuntive, ad esempio per l'obiettivo RPO, i problemi di configurazione della destinazione e gli errori di replica.
 4. Fare clic su **Filtro** per visualizzare le informazioni in base a parametri specifici, ad esempio l'integrità della replica o criteri di replica specifici.
 5. Fare clic con il pulsante destro del mouse su una macchina per avviare operazioni come il failover di test o per visualizzare i dettagli degli specifici errori.
-6. Fare clic su una macchina per visualizzare maggiori dettagli su di essa. I dettagli includono: **Informazioni replica**: stato corrente e integrità della macchina.
-        - **RPO** (obiettivo del punto di ripristino): RPO corrente per la macchina virtuale e ora dell'ultimo calcolo dell'RPO.
-        - **Punti di ripristino**: punti di ripristino più recenti disponibili per la macchina.
-        - **Conformità failover**: indica se è stato eseguito un failover di test per la macchina, la versione dell'agente in esecuzione nella macchina (per le macchine che eseguono il servizio Mobility) ed eventuali problemi di configurazione.
-        - **Errori**: elenco di sintomi di errore di replica attualmente osservati nella macchina, con le possibili cause e azioni.
-        - **Eventi**: elenco cronologico di eventi recenti con conseguenze sulla macchina. I dettagli dell'errore indicano i sintomi di errore attualmente osservabili, mentre gli eventi sono costituiti da una registrazione cronologica dei problemi che potrebbero avere avuto effetto sulla macchina.
-        - **Visualizzazione dell'infrastruttura**: mostra lo stato dell'infrastruttura per lo scenario durante la replica delle macchine in Azure.
+6. Fare clic su una macchina per visualizzare maggiori dettagli su di essa. I dettagli includono:
+      - **Informazioni replica**: stato corrente e integrità della macchina.
+      - **RPO** (obiettivo del punto di ripristino): RPO corrente per la macchina virtuale e ora dell'ultimo calcolo dell'RPO.
+      - **Punti di ripristino**: punti di ripristino più recenti disponibili per la macchina.
+      - **Conformità failover**: indica se è stato eseguito un failover di test per la macchina, la versione dell'agente in esecuzione nella macchina (per le macchine che eseguono il servizio Mobility) ed eventuali problemi di configurazione.
+      - **Errori**: elenco di sintomi di errore di replica attualmente osservati nella macchina, con le possibili cause e azioni.
+      - **Eventi**: elenco cronologico di eventi recenti con conseguenze sulla macchina. I dettagli dell'errore indicano i sintomi di errore attualmente osservabili, mentre gli eventi sono costituiti da una registrazione cronologica dei problemi che potrebbero avere avuto effetto sulla macchina.
+      - **Visualizzazione dell'infrastruttura**: mostra lo stato dell'infrastruttura per lo scenario durante la replica delle macchine in Azure.
 
     ![Dettagli/Panoramica degli elementi replicati di Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2a768846958f73ace22971f2f2ca8f886c9df252
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282157"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123155"
 ---
 # <a name="supported-languages-for-speech-service"></a>Lingue supportate per il servizio Voce
 
@@ -51,9 +51,9 @@ cs-CZ | Ceco | Maschio | "Microsoft Server Speech Text to Speech Voice (cs-CZ, J
 da-DK | Danese | Femmina | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | Tedesco (Austria) | Maschio | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | Tedesco (Svizzera) | Maschio | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
-de-DE | Tedesco (Germania) | Femmina | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda) "
+de-DE | Tedesco (Germania) | Femmina | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)"
 | | | Femmina | "Microsoft Server Speech Text to Speech Voice (de-DE, HeddaRUS)"
-| | | Maschio | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo) "
+| | | Maschio | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)"
 el-GR | Greco | Maschio | "Microsoft Server Speech Text to Speech Voice (el-GR, Stefanos)"
 en-AU | Inglese (Australia) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine)"
 | | | Femmina | "Microsoft Server Speech Text to Speech Voice (en-AU, HayleyRUS)"

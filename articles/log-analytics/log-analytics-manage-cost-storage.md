@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2018
+ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 1d797df3f03e9b92569d37495310a5c162f5f981
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 179d5c71a309fd79c23519544d1da6bcc07cda0c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130929"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045001"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gestire i costi controllando i volumi e la conservazione di dati in Log Analytics
+
+> [!NOTE]
+> Questo articolo descrive come controllare i costi in Log Analytics impostando il periodo di conservazione dei dati.  Per le informazioni correlate, vedere gli articoli seguenti.
+> - [Analizzare l'utilizzo dei dati in Log Analytics](log-analytics-manage-cost-storage.md) descrive l'analisi e gli avvisi per l'utilizzo dei dati.
+> - [Monitoraggio dell'utilizzo e dei costi stimati](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descrive come visualizzare l'utilizzo e i costi stimati tra più funzionalità di monitoraggio di Azure per diversi modelli di determinazione dei prezzi. Illustra inoltre come modificare il modello di prezzi.
+
 Log Analytics è un servizio progettato per offrire scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di grandi quantità di dati al giorno da qualsiasi origine aziendale o distribuita in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro di Log Analytics non si basa solo sul volume dei dati raccolti, ma dipende anche dal piano selezionato e dal periodo di tempo di archiviazione dei dati generati dalle origini connesse.  
 
 In questo articolo viene esaminato come monitorare in modo proattivo il volume dei dati e l'aumento dello spazio di archiviazione e definire i limiti per controllare i costi associati. 
@@ -49,7 +55,7 @@ Ci sono due modi per limitare il volume dei dati e controllare i costi, ovvero l
 Log Analytics aiuta a capire quali sono i costi probabili in base ai modelli di utilizzo recenti.  A questo scopo, eseguire i passaggi seguenti.  
 
 1. Accedere al [portale di Azure](http://portal.azure.com). 
-2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![Portale di Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![portale di Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. Nel riquadro delle sottoscrizioni di Log Analytics selezionare l'area di lavoro e quindi fare clic su **Utilizzo e costi stimati** nel riquadro a sinistra.<br><br> ![Pagina Utilizzo e costi stimati](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 Da qui è possibile esaminare il volume di dati per il mese. Sono inclusi tutti i dati ricevuti e conservati nell'area di lavoro di Log Analytics.  Fare clic su **Dettagli di utilizzo** nella parte superiore della pagina per visualizzare il dashboard di utilizzo con informazioni sulle tendenze del volume di dati in base a origine, computer e offerta. Per visualizzare e impostare un limite giornaliero o per modificare il periodo di conservazione, fare clic su **Gestione del volume dati**.

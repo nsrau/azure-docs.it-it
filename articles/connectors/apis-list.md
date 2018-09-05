@@ -1,26 +1,29 @@
 ---
 title: Connettori per App per la logica di Azure | Microsoft Docs
-description: È possibile automatizzare i flussi di lavoro con API integrate e gestite, elementi locali, account di integrazione e connettori aziendali per App per la logica di Azure
+description: È possibile automatizzare i flussi di lavoro con i connettori per App per la logica di Azure, inclusi connettori integrati, gestiti, locali, account di integrazione e aziendali
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 06/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 2bb3e2ce29037372395aa0b30e9f76f3e712667d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.topic: article
+ms.date: 08/23/2018
+ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096612"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818535"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
-I connettori sono parte integrante quando si creano flussi di lavoro automatizzati con App per la logica di Azure. Utilizzando i connettori nelle app per la logica, è possibile espandere le capacità delle applicazioni locali e cloud per eseguire attività con i dati creati e già disponibili. Mentre App per la logica offre oltre 200 connettori, questo articolo descrive i connettori più popolari e più comuni che vengono utilizzati con successo da migliaia di applicazioni e milioni di esecuzioni per l'elaborazione di dati e informazioni.
-I connettori sono disponibili come connettori gestiti o predefiniti. 
+I connettori sono parte integrante quando si creano flussi di lavoro automatizzati con App per la logica di Azure. Utilizzando i connettori nelle app per la logica, è possibile espandere le capacità delle applicazioni locali e cloud per eseguire attività con i dati creati e già disponibili. 
+
+Mentre App per la logica offre [oltre 200 connettori](https://docs.microsoft.com/connectors), questo articolo descrive i connettori più popolari e più comuni che vengono usati con successo da migliaia di applicazioni e milioni di esecuzioni per l'elaborazione di dati e informazioni. I connettori sono disponibili come connettori gestiti o predefiniti. 
+
+> [!NOTE]
+> Per l'elenco di connettori completo e le informazioni di riferimento per ogni connettore, ad esempio azioni, trigger e limiti, è possibile trovare l'elenco completo nella [Panoramica dei connettori](https://docs.microsoft.com/connectors).
 
 * [**Predefiniti**](#built-ins): queste azioni predefinite e trigger consentono di creare app per la logica da eseguire in base a pianificazioni personalizzate, di comunicare con altri endpoint, di ricevere e rispondere alle richieste e di richiamare funzioni Azure, App per le API Azure (app Web), le proprie API gestite e quelle che possono ricevere richieste pubblicate con gestione API di Azure e infine le app di logica annidata. È inoltre possibile utilizzare azioni predefinite che consentono di organizzare e controllare il flusso di lavoro dell'applicazione logica e anche di lavorare con i dati.
 
@@ -37,7 +40,8 @@ I connettori sono disponibili come connettori gestiti o predefiniti.
   Ad esempio, se si usa Microsoft BizTalk Server, le App per la logica possono connettersi e comunicare con BizTalk Server tramite il [connettore BizTalk Server](#on-premises-connectors). 
   È quindi possibile estendere o eseguire operazioni di tipo BizTalk in App per la logica utilizzando [connettori dell'account di integrazione](#integration-account-connectors). 
 
-Per informazioni tecniche sui trigger e le azioni di ciascun connettore, definiti da una descrizione di Swagger, più eventuali limiti, vedere [Informazioni dettagliate sui connettori](/connectors/). Per informazioni sui costi, vedere [Dettagli prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/) e [Modello di determinazione prezzi delle app per la logica](../logic-apps/logic-apps-pricing.md). 
+> [!NOTE] 
+> Per l'elenco di connettori completo e le informazioni di riferimento per ogni connettore, ad esempio azioni e tutti i trigger definiti da una descrizione Swagger e qualsiasi limite, è possibile trovare l'elenco completo nella [Panoramica dei connettori](/connectors/). Per informazioni sui prezzi, vedere [Dettagli prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/) e [Modello di determinazione prezzi delle app per la logica](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
@@ -160,6 +164,7 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Cercare l'[elenco completo di connettori](https://docs.microsoft.com/connectors)
 * [Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Creare connettori personalizzati per app per la logica](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Creare API personalizzate per app per la logica](../logic-apps/logic-apps-create-api-app.md)

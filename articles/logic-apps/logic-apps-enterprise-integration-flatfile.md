@@ -1,27 +1,23 @@
 ---
-title: Flat file di codifica o decodifica nelle app per la logica di Azure | Microsoft Docs
-description: Come usare il codificatore o il decodificatore di file in Enterprise Integration Pack nelle app per la logica
+title: 'Flat file di codifica o decodifica: App per la logica di Azure | Microsoft Docs'
+description: Codificare o decodificare file flat per l'integrazione aziendale con App per la logica di Azure e Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.author: LADocs; divswa
-ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038114"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123929"
 ---
-# <a name="overview-of-enterprise-integration-with-flat-files"></a>Informazioni generali sull'integrazione aziendale con file flat
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificare o decodificare file flat con App per la logica di Azure e Enterprise Integration Pack
 
 In uno scenario B2B è consigliabile codificare i contenuti XML prima di inviarli a un partner commerciale. In un'app per la logica, è possibile usare a tale scopo il connettore di codifica file flat. L'app per la logica che viene creata può ottenere il relativo contenuto XML da varie origini, come un trigger di richiesta HTTP, un'altra applicazione o uno dei numerosi [connettori](../connectors/apis-list.md). Per altre informazioni sulle app per la logica, vedere la [documentazione relativa alle app per la logica](logic-apps-overview.md "Altre informazioni sulle app per la logica").  
 

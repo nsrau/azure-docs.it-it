@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: efc71e02cc02574973f0b6b428b5b670cd9cfd5b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617353"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144230"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origini evento di Griglia di eventi di Azure
 
@@ -74,13 +74,14 @@ Per esempi di Hub eventi come gestore, vedere [Gestore di Hub eventi](event-hand
 
 ## <a name="iot-hub"></a>Hub IoT
 
-Sottoscrivere gli eventi dell'hub IoT per rispondere agli eventi creati ed eliminati dai dispositivi.
+Eseguire la sottoscrizione di eventi dell'hub IoT per rispondere a eventi correlati a dispositivi creati, eliminati, connessi e disconnessi.
 
 |Title  |DESCRIZIONE  |
 |---------|---------|
-| [Esercitazione: inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica](publish-iot-hub-events-to-logic-apps.md) | Un'app per la logica invia una notifica tramite posta elettronica ogni volta che un dispositivo viene aggiunto all'hub IoT. |
-| [Panoramica: rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni](../iot-hub/iot-hub-event-grid.md) | Panoramica dell'integrazione degli hub IoT con Griglia di eventi. |
+| [Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica](publish-iot-hub-events-to-logic-apps.md) | Un'app per la logica invia una notifica tramite posta elettronica ogni volta che un dispositivo viene aggiunto all'hub IoT. |
+| [Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni](../iot-hub/iot-hub-event-grid.md) | Panoramica dell'integrazione dell'hub IoT con Griglia di eventi. |
 | [Schema di eventi](event-schema-iot-hub.md) | Illustra i campi negli eventi dell'hub IoT. |
+| [Ordinare eventi correlati a dispositivi connessi e disconnessi](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Illustra come ordinare gli eventi dello stato di connessione del dispositivo. |
 
 ## <a name="media-services"></a>Servizi multimediali
 

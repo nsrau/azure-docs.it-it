@@ -1,6 +1,6 @@
 ---
-title: Come completare una verifica dell'accesso | Documentazione Microsoft
-description: Dopo che è stata avviata una verifica di accesso in Azure AD Privileged Identity Management, leggere le informazioni su come completare la verifica e visualizzare i risultati
+title: Completare una verifica di accesso per i ruoli della directory di Azure AD in PIM | Microsoft Docs
+description: Informazioni su come completare una verifica di accesso per i ruoli della directory di Azure AD in Azure AD Privileged Identity Management (PIM) e visualizzare i risultati
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3b4135368c2222a08b155c851b384244774ce246
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3955f4bf9b579ae40424c2650f9d3b4c2ac4f030
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622531"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188587"
 ---
-# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Come completare una verifica dell'accesso in Azure AD Privileged Identity Management
+# <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Completare una verifica di accesso per i ruoli della directory di Azure AD in PIM
 Gli amministratori dei ruoli con privilegi possono esaminare l'accesso con privilegi dopo che è stata [avviata una verifica di accesso](pim-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) invia automaticamente un messaggio di posta elettronica che richiede agli utenti di controllare l'accesso. Agli utenti che non hanno ricevuto il messaggio di posta elettronica è possibile inviare le istruzioni descritte in [Come eseguire una verifica di accesso](pim-how-to-perform-security-review.md).
 
 Trascorso il periodo della verifica di accesso o al termine della verifica automatica di tutti gli utenti, seguire la procedura descritta in questo articolo per gestire la verifica e visualizzare i risultati.
@@ -53,4 +53,6 @@ Se la verifica non è più necessaria, eliminarla. Il pulsante **Elimina** rimuo
 > Poiché non verrà visualizzato alcun avviso prima dell'eliminazione, assicurarsi di voler eliminare la verifica. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Avviare una verifica di accesso per i ruoli della directory di Azure AD in PIM](pim-how-to-start-security-review.md)
+- [Eseguire una verifica di accesso dei ruoli della directory di Azure AD in PIM](pim-how-to-perform-security-review.md)

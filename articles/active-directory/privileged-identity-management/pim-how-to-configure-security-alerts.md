@@ -1,6 +1,6 @@
 ---
-title: Come configurare gli avvisi di sicurezza | Documentazione Microsoft
-description: Informazioni su come configurare gli avvisi di sicurezza per l'estensione Azure Privileged Identity Management.
+title: Configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in PIM | Microsoft Docs
+description: Informazioni su come configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8df9bc7c332a83e9761ea71dddfbfbfaa3ae5154
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fc39b6ad2dd63d45995b76011f4ebbe0228b4c2d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622154"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190392"
 ---
-# <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Come configurare gli avvisi di sicurezza in Azure AD Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in PIM
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 Azure Privileged Identity Management (PIM) genera avvisi nel caso di attività sospette o non sicure nel proprio ambiente. Una avviso attivato viene visualizzato nel dashboard di PIM. Selezionare l'avviso per visualizzare un report che elenca gli utenti o i ruoli che hanno attivato l'avviso.
 
@@ -65,4 +65,6 @@ Questo avviso viene attivato se un utente non attiva un ruolo dopo un determinat
 * **Numero di giorni**: specificare il numero di giorni, da 0 a 100, per cui un utente può non attivare un ruolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Configurare le impostazioni dei ruoli della directory di Azure AD in PIM](pim-how-to-change-default-settings.md)
+- [Richiedere l'autenticazione MFA (Multi-Factor Authentication) per i ruoli della directory di Azure AD in PIM](pim-how-to-require-mfa.md)

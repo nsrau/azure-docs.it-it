@@ -1,6 +1,6 @@
 ---
-title: Come eseguire una verifica dell'accesso | Documentazione Microsoft
-description: Informazioni su come eseguire una verifica con l'applicazione Azure Privileged Identity Management.
+title: Eseguire una verifica di accesso dei ruoli della directory di Azure AD in PIM | Microsoft Docs
+description: Informazioni su come eseguire una verifica di accesso dei ruoli della directory Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2c1cdecb0ce47e72550f430d2b87b3e6cc4eb176
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b4cffbd1ce240e4792fba84581dafb1933c71a62
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623035"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188552"
 ---
-# <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Come eseguire una verifica dell'accesso in Azure AD Privileged Identity Management
+# <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>Eseguire una verifica di accesso dei ruoli della directory di Azure AD in PIM
 Azure Active Directory (AD) Privileged Identity Management semplifica la gestione aziendale dell'accesso con privilegi alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.  
 
 Se si è stati assegnati a un ruolo amministrativo, è possibile che l'amministratore dei ruoli con privilegi dell'organizzazione richieda di confermare a intervalli regolari che il ruolo sia ancora necessario. È possibile che si riceva un messaggio di posta elettronica contenente un collegamento oppure accedere direttamente al [portale di Azure](https://portal.azure.com). Per eseguire una verifica automatica dei ruoli assegnati, seguire la procedura descritta in questo articolo.
@@ -47,4 +47,5 @@ Seguire questa procedura per trovare e completare la verifica dell'accesso:
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Eseguire una verifica di accesso dei ruoli delle risorse di Azure in PIM](pim-resource-roles-perform-access-review.md)

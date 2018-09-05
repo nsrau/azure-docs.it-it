@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: a64ada61b2edd0a5c5d2314125b7e2a23444a398
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: faffd919e1c57f2dff21c42c2294a06eb82a2c0a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141779"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092611"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usare Draft con Azure Kubernetes Service (AKS)
 

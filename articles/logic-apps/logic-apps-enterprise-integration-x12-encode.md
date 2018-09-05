@@ -1,27 +1,23 @@
 ---
-title: Messaggi Encode X12 - App per la logica di Azure | Documentazione Microsoft
-description: Convalidare le proprietà EDI e convertire messaggi con codifica XLM con il codificatore di messaggi X12 in Enterprise Integration Pack in App per la logica di Azure
+title: Messaggi Encode X12 - App per la logica di Azure | Microsoft Docs
+description: Convalidare le proprietà EDI e convertire messaggi con codifica XML con il codificatore di messaggi X12 in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: ec350560f4aca4e9a0b4f00892b690012c9f08dd
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3ed5cb61fef5f07913f11c4e4df309d720d5b901
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299016"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123506"
 ---
-# <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Encode X12 in App per la logica di Azure con Enterprise Integration Pack
+# <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi Encode X12 in App per la logica di Azure con Enterprise Integration Pack
 
 Il connettore di messaggi Encode X12 convalida le proprietà EDI e specifiche del partner, converte i messaggi con codifica XML in set di transazioni EDI nell'interscambio e richiede un riconoscimento tecnico, funzionale o entrambi.
 Per usare questo connettore, è necessario aggiungerlo a un trigger esistente nell'app per la logica.

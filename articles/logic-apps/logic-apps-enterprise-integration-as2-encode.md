@@ -1,27 +1,23 @@
 ---
-title: Messaggi Encode AS2 - App per la logica di Azure | Documentazione Microsoft
-description: Come usare il codificatore AS2 in Enterprise Integration Pack in App per la logica di Azure
+title: Messaggi Encode AS2 - App per la logica di Azure | Microsoft Docs
+description: Messaggi Encode AS2 con App per la logica di Azure ed Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: b3b57b2505c4185f3a81530cbc9eeb464dcfa518
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 6bb19199929a004ee5668a3a6e057a69c24dd752
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141934"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122714"
 ---
-# <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Encode AS2 in App per la logica di Azure con Enterprise Integration Pack
+# <a name="encode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Messaggi Encode AS2 con App per la logica di Azure ed Enterprise Integration Pack
 
 Per stabilire affidabilità e sicurezza durante la trasmissione dei messaggi, usare il connettore di messaggi Encode AS2. Questo connettore offre funzionalità di firma digitale, crittografia e riconoscimenti tramite notifiche sulla ricezione di messaggi, con il conseguente supporto del database di non ripudio.
 

@@ -2,18 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/04/2018
-ms.author: sethm
+ms.date: 08/29/2018
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 0ff1e31e52c7db5c41f92cb9e4cb1a17f28dea6f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 481ae07ae9f8877ff93b2fee948849076c054906
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755863"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187020"
 ---
 La tabella seguente include le informazioni sulle quote specifiche per la messaggistica del Bus di servizio: Per informazioni sui prezzi e altre quote del bus di servizio, vedere la panoramica [Prezzi di Azure](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -24,7 +24,7 @@ La tabella seguente include le informazioni sulle quote specifiche per la messag
 | Dimensioni coda/argomento |Entità |Definito al momento della creazione della coda o dell'argomento. <br/><br/> I messaggi in arrivo successivi vengono rifiutati e viene ricevuta un'eccezione dal codice chiamante. |1, 2, 3, 4 GB o 5 GB.<br /><br />Nello SKU Premium, nonché nello Standard con il [partizionamento](/azure/service-bus-messaging/service-bus-partitioning) abilitato, la dimensione massima della coda o dell'argomento è di 80 GB. |
 | Numero di connessioni simultanee per uno spazio dei nomi |Spazio dei nomi |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. Le operazioni REST non vengono conteggiate ai fini del numero di connessioni TCP simultanee. |NetMessaging: 1.000<br /><br />AMQP: 5.000 |
 | Numero di richieste di ricezione simultanee su un'entità coda, argomento o sottoscrizione |Entità |Le richieste di ricezione successive vengono rifiutate e viene ricevuta un'eccezione dal codice chiamante. Questa quota si applica al numero combinato di operazioni di ricezione simultanee per tutte le sottoscrizioni relative a un argomento. |5.000 |
-| Numero di argomenti/code per spazio dei nomi |Spazio dei nomi |Le successive richieste di creazione di un nuovo argomento o di una nuova coda nello spazio dei nomi vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il [portale di Azure][Azure portal], viene generato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione dal codice chiamante. |10.000<br /><br />Il numero totale degli argomenti più le code in uno spazio dei nomi deve essere minore o uguale a 10.000. |
+| Numero di argomenti/code per spazio dei nomi |Spazio dei nomi |Le successive richieste di creazione di un nuovo argomento o di una nuova coda nello spazio dei nomi vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il [portale di Azure][Azure portal], viene generato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione dal codice chiamante. |10.000 (livelli Basic/Standard). Il numero totale degli argomenti e delle code in uno spazio dei nomi deve essere minore o uguale a 10.000. <br/><br/>Per il livello Premium, il valore deve essere 1000 per unità di messaggistica. Il limite massimo è 4000. |
 | Numero di [code/argomenti partizionati](/azure/service-bus-messaging/service-bus-partitioning) per ogni spazio dei nomi |Spazio dei nomi |Le successive richieste di creazione di una nuova coda o un nuovo argomento partizionato nello spazio dei nomi vengono rifiutate. Se pertanto la configurazione viene eseguita tramite il [portale di Azure][Azure portal], viene generato un messaggio di errore. Se viene chiamato dall'API di gestione, viene ricevuta un'eccezione **QuotaExceededException** dal codice chiamante. |Livelli Basic e Standard: 100<br/><br/>Le entità partizionate non supportate nel livello [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Ogni coda o argomento partizionato viene conteggiato ai fini della quota di 10.000 entità per spazio dei nomi. |
 | Dimensione massima di qualsiasi percorso di entità di messaggistica: coda o argomento |Entità |- |260 caratteri |
 | Dimensione massima di qualsiasi nome di entità di messaggistica: spazio dei nomi, sottoscrizione o regola di sottoscrizione |Entità |- |50 caratteri |

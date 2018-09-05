@@ -5,58 +5,60 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/29/2018
 ms.author: raynew
-ms.openlocfilehash: 6d1d90ff0f9a49d3db9f4dc8894c9837942658f0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f854c269eaf65335fb5654709fe98857d11865b2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215000"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190136"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Migrazione Contoso:  effettuare il refactoring di una distribuzione di Team Foundation Server per Visual Studio Team Services (VSTS)
 
-Questo articolo illustra come Contoso esegue la migrazione della distribuzione di Team Foundation Server (TFS) locale tramite la migrazione a Visual Studio Team Services (VSTS) in Azure. Il team di sviluppo di Contoso ha usato i TFS per la collaborazione tra team e il controllo del codice sorgente per gli ultimi cinque anni. A questo punto, si desidera passare a una soluzione basata sul cloud per il lavoro di sviluppo e test di controllo del codice sorgente. Visual Studio Team Services avranno un ruolo nel passaggio a un modello DevOps e svilupperanno nuove app native cloud.
+Questo articolo illustra come Contoso effettua il refactoring della distribuzione di Team Foundation Server (TFS) locale tramite la migrazione a Visual Studio Team Services (VSTS) in Azure. Il team di sviluppo di Contoso ha usato i TFS per la collaborazione tra team e il controllo del codice sorgente per gli ultimi cinque anni. A questo punto il team desidera passare a una soluzione basata sul cloud per il lavoro di sviluppo e test di controllo del codice sorgente. Visual Studio Team Services avrà un ruolo nel passaggio a un modello DevOps e nello sviluppo di nuove app native del cloud.
 
-Questo documento è l'undicesimo di una serie di articoli che descrivono il modo in cui la società fittizia Contoso esegue la migrazione delle proprie risorse locali al cloud di Microsoft Azure. La serie include informazioni di base e scenari che illustrano come configurare un'infrastruttura di migrazione ed eseguire diversi tipi di migrazioni. Gli scenari presentano una complessità crescente e nel tempo verranno aggiunti altri articoli.
+Questo documento fa parte di una serie di articoli che descrivono in che modo la società fittizia Contoso esegue la migrazione delle proprie risorse locali al cloud di Microsoft Azure. La serie include informazioni di base e scenari che illustrano come configurare un'infrastruttura di migrazione ed eseguire diversi tipi di migrazioni. La complessità degli scenari aumenta man mano che si procede. Altri articoli verranno aggiunti in seguito.
+
 
 **Articolo** | **Dettagli** | **Status**
 --- | --- | ---
-[Articolo 1: Panoramica](contoso-migration-overview.md) | Offre una panoramica della strategia di migrazione di Contoso e presenta la serie di articoli e le app di esempio usate. | Disponibile
-[Articolo 2: Distribuire un'infrastruttura di Azure](contoso-migration-infrastructure.md) | Descrive in che modo Contoso prepara l'infrastruttura locale e di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli scenari di migrazione Contoso. | Disponibile
-[Articolo 3: Valutare le risorse locali](contoso-migration-assessment.md)  | Spiega in che modo Contoso esegue una valutazione dell'app SmartHotel a due livelli locale in esecuzione su VMware. Valuta le VM dell'app con il servizio [Azure Migrate](migrate-overview.md) e il database SQL Server dell'app con [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponibile
-[Articolo 4: Eseguire il rehosting in VM di Azure e in un'istanza gestita di SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Spiega in che modo Contoso esegue la migrazione dell'app SmartHotel ad Azure. Esegue la migrazione della macchina virtuale dell'App Web mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e del database dell'app mediante il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview) a un'istanza gestita di database SQL. | Disponibile
-[Articolo 5: Eseguire il rehosting in macchine virtuali di Azure](contoso-migration-rehost-vm.md) | Spiega in che modo Contoso esegue la migrazione di SmartHotel in macchine virtuali IaaS di Azure usando il servizio Site Recovery.
-[Articolo 6: Eseguire il rehosting nelle macchine virtuali di Azure e nei gruppi di disponibilità di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Spiega in che modo Contoso esegue la migrazione dell'app SmartHotel. Usa Site Recovery per eseguire la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app a un gruppo di disponibilità di SQL Server. | Disponibile
-[Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Spiega in che modo Contoso esegue la migrazione dell'app Linux osTicket nelle macchine virtuali IaaS di Azure usando Azure Site Recovery.
-[Articolo 8: Eseguire il rehosting di un'app Linux in VM di Azure e in Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Spiega in che modo Contoso esegue la migrazione dell'app Linux osTicket. Usa Site Recovery per la migrazione delle macchine virtuali e MySQL Workbench per eseguire la migrazione in un'istanza di Azure MySQL Server. | Disponibile
-[Articolo 9: Effettuare il refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Illustra come Contoso esegue la migrazione dell'app SmartHotel a un'app Web di Azure basata su contenitori e come esegue la migrazione del database di app ad Azure SQL Server. | Disponibile
-[Articolo 10: Effettuare il refactoring di un'app Linux in Servizio app di Azure e Azure MySQL Server](contoso-migration-refactor-linux-app-service-mysql.md) | Viene illustrato come Contoso esegue la migrazione dell'app Linux osTicket al Servizio app di Azure, usando il contenitore Docker PHP 7.0. Viene eseguita la migrazione a GitHub di un codebase per la distribuzione. Viene eseguita la migrazione del database dell'app ad Azure MySQL. | Disponibile
-Articolo 11: Eseguire il refactoring di una distribuzione di TFS in Visual Studio Team Services | Eseguire la migrazione dell'app di sviluppo TFS su Visual Studio Team Services di Azure | Questo articolo
-[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Illustra come Contoso esegue la migrazione e riprogetta l'app SmartHotel in Azure. Il livello dell'app Web viene riprogettato come un contenitore di Windows e il database di app come un database SQL di Azure. | Disponibile
-[Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Illustra come Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizi app, Azure Kubernetes, Funzioni di Azure, servizi cognitivi e Cosmos DB. | Disponibile
+[Articolo 1: Panoramica](contoso-migration-overview.md) | Panoramica della serie di articoli, della strategia di migrazione di Contoso e delle app di esempio usate nella serie. | Disponibile
+[Articolo 2: Distribuire l'infrastruttura di Azure](contoso-migration-infrastructure.md) | Contoso prepara la propria infrastruttura locale e l'infrastruttura di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli della serie relativi alla migrazione. | Disponibile
+[Articolo 3: Valutare le risorse locali per la migrazione in Azure](contoso-migration-assessment.md)  | Contoso esegue una valutazione dell'app SmartHotel locale in esecuzione su VMware. Valuta le macchine virtuali dell'app con il servizio Azure Migrate e il database SQL Server dell'app con Data Migration Assistant. | Disponibile
+[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in Istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel locale. Esegue la migrazione della macchina virtuale front-end dell'app tramite [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), mentre per la migrazione del database dell'app in un'istanza gestita di database SQL di Azure viene usato [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile  
+[Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel alle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 6: Eseguire il rehosting nelle macchine virtuali di Azure e nei gruppi di disponibilità di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso esegue la migrazione dell'app SmartHotel. Usa Site Recovery per eseguire la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app in un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile
+[Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery. | Disponibile
+[Articolo 8: Rehosting di un'app Linux in VM di Azure e Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Disponibile
+[Articolo 9: Refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant | Disponibile
+[Articolo 10: Refactoring di un'app Linux in app Web di Azure e Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile 
+Articolo 11: Effettuare il refactoring di TFS in Visual Studio Team Services | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server locale a Visual Studio Team Services in Azure. | Questo articolo.
+[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
+[Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, il servizio Kubernetes di Azure (AKS), Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
+
 
 
 ## <a name="business-drivers"></a>Driver di business
 
-Il team di leadership IT ha lavorato a stretto contatto con quello commerciale per identificare gli obbiettivi futuri. I partner commerciali non sono eccessivamente interessati agli strumenti e alle tecnologie di sviluppo, ma hanno colto i seguenti punti:
+Il team di leadership IT ha lavorato a stretto contatto i partner aziendali per identificare gli obiettivi futuri. I partner non sono eccessivamente interessati agli strumenti e alle tecnologie di sviluppo, ma hanno colto i punti seguenti:
 
 - **Software**: Indipendentemente da quale sia core business, tutte le aziende sono ora aziende di software, tra cui Contoso. La leadership aziendale è interessata a come l'IT consente di guidare l'azienda con nuove pratiche di lavoro per gli utenti e esperienze per i clienti.
-- **Efficienza**: Contoso deve rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti. Ciò consentirà di rispondere ai requisiti del cliente in modo più efficiente. L'azienda avrà bisogno dell'IT per velocizzarsi, minimizzando gli sprechi di tempo e denaro.
+- **Efficienza**: Contoso deve rimuovere le procedure inutili e semplificare i processi per sviluppatori e utenti. Ciò consentirà all'azienda di rispondere ai requisiti del cliente in modo più efficiente. L'azienda avrà bisogno dell'IT per velocizzarsi, minimizzando gli sprechi di tempo e denaro.
 - **Agilità**: Le IT Contoso devono rispondere alle esigenze aziendali e reagire più rapidamente del mercato, per garantire successo nell'economia globale. Le IT non devono costituire un ostacolo alle attività aziendali.
 
 ## <a name="migration-goals"></a>Obiettivi della migrazione
 
 Il team cloud di Contoso ha fissato alcuni obiettivi per la migrazione su Visual Studio Team Services:
 
-- È necessario uno strumento per la migrazione dei dati nel cloud. Alcuni processi manuali dovrebbero essere necessari.
+- Il team ha bisogno di uno strumento per la migrazione dei dati nel cloud. Alcuni processi manuali dovrebbero essere necessari.
 - Deve essere effettuata la migrazione dei dati e della cronologia dell'elemento di lavoro dell'ultimo anno dell'ultimo anno.
-- Non si intende configurare nuovi nomi utente e password. È necessario mantenere tutte le assegnazioni di sistema corrente.
-- Si intende spostare lontano dal controllo della versione di Team Foundation (TFVC) su Git per il controllo del codice sorgente.
+- Il team non desidera configurare nuovi utenti né nuove password. È necessario mantenere tutte le assegnazioni di sistema corrente.
+- Il team intende spostarsi dal controllo della versione di Team Foundation (TFVC) a Git per il controllo del codice sorgente.
 - Il trasferimento in Git è una "migrazione leggera" che importa solo la versione più recente del codice sorgente. Si verificherà in un tempo di inattività quando tutto il lavoro verrà interrotto mentre il codebase si sposta. Viene compreso che solo la cronologia attuale del ramo master sarà disponibile dopo lo spostamento.
 - Si è preoccupati per la modifica e si vuole testarlo prima di eseguire un'operazione di spostamento completo. Si desidera mantenere l'accesso a TFS anche dopo il passaggio a Visual Studio Team Services.
-- Dispone di più raccolte e intende iniziare con una che includa solo alcuni progetti per comprendere meglio il processo.
-- Le raccolte TFS sono in una relazione uno a uno con gli account di Visual Studio Team Services, in modo da avere più URL. Tuttavia, ciò corrisponde al proprio modello di separazione per progetti e basi di codice corrente.
+- Contoso dispone di più raccolte e intende iniziare con una che includa solo alcuni progetti per comprendere meglio il processo.
+- Il team comprende che le raccolte TFS sono associate a una relazione uno a uno con gli account di Visual Studio Team Services, con più URL. Ciò corrisponde al modello corrente di separazione per progetti e basi di codice.
 
 
 ## <a name="proposed-architecture"></a>Architettura proposta
@@ -65,7 +67,7 @@ Il team cloud di Contoso ha fissato alcuni obiettivi per la migrazione su Visual
 - Verrà eseguita la migrazione di TFS a Visual Studio Team Services.
 - Attualmente, Contoso dispone di una raccolta di TFS denominata **ContosoDev**, che verrà migrata su un account di Visual Studio Team Services chiamato **contosodevmigration.visualstudio.com**.
 - I progetti, elementi di lavoro, bug e le iterazioni dell'ultimo anno verranno migrate a Visual Studio Team Services.
-- Contoso userà Azure Active Directory, che verrà impostata quando [sarà distribuita l'infrastruttura Azure](contoso-migration-infrastructure.md) all'inizio della pianificazione della migrazione. 
+- Contoso userà Azure Active Directory, che verrà impostato durante la distribuzione delle [dell'infrastruttura di Azure](contoso-migration-infrastructure.md) all'inizio della pianificazione della migrazione. 
 
 
 ![Architettura dello scenario](./media/contoso-migration-tfs-vsts/architecture.png) 
@@ -75,29 +77,29 @@ Il team cloud di Contoso ha fissato alcuni obiettivi per la migrazione su Visual
 
 In Contoso il processo di migrazione verrà completato come indicato di seguito:
 
-1. È prevista una lunga preparazione. Come primo passaggio, Contoso deve eseguire l'aggiornamento delle implementazione dei TFS a un livello supportato. Sono attualmente in esecuzione i TFS 2017 Update 3, ma per eseguire la migrazione di database è necessaria una versione del 2018 supportata con gli aggiornamenti più recenti.
+1. È prevista una lunga preparazione. Come primo passaggio, Contoso deve eseguire l'aggiornamento delle implementazione dei TFS a un livello supportato. È attualmente in esecuzione TFS 2017 Update 3, ma per eseguire la migrazione di database è necessaria una versione del 2018 supportata con gli aggiornamenti più recenti.
 2. Dopo l'aggiornamento, verrà avviato lo strumento di migrazione di TFS e la convalida della raccolta.
 3. Verrà creato un set di file di preparazione ed eseguita una prova di migrazione.
 4. Verrà quindi eseguita un'altra migrazione, questa volta una migrazione completa che include elementi di lavoro, bug, sprint e codici.
-5. Dopo la migrazione, il codice passerà dal controllo della versione di Team Foundation a Git.
+5. Dopo la migrazione, Contoso passerà il proprio codice dal controllo della versione di Team Foundation a Git.
 
 ![Processo di migrazione](./media/contoso-migration-tfs-vsts/migration-process.png) 
 
 
 ## <a name="scenario-steps"></a>Passaggi dello scenario
 
-Di seguito viene descritto il processo di completamento della migrazione di Azure:
+Ecco come Contoso eseguirà la migrazione:
 
 > [!div class="checklist"]
 > * **Passaggio 1: Creare un account di archiviazione di Azure**: questo account di archiviazione verrà usato durante il processo di migrazione.
-> * **Passaggio 2: Aggiornare TFS**: verrà eseguito l'aggiornamento della distribuzione a TFS 2018 Upgrade 2. 
-> * **Passaggio 3: Convalidare la raccolta**: la raccolta TFS verrà convalidata in preparazione per la migrazione.
-> * **Passaggio 4: Compilazione dei file di preparazione**: verranno creati i file di migrazione utilizzando lo strumento di migrazione di TFS. 
+> * **Passaggio 2: Aggiornare TFS**: Contoso aggiornerà la distribuzione a TFS 2018 Upgrade 2. 
+> * **Passaggio 3: Convalidare la raccolta**: Contoso convaliderà la raccolta di TFS in preparazione per la migrazione.
+> * **Passaggio 4: Compilare i file di preparazione**: verranno creati i file di migrazione usando lo strumento di migrazione di TFS. 
 
 
 ## <a name="step-1-create-a-storage-account"></a>Passaggio 1: Creare un account di archiviazione
 
-1. Nel portale di Azure, Contoso crea un account di archiviazione (**contosodevmigration**).
+1. Nel portale di Azure gli amministratori di Contoso creano un account di archiviazione (**contosodevmigration**).
 2. Verrà inserito l'account nella rispettiva area secondaria usata per il failover (Stati Uniti centrali). Viene usato un account per uso generico standard con archiviazione locale-ridondante.
 
     ![Account di archiviazione](./media/contoso-migration-tfs-vsts/storage1.png) 
@@ -111,7 +113,7 @@ Di seguito viene descritto il processo di completamento della migrazione di Azur
 
 ## <a name="step-2-upgrade-tfs"></a>Passaggio 2: Aggiornamento TFS
 
-Contoso consente di aggiornare i server da TFS a TFS 2018 Update 2. Prima dell'avvio:
+Gli amministratori di Contoso aggiornano il server TFS a TFS 2018 Update 2. Prima dell'avvio:
 
 - Dopo aver scaricato [TFS 2018 Update 2](https://visualstudio.microsoft.com/downloads/)
 - Verifica dei [requisiti hardware](https://docs.microsoft.com/tfs/server/requirements)e lettura completa delle [note sulla versione](https://docs.microsoft.com/visualstudio/releasenotes/tfs2018-relnotes) e [aggiornamento gotcha](https://docs.microsoft.com/tfs/server/upgrade/get-started#before-you-upgrade-to-tfs-2018).
@@ -134,7 +136,7 @@ L'aggiornamento viene eseguito come segue:
 
      ![TFS](./media/contoso-migration-tfs-vsts/upgrade4.png) 
 
-5. Contoso verifica l'installazione di TFS visualizzando progetti, elementi di lavoro e codice.
+5. Contoso verifica l'installazione di TFS esaminando progetti, elementi di lavoro e codice.
 
      ![TFS](./media/contoso-migration-tfs-vsts/upgrade5.png) 
 
@@ -147,9 +149,9 @@ Scopri di più sull'[aggiornamento di TFS](https://docs.microsoft.com/tfs/server
 
 ## <a name="step-3-validate-the-tfs-collection"></a>Passaggio 3: Convalida della raccolta TFS
 
-Contoso avvia lo strumento di migrazione TFS sul database della raccolta ContosoDev per la convalida prima della migrazione.
+Gli amministratori di Contoso avviano lo strumento di migrazione TFS sul database della raccolta ContosoDev per la convalida prima della migrazione.
 
-1. Contoso scarica e decomprime lo [Strumento di migrazione TFS](https://www.microsoft.com/download/details.aspx?id=54274). È importante scaricare la versione per l'aggiornamento TFS in esecuzione. È possibile verificare la versione nella console di amministrazione.
+1. Viene scaricata e decompressa l'[utilità di migrazione TFS](https://www.microsoft.com/download/details.aspx?id=54274). È importante scaricare la versione per l'aggiornamento TFS in esecuzione. È possibile verificare la versione nella console di amministrazione.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection1.png)
 
@@ -166,7 +168,7 @@ Contoso avvia lo strumento di migrazione TFS sul database della raccolta Contoso
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection3.png)
 
-4. Contoso trova questa voce, correlata all'identità.
+4. Viene trovata questa voce, correlata all'identità.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection4.png)
 
@@ -190,7 +192,7 @@ Contoso avvia lo strumento di migrazione TFS sul database della raccolta Contoso
 
 ## <a name="step-4-create-the-migration-files"></a>Passaggio 4: Creare i file di migrazione
 
-Una volta completata la convalida, Contoso può utilizzare lo strumento di migrazione TFS per compilare i file di migrazione.
+Una volta completata la convalida, Contoso può usare l'utilità di migrazione TFS per compilare i file di migrazione.
 
 1. Nello strumento viene eseguita la procedura di preparazione.
 
@@ -203,7 +205,7 @@ Una volta completata la convalida, Contoso può utilizzare lo strumento di migra
     - Prepara la connessione ad Azure Active Directory per trovare una corrispondenza per ogni identità.
     - Contoso ha già implementato e sincronizzato Azure AD tramite AD Connect, quindi la preparazione è in grado di trovare le identità corrispondenti e contrassegnarle come attive.
 
-2. Una schermata di accesso Azure AD viene visualizzata e Contoso inserisce le credenziali di un utente amministratore globale.
+2. Viene visualizzata una schermata di accesso Azure AD e vengono immesse le credenziali di un amministratore globale.
 
     ![Preparazione](./media/contoso-migration-tfs-vsts/prep2.png)
 
@@ -211,11 +213,11 @@ Una volta completata la convalida, Contoso può utilizzare lo strumento di migra
 
     ![Preparazione](./media/contoso-migration-tfs-vsts/prep3.png)
 
-4. Ora Contoso è in grado di vedere che i file IdentityMapLog.csv e import.json sono stati creati in una nuova cartella.
+4. Ora è possibile vedere che i file IdentityMapLog.csv e import.json sono stati creati in una nuova cartella.
 
     ![Preparazione](./media/contoso-migration-tfs-vsts/prep4.png)
 
-5. Il file import.json fornisce le impostazioni di importazione. Include delle informazioni, quali il nome account desiderato e le informazioni sull'account di archiviazione. La maggior parte dei campi sono compilati automaticamente. Alcuni campi richiedono l'intervento dell'utente. Contoso apre il file e aggiunge il nome dell'account Visual Studio Team Services da creare: **contosodevmigration**. Con questo nome, il relativo URL di Visual Studio Team Services sarà **contosodevmigration.visualstudio.com**.
+5. Il file import.json fornisce le impostazioni di importazione. Include delle informazioni, quali il nome account desiderato e le informazioni sull'account di archiviazione. La maggior parte dei campi sono compilati automaticamente. Alcuni campi richiedono l'intervento dell'utente. Il file viene aperto e viene aggiunto il nome dell'account Visual Studio Team Services da creare: **contosodevmigration**. Con questo nome, il relativo URL di Visual Studio Team Services sarà **contosodevmigration.visualstudio.com**.
 
     ![Preparazione](./media/contoso-migration-tfs-vsts/prep5.png)
 
@@ -234,22 +236,22 @@ Una volta completata la convalida, Contoso può utilizzare lo strumento di migra
 
 ## <a name="step-5-migrate-to-vsts"></a>Passaggio 5: Eseguire la migrazione a Visual Studio Team Services
 
-Con la preparazione in atto, Contoso può concentrarsi sull'esecuzione della migrazione. Dopo aver eseguito la migrazione, si passerà da TFVC a Git per il controllo della versione.
+Con la preparazione in atto, gli amministratori di Contoso possono concentrarsi sull'esecuzione della migrazione. Dopo aver eseguito la migrazione, si passerà da TFVC a Git per il controllo della versione.
 
-Prima dell'avvio, Contoso consente di pianificare il tempo di inattività con il team di sviluppo, per richiedere la raccolta non in linea per la migrazione. I passaggi per il processo di migrazione sono i seguenti:
+Prima dell'avvio, gli amministratori pianificano il tempo di inattività con il team di sviluppo, per portare la raccolta non in linea per la migrazione. I passaggi per il processo di migrazione sono i seguenti:
 
 1. **Scollegare la raccolta**: i dati di identità per la raccolta risiedono nel database di configurazione del server TFS mentre la raccolta è collegata e in linea. Quando una raccolta viene scollegata dal server TFS, prende una copia di tali dati di identità e la impacchetta con la raccolta per il trasporto. Senza questi dati, non è possibile eseguire la partizione delle identità dell'importazione. È consigliabile che la raccolta rimanga scollegata fino al completamento dell'importazione, in quanto non è possibile importare le modifiche che si sono generate durante l'importazione.
-2. **Generare un backup**: il passaggio successivo del processo di migrazione è generare un backup che può essere importato in Visual Studio Team Services. DACPAC (Application Component Packages) di livello dati, è una funzionalità di SQL Server che consente di impacchettare le modifiche del database in un singolo file e di distribuirle ad altre istanze di SQL. È anche possibile ripristinarla direttamente su Visual Studio Team Services e viene quindi utilizzata come metodo di impacchettamento per ottenere i dati di raccolta nel cloud. Contoso utilizzerà lo strumento SqlPackage.exe per generare il file DACPAC. Questo strumento è incluso in SQL Server Data Tools.
-3. **Caricare in archiviazione**: una volta creato DACPAC, viene caricato in Archiviazione di Azure. Dopo il caricamento, si riceve una firma di accesso condiviso (SAS), per consentire l'accesso all'archiviazione allo strumento di migrazione di TFS.
+2. **Generare un backup**: il passaggio successivo del processo di migrazione è la generazione di un backup che può essere importato in Visual Studio Team Services. DACPAC (Application Component Packages) di livello dati, è una funzionalità di SQL Server che consente di impacchettare le modifiche del database in un singolo file e di distribuirle ad altre istanze di SQL. È anche possibile ripristinarla direttamente su Visual Studio Team Services e viene quindi utilizzata come metodo di impacchettamento per ottenere i dati di raccolta nel cloud. Contoso utilizzerà lo strumento SqlPackage.exe per generare il file DACPAC. Questo strumento è incluso in SQL Server Data Tools.
+3. **Caricare nell'archiviazione**: una volta creato, il file DACPAC viene caricato in Archiviazione di Azure. Dopo il caricamento, si riceve una firma di accesso condiviso (SAS), per consentire l'accesso all'archiviazione allo strumento di migrazione di TFS.
 4. **Compilare l'importazione**: Contoso può quindi compilare i campi mancanti nel file di importazione, inclusa l'impostazione di DACPAC. Per iniziare si specificherà che si desidera eseguire una **prova** per verificare che tutto funzioni correttamente, prima di eseguire la migrazione completa.
 5. **Eseguire una prova**: le prove di importazione consentono di testare la migrazione di raccolte. Le prove hanno una durata limitata e vengono eliminate prima dell'esecuzione della migrazione di un ambiente di produzione. Vengono eliminate automaticamente dopo un periodo di tempo. Una notifica su quando verrà cancellata l'esecuzione di prova è inclusa nell'e-mail, ricevuta al termine dell'importazione. Prendere nota e pianificare di conseguenza.
-6. **Completare la migrazione di produzione**: con la migrazione di prova completata, Contoso effettua la migrazione finale aggiornando import.json e eseguendo nuovamente l'importazione.
+6. **Completare la migrazione di produzione**: con la migrazione di prova completata, gli amministratori di Contoso eseguono la migrazione finale aggiornando import.json ed eseguendo nuovamente l'importazione.
 
 
 
 ### <a name="detach-the-collection"></a>Rimuovere la raccolta
 
-Prima di iniziare, Contoso acquisisce un backup locale di SQL Server e un'istantanea VMware del server TFS, prima di scollegarla.
+Prima di iniziare, gli amministratori di Contoso acquisiscono un backup locale di SQL Server e un'istantanea VMware del server TFS prima di scollegarlo.
 
 1.  Nella console di amministrazione TFS, viene selezionata la raccolta che si desidera scollegare (**ContosoDev**).
 
@@ -282,13 +284,13 @@ Prima di iniziare, Contoso acquisisce un backup locale di SQL Server e un'istant
 
 ### <a name="generate-a-dacpac"></a>Generare un file DACPAC
 
-Contoso crea un backup (con estensione DACPAC) da importare in VSTS.
+Gli amministratori di Contoso creano un backup (file DACPAC) da importare in VSTS.
 
 - SqlPackage.exe consente di creare il file DACPAC in SQL Server Data Tools. Sono disponibili più versioni di SqlPackage.exe installato con SQL Server Data Tools, che si trova in cartelle con nomi come 120, 130 e 140. È importante usare la versione corretta per preparare il file DACPAC.
 - Le importazioni di TFS 2018 usano SqlPackage.exe dalla cartella 140 o nella versione successiva.  Per CONTOSOTFS, questo file si trova nella cartella: **C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**.
 
 
-Contoso genera il file DACPAC nel modo seguente:
+Gli amministratori di Contoso generano il file DACPAC nel modo seguente:
 
 1. Viene aperto un prompt dei comandi e si passa alla posizione SQLPackage.exe. Digita il comando seguente per generare il file DACPAC:
 
@@ -338,7 +340,7 @@ Dopo aver creato il formato DACPAC, Contoso lo carica in Archiviazione di Azure.
 
 ### <a name="fill-in-the-import-settings"></a>Specificare le impostazioni di importazione
 
-In precedenza, Contoso ha compilato parzialmente il file delle specifiche di importazione (import.json). A questo punto è necessario aggiungere le impostazioni rimanenti.
+In precedenza, gli amministratori di Contoso hanno compilato parzialmente il file delle specifiche di importazione (import.json). A questo punto è necessario aggiungere le impostazioni rimanenti.
 
 Il file import.json viene aperto e compilato nei campi seguenti: •   Percorso: percorso della chiave di firma di accesso condiviso precedentemente generata.
 •    Dacpac: impostare il nome del file DACPAC che è stato caricato nell'account di archiviazione. Includere l'estensione ".dacpac".
@@ -350,7 +352,7 @@ Il file import.json viene aperto e compilato nei campi seguenti: •   Percorso:
 
 ### <a name="do-a-dry-run-migration"></a>Eseguire una migrazione di prova
 
-Contoso esegue una migrazione di prova per verificare che tutti gli elementi funzionino come previsto.
+Gli amministratori di Contoso eseguono una migrazione di prova per verificare che tutti gli elementi funzionino come previsto.
 
 1. Viene aperto un prompt dei comandi e viene individuato il percorso TfsMigration (C:\TFSMigrator).
 2. Come primo passaggio viene convalidato il file di importazione. Contoso desidera assicurarsi che il file sia formattato correttamente e che la chiave di firma di accesso condiviso sia funzionante.
@@ -387,11 +389,11 @@ Contoso esegue una migrazione di prova per verificare che tutti gli elementi fun
 
     ![Prova](./media/contoso-migration-tfs-vsts/test6.png)
 
-11. Dopo 15 minuti, Contoso passa all'URL e visualizza le informazioni seguenti:
+11. Dopo 15 minuti, passano all'URL e vedono le informazioni seguenti:
 
      ![Prova](./media/contoso-migration-tfs-vsts/test7.png)
 
-12. Al termine della migrazione, Contoso Dev Leads accede a Visual Studio Team Services per verificare che la prova funzioni correttamente. Dopo l'autenticazione, Visual Studio Team Services necessita di alcuni dettagli per confermare l'account.
+12. Al termine della migrazione, i responsabili dello sviluppo di Contoso accedono a Visual Studio Team Services per verificare che la prova funzioni correttamente. Dopo l'autenticazione, Visual Studio Team Services necessita di alcuni dettagli per confermare l'account.
 
     ![Prova](./media/contoso-migration-tfs-vsts/test8.png)
 
@@ -399,18 +401,18 @@ Contoso esegue una migrazione di prova per verificare che tutti gli elementi fun
 
     ![Prova](./media/contoso-migration-tfs-vsts/test9.png)
 
-14. Dev Lead apre uno dei progetti e apre **Elementi di lavoro** > **Assegnati a me**. Ciò indica che i dati di elemento di lavoro sono stati migrati, insieme alla propria identità.
+14. Dev Lead apre uno dei progetti e apre **Elementi di lavoro** > **Assegnati a me**. Ciò indica che i dati degli elementi di lavoro sono stati migrati insieme relativa identità.
 
     ![Prova](./media/contoso-migration-tfs-vsts/test10.png)
 
-15. Vengono controllati anche gli altri progetti e il codice, per confermare che il codice sorgente e la cronologia sono stati migrati.
+15. Vengono controllati anche gli altri progetti e il codice, per verificare che il codice sorgente e la cronologia siano stati migrati.
 
     ![Prova](./media/contoso-migration-tfs-vsts/test11.png)
 
 
 ### <a name="run-the-production-migration"></a>Eseguire la migrazione di produzione
 
-Con la prova completata, Contoso passa alla migrazione di produzione. Viene eliminata l'esecuzione di prova, aggiornate le impostazioni di importazione ed eseguita nuovamente l'importazione.
+Dopo il completamento della prova, gli amministratori di Contoso passano alla migrazione di produzione. Viene eliminata l'esecuzione di prova, aggiornate le impostazioni di importazione ed eseguita nuovamente l'importazione.
 
 1. Nel portale di Visual Studio Team Services, si elimina l'account di prova.
 2. Viene aggiornato il file import.json per impostare il **ImportType** al **ProductionRun**.
@@ -422,7 +424,7 @@ Con la prova completata, Contoso passa alla migrazione di produzione. Viene elim
 
     ![Produzione](./media/contoso-migration-tfs-vsts/full2.png)
 
-5. In Accesso di Azure AD, Contoso specifica un accesso di amministratore Contoso.
+5. Per l'accesso ad Azure AD viene specificato un accesso amministratore di Contoso.
 
     ![Produzione](./media/contoso-migration-tfs-vsts/full3.png)
 
@@ -430,15 +432,15 @@ Con la prova completata, Contoso passa alla migrazione di produzione. Viene elim
 
     ![Produzione](./media/contoso-migration-tfs-vsts/full4.png)
 
-7. Dopo 15 minuti, Contoso passa all'URL e visualizza le informazioni seguenti:
+7. Dopo circa 15 minuti, passano all'URL e visualizzano le informazioni seguenti:
 
     ![Produzione](./media/contoso-migration-tfs-vsts/full5.png)
 
-8. Al termine della migrazione, Contoso Dev Leads accede a Visual Studio Team Services per verificare che la prova funzioni correttamente. Dopo l'accesso, è possibile rilevare che è stata eseguita la migrazione dei progetti.
+8. Al termine della migrazione, Contoso Dev Leads accede a Visual Studio Team Services per verificare che la prova funzioni correttamente. Dopo l'accesso, il responsabile può vedere che la migrazione dei progetti è stata eseguita.
 
     ![Produzione](./media/contoso-migration-tfs-vsts/full6.png)
 
-8. Dev Lead apre uno dei progetti e apre **Elementi di lavoro** > **Assegnati a me**. Ciò indica che i dati di elemento di lavoro sono stati migrati, insieme alla propria identità.
+8. Dev Lead apre uno dei progetti e apre **Elementi di lavoro** > **Assegnati a me**. Ciò indica che i dati degli elementi di lavoro sono stati migrati insieme relativa identità.
 
     ![Produzione](./media/contoso-migration-tfs-vsts/full7.png)
 
@@ -446,14 +448,14 @@ Con la prova completata, Contoso passa alla migrazione di produzione. Viene elim
 
     ![Produzione](./media/contoso-migration-tfs-vsts/full8.png)
 
-15. Vengono controllati anche gli altri progetti e il codice, per confermare che il codice sorgente e la cronologia sono stati migrati.
+15. Vengono controllati anche gli altri progetti e il codice, per verificare che il codice sorgente e la cronologia siano stati migrati.
 
     ![Produzione](./media/contoso-migration-tfs-vsts/full9.png)
 
 
 ### <a name="move-source-control-from-tfvc-to-git"></a>Spostare il codice sorgente da controllo della versione di Team Foundation a GIT
 
-Una volta completata la migrazione, Contoso desidera spostare da controllo della versione di Team Foundation a Git per la gestione del codice sorgente. È necessario importare il codice sorgente attualmente nel proprio account di Visual Studio Team Services come repository Git nello stesso account.
+Una volta completata la migrazione, Contoso desidera spostare da controllo della versione di Team Foundation a Git per la gestione del codice sorgente. È necessario importare il codice sorgente attualmente nell'account di Visual Studio Team Services come repository Git nello stesso account.
 
 1. Nel portale di Visual Studio Team Services, si apre uno dei repository Controllo della versione di Team Foundation (**$/ PolicyConnect**) e viene verificato.
 
@@ -468,9 +470,9 @@ Una volta completata la migrazione, Contoso desidera spostare da controllo della
     ![Git](./media/contoso-migration-tfs-vsts/git3.png)
 
     > [!NOTE]
-    > A causa delle differenze nel modo in cui TFVC e Git archiviano le informazioni di controllo di versione, è consigliabile non eseguire la migrazione della cronologia. Questo è l'approccio adottato da Microsoft durante la migrazione di Windows e di altri prodotti, dal controllo della versione centralizzata a Git.
+    > A causa delle differenze nel modo in cui TFVC e Git archiviano le informazioni del controllo di versione, è consigliabile che Contoso non esegua la migrazione della cronologia. Questo è l'approccio adottato da Microsoft durante la migrazione di Windows e di altri prodotti dal controllo della versione centralizzata a Git.
 
-4. Dopo l'importazione, Contoso esamina il codice.
+4. Dopo l'importazione, gli amministratori esaminano il codice.
 
     ![Git](./media/contoso-migration-tfs-vsts/git4.png)
 

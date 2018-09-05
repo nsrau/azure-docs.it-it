@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142553"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747045"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associazioni di Hub eventi di Azure per Funzioni di Azure
 
@@ -52,24 +52,24 @@ Quando viene attivata una funzione trigger di Hub eventi, il messaggio che la at
 
 ## <a name="trigger---scaling"></a>Trigger - ridimensionamento
 
-Ogni istanza di una funzione attivata di Hub eventi è supportata da una sola istanza di EventProcessorHost (EPH). Hub eventi garantisce che solo un EPH può ottenere un lease in una determinata partizione.
+Ogni istanza di una funzione attivata di Hub eventi è supportata da una sola istanza di [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Hub eventi garantisce che solo un'istanza [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) può ottenere un lease in una determinata partizione.
 
-Si supponga, ad esempio, di iniziare con la configurazione e i presupposti seguenti per un Hub eventi:
+Si consideri ad esempio un Hub eventi come quello indicato di seguito:
 
-1. 10 partizioni.
-1. 1000 eventi distribuiti in modo uniforme tra tutte le partizioni = > 100 messaggi in ogni partizione.
+* 10 partizioni.
+* 1000 eventi distribuiti in modo uniforme tra tutte le partizioni con 100 messaggi in ogni partizione.
 
-Quando la funzione viene abilitata per la prima volta, è presente solo un'istanza della funzione. Denominiamo questa istanza della funzione Function_0. Function_0 avrà un EPH che gestisce per ottenere un lease in tutte le 10 partizioni. Inizierà la lettura degli eventi dalle partizioni da 0 a 9. A partire da questo punto potranno verificarsi una delle condizioni seguenti:
+Quando la funzione viene abilitata per la prima volta, è presente solo un'istanza della funzione. Denominiamo questa istanza della funzione `Function_0`. `Function_0` ha un'unica istanza [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) che presenta un lease in tutte le dieci partizioni. Questa istanza legge gli eventi dalle partizioni da 0 a 9. A partire da questo punto potranno verificarsi una delle condizioni seguenti:
 
-* **È necessaria una sola istanza della funzione**  - Function_0 è in grado di elaborare tutti i 1000 eventi prima che si attivi la logica di ridimensionamento delle Funzioni di Azure. Di conseguenza, tutti i 1000 messaggi vengono elaborati da Function_0.
+* **Non sono necessarie nuove istanze della funzione**: `Function_0` è in grado di elaborare tutti i 1000 eventi prima che si attivi la logica di ridimensionamento delle funzioni. In questo caso, tutti i 1000 messaggi vengono elaborati da `Function_0`.
 
-* **Aggiunta di un'altra istanza della funzione** - La logica di ridimensionamento delle Funzioni di Azure determina che Function_0 presenta più messaggi di quanti ne possa elaborare e quindi viene creata una nuova istanza, Function_1. Hub eventi rileva che una nuova istanza EPH sta tentando di leggere i messaggi. Hub eventi avvierà il bilanciamento del carico delle partizioni tra le istanze EPH, ad esempio, le partizioni da 0 a 4 vengono assegnate a Function_0 e le partizioni da 5 a 9 a Function_1. 
+* **Viene aggiunta un'altra istanza di funzione**: la logica di ridimensionamento delle funzioni determina che `Function_0` ha più messaggi di quanti ne possa elaborare. In questo caso, viene creata una nuova istanza dell'app per le funzioni (`Function_1`), insieme a una nuova istanza [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Hub eventi rileva che una nuova istanza host sta tentando di leggere i messaggi. Hub eventi bilancia il carico delle partizioni tra le relative istanze dell'host. Ad esempio, le partizioni da 0 a 4 possono essere assegnate a `Function_0` e le partizioni a 5 a 9 a `Function_1`. 
 
-* **Aggiunta di N altre istanze della funzione** - La logica di ridimensionamento delle Funzioni di Azure determina che sia Function_0 sia Function_1 hanno più messaggi di quanti ne possano elaborare. Verrà eseguito il ridimensionamento per Function_2...N, dove N è maggiore delle partizioni di Hub eventi. Hub eventi eseguirà il bilanciamento del carico delle partizioni nelle istanze Function_0... 9.
+* **Aggiunta di altre N istanze della funzione**: la logica di ridimensionamento delle Funzioni di Azure determina che sia `Function_0` che `Function_1` hanno più messaggi di quanti ne possano elaborare. Vengono create nuove istanze di app per le funzioni `Function_2`... `Functions_N` in cui `N` è maggiore del numero delle partizioni dell'hub eventi. In questo esempio l'Hub eventi bilancia nuovamente il carico delle partizioni, in questo caso tra le istanze `Function_0`...`Functions_9`. 
 
-Un fattore univoco della logica di ridimensionamento corrente delle Funzioni di Azure è che N è maggiore del numero di partizioni. Questa operazione viene eseguita per assicurare che ci siano sempre istanze di EPH immediatamente disponibili per ottenere rapidamente un blocco delle partizioni appena diventano disponibili da altre istanze. Agli utenti vengono addebitati solo i costi delle risorse usate quando viene eseguita l'istanza della funzione e non vengono addebitati i costi dell'overprovisioning.
+Si noti quando la funzione scala a `N` istanze, ovvero un numero maggiore del numero di partizioni dell'hub eventi. Questa operazione viene eseguita per assicurare che vi siano sempre delle istanze [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) disponibili per ottenere blocchi sulle partizioni appena diventano disponibili da altre istanze. Vengono addebitati solo i costi delle risorse usate quando viene eseguita l'istanza della funzione e non vengono addebitati i costi dell'overprovisioning.
 
-Se tutte le esecuzioni delle funzioni riescono senza errori, i checkpoint vengono aggiunti all'account di archiviazione associato. Quando il checkpoint ha esito positivo, non sarà più necessario recuperare nuovamente tutti i 1000 messaggi.
+Al termine dell'esecuzione di tutte le funzioni (con o senza errori), i checkpoint vengono aggiunti all'account di archiviazione associato. Quando il checkpoint ha esito positivo, non verranno più recuperati nuovamente tutti i 1000 messaggi.
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
@@ -313,7 +313,7 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
-### <a name="trigger---java-example"></a>Trigger - esempio Java
+### <a name="trigger---java-example"></a>Trigger - Esempio Java
 
 L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione Java](functions-reference-java.md) che usa l'associazione. La funzione registra il corpo del messaggio del trigger per Hub eventi.
 
@@ -561,7 +561,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---java-example"></a>Output - esempio Java
+### <a name="output---java-example"></a>Output - Esempio Java
 
 Nell'esempio seguente viene illustrata una funzione Java che scrive un messaggio contenente l'ora corrente in un Hub eventi.
 

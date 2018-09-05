@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657214"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189634"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -216,7 +216,7 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 
 Per informazioni sui limiti del servizio di bilanciamento del carico, vedere "IP front-end privato per ogni servizio di bilanciamento del carico" in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager].
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È già stato configurato un cluster WSFC da usare per una istanza ASCS/SCS di SAP con la **condivisione file**, come illustrato nella figura seguente.
 
@@ -227,6 +227,7 @@ _**Figura 1:** Istanza ASCS/SCS di SAP e file server di scalabilità orizzontale
 > [!IMPORTANT]
 > Il programma di installazione deve soddisfare le condizioni seguenti:
 > * Le istanze di SAP ASCS/SCS devono condividere lo stesso cluster WSFC.
+> * Condivisioni di file diverse di host globali SAP appartenenti a SID SAP distinti devono condividere lo stesso cluster SOFS.
 > * Ogni SID DBMS deve avere un cluster WSFC dedicato.
 > * I server applicazioni SAP che fanno parte di un SID del sistema SAP devono avere proprie VM dedicate.
 

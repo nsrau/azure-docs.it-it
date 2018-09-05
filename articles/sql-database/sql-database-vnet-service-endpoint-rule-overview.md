@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/28/2018
 ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127498"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143811"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Usare gli endpoint del servizio Rete virtuale e le regole per il database SQL di Azure e SQL Data Warehouse
 
@@ -181,11 +181,10 @@ Archiviazione di Azure ha implementato la stessa funzionalità che consente di l
 Se si sceglie di usare questa funzionalità con un account di archiviazione usato da un server di Azure SQL, è possibile che si verifichino problemi. Di seguito sono riportati un elenco e una spiegazione delle funzionalità del database SQL di interessate.
 
 #### <a name="azure-sqldw-polybase"></a>PolyBase per Azure SQLDW
-PolyBase viene in genere usato per caricare i dati in Azure SQLDW dagli account di archiviazione. Se l'account di archiviazione da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. È disponibile una mitigazione per questo ed è possibile contattare *dmalik@microsoft.com* per altre informazioni.
+PolyBase viene in genere usato per caricare i dati in Azure SQLDW dagli account di archiviazione. Se l'account di archiviazione da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. Per altre informazioni sulla possibile mitigazione del problema, contattare il supporto tecnico Microsoft.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Controllo BLOB del database SQL di Azure
 Il controllo BLOB esegue il push dei log di controllo nell'account di archiviazione. Se questo account di archiviazione usa la funzionalità degli endpoint di servizio di rete virtuale, la connettività dal database SQL di Azure all'account di archiviazione verrà interrotta.
-
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Aggiunta di una regola del firewall della rete virtuale al server senza attivare gli endpoint di servizio di rete virtuale
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971267"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746718"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Linux nel cluster di Service Fabric
 
@@ -57,7 +57,7 @@ Patch Orchestration Application è costituita dai sottocomponenti seguenti:
 > [!NOTE]
 > Patch Orchestration App usa il sistema di servizio di gestione della riparazione di Service Fabric per disabilitare o abilitare il nodo ed eseguire i controlli di integrità. L'attività di riparazione creata da Patch Orchestration App tiene traccia dell'avanzamento dell'aggiornamento per ogni nodo.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Verificare che sulle macchine virtuali di Azure sia in esecuzione Ubuntu 16.04
 Al momento della stesura di questo documento, Ubuntu 16.04 (`Xenial Xerus`) è l'unica versione supportata.
@@ -121,7 +121,7 @@ Per Ubuntu gli [aggiornamenti automatici](https://help.ubuntu.com/community/Auto
 
 L'applicazione e gli script di installazione possono essere scaricati dal [collegamento all'archivio](https://go.microsoft.com/fwlink/?linkid=867984).
 
-L'applicazione in formato sfpkg può essere scaricata dal [collegamento a sfpkg](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Questo formato è utile per la [distribuzione di applicazioni basata su Azure Resource Manager](service-fabric-application-arm-resource.md).
+L'applicazione in formato sfpkg può essere scaricata dal [collegamento a sfpkg](https://aka.ms/POA/POA_v2.0.2.sfpkg). Questo formato è utile per la [distribuzione di applicazioni basata su Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurare l'app
 
@@ -370,5 +370,8 @@ Patch Orchestration App raccoglie i dati di telemetria per tenere traccia dell'u
 ### <a name="version-200"></a>Versione 2.0.0
 - Versione pubblica
 
-### <a name="version-201-latest"></a>Versione 2.0.1 (più recente)
+### <a name="version-201"></a>Versione 2.0.1
 - L'app è stata ricompilata usando la versione più recente di Service Fabric SDK
+
+### <a name="version-202-latest"></a>Versione 2.0.2 (versione più recente)
+- Il problema relativo all'avviso di integrità annullato durante il riavvio è stato risolto.

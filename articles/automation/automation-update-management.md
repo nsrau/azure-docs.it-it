@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141964"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247937"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -35,6 +35,8 @@ Il diagramma seguente offre una visualizzazione concettuale del comportamento e 
 
 ![Flusso del processo di Gestione aggiornamenti](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+Gestione aggiornamenti può essere usato per l'onboarding nativo di computer in più sottoscrizioni nello stesso tenant. Per gestire i computer in un tenant diverso, è necessario eseguire l'onboarding come [computer non di Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+
 Quando un computer ha completato l'analisi di conformità degli aggiornamenti, l'agente inoltra le informazioni in blocco ad Azure Log Analytics. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
 
 Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti in caso di riavvio di MMA e prima e dopo l'installazione degli aggiornamenti.
@@ -48,7 +50,7 @@ La soluzione genera report sullo stato di aggiornamento del computer in base all
 
 È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. Gli aggiornamenti classificati come *facoltativi* non sono inclusi nell'ambito della distribuzione per i computer Windows. Nell'ambito della distribuzione vengono inclusi solo gli aggiornamenti obbligatori. 
 
-La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando i computer in modo esplicito oppure selezionando un [gruppo di computer](../log-analytics/log-analytics-computer-groups.md) in base alle ricerche log di un determinato set di computer. Si specifica anche una pianificazione per approvare e definire un periodo di tempo durante il quale è possibile installare gli aggiornamenti. 
+La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando i computer in modo esplicito oppure selezionando un [gruppo di computer](../log-analytics/log-analytics-computer-groups.md) in base alle ricerche log di un determinato set di computer. Si specifica anche una pianificazione per approvare e definire un periodo di tempo durante il quale è possibile installare gli aggiornamenti.
 
 Gli aggiornamenti vengono installati da runbook in Automazione di Azure. Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati. Quando si crea una distribuzione degli aggiornamenti, nella distribuzione viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificate per i computer inclusi. Il runbook master avvia un runbook figlio in ogni agente per eseguire l'installazione degli aggiornamenti necessari.
 
@@ -215,12 +217,12 @@ Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la 
 | --- | --- |
 | NOME |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Linux o Windows|
-| Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie **Computer**, l'idoneità del computer è indicata nella colonna **UPDATE AGENT READINESS** (Idoneità agente di aggiornamento).</br> Per informazioni sui vari metodi per creare gruppi di computer in Log Analytics, vedere [Gruppi di computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+| Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie|
 |Aggiornamenti da escludere|Immettere gli aggiornamenti da escludere. Per Windows immettere la KB senza il prefisso "KB". Per Linux immettere il nome del pacchetto o usare un carattere jolly.  |
 |Impostazioni di pianificazione|Selezionare l'ora di inizio e selezionare Una sola volta o Ricorrente per la ricorrenza|
 | Finestra di manutenzione |Numero di minuti impostato per gli aggiornamenti. Il valore non può essere inferiore a 30 minuti e superiore a 6 ore |
-| Controllo riavvio| Determina come vengono gestiti i riavvii.</br>Le opzioni disponibili sono:</br>Riavvia se necessario (opzione predefinita)</br>Riavvia sempre</br>Non riavviare mai</br>Riavvia solamente: gli aggiornamenti non verranno installati|
+| Controllo riavvio| Determina come vengono gestiti i riavvii. Le opzioni disponibili sono:</br>Riavvia se necessario (opzione predefinita)</br>Riavvia sempre</br>Non riavviare mai</br>Riavvia solamente: gli aggiornamenti non verranno installati|
 
 ## <a name="update-classifications"></a>Classificazioni degli aggiornamenti
 

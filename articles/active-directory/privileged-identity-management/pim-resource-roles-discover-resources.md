@@ -1,6 +1,6 @@
 ---
-title: Individuare e gestire le risorse di Azure usando Privileged Identity Management | Microsoft Docs
-description: Descrive come proteggere le risorse di Azure mediante (Privileged Identity Management) PIM.
+title: Individuare le risorse di Azure per la gestione in PIM | Microsoft Docs
+description: Informazioni su come scoprire risorse di Azure da gestire in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: c5b26c01028e2a5746132939a2058cacdcad859f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622103"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190659"
 ---
-# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Individuare e gestire le risorse di Azure usando Privileged Identity Management
+# <a name="discover-azure-resources-to-manage-in-pim"></a>Individuare le risorse di Azure per la gestione in PIM
 
 Informazioni su come individuare e gestire le risorse di Azure quando si usa Privileged Identity Management (PIM) in Azure Active Directory (Azure AD). Queste informazioni possono essere utili alle organizzazioni che usano già PIM per proteggere le risorse amministrative e per i proprietari di sottoscrizioni che vogliono proteggere le risorse di produzione.
 
 Quando si configura per la prima volta PIM per le risorse di Azure, è necessario individuare e selezionare le risorse da proteggere con PIM. Non ci sono limiti al numero di risorse che è possibile gestire con PIM. È tuttavia consigliabile iniziare con le risorse più cruciali, ossia quelle di produzione.
 
 > [!NOTE]
-> È possibile cercare e selezionare solo risorse della sottoscrizione da gestire tramite PIM. Quando si gestisce una sottoscrizione in PIM, è possibile gestire anche le risorse figlio incluse nella sottoscrizione.
+> È possibile cercare e selezionare solo risorse per gruppi di gestione o per una sottoscrizione da gestire tramite PIM. Quando si gestisce un gruppo di gestione o una sottoscrizione in PIM, è possibile gestire anche le risorse figlio.
 
 ## <a name="discover-resources"></a>Individuare le risorse
 
@@ -64,5 +64,5 @@ Le risorse selezionate sono ora gestite da PIM. Per chiudere la schermata di ind
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare le impostazioni dei ruoli](pim-resource-roles-configure-role-settings.md)
-- [Assegnare i ruoli in PIM](pim-resource-roles-assign-roles.md)
+- [Configurare le impostazioni dei ruoli delle risorse di Azure in PIM](pim-resource-roles-configure-role-settings.md)
+- [Assegnare i ruoli delle risorse di Azure in PIM](pim-resource-roles-assign-roles.md)

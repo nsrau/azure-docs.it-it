@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c313538e297c5781b48fcfe9d0d5390f94c97f5
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043549"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747089"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Testare l'interfaccia del portale di Azure per l'applicazione gestita
 Dopo la [Creazione del file createuidefinition.json](create-uidefinition-overview.md) per l'applicazione gestita di Azure, è necessario testare l'esperienza dell'utente. Per semplificare il test, usare uno script che consente di caricare il file nel portale. Non è necessario distribuire l'applicazione gestita.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un file **createUiDefinition.json**. Se non si dispone di questo file, copiare il [file di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/test/template-validation-tests/sample-template/createUIDefinition.json) e salvarlo in locale.
+* Un file **createUiDefinition.json**. Se non si dispone di questo file, copiare il [file di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) e salvarlo in locale.
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -36,16 +36,16 @@ Per testare l'interfaccia nel portale, copiare uno dei seguenti script nel compu
 
 ## <a name="run-script"></a>Eseguire lo script
 
-Per visualizzare il file di interfaccia nel portale, eseguire lo script scaricato. Lo script crea un account di archiviazione nella sottoscrizione di Azure e carica il file createuidefinition.json nell'account di archiviazione. Quindi, viene aperto il portale e caricato il file dall'account di archiviazione.
+Per visualizzare il file di interfaccia nel portale, eseguire lo script scaricato. Lo script crea un account di archiviazione nella sottoscrizione di Azure e carica il file createuidefinition.json nell'account di archiviazione. L'account di archiviazione viene creato la prima volta che si esegue lo script o se è stato eliminato. Se l'account di archiviazione esiste già nella sottoscrizione di Azure, lo script lo riutilizza. Lo script apre il portale e carica il file dall'account di archiviazione.
 
-Specificare un percorso per l'account di archiviazione e specificare la cartella che contiene il file createuidefinition.json. La prima volta che viene eseguito lo script o se l'account di archiviazione è stato eliminato, è sufficiente fornire il percorso dell'account di archiviazione.
+Specificare un percorso per l'account di archiviazione e specificare la cartella che contiene il file createuidefinition.json.
 
 Per PowerShell, usare:
 
 ```powershell
 .\SideLoad-CreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
-  -ArtifactsStagingDirectory <path-to-folder-with-createuidefinition>
+  -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
 
 Per l'interfaccia della riga di comando di Azure usare:
@@ -53,7 +53,21 @@ Per l'interfaccia della riga di comando di Azure usare:
 ```azurecli
 ./sideload-createuidef.sh \
   -l southcentralus \
-  -a <path-to-folder-with-createuidefinition>
+  -a .\100-Marketplace-Sample
+```
+
+Se il file createUiDefinition.json si trova nella stessa cartella dello script, se è già stato creato l'account di archiviazione, non è necessario specificare tali parametri.
+
+Per PowerShell, usare:
+
+```powershell
+.\SideLoad-CreateUIDefinition.ps1
+```
+
+Per l'interfaccia della riga di comando di Azure usare:
+
+```azurecli
+./sideload-createuidef.sh
 ```
 
 ## <a name="test-your-interface"></a>Testare l'interfaccia
@@ -73,6 +87,18 @@ Se la definizione dell'interfaccia presenta un errore, la console ne mostra la d
 Specificare i valori per il campo. Al termine, vengono visualizzati i valori trasmessi al modello.
 
 ![Mostrare i valori](./media/test-createuidefinition/show-json.png)
+
+È possibile usare questi valori come il file dei parametri per eseguire il test del modello di distribuzione.
+
+## <a name="troubleshooting-the-interface"></a>Risoluzione dei problemi dell'interfaccia
+
+Alcuni errori comuni che potrebbero essere visualizzati sono:
+
+* Il portale non carica l'interfaccia. Visualizza invece un'icona di una nuvola con una goccia. In genere, questa icona viene visualizzata quando si verifica un errore di sintassi nel file. Aprire il file in Visual Studio Code (o in un altro editor JSON con convalida dello schema) e ricercare gli errori di sintassi.
+
+* Il portale si blocca sulla schermata di riepilogo. In genere, questa interruzione si verifica quando è presente un bug nella sezione di output. Ad esempio, è stato fatto riferimento a un controllo che non esiste.
+
+* Un parametro di output è vuoto. Il parametro potrebbe fare riferimento a una proprietà che non esiste. Ad esempio, il riferimento al controllo è valido ma il riferimento alla proprietà non è valido.
 
 ## <a name="test-your-solution-files"></a>Testare il file della soluzione
 

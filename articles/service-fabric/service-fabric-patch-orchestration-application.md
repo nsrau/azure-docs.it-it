@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036939"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746898"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -139,7 +139,7 @@ Gli aggiornamenti automatici di Windows potrebbero causare la perdita di disponi
 
 L'applicazione e gli script di installazione possono essere scaricati dal [collegamento all'archivio](https://go.microsoft.com/fwlink/?linkid=869566).
 
-L'applicazione in formato sfpkg può essere scaricata dal [collegamento a sfpkg](https://go.microsoft.com/fwlink/?linkid=869567). Questo formato è utile per la [distribuzione di applicazioni basata su Azure Resource Manager](service-fabric-application-arm-resource.md).
+L'applicazione in formato sfpkg può essere scaricata dal [collegamento a sfpkg](https://aka.ms/POA/POA_v1.2.2.sfpkg). Questo formato è utile per la [distribuzione di applicazioni basata su Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurare l'app
 
@@ -391,6 +391,12 @@ Un amministratore deve intervenire e stabilire perché l'applicazione o il clust
 - Correzione di bug nella creazione di attività RM a causa delle quali il controllo dell'integrità durante la preparazione delle attività di ripristino non ha avuto luogo come previsto.
 - Modificata la modalità di avvio per il servizio di windows POANodeSvc da automatico ad automatico ritardato.
 
-### <a name="version-121-latest"></a>Versione 1.2.1 (la più recente)
+### <a name="version-121"></a>Versione 1.2.1
 
 - Correzione di bug nel flusso di lavoro di riduzione delle prestazioni del cluster. È stata introdotta la logica di Garbage Collection per le attività di riparazione di Patch Orchestration Application relative a nodi inesistenti.
+
+### <a name="version-122-latest"></a>Versione 1.2.2 (versione più recente)
+
+- Varie correzioni di bug.
+- I file binari sono ora firmati.
+- Il collegamento di download sfpkg adesso indirizza a una versione specifica.

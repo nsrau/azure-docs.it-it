@@ -1,6 +1,6 @@
 ---
-title: 'Panoramica: eseguire una verifica di accesso in Privileged Identity Management per le risorse di Azure | Microsoft Docs'
-description: Questo documento descrive come eseguire una verifica di accesso in PIM per risorse di Azure.
+title: Usare un dashboard delle risorse per eseguire una verifica di accesso - Azure | Microsoft Docs
+description: Questo articolo descrive come usare un dashboard delle risorse per eseguire una verifica di accesso in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 40fe6a4b0bec2540afee635b16ee3482a182a2df
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 20172cf7413397aedc4b3c32d0f1419531a2588a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621489"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188498"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Usare un dashboard di risorse per eseguire una verifica di accesso
 
@@ -40,4 +40,6 @@ Alla destra del grafico relativo alle attivazioni due grafici mostrano la distri
 
 Sotto i grafici viene visualizzato il numero di utenti e gruppi con nuove assegnazioni di ruolo negli ultimi 30 giorni e viene mostrato un elenco di ruoli ordinati in base a numero totale di assegnazioni (in ordine decrescente).
 
+## <a name="next-steps"></a>Passaggi successivi
 
+- [Avviare una verifica di accesso per i ruoli delle risorse di Azure in PIM](pim-resource-roles-start-access-review.md) 

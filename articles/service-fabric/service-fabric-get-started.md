@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/13/2018
+ms.date: 08/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: b5d0e923955ea5ca67941fad0dc3d1415e4a5899
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 48e04d3bdd783d1dc04ac5cc77c4183ef5f87865
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115868"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818440"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 > [!div class="op_single_selector"]
@@ -64,8 +64,8 @@ Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
 Le versioni correnti sono:
-* SDK e strumenti di Service Fabric 3.2.162
-* Runtime di Service Fabric 6.3.162
+* SDK e strumenti di Service Fabric 3.2.176
+* Runtime di Service Fabric 6.3.176
 * Strumenti di Service Fabric per Visual Studio 2015 2.3.10710.3
 * Visual Studio 2017 15.7 include Strumenti di Service Fabric per Visual Studio 2.3.10710.1 
 
@@ -77,20 +77,19 @@ Service Fabric usa script di Windows PowerShell per creare un cluster di svilupp
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
+## <a name="install-docker-optional"></a>Installare Docker (facoltativo)
+Service Fabric è un [agente di orchestrazione dei contenitori](service-fabric-containers-overview.md) per la distribuzione di microservizi in un cluster di computer. Per eseguire le applicazioni contenitore Windows nel cluster di sviluppo locale, è innanzitutto necessario installare Docker per Windows. Scaricare [Docker CE per Windows (stabile)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Dopo aver installato e avviato Docker, fare clic con il pulsante destro del mouse sull'icona nell'area di notifica e selezionare **Switch to Windows containers** (Passa ai contenitori Windows). Questo passaggio è necessario per eseguire le immagini Docker basate su Windows.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire le app.
 
 * [Creare la prima applicazione Infrastruttura di servizi in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Introduzione alla distribuzione e all'aggiornamento di applicazioni nel cluster locale](service-fabric-get-started-with-a-local-cluster.md)
-* [Prepare a Linux development environment on Windows (Preparare un ambiente di sviluppo Linux in Windows)](service-fabric-local-linux-cluster-windows.md)
 * [Informazioni sui modelli di programmazione Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
-* [Backup e ripristino periodici in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 * [Vedere gli esempi di codice di Service Fabric in GitHub](https://aka.ms/servicefabricsamples)
 * [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Seguire il percorso di apprendimento di Service Fabric per un'ampia Introduzione alla piattaforma](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
-* [Automatizzare l'applicazione di patch al sistema operativo nel cluster](service-fabric-patch-orchestration-application.md)
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Pagina della campagna di Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

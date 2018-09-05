@@ -1,6 +1,6 @@
 ---
-title: Assegnare ruoli per le risorse di Azure usando Privileged Identity Management | Microsoft Docs
-description: Descrive come assegnare i ruoli in Privileged Identity Management.
+title: Assegnare i ruoli delle risorse di Azure in PIM | Microsoft Docs
+description: Informazioni su come assegnare i ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,25 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 52320fe160fc1df2997dd419b406fce24f43b786
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622977"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188921"
 ---
-# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Assegnare ruoli per le risorse di Azure usando Privileged Identity Management
+# <a name="assign-azure-resource-roles-in-pim"></a>Assegnare i ruoli delle risorse di Azure in PIM
+
+Azure AD Privileged Identity Management (PIM) consente di gestire i ruoli predefiniti delle risorse di Azure, oltre ai ruoli personalizzati, tra cui:
+
+- Proprietario
+- Amministratore accessi utente
+- Collaboratore
+- Amministrazione della protezione
+- Gestore della sicurezza e altro ancora
+
+>[!NOTE]
+Gli utenti o i membri di un gruppo assegnati ai ruoli Proprietario o Amministratore Accesso utenti e gli amministratori globali che abilitano la gestione delle sottoscrizioni in Azure AD sono amministratori di risorse. Questi amministratori possono assegnare ruoli, configurare le impostazioni dei ruoli e verificare l'accesso usando PIM per Risorse di Azure. Visualizzare l'elenco dei [ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-roles"></a>Assegnare ruoli
 
@@ -76,3 +87,8 @@ Se è presente un'attivazione di ruolo in sospeso, viene visualizzato un banner 
 Per modificare le assegnazioni esistenti dalla visualizzazione dei dettagli relativi all'utente o al gruppo, selezionare **Modifica le impostazioni** dalla barra delle azioni. Modificare il tipo di assegnazione in **Just-In-Time** o **Diretto**.
 
 ![Riquadro "Dettagli utente" con il pulsante "Modifica impostazioni"](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Configurare le impostazioni dei ruoli delle risorse di Azure in PIM](pim-resource-roles-configure-role-settings.md)
+- [Assegnare ruoli della directory di Azure AD in PIM](pim-how-to-add-role-to-user.md)

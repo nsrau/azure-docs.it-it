@@ -1,6 +1,6 @@
 ---
-title: Assegnare ruoli di directory agli utenti che usano Azure AD Privileged Identity Management | Microsoft Docs
-description: Informazioni su come assegnare ruoli di directory agli utenti che usano Azure Active Directory Privileged Identity Management e il portale di Azure.
+title: Assegnare ruoli della directory di Azure AD in PIM | Microsoft Docs
+description: Informazioni su come assegnare i ruoli della directory di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
-ms.openlocfilehash: 1aede38cabba7f9811f2b9320bc1e9a9da857f08
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621814"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190157"
 ---
-# <a name="assign-directory-roles-to-users-using-azure-ad-pim"></a>Assegnare ruoli di directory agli utenti che usano Azure AD PIM
+# <a name="assign-azure-ad-directory-roles-in-pim"></a>Assegnare ruoli della directory di Azure AD in PIM
 
 Con Azure Active Directory (Azure AD) un amministratore globale può rendere le assegnazioni di ruoli di directory **permanenti**. Queste assegnazioni di ruolo possono essere create usando il [portale di Azure](../users-groups-roles/directory-assign-admin-roles.md) o i [ comandi di PowerShell](/powershell/module/azuread#directory_roles).
 
-Il servizio Azure AD Privileged Identity Management (PIM) consente anche agli amministratori di ruoli con privilegi di effettuare assegnazioni di ruoli di directory permanenti. Inoltre, gli amministratori di ruoli con privilegi possono rendere gli utenti **idonei** ai ruoli di directory. Un amministratore idoneo può attivare il ruolo quando serve, con autorizzazioni che scadono al termine delle operazioni. Per informazioni sui ruoli che è possibile gestire usando PIM, vedere [Ruolo amministrativo differente in Azure AD PIM](pim-roles.md).
+Il servizio Azure AD Privileged Identity Management (PIM) consente anche agli amministratori di ruoli con privilegi di effettuare assegnazioni di ruoli di directory permanenti. Inoltre, gli amministratori di ruoli con privilegi possono rendere gli utenti **idonei** ai ruoli di directory. Un amministratore idoneo può attivare il ruolo quando serve, con autorizzazioni che scadono al termine delle operazioni. Per informazioni sui ruoli che è possibile gestire usando PIM, vedere [Ruoli della directory di Azure AD che è possibile gestire in PIM](pim-roles.md).
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Rendere un utente idoneo per un ruolo
 
@@ -31,15 +31,15 @@ Per rendere un utente idoneo per un ruolo di directory di Azure AD, eseguire la 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo [Amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-    Per informazioni su come concedere a un altro utente l'accesso per la gestione di PIM, vedere [Come concedere l'accesso a PIM](pim-how-to-give-access-to-pim.md).
+    Per informazioni su come concedere a un altro accesso di amministratore per la gestione di PIM, vedere [Concedere l'accesso ad altri amministratori per gestire PIM](pim-how-to-give-access-to-pim.md).
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
-    Se ancora non è stato abilitato il servizio PIM nel portale di Azure, vedere [Introduzione ad Azure AD Privileged Identity Management](pim-getting-started.md).
+    Se PIM non è stato ancora avviato nel portale di Azure, andare al [Iniziare a usare PIM](pim-getting-started.md).
 
 1. Fare clic su **Ruoli della directory di Azure AD**.
 
-1. Fare clic su **Ruolo (anteprima)** o su **Membri**.
+1. Fare clic su **Ruoli** o **Membri**.
 
     ![Ruoli della directory di Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
@@ -55,11 +55,13 @@ Per rendere un utente idoneo per un ruolo di directory di Azure AD, eseguire la 
 
 1. Nella finestra Aggiungi membri gestiti fare clic su **OK** per aggiungere l'utente al ruolo.
 
-     Quando il ruolo è stato assegnato, l'utente selezionato verrà visualizzato nell'elenco dei membri come **idoneo** per il ruolo.
+1. Nell'elenco dei ruoli predefiniti fare clic sul ruolo assegnato per visualizzare l'elenco dei membri.
+
+     Quando il ruolo è stato assegnato, l'utente selezionato verrà visualizzato nell'elenco dei membri con il valore **Idoneo** per il ruolo.
 
     ![Utente idoneo per un ruolo](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
-1. Ora che l'utente è idoneo per il ruolo, è necessario comunicargli che può attivarlo in base alle istruzioni fornite in [Come attivare o disattivare un ruolo](pim-how-to-activate-role.md).
+1. Ora che l'utente è idoneo per il ruolo, è necessario comunicargli che può attivarlo seguendo le istruzioni in [Activate my Azure AD directory roles in PIM](pim-how-to-activate-role.md) (Attivare i ruoli della directory di Azure AD in PIM).
 
     Gli amministratori idonei devono registrarsi ad Azure Multi-Factor Authentication (MFA) durante l'attivazione. Se un utente non riesce a registrarsi al servizio Multi-Factor Authentication o usa un account Microsoft, in genere @outlook.com, è necessario rendere l'utente permanente in tutti i relativi ruoli.
 
@@ -112,4 +114,6 @@ Per rimuovere un utente specifico da un ruolo della directory, eseguire la proce
     L'assegnazione di ruolo viene rimossa.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Configurare le impostazioni dei ruoli della directory di Azure AD in PIM](pim-how-to-change-default-settings.md)
+- [Assegnare i ruoli delle risorse di Azure in PIM](pim-resource-roles-assign-roles.md)

@@ -1,19 +1,19 @@
 ---
-title: Introduzione a Ricerca di Azure in Java | Documentazione Microsoft
+title: Introduzione a Ricerca di Azure in Java | Microsoft Docs
 description: Come compilare un'applicazione di ricerca cloud ospitata in Azure usando Java come linguaggio di programmazione.
 services: search
 author: jj09
 manager: jlembicz
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/14/2016
+ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: 2f52ed0ab302d1c3dad699258287f6edd7197cef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6fed5a8afe6030038752d540bfabbc446c57db2c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525621"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124152"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introduzione a Ricerca di Azure in Java
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ Per eseguire questo esempio, è necessario un servizio di Ricerca di Azure, a cu
 
 Per compilare e testare questo esempio è stato utilizzato il seguente software:
 
-* [Eclipse IDE per sviluppatori Java EE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Assicurarsi di scaricare la versione EE: uno dei passaggi di verifica richiede una funzionalità presente solo in questa edizione.
-* [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
+* [Eclipse IDE per sviluppatori Java EE](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Assicurarsi di scaricare la versione EE: uno dei passaggi di verifica richiede una funzionalità presente solo in questa edizione.
+* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Informazioni sui dati
 L’applicazione di esempio usa i dati dei [servizi geologici degli Stati Uniti (USGS)](http://geonames.usgs.gov/domestic/download_data.htm)con il filtro dello stato del Rhode Island per ridurre la dimensione del set di dati. Tali dati saranno utilizzati per compilare un'applicazione di ricerca che restituisce gli edifici di riferimento quali ospedali e scuole nonché caratteristiche geologiche come fiumi, laghi e vette.
@@ -51,7 +51,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 * SearchServiceHelper.java: una classe di supporto che fornisce metodi statici
 * Document.Java: fornisce il modello di dati
 * config.properties: imposta l'URL del servizio di ricerca e la chiave dell'api
-* Pom.xml: una dipendenza Maven
+* pom.xml: una dipendenza Maven
 
 <a id="sub-2"></a>
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 9a0b89528adc173fa3aa26415942cbef81dcb291
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 0d6f345a35275328212d6a245242083b809943b7
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364207"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144085"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Informazioni sul provisioning utenti automatizzato per app SaaS
@@ -235,7 +235,7 @@ Per informazioni aggiuntive su come risolvere i problemi di provisioning automat
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-Per un esempio di piano di distribuzione dettagliato per il provisioning utenti in uscita verso un'applicazione, vedere [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan)/ (Guida alla distribuzione delle identità per il provisioning utenti).
+Per un esempio di piano di distribuzione dettagliato per il provisioning utenti in uscita verso un'applicazione, vedere [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan) (Guida alla distribuzione delle identità per il provisioning utenti).
 
 
 ## <a name="related-articles"></a>Articoli correlati

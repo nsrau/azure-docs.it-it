@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146480"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143574"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schema di eventi di Griglia di eventi di Azure per l'hub IoT
 
@@ -27,12 +27,37 @@ Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi Hub
 
 L'hub IoT genera i tipi di eventi seguenti:
 
-| Tipo evento | Descrizione |
+| Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Pubblicato quando un dispositivo viene registrato in un hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Pubblicato quando un dispositivo viene eliminato da un hub IoT. | 
+| Microsoft.Devices.DeviceConnected | Pubblicato quando un dispositivo è connesso a un hub IoT. |
+| Microsoft.Devices.DeviceDisconnected | Pubblicato quando un dispositivo è disconnesso da un hub IoT. | 
 
 ## <a name="example-event"></a>Evento di esempio
+
+Lo schema per gli eventi DeviceConnected e DeviceDisconnected ha la stessa struttura. Questo evento di esempio illustra lo schema di un evento generato quando un dispositivo viene connesso a un hub IoT:
+
+```json
+[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+    "deviceConnectionStateEventInfo": {
+      "sequenceNumber":
+        "000000000000000001D4132452F67CE200000002000000000000000000000001"
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID"
+  }, 
+  "dataVersion": "1", 
+  "metadataVersion": "1" 
+}]
+```
 
 Lo schema per gli eventi DeviceCreated e DeviceDeleted ha la stessa struttura. Questo evento di esempio illustra lo schema di un evento generato quando un dispositivo viene registrato in un hub IoT:
 
@@ -47,6 +72,7 @@ Lo schema per gli eventi DeviceCreated e DeviceDeleted ha la stessa struttura. Q
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -74,11 +100,9 @@ Lo schema per gli eventi DeviceCreated e DeviceDeleted ha la stessa struttura. Q
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
+    "deviceId": "LogicAppTestDevice"
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
@@ -87,7 +111,7 @@ Lo schema per gli eventi DeviceCreated e DeviceDeleted ha la stessa struttura. Q
 
 Tutti gli eventi contengono gli stessi dati di livello principale: 
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | id | stringa | Identificatore univoco dell'evento. |
 | argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
@@ -98,17 +122,29 @@ Tutti gli eventi contengono gli stessi dati di livello principale:
 | dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
 | metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
-Il contenuto dell'oggetto dati è diverso per ogni autore di eventi. Per gli eventi del'hub IoT, l'oggetto dati contiene le proprietà seguenti:
+Per tutti gli eventi dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | hubName | stringa | Nome dell'hub IoT in cui il dispositivo è stato creato o eliminato. |
 | deviceId | stringa | Identificatore univoco del dispositivo. Questa stringa con distinzione tra maiuscole e minuscole può avere una lunghezza di massimo 128 caratteri e supporta i caratteri alfanumerici ASCII a 7 bit e i caratteri speciali seguenti: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | stringa | Timestamp ISO8601 dell'operazione. |
-| opType | stringa | Il tipo di evento specificato per questa operazione dall'hub IoT: `DeviceCreated` o `DeviceDeleted`.
+
+Il contenuto dell'oggetto dati è diverso per ogni autore di eventi. Per gli eventi **Device Connected** e **Device Disconnected** dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
+
+| Proprietà | type | DESCRIZIONE |
+| -------- | ---- | ----------- |
+| moduleId | stringa | Identificatore univoco del modulo. Questo è un campo di output solo per i dispositivi di modulo. Questa stringa con distinzione tra maiuscole e minuscole può avere una lunghezza di massimo 128 caratteri e supporta i caratteri alfanumerici ASCII a 7 bit e i caratteri speciali seguenti: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceConnectionStateEventInfo | object | Informazioni sugli eventi dello stato di connessione del dispositivo
+| sequenceNumber | stringa | Numero che consente di indicare l'ordine degli eventi correlati a dispositivi connessi o disconnessi. All'evento più recente è associato un numero di sequenza maggiore di quello dell'evento precedente. Questo numero potrebbe cambiare in incrementi maggiori di 1, ma è strettamente in aumento. Vedere [come usare il numero di sequenza](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+
+Il contenuto dell'oggetto dati è diverso per ogni autore di eventi. Per gli eventi **Device Created** e **Device Deleted** dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
+
+| Proprietà | type | DESCRIZIONE |
+| -------- | ---- | ----------- |
 | twin | object | Informazioni sul dispositivo gemello, ovvero la rappresentazione nel cloud dei metadati del dispositivo dell'applicazione. | 
 | deviceID | stringa | Identificatore univoco del dispositivo gemello. | 
-| etag | stringa | Informazioni descrittive del contenuto del dispositivo gemello. Ogni etag è sicuramente univoco per ogni dispositivo gemello. | 
+| etag | stringa | Validator per garantire la coerenza degli aggiornamenti per un dispositivo gemello. Ogni etag è sicuramente univoco per ogni dispositivo gemello. |  
+| deviceEtag| stringa | Validator per garantire la coerenza degli aggiornamenti a un registro dei dispositivi. Ogni deviceEtag è univoco per ogni registro dei dispositivi. |
 | status | stringa | Indica se il dispositivo gemello è abilitato o disabilitato. | 
 | statusUpdateTime | stringa | Timestamp ISO8601 dell'ultimo aggiornamento di stato del dispositivo gemello. |
 | connectionState | stringa | Indica se il dispositivo è connesso o disconnesso. | 

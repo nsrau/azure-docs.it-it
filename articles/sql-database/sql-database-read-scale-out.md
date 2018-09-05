@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 8/27/2018
 ms.author: sashan
-ms.openlocfilehash: 7ca033be8a27802db55aec827509b46fed8e471e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090065"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124818"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)
 
@@ -22,7 +22,11 @@ La **scalabilità in lettura** consente di bilanciare il carico dei carichi di l
 
 ## <a name="overview-of-read-scale-out"></a>Panoramica della scalabilità in lettura
 
-Di ogni database nel livello Premium ([modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md)) o nel livello Business Critical ([modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md)) viene effettuato il provisioning automatico con diverse repliche AlwaysOn per supportare il contratto di servizio per la disponibilità. Il provisioning di queste repliche viene effettuato con lo stesso livello di prestazioni della replica di lettura/scrittura usata dalle normali connessioni di database. La funzionalità di **scalabilità in lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL usando la capacità di una delle repliche di sola lettura invece di condividere la replica di lettura/scrittura. In questo modo i carichi di lavoro di sola lettura verranno isolati dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, che quindi potrebbero ottenere vantaggi di prestazioni usando tale capacità senza costi aggiuntivi.
+Di ogni database nel livello Premium ([modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md)) o nel livello Business Critical ([modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md)) viene effettuato il provisioning automatico con diverse repliche AlwaysOn per supportare il contratto di servizio per la disponibilità.
+
+![Repliche di sola lettura](media/sql-database-managed-instance/business-critical-service-tier.png)
+
+Il provisioning di queste repliche viene effettuato con lo stesso livello di prestazioni della replica di lettura/scrittura usata dalle normali connessioni di database. La funzionalità di **scalabilità in lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL usando la capacità di una delle repliche di sola lettura invece di condividere la replica di lettura/scrittura. In questo modo i carichi di lavoro di sola lettura verranno isolati dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, che quindi potrebbero ottenere vantaggi di prestazioni usando tale capacità senza costi aggiuntivi.
 
 Per usare la funzionalità di scalabilità in lettura con un determinato database, è necessario abilitarla in modo esplicito quando si crea il database oppure in seguito modificandone la configurazione con PowerShell richiamando i cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) oppure tramite l'API REST di Azure Resource Manager con il metodo [Create o Update per i database](/rest/api/sql/databases/createorupdate). 
 
@@ -43,7 +47,7 @@ Uno dei vantaggi di AlwaysOn è che le repliche sono sempre in uno stato coerent
 
 ## <a name="connecting-to-a-read-only-replica"></a>Connessione a una replica di sola lettura
 
-Quando si abilita la scalabilità in lettura per un database, l'opzione `ApplicationIntent` nella stringa di connessione fornita dal client indica se la connessione viene instradata alla replica in scrittura o a una replica di sola lettura. In particolare, se il valore di `ApplicationIntent` è `ReadWrite` (valore predefinito), la connessione verrà indirizzata alla replica di lettura/scrittura del database. È un comportamento identico a quello esistente. Se il valore di `ApplicationIntent` è `ReadOnly`, la connessione viene instradata a una replica leggibile.
+Quando si abilita la scalabilità in lettura per un database, l'opzione `ApplicationIntent` nella stringa di connessione fornita dal client indica se la connessione viene instradata alla replica in scrittura o a una replica di sola lettura. In particolare, se il valore di `ApplicationIntent` è `ReadWrite` (valore predefinito), la connessione verrà indirizzata alla replica di lettura/scrittura del database. È un comportamento identico a quello esistente. Se il valore di `ApplicationIntent` è `ReadOnly`, la connessione viene instradata a una replica di sola lettura.
 
 La stringa di connessione seguente, ad esempio, connette il client a una replica di sola lettura (sostituendo gli elementi nelle parentesi acute con i valori corretti per l'ambiente ed eliminando le parentesi acute):
 

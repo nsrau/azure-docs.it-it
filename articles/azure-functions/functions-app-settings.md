@@ -3,7 +3,7 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 services: functions
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -12,18 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 08/22/2018
 ms.author: glenga
-ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 46c1cb0a0cb3104e3705e4a7d4ef0dd894a7c2d7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345056"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819047"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
 Le impostazioni dell'app in un'app per le funzioni contengono le opzioni di configurazione globali che interessano tutte le funzioni della specifica app per le funzioni. Quando l’esecuzione avviene in locale, queste impostazioni sono nelle variabili di ambiente. In questo articolo sono elencate le impostazioni dell’app che sono disponibili nelle app per le funzioni.
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
 
 Sono disponibili altre opzioni di configurazione globali nel file [host.json](functions-host-json.md) e nel file [local.settings.json](functions-run-local.md#local-settings-file).
 
@@ -127,7 +129,7 @@ Solo per i piani di consumo. Stringa di connessione per l'account di archiviazio
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[nome];AccountKey=[chiave]|
 
-## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
+## <a name="websitecontentshare"></a>WEBSITE\_CONTENTSHARE
 
 Solo per i piani di consumo. Il percorso del file per il codice e la configurazione dell’app per le funzioni. Usato con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Il valore predefinito è una stringa univoca che inizia con il nome dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -153,6 +155,19 @@ Il valore predefinito è "6.5.0".
 |Chiave|Valore di esempio|
 |---|------------|
 |WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+
+## <a name="websiterunfromzip"></a>WEBSITE\_RUN\_FROM\_ZIP
+
+Consente l'esecuzione dell'app per le funzioni da un file di pacchetto montato.
+
+> [!NOTE]
+> Questa impostazione è per una funzionalità di anteprima.
+
+|Chiave|Valore di esempio|
+|---|------------|
+|WEBSITE\_RUN\_FROM\_ZIP|1|
+
+I valori validi sono un URL che si risolve nel percorso di un file di pacchetto di distribuzione o `1`. Se impostato su `1`, il pacchetto deve trovarsi nella cartella `d:\home\data\SitePackages`. Quando si usa la distribuzione di file zip con questa impostazione, il pacchetto viene caricato automaticamente in questo percorso.  Per altre informazioni, vedere [Run your Functions from a package file](run-functions-from-deployment-package.md) (Esecuzione di Funzioni di Azure da un file di pacchetto).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

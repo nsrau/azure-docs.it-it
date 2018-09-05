@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397848"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818293"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 
@@ -39,7 +39,7 @@ Ogni app per le funzioni ha un singolo indirizzo IP in ingresso. Per trovare tal
 3. Selezionare **Funzionalità della piattaforma**.
 4. Selezionare **Proprietà**. L'indirizzo IP in ingresso verrà visualizzati in **Indirizzo IP virtuale**.
 
-## <a name="function-app-outbound-ip-addresses"></a>Indirizzi IP in uscita delle app per le funzioni
+## <a name="find-outbound-ip-addresses"></a>Indirizzi IP in uscita delle app per le funzioni
 
 Ogni app per le funzioni ha un set di indirizzi IP in uscita disponibili. Qualsiasi connessione in uscita da una funzione, ad esempio un database back-end, usa uno degli indirizzi IP in uscita disponibili come indirizzo IP di origine. Non è possibile sapere in anticipo quale indirizzo IP verrà usato da una determinata connessione. Per questo motivo, il servizio back-end deve aprire il firewall a tutti gli indirizzi IP in uscita dell'app per le funzioni.
 

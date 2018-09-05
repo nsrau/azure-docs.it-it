@@ -1,26 +1,23 @@
 ---
-title: Schemi per la convalida XML - App per la logica di Azure | Microsoft Docs
-description: Convalida dei documenti XML con gli schemi per le app per la logica di Azure ed Enterprise Integration Pack
+title: Aggiungere schemi per la convalida XML - App per la logica di Azure | Microsoft Docs
+description: Creare schemi di convalida dei documenti XML in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: anneta
-editor: cgronlun
-ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 07/29/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: db2d9313e443ebc9dd32fcb905b0ae62219e4bbf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e03346da1c2b77f885c39d5329f990684979c56e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123074"
 ---
-# <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Convalida XML con gli schemi per le app per la logica di Azure ed Enterprise Integration Pack
+# <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalida XML con gli schemi in App per la logica di Azure con Enterprise Integration Pack
 
 È possibile usare gli schemi per confermare che i documenti XML ricevuti siano validi e avere i dati previsti in un formato predefinito. Gli schemi vengono usati inoltre per convalidare i messaggi scambiati in uno scenario B2B.
 

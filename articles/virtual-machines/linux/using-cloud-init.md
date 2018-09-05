@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: fbb6fc15663570d9b9470fc7d4de3c8eb30de9d9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29763146"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188874"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Supporto di cloud-init per macchine virtuali in Azure
 Questo articolo descrive il supporto disponibile per [cloud-init](https://cloudinit.readthedocs.io) per configurare una macchina virtuale (VM) o i set di scalabilità di macchine virtuali in fase di provisioning in Azure. Questi script cloud-init vengono eseguiti al primo avvio dopo il provisioning delle risorse da parte di Azure.  
@@ -32,8 +32,10 @@ Cloud-init funziona anche fra distribuzioni. Ad esempio, non si usa **apt-get in
 
  Microsoft sta collaborando attivamente con i partner di distribuzione Linux approvati per offrire immagini abilitate per cloud-init in Azure Marketplace. Queste immagini permetteranno il funzionamento uniforme di distribuzioni e configurazioni di cloud-init con macchine virtuali e set di scalabilità di macchine virtuali. La tabella seguente contiene le attuali immagini abilitate per cloud-init disponibili nella piattaforma Azure:
 
-| Editore | Offerta | SKU | Version | Pronta per cloud-init
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| Editore | Offerta | SKU | Version | Pronta per cloud-init |
+|:--- |:--- |:--- |:--- |:--- |
+|Canonical |UbuntuServer |18.04-LTS |più recenti |Sì | 
+|Canonical |UbuntuServer |17.10 |più recenti |Sì | 
 |Canonical |UbuntuServer |16.04-LTS |più recenti |Sì | 
 |Canonical |UbuntuServer |14.04.5-LTS |più recenti |Sì |
 |CoreOS |CoreOS |Stabile |più recenti |Sì |

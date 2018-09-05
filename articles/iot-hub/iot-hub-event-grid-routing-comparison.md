@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 320320687e441a1296065eb9d0b7b12771036459
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: af03f737c082a7fda90104303e018f7b417729b9
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636172"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143794"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Confrontare il routing dei messaggi e Griglia di eventi per l'hub IoT
 
@@ -29,11 +29,11 @@ Sia il routing dei messaggi che Griglia di eventi consentono la configurazione d
 | Funzionalità | Routing dei messaggi dell'hub IoT | Integrazione dell'hub IoT con Griglia di eventi |
 | ------- | --------------- | ---------- |
 | **Messaggi del dispositivo** | Sì, il routing dei messaggi può essere usato per i dati di telemetria. | No, Griglia di eventi può essere usata solo per gli eventi dell'hub IoT non di telemetria. |
-| **Tipo di evento** | Sì, il routing dei messaggi può segnalare le modifiche del dispositivo gemello e gli eventi del ciclo di vita del dispositivo. | Sì, Griglia di eventi può segnalare quando i dispositivi vengono registrati in un hub IoT e quando vengono eliminati. |
+| **Tipo di evento** | Sì, il routing dei messaggi può segnalare le modifiche del dispositivo gemello e gli eventi del ciclo di vita del dispositivo. | Sì, Griglia di eventi può segnalare quando i dispositivi vengono creati, eliminati, connessi e disconnessi dall'hub IoT |
 | **Ordinamento** | Sì, viene mantenuto l'ordinamento degli eventi.  | No, l'ordine degli eventi non è garantito. | 
 | **Dimensioni massime del messaggio** | 256 KB, da dispositivo a cloud | 64 KB |
 | **Filtri** | L'applicazione di filtri avanzati tramite un linguaggio simile a SQL supporta i filtri sulle intestazioni e sui corpi dei messaggi. Per esempi, vedere [Linguaggio di query di hub IoT](iot-hub-devguide-query-language.md). | Filtri basati sul suffisso/prefisso degli ID dei dispositivi, indicati per i servizi gerarchici, ad esempio l'archiviazione. |
-| **Endpoints** | <ul><li>Hub eventi</li> <li>BLOB di archiviazione</li> <li>Coda del bus di servizio</li> <li>Argomenti del bus di servizio</li></ul><br>Gli SKU per hub IoT a pagamento (S1, S2 e S3) sono limitati a 10 endpoint personalizzati. Si possono creare 100 route per ogni hub IoT. | <ul><li>Funzioni di Azure</li> <li>Automazione di Azure</li> <li>Hub eventi</li> <li>App per la logica</li> <li>Microsoft Flow</li> <li>Servizi di terze parti tramite webhook</li></ul><br>Per l'elenco più aggiornato di endpoint, vedere [Gestori eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). |
+| **Endpoints** | <ul><li>Hub eventi</li> <li>BLOB di archiviazione</li> <li>Coda del bus di servizio</li> <li>Argomenti del bus di servizio</li></ul><br>Gli SKU per hub IoT a pagamento (S1, S2 e S3) sono limitati a 10 endpoint personalizzati. Si possono creare 100 route per ogni hub IoT. | <ul><li>Funzioni di Azure</li> <li>Automazione di Azure</li> <li>Hub eventi</li> <li>App per la logica</li> <li>Archiviazione BLOB</li> <li>Argomenti personalizzati</li> <li>Servizi di terze parti tramite webhook</li></ul><br>Per l'elenco più aggiornato di endpoint, vedere [Gestori eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). |
 | **Costii** | Non vengono addebitati costi separati per il routing dei messaggi. Vengono addebitati solo i dati di telemetria in ingresso nell'hub IoT. Se ad esempio un messaggio viene instradato a tre endpoint diversi, viene fatturato un solo messaggio. | Non è previsto alcun addebito per l'hub IoT. Griglia di eventi offre gratuitamente le prime 100.000 operazioni al mese e le successive al costo di 0,60 dollari per milione di operazioni. |
 
 Il routing dei messaggi dell'hub IoT e Griglia di eventi presentano anche analogie, alcuni delle quali vengono illustrate in dettaglio nella tabella seguente:
@@ -54,7 +54,7 @@ Il routing dei messaggi dell'hub IoT e l'integrazione dell'hub IoT con Griglia d
 
    Usare il routing dei messaggi dell'hub IoT quando è necessario inviare dati di telemetria ad altri servizi. Il routing dei messaggi consente anche di eseguire query sulle intestazioni e sui corpi dei messaggi. 
 
-   L'integrazione dell'hub IoT con Griglia di eventi è indicata per gli eventi che si verificano nel servizio hub IoT. Questi eventi dell'hub IoT includono la creazione e l'eliminazione di un dispositivo. 
+   L'integrazione dell'hub IoT con Griglia di eventi è indicata per gli eventi che si verificano nel servizio hub IoT. Questi eventi dell'hub IoT includono la creazione, l'eliminazione, la connessione e la disconnessione dei dispositivi. 
 
 * **Quali endpoint devono ricevere queste informazioni?**
 

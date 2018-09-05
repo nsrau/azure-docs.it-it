@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 07/31/2018
+ms.date: 08/22/2018
 ms.author: rolyon
-ms.openlocfilehash: edf8eccf8c0a1cba70ac178ac5863a68b26f14a3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 69313adea1719324e2b22b45c6a45535ea65097f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622076"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125043"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare a usare Condizioni per l'utilizzo di Azure AD.
@@ -122,6 +122,8 @@ Una volta create e applicate le condizioni per l'utilizzo, gli utenti inclusi ne
 La schermata seguente illustra l'aspetto delle condizioni per l'utilizzo nei dispositivi mobili.
 
 ![Evento di controllo](media/active-directory-tou/mobile-tou.png)
+
+Gli utenti devono solamente accettare le Condizioni per l'utilizzo una sola volta e non vedranno nuovamente le Condizioni per l'utilizzo agli accessi successivi.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Visualizzazione delle condizioni per l'utilizzo da parte degli utenti
 Gli utenti possono visualizzare e verificare le condizioni per l'utilizzo accettate usando la procedura seguente.

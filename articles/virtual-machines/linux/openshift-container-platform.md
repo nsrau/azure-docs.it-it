@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125742"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186915"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuire OpenShift Container Platform in Azure
 
 Esistono diversi modi di distribuire OpenShift Container Platform in Azure:
 
-- È possibile distribuire manualmente i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione](https://docs.openshift.com/container-platform/3.6/welcome/index.html) di OpenShift Container Platform.
+- È possibile distribuire manualmente i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione](https://docs.openshift.com/container-platform/3.10/welcome/index.html) di OpenShift Container Platform.
 - È anche possibile usare un [modello di Resource Manager](https://github.com/Microsoft/openshift-container-platform/) esistente che semplifica la distribuzione del cluster OpenShift Container Platform.
 - Un'altra opzione consiste nell'usare l'[offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 Per tutte le opzioni è necessaria una sottoscrizione di Red Hat. Durante la distribuzione, l'istanza Red Hat Enterprise Linux viene registrata nella sottoscrizione di Red Hat e allegata all'ID del pool che contiene i diritti per OpenShift Container Platform.
-Verificare di avere un nome utente, una password e un ID pool validi per Red Hat Subscription Manager (RHSM). È possibile verificare le informazioni effettuando l'accesso a https://access.redhat.com.
+Verificare di avere un nome utente, una password e un ID pool validi per Red Hat Subscription Manager (RHSM). Per verificare le informazioni, eseguire l'accesso a https://access.redhat.com.
 
 ## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>Distribuire usando il modello di Resource Manager di OpenShift Container Platform
 

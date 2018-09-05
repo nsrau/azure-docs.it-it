@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: b180c7e8d26acc86aa1d1982ace92efafa85f9ef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115506"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144126"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 
@@ -235,7 +235,7 @@ L'agente di raccolta snapshot viene implementato come un [processore di Applicat
 Ogni volta che l'applicazione chiama [TrackException](app-insights-asp-net-exceptions.md#exceptions), l'agente di raccolta snapshot consente di calcolare un ID problema dal tipo di eccezione generata e dal metodo generante.
 Ogni volta che l'applicazione chiama TrackException, un contatore viene incrementato con l'ID problema appropriato. Quando il contatore raggiunge il valore `ThresholdForSnapshotting`, l'ID problema viene aggiunto a un piano di raccolta.
 
-L'agente di raccolta snapshot monitora anche le eccezioni quando vengono generate sottoscrivendo l'evento [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception). Quando viene generato l'evento, l'ID problema dell'eccezione viene calcolato e confrontato con gli ID problema inclusi nel piano di raccolta.
+Snapshot Collector monitora anche le eccezioni quando vengono generate sottoscrivendo l'evento [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception). Quando viene generato l'evento, l'ID problema dell'eccezione viene calcolato e confrontato con gli ID problema inclusi nel piano di raccolta.
 Se esiste una corrispondenza, viene creato uno snapshot del processo in esecuzione. Allo snapshot viene assegnato un identificatore univoco e l'eccezione viene contrassegnata con tale identificatore. Dopo che è stato restituito il gestore FirstChanceException, l'eccezione generata viene elaborata come di consueto. Infine, l'eccezione raggiunge nuovamente il metodo TrackException in cui viene segnalata ad Application Insights, insieme all'identificatore dello snapshot.
 
 L'esecuzione del processo principale continua e rende disponibile il traffico agli utenti con un'interruzione minima. Nel frattempo, lo snapshot viene trasferito al processo di caricamento degli snapshot. Tale processo crea un minidump e lo carica in Application Insights insieme agli eventuali file di simboli pertinenti (con estensione pdb).
@@ -251,7 +251,8 @@ L'esecuzione del processo principale continua e rende disponibile il traffico ag
 ## <a name="current-limitations"></a>Limitazioni correnti
 
 ### <a name="publish-symbols"></a>Pubblicare i simboli
-Per poter decodificare le variabili e offrire un'esperienza di debug in Visual Studio, Snapshot Debugger richiede la presenza dei file di simboli nel server di produzione. Per impostazione predefinita, la versione 15.2 di Visual Studio 2017 pubblica i simboli per le build di versione durante la pubblicazione nel servizio app. Nelle versioni precedenti è necessario aggiungere la riga seguente al file `.pubxml` del profilo di pubblicazione per pubblicare i simboli in modalità versione:
+Per poter decodificare le variabili e offrire un'esperienza di debug in Visual Studio, Snapshot Debugger richiede la presenza dei file di simboli nel server di produzione.
+Per impostazione predefinita, la versione 15.2 (o successiva) di Visual Studio 2017 pubblica i simboli per le build di versione durante la pubblicazione nel servizio app. Nelle versioni precedenti è necessario aggiungere la riga seguente al file `.pubxml` del profilo di pubblicazione per pubblicare i simboli in modalità versione:
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
@@ -355,7 +356,7 @@ Per i ruoli nei servizi cloud, la cartella temporanea predefinita potrebbe esser
 Lo spazio necessario dipende dal working set totale dell'applicazione e dal numero di snapshot simultanei.
 Il working set di un ruolo Web ASP.NET a 32 bit è in genere compreso tra 200 MB e 500 MB.
 È necessario consentire almeno due snapshot simultanei.
-Ad esempio, se l'applicazione usa 1 GB di working set totale, è necessario assicurarsi che ci siano almeno 2 GB di spazio su disco per archiviare gli snapshot.
+Se ad esempio l'applicazione usa 1 GB di working set totale, è necessario verificare che siano disponibili almeno 2 GB di spazio su disco per archiviare gli snapshot.
 Seguire questi passaggi per configurare il ruolo del servizio cloud con una risorsa locale dedicata per gli snapshot.
 
 1. Aggiungere una nuova risorsa locale al servizio cloud modificando il file di definizione del servizio cloud (con estensione csdef). L'esempio seguente definisce una risorsa denominata `SnapshotStore` con una dimensione pari a 5 GB.
@@ -400,6 +401,49 @@ Seguire questi passaggi per configurare il ruolo del servizio cloud con una riso
       <!-- Other SnapshotCollector configuration options -->
     </Add>
    </TelemetryProcessors>
+   ```
+
+### <a name="overriding-the-shadow-copy-folder"></a>Sostituzione della cartella di copia shadow
+
+Quando Snapshot Collector viene avviato, tenta di trovare una cartella sul disco adatta all'esecuzione dell'utilità di caricamento dello snapshot. La cartella selezionata è nota come cartella di copia shadow.
+
+Snapshot Collector controlla alcuni percorsi noti, verificando di disporre delle autorizzazioni per copiare i file binari dell'utilità di caricamento dello snapshot. Vengono usate le variabili di ambiente seguenti:
+- Fabric_Folder_App_Temp
+- LOCALAPPDATA
+- APPDATA
+- TEMP
+
+Se non viene trovata una cartella appropriata, Snapshot Collector segnala un errore del tipo _"Impossibile trovare una cartella di copia shadow idonea"._
+
+Se la copia ha esito negativo, Snapshot Collector segnala un errore `ShadowCopyFailed`.
+
+Se non è possibile avviare l'utilità di caricamento, Snapshot Collector segnala un errore `UploaderCannotStartFromShadowCopy`. Il corpo del messaggio contiene spesso `System.UnauthorizedAccessException`. Questo errore si verifica in genere perché l'applicazione è in esecuzione con un account con autorizzazioni ridotte. L'account dispone delle autorizzazioni di scrittura nella cartella di copia shadow, ma non è autorizzato a eseguire il codice.
+
+Poiché questi errori si verificano in genere durante l'avvio, sono seguiti in genere da un `ExceptionDuringConnect` errore del tipo _"Impossibile avviare l'utilità di caricamento."_
+
+Per risolvere questi errori, è possibile specificare la cartella di copia shadow manualmente tramite l'opzione di configurazione `ShadowCopyFolder`. Esempio per ApplicationInsights.config:
+
+   ```xml
+   <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Override the default shadow copy folder. -->
+      <ShadowCopyFolder>D:\SnapshotUploader</ShadowCopyFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+   </TelemetryProcessors>
+   ```
+
+In alternativa, se si usa appsettings.json con un'applicazione .NET Core:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "ShadowCopyFolder": "D:\\SnapshotUploader"
+     }
+   }
    ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Usare la ricerca di Application Insights per trovare le eccezioni con gli snapshot

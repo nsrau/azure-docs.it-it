@@ -1,6 +1,6 @@
 ---
-title: Eseguire una verifica di accesso nelle risorse di Azure usando Privileged Identity Management | Microsoft Docs
-description: Spiega come avviare una verifica di accesso in Privileged Identity Management per le risorse di Azure
+title: Avviare una verifica di accesso per i ruoli delle risorse di Azure in PIM | Microsoft Docs
+description: Informazioni su come avviare una verifica di accesso per i ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f88c4a2f7e6eb569c9c0de33ab86e8b484a923e3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622882"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189175"
 ---
-# <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Eseguire una verifica di accesso nelle risorse di Azure usando Privileged Identity Management
+# <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Avviare una verifica di accesso per i ruoli delle risorse di Azure in PIM
 Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi devono verificare periodicamente i ruoli. Questo documento illustra i passaggi per l'avvio di una verifica di accesso in Privileged Identity Management (PIM) per risorse di Azure.
 
 Dalla pagina principale dell'applicazione PIM, passare a:
@@ -71,3 +71,8 @@ Infine, è possibile richiedere che gli utenti forniscano un motivo per l'approv
 
 Fino al termine del periodo di verifica, è possibile ricordare agli utenti di completare la verifica o arrestare la verifica in anticipo nella sezione Verifiche di accesso.
 
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Completare una verifica di accesso per i ruoli delle risorse di Azure in PIM](pim-resource-roles-complete-access-review.md)
+- [Eseguire una verifica di accesso dei ruoli delle risorse di Azure in PIM](pim-resource-roles-perform-access-review.md)
+- [Avviare una verifica di accesso per i ruoli della directory di Azure AD in PIM](pim-how-to-start-security-review.md)

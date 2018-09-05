@@ -1,6 +1,6 @@
 ---
-title: Come concedere l'accesso per la gestione di Privileged Identity Management - Azure | Documentazione Microsoft
-description: Informazioni su come aggiungere ruoli agli utenti con l'estensione Azure Active Directory Privileged Identity Management per consentire la gestione di PIM.
+title: Concedere l'accesso ad altri amministratori per gestire PIM - Azure | Microsoft Docs
+description: Informazioni su come concedere l'accesso ad altri amministratori per gestire Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ade3939057669e7f9979001db4376fe61c2f4ad9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623069"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189556"
 ---
-# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Concedere l'accesso per la gestione di Azure AD Privileged Identity Management
+# <a name="grant-access-to-other-administrators-to-manage-pim"></a>Concedere l'accesso ad altri amministratori per gestire PIM
 L'amministratore globale che abilita Azure AD Privileged Identity Management (PIM) per un'organizzazione ottiene automaticamente le assegnazioni di ruolo e l'accesso a PIM. Per impostazione predefinita, nessun altro utente ottiene l'accesso in scrittura, inclusi gli altri amministratori globali. Gli altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza hanno l'accesso in sola lettura ad Azure AD PIM. Per concedere l'accesso a PIM, il primo utente può assegnare ad altri il ruolo di **amministratore dei ruoli con privilegi** .
 
 > [!NOTE]
@@ -54,4 +54,5 @@ Prima di rimuovere un utente dal ruolo di amministratore dei ruoli con privilegi
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Abilitare la gestione delle sottoscrizioni nel tenant](pim-resource-roles-enable-subscription-management.md)

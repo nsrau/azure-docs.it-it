@@ -1,5 +1,5 @@
 ---
-title: Aggiornamenti in sequenza delle applicazioni - Database SQL di Azure | Documentazione Microsoft
+title: Aggiornamenti in sequenza delle applicazioni - Database SQL di Azure | Microsoft Docs
 description: Informazioni su come usare la replica geografica del database SQL di Azure per supportare gli aggiornamenti online dell'applicazione cloud.
 services: sql-database
 author: anosov1960
@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 08/23/2018
 ms.author: sashan
-ms.openlocfilehash: a73284d679b4be1fbae6d5e1688915c98cbf2392
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37960995c89c2b30d90ac45dcd8cc44d80088398
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649500"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818617"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gestione degli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
 > [!NOTE]
@@ -31,7 +31,7 @@ Quando si valutano le opzioni di aggiornamento è necessario considerare i fatto
 * Costo totale.  Sono inclusi i costi aggiuntivi di ridondanza e incrementali dei componenti temporanei usati dal processo di aggiornamento. 
 
 ## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Aggiornamento di applicazioni basate sui backup del database per il ripristino di emergenza
-Se l'applicazione si basa sui backup automatici del database e usa il ripristino geografico per il ripristino di emergenza, in genere viene distribuita in una singola area di Azure. In questo caso il processo di aggiornamento prevede la creazione di una distribuzione di backup di tutti i componenti dell'applicazione coinvolti nell'aggiornamento. Per ridurre al minimo le interruzioni per l'utente finale, è possibile usare Gestione traffico di Azure (WATM) con il profilo di failover.  Il diagramma seguente illustra l'ambiente operativo prima del processo di aggiornamento. L'endpoint <i>contoso-1.azurewebsites.net</i> rappresenta uno slot di produzione dell'applicazione che deve essere aggiornata. Per poter eseguire il rollback dell'aggiornamento, è necessario creare uno slot di gestione temporanea con una copia completamente sincronizzata dell'applicazione. I passaggi seguenti sono necessari per preparare l'applicazione per l'aggiornamento:
+Se l'applicazione si basa sui backup automatici del database e usa il ripristino geografico per il ripristino di emergenza, in genere viene distribuita in una singola area di Azure. In questo caso il processo di aggiornamento prevede la creazione di una distribuzione di backup di tutti i componenti dell'applicazione coinvolti nell'aggiornamento. Per ridurre al minimo le interruzioni per l'utente finale, è possibile usare Gestione traffico di Azure (ATM) con il profilo di failover.  Il diagramma seguente illustra l'ambiente operativo prima del processo di aggiornamento. L'endpoint <i>contoso-1.azurewebsites.net</i> rappresenta uno slot di produzione dell'applicazione che deve essere aggiornata. Per poter eseguire il rollback dell'aggiornamento, è necessario creare uno slot di gestione temporanea con una copia completamente sincronizzata dell'applicazione. I passaggi seguenti sono necessari per preparare l'applicazione per l'aggiornamento:
 
 1. Creare uno slot di gestione temporanea per l'aggiornamento. Per farlo, creare un database secondario (1) e distribuire un sito Web identico nella stessa area di Azure. Monitorare il database secondario per verificare se il processo di seeding è stato completato.
 2. Creare un profilo di failover in Gestione traffico di Azure con <i>contoso-1.azurewebsites.net</i> come endpoint online e <i>contoso-2.azurewebsites.net</i> come endpoint offline. 
@@ -79,7 +79,7 @@ Se l'applicazione usa la replica geografica per la continuità aziendale, viene 
 * L'applicazione rimanga protetta da errori irreversibili in qualsiasi momento durante il processo di aggiornamento
 * I componenti con ridondanza geografica dell'applicazione siano aggiornati in parallelo con i componenti attivi
 
-Per raggiungere questi obiettivi è possibile usare Gestione traffico di Azure (WATM) con il profilo di failover con un endpoint attivo e tre endpoint di backup.  Il diagramma seguente illustra l'ambiente operativo prima del processo di aggiornamento. I siti Web <i>contoso-1.azurewebsites.net</i> e <i>contoso-dr.azurewebsites.net</i> rappresentano uno slot di produzione dell'applicazione con ridondanza geografica completa. Per poter eseguire il rollback dell'aggiornamento, è necessario creare uno slot di gestione temporanea con una copia completamente sincronizzata dell'applicazione. Anche lo slot di gestione temporanea deve avere la funzionalità di ridondanza geografica perché è necessario assicurare un recupero rapido dell'applicazione in caso di errori irreversibili durante il processo di aggiornamento. I passaggi seguenti sono necessari per preparare l'applicazione per l'aggiornamento:
+Per raggiungere questi obiettivi è possibile usare Gestione traffico di Azure (ATM) con il profilo di failover con un endpoint attivo e tre endpoint di backup.  Il diagramma seguente illustra l'ambiente operativo prima del processo di aggiornamento. I siti Web <i>contoso-1.azurewebsites.net</i> e <i>contoso-dr.azurewebsites.net</i> rappresentano uno slot di produzione dell'applicazione con ridondanza geografica completa. Per poter eseguire il rollback dell'aggiornamento, è necessario creare uno slot di gestione temporanea con una copia completamente sincronizzata dell'applicazione. Anche lo slot di gestione temporanea deve avere la funzionalità di ridondanza geografica perché è necessario assicurare un recupero rapido dell'applicazione in caso di errori irreversibili durante il processo di aggiornamento. I passaggi seguenti sono necessari per preparare l'applicazione per l'aggiornamento:
 
 1. Creare uno slot di gestione temporanea per l'aggiornamento. Per farlo, creare un database secondario (1) e distribuire una copia identica di un sito Web nella stessa area di Azure. Monitorare il database secondario per verificare se il processo di seeding è stato completato.
 2. Creare un database secondario con ridondanza geografica nello slot di gestione temporanea usando la replica geografica del database secondario nell'area di backup, chiamata "replica geografica concatenata". Monitorare il database secondario di backup per verificare se il processo di seeding è stato completato (3).

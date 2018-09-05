@@ -1,28 +1,24 @@
 ---
-title: Chiamare gli endpoint REST con il connettore HTTP + Swagger per le App per la logica di Azure | Microsoft Docs
-description: Connettersi agli endpoint REST dalle app per la logica tramite Swagger con il connettore HTTP + Swagger
+title: Chiamare gli endpoint REST da App per la logica di Azure | Microsoft Docs
+description: Automatizzare le attività e i flussi di lavoro che comunicano con gli endpoint REST usando il connettore HTTP + Swagger in App per la logica di Azure
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 4e4421b0dfe0f29c3d50764b9ca04471c73a1450
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296520"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123173"
 ---
-# <a name="get-started-with-the-http--swagger-action"></a>Introduzione all'azione HTTP + Swagger
+# <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chiamare gli endpoint REST con il connettore HTTP + Swagger in App per la logica di Azure
 
 È possibile creare un connettore di prima classe a qualsiasi endpoint REST tramite un [documento di Swagger](https://swagger.io) quando si usa l'azione HTTP + Swagger nel flusso di lavoro dell'app per la logica. È anche possibile estendere app per la logica per chiamare qualsiasi endpoint REST con un'eccellente esperienza di progettazione delle app per la logica.
 

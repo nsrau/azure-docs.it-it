@@ -6,14 +6,14 @@ author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: a8d2eca785ad166aa4cff26bce876e41770a3427
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246286"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818274"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Progetto per la sicurezza e la conformità di Azure - Applicazione Web PaaS per Australia PROTECTED
 
@@ -36,7 +36,7 @@ La federazione con Azure Active Directory dovrebbe essere usata per consentire a
 
 La soluzione usa gli account di Archiviazione di Azure che i clienti possono configurare per usare la crittografia del servizio di archiviazione e mantenere la riservatezza dei dati inattivi. Azure archivia tre copie di dati all'interno dell'area selezionata di un cliente per la resilienza. Le aree di Azure vengono distribuite in coppie di aree di resilienza e l'archiviazione con ridondanza geografica assicura che i dati vengano replicati anche nella seconda area con tre copie. Ciò impedisce che un evento negativo nell'area in cui si trovano i dati principali del cliente comporti la perdita di dati.
 
-Per una sicurezza ottimale, tutte le risorse di Azure in questa soluzione vengono gestite come gruppo di risorse tramite Azure Resource Manager. Il controllo degli accessi in base al ruolo di Azure Active Directory viene usato per controllare l'accesso alle chiavi e alle risorse distribuite in Azure Key Vault. L'integrità del sistema è monitorata tramite il Centro sicurezza di Azure e Monitoraggio di Azure. I clienti configurano entrambi i servizi di monitoraggio per acquisire i log e visualizzare l'integrità del sistema in un singolo dashboard, facilmente navigabile. Il gateway applicazione di Azure viene configurato come firewall in modalità di prevenzione e non consente il traffico non TLS 1.2 o versioni successive. La soluzione usa l'ambiente del servizio app v2 di Azure per isolare il livello Web in un ambiente multi-tenant.
+Per una sicurezza ottimale, tutte le risorse di Azure in questa soluzione vengono gestite come gruppo di risorse tramite Azure Resource Manager. Il controllo degli accessi in base al ruolo di Azure Active Directory viene usato per controllare l'accesso alle chiavi e alle risorse distribuite in Azure Key Vault. L'integrità del sistema è monitorata tramite il Centro sicurezza di Azure e Monitoraggio di Azure. I clienti configurano entrambi i servizi di monitoraggio per acquisire i log e visualizzare l'integrità del sistema in un singolo dashboard, facilmente navigabile. Il gateway applicazione di Azure viene configurato come firewall in modalità di prevenzione e non consente il traffico non TLS v1.2 o versioni successive. La soluzione usa l'ambiente del servizio app v2 di Azure per isolare il livello Web in un ambiente multi-tenant.
 
 ![Architettura di riferimento dell'applicazione Web PaaS per AU-PROTECTED](images/au-protected-paaswa-architecture.png?raw=true "Diagramma dell'architettura di riferimento dell'applicazione Web PaaS per AU-PROTECTED")
 
@@ -57,7 +57,7 @@ Questa soluzione usa i servizi di Azure seguenti. Altri dettagli sono disponibil
 - Monitoraggio di Azure
 - Azure Resource Manager
 - Centro sicurezza di Azure
-- Database SQL di Azure
+- database SQL di Azure
 - Archiviazione di Azure
 - Azure Log Analytics
 - Rete virtuale di Azure
@@ -95,7 +95,7 @@ L'uso degli ambienti del servizio app per questa architettura consente i control
 - Host all'interno di una rete virtuale di Azure protetta e di regole di sicurezza di rete
 - Ambienti del servizio app configurati con un certificato di bilanciamento del carico interno autofirmato per le comunicazioni HTTPS. Come procedura consigliata, Microsoft consiglia l'utilizzo di un'autorità di certificazione attendibile per una sicurezza avanzata.
 - [Modalità di bilanciamento del carico interno](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (modalità 3)
-- Disabilitazione di [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Disabilitazione di [TLS v1.0 e v1.1](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Modifica della [crittografia TLS](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Controllo delle [porte di rete del traffico in ingresso](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Web application firewall - limitazione dei dati](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -128,11 +128,9 @@ Per impostazione predefinita, Azure esegue la crittografia di tutte le comunicaz
 
 Per i dati classificati come Protected, in transito da reti di proprietà dei clienti, l'architettura di Azure usa Internet o ExpressRoute con un Gateway VPN configurato con IPSec.
 
-Inoltre, tutte le transazioni con Azure attraverso il portale di gestione di Azure vengono eseguite tramite HTTPS con TLS 1.2.
-Dati inattivi
+Inoltre, tutte le transazioni con Azure attraverso il portale di gestione di Azure vengono eseguite tramite HTTPS con TLS v1.2.
 
 ### <a name="data-at-rest"></a>Dati inattivi
-
 L'architettura protegge i dati inattivi tramite la crittografia, il controllo del database e altre misure.
 
 **Archiviazione di Azure**: per soddisfare i requisiti dei dati inattivi crittografati, [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) usa la [crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/storage-service-encryption). Ciò consente di proteggere e salvaguardare i dati, supportando l'impegno a livello di sicurezza dell'organizzazione e i requisiti di conformità definiti dall'ISM del governo australiano.

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592204"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188241"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrazione di applicazioni con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -95,12 +95,12 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
 5. Dopo che l'utente ha concesso il consenso, all'applicazione viene restituito un codice di autorizzazione, che viene riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere la sezione [Da applicazione Web ad API Web di Scenari di autenticazione per Azure AD](authentication-scenarios.md#web-application-to-web-api).
 
-6. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo evita la visualizzazione della finestra di dialogo di consenso per ogni utente del tenant e può essere eseguito nel [portale di Azure](https://portal.azure.com) da utenti con ruolo di amministratore. Dalla pagina **Impostazioni** dell'applicazione selezionare **Autorizzazioni necessarie** e fare clic sul pulsante **Concedi autorizzazioni**. 
+6. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo evita la visualizzazione della finestra di dialogo di consenso per ogni utente del tenant e può essere eseguito nel [portale di Azure](https://portal.azure.com) da utenti con ruolo di amministratore. Nella pagina **Impostazioni** dell'applicazione fare clic su **Autorizzazioni necessarie** e quindi fare clic sul pulsante **Concedi autorizzazioni**. 
 
   ![Concedere le autorizzazioni per il consenso esplicito dell'amministratore](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
-  > La concessione esplicita del consenso utilizzando il pulsante **Concedi autorizzazioni** è attualmente richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso. 
+  > La concessione esplicita del consenso usando il pulsante **Concedi autorizzazioni** è attualmente richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurare un'applicazione client per accedere alle API Web
 Per consentire a un'applicazione Web/client riservato di partecipare a un flusso di concessioni di autorizzazioni che richiede l'autenticazione (e ottenere un token di accesso), è necessario definire credenziali protette. Il metodo di autenticazione predefinito supportato dal portale di Azure è ID client + chiave privata. Questa sezione illustra i passaggi di configurazione necessari per fornire alla chiave privata le credenziali del client.
@@ -112,7 +112,7 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
 - Autorizzazioni delegate: l'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione richieda il consenso dell'amministratore. 
 
   > [!NOTE]
-  > L'aggiunta di un'autorizzazione delegata a un'applicazione non concede automaticamente il consenso all'utente all'interno del tenant. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive al runtime, a meno che l'amministratore non faccia clic sul pulsante **Concedi autorizzazioni** nella sezione **Autorizzazioni necessarie** della pagina dell'applicazione nel portale di Azure. 
+  > L'aggiunta di un'autorizzazione delegata a un'applicazione non concede automaticamente il consenso all'utente all'interno del tenant. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive in fase di esecuzione, a meno che l'amministratore non conceda il consenso per conto di tutti gli utenti.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Per aggiungere credenziali dell'applicazione o autorizzazioni per accedere alle API Web
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -121,13 +121,15 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
 
    ![Aggiornare la registrazione di un'applicazione](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. Viene visualizzata la pagina di registrazione principale dell'applicazione che apre la pagina **Impostazioni** per l'applicazione. Per aggiungere una chiave privata per le credenziali dell'applicazione Web:
+4. Viene visualizzata la pagina di registrazione principale dell'applicazione che apre la pagina **Impostazioni** per l'applicazione. Per aggiungere una credenziale per l'applicazione Web:
   - Fare clic nella sezione **Chiavi** della pagina **Impostazioni**. 
-  - Aggiungere una descrizione per la chiave.
-  - Selezionare la durata di uno o due anni.
-  - Fare clic su **Save**. Dopo che le modifiche apportate alla configurazione sono state salvate, il valore della chiave viene visualizzato nella colonna di destra. **Assicurarsi di copiare la chiave** per l'utilizzo nel codice dell'applicazione client, in quanto non è più accessibile dopo aver lasciato la pagina.
-
-  ![Aggiornare la registrazione di un'applicazione - Chiavi](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - Per aggiungere un certificato:
+    - Selezionare **Carica la chiave pubblica**.
+    - Selezionare il file da caricare. Il tipo di file deve essere uno dei seguenti: .cer, .pem, .crt.
+  - Per aggiungere una password:
+    - Aggiungere una descrizione per la chiave.
+    - Selezionare una durata.
+    - Fare clic su **Save**. Dopo che le modifiche apportate alla configurazione sono state salvate, il valore della chiave viene visualizzato nella colonna di destra. **Assicurarsi di copiare la chiave** per l'utilizzo nel codice dell'applicazione client, in quanto non è più accessibile dopo aver lasciato la pagina.
 
 5. Per aggiungere le autorizzazioni per accedere alle API di risorsa dal client
   - Fare clic nella sezione **Autorizzazioni necessarie** della pagina **Impostazioni**. 
@@ -141,11 +143,6 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
   ![Aggiornare la registrazione di un'applicazione - Autorizzazioni](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Al termine, fare clic sul pulsante **Seleziona** della pagina **Abilita accesso**, quindi sul pulsante **Fatto** della pagina **Aggiungi accesso all'API**. Verrà visualizzata di nuovo la pagina **Autorizzazioni necessarie**, in cui la nuova risorsa viene aggiunta all'elenco di API.
-
-  > [!NOTE]
-  > Facendo clic sul pulsante **Fine**, vengono automaticamente impostate anche le autorizzazioni per l'applicazione nella directory in base a quelle configurate per altre applicazioni. È possibile visualizzare queste autorizzazioni per l'applicazione osservando il contenuto della pagina **Impostazioni** dell'applicazione stessa.
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configurazione di un'applicazione della risorsa per esporre le API Web
 

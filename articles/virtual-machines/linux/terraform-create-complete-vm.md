@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 6b2dc2e8859efdcc57c45831381bc1870495ecf6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dfebda8f92837f8573fb3362c9210bce9b70d23d
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776024"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42751547"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Creare un'infrastruttura completa per la macchina virtuale Linux in Azure con Terraform
 
@@ -75,7 +75,8 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     }
 }
 ```
-: La sezione seguente crea una subnet denominata *mySubnet* nella rete virtuale *myVnet*
+
+La sezione seguente crea una subnet denominata *mySubnet* nella rete virtuale *myVnet*:
 
 ```tf
 resource "azurerm_subnet" "myterraformsubnet" {
@@ -108,7 +109,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 I gruppi di sicurezza di rete consentono di controllare il flusso del traffico di rete in ingresso e in uscita dalla macchina virtuale. La sezione seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup* e definisce una regola per consentire il traffico SSH sulla porta TCP 22:
 
 ```tf
-resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
+resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"

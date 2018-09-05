@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 20bd2d61671d89a5c2a13525ea119595cf0b7c93
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246638"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122406"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console seriale per macchine virtuali (anteprima) 
 
@@ -35,12 +35,20 @@ Per la documentazione della console seriale per macchine virtuali Windows [fare 
 ## <a name="prerequisites"></a>Prerequisiti 
 
 * È necessario usare il modello di distribuzione di Gestione risorse. Non sono supportate le distribuzioni classiche. 
-* La macchina virtuale DEVE avere la [diagnostica di avvio](boot-diagnostics.md) abilitata 
-* L'account che usa la console seriale deve avere il [ruolo Collaboratore](../../role-based-access-control/built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
+* La macchina virtuale DEVE avere la [diagnostica di avvio](boot-diagnostics.md) abilitata, vedere la schermata seguente.
+
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+    
+* L'account di Azure che usa la console seriale deve avere il [ruolo Collaboratore](../../role-based-access-control/built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
+* La macchina virtuale su cui si sta cercando di accedere alla console seriale deve avere anche un account basato su password. È possibile crearne uno tramite la funzionalità di [reimpostazione della password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) dell'estensione dell'accesso alla macchina virtuale; vedere la schermata seguente.
+
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+
 * Per le impostazioni specifiche per le distribuzioni di Linux, vedere [Accedere alla console seriale per Linux](#access-serial-console-for-linux)
 
 
-## <a name="open-the-serial-console"></a>Aprire la console seriale
+
+## <a name="get-started-with-serial-console"></a>Introduzione alla console seriale
 La console seriale per le macchine virtuali è accessibile solo tramite il [portale di Azure](https://portal.azure.com). Di seguito sono riportati i passaggi per accedere alla console seriale per macchine virtuali tramite il portale 
 
   1. Aprire il portale di Azure
@@ -65,7 +73,7 @@ La console seriale può essere disattivata per un'intera sottoscrizione tramite 
 In alternativa, è possibile usare il set di comandi in Cloud Shell seguente (comandi bash mostrati) per disabilitare, abilitare e visualizzare lo stato disabilitato della console seriale per una sottoscrizione. 
 
 * Per ottenere lo stato disabilitato della console seriale per una sottoscrizione:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -73,7 +81,7 @@ In alternativa, è possibile usare il set di comandi in Cloud Shell seguente (co
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
 * Per disabilitare la console seriale per una sottoscrizione:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -81,7 +89,7 @@ In alternativa, è possibile usare il set di comandi in Cloud Shell seguente (co
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 * Per abilitare la console seriale per una sottoscrizione:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -139,7 +147,7 @@ Oracle Linux        | Le immagini Oracle Linux disponibili in Azure hanno l'acce
 Immagini personalizzate di Linux     | Per abilitare la console seriale per l'immagine personalizzata della VM Linux, abilitare l'accesso alla console in /etc/inittab per l'esecuzione di un terminale in ttyS0. Qui è riportato un esempio di aggiunta nel file `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Per altre informazioni su come creare correttamente immagini personalizzate, vedere [Creazione e caricamento di un file VHD Linux in Azure](https://aka.ms/createuploadvhd).
 
 ## <a name="errors"></a>Errors
-La maggior parte degli errori è di natura temporanea e, per risolverli, è spesso sufficiente stabilire di nuovo la connessione alla console seriale. La tabella seguente contiene un elenco di errori e il modo per prevenirli 
+La maggior parte degli errori è di natura temporanea e, per risolverli, è spesso sufficiente stabilire di nuovo la connessione alla console seriale. La tabella seguente contiene un elenco di errori e il modo per prevenirli
 
 Tipi di errore                            |   Mitigazione 
 :---------------------------------|:--------------------------------------------|
@@ -154,7 +162,7 @@ Poiché l'accesso alla console seriale è ancora in fase di anteprima, è in cor
 Problema                           |   Mitigazione 
 :---------------------------------|:--------------------------------------------|
 Non sono disponibili opzioni per la console seriale dell'istanza del set di scalabilità di macchine virtuali |  In fase di anteprima l'accesso alla console seriale per le istanze del set di scalabilità di macchine virtuali non è supportato.
-Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | Vedere questa pagina: [L'inserimento non esegue alcuna operazione](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo può verificarsi se è in esecuzione una macchina virtuale personalizzata, un'appliance con protezione avanzata o una configurazione GRUB che non consente a Linux di connettersi correttamente alla porta seriale.
 È stata rilevata una risposta "Accesso negato" durante l'accesso all'account di archiviazione di diagnostica di avvio della macchina virtuale. | Assicurarsi che la diagnostica di avvio non disponga di un firewall dell'account. Un account di archiviazione di diagnostica di avvio accessibile è necessario per il funzionamento della console seriale.
 
 

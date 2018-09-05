@@ -1,27 +1,22 @@
 ---
-title: Query per i messaggi B2B in Log Analytics - App per la logica di Azure | Microsoft Docs
-description: Creare query per tenere traccia dei messaggi AS2, X12 ed EDIFACT in Log Analytics
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: Creare query per i messaggi B2B in Log Analytics - App per la logica di Azure | Microsoft Docs
+description: Creare query per monitorare i messaggi AS2, X12 ed EDIFACT con Log Analytics per App per la logica di Azure
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: baccd255fc2812eae0de3a98dfcef3dcbc7e1b46
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294310"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124271"
 ---
-# <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Query per i messaggi AS2, X12 ed EDIFACT in Log Analytics
+# <a name="create-queries-for-tracking-as2-x12-and-edifact-messages-in-log-analytics-for-azure-logic-apps"></a>Creare query per il monitoraggio dei messaggi AS2, X12 ed EDIFACT in Log Analytics per App per la logica di Azure
 
 Per trovare i messaggi AS2, X12 o EDIFACT che si vuole monitorare con [Azure Log Analytics](../log-analytics/log-analytics-overview.md), è possibile creare query per filtrare le azioni in base a criteri specifici. Ad esempio, è possibile trovare i messaggi in base a un numero di controllo interscambio specifico.
 
