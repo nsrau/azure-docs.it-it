@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e7208cb4c2cdef6fc4e639b32fdb2fac242bd3a2
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443733"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104062"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con Azure Kubernetes Service (AKS)
 
@@ -36,31 +36,41 @@ Per installare Virtual Kubelet, è anche necessario [Helm](https://docs.helm.sh/
 
 ### <a name="for-rbac-enabled-clusters"></a>Per i cluster che dispongono dell’abilitazione RBAC
 
-Se il cluster AKS è abilitato per RBAC, è necessario creare un account del servizio e un'associazione di ruolo per l'uso con Tiller. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Helm][helm-rbac].
-
-Deve essere creato anche un oggetto *ClusterRoleBinding* per Virtual Kubelet. Per creare un'associazione, creare un file denominato *rbac-virtualkubelet.yaml* e incollare la definizione seguente:
+Se il cluster AKS è abilitato per RBAC, è necessario creare un account del servizio e un'associazione di ruolo per l'uso con Tiller. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Helm][helm-rbac]. Per creare un account del servizio e un'associazione di ruolo, creare un file denominato *rbac-virtualkubelet.yaml* e incollare la definizione seguente:
 
 ```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: virtual-kubelet
+  name: tiller
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: default
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
 ```
 
-Applicare l'associazione con [kubectl apply][kubectl-apply] e specificare il file *rbac-virtualkubelet.yaml*, come illustrato nell'esempio seguente:
+Applicare l'account del servizio e l'associazione con [kubectl apply][kubectl-apply] e specificare il file *rbac-virtualkubelet.yaml*, come illustrato nell'esempio seguente:
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
-clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+clusterrolebinding.rbac.authorization.k8s.io/tiller created
+```
+
+Configurare Helm per l'uso dell'account del servizio Tiller:
+
+```console
+helm init --service-account tiller
 ```
 
 È ora possibile procedere con l'installazione di Virtual Kubelet nel cluster AKS.
@@ -164,7 +174,7 @@ spec:
     spec:
       containers:
       - name: nanoserver-iis
-        image: nanoserver/iis
+        image: microsoft/iis:nanoserver
         ports:
         - containerPort: 80
       nodeSelector:
@@ -197,7 +207,12 @@ Usare il comando [az aks remove-connector][aks-remove-connector] per rimuovere V
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
 ```
 
+> [!NOTE]
+> Se si verificano errori durante la rimozione di entrambi i connettori del sistema operativo o si desidera rimuovere solo il connettore del sistema operativo Linux o Windows, è possibile specificare manualmente il tipo di sistema operativo. Aggiungere il parametro `--os-type` al precedente comando `az aks remove-connector` e specificare `Windows` o `Linux`.
+
 ## <a name="next-steps"></a>Passaggi successivi
+
+In caso di problemi con Virtual Kubelet, vedere [Known quirks and workarounds][vk-troubleshooting] (Soluzioni alternative e trucchi noti). Per segnalare problemi di Virtual Kubelet [aprire un problema in GitHub][vk-issues].
 
 Per altre informazioni su Virtual Kubelet, vedere il [progetto GitHub Virtual Kubelet][vk-github].
 
@@ -215,3 +230,5 @@ Per altre informazioni su Virtual Kubelet, vedere il [progetto GitHub Virtual Ku
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[vk-troubleshooting]: https://github.com/virtual-kubelet/virtual-kubelet#known-quirks-and-workarounds
+[vk-issues]: https://github.com/virtual-kubelet/virtual-kubelet/issues

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 08/23/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bac728f286c90550107b27da76a070623577ed82
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114345"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918901"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Configurare l'automazione della rete WAN virtuale - per i partner della rete WAN virtuale(anteprima)
 
@@ -23,7 +23,7 @@ Le soluzioni di connettività software-defined usano in genere un controller o u
 
 ##  <a name="access"></a>Controllo degli accessi
 
-I clienti devono essere in grado di impostare il controllo degli accessi appropriato per la rete WAN virtuale nell'interfaccia utente del dispositivo. Questa operazione è consigliabile usando un'entità servizio di Azure. L'accesso basato su entità servizio fornisce al dispositivo un'autenticazione adeguata al controller per caricare le informazioni sul branch.
+I clienti devono essere in grado di impostare il controllo degli accessi appropriato per la rete WAN virtuale nell'interfaccia utente del dispositivo. Questa operazione è consigliabile usando un'entità servizio di Azure. L'accesso basato su entità servizio fornisce al dispositivo un'autenticazione adeguata al controller per caricare le informazioni sul branch. Per altre informazioni vedere [Creare un'entità servizio](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
 
 ##  <a name="site"></a>Caricare le informazioni sul branch
 
@@ -44,9 +44,9 @@ In questo passaggio, un cliente che non usa un provider scarica manualmente la c
 
 ### <a name="understanding-the-device-configuration-file"></a>Informazioni sulla configurazione predefinita
 
-Il file di configurazione del dispositivo contiene le impostazioni da usare quando si configura il dispositivo VPN locale. Quando si visualizza questo file, prestare attenzione alle informazioni seguenti:
+Il file di configurazione del dispositivo contiene le impostazioni da usare quando si configura il dispositivo VPN locale. Quando si visualizza questo file, notare le informazioni seguenti:
 
-* **vpnSiteConfiguration:** questa sezione indica i dettagli del dispositivo configurato come un sito in collegamento alla rete WAN virtuale. Include il nome e indirizzo IP pubblico del dispositivo del branch.
+* **vpnSiteConfiguration -** Questa sezione indica i dettagli del dispositivo configurato come un sito che si connette alla rete WAN virtuale. Include il nome e l'indirizzo IP pubblico del dispositivo della succursale.
 * **vpnSiteConnections:** in questa sezione vengono fornite informazioni su quanto segue:
 
     * **Spazio degli indirizzi** della rete virtuale degli hub.<br>Esempio:
@@ -59,13 +59,13 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **Indirizzi IP** di vpngateway dell'hub virtuale. Poiché ogni connessione del vpngateway comprende 2 tunnel nella configurazione attivo/attivo, verranno visualizzati entrambi gli indirizzi IP elencati in questo file. In questo esempio, viene visualizzato "Instance0" e "Istanza1" per ogni sito.<br>Esempio:
+    * **Indirizzi IP** del gateway VPN dell'hub virtuale. Dato che ogni connessione del gateway VPN comprende 2 tunnel nella configurazione attiva-attiva, nel file saranno elencati entrambi gli indirizzi IP. In questo esempio, sono indicati "Instance0" e "Instance1" per ogni sito.<br>Esempio:
 
         ``` 
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Dettagli di configurazione di connessione vpngateway**, ad esempio BGP, chiave precondivisa e così via. La PSK è la chiave precondivisa generata automaticamente per l'utente. È sempre possibile modificare la connessione nella pagina di panoramica per una chiave precondivisa personalizzata.
+    * **Dettagli di configurazione della connessione al gateway VPN**, ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
   
 ### <a name="example-device-configuration-file"></a>File di configurazione del dispositivo di esempio
 
@@ -250,9 +250,9 @@ La configurazione del dispositivo VPN/SDWAN o SD-WAN locale deve contenere o cor
 * Algoritmo di integrità IPsec
 * Gruppo PFS
 
-## <a name="feedback"></a>Feedback sull'anteprima
+## <a name="feedback"></a>Commenti e suggerimenti per l'anteprima
 
-I commenti e i suggerimenti degli utenti sono molto apprezzati. Inviare un messaggio di posta elettronica <azurevirtualwan@microsoft.com> per segnalare eventuali problemi o fornire commenti e suggerimenti (positivi o negativi) per la rete WAN virtuale. Includere il nome della propria società tra parentesi quadre "[ ]" nella riga dell'oggetto. Se si sta segnalando un problema, includere anche l'ID sottoscrizione.
+I commenti e i suggerimenti degli utenti sono molto apprezzati. Inviare un messaggio di posta elettronica all'indirizzo <azurevirtualwan@microsoft.com> per segnalare eventuali problemi o per fornire commenti e suggerimenti (positivi o negativi) sulla rete WAN virtuale. Includere il nome della propria società tra parentesi quadre "[ ]" nella riga dell'oggetto. Se si sta segnalando un problema, includere anche l'ID sottoscrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

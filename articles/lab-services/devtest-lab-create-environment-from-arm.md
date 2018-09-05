@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433171"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919007"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
@@ -37,10 +37,11 @@ Altre informazioni sui numerosi [vantaggi offerti dai modelli di Resource Manage
 > [!NOTE]
 > Quando si usa un modello di Resource Manager come base per creare più macchine virtuali lab, occorre tenere presente che ci sono alcune differenze tra la creazione di più macchine virtuali e una singola macchina virtuale. Nell'articolo [Use a virtual machine's Azure Resource Manager template](devtest-lab-use-resource-manager-template.md) (Usare un modello di Azure Resource Manager di una macchina virtuale) queste differenze sono illustrate con maggiori dettagli.
 >
->
 
-## <a name="configure-azure-resource-manager-template-repositories"></a>Configurare i repository del modello di Azure Resource Manager
+## <a name="devtest-labs-public-environments"></a>Ambienti pubblici in DevTest Labs
+Azure DevTest Labs include un [repository pubblico di modelli di Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) che consente di creare ambienti senza connettersi a un'origine GitHub esterna. Questo repository include i modelli usati di frequente, ad esempio App Web di Azure, Cluster di Service Fabric e l'ambiente di sviluppo della Farm di SharePoint. Questa funzionalità è simile al repository pubblico di artefatti incluso in ogni lab creato. Il repository di ambienti consente di iniziare rapidamente usando modelli di ambiente predefiniti con parametri di input minimi per garantire un'agevole esperienza iniziale con le risorse PaaS all'interno dei lab. Per altre informazioni, vedere [Configurare e usare ambienti pubblici in DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
+## <a name="configure-your-own-template-repositories"></a>Configurare i propri repository di modelli
 Come procedura consigliata nei casi di infrastruttura come codice e configurazione come codice, i modelli di ambiente devono essere gestiti nel controllo del codice sorgente. Azure Labs DevTest applica questa procedura e carica tutti i modelli Azure Resource Manager direttamente dai repository VSTS Git o GitHub. Di conseguenza, i modelli di Resource Manager possono essere usati in tutto il ciclo di rilascio, dall'ambiente di test a quello di produzione.
 
 Esaminare i modelli creati dal team di DevTest Labs nel [repository GitHub pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Nel repository pubblico è possibile visualizzare i modelli condivisi da altri utenti che è possibile usare direttamente o personalizzare in base alle esigenze. Dopo aver creato il modello, archiviarlo nel repository per condividerlo con altri utenti. È anche possibile configurare un repository Git personale con i modelli che si usano per configurare gli ambienti nel cloud. 
@@ -56,12 +57,9 @@ Ci sono un paio di regole da seguire per organizzare i modelli di Azure Resource
 - È possibile definire metadati per specificare il nome e la descrizione visualizzati del modello. I metadati deve essere contenuti in un file denominato `metadata.json`. Il file di metadati di esempio seguente mostra come specificare il nome e la descrizione visualizzati: 
 
     ```json
-    {
- 
-        "itemDisplayName": "<your template name>",
- 
-        "description": "<description of the template>"
- 
+    { 
+        "itemDisplayName": "<your template name>", 
+        "description": "<description of the template>" 
     }
     ```
 

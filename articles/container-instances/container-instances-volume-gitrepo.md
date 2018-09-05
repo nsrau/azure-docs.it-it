@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: e40d841c07534c9c0074c038d1e3c6e435265564
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34036c5ec9ccd8c502104ce862e4749c59be62b9
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166780"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105243"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montare un volume gitRepo in Istanze di contenitore di Azure
 
@@ -30,7 +30,7 @@ Quando si monta un volume *gitRepo*, è possibile impostare tre proprietà per c
 
 | Proprietà | Obbligatoria | DESCRIZIONE |
 | -------- | -------- | ----------- |
-| `repository` | Sì | URL completo, incluso `http://` o `https://`, del repository Git da clonare.|
+| `repository` | Yes | URL completo, incluso `http://` o `https://`, del repository Git da clonare.|
 | `directory` | No  | Directory in cui clonare il repository. Il percorso non deve contenere né iniziare con "`..`".  Se si specifica "`.`", il repository viene clonato nella directory del volume. In caso contrario il repository Git viene clonato in una sottodirectory del nome dato all'interno della directory del volume. |
 | `revision` | No  | Hash commit della revisione da clonare. Se non specificato, la revisione `HEAD` viene clonata. |
 
@@ -69,8 +69,7 @@ Per montare un volume gitRepo quando si distribuiscono le istanze di contenitore
 
 Ad esempio, il modello di Resource Manager seguente crea un gruppo di contenitori costituito da un solo contenitore. Il contenitore clona due repository GitHub specificati dai blocchi del volume *gitRepo*. Il secondo volume include proprietà aggiuntive che specificano una directory in cui eseguire la clonazione e l'hash commit di una revisione specifica da clonare.
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
-[!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json --> [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 La struttura della directory risultante dei due repository clonati definiti nel modello precedente è:
 
@@ -80,6 +79,28 @@ La struttura della directory risultante dei due repository clonati definiti nel 
 ```
 
 Per un esempio di distribuzione di istanze di contenitore con un modello di Azure Resource Manager, vedere [Deploy multi-container groups in Azure Container Instances](container-instances-multi-container-group.md) (Distribuire gruppi multicontenitore in istanze di contenitore Azure).
+
+## <a name="private-git-repo-authentication"></a>Autenticazione del repository privato
+
+Per montare un volume gitRepo per un repository Git privato, specificare le credenziali nell'URL del repository. In genere, le credenziali sono sotto forma di un nome utente e un token di accesso personale (PAT) che concede l'accesso con ambito al repository.
+
+Ad esempio, il parametro dell'interfaccia della riga di comando di Azure `--gitrepo-url` per un repository di GitHub privato sarà simile al seguente (dove "gituser" è il nome utente di GitHub e "abcdef1234fdsa4321abcdef" è il token di accesso personale dell'utente):
+
+```azurecli
+--gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
+```
+
+Per un repository Git di VSTS, specificare il nome utente (come nell'esempio seguente è possibile usare "vstsuser") in combinazione con un token di accesso personale valido:
+
+```azurecli
+--gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+```
+
+Per altre informazioni sui token di accesso personale per GitHub e VSTS, vedere gli argomenti seguenti:
+
+GitHub: [Creazione di un token di accesso personale per la riga di comando][pat-github]
+
+VSTS: [Creazione di token di accesso personale per autenticare l'accesso][pat-vsts]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -91,6 +112,8 @@ Informazioni su come montare altri tipi di volume in Istanze di contenitore di A
 
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
+[pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

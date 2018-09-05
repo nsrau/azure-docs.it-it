@@ -12,6 +12,8 @@ items:
     href: pim-roles.md
   - name: Accesso sicuro con privilegi
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: MFA e PIM
+    href: pim-how-to-require-mfa.md
   - name: Dashboard di panoramica
     href: pim-resource-roles-overview-dashboards.md
   - name: Notifiche tramite posta elettronica
@@ -42,32 +44,28 @@ items:
     items:
     - name: Assegnare ruoli
       href: pim-how-to-add-role-to-user.md
-    - name: Configurare le impostazioni dei ruoli
-      href: pim-how-to-change-default-settings.md
-    - name: Richiedere l'autenticazione MFA
-      href: pim-how-to-require-mfa.md
-    - name: Configurare gli avvisi
-      href: pim-how-to-configure-security-alerts.md
     - name: Approvare le richieste
       href: azure-ad-pim-approval-workflow.md
+    - name: Configurare le impostazioni dei ruoli
+      href: pim-how-to-change-default-settings.md
+    - name: Configurare gli avvisi
+      href: pim-how-to-configure-security-alerts.md
     - name: Visualizzare la cronologia di controllo
       href: pim-how-to-use-audit-log.md
   - name: Gestire i ruoli delle risorse
     items:
-    - name: Visualizzare gli utenti autorizzati ad accedere
-      href: azure-pim-resource-rbac.md
     - name: Assegnare ruoli
       href: pim-resource-roles-assign-roles.md
-    - name: Configurare le impostazioni dei ruoli
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Richiedere l'autenticazione MFA
-      href: pim-resource-roles-require-mfa.md
-    - name: Configurare gli avvisi
-      href: pim-resource-roles-configure-alerts.md
     - name: Approvare le richieste
       href: pim-resource-roles-approval-workflow.md
     - name: Estendere o rinnovare i ruoli
       href: pim-resource-roles-renew-extend.md
+    - name: Configurare le impostazioni dei ruoli
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Configurare gli avvisi
+      href: pim-resource-roles-configure-alerts.md
+    - name: Visualizzare gli utenti autorizzati ad accedere
+      href: azure-pim-resource-rbac.md
     - name: Visualizzare la cronologia di controllo
       href: pim-resource-roles-use-the-audit-log.md
     - name: Usare i ruoli personalizzati
@@ -91,9 +89,9 @@ items:
       - name: Completare una verifica di accesso
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 85abb73fa2b86c0f4901a28849d000ad42033572
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 3f42a0786cfa0d2e6caffccd6e84d5cc21d2d74c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43282914"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667779"

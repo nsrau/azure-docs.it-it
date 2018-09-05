@@ -103,6 +103,7 @@
 #### [Instradare i log attività a un hub eventi di Azure](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Archiviare i log attività in un account di archiviazione di Azure](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrare i log attività con Splunk usando Monitoraggio di Azure](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Integrare i log attività con SumoLogic usando Monitoraggio di Azure](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### riferimento
 #### [Conservazione](reports-monitoring/reference-reports-data-retention.md)
@@ -123,10 +124,6 @@
 #### [Uso dei certificati](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Gestire le password](authentication/concept-sspr-howitworks.md)
-### Documenti degli utenti
-#### [Reimpostare o modificare la password](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Registrarsi per la reimpostazione della password self-service](user-help/active-directory-passwords-reset-register.md)
-
 
 ## Gestire le app
 ### [Overview](manage-apps/what-is-application-management.md)
@@ -337,11 +334,9 @@
 ### [Gestione di programmi e controlli](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Recuperare i risultati della verifica di accesso](active-directory-azure-ad-controls-retrieve-access-review.md)
 
+## [Condizioni d'uso](active-directory-tou.md)
+
 ## Proteggere le identità
-### Autenticazione basata su certificati
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Introduzione](active-directory-certificate-based-authentication-get-started.md)
 
 ### Azure AD Identity Protection
 #### [Overview](identity-protection/overview.md)
