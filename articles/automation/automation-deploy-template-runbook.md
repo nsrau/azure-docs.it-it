@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell, runbook, json, automazione di azure
-ms.openlocfilehash: 6bc860e328d6968dedda5090bb9a817b9bba6b69
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: fe7a3632936e13a0762ebc0afcc357965e019146
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146229"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918607"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuire un modello di Azure Resource Manager in un runbook PowerShell di Automazione di Azure
 
@@ -29,7 +29,7 @@ In questo argomento si creerà un runbook PowerShell che usa un modello di Resou
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-account/" target="_blank">[iscriversi per ottenere un account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure [iscriversi per ottenere un account gratuito](https://azure.microsoft.com/free/).
 * [Account di Automazione](automation-sec-configure-azure-runas-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure.  Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
 * [Account di Archiviazione di Azure](../storage/common/storage-create-storage-account.md) in cui archiviare il modello di Resource Manager
 * Azure Powershell installato in un computer locale. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0).
