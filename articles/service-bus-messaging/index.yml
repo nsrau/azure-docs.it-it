@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 00484fd11d1bf7a25b5e6cd8029366794e44c16c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695296"
 documentType: LandingData
 title: Documentazione sulla messaggistica del bus di servizio di Azure
 metadata:
@@ -6,20 +12,14 @@ metadata:
   title: Documentazione sulla messaggistica del bus di servizio di Azure - Esercitazioni, guide introduttive e informazioni di riferimento sulle API
   meta.description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
   services: service-bus-messaging
-  author: sethmanheim
-  manager: timlt
+  author: spelluru
+  manager: femila
   ms.service: service-bus-messaging
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/16/2018
-  ms.author: sethm
-  ms.openlocfilehash: 7746b2259f4c4c411e52d236f9734825355750d5
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34648592"
+  ms.author: spelluru
 abstract:
   description: Il bus di servizio di Azure è un servizio di messaggistica multi-tenant che invia informazioni tra applicazioni e servizi. Le operazioni asincrone offrono messaggistica negoziata flessibile, insieme a funzionalità di messaggistica e pubblicazione/sottoscrizione FIFO (First-In-First-Out) strutturate.
   aside:
@@ -82,7 +82,7 @@ sections:
     items:
     - html: <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/Management">Azure PowerShell</a>
     - html: <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/Management">Interfaccia della riga di comando di Azure</a>
-- title: Riferimenti
+- title: riferimento
   items:
   - type: list
     style: cards
