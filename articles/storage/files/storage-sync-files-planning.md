@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617193"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247396"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -67,18 +67,66 @@ La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincron
 > [!Important]  
 > La suddivisione in livelli cloud non è supportata per gli endpoint server nei volumi di sistema Windows.
 
-## <a name="azure-file-sync-interoperability"></a>Interoperabilità di Sincronizzazione file di Azure 
-Questa sezione illustra l'interoperabilità di Sincronizzazione file di Azure con funzionalità e ruoli di Windows Server e soluzioni di terze parti.
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisiti di sistema e interoperabilità di Sincronizzazione file di Azure 
+Questa sezione illustra l'interoperabilità e i requisiti di sistema dell'agente di Sincronizzazione file di Azure con funzionalità e ruoli di Windows Server e soluzioni di terze parti.
 
-### <a name="supported-versions-of-windows-server"></a>Versioni di Windows Server supportate
-Le versioni di Windows Server attualmente supportate da Sincronizzazione file di Azure sono:
+### <a name="evaluation-tool"></a>Strumento di valutazione
+Prima di distribuire la Sincronizzazione file di Azure, è opportuno valutare se è compatibile con il sistema tramite lo strumento di valutazione di Sincronizzazione file di Azure. Questo strumento è un cmdlet di AzureRM di PowerShell che consente di rilevare potenziali problemi con il file system e il set di dati, ad esempio caratteri non supportati o versione del sistema operativo non supportata. Si noti che i controlli coprono la maggior parte delle funzionalità indicate di seguito, sebbene non tutte; è consigliabile leggere tutta la sezione con attenzione per assicurarsi che la distribuzione avvenga senza correttamente. 
 
-| Version | SKU supportati | Opzioni di distribuzione supportate |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
-| Windows Server 2012 R2 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
+#### <a name="download-instructions"></a>Istruzioni per il download
+1. Assicurarsi di avere installato la versione più recente dei moduli PackageManagement e PowerShellGet (in questo modo è possibile installare i moduli in anteprima)
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. Riavviare PowerShell
+3. Installare i moduli
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
 
-Le versioni future di Windows Server verranno aggiunte non appena verranno rilasciate. Le versioni precedenti di Windows possono essere aggiunte in base ai commenti e ai suggerimenti degli utenti.
+#### <a name="usage"></a>Uso  
+È possibile richiamare lo strumento di valutazione in modi diversi: è possibile eseguire i controlli di sistema, i controlli dei set di dati o entrambi. Per eseguire i controlli di sistema e del set di dati: 
+
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+Per testare solo il set di dati:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+Per testare solo i requisiti di sistema:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+Per visualizzare i risultati in CSV:
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
+
+### <a name="system-requirements"></a>Requisiti di sistema
+- Un server in cui è eseguito Windows Server 2012 R2 o Windows Server 2016 
+
+    | Version | SKU supportati | Opzioni di distribuzione supportate |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
+    | Windows Server 2012 R2 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
+
+    Le versioni future di Windows Server verranno aggiunte non appena verranno rilasciate. Le versioni precedenti di Windows possono essere aggiunte in base ai commenti e ai suggerimenti degli utenti.
+
+- Un server con un minimo di 2 GB di memoria
+
+    > [!Important]  
+    > Se il server è in esecuzione in una macchina virtuale con memoria dinamica abilitata, la macchina virtuale deve essere configurata con un minimo di 2048 MB di memoria.
+    
+- Un volume collegato al computer locale formattato con il file system NTFS
 
 > [!Important]  
 > È consigliabile mantenere aggiornati tutti i server usati con Sincronizzazione file di Azure in base agli aggiornamenti più recenti disponibili in Windows Update. 

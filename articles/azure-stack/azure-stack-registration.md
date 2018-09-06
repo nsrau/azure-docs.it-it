@@ -12,19 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247824"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841931"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
 La registrazione di Azure Stack con Azure consente di scaricare elementi di marketplace di Azure e per impostare i dati di e-commerce segnalazioni a Microsoft. Dopo la registrazione di Azure Stack, viene segnalato l'utilizzo di e-commerce di Azure e può essere visualizzato con la sottoscrizione usata per la registrazione.
+
+Le informazioni contenute in questo articolo descrivono la registrazione di sistemi integrati di Azure Stack con Azure. Per informazioni sulla registrazione di ASDK con Azure, vedere [registrazione di Azure Stack](.\asdk\asdk-register.md) nella documentazione di ASDK.
 
 > [!IMPORTANT]  
 > È necessario eseguire la registrazione per supportare la funzionalità di Azure Stack completa, compresa l'offerta nel marketplace di elementi. Inoltre, sarà in violazione delle condizioni di licenza, se non si registrano quando si usa il modello di fatturazione di come è a pagamento di Azure Stack. Per altre informazioni sui modelli di licenza di Azure Stack, vedere la [modalità di acquisto pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
@@ -58,7 +60,7 @@ Prima di registrare Azure Stack con Azure, è necessario disporre di:
 
 ### <a name="powershell-language-mode"></a>Modalità di linguaggio di PowerShell
 
-Per registrare correttamente Azure Stack, la modalità di linguaggio di PowerShell deve essere impostata su **FullLanguageMode**.  Per verificare che la modalità linguaggio corrente è impostata su full, aprire una finestra di PowerShell con privilegi elevata ed eseguire dei cmdlet di PowerShell seguenti:
+Per registrare correttamente Azure Stack, la modalità di linguaggio di PowerShell deve essere impostata su **FullLanguageMode**.  Per verificare che la modalità linguaggio corrente è impostata su full, aprire una finestra di PowerShell con privilegi elevata ed eseguire i cmdlet di PowerShell seguenti:
 
 ```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
@@ -100,7 +102,7 @@ Usare questi passaggi per registrare Azure Stack con Azure usando il modello di 
 
 Ambienti connessi possono accedere a internet e Azure. Per questi ambienti, è necessario registrare il provider di risorse di Azure Stack con Azure e quindi configurare il modello di fatturazione.
 
-1. Per registrare il provider di risorse di Azure Stack con Azure, avviare PowerShell ISE come amministratore e utilizzare dei cmdlet di PowerShell seguenti con il **EnvironmentName** parametro impostato sul tipo di sottoscrizione Azure appropriata (vedere parametri seguenti).
+1. Per registrare il provider di risorse di Azure Stack con Azure, avviare PowerShell ISE come amministratore e usare i cmdlet di PowerShell seguenti con il **EnvironmentName** parametro impostato sul tipo di sottoscrizione Azure appropriata (vedere parametri seguenti).
 
 2. Aggiungere l'account di Azure da usare per registrarsi in Azure Stack. Per aggiungere l'account, eseguire la **Add-AzureRmAccount** cmdlet. Viene chiesto di immettere le credenziali dell'account amministratore globale di Azure e potrebbe essere necessario usare l'autenticazione a 2 fattori in base alla configurazione dell'account.
 
@@ -160,7 +162,7 @@ Usare questi passaggi per registrare Azure Stack con Azure usando il modello di 
 
 Ambienti connessi possono accedere a internet e Azure. Per questi ambienti, è necessario registrare il provider di risorse di Azure Stack con Azure e quindi configurare il modello di fatturazione.
 
-1. Per registrare il provider di risorse di Azure Stack con Azure, avviare PowerShell ISE come amministratore e utilizzare dei cmdlet di PowerShell seguenti con il **EnvironmentName** parametro impostato sul tipo di sottoscrizione Azure appropriata (vedere parametri seguenti).
+1. Per registrare il provider di risorse di Azure Stack con Azure, avviare PowerShell ISE come amministratore e usare i cmdlet di PowerShell seguenti con il **EnvironmentName** parametro impostato sul tipo di sottoscrizione Azure appropriata (vedere parametri seguenti).
 
 2. Aggiungere l'account di Azure da usare per registrarsi in Azure Stack. Per aggiungere l'account, eseguire la **Add-AzureRmAccount** cmdlet. Viene chiesto di immettere le credenziali dell'account amministratore globale di Azure e potrebbe essere necessario usare l'autenticazione a 2 fattori in base alla configurazione dell'account.
 
@@ -213,7 +215,7 @@ Se si sta registrando Azure Stack in un ambiente disconnesso (con nessuna connet
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Per ottenere il token di registrazione, eseguire dei cmdlet di PowerShell seguenti:  
+2. Per ottenere il token di registrazione, eseguire i cmdlet di PowerShell seguenti:  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
@@ -250,7 +252,7 @@ Facoltativamente, è possibile usare il cmdlet Get-Content per puntare a un file
 
 Successivamente, è necessario recuperare una chiave di attivazione dalla risorsa di registrazione creata in Azure durante la registrazione AzsEnvironment.
 
-Per ottenere la chiave di attivazione, esecuzione dei cmdlet di PowerShell seguenti:  
+Per ottenere la chiave di attivazione, eseguire i cmdlet di PowerShell seguenti:  
 
   ```Powershell
   $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
@@ -263,7 +265,7 @@ Per ottenere la chiave di attivazione, esecuzione dei cmdlet di PowerShell segue
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Crea una risorsa di attivazione in Azure Stack
 
-Tornare all'ambiente di Azure Stack con il file o il testo dalla chiave di attivazione creata da Get-AzsActivationKey. Si creerà una risorsa di attivazione in Azure Stack tramite tale chiave di attivazione. Per creare una risorsa di attivazione, esecuzione dei cmdlet di PowerShell seguenti:  
+Tornare all'ambiente di Azure Stack con il file o il testo dalla chiave di attivazione creata da Get-AzsActivationKey. Si creerà una risorsa di attivazione in Azure Stack tramite tale chiave di attivazione. Per creare una risorsa di attivazione, eseguire i cmdlet di PowerShell seguenti:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -329,13 +331,13 @@ Se si desidera modificare il modello di fatturazione o come offrono funzionalit�
 
 È necessario innanzitutto rimuovere la risorsa di attivazione da Azure Stack e quindi la risorsa di registrazione in Azure.  
 
-Per rimuovere la risorsa di attivazione in Azure Stack, esecuzione dei cmdlet di PowerShell seguenti nell'ambiente Azure Stack:  
+Per rimuovere la risorsa di attivazione in Azure Stack, eseguire i cmdlet di PowerShell seguenti nell'ambiente Azure Stack:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Successivamente, per rimuovere la risorsa di registrazione in Azure, assicurarsi di usare un'istanza di Azure connesse computer, accedere al contesto di Azure PowerShell corretto ed eseguire l'appropriata dei cmdlet di PowerShell come descritto di seguito.
+Successivamente, per rimuovere la risorsa di registrazione in Azure, assicurarsi di usare un'istanza di Azure connesse computer, accedere al contesto di Azure PowerShell corretto ed eseguire i cmdlet di PowerShell appropriati come descritto di seguito.
 
 È possibile usare il token di registrazione utilizzato per creare la risorsa:  
 
@@ -386,6 +388,8 @@ Per gli ambienti Azure Stack che usano un modello di fatturazione di capacità, 
 
 2. Salvare questo token di registrazione per l'uso in Azure connessa macchina. È possibile copiare il file o il testo da $FilePathForRegistrationToken.
 
+## <a name="move-a-registration-resource"></a>Spostare una risorsa di registrazione
+Lo spostamento di una risorsa di registrazione tra gruppi di risorse nella stessa sottoscrizione **è** supportato per tutti gli ambienti. Tuttavia, lo spostamento di una risorsa di registrazione tra sottoscrizioni è supportato solo per i CSP quando entrambe le sottoscrizioni di risolvere per lo stesso ID di Partner. Per altre informazioni sullo spostamento delle risorse in un nuovo gruppo di risorse, vedere [spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="registration-reference"></a>Riferimento di registrazione
 

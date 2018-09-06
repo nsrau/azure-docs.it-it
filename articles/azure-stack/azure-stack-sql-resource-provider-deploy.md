@@ -11,18 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d33ca1a4ab08ab25855f8b3992157ad3d086a180
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139496"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842041"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuire il provider di risorse di SQL Server in Azure Stack
+
 Usare il provider di risorse di Server SQL di Azure Stack per esporre i database SQL come servizio di Azure Stack. Il provider di risorse SQL viene eseguito come servizio in una macchina virtuale di Windows Server 2016 Server Core (VM).
+
+> [!IMPORTANT]
+> È supportato solo il provider di risorse per creare gli elementi nei server di tale host SQL o MySQL. Gli elementi creati in un server host che non vengono creati dal provider di risorse potrebbe essere in uno stato non corrispondente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,13 +34,12 @@ Esistono diversi prerequisiti che devono essere presenti prima di poter distribu
 
 - Se non è già fatto, [registrare Azure Stack](azure-stack-registration.md) con Azure in modo che è possibile scaricare elementi di Azure marketplace.
 - È necessario installare i moduli di Azure e PowerShell per Azure Stack nel sistema in cui si eseguirà l'installazione. Che il sistema deve essere un'immagine di Windows 10 o Windows Server 2016 con la versione più recente del runtime .NET. Visualizzare [installare PowerShell per Azure Stack](.\azure-stack-powershell-install.md).
-- Aggiungere la macchina virtuale a core Windows Server necessaria nel Marketplace di Azure Stack, scaricare il **Windows Server 2016 Datacenter, Server Core** immagine. 
-- Scaricare il provider di risorse SQL binario e quindi eseguire il programma di autoestrazione per estrarre il contenuto in una directory temporanea. Il provider di risorse dispone di uno Stack di Azure corrispondente minimo di compilazione. Assicurarsi di che scaricare il file binario corretto per la versione di Azure Stack che si sta eseguendo:
+- Aggiungere la macchina virtuale a core Windows Server necessaria nel Marketplace di Azure Stack, scaricare il **Windows Server 2016 Datacenter, Server Core** immagine.
+- Scaricare il provider di risorse SQL binario e quindi eseguire il programma di autoestrazione per estrarre il contenuto in una directory temporanea. Il provider di risorse dispone di uno Stack di Azure corrispondente minimo di compilazione.
 
-    |Versione di Azure Stack|Versione di SQL RP|
+    |Versione minima di Azure Stack|Versione di SQL RP|
     |-----|-----|
-    |Versione 1804 (1.0.180513.1)|[SQL RP versione 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
-    |Versione 1802 (1.0.180302.1)|[SQL RP versione 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |Versione 1804 (1.0.180513.1)|[SQL RP versione 1.1.24.0](https://aka.ms/azurestacksqlrp)
     |     |     |
 
 - Assicurarsi che siano soddisfatti i prerequisiti di integrazione di Data Center:
@@ -45,7 +48,7 @@ Esistono diversi prerequisiti che devono essere presenti prima di poter distribu
     |-----|-----|
     |Inoltro condizionale DNS sia impostata correttamente.|[Integrazione di Data Center Azure Stack - DNS](azure-stack-integrate-dns.md)|
     |Porte in ingresso per i provider di risorse sono aperte.|[Azure Stack datacenter integration - pubblicano endpoint](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |Soggetto del certificato PKI e SAN siano impostata correttamente.|[Prerequisiti di infrastruttura a chiave pubblica di Azure Stack deployment obbligatori](azure-stack-pki-certs.md#mandatory-certificates)<br>[Prerequisiti di Azure Stack distribuzione PaaS certificato](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |Soggetto del certificato PKI e SAN siano impostata correttamente.|[I prerequisiti di infrastruttura a chiave pubblica di Azure Stack distribuzione obbligatori](azure-stack-pki-certs.md#mandatory-certificates)[prerequisiti di Azure Stack distribuzione PaaS certificato](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certificati
@@ -80,6 +83,7 @@ Eseguire lo script DeploySqlProvider.ps1, che completa le attività seguenti:
 | **AzCredential** | Le credenziali per l'account di amministratore del servizio di Azure Stack. Usare le stesse credenziali usate per la distribuzione di Azure Stack. | _Obbligatorio_ |
 | **VMLocalCredential** | Le credenziali per l'account amministratore locale del provider di risorse SQL macchina virtuale. | _Obbligatorio_ |
 | **PrivilegedEndpoint** | L'indirizzo IP o nome DNS dell'endpoint con privilegi. |  _Obbligatorio_ |
+| **AzureEnvironment** | Ambiente di azure dell'account di amministratore del servizio che usato per la distribuzione di Azure Stack. Obbligatorio solo se non è ad FS. I nomi di ambiente supportati sono **AzureCloud**, **AzureUSGovernment**, o se si usa un China Azure Active Directory **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Per i sistemi integrati, i file con estensione pfx del certificato deve trovarsi in questa directory. È facoltativamente possibile copiare un pacchetto di Windows Update MSU qui. | _Facoltativo_ (_obbligatorio_ per i sistemi integrati) |
 | **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx. | _Obbligatorio_ |
 | **MaxRetryCount** | Il numero di volte in cui che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
@@ -143,8 +147,8 @@ Al termine dello script di installazione provider di risorse, aggiornare il brow
 2. Selezionare **gruppi di risorse**.
 3. Selezionare il **system.\< ubicazione\>.sqladapter** gruppo di risorse.
 4. Nella pagina di riepilogo per il gruppo di risorse panoramica, non dovrebbe esserci alcun distribuzioni non riuscite.
-
       ![Verificare la distribuzione del provider di risorse SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. Selezionare infine **macchine virtuali** nel portale di amministrazione per verificare che il provider di risorse della macchina virtuale di SQL è stato correttamente creato e sia in esecuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

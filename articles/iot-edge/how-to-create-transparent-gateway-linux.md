@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f54001c26938ea508111542b930b189342303633
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186863"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247684"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creare un dispositivo IoT Edge Linux come gateway trasparente
 
@@ -80,9 +80,9 @@ La procedura seguente illustra il processo di creazione e installazione dei cert
    >[!NOTE]
    > **NON** usare un nome corrispondente al nome host DNS del gateway, altrimenti la certificazione client a fronte di questi certificati avrà esito negativo.
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+   ```cmd
+   ./certGen.sh create_edge_device_certificate "<gateway device name>"
+   ```
 
    L'esecuzione degli script genera la chiave e i certificati seguenti:
    * `$WRKDIR/certs/new-edge-device.*`
@@ -101,15 +101,21 @@ Con il comando seguente è possibile creare una catena di certificati partendo d
    * Certificato della CA del dispositivo: `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * Chiave privata della CA del dispositivo: `$WRKDIR/private/new-edge-device.key.pem`
    * CA proprietaria: `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. Aprire il file di configurazione di IoT Edge. Poiché è un file protetto, potrebbe essere necessario usare privilegi elevati per accedervi.
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.  Impostare le proprietà `certificate` del file YAML di configurazione del daemon di sicurezza sul percorso in cui sono stati inseriti i file di chiave e di certificato.
+3.  Impostare le proprietà `certificate` del file YAML di configurazione del daemon di Iot Edge sul percorso in cui sono stati inseriti i file di chiave e di certificato.
 
-```yaml
-certificates:
-  device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
+     device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
+     trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
+   ```
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Distribuire Hub Edge nel gateway
 Una delle principali funzionalità di Azure IoT Edge è la possibilità di distribuire i moduli nei dispositivi IoT Edge dal cloud. Questa sezione consente di creare una distribuzione apparentemente vuota. Hub Edge, tuttavia, viene automaticamente aggiunto a tutte le distribuzioni anche se non sono presenti altri moduli. Hub Edge è l'unico modulo necessario per consentire a un dispositivo Edge di svolgere la funzione di gateway trasparente. È quindi sufficiente creare una distribuzione vuota. 

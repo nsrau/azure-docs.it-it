@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 33b0f5df57623f0b4433a4a09c7cd15688783485
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 04c8f43e3b484ceeb942ae13ea95baf7f0215b53
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191426"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344836"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta quattro diversi stili predefiniti. Di seguito sono elencati gli stili e le relative descrizioni.
@@ -52,4 +52,4 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **API idonee:**
-* Controllo mappa JS
+* Controllo mappa JS 
