@@ -3,19 +3,19 @@ title: Limiti di capacità - Azure SQL Data Warehouse | Microsoft Docs
 description: Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.
 services: sql-data-warehouse
 author: sachinpMSFT
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 07/26/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: df3220936673e508e0fa01a283270e1b4ca4753c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7c6445624b2c03497c881b0c34bac8256fa28a98
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283436"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302044"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limiti di capacità di SQL Data Warehouse
 Valori massimi consentiti per vari componenti di SQL Data Warehouse di Azure.

@@ -3,19 +3,19 @@ title: Note sulla versione di Azure SQL Data Warehouse - Agosto 2018 | Microsoft
 description: Note sulla versione di Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/06/2018
+ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 1f3b17f3163c29f9b9e1e47e14ccdbc1e37e1010
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c52fcd544e22c274d0e9053da93d2b9dee0df695
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39633657"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286633"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Novità di Azure SQL Data Warehouse Agosto 2018
 Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo illustra le nuove funzionalità e le modifiche introdotte nel mese di agosto 2018.
@@ -26,6 +26,15 @@ Microsoft ha introdotto le [analisi intelligenti automatiche](https://azure.micr
 È possibile visualizzare i consigli nel portale di Azure Advisor: ![Azure Advisor Portal Recommendations for Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/4e205b6d-df04-48db-8eec-d591f2592cf4.png) (Consigli nel portale di Azure Advisor per Azure SQL Data Warehouse)
 
 È possibile esaminare ogni categoria per visualizzare i consigli per l'avviso specifico: ![Azure Advisor Portal Recommendation Details for Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/3c42426e-6969-46e3-9025-c34c0755a302.png) (Dettagli dei consigli nel portale di Azure Advisor per Azure SQL Data Warehouse)
+
+
+## <a name="bug-fixes"></a>Correzioni di bug
+
+| Title | DESCRIZIONE |
+|:---|:---|
+| **Errori potenziali relativi alle query quando il numero di suddivisioni supera il limite massimo** |Quando veniva raggiunto il limite superiore di 1 milione di suddivisioni di file, un'eccezione non gestita causava il dump del motore SQL e le query non riuscivano. Questa correzione consente di risolvere il problema gestendo l'eccezione nel modo corretto e restituendo un errore senza impedire di eseguire le query. |
+| **Il valore predefinito di ExternalMoveReadersPerNode è stato aumentato per migliorare le prestazioni di caricamento** |Questo problema era causato dall'impostazione della proprietà ExternalMoveReadersPerNode che non era sincronizzata con l'impostazione di Service Fabric. Questa regressione comportava delle prestazioni ridotte di caricamento della seconda generazione. La correzione riporta le prestazioni di caricamento della seconda generazione ai parametri di progettazione ottimizzati.|
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un SQL Data Warehouse][create a SQL Data Warehouse] rapidamente. Se non si ha familiarità con Azure, il [glossario di Azure][Azure glossary] può essere utile quando si incontrano termini nuovi. Oppure vedere alcune delle altre risorse disponibili per SQL Data Warehouse.  

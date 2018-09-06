@@ -2,20 +2,20 @@
 title: Guida introduttiva - Inviare e ricevere messaggi da e verso il bus di servizio di Azure | Microsoft Docs
 description: In questa guida introduttiva viene illustrato come inviare e ricevere i messaggi del bus di servizio usando PowerShell e il client .NET Standard
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: b22bf2acc83f46eda1aa74981377e66261d13394
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 5652069e7a81f54936a41ddb563b49fe6131e7e0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660546"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696837"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Guida introduttiva: Inviare e ricevere messaggi usando Azure PowerShell e .NET
 
@@ -27,7 +27,7 @@ Questa guida introduttiva illustra come inviare e ricevere messaggi verso e da u
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito][] prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, accertarsi di avere installato:
 

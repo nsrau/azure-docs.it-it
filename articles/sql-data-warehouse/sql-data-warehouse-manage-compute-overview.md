@@ -3,19 +3,19 @@ title: Gestire risorse di calcolo in Azure SQL Data Warehouse | Microsoft Docs
 description: Informazioni sulle funzionalità di scalabilità orizzontale per le prestazioni in Azure SQL Data Warehouse. Applicare la scalabilità orizzontale modificando le DWU o ridurre i costi tramite la sospensione delle funzioni di data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca6d34d3b670bfd05a9b65fe9e6b260120e3a5b8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 53a801a367e6948c3070224b7ff36a013a1faab3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528495"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300851"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gestire le risorse di calcolo in Azure SQL Data Warehouse
 Informazioni sulla gestione delle risorse di calcolo in Azure SQL Data Warehouse. Ridurre i costi sospendendo il data warehouse o ridimensionare il data warehouse per soddisfare le esigenze in termini di prestazioni. 

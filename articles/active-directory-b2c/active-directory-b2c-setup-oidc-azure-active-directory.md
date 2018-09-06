@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 70d3a19b715052fe658102929a1c29cf3db2d595
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e09ad89f3225af9de40781fafc022c8326f80619
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443729"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338639"
 ---
 # <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C: accedere usando account di Azure AD tramite un criterio predefinito
 
@@ -37,13 +37,13 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 1. Selezionare **Registrazione nuova applicazione**.
 1. Immettere un nome per l'applicazione, ad esempio `Azure AD B2C App`.
 1. Selezionare **App Web/API** per il tipo di applicazione.
-1. Per **URL accesso** immettere l'URL seguente, dove `yourtenant` viene sostituito dal nome del tenant di Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+1. Per **URL accesso** immettere l'URL seguente, dove `yourtenant` viene sostituito dal nome del tenant di Azure AD B2C (`fabrikamb2c`):
 
     >[!NOTE]
     >Il valore di "yourtenant" deve essere in formato minuscolo in **URL accesso**.
 
     ```Console
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Salvare l'ID applicazione che verrà usato nella sezione successiva come ID client.

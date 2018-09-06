@@ -3,7 +3,7 @@ title: Introduzione agli argomenti e alle sottoscrizioni del bus di servizio di 
 description: Scrivere un'applicazione console C# .NET Core che usa gli argomenti e le sottoscrizioni di messaggistica del bus di servizio.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 07/03/2018
-ms.author: sethm
-ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: c53e0c16f6b1fd8a79f864651f5aae97af886b96
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38298963"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699601"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 

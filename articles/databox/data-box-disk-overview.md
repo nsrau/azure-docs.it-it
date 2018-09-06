@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Microsoft Azure Data Box Disk | Microsoft Docs in dati
+title: Panoramica di Microsoft Azure Data Box Disk | Microsoft Docs
 description: Descrive Azure Data Box Disk, una soluzione cloud che consente di trasferire grandi quantità di dati in Azure
 services: databox
 documentationcenter: NA
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 22211f52f6b9a16f785cacb9364ebe5b74617453
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b1beb0e9a5a0435bdf298eddbefc230b2f95ed0a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126627"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698503"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Che cos'è Azure Data Box Disk? (Anteprima)
 
@@ -32,7 +32,7 @@ La soluzione Microsoft Azure Data Box Disk consente di inviare terabyte di dati 
 > [!IMPORTANT]
 > - Data Box Disk è disponibile in anteprima. Prima di distribuire questa soluzione, esaminare le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > - È necessario effettuare l'iscrizione per il servizio. Per effettuare l'iscrizione, accedere al [portale di anteprima](http://aka.ms/azuredataboxfromdiskdocs).
-> - Durante l'anteprima, Data Box Disk può essere distribuito ai clienti negli Stati Uniti e nell'Unione Europea. Per altre informazioni, passare a [Disponibilità a livello di area](#region-availability).
+> - Durante l'anteprima, Data Box Disk può essere distribuito ai clienti negli Stati Uniti e nell'Unione Europea. Per altre informazioni, vedere [Disponibilità a livello di area](#region-availability).
 
 ## <a name="use-cases"></a>Casi d'uso
 
@@ -106,12 +106,14 @@ Durante l'anteprima Data Box Disk può trasferire dati nelle aree di Azure segue
 
 |Area di Azure  |Area di Azure  |
 |---------|---------|
-|Stati Uniti centro-occidentali     |Stati Uniti centro-settentrionali         |        
-|Stati Uniti occidentali 2     | Stati Uniti orientali          |     
-|Stati Uniti occidentali     | Stati Uniti Orientali 2           |      
-|Stati Uniti centro-meridionali   | Europa occidentale       |         
-|Stati Uniti centrali     | Europa settentrionale |
-
+|Stati Uniti centro-occidentali     |Canada centrale       |        
+|Stati Uniti occidentali 2     |Canada orientale         |     
+|Stati Uniti occidentali     | Europa occidentale        |      
+|Stati Uniti centro-meridionali   |Europa settentrionale     |         
+|Stati Uniti centrali     |Australia orientale|
+|Stati Uniti centro-settentrionali  |Australia sud-orientale   |
+|Stati Uniti orientali      |Australia centrale |
+|Stati Uniti Orientali 2     |Australia centrale 2|
 
 
 ## <a name="pricing"></a>Prezzi
@@ -120,6 +122,6 @@ Durante l'anteprima Data Box Disk è disponibile gratuitamente. Questo cambierà
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Rivedere i [requisiti di Data Box Disk](data-box-disk-system-requirements.md).
+- Rivedere i [requisiti per Data Box Disk](data-box-disk-system-requirements.md).
 - Comprendere i [limiti di Data Box Disk](data-box-disk-limits.md).
 - Distribuire rapidamente [Azure Data Box Disk](data-box-disk-quickstart-portal.md) nel portale di Azure.

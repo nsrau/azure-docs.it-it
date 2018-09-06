@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142888"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287759"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Eseguire query sui dati di Azure Cosmos DB con query SQL
 
@@ -27,17 +27,7 @@ Microsoft Azure Cosmos DB supporta l'esecuzione di query di documenti mediante S
 
 * Azure Cosmos DB usa il modello di programmazione di JavaScript come base per il linguaggio di query. L'API SQL è radicata nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso i documenti JSON, i self join, query spaziali e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità. 
 
-Questo articolo illustra alcuni esempi di query SQL usando semplici documenti JSON. Per altre informazioni sulla sintassi del linguaggio SQL di Azure Cosmos DB, vedere l’articolo [Riferimento alla sintassi SQL](sql-api-sql-query-reference.md). È possibile inoltre iniziare guardando i video seguenti che illustrano Azure Cosmos DB, le funzionalità di query e la dimostrazione di [Query Playground](http://www.documentdb.com/sql/demo) online.
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-In questo video di approfondimento vengono illustrate tecniche di query più avanzate:
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
+Questo articolo illustra alcuni esempi di query SQL usando semplici documenti JSON. Per altre informazioni sulla sintassi del linguaggio SQL di Azure Cosmos DB, vedere l’articolo [Riferimento alla sintassi SQL](sql-api-sql-query-reference.md). 
 
 ## <a id="GettingStarted"></a> Introduzione ai comandi di SQL
 Creare due semplici documenti JSON ed eseguire query su tali dati. Prendere in considerazione due documenti JSON come famiglie, inserire i documenti JSON in una raccolta e successivamente eseguire una query dei dati. In questo caso è illustrato un semplice documento JSON relativo alle famiglie Andersen e Wakefield: i genitori, i figli (e i loro animali domestici), l'indirizzo e le informazioni di registrazione. Il documento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate. 

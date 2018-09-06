@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate relative alle prestazioni per SQL Server in Azure | Microsoft Docs
-description: In questo argomento vengono fornite le procedure consigliate per ottimizzare le prestazioni di SQL Server in Macchine virtuali di Microsoft Azure.
+title: Linee guida relative alle prestazioni per SQL Server in Azure | Microsoft Docs
+description: Questo argomento descrive le linee guida per ottimizzare le prestazioni di SQL Server in Macchine virtuali di Microsoft Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/19/2018
+ms.date: 08/24/2018
 ms.author: jroth
-ms.openlocfilehash: a7a24bde6cc34befee7de3bcbf13b96c8b641af2
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 3a61c20b922b60e3135d9f9e53928462887a602e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888909"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886186"
 ---
-# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure
+# <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Linee guida sulle prestazioni per SQL Server in Macchine virtuali di Azure
 
 ## <a name="overview"></a>Panoramica
 

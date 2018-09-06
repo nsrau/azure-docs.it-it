@@ -3,7 +3,7 @@ title: Guida introduttiva per imparare a usare il servizio Azure SignalR | Micro
 description: Una guida introduttiva per usare il servizio Azure SignalR per la creazione di una chat room con le app ASP.NET Core MVC.
 services: signalr
 documentationcenter: ''
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
-ms.author: wesmc
-ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: zhshang
+ms.openlocfilehash: 398ba001bfe9c8b2dd77b66535f5cb4aaf5f6270
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674853"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667349"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guida introduttiva: Creare una chat room con il servizio SignalR
 
@@ -39,7 +39,7 @@ Il codice per questa esercitazione è disponibile per il download nel [repositor
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Installare [.NET Core SDK](https://www.microsoft.com/net/download/windows).
 * Scaricare o clonare il repository GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples). 
@@ -93,15 +93,20 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
 
         dotnet restore
 
-3. Aggiungere un segreto denominato *Azure__SignalR__ConnectionString* a Secret Manager. Questo segreto è un valore di configurazione gerarchica, quindi i due punti (:) potrebbero non funzionare su tutte le piattaforme. Il doppio carattere di sottolineatura (__), come quello usato da questo segreto, è supportato da tutte le piattaforme.  Questo segreto conterrà la stringa di connessione per accedere alla risorsa del servizio SignalR. *Azure__SignalR__ConnectionString* è la chiave di configurazione predefinita che SignalR cerca per stabilire una connessione. Sostituire il valore nel comando seguente con la stringa di connessione per la risorsa del servizio SignalR.
+3. Aggiungere un segreto denominato *Azure:SignalR:ConnectionString* a Secret Manager. 
+
+    Questo segreto conterrà la stringa di connessione per accedere alla risorsa del servizio SignalR. *Azure:SignalR:ConnectionString* è la chiave di configurazione predefinita che SignalR cerca per stabilire una connessione. Sostituire il valore nel comando seguente con la stringa di connessione per la risorsa del servizio SignalR.
 
     Questo comando deve essere eseguito nella stessa directory del file con estensione *csproj*.
 
     ```
-    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager verrà usato solo per il test dell'app Web mentre è ospitato in locale. In un'esercitazione successiva si distribuirà l'app Web di chat in Azure. Dopo la distribuzione dell'app Web in Azure, sarà possibile usare un'impostazione dell'applicazione invece di archiviare la stringa di connessione con Secret Manager.
+
+    È possibile accedere al segreto con l'API di configurazione. Con l'API di configurazione è possibile usare i due punti (:) nel nome di configurazione in tutte le piattaforme supportate. Vedere [configurazione dall'ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment). 
+
 
 4. Aprire *Startup.cs* e aggiornare il metodo `ConfigureServices` per usare il servizio Azure SignalR chiamando il metodo `services.AddSignalR().AddAzureSignalR()`:
 
@@ -113,7 +118,7 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
     }
     ```
 
-    Non passando un parametro a `AddAzureSignalR()`, questo codice usa la chiave di configurazione predefinita, *Azure__SignalR__ConnectionString*, per la stringa di connessione della risorsa del servizio SignalR.
+    Non passando un parametro a `AddAzureSignalR()`, questo codice usa la chiave di configurazione predefinita, *Azure:SignalR:ConnectionString*, per la stringa di connessione della risorsa del servizio SignalR.
 
 5. Sempre in *Startup.cs*, aggiornare il metodo `Configure` sostituendo la chiamata a `app.UseStaticFiles()` con il codice seguente e salvare il file.
 

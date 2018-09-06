@@ -3,19 +3,19 @@ title: Procedure consigliate per Azure SQL Data Warehouse | Microsoft Docs
 description: Indicazioni e procedure consigliate da conoscere per lo sviluppo di soluzioni per Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/18/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c39adbfbb85173f7ac3fa129e7551efab6ddefd6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 81fd5ea082fe05c9908b2eb0689aba9a4fe4e789
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798693"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307133"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Procedure consigliate per Azure SQL Data Warehouse
 Questo articolo è una raccolta di procedure consigliate che consentono di ottenere prestazioni ottimali da Azure SQL Data Warehouse.  Alcuni concetti in questo articolo sono basilari e facili da spiegare, mentre altri sono più avanzati e verranno solo analizzati brevemente.  Lo scopo dell'articolo è quello di offrire alcune indicazioni di base e di far capire quali sono gli aspetti importanti su cui focalizzarsi per la creazione di un data warehouse.  Ogni sezione presenta un concetto e rimanda ad articoli più dettagliati che analizzano il concetto in modo più approfondito.

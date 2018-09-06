@@ -3,7 +3,7 @@ title: Gestire le risorse del bus di servizio di Azure con PowerShell | Microsof
 description: Usare il modulo di PowerShell per creare e gestire le risorse del bus di servizio
 services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 962134c0c71ac0a251f8adf1f0f067d6067cb808
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: spelluru
+ms.openlocfilehash: 66475d9d59c8825eef7eb16e826d9813e819aa8a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018622"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699628"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Gestire le risorse del bus di servizio di Azure con PowerShell
 
@@ -27,7 +27,7 @@ Microsoft Azure PowerShell è un ambiente di scripting che può essere usato per
 
 È possibile gestire le risorse del bus di servizio anche usando i modelli di Azure Resource Manager. Per altre informazioni, vedere l'articolo [Creare risorse del bus di servizio usando i modelli di Azure Resource Manager](service-bus-resource-manager-overview.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare di disporre dei prerequisiti seguenti:
 

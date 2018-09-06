@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 889cedf555c8a9a86cc8a2101f27cafcb48376df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523156"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666825"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Creazione di un processo di esportazione per Importazione/Esportazione di Azure
 La creazione di un processo di esportazione per il servizio Importazione/Esportazione di Microsoft Azure con l'API REST prevede i passaggi seguenti:
@@ -48,7 +48,7 @@ La creazione di un processo di esportazione per il servizio Importazione/Esporta
  Per altre informazioni sulla specifica dei BLOB da esportare, vedere l'operazione [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate).
 
 ## <a name="obtaining-your-shipping-location"></a>Acquisizione della località di spedizione
-Prima di creare un processo di esportazione, è necessario ottenere il nome e l'indirizzo di una località di spedizione chiamando l'operazione [Get Location](https://portal.azure.com) o [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` restituirà un elenco di località con gli indirizzi postali. È possibile selezionare una posizione dall'elenco restituito e spedire i dischi rigidi a tale indirizzo. È anche possibile usare l'operazione `Get Location` per ottenere direttamente l'indirizzo di spedizione di una posizione specifica.
+Prima di creare un processo di esportazione, è necessario ottenere il nome e l'indirizzo di una località di spedizione chiamando l'operazione [Get Location](https://portal.azure.com) o [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` restituirà un elenco di località con gli indirizzi postali. È possibile selezionare una posizione dall'elenco restituito e spedire i dischi rigidi a tale indirizzo. È anche possibile usare l'operazione `Get Location` per ottenere direttamente l'indirizzo di spedizione di una posizione specifica.
 
 Seguire i passaggi sotto per ottenere la posizione di spedizione:
 

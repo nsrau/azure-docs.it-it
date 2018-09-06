@@ -4,19 +4,19 @@ description: Informazioni su come usare Azure Cosmos DB per archiviare volumi el
 keywords: che cos'è MongoDB
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+manager: slyons
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
-ms.author: sngun
-ms.openlocfilehash: 214dfe3e676d3b07cf688fa0f7dcaf11462edfe8
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: sclyon
+ms.openlocfilehash: b0fba3cee298e55702629815da4649d9af315b25
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930886"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283027"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Introduzione ad Azure Cosmos DB: API MongoDB
 
@@ -49,11 +49,6 @@ ms.locfileid: "37930886"
 **Indicizzazione automatica:** per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà all'interno dei documenti nel database MongoDB e non prevede né richiede schemi o la creazione di indici secondari. Inoltre, la funzionalità dell'indice univoco abilita un vincolo di univocità nei campi dei documenti che vengono già indicizzati automaticamente in Azure Cosmos DB.
 
 **Classe enterprise**: Azure Cosmos DB supporta più repliche locali per garantire il 99,99% della disponibilità e la protezione dati nonostante gli errori locali e a livello di area. Azure Cosmos DB ha [certificazioni di conformità](https://www.microsoft.com/trustcenter) e funzionalità di sicurezza di classe enterprise. 
-
-Per altre informazioni, vedere questo video con il Senior Program Manager di Azure Cosmos DB, Aleksey Savateyev.
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
-> 
 
 ## <a name="how-to-get-started"></a>Attività iniziali
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309027"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339978"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: informazioni di riferimento sui token
 
@@ -73,7 +73,7 @@ Si noti che le attestazioni nei token ID non vengono restituite in un ordine par
 | NOME | Attestazione | Valore di esempio | DESCRIZIONE |
 | --- | --- | --- | --- |
 | Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Identifica il destinatario del token. Per Azure AD B2C il destinatario è l'ID applicazione assegnato all'app nel portale di registrazione delle app. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. Audience equivale a risorsa. |
-| Issuer |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e identifica la directory di Azure AD in cui è stato autenticato l'utente. L'app deve convalidare l'attestazione Autorità di certificazione per assicurarsi che il token sia stato fornito dall'endpoint di Azure Active Directory 2.0. |
+| Issuer |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e identifica la directory di Azure AD in cui è stato autenticato l'utente. L'app deve convalidare l'attestazione Autorità di certificazione per assicurarsi che il token sia stato fornito dall'endpoint di Azure Active Directory 2.0. |
 | Ora di emissione |`iat` |`1438535543` |Indica l'ora in cui il token è stato rilasciato, rappresentata come valore epoch time. |
 | Scadenza |`exp` |`1438539443` |Indica l'ora di scadenza del token, rappresentata come valore epoch time. L'app deve usare questa attestazione per verificare la validità della durata del token. |
 | Non prima |`nbf` |`1438535543` |Indica l'ora di inizio della validità del token, rappresentata come valore epoch time. Equivale in genere all'ora di rilascio del token. L'app deve usare questa attestazione per verificare la validità della durata del token. |
@@ -120,7 +120,7 @@ In qualsiasi momento Azure AD può firmare un token usando un determinato set di
 Azure AD B2C include un endpoint dei metadati di OpenID Connect. Questo consente alle app di recuperare informazioni su Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. La directory B2C contiene un documento metadati JSON per ogni criterio. Il documento di metadati dei criteri `b2c_1_sign_in` in `fabrikamb2c.onmicrosoft.com` si trova ad esempio in:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
 `fabrikamb2c.onmicrosoft.com` è la directory B2C usata per autenticare l'utente e `b2c_1_sign_in` sono i criteri usati per acquisire il token. Per determinare quale criterio è stato usato per la firma di un token e la posizione da cui recuperare i metadati, sono disponibili due opzioni. Prima di tutto, il nome del criterio è incluso nell'attestazione `acr` del token. È possibile analizzare le attestazioni all'esterno del corpo del token JWT decodificando il corpo in base 64 e deserializzando la stringa JSON risultante. L'attestazione `acr` è il nome del criterio usato per rilasciare il token.  L'altra opzione consiste nel codificare i criteri nel valore del parametro `state` quando si rilascia la richiesta, per poi decodificarlo e determinare quali criteri sono stati utilizzati. Entrambi i metodi sono validi.
@@ -128,7 +128,7 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 Il documento metadati è un oggetto JSON che contiene diverse informazioni utili, come ad esempio il percorso degli endpoint necessari per eseguire l'autenticazione OpenID Connect. Include anche un oggetto `jwks_uri` che fornisce la posizione del set di chiavi pubbliche usate per firmare i token. Tale posizione è indicata di seguito, ma è consigliabile recuperarla in modo dinamico usando il documento di metadati e analizzando l'oggetto `jwks_uri`:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
 Il documento JSON in questo URL contiene tutte le informazioni sulla chiave pubblica usata in un determinato momento. L'app può usare l'attestazione `kid` nell'intestazione del token JWT per selezionare la chiave pubblica nel documento JSON usata per firmare un determinato token. Può quindi eseguire la convalida della firma usando la chiave pubblica corretta e l'algoritmo indicato.

@@ -3,24 +3,18 @@ title: Esempio di script di Azure PowerShell - Configurare la VPN da punto a sit
 description: Configurare la VPN da punto a sito con l'autenticazione tramite nome utente/password RADIUS. Questo articolo usa PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: anzaman
-ms.openlocfilehash: 445190d86ab5d67132302a274f34a583cd94f937
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: alzam
+ms.openlocfilehash: 27570e03c000d4d831a791c735933de834013310
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658513"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336528"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Creare un gateway VPN e aggiungere la configurazione da punto a sito tramite PowerShell
 
@@ -107,7 +101,7 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 | [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Crea una rete virtuale. |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Crea un indirizzo IP pubblico. |
 | [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | Crea una nuova configurazione IP del gateway. |
-| [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgateway) | Crea un gateway VPN. |
+| [New-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway?view=azurermps-6.8.1) | Crea un gateway VPN. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
 | [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | Imposta la configurazione della subnet per la rete virtuale. |
 | [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) | Imposta la configurazione per il gateway VPN. |

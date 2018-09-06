@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/14/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2a8a23245a17c9a80c70860588a8312dbbb5e926
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 68eab85c7f67ad3af18c6066c29e1250e1be3d23
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446075"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344407"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: consentire agli utenti di accedere a un provider di identità di AD Azure multi-tenant mediante criteri personalizzati
 
@@ -26,7 +26,7 @@ Questo articolo illustra come abilitare l'accesso per gli utenti usando l'endpoi
 >[!NOTE]
 > Nelle istruzioni seguenti vengono usati "contoso.com" per il tenant di Azure AD dell'organizzazione e "fabrikamb2c.onmicrosoft.com" come tenant di Azure AD B2C.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
 
@@ -54,7 +54,7 @@ Per abilitare l'accesso per gli utenti che usano l'endpoint multi-tenant di Azur
     >Il valore di "yourtenant" deve essere in formato minuscolo in **URL accesso**.
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Salvare l'ID applicazione.

@@ -3,19 +3,19 @@ title: Classi di risorse per la gestione del carico di lavoro - Azure SQL Data W
 description: Materiale sussidiario per l'uso delle classi di risorse per gestire la concorrenza e le risorse di calcolo per le query in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192782"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287473"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestione del carico di lavoro con le classi di risorse in Azure SQL Data Warehouse
 Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query in Azure SQL Data Warehouse.  
@@ -188,7 +188,7 @@ Gli utenti possono essere membri di più classi di risorse. Quando un utente app
 - Le classi di risorse dinamiche hanno la precedenza sulle classi di risorse statiche. Ad esempio, se un utente è membro sia di mediumrc (dinamica) sia di staticrc80 (statica), le query vengono eseguite con mediumrc.
 - Le classi di risorse più grandi hanno la precedenza sulle classi di risorse più piccole. Ad esempio, se un utente è membro di mediumrc e largerc, le query vengono eseguite con largerc. Analogamente, se un utente è membro sia di staticrc20, sia di statirc80, le query vengono eseguite con allocazioni di risorse staticrc80.
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Consigli
 Si consiglia di creare un utente dedicato all'esecuzione di un tipo specifico di query o di operazione di caricamento. Assegnare quindi a tale utente una classe di risorse permanente anziché modificare regolarmente la classe di risorse. Dato che le classi di risorse statiche consentono un maggiore controllo generale sul carico di lavoro, è consigliabile usarle per prime e dopo considerare le classi di risorse dinamiche.
 
 ### <a name="resource-classes-for-load-users"></a>Classi di risorse per gli utenti del caricamento

@@ -10,19 +10,20 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 43d7f147a64e55359e43ba793e3fc57efa63c30c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: afb28488fc47f018b6d192eb1b65a54499ac8ff9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159907"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666364"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
+
 Se l'organizzazione è federata con Azure Active Directory, usare Azure Multi-Factor Authentication o Active Directory Federation Services (AD FS) per proteggere le risorse accessibili da Azure AD. Usare le procedure seguenti per proteggere le risorse di Azure Active Directory con Azure Multi-Factor Authentication o Active Directory Federation Services.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Proteggere le risorse Azure AD con ADFS
-Per proteggere le risorse cloud, configurare una regola attestazioni in modo che Active Directory Federation Services generi l'attestazione multipleauthn quando un utente esegue correttamente la verifica in due passaggi. Questa attestazione viene passata ad Azure AD. Seguire questa procedura per eseguire i passaggi:
 
+Per proteggere le risorse cloud, configurare una regola attestazioni in modo che Active Directory Federation Services generi l'attestazione multipleauthn quando un utente esegue correttamente la verifica in due passaggi. Questa attestazione viene passata ad Azure AD. Seguire questa procedura per eseguire i passaggi:
 
 1. Aprire il componente di gestione di ADFS.
 2. A sinistra selezionare **Attendibilità componente**.
@@ -45,11 +46,13 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
 9. Fare clic su **Fine**. Chiudere la console di gestione di ADFS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Indirizzi IP attendibili per utenti federati
+
 Gli indirizzi IP attendibili consentono agli amministratori di ignorare la verifica in due passaggi per specifici indirizzi IP o utenti federati con richieste provenienti dalla propria rete Intranet. Le sezioni seguenti descrivono come configurare gli indirizzi IP attendibili di Azure Multi-Factor Authentication con utenti federati e ignorare la verifica in due passaggi quando una richiesta proviene da una Intranet di utenti federati. Questo avviene configurando ADFS in modo da applicare la funzione di pass-through o filtro a un modello di attestazione in ingresso con il tipo di attestazione All'interno della rete aziendale.
 
 Questo esempio usa Office 365 per l'attendibilità del componente.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Configurare le regole attestazioni di ADFS
+
 Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole attestazioni, una per il tipo di attestazione All'interno della rete aziendale e un'altra per mantenere gli utenti connessi.
 
 1. Aprire il componente di gestione di ADFS.
@@ -78,6 +81,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 16. Chiudere Gestione ADFS.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurare gli indirizzi IP attendibili di Azure Multi-Factor Authentication con utenti federati
+
 Ora che le attestazioni sono configurate, è possibile procedere alla configurazione degli indirizzi IP attendibili.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).

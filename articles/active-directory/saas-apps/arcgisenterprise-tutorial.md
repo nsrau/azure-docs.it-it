@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ca5bf7ae49cf120c0566419ccadeff92433c6467
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea2b32b43fedacba7b8a60db29762c32fda65aa5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819519"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con ArcGIS Enterprise
 
@@ -120,7 +120,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di ArcGIS Enterprise](mailto:nshampur@esri.com). Si otterrà il valore dell'identificatore dalla sezione **Set Identity Provider** (Imposta provider di identità). La procedura è descritta più avanti in questa esercitazione.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di ArcGIS Enterprise](mailto:support@esri.com). Si otterrà il valore dell'identificatore dalla sezione **Set Identity Provider** (Imposta provider di identità). La procedura è descritta più avanti in questa esercitazione.
 
 5. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
 
@@ -195,7 +195,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in ArcGIS Enterprise. ArcGIS Enterprise supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso ad ArcGIS Enterprise viene creato un nuovo utente, se questo non esiste già.
 
 > [!Note]
-> Per creare un utente manualmente contattare il [team di supporto di ArcGIS Enterprise](mailto:nshampur@esri.com).
+> Per creare un utente manualmente contattare il [team di supporto di ArcGIS Enterprise](mailto:support@esri.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

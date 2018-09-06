@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: 53ccd4dc40136ada30a0e230d526414b567919c7
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 757ba9e999bfbb46be96e653e7939d91bdf67679
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960458"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287126"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -34,7 +34,7 @@ Fare clic sull'immagine per visualizzarla a schermo intero.
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per iniziare l'attività di sviluppo con Servizi multimediali e le API REST sono previsti i seguenti prerequisiti.
 
 * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -54,7 +54,7 @@ Questa guida introduttiva illustra come effettuare le seguenti attività.
 >[!NOTE]
 >È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criteri se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel caso di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
 
-Per altre informazioni sulle entità di REST AMS usate in questo articolo, vedere [Informazioni generali sull'API REST di Servizi multimediali](/rest/api/media/services/azure-media-services-rest-api-reference). Vedere anche [Concetti relativi ai Servizi multimediali di Azure](media-services-concepts.md).
+Per altre informazioni sulle entità di REST AMS usate in questo articolo, vedere [Informazioni generali sull'API REST di Servizi multimediali](https://docs.microsoft.com/en-us/rest/api/media/services/azure-media-services-rest-api-reference). Vedere anche [Concetti relativi ai Servizi multimediali di Azure](media-services-concepts.md).
 
 >[!NOTE]
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
@@ -405,7 +405,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 
 ## <a id="encode"></a>Codificare il file di origine in un set di file MP4 a velocità in bit adattiva
 
-Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset (per altre informazioni, vedere le descrizioni di [processi](/rest/api/media/services/job) e [attività](/rest/api/media/services/task)).
+Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset (per altre informazioni, vedere le descrizioni di [processi](https://docs.microsoft.com/en-us/rest/api/media/operations/job) e [attività](https://docs.microsoft.com/en-us/rest/api/media/operations/task)).
 
 Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a bitrate adattivo in uno dei formati seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
 

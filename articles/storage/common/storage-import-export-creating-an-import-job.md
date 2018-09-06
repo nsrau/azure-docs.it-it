@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 3c6adc3f27e49facec124401f03a036269b7c7a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524448"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666020"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creazione di un processo di importazione per Importazione/Esportazione di Azure
 
@@ -57,7 +57,7 @@ La preparazione dell'unità comporta:
 
 ## <a name="obtaining-your-shipping-location"></a>Acquisizione della località di spedizione
 
-Prima di creare un processo di importazione, è necessario ottenere il nome e l'indirizzo di una posizione di spedizione chiamando l'operazione [List Locations](/rest/api/storageimportexport/listlocations) (Elenca posizioni). `List Locations` restituirà un elenco di posizione con gli indirizzi postali. È possibile selezionare una posizione dall'elenco restituito e spedire i dischi rigidi a tale indirizzo. È anche possibile usare l'operazione `Get Location` per ottenere direttamente l'indirizzo di spedizione di una posizione specifica.
+Prima di creare un processo di importazione, è necessario ottenere il nome e l'indirizzo di una posizione di spedizione chiamando l'operazione [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) (Elenca posizioni). `List Locations` restituirà un elenco di posizione con gli indirizzi postali. È possibile selezionare una posizione dall'elenco restituito e spedire i dischi rigidi a tale indirizzo. È anche possibile usare l'operazione `Get Location` per ottenere direttamente l'indirizzo di spedizione di una posizione specifica.
 
  Seguire i passaggi sotto per ottenere la posizione di spedizione:
 

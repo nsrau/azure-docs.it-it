@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044731"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697765"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Come creare e configurare il runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per informazioni dettagliate sul runtime di integrazione, vedere [Integration Runtime Overview](concepts-integration-runtime.md) (Panoramica del runtime di integrazione).
@@ -219,7 +219,7 @@ A livello di **firewall aziendale** è necessario configurare le porte in uscita
 
 Nomi di dominio | Porte | DESCRIZIONE
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | Utilizzato per la comunicazione con il backend Data Movement Service
+*.servicebus.windows.net | 443 | Utilizzato per la comunicazione con il backend Data Movement Service
 *.core.windows.net | 443 | Utilizzato per la copia di staging mediante il BLOB di Azure (se configurata)
 *.frontend.clouddatahub.net | 443 | Utilizzato per la comunicazione con il backend Data Movement Service
 download.microsoft.com | 443 | Utilizzato per il download di aggiornamenti

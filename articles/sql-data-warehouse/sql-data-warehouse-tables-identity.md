@@ -3,19 +3,19 @@ title: Uso di IDENTITY per la creazione di chiavi surrogate - Azure SQL Data War
 description: Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ab028705f5af7c37017d2e697240b7d3436f5f71
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: abe245e6174cb947e78252941c71ce6857b77f77
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526985"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306792"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Uso di IDENTITY per la creazione di chiavi surrogate in Azure SQL Data Warehouse
 Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle in Azure SQL Data Warehouse.

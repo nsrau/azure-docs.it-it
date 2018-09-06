@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0fa7bd1135c099f853b9a3bb66661c0a57a0f7eb
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d38ec87fb634e1809959b85f0382935e8a78bf3b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271417"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697165"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuire e rimuovere applicazioni con PowerShell
 > [!div class="op_single_selector"]
@@ -226,7 +226,7 @@ ApplicationParameters  : {}
 ```
 Per qualsiasi versione di un tipo di applicazione registrato, è possibile creare più istanze dell'applicazione. Ogni istanza viene eseguita in isolamento, con un proprio processo e una propria directory di lavoro.
 
-Per vedere quali app e servizi sono in esecuzione nel cluster, eseguire i cmdlet [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) e [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps):
+Per vedere quali app e servizi sono in esecuzione nel cluster, eseguire i cmdlet [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) e [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps):
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication  

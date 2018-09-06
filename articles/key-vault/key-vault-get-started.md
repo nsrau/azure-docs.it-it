@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 3f3adb1230d6ca6b3a7e616a0beed15d66895124
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41918493"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43282998"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introduzione all'insieme di credenziali delle chiavi di Azure
 Questo articolo consente di iniziare a usare Azure Key Vault con PowerShell e illustra in dettaglio le attività seguenti:
@@ -34,7 +34,7 @@ Per le istruzioni relative all'interfaccia della riga di comando multipiattaform
 ## <a name="requirements"></a>Requisiti
 Prima di procedere con l'articolo, verificare di avere gli elementi seguenti:
 
-- **Una sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
+- **Una sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/en-us/free/).
 - **Azure PowerShell**, **versione minima 1.1.0**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`. Se sono installate le versioni di Azure PowerShell dalla 0.9.1 alla 0.9.8, è comunque possibile svolgere questa esercitazione, con alcune piccole modifiche. Ad esempio, sarà necessario usare il comando `Switch-AzureMode AzureResourceManager` e alcuni comandi per l'insieme di credenziali delle chiavi di Azure sono cambiati. Per un elenco dei cmdlet per l'insieme di credenziali delle chiavi di Azure per le versioni dalla 0.9.1 alla 0.9.8, vedere [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault) (Cmdlet per l'insieme di credenziali delle chiavi di Azure).
 - **Applicazione configurabile per l'uso di Key Vault**. Un'applicazione di esempio è disponibile nell'[Area download Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Per istruzioni, vedere il file **Readme** associato.
 

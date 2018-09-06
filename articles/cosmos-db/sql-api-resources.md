@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21b1e69573d2ddd31979e6c23dd7f3bd130cadbe
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3ba02e7760d7400b5168a902415f16c4b276b3a7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798017"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287954"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modello di risorsa gerarchico e concetti di base relativi ad Azure Cosmos DB
 
@@ -30,12 +30,6 @@ In questo articolo vengono fornite le risposte alle domande seguenti:
 * Come si indirizza una risorsa?
 * Come si usano le raccolte?
 * Come si usano le stored procedure, i trigger e le funzioni definite dall'utente?
-
-Nel video seguente Andrew Liu, Program Manager di Azure Cosmos DB, descrive il modello di risorse di Azure Cosmos DB. 
-
-> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
->
->
 
 ## <a name="hierarchical-resource-model"></a>Modello di risorse gerarchico
 Come illustrato nel diagramma seguente, il **modello di risorsa** gerarchico di Azure Cosmos DB è costituito da set di risorse in un account di database, ognuna indirizzabile tramite un URI logico e stabile. Un set di risorse viene definito **feed** in questo articolo. 

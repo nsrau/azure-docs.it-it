@@ -3,25 +3,27 @@ title: Aggiornamento alla generazione più recente di Azure SQL Data Warehouse |
 description: Aggiornare Azure SQL Data Warehouse alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746963"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306981"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Ottimizzare le prestazioni aggiornando SQL Data Warehouse
 Aggiornare Azure SQL Data Warehouse alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
 
 ## <a name="why-upgrade"></a>Ragioni dell'aggiornamento
 È ora possibile eseguire facilmente l'aggiornamento al livello Gen2 con ottimizzazione per il calcolo di SQL Data Warehouse nel portale di Azure. Se si dispone di un data warehouse di livello Gen1 con ottimizzazione per il calcolo, è consigliabile eseguire l'aggiornamento. Con l'aggiornamento, è possibile usare la generazione più recente di hardware di Azure e un'architettura di archiviazione migliorata. È possibile sfruttare i vantaggi di prestazioni più veloci, una maggiore scalabilità e archiviazione a colonne illimitata. 
+
+> [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Si applica a
 Questo aggiornamento si applica ai data warehouse di livello Gen1 con ottimizzazione per il calcolo.

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: ed47a5d1449ba634f90e93a82f15daf6e44a553e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 57ad5541bb7b61f8d26002168bb069fad3058965
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793862"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339076"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurare una rete virtuale (classica) usando un file di configurazione di rete
 > [!IMPORTANT]
@@ -37,7 +37,7 @@ La creazione e la configurazione di una rete virtuale (classica) con un file di 
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Installare Azure PowerShell e accedere ad Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Installare Azure PowerShell e accedere ad Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Modificare la directory (e verificare che sia presente) e il nome file nel comando seguente nel modo desiderato, quindi eseguire il comando per esportare il file di configurazione di rete:
 
     ```powershell
@@ -125,7 +125,7 @@ Se il file di configurazione di rete esportato non include alcun contenuto, è p
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Installare Azure PowerShell e accedere ad Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Installare Azure PowerShell e accedere ad Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Modificare la directory e il nome file nel comando seguente in base alle esigenze, quindi eseguire il comando per importare il file di configurazione di rete:
  
     ```powershell

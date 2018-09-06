@@ -11,14 +11,21 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 020345f5f5de3235a0fb34f1efc27efd771a842d
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9cda2c165d7d00ebb92907d54217a30d62df6c18
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023913"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700045"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabelle con .NET e Azure Cosmos DB 
+
+> [!div class="op_single_selector"]
+> * [.NET](create-table-dotnet.md)
+> * [Java](create-table-java.md)
+> * [Node.JS](create-table-nodejs.md)
+> * [Python](create-table-python.md)
+>  
 
 Questa guida introduttiva descrive come usare .NET e l'[API Tabelle](table-introduction.md) di Azure Cosmos DB per creare un'app clonando un esempio di GitHub. La guida introduttiva illustra anche come creare un account Azure Cosmos DB e come usare Esplora dati per creare tabelle e entità nel portale di Azure basato sul Web.
 

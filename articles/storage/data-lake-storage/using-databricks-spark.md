@@ -2,19 +2,18 @@
 title: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Azure Databricks usando Spark | Microsoft Docs
 description: Informazioni su come eseguire query Spark in un cluster di Azure Databricks per accedere ai dati in un account di archiviazione Azure Data Lake Storage Gen2.
 services: hdinsight,storage
-tags: azure-portal
 author: dineshm
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 83e6b6817f33cb19c3839a94a8919f3516576d68
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7d951a959da28187a5971ee218f2bd921d331727
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886579"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301799"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Azure Databricks usando Spark
 

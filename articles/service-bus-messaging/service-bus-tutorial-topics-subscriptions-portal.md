@@ -2,19 +2,19 @@
 title: Esercitazione - Aggiornare l'assortimento del magazzino al dettaglio usando i canali di pubblicazione/sottoscrizione e i filtri di argomento con il portale di Azure | Microsoft Docs
 description: In questa esercitazione viene illustrato come inviare e ricevere messaggi da un argomento e una sottoscrizione e come aggiungere e usare le regole di filtro con .NET
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: f504f3bf513a20d8590d9907106b1fd12f907877
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2496c931da734c019801e3fa6deee127d8e571df
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651480"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697054"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando il portale di Azure e argomenti/sottoscrizioni
 
@@ -34,7 +34,7 @@ Un esempio di questo scenario è un aggiornamento dell'assortimento di magazzino
 
 Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][] prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, accertarsi di avere installato:
 
@@ -45,7 +45,7 @@ Per completare questa esercitazione, accertarsi di avere installato:
 
 Ogni [sottoscrizione a un argomento](service-bus-messaging-overview.md#topics) può ricevere una copia di ogni messaggio. Gli argomenti sono completamente compatibili a livello di protocollo e di semantica con le code del bus di servizio. Gli argomenti del bus di servizio supportano un'ampia gamma di regole di selezione con condizioni di filtro, con azioni facoltative per impostare o modificare le proprietà dei messaggi. Ogni volta che una regola corrisponde, genera un messaggio. Per altre informazioni su regole, filtri e azioni, seguire questo [collegamento](topic-filters.md).
 
-## <a name="log-on-to-the-azure-portal"></a>Accedere al portale di Azure
+## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
 Aprire e accedere prima di tutto al [portale di Azure][Azure portal] con la propria sottoscrizione di Azure. Il primo passaggio è la creazione di uno spazio dei nomi del bus di servizio di tipo **Messaggistica**.
 
@@ -59,7 +59,7 @@ Uno spazio dei nomi di messaggistica del bus di servizio fornisce un contenitore
 4. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
 5. Nel campo **Gruppo di risorse** scegliere un gruppo di risorse esistente nel quale risiederà lo spazio dei nomi oppure crearne uno nuovo.      
 6. In **Località**scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
-7. Fare clic su **Crea**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+7. Fare clic su **Create**(Crea). A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
   ![namespace](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
 

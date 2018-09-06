@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: af748f234a27ed9b37ac50438d7497fd680bc193
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 06ee959d7b38f21684280a35cf770fdcc590b102
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085573"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287988"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -1506,8 +1506,8 @@ module.exports = function (context) {
     const existing = context.bindings.existingSubscriptions;
     var toRefresh = [];
     for (var i = 0; i < existing.length; i++) {
-        context.log(`Deleting subscription ${existing[i]}`);
-        todelete.push(existing[i]);
+        context.log(`Refreshing subscription ${existing[i]}`);
+        toRefresh.push(existing[i]);
     }
     context.bindings.subscriptionsToRefresh = toRefresh;
     context.done();

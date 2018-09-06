@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 5c06de6b757da63bb35a4f094e5912e8dcd786f9
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 783dd82041e21242ac4ac136a5d9c91fc9b94e84
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005051"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666778"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa
 
 Managed Disks offre tre opzioni di archiviazione: [Premium SSD](../windows/premium-storage.md), Standard SSD (anteprima) e [Standard HDD](../windows/standard-storage.md). È possibile passare facilmente tra le opzioni con un tempo di inattività minimo a seconda delle esigenze di prestazioni. Non è supportato per dischi non gestiti. È possibile eseguire facilmente la [conversione a Managed Disks](convert-unmanaged-to-managed-disks.md) per passare facilmente tra i tipi di dischi.
 
-Questo articolo illustra come convertire la versione di Managed Disks da Standard a Premium e viceversa usando l'interfaccia della riga di comando di Azure. Se è necessario installarla o aggiornarla, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli.md). 
+Questo articolo illustra come convertire la versione di Managed Disks da Standard a Premium e viceversa usando l'interfaccia della riga di comando di Azure. Se è necessario installarla o aggiornarla, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f078cad95d39c18a8391bc32100d08accc53c37c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215204"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665723"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure
 Queste domande frequenti offrono risposte a domande comuni sull'uso e l'acquisto di database MySQL ClearDB per App Web di Azure.
@@ -41,7 +41,7 @@ ClearDB è un servizio di hosting MySQL e gestisce l'infrastruttura di MySQL per
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>È necessaria una carta di credito per l'app Web e il modello MySQL in Azure Marketplace?
 Questo dipende dal tipo di sottoscrizione in uso. Di seguito sono riportati alcuni tipi di sottoscrizione di uso comune:
 
-* [Pagamento in base al consumo](/offers/ms-azr-0003p/): richiede una carta di credito sulla quale addebitare i costi dell'acquisto di un database MySQL a pagamento.
+* [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/): richiede una carta di credito sulla quale addebitare i costi dell'acquisto di un database MySQL a pagamento.
 * [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/): include crediti da usare con i servizi di Microsoft Azure, ma non consente di acquistare risorse di terze parti. Per acquistare servizi di terze parti o un database MySQL a pagamento, è necessario usare una sottoscrizione abilitata con carta di credito. Per le app Web, è possibile creare un database MySQL ClearDB GRATUITO.
 * [Sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) e **Pagamento in base al consumo per sviluppo/test MSDN**: analogamente alla versione di valutazione gratuita, una sottoscrizione MSDN richiede una carta di credito per l'acquisto di una soluzione a pagamento MySQL da ClearDB.
 * [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/): ai clienti con contratto Enterprise vengono addebitati ogni trimestre i costi per tutti gli acquisti effettuati su Azure Marketplace (di terze parti) in una fattura separata e consolidata. I costi degli eventuali acquisti effettuati nel marketplace vengono addebitati al di fuori dell'impegno monetario. Si noti che al momento Azure Store non è disponibile per i clienti iscritti in Azerbaigian, Croazia, Norvegia e Porto Rico. 
@@ -109,5 +109,5 @@ L'accesso ad Azure Marketplace per i servizi di terze parti può essere gestito 
 Contattare il [supporto per contratti Enterprise](http://aka.ms/AzureEntSupport) per quanto riguarda la fatturazione relativa alla registrazione con contratto Enterprise. Il team di supporto del portale per contratti Enterprise risponderà alla domanda oppure offrirà aiuto per la risoluzione del problema.
 
 ## <a name="more-information"></a>Altre informazioni
-[Domande frequenti su Azure Marketplace](/marketplace/faq/)
+[Domande frequenti su Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)
 

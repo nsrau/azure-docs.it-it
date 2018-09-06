@@ -1,18 +1,20 @@
 ---
 title: Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure
 description: Esercitazione sull'uso di Terraform per configurare e specificare la versione di un set di scalabilità di macchine virtuali di Azure completo di una rete virtuale e di dischi collegati gestiti
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, macchina virtuale, Azure, set di scalabilità, rete, archiviazione, moduli
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/04/2018
-ms.topic: article
-ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971834"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666196"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure
 
@@ -30,7 +32,7 @@ In questa esercitazione si imparerà come usare [Azure Cloud Shell](/azure/cloud
 > [!NOTE]
 > La versione più recente dei file di configurazione di Terraform usati in questo articolo si trovano nel [repository Awesome Terraform su Github](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 

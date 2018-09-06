@@ -3,19 +3,19 @@ title: 'Esercitazione: caricare dati relativi ai taxi di New York in Azure SQL D
 description: L'esercitazione usa il portale di Azure e SQL Server Management Studio per caricare dati relativi ai taxi di New York da un archivio BLOB di Azure pubblico a SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 06d889686c673adc3941ac7303ab52a6fff408a8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193234"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288125"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Esercitazione: caricare dati relativi ai taxi di New York ad Azure SQL Data Warehouse
 
@@ -56,21 +56,21 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 
 3. Compilare il modulo di SQL Data Warehouse con le informazioni seguenti:   
 
-   | Impostazione | Valore consigliato | DESCRIZIONE | 
+   | Impostazione | Valore consigliato | Descrizione | 
    | ------- | --------------- | ----------- | 
-   | **Database name** (Nome database) | mySampleDataWarehouse | Per i nomi di database validi, vedere [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificatori di database). | 
-   | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni). |
-   | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Regole di denominazione e restrizioni). |
+   | **Nome database** | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). | 
+   | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
+   | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Select source** (Seleziona origine) | Database vuoto | Specificare che venga creato un database vuoto. Si noti che un data warehouse è un tipo di database.|
 
     ![creare un data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. Fare clic su **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo del nuovo server** con le informazioni seguenti: 
 
-    | Impostazione | Valore consigliato | DESCRIZIONE | 
+    | Impostazione | Valore consigliato | Descrizione | 
     | ------- | --------------- | ----------- |
-    | **Server name** (Nome server) | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Regole di denominazione e restrizioni). | 
-    | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database).|
+    | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+    | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
     | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
 
@@ -119,7 +119,7 @@ Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisc
 
 4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. Una regola del firewall può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP.
 
-5. Fare clic su **Save**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
+5. Fare clic su **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
 
 6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 

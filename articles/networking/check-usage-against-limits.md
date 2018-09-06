@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0c51f48576c665fbe67f2f18198d6422fe872895
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 30b0c1bdd23858b5cc6224deb2698b5f180359eb
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34811783"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288231"
 ---
 # <a name="check-resource-usage-against-limits"></a>Controllare l'utilizzo delle risorse rispetto ai limiti
 
@@ -49,7 +49,7 @@ In questo articolo si apprenderà come visualizzare il numero per ogni tipo di r
 
 È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo *AzureRM* di PowerShell versione 6.0.1 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per accedere ad Azure.
 
-Per visualizzare l'utilizzo rispetto ai limiti, eseguire [Get-AzureRmNetworkUsage](/powershell/module/azurerm.network/powershell/module/azurerm.network/get-azurermnetworkusage). L'esempio seguente ottiene le informazioni sull'utilizzo delle risorse dove almeno una risorsa è distribuita nell'area Stati Uniti orientali:
+Per visualizzare l'utilizzo rispetto ai limiti, eseguire [Get-AzureRmNetworkUsage](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). L'esempio seguente ottiene le informazioni sull'utilizzo delle risorse dove almeno una risorsa è distribuita nell'area Stati Uniti orientali:
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkUsage `

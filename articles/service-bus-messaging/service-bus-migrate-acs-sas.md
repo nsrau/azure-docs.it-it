@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.author: spelluru
+ms.openlocfilehash: a94d606697b5ad2cd7f4ce545ebdfbd155dfa4e8
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27160263"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696415"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Eseguire la migrazione dall'autorizzazione del Servizio di controllo di accesso di Azure Active Directory all'autorizzazione con firma di accesso condiviso
 

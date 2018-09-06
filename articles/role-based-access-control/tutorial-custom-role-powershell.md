@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b3bd55fd2ed9f392611fcb32b0ebd0f5c6b5e09
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322526"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300610"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Esercitazione: creare un ruolo personalizzato con Azure PowerShell
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, è necessario:
 
@@ -99,7 +99,7 @@ Il modo più semplice per creare un ruolo personalizzato è quello di iniziare c
     
 1. Modificare il file JSON per aggiungere l'operazione `"Microsoft.Support/*"` alla proprietà `Actions`. Assicurarsi di includere una virgola dopo l'operazione di lettura. Questa azione consente all'utente di creare ticket di supporto.
 
-1. Ottenere l'ID della sottoscrizione usando il comando [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Ottenere l'ID della sottoscrizione usando il comando [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription

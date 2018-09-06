@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cb70828960220bbc1e37321b77375fe2c42ee1b6
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: af97a85b4d5d9c38f0e2bf8947482a0585fa6ee1
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140554"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338312"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: accedere usando account di Azure AD
 
@@ -54,7 +54,7 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
     >Il valore di "yourtenant" deve essere in formato minuscolo in **URL accesso**.
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 8. Salvare l'ID applicazione.

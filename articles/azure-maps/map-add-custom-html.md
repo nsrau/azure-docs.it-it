@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3ee1f394536061cecaa5d775650149b30098560e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600222"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382046"
 ---
 # <a name="add-custom-html-to-the-map"></a>Aggiungere codice HTML personalizzato alla mappa
 
@@ -29,13 +29,13 @@ Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per
 
 Il secondo blocco di codice crea un elemento HTML da un'immagine.
 
-L'ultimo blocco di codice usa la funzione [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml) della classe Map per aggiungere l'immagine alla posizione specificata della mappa.
+L'ultimo blocco di codice usa la funzione [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml) della classe Map per aggiungere l'immagine alla posizione specificata della mappa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
     
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti: 
 * [Visualizzare i risultati della ricerca](./map-search-location.md)

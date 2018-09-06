@@ -1,18 +1,20 @@
 ---
 title: Creare un cluster Kubernetes con Azure Kubernetes Service (AKS) e Terraform
 description: Esercitazione che illustra come creare un cluster Kubernetes con Azure Kubernetes Service e Terraform
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, macchina virtuale, azure, kubernetes
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/11/2018
-ms.topic: article
-ms.openlocfilehash: bd00a0cc8446802a03570edd58949a46c0769101
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8a997c88943b0273d3136dbf02a784fbdb982527
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302862"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666808"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Creare un cluster Kubernetes con Azure Kubernetes Service e Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) gestisce l'ambiente Kubernetes ospitato consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Elimina anche l'impegno delle operazioni in corso e della manutenzione effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline.
@@ -24,7 +26,7 @@ Questa esercitazione illustra come eseguire le attività seguenti nella creazion
 > * Usare Terraform e AKS per creare un cluster Kubernetes
 > * Usare lo strumento kubectl per verificare la disponibilità di un cluster Kubernetes
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 

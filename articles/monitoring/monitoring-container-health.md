@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 8027149f3e5ace163bf380bc5362fcb101397986
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: caf290477a4fd4f03bb248cc89f91027dbe68f3e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141986"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382448"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorare l'integrità del servizio Kubernetes di Azure (AKS) (anteprima)
 
@@ -226,7 +226,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {
-           "value": "/subscriptions/<SubscroptiopnId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
        },
        "aksResourceLocation": {
          "value": "East US"

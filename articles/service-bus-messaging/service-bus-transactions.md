@@ -3,7 +3,7 @@ title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azu
 description: Panoramica delle transazioni atomiche del bus di servizio di Azure e invia tramite
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
-ms.author: sethm
-ms.openlocfilehash: d2e3fc7c59e0b57e77d2239ff73368f96426ef39
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: spelluru
+ms.openlocfilehash: bc0e0bfb8d4dc8637c191785a98f5d15e086cbf5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29558942"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696432"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Panoramica dell'elaborazione delle transazioni del bus di servizio
 

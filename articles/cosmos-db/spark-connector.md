@@ -10,20 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 57ad621006a79148aaa6e9435d6ede446539c648
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: e7ed0049e64a7740063f2fab7bdfddff38d45ed9
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714754"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287711"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Accelerare l'analisi di Big Data con il connettore Apache Spark per Azure Cosmos DB
  
 Il connettore Apache Spark per Azure Cosmos DB consente ad Azure Cosmos DB di fungere da input o da output per i processi Apache Spark. Connettendo [Spark](http://spark.apache.org/) ad [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), è possibile risolvere più velocemente problemi di data science in rapida evoluzione. È possibile usare Azure Cosmos DB per salvare in modo permanente i dati e sottoporli a query in tempi rapidi. Il connettore usa in modo efficiente gli indici gestiti nativi di Azure Cosmos DB. Gli indici consentono colonne aggiornabili in fase di analisi e propagazione del filtro predicato per i dati distribuiti a livello globale in rapida evoluzione. Questo tipo di dati spazia da scenari IoT (Internet delle cose) a scenari di data science e analisi.
-
-Altre informazioni sul connettore sono disponibili in questo video:
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
 ## <a name="connector-components"></a>Componenti del connettore
 
@@ -322,7 +318,7 @@ Java SDK supporta i seguenti valori per il mapping di configurazione:
 |changefeedstartfromthebeginning  |  Imposta se il feed delle modifiche deve iniziare dall'inizio (true) o dal punto corrente (false). Per impostazione predefinita, inizia dalla posizione corrente (false).       |
 |rollingchangefeed  |   Un valore booleano che indica se il feed di modifiche debba appartenere all'ultima query. Il valore predefinito è false, che significa che le modifiche vengono conteggiate dalla prima lettura della raccolta.      |
 |changefeedusenexttoken  |   Un valore booleano per supportare gli scenari di errore di elaborazione. Indica che il batch di feed di modifiche corrente è stato gestito correttamente. Il set di dati distribuito resiliente deve usare i token di continuazione successivi per ottenere i batch di modifiche successivi.      |
-| InferStreamSchema | Valore booleano che indica se lo schema dei dati in streaming deve essere campionato all'inizio della trasmissione. Per impostazione predefinita, questo valore è impostato su true. Se questo parametro è impostato su true e lo schema di dati di streaming cambia dopo che i dati vengono campionati, verranno eliminate le proprietà appena aggiunte nel frame di dati in streaming. <br/><br/> Se si desidera che il frame di dati in streaming sia indipendente dallo schema, impostare questo parametro su false. In questa modalità, viene eseguito il wrapping del corpo dei documenti letti dal feed di modifiche di Azure Cosmos DB in una proprietà body. Questa proprietà si trova nel frame di dati in streaming risultante, separata dai valori delle proprietà di sistema.
+| InferStreamSchema | Valore booleano che indica se lo schema dei dati in streaming deve essere campionato all'inizio della trasmissione. Per impostazione predefinita, questo valore è impostato su true. Se questo parametro è impostato su true e lo schema di dati di streaming cambia dopo che i dati vengono campionati, verranno eliminate le proprietà appena aggiunte nel frame di dati di streaming. <br/><br/> Se si desidera che il frame di dati di streaming sia indipendente dallo schema, impostare questo parametro su false. In questa modalità, viene eseguito il wrapping del corpo dei documenti letti dal feed di modifiche di Azure Cosmos DB in una proprietà body. Questa proprietà si trova nel frame di dati in streaming risultante, separata dai valori delle proprietà di sistema.
  |
 
 ### <a name="connection-settings"></a>Impostazioni di connessione

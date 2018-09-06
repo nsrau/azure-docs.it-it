@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5c05f2617025d5cb4f1328f04c8d71049e1efcc7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a983c7307308534140ab8999593ac4c8c6992a42
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284776"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338507"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementare il comportamento del modello di dispositivo
 
@@ -41,7 +41,7 @@ Questo articolo ha spiegato come definire il comportamento di un modello di disp
 > * Definire come deve rispondere un dispositivo simulato a una chiamata al metodo dalla soluzione di monitoraggio remoto
 > * Eseguire il debug degli script.
 
-Ora che si è appreso come specificare il comportamento di un dispositivo simulato, il passaggio successivo consigliato consente di apprendere come [creare un dispositivo simulato](iot-accelerators-remote-monitoring-test.md).
+Ora che si è appreso come specificare il comportamento di un dispositivo simulato, il passaggio successivo consigliato consente di apprendere come [creare un dispositivo simulato](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 Per altre informazioni per sviluppatori sulla soluzione di monitoraggio remoto, vedere:
 

@@ -3,19 +3,19 @@ title: Progettazione di tabelle - Azure SQL Data Warehouse | Microsoft Docs
 description: Introduzione alla progettazione di tabelle in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d299ff0d8e719040d503852af6056d9d87738b7d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527940"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302314"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Progettazione di tabelle in Azure SQL Data Warehouse
 
@@ -44,7 +44,7 @@ Per visualizzare l'organizzazione delle tabelle in SQL Data Warehouse, è possib
 
 | Tabella WideWorldImportersDW  | Tipo di tabella | SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| City | Dimension | Dimension.City | wwi.DimCity |
+| city | Dimensione | Dimension.City | wwi.DimCity |
 | Ordine | Fact | Fact.Order | wwi.FactOrder |
 
 
@@ -94,7 +94,7 @@ La categoria della tabella spesso determina l'opzione appropriata per la distrib
 | Categoria di tabella | Opzione di distribuzione consigliata |
 |:---------------|:--------------------|
 | Fact           | Usare la distribuzione hash con indice columnstore cluster. Le prestazioni aumentano quando si crea un join tra due tabelle hash nella stessa colonna di distribuzione. |
-| Dimension      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
+| Dimensione      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
 | Staging        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Dopo che i dati sono stati inseriti nella tabella di staging, usare INSERT...SELECT per spostarli in una tabella di produzione. |
 
 ## <a name="table-partitions"></a>Partizioni della tabella
@@ -111,7 +111,7 @@ Quando crea il piano per l'esecuzione di una query, Query Optimizer usa le stati
 ## <a name="commands-for-creating-tables"></a>Comandi per la creazione di tabelle
 È possibile creare una tabella come nuova tabella vuota. È inoltre possibile creare e popolare una tabella con i risultati di un'istruzione SELECT. Di seguito sono riportati i comandi T-SQL per la creazione di una tabella.
 
-| Istruzione T-SQL | Descrizione |
+| Istruzione T-SQL | DESCRIZIONE |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Crea una tabella vuota definendo tutte le opzioni e le colonne della tabella. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Crea una tabella esterna. La definizione della tabella viene archiviata in SQL Data Warehouse. I dati della tabella vengono archiviati nell'archivio BLOB di Azure o in Azure Data Lake Store. |

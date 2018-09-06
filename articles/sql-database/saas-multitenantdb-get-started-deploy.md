@@ -3,20 +3,21 @@ title: Distribuire un'applicazione SaaS di database multi-tenant partizionato ch
 description: Distribuire ed esplorare l'applicazione SaaS di database multi-tenant partizionato Wingtip Tickets che illustra i modelli SaaS usando il database SQL di Azure.
 keywords: esercitazione database SQL
 services: sql-database
-author: MightyPen
+author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: genemi
-ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 04/02/2018
+ms.reviewer: genemi
+ms.author: billgib
+ms.openlocfilehash: 0c2677622b118c11216bef62ff70e87f4de4cded
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646457"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665924"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione di database multi-tenant partizionato che usa il database SQL di Azure
 
@@ -46,7 +47,7 @@ Tutti gli utenti possono scaricare il codice sorgente C# e PowerShell per Wingti
 
 È disponibile una serie di esercitazioni correlate, basate su questa distribuzione iniziale, che consentono di esaminare vari modelli di progettazione e gestione SaaS. Nel corso delle esercitazioni gli utenti sono incoraggiati a eseguire gli script passo per passo in modo da osservare la modalità di implementazione dei diversi modelli SaaS.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 

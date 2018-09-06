@@ -2,20 +2,20 @@
 title: Guida introduttiva - Usare il portale di Azure per inviare e ricevere messaggi dal bus di servizio di Azure | Microsoft Docs
 description: In questa guida introduttiva viene illustrato come inviare e ricevere i messaggi del bus di servizio usando il portale di Azure
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: spelluru
+ms.openlocfilehash: 05c19b2b602e8541a21d5be508e0346c63714544
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867206"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700430"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Guida introduttiva: Inviare e ricevere messaggi usando il portale di Azure e .NET
 
@@ -27,7 +27,7 @@ Questa guida introduttiva illustra come inviare e ricevere messaggi verso e da u
 
 Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][] prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, accertarsi di avere installato:
 
@@ -48,7 +48,7 @@ Uno spazio dei nomi di messaggistica del bus di servizio fornisce un contenitore
 4. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
 5. Nel campo **Gruppo di risorse** scegliere un gruppo di risorse esistente nel quale risiederà lo spazio dei nomi oppure crearne uno nuovo.      
 6. In **Località**scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
-7. Fare clic su **Crea**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+7. Fare clic su **Create**(Crea). A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 ![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
 

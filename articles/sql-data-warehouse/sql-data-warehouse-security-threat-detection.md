@@ -3,19 +3,19 @@ title: Rilevamento delle minacce - Azure SQL Data Warehouse | Microsoft Docs
 description: Configurare la funzionalità di rilevamento delle minacce ed esplorare eventi sospetti in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 8dc1ef0432536c6bfd4fe069406cd057ca069ea2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7ff23235e9681301984e13e346b23f277662bb5c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523898"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300935"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Funzionalità di rilevamento delle minacce in Azure SQL Data Warehouse
 Configurare la funzionalità di rilevamento delle minacce ed esplorare eventi sospetti in Azure SQL Data Warehouse.

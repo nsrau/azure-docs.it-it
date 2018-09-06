@@ -3,19 +3,19 @@ title: Domande frequenti su SQL Data Warehouse di Azure | Microsoft Docs
 description: In questo articolo sono elencate le domande frequenti su SQL Data Warehouse di Azure poste dai clienti e dagli sviluppatori
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971704"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306741"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Domande frequenti su SQL Data Warehouse di Azure
 
@@ -80,7 +80,7 @@ R. Sì. La maggior parte delle funzionalità REST che può essere usata con il D
 
 D: Quali driver client sono supportati?
 
-R. Il supporto dei driver per DW è reperibile nella pagina delle[Stringhe di connessione]
+R. Il supporto dei driver per DW è reperibile nella pagina delle[stringhe di connessione]
 
 D: Quali formati di file sono supportati da PolyBase con SQL Data Warehouse?
 
@@ -114,6 +114,6 @@ Per altre informazioni su SQL Data Warehouse nel complesso, vedere la pagina [Ov
 [Funzionalità non supportate delle tabelle]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Archivio Data Lake di Azure]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [BLOB di archiviazione di Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[richiesta di funzionalità per progetti di Database]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
+[Richiesta di funzionalità per progetti di database]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [Overview]: ./sql-data-warehouse-overview-faq.md

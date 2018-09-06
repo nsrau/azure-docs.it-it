@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a112e2f201109b71b7bab1c2b344ec4fcf2a851c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ff023812acd5e30bfec34254379431b3e620dac9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627645"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781843"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory - Limitazioni correnti
 
@@ -47,7 +47,7 @@ _Non_ sono supportati gli scenari seguenti:
 - L'autenticazione pass-through non è integrata con [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->Come soluzione alternativa _solo_ per gli scenari non supportati, (ad eccezione dell'integrazione Azure AD Connect Health) abilitare la sincronizzazione dell'hash delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect. Quando gli utenti accedono alle applicazioni elencate nella sezione "Scenari non supportati", queste richieste di accesso specifiche _non_ vengono gestite dagli agenti di autenticazione pass-through e di conseguenza non verranno registrate nei [log di autenticazione pass-through](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Come soluzione alternativa _solo_ per gli scenari non supportati, (ad eccezione dell'integrazione Azure AD Connect Health) abilitare la sincronizzazione dell'hash delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect.
 
 >[!NOTE]
 Abilitando questa funzionalità è possibile effettuare il failover dell'autenticazione se il funzionamento dell'infrastruttura locale è interrotto. Il failover dall'autenticazione pass-through alla sincronizzazione dell'hash delle password non avviene automaticamente. È necessario cambiare il metodo di accesso manualmente con Azure AD Connect. Se il server che esegue Azure AD Connect smette di funzionare, è necessario chiedere assistenza al supporto tecnico Microsoft per disattivare l'autenticazione pass-through.

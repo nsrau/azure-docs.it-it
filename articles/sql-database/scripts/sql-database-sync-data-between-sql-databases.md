@@ -17,12 +17,12 @@ ms.workload: database
 ms.date: 04/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7375771d0a80073811149dc74b1c7fd3c17b478f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6d322ffc9f8aea8cd5c0a54bdefe6d1a9429fb7a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619991"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666568"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Usare PowerShell per sincronizzare più database SQL
  
@@ -353,7 +353,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Ottiene tutte le informazioni per l'agente di sincronizzazione |
 | [New-AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Aggiunge un nuovo membro al gruppo di sincronizzazione |
 | [Update-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Aggiorna le informazioni dello schema del database |
-| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  Ottiene le informazioni dello schema del database |
+| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchema?view=azurermps-6.8.1) |  Ottiene le informazioni dello schema del database |
 | [Update-AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Aggiorna il gruppo di sincronizzazione |
 | [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | Attiva una sincronizzazione |
 | [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Controlla il registro di sincronizzazione |

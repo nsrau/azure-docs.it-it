@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4ad7a6fb032c805072fd9608fb8058a70aa12914
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f56c9f916e0bbbf380347af2ec3f17645063494d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441832"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340351"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: accesso Web con OpenID Connect
 OpenID Connect è un protocollo di autenticazione basato su OAuth 2.0 che può essere usato per consentire agli utenti di accedere in modo sicuro alle applicazioni Web. Tramite l'implementazione in Azure Active Directory B2C (Azure AD B2C) di OpenID Connect è possibile assegnare esperienze di gestione delle iscrizioni, degli accessi e altre esperienze di gestione delle identità nelle applicazioni Web ad Azure AD. Questa guida illustra come eseguire questa operazione in modo indipendente dal linguaggio. La guida descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie Microsoft open source.
@@ -36,7 +36,7 @@ In questa richiesta il client indica le autorizzazioni che deve acquisire dall'u
 
 #### <a name="use-a-sign-in-policy"></a>Uso di un criterio di accesso
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -49,7 +49,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-a-sign-up-policy"></a>Uso di un criterio di iscrizione
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -62,7 +62,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-an-edit-profile-policy"></a>Uso di un criterio di modifica del profilo
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -126,11 +126,11 @@ Sono disponibili molte librerie open source per la convalida dei token JWT, a se
 
 Azure AD B2C dispone di un endpoint di metadati OpenID Connect, che consente a un'applicazione di recuperare informazioni su Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. Il tenant B2C include un documento di metadati JSON per ogni criterio. Il documento di metadati dei criteri `b2c_1_sign_in` in `fabrikamb2c.onmicrosoft.com` si trova ad esempio in:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 Una delle proprietà del documento di configurazione è `jwks_uri`, il cui valore per gli stessi criteri è:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
 
 Per determinare quali criteri sono stati usati per la firma di un token ID (e la posizione dove recuperare i metadati), sono disponibili due opzioni. Prima di tutto il nome dei criteri è incluso nell'attestazione `acr` del token ID. Per informazioni su come analizzare le attestazioni da un token ID, vedere le [informazioni di riferimento sul token Azure AD B2C](active-directory-b2c-reference-tokens.md). L'altra opzione consiste nel codificare i criteri nel valore del parametro `state` quando si rilascia la richiesta, per poi decodificarlo e determinare quali criteri sono stati utilizzati. Entrambi i metodi sono validi.
 
@@ -160,7 +160,7 @@ Se l'app Web deve solo eseguire criteri, è possibile ignorare le prossime sezio
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -226,7 +226,7 @@ I token ID hanno breve durata. È necessario aggiornarli dopo la scadenza per co
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -283,7 +283,7 @@ Per la disconnessione di un utente dall'app, non è sufficiente cancellare i coo
 È sufficiente reindirizzare l'utente all'endpoint `end_session` elencato nel documento dei metadati di OpenID Connect descritto precedentemente nella sezione "Convalidare il token ID":
 
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```

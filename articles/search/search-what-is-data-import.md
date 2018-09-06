@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: 6c3756e721847a8cb746f5dc755ccd90bfebe9f0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b518d86d5cb08f85beecd4afe30efc9e4f70e1f7
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008275"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371469"
 ---
 # <a name="indexing-in-azure-search"></a>Indicizzazione in Ricerca di Azure
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Gli indicizzatori connettono un indice a un'origine dati, in genere una tabella,
 
 ### <a name="how-to-pull-data-into-an-azure-search-index"></a>Come eseguire il pull dei dati in un indice di Ricerca di Azure
 
-La funzionalità di indicizzatore viene esposta nel [portale di Azure](search-import-data-portal.md), nell'[API REST](/rest/api/searchservice/Indexer-operations) e in [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperations). 
+La funzionalità di indicizzatore viene esposta nel [portale di Azure](search-import-data-portal.md), nell'[API REST](/rest/api/searchservice/Indexer-operations) e in [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperationsextensions). 
 
 Un vantaggio dell'uso del portale consiste nel fatto che Ricerca di Azure può solitamente generare automaticamente uno schema di indice predefinito leggendo i metadati del set di dati di origine. È possibile modificare l'indice generato fino al termine dell'elaborazione dell'indice. In seguito, sono consentite solo le modifiche che non richiedono la reindicizzazione. Se le modifiche da apportare influiscono direttamente sullo schema, è necessario ricompilare l'indice. 
 

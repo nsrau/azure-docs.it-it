@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: shlo
-ms.openlocfilehash: 27458a48c04a6d4ec612252dc298d454a48cf009
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d885ffc531c24e8116da991f49ba5f8591e966d1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30165791"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781598"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script PowerShell: trasformare dati nel cloud con Azure Data Factory
 
@@ -25,7 +25,7 @@ Questo script PowerShell di esempio crea una pipeline che trasforma i dati nel c
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Account di archiviazione di Azure**. Creare uno script Python e un file di input, quindi caricarli nella risorsa di archiviazione di Azure. L'output del programma Spark viene archiviato in questo account di archiviazione. Il cluster Spark su richiesta usa lo stesso account di archiviazione come risorsa di archiviazione primaria.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Caricare lo script Python nell'account di archiviazione BLOB
@@ -92,10 +92,10 @@ Questo script usa i comandi seguenti:
 | Comando | Note |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2) | Creare una data factory. |
-| [Set-AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2linkedservice) | Crea un servizio collegato nella data factory. Un servizio collegato collega un archivio dati o un ambiente di calcolo a una data factory. |
-| [Set-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactorv2ypipeline) | Crea una pipeline nella data factory. Una pipeline contiene una o più attività che eseguono un'operazione specifica. Nella pipeline un'attività Spark trasforma i dati tramite l'esecuzione di un programma in un cluster Azure HDInsight Spark. |
-| [Invoke-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2pipelinerun) | Crea un'esecuzione per la pipeline. In altre parole, esegue la pipeline. |
+| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Creare una data factory. |
+| [Set-AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2linkedservice) | Crea un servizio collegato nella data factory. Un servizio collegato collega un archivio dati o un ambiente di calcolo a una data factory. |
+| [Set-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2pipeline) | Crea una pipeline nella data factory. Una pipeline contiene una o più attività che eseguono un'operazione specifica. Nella pipeline un'attività Spark trasforma i dati tramite l'esecuzione di un programma in un cluster Azure HDInsight Spark. |
+| [Invoke-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/invoke-azurermdatafactoryv2pipeline) | Crea un'esecuzione per la pipeline. In altre parole, esegue la pipeline. |
 | [Get-AzureRmDataFactoryV2ActivityRun](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2activityrun) | Ottiene i dettagli dell'esecuzione dell'attività nella pipeline. 
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||

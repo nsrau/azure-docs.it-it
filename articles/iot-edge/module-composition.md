@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ddeee70d29f54a0691b0a13ad299003b3da338a1
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: af4a831c084ae10b381b8e08fd0ce4798b21b394
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345019"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382172"
 ---
 # <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Informazioni su come usare i manifesti della distribuzione per distribuire moduli e definire route
 
@@ -153,7 +153,7 @@ Per esempi su come creare query in base alle proprietà dei messaggi, vedere [Es
 Un esempio specifico per IoT Edge riguarda il filtraggio dei messaggi inviati da un dispositivo foglia a un dispositivo gateway. I messaggi provenienti dai moduli contengono una proprietà di sistema denominata **connectionModuleId**. Se si intende eseguire il routing del messaggi direttamente da dispositivi foglia all'hub IoT, quindi, usare la route seguente per escludere i messaggi dei moduli:
 
 ```sql
-FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
+FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
 ### <a name="sink"></a>Sink

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d61ac48aa7c51bc4b215a7d56b1bbedfdc613f9f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264222"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287557"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Panoramica delle metriche in Microsoft Azure
 In questo articolo sono descritte le metriche disponibili in Microsoft Azure, i loro vantaggi e come iniziare a usarle.  
@@ -107,7 +107,7 @@ Avvisi metrica: possono quindi comunicare tramite e-mail o generare un webhook c
 
  ![Metriche e regole di avviso nel monitoraggio di Azure](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-I nuovi avvisi delle metriche possono monitorare più metriche e soglie per una risorsa, quindi comunicare tramite un [gruppo di azioni](/monitoring-action-groups.md). Altre informazioni sui [nuovi avvisi](https://aka.ms/azuremonitor/near-real-time-alerts).
+I nuovi avvisi delle metriche possono monitorare più metriche e soglie per una risorsa, quindi comunicare tramite un [gruppo di azioni](monitoring-action-groups.md). Altre informazioni sui [nuovi avvisi](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Ridimensionare automaticamente le risorse di Azure

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 2ca1c1518589e60a03570e1c2063381f749ed9aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659315"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382117"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Sicurezza in Servizio app di Azure e Funzioni di Azure
 
@@ -29,7 +29,7 @@ Ai componenti della piattaforma di Servizio app di Azure, incluse le macchine vi
 
 - Le risorse dell'app siano [protette](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) dalle risorse di Azure degli altri clienti.
 - [Le istanze di macchine virtuali e il software di runtime vengano regolarmente aggiornati](app-service-patch-os-runtime.md) in modo da contrastare le vulnerabilità appena individuate. 
-- La comunicazione di segreti (ad esempio stringhe di connessione) tra l'app e altre risorse di Azure (ad esempio [database SQL](/services/sql-database/)) rimanga all'interno di Azure e non superi i confini di rete. I segreti siano sempre crittografati quando vengono archiviati.
+- La comunicazione di segreti (ad esempio stringhe di connessione) tra l'app e altre risorse di Azure (ad esempio [database SQL](https://azure.microsoft.com/services/sql-database/)) rimanga all'interno di Azure e non superi i confini di rete. I segreti siano sempre crittografati quando vengono archiviati.
 - Tutte le comunicazioni tramite le funzionalità di connettività di Servizio app di Azure, ad esempio la [connessione ibrida](app-service-hybrid-connections.md), siano crittografate. 
 - Tutte le connessioni con strumenti di gestione remota, come Azure PowerShell, l'interfaccia della riga di comando di Azure, Azure SDK e le API REST, siano crittografate.
 - La gestione delle minacce 24 ore su 24 protegga l'infrastruttura e la piattaforma da malware, attacchi Distributed Denial of Service (DDoS), attacchi man-in-the-middle (MITM) e altre minacce.
@@ -49,7 +49,7 @@ Servizio app di Azure consente di proteggere le app con [HTTPS](https://wikipedi
 
 Per proteggere l'app da tutte le connessioni non crittografate (HTTP), Servizio app di Azure fornisce una configurazione che consente di applicare HTTPS con un solo clic. Le richieste non sicure vengono rifiutate prima ancora che raggiungano il codice dell'applicazione. Per altre informazioni, vedere [Applicare HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https).
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 non è più considerato sicuro dagli standard del settore, come [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Servizio app di Azure consente di disabilitare i protocolli non aggiornati [applicando TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112).
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 non è più considerato sicuro dagli standard del settore, come [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Servizio app di Azure consente di disabilitare i protocolli non aggiornati [applicando TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
 
 Il servizio app supporta FTP e FTPS per la distribuzione dei file. Se possibile, però, è opportuno usare FTPS invece di FTP. Quando uno o entrambi questi protocolli non sono in uso, è necessario [disabilitarli](app-service-deploy-ftp.md#enforce-ftps).
 
@@ -84,7 +84,7 @@ In ognuno di questi casi, il servizio app fornisce un modo per stabilire conness
 
 ### <a name="azure-resources"></a>Risorse di Azure
 
-Quando l'app si connette a risorse di Azure, ad esempio [Database SQL](/services/sql-database/) e [Archiviazione di Azure](/azure/storage/), la connessione rimane all'interno di Azure e non supera i confini di rete. Tuttavia, la connessione passa attraverso le reti condivise di Azure, pertanto occorre sempre assicurarsi che la connessione sia crittografata. 
+Quando l'app si connette a risorse di Azure, ad esempio [Database SQL](https://azure.microsoft.com/services/sql-database/) e [Archiviazione di Azure](/azure/storage/), la connessione rimane all'interno di Azure e non supera i confini di rete. Tuttavia, la connessione passa attraverso le reti condivise di Azure, pertanto occorre sempre assicurarsi che la connessione sia crittografata. 
 
 Se l'app è ospitata in un [ambiente del servizio app](environment/intro.md), è necessario [connettersi a servizi di Azure supportati usando gli endpoint del servizio Rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -117,4 +117,4 @@ Fatta eccezione per il piano tariffario **Isolato**, tutti i piani eseguono le a
 - Servire le applicazioni interne mediante un servizio di bilanciamento del carico interno, che consente l'accesso solo dall'interno della rete virtuale di Azure. Questo servizio ha un indirizzo IP della subnet privata, che offre un isolamento totale delle app da Internet.
 - [Usare un servizio di bilanciamento del carico interno dietro un WAF (Web Application Firewall)](environment/integrate-with-application-gateway.md). Il WAF offre una protezione a livello aziendale per le applicazioni pubbliche, fornendo funzionalità come la protezione DDoS, il filtro degli URI e la prevenzione di attacchi SQL injection.
 
-Per altre informazioni, vedere [Introduzione agli ambienti del servizio app di Azure](environment/intro.md).
+Per altre informazioni, vedere [Introduzione agli ambienti del servizio app di Azure](environment/intro.md). 

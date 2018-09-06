@@ -10,21 +10,21 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: bf0bd715e47cc7145a76d5f8b5f2589f24b343a8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0a2bd840c4e93755988cf1638a6c0bdcb6b6207d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100556"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696381"
 ---
+# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e Java
+
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
 
-# <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e Java
 Azure Cosmos DB è un database distribuito veloce e flessibile, facilmente scalabile e con latenza e velocità effettiva garantite. Non è necessario apportare modifiche significative all'architettura o scrivere codice complesso per ridimensionare il database con Azure Cosmos DB. Aumentare o ridurre le prestazioni è semplice come eseguire una singola chiamata API o una [chiamata al metodo SDK](set-throughput.md#set-throughput-java). Dato che si accede ad Azure Cosmos DB tramite chiamate di rete, è tuttavia possibile apportare ottimizzazioni lato client per ottenere prestazioni ottimali se si usa l'[SDK per Java SQL](documentdb-sdk-java.md).
 
 Se si vogliono migliorare le prestazioni del database, prendere in considerazione le opzioni seguenti:
