@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053328"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286766"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
@@ -40,12 +40,6 @@ Poiché Azure Cosmos DB è un database multimodello, è importante tenere presen
 Azure Cosmos DB offre prestazioni veloci e prevedibili, riservando risorse per soddisfare le esigenze a livello di velocità effettiva dell'applicazione. Il carico dell'applicazione e i modelli di accesso cambiano nel tempo. Azure Cosmos DB consente di aumentare o diminuire agevolmente la quantità di velocità effettiva disponibile per l'applicazione.
 
 Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità richiesta elaborata al secondo. Le unità richiesta possono essere considerate come valuta effettiva. Si riservano diverse unità richiesta garantite perché siano disponibili al secondo per l'applicazione. Ogni operazione in Azure Cosmos DB, tra cui scrittura di un documento, esecuzione di una query e aggiornamento di un documento, usa CPU, memoria e operazioni di I/O al secondo. In altre parole, ogni operazione comporta un addebito richiesta espresso in unità richiesta. Quando si riconoscono i fattori che influiscono sugli addebiti delle unità richiesta e i requisiti di velocità effettiva dell'applicazione, è possibile eseguire l'applicazione nel modo più economicamente conveniente possibile. 
-
-Per aiutare gli utenti a iniziare, Andrew Liu, Program Manager di Azure Cosmos DB, illustra le unità richiesta nel video seguente (nell'esempio delle unità di richiesta del video c'è un piccolo refuso: quando si usa 1 kB di dati cin 100.000 record, lo spazio di archiviazione totale è 100 MB e non 100 GB): <br /><br />
-
-> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
-> 
-> 
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolamento della velocità effettiva nei database distribuiti a livello globale
 

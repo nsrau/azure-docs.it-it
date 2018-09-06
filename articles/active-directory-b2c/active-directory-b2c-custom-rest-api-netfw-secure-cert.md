@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0832b3b8e0b2b6d7459eeddb8d8e5a93a7f17d09
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448350"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344966"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteggere il servizio RESTful usando certificati client
 
@@ -33,7 +33,7 @@ Questo articolo descrive in dettaglio le procedure per:
 * Caricare il certificato nelle chiavi dei criteri di Azure AD B2C.
 * Configurare i criteri personalizzati per l'uso del certificato client.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Eseguire i passaggi dell'articolo [Integrare scambi di attestazioni API REST](active-directory-b2c-custom-rest-api-netfw.md).
 * Ottenere un certificato valido (un file con estensione pfx con una chiave privata).
 
@@ -136,7 +136,7 @@ Per supportare l'autenticazione del certificato client nel criterio personalizza
      "exp": 1507125903,
      "nbf": 1507122303,
      "ver": "1.0",
-     "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+     "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
      "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
      "acr": "b2c_1a_signup_signin",
      "nonce": "defaultNonce",

@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 15e01dd55a0fe297eab69417074dc58a15b469c4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888142"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783213"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Lingue supportate nell'API Traduzione testuale Microsoft
 
@@ -80,6 +80,7 @@ L'API Traduzione testuale Microsoft supporta le lingue seguenti per la traduzion
 | Svedese        |  Neurale |`sv`          |
 | Taitiano      | Statistica |`ty`          |
 | Tamil      | Statistica |`ta`          |
+| Telugu   | Neurale   | `te` |
 | Thai      | Neurale |`th`          |
 | Tongano      | Statistica |`to`          |
 | Turco       |  Neurale |`tr`          |
@@ -236,6 +237,7 @@ Il metodo Detect è in grado di rilevare le lingue seguenti. Detect può rilevar
 | Swahili |
 | Svedese |
 | Tagalog |
+| Telugu |
 | Thai |
 | Turco |
 | Ucraino |

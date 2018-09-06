@@ -4,16 +4,16 @@ description: Informazioni su come usare Ansible per gestire gli inventari dinami
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloud shell, inventario dinamico
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 5f4793759bfba68c8a01d682b6b13de5cb96a8f6
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1b8c1ba80b4c69f36e8304cbe978452a359ac911
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038222"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698078"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Usare Ansible per gestire gli inventari dinamici di Azure
 Ansible può essere usato per eseguire il pull delle informazioni degli inventari da diverse origini (incluse origini cloud, ad esempio Azure) in un *inventario dinamico*. In questo articolo si userà [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) per configurare un inventario dinamico di Azure per Ansible in cui si creeranno due macchine virtuali, si contrassegnerà una delle due macchine virtuali e si installerà Nginx nella macchina virtuale contrassegnata.
@@ -137,25 +137,26 @@ Lo scopo dei tag è consentire un uso facile e rapido dei sottogruppi delle macc
 1. Inserire il codice seguente nel nuovo file `nginx.yml` creato:
 
     ```yml
+    ---
     - name: Install and start Nginx on an Azure virtual machine
     hosts: azure
     become: yes
     tasks:
     - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
+      apt: pkg=nginx state=installed
+      notify:
+      - start nginx
 
     handlers:
     - name: start nginx
-        service: name=nginx state=started
+      service: name=nginx state=started
     ```
 
 1. Eseguire il playbook `nginx.yml`:
 
-  ```azurecli-interactive
-  ansible-playbook -i azure_rm.py nginx.yml
-  ```
+    ```azurecli-interactive
+    ansible-playbook -i azure_rm.py nginx.yml
+    ```
 
 1. Dopo avere eseguito il playbook, viene visualizzato un output simile al seguente:
 

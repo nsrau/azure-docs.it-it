@@ -2,19 +2,19 @@
 title: Topologie Apache Storm con Visual Studio e Visual C# - Azure HDInsight
 description: Informazioni su come creare topologie Storm in C#. Creare una semplice topologia di conteggio parole in Visual Studio usando gli strumenti Hadoop per Visual Studio.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1ed10fca7e9351aa4cbec42011b5f961a461ccef
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 371f8c1d69482381e3a400da6010825bc3ac7c1a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620332"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697782"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
 
@@ -74,23 +74,23 @@ namespace ConsoleApplication2
    {
        static void Main(string[] args)
        {
-           string javaHome = Environment.GetEnvironmentVariable(“JAVA_HOME”);
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
            if (!string.IsNullOrEmpty(javaHome))
            {
-               string jarExe = Path.Combine(javaHome + @”\bin”, “jar.exe”);
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
                if (File.Exists(jarExe))
                {
-                   Console.WriteLine(“JAVA Is Installed properly”);
+                   Console.WriteLine("JAVA Is Installed properly");
                     return;
                }
                else
                {
-                   Console.WriteLine(“A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.”);
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
                }
            }
            else
            {
-             Console.WriteLine(“A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.”);
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
            }
        }  
    }

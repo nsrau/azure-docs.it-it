@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0f8568dd67dd292ccca3972a402a110cd4a46fb
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580696"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344877"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Flusso on-behalf-of di Azure Active Directory v2.0 e di OAuth 2.0
 Il flusso on-behalf-of di OAuth 2.0 viene usato quando un'applicazione richiama un servizio o un'API Web, che a sua volta deve chiamare un altro servizio o un'altra API Web. Lo scopo è di propagare l'identità utente delegato e le autorizzazioni attraverso la catena di richieste. Per eseguire richieste autenticate al servizio downstream, il servizio di livello intermedio deve assicurarsi un token di accesso da Azure Active Directory (Azure AD) per conto dell'utente.
@@ -40,7 +40,7 @@ Si supponga che l'utente sia stato autenticato in un'applicazione usando il [flu
 
 I passaggi che seguono costituiscono il flusso on-behalf-of e vengono descritti con l'aiuto del diagramma seguente.
 
-![Flusso on-behalf-of di OAuth2.0](/media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![Flusso on-behalf-of di OAuth2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. L'applicazione client esegue una richiesta all'API A con il token A con un'attestazione `aud` dell'API A.

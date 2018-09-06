@@ -3,19 +3,19 @@ title: Tabelle di partizionamento in Azure SQL Data Warehouse | Microsoft Docs
 description: Raccomandazioni ed esempi per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ada55950ee36222e70809e2ef423c63612cd61ed
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 04e489e6b6841f1038830d0b160e88111be8d838
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526778"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301961"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Tabelle di partizionamento in SQL Data Warehouse
 Raccomandazioni ed esempi per l'uso di partizioni della tabella in Azure SQL Data Warehouse per lo sviluppo di soluzioni.

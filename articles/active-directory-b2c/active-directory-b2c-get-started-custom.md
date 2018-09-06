@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446742"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344563"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introduzione ai criteri personalizzati
 
@@ -23,7 +23,7 @@ ms.locfileid: "37446742"
 
 Dopo avere completato i passaggi descritti in questo articolo, il criterio personalizzato supporterà l'iscrizione o l'accesso all'"account locale" tramite un indirizzo di posta elettronica e una password. Si preparerà anche l'ambiente per l'aggiunta di provider di identità (ad esempio Facebook o Azure Active Directory). È consigliabile completare questi passaggi prima di leggere informazioni su altri usi del Framework dell'esperienza di gestione delle identità di Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di procedere, assicurarsi di disporre di un tenant di Azure AD B2C, che è un contenitore per tutti gli utenti, le app, i criteri e altro ancora. In assenza di un tenant, è necessario [creare un tenant di Azure AD B2C](active-directory-b2c-get-started.md). Prima di procedere, è consigliabile che tutti gli sviluppatori completino le procedure dettagliate relative ai criteri predefiniti di Azure AD B2C e configurino la propria applicazione con i criteri predefiniti. Le applicazioni useranno entrambi i tipi di criteri con una semplice modifica del nome dei criteri per richiamare i criteri personalizzati.
 
@@ -77,7 +77,7 @@ Azure AD B2C richiede di registrare due applicazioni aggiuntive che vengono usat
 4. Selezionare **Registrazione nuova applicazione**.
    * Per **Nome** usare `IdentityExperienceFramework`.
    * Per **Tipo di applicazione** usare **App Web/API**.
-   * Per **URL di accesso** usare `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, dove `yourtenant` è il nome del dominio del tenant di Azure AD B2C.
+   * Per **URL di accesso** usare `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, dove `yourtenant` è il nome del dominio del tenant di Azure AD B2C.
 5. Selezionare **Create**.
 6. Dopo avere completato la creazione, selezionare l'applicazione appena creata **IdentityExperienceFramework**.<br>
    * Selezionare **Proprietà**.<br>
@@ -89,7 +89,7 @@ Azure AD B2C richiede di registrare due applicazioni aggiuntive che vengono usat
 1. Selezionare **Registrazione nuova applicazione**.
    * Per **Nome** usare `ProxyIdentityExperienceFramework`.
    * Per **Tipo di applicazione** usare **Nativo**.
-   * Per **URI di reindirizzamento** usare `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, dove `yourtenant` è il tenant di Azure AD B2C.
+   * Per **URI di reindirizzamento** usare `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, dove `yourtenant` è il tenant di Azure AD B2C.
 1. Selezionare **Create**.
 1. Dopo avere completato la creazione, selezionare l'applicazione **ProxyIdentityExperienceFramework**.<br>
    * Selezionare **Proprietà**. <br>

@@ -2,19 +2,19 @@
 title: Esercitazione - Aggiornare l'assortimento del magazzino al dettaglio usando i canali di pubblicazione/sottoscrizione e i filtri di argomento con l'interfaccia della riga di comando di Azure | Microsoft Docs
 description: In questa esercitazione viene illustrato come inviare e ricevere messaggi da un argomento e una sottoscrizione e come aggiungere e usare le regole di filtro con l'interfaccia della riga di comando di Azure
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 42f0781de5412310ecb5326f0384268aba9c53dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b68b3f311312a952ab55c15083ff5ed562443be2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651470"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702004"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando l'interfaccia della riga di comando e argomenti/sottoscrizioni
 
@@ -34,7 +34,7 @@ Un esempio di questo scenario è un aggiornamento dell'assortimento di magazzino
 
 Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][] prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per sviluppare un'app per il bus di servizio con Java, è necessario che siano installati gli elementi seguenti:
 
@@ -50,7 +50,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 Ogni [sottoscrizione a un argomento](service-bus-messaging-overview.md#topics) può ricevere una copia di ogni messaggio. Gli argomenti sono completamente compatibili a livello di protocollo e di semantica con le code del bus di servizio. Gli argomenti del bus di servizio supportano un'ampia gamma di regole di selezione con condizioni di filtro, con azioni facoltative per impostare o modificare le proprietà dei messaggi. Ogni volta che una regola corrisponde, genera un messaggio. Per altre informazioni su regole, filtri e azioni, seguire questo [collegamento](topic-filters.md).
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Dopo che l'interfaccia della riga di comando è stata installata, aprire un prompt dei comandi ed eseguire i comandi seguenti per accedere ad Azure. Questi passaggi non sono necessari se si usa Cloud Shell:
 

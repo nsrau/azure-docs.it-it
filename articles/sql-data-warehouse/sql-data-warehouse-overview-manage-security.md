@@ -3,19 +3,19 @@ title: Proteggere un database in SQL Data Warehouse | Documentazione Microsoft
 description: Suggerimenti per proteggere un database in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c42b065a307d5e10882c621191318a667e78795c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8abb40b0c1a5b9cd3f8d1e23124090c00e8cfadb
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524894"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302540"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteggere un database in SQL Data Warehouse
 > [!div class="op_single_selector"]

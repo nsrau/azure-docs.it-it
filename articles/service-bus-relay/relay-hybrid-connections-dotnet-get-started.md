@@ -3,7 +3,7 @@ title: Introduzione a Websockets per Connessioni ibride di Inoltro di Azure in .
 description: Scrivere un'applicazione console C# per Websockets per Connessioni ibride di Inoltro di Azure.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
-ms.author: sethm
-ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: 1ed401f6175d7ebea83a888898221d345791bc34
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38680845"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697959"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introduzione a Websockets per Connessioni ibride di Inoltro di Azure in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -34,7 +34,7 @@ Le connessioni ibride richiedono sia un componente client che un componente serv
 3. Scrivere un'applicazione console server (listener) per ricevere messaggi.
 4. Scrivere un'applicazione console client (mittente) per inviare messaggi.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 

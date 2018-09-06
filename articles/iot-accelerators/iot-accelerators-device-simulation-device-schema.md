@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: a27624d4c7a0bde4b33aefe8d05881b743ce397d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b325873819caff139727ec15d6aecd2d4be89c9e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295287"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338156"
 ---
 # <a name="understand-the-device-model-schema"></a>Informazioni sullo schema del modello dei dispositivi
 
@@ -24,7 +24,7 @@ Questo articolo descrive lo schema del modello di dispositivo che specifica le f
 Gli articoli seguenti sono correlati all'articolo corrente:
 
 * [Implement the device model behavior](iot-accelerators-device-simulation-device-behavior.md) (Implementare il comportamento del modello di dispositivo) descrive i file JavaScript usati per implementare il comportamento di un dispositivo simulato.
-* [Creare un nuovo dispositivo simulato](iot-accelerators-remote-monitoring-test.md) riunisce tutti gli aspetti e illustra come distribuire un nuovo tipo di dispositivo simulato nella soluzione.
+* [Creare un nuovo dispositivo simulato](iot-accelerators-device-simulation-create-simulated-device.md) riunisce tutti gli aspetti e illustra come distribuire un nuovo tipo di dispositivo simulato nella soluzione.
 
 In questo articolo viene spiegato come:
 

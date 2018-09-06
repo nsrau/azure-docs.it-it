@@ -3,7 +3,7 @@ title: Bus di servizio di Azure con .NET e AMQP 1.0 | Microsoft Docs
 description: Uso del bus di servizio di Azure da .NET con AMQP
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/16/2018
+ms.author: spelluru
+ms.openlocfilehash: ad789b7a65fd12abb2a6e92c7c8896677de80cec
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188498"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702239"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usare il bus di servizio da .NET con AMQP 1.0
 
@@ -29,7 +29,7 @@ Il supporto per AMQP 1.0 è disponibile nel pacchetto Service Bus versione 2.1 o
 
 Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il bus di servizio tramite un protocollo dedicato basato su SOAP. Per usare AMQP 1.0 anziché il protocollo predefinito, è necessaria una configurazione esplicita nella stringa di connessione del bus di servizio, come illustrato nella sezione successiva. A parte questa modifica, il codice dell'applicazione rimane invariato quando si usa AMQP 1.0.
 
-Nella versione corrente alcune funzionalità API non sono supportate se si usa AMQP. Queste funzionalità non supportate sono elencate più avanti nella sezione [Funzionalità non supportate, restrizioni e differenze di comportamento](#unsupported-features-restrictions-and-behavioral-differences). Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si utilizza AMQP.
+Nella versione corrente alcune funzionalità API non sono supportate se si usa AMQP. Queste funzionalità non supportate sono elencate nella sezione [Differenze di comportamento](#behavioral-differences). Anche alcune impostazioni di configurazione avanzate assumono un significato differente quando si utilizza AMQP.
 
 ### <a name="configuration-using-appconfig"></a>Configurazione mediante App.config
 

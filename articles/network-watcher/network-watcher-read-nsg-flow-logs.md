@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143476"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286445"
 ---
 # <a name="read-nsg-flow-logs"></a>Leggere i log dei flussi del gruppo di sicurezza di rete
 
 In questo articolo viene illustrato come leggere le voci del log dei flussi del gruppo di sicurezza di rete con PowerShell.
 
-I log dei flussi del gruppo di sicurezza di rete vengono archiviati in un account di archiviazione in [BLOB in blocchi](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). I BLOB in blocchi sono costituiti da blocchi di dimensioni inferiori. Ogni log è un BLOB in blocchi separato che viene generato ogni ora. Nuovi registri vengono generati ogni ora, i log vengono aggiornati con le nuove voci più recenti ogni pochi minuti. In questo articolo è illustrato come leggere parti dei log dei flussi.
+I log dei flussi del gruppo di sicurezza di rete vengono archiviati in un account di archiviazione in [BLOB in blocchi](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). I BLOB in blocchi sono costituiti da blocchi di dimensioni inferiori. Ogni log è un BLOB in blocchi separato che viene generato ogni ora. Nuovi registri vengono generati ogni ora, i log vengono aggiornati con le nuove voci più recenti ogni pochi minuti. In questo articolo è illustrato come leggere parti dei log dei flussi.
 
 ## <a name="scenario"></a>Scenario
 

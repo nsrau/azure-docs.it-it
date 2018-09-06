@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 18f921fb718aeb7ae4add2836fbb6ffabd66668f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a37a37dbed3b5ef9733f1105444529b4d255bcf
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445059"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336782"
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina
 Questo articolo è complementare all' [articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. I passaggi seguenti descrivono come verificare la funzionalità di personalizzazione dell'interfaccia utente delle pagine usando il contenuto HTML e CSS di esempio fornito.
@@ -55,7 +55,7 @@ Se si desidera usare Archiviazione BLOB di Azure per ospitare il contenuto della
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **+ Nuovo** > **Dati e archiviazione** > **Account archiviazione**. Per creare un account di archiviazione BLOB di Azure è necessaria una sottoscrizione di Azure. È possibile registrarsi per una versione di valutazione gratuita nel [sito Web di Azure](https://azure.microsoft.com/pricing/free-trial/).
-3. Specificare un **Nome** da assegnare all'account di archiviazione (ad esempio, "contoso") e selezionare le opzioni appropriate in **Piano tariffario**, **Gruppo di risorse** e **Sottoscrizione**. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Crea**.
+3. Specificare un **Nome** da assegnare all'account di archiviazione (ad esempio, "contoso") e selezionare le opzioni appropriate in **Piano tariffario**, **Gruppo di risorse** e **Sottoscrizione**. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Create**(Crea).
 4. Tornare alla schermata iniziale e fare clic sull'account di archiviazione appena creato.
 5. Nella sezione **Riepilogo** fare clic su **Contenitori** e quindi su **+ Aggiungi**.
 6. Specificare un valore in **Nome** per il contenitore, ad esempio "b2c", e quindi selezionare **BLOB** come **Tipo di accesso**. Fare clic su **OK**.
@@ -74,7 +74,7 @@ Se si desidera usare Archiviazione BLOB di Azure per ospitare il contenuto della
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Questo repository contiene una directory `sample_templates\wingtip` , che include file HTML, CSS e immagini di esempio. Affinché questi modelli facciano riferimento al proprio account di archiviazione BLOB di Azure, è necessario modificare i file HTML. Aprire `unified.html` e `selfasserted.html` e sostituire tutte le istanze di `https://localhost` con l'URL del proprio contenitore di cui si è preso nota nei passaggi precedenti. È necessario usare il percorso assoluto dei file HTML, perché in questo caso l'HTML verrà gestito da Azure AD, nel dominio `https://login.microsoftonline.com`.
+Questo repository contiene una directory `sample_templates\wingtip` , che include file HTML, CSS e immagini di esempio. Affinché questi modelli facciano riferimento al proprio account di archiviazione BLOB di Azure, è necessario modificare i file HTML. Aprire `unified.html` e `selfasserted.html` e sostituire tutte le istanze di `https://localhost` con l'URL del proprio contenitore di cui si è preso nota nei passaggi precedenti. È necessario usare il percorso assoluto dei file HTML, perché in questo caso l'HTML verrà gestito da Azure AD, nel dominio `tenantname.b2clogin.com`.
 
 ### <a name="upload-the-sample-files"></a>Caricare i file di esempio
 Nello stesso repository decomprimere `B2CAzureStorageClient.zip` ed eseguire il file `B2CAzureStorageClient.exe` in esso contenuto. Questo programma caricherà semplicemente tutti i file nella directory specificata per l'account di archiviazione e abiliterà l'accesso CORS per tali file. Se è stata eseguita la procedura descritta precedentemente, i file HTML e CSS punteranno all'account di archiviazione. Si noti che il nome dell'account di archiviazione è la parte che precede `blob.core.windows.net`, ad esempio `contoso`. È possibile verificare che il contenuto sia stato caricato correttamente, provando ad accedere a `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` da un browser. Usare anche [http://test-cors.org/](http://test-cors.org/) per assicurarsi che il contenuto sia ora abilitato per CORS e cercare "XHR status: 200" nel risultato.

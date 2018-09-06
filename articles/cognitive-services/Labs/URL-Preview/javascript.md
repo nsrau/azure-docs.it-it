@@ -8,20 +8,20 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9041a88a292fb2dabead69195ebc3074e2ecf486
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376260"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301353"
 ---
 # <a name="url-preview-in-javascript"></a>URL Preview in JavaScript 
 
 L'applicazione a pagina singola seguente usa JavaScript per creare un'anteprima URL per il sito SwiftKey: https://swiftkey.com/en. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
+Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
 ## <a name="code-scenario"></a>Scenario di codice
 L'esempio JavaScript seguente include un oggetto di input casella di testo in cui l'utente inserisce l'URL da visualizzare in anteprima.  Quando l'utente fa clic sul pulsante **Anteprima**, il metodo onclick instrada a `getPreview`, dove il codice genera una richiesta Web all'endpoint **UrlPreview**.

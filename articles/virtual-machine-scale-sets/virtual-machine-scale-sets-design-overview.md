@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1716ebf1d3490511d7102c8c756c78c0f0c55291
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652400"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670088"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità
 Questo articolo contiene una serie di considerazioni sulla progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
@@ -33,8 +33,8 @@ I set di scalabilità sono in genere utili per distribuire un'infrastruttura a d
 
 - Dopo aver specificato la configurazione del set di scalabilità, è possibile aggiornare la proprietà *capacity* per distribuire in parallelo altre macchine virtuali. Si tratta di una procedura molto più semplice rispetto alla scrittura di uno script per orchestrare la distribuzione in parallelo di molte macchine virtuali singole.
 - È possibile [usare il ridimensionamento automatico di Azure per la scalabilità automatica di un set di scalabilità](./virtual-machine-scale-sets-autoscale-overview.md) ma non di singole macchine virtuali.
-- È possibile [ricreare l'immagine delle macchine virtuali del set di scalabilità](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) ma [non delle singole macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- È possibile [eseguire il provisioning eccessivo](./virtual-machine-scale-sets-design-overview.md) delle macchine virtuali del set di scalabilità per una maggiore affidabilità e tempi di distribuzione più rapidi. È possibile eseguire il provisioning eccessivo di singole macchine virtuali solo se si scrive un codice personalizzato per eseguire questa azione.
+- È possibile [ricreare l'immagine delle macchine virtuali del set di scalabilità](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage) ma [non delle singole macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- È possibile [eseguire il provisioning eccessivo](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) delle macchine virtuali del set di scalabilità per una maggiore affidabilità e tempi di distribuzione più rapidi. È possibile eseguire il provisioning eccessivo di singole macchine virtuali solo se si scrive un codice personalizzato per eseguire questa azione.
 - È possibile specificare [criteri di aggiornamento](./virtual-machine-scale-sets-upgrade-scale-set.md) per semplificare l'implementazione degli aggiornamenti nelle macchine virtuali del set di scalabilità. Con le singole macchine virtuali, è necessario orchestrare gli aggiornamenti manualmente.
 
 ### <a name="vm-specific-features"></a>Funzionalità specifiche delle macchine virtuali

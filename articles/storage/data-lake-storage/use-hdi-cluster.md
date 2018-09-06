@@ -1,22 +1,18 @@
 ---
 title: Usare l'anteprima di Archiviazione di Azure Data Lake Gen2 con cluster Azure HDInsight
 description: Informazioni su come eseguire query sui dati dall'anteprima di Archiviazione di Azure Data Lake Gen2 e archiviare i risultati dell'analisi.
-keywords: HDFS, dati strutturati, dati non strutturati, Data Lake Store, input Hadoop, output Hadoop, archivio Hadoop, input HDFS, output HDFS, archivio HDFS, WASB in Azure
-services: hdinsight,storage
-tags: azure-portal
 author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4a9f79b292e58331dcd2f7cb656e24b244aa89ba
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528509"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782278"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Usare l'anteprima di Archiviazione di Azure Data Lake Gen2 con cluster Azure HDInsight
 
@@ -174,7 +170,7 @@ Per creare un contenitore, usare il comando seguente:
 
 Lo schema URI per l'accesso ai file in Archiviazione di Azure da HDInsight è il seguente:
 
-    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>
 
 Lo schema URI offre l'accesso non crittografato (con il prefisso *abfs:*) e l'accesso con crittografia SSL (con il prefisso *abfss*). Se possibile, è consigliabile usare *abfss* anche per accedere ai dati presenti nella stessa area di Azure.
 
@@ -183,7 +179,7 @@ Lo schema URI offre l'accesso non crittografato (con il prefisso *abfs:*) e l'ac
 
     Se i valori di &lt;FILE_SYSTEM_NAME&gt; e &lt;ACCOUNT_NAME&gt; non sono specificati, viene usato il file system predefinito. Per i file presenti nel file system predefinito è possibile usare un percorso relativo o un percorso assoluto. Ad esempio, è possibile fare riferimento al file *hadoop-mapreduce-examples.jar* incluso nei cluster HDInsight usando uno dei percorsi seguenti:
     
-        abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
+        abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
         abfs:///example/jars/hadoop-mapreduce-examples.jar
         /example/jars/hadoop-mapreduce-examples.jar
 

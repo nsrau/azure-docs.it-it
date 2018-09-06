@@ -3,19 +3,19 @@ title: Uso di schemi definiti dall'utente in SQL Data Warehouse | Microsoft Docs
 description: Suggerimenti per l'uso di schemi T-SQL definiti dall'utente in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c18e6d34416390ae7e93b69b28d508a540f7b1ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d46f41e75538fae230219068d3530b7181564ac0
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522708"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302642"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Uso di schemi definiti dall'utente in SQL Data Warehouse
 Suggerimenti per l'uso di schemi T-SQL definiti dall'utente in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
@@ -31,7 +31,7 @@ Al contrario, SQL Data Warehouse esegue tutto il carico di lavoro del data wareh
 > 
 > 
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Consigli
 Si tratta di indicazioni per il consolidamento di carichi di lavoro, sicurezza, dominio e i limiti funzionali mediante l'uso di schemi definiti dall'utente.
 
 1. Usare un database SQL Data Warehouse per eseguire l'intero carico di lavoro del data warehouse.

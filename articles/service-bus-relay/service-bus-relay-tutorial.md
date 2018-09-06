@@ -3,7 +3,7 @@ title: Esercitazione sull'inoltro WCF del bus di servizio di Azure | Microsoft D
 description: Compilare un'applicazione client e un'applicazione di servizio con l'inoltro WCF.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
-ms.author: sethm
-ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 0833a7ec71a0aea66f8ebfdfff81d88925019309
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642309"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701866"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Esercitazione sull'inoltro WCF di Azure
 
@@ -31,7 +31,7 @@ Dopo aver eseguito la sequenza di argomenti in questa esercitazione, saranno dis
 
 I tre passaggi finali descrivono come creare un'applicazione client, configurare l'applicazione client e creare e usare un client in grado di accedere alla funzionalità dell'host.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
@@ -694,11 +694,11 @@ namespace Microsoft.ServiceBus.Samples
 
     Ecco un esempio dell'output dalla finestra della console. Si noti che i valori specificati hanno semplicemente scopo esemplificativo.
 
-    `Your Service Namespace: myNamespace``Your SAS Key: <SAS key value>`
+    `Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
     L'applicazione di servizio stampa l'indirizzo su cui è in ascolto nella finestra della console, come illustrato nell'esempio seguente.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/``Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
 10. Nella finestra della console **EchoClient** immettere le stesse informazioni immesse precedentemente per l'applicazione di servizio. Eseguire la procedura precedente per immettere gli stessi valori di spazio dei nomi del servizio e chiave di firma di accesso condiviso per l'applicazione client.
 11. Dopo l'immissione di questi valori, il client aprirà un canale per il servizio e richiederà l'immissione dello stesso testo, come mostrato nell'esempio di output della console seguente.
 

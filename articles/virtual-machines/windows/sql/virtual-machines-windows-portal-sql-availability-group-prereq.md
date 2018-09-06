@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: f2a0af65af068f3a78a08e46e0e42caefd87d7b1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322897"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371486"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure
 
@@ -39,7 +39,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 
 
 ## <a name="create-an-azure-account"></a>Creare un account Azure
-È necessario un account Azure. È possibile [aprire un account Azure gratuito](/pricing/free-trial/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+È necessario un account Azure. È possibile [aprire un account Azure gratuito](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) o [attivare i benefici della sottoscrizione di Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 1. Accedere al [portale di Azure](http://portal.azure.com).
@@ -51,7 +51,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 
    ![Gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Fare clic su **Gruppo di risorse**.
-5. Fare clic su **Crea**.
+5. Fare clic su **Create**(Crea).
 6. In **Nome gruppo di risorse** digitare un nome per il gruppo di risorse. ad esempio digitare **sql-ha-rg**.
 7. Se si hanno più sottoscrizioni di Azure, verificare che la sottoscrizione sia la sottoscrizione di Azure in cui si vuole creare il gruppo di disponibilità.
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
@@ -95,7 +95,7 @@ Per creare la rete virtuale:
 
    L'esempio usa il nome di subnet **Admin**. Questa subnet verrà usata per i controller di dominio.
 
-5. Fare clic su **Crea**.
+5. Fare clic su **Create**(Crea).
 
    ![Configurare la rete virtuale](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/06-configurevirtualnetwork.png)
 
@@ -392,7 +392,7 @@ A questo punto è possibile aggiungere la macchina virtuale a **corp.contoso.com
 4. Nella sezione **Nome computer** fare clic su **Cambia**.
 5. Selezionare la casella di controllo **Dominio** e digitare **corp.contoso.com** nella casella di testo. Fare clic su **OK**.
 6. Nella finestra di dialogo popup **Sicurezza di Windows** specificare le credenziali per l'account amministratore di dominio predefinito (**CORP\DomainAdmin**) e la password (**Contoso!0000**).
-7. Quando viene visualizzato il messaggio di benvenuto nel dominio corp.contoso.com, fare clic su **OK**.
+7. uando viene visualizzato il messaggio di benvenuto nel dominio corp.contoso.com, fare clic su **OK**.
 8. Fare clic su **Chiudi** e quindi su **Riavvia ora** nella finestra di dialogo popup.
 
 ### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>Aggiungere l'utente Corp\Install come amministratore in ogni VM del cluster

@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: defc871caed429eeda1f8672323b48a9c0007c8e
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678741"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371738"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Creare una macchina virtuale Windows con il cmdlet New-AzureRMVM semplificato in Cloud Shell 
 
-Il cmdlet [New AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) ha visto l'aggiunta di un set semplificato di parametri per la creazione di una nuova macchina virtuale con PowerShell. In questo argomento viene illustrato come usare PowerShell in Azure Cloud Shell con la versione più recente del cmdlet New-AzureVM preinstallata per creare una nuova macchina virtuale. Verrà usato un set di parametri semplificato, in grado di creare automaticamente tutte le risorse necessarie tramite impostazioni predefinite intelligenti. 
+Il cmdlet [New AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) ha visto l'aggiunta di un set semplificato di parametri per la creazione di una nuova macchina virtuale con PowerShell. In questo argomento viene illustrato come usare PowerShell in Azure Cloud Shell con la versione più recente del cmdlet New-AzureVM preinstallata per creare una nuova macchina virtuale. Verrà usato un set di parametri semplificato, in grado di creare automaticamente tutte le risorse necessarie tramite impostazioni predefinite intelligenti. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -36,7 +36,7 @@ Se si sceglie di installare e usare PowerShell in locale, per questa esercitazio
 
 ## <a name="create-the-vm"></a>Creare la VM
 
-È possibile usare il cmdlet [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) per creare una macchina virtuale con impostazioni predefinite intelligenti che includono l'uso dell'immagine di Windows Server 2016 Datacenter disponibile in Azure Marketplace. È possibile usare il cmdlet New-AzureRMVM solo con il parametro **-Name**; tale valore verrà usato per tutti i nomi di risorsa. In questo esempio viene impostato il parametro **-Name** come *myVM*. 
+È possibile usare il cmdlet [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) per creare una macchina virtuale con impostazioni predefinite intelligenti che includono l'uso dell'immagine di Windows Server 2016 Datacenter disponibile in Azure Marketplace. È possibile usare il cmdlet New-AzureRMVM solo con il parametro **-Name**; tale valore verrà usato per tutti i nomi di risorsa. In questo esempio viene impostato il parametro **-Name** come *myVM*. 
 
 Verificare che in Cloud Shell sia selezionata l'opzione **PowerShell** e digitare:
 

@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: ad1946436b2b5bab55ff53dcce09446ef1220829
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7f7d447edd0d73084a46aeff81f27b3ab0f072d3
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011529"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286235"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Competenza cognitiva di Analisi delle immagini
 
@@ -134,7 +134,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
-                                    "faceRectangle": {
+                                    "faceBoundingBox": {
                                         "left": 597,
                                         "top": 162,
                                         "width": 248,
@@ -201,7 +201,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
                     {
                         "age": 44,
                         "gender": "Male",
-                    "faceRectangle": {
+                    "faceBoundingBox": {
                             "left": 593,
                             "top": 160,
                             "width": 250,

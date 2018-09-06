@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 61c26c55725c19f526680d70f3621d41e9590965
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6812298bc90446a7b7e136ec81a67641c2a9e18f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600905"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701609"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorare e gestire i processi di Analisi di flusso con i cmdlet di Azure PowerShell
 Informazioni su come monitorare e gestire le risorse di Analisi di flusso con i cmdlet di Azure PowerShell e gli script di PowerShell che eseguono attività di base di Analisi di flusso.
@@ -42,7 +42,7 @@ Azure PowerShell 1.0:
         Connect-AzureRmAccount
 
         # Select the Azure subscription you want to use to create the resource group.
-        Get-AzureRmSubscription –SubscriptionName “your sub” | Select-AzureRmSubscription
+        Get-AzureRmSubscription –SubscriptionName "your sub" | Select-AzureRmSubscription
 
         # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
         #Register-AzureRmResourceProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'

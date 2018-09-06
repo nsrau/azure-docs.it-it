@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970973"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344631"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
@@ -50,7 +50,7 @@ Per accedere al dashboard predefinito selezionare _Dashboard dell'applicazione_ 
 
 Se è la prima volta che si accede al dashboard, verrà avviata una visualizzazione predefinita:
 
-![Visualizzazione dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
+![Visualizzazione dashboard](.\media\app-insights-overview-dashboard\0001-dashboard.png)
 
 Se si desidera, è possibile mantenere la visualizzazione predefinita. Oppure è anche possibile aggiungerla ed eliminare dal dashboard per soddisfare al meglio le esigenze del team.
 

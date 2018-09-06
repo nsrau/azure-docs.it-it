@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1a949007750ae9607ac31f02d23e39204b9f58e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440502"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336856"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: modificare l'iscrizione per aggiungere nuove attestazioni e configurare l'input utente.
 
@@ -23,7 +23,7 @@ ms.locfileid: "37440502"
 
 Questo articolo illustra come aggiungere una nuova voce specificata dall'utente, un'attestazione, al percorso utente di iscrizione.  La voce verrà configurata come elenco a discesa e verrà indicato se è obbligatoria.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).  Prima di procedere, testare il percorso utente di iscrizione/accesso per l'iscrizione di un nuovo account locale.
 
@@ -251,7 +251,7 @@ La schermata di iscrizione in modalità di test avrà un aspetto simile al segue
   "exp": 1493596822,
   "nbf": 1493593222,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "9c2a3a9e-ac65-4e46-a12d-9557b63033a9",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
   "acr": "b2c_1a_trustf_signup_signin",

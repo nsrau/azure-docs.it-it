@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c4f1b63e2d564f0480508c3ec5a5a24c76ea6bc4
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920732"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782261"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Esercitazione sul servizio contenitore di Azure - Gestire DC/OS
 
@@ -238,7 +238,7 @@ Passando a questo indirizzo viene restituito il sito NGINX predefinito.
 
 ## <a name="scale-dcos-cluster"></a>Ridimensionare il cluster DC/OS
 
-Negli esempi precedenti, un'applicazione è stata ridimensionata per più istanze. Anche l'infrastruttura di DC/OS può essere ridimensionata per offrire maggiore o minore capacità di calcolo. Questa operazione viene eseguita con il comando [az acs scale](). 
+Negli esempi precedenti, un'applicazione è stata ridimensionata per più istanze. Anche l'infrastruttura di DC/OS può essere ridimensionata per offrire maggiore o minore capacità di calcolo. Questa operazione viene eseguita con il comando [az acs scale](/cli/azure/acs#az-acs-scale). 
 
 Per visualizzare il numero corrente di agenti di DC/OS, usare il comando [az acs show](/cli/azure/acs#az-acs-show).
 

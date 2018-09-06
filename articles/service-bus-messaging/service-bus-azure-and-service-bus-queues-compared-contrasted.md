@@ -3,7 +3,7 @@ title: Code di archiviazione di Azure e code del bus di servizio - Analogie e di
 description: Analizza i punti in comune e le differenze tra i due tipi di code offerti da Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/05/2018
-ms.author: sethm
-ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: spelluru
+ms.openlocfilehash: 49694780f4fe32f8068c1d7c4cc87cfb88f77fe5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802357"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700981"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le differenze e le analogie presenti tra i due tipi di code offerte attualmente da Microsoft Azure: code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.

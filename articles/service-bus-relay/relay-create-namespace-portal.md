@@ -3,7 +3,7 @@ title: Creare uno spazio dei nomi di inoltro usando il portale di Azure | Docume
 description: Come creare uno spazio dei nomi dell'inoltro usando il portale di Azure.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
-ms.author: sethm
-ms.openlocfilehash: c4c9c94d369e0ed1ddbfe31484f55b0d276918d3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: d02f2e474ce97d22a77cf633898819c31d45799c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701897"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701590"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Creare uno spazio dei nomi di inoltro usando il portale di Azure
 

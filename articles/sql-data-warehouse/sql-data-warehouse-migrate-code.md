@@ -3,19 +3,19 @@ title: Eseguire la migrazione del codice SQL in SQL Data Warehouse | Documentazi
 description: Suggerimenti per la migrazione del codice SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: b17e8e306c01bef4c58658b35f3a67d0e721633c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f16f9448da2dab9670908f74935bb5fb31a0547
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527454"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301372"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Eseguire la migrazione del codice SQL in SQL Data Warehouse
 Questo articolo spiega le modifiche del codice che saranno molto probabilmente necessarie quando si esegue la migrazione del codice da un altro database in SQL Data Warehouse. Alcune funzionalità di SQL Data Warehouse possono migliorare in modo significativo le prestazioni perché sono progettate per funzionare direttamente in modalità distribuita. Per mantenere tuttavia le prestazioni e la scalabilità, alcune funzionalità non sono disponibili.

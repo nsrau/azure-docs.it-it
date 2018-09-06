@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
-ms.openlocfilehash: 6049e3614b63bfabee6721dcaa83008eb3306493
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069983"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670002"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendere il limite di spesa di Azure e la relativa rimozione
 
@@ -48,8 +48,7 @@ Se si usa una versione di valutazione gratuita e si raggiunge il limite di spesa
 Per rimuovere il limite di spesa, seguire questi passaggi:
 
 1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions).
-1. Selezionare una sottoscrizione.
-. Se la sottoscrizione è stata disabilitata a causa del raggiungimento del limite di spesa, fare clic sulla notifica che indica che la sottoscrizione ha raggiunto il limite di spesa ed è stata disabilitata per impedire costi aggiuntivi. In caso contrario, fai clic su **Rimuovere il limite di spesa** nell'area **STATO SOTTOSCRIZIONE**.
+1. Selezionare una sottoscrizione. Se la sottoscrizione è stata disabilitata a causa del raggiungimento del limite di spesa, fare clic sulla notifica che indica che la sottoscrizione ha raggiunto il limite di spesa ed è stata disabilitata per impedire costi aggiuntivi. In caso contrario, fai clic su **Rimuovere il limite di spesa** nell'area **STATO SOTTOSCRIZIONE**.
 1. Seleziona l'opzione appropriata.
 
 ![Selezione di un'opzione per la rimozione del limite di spesa](./media/billing-spending-limit/remove-spending-limit.PNG)

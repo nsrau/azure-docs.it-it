@@ -3,18 +3,18 @@ title: Autorizzare gli utenti per le viste di Ambari - Azure HDInsight
 description: Come gestire le autorizzazioni utente e di gruppo per Ambari per cluster HDInsight aggiunti al dominio.
 services: hdinsight
 author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: a0f8cf062ed08f0dfa57107baf29724a8e58d0af
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f1aa80ec9df8faee4cf5ea98910e28cfc11a7920
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592126"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782128"
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorizzare gli utenti per le viste di Ambari
 
@@ -116,7 +116,7 @@ Nella vista List (Elenco) sono disponibili funzionalità di modifica rapida in d
 
     ![Vista Elenco dei ruoli - Utenti](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* La categoria Groups (Gruppi) visualizza tutti i gruppi e il ruolo e il ruolo assegnato a ogni gruppo. In questo esempio l'elenco di gruppi è sincronizzato da gruppi di Azure AD specificati nella proprietà **Access user group** (Gruppo utenti di accessi) delle impostazioni di dominio del cluster. Vedere [Creare un cluster HDInsight aggiunto al dominio](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
+* La categoria Groups (Gruppi) visualizza tutti i gruppi e il ruolo e il ruolo assegnato a ogni gruppo. In questo esempio l'elenco di gruppi è sincronizzato da gruppi di Azure AD specificati nella proprietà **Access user group** (Gruppo utenti di accessi) delle impostazioni di dominio del cluster. Vedere [Creare un cluster HDInsight aggiunto al dominio](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Vista Elenco dei ruoli - Gruppi](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

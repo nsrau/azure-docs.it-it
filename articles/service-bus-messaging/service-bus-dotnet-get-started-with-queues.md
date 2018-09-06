@@ -3,7 +3,7 @@ title: Introduzione alle code del bus di servizio di Azure | Microsoft Docs
 description: Scrivere un'applicazione console C# che usa le code di messaggistica del bus di servizio.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/7/2017
-ms.author: sethm
-ms.openlocfilehash: 6af7e4d238c10c0fed3443db58644e3557525993
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: d75d1937ca0450f3eedd2c5ba4e91caf3b473a9b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308366"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698011"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra i passaggi seguenti:
 3. Scrivere un'applicazione console .NET Core per inviare un set di messaggi alla coda.
 4. Scrivere un'applicazione console .NET Core per ricevere tali messaggi dalla coda.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](http://www.visualstudio.com/vs) o versioni successive.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.

@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 51797f4b674224b4348f3f51518a5b087fd2329a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961893"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782441"
 ---
 # <a name="visual-search-sdk-node-quickstart"></a>Guida introduttiva all'SDK di Ricerca visiva per Node
 
@@ -26,9 +26,9 @@ Gli scenari di codice sono illustrati negli argomenti seguenti:
 * [Client Ricerca visiva](#client)
 * [Applicazione console completa](#complete)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* Per autenticare le chiamate SDK, è necessaria una chiave di API di Servizi cognitivi. Iscriversi per ottenere una [chiave di prova gratuita]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)). La chiave di prova è valida per sette giorni, con una chiamata al secondo. Per gli scenari di produzione [acquistare una chiave di accesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Vedere anche le [informazioni sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Per autenticare le chiamate SDK, è necessaria una chiave di API di Servizi cognitivi. Iscriversi per ottenere una [chiave di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La chiave di prova è valida per sette giorni, con una chiamata al secondo. Per gli scenari di produzione [acquistare una chiave di accesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Vedere anche le [informazioni sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
 ## <a name="application-dependencies"></a>Dipendenze dell'applicazione
 
@@ -328,4 +328,4 @@ exports.sample = sample;
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esempi .NET SDK per servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Esempi .NET SDK per Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

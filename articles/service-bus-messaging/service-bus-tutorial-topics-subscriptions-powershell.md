@@ -2,19 +2,19 @@
 title: "Esercitazione: Aggiornare l'assortimento del magazzino al dettaglio usando i canali di pubblicazione/sottoscrizione e i filtri di argomento con Azure PowerShell | Microsoft Docs"
 description: In questa esercitazione viene illustrato come inviare e ricevere messaggi da un argomento e una sottoscrizione e come aggiungere e usare le regole di filtro con Azure PowerShell
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 14f3fe81ab613f05154365b832d860808c3184bf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237965"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702188"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando PowerShell e argomenti/sottoscrizioni
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 Un esempio di questo scenario è un aggiornamento dell'assortimento di magazzino per più punti vendita al dettaglio. In questo scenario ogni negozio o set di negozi ottiene i messaggi a essi destinati per aggiornare gli assortimenti. Questa esercitazione illustra come implementare lo scenario usando filtri e sottoscrizioni. Si crea prima di tutto un argomento con 3 sottoscrizioni, si aggiungono alcune regole e filtri e quindi si inviano e ricevono messaggi dall'argomento e dalle sottoscrizioni.
 
-![coda](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![argomento](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito][] prima di iniziare.
 
@@ -47,7 +47,7 @@ Ai fini di questa esercitazione, è necessario eseguire la versione più recente
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Eseguire i comandi seguenti per accedere ad Azure. Questi passaggi non sono necessario se si eseguono i comandi di PowerShell in Cloud Shell: 
 
