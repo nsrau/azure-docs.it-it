@@ -1,46 +1,77 @@
 ---
-title: Connettore Trello per App per la logica di Azure | Microsoft Docs
-description: Creare app per la logica in Servizio app di Azure. Trello offre una panoramica di tutti i progetti, al lavoro e a casa.  È un modo semplice, gratuito, flessibile per gestire visivamente i progetti e organizzare qualsiasi cosa.  Connettersi a Trello per gestire bacheche, elenchi e schede
+title: Connettersi a Trello da App per la logica di Azure | Microsoft Docs
+description: Automatizzare le attività e i flussi di lavoro per il monitoraggio di elenchi, bacheche e schede nei progetti di Trello con App per la logica di Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 6773ddd1da5c013b7a0ca7d2855806d606720469
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 4ae8d3dff108f14844c31d7b9d0b0871326832a3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046150"
 ---
-# <a name="get-started-with-the-trello-connector"></a>Introduzione al connettore Trello
-Trello offre una panoramica di tutti i progetti, al lavoro e a casa.  È un modo semplice, gratuito, flessibile per gestire visivamente i progetti e organizzare qualsiasi cosa.  Connettersi a Trello per gestire bacheche, elenchi e schede.
+# <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Monitorare e gestire Trello con App per la logica di Azure
 
-Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Con App per la logica di Azure e il connettore Trello, è possibile creare attività e flussi di lavoro automatizzati per monitorare e gestire elenchi, schede, bacheche, membri del team e così via, ad esempio:
 
-## <a name="create-a-connection-to-trello"></a>Creare una connessione a Trello
-Per creare app per la logica con Trello, creare prima di tutto una **connessione** e immettere i dettagli per le proprietà seguenti:
+* Eseguire il monitoraggio quando vengono aggiunte nuove schede agli elenchi e alle bacheche. 
+* Creare, ottenere e gestire bacheche, schede ed elenchi.
+* Aggiungere commenti e membri alle schede.
+* Elencare bacheche, etichette delle bacheche, schede sulle bacheche, commenti alle schede, membri delle schede, membri del team e team di cui si è membri. 
+* Ottenere team.
 
-| Proprietà | Obbligatoria | DESCRIZIONE |
-| --- | --- | --- |
-| token |Sì |Fornire le credenziali di Trello |
+È possibile usare i trigger per ottenere risposte dall'account Trello e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Trello. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Trello. Ad esempio, quando una nuova scheda viene aggiunta a una bacheca o a un elenco, è possibile inviare messaggi con il connettore Slack. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
-Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger.
+## <a name="prerequisites"></a>Prerequisiti
 
-> [!INCLUDE [Steps to create a connection to Trello](../../includes/connectors-create-api-trello.md)]
-> 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
 
-## <a name="connector-specific-details"></a>Dettagli specifici del connettore
+* L'account Trello e le credenziali utente.
 
-Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/trello/).
+  Le credenziali autorizzano l'app per la logica alla creazione di una connessione e all'accesso all'account Trello.
 
-## <a name="more-connectors"></a>Altri connettori
-Tornare all' [elenco di API](apis-list.md).
+* Conoscenza di base sulla [creazione delle app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+* L'app per la logica in cui si vuole accedere all'account Trello. Per iniziare con un trigger di Trello, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di Trello, avviare l'app per la logica con un trigger, ad esempio, il trigger **Ricorrenza**.
+
+## <a name="connect-to-trello"></a>Connettersi a Trello
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
+
+1. Per le app per la logica vuote, nella casella di ricerca immettere "trello" come filtro. Nell'elenco dei trigger selezionare il trigger desiderato. 
+
+   -oppure-
+
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. 
+   Nella casella di ricerca immettere "trello" come filtro. 
+   Nell'elenco delle azioni scegliere l'azione desiderata.
+
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
+   Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+
+1. Se viene chiesto di accedere a Trello, autorizzare l'accesso per l'app per la logica e accedere.
+
+1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
+
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
+
+Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/trello/) del connettore.
+
+## <a name="get-support"></a>Supporto
+
+* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
