@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
 ms.author: angrobe
-ms.openlocfilehash: 4c08fb5e731275c6f02edd93794f60e9af83e10d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8dd781ed3e4396033cdf983c2827747e44d305b6
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630138"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781200"
 ---
 # <a name="azure-security-documentation"></a>Documentazione sulla sicurezza di Azure
 
@@ -178,7 +178,7 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
                                 <a class="barLink" href="/azure/security/azure-threat-detection">Rilevamento delle minacce avanzato in Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-network-security">Sicurezza della rete di Azure</a>
+                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Sicurezza della rete di Azure</a>
                             </li>
                         </ul>
                     </div>

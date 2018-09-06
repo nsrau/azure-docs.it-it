@@ -1,19 +1,19 @@
 ---
-title: Spostamento di grandi quantità di dati da e verso l'archiviazione cloud in Azure | Documentazione Microsoft
+title: Spostamento di grandi quantità di dati da e verso l'archiviazione cloud in Azure | Microsoft Docs
 description: Panoramica dei diversi metodi per spostare i dati da e verso Archiviazione di Azure.
 services: storage
-author: JarrettRenshaw
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: jarrettr
+ms.date: 08/26/2018
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 81d7b5cf03e56ecc54db71b09af335d6cb794806
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525536"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049611"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Spostamento dei dati da e verso Archiviazione di Azure
 Esistono modi diversi per spostare i dati locali in Archiviazione di Azure (o viceversa). Quale sia il metodo adatto dipende dallo scenario. Questo articolo offre informazioni generali su diversi scenari e la soluzione appropriata per ciascuno.
@@ -21,7 +21,7 @@ Esistono modi diversi per spostare i dati locali in Archiviazione di Azure (o vi
 ## <a name="building-applications"></a>Compilazione di applicazioni
 Se si usa l’API REST o una delle numerose librerie client per la compilazione e lo sviluppo di un’applicazione, è consigliabile spostare i dati da e verso Archiviazione di Azure.
 
-In Archiviazione di Azure sono disponibili librerie client complete per .NET, iOS, Java, Android, piattaforma UWP, Xamarin, C++, Node.JS, PHP, Ruby e Python. Le librerie client offrono funzionalità avanzate, ad esempio la logica di ripetizione dei tentativi, la registrazione e i caricamenti paralleli. È possibile sviluppare usando direttamente l'API REST, che può essere chiamata da qualsiasi linguaggio in grado di eseguire richieste HTTP/HTTPS.
+Archiviazione di Azure offre librerie client avanzate per molti linguaggi diffusi, tra cui .NET, Java, Android, Go, Xamarin, C++, Node.js, PHP, Ruby, Python e iOS. Le librerie client offrono funzionalità avanzate, ad esempio la logica di ripetizione dei tentativi, la registrazione e i caricamenti paralleli. È possibile sviluppare usando direttamente l'API REST, che può essere chiamata da qualsiasi linguaggio in grado di eseguire richieste HTTP/HTTPS.
 
 Vedere [Introduzione all'archiviazione BLOB di Azure](../blobs/storage-dotnet-how-to-use-blobs.md) per altre informazioni.
 

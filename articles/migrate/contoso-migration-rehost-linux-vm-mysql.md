@@ -4,36 +4,36 @@ description: Informazioni su come Contoso esegue il rehosting di un'app Linux in
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/27/2018
 ms.author: raynew
-ms.openlocfilehash: fbb70bd20b89bb1b711630ba54fe31806292385c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 108b8c8e0141bdd08a2bb961576ea45c7873ace5
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002229"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093538"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migrazione di Contoso: eseguire il rehosting di un'app Linux in locale in macchine virtuali di Azure e Azure MySQL
 
 Questo articolo descrive come Contoso esegue il rehosting dell'app Service Desk Linux a due livelli in locale (osTicket) eseguendone la migrazione in Azure e Azure MySQL.
 
-Questo documento fa parte di una serie di articoli che descrivono in che modo la società fittizia Contoso esegue la migrazione delle proprie risorse locali al cloud di Microsoft Azure. La serie include informazioni di base e scenari che illustrano come configurare un'infrastruttura di migrazione ed eseguire diversi tipi di migrazioni. Gli scenari aumentano di complessità e nel tempo verranno aggiunti altri articoli.
+Questo documento fa parte di una serie di articoli che descrivono in che modo la società fittizia Contoso esegue la migrazione delle proprie risorse locali al cloud di Microsoft Azure. La serie include informazioni di base e scenari che illustrano come configurare un'infrastruttura di migrazione ed eseguire diversi tipi di migrazioni. La complessità degli scenari aumenta man mano che si procede. Altri articoli verranno aggiunti in seguito.
 
 **Articolo** | **Dettagli** | **Status**
 --- | --- | ---
-[Articolo 1: Panoramica](contoso-migration-overview.md) | Offre una panoramica della strategia di migrazione di Contoso e presenta la serie di articoli e le app di esempio usate. | Disponibile
-[Articolo 2: Distribuire un'infrastruttura di Azure](contoso-migration-infrastructure.md) | Descrive in che modo Contoso prepara l'infrastruttura locale e di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli scenari di migrazione Contoso. | Disponibile
-[Articolo 3: Valutare le risorse locali](contoso-migration-assessment.md)  | Spiega in che modo Contoso esegue una valutazione dell'app SmartHotel a due livelli locale in esecuzione su VMware. Valuta le VM dell'app con il servizio [Azure Migrate](migrate-overview.md) e il database SQL Server dell'app con [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponibile
-[Articolo 4: Eseguire il rehosting in VM di Azure e in un'istanza gestita di SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Spiega in che modo Contoso esegue la migrazione dell'app SmartHotel ad Azure. Esegue la migrazione della macchina virtuale dell'App Web mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e del database dell'app mediante il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview) a un'istanza gestita di database SQL. | Disponibile
-[Articolo 5: Eseguire il rehosting in macchine virtuali di Azure](contoso-migration-rehost-vm.md) | Spiega in che modo Contoso esegue la migrazione di SmartHotel in macchine virtuali IaaS di Azure usando il servizio Site Recovery. | Disponibile
-[Articolo 6: Eseguire il rehosting nelle macchine virtuali di Azure e nei gruppi di disponibilità di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Spiega in che modo Contoso esegue la migrazione dell'app SmartHotel. Usa Site Recovery per eseguire la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app a un gruppo di disponibilità di SQL Server. | Disponibile
-[Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Spiega in che modo Contoso esegue la migrazione dell'app Linux osTicket nelle macchine virtuali IaaS di Azure usando Azure Site Recovery. | Disponibile
-Articolo 8: Eseguire il rehosting di un'app Linux in VM di Azure e in Azure MySQL Server | Spiega in che modo Contoso esegue la migrazione dell'app Linux osTicket. Usa Site Recovery per la migrazione delle macchine virtuali e MySQL Workbench per eseguire la migrazione in un'istanza di Azure MySQL Server. | Questo articolo.
-[Articolo 9: Refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Illustra come Contoso esegue la migrazione dell'app SmartHotel a un'app Web di Azure, e come esegue la migrazione del database di app per istanza del Server SQL di Azure | Disponibile
-[Articolo 10: Refactoring di un'app Linux in app Web di Azure e Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Viene illustrato come Contoso esegue la migrazione dell'app osTicket Linux alle app Web di Azure in più siti, integrati con GitHub per il recapito continuo. Il database di app viene fatto migrare a un'istanza di MySQL di Azure. | Disponibile
-[Articolo 11: Eseguire il refactoring di TFS in Visual Studio Team Services](contoso-migration-tfs-vsts.md) | Viene illustrato come Contoso esegue la migrazione della distribuzione di Team Foundation Server (TFS) locale eseguendo la migrazione a Visual Studio Team Services (VSTS) in Azure. | Disponibile
-[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Viene illustrato come Contoso esegue la migrazione e riprogetta l'app SmartHotel in Azure. Il livello dell'app Web viene riprogettato come un contenitore di Windows e il database di app come un database SQL di Azure. | Disponibile
-[Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Viene illustrato come Contoso ricompila le app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizi app di Azure Kubernetes, Funzioni di Azure, servizi cognitivi e Cosmos DB. | Disponibile
+[Articolo 1: Panoramica](contoso-migration-overview.md) | Panoramica della serie di articoli, della strategia di migrazione di Contoso e delle app di esempio usate nella serie. | Disponibile
+[Articolo 2: Distribuire l'infrastruttura di Azure](contoso-migration-infrastructure.md) | Contoso prepara la propria infrastruttura locale e l'infrastruttura di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli della serie relativi alla migrazione. | Disponibile
+[Articolo 3: Valutare le risorse locali per la migrazione in Azure](contoso-migration-assessment.md)  | Contoso esegue una valutazione dell'app SmartHotel locale in esecuzione su VMware. Valuta le macchine virtuali dell'app con il servizio Azure Migrate e il database SQL Server dell'app con Data Migration Assistant. | Disponibile
+[Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e in Istanza gestita di database SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso esegue una migrazione ad Azure in modalità lift-and-shift per la propria app SmartHotel locale. Usa [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della macchina virtuale del front-end dell'app mentre per la migrazione del database dell'app in un'Istanza gestita di database SQL di Azure viene usato il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview). | Disponibile  
+[Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel alle macchine virtuali di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 6: Eseguire il rehosting di un'app in macchine virtuali di Azure e in un gruppo di disponibilità AlwaysOn di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso esegue la migrazione dell'app SmartHotel. Usa Site Recovery per eseguire la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app in un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile    
+[Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery | Disponibile
+Articolo 8: Rehosting di un'app Linux in VM di Azure e Azure MySQL | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Questo articolo
+[Articolo 9: Refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant | Disponibile
+[Articolo 10: Refactoring di un'app Linux in app Web di Azure e Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile 
+[Articolo 11: Eseguire il refactoring di TFS in Visual Studio Team Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server locale a Visual Studio Team Services in Azure. | Disponibile
+[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
+[Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, il servizio Kubernetes di Azure (AKS), Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
 
 
 In questo articolo Contoso esegue la migrazione di un'app Service Desk PHP MySQL Apache Linux (LAMP), denominata osTicket, in Azure. Se si vuole usare questa app open source, è possibile scaricarla da [GitHub](https://github.com/osTicket/osTicket).
@@ -45,8 +45,8 @@ In questo articolo Contoso esegue la migrazione di un'app Service Desk PHP MySQL
 Il team di responsabili IT ha lavorato a stretto contatto con i partner di business per comprenderne le effettive esigenze:
 
 - **Gestire la crescita aziendale**: Contoso è in crescita e di conseguenza l'infrastruttura e i sistemi locali iniziano a sentirne la pressione.
-- **Limitare i rischi**: l'app Service Desk è fondamentale per il business di Contoso. L'azienda intende migrarla ad Azure con zero rischi.
-- **Estendere**: Contoso non desidera sostituire l'app subito, ma desidera semplicemente mantenerla stabile.
+- **Limitare i rischi**: l'app Service Desk è fondamentale a livello aziendale. L'obiettivo è spostare l'app in Azure senza correre alcun rischio.
+- **Estendere**: Contoso non desidera sostituire l'app subito, semplicemente, intende mantenere stabili le app.
 
 
 ## <a name="migration-goals"></a>Obiettivi della migrazione
@@ -54,7 +54,7 @@ Il team di responsabili IT ha lavorato a stretto contatto con i partner di busin
 Il team cloud di Contoso ha stabilito gli obiettivi di questa migrazione, per determinare il metodo di migrazione più consono:
 
 - Dopo la migrazione, l'app in Azure dovrà avere le stesse caratteristiche prestazionali di cui dispone attualmente nell'ambiente VMware locale.  L'app manterrà la stessa importanza critica nel cloud come la corrispondente versione in locale. 
-- Contoso non intende investire in questa app.  È importante per l'azienda, ma nella sua forma attuale intende semplicemente migrarla in modo sicuro nel cloud.
+- Contoso non intende investire in questa app.  L'app è importante per l'azienda, ma Contoso vuole semplicemente eseguirne la migrazione sicura al cloud nella sua forma attuale.
 - Dopo aver completato un paio di migrazioni di app di Windows, Contoso desidera scoprire come usare un'infrastruttura basata su Linux in Azure.
 - Si desidera ridurre al minimo le attività di amministrazione del database dopo che l'applicazione è stata spostata nel cloud.
 
@@ -68,7 +68,7 @@ In questo scenario:
 - Contoso ha un data center locale (contoso-datacenter) con un controller di dominio locale (**contosodc1**).
 - L'app a livello Web su OSTICKETWEB verrà migrata in una macchina virtuale IaaS di Azure.
 - Il database dell'app verrà migrato nel servizio PaaS Database di Azure per MySQL.
-- Poiché l'azienda intende eseguire la migrazione di un carico di lavoro di produzione, le risorse risiederanno nel gruppo di risorse di produzione **ContosoRG**.
+- Poiché Contoso intende eseguire la migrazione di un carico di lavoro di produzione, le risorse risiederanno nel gruppo di risorse di produzione **ContosoRG**.
 - Le risorse verranno replicate nell'area primaria (Stati Uniti orientali 2) e collegate alla rete di produzione (VNET-PROD-EUS2):
     - La macchina virtuale Web si troverà nella subnet di front-end (PROD-FE-EUS2).
     - L'istanza del database si troverà nella subnet del database (PROD-DB-EUS2).
@@ -86,14 +86,14 @@ In Contoso il processo di migrazione verrà completato come indicato di seguito:
 Per eseguire la migrazione della macchina virtuale Web:
 
 1. Come primo passaggio, Contoso imposta l'infrastruttura di Azure e locale necessaria a distribuire Site Recovery.
-2. Dopo aver preparato i componenti di Azure e locali, si imposta e si abilita la replica per la macchina virtuale Web.
-3. Dopo che la replica è operativa, si esegue la migrazione della macchina virtuale eseguendone il failover in Azure.
+2. Dopo aver preparato i componenti di Azure e locali, Contoso imposta e abilita la replica per la macchina virtuale Web.
+3. Dopo che la replica è operativa, Contoso esegue la migrazione della macchina virtuale eseguendone il failover in Azure.
 
 Per eseguire la migrazione del database:
 
 1. Si esegue il provisioning di un'istanza di MySQL in Azure.
-2. Si configura MySQL Workbench e si esegue il backup del database localmente.
-3. Si ripristina successivamente il database dal backup locale in Azure.
+2. Contoso configura MySQL Workbench ed esegue il backup del database localmente.
+3. Contoso ripristina successivamente il database dal backup locale in Azure.
 
 ![Processo di migrazione](./media/contoso-migration-rehost-linux-vm-mysql/migration-process.png) 
 
@@ -108,27 +108,27 @@ Per eseguire la migrazione del database:
  
 ## <a name="prerequisites"></a>Prerequisiti
 
-Di seguito sono elencati i requisiti per eseguire questo scenario.
+Ecco i requisiti che Contoso dovrà soddisfare per questo scenario.
 
 **Requisiti** | **Dettagli**
 --- | ---
-**Sottoscrizione di Azure** | Dovrebbe essere già stata creata una sottoscrizione nei primi articoli di questa serie. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Se si crea un account gratuito, si è l'amministratore della sottoscrizione e si possono eseguire tutte le azioni.<br/><br/> Se si usa una sottoscrizione esistente e non si ha il ruolo di amministratore, è necessario rivolgersi all'amministratore per l'assegnazione delle autorizzazioni di proprietario o collaboratore.<br/><br/> Se sono necessarie autorizzazioni più granulari, vedere [questo articolo](../site-recovery/site-recovery-role-based-linked-access-control.md). 
-**Infrastruttura di Azure** | Contoso configura la propria infrastruttura di Azure come descritto in [Azure infrastructure for migration](contoso-migration-infrastructure.md) (Infrastruttura di Azure per la migrazione).<br/><br/> Altre informazioni sui requisiti specifici di [rete](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) e [archiviazione](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) per Site Recovery.
-**Server locali** | I server vCenter locali devono eseguire la versione 5.5, 6.0 o 6.5.<br/><br/> Host ESXi che esegue la versione 5.5, 6.0 o 6.5.<br/><br/> Una o più macchine virtuali VMware in esecuzione nell'host ESXi.
+**Sottoscrizione di Azure** | Contoso ha creato le sottoscrizioni in un articolo precedente. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Se si crea un account gratuito, si è l'amministratore della sottoscrizione e si possono eseguire tutte le azioni.<br/><br/> Se si usa una sottoscrizione esistente e non si ha il ruolo di amministratore, è necessario rivolgersi all'amministratore per l'assegnazione delle autorizzazioni di proprietario o collaboratore.<br/><br/> Se sono necessarie autorizzazioni più granulari, vedere [questo articolo](../site-recovery/site-recovery-role-based-linked-access-control.md). 
+**Infrastruttura di Azure** | Contoso configura l'infrastruttura di Azure come descritto in [Azure infrastructure for migration](contoso-migration-infrastructure.md) (Infrastruttura di Azure per la migrazione).<br/><br/> Altre informazioni sui requisiti specifici di [rete](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) e [archiviazione](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) per Site Recovery.
+**Server locali** | Il server vCenter locale deve eseguire la versione 5.5, 6.0 o 6.5<br/><br/> Host ESXi che esegue la versione 5.5, 6.0 o 6.5.<br/><br/> Una o più macchine virtuali VMware in esecuzione nell'host ESXi.
 **VM locali** | [Rivedere i requisiti delle macchine virtuali Linux](https://docs.microsoft.com//azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) che sono supportati per la migrazione di Site Recovery.<br/><br/> Verificare il [file system e il sistema di archiviazione di Linux](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#linux-file-systemsguest-storage).<br/><br/> Le macchine virtuali devono soddisfare i [requisiti di Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).
 
 
 ## <a name="scenario-steps"></a>Passaggi dello scenario
 
-Di seguito viene descritto il processo di completamento della migrazione di Azure:
+Ecco come gli amministratori di Contoso eseguiranno la migrazione:
 
 > [!div class="checklist"]
-> * **Passaggio 1: Preparare Azure per Site Recovery**. Si crea un account di archiviazione di Azure in cui memorizzare i dati replicati e un insieme di credenziali dei Servizi di ripristino.
-> * **Passaggio 2: Preparare VMware in locale per Site Recovery**. Si preparano gli account per l'individuazione di macchine virtuali e l'installazione dell'agente, quindi si prepara la connessione alle macchine virtuali di Azure dopo il failover.
+> * **Passaggio 1: Preparare Azure per Site Recovery**. Crea un account di archiviazione di Azure in cui memorizzare i dati replicati e un insieme di credenziali dei Servizi di ripristino.
+> * **Passaggio 2: Preparare VMware in locale per Site Recovery**. Prepara gli account per l'individuazione di VM e l'installazione dell'agente, poi prepara la connessione alle VM di Azure dopo il failover.
  * **Passaggio 3: Eseguire il provisioning del database**. In Azure, eseguire il provisioning di un'istanza del database MySQL di Azure.
-> * **Passaggio 4: Replicare le macchine virtuali**. Si configura l'ambiente di origine e di destinazione di Site Recovery, si impostano i criteri di replica e si avvia la replica delle macchine virtuali nell'archiviazione di Azure.
-> * **Passaggio 5: Eseguire la migrazione del database**. Si configura la migrazione con gli strumenti di MySQL.
-> * **Passaggio 6: Eseguire la migrazione delle macchine virtuali con Site Recovery**. Si effettua un failover di test per verificare che tutto funzioni come previsto e un failover completo per eseguire la migrazione delle macchine virtuali ad Azure.
+> * **Passaggio 4: Replicare le macchine virtuali**. Configurare l'ambiente di origine e di destinazione di Site Recovery, impostare i criteri di replica e avviare la replica delle macchine virtuali nell'archiviazione di Azure.
+> * **Passaggio 5: Eseguire la migrazione del database**. Configurare la migrazione con gli strumenti di MySQL.
+> * **Passaggio 6: Eseguire la migrazione delle VM con Site Recovery**. Nell'ultimo passaggio, effettuare un failover di test per verificare che tutto funzioni come previsto e un failover completo per migrare le VM ad Azure.
 
 
 
@@ -137,21 +137,20 @@ Di seguito viene descritto il processo di completamento della migrazione di Azur
 
 Contoso necessita di due componenti di Azure per Site Recovery:
 
-- Una rete virtuale in cui si trovano le risorse di cui è stato eseguito il failover (Contoso utilizzerà la rete virtuale di produzione che ha già distribuito).
+- Una rete virtuale in cui si trovano le risorse di cui è stato effettuato il failover. Contoso già creato la rete virtuale durante [distribuzione dell'infrastruttura di Azure](contoso-migration-infrastructure.md)
 - Un nuovo account di archiviazione di Azure per i dati replicati. 
 - Un insieme di credenziali dei Servizi di ripristino in Azure.
 
-Contoso ha già creato la rete virtuale durante la [distribuzione dell'infrastruttura di Azure](contoso-migration-infrastructure.md), pertanto deve solo creare un account di archiviazione e un insieme di credenziali.
+Gli amministratori di Contoso creano un account di archiviazione e l'insieme di credenziali come indicato di seguito:
 
-
-1. Si crea un account di archiviazione di Azure (**contosovmsacc20180528**) nell'area Stati Uniti orientali 2.
+1. Creano un account di archiviazione (**contosovmsacc20180528**) nell'area Stati Uniti orientali 2.
 
     - L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
-    - Si usa un account per utilizzo generico con archiviazione standard e la replica dell'archiviazione con ridondanza locale.
+    - Usano un account per utilizzo generico con archiviazione standard e la replica dell'archiviazione con ridondanza locale.
 
     ![Archiviazione di Site Recovery](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
-3. Dopo avere configurato la rete e l'account di archiviazione, si crea un insieme di credenziali (ContosoMigrationVault) e lo inserisce nel gruppo di risorse **ContosoFailoverRG** nell'area primaria Stati Uniti orientali 2.
+3. Dopo avere configurato la rete e l'account di archiviazione, gli amministratori creano un insieme di credenziali (ContosoMigrationVault) e lo inseriscono nel gruppo di risorse **ContosoFailoverRG** nell'area primaria Stati Uniti orientali 2.
 
     ![Insieme di credenziali dei servizi di ripristino](./media/contoso-migration-rehost-linux-vm-mysql/asr-vault.png)
 
@@ -162,11 +161,11 @@ Contoso ha già creato la rete virtuale durante la [distribuzione dell'infrastru
 
 ## <a name="step-2-prepare-on-premises-vmware-for-site-recovery"></a>Passaggio 2: Preparare l'ambiente VMware locale per Site Recovery
 
-Contoso prepara l'infrastruttura VMware locale come indicato di seguito:
+Gli amministratori di Contoso preparano l'infrastruttura VMware locale come indicato di seguito:
 
-- Si crea un account nel server vCenter per l'individuazione automatica delle macchine virtuali.
-- Si crea un account che consente l'installazione automatica del servizio Mobility nelle macchine virtuali VMware che si desidera replicare.
-- Si preparano le macchine virtuali locali in modo che possano connettersi alle macchine virtuali di Azure create dopo la migrazione.
+- Creano un account nel server vCenter per l'individuazione automatica delle macchine virtuali.
+- Creano un account che consente l'installazione automatica del servizio Mobility nelle macchine virtuali VMware da replicare.
+- Preparano le macchine virtuali locali in modo da poter connettersi alle macchine virtuali di Azure create dopo la migrazione.
 
 
 ### <a name="prepare-an-account-for-automatic-discovery"></a>Preparare un account per l'individuazione automatica
@@ -176,10 +175,10 @@ Site Recovery richiede l'accesso ai server VMware per:
 - Individuare automaticamente le macchine virtuali. È necessario almeno un account di sola lettura.
 - Controllare la replica, il failover e il failback. È necessario un account in grado di eseguire operazioni come la creazione e la rimozione di dischi e l'attivazione di macchine virtuali.
 
-Per configurare l'account, Contoso segue questa procedura:
+Per configurare l'account, gli amministratori di Contoso seguono questa procedura:
 
 1. Crea un ruolo a livello di vCenter.
-2. Assegna quindi al ruolo le autorizzazioni necessarie.
+2. Assegnano quindi al ruolo le autorizzazioni necessarie.
 
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>Preparare un account per l'installazione del servizio Mobility
@@ -194,7 +193,7 @@ Il servizio Mobility deve essere installato in ogni macchina virtuale che Contos
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparare la connessione alle macchine virtuali di Azure dopo il failover
 
-Dopo il failover in Azure, in Contoso si intende connettersi alle macchine virtuali di Azure. A tale scopo occorre eseguire alcune operazioni: 
+Dopo il failover in Azure, in Contoso si intende connettersi alle macchine virtuali di Azure. A tale scopo, gli amministratori di Contoso dovranno eseguire le operazioni seguenti:
 
 - Per accedere a Internet, si attiva il protocollo SSH nella macchina virtuale Linux in locale prima della migrazione.  Per Ubuntu questa operazione può essere eseguita con il comando seguente: **Sudo apt-get ssh install -y**.
 - Dopo il failover, si deve selezionare **Diagnostica di avvio** per visualizzare uno screenshot della macchina virtuale.
@@ -208,7 +207,7 @@ Dopo il failover in Azure, in Contoso si intende connettersi alle macchine virtu
 
 ## <a name="step-3-provision-azure-database-for-mysql"></a>Passaggio 3: Eseguire il provisioning del database di Azure per MySQL
 
-In Contoso si esegue il provisioning di un'istanza del database MySQL nell'area primaria Stati Uniti orientali 2.
+In Contoso gli amministratori eseguono il provisioning di un'istanza del database MySQL nell'area primaria Stati Uniti orientali 2.
 
 1. Nel portale di Azure si crea una risorsa per il database di Azure per MySQL. 
 
@@ -219,7 +218,7 @@ In Contoso si esegue il provisioning di un'istanza del database MySQL nell'area 
 
      ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-2.png)
 
-4. Per **Opzioni di ridondanza per il backup** si seleziona l'utilizzo di **Con ridondanza geografica**. Questa opzione consente di ripristinare il database nell'area secondaria Stati Uniti centrali in caso di interruzione. Si può configurare questa opzione solo quando si esegue il provisioning del database.
+4. Per **Opzioni di ridondanza per il backup**, selezionano l'uso **Con ridondanza geografica**. Questa opzione consente di ripristinare il database nell'area secondaria Stati Uniti centrali in caso di interruzione. Si può configurare questa opzione solo quando si esegue il provisioning del database.
 
      ![Ridondanza](./media/contoso-migration-rehost-linux-vm-mysql/db-redundancy.png)
 
@@ -234,7 +233,7 @@ In Contoso si esegue il provisioning di un'istanza del database MySQL nell'area 
 
 ## <a name="step-4-replicate-the-on-premises-vms"></a>Passaggio 4: Replicare le macchine virtuali locali
 
-Prima di poter eseguire la migrazione della macchina virtuale Web in Azure, Contoso imposta e abilita la replica.
+Prima di poter eseguire la migrazione della macchina virtuale Web in Azure, gli amministratori di Contoso configurano e abilitano la replica.
 
 ### <a name="set-a-protection-goal"></a>Impostare un obiettivo di protezione
 
@@ -249,7 +248,7 @@ Per continuare, conferma di aver completato la pianificazione della distribuzion
 
 ### <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
 
-Contoso deve configurare l'ambiente di origine. Mediante un modello OVF, si distribuisce un server di configurazione di Site Recovery come macchina virtuale VMware locale a disponibilità elevata. Dopo aver attivato il server di configurazione, lo registra nell'insieme di credenziali.
+Gli amministratori Contoso devono ora configurare l'ambiente di origine. Mediante un modello OVF, si distribuisce un server di configurazione di Site Recovery come macchina virtuale VMware locale a disponibilità elevata. Dopo aver attivato il server di configurazione, lo registra nell'insieme di credenziali.
 
 Il server di configurazione esegue una serie di componenti:
 
@@ -257,7 +256,7 @@ Il server di configurazione esegue una serie di componenti:
 - Il server di elaborazione che funge da gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia alla risorsa di archiviazione di Azure.
 - Il server di elaborazione installa anche il servizio Mobility nelle macchine virtuali da replicare ed esegue l'individuazione automatica delle macchine virtuali VMware locali.
 
-Contoso esegue questi passaggi come indicato di seguito:
+Gli amministratori di Contoso procedono come segue:
 
 
 1. Scarica il modello OVF da **Preparare l'infrastruttura** > **Origine** > **Server di configurazione**.
@@ -289,22 +288,22 @@ Contoso esegue questi passaggi come indicato di seguito:
 
     ![vCenter](./media/contoso-migration-rehost-linux-vm-mysql/cswiz2.png)
 
-14. Al termine della registrazione, Contoso verifica nel portale di Azure che il server di configurazione e il server VMware siano elencati nella pagina **Origine** dell'insieme di credenziali. L'individuazione può richiedere circa 15 minuti. 
+14. Al termine della registrazione, nel portale di Azure gli amministratori verificano che il server di configurazione e il server VMware siano elencati nella pagina **Origine** dell'insieme di credenziali. L'individuazione può richiedere circa 15 minuti. 
 15. Dopo che sono state completate tutte le impostazioni, Site Recovery si connette ai server VMware e individua le macchine virtuali.
 
 ### <a name="set-up-the-target"></a>Configurare la destinazione
 
-In Contoso si specificano a questo punto le impostazioni della replica di destinazione.
+Ora gli amministratori di Contoso inseriscono le impostazioni della replica di destinazione.
 
-1. In **Preparare l'infrastruttura** > **Destinazione** seleziona le impostazioni di destinazione.
+1. In **Preparare l'infrastruttura** > **Destinazione** vengono selezionate le impostazioni di destinazione.
 2. Site Recovery verifica che nella destinazione specificata siano disponibili un account di archiviazione di Azure e una rete.
 
 
 ### <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
-Dopo che l'origine e la destinazione sono impostate, il team di Contoso è pronto per creare i criteri della replica.
+Dopo che l'origine e la destinazione sono impostate, gli amministratori di Contoso sono pronti per creare i criteri della replica.
 
-1. In **Preparare l'infrastruttura** > **Impostazioni della replica** > **Criteri di replica** >  **Crea e associa** crea i criteri **ContosoMigrationPolicy**.
+1. In **Preparare l'infrastruttura** > **Impostazioni della replica** > **Criteri di replica** >  **Crea e associa** vengono creati i criteri **ContosoMigrationPolicy**.
 2. Usa le impostazioni predefinite:
     - **Soglia RPO**. Impostazione predefinita di 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
     - **Conservazione del punto di ripristino**. Impostazione predefinita di 24 ore. Questo valore specifica il periodo di conservazione per ogni punto di ripristino. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo.
@@ -325,7 +324,7 @@ Dopo che l'origine e la destinazione sono impostate, il team di Contoso è pront
 
 ### <a name="enable-replication-for-the-web-vm"></a>Abilitare la replica per la macchina virtuale Web
 
-Contoso può a questo punto iniziare a replicare la macchina virtuale **OSTICKETWEB**.
+A questo punto gli amministratori di Contoso possono iniziare a replicare la macchina virtuale **OSTICKETWEB**.
 
 1. In **Eseguire la replica dell'applicazione** > **Origine** > **+Replica** seleziona le impostazioni di origine.
 2. Si indica di voler abilitare le macchine virtuali e selezionare le impostazioni di origine, incluso il server vCenter e il server di configurazione.
@@ -336,7 +335,7 @@ Contoso può a questo punto iniziare a replicare la macchina virtuale **OSTICKET
 
      ![Abilitare la replica](./media/contoso-migration-rehost-linux-vm-mysql/enable-replication2.png)
 
-3. Contoso seleziona **OSTICKETWEB** per la replica. 
+3. Selezionano **OSTICKETWEB** per la replica. 
 
     ![Abilitare la replica](./media/contoso-migration-rehost-linux-vm-mysql/enable-replication3.png)
 
@@ -355,11 +354,11 @@ Contoso può a questo punto iniziare a replicare la macchina virtuale **OSTICKET
 
 ## <a name="step-5-migrate-the-database"></a>Passaggio 5: Eseguire la migrazione del database
 
-In Contoso si eseguirà la migrazione del database tramite backup e ripristino, con gli strumenti di MySQL. Si installa MySQL Workbench, si esegue il backup del database da OSTICKETMYSQL e quindi lo si ripristina in Database di Azure per il server MySQL.
+Gli amministratori di Contoso eseguiranno la migrazione del database tramite backup e ripristino, con gli strumenti di MySQL. Si installa MySQL Workbench, si esegue il backup del database da OSTICKETMYSQL e quindi lo si ripristina in Database di Azure per il server MySQL.
 
 ### <a name="install-mysql-workbench"></a>Installare MySQL Workbench
 
-1. Si verificano i [prerequisiti e si scarica MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
+1. Verificano i [prerequisiti e scaricano MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
 2. Si installa MySQL Workbench per Windows in conformità con le [istruzioni di installazione](https://dev.mysql.com/doc/workbench/en/wb-installing.html).
 3. In MySQL Workbench si crea una connessione MySQL a OSTICKETMYSQL. 
 
@@ -373,19 +372,19 @@ In Contoso si eseguirà la migrazione del database tramite backup e ripristino, 
 
     ![MySQL Workbench](./media/contoso-migration-rehost-linux-vm-mysql/workbench3.png)
 
-6. Si può a questo punto importare (ripristinare) il database nell'istanza di MySQL di Azure, dal file autonomo. Viene creato un nuovo schema (osticket) per l'istanza.
+6. A questo punto, possono importare (ripristinare) il database nell'istanza di MySQL di Azure, dal file autonomo. Viene creato un nuovo schema (osticket) per l'istanza.
 
     ![MySQL Workbench](./media/contoso-migration-rehost-linux-vm-mysql/workbench4.png)
 
 ## <a name="step-6-migrate-the-vms-with-site-recovery"></a>Passaggio 6: Eseguire la migrazione delle macchine virtuali con Site Recovery
 
-Contoso esegue un rapido failover di test e quindi procede alla migrazione della VM.
+Infine, gli amministratori Contoso effettuano un rapido failover di test e poi eseguono la migrazione della macchina virtuale.
 
 ### <a name="run-a-test-failover"></a>Eseguire un failover di test
 
 L'esecuzione di un failover di test consente di verificare che tutto funzioni come previsto, prima della migrazione. 
 
-1. Contoso effettua un failover di test al punto di ripristino più recente disponibile **Elaborato più recente**.
+1. Gli amministratori effettuano un failover di test al punto di ripristino più recente disponibile (**Elaborato più recente**).
 2. Seleziona **Shut down machine before beginning failover** (Arrestare la macchina prima di iniziare il failover) in modo che Site Recovery arresti la macchina virtuale di origine prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. 
 3. Viene eseguito il failover di test: 
 
@@ -393,14 +392,14 @@ L'esecuzione di un failover di test consente di verificare che tutto funzioni co
     - Il failover elabora i dati, in modo che sia possibile creare una macchina virtuale di Azure. Selezionando il punto di recupero più recente, viene creato un punto di recupero dai dati.
     - Una macchina virtuale di Azure viene creata usando i dati elaborati nel passaggio precedente.
 
-3. Al termine del failover, la macchina virtuale di Azure di replica viene visualizzata nel portale di Azure. Si verifica che la macchina virtuale sia delle dimensioni appropriate, che sia connessa alla rete corretta e che sia in esecuzione. 
+3. Al termine del failover, la macchina virtuale di Azure di replica viene visualizzata nel portale di Azure. Verifica che la macchina virtuale sia delle dimensioni appropriate, che sia connessa alla rete corretta e che sia in esecuzione. 
 4. Dopo la verifica, elimina il failover, registra e salva eventuali osservazioni.
 
 ### <a name="migrate-the-vm"></a>Eseguire la migrazione della macchina virtuale
 
-Per eseguire la migrazione della macchina virtuale, si crea un piano di ripristino che include la macchina virtuale e si esegue il failover del piano in Azure.
+Per eseguire la migrazione della macchina virtuale, gli amministratori di Contoso creano un piano di ripristino che include la macchina virtuale ed eseguono il failover del piano in Azure.
 
-1. Crea un piano e vi aggiunge **OSTICKETWEB**.
+1. Creano un piano e vi aggiungono **OSTICKETWEB**.
 
     ![Piano di ripristino](./media/contoso-migration-rehost-linux-vm-mysql/recovery-plan.png)
 
@@ -412,7 +411,7 @@ Per eseguire la migrazione della macchina virtuale, si crea un piano di ripristi
 
     ![Failover](./media/contoso-migration-rehost-linux-vm-mysql/vcenter-failover.png)
 
-4. Dopo il failover, si verifica che la macchina virtuale di Azure venga visualizzata come previsto nel portale di Azure.
+4. Dopo il failover, verifica che la VM di Azure venga visualizzata come previsto nel portale di Azure.
 
     ![Failover](./media/contoso-migration-rehost-linux-vm-mysql/failover2.png)  
 
@@ -429,7 +428,7 @@ Per eseguire la migrazione della macchina virtuale, si crea un piano di ripristi
 
 ### <a name="connect-the-vm-to-the-database"></a>Connettere la macchina virtuale al database
 
-Il passaggio finale del processo di migrazione consiste nell'aggiornare la stringa di connessione dell'app in modo che punti a Database di Azure per MySQL. 
+Il passaggio finale del processo di migrazione consiste nell'aggiornamento della stringa di connessione dell'app da parte degli amministratori in modo che punti a Database di Azure per MySQL. 
 
 1. Si crea una connessione SSH alla macchina virtuale OSTICKETWEB tramite Putty o un altro client SSH. La macchina virtuale è privata, pertanto Contoso si connette usando l'indirizzo IP privato.
 
@@ -483,10 +482,13 @@ Il team di sicurezza di Contoso esamina la macchina virtuale e il database per d
 
 [Altre informazioni](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) sulle procedure di sicurezza per le macchine virtuali.
 
-### <a name="backups"></a>Backup
+### <a name="bcdr"></a>BCDR
 
-- In Contoso si eseguirà il backup dei dati nella macchina virtuale tramite il servizio Backup di Microsoft Azure. [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- Non è necessario configurare il backup per il database. Database di Azure per MySQL crea automaticamente i backup del server e gli archivi. In Contoso è stato scelto di usare la ridondanza geografica per il database, in modo che sia resiliente e pronto per la produzione.
+Per la continuità aziendale e il ripristino di emergenza, Contoso esegue le azioni seguenti:
+
+- **Mantenere i dati al sicuro**: Contoso esegue il backup dei dati nella macchina virtuale dell'app usando il servizio Backup di Azure. [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Non è necessario configurare il backup per il database. Database di Azure per MySQL crea e archivia automaticamente i backup del server. In Contoso è stato scelto di usare la ridondanza geografica per il database, in modo che sia resiliente e pronto per la produzione.
+- **Mantenere le app in esecuzione**: Contoso esegue la replica delle macchine virtuali dell'app in Azure in un'area secondaria usando Site Recovery. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+
 
 ### <a name="licensing-and-cost-optimization"></a>Licenze e ottimizzazione dei costi
 
@@ -497,6 +499,6 @@ Il team di sicurezza di Contoso esamina la macchina virtuale e il database per d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo scenario è stato descritto lo scenario di rehosting finale applicato da Contoso. È stata eseguita la migrazione della macchina virtuale di front-end dell'app osTicket Linux locale a una macchina virtuale di Azure ed è stata eseguita la migrazione del database dell'app a un'istanza di MySQL di Azure.
+In questo scenario è stato descritto lo scenario di rehosting finale. Contoso ha eseguito la migrazione della macchina virtuale di front-end dell'app osTicket Linux locale a una macchina virtuale di Azure ed è stata eseguita la migrazione del database dell'app a un'istanza di MySQL di Azure.
 
 Nel prossimo set di esercitazioni della serie sulla migrazione, viene illustrato in che modo in Contoso viene eseguito un set più complesso di migrazioni, che include il refactoring dell'app, rispetto alle migrazioni in modalità lift-and-shift.

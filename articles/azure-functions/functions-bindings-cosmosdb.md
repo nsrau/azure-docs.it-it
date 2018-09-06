@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 0715f1723f7bb43b0d11e55e8af01202fc8a92be
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d408456373c8124e1a385879852d6198caf0813c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344461"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050191"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x
 
@@ -36,6 +36,10 @@ Questo articolo descrive come usare le associazioni di [Azure Cosmos DB](..\cosm
 >Questa associazione è stata originariamente denominata DocumentDB. In Funzioni versione 1.x, solo il trigger viene rinominato Cosmos DB, mentre l'associazione di input, l'associazione di output e il pacchetto NuGet conservano il nome di DocumentDB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>API supportate
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
 
@@ -216,10 +220,7 @@ Il trigger non indica se un documento è stato aggiornato o aggiunto, fornisce s
 
 ## <a name="input"></a>Input
 
-L'associazione di input di Azure Cosmos DB recupera uno o più documenti di Azure Cosmos DB e li passa al parametro di input della funzione. L'ID documento o i parametri di query possono essere determinati in base al trigger che richiama la funzione. 
-
->[!NOTE]
-> Non usare le associazioni di input o output di Azure Cosmos DB se si usa l'API di MongoDB in un account Cosmos DB. È possibile il danneggiamento dei dati.
+L'associazione di input di Azure Cosmos DB usa l'API SQL per recuperare uno o più documenti di Azure Cosmos DB e li passa al parametro di input della funzione. L'ID documento o i parametri di query possono essere determinati in base al trigger che richiama la funzione.
 
 ## <a name="input---examples"></a>Input: esempi
 
@@ -1185,10 +1186,7 @@ Nelle funzioni di JavaScript gli aggiornamenti non vengono eseguiti automaticame
 
 ## <a name="output"></a>Output
 
-Il binding di output di Azure Cosmos DB consente di scrivere un nuovo documento in un database di Azure Cosmos DB. 
-
->[!NOTE]
-> Non usare le associazioni di input o output di Azure Cosmos DB se si usa l'API di MongoDB in un account Cosmos DB. È possibile il danneggiamento dei dati.
+L'associazione di output di Azure Cosmos DB consente di scrivere un nuovo documento in un database di Azure Cosmos DB tramite l'API SQL. 
 
 ## <a name="output---examples"></a>Output - esempi
 

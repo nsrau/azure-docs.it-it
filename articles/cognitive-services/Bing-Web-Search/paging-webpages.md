@@ -1,6 +1,6 @@
 ---
-title: Come sfogliare le pagine Web disponibili | Microsoft Docs
-description: Illustra come sfogliare tutte le pagine Web che possono essere restituite da Bing.
+title: Come sfogliare i risultati di API Ricerca Web Bing | Microsoft Docs
+description: Informazioni su come sfogliare i risultati di API Ricerca Web Bing.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -8,22 +8,22 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 04/15/2017
-ms.author: scottwhi
-ms.openlocfilehash: bf29783246c603270d59b20b63027fccdbd45b89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/20/2018
+ms.author: erhopf
+ms.openlocfilehash: cd03b3af08746674dd2ba2d4af593e19e066efca
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372932"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888242"
 ---
-# <a name="paging-webpages"></a>Sfogliare le pagine Web 
+# <a name="how-to-page-through-bing-web-search-api-results"></a>Come sfogliare i risultati di API Ricerca Web Bing
 
 Quando si chiama l'API Ricerca Web, Bing restituisce un elenco di risultati. L'elenco è un subset del numero totale di risultati pertinenti alla query. Per ottenere il numero totale stimato di risultati disponibili, accedere al campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) dell'oggetto risposta.  
   
 L'esempio seguente illustra il campo `totalEstimatedMatches` incluso in una risposta Web.  
   
-```  
+```
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -32,7 +32,7 @@ L'esempio seguente illustra il campo `totalEstimatedMatches` incluso in una risp
         "value" : [...]
     }
 }  
-```  
+```
   
 Per sfogliare tutte le pagine Web disponibili, usare i parametri di query [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) e [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset).  
   

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: ce3a3d28a25c8e904eeebbfc4cf68003fdda07a5
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: afb4cbafeb29800b1f5b1c837da301e2944d678b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443633"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842533"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -153,15 +153,15 @@ Una data factory può essere associata a un'[identità del servizio gestita](dat
 Per usare l'autenticazione token dell'applicazione di Azure AD basata sull'identità del servizio gestita, seguire questa procedura:
 
 1. **Creare un gruppo in Azure AD.** Aggiungere l'identità del servizio gestita della factory come membro del gruppo.
-
-    a. Trovare l'identità del servizio della data factory nel portale di Azure. Accedere alle **proprietà** della data factory. Copiare l'ID IDENTITÀ DEL SERVIZIO.
-
-    b. Installare il [modulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Accedere usando il comando `Connect-AzureAD`. Eseguire i comandi seguenti per creare un gruppo e aggiungere come membro l'identità del servizio gestita della data factory.
+    
+    1. Trovare l'identità del servizio della data factory nel portale di Azure. Accedere alle **proprietà** della data factory. Copiare l'ID IDENTITÀ DEL SERVIZIO.
+    
+    1. Installare il [modulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Accedere usando il comando `Connect-AzureAD`. Eseguire i comandi seguenti per creare un gruppo e aggiungere come membro l'identità del servizio gestita della data factory.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
-
+    
 1. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita. L'amministratore di Azure AD può essere un utente o un gruppo di Azure AD. Se si concede il ruolo di amministratore al gruppo con l'identità del servizio gestita, ignorare i passaggi 3 e 4. L'amministratore avrà accesso completo al database.
 
 1. **[Creare utenti del database indipendente](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** per il gruppo di Azure AD. Connettersi al database dal quale o verso il quale si desidera copiare i dati usando strumenti come SSMS, con un'identità di Azure AD con almeno l'autorizzazione ALTER ANY USER. Eseguire il T-SQL seguente: 

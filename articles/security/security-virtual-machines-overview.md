@@ -1,5 +1,5 @@
 ---
-title: Usare le funzionalità di sicurezza di Azure con le macchine virtuali di Azure | Documentazione Microsoft
+title: Usare le funzionalità di sicurezza di Azure con le macchine virtuali di Azure | Microsoft Docs
 description: Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure che possono essere usate con Macchine virtuali di Azure.
 services: security
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 5ffba386ae6b1e1e5d18f92803bc8cb74b2ff89e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: fb6a984ff838305b4ce411538465c0b9b5c152da
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061300"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886915"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
 Con le Macchine virtuali di Azure è possibile distribuire in modo flessibile un'ampia gamma di soluzioni di elaborazione. Il servizio supporta Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e servizi BizTalk di Azure. In questo modo è possibile distribuire qualsiasi carico di lavoro e implementare qualsiasi lingua su quasi tutti i sistemi operativi.
@@ -82,9 +82,8 @@ La soluzione è integrata con Azure Key Vault per consentire di controllare e ge
 
 Altre informazioni:
 
-* [Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
-* [Crittografia dischi di Azure per le macchine virtuali di Windows e Linux](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
-* [Crittografare una macchina virtuale](../security-center/security-center-disk-encryption.md)
+* [Crittografia dischi di Azure per macchine virtuali IaaS](../security/azure-security-disk-encryption-overview.md)
+* [Guida introduttiva: Crittografare una macchina virtuale IaaS Windows con Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>Backup di una macchina virtuale
 Backup di Azure è una soluzione scalabile che consente di proteggere i dati delle applicazioni senza investimenti di capitale e con costi operativi minimi. Gli errori delle applicazioni possono danneggiare i dati e gli errori umani possono comportare l'introduzione di bug nelle applicazioni. Con Backup di Azure, le macchine virtuali che eseguono Windows e Linux sono protette.

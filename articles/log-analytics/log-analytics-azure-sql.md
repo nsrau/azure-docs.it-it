@@ -1,11 +1,11 @@
 ---
-title: Soluzione Azure SQL Analytics in Log Analytics | Microsoft Docs
+title: Soluzione Analisi SQL di Azure in Log Analytics | Microsoft Docs
 description: La soluzione Analisi SQL di Azure consente di gestire i database SQL di Azure
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 440e16416b8567178c61c3d6ce2155e0e331521c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216326"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886561"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Monitorare i database SQL di Azure usando Analisi SQL di Azure (Anteprima)
 
@@ -39,15 +39,15 @@ Per una panoramica pratica sull'uso della soluzione Analisi SQL di Azure e per s
 
 ## <a name="connected-sources"></a>Origini connesse
 
-Analisi SQL di Azure è una soluzione di monitoraggio del cloud che supporta il flusso della telemetria di diagnostica per i database SQL di Azure e i pool elastici. Poiché non usa agenti per connettersi al servizio Log Analytics, la soluzione non supporta la connettività con risorse Windows, Linux o SCOM, consultare la tabella di compatibilità riportata di seguito.
+Analisi SQL di Azure è una soluzione di monitoraggio del cloud che supporta il flusso della telemetria di diagnostica per i database SQL di Azure e i pool elastici. Poiché non usa agenti per connettersi al servizio Log Analytics, la soluzione non supporta la connettività con risorse Windows, Linux o SCOM. Vedere la tabella di compatibilità riportata di seguito.
 
-| Origine connessa | Supporto | DESCRIZIONE |
+| Origine connessa | Supporto | Descrizione |
 | --- | --- | --- |
 | **[Diagnostica di Azure](log-analytics-azure-storage.md)** | **Sì** | I dati relativi alle metriche e ai log vengono inviati a Log Analytics direttamente da Azure. |
-| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | Log Analytics non legge i dati da un account di archiviazione. |
-| [Agenti di Windows](log-analytics-windows-agent.md) | No  | Gli agenti Windows diretti non vengono usati dalla soluzione. |
-| [Agenti Linux](log-analytics-linux-agents.md) | No  | Gli agenti Linux diretti non vengono usati dalla soluzione. |
-| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | Una connessione diretta dall'agente SCOM a Log Analytics non viene usata dalla soluzione. |
+| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No | Log Analytics non legge i dati da un account di archiviazione. |
+| [Agenti di Windows](log-analytics-windows-agent.md) | No | Gli agenti Windows diretti non vengono usati dalla soluzione. |
+| [Agenti Linux](log-analytics-linux-agents.md) | No | Gli agenti Linux diretti non vengono usati dalla soluzione. |
+| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No | Una connessione diretta dall'agente SCOM a Log Analytics non viene usata dalla soluzione. |
 
 ## <a name="configuration"></a>Configurazione
 
@@ -100,7 +100,7 @@ La selezione di uno dei riquadri consente di visualizzare un report drill-down n
 
 Ogni prospettiva fornisce riepiloghi relativi a sottoscrizione, server, pool elastico e livello di database. Inoltre ogni prospettiva mostra una prospettiva specifica del report a destra. Selezionando una sottoscrizione, un server, un pool o un database nell'elenco, il drilldown continua.
 
-| Prospettiva | DESCRIZIONE |
+| Prospettiva | Descrizione |
 | --- | --- |
 | Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. Il drill-down fornisce il riepilogo delle metriche relative a DTU e GB. |
 | Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights. Altre informazioni su Intelligent Insights. |
@@ -135,27 +135,77 @@ Tramite le prospettive relativa a durata e attese delle query, è possibile corr
 
 È possibile [creare avvisi](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) facilmente con i dati provenienti dalle risorse del database SQL di Azure. Di seguito sono riportate alcune query utili di [ricerca log](log-analytics-log-searches.md) che è possibile usare con un avviso log:
 
-
-
-*Elevato utilizzo di DTU nel database SQL di Azure*
+*Elevato utilizzo della CPU nel database SQL di Azure*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/DATABASES/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
-*Elevato utilizzo di DTU nel pool elastico del database SQL di Azure*
+> [!NOTE]
+> - Il prerequisito di configurazione di questo avviso è che i database monitorati trasmettano le metriche di diagnostica (opzione "Tutte le metriche") alla soluzione.
+> - Sostituire il valore cpu_percent di MetricName con dtu_consumption_percent per ottenere risultati di DTU elevati.
+
+*Elevato utilizzo della CPU nei pool elastici del database SQL di Azure*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/ELASTICPOOLS/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
+> [!NOTE]
+> - Il prerequisito di configurazione di questo avviso è che i database monitorati trasmettano le metriche di diagnostica (opzione "Tutte le metriche") alla soluzione.
+> - Sostituire il valore cpu_percent di MetricName con dtu_consumption_percent per ottenere risultati di DTU elevati.
 
+*Archiviazione di database SQL di Azure in media superiore al 95% nell'ultima ora*
+
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Il prerequisito di configurazione di questo avviso è che i database monitorati trasmettano le metriche di diagnostica (opzione "Tutte le metriche") alla soluzione.
+> - Questa query richiede una regola di avviso da impostare in modo da attivare un avviso quando vengono restituiti risultati (> 0 risultati) dalla query, a indicare che la condizione è presente in alcuni database. L'output è un elenco di risorse del database superiore alla soglia di archiviazione all'interno dell'intervallo di tempo definito.
+> - L'output è un elenco di risorse del database superiore alla soglia di archiviazione all'interno dell'intervallo di tempo definito.
+
+*Avvisi in Intelligent Insights*
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Il prerequisito di configurazione di questo avviso prevede che i database monitorati trasmettano il log di diagnostica SQLInsights alla soluzione.
+> - Questa query richiede una regola di avviso da configurare per l'esecuzione con la stessa frequenza di alert_run_interval, per evitare risultati duplicati. La regola deve essere impostata in modo da attivare l'avviso quando vengono restituiti risultati (> 0 risultati) dalla query.
+> - Personalizzare il valore di alert_run_interval in modo da specificare l'intervallo di tempo in cui controllare se la condizione si è verificata nel database configurato, al fine di trasmettere il log SQLInsights alla soluzione.
+> - Personalizzare il valore di insights_string per acquisire l'output del testo di analisi della causa radice di Insights. Si tratta dello stesso testo visualizzato nell'interfaccia utente della soluzione che è possibile usare dall'istanza di Insights esistente. In alternativa, è possibile usare la query seguente per visualizzare il testo di tutte le istanze di Insights generate nella sottoscrizione. Usare l'output della query per raccogliere le varie stringhe per configurare gli avvisi in Insights.
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

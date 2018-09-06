@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628172"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049125"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -48,26 +48,26 @@ Prima di iniziare, è necessario [creare uno spazio dei nomi di Hub eventi e un 
 
 Vedere anche le [domande frequenti su Hub eventi di Azure](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Come si configurano i dati di monitoraggio del tenat di Azure per poterli trasmettere a un hub eventi?
+## <a name="azure-tenant-monitoring-data"></a>Dati di monitoraggio del tenant di Azure
 
 I dati di monitoraggio del tenant di Azure sono attualmente disponibili solo per Azure Active Directory. È possibile usare i dati dei [report di Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md), che contengono la cronologia degli accessi e l'audit trail delle modifiche apportate all'interno di un particolare tenant.
 
-### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Trasmettere i dati di Azure Active Directory in un hub eventi
+### <a name="azure-active-directory-data"></a>Dati di Azure Active Directory
 
 Per inviare dati dal log di Azure Active Directory in uno spazio dei nomi di Hub eventi, è necessario configurare un'impostazione di diagnostica del tenant nel tenant di AAD. [Seguire questa guida](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) per configurare un'impostazione di diagnostica del tenant.
 
-## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Come si configurano i dati di monitoraggio della sottoscrizione di Azure per poterli trasmettere a un hub eventi?
+## <a name="azure-subscription-monitoring-data"></a>Dati di monitoraggio della sottoscrizione di Azure
 
 I dati di monitoraggio della sottoscrizione di Azure sono disponibili nel [log attività di Azure](./monitoring-overview-activity-logs.md). Questo contiene le operazioni di creazione, aggiornamento ed eliminazione di Gestione risorse, le modifiche apportate all'[integrità dei servizi di Azure](../service-health/service-health-overview.md) che possono influire sulle risorse disponibili nella sottoscrizione, le transizioni dello stato di [integrità delle risorse](../service-health/resource-health-overview.md) e vari altri tipi di eventi a livello di sottoscrizione. [Questo articolo descrive in dettaglio tutte le categorie di eventi indicati nel log attività di Azure](./monitoring-activity-log-schema.md).
 
-### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Trasmettere i dati del log attività di Azure in un hub eventi
+### <a name="activity-log-data"></a>Dati del log attività
 
 Per inviare dati dal log attività di Azure in uno spazio dei nomi di Hub eventi, si configura un profilo di log per la sottoscrizione. [Seguire queste istruzioni](./monitoring-stream-activity-logs-event-hubs.md) per configurare un profilo di log per la sottoscrizione. Eseguire queste operazioni una sola volta per ogni sottoscrizione da monitorare.
 
 > [!TIP]
 > Attualmente un profilo di log consente di selezionare solo uno spazio dei nomi di Hub eventi in cui è stato creato un hub eventi con il nome insights-operational-logs. In un profilo di log non è ancora possibile specificare un nome per l'hub eventi.
 
-## <a name="how-do-i-set-up-azure-resource-monitoring-data-to-be-streamed-to-an-event-hub"></a>Come si configurano i dati di monitoraggio delle risorse di Azure per poterli trasmettere a un hub eventi?
+## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Log di diagnostica e metriche delle risorse di Azure
 
 Le risorse di Azure generano due tipi di dati di monitoraggio:
 1. [Log di diagnostica delle risorse](./monitoring-overview-of-diagnostic-logs.md)
@@ -78,25 +78,25 @@ Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione 
 > [!TIP]
 > I criteri di Azure consentono di assicurarsi che tutte le risorse di un determinato ambito siano sempre configurate con un'impostazione di diagnostica [usando l'effetto di DeployIfNotExists nella regola dei criteri](../azure-policy/policy-definition.md#policy-rule). DeployIfNotExists è attualmente supportato solo nei criteri predefiniti.
 
-## <a name="how-do-i-set-up-guest-os-monitoring-data-to-be-streamed-to-an-event-hub"></a>Come si configurano i dati di monitoraggio del sistema operativo guest per poterli trasmettere a un hub eventi?
+## <a name="guest-os-data"></a>Dati del sistema operativo guest
 
 È necessario installare un agente per inviare i dati di monitoraggio del sistema operativo guest in un hub eventi. Per Windows o Linux, si specificano in un file di configurazione i dati da inviare all'hub eventi e l'hub eventi a cui i dati devono essere inviati. Il file di configurazione viene quindi passato all'agente in esecuzione nella macchina virtuale.
 
-### <a name="stream-linux-data-to-an-event-hub"></a>Trasmettere dati di Linux a un hub eventi
+### <a name="linux-data"></a>Dati di Linux
 
 L'[agente Diagnostica di Azure per Linux](../virtual-machines/extensions/diagnostics-linux.md) consente di inviare i dati di monitoraggio da un computer Linux a un hub eventi. A questo scopo, aggiungere l'hub eventi come sink nella sezione JSON impostazioni protette del file di configurazione LAD. [Per altre informazioni sull'aggiunta del sink di hub eventi all'agente Diagnostica di Azure per Linux, vedere questo articolo](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Non è possibile configurare la trasmissione dei dati di monitoraggio del sistema operativo guest a un hub eventi nel portale. In alternativa, è necessario modificare manualmente il file di configurazione.
 
-### <a name="stream-windows-data-to-an-event-hub"></a>Trasmettere dati di Windows a un hub eventi
+### <a name="windows-data"></a>Dati di Windows
 
 L'[agente Diagnostica di Azure per Windows](./azure-diagnostics.md) consente di inviare i dati di monitoraggio da un computer Windows a un hub eventi. A questo scopo, aggiungere l'hub eventi come sink nella sezione privateConfig del file di configurazione WAD. [Per altre informazioni sull'aggiunta del sink di hub eventi all'agente Diagnostica di Azure per Windows, vedere questo articolo](./azure-diagnostics-streaming-event-hubs.md).
 
 > [!NOTE]
 > Non è possibile configurare la trasmissione dei dati di monitoraggio del sistema operativo guest a un hub eventi nel portale. In alternativa, è necessario modificare manualmente il file di configurazione.
 
-## <a name="how-do-i-set-up-application-monitoring-data-to-be-streamed-to-event-hub"></a>Come si configurano i dati di monitoraggio dell'applicazione per poterli trasmettere a un hub eventi?
+## <a name="application-monitoring-data"></a>Dati di monitoraggio dell'applicazione
 
 I dati di monitoraggio dell'applicazione richiedono che il codice sia instrumentato con un SDK. Non esiste quindi una soluzione generica per il routing dei dati di monitoraggio dell'applicazione a un hub eventi in Azure. Tuttavia, [Azure Application Insights](../application-insights/app-insights-overview.md) è un servizio che consente di raccogliere i dati di Azure a livello di applicazione. Se si usa Application Insights, è possibile trasmettere i dati di monitoraggio a un hub eventi eseguendo queste operazioni:
 

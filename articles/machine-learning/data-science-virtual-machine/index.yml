@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: fd2a030d3529857b5a68aeaf28494e76d416e6fd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781040"
 documentType: LandingData
 title: Documentazione sulle macchine virtuale di Azure Data Science
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: gokuma
-  ms.openlocfilehash: 2378c8bcca2ac97c6045a9e573192087d03b4b61
-  ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 04/19/2018
-  ms.locfileid: "31590786"
 abstract:
   description: Le macchine virtuali di Data Science e Deep Learning sono immagini di macchina virtuale personalizzate in Azure, caricate con strumenti di data science usati per creare applicazioni intelligenti per l'analisi avanzata.
 sections:
@@ -41,8 +41,8 @@ sections:
     style: ordered
     items:
     - html: <a href="provision-vm">Effettuare il provisioning di una VM di Data Science di Windows</a>
-    - html: <a href="vm-do-ten-thing">Usare una VM di Data Science di Windows</a>
-    - html: <a href:"linux-dsvm-intro">Effettuare il provisioning di una VM di Data Science di Linux CentOS</a>
+    - html: <a href="vm-do-ten-things">Usare una VM di Data Science di Windows</a>
+    - html: <a href="linux-dsvm-intro">Effettuare il provisioning di una Data Science Virtual Machine di Linux CentOS</a>
     - html: <a href="dsvm-ubuntu-intro">Effettuare il provisioning di una VM di Data Science di Linux Ubuntu</a>
     - html: <a href="linux-dsvm-walkthrough">Usare una VM di Data Science di Linux </a>
 - title: Altre tecnologie di Azure Machine Learning

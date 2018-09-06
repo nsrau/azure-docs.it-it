@@ -10,67 +10,28 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: d5bb2f2f4b79c4b03e631fc844a712f76fc69109
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: af9afcbf97df5f3d7fa82f6ea0163c714fa4f582
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258168"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051742"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurazione di un DNS personalizzato per Istanza gestita di database SQL di Azure
 
-Un'istanza gestita di database SQL di Azure (anteprima) deve essere distribuita in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. Esistono alcuni scenari: server collegati ad altre istanze SQL nel cloud dell'utente o un ambiente ibrido, che richiede nomi host privati che devono essere risolti dall'istanza gestita. In questo caso, è necessario configurare un DNS personalizzato all'interno di Azure. Poiché Istanza gestita usa lo stesso DNS per i meccanismi interni, la configurazione del DNS della rete virtuale deve essere compatibile con Istanza gestita. 
+Un'istanza gestita di database SQL di Azure (anteprima) deve essere distribuita in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. In alcuni scenari, ad esempio server collegati ad altre istanze SQL nell'ambiente cloud o ibrido, sono richiesti nomi host privati che devono essere risolti dall'istanza gestita. In questo caso, è necessario configurare un DNS personalizzato all'interno di Azure. Poiché Istanza gestita usa lo stesso DNS per i meccanismi interni, la configurazione del DNS della rete virtuale deve essere compatibile con Istanza gestita. 
 
-Per rendere una configurazione DNS personalizzata compatibile con istanza gestita, è necessario completare i passaggi seguenti: 
-- Configurare un DNS personalizzato per inoltrare le richieste al servizio DNS di Azure 
-- Configurare il DNS personalizzato come primario e il DNS di Azure come secondario per la rete virtuale 
-- Registrare il DNS personalizzato come primario e il DNS di Azure come secondario
-
-## <a name="configure-custom-dns-to-forward-requests-to-azure-dns"></a>Configurare un DNS personalizzato per inoltrare le richieste al servizio DNS di Azure 
-
-Per configurare l'inoltro del DNS in Windows Server 2016, seguire questa procedura: 
-
-1. In **Server Manager** fare clic su **Strumenti** e quindi su **DNS**. 
-
-   ![DNS](./media/sql-database-managed-instance-custom-dns/dns.png) 
-
-2. Fare doppio clic su **Server d'inoltro**.
-
-   ![Server d'inoltro](./media/sql-database-managed-instance-custom-dns/forwarders.png) 
-
-3. Fare clic su **Modifica**. 
-
-   ![Elenco di server d'inoltro](./media/sql-database-managed-instance-custom-dns/forwarders-list.png) 
-
-4. Immettere l'indirizzo IP dei resolver ricorsivi di Azure, ad esempio 168.63.129.16.
-
-   ![Indirizzo IP dei resolver ricorsivi](./media/sql-database-managed-instance-custom-dns/recursive-resolvers-ip-address.png) 
+Per rendere una configurazione DNS personalizzata compatibile con l'istanza gestita, è necessario: 
+- Configurare un server DNS personalizzato in modo che sia in grado di risolvere i nomi di dominio pubblico 
+- Inserire l'indirizzo IP DNS del resolver ricorsivo di Azure, 168.63.129.16, alla fine dell'elenco del DNS della rete virtuale 
  
-## <a name="set-up-custom-dns-as-primary-and-azure-dns-as-secondary"></a>Impostare il DNS personalizzato come primario e il DNS di Azure come secondario 
- 
-La configurazione del DNS in una rete virtuale di Azure richiede l'immissione degli indirizzi IP, quindi occorre configurare la macchina virtuale di Azure che ospita il server DNS con un indirizzo IP statico usando la procedura seguente: 
-
-1. Nel portale di Azure, aprire l'interfaccia di rete delle macchine virtuali del DNS personalizzato.
-
-   ![interfaccia di rete](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
-
-2. Sezione Configurazioni IP. selezionare la configurazione IP 
-
-   ![configurazione IP](./media/sql-database-managed-instance-custom-dns/ip-configuration.png) 
-
-
-3. Impostare l'indirizzo IP privato come statico. Prendere nota dell'indirizzo IP (10.0.1.5 in questo screenshot) 
-
-   ![Statica](./media/sql-database-managed-instance-custom-dns/static.png) 
-
-
-## <a name="register-custom-dns-as-primary-and-azure-dns-as-secondary"></a>Registrare il DNS personalizzato come primario e il DNS di Azure come secondario 
+## <a name="setting-up-custom-dns-servers-configuration"></a>Definizione della configurazione dei server DNS personalizzati
 
 1. Nel portale di Azure, individuare l'opzione relativa al DNS personalizzato per la propria rete virtuale.
 
    ![opzione relativa al DNS personalizzato](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
 
-2. Passare a Personalizzato e immettere l'indirizzo IP del server DNS personalizzato, l'indirizzo IP dei resolver ricorsivi di Azure, ad esempio 168.63.129.16. 
+2. Passare a Personalizzato e immettere l'indirizzo IP del server DNS personalizzato, l'indirizzo IP 168.63.129.16 del resolver ricorsivo di Azure. 
 
    ![opzione relativa al DNS personalizzato](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 

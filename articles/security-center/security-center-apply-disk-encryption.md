@@ -1,6 +1,6 @@
 ---
-title: Applicare la crittografia del disco nel Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo documento illustra come implementare la raccomandazione **Applicare crittografia dischi** del Centro sicurezza di Azure.
+title: Applicare la crittografia del disco nel Centro sicurezza di Azure | Microsoft Docs
+description: Questo documento illustra come implementare la raccomandazione **Applicare la crittografia dischi** del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 67cff664f3723b2194ecd1519729cca17069d07f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcfa6ead0eac4a8a631c0388466534406c7a594b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040216"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887339"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Applicare la crittografia del disco nel Centro sicurezza Azure
 Il Centro sicurezza di Azure suggerisce di applicare la crittografia dischi se sono presenti dischi di VM Windows o Linux che non vengono crittografati con Crittografia dischi di Azure. Crittografia dischi consente di crittografare i dischi delle VM IaaS Windows e Linux.  La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale.
@@ -44,7 +44,7 @@ Per crittografare le macchine virtuali di Azure che in base al Centro sicurezza 
 * Ottenere ed eseguire lo script di Azure PowerShell dei prerequisiti di Crittografia dischi di Azure.
 * Crittografare le macchine virtuali.
 
-[Crittografare una macchina virtuale di Azure](security-center-disk-encryption.md) illustra la procedura.  Questo argomento presuppone l'uso di Windows 10 come computer client da cui si esegue la configurazione di crittografia dischi.
+L'articolo [Crittografare una macchina virtuale IaaS Windows con Azure PowerShell](../security/quick-encrypt-vm-powershell.md) illustra questi passaggi. Questo argomento presuppone l'uso di un computer client Windows da cui si esegue la configurazione della crittografia dei dischi.
 
 È possibile usare diversi approcci per le macchine virtuali di Azure. Se si ha buona familiarità con Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile adottare soluzioni alternative. Per altre informazioni su altri approcci, consultare l'articolo sulla [crittografia dischi di Azure](../security/azure-security-disk-encryption.md).
 
@@ -52,8 +52,7 @@ Per crittografare le macchine virtuali di Azure che in base al Centro sicurezza 
 In questo documento è stato illustrato come implementare la raccomandazione "Applicare crittografia dischi" del Centro sicurezza. Per altre informazioni sulla crittografia dischi, vedere gli argomenti seguenti:
 
 * [Crittografia e gestione delle chiavi con l'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 minuti 39 secondi): informazioni su come usare la gestione della crittografia dischi per le VM IaaS e l'insieme di credenziali delle chiavi di Azure per proteggere e salvaguardare i dati.
-* [Crittografare una macchina virtuale di Azure](security-center-disk-encryption.md) (documento): informazioni su come crittografare le macchine virtuali di Azure.
-* [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md) (documento): informazioni su come abilitare la crittografia dischi per le VM Windows e Linux.
+* [Crittografia dischi di Azure](../security/azure-security-disk-encryption-overview.md) (documento): informazioni su come abilitare la crittografia dischi per le VM Windows e Linux.
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 

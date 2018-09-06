@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: bryanla
-ms.openlocfilehash: 962f9be53ce0b2022e8e5490bdeb04b2eefb4d7c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f36e0e3ddc605d960ed764252308cbf09578832c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144881"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126143"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 Azure Key Vault consente agli utenti di archiviare e utilizzare le chiavi di crittografia all'interno dell'ambiente Microsoft Azure. Key Vault supporta più tipi di chiavi e algoritmi e consente l'utilizzo di moduli di protezione hardware (HSM) per le chiavi di valore elevato. Inoltre, Key Vault consente agli utenti di archiviare in modo sicuro i segreti. I segreti sono oggetti ottetto di dimensioni limitate senza alcuna semantica specifica. Key Vault supporta inoltre certificati, che si avvalgono di chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico.
@@ -174,7 +174,7 @@ Azure Key Vault supporta le seguenti operazioni sugli oggetti chiave:
 -   **Backup**: esporta una chiave in un formato protetto.  
 -   **Ripristina**: importa una chiave precedentemente sottoposta a backup.  
 
-Per ulteriori informazioni, vedere le [operazioni relative alla chiave nel riferimento all'API REST di Key Vault](/rest/api/keyvault).  
+Per altre informazioni, vedere le [operazioni relative alle chiavi nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault).  
 
 Dopo avere creato una chiave in Azure Key Vault, le operazioni crittografiche seguenti potranno essere eseguite utilizzando la chiave:  
 
@@ -283,7 +283,7 @@ Le autorizzazioni seguenti sono utilizzabili, su base principale, nella voce di 
 -   *elimina*: eliminare il segreto  
 -   *tutte*: tutte le autorizzazioni  
 
-Per ulteriori informazioni sull'uso dei segreti, vedere [operazioni relative ai segreti nel riferimento all’API REST di Key Vault](/rest/api/keyvault).  
+Per altre informazioni sull'uso dei segreti, vedere le [operazioni relative ai segreti nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> Tag dei segreti  
 È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Azure Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
@@ -443,7 +443,7 @@ Se i criteri del certificato sono impostato per il rinnovo automatico, viene inv
 -   *deleteissuers*: consente di eliminare le autorità di certificazione Key Vault  
 -   *tutti*: concede tutte le autorizzazioni  
 
-Per ulteriori informazioni, vedere le [operazioni relative al certificato nel riferimento all'API REST di Key Vault](/rest/api/keyvault). 
+Per altre informazioni, vedere le [operazioni relative ai certificati nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). 
 
 ## <a name="see-also"></a>Vedere anche
 

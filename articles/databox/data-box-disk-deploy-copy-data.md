@@ -1,6 +1,6 @@
 ---
-title: Copiare dati su Microsoft Azure Data Box Disk | Microsoft Docs
-description: Usare questa esercitazione per informazioni su come copiare i dati su Azure Data Box Disk
+title: Copiare dati in Microsoft Azure Data Box Disk | Microsoft Docs
+description: Usare questa esercitazione per informazioni su come copiare i dati in Azure Data Box Disk
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b0769ba70f495728df5c38b43bae4059b27de88b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010821"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841506"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare i dati su Azure Data Box Disk ed eseguire la verifica
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare i dati in Azure Data Box Disk ed eseguire la verifica
 
 Questa esercitazione descrive come copiare dati dal computer host e quindi generare i checksum per la verifica dell'integrità.
 
@@ -62,7 +62,7 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     |Entità   |Convenzioni  |
     |---------|---------|
     |Nomi di contenitori BLOB in blocchi e BLOB di pagine     |Devono iniziare con una lettera o un numero e possono contenere solo lettere minuscole, numeri e il trattino (-). Ogni trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero. I trattini consecutivi non sono consentiti nei nomi. <br>Deve essere un nome DNS valido, da 3 a 63 caratteri.          |
-    |Nomi di BLOB per blob in blocchi e blob di pagine    |I nomi di BLOB fanno distinzione tra maiuscole e minuscole e possono contenere una qualsiasi combinazione di caratteri. <br>La lunghezza di un nome di BLOB deve essere compresa tra 1 e 1.024 caratteri.<br>I caratteri URL riservati devono essere correttamente preceduti da un carattere di escape.<br>Il numero di segmenti di linea che includono il nome BLOB non può essere superiore a 254. Un segmento di linea è la stringa tra caratteri di delimitatore consecutivi, ad esempio, la barra rovesciata '/', che corrisponde al nome di una directory virtuale.         |
+    |Nomi di BLOB per blob in blocchi e blob di pagine    |I nomi di BLOB fanno distinzione tra maiuscole e minuscole e possono contenere una qualsiasi combinazione di caratteri. <br>La lunghezza di un nome di BLOB deve essere compresa tra 1 e 1.024 caratteri.<br>I caratteri URL riservati devono essere preceduti da una sequenza di escape.<br>Il numero di segmenti del percorso che includono il nome BLOB non può essere superiore a 254. Un segmento di percorso è la stringa tra caratteri di delimitatore consecutivi, ad esempio, la barra rovesciata '/', che corrisponde al nome di una directory virtuale.         |
 
     > [!IMPORTANT] 
     > Tutti i contenitori e i BLOB devono essere conformi alle [convenzioni di denominazione di Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Se queste regole non vengono rispettate, il caricamento di dati in Azure avrà esito negativo.
@@ -76,8 +76,8 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     
     |Parametri/opzioni  |DESCRIZIONE |
     |--------------------|------------|
-    |<Source>            | Specifica il percorso della directory di origine.        |
-    |<Destination>       | Specifica il percorso della directory di destinazione.        |
+    |Sorgente            | Specifica il percorso della directory di origine.        |
+    |Destination       | Specifica il percorso della directory di destinazione.        |
     |/E                  | Copia le sottodirectory, incluse le directory vuote. |
     |/MT[:N]             | Crea copie multi-thread con N thread, dove N è un numero intero compreso tra 1 e 128. <br>Il valore predefinito per N è 8.        |
     |/R: <N>             | Specifica il numero di tentativi per le copie non riuscite. Il valore predefinito di N è 1.000.000 (un milione di tentativi).        |
@@ -162,7 +162,7 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
 
 > [!IMPORTANT]
 > - È responsabilità dell'utente assicurarsi di copiare i dati nelle cartelle corrispondenti al formato dati appropriato. Ad esempio, copiare i dati del BLOB in blocchi nella cartella per i BLOB in blocchi. Se il formato dei dati non corrisponde alla cartella appropriata (tipo di archiviazione), il caricamento dei dati in Azure avrà negativo.
-> -  Durante la copia dei dati assicurarsi che la dimensione dei dati sia conforme ai valori descritti nei [limiti delle risorse di archiviazione e del Data Box Disk in Azure](data-box-disk-limits.md). 
+> -  Durante la copia dei dati assicurarsi che la dimensione dei dati sia conforme ai valori descritti nei [limiti delle risorse di archiviazione e di Data Box Disk in Azure](data-box-disk-limits.md). 
 > - Se i dati caricati dal Data Box Disk vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box Disk, è possibile che si verifichino errori del processo di caricamento e il danneggiamento di dati.
 
 ## <a name="verify-data-integrity"></a>Verificare l'integrità dei dati.
@@ -187,7 +187,7 @@ In questa esercitazione sono stati illustrati argomenti relativi ad Azure Data B
 > * Copiare i dati sul Data Box Disk.
 > * Verificare l'integrità dei dati.
 
-Passare all'esercitazione successiva per informazioni su come restituire il Data Box Disk e verificare il caricamento dei dati in Azure.
+Passare all'esercitazione successiva per informazioni su come restituire Data Box Disk e verificare il caricamento dei dati in Azure.
 
 > [!div class="nextstepaction"]
 > [Spedizione di Azure Data Box a Microsoft](./data-box-disk-deploy-picked-up.md)

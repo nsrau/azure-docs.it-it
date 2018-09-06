@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 59a00f5605f7664148b65f2ec9a88fbaa9057ccf
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946058"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248142"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -25,7 +25,7 @@ ms.locfileid: "36946058"
 - Pianificare l'installazione degli aggiornamenti necessari
 - Esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per cui è abilitata la soluzione Gestione aggiornamenti
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare Gestione aggiornamenti è necessario:
 
@@ -106,9 +106,9 @@ La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
 | Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
-| Agenti di Windows |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
-| Agenti Linux |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
-| Gruppo di gestione di Operations Manager |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso. |
+| Agenti di Windows |Yes |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
+| Agenti Linux |Yes |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
+| Gruppo di gestione di Operations Manager |Yes |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso. |
 | Account di archiviazione di Azure |No  |Archiviazione di Azure non include informazioni sugli aggiornamenti del sistema. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
@@ -127,7 +127,7 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
 
 - **Nome**: immettere un nome univoco per identificare la distribuzione di aggiornamenti.
 - **Sistema operativo**: selezionare **Windows** o **Linux**.
-- **Computer da aggiornare**: selezionare le macchine virtuali da aggiornare. L'idoneità della macchina è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti.
+- **Computer da aggiornare**: selezionare una ricerca salvata, gruppo importato, o selezionare le macchine virtuali, per scegliere i computer che si desidera aggiornare. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti. Per ulteriori informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Riquadro Nuova distribuzione di aggiornamenti](./media/manage-update-multi/update-select-computers.png)
 
@@ -150,10 +150,16 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
    ![Finestra di dialogo Impostazioni pianificazione](./media/manage-update-multi/update-set-schedule.png)
 - **Finestra di manutenzione (minuti)**: specificare il periodo di tempo in cui deve avvenire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
 
-Dopo avere configurato la pianificazione, selezionare il pulsante **Crea** per tornare al dashboard di stato. Nella tabella **Pianificata** appare la pianificazione della distribuzione appena creata.
+- **Controllo riavvio:** questa impostazione determina come vengono gestiti i riavvii per la distribuzione degli aggiornamenti.
 
-> [!WARNING]
-> Per gli aggiornamenti che richiedono un riavvio, la macchina virtuale viene riavviata automaticamente.
+   |Opzione|DESCRIZIONE|
+   |---|---|
+   |Riavvia se necessario| **(Impostazione predefinita)** Se necessario, viene eseguito il riavvio se la finestra di manutenzione lo consente.|
+   |Riavvia sempre|Il computer viene riavviato indipendentemente dal fatto che il riavvio sia richiesto o no. |
+   |Non riavviare mai|I riavvi non sono eseguiti, indipendentemente dal fatto che il riavvio sia necessario.|
+   |Riavvia solamente: gli aggiornamenti non verranno installati|Questa opzione ignora l'installazione degli aggiornamenti e esegue solo il riavvio.|
+
+Dopo avere configurato la pianificazione, selezionare il pulsante **Crea** per tornare al dashboard di stato. Nella tabella **Pianificata** appare la pianificazione della distribuzione appena creata.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti
 

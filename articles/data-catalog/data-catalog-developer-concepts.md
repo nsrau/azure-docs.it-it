@@ -1,35 +1,29 @@
 ---
-title: Concetti per sviluppatori di Data Catalog | Microsoft Docs
-description: Introduzione ai concetti chiave nel modello concettuale del Catalogo dati di Azure, come esposto tramite l'API REST del Catalogo.
+title: Concetti per sviluppatori di Azure Data Catalog
+description: Introduzione ai concetti chiave nel modello concettuale di Azure Data Catalog, come esposto tramite l'API REST del Catalogo.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 48d4a33f7667786f2eb8851ed69dedc206e777ae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 753b4660c8ca47f12aace87a254b93a88db8aaa7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052804"
 ---
-# <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori del Catalogo dati di Azure
-**Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell'origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono usare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con il **Catalogo dati di Azure**.
+# <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori di Azure Data Catalog
+Microsoft **Azure Data Catalog** è un servizio cloud completamente gestito che offre funzionalità di individuazione dell'origine dati e di crowdsourcing dei metadati dell'origine dati. Gli sviluppatori possono usare il servizio tramite le API REST. La comprensione dei concetti implementati nel servizio è importante per gli sviluppatori al fine di una perfetta integrazione con **Azure Data Catalog**.
 
 ## <a name="key-concepts"></a>Concetti chiave
 Il modello concettuale di **Azure Data Catalog** è basato su quattro concetti chiave: il **catalogo**, gli **utenti**, gli **asset** e le **annotazioni**.
 
 ![concetto][1]
 
-*Figura 1. Modello concettuale semplificato del Catalogo dati di Azure*
+*Figura 1. Modello concettuale semplificato di Azure Data Catalog*
 
 ### <a name="catalog"></a>Catalogo
 Il **catalogo** è il contenitore di livello principale per tutti i metadati archiviati da un'organizzazione. Per ogni account Azure è consentito un solo **catalogo**. I cataloghi sono legati a una sottoscrizione di Azure. Anche se un account può avere più sottoscrizioni, per un determinato account Azure è possibile creare un solo **catalogo**.
@@ -43,7 +37,7 @@ Diversi sono i ruoli disponibili che un utente può avere. Per altre informazion
 
 È possibile aggiungere singoli utenti e gruppi di sicurezza.
 
-Il Catalogo dati di Azure usa Azure Active Directory per la gestione delle identità e degli accessi. Ogni utente del catalogo deve essere un membro di Active Directory per l'account.
+Azure Data Catalog usa Azure Active Directory per la gestione delle identità e degli accessi. Ogni utente del catalogo deve essere un membro di Active Directory per l'account.
 
 ### <a name="assets"></a>Asset
 Il **catalogo** contiene gli asset di dati. **asset** rappresentano l'unità di granularità gestita dal catalogo.
@@ -60,7 +54,7 @@ Le annotazioni sono elementi che rappresentano i metadati relativi agli asset.
 Descrizioni, tag, schemi, documentazione e così via sono esempi di annotazioni. Un elenco completo dei tipi di annotazione e di asset è disponibile nella sezione Modello a oggetti asset.
 
 ## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>Annotazioni crowdsourcing e prospettiva dell'utente (molteplicità di opinione)
-Un aspetto fondamentale del Catalogo dati di Azure è il supporto crowdsourcing dei metadati nel sistema. A differenza dell'approccio wiki, dove è presente una sola opinione e l'ultima scrittura prevale, il modello Catalogo dati di Azure consente a più opinioni di convivere affiancate nel sistema.
+Un aspetto fondamentale di Azure Data Catalog è il supporto crowdsourcing dei metadati nel sistema. A differenza dell'approccio wiki, dove è presente una sola opinione e l'ultima scrittura prevale, il modello di Azure Data Catalog consente a più opinioni di convivere affiancate nel sistema.
 
 Questo approccio riflette il mondo reale dei dati aziendali in cui diversi utenti possono avere diverse prospettive su un determinato asset:
 
@@ -68,7 +62,7 @@ Questo approccio riflette il mondo reale dei dati aziendali in cui diversi utent
 * Un amministratore dei dati può fornire informazioni sui processi aziendali a cui si applica l'asset o le classificazioni a cui è stato applicato dall'azienda
 * Un analista finanziario può fornire informazioni sull'uso dei dati durante le attività di reporting di fine periodo
 
-Per supportare questo esempio, ogni utente (l'amministratore del database, l'amministratore dei dati e l'analista) può aggiungere una descrizione a una singola tabella che è stata registrata nel catalogo. Tutte le descrizioni vengono gestite nel sistema e nel portale del Catalogo dati di Azure vengono visualizzate tutte le descrizioni.
+Per supportare questo esempio, ogni utente (l'amministratore del database, l'amministratore dei dati e l'analista) può aggiungere una descrizione a una singola tabella che è stata registrata nel catalogo. Tutte le descrizioni vengono gestite nel sistema e nel portale di Azure Data Catalog vengono visualizzate tutte le descrizioni.
 
 Questo modello viene applicato alla maggior parte degli elementi del modello a oggetti. I tipi di oggetto nel payload JSON, quindi, sono spesso matrici per le proprietà in cui è possibile prevedere un singleton.
 
@@ -77,11 +71,11 @@ Ad esempio, sotto la radice dell'asset è disponibile una matrice di oggetti des
 L'esperienza utente può quindi scegliere come visualizzare la combinazione. Esistono tre diversi modelli per la visualizzazione.
 
 * Il modello più semplice è "Mostra tutto". In questo modello tutti gli oggetti vengono visualizzati in una visualizzazione elenco. Il portale di Azure Data Catalog fa uso di questo modello per la descrizione.
-* Un altro modello è "Merge". In questo modello tutti i valori dai diversi utenti vengono uniti e i duplicati vengono rimossi. Esempi di questo modello nell'esperienza utente nel portale del Catalogo dati di Azure sono le proprietà di tag ed esperti.
+* Un altro modello è "Merge". In questo modello tutti i valori dai diversi utenti vengono uniti e i duplicati vengono rimossi. Esempi di questo modello nell'esperienza utente nel portale di Azure Data Catalog sono le proprietà di tag ed esperti.
 * Un terzo modello è "ultima scrittura prevale". In questo modello viene visualizzato solo il valore digitato più di recente. friendlyName è un esempio di questo modello.
 
 ## <a name="asset-object-model"></a>Modello a oggetti asset
-Come descritto nella sezione dei concetti chiave, il modello a oggetti del **Catalogo dati di Azure** include elementi che possono essere asset o annotazioni. Gli elementi dispongono di proprietà che possono essere obbligatorie o facoltative. Alcune proprietà si applicano a tutti gli elementi. Alcune proprietà si applicano a tutti gli asset. Alcune proprietà si applicano solo a tipi di asset specifici.
+Come descritto nella sezione dei concetti chiave, il modello a oggetti di **Azure Data Catalog** include elementi che possono essere asset o annotazioni. Gli elementi dispongono di proprietà che possono essere obbligatorie o facoltative. Alcune proprietà si applicano a tutti gli elementi. Alcune proprietà si applicano a tutti gli asset. Alcune proprietà si applicano solo a tipi di asset specifici.
 
 ### <a name="system-properties"></a>Proprietà di sistema
 <table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>Data e ora dell'ultima modifica apportata all'elemento. Questo campo viene generato dal server quando viene inserito un elemento e ogni volta che viene aggiornato un elemento. Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>id</td><td>Uri</td><td>URL assoluto dell'elemento (sola lettura). Si tratta dell'URI indirizzabile univoco per l'elemento.  Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>type</td><td>string</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>etag</td><td>string</td><td>Stringa che corrisponde alla versione dell'elemento che è possibile usare per il controllo della concorrenza ottimistica quando si eseguono operazioni che aggiornano gli elementi nel catalogo. È possibile usare "*" per cercare corrispondenze per qualsiasi valore.</td></tr></table>
@@ -240,10 +234,10 @@ Il set di protocolli supportati può essere esteso a livello di codice. Vedere i
 </table>
 
 ## <a name="roles-and-authorization"></a>Ruoli e autorizzazione
-Catalogo dati di Microsoft Azure offre funzionalità di autorizzazione per le operazioni CRUD su asset e annotazioni.
+Microsoft Azure Data Catalog offre funzionalità di autorizzazione per le operazioni CRUD su asset e annotazioni.
 
 ## <a name="key-concepts"></a>Concetti chiave
-Catalogo dati di Azure usa due meccanismi di autorizzazione:
+Azure Data Catalog usa due meccanismi di autorizzazione:
 
 * Autorizzazione basata sui ruoli
 * Autorizzazione basata sulle autorizzazioni
@@ -286,7 +280,7 @@ Le richieste dell'elemento di visualizzazione **PUT** e **POST** possono essere 
 ### <a name="examples"></a>Esempi
 **Impostare collaboratore su &lt;Tutti&gt; durante la pubblicazione di un elemento.**
 L'entità di sicurezza speciale &lt;Tutti&gt; ha come objectId "00000000-0000-0000-0000-000000000201".
-  **POST**: https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
+  **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
 > [!NOTE]
 > Alcune implementazioni di client HTTP possono ripetere automaticamente l'invio di richieste in caso di risposta 302 dal server, eliminando in genere le intestazioni di autorizzazione dalla richiesta. Dato che l'intestazione dell'autorizzazione è obbligatoria per l'invio di richieste ad Azure Data Catalog, è necessario assicurarsi che sia ancora disponibile quando si invia di nuovo una richiesta a un percorso di reindirizzamento specificato da Azure Data Catalog. L'esempio di codice seguente offre una dimostrazione usando l'oggetto .NET HttpWebRequest.
@@ -308,7 +302,7 @@ L'entità di sicurezza speciale &lt;Tutti&gt; ha come objectId "00000000-0000-00
         ]
     }
 
-  **Assegnare i proprietari e limitare la visibilità di un elemento radice esistente**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **Assegnare i proprietari e limitarne la visibilità per un elemento radice esistente**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
     {
         "roles": [

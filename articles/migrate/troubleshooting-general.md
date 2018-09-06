@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica dei problemi noti relativi al 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 896e918f6031f3bc6b925a2ecdfa2a5c82f00e0b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228255"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126365"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -50,6 +50,10 @@ Se si usa qualsiasi proxy firewall basato su URL per controllare la connettivit�
 --- | ---
 *.portal.azure.com | Necessario per controllare la connettività al servizio di Azure e convalidare i problemi relativi alla sincronizzazione dell'ora.
 *.oneget.org | Necessario per il download del modulo vCenter PowerCLI basato su PowerShell.
+
+**L'agente di raccolta non è in grado di connettersi a Internet a causa di un errore di convalida del certificato**
+
+Questa situazione può verificarsi se si usa un proxy di intercettazione per connettersi a Internet e non è stato importato il certificato del proxy nella macchina virtuale dell'agente di raccolta. È possibile importare il certificato del proxy eseguendo i passaggi descritti [qui](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
 **L'agente di raccolta non riesce a connettersi al progetto usando l'ID progetto e la chiave copiata dal portale.**
 
@@ -163,7 +167,7 @@ Per raccogliere Event Trace for Windows, seguire questa procedura:
 
 |           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
 |-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Codice di errore | Nome errore                      | Message                                                                       | Possibili cause                                                                                        | Azione consigliata                                                                                                                          |
+| Codice di errore | Nome errore                      | Messaggio                                                                       | Possibili cause                                                                                        | Azione consigliata                                                                                                                          |
 | 601       | CollectorExpired               | L'agente di raccolta è scaduto.                                                        | Agente di raccolta scaduto.                                                                                    | Scaricare una nuova versione dell'agente di raccolta e riprovare.                                                                                      |
 | 751       | UnableToConnectToServer        | Non è possibile connettersi al server vCenter "%Name;" a causa dell'errore: %ErrorMessage;     | Per altre informazioni, controllare il messaggio di errore.                                                             | Risolvere il problema e riprovare.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | Il server "%Name;" non è un server vCenter.                                  | Specificare i dettagli del server vCenter.                                                                       | Ritentare l'operazione con i dettagli del server vCenter corretti.                                                                                   |

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: e669fb5da0e3fd3c6a14ffed5cbdf80b8a4d9590
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: e63d798c24159777711c9cdd765e40b44826a530
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390722"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888730"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
@@ -28,15 +28,15 @@ Questa guida è destinata ai professionisti IT, agli analisti della sicurezza de
 
 Per la crittografia del disco del sistema operativo Linux, prima di affrontare l'intero processo è necessario smontare l'unità del sistema operativo. Se non è possibile smontare l'unità, è probabile che si verifichi un errore del tipo "Impossibile smontare dopo...".
 
-Questo errore può verificarsi quando viene eseguito un tentativo di crittografia del disco del sistema operativo in un ambiente di macchina virtuale di destinazione modificato dall'immagine della raccolta supportata. Alcuni esempi di deviazioni dall'immagine supportata che possono impedire all'estensione di smontare l'unità del sistema operativo sono dovuti ai motivi seguenti:
-- Immagini personalizzate che non corrispondono più al file system o allo schema di partizionamento supportato.
-- Non sono supportate l'installazione e l'esecuzione nel sistema operativo di applicazioni di grandi dimensioni come SAP, MongoDB, Apache Cassandra e Docker prima della crittografia. Crittografia dischi di Azure non è in grado di arrestare questi processi in modo sicuro come necessario durante la preparazione dell'unità del sistema operativo per la crittografia dei dischi. Se sono presenti processi ancora attivi con handle di file aperti nell'unità del sistema operativo, tale unità non può essere smontata e ciò genera un errore di crittografia dell'unità del sistema operativo. 
-- Esecuzione di script personalizzati a breve distanza di tempo dall'abilitazione della crittografia o esecuzione di qualsiasi altra modifica nella VM durante il processo di crittografia. Questo conflitto può verificarsi quando un modello di Azure Resource Manager definisce l'esecuzione simultanea di più estensioni o quando un'estensione di script personalizzati o un'altra azione viene eseguita contemporaneamente alla crittografia del disco. Il problema potrebbe essere risolto serializzando e isolando tali passaggi.
-- Mancata disabilitazione di SELinux prima dell'abilitazione della crittografia, che causa l'esito negativo del passaggio di smontaggio. È possibile riabilitare SELinux al termine della crittografia.
-- Il disco del sistema operativo usa uno schema di gestione dei volumi logici. Sebbene sia disponibile un supporto limitato per dischi dati LVM, non sono supportati dischi del sistema operativo LVM.
-- Requisiti minimi di memoria non soddisfatti. Per la crittografia del disco del sistema operativo sono consigliati 7 GB.
-- Montaggio ricorsivo delle unità dati nella directory /mnt/ o l'una nell'altra (ad esempio, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Altri [prerequisiti](azure-security-disk-encryption-prerequisites.md) di Crittografia dischi di Azure per Linux non soddisfatti.
+Questo errore può verificarsi quando viene eseguito un tentativo di crittografia del disco del sistema operativo in un ambiente di macchina virtuale di destinazione modificato dall'immagine della raccolta supportata. Eventuali deviazioni dall'immagine supportata possono impedire all'estensione di smontare l'unità del sistema operativo. Di seguito sono riportati alcuni esempi di deviazioni:
+- Le immagini personalizzate non corrispondono più a un file system o a uno schema di partizionamento supportato.
+- Le applicazioni di grandi dimensioni come SAP, MongoDB, Apache Cassandra e Docker non sono supportate quando sono installate e in esecuzione nel sistema operativo prima della crittografia. Crittografia dischi di Azure non è in grado di arrestare questi processi in modo sicuro come necessario durante la preparazione dell'unità del sistema operativo per la crittografia dei dischi. Se sono presenti processi ancora attivi con handle di file aperti nell'unità del sistema operativo, tale unità non può essere smontata e ciò genera un errore di crittografia dell'unità del sistema operativo. 
+- Vengono eseguiti script personalizzati a breve distanza di tempo dall'abilitazione della crittografia o vengono apportate altre modifiche nella macchina virtuale durante il processo di crittografia. Questo conflitto può verificarsi quando un modello di Azure Resource Manager definisce l'esecuzione simultanea di più estensioni o quando un'estensione di script personalizzati o un'altra azione viene eseguita contemporaneamente alla crittografia del disco. Il problema potrebbe essere risolto serializzando e isolando tali passaggi.
+- Security Enhanced Linux (SELinux) non è stato disabilitato prima dell'abilitazione della crittografia, con conseguente esito negativo dello smontaggio. È possibile riabilitare SELinux al termine della crittografia.
+- Il disco del sistema operativo usa uno schema di gestione dei volumi logici. Anche se è disponibile un supporto limitato per dischi dati LVM, non sono supportati dischi del sistema operativo LVM.
+- I requisiti minimi di memoria non sono soddisfatti. Per la crittografia del disco del sistema operativo si consigliano 7 GB.
+- Le unità dati vengono montate in modo ricorsivo nella directory /mnt/ o l'una nell'altra (ad esempio, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
+- Altri [prerequisiti](azure-security-disk-encryption-prerequisites.md) di Crittografia dischi di Azure per Linux non sono soddisfatti.
 
 ## <a name="unable-to-encrypt"></a>Impossibile eseguire la crittografia
 
@@ -80,12 +80,12 @@ La macchina virtuale deve poter accedere all'insieme di credenziali delle chiavi
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Gestione pacchetti Linux protetto da firewall
 
-In fase di esecuzione, Crittografia dischi di Azure per Linux usa il sistema di gestione pacchetti della distribuzione di destinazione per installare i componenti che costituiscono prerequisiti necessari prima di abilitare la crittografia. Se le impostazioni del firewall impediscono alla VM di scaricare e installare tali componenti, si verificheranno errori successivi. I passaggi per configurare questo sistema di gestione pacchetti possono variare in base alla distribuzione. In Red Hat, quando è necessario un proxy è essenziale verificare che subscription-manager e yum siano configurati correttamente. Per altre informazioni, vedere [Risoluzione dei problemi relativi a subscription-manager e yum](https://access.redhat.com/solutions/189533).  
+In fase di esecuzione, Crittografia dischi di Azure per Linux usa il sistema di gestione pacchetti della distribuzione di destinazione per installare i componenti prerequisiti prima di abilitare la crittografia. Se le impostazioni del firewall impediscono alla VM di scaricare e installare tali componenti, si verificheranno errori successivi. I passaggi per configurare questo sistema di gestione pacchetti possono variare in base alla distribuzione. In Red Hat, quando è necessario un proxy, è essenziale verificare che subscription-manager e yum siano configurati correttamente. Per altre informazioni, vedere [Risoluzione dei problemi relativi a subscription-manager e yum](https://access.redhat.com/solutions/189533).  
 
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Risoluzione dei problemi di Server Core di Windows Server 2016
 
-In Server Core di Windows Server 2016, la componente bdehdcfg non è disponibile per impostazione predefinita. Questa componente è necessaria per la Crittografia dischi di Azure e viene usata per dividere il volume di sistema dal volume del sistema operativo, operazione eseguita solo una volta per la durata della macchina virtuale. Tali file binari non sono necessari durante le operazioni di crittografia successive.
+In Server Core di Windows Server 2016, la componente bdehdcfg non è disponibile per impostazione predefinita. Questa componente è necessaria per la Crittografia dischi di Azure. e viene usata per dividere il volume di sistema dal volume del sistema operativo, operazione eseguita solo una volta per la durata della macchina virtuale. Tali file binari non sono necessari durante le operazioni di crittografia successive.
 
 Per risolvere il problema, copiare i quattro file seguenti da una macchina virtuale Windows Server 2016 Data Center nello stesso percorso in Server Core:
 
@@ -117,14 +117,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="troubleshooting-encryption-status"></a>Risoluzione dei problemi relativi allo stato della crittografia
+<!-- ## Troubleshooting encryption status
 
-Se lo stato della crittografia previsto non corrisponde a quello indicato nel portale, vedere l'articolo [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) (Visualizzazione errata dello stato della crittografia nel portale di gestione di Azure).
+If the expected encryption state does not match what is being reported in the portal, see the following support article:
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo documento sono stati esaminati alcuni problemi comuni di Crittografia dischi di Azure ed è stato illustrato come risolverli. Per altre informazioni su questo servizio e sulle relative funzionalità, vedere gli articoli seguenti:
 
 - [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](../security-center/security-center-apply-disk-encryption.md)
-- [Crittografare una macchina virtuale di Azure](../security-center/security-center-disk-encryption.md)
 - [Crittografia dei dati inattivi in Azure](azure-security-encryption-atrest.md)

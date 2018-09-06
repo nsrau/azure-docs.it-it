@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524145"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090527"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Esercitazione: Migliorare le app con i ruoli di criteri
 
@@ -52,7 +52,7 @@ In questa esercitazione, l'app relativa alle risorse umane rileva espressioni su
 |[Entità gerarchiche (senza ruoli)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |Questa esercitazione (con i ruoli)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
 
-Non è possibile usare l'entità gerarchica nel criterio perché solo gli elementi gerarchici padre vengono usati negli elementi padre. Per restituire i luoghi di origine e destinazione, è necessario usare un criterio.
+Non è possibile usare l'entità gerarchica nel criterio perché solo gli elementi gerarchici padre vengono usati nei criteri. Per restituire i luoghi di origine e destinazione, è necessario usare un criterio.
 
 ### <a name="simple-entity-for-new-employee-name"></a>Entità semplice per il nuovo nome del dipendente
 Il nome del nuovo dipendente, Billy Patterson, non fa ancora parte dell'elenco di entità **Employee**. Il nome del nuovo dipendente viene estratto prima in modo da inviarlo a un sistema esterno per creare le credenziali aziendali. Dopo che le credenziali aziendali sono state create, le credenziali del dipendente vengono aggiunte all'entità elenco **Employee**.

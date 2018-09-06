@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 98b8883a5ab0096102ab7daf90b5b2791a6f7e41
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b93ad4d6d4637b3060d92fb5e17747294c7e6211
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389576"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885993"
 ---
 # <a name="azure-disk-encryption-faq"></a>Domande frequenti su Crittografia dischi di Azure
 
@@ -39,7 +39,7 @@ Non è previsto alcun addebito per la crittografia dei dischi delle macchine vir
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Quali livelli di macchine virtuali sono supportati da Crittografia dischi di Azure?
 
-Crittografia dischi di Azure è disponibile nelle VM di livello standard tra cui le VM IaaS delle serie [A, D, DS, G, GS e F](https://azure.microsoft.com/pricing/details/virtual-machines/). È anche disponibile per le VM con archiviazione premium. Non è disponibile per le VM del livello Basic.
+Crittografia dischi di Azure è disponibile nelle VM di livello standard tra cui le VM IaaS delle serie [A, D, DS, G, GS e F](https://azure.microsoft.com/pricing/details/virtual-machines/). È anche disponibile per le VM con archiviazione Premium. Non è invece disponibile per le VM del livello Basic.
 
 ## <a name="bkmk_LinuxOSSupport"></a> Quali distribuzioni di Linux sono supportate da Crittografia dischi di Azure?
 
@@ -66,9 +66,9 @@ Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del se
 | CentOS | 6,5 | Disco dati |
 | openSUSE | 13.2 | Disco dati |
 | SLES | 12 SP1 | Disco dati |
-| SLES | Priority:12-SP1 | Disco dati |
+| SLES | Priorità: 12-SP1 | Disco dati |
 | SLES | HPC 12 | Disco dati |
-| SLES | Priority:11-SP4 | Disco dati |
+| SLES | Priorità: 11-SP4 | Disco dati |
 | SLES | 11 SP4 | Disco dati |
 
 
@@ -76,31 +76,37 @@ Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del se
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Come si può iniziare a usare Crittografia dischi di Azure?
 
-Per iniziare, leggere l'articolo [Azure Disk Encryption overview](azure-security-disk-encryption-overview.md) (Panoramica di Crittografia dischi di Azure).
+Per iniziare, leggere l'articolo [Informazioni su Crittografia dischi di Azure](azure-security-disk-encryption-overview.md).
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>È possibile crittografare sia i volumi di avvio che i volumi di dati con Crittografia dischi di Azure?
 
-Sì, è possibile crittografare volumi di avvio e volumi di dati per le macchine virtuali IaaS Windows e Linux. Per le macchine virtuali Windows, non è possibile crittografare i dati senza prima crittografare il volume del sistema operativo. Per le macchine virtuali Linux, è possibile crittografare il volume di dati senza dover crittografare prima il volume del sistema operativo. Dopo aver crittografato il volume del sistema operativo per Linux, la disabilitazione della crittografia relativa per le macchine virtuali IaaS Linux non è supportata.
+Sì, è possibile crittografare volumi di avvio e volumi di dati per le macchine virtuali IaaS Windows e Linux. Per le macchine virtuali Windows, non è possibile crittografare i dati senza prima crittografare il volume del sistema operativo. Per le macchine virtuali Linux, è possibile crittografare il volume dei dati senza dover prima crittografare il volume del sistema operativo. Dopo che è stato crittografato il volume del sistema operativo per Linux, la disabilitazione della crittografia su un volume del sistema operativo per le macchine virtuali IaaS Linux non è supportata.
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok-capability"></a>Con Crittografia dischi di Azure sono disponibili funzionalità BYOK (Bring Your Own Key)?
 
-Sì, è possibile fornire le proprie chiavi di crittografia della chiave. Queste chiavi sono protette in Azure Key Vault, l'archivio delle chiavi per Crittografia dischi di Azure. Per altre informazioni sugli scenari di supporto delle chiavi di crittografia delle chiavi, vedere [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) (Prerequisiti di Crittografia dischi di Azure).
+Sì, è possibile fornire le proprie chiavi di crittografia della chiave. Queste chiavi sono protette in Azure Key Vault, l'archivio delle chiavi per Crittografia dischi di Azure. Per altre informazioni sugli scenari di supporto delle chiavi di crittografia delle chiavi, vedere [Prerequisiti di Crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md).
 
 ## <a name="can-i-use-an-azure-created-key-encryption-key"></a>È possibile usare una chiave di crittografia della chiave creata in Azure?
 
-Sì, è possibile usare Azure Key Vault per generare una chiave di crittografia della chiave per l'uso con Crittografia dischi di Azure. Queste chiavi sono protette in Azure Key Vault, l'archivio delle chiavi per Crittografia dischi di Azure. Per altre informazioni sulla chiave di crittografia della chiave, vedere [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) (Prerequisiti di Crittografia dischi di Azure).
+Sì, è possibile usare Azure Key Vault per generare una chiave di crittografia della chiave per l'uso con Crittografia dischi di Azure. Queste chiavi sono protette in Azure Key Vault, l'archivio delle chiavi per Crittografia dischi di Azure. Per altre informazioni sulla chiave di crittografia della chiave, vedere [Prerequisiti di Crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md).
 
 ## <a name="can-i-use-an-on-premises-key-management-service-or-hsm-to-safeguard-the-encryption-keys"></a>È possibile usare un servizio di gestione delle chiavi/modulo di protezione hardware locale per proteggere le chiavi di crittografia?
 
-Non è possibile usare il servizio di gestione delle chiavi/modulo di protezione hardware locale per proteggere le chiavi di crittografia con Crittografia dischi di Azure. Per proteggere le chiavi di crittografia, è possibile usare solo il servizio Azure Key Vault. Per altre informazioni sugli scenari di supporto della chiave di crittografia della chiave, vedere [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) (Prerequisiti di Crittografia dischi di Azure).
+Non è possibile usare il servizio di gestione delle chiavi/modulo di protezione hardware locale per proteggere le chiavi di crittografia con Crittografia dischi di Azure. Per proteggere le chiavi di crittografia, è possibile usare solo il servizio Azure Key Vault. Per altre informazioni sugli scenari di supporto della chiave di crittografia della chiave, vedere [Prerequisiti di Crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md).
 
 ## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption"></a>Quali sono i prerequisiti per la configurazione di Crittografia dischi di Azure?
 
-Per usare Crittografia dischi di Azure, è necessario rispettare alcuni prerequisiti. Per creare un'applicazione di Azure Active Directory o un nuovo insieme di credenziali delle chiavi o per configurare un insieme di credenziali delle chiavi esistente per l'accesso alla crittografia dischi per abilitare la crittografia e proteggere segreti e chiavi, vedere [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) (Prerequisiti di Crittografia dischi di Azure). Per altre informazioni sugli scenari di supporto della chiave di crittografia della chiave, vedere [Azure Disk Encryption prerequisites](azure-security-disk-encryption-overview.md) (Panoramica di Crittografia dischi di Azure).
+Per usare Crittografia dischi di Azure, è necessario rispettare alcuni prerequisiti. Per creare un nuovo insieme di credenziali delle chiavi o per configurare un insieme di credenziali delle chiavi esistente per l'accesso alla crittografia dei dischi in modo da abilitare la crittografia e proteggere segreti e chiavi, vedere [Prerequisiti di Crittografia dischi di Azure](azure-security-disk-encryption-prerequisites.md). Per altre informazioni sugli scenari di supporto della chiave di crittografia della chiave, vedere [Informazioni su Crittografia dischi di Azure](azure-security-disk-encryption-overview.md).
 
-## <a name="where-can-i-get-more-information-on-how-to-use-powershell-for-configuring-azure-disk-encryption"></a>Dove si possono ottenere altre informazioni su come usare PowerShell per la configurazione di Crittografia dischi di Azure?
+## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption-with-an-azure-ad-app-previous-release"></a>Quali sono i prerequisiti per la configurazione di Crittografia dischi di Azure con un'app Azure AD (versione precedente)?
 
-Sono disponibili alcuni interessanti articoli su come eseguire le attività di base in Crittografia dischi di Azure, oltre a scenari più avanzati. Per le attività di base, vedere [Esplorare Crittografia dischi di Azure con Azure PowerShell - Parte 1](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). Per gli scenari più avanzati, vedere [Esplorare Crittografia dischi di Azure con Azure PowerShell - Parte 2](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/).
+Per usare Crittografia dischi di Azure, è necessario rispettare alcuni prerequisiti. Per creare un'applicazione di Azure Active Directory o un nuovo insieme di credenziali delle chiavi o per configurare un insieme di credenziali delle chiavi esistente per l'accesso alla crittografia dischi per abilitare la crittografia e proteggere segreti e chiavi, vedere [Prerequisiti di Crittografia dischi di Azure](azure-security-disk-encryption-prerequisites-aad.md). Per altre informazioni sugli scenari di supporto della chiave di crittografia della chiave, vedere [Informazioni su Crittografia dischi di Azure](azure-security-disk-encryption-overview.md).
+
+## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>L'esecuzione di Crittografia dischi di Azure con un'app Azure AD (versione precedente) è ancora supportata?
+Sì. L'esecuzione di Crittografia dischi con un'app Azure AD è ancora supportata. Tuttavia, quando si esegue la crittografia di nuove macchine virtuali, è consigliabile usare il nuovo metodo anziché un'app Azure AD. 
+
+## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>È possibile eseguire la migrazione di macchine virtuali crittografate con un'app Azure AD alla crittografia senza tale app?
+Non esiste attualmente un percorso di migrazione diretto per le macchine crittografate con un'app Azure AD alla crittografia senza tale app. Non esiste nemmeno un percorso diretto dalla crittografia senza un'app Azure AD alla crittografia con tale app. 
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Quale versione di Azure PowerShell è supportata da Crittografia dischi di Azure?
 
@@ -140,6 +146,6 @@ Il disco "volume BEK" per Windows o "/mnt/azure_bek_disk" per Linux è un volume
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento sono state fornite le risposte alle domande più frequenti relative a Crittografia dischi di Azure. Per altre informazioni su questo servizio e sulle relative funzionalità, vedere gli articoli seguenti:
 
+- [Informazioni su Crittografia dischi di Azure](azure-security-disk-encryption-overview.md)
 - [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Crittografare una macchina virtuale di Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Crittografia dei dati inattivi in Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

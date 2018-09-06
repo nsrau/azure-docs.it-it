@@ -1,5 +1,5 @@
 ---
-title: Usare una macchina virtuale per la risoluzione dei problemi Windows con Azure PowerShell | Documentazione Microsoft
+title: Usare una macchina virtuale per la risoluzione dei problemi Windows con Azure PowerShell | Microsoft Docs
 description: Informazioni su come risolvere i problemi delle VM Windows in Azure connettendo il disco del sistema operativo a una VM di ripristino usando Azure PowerShell
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 9845476e23396eecc4149f3e856c40b0f80f13cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f099eefbc6d196f25c2b09669cdc1c3cdec68a12
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004767"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050015"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino usando Azure PowerShell
 Se nella macchina virtuale (VM) Windows in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare Azure PowerShell per connettere il disco a un'altra VM Windows per risolvere eventuali errori e quindi riparare la VM originale. 
@@ -39,6 +39,8 @@ I passaggi per la risoluzione dei problemi sono i seguenti:
 5. Connettersi alla VM di ripristino. Modificare i file o eseguire eventuali strumenti per risolvere i problemi nel disco del sistema operativo copiato.
 6. Smontare e scollegare il disco dalla VM di ripristino.
 7. Modificare il disco del sistema operativo per la VM interessata.
+
+È possibile usare script di ripristino di macchina virtuale per automatizzare i passaggi 1, 2, 3, 4, 6 e 7. Per altra documentazione e istruzioni, vedere [VM Recovery Scripts for Resource Manager VM](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager) (Script di ripristino di macchina virtuale per una macchina virtuale di Resource Manager).
 
 Verificare di aver prima installato e registrato [la versione più recente di Azure PowerShell](/powershell/azure/overview) nella sottoscrizione:
 
@@ -219,7 +221,7 @@ Dopo aver risolto gli errori, smontare e scollegare il disco esistente dalla VM 
 
 ## <a name="change-the-os-disk-for-the-affected-vm"></a>Modificare il disco del sistema operativo per la VM interessata
 
-Per scambiare i dischi del sistema operativo è possibile usare Azure PowerShell. Non è necessario eliminare e ricreare la VM.
+Per scambiare i dischi del sistema operativo è possibile usare Azure PowerShell. Non è necessario eliminare e ricreare la macchina virtuale.
 
 Questo esempio arresta la VM `myVM` e assegna il disco `newOSDisk` come nuovo disco del sistema operativo. 
 

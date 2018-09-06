@@ -14,23 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: cbe2e3d9f60ced5c707ce5a701a5aac937ccc072
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257760"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887990"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Configurare un'identità del servizio gestita in un set di scalabilità di macchine virtuali tramite il portale di Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-L'identità del servizio gestita offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-Questo articolo illustra come abilitare e disabilitare l'identità assegnata dal sistema per un set di scalabilità di macchine virtuali usando il portale di Azure. L'assegnazione e la rimozione delle identità assegnate dall'utente da un set di scalabilità di macchine virtuali di Azure non sono attualmente supportate tramite il portale di Azure.
-
-> [!NOTE]
-> Attualmente le operazioni di identità assegnate dall'utente non sono supportate tramite il portale di Azure. Ricontrollare in seguito per aggiornamenti.
+Questo articolo illustra come abilitare e disabilitare l'identità assegnata dal sistema e dall'utente per un set di scalabilità di macchine virtuali usando il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,37 +36,68 @@ Questo articolo illustra come abilitare e disabilitare l'identità assegnata dal
 - Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere l'assegnazione di ruolo seguente:
     - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per abilitare e rimuovere l'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali.
 
-## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Abilitare l'identità del servizio gestita durante la creazione di un set di scalabilità di macchine virtuali di Azure
+## <a name="system-assigned-identity"></a>Identità assegnata dal sistema 
 
-Attualmente, la creazione di VM tramite il portale di Azure non supporta operazioni di identità del servizio gestita. Fare invece riferimento all'articolo seguente della guida introduttiva relativo alla creazione del set di scalabilità di macchine virtuali di Azure per creare un set di scalabilità di macchine virtuali di Azure:
+Questa sezione illustra come abilitare e disabilitare l'identità assegnata dal sistema in un set di scalabilità di macchine virtuali usando il portale di Azure.
+
+### <a name="enable-system-assigned-identity-during-creation-of-a-virtual-machine-scale-set"></a>Abilitare l'identità assegnata dal sistema durante la creazione di un set di scalabilità di macchine virtuali
+
+Attualmente il portale di Azure non supporta l'abilitazione dell'identità assegnata dal sistema durante la creazione di un set di scalabilità di macchine virtuali. In alternativa, consultare la seguente guida introduttiva per creare prima un set di scalabilità di macchine virtuali e quindi proseguire con la sezione successiva per informazioni dettagliate sull'abilitazione dell'identità assegnata dal sistema in un set di scalabilità di macchine virtuali:
 
 - [Creare un set di scalabilità di macchine virtuali nel portale di Azure](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Procedere quindi alla sezione successiva, per informazioni dettagliate sull'abilitazione dell'identità del servizio gestita nel set di scalabilità di macchine virtuali.
+### <a name="enable-system-assigned-identity-on-an-existing-virtual-machine-scale-set"></a>Abilitare l'identità assegnata dal sistema in un set di scalabilità di macchine virtuali esistente
 
-## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Abilitare l'identità del servizio gestita in un set di scalabilità di macchine virtuali di Azure esistente
-
-Per abilitare l'identità assegnata dal sistema in una macchina virtuale di cui è stato originariamente eseguito il provisioning senza di essa:
+Per abilitare l'identità assegnata dal sistema in un set di scalabilità di macchine virtuali di cui è stato originariamente eseguito il provisioning senza tale identità:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali.
 
 2. Passare al set di scalabilità di macchine virtuali desiderato.
 
-3. Abilitare l'identità assegnata dal sistema nella macchina virtuale selezionando l'opzione "Sì" in "Identità del servizio gestita", quindi fare clic su **Salva**. Il completamento di questa operazione può richiedere circa 60 secondi:
+3. In **Assegnata dal sistema**, **Stato**, selezionare **Abilita** e quindi fare clic su **Salva**:
 
    [![Screenshot della pagina Configurazione](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Rimuovere l'identità del servizio gestita da un set di scalabilità di macchine virtuali di Azure
+### <a name="remove-system-assigned-identity-from-a-virtual-machine-scale-set"></a>Rimuovere un'identità assegnata dal sistema da un set di scalabilità di macchine virtuali
 
-Se si dispone di un set di scalabilità di macchine virtuali per cui non è più necessaria un'identità del servizio gestita:
+Se è disponibile un set di scalabilità di macchine virtuali per cui non è più necessaria un'identità assegnata dal sistema:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nel set di scalabilità di macchine virtuali.
 
 2. Passare al set di scalabilità di macchine virtuali desiderato.
 
-3. Disabilitare l'identità assegnata dal sistema nella macchina virtuale selezionando l'opzione "No" in "Identità del servizio gestita", quindi fare clic su Salva. Il completamento di questa operazione può richiedere circa 60 secondi:
+3. In **Assegnata dal sistema**, **Stato**, selezionare **Disabilita** e quindi fare clic su **Salva**:
 
-   ![Schermata della pagina Configurazione](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Schermata della pagina Configurazione](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
+
+## <a name="user-assigned-identity"></a>Identità assegnata dall'utente
+
+Questa sezione illustra come aggiungere e rimuovere un'identità assegnata dall'utente da un set di scalabilità di macchine virtuali usando il portale di Azure.
+
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Assegnare un'identità assegnata all'utente durante la creazione di un set di scalabilità di macchine virtuali
+
+Attualmente il portale di Azure non supporta l'assegnazione di un'identità assegnata dall'utente durante la creazione di un set di scalabilità di macchine virtuali. In alternativa, consultare la seguente guida introduttiva per creare prima un set di scalabilità di macchine virtuali e quindi proseguire con la sezione successiva per informazioni dettagliate sull'associazione di un'identità assegnata dall'utente a un set di scalabilità di macchine virtuali:
+
+- [Creare un set di scalabilità di macchine virtuali nel portale di Azure](../../virtual-machine-scale-sets/quick-create-portal.md)
+
+### <a name="assign-a-user-assigned-identity-to-an-existing-virtual-machine-scale-set"></a>Associare l'identità assegnata dall'utente a un set di scalabilità di macchine virtuali esistente
+
+1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali.
+2. Passare al set di scalabilità di macchine virtuali desiderato e fare clic su **Identità**, **Assegnata dall'utente** e quindi **\+Aggiungi**.
+
+   ![Aggiungere l'identità assegnata dall'utente al set di scalabilità di macchine virtuali](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+
+3. Fare clic sull'identità assegnata dall'utente da aggiungere al set di scalabilità di macchine virtuali e quindi su **Aggiungi**.
+   
+   ![Aggiungere l'identità assegnata dall'utente al set di scalabilità di macchine virtuali](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
+
+### <a name="remove-a-user-assigned-identity-from-a-virtual-machine-scale-set"></a>Rimuovere un'identità assegnata dall'utente da un set di scalabilità di macchine virtuali
+
+1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene la VM.
+2. Passare al set di scalabilità di macchine virtuali desiderato e selezionare **Identità**, **Assegnata dall'utente** e il nome dell'identità assegnata dall'utente da eliminare e quindi fare clic su **Rimuovi** (scegliere **Sì** nel riquadro di conferma).
+
+   ![Rimuovere un'identità assegnata dall'utente da un set di scalabilità di macchine virtuali](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
+
 
 ## <a name="related-content"></a>Contenuti correlati
 

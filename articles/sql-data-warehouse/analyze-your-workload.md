@@ -3,19 +3,19 @@ title: Analizzare il carico di lavoro in Azure SQL Data Warehouse | Microsoft Do
 description: Tecniche per l'analisi della definizione della priorità delle query per il carico di lavoro in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795358"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248094"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analizzare il carico di lavoro in Azure SQL Data Warehouse
 Tecniche per l'analisi della definizione della priorità delle query per il carico di lavoro in Azure SQL Data Warehouse.
@@ -39,8 +39,7 @@ Nella tabella seguente vengono riportati i mapping di priorità per ogni gruppo 
 | SloDWGroupC07   | 128                      | 12.800                         | 32.000                      | Alto               |
 | SloDWGroupC08   | 256                      | 25.600                         | 64.000                      | Alto               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-Il grafico **Allocation and consumption of concurrency slots** (Allocazione e utilizzo degli slot di concorrenza) illustra che DW500 usa 1, 4, 8 o 16 slot di concorrenza per smallrc, mediumrc, largerc e xlargerc rispettivamente. Per identificare la priorità di ogni classe di risorse, è possibile cercare questi valori nel grafico precedente.
+<!-- where are the allocation and consumption of concurrency slots charts? -->Il grafico **Allocation and consumption of concurrency slots** (Allocazione e utilizzo degli slot di concorrenza) illustra che DW500 usa 1, 4, 8 o 16 slot di concorrenza per smallrc, mediumrc, largerc e xlargerc rispettivamente. Per identificare la priorità di ogni classe di risorse, è possibile cercare questi valori nel grafico precedente.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapping dell'importanza delle classi di risorse in DW500
 | classe di risorse | Gruppo del carico di lavoro | Numero di slot di concorrenza usati | MB/Distribuzione | priorità |

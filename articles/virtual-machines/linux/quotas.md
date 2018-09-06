@@ -1,5 +1,5 @@
 ---
-title: Quote vCPU per Azure | Documentazione Microsoft
+title: Quote vCPU per Azure | Microsoft Docs
 description: Informazioni sulle quote vCPU per Azure.
 keywords: ''
 services: virtual-machines-linux
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 56ee63e15c429c5a6212be36d420ae59afa48546
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3e9a9e3f902439f0fc3f1fa4aa758d4fcd55f5bd
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629090"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048945"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quote vCPU delle macchine virtuali
 
@@ -63,7 +63,7 @@ Premium Storage Managed Disks                  5    10000
 ```
 
 ## <a name="reserved-vm-instances"></a>Istanze di macchina virtuale riservate
-Le istanze di macchina virtuale riservate, nell'ambito di una singola sottoscrizione, daranno un nuovo aspetto alle quote vCPU. Questi valori descrivono il numero di istanze della dimensione specificata che deve essere distribuibile nella sottoscrizione. Hanno la funzione di segnaposto nel sistema di quote per assicurare che la quota sia riservata per garantire la distribuibilità delle prenotazioni di Azure nella sottoscrizione. Ad esempio, se una sottoscrizione specifica ha 10 prenotazioni Standard_D1, il limite di utilizzo per le prenotazioni Standard_D1 sarà 10. Azure dovrà quindi garantire che siano sempre disponibili almeno 10 vCPU nella quota vCPU regionale totale da utilizzare per le istanze Standard_D1 e almeno 10 vCPU nella quota vCPU della famiglia D Standard da utilizzare per le istanze Standard_D1.
+Le istanze di macchina virtuale riservate, nell'ambito di una singola sottoscrizione senza flessibilità di dimensioni della macchina virtuale, daranno un nuovo aspetto alle quote vCPU. Questi valori descrivono il numero di istanze della dimensione specificata che deve essere distribuibile nella sottoscrizione. Hanno la funzione di segnaposto nel sistema di quote per assicurare che la quota sia riservata per garantire la distribuibilità delle prenotazioni di Azure nella sottoscrizione. Ad esempio, se una sottoscrizione specifica ha 10 prenotazioni Standard_D1, il limite di utilizzo per le prenotazioni Standard_D1 sarà 10. Azure dovrà quindi garantire che siano sempre disponibili almeno 10 vCPU nella quota vCPU regionale totale da utilizzare per le istanze Standard_D1 e almeno 10 vCPU nella quota vCPU della famiglia D Standard da utilizzare per le istanze Standard_D1.
 
 Se è necessario un aumento della quota per acquistare un'istanza riservata di sottoscrizione singola, è possibile [richiedere un aumento di quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) sulla sottoscrizione.
 

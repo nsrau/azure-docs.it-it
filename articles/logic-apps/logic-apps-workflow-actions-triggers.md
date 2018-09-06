@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.topic: reference
+ms.date: 06/22/2018
+ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390705"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093619"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Riferimento ai tipi di trigger e di azioni per il linguaggio di definizione del flusso di lavoro nelle App per la logica di Azure
 
@@ -158,6 +157,7 @@ Questo trigger verifica o *esegue il polling* di un endpoint usando le [API gest
 |---------|------|-------------| 
 | headers | Oggetto JSON | Intestazioni dalla risposta | 
 | Corpo | Oggetto JSON | Il corpo dalla risposta | 
+| Codice di stato | Integer | Il codice di stato della risposta | 
 |||| 
 
 *Esempio*
@@ -330,6 +330,7 @@ Questo trigger verifica o esegue il polling dell'endpoint specificato in base al
 |---------|------|-------------| 
 | headers | Oggetto JSON | Intestazioni dalla risposta | 
 | Corpo | Oggetto JSON | Il corpo dalla risposta | 
+| Codice di stato | Integer | Il codice di stato della risposta | 
 |||| 
 
 *Requisiti per le richieste in ingresso*
@@ -337,7 +338,7 @@ Questo trigger verifica o esegue il polling dell'endpoint specificato in base al
 Per funzionare correttamente con l'app per la logica, l'endpoint deve essere conforme a un modello o contratto di trigger specifico e riconoscere queste proprietà:  
   
 | Risposta | Obbligatoria | DESCRIZIONE | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | Codice di stato | Yes | Il codice di stato "200 OK" avvia un'esecuzione. Nessun altro codice di stato avvia un'esecuzione. | 
 | Intestazione retry-after | No  | Numero di secondi prima che l'app per la logica esegua di nuovo il polling dell'endpoint. | 
 | Intestazione Location | No  | URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale. | 
@@ -424,6 +425,7 @@ Alcuni valori, ad esempio <*method-type*>, sono disponibili per gli oggetti `"su
 |---------|------|-------------| 
 | headers | Oggetto JSON | Intestazioni dalla risposta | 
 | Corpo | Oggetto JSON | Il corpo dalla risposta | 
+| Codice di stato | Integer | Il codice di stato della risposta | 
 |||| 
 
 *Esempio*
@@ -817,7 +819,7 @@ Di seguito sono riportati alcuni tipi di azioni di uso comune:
 
 | Tipo di azione | DESCRIZIONE | 
 |-------------|-------------| 
-| [**Compose**](#compose-action) | Crea un singolo output dagli input, che possono essere di vari tipi. | 
+| [**Componi**](#compose-action) | Crea un singolo output dagli input, che possono essere di vari tipi. | 
 | [**Function**](#function-action) | Chiama una funzione di Azure. | 
 | [**HTTP**](#http-action) | Chiama un endpoint HTTP. | 
 | [**Join**](#join-action) | Crea una stringa da tutti gli elementi in una matrice e separa gli elementi con un carattere delimitatore specificato. | 
@@ -2552,6 +2554,159 @@ Per un'esecuzione singola dell'app per la logica, il numero di azioni che vengon
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## <a name="authenticate-triggers-or-actions"></a>Autenticare i trigger o le azioni
+
+Gli endpoint HTTP supportano diversi tipi di autenticazione. È possibile configurare l'autenticazione per tali trigger e azioni HTTP:
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [Webhook HTTP](../connectors/connectors-native-webhook.md)
+
+Ecco i tipi di autenticazione che è possibile configurare:
+
+* [Autenticazione di base](#basic-authentication)
+* [Autenticazione con certificato client](#client-certificate-authentication)
+* [Autenticazione OAuth di Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### <a name="basic-authentication"></a>Autenticazione di base
+
+Per questo tipo di autenticazione, la definizione di trigger o azione può includere un oggetto JSON `authentication` che presenta le seguenti proprietà:
+
+| Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+|----------|----------|-------|-------------| 
+| **type** | Yes | "Basic" | Il tipo di autenticazione da usare, in questo caso, "Basic" | 
+| **username** | Yes | "@parameters('userNameParam')" | Un parametro che trasmette il nome utente da autenticare per l'accedere all'endpoint di servizio di destinazione |
+| **password** | Yes | "@parameters('passwordParam')" | Un parametro che trasmette la password da autenticare per l'accedere all'endpoint di servizio di destinazione |
+||||| 
+
+Ad esempio, ecco il formato per l'oggetto `authentication` nella definizione del trigger o azione. Per altre informazioni sulla protezione dei parametri, vedere [Proteggere informazioni riservate](#secure-info). 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-authentication"></a>Autenticazione con certificato client
+
+Per questo tipo di autenticazione, la definizione di trigger o azione può includere un oggetto JSON `authentication` che presenta le seguenti proprietà:
+
+| Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+|----------|----------|-------|-------------| 
+| **type** | Yes | "ClientCertificate" | Il tipo di autenticazione da utilizzare per i certificati client di Secure Sockets Layer (SSL) | 
+| **pfx** | Yes | <*base64-encoded-pfx-file*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
+| **password** | Yes | "@parameters('passwordParam')" | Un parametro con la password per accedere al file PFX |
+||||| 
+
+Ad esempio, ecco il formato per l'oggetto `authentication` nella definizione del trigger o azione. Per altre informazioni sulla protezione dei parametri, vedere [Proteggere informazioni riservate](#secure-info). 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Autenticazione OAuth di Azure Active Directory (AD)
+
+Per questo tipo di autenticazione, la definizione di trigger o azione può includere un oggetto JSON `authentication` che presenta le seguenti proprietà:
+
+| Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+|----------|----------|-------|-------------| 
+| **type** | Yes | `ActiveDirectoryOAuth` | Il tipo di autenticazione da usare, ovvero "ActiveDirectoryOAuth" per OAuth di Azure AD | 
+| **authority** | No  | <*URL-for-authority-token-issuer*> | L'URL per l'autorità che fornisce il token di autenticazione |  
+| **tenant** | Yes | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD | 
+| **audience** | Yes | <*resource-to-authorize*> | La risorsa di cui si desidera l'autorizzazione, ad esempio, `https://management.core.windows.net/` | 
+| **clientId** | Yes | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione | 
+| **credentialType** | Yes | "Segreto" o "Certificato" | Il tipo di credenziale client utilizzata per la richiesta di autorizzazione. Tale proprietà e valore non viene visualizzata nella definizione sottostante, ma determina i parametri obbligatori per il tipo di credenziale. | 
+| **password** | Sì, solo per il tipo di credenziale "Certificato" | "@parameters('passwordParam')" | Un parametro con la password per accedere al file PFX | 
+| **pfx** | Sì, solo per il tipo di credenziale "Certificato" | <*base64-encoded-pfx-file*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
+| **secret** | Sì, solo per il tipo di credenziale "Segreto" | <*secret-for-authentication*> | Il segreto con codifica base64 usato dal client per richiedere l'autorizzazione |
+||||| 
+
+Ad esempio, ecco il formato per l'oggetto `authentication` quando la definizione di trigger o di azione usa il tipo di credenziale "Segreto". Per altre informazioni sulla protezione dei parametri, vedere [Proteggere informazioni riservate](#secure-info). 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## <a name="secure-sensitive-information"></a>Proteggere informazioni riservate
+
+Per proteggere informazioni riservate usate per l'autenticazione, ad esempio nomi utente e password, nelle definizioni di trigger e azione, è possibile usare i parametri e l'espressione `@parameters()` in modo che queste informazioni non siano visibili dopo aver salvato l'app per la logica. 
+
+Si supponga, ad esempio, di usare l'autenticazione "Basic" nella definizione del trigger o dell'azione. Di seguito è riportato un esempio dell'oggetto `authentication` che specifica un nome utente e password:
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+Nella sezione `parameters` per la definizione dell'app per la logica, definire i parametri usati nella definizione del trigger o dell'azione:
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+Se si sta creando o usando un modello di distribuzione Azure Resource Manager, è anche necessario includere una sezione esterna `parameters` per la definizione del modello. Per altre informazioni sulla protezione dei parametri, vedere [Proteggere l'accesso alle app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

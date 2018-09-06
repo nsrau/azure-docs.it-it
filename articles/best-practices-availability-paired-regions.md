@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 13a2b78b50b1b10975a90c1da38810f1a62a6bb5
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436910"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125853"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "37436910"
 
 Azure è disponibile in più aree geografiche del mondo. Un'area geografica di Azure è un'area definita del mondo che include almeno un'area di Azure. Un'area di Azure all'interno di un'area geografica include uno o più data center.
 
-Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica, che insieme formano una coppia di aree. L'eccezione è il Brasile meridionale che è associato a un'area fuori dalla relativa ubicazione geografica.
+Ogni area di Azure è associata a un'altra area con la stessa ubicazione geografica, che insieme formano una coppia di aree. L'eccezione è il Brasile meridionale che è associato a un'area fuori dalla relativa ubicazione geografica. In tutta la coppie di aree, Azure serializzerà gli aggiornamenti della piattaforma (manutenzione programmata) in modo che solo una regione alla volta venga aggiornata. Inoltre, nel caso di un'interruzione che interessa più regioni, almeno una regione per ogni coppia avrà priorità per il recupero.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
@@ -57,7 +57,7 @@ Tabella 1 - Mapping di coppie di aree di Azure
 - (4) L'area secondaria per US Gov Virginia è US Gov Texas, ma l'area secondaria per US Gov Texas non è US Gov Virginia.
 
 
-È consigliabile replicare i carichi di lavoro tra le coppie di aree per sfruttare i vantaggi dei criteri di isolamento e disponibilità di Azure. Ad esempio, gli aggiornamenti di sistema di Azure pianificati vengono distribuiti in sequenza (non contemporaneamente) tra le aree abbinate. Ciò significa che anche nel raro caso di un aggiornamento non corretto, non saranno interessate contemporaneamente entrambe le aree. Inoltre, nell'improbabile caso di un'interruzione su vasta scala, viene data priorità al ripristino di almeno un'area di ogni coppia.
+È consigliabile configurare la continuità aziendale e il ripristino di emergenza (BCDR) tra le coppie di aree per sfruttare i vantaggi dei criteri di isolamento e disponibilità di Azure. Per le applicazioni che supportano più aree attive, è consigliabile usare entrambe le aree in una coppia di aree, laddove possibile. Per le applicazioni che supportano più regioni attive, si consiglia di utilizzare entrambe le regioni in una coppia, ove possibile. 
 
 ## <a name="an-example-of-paired-regions"></a>Esempio di aree abbinate
 La Figura 2 mostra un'ipotetica applicazione che utilizza la coppia internazionali per il ripristino di emergenza. I numeri in verde evidenziano le attività tra aree di tre servizi di Azure (calcolo, archiviazione e database di Azure) e come vengono configurate per la replica tra aree. I vantaggi esclusivi della distribuzione tra aree abbinate sono evidenziali dai numeri in arancione.

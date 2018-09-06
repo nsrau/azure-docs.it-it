@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170909"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888205"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Come usare la proprietà "entità prevista" delle azioni
 
@@ -50,7 +50,7 @@ In concreto, se il campo delle entità previste di un'azione è impostato su $en
 
 1. Fare clic su Entities (Entità) e quindi su New Entity (Nuova entità).
 2. In Entity Name (Nome entità) immettere "name".
-3. Click Create
+3. Fare clic su Crea
 
 > [!NOTE]
 > Il tipo di entità è "custom". Questo valore indica che l'entità può essere sottoposta a training.  Sono disponibili anche entità predefinite il cui comportamento non può essere modificato.  Queste entità sono illustrate [nell'esercitazione Entità predefinite](./7-built-in-entities.md).
@@ -65,8 +65,8 @@ In concreto, se il campo delle entità previste di un'azione è impostato su $en
     - Questo valore indica che se viene posta questa domanda e la risposta dell'utente non contiene entità rilevate, il bot supporrà che l'intera risposta dell'utente costituisca l'entità.
 2. Fare clic su Actions (Azioni) e quindi su New Action (Nuova azione) per creare una seconda azione.
 3. In Response (Risposta) digitare "Hello $name".
-    - L'entità viene automaticamente aggiunta come entità non qualificante. 
-4. Fare clic su Salva.
+    - L'entità viene automaticamente aggiunta come entità obbligatoria. 
+4. Fare clic su Save.
 
 Sono ora disponibili due azioni.
 

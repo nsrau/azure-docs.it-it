@@ -1,65 +1,62 @@
 ---
-title: Schemi di rilevamento AS2 per il monitoraggio B2B - App per la logica di Azure | Microsoft Docs
-description: Utilizzare gli schemi di rilevamento AS2 per il monitoraggio dei messaggi B2B dalle transazioni nell'account di integrazione di Azure.
-author: padmavc
-manager: anneta
-editor: ''
+title: Schemi di rilevamento AS2 per i messaggi B2B - App per la logica di Azure | Microsoft Docs
+description: Creare schemi di rilevamento AS2 che consentono di monitorare i messaggi B2B negli account di integrazione per App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: ''
-ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6c4144d26042729684e507b1afaa5e3006d8a34e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125931"
 ---
-# <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Avviare o attivare il rilevamento dei messaggi AS2 e di MDN per monitorare il completamento dell'operazione, gli errori e le proprietà dei messaggi
-È possibile utilizzare questi schemi di rilevamento AS2 nell'account di integrazione di Azure per monitorare le transazioni business-to-business (B2B):
+# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Creare schemi per il rilevamento di messaggi AS2 e notifiche sulla ricezione del messaggio negli account di integrazione per App per la logica di Azure
+
+Per monitorare più facilmente il completamento delle operazioni, gli errori e le proprietà dei messaggi per le transazioni business-to-business (B2B) è possibile usare questi schemi di rilevamento AS2 nell'account di integrazione:
 
 * Schema di rilevamento messaggi AS2
 * Schema di rilevamento MDN AS2
 
 ## <a name="as2-message-tracking-schema"></a>Schema di rilevamento messaggi AS2
-````java
 
-    {
-       "agreementProperties": {  
-            "senderPartnerName": "",  
-            "receiverPartnerName": "",  
-            "as2To": "",  
-            "as2From": "",  
-            "agreementName": ""  
-        },  
-        "messageProperties": {
-            "direction": "",
-            "messageId": "",
-            "dispositionType": "",
-            "fileName": "",
-            "isMessageFailed": "",
-            "isMessageSigned": "",
-            "isMessageEncrypted": "",
-            "isMessageCompressed": "",
-            "correlationMessageId": "",
-            "incomingHeaders": {
-            },
-            "outgoingHeaders": {
-            },
-        "isNrrEnabled": "",
-        "isMdnExpected": "",
-        "mdnType": ""
-        }
+```json
+{
+   "agreementProperties": {  
+      "senderPartnerName": "",  
+      "receiverPartnerName": "",  
+      "as2To": "",  
+      "as2From": "",  
+      "agreementName": ""  
+   },  
+   "messageProperties": {
+      "direction": "",
+      "messageId": "",
+      "dispositionType": "",
+      "fileName": "",
+      "isMessageFailed": "",
+      "isMessageSigned": "",
+      "isMessageEncrypted": "",
+      "isMessageCompressed": "",
+      "correlationMessageId": "",
+      "incomingHeaders": {
+       },
+      "outgoingHeaders": {
+       },
+      "isNrrEnabled": "",
+      "isMdnExpected": "",
+      "mdnType": ""
     }
-````
+}
+```
 
-| Proprietà | type | Descrizione |
+| Proprietà | Tipo | Descrizione |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio AS2. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio AS2. Facoltativa |
@@ -80,36 +77,37 @@ ms.lasthandoff: 04/05/2018
 | isNrrEnabled | boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
 | isMdnExpected | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
 | mdnType | Enum | I valori consentiti sono **NotConfigured**, **Sync** e **Async**. Obbligatoria |
+||||
 
 ## <a name="as2-mdn-tracking-schema"></a>Schema di rilevamento MDN AS2
-````java
 
-    {
-        "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "as2To": "",
-                "as2From": "",
-                "agreementName": "g"
-            },
-            "messageProperties": {
-                "direction": "",
-                "messageId": "",
-                "originalMessageId": "",
-                "dispositionType": "",
-                "isMessageFailed": "",
-                "isMessageSigned": "",
-                "isNrrEnabled": "",
-                "statusCode": "",
-                "micVerificationStatus": "",
-                "correlationMessageId": "",
-                "incomingHeaders": {
-                },
-                "outgoingHeaders": {
-                }
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "as2To": "",
+      "as2From": "",
+      "agreementName": "g"
+   },
+   "messageProperties": {
+      "direction": "",
+      "messageId": "",
+      "originalMessageId": "",
+      "dispositionType": "",
+      "isMessageFailed": "",
+      "isMessageSigned": "",
+      "isNrrEnabled": "",
+      "statusCode": "",
+      "micVerificationStatus": "",
+      "correlationMessageId": "",
+      "incomingHeaders": {
+      },
+      "outgoingHeaders": {
+      }
+   }
+}
+```
 
 | Proprietà | type | Descrizione |
 | --- | --- | --- |
@@ -130,10 +128,16 @@ ms.lasthandoff: 04/05/2018
 | correlationMessageId | string | ID correlazione. ID del messaggio originale, ovvero ID del messaggio per cui è configurata la notifica MDN. Facoltativa |
 | incomingHeaders | Dizionario di JToken | Indica i dettagli dell'intestazione del messaggio in arrivo. Facoltativa |
 | outgoingHeaders |Dizionario di JToken | Indica i dettagli dell'intestazione del messaggio in uscita. Facoltativa |
+||||
+
+## <a name="b2b-protocol-tracking-schemas"></a>Schemi di rilevamento per il protocollo B2B
+
+Per informazioni sugli schemi di rilevamento per il protocollo B2B, vedere:
+
+* [Schemi di rilevamento X12](logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Schemi di rilevamento personalizzati B2B](logic-apps-track-integration-account-custom-tracking-schema.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni su [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).    
-* Altre informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md).   
-* Altre informazioni sugli [schemi di rilevamento B2B personalizzati](logic-apps-track-integration-account-custom-tracking-schema.md).   
-* Altre informazioni sugli [schemi di rilevamento X12](logic-apps-track-integration-account-x12-tracking-schema.md).   
-* Altre informazioni sul [rilevamento dei messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+
+* Informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md)
+* Informazioni sul [rilevamento dei messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

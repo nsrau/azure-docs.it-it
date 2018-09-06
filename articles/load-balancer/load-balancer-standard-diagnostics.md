@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 08/27/2018
 ms.author: Kumud
-ms.openlocfilehash: 9d5d596254f673b86650e8d9754dacdb70be0666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179795"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125645"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metriche e diagnostica dell'integrità per Load Balancer Standard
 
@@ -37,7 +37,7 @@ Azure Load Balancer fornisce le nuove metriche multidimensionali tramite la nuov
 
 Le varie configurazioni Load Balancer Standard forniscono le seguenti metriche:
 
-| Metrica | Tipo di risorsa | DESCRIZIONE | Aggregazione consigliata |
+| Metrica | Tipo di risorsa | Descrizione | Aggregazione consigliata |
 | --- | --- | --- | --- |
 | Disponibilità VIP (disponibilità del percorso dati) | Bilanciamento del carico pubblico | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.| Media |
 | Disponibilità DIP (stato del probe di integrità) |  Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni endpoint dell'istanza nel pool di Load Balancer. In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità. |  Media |
@@ -209,7 +209,7 @@ Per visualizzare l'integrità delle risorse della configurazione pubblica di Loa
  
 La tabella seguente elenca i diversi stati di integrità delle risorse e le relative descrizioni: 
 
-| Stato di integrità delle risorse | DESCRIZIONE |
+| Stato di integrità delle risorse | Descrizione |
 | --- | --- |
 | Disponibile | La risorsa della configurazione pubblica di Load Balancer Standard è integra e disponibile. |
 | Non disponibile | La risorsa della configurazione pubblica di Load Balancer Standard non è integra. Diagnosticare l'integrità selezionando **Monitoraggio di Azure** > **Metriche**.<br>(Stato *Non disponibile* potrebbe anche significare che la risorsa non è collegata al Load Balancer Standard pubblico). |
@@ -219,5 +219,6 @@ La tabella seguente elenca i diversi stati di integrità delle risorse e le rela
 
 - Altre informazioni su [Load Balancer Standard](load-balancer-standard-overview.md).
 - Altre informazioni sulla [connettività in uscita di Load Balancer](https://aka.ms/lboutbound).
+- Informazioni sull'[API REST delle metriche di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metrics/).
 
 

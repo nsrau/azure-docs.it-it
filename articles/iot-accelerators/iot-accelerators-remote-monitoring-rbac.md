@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8886c08e88c1dd46d2b325b9ba8e9e0b8ae104f9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007381"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886311"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -33,7 +33,7 @@ Gli utenti con il ruolo **Admin** hanno accesso completo alla soluzione. Gli ute
 - Creare gruppi di dispositivi
 - Aggiornare gruppi di dispositivi
 - Eliminare gruppi di dispositivi
-- Creare regole
+- Creazione di regole
 - Aggiornare regole
 - Eliminare regole
 - Creare processi
@@ -51,7 +51,7 @@ Usare il portale di Azure per aggiungere o rimuovere un utente dalla soluzione d
 
 1. Verificare che l'[utente si trovi nella directory](../active-directory/fundamentals/add-users-azure-active-directory.md) in uso. La directory da usare è stata selezionata al momento dell'accesso al sito [Acceleratori di soluzione Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators). Il nome della directory è visibile nell'angolo in alto a destra della [pagina](https://www.azureiotsolutions.com/Accelerators).
 
-1. Trovare l'**applicazione aziendale** per la soluzione nel portale di Azure. Il nome dell'applicazione corrisponde a quello della soluzione di monitoraggio remoto. Nello screenshot seguente il nome visualizzato della soluzione e dell'applicazione è **contoso-rm4**.
+1. Trovare l'**applicazione aziendale** per la soluzione nel portale di Azure. Dopo aver eseguito l'accesso al portale, filtrare l'elenco impostando **Tipo di applicazione** su **Tutte le applicazioni**. Cercare il nome dell'applicazione. Il nome dell'applicazione corrisponde a quello della soluzione di monitoraggio remoto. Nello screenshot seguente il nome visualizzato della soluzione e dell'applicazione è **contoso-rm4**.
 
     ![Applicazione aziendale](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 
@@ -87,7 +87,7 @@ I passaggi seguenti descrivono come aggiungere un ruolo a un'applicazione in Azu
 
 1. Trovare la **registrazione per l'app** relativa alla soluzione nel portale di Azure. Il nome dell'applicazione corrisponde a quello della soluzione di monitoraggio remoto. Nello screenshot seguente il nome visualizzato della soluzione e dell'applicazione è **contoso-rm4**.
 
-    ![Registrazione per l'app](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Registrazione delle app](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
 
 1. Selezionare l'applicazione e quindi fare clic su **Manifesto**. È possibile visualizzare i due [ruoli di app](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) già definiti per l'applicazione:
 

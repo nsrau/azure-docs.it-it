@@ -1,25 +1,21 @@
 ---
-title: Come configurare una pipeline di CI/CD per Azure Data Lake Analytics | Microsoft Docs
+title: Come configurare una pipeline di CI/CD per Azure Data Lake Analytics
 description: Informazioni su come configurare l'integrazione continua e la distribuzione continua per Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: c114f190ae05f5ea4788c3785a713a6365938ded
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 49ac9f9603a1b8043b19c327d5a66015959b9dd1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630705"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045875"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
 
@@ -440,38 +436,38 @@ Per configurare un'attività di distribuzione di database in Visual Studio Team 
         PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
         ```
 
-    * Usare l'autenticazione **secret** per distribuire un database U-SQL in un account di Azure Data Lake Analytics:
+    * Usare l'autenticazione **secrete** per distribuire un database U-SQL in un account di Azure Data Lake Analytics:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
         ```
 
     * Usare l'autenticazione **certFile** per distribuire un database U-SQL in un account di Azure Data Lake Analytics:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
         ```
 
 ### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>Descrizione dei parametri di PackageDeploymentTool.exe
 
 #### <a name="common-parameters"></a>Parametri comuni
 
-| Parametro | DESCRIZIONE | Default Value | Obbligatoria |
+| Parametro | Descrizione | Valore predefinito | Obbligatorio |
 |---------|-----------|-------------|--------|
-|Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
+|Package|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
 |Database|Nome del database da distribuire o creare.|master|false|
 |LogFile|Percorso del file per la registrazione. L'impostazione predefinita è l'output standard (console).|Null|false|
 |LogLevel|Livello di log: dettagliato, normale, avviso o errore.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Parametro per la distribuzione locale
 
-|Parametro|DESCRIZIONE|Default Value|Obbligatoria|
+|Parametro|Descrizione|Valore predefinito|Obbligatorio|
 |---------|-----------|-------------|--------|
 |DataRoot|Percorso della cartella radice dei dati locale.|Null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametri per la distribuzione di Azure Data Lake Analytics
 
-|Parametro|DESCRIZIONE|Default Value|Obbligatoria|
+|Parametro|Descrizione|Valore predefinito|Obbligatorio|
 |---------|-----------|-------------|--------|
 |Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|Null|true|
 |ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|Null|true|
@@ -480,9 +476,9 @@ Per configurare un'attività di distribuzione di database in Visual Studio Team 
 |AzureSDKPath|Percorso di ricerca degli assembly dipendenti in Azure SDK.|Null|true|
 |Interattività|Indica se usare o meno la modalità interattiva per l'autenticazione.|false|false|
 |ClientId|ID applicazione di Azure AD necessario per l'autenticazione non interattiva.|Null|Necessario per l'autenticazione non interattiva.|
-|Segreto|Segreto o password per l'autenticazione non interattiva. Da usare solo in un ambiente sicuro e attendibile.|Null|Necessario per l'autenticazione non interattiva. In alternativa, usare SecretFile.|
-|SecretFile|File in cui viene salvato il segreto o la password per l'autenticazione non interattiva. Assicurarsi che possa essere letto solo dall'utente corrente.|Null|Necessario per l'autenticazione non interattiva. In alternativa, usare Secret.|
-|CertFile|File in cui viene salvata la certificazione X.509 per l'autenticazione non interattiva. L'impostazione predefinita prevede l'uso dell'autenticazione del segreto client.|Null|false|
+|Secrete|Segreto o password per l'autenticazione non interattiva. Da usare solo in un ambiente sicuro e attendibile.|Null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare SecreteFile.|
+|SecreteFile|File in cui viene salvato il segreto o la password per l'autenticazione non interattiva. Assicurarsi che possa essere letto solo dall'utente corrente.|Null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare Secrete.|
+|CertFile|File in cui viene salvata la certificazione X.509 per l'autenticazione non interattiva. Per impostazione predefinita viene usata l'autenticazione con segreto client.|Null|false|
 | JobPrefix | Prefisso per la distribuzione di database di un processo DDL U-SQL. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Passaggi successivi

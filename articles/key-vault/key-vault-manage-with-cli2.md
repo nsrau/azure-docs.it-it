@@ -12,46 +12,54 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 47a78b71f51e4fe975341b8e9425f47fd8c4d31c
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d2b38a27644eed088f4a204cf989f44346e1654
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503537"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126912"
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Gestire Key Vault tramite l'interfaccia della riga di comando 2.0
 
 Questo articolo descrive come usare Azure Key Vault con Azure CLI 2.0. In particolare, fornisce informazioni sugli argomenti seguenti:
+
+- Prerequisiti
 - Come creare un contenitore finalizzato, ossia un insieme di credenziali, in Azure
-- Come archiviare e gestire chiavi crittografiche e segreti in Azure. 
-- Uso dell'interfaccia della riga di comando di Azure per creare un insieme di credenziali.
-- Creazione di una chiave o una password che è possibile usare con un'applicazione Azure. 
-- Come un'applicazione può usare la chiave o password creata.
+- Aggiunta di una chiave, un segreto o un certificato all'insieme di credenziali delle chiavi
+- Registrazione di un'applicazione con Azure Active Directory
+- Autorizzazione di un'applicazione all'uso di una chiave o un segreto
+- Impostazione di criteri di accesso avanzati per l'insieme di credenziali delle chiavi
+- Uso dei moduli di protezione hardware
+- Eliminazione dell'insieme di credenziali delle chiavi e di chiavi e segreti associati
+- Comandi vari dell'interfaccia della riga di comando multipiattaforma di Azure
+
 
 L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
-
 
 > [!NOTE]
 > Questo articolo non include istruzioni su come scrivere l'applicazione Azure usata nel passaggio che spiega come autorizzare un'applicazione all'uso di una chiave o un segreto nell'insieme di credenziali delle chiavi.
 >
 
 Per una panoramica di Azure Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-whatis.md)
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per usare i comandi dell'interfaccia della riga di comando di Azure in questo articolo, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial).
 * Interfaccia della riga di comando versione 2.0 o successiva. Per installare l'ultima versione, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure 2.0](/cli/azure/install-azure-cli).
 * Un'applicazione che verrà configurata per usare la chiave o la password creata in questo articolo. Un'applicazione di esempio è disponibile nell'[Area download Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Per istruzioni, vedere il file Readme incluso.
 
-## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Risorse della Guida per l'interfaccia della riga di comando multipiattaforma di Microsoft Azure
+### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Risorse della Guida per l'interfaccia della riga di comando multipiattaforma di Microsoft Azure
+
 Questo articolo presuppone che si abbia familiarità con l'interfaccia della riga di comando (Bash, terminale, prompt dei comandi).
 
 Il parametro --help o -h consente di visualizzare la Guida per specifici comandi. In alternativa, è anche possibile usare il formato Azure help [comando] [opzioni]. In caso di dubbi sui parametri necessari per un comando, vedere la Guida. Ad esempio, tutti i comandi seguenti restituiranno le stesse informazioni:
 
-```azurecli-interactive
+```azurecli
 az account set --help
 az account set -h
 ```
@@ -61,7 +69,11 @@ az account set -h
 * [Installare l'interfaccia da riga di comando di Azure](/cli/azure/install-azure-cli)
 * [Introduzione all'interfaccia della riga di comando di Azure 2.0](/cli/azure/get-started-with-azure-cli)
 
-## <a name="connect-to-your-subscriptions"></a>Connettersi alle sottoscrizioni
+## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Come creare un contenitore finalizzato, ossia un insieme di credenziali, in Azure
+
+Gli insiemi di credenziali sono contenitori protetti supportati da moduli di protezione hardware. Gli insiemi di credenziali consentono di ridurre le probabilità di perdita accidentale di informazioni di sicurezza centralizzando l'archiviazione dei segreti delle applicazioni. Gli insiemi di credenziali delle chiavi controllano e registrano anche l'accesso a tutti gli elementi archiviati al loro interno. Azure Key Vault può gestire la richiesta e rinnovo dei certificati TLS (Transport Layer Security), offrendo le funzionalità necessarie per una soluzione affidabile di gestione del ciclo di vita dei certificati. Nei passaggi successivi si creerà un insieme di credenziali.
+
+### <a name="connect-to-your-subscriptions"></a>Connettersi alle sottoscrizioni
 
 Per accedere in modo interattivo, usare il comando seguente:
 
@@ -88,7 +100,8 @@ az account set --subscription <subscription name or ID>
 
 Per ulteriori informazioni sulla configurazione dell'interfaccia della riga di comando multipiattaforma di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-new-resource-group"></a>Creare un nuovo gruppo di risorse
+### <a name="create-a-new-resource-group"></a>Creare un nuovo gruppo di risorse
+
 Quando si usa Gestione risorse di Azure, tutte le risorse correlate vengono create in un gruppo di risorse. È possibile creare un insieme di credenziali delle chiavi in un gruppo di risorse esistente. Per usare un nuovo gruppo di risorse, è possibile crearne uno nuovo.
 
 ```azurecli
@@ -101,15 +114,15 @@ Il primo parametro è il nome del gruppo di risorse e il secondo è la posizione
 az account list-locations
 ``` 
 
-## <a name="register-the-key-vault-resource-provider"></a>Registrare il provider di risorse dell'insieme di credenziali delle chiavi
+### <a name="register-the-key-vault-resource-provider"></a>Registrare il provider di risorse dell'insieme di credenziali delle chiavi
+
  È possibile che venga visualizzato il messaggio di errore "La sottoscrizione non è registrata per l'uso dello spazio dei nomi 'Microsoft.KeyVault'" quando si prova a creare un nuovo insieme di credenziali delle chiavi. Se viene visualizzato questo messaggio, verificare che il provider di risorse di Key Vault sia registrato nella sottoscrizione. Questa operazione viene eseguita una sola volta per ogni sottoscrizione.
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 ```
 
-
-## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
+### <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
 Usare il comando `az keyvault create` per creare un insieme di credenziali delle chiavi. Questo script ha tre parametri obbligatori: un nome del gruppo di risorse, un nome dell'insieme di credenziali delle chiavi e la località geografica.
 
@@ -126,7 +139,7 @@ L'output di questo comando mostra le proprietà dell'insieme di credenziali dell
 
 L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo insieme di credenziali delle chiavi. Per ora, nessun altro è autorizzato.
 
-## <a name="add-a-key-secret-or-certificate-to-the-key-vault"></a>Aggiungere una chiave, un segreto o un certificato all'insieme di credenziali delle chiavi
+## <a name="adding-a-key-secret-or-certificate-to-the-key-vault"></a>Aggiunta di una chiave, un segreto o un certificato all'insieme di credenziali delle chiavi
 
 Per usare Azure Key Vault per creare automaticamente una chiave protetta tramite software, eseguire il comando `az key create`.
 
@@ -176,7 +189,8 @@ az keyvault secret list --vault-name 'ContosoKeyVault'
 az keyvault certificate list --vault-name 'ContosoKeyVault'
 ```
 
-## <a name="register-an-application-with-azure-active-directory"></a>Registrare un'applicazione con Azure Active Directory
+## <a name="registering-an-application-with-azure-active-directory"></a>Registrazione di un'applicazione con Azure Active Directory
+
 Questo passaggio di solito viene eseguito da uno sviluppatore, su un computer separato. Anche se non è specifico di Azure Key Vault, viene incluso qui per maggiore consapevolezza. Per completare la registrazione dell'app, è necessario che l'account, l'insieme di credenziali e l'applicazione siano nella stessa directory di Azure.
 
 Le applicazioni che usano un insieme di credenziali delle chiavi devono eseguire l'autenticazione con un token di Azure Active Directory.  Il proprietario dell'applicazione deve registrarla prima in Azure Active Directory. Al termine della registrazione, il proprietario dell'applicazione ottiene i valori seguenti:
@@ -195,7 +209,7 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
-## <a name="authorize-the-application-to-use-the-key-or-secret"></a>Autorizzare l'applicazione a usare la chiave o il segreto
+## <a name="authorizing-an-application-to-use-a-key-or-secret"></a>Autorizzazione di un'applicazione all'uso di una chiave o un segreto
 
 Per autorizzare l'accesso da parte dell'applicazione alla chiave o al segreto nell'insieme di credenziali, usare il comando `az keyvault set-policy` .
 
@@ -211,7 +225,8 @@ Per autorizzare la stessa applicazione per la lettura di tutti i segreti nell'in
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a> Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi 
+## <a name="bkmk_KVperCLI"></a> Impostazione di criteri di accesso avanzati per l'insieme di credenziali delle chiavi
+
 Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare i criteri avanzati per l'insieme di credenziali delle chiavi. 
 
  Abilitare Key Vault per la distribuzione: consente alle macchine virtuali di recuperare i certificati archiviati come segreti dall'insieme di credenziali.
@@ -230,7 +245,7 @@ Abilitare Key Vault per la distribuzione dei modelli: consente a Resource Manage
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```
 
-## <a name="if-you-want-to-use-a-hardware-security-module-hsm"></a>Per usare un modulo di protezione hardware
+## <a name="working-with-hardware-security-modules-hsms"></a>Uso dei moduli di protezione hardware
 
 Per una maggiore sicurezza, è possibile importare o generare le chiavi da moduli di protezione hardware che rimangono sempre entro il limite del modulo di protezione hardware. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. Se questo requisito non è applicabile, saltare questa sezione e andare a [Eliminare l'insieme di credenziali delle chiavi e le chiavi e i segreti associati](#delete-the-key-vault-and-associated-keys-and-secrets).
 
@@ -262,7 +277,7 @@ az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSM
 
 Per istruzioni più dettagliate su come generare questo pacchetto BYOK, vedere [Come usare chiavi HSM protette con l'insieme di credenziali delle chiavi di Azure](key-vault-hsm-protected-keys.md).
 
-## <a name="delete-the-key-vault-and-associated-keys-and-secrets"></a>Eliminare l'insieme di credenziali delle chiavi e le chiavi e i segreti associati
+## <a name="deleting-the-key-vault-and-associated-keys-and-secrets"></a>Eliminazione dell'insieme di credenziali delle chiavi e di chiavi e segreti associati
 
 Se l'insieme di credenziali delle chiavi e le chiavi o i segreti non sono più necessari, è possibile eliminare l'insieme di credenziali delle chiavi usando il comando `az keyvault delete`:
 
@@ -276,7 +291,7 @@ In alternativa, è possibile eliminare l'intero gruppo di risorse di Azure, che 
 az group delete --name 'ContosoResourceGroup'
 ```
 
-## <a name="other-azure-cross-platform-command-line-interface-commands"></a>Altri comandi dell'interfaccia della riga di comando multipiattaforma di Azure
+## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>Comandi vari dell'interfaccia della riga di comando multipiattaforma di Azure
 
 Altri comandi che potrebbero essere utili per la gestione di Azure Key Vault.
 
@@ -314,6 +329,6 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 
 - Per informazioni di riferimento sull'interfaccia della riga di comando di Azure per i comandi di Key Vault, vedere [Key Vault CLI reference](/cli/azure/keyvault) (Riferimento dell'interfaccia della riga di comando di Key Vault).
 
-- Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](key-vault-developers-guide.md).
+- Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori di Azure Key Vault](key-vault-developers-guide.md).
 
 - Per informazioni su Azure Key Vault e i moduli di protezione hardware, vedere [Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure](key-vault-hsm-protected-keys.md).

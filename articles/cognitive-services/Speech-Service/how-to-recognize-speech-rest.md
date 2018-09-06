@@ -1,6 +1,6 @@
 ---
 title: Riconoscimento vocale con l'API REST
-description: Informazioni su come usare il Riconoscimento vocale nel servizio Voce
+description: Informazioni sull'uso dell'API di riconoscimento vocale nel servizio Voce di Servizi cognitivi di Azure.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -9,29 +9,27 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 15db2d9b872c76d70fd531af07fb55c701e86494
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: eafec2dd262098bc4b7e485293818b79debe3d27
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331280"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126847"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>Riconoscimento vocale con l'API REST
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-recognize-speech-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-how-to-recognize-speech-selector.md)]
 
-L'API REST può essere usata per riconoscere brevi espressioni tramite una richiesta HTTP POST.
+L'API REST può essere usata per riconoscere brevi espressioni del parlato tramite una richiesta HTTP POST.
 
-L'API REST è il metodo più semplice di riconoscimento vocale se non si utilizza una lingua supportata dall’SDK.
-Si effettua una richiesta HTTP POST all'endpoint del servizio, passando l'intera espressione nel corpo della richiesta.
-Si riceve una risposta che contiene il testo riconosciuto.
+L'API REST offre il metodo di riconoscimento vocale più semplice se non si usa una lingua supportata dall'[SDK](speech-sdk.md). Si effettua una richiesta HTTP POST all'endpoint del servizio e si passa l'intera espressione nel corpo della richiesta. Si riceve quindi una risposta contenente il testo riconosciuto.
 
 > [!NOTE]
-> Le espressioni sono limitate a 15 secondi o meno quando si utilizza l'API REST.
+> Quando si usa l'API REST, la durata delle espressioni non può superare i 15 secondi.
 > Vedere [Speech SDK](how-to-recognize-speech-csharp.md) per il riconoscimento di espressioni più lunghe.
 
-Per altre informazioni sull'API REST di **riconoscimento vocale**, vedere [API REST](rest-apis.md#speech-to-text). Per visualizzarlo in azione, scaricare gli [esempi di API REST](https://github.com/Azure-Samples/SpeechToText-REST) da GitHub.
+Per altre informazioni sull'API REST di **riconoscimento vocale**, vedere l'articolo [API REST](rest-apis.md#speech-to-text). Per vedere come funziona in pratica l'API, scaricare gli [esempi di API REST](https://github.com/Azure-Samples/SpeechToText-REST) da GitHub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Vedere la panoramica dell'API REST](rest-apis.md)
+- Vedere la [panoramica delle API REST](rest-apis.md).

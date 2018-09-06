@@ -1,9 +1,9 @@
 ---
-title: Implementare il ripristino di emergenza usando il backup e il ripristino in Gestione API di Azure | Documentazione Microsoft
+title: Implementare il ripristino di emergenza usando il backup e il ripristino in Gestione API di Azure | Microsoft Docs
 description: Informazioni su come usare il backup e il ripristino per eseguire il ripristino di emergenza in Gestione API di Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283099"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046380"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -39,8 +39,6 @@ Questa guida descrive come autenticare le richieste di Azure Resource Manager e 
 
 > [!IMPORTANT]
 > L'API REST per il backup e ripristino usa Gestione risorse di Azure e include un meccanismo di autenticazione diverso rispetto alle API REST per la gestione delle entità di Gestione API. I passaggi descritti in questa sezione descrivono come autenticare le richieste di Gestione risorse di Azure. Per altre informazioni, vedere [Autenticazione delle richieste di Gestione risorse di Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
->
->
 
 Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resource Manager devono essere autenticate con Azure Active Directory usando la procedura seguente:
 
@@ -143,8 +141,8 @@ dove:
 
 * `subscriptionId`: ID della sottoscrizione contenente il servizio Gestione API di cui si sta tentando di eseguire il backup.
 * `resourceGroupName`: nome del gruppo di risorse del servizio Gestione API di Azure
-* `serviceName` : il nome del servizio di Gestione API di cui sta eseguendo il backup specificato quando è stato creato.
-* `api-version` - sostituire con `2018-06-01-preview`
+* `serviceName`: nome del servizio di Gestione API di cui sta eseguendo il backup specificato quando è stato creato.
+* `api-version`: sostituire con `2018-06-01-preview`
 
 Nel corpo della richiesta, specificare il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di destinazione di Azure:
 
@@ -180,10 +178,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 dove:
 
-* `subscriptionId` : ID della sottoscrizione contenente il servizio di Gestione API in cui si sta ripristinando un backup.
-* `resourceGroupName`: una stringa nel formato "Api-Default-{service-region}", dove `service-region` identifica l'area di Azure in cui è ospitato il servizio Gestione API in cui si sta ripristinando un backup, ad esempio `North-Central-US`.
-* `serviceName` : il nome del servizio di Gestione API in cui si sta effettuando il ripristino specificato quando è stato creato.
-* `api-version` - sostituire con `2018-06-01-preview`
+* `subscriptionId`: ID della sottoscrizione contenente il servizio di Gestione API in cui si sta ripristinando un backup.
+* `resourceGroupName`: nome del gruppo di risorse contenente il servizio di Gestione API in cui si sta ripristinando un backup.
+* `serviceName`: nome del servizio di Gestione API in cui si sta effettuando il ripristino specificato quando è stato creato.
+* `api-version`: sostituire con `2018-06-01-preview`
 
 Nel corpo della richiesta specificare la posizione del file di backup, ad esempio il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di Azure:
 
@@ -209,15 +207,16 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
 > Le operazioni di backup e ripristino possono essere eseguite rispettivamente anche con i comandi di Powershell, *Backup-AzureRmApiManagement* e *Restore-AzureRmApiManagement*.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del processo di backup e ripristino.
+
+Vedere le risorse seguenti per procedure dettagliate diverse del processo di backup e ripristino.
 
 * [Replicare account di Gestione API di Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-* [Gestione API di Azure: Backup e ripristino della configurazione](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * L'approccio descritto da Stuart non corrisponde alle linee guida ufficiali, ma è molto interessante.
+* [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) (Automazione del backup e del ripristino di Gestione API con App per la logica)
+* [Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) (Gestione API di Azure: backup e ripristino della configurazione) 
+  *L'approccio descritto da Stuart non corrisponde alle linee guida ufficiali, ma è molto interessante.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ac548d90d5a5ed931dc199b6fed52c7cd8f25239
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ce7c41730bec4e014225fb8c744d029493f5ec2c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143248"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246787"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Informazioni sui backup automatici del database SQL
 
@@ -26,7 +26,7 @@ Il database SQL crea automaticamente i backup del database e usa l'archiviazione
 
 ## <a name="what-is-a-sql-database-backup"></a>Informazioni sul backup del database SQL
 
-Il database SQL usa la tecnologia di SQL Server per creare backup [completi](https://msdn.microsoft.com/library/ms186289.aspx), [differenziali](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) e del [log delle transazioni](https://msdn.microsoft.com/library/ms191429.aspx) ai fini del ripristino temporizzato. I backup del log delle transazioni vengono eseguiti in genere ogni 5-10 minuti mentre i backup differenziali ogni 12 ore, tale frequenza è determinata dal livello di prestazioni e dalla quantità delle attività del database. I backup del log delle transazioni, con backup completi e differenziali, consentono di ripristinare un database a un punto specifico nel tempo nello stesso server che ospita il database. I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
+Il database SQL usa la tecnologia di SQL Server per creare backup [completi](https://msdn.microsoft.com/library/ms186289.aspx), [differenziali](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) e del [log delle transazioni](https://msdn.microsoft.com/library/ms191429.aspx) ai fini del ripristino temporizzato. I backup del log delle transazioni vengono eseguiti in genere ogni 5-10 minuti mentre i backup differenziali ogni 12 ore, tale frequenza è determinata dal livello di prestazioni e dalla quantità delle attività del database. I backup del log delle transazioni, con backup completi e differenziali, consentono di ripristinare un database a un punto specifico nel tempo nello stesso server che ospita il database. I backup vengono archiviati nel BLOB del servizio di archiviazione con ridondanza geografica e accesso in lettura e vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
 
 
 È possibile usare questi backup per:

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9700a76284e2ee2a652ae0dbcbaa2885ab515f79
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 36e63d26bf7ada2d23fa3cd9fddbb5ba90494527
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596556"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126023"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizzare l'acceleratore di soluzioni di monitoraggio remoto
 
@@ -366,8 +366,9 @@ La pagina **Dashboard** mostra gli indicatori KPI nel pannello **System KPIs** (
 
       ...
     });
+    ```
 
-1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
+1. Includere il nuovo indicatore KPI **warningAlarmsChange** nei dati di stato usati per il rendering dell'interfaccia utente:
 
     ```nodejs
     const {

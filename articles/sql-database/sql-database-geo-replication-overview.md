@@ -7,21 +7,27 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 08/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 77f95ef6fb04673d79b01694d1d6f84d2c694e96
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 71268c07f7e653e1f7cf545f373717fd2760fee9
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038209"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918236"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Panoramica: Gruppi di failover e replica geografica attiva
+
+La replica geografica attiva è una funzionalità di database SQL di Azure che consente di creare repliche in lettura del database nello stesso data center (regione) o in uno diverso.
+
+![Replica geografica](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
+
 La replica geografica attiva è progettata come una soluzione di continuità aziendale che consente all'applicazione di eseguire un ripristino di emergenza rapido in caso di interruzione a livello di data center. Se la replica geografica è abilitata, l'applicazione può avviare il failover in un database secondario in un'altra area di Azure. Sono supportati al massimo quattro database secondari nella stessa area o in aree geografiche diverse ed è possibile usare i database secondari anche per le query di accesso in sola lettura. Il failover deve essere avviato manualmente dall'utente o dall'applicazione. Dopo il failover, il nuovo database primario dispone di un endpoint di connessione diverso. 
 
 > [!NOTE]
 > La replica geografica attiva è disponibile per tutti i database in tutti i livelli di servizio in tutte le aree.
+> La replica geografica attiva non è disponibile nell'istanza gestita.
 >  
 
 I gruppi di failover automatico sono un'estensione della replica geografica attiva. Sono stati progettati per gestire simultaneamente il failover di più database con replica geografica usando un failover avviato dall'applicazione o delegando il failover al servizio del database SQL in base a criteri definiti dall'utente. Grazie a questa seconda funzionalità, è possibile ripristinare automaticamente più database correlati in un'area secondaria dopo un errore irreversibile o un altro evento imprevisto che comporta la perdita parziale o completa di disponibilità del servizio del database SQL nell'area primaria. È inoltre possibile usare i database secondari leggibili per l'offload dei carichi di lavoro delle query di sola lettura. Poiché i gruppi di failover automatico coinvolgono più database, questi ultimi devono essere configurati nel server primario. I server primario e secondario per i database nel gruppo di failover devono trovarsi nella stessa sottoscrizione. I gruppi di failover automatico supportano la replica di tutti i database nel gruppo in un solo server secondario in un'area diversa.
@@ -123,7 +129,7 @@ Per alcune applicazioni, le regole di sicurezza richiedono che l'accesso di rete
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Uso dei gruppi di failover e delle regole della rete virtuale
 
-Se si usano [gli endpoint e le regole del servizio Rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md) per limitare l'accesso al database SQL, tenere presente che ogni endpoint del servizio Rete virtuale si applica a una sola area geografica di Azure. L'endpoint non consente ad altre aree di accettare le comunicazioni dalla subnet. Pertanto, solo le applicazioni client distribuite nella stessa area possono connettersi al database primario. Poiché il failover ha per effetto il reindirizzamento delle sessioni client SQL al server presente nell'altra area geografica (secondaria), tali sessioni avranno esito negativo se hanno avuto origine da un client al di fuori di tale area. Per questo motivo non è possibile abilitare i criteri di failover automatico se i server partecipanti sono inclusi nelle regole della rete virtuale. Per supportare il failover manuale, seguire questa procedura:
+Se si usano [gli endpoint e le regole del servizio Rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md) per limitare l'accesso al database SQL, tenere presente che ogni endpoint del servizio Rete virtuale si applica a una sola area geografica di Azure. L'endpoint non consente ad altre aree di accettare le comunicazioni dalla subnet. Pertanto, solo le applicazioni client distribuite nella stessa area possono connettersi al database primario. Poiché il failover ha per effetto il reindirizzamento delle sessioni client SQL a un server presente in un'altra area geografica (secondaria), tali sessioni avranno esito negativo se hanno avuto origine da un client al di fuori di tale area. Per questo motivo non è possibile abilitare i criteri di failover automatico se i server partecipanti sono inclusi nelle regole della rete virtuale. Per supportare il failover manuale, seguire questa procedura:
 
 1.  Effettuare il provisioning delle copie ridondanti dei componenti front-end dell'applicazione (servizio Web, macchine virtuali e così via) nell'area secondaria
 2.  Configurare le [regole della rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md) singolarmente per il server primario e per quello secondario

@@ -9,26 +9,28 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4607c997f6c274f6b367fe3e99bf8d21deceef0d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 97a5d00d43ac6a9d4b28ba23ca69d9b67e1bdf6f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285494"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049800"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Informazioni su Speech Devices SDK (anteprima)
 
-Autonomamente, il servizio Microsoft Speech funziona con un'ampia gamma di origini audio e dispositivi. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. Speech Devices SDK è una raccolta pre-ottimizzata abbinata a un hardware specifico abilitato per i microfoni. L'SDK semplifica l'integrazione del dispositivo con il servizio di Microsoft Speech basato sul cloud e crea un'esperienza utente eccezionale per i clienti.
+Il [servizio Voce Microsoft](overview.md) funziona con un'ampia gamma di origini audio e dispositivi. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfono. Offrendo la possibilità di testare rapidamente nuovi scenari di servizi vocali, Speech Devices SDK semplifica l'integrazione del servizio Voce Microsoft basato sul cloud nei dispositivi e crea un'esperienza utente eccezionale per i clienti. 
 
-L’SDK consente di creare dispositivi per il proprio ambiente con una parola di attivazione personalizzata, in modo che la parola chiave che avvia un'interazione utente sia esclusiva per il proprio marchio. Utilizza l'audio multicanale per fornire un riconoscimento vocale più accurato tramite eliminazione del rumore e dell'eco, voce in campo lontano e beamforming.
+Speech Devices SDK è integrato con [Speech SDK](speech-sdk.md) e usa Speech SDK per inviare audio elaborato dall'algoritmo di elaborazione audio avanzata dalla matrice del microfono del dispositivo al [servizio Voce Microsoft](overview.md).  Usa inoltre l'audio multicanale per fornire un servizio più preciso di [riconoscimento vocale](speech-to-text.md) in campo lontano tramite eliminazione del rumore e dell'eco, beamforming e riduzione dell'effetto riverbero.
 
-L'SDK facilita una varietà di scenari vocali, come sistemi di ordinazione drive-thru, assistenti in auto o in casa e altoparlanti intelligenti. È possibile rispondere agli utenti con testo, parlare con loro con una voce predefinita o personalizzata, fornire risultati di ricerca, tradurre in altre lingue e altro ancora. 
+Speech Devices SDK consente anche di creare dispositivi per il proprio ambiente con una [parola di attivazione personalizzata](speech-devices-sdk-create-kws.md), in modo da definire una parola chiave esclusiva del proprio marchio per avviare un'interazione utente. 
+
+L'SDK facilita una varietà di scenari vocali, come sistemi di ordinazione drive-thru, assistenti in negozio o in casa e altoparlanti intelligenti. È possibile rispondere agli utenti con testo, parlare con loro con una voce predefinita o [personalizzata](how-to-customize-voice-font.md), fornire risultati di ricerca, [tradurre](speech-translation.md) in altre lingue e altro ancora. Microsoft sarà lieta di ricevere notizie sulle soluzioni vocali realizzate dai propri utenti.
 
 
 
 ## <a name="development-kit-providers"></a>Provider di kit di sviluppo
 
-Progettazione completa e completa di sistemi di riferimento end-to-end. Alti presto disponibili!
+Progettazione completa e completa di sistemi di riferimento end-to-end. Altri presto disponibili!
 
 |||
 |-|-|

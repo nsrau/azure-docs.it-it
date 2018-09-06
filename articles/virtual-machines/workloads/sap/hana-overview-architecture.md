@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9d28b6ea5612a3db539c51d2603c3f12282ca519
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063681"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090417"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA (istanze Large) in Azure
 
@@ -94,7 +94,7 @@ Rispetto all'esecuzione di SAP HANA nelle VM, questa soluzione presenta un vanta
 - Oltre alle soluzioni qui descritte, è possibile installare altri componenti nella sottoscrizione di Azure che si connette a SAP HANA in Azure (istanze di grandi dimensioni). Ad esempio, i componenti che consentono la comunicazione o la connessione diretta con il database SAP HANA, come jump server, server RDP, SAP HANA Studio, SAP Data Services per gli scenari SAP BI o soluzioni di monitoraggio di rete.
 - Come in Azure, le istanze Large di HANA offrono il supporto di funzionalità per la disponibilità elevata e il ripristino di emergenza.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 In generale, nella soluzione SAP HANA in Azure (istanze Large) il livello applicazione SAP si trova nelle VM. Il livello database si trova nell'hardware configurato per SAP TDI, a sua volta collocato in un modulo per istanze Large nella stessa area di Azure connessa a IaaS di Azure.
 
@@ -325,6 +325,10 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
 Per la matrice di supporto delle diverse versioni di SAP HANA con le varie versioni di Linux, vedere la [nota SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 Per la matrice di compatibilità del sistema operativo e le versioni del firmware/ driver HLI, fare riferimento a [OS Upgrade for HLI](os-upgrade-hana-large-instance.md) (Aggiornamento del sistema operativo per HLI).
+
+
+> [!IMPORTANT] 
+> Per le unità di tipo II, solo la versione del sistema operativo SLES 12 SP2 è supportata in questa fase. 
 
 
 **Database**

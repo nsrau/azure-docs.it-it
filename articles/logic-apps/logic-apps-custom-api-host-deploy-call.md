@@ -1,28 +1,23 @@
 ---
 title: Distribuire e chiamare API Web e API REST da App per la logica di Azure | Microsoft Docs
-description: Distribuire e chiamare API Web e API REST per flussi di lavoro di integrazione di sistema in App per la logica di Azure
-keywords: API Web, API REST, connettori, flussi di lavoro, integrazioni di sistema, autenticazione
+description: Distribuire e chiamare API Web e API REST per i flussi di lavoro di integrazione di sistema in App per la logica di Azure
 services: logic-apps
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
+ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.author: LADocs; stepsic
-ms.openlocfilehash: e808a463beb312df6ee2f8fc4378f72755dcdf33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0d53c8355fadf53c81676a1fe3c71f8e0b046630
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299008"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126569"
 ---
-# <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Distribuire e chiamare API personalizzate da flussi di lavoro di app per la logica
+# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Distribuire e chiamare API personalizzate da flussi di lavoro in App per la logica
 
 Dopo aver [creato API personalizzate](./logic-apps-create-api-app.md) da usare in flussi di lavoro di app per la logica, è necessario distribuire le API prima di poterle chiamare. È possibile distribuire le API come [app Web](../app-service/app-service-web-overview.md), ma è consigliabile distribuirle come [app per le API](../app-service/app-service-web-tutorial-rest-api.md), in modo da semplificare le attività durante la compilazione, l'hosting e l'uso delle API nel cloud e in locale. Non è necessario modificare alcuna parte di codice nelle API, ma è sufficiente distribuire il codice in un'app per le API. È possibile ospitare le API in [Servizio app di Azure](../app-service/app-service-web-overview.md), una soluzione PaaS (Platform-as-a-Service, piattaforma distribuita come servizio) che offre hosting di API semplice e altamente scalabile.
 

@@ -12,8 +12,10 @@ items:
     href: abstract-azure-network-security.md
   - name: Sicurezza della piattaforma senza server di Azure
     href: abstract-serverless-platform-security.md
+  - name: Sicurezza del contenitore in Azure
+    href: abstract-container-security-microsoft-azure.md
   - name: Abilitazione della sicurezza operativa
-    href: azure-operational-security.md
+    href: abstract-azure-operational-security.md
   - name: Governance in Azure
     href: governance-in-azure.md
   - name: Isolamento nel cloud di Azure
@@ -316,9 +318,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: Gestione delle sessioni
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: cb321a012d89f87022d66f50c3bc8fdcc921d6d6
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 2e0bdab31a721c5b55488ac21579f0cb9ac45151
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887834"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841565"

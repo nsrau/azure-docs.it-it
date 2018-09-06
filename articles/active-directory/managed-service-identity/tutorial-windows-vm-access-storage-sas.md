@@ -14,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 983cecdcdb95dca398f728dbdbe5feac69075d6a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 7f6049e874f329c1e3a4f72417dd9a7eebc42628
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248371"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887064"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite una credenziale di firma di accesso condiviso
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come abilitare un'identità del servizio gestita per una macchina virtuale Windows e quindi usare l'identità del servizio gestita per ottenere credenziali di firma di accesso condiviso di archiviazione. In particolare, [credenziali di firma di accesso condiviso del servizio](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Questa esercitazione illustra come usare un'identità assegnata dal sistema per una macchina virtuale Windows per ottenere credenziali di firma di accesso condiviso di archiviazione. In particolare, [credenziali di firma di accesso condiviso del servizio](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 La firma di accesso condiviso del servizio offre la possibilità di concedere accesso limitato agli oggetti in un account di archiviazione per un periodo di tempo limitato e per un servizio specifico (in questo caso, il servizio BLOB) senza esporre la chiave di accesso di un account. È possibile usare credenziali di firma di accesso condiviso come di consueto durante le operazioni di archiviazione, ad esempio quando si usa Storage SDK. In questa esercitazione viene illustrato come caricare e scaricare un oggetto BLOB tramite PowerShell di Archiviazione di Azure. Si apprenderà come:
 
-
 > [!div class="checklist"]
-> * Abilitare l'identità del servizio gestito in una macchina virtuale Windows 
+> * Creare un account di archiviazione
 > * Concedere alla macchina virtuale l'accesso alla firma di accesso condiviso dell'account di archiviazione in Resource Manager 
 > * Ottenere un token di accesso tramite l'identità della macchina virtuale e usarlo per recuperare la firma di accesso condiviso da Resource Manager 
 
@@ -41,33 +40,12 @@ La firma di accesso condiviso del servizio offre la possibilità di concedere ac
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+- [Accedere al portale di Azure](https://portal.azure.com)
 
-Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+- [Creare una macchina virtuale Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Windows in un nuovo gruppo di risorse
+- [Abilitare l'identità assegnata dal sistema nella macchina virtuale](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
-Per questa esercitazione si creerà una nuova macchina virtuale Windows, È possibile abilitare l'identità del servizio gestita anche in una macchina virtuale esistente.
-
-1.  Fare clic sul pulsante **+/Crea nuovo servizio** nell'angolo superiore sinistro del portale di Azure.
-2.  Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
-3.  Immettere le informazioni relative alla macchina virtuale. I valori di **Nome utente** e **Password** creati in questa schermata sono le credenziali usate per accedere alla macchina virtuale.
-4.  Dall'elenco a discesa **Sottoscrizione** selezionare la sottoscrizione corretta per la macchina virtuale.
-5.  Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
-6.  Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Nel pannello delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
-
-    ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Abilitare l'identità del servizio gestita nella macchina virtuale
-
-Un'identità del servizio gestita della macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. Dietro le quinte, l'abilitazione dell'identità del servizio gestita comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità nella macchina virtuale.
-
-1. Passare al gruppo di risorse della nuova macchina virtuale e selezionare la macchina virtuale creata nel passaggio precedente.
-2. Nel pannello a sinistra della sezione "Impostazioni" della macchina virtuale a sinistra fare clic su **Configurazione**.
-3. Per registrare e abilitare l'identità del servizio gestita, selezionare **Sì**. Se si vuole disabilitare questa funzionalità, selezionare No.
-4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.
-
-    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
 

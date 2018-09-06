@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867087"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122434"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -278,10 +278,10 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 | Proprietà JSON | type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | stringa | Sì | Nessuna | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | object | Sì | Nessuna | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | stringa | Yes | Nessuna | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | object | Yes | Nessuna | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | No  | 1 | Da 1 a 1000 | `"interval":10` |
-| **endTime** | stringa | Sì | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | stringa | Yes | Nessuna | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | object | No  | Nessuna | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
