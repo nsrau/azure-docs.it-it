@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f74a4ad0507f1c1f029befff88d733ffa719a763
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139498"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023512"
 ---
 # <a name="azure-stack-servicing-policy"></a>Criteri di manutenzione Azure Stack
 Questo articolo descrive i criteri di manutenzione per i sistemi integrati di Azure Stack e le operazioni da eseguire per mantenere il sistema in uno stato supportato. 
@@ -38,9 +38,10 @@ Esistono due tipi di pacchetti di aggiornamento per i sistemi integrati:
 Microsoft prevede di rilasciare pacchetti di aggiornamento software una cadenza mensile. Tuttavia, è possibile avere nessuna o più versioni di aggiornamento in un mese. I fornitori di hardware OEM rilasciare gli aggiornamenti in base alle esigenze. 
 
 Documentazione su come pianificare e gestire gli aggiornamenti e come determinare la versione corrente in [Gestisci Aggiorna Panoramica](azure-stack-updates.md). Per informazioni su uno specifico aggiornamento, incluso come scaricarlo, vedere le note sulla versione per cui aggiornare: 
+- [Aggiornamento di Azure Stack 1808](azure-stack-update-1808.md)
 - [Aggiornamento di Azure Stack 1807](azure-stack-update-1807.md)
 - [Aggiornamento di Azure Stack 1805](azure-stack-update-1805.md)
-- [Aggiornamento di Azure Stack 1804](azure-stack-update-1804.md)
+
 
 ## <a name="hotfixes"></a>Hotfix
 In alcuni casi, Microsoft fornisce le correzioni rapide per Azure Stack tale indirizzo di un problema specifico che è spesso preventive e scadenza.  Ciascun aggiornamento rapido viene rilasciato con un articolo della Microsoft Knowledge Base corrispondente che descrive in dettaglio il problema, cause e risoluzioni. 

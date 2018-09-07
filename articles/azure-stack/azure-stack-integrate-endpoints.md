@@ -6,18 +6,19 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307609"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024959"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter integration - pubblicano endpoint
+
 Azure Stack consente di impostare indirizzi IP virtuali (VIP) per i ruoli di infrastruttura. Questi indirizzi VIP sono allocati dal pool di indirizzi IP pubblici. Ogni indirizzo IP virtuale è protetta con un elenco di controllo di accesso (ACL) nel livello di software defined Networking. Gli ACL vengono usati anche per i commutatori fisici (tor e BMC) per rafforzare ulteriormente la soluzione. Viene creata una voce DNS per ogni endpoint nella zona DNS esterna specificati in fase di distribuzione.
 
 
@@ -39,12 +40,14 @@ Infrastruttura interna che non sono elencati gli indirizzi VIP perché non sono 
 |---------|---------|---------|---------|
 |AD FS|ad FS.  *&lt;area >.&lt; FQDN >*|HTTPS|443|
 |Portale (amministratore)|Adminportal.  *&lt;area >.&lt; FQDN >*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Adminhosting | *.adminhosting. \<area >. \<fqdn > | HTTPS | 443 |
 |Azure Resource Manager (amministratore)|Adminmanagement.  *&lt;area >.&lt; FQDN >*|HTTPS|443<br>30024|
 |Portale (utente)|Portale.  *&lt;area >.&lt; FQDN >*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (utente)|Gestione.  *&lt;area >.&lt; FQDN >*|HTTPS|443<br>30024|
 |Grafico|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Elenco di revoche di certificati|. CRL*&lt;area >.&lt; FQDN >*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP E UDP|53|
+|Hosting | * .hosting. \<area >. \<fqdn > | HTTPS | 443 |
 |Key Vault (utente)|&#42;.Vault.  *&lt;area >.&lt; FQDN >*|HTTPS|443|
 |Key Vault (amministratore)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Coda di archiviazione|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|

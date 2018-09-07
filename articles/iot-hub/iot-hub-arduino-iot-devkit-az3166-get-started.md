@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/11/2018
+ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 6d5b0036bb44f301ea0b11e5d984fcd5b4bfac71
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1839f3efee53caa070690fed569a61c1d2b3c965
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599830"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127726"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -97,14 +97,14 @@ L'app predefinita in esecuzione nel DevKit controlla se è installata la version
 
 ### <a name="upgrade-to-the-latest-firmware"></a>Eseguire l'aggiornamento al firmware più recente
 
-> [!NOTE] 
+> [!NOTE]
 > A partire dalla versione 1.1 DevKit abilita ST-SAFE nel bootloader. È necessario eseguire l'aggiornamento del firmware se si esegue una versione precedente alla 1.1.
 
 Se è necessario aggiornare il firmware, la schermata visualizza la versione del firmware attualmente installata e quella più recente. Per eseguire l'aggiornamento, seguire le istruzioni nella guida [Upgrade firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) (Aggiornare il firmware).
 
 ![Visualizzazione delle versioni attuale e più recente del firmware](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 
-> [!NOTE] 
+> [!NOTE]
 > Questa operazione viene eseguita una sola volta. Dopo avere iniziato a sviluppare nel DevKit e avere caricato l'app, il firmware più recente sarà presente nell'app.
 
 ### <a name="test-various-sensors"></a>Testare i diversi sensori
@@ -115,207 +115,127 @@ Premere il pulsante B per testare i sensori. Continuare a premere e rilasciare i
 
 ## <a name="prepare-the-development-environment"></a>Preparare l'ambiente di sviluppo
 
-Ora è possibile configurare l'ambiente di sviluppo: strumenti e pacchetti per compilare straordinarie applicazioni IoT. È possibile scegliere la versione per Windows o macOS in base al sistema operativo in uso.
+### <a name="install-azure-iot-workbench"></a>Installare Workbench di Azure IoT
 
-### <a name="windows"></a>Windows
+Si consiglia di utilizzare l’estensione [Workbench di Azure IoT](https://aka.ms/iot-workbench) per lo sviluppo di Visual Studio Code su DevKit.
 
-Si consiglia di usare il pacchetto di installazione per preparare l'ambiente di sviluppo. Se si riscontrano problemi, è possibile seguire le [istruzioni manuali per l'installazione di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/) per risolverli.
+Workbench di Azure IoT offre un'esperienza integrata per lo sviluppo di soluzioni IoT. Contribuisce allo sviluppo sia suo dispositivi che su cloud utilizzando Azure IoT e altri servizi. È possibile guardare questo video di Channel9 per avere una panoramica delle funzionalità.
 
-#### <a name="download-the-latest-package"></a>Scaricare il pacchetto più recente
+Seguire questa procedura per preparare l'ambiente di sviluppo per DevKit:
 
-Il file con estensione zip che viene scaricato contiene tutti gli strumenti e i pacchetti necessari per sviluppare il DevKit.
+1. Scaricare e installare [Arduino IDE](https://www.arduino.cc/en/Main/Software). Fornisce la toolchain necessaria per la compilazione e il caricamento del codice Arduino.
+    * **Windows**: usare la versione di Windows Installer.
+    * **macOS**: trascinare il file **Arduino.app** estratto nella cartella `/Applications`.
+    * **Ubuntu**: decomprimere il file nella cartella come `$HOME/Downloads/arduino-1.8.5`
 
-> [!div class="button"]
-[Scaricare](https://aka.ms/devkit/prod/installpackage/latest)
+1. Installare [Visual Studio Code](https://code.visualstudio.com/), un editor di codice sorgente multipiattaforma con potenti strumenti per gli sviluppatori, come il completamento e il debug del codice IntelliSense.
 
-Il file con estensione zip contiene gli strumenti e i pacchetti seguenti. Se si dispone già di alcuni componenti installati, lo script li rileverà e li ignorerà.
+1. Cercare **Workbench di Azure IoT** nel marketplace delle estensioni e installarlo.
+    ![Installare Workbench di Azure IoT](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png): insieme ad Azure IoT Workbench, verranno installati altre estensioni dipendenti.
 
-* Node.js e Yarn: runtime per lo script di configurazione e le attività automatizzate.
+1. Aprire **File > Preferenze > Impostazioni** e aggiungere le righe successive per configurare Arduino.
+    * **Windows**:
+    ```json
+    "arduino.path": "C:\\Program Files (x86)\\Arduino",
+    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+    ```
+    * **macOS**:
+    ```json
+    "arduino.path": "/Applications",
+    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+    ```
+    * **Ubuntu**:
+    ```json
+    "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
+    "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+    ```
 
-* [MSI dell'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com//cli/azure/install-azure-cli#windows): riga di comando multipiattaforma per la gestione delle risorse di Azure. Il file MSI contiene Python e pip dipendenti.
+1. Fare clic su `F1` per aprire il riquadro comandi, digitare e selezionare **Arduino: Board Manager** (Arduino: Gestione lavagna). Cercare **AZ3166** e installare la versione più recente.
+    ![Installare l’SDK DevKit](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
 
-* [Visual Studio Code](https://code.visualstudio.com/) (VS Code): editor di codice semplice per lo sviluppo del DevKit.
+### <a name="install-st-link-drivers"></a>Installare i driver ST-Link
 
-* [Estensione di Visual Studio Code per Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): estensione che abilita lo sviluppo di Arduino in Visual Studio Code.
+[ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html) è l'interfaccia USB che IoT DevKit usa per comunicare con la macchina di sviluppo. Seguire i passaggi specifici del sistema operativo per consentire alla macchina l'accesso al dispositivo.
 
-* [IDE Arduino](https://www.arduino.cc/en/Main/Software): strumento su cui si basa l'estensione per Arduino.
+* **Windows**: scaricare e installare i driver USB dal [sito Web STMicroelectronics](http://www.st.com/en/development-tools/stsw-link009.html).
+* **macOS**: nessun driver necessario per macOS.
+* **Ubuntu**: eseguire il comando seguente nel terminale e disconnettersi e riconnettersi affinché la modifica di gruppo abbia effetto:
+    ```bash
+    # Copy the default rules. This grants permission to the group 'plugdev'
+    sudo cp ~/.arduino15/packages/AZ3166/tools/openocd/0.10.0/linux/contrib/60-openocd.rules /etc/udev/rules.d/
+    sudo udevadm control --reload-rules
 
-* Pacchetto della scheda DevKit: catene di strumenti, librerie e progetti per il DevKit.
+    # Add yourself to the group 'plugdev'
+    # Logout and log back in for the group to take effect
+    sudo usermod -a -G plugdev $(whoami)
+    ```
 
-* Utilità ST-Link: strumenti e driver essenziali.
+A questo punto tutto pronto con la preparazione e la configurazione dell'ambiente di sviluppo. Compiliamo l’esempio "Hello World" per IoT: inviamo i dati di telemetria della temperatura all'hub IoT di Azure.
 
-#### <a name="run-the-installation-script"></a>Eseguire lo script di installazione
+## <a name="build-your-first-project"></a>Creare il primo progetto
 
-In Esplora file di Windows individuare il file con estensione zip e decomprimerlo. Trovare il file `install.cmd`, fare clic con il pulsante destro del mouse su di esso e selezionare **Esegui come amministratore**.
+1. Assicurarsi che il DevKit IoT **non** sia connesso al computer. Avviare per prima cosa Visual Studio Code, quindi connettere il DevKit al computer.
 
-![Esplora file](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/run-admin.png)
+1. Nella barra di stato in basso a destra, verificare che **MXCHIP AZ3166** sia visualizzato come scheda selezionata e che sia utilizzata la porta seriale con **STMicroelectronics**.
+    ![Selezionare lavagna e COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-board.png)
 
-Durante l'installazione viene visualizzato lo stato di ogni strumento o pacchetto.
+1. Fare clic su `F1` per aprire il riquadro comandi, digitare e selezionare **IoT Workbench: Examples** (Workbench IoT: Esempi). Quindi selezionare **IoT DevKit** (DevKit di IoT) come lavagna.
 
-![Stato dell'installazione](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install.png)
+1. Nella pagina di esempi di Workbench IoT, individuare **Get Started**(Introduzione) e fare clic su **Open Sample** (Apri esempio). Selezionare quindi il percorso predefinito per scaricare il codice di esempio.
+    ![Aprire esempio](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
 
-> [!NOTE] 
-> A seconda dell'ambiente, a volte si otterrà un errore durante l'installazione dell'IDE Arduino. In questo caso, è possibile provare a [installare singolarmente l'IDE Arduino](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) e a eseguire di nuovo install.cmd. In caso contrario, seguire le [istruzioni manuali per l'installazione di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) per installare tutti gli strumenti e i pacchetti necessari.
+1. Nella nuova finestra del progetto aperta, fare clic su `F1` per aprire il riquadro comandi, digitare e selezionare **IoT Workbench: Cloud** (Workbench IoT: cloud), quindi selezionare **Azure Provision** (Provisioning di Azure). Seguire la guida passo passo per completare il provisioning dell'hub IoT di Azure e creare il dispositivo.
+    ![Provisioning cloud](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
-#### <a name="install-drivers"></a>Installare i driver
+1. Fare clic su `F1` per aprire il riquadro comandi, digitare e selezionare **IoT Workbench: Device** (Workbench IoT: dispositivo), quindi selezionare **Config Device Settings > Select IoT Hub Device Connection String** (Configurare le impostazioni del dispositivo > Selezionare Stinga di connessione dispositivo hub IoT).
 
-Il Visual Studio Code per l'estensione di Arduino si basa sull'IDE di Arduino. Se questa è la prima volta che si installa l'IDE di Arduino, viene chiesto di installare i driver pertinenti.
+1. Su DevKit, tenere premuto il **pulsante A**, premere e rilasciare il pulsante di **reimpostazione** e quindi rilasciare il **pulsante A**. DevKit passa alla modalità di configurazione e salva la stringa di connessione.
+    ![Stringa di connessione](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
 
-![getting-started-driver](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/driver.png)
+1. Fare clic di nuovo su `F1`, digitare e selezionare **IoT Workbench: Device** (Workbench IoT: dispositivo), quindi selezionare **Device Upload** (Caricamento dispositivo).
+    ![Caricamento di Arduino](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 
-L'installazione richiede circa 10 minuti a seconda della velocità della connessione Internet. Al termine dell'installazione, vengono visualizzati i collegamenti a Visual Studio Code e all'IDE di Arduino sul desktop.
+Il DevKit viene riavviato e inizia a eseguire il codice.
 
-> [!NOTE] 
-> In alcuni casi, all'avvio di Visual Studio Code viene visualizzato un errore che indica che non è possibile trovare l'IDE di Arduino o il pacchetto della scheda correlato. Per risolvere il problema, chiudere Visual Studio Code e riavviare l'IDE di Arduino. Visual Studio Code dovrebbe a questo punto individuare il percorso corretto dell'IDE di Arduino.
-
-### <a name="macos"></a>macOS
-
-Si consiglia di usare l'esperienza di installazione in un solo clic per preparare l'ambiente di sviluppo. Se si riscontrano problemi, è possibile seguire le [istruzioni manuali per l'installazione di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/) per risolverli.
-
-#### <a name="install-homebrew"></a>Installare Homebrew
-
-> [!NOTE] 
-> Se è stato installato Homebrew, è possibile ignorare questo passaggio.
-
-Seguire le [istruzioni di installazione di Homebrew](https://docs.brew.sh/Installation.html) per completare l'installazione.
-
-#### <a name="download-the-latest-package"></a>Scaricare il pacchetto più recente
-
-Il file con estensione zip che viene scaricato contiene tutti gli strumenti e i pacchetti necessari per sviluppare il DevKit.
-
-> [!div class="button"]
-[Scaricare](https://aka.ms/devkit/prod/installpackage/mac/latest)
-
-Il file con estensione zip contiene gli strumenti e i pacchetti seguenti. Se si dispone già di alcuni componenti installati, lo script li rileverà e li ignorerà.
-
-* Node.js e Yarn: runtime per lo script di configurazione e le attività automatizzate.
-
-* [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): esperienza della riga di comando multipiattaforma per la gestione delle risorse di Azure.
-
-* [Visual Studio Code](https://code.visualstudio.com/) (VS Code): editor di codice semplice per lo sviluppo del DevKit.
-
-* [Estensione di Visual Studio Code per Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): estensione che abilita lo sviluppo di Arduino in Visual Studio Code.
-
-* [IDE Arduino](https://www.arduino.cc/en/Main/Software): strumento su cui si basa l'estensione per Arduino.
-
-* Pacchetto della scheda DevKit: catene di strumenti, librerie e progetti per il DevKit.
-
-* Utilità ST-Link: strumenti e driver essenziali.
-
-#### <a name="run-the-installation-script"></a>Eseguire lo script di installazione
-
-In Finder individuare il file con estensione ZIP ed estrarre i file:
-
-![Finder di macOS](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-finder.png)
-
-Avviare l'app Terminal, individuare la cartella in cui sono stati estratti i file ZIP e seguire questa procedura:
-
-```bash
-./install.sh
-```
-
-![Installazione di macOS](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-install-sh.png)
-
-> [!NOTE] 
-> Se si visualizza un errore di autorizzazione di Homebrew, eseguire `brew doctor` per correggerlo. Per informazioni più dettagliate, vedere la [sezione relativa all'errore di Homebrew nelle domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos).
-
-Ora si dispone di tutti gli strumenti necessari e dei pacchetti installati per macOS.
-
-## <a name="open-the-project-folder"></a>Aprire la cartella del progetto
-
-Iniziare aprendo la cartella del progetto. 
-
-### <a name="start-vs-code"></a>Avviare Visual Studio Code
-
-Assicurarsi che DevKit non sia connesso. Avviare VS Code e quindi connettere il DevKit al computer. VS Code trova DevKit automaticamente e visualizza una pagina di introduzione.
-
-![Pagina Introduzione](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
-
-> [!NOTE] 
-> In alcuni casi, all'avvio di Visual Studio Code viene visualizzato un errore che indica che non è possibile trovare l'IDE di Arduino o il pacchetto della scheda correlato. Chiudere Visual Studio Code e riavviare l'IDE di Arduino. Visual Studio Code dovrebbe a questo punto individuare il percorso corretto dell'IDE di Arduino.
-
-### <a name="open-the-arduino-examples-folder"></a>Aprire la cartella degli esempi di Arduino
-
-Nella scheda **Arduino Examples** (Esempi di Arduino) passare a **Examples for MXCHIP AZ3166** > **AzureIoT** e selezionare **GetStarted**.
-
-![Scheda Arduino Examples](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
-
-Se si chiude il riquadro involontariamente, è possibile riaprirlo. Premere `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) per aprire il riquadro comandi, digitare **Arduino** e quindi cercare e selezionare **Arduino: Examples**.
-
-## <a name="provision-azure-services"></a>Eseguire il provisioning dei servizi di Azure
-
-Nella finestra della soluzione eseguire l'attività desiderata premendo `Ctrl+P` (macOS: `Cmd+P`) e immettendo `task cloud-provision`.
-
-Nel terminale di VS Code una riga di comando interattiva guiderà nel processo di provisioning dei servizi di Azure necessari.
-
-![Riga di comando interattiva](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/cloud-provision.png)
-
-## <a name="build-and-upload-the-arduino-sketch"></a>Compilare e caricare la definizione di Arduino
-
-Ora compilare e caricare la definizione di Arduino.
-
-### <a name="windows"></a>Windows
-
-1. Usare `Ctrl+P` per eseguire `task device-upload`.
-
-2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, tenere premuto il pulsante A, quindi premere e rilasciare il pulsante di reimpostazione. La schermata visualizza l'ID di DevKit e la voce 'Configuration'.
-
-   Questa operazione serve per impostare la stringa di connessione recuperata dal passaggio `task cloud-provision`.
-
-   VS Code inizia quindi a verificare e a caricare la definizione di Arduino.
-
-   ![Verifica e caricamento della definizione di Arduino](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
-
-   Il DevKit viene riavviato e inizia a eseguire il codice.
-
-   > [!NOTE] 
-   > In alcuni casi viene visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore è dovuto al mancato aggiornamento dell'indice del pacchetto della scheda. Per correggerlo, attenersi alla [procedura indicata nelle domande frequenti](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/).
-
-### <a name="macos"></a>macOS
-
-1. Impostare DevKit in modalità di configurazione: tenere premuto il pulsante A e quindi premere e rilasciare il pulsante di reimpostazione. Verrà visualizzata la schermata 'Configuration'.
-
-2. Usare `Cmd+P` per eseguire `task device-upload`.
-
-   Questa operazione serve per impostare la stringa di connessione recuperata dal passaggio `task cloud-provision`.
-
-   Visual Studio Code inizia quindi a verificare e a caricare la definizione di Arduino:
-
-   ![device-upload](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
-
-   Il DevKit viene riavviato e inizia a eseguire il codice.
-
-   > [!NOTE] 
-   > In alcuni casi viene visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore è dovuto al mancato aggiornamento dell'indice del pacchetto della scheda. Per risolverlo, vedere i passaggi nelle [domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/).
-
+> [!NOTE]
+> In caso di errori o interruzioni, è sempre possibile ripristinare il sistema eseguendo nuovamente il comando.
 
 ## <a name="test-the-project"></a>Verificare il progetto
 
-In Visual Studio Code attenersi alla procedura seguente per aprire e configurare Serial Monitor:
+### <a name="view-the-telemetry-sent-to-azure-iot-hub"></a>Visualizzare i dati di telemetria inviati all'hub IoT di Azure
 
-1. Fare clic sulla parola `COM[X]` sulla barra di stato per impostare la porta COM corretta su `STMicroelectronics`.
+Fare clic sull'icona della spina di alimentazione sulla barra di stato per aprire il monitor seriale: ![Serial monitor](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/serial-monitor.png) (Monitor seriale)
 
-   ![Porta COM](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
+L'applicazione di esempio viene eseguita correttamente quando vengono visualizzati i risultati seguenti:
 
-2. Fare clic sull'icona del plug di accensione sulla barra di stato per aprire Serial Monitor.
+* Il monitor seriale mostra il messaggio inviato all'hub IoT.
+* Il LED sul DevKit di IoT MXChip lampeggia.
 
-   ![Serial Monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution//connect-iothub/serial-monitor.png)
+![Output di monitoraggio seriale](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
 
-3. Sulla barra di stato fare clic sul numero che rappresenta la velocità di trasmissione in baud e impostarlo su `115200`.
+### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Visualizzare i dati di telemetria ricevuti dall'hub IoT di Azure
 
-   ![Velocità di trasmissione](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
+È possibile usare il [Toolkit Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) per il monitoraggio dei messaggi da dispositivo a cloud (D2C) nell'hob IoT.
 
-4. L'applicazione di esempio viene eseguita correttamente quando vengono visualizzati i risultati seguenti:
+1. In Visual Studio Code, cercare **Toolkit di Azure IoT** nel marketplace delle estensioni e installarlo.
 
-   * Serial Monitor (Monitoraggio seriale) visualizza le stesse informazioni presenti nel contenuto nella schermata seguente.
-   
-   * Il LED RGB sul DevKit di IoT MXChip lampeggia.
+1. Accedere al [portale di Azure](https://portal.azure.com/) e cercare l'IoT Hub creato.
+    ![portale di Azure](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
-   ![Output finale in Visual Studio Code](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
+1. Nel riquadro **Criteri di accesso condivisi** fare clic sul criterio **iothubowner**, quindi annotare la stringa di connessione dell'hub IoT.
+    ![Stringa di connessione dell'hub IoT di Azure](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)
+
+1. In Visual Studio Code, espandere **AZURE IOT HUB DEVICES** (DISPOSITIVI HUB IOT AZURE) nell'angolo inferiore sinistro e fare clic su **Set IoT Hub Connection String** (Imposta stringa di connessione hub IoT).
+    ![Imposta stringa di connessione hub IoT di Azure](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-toolkit-conn-string.png)
+
+1. Fare clic su **IoT: Start monitoring D2C message** (IoT: Avvia monitoraggio messaggio da dispositivo a cloud) nel menu di scelta rapida.
+
+1. Nel riquadro **OUTPUT** è possibile visualizzare i messaggi da dispositivo a cloud in ingresso nell'hub IoT.
+    ![Messaggi da dispositivo a cloud](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-toolkit-console.png)
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 
-Se si riscontrano problemi, è possibile cercare una soluzione nelle [domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/). È possibile anche possibile lasciare commenti e suggerimenti personali in questa pagina.
+Se si riscontrano problemi, è possibile cercare una soluzione nelle [domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o prendere contatto con noi tramite [Gitter](https://gitter.im/Microsoft/azure-iot-developer-kit). È possibile anche possibile lasciare commenti e suggerimenti personali in questa pagina.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
