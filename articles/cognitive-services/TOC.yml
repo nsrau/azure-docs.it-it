@@ -1,41 +1,50 @@
+items:
 - name: Documentazione di Servizi cognitivi di Azure
   href: index.yml
 - name: Panoramica
-  expanded: true
   items:
-    - name: Che cosa sono i servizi cognitivi?
-      href: Welcome.md
+  - name: Che cosa sono i servizi cognitivi?
+    href: Welcome.md
+  - name: Supporto per le lingue
+    href: language-support.md
+  expanded: true
 - name: Guide introduttive
   items:
-    - name: Creare un account
-      href: cognitive-services-apis-create-account.md
-    - name: Compilare un classificatore di immagini
-      href: ./custom-vision-service/getting-started-build-a-classifier.md
-    - name: Compilare un'app di domotica
-      href: ./luis/luis-get-started-create-app.md
-    - name: Creare un'app di analisi del testo .NET
-      href: ./text-analytics/quickstarts/csharp.md
+  - name: Creare un account
+    href: cognitive-services-apis-create-account.md
+  - name: Compilare un classificatore di immagini
+    href: ./custom-vision-service/getting-started-build-a-classifier.md
+  - name: Compilare un'app di domotica
+    href: ./luis/luis-get-started-create-app.md
+  - name: Creare un'app di analisi del testo .NET
+    href: ./text-analytics/quickstarts/csharp.md
 - name: Esercitazioni
   items:
-    - name: Pagina Web di ricerca personalizzata
-      href: ./bing-custom-search/tutorials/custom-search-web-page.md
-    - name: App di Language Understanding
-      href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
-    - name: Migliorare l'accuratezza della finalità per i comandi
-      href: ./luis/luis-tutorial-batch-testing.md
+  - name: Pagina Web di ricerca personalizzata
+    href: ./bing-custom-search/tutorials/custom-search-web-page.md
+  - name: App di Language Understanding
+    href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
+  - name: Migliorare l'accuratezza della finalità per i comandi
+    href: ./luis/luis-tutorial-batch-testing.md
 - name: Risorse
   items:
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
-    - name: Calcolatore prezzi
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Video
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
-    - name: Aggiornamenti del servizio
-      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Codice di comportamento
-      href: 'http://go.microsoft.com/fwlink/?LinkId=698895'
-    - name: Knowledge Base
-      href: 'https://cognitive.uservoice.com/knowledgebase'
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
+  - name: Prezzi
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/
+  - name: Calcolatore prezzi
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Video
+    href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
+  - name: Aggiornamenti del servizio
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Codice di comportamento
+    href: http://go.microsoft.com/fwlink/?LinkId=698895
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase
+ms.openlocfilehash: 8bd7984fd713a2acbb1ca2cc66e3d64bd49ef5a4
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023826"

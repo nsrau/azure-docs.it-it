@@ -34,13 +34,13 @@
 ### [Configurare un alias del nome server](analysis-services-server-alias.md)
 ### [Configurare l'aumento del numero di istanze](analysis-services-scale-out.md)
 ### [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md)
-### [Usare il gateway per le origini dati in una rete virtuale di Azure](analysis-services-vnet-gateway.md)
+### [Usare il gateway per le origini dati in un'istanza di Rete virtuale di Azure](analysis-services-vnet-gateway.md)
 ### [Gestire un server](analysis-services-manage.md)
 ### [Monitorare le metriche del server](analysis-services-monitor.md)
 ### [Configurare la registrazione diagnostica](analysis-services-logging.md)
 ### [Creare un'entità servizio - Portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [Creare un'entità servizio - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [Aggiungere un'entità di servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md)
+### [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md)
 
 ## Modello
 ### [Importare un file di Power BI Desktop](analysis-services-import-pbix.md)
