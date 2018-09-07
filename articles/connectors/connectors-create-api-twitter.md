@@ -1,104 +1,96 @@
 ---
-title: Informazioni su come usare il connettore Twitter nelle app per la logica | Documentazione Microsoft
-description: Panoramica del connettore Twitter con i parametri dell'API REST
-services: ''
-documentationcenter: ''
+title: Connettersi a Twitter da App per la logica di Azure | Microsoft Docs
+description: Utilizzando App per la logica di Azure, è possibile automatizzare attività e flussi di lavoro che monitorano e gestiscono tweet, oltre che ottenere dati su follower, utenti seguiti, altri utenti, sequenze temporali e altro ancora dal proprio account Twitter
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: eb953ee7701d407b9b75a0699f53b9b64828a0e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918646"
 ---
-# <a name="get-started-with-the-twitter-connector"></a>Introduzione al connettore Twitter
-Con il connettore Twitter è possibile:
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitorare e gestire Twitter con App per la logica di Azure
 
-* Pubblicare e recuperare tweet
-* Accedere a sequenze temporali, amici e follower
-* Eseguire le altre azioni e trigger descritti in questo articolo
+Con App per la logica di Azure e il connettore Twitter, è possibile creare attività automatizzate e flussi di lavoro che monitorano e gestiscono i dati più interessanti di Twitter, come tweet, follower, utenti e utenti seguiti, sequenze temporali e altro ancora, insieme ad altre azioni, ad esempio:
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
+* Monitorare, postare e cercare tweet.
+* Ottenere dati, ad esempio follower, utenti seguiti, sequenze temporali e altro ancora.
+
+È possibile usare i trigger per ottenere risposte dall'account Twitter e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Twitter. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Twitter. Ad esempio, quando viene postato un nuovo tweet con uno specifico hashtag, è possibile inviare messaggi con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+
+* Account Twitter e credenziali utente
+
+   Le credenziali autorizzano l'app per la logica alla creazione di una connessione e all'accesso all'account Twitter.
+
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* L'app per la logica in cui si vuole accedere all'account Twitter. Per iniziare con un trigger di Twitter, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di Twitter, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
 ## <a name="connect-to-twitter"></a>Connettersi a Twitter
-Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio.  
 
-### <a name="create-a-connection-to-twitter"></a>Creare una connessione a Twitter
-> [!INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-a-twitter-trigger"></a>Usare un trigger di Twitter
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-In questo esempio si usa il trigger **Quando viene pubblicato un nuovo tweet** per cercare #Seattle e, se #Seattle viene trovato, aggiornare un file in Dropbox con il testo del tweet. In un esempio riguardante un'organizzazione si potrebbe cercare il nome dell'azienda e aggiornare un database SQL con il testo del tweet.
+1. Scegliere un percorso: 
 
-1. Immettere *twitter* nella casella di ricerca nella finestra di progettazione delle app per la logica e selezionare il trigger **Twitter - Quando viene pubblicato un nuovo tweet**   
-   ![Immagine di trigger Twitter 1](./media/connectors-create-api-twitter/trigger-1.png)  
-2. Immettere *#Seattle* nel controllo **Testo di ricerca**  
-   ![Immagine di trigger Twitter 2](./media/connectors-create-api-twitter/trigger-2.png) 
+   * Per le app per la logica vuote, nella casella di ricerca immettere "twitter" come filtro. 
+   Nell'elenco dei trigger selezionare il trigger desiderato. 
 
-A questo punto, l'app per la logica è stata configurata con un trigger che avvierà l'esecuzione di altri trigger e altre azioni nel flusso di lavoro. 
+     -oppure-
 
-> [!NOTE]
-> Affinché sia funzionale, l'app per la logica deve contenere almeno un trigger e un'azione. Usare i passaggi nella sezione successiva per aggiungere un'azione.
+   * Per le app per la logica esistenti: 
+   
+     * Nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. 
 
-## <a name="add-a-condition"></a>Aggiungere una condizione
-A interessare sono solo i tweet degli utenti con più di 50 utenti. Prima viene quindi aggiunta all'app per la logica una condizione che conferma il numero di follower.  
+       -oppure-
 
-1. Selezionare **+ Nuovo passaggio** per aggiungere l'azione che deve essere eseguita quando viene individuato #Seattle in un nuovo tweet  
-   ![Immagine di azione Twitter 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
-2. Selezionare il collegamento **Aggiungi una condizione**.  
-   ![Immagine di condizione Twitter 1](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-   Si apre il controllo **Condizione** in cui è possibile controllare condizioni come *è uguale a*, *è minore di*, *è maggiore di*, *contiene* e altre.  
-   ![Immagine di condizione Twitter 2](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-3. Selezionare il controllo **Scegliere un valore**. In questo controllo è possibile selezionare una o più proprietà di azioni o trigger precedenti. La condizione di questo valore della proprietà restituisce true o false.
-   ![Immagine di condizione Twitter 3](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-4. Selezionare **...** per espandere l'elenco delle proprietà in modo da vedere tutte le proprietà disponibili.        
-   ![Immagine di condizione Twitter 4](../../includes/media/connectors-create-api-twitter/condition-4.png)   
-5. Selezionare la proprietà **Followers count**.    
-   ![Immagine di condizione Twitter 5](../../includes/media/connectors-create-api-twitter/condition-5.png)   
-6. Si noti che la proprietà Followers count si trova ora nel controllo del valore.    
-   ![Immagine di condizione Twitter 6](../../includes/media/connectors-create-api-twitter/condition-6.png)   
-7. Selezionare **è maggiore di** nell'elenco degli operatori.    
-   ![Immagine di condizione Twitter 7](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-8. Immettere 50 come operando per l'operatore *è maggiore di*.  
-   La condizione viene aggiunta. Salvare il lavoro usando il collegamento **Salva** nel menu.    
-   ![Immagine di condizione Twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+     * Spostare il puntatore del mouse sulla freccia visualizzata tra i passaggi in cui si vuole aggiungere un'azione. 
+     Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
+     
+       Nella casella di ricerca immettere "twitter" come filtro. 
+       Nell'elenco delle azioni selezionare l'azione desiderata.
 
-## <a name="use-a-twitter-action"></a>Usare un'azione di Twitter
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Se viene chiesto di accedere a Twitter, accedere immediatamente per autorizzare l'accesso all'app per la logica.
 
-Ora che è disponibile un trigger, aggiungere un'azione che pubblica un nuovo tweet con il contenuto dei tweet trovati dal trigger. Per questa procedura dettagliata, vengono pubblicati solo i tweet degli utenti con più di 50 follower.  
+1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
-Nel passaggio successivo si aggiunge un'azione di Twitter che pubblica un tweet usando alcune delle proprietà di ciascun tweet che viene pubblicato da un utente con più di 50 follower.  
+## <a name="examples"></a>Esempi
 
-1. Selezionare **Aggiungi un'azione**. Questo passaggio apre il controllo di ricerca in cui è possibile cercare altre azioni e trigger.  
-   ![Immagine di condizione Twitter 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-2. Immettere *twitter* nella casella di ricerca e selezionare l'azione **Twitter - Pubblica un tweet**. Questo passaggio apre il controllo **Pubblica un tweet** in cui si immettono tutti i dettagli del tweet da pubblicare.      
-   ![Immagine di azione Twitter 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
-3. Selezionare il controllo **Testo del tweet**. Ora sono visibili tutti gli output di azioni e trigger precedenti nell'app per la logica. È possibile selezionare questi output e usarli come parte del testo del nuovo tweet.     
-   ![Immagine di azione Twitter 2](../../includes/media/connectors-create-api-twitter/action-2.png)   
-4. Selezionare **Nome utente**   
-5. Subito dopo il nome utente immettere *says:* (dice) nel controllo del testo del tweet.
-6. Selezionare *Testo del tweet*.       
-   ![Immagine di azione Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
-7. Per attivare il flusso di lavoro, salvare il lavoro e inviare un tweet con l'hashtag #Seattle.
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Trigger di Twitter: quando viene pubblicato un nuovo tweet
 
+Questo trigger avvia un flusso di lavoro di un'app per la logica quando il trigger rileva un nuovo tweet, ad esempio con l'hashtag #Seattle. Così, ad esempio, quando questi tweet vengono rilevati, è possibile aggiungere un file con il contenuto dei tweet alla risorsa di archiviazione, ad esempio un account Dropbox utilizzando il connettore Dropbox. 
 
-## <a name="connector-specific-details"></a>Dettagli specifici del connettore
+Facoltativamente, è possibile includere una condizione secondo cui i tweet idonei devono provenire da utenti con almeno un numero specificato di follower.
 
-Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/twitterconnector/). 
+**Esempio Enterprise**: è possibile utilizzare questo trigger per monitorare i tweet della propria azienda e caricare il contenuto dei tweet in un database SQL.
+
+### <a name="twitter-action-post-a-tweet"></a>Azione di Twitter: pubblicare un tweet
+
+Questa azione pubblica un tweet, ma è possibile impostare l'azione in modo che il tweet contenga il contenuto dei tweet trovati dal trigger precedentemente descritto. 
+
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
+
+Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/twitterconnector/) del connettore.
+
+## <a name="get-support"></a>Supporto
+
+* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

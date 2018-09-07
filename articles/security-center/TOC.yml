@@ -35,6 +35,8 @@ items:
   - name: Eseguire l'aggiornamento alla sicurezza avanzata
     href: security-center-onboarding.md
   - name: Impostare i criteri di sicurezza
+    href: security-center-azure-policy.md
+  - name: Impostazioni dei criteri di sicurezza
     href: security-center-policies-overview.md
     items:
     - name: Raccolta dei dati
@@ -47,8 +49,6 @@ items:
       href: security-center-pricing.md
     - name: Configurazioni di sicurezza
       href: security-center-customize-os-security-config.md
-    - name: Criteri di sicurezza con Criteri di Azure
-      href: security-center-azure-policy.md
     - name: Visibilità a livello di tenant
       href: security-center-management-groups.md
   - name: Implementare le raccomandazioni sulla sicurezza
@@ -207,9 +207,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Disponibilità internazionale
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 62f713d5e0412eef2cb4dbb176e355371cbc924a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: dc9c41fa829e26e4f77a9ef8a2baad423f02ffca
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126403"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026361"
