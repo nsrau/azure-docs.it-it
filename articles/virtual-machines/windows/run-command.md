@@ -8,16 +8,16 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342709"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128596"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Linux con Esegui comando
 
-Esegui comando usa l'agente di macchine Virtuali per eseguire gli script di PowerShell all'interno di una macchina virtuale Windows di Azure. Questi script possono essere usati per il computer generale o per la gestione delle applicazioni e può essere usato per diagnosticare e correggere i problemi di accesso e di rete della macchina virtuale e ottenere che la macchina virtuale torni a uno stato valido rapidamente.
+Esegui comando usa l'agente di macchine virtuali per eseguire gli script di PowerShell all'interno di una macchina virtuale Windows di Azure. Questi script possono essere usati per il computer generale o per la gestione delle applicazioni e può essere usato per diagnosticare e correggere i problemi di accesso e di rete della macchina virtuale e ottenere che la macchina virtuale torni a uno stato valido rapidamente.
 
 ## <a name="benefits"></a>Vantaggi
 
@@ -63,7 +63,6 @@ Questa tabella mostra l'elenco di comandi disponibili per le macchine virtuali W
 |**EnableAdminAccount**|Controlla se l'account Administrator locale è disabilitato e, in tal caso, lo consente.|
 |**IPConfig**| Indirizzo Visualizza le informazioni dettagliate per l'indirizzo IP, subnet mask e il gateway predefinito per ogni scheda associata a TCP/IP.|
 |**RDPSettings**|Controlla le impostazioni del Registro e le impostazioni dei criteri di dominio. Suggerisce le azioni dei criteri se il computer fa parte di un dominio o modifica le impostazioni per i valori predefiniti.|
-|**ResetAccountPassword**| Reimposta la password dell'account Administrator predefinito.|
 |**ResetRDPCert**|Rimuove il certificato SSL associato al listener del protocollo RDP e ripristina la sicurezza del listener RDP per impostazione predefinita. Usare questo script se vengono visualizzati eventuali problemi con il certificato.|
 |**SetRDPPort**|Imposta il valore predefinito o il numero di porta dell'utente specificato per le connessioni Desktop remoto. Abilita la regola del firewall per l'accesso in ingresso alla porta.|
 

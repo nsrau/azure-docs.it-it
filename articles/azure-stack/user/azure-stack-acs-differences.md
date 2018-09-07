@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 6c0c42763ec3d124850555500c3a322073af2479
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139629"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027170"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Archiviazione di Azure stack: differenze e considerazioni
+# <a name="azure-stack-storage-differences-and-considerations"></a>Archiviazione di Azure Stack: differenze e considerazioni
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Archiviazione di Azure stack è il set di servizi di archiviazione cloud in Microsoft Azure Stack. Archiviazione di Azure stack offre blob, tabella, coda e funzionalità di gestione di account con una semantica coerente con Azure.
+Archiviazione di Azure Stack è il set di servizi di archiviazione cloud in Microsoft Azure Stack. Archiviazione di Azure Stack offre funzionalità di gestione di account con una semantica coerente con Azure, tabella, coda e blob.
 
-Questo articolo riepiloga le differenze note di archiviazione di Azure Stack dai servizi di archiviazione di Azure. Elenca anche tenere in considerazione quando si distribuisce Azure Stack. Per altre informazioni sulle differenze generali tra globale di Azure e Azure Stack, vedere la [considerazioni chiave](azure-stack-considerations.md) argomento.
+Questo articolo riepiloga le differenze note di archiviazione di Azure Stack dai servizi di archiviazione di Azure. Elenca anche tenere in considerazione quando si distribuisce Azure Stack. Per altre informazioni sulle differenze generali tra globale di Azure e Azure Stack, vedere la [considerazioni chiave](azure-stack-considerations.md) articolo.
 
 ## <a name="cheat-sheet-storage-differences"></a>Foglio informativo: differenze di archiviazione
 
@@ -38,7 +38,7 @@ Questo articolo riepiloga le differenze note di archiviazione di Azure Stack dai
 |Tipo di account di archiviazione|Account di archiviazione blob di Azure e per utilizzo generico|Per utilizzo generico solo.
 |Opzioni di replica|Archiviazione con ridondanza locale, archiviazione con ridondanza geografica, archiviazione con ridondanza geografica e accesso in lettura e archiviazione con ridondanza della zona|Archiviazione con ridondanza locale.
 |Archiviazione Premium|Supporto completo|Può essere eseguito il provisioning, ma nessun limite delle prestazioni o garanzia.
-|Dischi gestiti|Premium e standard supportati|Non è ancora supportata.
+|Dischi gestiti|Premium e standard supportati|È supportato quando si usa 1808 o versione successiva.
 |Nome del BLOB|1024 caratteri (2.048 byte)|880 caratteri (1,760 byte)
 |Dimensioni massime blob di blocco|4,75 TB (100 MB X 50.000 blocchi)|4,75 TB (100 MB x 50.000 blocchi) per l'aggiornamento 1802 o una versione più recente. 50.000 x 4 MB (circa 195 GB) per le versioni precedenti.
 |Copia di snapshot blob di pagine|Backup non gestito della macchina virtuale nei dischi Azure collegati a una macchina virtuale in esecuzione supportata|Non è ancora supportata.

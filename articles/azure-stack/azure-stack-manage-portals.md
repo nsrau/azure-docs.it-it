@@ -1,6 +1,6 @@
 ---
-title: Tramite il portale dell'amministratore nello Stack di Azure | Documenti Microsoft
-description: Come operatore Azure Stack, informazioni su come utilizzare il portale dell'amministratore.
+title: Tramite il portale dell'amministratore in Azure Stack | Microsoft Docs
+description: Un operatore di Azure Stack, informazioni su come usare il portale dell'amministratore.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,76 +12,76 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 673b1144fe927e0619f5f8638d7e8ce9a181f48c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248521"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024167"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Tramite il portale dell'amministratore in Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Sono disponibili due portali nello Stack di Azure; il portale dell'amministratore e il portale per gli utenti (talvolta detto il *tenant* portal.) Come operatore di Stack di Azure, è possibile utilizzare il portale dell'amministratore per la gestione quotidiana e operazioni dello Stack di Azure.
+Sono disponibili due portali in Azure Stack. il portale dell'amministratore e il portale utenti (talvolta detto il *tenant* portale.) Un operatore di Azure Stack, è possibile usare il portale dell'amministratore per la gestione quotidiana e operazioni di Azure Stack.
 
 ## <a name="access-the-administrator-portal"></a>Accedere al portale di amministrazione
 
-Per un ambiente di kit di sviluppo, è necessario assicurarsi innanzitutto che è possibile [connettersi all'host del kit di sviluppo](azure-stack-connect-azure-stack.md) tramite connessione Desktop remoto o una rete privata virtuale (VPN).
+Un ambiente di sviluppo kit, è necessario verificare innanzitutto che sia possibile [connettersi all'host del kit di sviluppo](azure-stack-connect-azure-stack.md) tramite connessione Desktop remoto o tramite una rete privata virtuale (VPN).
 
-Per accedere al portale di amministrazione, passare al portale di accesso con le credenziali di un operatore di Stack di Azure e URL. Per un sistema integrato, il portale che varia URL basato sul nome di area ed esterno nome di dominio completo (FQDN) della distribuzione di Azure Stack.
+Per accedere al portale di amministratore, passare al portale di accesso usando le credenziali di un operatore di Azure Stack e URL. Per un sistema integrato, il portale che varia URL basato sul nome di area e nome di dominio completo esterno (FQDN) della distribuzione di Azure Stack.
 
-| Environment | URL del portale di amministrazione |   
+| Environment | URL portale amministratore |   
 | -- | -- | 
 | Kit di sviluppo| https://adminportal.local.azurestack.external  |
 | Sistemi integrati | https://adminportal.&lt; *regione*&gt;.&lt; *FQDN*&gt; | 
 | | |
 
- ![Il portale dell'amministratore](media/azure-stack-manage-portals/image1.png)
+ ![Il portale dell'amministratore](media/azure-stack-manage-portals/admin-portal.png)
 
 Nel portale di amministrazione, è possibile eseguire operazioni, ad esempio:
 
-* gestire l'infrastruttura (compresi integrità del sistema, gli aggiornamenti, capacità e così via).
+* Gestire l'infrastruttura (inclusi integrità del sistema, gli aggiornamenti, capacità e così via).
 * Popolare Marketplace
-* creare sottoscrizioni per gli utenti
-* creare i piani e le offerte
+* Creare sottoscrizioni per gli utenti
+* Creare offerte e piani
 
-Il **esercitazione di avvio rapido** riquadro vengono forniti collegamenti alla documentazione online per le attività più comuni.
+Il **esercitazione introduttiva** riquadro vengono forniti collegamenti alla documentazione online per le attività più comuni.
 
-Anche se dispone di un operatore può creare risorse, ad esempio macchine virtuali, reti virtuali e gli account di archiviazione nel portale di amministrazione, è necessario [accedere al portale per gli utenti](user/azure-stack-use-portal.md) per creare e testare le risorse.
+Anche se ha un operatore può creare risorse quali macchine virtuali, reti virtuali e gli account di archiviazione nel portale di amministrazione, dovrebbe [accedere al portale per gli utenti](user/azure-stack-use-portal.md) per creare e testare le risorse.
 
 >[!NOTE]
->Il **creare una macchina virtuale** collegamento nel riquadro esercitazioni delle Guide rapide è creare una macchina virtuale nel portale di amministrazione, ma ciò è destinato solo a convalidare Azure Stack dopo la prima distribuzione.
+>Il **creare una macchina virtuale** collegamento nella sezione dell'esercitazione Guida introduttiva contiene è creare una macchina virtuale nel portale di amministrazione, ma solo allo scopo di convalidare Azure Stack dopo la prima distribuzione.
 
 ## <a name="understand-subscription-behavior"></a>Comprendere il comportamento di sottoscrizione
 
-È disponibile una sola sottoscrizione disponibile per l'utilizzo nel portale dell'amministratore. Questa sottoscrizione è il *predefinito sottoscrizione Provider*. Impossibile aggiungere altre sottoscrizioni e usarle nel portale di amministrazione.
+È presente una sola sottoscrizione disponibile per l'uso nel portale dell'amministratore. Questa sottoscrizione è il *sottoscrizione del Provider predefinito*. È possibile aggiungere tutte le altre sottoscrizioni e usarle nel portale di amministrazione.
 
-Come operatore di Stack di Azure, è possibile aggiungere sottoscrizioni per gli utenti (incluso l'autore) il portale dell'amministratore. Utente () possono accedere e utilizzare queste sottoscrizioni dal **utente** portale. Tuttavia, il portale per gli utenti non fornisce accesso a qualsiasi delle funzionalità amministrative o operative del portale dell'amministratore.
+Un operatore di Azure Stack, è possibile aggiungere sottoscrizioni per gli utenti (inclusi manualmente) dal portale di amministratore. Gli utenti (compreso te stesso) possono accedere e utilizzare queste sottoscrizioni dal **utente** portale. Tuttavia, il portale per gli utenti non fornisce accesso a qualsiasi funzionalità amministrative o operative del portale di amministratore.
 
-I portali di amministratore e utente sono supportati da istanze separate di gestione risorse di Azure. A causa di questa separazione di gestione risorse, sottoscrizioni superino i portali. Ad esempio, se è, come un operatore di Stack di Azure, accedere al portale per gli utenti, sarà possibile accedere il *sottoscrizione Provider predefinito*. Anche se non si ha accesso alle funzioni amministrative, è possibile creare sottoscrizioni per se stessi dal offerte pubbliche disponibili. Come è effettuato l'accesso al portale per gli utenti si è considerati un utente di tenant.
+I portali di amministratore e utente sono supportati da istanze separate di Azure Resource Manager. A causa di questa separazione di Resource Manager, le sottoscrizioni non sono valide tra i portali. Ad esempio, se, come un operatore di Azure Stack, accedi al portale utenti, sarà possibile accedere la *sottoscrizione del Provider predefinito*. Anche se non si ha accesso a tutte le funzioni amministrative, è possibile creare sottoscrizioni per se stessi dal offerte disponibili a pubbliche. Fino a quando si è connessi al portale utenti si è considerati un utente del tenant.
 
   >[!NOTE]
-  >Nell'ambiente di kit di sviluppo, se un utente appartiene nella stessa directory tenant come l'operatore di Stack di Azure, non sono bloccati dall'accesso al portale di amministrazione. Tuttavia, non possono accedere a tutte le funzioni amministrative. Inoltre, dal portale dell'amministratore non possono aggiungere sottoscrizioni o l'accesso sono disponibili che sono disponibili nel portale per gli utenti.
+  >Nell'ambiente di kit di sviluppo, se un utente appartiene alla stessa directory tenant come l'operatore di Azure Stack, essi non sono impediti l'accesso al portale di amministrazione. Tuttavia, non possono accedere tutte le funzioni amministrative. Inoltre, dal portale di amministratore, non possono aggiungere accesso o le sottoscrizioni offerte che sono disponibili nel portale per gli utenti.
 
-## <a name="administrator-portal-tips"></a>Suggerimenti di amministratore del portale
+## <a name="administrator-portal-tips"></a>Suggerimenti per gli amministratori del portale
 
 ### <a name="customize-the-dashboard"></a>Personalizzare il dashboard
 
-Il dashboard contiene un set di riquadri predefiniti. È possibile selezionare **modificare il dashboard** per modificare il dashboard predefinito o selezionare **nuovo dashboard** per aggiungere un dashboard personalizzato. È possibile aggiungere facilmente i riquadri a un dashboard. Ad esempio, è possibile selezionare **New**, fare doppio clic su **offre + piani**, quindi selezionare **Aggiungi al dashboard**.
+Il dashboard contiene un set di riquadri predefiniti. È possibile selezionare **modifica dashboard** per modificare il dashboard predefinito o selezionare **nuovo dashboard** per aggiungere un dashboard personalizzato. È facilmente possibile aggiungere riquadri a un dashboard. Ad esempio, è possibile selezionare **New**, fare doppio clic su **offre + piani**, quindi selezionare **Aggiungi al dashboard**.
 
-### <a name="quick-access-to-online-documentation"></a>Accedere rapidamente alla documentazione in linea
+### <a name="quick-access-to-online-documentation"></a>Accesso rapido alla documentazione online
 
-Per accedere alla documentazione di operatore dello Stack di Azure, utilizzare la Guida e supporto tecnico di icona (punto interrogativo) nell'angolo superiore sinistro del portale dell'amministratore. Spostare il cursore sull'icona e quindi selezionare **Guida e supporto**.
+Per accedere alla documentazione di operatore di Azure Stack, usare la Guida e supporto di icona (punto interrogativo) nell'angolo superiore destro del portale di amministratore. Spostare il cursore sull'icona e quindi selezionare **Guida e supporto**.
 
-### <a name="quick-access-to-help-and-support"></a>Accesso rapido a Guida e supporto tecnico
+### <a name="quick-access-to-help-and-support"></a>Accesso rapido alla assistenza e supporto
 
-Se si seleziona l'icona della Guida e supporto (punto interrogativo) nell'angolo superiore sinistro del portale dell'amministratore e quindi selezionare **nuova richiesta di assistenza**, che si verifichi una dei risultati seguenti:
+Se si seleziona l'icona della Guida e supporto (punto interrogativo) nell'angolo superiore destro del portale di amministratore e quindi selezionare **nuova richiesta di supporto**, che si verifichi una dei risultati seguenti:
 
-- Se si utilizza un sistema integrato, questa azione apre un sito in cui è possibile aprire direttamente un ticket di supporto con Microsoft cliente il supporto tecnico clienti Microsoft. Fare riferimento a [come ottenere supporto](azure-stack-manage-basics.md#where-to-get-support) comprendere quando è necessario accedere tramite il supporto tecnico Microsoft o il supporto dei fornitori di hardware original equipment manufacturer (OEM).
-- Se si utilizza il kit di sviluppo, questa azione apre il sito dei forum di Azure Stack direttamente. Questi forum regolarmente vengono monitorati. Poiché il kit di sviluppo è un ambiente di valutazione, non è previsto alcun supporto ufficiale di Microsoft CSS.
+- Se si usa un sistema integrato, questa azione apre un sito in cui è possibile aprire direttamente un ticket di supporto con Microsoft dei clienti supporto tecnico clienti Microsoft. Fare riferimento a [come ottenere supporto](azure-stack-manage-basics.md#where-to-get-support) comprendere quando deve passare attraverso il supporto tecnico Microsoft o attraverso il supporto dei fornitori di hardware (OEM) original equipment manufacturer.
+- Se si utilizza il kit di sviluppo, questa azione apre direttamente sul sito dei forum Azure Stack. Questi forum vengono regolarmente monitorati. Poiché il kit di sviluppo è un ambiente di valutazione, non è previsto alcun supporto ufficiale offerto tramite Microsoft CSS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 09b9126125006fb70f5e2560f04b815b4a874405
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425364"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027300"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Esercitazione: rendere le macchine virtuali disponibili per gli utenti di Azure Stack
 
@@ -114,11 +114,11 @@ Ora che è stato creato un'offerta, è possibile eseguirne il test. Dovrai acced
 
    ![Ottieni una sottoscrizione](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. Nelle **ottenere una sottoscrizione**, immettere un nome per la sottoscrizione nel **nome visualizzato** campo. Selezionare **offrono**, quindi scegliere una delle offerte nel **scegliere un'offerta** elenco. Selezionare **Crea**.
+   b. Nelle **ottenere una sottoscrizione**, immettere un nome per la sottoscrizione nel **nome visualizzato** campo. Selezionare **offrono**, quindi scegliere una delle offerte nel **scegliere un'offerta** elenco. Selezionare **Create**.
 
    ![Creare un'offerta](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. Per visualizzare la sottoscrizione, selezionare **altri servizi**, quindi selezionare **sottoscrizioni**. Selezionare la nuova sottoscrizione per vedere quali servizi fanno parte della sottoscrizione.
+   c. Per visualizzare la sottoscrizione, selezionare **tutti i servizi**, quindi nel **generali** categoria, selezionare **sottoscrizioni**. Selezionare la nuova sottoscrizione per vedere quali servizi fanno parte della sottoscrizione.
 
    >[!NOTE]
    >Dopo la sottoscrizione a un'offerta, potrebbe essere necessario aggiornare il portale per vedere quali servizi fanno parte della nuova sottoscrizione.

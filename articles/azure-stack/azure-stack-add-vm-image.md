@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/27/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447337"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022765"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Adottare un'immagine di macchina virtuale disponibili in Azure Stack
 
@@ -37,7 +37,7 @@ Le immagini devono essere in grado di farvi riferimento da un URI di archiviazio
 
 1. [Caricare un'immagine di VM Windows in Azure per distribuzioni di Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) o, per un'immagine Linux, seguire le istruzioni descritte [distribuire macchine virtuali in Azure Stack](azure-stack-linux.md). Prima di caricare l'immagine, è importante prendere in considerazione i fattori seguenti:
 
-   - Azure Stack supporta il formato di disco fisso VHD. Il formato fisso strutture del disco logico in modo lineare all'interno del file, in modo che l'offset del disco X venga archiviato in corrispondenza dell'offset di blob X. Un piccolo piè di pagina alla fine del blob vengono descritte le proprietà del file VHD. Per verificare se il disco è fissa, usare il [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando di PowerShell.  
+   - Azure Stack solo supporta la generazione di uno (1) della macchina virtuale nel disco fisso VHD formato. Il formato fisso strutture del disco logico in modo lineare all'interno del file, in modo che l'offset del disco X venga archiviato in corrispondenza dell'offset di blob X. Un piccolo piè di pagina alla fine del blob vengono descritte le proprietà del file VHD. Per verificare se il disco è fissa, usare il [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando di PowerShell.  
 
     > [!IMPORTANT]
     >  Azure Stack non supporta i VHD dei dischi dinamici. Ridimensionamento di un disco dinamico collegato a una macchina virtuale lascia la macchina virtuale in stato di errore. Per attenuare questo problema, eliminare la macchina virtuale senza eliminare il disco della VM, un blob di disco rigido virtuale in un account di archiviazione. Converti il disco rigido virtuale da un disco dinamico a un disco a dimensione fissa e a ricreare la macchina virtuale.
@@ -48,13 +48,13 @@ Le immagini devono essere in grado di farvi riferimento da un URI di archiviazio
 
    * Prendere nota di archiviazione blob di URI in cui caricare l'immagine. L'URI dell'archiviazione blob ha il formato seguente: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* file con estensione vhd.
 
-   * Per rendere accessibile in modo anonimo di blob, passare al contenitore blob dell'account di archiviazione in cui è stato caricato il VHD dell'immagine della macchina virtuale. Selezionare **Blob**, quindi selezionare **criteri di accesso**. Facoltativamente, è possibile generare una firma di accesso condiviso per il contenitore e includerlo come parte dell'URI del blob.
+   * Per rendere accessibile in modo anonimo di blob, passare al contenitore blob dell'account di archiviazione in cui è stato caricato il VHD dell'immagine della macchina virtuale. Selezionare **Blob**, quindi selezionare **criteri di accesso**. Facoltativamente, è possibile generare una firma di accesso condiviso per il contenitore e includerlo come parte dell'URI del blob. Questo passaggio garantisce che il blob è disponibile per essere utilizzato per l'aggiunta di ciò come un'immagine. Se il blob non è accessibile in modo anonimo, l'immagine di macchina virtuale verrà creato a in stato di errore.
 
    ![Passare al BLOB dell'account di archiviazione](./media/azure-stack-add-vm-image/image1.png)
 
    ![Accesso al blob insieme al ruolo public](./media/azure-stack-add-vm-image/image2.png)
 
-2. Accedere ad Azure Stack come operatore. Nel menu, selezionare **altri servizi**. Quindi, selezionare **Compute** > **immagini di VM** > **Aggiungi**.
+2. Accedere ad Azure Stack come operatore. Nel menu, selezionare **tutti i servizi**. Quindi, sotto il **ADMINISTRATION** categoria, selezionare **calcolo** > **immagini di macchina virtuale** > **Aggiungi**.
 
 3. Sotto **aggiungere un'immagine di VM**, immettere il server di pubblicazione, offerta, SKU e versione dell'immagine di macchina virtuale. Questi segmenti nome fare riferimento all'immagine di macchina virtuale nei modelli di Resource Manager. Assicurarsi di selezionare il **osType** valore correttamente. Per la **URI del Blob del disco del sistema operativo**, immettere l'URI del Blob in cui l'immagine è stata caricata. Quindi, selezionare **Create** per iniziare a creare l'immagine di macchina virtuale.
 
@@ -115,7 +115,7 @@ Le immagini devono essere in grado di farvi riferimento da un URI di archiviazio
     Per altre informazioni, vedere il riferimento di PowerShell per il [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet e il [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>Aggiungere un'immagine di macchina virtuale personalizzata al Marketplace tramite PowerShell
-
+ 
 1. [Installare PowerShell per Azure Stack](azure-stack-powershell-install.md).
 
   ```PowerShell  

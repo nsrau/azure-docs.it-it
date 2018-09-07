@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 578bb864f56b788db77d1201533e73d3b9616669
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139728"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025311"
 ---
 # <a name="back-up-azure-stack"></a>Eseguire il backup di Azure Stack
 
@@ -81,7 +81,7 @@ Il risultato dovrebbe essere simile al seguente:
 Usare il portale di amministrazione di Azure Stack per verificare che il backup è stata completata correttamente seguendo questa procedura:
 
 1. Aprire il [portale di amministrazione di Azure Stack](azure-stack-manage-portals.md).
-2. Selezionare **altri servizi** > **backup Infrastructure**. Scegli **Configuration** nel **backup dell'infrastruttura** pannello.
+2. Selezionare **tutti i servizi**e quindi sotto il **amministrazione** categoria, selezionare > **backup dell'infrastruttura**. Scegli **Configuration** nel **backup dell'infrastruttura** pannello.
 3. Trovare il **Name** e **data di completamento** del backup nella **backup disponibili** elenco.
 4. Verificare i **lo stato** viene **Succeeded**.
 

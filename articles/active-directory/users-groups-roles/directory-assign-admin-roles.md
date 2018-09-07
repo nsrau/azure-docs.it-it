@@ -1,5 +1,5 @@
 ---
-title: Assegnazione dei ruoli di amministratore in Azure Active Directory | Microsoft Docs
+title: Assegnazione dei ruoli di amministratore in Azure Active Directory | Documentazione Microsoft
 description: Il ruolo di amministratore consente di aggiungere utenti, assegnare ruoli amministrativi, reimpostare le password utente, gestire le licenze utente o gestire i domini. Un utente a cui viene assegnato un ruolo amministrativo ha le stesse autorizzazioni in tutti i servizi cloud sottoscritti dall'organizzazione.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 9b56f540af2b8d35258a4db79502c9edf83cdb45
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505512"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128467"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Assegnazione dei ruoli di amministratore in Azure Active Directory
 
@@ -59,7 +59,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **[Ruoli con autorizzazioni di scrittura nella directory](#directory-writers)**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Non deve essere assegnato agli utenti.
 
-* **[Amministratore del servizio Dynamics 365 / Amministratore del servizio CRM](#dynamics-365-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Dynamics 365 Online, quando il servizio è presente, e possono gestire i ticket di supporto e monitorare l'integrità del servizio. Altre informazioni sono disponibili in [Utilizzare il ruolo di amministratore del servizio per gestire il tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Amministratore del servizio Dynamics 365 / Amministratore del servizio CRM](#dynamics-365-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Dynamics 365 Online, quando il servizio è presente, e possono gestire i ticket di supporto e monitorare l'integrità del servizio. Altre informazioni sono disponibili in [Utilizzare il ruolo di amministratore del servizio per gestire il tenant](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Amministratore del servizio Exchange](#exchange-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Exchange Online, quando il servizio è presente. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -74,7 +74,9 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **[Amministratore di Information Protection](#information-protection-administrator)**: gli utenti con questo ruolo hanno tutte le autorizzazioni nel servizio Azure Information Protection. Questo ruolo consente di configurare etichette per i criteri di Azure Information Protection, gestire i modelli di protezione e attivare la protezione. Il ruolo tuttavia non concede le autorizzazioni relative a Identity Protection Center, Privileged Identity Management, Centro sicurezza e conformità di Office 365 e al servizio di monitoraggio dell'integrità dei servizi di Office 365.
 
-* **[Amministratore del servizio Intune](#intune-service-administrator)**: gli utenti con questo ruolo usufruiscono di autorizzazioni globali all'interno di Microsoft Intune Online, quando il servizio è presente. Inoltre questo ruolo implica la possibilità di gestire utenti e dispositivi per associare i criteri, nonché creare e gestire gruppi. Altre informazioni sono disponibili in [Controllo degli accessi in base al ruolo (RBAC) con Microsoft Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control)
+* **[Amministratore del servizio Intune](#intune-service-administrator)**: gli utenti con questo ruolo usufruiscono di autorizzazioni globali all'interno di Microsoft Intune Online, quando il servizio è presente. Inoltre questo ruolo implica la possibilità di gestire utenti e dispositivi per associare i criteri, nonché creare e gestire gruppi. Altre informazioni sono disponibili in [Controllo degli accessi in base al ruolo (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+
+* **[Amministratore licenze](#license-administrator)**: gli utenti in questo ruolo possono aggiungere, rimuovere e aggiornare le assegnazioni di licenze a utenti, gruppi (utilizzando licenze basate su gruppi) e gestire i percorsi di utilizzo per gli utenti. Il ruolo non garantisce la possibilità di acquistare o gestire sottoscrizioni, creare o gestire gruppi o creare o gestire utenti al di fuori del percorso di utilizzo.
 
 * **[Ruolo con autorizzazioni di lettura per il Centro messaggi](#message-center-reader)**: gli utenti in questo ruolo possono monitorare le notifiche e gli aggiornamenti dello stato di integrità nel [Centro messaggi di Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) per la propria organizzazione sui servizi configurati, ad esempio Exchange, Intune e Microsoft Teams. Il Ruolo con autorizzazioni di lettura per il Centro messaggi riceve settimanalmente digest di posta elettronica di post, aggiornamenti e può condividere i post del centro messaggi in Office 365. In Azure AD, gli utenti assegnati a questo ruolo avranno solo l'accesso di sola lettura ai servizi di Azure AD, ad esempio utenti e gruppi. 
 
@@ -89,7 +91,7 @@ Sono disponibili i ruoli di amministratore seguenti:
   >
   >
   
-* **[Amministratore del servizio Power BI](#power-bi-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Power BI, quando il servizio è presente, nonché la possibilità di gestire i ticket di supporto e monitorare l'integrità del servizio. Per altre informazioni, vedere [Informazioni sul ruolo di amministratore di Power BI](https://docs.microsoft.com/en-us/power-bi/service-admin-role).
+* **[Amministratore del servizio Power BI](#power-bi-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Power BI, quando il servizio è presente, nonché la possibilità di gestire i ticket di supporto e monitorare l'integrità del servizio. Per altre informazioni, vedere [Informazioni sul ruolo di amministratore di Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
 
 * **[Amministratore del ruolo con privilegi](#privileged-role-administrator)**: gli utenti con questo ruolo possono gestire le assegnazioni dei ruoli in Azure Active Directory e in Azure AD Privileged Identity Management. Inoltre, questo ruolo consente la gestione di tutti gli aspetti di Privileged Identity Management.
 
@@ -163,7 +165,7 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app aziendali.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -198,7 +200,7 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 Può creare registrazioni di applicazioni indipendentemente dall'impostazione **Gli utenti possono registrare applicazioni**.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -213,7 +215,7 @@ Può creare registrazioni di applicazioni indipendentemente dall'impostazione **
 Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare le informazioni di pagamento.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -235,7 +237,7 @@ Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare
 Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app aziendali, ad eccezione del Proxy di applicazione.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -318,7 +320,7 @@ Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano ide
 Può eseguire la lettura e gestire i report e la configurazione di conformità in Azure AD e Office 365.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -341,7 +343,7 @@ Può eseguire la lettura e gestire i report e la configurazione di conformità i
 Può gestire le funzionalità di accesso condizionale.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -360,7 +362,7 @@ Può gestire le funzionalità di accesso condizionale.
 Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -472,7 +474,7 @@ Può leggere e scrivere le informazioni base della directory. Per concedere l'ac
 Può gestire tutti gli aspetti del prodotto Dynamics 365.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -493,7 +495,7 @@ Può gestire tutti gli aspetti del prodotto Dynamics 365.
 Può gestire tutti gli aspetti del prodotto Exchange.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -536,7 +538,7 @@ Può invitare utenti guest indipendentemente dall'impostazione **I membri posson
 Può reimpostare le password per gli utenti non amministratori e gli amministratori supporto tecnico.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -553,7 +555,7 @@ Può reimpostare le password per gli utenti non amministratori e gli amministrat
 Può gestire tutti gli aspetti del prodotto Azure Information Protection.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -574,7 +576,7 @@ Può gestire tutti gli aspetti del prodotto Azure Information Protection.
 Può gestire tutti gli aspetti del prodotto Intune.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -611,11 +613,28 @@ Può gestire tutti gli aspetti del prodotto Intune.
 | microsoft.aad.supporttickets/AllEntities/AllActions | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.intune/AllEntities/AllActions | Gestire tutti gli aspetti di Intune. |
 
+
+### <a name="license-administrator"></a>Amministratore licenze
+Possono gestire licenze dei prodotti per utenti e gruppi.
+ 
+  > [!NOTE]
+  > Questo ruolo eredita autorizzazioni aggiuntive dal ruolo con autorizzazioni di lettura nella directory.
+  >
+  >
+ 
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.aad.directory/users/assignLicense | Gestire le licenze per gli utenti in Azure Active Directory. |
+| microsoft.aad.directory/users/usageLocation/update | Aggiornare la proprietà Users.UsageLocation in Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Gestire tutti gli aspetti del servizio di accesso di Azure. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+
 ### <a name="lync-service-administrator"></a>Amministratore del servizio Lync
 Può gestire tutti gli aspetti del prodotto Skype for Business.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -654,7 +673,7 @@ Può eseguire la lettura di messaggi e aggiornamenti per la propria organizzazio
 Non usare: non destinato all'uso generale.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -690,7 +709,7 @@ Non usare: non destinato all'uso generale.
 Non usare: non destinato all'uso generale.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -729,7 +748,7 @@ Non usare: non destinato all'uso generale.
 Può gestire tutti gli aspetti del prodotto Power BI.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -750,7 +769,7 @@ Può gestire tutti gli aspetti del prodotto Power BI.
 Può gestire le assegnazioni dei ruoli in Azure AD
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -787,7 +806,7 @@ Può eseguire la lettura dei report di accesso e di controllo.
 Può eseguire la lettura dei report e delle informazioni di sicurezza
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -836,7 +855,7 @@ Può eseguire la lettura dei report e delle informazioni di sicurezza in Azure A
 Può eseguire la lettura delle informazioni di integrità dei servizi e gestire i ticket di supporto.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -856,7 +875,7 @@ Può eseguire la lettura delle informazioni di integrità dei servizi e gestire 
 Può gestire tutti gli aspetti del servizio SharePoint.
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -876,7 +895,7 @@ Può gestire tutti gli aspetti del servizio SharePoint.
 Può gestire tutti gli aspetti di utenti e gruppi
 
   > [!NOTE]
-  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Questo ruolo eredita autorizzazioni aggiuntive dal [ruolo di utente](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 

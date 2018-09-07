@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139397"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026519"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Effettuare il provisioning di archiviazione su disco di macchina virtuale in Azure Stack
 
@@ -30,9 +30,13 @@ Questo articolo descrive come eseguire il provisioning di archiviazione su disco
 
 ## <a name="overview"></a>Panoramica
 
-Azure Stack supporta l'utilizzo delle [dischi non gestiti](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) nelle macchine virtuali, come un sistema operativo (SO) e un disco dati.
+A partire dalla versione 1808, Azure Stack supporta l'uso di managed disks e i dischi non gestiti nelle macchine virtuali, come un sistema operativo (SO) e un disco dati. Prima della versione 1808, sono supportati solo dischi non gestiti. 
 
-Per usare dischi non gestiti, si crea una [account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) per archiviare i dischi. I dischi creati vengono definiti dischi di macchine Virtuali e vengono archiviati in contenitori nell'account di archiviazione.
+**[I dischi gestiti](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  semplificare la gestione dei dischi per VM IaaS di Azure per gestire gli account di archiviazione associati ai dischi della macchina virtuale. È sufficiente specificare le dimensioni del disco necessario, e Azure Stack crea e gestisce automaticamente il disco.
+
+**[Dischi non gestiti](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, è necessario creare un [account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) per archiviare i dischi. I dischi creati vengono definiti dischi di macchine Virtuali e vengono archiviati in contenitori nell'account di archiviazione.
+
+ 
 
 ### <a name="best-practice-guidelines"></a>Procedure ottimali
 

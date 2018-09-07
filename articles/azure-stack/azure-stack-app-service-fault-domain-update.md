@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: acadd1adec93d10d64712a2fbedb89e098998294
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440152"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025963"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Come ridistribuire il servizio App di Azure in Azure Stack nei domini di errore
 
@@ -48,8 +48,8 @@ Per ridistribuire i set di scalabilità distribuiti per il provider di risorse d
 Per scalare orizzontalmente i set di scalabilità, seguire questa procedura:
 
 1. Accedere al portale di Azure Stack di amministratore.
-1. Selezionare **Altri servizi**.
-1. Nel gruppo di risorse di calcolo, selezionare **set di scalabilità di macchine virtuali**. Verranno elencati set di scalabilità esistente, distribuito come parte della distribuzione del servizio App con le informazioni sul conteggio di istanza. La schermata seguente mostra un esempio di set di scalabilità.
+1. Selezionare **Tutti i servizi**.
+2. Nel **COMPUTE** categoria, seleziona **set di scalabilità di macchine virtuali**. Verranno elencati set di scalabilità esistente, distribuito come parte della distribuzione del servizio App con le informazioni sul conteggio di istanza. La schermata seguente mostra un esempio di set di scalabilità.
 
       ![Set di scalabilità di servizio di Azure App elencati in Virtual Machine Scale set UX][1]
 

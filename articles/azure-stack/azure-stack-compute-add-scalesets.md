@@ -7,20 +7,20 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3fbc3047688fed877280ca2d0f079ddea66bceb8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411907"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024732"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendere il set di scalabilità di macchine virtuali disponibili in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
-
+  
 Set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure Stack. È possibile utilizzarli per distribuire e gestire un set di macchine virtuali identiche. Con tutte le macchine virtuali configurato allo stesso modo, i set di scalabilità non necessitano di pre-provisioning di macchine virtuali. È più semplice creare servizi su larga scala destinati a big compute, big data e i carichi di lavoro in contenitori.
 
 Questo articolo illustra il processo per rendere disponibili i set di scalabilità in Azure Stack Marketplace. Dopo aver completato questa procedura, gli utenti possono aggiungere set di scalabilità di macchine virtuali per le sottoscrizioni.
@@ -36,9 +36,31 @@ In Azure Stack, il set di scalabilità di macchine virtuali non supporta la scal
 - **Il Marketplace**  
     Registrare Azure Stack con Azure globale, per abilitare la disponibilità dei prodotti in Marketplace. Seguire le istruzioni in [registrare Azure Stack con Azure](azure-stack-registration.md).
 - **Immagine del sistema operativo**  
-    Se è stata aggiunta un'immagine del sistema operativo per il Marketplace di Azure Stack, vedere [aggiungere un elemento del marketplace Azure Stack da Azure](asdk/asdk-marketplace-item.md).
+  Prima di poter creare un set di scalabilità di macchine virtuali (VMSS), è necessario scaricare le immagini di macchina virtuale per l'utilizzo in set di scalabilità dal [Marketplace Azure Stack](azure-stack-download-azure-marketplace-item.md). Le immagini devono essere già presente prima che un utente può creare un nuovo set di scalabilità. 
 
-## <a name="add-the-virtual-machine-scale-set"></a>Aggiungere il Set di scalabilità di macchine virtuali
+
+## <a name="use-the-azure-stack-portal"></a>Usa il portale di Azure Stack 
+
+>[!NOTE]  
+> Le informazioni contenute in questa sezione si applicano quando si usa Azure Stack 1808 o versione successiva. Se la versione è 1807 o versioni precedenti, vedere [aggiungere il Set di scalabilità (antecedente a 1808)](#add-the-virtual-machine-scale-set-(prior-to-version-1808)).
+
+1. Accedere al portale di Azure Stack. Quindi, passare alla **tutti i servizi** > **set di scalabilità di macchine virtuali**, quindi in *calcolo*selezionare **deisetdiscalabilitàdimacchinevirtuali**. 
+   ![Set di scalabilità di macchine virtuali selezionate](media/azure-stack-compute-add-scalesets/all-services.png)
+
+2. Selezionare Crea ***set di scalabilità di macchine virtuali***.
+   ![Creare un set di scalabilità di macchine virtuali](media/azure-stack-compute-add-scalesets/create-scale-set.png)
+
+3. Compilare i campi vuoti, scegliere tra gli elenchi a discesa per *immagine del sistema operativo*, *sottoscrizione*, e *dimensioni istanze*. Selezionare **Yes** per *Usa dischi gestiti*. Scegliere quindi **Create** (Crea).
+    ![Configurare e creare](media/azure-stack-compute-add-scalesets/create.png)
+
+4. Per visualizzare lo scalabilità di macchine virtuali nuove impostato, visitare **tutte le risorse**, eseguire la ricerca per nome del set di scalabilità di macchine virtuali e quindi selezionare il relativo nome nella ricerca. 
+   ![Visualizzare il set di scalabilità](media/azure-stack-compute-add-scalesets/search.png)
+
+
+
+## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>Aggiungere il Set di scalabilità (precedenti alla versione 1808)
+>[!NOTE]  
+> Le informazioni contenute in questa sezione si applicano quando si usa una versione di Azure Stack precedente 1808. Se si usa 1808 o versione successiva, vedere [usare il portale di Azure Stack](#use-the-azure-stack-portal).
 
 1. Aprire il Marketplace di Azure Stack e connettersi ad Azure. Selezionare **gestione Marketplace**> **+ Aggiungi da Azure**.
 
@@ -56,7 +78,7 @@ Dopo aver creato un set di scalabilità di macchine virtuali, gli utenti possono
 
    Quando la *versione* viene impostato come **più recente** nel *imageReference* sezione del modello per una scala impostata, scalare le operazioni relative all'utilizzo di set di scalabilità la versione più recente disponibile Imposta le istanze dell'immagine per la scala. Dopo aver completato un scalabilità verticale, è possibile eliminare precedenti istanze di set di scalabilità di macchine virtuali.  (I valori per *server di pubblicazione*, *offrono*, e *sku* restano invariati). 
 
-   Di seguito è riportato un esempio di definizione *più recente*:  
+   L'esempio JSON seguente specifica *più recente*:  
 
     ```Json  
     "imageReference": {
@@ -81,6 +103,17 @@ Dopo aver creato un set di scalabilità di macchine virtuali, gli utenti possono
     Se si scarica un'immagine con una versione più recente (che cambia la versione disponibile), il set di scalabilità non è possibile aumentare le prestazioni. È per impostazione predefinita la versione dell'immagine specificata nel modello di set di scalabilità deve essere disponibile.  
 
 Per altre informazioni, vedere [dischi del sistema operativo e immagini](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
+
+## <a name="scale-a-virtual-machine-scale-set"></a>Ridimensionare un set di scalabilità di macchine virtuali
+È possibile scalare le dimensioni di un *set di scalabilità di macchine virtuali* per renderla superiori o inferiori.  
+
+1. Nel portale, selezionare il set di scalabilità e quindi selezionare **Scaling**.
+2. Usare il dispositivo di scorrimento per impostare il nuovo livello di scalabilità per questo set di scalabilità di macchine virtuali e quindi selezionare **salvare**.
+     ![Il set di scalabilità](media/azure-stack-compute-add-scalesets/scale.png)
+
+
+
 
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Rimuovere un Set di scalabilità di macchine virtuali

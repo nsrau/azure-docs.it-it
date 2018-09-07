@@ -1,6 +1,6 @@
 ---
-title: Sottoscrivere un'offerta nello Stack di Azure | Documenti Microsoft
-description: Creare sottoscrizioni per le offerte nello Stack di Azure
+title: Sottoscrivere un'offerta in Azure Stack | Microsoft Docs
+description: Creare sottoscrizioni per le offerte in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,55 +12,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/11/2018
+ms.date: 09/05/2018
 ms.author: brenduns
-ms.openlocfilehash: 9153649774a67533649fb62da83a3f50abd592da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b35e75d7cfcaa46da46d2edcb80fe37c112a66a3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295211"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025572"
 ---
-# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Creare sottoscrizioni per le offerte nello Stack di Azure
+# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Creare le sottoscrizioni di offerte in Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Dopo aver [creare un'offerta](azure-stack-create-offer.md), gli utenti è necessaria una sottoscrizione a tale offerta prima di poter utilizzare. Esistono due modi che gli utenti possono ottenere sottoscritti a un'offerta:
+Dopo aver [creare un'offerta](azure-stack-create-offer.md), gli utenti necessari una sottoscrizione per l'offerta prima possono usare l'account. Esistono due modi che gli utenti possono ottenere sottoscritti a un'offerta:
 
-- Come operatore di cloud, è possibile creare una sottoscrizione per un utente all'interno del portale di amministrazione. È possibile sottoscrizioni create per le offerte pubbliche e private.
-- Come un utente di tenant, è possibile sottoscrivere un'offerta pubblica quando si usa il portale per gli utenti.  
+- Come operatore di cloud, è possibile creare una sottoscrizione per un utente dall'interno del portale di amministratore. Le sottoscrizioni create è possibile per le offerte pubbliche e private.
+- Come un utente del tenant, è possibile sottoscrivere un'offerta pubblica quando si usa il portale utenti.  
 
-## <a name="create-a-subscription-as-a-cloud-operator"></a>Creare una sottoscrizione come operatore di cloud
+## <a name="create-a-subscription-as-a-cloud-operator"></a>Creare una sottoscrizione come un operatore cloud
 
-Gli operatori di cloud è possono utilizzare il portale di amministrazione per creare una sottoscrizione a un'offerta per un utente.  È possibile creare sottoscrizioni per i membri del tenant di directory.  Quando [multi-tenancy](azure-stack-enable-multitenancy.md) è abilitato, è inoltre possibile creare sottoscrizioni per gli utenti nel tenant di directory aggiuntive.
+Gli operatori cloud è possono usare il portale di amministrazione per creare una sottoscrizione a un'offerta per un utente.  È possibile creare sottoscrizioni per i membri del proprio tenant di directory.  Quando [multi-tenancy](azure-stack-enable-multitenancy.md) è abilitato, è anche possibile creare sottoscrizioni per gli utenti nel tenant di directory aggiuntive.
 
-Se non desidera che i tenant per creare le proprie sottoscrizioni, rendere privato le offerte e quindi creare le sottoscrizioni per i tenant. Questo approccio è comune per l'integrazione di Azure Stack con fatturazione esterna o sistemi di servizio catalogo.
+Se non desidera che i tenant a creare le proprie sottoscrizioni, rendere privato le offerte e quindi creare le sottoscrizioni per i tenant. Questo approccio è comune quando si integra Azure Stack con fatturazione esterna o sistemi del servizio catalogo.
 
-Dopo aver creato una sottoscrizione per un utente, possono accedere al portale per gli utenti e vedere che è stata effettuata la sottoscrizione dell'offerta.  
+Dopo aver creato una sottoscrizione per un utente, possono accedere al portale per gli utenti e vedere che ha sottoscritto l'offerta.  
 
 ### <a name="to-create-a-subscription-for-a-user"></a>Per creare una sottoscrizione per un utente
 
-1. Nel portale di amministrazione, passare a **le sottoscrizioni dell'utente.**
+1. Nel portale di amministrazione, passare a **sottoscrizioni utente.**
 2. Selezionare **Aggiungi**. Sotto **nuova sottoscrizione utente**, immettere le informazioni seguenti:  
 
-   - **Nome visualizzato** : un nome descrittivo per identificare la sottoscrizione che viene visualizzato come il *nome sottoscrizione utente*.
-   - **Utente** : specificare un utente da un tenant di directory disponibili per questa sottoscrizione. Il nome utente viene visualizzato come *proprietario*.  Il formato del nome utente dipende dalla soluzione delle identità. Ad esempio: 
+   - **Nome visualizzato** : un nome descrittivo per identificare la sottoscrizione che viene visualizzato come il *il nome di sottoscrizione utente*.
+   - **Utente** : specificare un utente da un tenant di directory disponibili per questa sottoscrizione. Il nome utente viene visualizzato come *proprietario*.  Il formato del nome utente dipende la soluzione di identità. Ad esempio: 
 
-     - **Azure AD:***&lt;user1 > @&lt;contoso.onmicrosoft.com >* 
+     - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **ADFS:***&lt;user1 > @&lt;azurestack.local >* 
+     - **AD FS:** `<user1>@<azurestack.local>` 
 
-   - **Tenant di directory** : selezionare il tenant di directory in cui appartiene l'account utente. Se non è stata abilitata multi-tenancy, solo il tenant di directory locale è disponibile.
+   - **Tenant di directory** : selezionare il tenant di directory a cui appartiene l'account utente. Se non è stata abilitata multi-tenancy, è disponibile solo il tenant di directory locale.
 
-3. Selezionare **offrono**. Sotto **offre**, scegliere un **offrono** per questa sottoscrizione. Poiché si sta creando la sottoscrizione per un utente, selezionare **privato** come lo stato di accessibilità.
+3. Selezionare **offrono**. Sotto **offre**, scegliere un' **offrono** per questa sottoscrizione. Poiché si sta creando la sottoscrizione per un utente, selezionare **privati** come lo stato di accessibilità.
 
-4. Selezionare **crea** per creare la sottoscrizione. Verrà visualizzata la nuova sottoscrizione sotto **sottoscrizione utente**. Quando l'utente accede al portale utenti è possibile visualizzare i dettagli della sottoscrizione.
+4. Selezionare **Create** per creare la sottoscrizione. Si noterà la nuova sottoscrizione a fronte **sottoscrizione utente**. Quando l'utente accede al portale utenti è possibile visualizzare i dettagli della sottoscrizione.
 
-### <a name="to-make-an-add-on-plan-available"></a>Per rendere disponibile un piano del componente aggiuntivo
+### <a name="to-make-an-add-on-plan-available"></a>Per rendere disponibile un piano aggiuntivo
 
-Un operatore di cloud è possibile aggiungere un piano del componente aggiuntivo a una sottoscrizione creata in precedenza in qualsiasi momento:
+Un operatore cloud è possibile aggiungere un piano del componente aggiuntivo a una sottoscrizione creata in precedenza in qualsiasi momento:
 
-1. Nel portale di amministrazione, selezionare **più servizi** > **sottoscrizioni utente**. Selezionare la sottoscrizione da modificare.
+1. Nel portale di amministrazione, selezionare **tutti i servizi** e quindi sotto il **risorse amministrative** categoria, seleziona **sottoscrizioni utente**. Selezionare la sottoscrizione da modificare.
 
 2. Selezionare **i componenti aggiuntivi** e quindi selezionare **+ Aggiungi**.  
 
@@ -68,34 +68,34 @@ Un operatore di cloud è possibile aggiungere un piano del componente aggiuntivo
 
 ## <a name="create-a-subscription-as-a-user"></a>Creare una sottoscrizione con un account utente
 
-Come un utente, è possibile accedere al portale per gli utenti per individuare ed eseguire la sottoscrizione alle offerte pubbliche e ai piani di componente aggiuntivo per il tenant di directory (organizzazione).
+Come un utente, è possibile accedere al portale utenti di trovare e sottoscrivere pubbliche offerte e piani aggiuntivi per il tenant di directory (organizzazione).
 
 >[!NOTE]
->Se l'ambiente dello Stack di Azure supporta [multi-tenancy](azure-stack-enable-multitenancy.md) è inoltre possibile sottoscrivere offerte da un tenant di directory remota.
+>Se l'ambiente Azure Stack supporta [multi-tenancy](azure-stack-enable-multitenancy.md) è inoltre possibile sottoscrivere le offerte da un tenant di directory remota.
 
 ### <a name="to-subscribe-to-an-offer"></a>Sottoscrivere un'offerta
 
-1. [Accedi](azure-stack-connect-azure-stack.md) al portale utenti Azure Stack (https://portal.local.azurestack.external) e selezionare **ottenere una sottoscrizione**.
+1. [Accedere](azure-stack-connect-azure-stack.md) del portale utenti di Azure Stack (https://portal.local.azurestack.external) e selezionare **ottenere una sottoscrizione**.
 
    ![Ottieni una sottoscrizione](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
-2. Sotto **ottenere una sottoscrizione**, immettere il nome descrittivo della sottoscrizione in **nome visualizzato**. Selezionare **offrono** e in **scegliere un'offerta**, scegliere un'offerta. Selezionare **crea** per creare la sottoscrizione.
+2. Sotto **ottenere una sottoscrizione**, immettere il nome descrittivo della sottoscrizione in **nome visualizzato**. Selezionare **offrono** e nella **scegliere un'offerta**, scegliere un'offerta. Selezionare **Create** per creare la sottoscrizione.
 
    ![Creare un'offerta](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
-3. Dopo la sottoscrizione a un'offerta, aggiornare il portale di servizi che fanno parte della nuova sottoscrizione.
-4. Per visualizzare la sottoscrizione è stato creato, selezionare **altri servizi** e quindi selezionare **sottoscrizioni**. Selezionare la sottoscrizione per visualizzare i dettagli della sottoscrizione.  
+3. Dopo la sottoscrizione a un'offerta, aggiornare il portale per vedere quali servizi fanno parte della nuova sottoscrizione.
+4. Per visualizzare la sottoscrizione è stato creato, selezionare **tutti i servizi** e quindi nel **generali** categoria, selezionare **sottoscrizioni**. Selezionare la sottoscrizione per visualizzare i dettagli della sottoscrizione.  
 
-### <a name="to-subscribe-to-an-add-on-plan"></a>Per sottoscrivere un piano del componente aggiuntivo
+### <a name="to-subscribe-to-an-add-on-plan"></a>Per sottoscrivere un piano aggiuntivo
 
-Se un'offerta dispone di un piano del componente aggiuntivo, è possibile aggiungere tale piano per la sottoscrizione in qualsiasi momento.  
+Se un'offerta ha un piano del componente aggiuntivo, è possibile aggiungere tale piano per la sottoscrizione in qualsiasi momento.  
 
-1. Nel portale per gli utenti, selezionare **più servizi** > **sottoscrizioni**e quindi selezionare la sottoscrizione che si desidera modificare. Se sono disponibili, i piani di componente aggiuntivo **+ Aggiungi piano** è attiva ed è presente un riquadro per **piani di componente aggiuntivo**.
+1. Nel portale per gli utenti, selezionare **tutti i servizi**. Quindi, sotto il **generali** categoria, selezionare **sottoscrizioni**e quindi selezionare la sottoscrizione che si desidera modificare. Se sono disponibili, tutti i piani aggiuntivi **+ Aggiungi piano** è attivo ed è presente un riquadro per **piani aggiuntivi**.
 
    >[!NOTE]
-   >Se **+ Aggiungi piano** non è attivo, quindi non sono tutti i piani di componente aggiuntivo per l'offerta associate alla sottoscrizione.
+   >Se **+ Aggiungi piano** non è attivo, quindi non ci siano eventuali piani aggiuntivi per l'offerta associato alla sottoscrizione.
 
-1. Selezionare **+ Aggiungi piano** o il **piani di componente aggiuntivo** riquadro. Sotto **piani di componente aggiuntivo**, selezionare il piano di cui si desidera aggiungere.
+1. Selezionare **+ Aggiungi piano** o nella **piani aggiuntivi** riquadro. Sotto **piani aggiuntivi**, selezionare il piano di cui si desidera aggiungere.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

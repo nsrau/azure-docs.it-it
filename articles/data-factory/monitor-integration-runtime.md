@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio del runtime di integrazione in Azure Data Factory | Microsoft Docs
+title: Monitoraggio del runtime di integrazione in Azure Data Factory | Documentazione Microsoft
 description: Informazioni su come monitorare diversi tipi di runtime di integrazione in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505362"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128450"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory  
 Il **runtime di integrazione** è l'infrastruttura di calcolo usata da Azure Data Factory per fornire varie funzionalità di integrazione di dati in diversi ambienti di rete. Esistono tre tipi di runtime di integrazione offerti da Data Factory:
@@ -41,14 +41,14 @@ La risorsa di calcolo per un runtime di integrazione di Azure è completamente g
 ### <a name="properties"></a>Properties
 Nella tabella seguente vengono fornite descrizioni per le proprietà restituite dal cmdlet per un runtime di integrazione Azure:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 -------- | ------------- | 
 | NOME | Nome del runtime di integrazione di Azure. |  
 | Stato | Stato del runtime di integrazione di Azure. | 
 | Località | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
 | DataFactoryName | Nome della data factory a cui appartiene il runtime di integrazione di Azure. | 
 | ResourceGroupName | Nome del gruppo di risorse a cui appartiene la data factory.  |
-| Descrizione | Descrizione del runtime di integrazione di Azure.  |
+| DESCRIZIONE | Descrizione del runtime di integrazione di Azure.  |
 
 ### <a name="status"></a>Status
 La tabella seguente indica i possibili stati di un runtime di integrazione di Azure:
@@ -68,7 +68,7 @@ Nella presente sezione vengono fornite descrizioni per le proprietà restituite 
 
 La tabella seguente fornisce le descrizioni delle proprietà di monitoraggio per **ogni nodo**:
 
-| Proprietà | Descrizione | 
+| Proprietà | DESCRIZIONE | 
 | -------- | ----------- | 
 | NOME | Nome del runtime di integrazione self-hosted e dei nodi associati. Il nodo è un computer Windows locale su cui è installato il runtime di integrazione self-hosted. |  
 | Status | Lo stato del runtime di integrazione self-hosted generale e di ogni nodo. Esempio: Online/Offline/Limitato e così via. Per informazioni su questi stati, vedere la sezione successiva. | 
@@ -92,7 +92,7 @@ Per aumentare questo limite è necessario incrementare il numero di nodi. In que
 ### <a name="status-per-node"></a>Stato (per ogni nodo)
 La tabella seguente indica i possibili stati di un nodo di runtime di integrazione self-hosted:
 
-| Status | Descrizione |
+| Status | DESCRIZIONE |
 | ------ | ------------------ | 
 | Online | Il nodo è connesso al servizio Data Factory. |
 | Offline | Il nodo è offline. |
@@ -105,7 +105,7 @@ Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi.
 ### <a name="status-overall-self-hosted-integration-runtime"></a>Stato (runtime di integrazione self-hosted generale)
 La tabella seguente indica i possibili stati di un runtime di integrazione self-hosted. Questo stato varia a seconda degli stati di tutti i nodi che appartengono al runtime. 
 
-| Status | Descrizione |
+| Status | DESCRIZIONE |
 | ------ | ----------- | 
 | Need Registration | Nessun nodo è ancora registrato per questo runtime di integrazione self-hosted. |
 | Online | Tutti i nodi sono online. |
@@ -157,7 +157,7 @@ Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di mac
 
 ### <a name="properties"></a>Properties
 
-| Proprietà/stato | Descrizione |
+| Proprietà/stato | DESCRIZIONE |
 | --------------- | ----------- |
 | CreateTime | L'ora UTC in cui è stato creato il runtime di integrazione di Azure-SSIS. |
 | Nodi | I nodi disponibili/allocati del runtime di integrazione SSIS di Azure con errori eseguibili e stati specifici del nodo (avvio/disponibile/riciclo/non disponibile). |
@@ -179,12 +179,12 @@ Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di mac
 | ResourceGroupName | Il nome del gruppo di risorse di Azure, in cui sono stati creati la data factory e il runtime di integrazione SSIS di Azure. |
 | DataFactoryName | Nome della data factory di Azure. |
 | NOME | Il nome del runtime di integrazione SSIS di Azure. |
-| Descrizione | La descrizione del runtime di integrazione SSIS di Azure. |
+| DESCRIZIONE | La descrizione del runtime di integrazione SSIS di Azure. |
 
   
 ### <a name="status-per-node"></a>Stato (per ogni nodo)
 
-| Status | Descrizione |
+| Status | DESCRIZIONE |
 | ------ | ----------- | 
 | Avvio in corso | Questo nodo è in corso di preparazione. |
 | Disponibile | Questo nodo è pronto per la distribuzione/esecuzione di pacchetti SSIS. |
@@ -193,7 +193,7 @@ Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di mac
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Stato (generale del runtime di integrazione SSIS di Azure)
 
-| Stato generale | Descrizione | 
+| Stato generale | DESCRIZIONE | 
 | -------------- | ----------- | 
 | Initial | I nodi del runtime di integrazione SSIS di Azure non sono stati allocati/preparati. | 
 | Avvio in corso | L’allocazione/preparazione dei nodi del runtime di integrazione SSIS di Azure è in corso e la fatturazione è stata avviata. |

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412900"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024801"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare elementi di marketplace di Azure ad Azure Stack
 
@@ -151,7 +151,7 @@ Lo scenario è composto da due parti:
 2. Usare il portale di amministrazione per caricare il pacchetto di elemento di marketplace (il file con estensione azpkg) in archiviazione Blob di Azure Stack. Caricamento del pacchetto lo rende disponibile in Azure Stack in modo che in un secondo momento è possibile pubblicare l'elemento di Marketplace di Azure Stack.
 
    Caricamento richiede di disporre di un account di archiviazione con un contenitore accessibile pubblicamente (vedere i prerequisiti per questo scenario)   
-   1. Nel portale di amministrazione di Azure Stack, passare a **altri servizi** > **account di archiviazione**.  
+   1. Nel portale di amministrazione di Azure Stack, passare a **tutti i servizi** e quindi nel **dati e archiviazione** categoria, seleziona **account di archiviazione**.  
    
    2. Selezionare un account di archiviazione dalla sottoscrizione e quindi sotto **servizio BLOB**, selezionare **contenitori**.  
       ![Servizio BLOB](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
@@ -198,7 +198,7 @@ Lo scenario è composto da due parti:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Dopo aver pubblicato un elemento della raccolta, è possibile visualizzarlo dal **altri servizi** > **Marketplace**.  Se il download è un modello di soluzione, assicurarsi che si aggiunge un'immagine di disco rigido virtuale dipendenti per tale modello di soluzione.  
+5. Dopo aver pubblicato un elemento della raccolta, si visitando **tutti i servizi**. Quindi, sotto il **generali** categoria, seleziona **Marketplace**.  Se il download è un modello di soluzione, assicurarsi che si aggiunge un'immagine di disco rigido virtuale dipendenti per tale modello di soluzione.  
   ![Marketplace di visualizzazione](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

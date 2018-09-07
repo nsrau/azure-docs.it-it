@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035334"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026203"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Applicare gli aggiornamenti in Azure Stack
 
@@ -42,7 +42,7 @@ La procedura seguente viene illustrato come importare e installare i pacchetti d
 > [!IMPORTANT]
 > È consigliabile inviare notifiche agli utenti di tutte le operazioni di manutenzione e pianificare finestre di manutenzione normale durante non lavorative quanto più possibile. I carichi di lavoro utente e operazioni nel portale, possono influire sulle operazioni di manutenzione.
 
-1. Nel portale di amministrazione, selezionare **altri servizi**. Quindi, sotto il **Data + Storage** categoria, seleziona **account di archiviazione**. (O, nella casella del filtro, iniziare a digitare **gli account di archiviazione**e selezionarlo.)
+1. Nel portale di amministrazione, selezionare **tutti i servizi**. Quindi, sotto il **DATA + STORAGE** categoria, seleziona **account di archiviazione**. (O, nella casella del filtro, iniziare a digitare **gli account di archiviazione**e selezionarlo.)
 
     ![Viene illustrato dove trovare gli account di archiviazione nel portale](media/azure-stack-apply-updates/ApplyUpdates1.png)
 

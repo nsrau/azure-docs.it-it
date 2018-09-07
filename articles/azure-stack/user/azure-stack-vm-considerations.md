@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7eb82457d8c8d7e306dcbdac39510ce328cd925b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 30cdb07f8e0d5481f34148b99fa86f2a1bb85e0b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139286"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022197"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerazioni sull'utilizzo delle macchine virtuali in Azure Stack
 
@@ -36,7 +36,7 @@ Macchine virtuali di Azure Stack forniscono le risorse di calcolo on demand e sc
 | Quote macchina virtuale | [I limiti di quota](../../azure-subscription-service-limits.md#service-specific-limits) impostati da Microsoft | L'amministratore del cloud Azure Stack è necessario assegnare quote prima che le macchine virtuali offrono agli utenti. |
 | Estensioni macchina virtuale |Azure supporta un'ampia gamma di estensioni della macchina virtuale. Per informazioni sulle estensioni disponibili, vedere la [estensioni di macchina virtuale e funzionalità](../../virtual-machines/windows/extensions-features.md) articolo.| Azure Stack supporta un subset delle estensioni disponibili in Azure e dell'estensione presentano versioni specifiche. L'amministratore del cloud Azure Stack può scegliere le estensioni da messe a disposizione per gli utenti. Per visualizzare l'elenco di estensioni supportate, vedere la [estensioni della macchina virtuale](#virtual-machine-extensions) sezione di questo articolo. |
 | Rete della macchina virtuale | Indirizzi IP pubblici assegnati alla macchina virtuale del tenant sono accessibili tramite Internet.<br><br><br>Macchine virtuali di Azure con un nome DNS predefinito | Indirizzi IP pubblici assegnati a una macchina virtuale tenant siano accessibili all'interno dell'ambiente Azure Stack Development Kit solo. Un utente deve avere accesso a Azure Stack Development Kit tramite [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) oppure [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) per connettersi a una macchina virtuale creata in Azure Stack.<br><br>Le macchine virtuali create all'interno di una specifica istanza di Azure Stack ha un nome DNS in base al valore configurato dall'amministratore del cloud. |
-| Archiviazione della macchina virtuale | Supporta [dischi gestiti.](../../virtual-machines/windows/managed-disks-overview.md) | I dischi gestiti non sono ancora supportati in Azure Stack. |
+| Archiviazione della macchina virtuale | Supporta [dischi gestiti.](../../virtual-machines/windows/managed-disks-overview.md) | I dischi gestiti sono supportati in Azure Stack con 1808 e versioni successive. |
 | Versioni dell'API | Azure ha sempre le versioni dell'API più recente per tutte le funzionalità di macchina virtuale. | Azure Stack supporta specifiche versioni di API e servizi di Azure specifici per questi servizi. Per visualizzare l'elenco delle versioni API supportate, vedere la [le versioni API](#api-versions) sezione di questo articolo. |
 |Set di disponibilità della macchina virtuale|Più domini di errore (2 o 3 per ogni area)<br>Più domini di aggiornamento<br>Supporto di dischi gestiti|Più domini di errore (2 o 3 per ogni area)<br>Più domini di aggiornamento (fino a 20)<br>Nessun supporto del disco gestito|
 |set di scalabilità di macchine virtuali|È supportata la scalabilità automatica|Scalabilità automatica non è supportata.<br>Aggiungere altre istanze di un set di scalabilità tramite il portale, modelli di Resource Manager o PowerShell.
