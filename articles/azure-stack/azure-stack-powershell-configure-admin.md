@@ -1,6 +1,6 @@
 ---
-title: Configurare l'ambiente Azure Stack PowerShell | Documenti Microsoft
-description: Informazioni su come configurare l'ambiente dello Stack di Azure PowerShell.
+title: Connettersi ad Azure Stack con PowerShell come un operatore | Microsoft Docs
+description: Informazioni su come connettersi ad Azure Stack con PowerShell come un operatore
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,32 +11,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 74a5a9408a78dd0da12fb3f8ed721774030cc438
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e6e1ffdf4384080649a769b2fdf6877ea744ec51
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749862"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162173"
 ---
-# <a name="configure-the-azure-stack-powershell-environment"></a>Configurare l'ambiente dello Stack di Azure PowerShell
+# <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Connettersi ad Azure Stack con PowerShell come un operatore
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-È possibile configurare lo Stack di Azure per l'utilizzo di PowerShell per gestire le risorse, ad esempio la creazione di piani, quote e gli avvisi. Questo argomento consente di configurare l'ambiente di operatore.
+È possibile configurare lo Stack di Azure per usare PowerShell per gestire le risorse, ad esempio la creazione di offerte, piani, le quote e avvisi. Questo argomento consente di configurare l'ambiente di operatore.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Eseguire i seguenti prerequisiti tramite il [kit di sviluppo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o da un client esterno con codifica basata su Windows se si è [connessi tramite VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
+Eseguire i seguenti prerequisiti dal [kit di sviluppo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o da un client esterno con codifica basata su Windows se sei [connesse tramite VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
 
- - Installare [i moduli di PowerShell Azure compatibile con Stack Azure](azure-stack-powershell-install.md).  
+ - Installare [moduli di Azure Stack-compatibili con Azure PowerShell](azure-stack-powershell-install.md).  
  - Scaricare il [gli strumenti necessari per lavorare con Azure Stack](azure-stack-powershell-download.md).  
 
-## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>Configurare l'ambiente di operatore e accedere a Azure Stack
+## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>Configurare l'ambiente di operatore e accedere ad Azure Stack
 
-Configurare l'ambiente di operatore dello Stack di Azure con PowerShell. Eseguire uno degli script di seguito: sostituzione tenantName Azure AD, GraphAudience endpoint e ArmEndpoint valori con la propria configurazione dell'ambiente.
+Configurare l'ambiente di operatore di Azure Stack con PowerShell. Eseguire uno dei seguenti script: sostituire Nometenant di Azure AD, GraphAudience endpoint e ArmEndpoint valori con la propria configurazione di ambiente.
 
 ````PowerShell  
     # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external.
@@ -54,7 +54,7 @@ Configurare l'ambiente di operatore dello Stack di Azure con PowerShell. Eseguir
 
 ## <a name="test-the-connectivity"></a>Testare la connettività
 
-Ora che hai tutto questo caso, utilizzare PowerShell per creare le risorse all'interno dello Stack di Azure. Ad esempio, è possibile creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Utilizzare il comando seguente per creare un gruppo di risorse denominato **MyResourceGroup**.
+Ora che hai tutti gli elementi di configurazione, usare PowerShell per creare risorse all'interno di Azure Stack. Ad esempio, è possibile creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Usare il comando seguente per creare un gruppo di risorse denominato **MyResourceGroup**.
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

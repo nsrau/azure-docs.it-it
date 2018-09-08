@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 4fd2a26d9119e52fc75918abc1ca97e6f9888169
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a2ad07809963560b1225ff07b095509c93618996
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028811"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160422"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: Differenze e considerazioni
 Questo articolo riepiloga le differenze note tra Managed Disks di Azure Stack e Managed Disks di Azure. Per altre informazioni sulle differenze generali tra Azure e Azure Stack, vedere la [considerazioni chiave](azure-stack-considerations.md) articolo.
@@ -28,7 +28,7 @@ Questo articolo riepiloga le differenze note tra Managed Disks di Azure Stack e 
 Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS gestendo il [gli account di archiviazione](/azure/azure-stack/azure-stack-manage-storage-accounts) associati ai dischi della macchina virtuale.
   
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>Foglio informativo: macchina virtuale differenze
+## <a name="cheat-sheet-managed-disk-differences"></a>Foglio informativo: differenze di disco gestito
 
 | Funzionalità | Azure (globale) | Azure Stack |
 | --- | --- | --- |

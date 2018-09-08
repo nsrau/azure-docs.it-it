@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 90c18af0f846061c102f1daf1b84a332aaec1dc6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1e908a8cf5576ce3bc3d58d1ef6f29d596ebc58b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235422"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158178"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Convalidare una nuova soluzione di Azure Stack
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Informazioni su come possono usare il flusso di lavoro di convalida di soluzioni per la certificazione nuove soluzioni di Azure Stack.
 
@@ -70,7 +70,7 @@ Questa Guida introduttiva ottiene è in corso il processo di aggiunta della solu
 
 Aggiungere i parametri di ambienti seguenti:
 
-| Informazioni sul passaggio di test | Obbligatorio | Description |
+| Informazioni sul passaggio di test | Obbligatorio | DESCRIZIONE |
 | --- | --- | --- | --- |
 | Compilazione di Azure Stack | Obbligatorio | Valore numerico (ad esempio 20170501.1) deve essere una valida di Azure Stack compilare numero o la versione, ad esempio, 1.0.170330.9 Azure build di Stack |
 | ID tenant | Obbligatorio | ID Tenant di Active Directory. Deve essere un GUID (ad esempio ECA23256-6BA0-4F27-8E4D-AFB02F088363) |
@@ -84,7 +84,7 @@ Aggiungere i parametri di ambienti seguenti:
 
 Aggiungere i parametri di test comuni seguenti:
 
-| Informazioni sul passaggio di test | Obbligatorio | Description |
+| Informazioni sul passaggio di test | Obbligatorio | DESCRIZIONE |
 | --- | --- | --- |
 | Nome utente tenant | Obbligatorio | Nome utente del tenant (ad esempio tenant@contoso.onmicrosoft.com) |
 | Password del tenant | Obbligatorio | La password per il tenant. |

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139344"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161766"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Usare i modelli di Gestione risorse di Azure in Azure Stack
 
@@ -30,11 +30,11 @@ ms.locfileid: "42139344"
 
 Questi modelli possono essere distribuiti con il portale di Microsoft Azure Stack, PowerShell, la riga di comando e Visual Studio.
 
-I modelli di Guida introduttiva seguenti sono disponibili sul [GitHub](http://aka.ms/azurestackgithub).
+I modelli di Guida introduttiva seguenti sono disponibili sul [GitHub](http://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Distribuire SharePoint Server (distribuzione della disponibilità elevata)
 
-Usare l'estensione DSC di PowerShell per creare una farm di SharePoint Server 2013 che include le risorse seguenti:
+Usare l'estensione DSC di PowerShell per [creare una farm di SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) che include le risorse seguenti:
 
 * Una rete virtuale
 * Tre account di archiviazione
@@ -45,7 +45,7 @@ Usare l'estensione DSC di PowerShell per creare una farm di SharePoint Server 20
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Distribuire Active Directory (non-elevata--distribuzione a disponibilità)
 
-Usare l'estensione DSC di PowerShell per creare un server di controller di dominio Active Directory che include le risorse seguenti:
+Usare l'estensione DSC di PowerShell per [creare un server di controller di dominio Active Directory](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) che include le risorse seguenti:
 
 * Una rete virtuale
 * Un account di archiviazione
@@ -54,7 +54,7 @@ Usare l'estensione DSC di PowerShell per creare un server di controller di domin
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Distribuire AD/SQL (non-elevata--distribuzione a disponibilità)
 
-Usare l'estensione DSC di PowerShell per creare un server autonomo di SQL Server 2014 che include le risorse seguenti:
+Usare l'estensione DSC di PowerShell per [creare un server autonomo di SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) che include le risorse seguenti:
 
 * Una rete virtuale
 * Due account di archiviazione
@@ -68,15 +68,15 @@ Usare l'estensione DSC di PowerShell per configurare una macchina virtuale esist
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Creare una macchina virtuale da un'immagine dell'utente
 
-Creare una macchina virtuale da un'immagine dell'utente personalizzata. Questo modello distribuisce anche una rete virtuale (con DNS), un indirizzo IP pubblico e un'interfaccia di rete.
+[Creare una macchina virtuale da un'immagine utente personalizzata](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Questo modello distribuisce anche una rete virtuale (con DNS), un indirizzo IP pubblico e un'interfaccia di rete.
 
 ## <a name="basic-virtual-machine"></a>Macchina virtuale di base
 
-Distribuire una VM Windows che include una rete virtuale (con DNS), indirizzo IP pubblico e un'interfaccia di rete.
+[Distribuire una macchina virtuale Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) che include una rete virtuale (con DNS), indirizzo IP pubblico e un'interfaccia di rete.
 
 ## <a name="cancel-a-running-template-deployment"></a>Annullare la distribuzione di un modello in esecuzione
 
-Per annullare una distribuzione modello in esecuzione, usare il `Stop-AzureRmResourceGroupDeployment` cmdlet di PowerShell.
+Per annullare una distribuzione modello in esecuzione, usare il [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) cmdlet di PowerShell.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

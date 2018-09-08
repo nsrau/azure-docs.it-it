@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026203"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091901"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Applicare gli aggiornamenti in Azure Stack
 
@@ -65,7 +65,7 @@ La procedura seguente viene illustrato come importare e installare i pacchetti d
 6. Sotto **carica blob**, fare clic sull'icona della cartella, passare al file .exe del pacchetto di aggiornamento e quindi fare clic su **Open** nella finestra Esplora file.
   
 7. Sotto **carica blob**, fare clic su **caricare**. 
- 
+  
     ![Viene illustrato come caricare ogni file di pacchetto](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. Ripetere i passaggi 6 e 7 per il *PackageName*con estensione bin e i file Metadata. Xml. Non importare il file Notice. txt supplementare se inclusi.
@@ -74,6 +74,8 @@ La procedura seguente viene illustrato come importare e installare i pacchetti d
 11. Per installare l'aggiornamento, selezionare il pacchetto che è contrassegnato come **pronti** e fare doppio clic su pacchetto e selezionare **aggiornale**, oppure fare clic sui **Aggiorna adesso** azione nella parte superiore .
 12. Quando si fa clic sul pacchetto di aggiornamento di installazione, è possibile visualizzare lo stato nella **dettagli dell'esecuzione aggiornamento** area. A questo punto, è anche possibile fare clic su **Scarica i log completi** per scaricare i file di log.
 13. Al termine dell'aggiornamento, il riquadro di aggiornamento Visualizza la versione aggiornata di Azure Stack.
+
+È possibile eliminare manualmente gli aggiornamenti dall'account di archiviazione dopo che sono stati installati in Azure Stack. Azure Stack periodicamente verifica la presenza di pacchetti di aggiornamento meno recenti e li rimuove da un archivio. Azure Stack può richiedere due settimane per rimuovere i pacchetti meno recenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

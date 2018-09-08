@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3f87721dcf7485e15a473e82597f6bf4baeca659
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b94d37d528739247cb4f94a17dadf3876c4db6bd
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42139400"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158509"
 ---
 # <a name="set-up-your-validation-as-a-service-account"></a>Configurare la convalida come account del servizio
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 La convalida come servizio (VaaS) è un servizio di Azure che viene reso disponibile per i partner di Microsoft Azure Stack che dispongono di un contratto di CO-engineering con Microsoft per progettare, sviluppare, convalidare, vendere, distribuire e supportare soluzioni di Azure Stack nel mercato.
 

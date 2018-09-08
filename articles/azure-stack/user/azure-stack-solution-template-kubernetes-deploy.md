@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5df8104907e30337cdf47e5a9489ffdb50451a94
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c0c625852ff131aaa26e424ded75fbe51f94f23d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055217"
+ms.locfileid: "44159300"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Distribuire un cluster Kubernetes in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "44055217"
 > [!Note]  
 > Il motore del servizio contenitore di AZURE (Azure Kubernetes Service) in Azure Stack è disponibile in anteprima privata. L'operatore di Azure Stack sarà necessario richiedere l'accesso per l'elemento del Marketplace di Kubernetes necessario per eseguire le istruzioni riportate in questo articolo.
 
-L'articolo seguente esamina usando un modello di soluzione di Azure Resource Manager per la distribuzione e provisioning delle risorse di Kubernetes in un'unica operazione coordinata. Verrà necessario per raccogliere le informazioni necessarie relative all'installazione di Azure Stack, generare il modello e quindi distribuire il cloud.
+L'articolo seguente esamina usando un modello di soluzione di Azure Resource Manager per la distribuzione e provisioning delle risorse di Kubernetes in un'unica operazione coordinata. Verrà necessario per raccogliere le informazioni necessarie relative all'installazione di Azure Stack, generare il modello e quindi distribuire il cloud. Si noti che il modello non corrisponde al gestito il servizio contenitore di AZURE disponibile in globale, Azure, ma più prossimo al servizio ACS.
 
 ## <a name="kubernetes-and-containers"></a>Contenitori e Kubernetes
 

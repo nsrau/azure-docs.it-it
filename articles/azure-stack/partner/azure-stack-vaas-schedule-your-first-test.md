@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0f681070df4b4b3384171c05edb3851abec2ab5c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8ff78f46283d3ee4baa7310aa56bcdabde85f2cc
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235409"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159623"
 ---
 # <a name="quickstart-use-the-validation-as-a-service-portal-to-schedule-your-first-test"></a>Guida introduttiva: Usare la convalida come portale del servizio per pianificare il primo test
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Informazioni su come pianificare il primo test con la convalida di un portale del servizio (VaaS) per controllare l'hardware. La soluzione di Azure Stack in fase di convalida prima di eseguire il test di convalida occorre installarvi l'agente locale.
 
@@ -69,7 +69,7 @@ Prima di seguire questa Guida introduttiva, è necessario avere:
 
 Aggiungere i parametri di ambienti seguenti:
 
-| Informazioni sul passaggio di test | Obbligatorio | Description |
+| Informazioni sul passaggio di test | Obbligatorio | DESCRIZIONE |
 | --- | --- | --- | --- |
 | Compilazione di Azure Stack | Obbligatorio | Valore numerico (ad esempio 20170501.1) deve essere una valida di Azure Stack compilare numero o la versione, ad esempio, 1.0.170330.9 Azure build di Stack |
 | ID tenant | Obbligatorio | ID Tenant di Active Directory. Deve essere un GUID (ad esempio ECA23256-6BA0-4F27-8E4D-AFB02F088363) |
@@ -83,7 +83,7 @@ Aggiungere i parametri di ambienti seguenti:
 
 Aggiungere i parametri di test comuni seguenti:
 
-| Informazioni sul passaggio di test | Obbligatorio | Description |
+| Informazioni sul passaggio di test | Obbligatorio | DESCRIZIONE |
 | --- | --- | --- |
 | Nome utente tenant | Obbligatorio | Nome utente del tenant (ad esempio tenant@contoso.onmicrosoft.com) |
 | Password del tenant | Obbligatorio | La password per il tenant. |

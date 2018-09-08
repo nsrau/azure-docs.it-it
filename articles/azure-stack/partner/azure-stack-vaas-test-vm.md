@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 9d32c23f66563988d023df3bf6a33efa30237e57
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 78136ab00dcba2f8a99df36ba99d384b49995882
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235389"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159215"
 ---
 # <a name="deploy-the-local-agent-and-test-virtual-machines"></a>Distribuire le macchine virtuali locali di test e agenti
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Informazioni su come usare la convalida come un agente locale del servizio (VaaS) per controllare l'hardware. La soluzione di Azure Stack in fase di convalida prima di eseguire il test di convalida occorre installarvi l'agente locale.
 
@@ -76,7 +76,7 @@ Azure Stack è il sistema sottoposto a test. Il computer non deve far parte di A
 
     **Parameters**
 
-    | Parametro | Description |
+    | Parametro | DESCRIZIONE |
     | --- | --- |
     | aadServiceAdminUser | L'utente amministratore globale per il tenant di Azure AD. Ad esempio potrebbe essere, vaasadmin@contoso.onmicrosoft.com. |
     | aadServiceAdminPassword | La password per l'utente amministratore globale. |
@@ -118,7 +118,7 @@ Eseguire i comandi seguenti per inserire gli errori nel sistema.
 
       **Parameters**  
     
-    | Parametro | Description |
+    | Parametro | DESCRIZIONE |
     | --- | --- |
     | VaaSUserId | ID utente usato per accedere al portale VaaS (ad esempio, UserName@Contoso.com) |
     | VaaSTenantId | ID tenant di Azure AD per l'account di Azure registrati con la convalida come servizio. |

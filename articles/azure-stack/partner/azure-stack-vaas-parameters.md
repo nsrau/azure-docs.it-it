@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 81a7be973739cfd6eb3f8fb8dc7a0723623c2b8e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c50e4b5c9eb81c9386e2cb0db96a88de70dcb9e9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235317"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157804"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Parametri comuni del flusso di lavoro per la convalida di Azure Stack come servizio
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Parametri comuni includono valori, ad esempio le variabili di ambiente e l'utente le credenziali richieste da tutti i test nella convalida come servizio (VaaS). Si definiscono questi valori a livello di flusso di lavoro. Salvare i valori quando si crea o si modifica un flusso di lavoro. In fase di pianificazione, il flusso di lavoro carica i valori per il test. 
 
@@ -30,7 +30,7 @@ Parametri comuni includono valori, ad esempio le variabili di ambiente e l'utent
 
 Parametri di ambiente descrivono l'ambiente dello Stack di Azure sottoposta a test. È necessario specificare questi valori mediante la generazione e il caricamento di file di configurazione dell'indicatore `&lt;link&gt;. [How to get the stamp info link].`
 
-| Nome parametro | Obbligatorio | type | Description |
+| Nome parametro | Obbligatorio | type | DESCRIZIONE |
 |----------------------------------|----------|------|---------------------------------------------------------------------------------------------------------------------------------|
 | Compilazione di Azure Stack | Obbligatorio |  | Numero di build della distribuzione di Azure Stack (ad esempio, 1.0.170330.9) |
 | Versione OEM | Sì |  | Numero di versione del pacchetto OEM usata durante la distribuzione di Azure Stack. |
@@ -46,7 +46,7 @@ Parametri di ambiente descrivono l'ambiente dello Stack di Azure sottoposta a te
 
 Parametri di test comuni includono informazioni riservate che non sono memorizzate nei file di configurazione e devono essere forniti manualmente.
 
-| Nome parametro | Obbligatorio | type | Description |
+| Nome parametro | Obbligatorio | type | DESCRIZIONE |
 |--------------------------------|------------------------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nome utente tenant | Obbligatorio |  | Azure amministratore del Tenant di Active Directory che sia stato effettuato il provisioning già oppure deve essere eseguito il provisioning per l'amministratore del servizio nella Directory di AAD. Per informazioni dettagliate sul provisioning degli account del tenant, vedere [iniziare a usare Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). Questo valore viene utilizzato dal test per eseguire operazioni a livello di tenant, ad esempio la distribuzione di modelli per eseguire il provisioning delle risorse (macchine virtuali, account di archiviazione e così via) ed eseguire i carichi di lavoro. Questo valore viene utilizzato dal test per eseguire operazioni a livello di tenant, ad esempio la distribuzione di modelli per eseguire il provisioning delle risorse (macchine virtuali, account di archiviazione e così via) ed eseguire i carichi di lavoro. |
 | Password del tenant | Obbligatorio |  | Password per l'utente del tenant. |
