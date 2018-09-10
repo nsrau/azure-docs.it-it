@@ -2,11 +2,15 @@
 ## [Overview](azure-dev-spaces.md)
 
 ## Guide introduttive
+### [Java (Visual Studio Code & interfaccia della riga di comando)](quickstart-java.md)
 ### [.NET Core (Visual Studio Code e interfaccia della riga di comando)](quickstart-netcore.md)
 ### [.NET Core (Visual Studio 2017)](quickstart-netcore-visualstudio.md)
 ### [Node.js (Visual Studio Code e interfaccia della riga di comando)](quickstart-nodejs.md)
 
 ## Esercitazioni
+### Java (Visual Studio Code & interfaccia della riga di comando)
+#### [1 - Introduzione](get-started-java.md)
+#### [2 - Team di sviluppo](team-development-java.md)
 ### .NET Core (Visual Studio Code e interfaccia della riga di comando)
 #### [1 - Introduzione](get-started-netcore.md)
 #### [2 - Team di sviluppo](team-development-netcore.md)
