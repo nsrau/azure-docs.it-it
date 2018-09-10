@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: afad3fe725fddd0748cc206517a7274815cf1653
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 04411f415b7cfe07d893c43e758bd2a4a226472a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495265"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162199"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Esercitazione: 4. Aggiungere un'entità elenco
 In questa esercitazione si crea un'app che dimostra come ottenere dati corrispondenti a un elenco predefinito. 
@@ -27,7 +27,7 @@ In questa esercitazione si crea un'app che dimostra come ottenere dati corrispon
 > * Eseguire il training e pubblicare l'app
 > * Eseguire query sull'endpoint dell'app per ottenere una risposta JSON di Language Understanding
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità di espressione regolare](luis-quickstart-intents-regex-entity.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
@@ -135,15 +135,15 @@ Ora che la finalità **MoveEmployee** ha espressioni, LUIS deve capire cos'è un
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `shift 123-45-6789 from Z-1242 to T-54672`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `MoveEmployee` con l'oggetto `Employee` estratto.
 
@@ -272,7 +272,7 @@ LUIS ha terminato con questa richiesta. L'applicazione chiamante, ad esempio un 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

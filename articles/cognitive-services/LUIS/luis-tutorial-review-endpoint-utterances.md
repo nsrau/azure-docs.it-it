@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 5ce08861934305cccca9933a822fccf642746a59
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527705"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160082"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Esercitazione: Esaminare le espressioni endpoint
 In questa esercitazione è possibile migliorare le previsioni delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTP del servizio LUIS. 
@@ -27,7 +27,7 @@ In questa esercitazione è possibile migliorare le previsioni delle app tramite 
 > * Eseguire il training e pubblicare l'app
 > * Eseguire query sull'endpoint dell'app per ottenere una risposta JSON di Language Understanding
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non è disponibile l'app relativa alle risorse umane creata nell'esercitazione sul [sentiment](luis-quickstart-intent-and-sentiment-analysis.md), importare l'app dal repository [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) di Github. Se si usa questa esercitazione come nuova app importata, è inoltre necessario eseguire il training, pubblicare e quindi aggiungere le espressioni all'endpoint tramite uno [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o dall'endpoint in un browser. Le espressioni da aggiungere sono le seguenti:
@@ -104,19 +104,19 @@ Mantenere aggiornato l'elenco di frasi inserendo eventuali nomi di lavoro indivi
 
 Language Understanding non riconosce le modifiche fino a quando non è stato eseguito il training. 
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
 
 Se questa app è stata importata, è necessario selezionare **Sentiment analysis** (Analisi del sentiment).
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Eseguire la query dell'endpoint con un'espressione
 
 Provare a usare un'espressione simile all'espressione corretta. 
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `Are there any natural language processing jobs in my department right now?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
@@ -230,7 +230,7 @@ La precisione delle previsioni dell'app è aumentata grazie alla revisione delle
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

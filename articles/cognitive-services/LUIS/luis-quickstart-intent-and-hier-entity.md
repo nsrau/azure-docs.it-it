@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 65c7aabb984ad0a6b3e77d0f98003803821e06cc
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345359"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158620"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Tutorial: 5. Aggiungere un'entità gerarchica
 In questa esercitazione si crea un'app che dimostra come trovare dati correlati in base al contesto. 
@@ -27,7 +27,7 @@ In questa esercitazione si crea un'app che dimostra come trovare dati correlati 
 > * Eseguire il training e pubblicare l'app
 > * Eseguire una query dell'endpoint dell'app per visualizzare una risposta JSON di Language Understanding, inclusi gli elementi figlio gerarchici 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si ha l'app relativa alle risorse umane dell'esercitazione sulle [entità elenco](luis-quickstart-intent-and-list-entity.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
@@ -119,23 +119,16 @@ Aggiungere di nuovo l'entità numero predefinita nell'applicazione.
     ![Screenshot dell'entità number selezionata nella finestra di dialogo relativa alle entità predefinite](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
-Language Understanding non rileva le modifiche a finalità ed entità (il modello) finché non viene eseguito il training. 
 
-1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Train** (Esegui il training).
-
-    ![Eseguire il training dell'app](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
-
-2. Il training è completato quando nella barra di stato verde nella parte superiore del sito Web viene confermato il completamento.
-
-    ![Training completato](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
 2. Passare alla fine dell'URL nella barra degli indirizzi e immettere `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, pertanto rappresenta un buon test e dovrebbe restituire la finalità `MoveEmployee` con l'entità gerarchica estratta.
@@ -242,6 +235,10 @@ Sì, creare l'espressione regolare con i ruoli di origine e di destinazione e us
 
 Le posizioni in questo esempio, ad esempio `a-1234`, seguono un formato specifico di una o due lettere seguite da un trattino e quindi da una serie di 4 o 5 numeri. Questi dati possono essere descritti come un'entità espressione regolare con un ruolo per ogni posizione. I ruoli sono disponibili per i modelli. È possibile creare modelli basati su queste espressioni, quindi creare un'espressione regolare per il formato della posizione e aggiungerla ai modelli. <!-- Go to this tutorial to see how that is done -->
 
+## <a name="patterns-with-roles"></a>Criteri con ruoli
+
+[!INCLUDE [LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
+
 ## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
 Con solo poche finalità e un'entità gerarchica, quest'app ha identificato una finalità di query in linguaggio naturale e ha restituito i dati estratti. 
 
@@ -251,7 +248,8 @@ Il chatbot ha ora informazioni sufficienti per determinare l'azione principale, 
 LUIS ha terminato con questa richiesta. L'applicazione chiamante, ad esempio un chatbot, può acquisire il risultato topScoringIntent e i dati dell'entità per completare il passaggio successivo. LUIS non esegue questo lavoro programmatico per il bot o l'applicazione chiamante, ma si limita a determinare l'intenzione dell'utente. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app LUIS. A questo scopo, selezionare il pulsante con i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 
