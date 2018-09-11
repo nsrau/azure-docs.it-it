@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 3fcede7f813e97885d8fc3d7e0bc04776f2d0d12
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582138"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300836"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: distribuire le App in Azure e Azure Stack
 
@@ -30,7 +30,7 @@ Informazioni su come distribuire un'applicazione di Azure e Azure Stack tramite 
 In questa esercitazione si creerà un ambiente di esempio:
 
 > [!div class="checklist"]
-> * Avviare una nuova compilazione basata su commit del codice nel repository di Visual Studio Team Services (VSTS).
+> * Avviare una nuova compilazione basata su commit del codice nel repository di servizi di Azure DevOps.
 > * Distribuire automaticamente l'app di Azure globale per il test di accettazione utente.
 > * Quando il codice passi di test, distribuire automaticamente l'app in Azure Stack.
 
@@ -81,34 +81,38 @@ Questa esercitazione si presuppone una conoscenza di base di Azure e Azure Stack
  * Creare [piano/offerte](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) nello Stack di Azure.
  * Creare un [sottoscrizione tenant](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
  * Creare un'App Web nella sottoscrizione del tenant. Prendere nota del nuovo URL di App Web per usare in un secondo momento.
- * Distribuisci macchina virtuale di Visual Studio Team Services nella sottoscrizione del tenant.
+ * Distribuisci macchina virtuale di Azure DevOps servizi nella sottoscrizione del tenant.
 * Fornire un'immagine di Windows Server 2016 con .NET 3.5 per una macchina virtuale (VM). Questa macchina virtuale verrà compilata in Azure Stack come agente di compilazione privata.
 
 ### <a name="developer-tool-requirements"></a>Requisiti dello strumento per sviluppatori
 
-* Creare un [dell'area di lavoro di Visual Studio Team Services](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). Il processo di iscrizione viene creato un progetto denominato **MyFirstProject**.
-* [Installare Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [Accedi a Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Creare un [dell'area di lavoro di servizi di Azure DevOps](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). Il processo di iscrizione viene creato un progetto denominato **MyFirstProject**.
+* [Installare Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [Accedi a servizi di Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connettersi al progetto e [clonarlo localmente](https://www.visualstudio.com/docs/git/gitquickstart).
 
  > [!Note]
  > L'ambiente Azure Stack richiede le immagini corrette diffuso per l'esecuzione di Windows Server e SQL Server. È necessario che abbia distribuite del servizio App.
 
-## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Preparare la compilazione privata e l'agente di rilascio per l'integrazione con Visual Studio Team Services
+## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Preparare l'agente Azure pipeline privata per l'integrazione con servizi di Azure DevOps
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-Visual Studio Team Services (VSTS) esegue l'autenticazione con Azure Resource Manager usando un'entità servizio. Visual Studio Team Services deve avere il **collaboratore** ruolo per il provisioning delle risorse in una sottoscrizione di Azure Stack.
+Servizi di Azure DevOps esegue l'autenticazione con Azure Resource Manager usando un'entità servizio. Servizi di Azure DevOps deve avere il **collaboratore** ruolo per il provisioning delle risorse in una sottoscrizione di Azure Stack.
 
 I passaggi seguenti descrivono gli elementi necessari per configurare l'autenticazione:
 
 1. Creare un'entità servizio o usare un'entità servizio esistente.
 2. Creare le chiavi di autenticazione per l'entità servizio.
 3. Convalidare la sottoscrizione di Azure Stack tramite controllo degli accessi basato su ruolo per consentire il nome dell'entità di servizio (SPN) a far parte del ruolo per i collaboratori.
-4. Creare una nuova definizione di servizio in Visual Studio Team Services usando le informazioni di SPN e l'endpoint di Azure Stack.
+4. Creare una nuova definizione di servizio in servizi di DevOps di Azure con gli endpoint di Azure Stack e le informazioni di nome SPN.
 
 ### <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-Vedere le [la creazione dell'entità servizio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) istruzioni per creare un'entità servizio e quindi scegliere **App Web/API** per il tipo di applicazione.
+Vedere le [la creazione dell'entità servizio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) istruzioni per creare un'entità servizio. Scegli **App Web/API** per il tipo di applicazione oppure [usare lo script di PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) come illustrato nell'articolo [creare una connessione al servizio Azure Resource Manager con un servizio esistente entità ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+
+ > [!Note]  
+ > Se si usa lo script per creare un endpoint di Azure Stack Azure Resource Manager, è necessario passare il **- azureStackManagementURL** parametro e **- environmentName** parametro. Ad esempio:   
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>Creare una chiave di accesso
 
@@ -118,7 +122,7 @@ Un'entità servizio richiede una chiave per l'autenticazione. Usare la procedura
 
     ![Selezionare l'applicazione](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2. Prendere nota del valore del **ID applicazione**. Tale valore verrà usato quando si configura l'endpoint del servizio in Visual Studio Team Services.
+2. Prendere nota del valore del **ID applicazione**. Tale valore verrà usato quando si configura l'endpoint del servizio in servizi di Azure DevOps.
 
     ![ID applicazione](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
@@ -140,7 +144,7 @@ Un'entità servizio richiede una chiave per l'autenticazione. Usare la procedura
 
 ### <a name="get-the-tenant-id"></a>Ottenere l'ID tenant
 
-Come parte della configurazione dell'endpoint servizio, è necessario Visual Studio Team Services i **Tenant ID** che corrisponde alla Directory di AAD che l'indicatore di Azure Stack viene distribuito in. Usare la procedura seguente per ottenere l'ID del Tenant.
+Come parte della configurazione dell'endpoint servizio, Azure DevOps Services richiede la **Tenant ID** che corrisponde alla Directory di AAD che l'indicatore di Azure Stack viene distribuito in. Usare la procedura seguente per ottenere l'ID del Tenant.
 
 1. Selezionare **Azure Active Directory**.
 
@@ -190,20 +194,21 @@ Per accedere alle risorse della propria sottoscrizione è necessario assegnare l
 
 Azure in base al ruolo di controllo di accesso (RBAC) fornisce la gestione accessi con granularità fine per Azure. Tramite RBAC, è possibile controllare il livello di accesso che gli utenti devono svolgere il proprio lavoro. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [gestire l'accesso alle risorse della sottoscrizione Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
-### <a name="vsts-agent-pools"></a>Pool di agenti di Visual Studio Team Services
+### <a name="azure-devops-services-agent-pools"></a>Pool di agenti di servizi di Azure DevOps
 
-Anziché gestire separatamente ogni agente, è possibile organizzare gli agenti in pool di agenti. Un pool di agenti definisce il limite di condivisione per tutti gli agenti nel pool. In Visual Studio Team Services, i pool di agenti sono limitati all'account di Visual Studio Team Services, il che significa che è possibile condividere un pool di agenti per i progetti team. Per altre informazioni sui pool di agenti, vedere [code e creare pool di agenti](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+Anziché gestire separatamente ogni agente, è possibile organizzare gli agenti in pool di agenti. Un pool di agenti definisce il limite di condivisione per tutti gli agenti nel pool. In servizi di Azure DevOps, i pool di agenti hanno come ambiti dell'organizzazione di servizi di Azure DevOps, il che significa che è possibile condividere un pool di agenti tra progetti. Per altre informazioni sui pool di agenti, vedere [code e creare pool di agenti](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
 
 ### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Aggiungere un Token di accesso personale (PAT) per Azure Stack
 
-Creare un Token di accesso personale per accedere a Visual Studio Team Services.
+Creare un Token di accesso personale per accedere ai servizi di Azure DevOps.
 
-1. Accedere al proprio account di Visual Studio Team Services e selezionare il nome del profilo dell'account.
+1. Accedere all'organizzazione di servizi di Azure DevOps e selezionare il nome del profilo dell'organizzazione.
+
 2. Selezionare **Gestisci sicurezza** alla pagina di creazione del token di accesso.
 
-    ![Accesso degli utenti](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Accesso utente](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Selezionare il progetto team](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Selezionare un progetto](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![Aggiungere un token di accesso personale](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
@@ -216,7 +221,7 @@ Creare un Token di accesso personale per accedere a Visual Studio Team Services.
 
     ![Token di accesso personale](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
-### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Installazione che dell'agente di compilazione di Visual Studio Team Services in Azure Stack in un Server di compilazione ospitato
+### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Installazione che dell'agente di compilazione di servizi di Azure DevOps nello Stack di Azure in un Server di compilazione ospitato
 
 1. Connettersi al Server di compilazione distribuita nell'host Azure Stack.
 2. Scaricare e distribuire l'agente di compilazione come servizio tramite il personal un token di accesso ed eseguire come account di amministratore della macchina virtuale.
@@ -233,17 +238,17 @@ Creare un Token di accesso personale per accedere a Visual Studio Team Services.
 
     ![Aggiornamento della cartella dell'agente di compilazione](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    È possibile visualizzare l'agente nella cartella Visual Studio Team Services.
+    È possibile visualizzare l'agente nella cartella di servizi di Azure DevOps.
 
 ## <a name="endpoint-creation-permissions"></a>Autorizzazioni di creazione di endpoint
 
-La creazione di endpoint di una compilazione di Visual Studio Online (VSTO) è possibile distribuire App del servizio di Azure ad Azure Stack. Visual Studio Team Services si connette all'agente di compilazione, che si connette ad Azure Stack.
+La creazione di endpoint di una compilazione di Visual Studio Online (VSTO) è possibile distribuire App del servizio di Azure ad Azure Stack. Servizi di Azure DevOps si connette all'agente di compilazione, che si connette ad Azure Stack.
 
 ![App di esempio NorthwindCloud in VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. Accedi a VSTO e passare alla pagina di impostazioni dell'app.
 2. Sul **le impostazioni**, selezionare **sicurezza**.
-3. Nelle **gruppi VSTS**, selezionare **creatori di Endpoint**.
+3. Nelle **gruppi di servizi di Azure DevOps**, selezionare **creatori di Endpoint**.
 
     ![Creatori di NorthwindCloud Endpoint](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -253,7 +258,7 @@ La creazione di endpoint di una compilazione di Visual Studio Online (VSTO) è p
 
 5. Nelle **aggiungere utenti e gruppi**, immettere un nome utente e selezionare l'utente dall'elenco di utenti.
 6. Selezionare **Save changes** (Salva modifiche).
-7. Nel **gruppi VSTS** elenco, selezionare **amministratori Endpoint**.
+7. Nel **gruppi di servizi di Azure DevOps** elenco, selezionare **amministratori Endpoint**.
 
     ![Amministratori NorthwindCloud Endpoint](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -261,7 +266,20 @@ La creazione di endpoint di una compilazione di Visual Studio Online (VSTO) è p
 9. Nelle **aggiungere utenti e gruppi**, immettere un nome utente e selezionare l'utente dall'elenco di utenti.
 10. Selezionare **Save changes** (Salva modifiche).
 
-Ora che le informazioni sull'endpoint esistente, è pronto per l'uso di Visual Studio Team Services alla connessione di Azure Stack. L'agente di compilazione in Azure Stack Ottiene le istruzioni da Visual Studio Team Services e l'agente comunica quindi informazioni sull'endpoint per la comunicazione con Azure Stack.
+Ora che le informazioni sull'endpoint esistente, i servizi di DevOps di Azure alla connessione di Azure Stack è pronto per l'uso. L'agente di compilazione in Azure Stack Ottiene le istruzioni da servizi di Azure DevOps e l'agente comunica quindi informazioni sull'endpoint per la comunicazione con Azure Stack.
+## <a name="create-an-azure-stack-endpoint"></a>Creare un endpoint di Azure Stack
+
+È possibile seguire le istruzioni riportate in [creare una connessione al servizio Azure Resource Manager con un servizio esistente entità ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) articolo creare una connessione al servizio con un servizio esistente dell'entità e usare il mapping seguente:
+
+- Ambiente: AzureStack
+- URL dell'ambiente: Simile a `https://management.local.azurestack.external`
+- ID sottoscrizione: ID sottoscrizione dell'utente da Azure Stack
+- Nome della sottoscrizione: nome di sottoscrizione utente in Azure Stack
+- ID client dell'entità servizio: l'ID dell'entità da [ciò](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sezione in questo articolo.
+- Chiave dell'entità servizio: la chiave da stesso articolo (o la password se si usa lo script).
+- ID tenant: L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+
+Ora che l'endpoint viene creato, è pronto per l'uso di Visual Studio Team Services alla connessione di Azure Stack. L'agente di compilazione in Azure Stack Ottiene le istruzioni da Visual Studio Team Services e l'agente comunica quindi informazioni sull'endpoint per la comunicazione con Azure Stack.
 
 ![Agente di compilazione](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 
@@ -269,18 +287,18 @@ Ora che le informazioni sull'endpoint esistente, è pronto per l'uso di Visual S
 
 In questa parte dell'esercitazione sarà:
 
-* Aggiungere codice a un progetto di Visual Studio Team Services.
+* Aggiungere codice a un progetto di servizi di Azure DevOps.
 * Creare la distribuzione di app web autonoma.
 * Configurare il processo di distribuzione continua
 
 > [!Note]
  > L'ambiente Azure Stack richiede le immagini corrette diffuso per l'esecuzione di Windows Server e SQL Server. È necessario che abbia distribuite del servizio App. Esaminare la documentazione del servizio App sezione "Prerequisiti" per i requisiti di operatore di Azure Stack.
 
-Integrazione continua/distribuzione ibrida è possibile applicare al codice dell'applicazione e al codice dell'infrastruttura. Uso [modelli di Azure Resource Manager, ad esempio web ](https://azure.microsoft.com/resources/templates/) codice dell'app da Visual Studio Team Services per distribuire in entrambi i cloud.
+Integrazione continua/distribuzione ibrida è possibile applicare al codice dell'applicazione e al codice dell'infrastruttura. Uso [modelli di Azure Resource Manager, ad esempio web ](https://azure.microsoft.com/resources/templates/) codice dell'app da servizi di DevOps di Azure per distribuire in entrambi i cloud.
 
-### <a name="add-code-to-a-vsts-project"></a>Aggiungere codice a un progetto di Visual Studio Team Services
+### <a name="add-code-to-an-azure-devops-services-project"></a>Aggiungere codice a un progetto di servizi di Azure DevOps
 
-1. Accedi a Visual Studio Team Services con un account dotato dei diritti di creazione progetto in Azure Stack. La schermata successiva mostra come connettersi al progetto HybridCICD.
+1. Accedi a servizi di Azure DevOps con un'organizzazione che dispone dei diritti di creazione progetto in Azure Stack. La schermata successiva mostra come connettersi al progetto HybridCICD.
 
     ![Connettersi a un progetto](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -294,37 +312,38 @@ Integrazione continua/distribuzione ibrida è possibile applicare al codice dell
 
     ![Configurare Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. Usare Team Explorer per controllare il codice in Visual Studio Team Services.
+2. Usare Team Explorer per controllare il codice in servizi di Azure DevOps.
 
-3. Verificare che il codice dell'applicazione è stato selezionato in Visual Studio Team Services.
+3. Verificare che il codice dell'applicazione è stato selezionato in servizi di Azure DevOps.
 
-### <a name="create-the-build-definition"></a>Creare la definizione di compilazione
+### <a name="create-the-build-pipeline"></a>Creare la pipeline di compilazione
 
-1. Accedi a Visual Studio Team Services con un account che è possibile creare una definizione di compilazione.
+1. Accedi a servizi di Azure DevOps con un'organizzazione che è possibile creare una pipeline di compilazione.
+
 2. Passare il **compilazione di applicazioni Web** pagina per il progetto.
 
 3. Nelle **argomenti**, aggiungere **- r win10-x64** codice. Questa operazione è necessaria per attivare una distribuzione autonoma con.NET Core.
 
-    ![Aggiungi definizione di compilazione dell'argomento](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Aggiungere la pipeline di compilazione argomento](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. Eseguire la compilazione. Il [compilazione di distribuzione autonoma](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo verrà pubblicati gli artefatti che è possono eseguire in Azure e Azure Stack.
 
 ### <a name="use-an-azure-hosted-build-agent"></a>Uso di Azure ospitati agente di compilazione
 
-Utilizzo di un agente di compilazione ospitato in Visual Studio Team Services è un'opzione utile per la compilazione e distribuzione di App web. Gli aggiornamenti e manutenzione dell'agente viene eseguiti automaticamente da Microsoft Azure, che consente a un ciclo di sviluppo continuo e senza interruzioni.
+Utilizzo di un agente di compilazione ospitato nei servizi di Azure DevOps è un modo pratico per la compilazione e distribuzione di App web. Gli aggiornamenti e manutenzione dell'agente viene eseguiti automaticamente da Microsoft Azure, che consente a un ciclo di sviluppo continuo e senza interruzioni.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Configurare il processo di distribuzione continua (CD)
 
-Visual Studio Team Services (VSTS) e Team Foundation Server (TFS) forniscono una pipeline, altamente configurabile e gestibile per le versioni in più ambienti, ad esempio sviluppo, staging, controllo di qualità (QA) e di produzione. Questo processo può includere che richiedono le approvazioni in specifiche fasi del ciclo di vita dell'applicazione.
+Servizi di DevOps e Team Foundation Server (TFS) di Azure forniscono una pipeline, altamente configurabile e gestibile per le versioni in più ambienti, ad esempio sviluppo, staging, controllo di qualità (QA) e produzione. Questo processo può includere che richiedono le approvazioni in specifiche fasi del ciclo di vita dell'applicazione.
 
-### <a name="create-release-definition"></a>Creare una definizione della versione
+### <a name="create-release-pipeline"></a>Crea pipeline di rilascio
 
-Creazione di una definizione di versione è il passaggio finale nell'applicazione processo di compilazione. Questa definizione di versione viene utilizzata per creare una versione e distribuire una build.
+Creazione di una pipeline di rilascio è il passaggio finale nell'applicazione processo di compilazione. Questa pipeline di rilascio viene utilizzata per creare una versione e distribuire una build.
 
-1. Accedi a Visual Studio Team Services e passare a **compilazione e rilascio** per il progetto.
+1. Accedi ai servizi di Azure DevOps e passare a **pipeline di Azure** per il progetto.
 2. Nel **rilasci** scheda, seleziona  **\[ +]** e quindi selezionare **Crea definizione di versione**.
 
-   ![Creare una definizione della versione](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Crea pipeline di rilascio](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. Sul **selezionare un modello**, scegliere **distribuzione di Azure App Service**e quindi selezionare **Apply**.
 
@@ -411,11 +430,11 @@ Creazione di una definizione di versione è il passaggio finale nell'applicazion
 23. Salvare tutte le modifiche.
 
 > [!Note]
-> Alcune impostazioni per le attività di rilascio possono essere state automaticamente definite come [variabili di ambiente](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) al momento della creazione di una definizione di versione da un modello. Queste impostazioni non possono essere modificate nelle impostazioni dell'attività. Tuttavia, è possibile modificare queste impostazioni negli elementi padre di ambiente.
+> Alcune impostazioni per le attività di rilascio possono essere state automaticamente definite come [variabili di ambiente](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) quando creata una pipeline di rilascio da un modello. Queste impostazioni non possono essere modificate nelle impostazioni dell'attività. Tuttavia, è possibile modificare queste impostazioni negli elementi padre di ambiente.
 
 ## <a name="create-a-release"></a>Creare una versione
 
-Dopo che aver completato le modifiche alla definizione di versione, è possibile avviare la distribuzione. A tale scopo, si crea una versione dalla definizione di versione. Una versione può essere creata automaticamente; ad esempio, il trigger distribuzione continua è impostato nella definizione di versione. Ciò significa che la modifica del codice sorgente verrà avviata una nuova compilazione e, tramite la quale una nuova versione. Tuttavia, in questa sezione si creerà una nuova versione manualmente.
+Dopo che aver completato le modifiche alla pipeline di rilascio, è possibile avviare la distribuzione. A tale scopo, si crea un rilascio da pipeline di rilascio. Una versione può essere creata automaticamente; ad esempio, il trigger distribuzione continua è impostato nella pipeline di rilascio. Ciò significa che la modifica del codice sorgente verrà avviata una nuova compilazione e, tramite la quale una nuova versione. Tuttavia, in questa sezione si creerà una nuova versione manualmente.
 
 1. Nel **Pipeline** scheda, aprire il **Release** elenco a discesa elenco e scegliere **Crea versione**.
 

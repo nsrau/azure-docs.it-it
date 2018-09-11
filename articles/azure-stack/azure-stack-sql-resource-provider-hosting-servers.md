@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: c33d1fe1385619420215ec0f0fa3b0a2f90dddc0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842499"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299458"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse SQL
 
@@ -45,6 +45,9 @@ Prima di aggiungere un server di hosting SQL, esaminare i seguenti requisiti obb
 Immagini di macchine virtuali IaaS di SQL sono disponibili tramite la funzionalità di gestione di Marketplace. Queste immagini sono le stesse macchine virtuali di SQL disponibili in Azure.
 
 Assicurarsi di scaricare sempre la versione più recente del **estensione SQL IaaS** prima di distribuire una VM di SQL usando un elemento del Marketplace. L'estensione IaaS e portale corrispondente miglioramenti offrono funzionalità aggiuntive, ad esempio l'applicazione automatizzata di patch e backup. Per altre informazioni su questa estensione, vedere [automatizzare le attività di gestione delle macchine virtuali di Azure con l'estensione di SQL Server Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+
+> [!NOTE]
+> È l'estensione SQL IaaS _obbligatorio_ per tutti i SQL nelle immagini di Windows nel marketplace; della macchina virtuale avrà esito negativo da distribuire se non si è stato scaricato l'estensione. Non viene utilizzato con le immagini di macchina virtuale SQL basati su Linux.
 
 Sono disponibili altre opzioni per la distribuzione di macchine virtuali SQL, inclusi i modelli nel [raccolta di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -125,7 +128,7 @@ Per abilitare il seeding automatico in tutte le istanze, modificare, quindi eseg
   GO
   ```
 
-Si noti che il gruppo di disponibilità deve essere racchiuso tra parentesi quadre.
+Il gruppo di disponibilità deve essere racchiuso tra parentesi quadre.
 
 Nei nodi secondari, eseguiti il comando SQL seguente:
 

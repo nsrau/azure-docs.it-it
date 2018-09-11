@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446975"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298115"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelli di soluzioni di Azure Stack Ethereum blockchain
 
@@ -25,16 +25,14 @@ Con pochi gli input dell'utente e una distribuzione a singolo clic tramite il po
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Scaricare gli [da Marketplace](azure-stack-download-azure-marketplace-item.md):
+Scaricare gli elementi più recenti [da Marketplace](azure-stack-download-azure-marketplace-item.md):
 
-* Ubuntu Server 16.04 LTS versione 16.04.201802220
-* Windows Server 2016 
-* Script personalizzato per Linux 2.0 
-* Estensione di script personalizzati 
+* Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Script personalizzato per Linux 2.0
+* Estensione Script personalizzato per Windows
 
-Per altre informazioni sugli scenari di blockchain in Azure, vedere [modello di soluzione proof-of-work consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
-
-È necessaria una sottoscrizione di Azure in grado di supportare la distribuzione di più macchine virtuali. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+Per altre informazioni sugli scenari di blockchain, vedere [modello di soluzione proof-of-work consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 
@@ -43,6 +41,7 @@ Questo modello di soluzione è possibile distribuire uno o più rete di consorzi
 ## <a name="deployment-use-cases"></a>Casi d'uso di distribuzione
 
 Il modello può distribuire consortium Ethereum per leader e aggiunta a un membro di un'ampia gamma di modi, qui sono quelli testate:
+
 - In uno Stack di Azure a più nodi, con Azure AD o AD FS, distribuire lead e membro utilizzando la stessa sottoscrizione o con diverse sottoscrizioni.
 - In uno Stack di Azure a nodo singolo (con Azure AD) distribuite lead e membro utilizzando la stessa sottoscrizione.
 
