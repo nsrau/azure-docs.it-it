@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: dd941fcb57c358e33abe0da54ab8f76f2dccae28
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295227"
 documentType: LandingData
 title: Progetto DevOps di Azure
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/06/2018
   ms.author: mlearned
-  ms.openlocfilehash: f9137634c6b2ec07364939cb965b4cabaf5bad3a
-  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 07/10/2018
-  ms.locfileid: "37951924"
 abstract:
   description: Il progetto DevOps di Azure presenta un'esperienza semplificata in cui è possibile usare il codice e il repository Git esistente oppure scegliere una delle applicazioni di esempio per creare una pipeline di integrazione continua e distribuzione continua in Azure.
   aside:
@@ -70,7 +70,7 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come usare il progetto DevOps di Azure per creare pipeline di rilascio di Visual Studio Team Services
+    text: Informazioni su come usare il progetto Azure DevOps per creare pipeline di versione di Azure
   - type: list
     style: ordered
     items:

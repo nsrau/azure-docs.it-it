@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 307f9988246f94c26e63bf8a26052890867aabbc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 850ed1418a8880e30273f62aec3b3420c41b2ef6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608985"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294518"
 ---
 <div class="content">
     <h1>Cloud Foundry in Azure</h1>
@@ -38,7 +38,7 @@ Cloud Foundry è una piattaforma distribuita come servizio (PaaS) open source pe
 <a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry in Azure</a><br/>
 <a href="/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure">Integrare Cloud Foundry con Azure</a><br/>
 <a href="https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html">Installazione di Pivotal Cloud Foundry in Azure</a><br/>
-<a href="https://github.com/Microsoft/vsts-cloudfoundry">Plug-in di Visual Studio Team Services per Cloud Foundry</a><br/>
+<a href="https://github.com/Microsoft/vsts-cloudfoundry">Plug-in Azure DevOps per Cloud Foundry</a><br/>
 <a href="https://github.com/Azure/oms-log-analytics-firehose-nozzle">Nozzle di Microsoft Log Analytics per Cloud Foundry</a><br/>
 <a href="https://docs.cloudfoundry.org/">Informazioni su Cloud Foundry</a><br/>
 </div>

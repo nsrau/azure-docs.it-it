@@ -25,7 +25,9 @@
 ### [Convalidare la configurazione](hana-installation.md)
 ### [Installazione di SAP HANA](hana-example-installation.md)
 ## [Disponibilità elevata e ripristino di emergenza](hana-overview-high-availability-disaster-recovery.md)
-## [Eseguire la risoluzione dei problemi e il monitoraggio](troubleshooting-monitoring.md)
+## Eseguire la risoluzione dei problemi e il monitoraggio
+### [Monitoraggio di HLI](troubleshooting-monitoring.md)
+### [Monitoraggio e risoluzione dei problemi dal lato HANA](hana-monitor-troubleshoot.md)
 ## Procedure
 ### [Configurazione a disponibilità elevata con STONITH](ha-setup-with-stonith.md)
 ### [Backup del sistema operativo per SKU di tipo II](os-backup-type-ii-skus.md)

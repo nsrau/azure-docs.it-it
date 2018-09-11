@@ -21,7 +21,7 @@ items:
     href: stream-analytics-with-azure-functions.md
   - name: 3 - Eseguire una funzione JavaScript definita dall'utente
     href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - Eseguire la distribuzione con CI/CD in Visual Studio Team Services
+  - name: 4 - Distribuire con integrazione continua/distribuzione continua in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Esempi
   items:
@@ -186,9 +186,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: White paper - Elaborazione di eventi in tempo reale
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 6598121e8405a60c64490fda179c22f34ac86455
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b74d5aafe289ede8478d3e9ddb74e244030d948d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695321"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296041"
