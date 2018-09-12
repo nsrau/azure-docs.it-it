@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923409"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021994"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per la replica di macchine virtuali VMware e server fisici in un sito secondario
 
@@ -57,15 +57,15 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOs 6.5, 
 
 **Configurazione** | **Supportato**  
 --- | --- 
-Host - Gruppo NIC | Sì 
-Host - VLAN | Sì 
-Host - IPv4 | Sì 
+Host - Gruppo NIC | Yes 
+Host - VLAN | Yes 
+Host - IPv4 | Yes 
 Host - IPv6 | No  
 VM guest - Gruppo NIC | No 
-VM guest - IPv4 | Sì
+VM guest - IPv4 | Yes
 VM guest - IPv6 | No 
-VM guest - Windows/Linux - Indirizzo IP statico | Sì
-VM guest - Più NIC | Sì
+VM guest - Windows/Linux - Indirizzo IP statico | Yes
+VM guest - Più NIC | Yes
 
 
 ## <a name="storage"></a>Archiviazione
@@ -74,29 +74,29 @@ VM guest - Più NIC | Sì
 
 **Archiviazione (host)** | **Supportato** 
 --- | --- 
-NFS | Sì 
+NFS | Yes 
 SMB 3.0 | N/D 
-SAN (iSCSI) | Sì 
-Percorsi multipli (MPIO) | Sì 
+SAN (iSCSI) | Yes 
+Percorsi multipli (MPIO) | Yes 
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
 **Configurazione** | **Supportato** 
 --- | --- 
-VMDK | Sì 
+VMDK | Yes 
 VHD/VHDX | N/D 
 VM di seconda generazione | N/D 
-Disco cluster condiviso | Sì 
+Disco cluster condiviso | Yes 
 Disco crittografato | No  
-UEFI| Sì 
+UEFI| Yes 
 NFS | No  
 SMB 3.0 | No  
-RDM | Sì 
-Disco superiore a 1 TB | Sì 
-Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì 
+RDM | Yes 
+Disco superiore a 1 TB | Yes 
+Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes 
 Spazi di archiviazione | No  
-Aggiunta/rimozione a caldo disco | Sì 
-Esclusione disco | Sì 
+Aggiunta/rimozione a caldo disco | Yes 
+Esclusione disco | Yes 
 Percorsi multipli (MPIO) | N/D 
 
 ## <a name="vaults"></a>Insiemi di credenziali
@@ -112,7 +112,7 @@ Il servizio Mobility coordina la replica fra server VMware locali/server fisici 
 
 **Aggiornamento** | **Dettagli** 
 --- | --- 
-Aggiornamenti di Scout | [Informazioni introduttive e su come scaricare](/vmware-physical-secondary-disaster-recovery.md#updates) gli aggiornamenti più recenti di Scout | Gli aggiornamenti di Scout sono cumulativi.
+Aggiornamenti di Scout | [Informazioni introduttive e su come scaricare](vmware-physical-secondary-disaster-recovery.md#updates) gli aggiornamenti più recenti di Scout | Gli aggiornamenti di Scout sono cumulativi.
 Aggiornamenti dei componenti | Gli aggiornamenti di Scout includono gli aggiornamenti di tutti i componenti, tra cui server RX, server di configurazione, server di destinazione di elaborazione e master, server vContinuum e server di origine che si vuole proteggere.<br/><br/> [Altre informazioni](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

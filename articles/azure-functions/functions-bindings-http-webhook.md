@@ -4,23 +4,19 @@ description: Informazioni su come usare trigger e associazioni HTTP e webhookin 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: funzioni di Azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, HTTP, API, REST
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 5f6538c69139b8cd254b44cb9875e18a14c8fa8b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 41870f4f3cf4a0aba461021b4787e1ba004e5ead
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344148"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095114"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
 
@@ -58,6 +54,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 * [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
@@ -275,6 +272,45 @@ module.exports = function(context, req) {
     }
     context.done();
 };
+```
+
+### <a name="trigger---java-example"></a>Trigger - Esempio Java
+
+L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Java](functions-reference-java.md) che usa l'associazione. La funzione restituisce una risposta con codice di stato HTTP 200 con corpo della richiesta che prefissa il corpo della richiesta di attivazione del trigger con un messaggio di saluto “Ciao,”.
+
+
+Ecco il file *function.json*:
+
+```json
+{
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "anonymous",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+Ecco il codice Java:
+
+```java
+@FunctionName("hello")
+public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
+                        final ExecutionContext context) 
+    {
+        // default HTTP 200 response code
+        return String.format("Hello, %s!", request);
+    }
+}
 ```
      
 ## <a name="trigger---webhook-example"></a>Trigger - esempio di webhook

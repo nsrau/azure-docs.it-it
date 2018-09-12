@@ -4,24 +4,20 @@ description: Usare Funzioni di Azure per creare una funzione senza server che vi
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 9ba7d8c403a7778a52b858a41ad41bca405cb199
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5ae81824c2f35dd2ad26d64f3a343fecc549d805
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586922"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095216"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -29,11 +25,14 @@ Informazioni su come creare una funzione attivata quando i dati vengono aggiunti
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
 + Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+> [!NOTE]
+> [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="create-an-azure-function-app"></a>Creare un'app per le funzioni di Azure
 
@@ -62,7 +61,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
     | **Nome** | Predefinito | Usare il nome della funzione predefinito suggerito dal modello. |
     | **Nome raccolta** | Items | Nome della raccolta da monitorare. |
     | **Creare la raccolta di lease se non esiste** | Selezionato | La raccolta non esiste ancora, quindi crearla. |
-    | **Database name** (Nome database) | Attività | Nome del database con la raccolta da monitorare. |
+    | **Nome database** | Attività | Nome del database con la raccolta da monitorare. |
 
 4. Selezionare **Nuovo** accanto all'etichetta **della connessione dell'account Cosmos DB di Azure** e selezionare un account Cosmos DB esistente o fare clic su **+ Crea nuovo**. 
  
@@ -112,7 +111,7 @@ Successivamente, connettersi al proprio account di Azure Cosmos DB e creare la r
     | **ID raccolta** | Items | Nome della nuova raccolta. Deve corrispondere al nome definito nell'associazione della funzione.  |
     | **Capacità di archiviazione** | Fissa (10 GB)|Usare il valore predefinito. Questo valore indica la capacità di archiviazione del database. |
     | **Velocità effettiva** |400 UR| Usare il valore predefinito. Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento. |
-    | **[Chiave di partizione](../cosmos-db/partition-data.md#design-for-scale)** | /category|Chiave di partizione che distribuisce i dati in modo uniforme a ogni partizione. Quando si crea una raccolta ad alte prestazioni è importante selezionare la chiave di partizione corretta. | 
+    | **[Chiave di partizione](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|Chiave di partizione che distribuisce i dati in modo uniforme a ogni partizione. Quando si crea una raccolta ad alte prestazioni è importante selezionare la chiave di partizione corretta. | 
 
 1. Fare clic su **OK** per creare la raccolta **Attività**. La creazione della raccolta potrebbe richiedere del tempo.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fbc49584b040f952fdff147207864d2d1f6377e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5aca1400ddfe1522cd9dc8d68d8cba8a222e4d21
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887441"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095199"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integrazione di Elenco dei servizi con System Center Operations Manager
   > [!NOTE]
@@ -30,11 +30,11 @@ Mapping dei servizi individua automaticamente i componenti delle applicazioni ne
 
 Con questa integrazione tra Elenco dei servizi e System Center Operations Manager è possibile creare automaticamente diagrammi applicazioni distribuite in Operations Manager basati sulle mappe delle dipendenze dinamiche in Elenco dei servizi.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Gruppo di gestione di Operations Manager (2012 R2 o successiva) che gestisce un set di server.
 * Area di lavoro di Log Analytics con la soluzione Mapping dei servizi abilitata.
 * Set di server (almeno uno) che vengono gestiti da Operations Manager e inviano dati a Elenco dei servizi. Sono supportati server Windows e Linux.
-* Un'entità servizio con accesso alla sottoscrizione di Azure associata all'area di lavoro di Log Analytics. Per altre informazioni, vedere [Creare un'entità servizio](#creating-a-service-principal).
+* Un'entità servizio con accesso alla sottoscrizione di Azure associata all'area di lavoro di Log Analytics. Per altre informazioni, vedere [Creare un'entità servizio](#create-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Installare il management pack di Elenco dei servizi
 L'integrazione tra Operations Manager ed Elenco dei servizi viene abilitata importando il bundle di management pack Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). È possibile scaricare il bundle del Management Pack da [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Il bundle contiene i management pack seguenti:

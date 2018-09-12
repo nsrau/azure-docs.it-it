@@ -4,23 +4,19 @@ description: Informazioni su come gestire gli eventi di Griglia di eventi in Fun
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 06/08/2018
+ms.date: 08/23/2018
 ms.author: glenga
-ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 6d15405ef22f47dc8a94c07d9d09d343a743408e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715387"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094553"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -53,6 +49,7 @@ Fare riferimento all'esempio di trigger Griglia di eventi specifico per ogni lin
 * [C#](#c-example)
 * [Script C# (file con estensione csx)](#c-script-example)
 * [JavaScript](#javascript-example)
+* [Java](#trigger---java-example)
 
 Per un esempio di trigger HTTP, vedere [Come usare un trigger HTTP](#use-an-http-trigger-as-an-event-grid-trigger) più avanti in questo articolo.
 
@@ -180,6 +177,36 @@ module.exports = function (context, eventGridEvent) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>Trigger - Esempio Java
+
+L'esempio seguente illustra un'associazione di trigger in un file *function.json* e una [funzione Java](functions-reference-java.md) che usa l'associazione e stampa un evento.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+Ecco il codice Java:
+
+```java
+@FunctionName("eventGridMonitor")
+  public void logEvent(
+     @EventGridTrigger(name = "event") String content,
+      final ExecutionContext context
+  ) { 
+      context.getLogger().info(content);
+    }
+```
+
+Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `EventGridTrigger` per i parametri il cui valore deriva da EventGrid. I parametri con queste annotazioni attivano l'esecuzione della funzione quando viene ricevuto un evento.  Questa annotazione è utilizzabile con i tipi Java nativi, con oggetti POJO o con valori nullable tramite `Optional<T>`. 
      
 ## <a name="attributes"></a>Attributi
 
@@ -310,7 +337,7 @@ Per altre informazioni su come creare una sottoscrizione, vedere la [guida intro
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
 ```
 
-Poiché si tratta di un'API di amministrazione, è necessaria la [chiave amministratore](functions-bindings-http-webhook.md#authorization-keys). Non confondere la chiave di sistema (per richiamare una funzione trigger Griglia di eventi) con la chiave amministratore (per l'esecuzione di attività amministrative nell'app per le funzioni). Quando si sottoscrive un argomento di Griglia di eventi, usare la chiave di sistema.
+Poiché si tratta di un'API di amministrazione, è necessaria la [chiave master](functions-bindings-http-webhook.md#authorization-keys) dell'app per le funzioni. Non confondere la chiave di sistema (per richiamare una funzione trigger Griglia di eventi) con la chiave master (per l'esecuzione di attività amministrative nell'app per le funzioni). Quando si sottoscrive un argomento di Griglia di eventi, usare la chiave di sistema. 
 
 Di seguito è riportato un esempio di risposta fornita dalla chiave di sistema:
 
@@ -344,11 +371,11 @@ Al termine del test, è possibile usare la stessa sottoscrizione per scopi di pr
 
 ### <a name="create-a-viewer-web-app"></a>Creare un'app visualizzatore Web
 
-Per semplificare l'acquisizione di messaggi di evento, è possibile distribuire un'[app Web preesistente](https://github.com/dbarkol/azure-event-grid-viewer) che visualizza i messaggi di evento. La soluzione distribuita include un piano di servizio app, un'app Web del servizio app e codice sorgente da GitHub.
+Per semplificare l'acquisizione di messaggi di evento, è possibile distribuire un'[app Web preesistente](https://github.com/Azure-Samples/azure-event-grid-viewer) che visualizza i messaggi di evento. La soluzione distribuita include un piano di servizio app, un'app Web del servizio app e codice sorgente da GitHub.
 
 Selezionare **Distribuisci in Azure** per distribuire la soluzione nella sottoscrizione. Nel portale di Azure specificare i valori per i parametri.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 Per il completamento della distribuzione possono essere necessari alcuni minuti. Dopo il completamento della distribuzione, visualizzare l'app Web per assicurarsi che sia in esecuzione. In un Web browser passare a: `https://<your-site-name>.azurewebsites.net`
 

@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: sergkanz;mbullwin
-ms.openlocfilehash: e66d5e8674d6564d3910daddb1119c22a8b8bd9f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 8295fb58bdf92ca8688f5f7b6270dc1b48632a73
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44056845"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -457,7 +459,6 @@ L'eliminazione provoca l'interruzione dell'operazione, quindi è possibile proce
 `StopOperation` arresta solo l'operazione che è stata avviata. Se l'operazione corrente in esecuzione non corrisponde all'operazione che si desidera arrestare, `StopOperation` non esegue alcuna operazione. Questa situazione può verificarsi se si avviano più operazioni in parallelo nello stesso contesto di esecuzione:
 
 ```csharp
-var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
 

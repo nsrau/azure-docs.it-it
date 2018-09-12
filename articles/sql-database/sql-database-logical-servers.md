@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 9213f82a8e3a350312d4830aa2a8e5f695852ca5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: f30d15c70b33200565f1933a4d8ebe8ed654638c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841841"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055234"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Server logici del database SQL di Azure e loro gestione
 
@@ -62,7 +62,7 @@ Per creare un database SQL di Azure tramite il [portale di Azure](https://portal
 > [!IMPORTANT]
 > Per informazioni sulla selezione del piano tariffario per il database, vedere [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
-Per creare un'istanza di Istanza gestita, vedere [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) (Creare un'istanza di Istanza gestita).
+Per creare un'istanza di Istanza gestita, vedere [Create a Managed Instance](sql-database-managed-instance-get-started.md) (Creare un'istanza di Istanza gestita).
 
 ### <a name="manage-an-existing-sql-server"></a>Gestire un server SQL Server esistente
 
@@ -132,7 +132,7 @@ Per creare e gestire server, database e firewall SQL di Azure con l'[interfaccia
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina una regola del firewall|
 
 > [!TIP]
-> Per una guida introduttiva per l'interfaccia della riga di comando di Azure, vedere [Creare un singolo database SQL di Azure usando l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md). Per gli script di esempio dell'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-cli.md) e [Usare l'interfaccia della riga di comando per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Per una guida introduttiva per l'interfaccia della riga di comando di Azure, vedere [Creare un singolo database SQL di Azure usando l'interfaccia della riga di comando di Azure](sql-database-cli-samples.md). Per gli script di esempio dell'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-cli.md) e [Usare l'interfaccia della riga di comando per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Gestire server, database e firewall SQL di Azure con Transact-SQL

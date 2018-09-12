@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 5f11409ff49830be97d9a13a0ab7f033d9cc1041
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 17a8110624975d8053ad69c5bf30477e6d715ee8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494466"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159827"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>Esercitazione: 6. Aggiungere un'entità composita 
 Questa esercitazione aggiunge un'entità composita per aggregare i dati estratti in un'entità contenitore.
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come:
 > * Eseguire il training e pubblicare l'app
 > * Eseguire query sull'endpoint dell'app per ottenere una risposta JSON di Language Understanding
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità gerarchica](luis-quickstart-intent-and-hier-entity.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
@@ -100,15 +100,15 @@ I dati estratti dall'endpoint dovrebbero contenere queste informazioni e restitu
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint"></a>Query dell'endpoint 
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. L'ultimo parametro querystring è `q`, la query dell'espressione. 
 
@@ -296,7 +296,7 @@ LUIS ha terminato con questa richiesta. L'applicazione chiamante, ad esempio un 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 

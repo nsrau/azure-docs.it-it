@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 856673d2a5465f9646172a1436ed75c0d73692cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003173"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024074"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Che cos'è la protezione di base (anteprima)?  
 
@@ -86,7 +86,7 @@ Anche se la gestione dei criteri di accesso condizionale personalizzati richiede
 
 I ruoli della directory inclusi nei criteri di base sono i ruoli di Azure AD con i maggiori privilegi. 
 
-Se esistono account con privilegi usati negli script, è consigliabile sostituirli con l'[identità del servizio gestita](../managed-service-identity/overview.md) oppure con le [entità servizio con certificati](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Come soluzione alternativa temporanea, è possibile escludere account utente specifici dai criteri di base. 
+Se esistono account con privilegi usati negli script, è consigliabile sostituirli con l'[identità del servizio gestita](../managed-identities-azure-resources/overview.md) oppure con le [entità servizio con certificati](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Come soluzione alternativa temporanea, è possibile escludere account utente specifici dai criteri di base. 
 
 I criteri di base si applicano ai flussi di autenticazione legacy, ad esempio POP, IMAP e il client desktop di Office meno recente. 
 

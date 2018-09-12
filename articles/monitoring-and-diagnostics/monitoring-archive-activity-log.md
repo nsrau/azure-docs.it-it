@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: a519cd242b88916d1a11df47c0b7450594848ef5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920550"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054006"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiviare il log attività di Azure
 In questo articolo viene illustrato come è possibile usare il Portale di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma per archiviare il [**registro attività di Azure**](monitoring-overview-activity-logs.md) in un account di archiviazione. Questa opzione è utile per conservare il log attività per più di 90 giorni (con il controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi per non più di 90 giorni, non è necessario configurare l'archiviazione in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni senza abilitare l'archiviazione.
@@ -23,8 +23,8 @@ In questo articolo viene illustrato come è possibile usare il Portale di Azure,
 >
 > 
 
-## <a name="prerequisites"></a>prerequisiti
-Prima di iniziare, è necessario [creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) in cui poter archiviare il log attività. È consigliabile non usare un account di archiviazione esistente in cui sono archiviati altri dati non di monitoraggio, per poter controllare meglio l'accesso ai dati di monitoraggio. Se tuttavia in un account di archiviazione si archiviano anche log di diagnostica e metriche, può avere senso non solo usare tale account di archiviazione per il log attività, ma anche tenere tutti i dati di monitoraggio in una posizione centrale. L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
+## <a name="prerequisites"></a>Prerequisiti
+Prima di iniziare, è necessario [creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) in cui poter archiviare il log attività. È consigliabile non usare un account di archiviazione esistente in cui sono archiviati altri dati non di monitoraggio, per poter controllare meglio l'accesso ai dati di monitoraggio. Se tuttavia in un account di archiviazione si archiviano anche log di diagnostica e metriche, può avere senso non solo usare tale account di archiviazione per il log attività, ma anche tenere tutti i dati di monitoraggio in una posizione centrale. L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 > [!NOTE]
 >  Non è al momento possibile archiviare i dati in un account di archiviazione che risiede dietro una rete virtuale protetta.
@@ -64,10 +64,10 @@ Per archiviare il log attività con uno dei metodi seguenti, impostare il **prof
 
 | Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| StorageAccountId |Sì |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-| Località |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `(Get-AzureRmLocation).Location`. |
+| StorageAccountId |Yes |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
+| Località |Yes |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `(Get-AzureRmLocation).Location`. |
 | RetentionInDays |No  |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
-| Categorie |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action.  Se omesso, vengono considerati tutti i valori possibili |
+| Categoria |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action.  Se omesso, vengono considerati tutti i valori possibili |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archiviare il log attività con l'interfaccia della riga di comando
 
@@ -77,12 +77,12 @@ Per archiviare il log attività con uno dei metodi seguenti, impostare il **prof
 
 | Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| name |Sì |Nome del profilo di log. |
-| storage-account-id |Sì |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
-| Località |Sì |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
-| days |Sì |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro abilitato deve essere impostato su true. |
-|Enabled | Sì |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
-| Categorie |Sì |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
+| name |Yes |Nome del profilo di log. |
+| storage-account-id |Yes |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
+| Località |Yes |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
+| days |Yes |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro abilitato deve essere impostato su true. |
+|Enabled | Yes |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
+| Categorie |Yes |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Schema di archiviazione del log attività
 Una volta configurata l'archiviazione, verrà creato un contenitore di archiviazione nell'account di archiviazione non appena si verificherà un evento del log attività. I BLOB nel contenitore seguono la stessa convenzione di denominazione nei log attività e nei log di diagnostica, come illustrato di seguito:

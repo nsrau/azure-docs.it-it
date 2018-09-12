@@ -4,20 +4,17 @@ description: La soluzione Funzioni di Azure supporta più versioni del runtime. 
 services: functions
 documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: 3efc09f93cf8b3e65d595c87d0cf25691386d6e2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ced4b6846d291bfbb718c3346ea588ca9e961d07
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434765"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093703"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Come specificare le versioni del runtime per Funzioni di Azure
 

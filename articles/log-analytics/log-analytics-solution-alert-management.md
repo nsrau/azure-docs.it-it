@@ -15,20 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: acf9e512e188c34c0124832a6a534135790f1e2d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131048"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049202"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
 
 ![Icona di Alert Management](media/log-analytics-solution-alert-management/icon.png)
 
-La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](log-analytics-alerts.md) o [importate da Nagios o Zabbix](log-analytics-linux-agents.md).  La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](log-analytics-om-agents.md).
+La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](log-analytics-alerts.md) o [importate da Nagios o Zabbix](log-analytics-linux-agents.md). La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](log-analytics-om-agents.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 La soluzione funziona con i record presenti nel repository di Log Analytics con un tipo di **avviso**, pertanto è necessario eseguire qualsiasi configurazione necessaria per raccogliere questi record.
 
 - Per gli avvisi di Log Analytics, [creare regole di avviso](log-analytics-alerts.md) per creare i record degli avvisi direttamente nel repository.
@@ -36,10 +36,10 @@ La soluzione funziona con i record presenti nel repository di Log Analytics con 
 - Per gli avvisi SCOM, [connettere il gruppo di gestione Operations Manager all'area di lavoro Log Analytics](log-analytics-om-agents.md).  Tutti gli avvisi creati in System Center Operations Manager vengono importati in Log Analytics.  
 
 ## <a name="configuration"></a>Configurazione
-Aggiungere la soluzione Gestione avvisi all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
+Aggiungere la soluzione Gestione avvisi all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](log-analytics-add-solutions.md). Non è richiesta alcuna ulteriore configurazione.
 
 ## <a name="management-packs"></a>Management Pack
-Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di Log Analytics, in Center System Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione.  Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.  
+Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di Log Analytics, in Center System Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione.  Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.
 
 * Alert Management di Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -53,7 +53,7 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 |:--- |:--- |:--- |
 | [Agenti di Windows](log-analytics-windows-agent.md) | No  |Gli agenti di Windows diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Windows. |
 | [Agenti Linux](log-analytics-linux-agents.md) | No  |Gli agenti di Linux diretti non generano avvisi.  Gli avvisi di Log Analytics possono essere creati da eventi e dati sulle prestazioni raccolti dagli agenti di Linux.  Gli avvisi di Nagios e Zabbix vengono raccolti da quei server che richiedono l'agente Linux. |
-| [Gruppo di gestione di System Center Operations Manager](log-analytics-om-agents.md) |Sì |Gli avvisi che sono generati con gli agenti di Operation Manager vengono distribuiti al gruppo di gestione e quindi inoltrati a Log Analytics.<br><br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli avvisi vengono inoltrati dal gruppo di gestione al repository di Log Analytics. |
+| [Gruppo di gestione di System Center Operations Manager](log-analytics-om-agents.md) |Yes |Gli avvisi che sono generati con gli agenti di Operation Manager vengono distribuiti al gruppo di gestione e quindi inoltrati a Log Analytics.<br><br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli avvisi vengono inoltrati dal gruppo di gestione al repository di Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta

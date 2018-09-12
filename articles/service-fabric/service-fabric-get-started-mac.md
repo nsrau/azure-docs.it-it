@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 87721428e1cd8a5360dcecc5f29225f813705a4f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 8473b2e202dd408cce6658f3ca349d884a28dc3a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344757"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160474"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37344757"
 
 È possibile creare applicazioni di Azure Service Fabric da eseguire in cluster Linux usando Mac OS X. Questo documento illustra come configurare il computer Mac per lo sviluppo.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Azure Service Fabric non viene eseguito in modo nativo in Mac OS X. Per eseguire un cluster di Service Fabric locale, viene offerta un'immagine del contenitore Docker preconfigurata. Prima di iniziare, sono necessari:
 
 * Almeno 4 GB di RAM.
@@ -99,7 +99,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
 4. Ora è possibile iniziare rapidamente una copia locale di Service Fabric, quando necessario, eseguendo:
 
     ```bash 
-    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -118,7 +118,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
 
 
 
-6. Al termine è possibile arrestare e pulire il contenitore con questo comando:
+6. Al termine, arrestare e pulire il contenitore con questo comando:
 
     ```bash 
     docker rm -f sftestcluster
@@ -129,8 +129,6 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
  Le seguenti sono limitazioni note del cluster locale eseguito in un contenitore per Mac: 
  
  * Il servizio DNS non viene eseguito e non è supportato [Problema 132](https://github.com/Microsoft/service-fabric/issues/132)
-
- * Le applicazioni del contenitore non possono al momento essere distribuite a questo cluster locale
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurare l'interfaccia della riga di comando di Service Fabric (sfctl) in un computer Mac
 
@@ -159,14 +157,16 @@ Service Fabric fornisce strumenti di scaffolding che consentono di creare un'app
     ```bash
     npm install -g yo
     ```
-3. Installare il generatore Yeoman preferito seguendo la procedura disponibile nella [documentazione](service-fabric-get-started-linux.md) introduttiva. Per creare applicazioni di Service Fabric con Yeoman, seguire questa procedura:
+3. Installare il generatore Yeoman preferito seguendo la procedura disponibile nella [documentazione](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) introduttiva. Per creare applicazioni di Service Fabric con Yeoman, seguire questa procedura:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. Per compilare un'applicazione Java di Service Fabric nel computer Mac, JDK versione 1.8 e Gradle devono essere installati nel computer host. Il software può essere installato usando [HomeBrew](https://brew.sh/), come segue: 
+4. Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfcontainer` o `yo azuresfguest`.
+
+5. Per compilare un'applicazione Java di Service Fabric nel computer Mac, JDK versione 1.8 e Gradle devono essere installati nel computer host. Il software può essere installato usando [HomeBrew](https://brew.sh/), come segue: 
 
     ```bash
     brew update

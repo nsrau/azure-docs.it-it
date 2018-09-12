@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413383"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054581"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure 
 
@@ -177,8 +177,8 @@ Il database SQL supporta lo sviluppo di applicazioni con Python, Java, Node.js, 
 - Per iniziare, vedere queste guide introduttive:
 
   - [Creare un database SQL nel portale di Azure](sql-database-get-started-portal.md)  
-  - [Creare un database SQL con l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md)
-  - [Creare un database SQL usando PowerShell](sql-database-get-started-powershell.md)
+  - [Creare un database SQL con l'interfaccia della riga di comando di Azure](sql-database-cli-samples.md)
+  - [Creare un database SQL usando PowerShell](sql-database-powershell-samples.md)
 
 - Per un set di esempi dell'interfaccia della riga di comando di Azure e di PowerShell, vedere:
   - [Esempi dell'interfaccia della riga di comando di Azure per database SQL](sql-database-cli-samples.md)

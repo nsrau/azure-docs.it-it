@@ -1,25 +1,21 @@
 ---
 title: Associazione di tabelle esterne per Funzioni di Azure (sperimentale)
-description: Uso di associazioni di tabelle esterne in Funzioni di Azure
+description: Uso di binding di tabelle esterne in Funzioni di Azure
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 24728414747d8ad8a8d7ee0d8a21be2177a15ddd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27613282"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093813"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Associazione di tabelle esterne per Funzioni di Azure (sperimentale)
 

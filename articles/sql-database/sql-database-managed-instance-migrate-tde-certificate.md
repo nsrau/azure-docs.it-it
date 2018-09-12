@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918519"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050612"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Eseguire la migrazione del certificato di un database protetto tramite TDE a un'istanza gestita di SQL di Azure
 
@@ -141,4 +141,4 @@ Il certificato è ora disponibile per l'istanza gestita specificata e il backup 
 
 In questo articolo è stato illustrato come eseguire la migrazione del certificato di protezione della chiave di crittografia del database con Transparent Data Encryption, dall'istanza locale o IaaS di SQL Server a un'istanza gestita di SQL di Azure.
 
-Per informazioni su come ripristinare un backup di database in un'istanza gestita di database SQL di Azure, vedere [Ripristinare un backup di database in un'istanza gestita di database SQL di Azure](sql-database-managed-instance-restore-from-backup-tutorial.md).
+Per informazioni su come ripristinare un backup di database in un'istanza gestita di database SQL di Azure, vedere [Ripristinare un backup di database in un'istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started-restore.md).

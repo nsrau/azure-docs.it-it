@@ -10,24 +10,24 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: e88c069bed40bcdf1eae9d356403cc772a11ea85
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2f907ccd371a9b2c4601a5ea266326a32c4f665d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704774"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054934"
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Usare Python per eseguire query su un database SQL di Azure
 
  Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati. Per altri dettagli sull'SDK, vedere la documentazione di [riferimento](https://docs.microsoft.com/python/api/overview/azure/sql), un [esempio](https://github.com/mkleehammer/pyodbc/wiki/Getting-started) pyodbc e il repository GitHub [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti seguenti:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Avere una [regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva.
+- Avere una [regola del firewall a livello di server](sql-database-get-started-portal-firewall.md) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva.
 
 - Avere installato Python e il software correlato adatti per il sistema operativo in uso:
 

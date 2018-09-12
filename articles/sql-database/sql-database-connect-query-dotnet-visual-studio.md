@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ceb7d64ddd1923cdd22428df6cbc86676b685b4f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: da2bd556567882d2620e9bc8b1f58923010eeaa4
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42147094"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050018"
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Usare .NET (C#) con Visual Studio Code per connettersi a un database SQL ed eseguire query
 
@@ -28,7 +28,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Avere una [regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva.
+- Avere una [regola del firewall a livello di server](sql-database-get-started-portal-firewall.md) per l'indirizzo IP pubblico del computer usato per questa guida introduttiva.
 
 - Un'installazione di [Visual Studio Community 2017, Visual Studio Professional 2017 o Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
@@ -45,7 +45,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
     ![Stringa di connessione ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
-> È necessario avere una regola del firewall impostata per l'indirizzo IP pubblico del computer su cui si esegue questa esercitazione. Se si usa un computer o un indirizzo IP pubblico diverso, creare una [regola del firewall a livello di server con il portale di Azure](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+> È necessario avere una regola del firewall impostata per l'indirizzo IP pubblico del computer su cui si esegue questa esercitazione. Se si usa un computer o un indirizzo IP pubblico diverso, creare una [regola del firewall a livello di server con il portale di Azure](sql-database-get-started-portal-firewall.md). 
 >
   
 ## <a name="create-a-new-visual-studio-project"></a>Creare un nuovo progetto di Visual Studio
@@ -55,7 +55,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 3. Selezionare **Applicazione console** e immettere *sqltest* come nome di progetto.
 4. Fare clic su **OK** per creare e aprire il nuovo progetto in Visual Studio
 4. In Esplora soluzioni fare clic con il pulsante destro del mouse su **sqltest** e scegliere **Gestisci pacchetti NuGet**. 
-5. In **Sfoglia** cercare ```System.Data.SqlClient``` e, dopo averlo trovato, selezionarlo.
+5. Nella scheda **Sfoglia** cercare ```System.Data.SqlClient``` e, dopo averlo trovato, selezionarlo.
 6. Nella pagina **System.Data.SqlClient** fare clic su **Installa**.
 7. Al termine dell'installazione, rivedere le modifiche e quindi fare clic su **OK** per chiudere la finestra **Anteprima**. 
 8. Se viene visualizzata una finestra **Accettazione della licenza** fare clic su **Accetto**.

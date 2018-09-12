@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7cb7ce0ea81cf99c2ee14a6f209864894563d237
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ccdffaf0c224cc4579f24ca5f3ca60a6c53f3bd6
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111780"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160404"
 ---
 # <a name="set-up-sql-data-sync"></a>Configurare la sincronizzazione dati SQL
 In questa esercitazione si imparerà a configurare sincronizzazione dati SQL di Azure creando un gruppo di sincronizzazione ibrido che contiene sia istanze del database SQL di Azure che istanze di SQL Server. Il nuovo gruppo di sincronizzazione ha una configurazione completa ed esegue la sincronizzazione in base alla pianificazione impostata.
@@ -239,7 +239,7 @@ Non necessariamente. In un gruppo di sincronizzazione con un hub e tre spoke (A,
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Come si esporta e importa un database con la sincronizzazione dei dati?
 Dopo aver esportato un database come file con estensione `.bacpac` e averlo importato per creare un nuovo database, è necessario eseguire le due operazioni seguenti per usare la sincronizzazione dei dati nel nuovo database:
-1.  Pulire le tabelle e gli oggetti di sincronizzazione dei dati nel **nuovo database** usando [questo script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Questo script elimina tutti gli oggetti di sincronizzazione dei dati dal database.
+1.  Pulire le tabelle e gli oggetti di sincronizzazione dei dati nel **nuovo database** usando [questo script](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql). Questo script elimina tutti gli oggetti di sincronizzazione dei dati dal database.
 2.  Creare di nuovo il gruppo di sincronizzazione con il nuovo database. Se il gruppo di sincronizzazione precedente non è più necessario, eliminarlo.
 
 ## <a name="faq-about-the-client-agent"></a>Domande frequenti sull'agente client

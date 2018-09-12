@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: af9afcbf97df5f3d7fa82f6ea0163c714fa4f582
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: be32bc4b3f91fbc71305ee9f16fec17ff472cd4c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051742"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049576"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurazione di un DNS personalizzato per Istanza gestita di database SQL di Azure
 
@@ -41,5 +41,5 @@ Per rendere una configurazione DNS personalizzata compatibile con l'istanza gest
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md)
-- Per un'esercitazione che illustra come creare una nuova istanza gestita, vedere [Creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md).
+- Per un'esercitazione che illustra come creare una nuova istanza gestita, vedere [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 - Per informazioni sulla configurazione di una rete virtuale per un'istanza gestita, vedere la [configurazione della rete virtuale per le istanze gestite](sql-database-managed-instance-vnet-configuration.md).

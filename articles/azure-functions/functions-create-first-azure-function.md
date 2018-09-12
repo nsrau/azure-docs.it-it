@@ -4,24 +4,20 @@ description: Informazioni su come creare la prima funzione di Azure per l'esecuz
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 86cc435a7d632f1cc1b9a0e4a2e6508059d4d675
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d208a4b72a27eb288d46ee591f42a8f6b71c4f70
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602819"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094060"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
 
@@ -30,6 +26,9 @@ Funzioni di Azure consente di eseguire il codice in un ambiente [senza server](h
 ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+> Gli sviluppatori in C# devono fare riferimento alla pagina relativa alla [creazione della prima funzione Visual Studio 2017](functions-create-your-first-function-visual-studio.md) invece che al portale. 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 

@@ -10,18 +10,18 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 6e9dbeb5915f98ec4d08d8656b6b338ea78117da
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4dca277326ec89d0c7ab512e9d107ce68cefb2ca
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792631"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050851"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portale di Azure: usare l'editor di query SQL per connettersi ai dati ed eseguire query
 
 L'editor di query SQL è uno strumento di query basato su browser che offre un modo semplice ed efficiente per eseguire query SQL sul database SQL di Azure o su Azure SQL Data Warehouse senza uscire dal portale di Azure. Questa guida introduttiva illustra come usare l'editor di query per connettersi a un database SQL e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
@@ -32,7 +32,7 @@ Questa guida introduttiva usa come punto di partenza le risorse create in una de
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
-Accedere al [Portale di Azure](https://portal.azure.com/).
+Accedere al [portale di Azure](https://portal.azure.com/).
 
 
 ## <a name="connect-using-sql-authentication"></a>Connettersi con l'autenticazione SQL

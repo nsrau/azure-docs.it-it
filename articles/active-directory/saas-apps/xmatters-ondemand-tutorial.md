@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d140cbdb0548de869c7aab6ba5da281046a215f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a235b85887e64e0a5ca35aae8f31734250a78bb5
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434113"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160235"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Esercitazione: Integrazione di Azure Active Directory con xMatters OnDemand
 
@@ -202,7 +202,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>Creazione di un utente test di xMatters OnDemand
 
-L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in xMatters OnDemand. xMatters OnDemand supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. È possibile scoprire più dettagli [qui](xmatters-ondemand-provisioning-tutorial.md) su come configurare il provisioning utenti automatico.
+L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in xMatters OnDemand.
 
 **Per creare un utente manualmente, seguire questa procedura:**
 
@@ -269,7 +269,6 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura provisioning utenti](xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -4,25 +4,21 @@ description: Archiviare dati non strutturati tramite Funzioni di Azure e Cosmos 
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, Cosmos DB, calcolo dinamico, architettura senza server
 ms.assetid: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b9bb71adf85490fe68bf6b73133017c5e9c377e1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ddd9a3186e86b1b5bd24c0c99f5fcb18c456119a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27767554"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091629"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Archiviare dati non strutturati usando Funzioni di Azure e Azure Cosmos DB
 
@@ -35,7 +31,7 @@ In Funzioni di Azure, i binding di input e di output forniscono una modalità di
 
 ![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -56,7 +52,7 @@ Per completare questa esercitazione:
     | Impostazione      | Valore consigliato  | DESCRIZIONE                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nome del parametro del documento** | taskDocument | Nome che fa riferimento all'oggetto Cosmos DB nel codice. |
-    | **Database name** (Nome database) | taskDatabase | Nome del database per il salvataggio dei documenti. |
+    | **Nome database** | taskDatabase | Nome del database per il salvataggio dei documenti. |
     | **Nome raccolta** | TaskCollection | Nome della raccolta di database. |
     | **Se true, crea il database e la raccolta di Cosmos DB** | Selezionato | La raccolta non esiste ancora, quindi crearla. |
 

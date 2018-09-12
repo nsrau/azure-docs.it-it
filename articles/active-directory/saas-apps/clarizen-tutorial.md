@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438087"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Esercitazione: Integrazione di Azure Active Directory con Clarizen
 
@@ -188,7 +188,7 @@ Nel portale di Azure creare un utente di test chiamato Britta Simon.
 
 ### <a name="create-a-clarizen-test-user"></a>Creare un utente di test di Clarizen
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in Clarizen. Clarizen supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. È possibile scoprire più dettagli [qui](clarizen-provisioning-tutorial.md) su come configurare il provisioning utenti automatico.
+Questa sezione descrive come creare un utente chiamato Britta Simon in Clarizen.
 
 **Per creare un utente manualmente, seguire questa procedura:**
 
@@ -196,11 +196,11 @@ Per consentire agli utenti di Azure AD di accedere a Clarizen, è necessario eff
 
 1. Accedere al sito aziendale di Clarizen come amministratore.
 
-1. Fare clic su **Persone**.
+2. Fare clic su **Persone**.
 
     ![Clic su "People" (Persone)](./media/clarizen-tutorial/create_aaduser_001.png "People (Persone)")
 
-1. Fare clic su **Invite User**.
+3. Fare clic su **Invite User**.
 
     ![Pulsante "Invite User" (Invita l'utente)](./media/clarizen-tutorial/create_aaduser_002.png "Invitare utenti")
 
@@ -251,7 +251,6 @@ Quando si fa clic sul riquadro Clarizen nel pannello di accesso, si dovrebbe acc
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura provisioning utenti](clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

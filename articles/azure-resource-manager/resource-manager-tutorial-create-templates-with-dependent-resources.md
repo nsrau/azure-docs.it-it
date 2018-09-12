@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bd559cb9f0140706a4b9735c642367e03616a14d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188166"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160511"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti
 
@@ -26,11 +26,12 @@ Informazioni su come creare un modello di Azure Resource Manager per distribuire
 
 Alcune delle risorse non possono essere distribuite finché non esiste un'altra risorsa. Ad esempio, non è possibile creare la macchina virtuale finché non esistono la relativa interfaccia di rete e l'account di archiviazione. Per definire questa relazione, si contrassegna una risorsa come dipendente dalle altre. Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo. Per altre informazioni, leggere [Definire l'ordine per la distribuzione delle risorse nei modelli di Azure Resource Manager](./resource-group-define-dependencies.md).
 
+Questa esercitazione illustra le attività seguenti:
+
 > [!div class="checklist"]
 > * Aprire un modello di avvio rapido
 > * Esplorare il modello
 > * Distribuire il modello
-> * Pulire le risorse
 
 Le istruzioni riportate in questa esercitazione consentono di creare una macchina virtuale, una rete virtuale e alcune altre risorse dipendenti. 
 
@@ -56,12 +57,27 @@ Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager
 
 ## <a name="explore-the-template"></a>Esplorare il modello
 
+Quando si esplora il modello in questa sezione, provare a rispondere alle domande seguenti:
+
+- Quante risorse di Azure sono definite in questo modello?
+- Una delle risorse è un account di archiviazione di Azure.  La definizione è simile a quella usata nell'ultima esercitazione?
+- È possibile trovare i riferimenti del modello per le risorse definite in questo modello?
+- È possibile trovare le dipendenze delle risorse?
+
 1. Da Visual Studio Code, comprimere gli elementi finché non vengono visualizzati solo gli elementi di primo livello e gli elementi di secondo livello all'interno di **resources**:
 
     ![Modelli di Azure Resource Manager in Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Sono presenti cinque risorse definite dal modello.
-2. Espandere il quarto elemento:
+2. Espandere la prima risorsa. È un account di archiviazione. La definizione deve essere identica a quella usata all'inizio dell'ultima esercitazione.
+
+    ![Modelli di Azure Resource Manager in Visual Studio Code - definizione dell'account di archiviazione](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+
+3. Espandere la seconda risorsa. Il tipo di risorsa è **Microsoft.Network/publicIPAddresses**. Per trovare il riferimento del modello, selezionare il [riferimento del modello](https://docs.microsoft.com/azure/templates/) e immettere l'**indirizzo IP pubblico** o gli **indirizzi IP pubblici** nel campo **Filtra per titolo**. Confrontare la definizione della risorsa con il riferimento del modello.
+
+    ![Modelli di Azure Resource Manager in Visual Studio Code - definizione dell'indirizzo IP pubblico](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+4. Ripetere l'ultimo passaggio per trovare i riferimenti del modello per le risorse definite in questo modello.  Confrontare le definizione delle risorse con i riferimenti.
+5. Espandere la quarta risorsa:
 
     ![Modelli di Azure Resource Manager in Visual Studio Code - dependsOn](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -70,7 +86,7 @@ Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager
     * publicIPAddress
     * virtualNetwork
 
-3. Espandere il quinto elemento. Questa risorsa è una macchina virtuale. Dipende da altre due risorse:
+6. Espandere la quinta risorsa. Questa risorsa è una macchina virtuale. Dipende da altre due risorse:
 
     * storageAccount
     * networkInterface

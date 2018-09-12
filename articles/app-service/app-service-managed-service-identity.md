@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: fc1251cafcb2a535ccaf8354cb5c7c8b6a4afd33
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c7a819f987de41ba7705d21bb6de95475cd3f9c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337535"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027187"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Come usare Identità del servizio gestita di Azure nel Servizio App e in Funzioni di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "43337535"
 > [!Important] 
 > Identità del servizio gestita per Servizio app di Azure e Funzioni di Azure non funzioneranno come previsto se viene eseguita la migrazione dell'app tra sottoscrizioni/tenant. L'app dovrà ottenere una nuova identità disabilitando e abilitando di nuovo la funzionalità. Vedere [Rimozione di un'identità](#remove) più avanti. Per usare la nuova identità, anche le risorse a valle dovranno disporre di criteri di accesso aggiornati.
 
-Questo argomento illustra come creare un'identità di applicazione gestita per le applicazioni di Servizio App e Funzioni di Azure e come usarla per accedere ad altre risorse. Un'identità del servizio gestito da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure come ad esempio Azure Key Vault. L'identità viene gestita dalla piattaforma Azure e non è necessario eseguire il provisioning o ruotare alcun segreto. Per altre informazioni sull'identità del servizio gestito, vedere il [Identità del servizio gestito per le risorse di Azure](../active-directory/managed-service-identity/overview.md).
+Questo argomento illustra come creare un'identità di applicazione gestita per le applicazioni di Servizio App e Funzioni di Azure e come usarla per accedere ad altre risorse. Un'identità del servizio gestito da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure come ad esempio Azure Key Vault. L'identità viene gestita dalla piattaforma Azure e non è necessario eseguire il provisioning o ruotare alcun segreto. Per altre informazioni sull'identità del servizio gestito, vedere il [Identità del servizio gestito per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Creazione di un'app con un'identità
 
@@ -151,7 +151,7 @@ Dove `<TENANTID>` e `<PRINCIPALID>` vengono sostituiti con GUID. La proprietà t
 Un'app può usare la propria identità per ottenere i token da altre risorse protette da AAD, ad esempio Azure Key Vault. Questi token rappresentano le applicazioni che accedono alla risorsa e non un utente specifico dell'applicazione. 
 
 > [!IMPORTANT]
-> Potrebbe essere necessario configurare la risorsa di destinazione per consentire l'accesso dall'applicazione. Ad esempio, se si richiede un token a Key Vault, è necessario verificare di aver aggiunto un criterio di accesso che include l'identità dell'applicazione. In caso contrario, le chiamate a Key Vault verranno rifiutate, anche se includono il token. Per altre informazioni sulle risorse che supportano i token di Identità del servizio gestito, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-service-identity/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> Potrebbe essere necessario configurare la risorsa di destinazione per consentire l'accesso dall'applicazione. Ad esempio, se si richiede un token a Key Vault, è necessario verificare di aver aggiunto un criterio di accesso che include l'identità dell'applicazione. In caso contrario, le chiamate a Key Vault verranno rifiutate, anche se includono il token. Per altre informazioni sulle risorse che supportano i token di Identità del servizio gestito, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 È disponibile un semplice protocollo REST per ottenere un token del Servizio App e di Funzioni di Azure. Per le applicazioni .NET, la libreria Microsoft.Azure.Services.AppAuthentication fornisce un'astrazione di questo protocollo e supporta un'esperienza di sviluppo locale.
 

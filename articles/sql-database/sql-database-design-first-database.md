@@ -9,12 +9,12 @@ ms.custom: mvc,develop databases
 ms.topic: tutorial
 ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ed2d4654163881b3258c4a98632d48acd0e80fb5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091542"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055370"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Esercitazione: Progettare il primo database SQL di Azure con SSMS
 
@@ -41,7 +41,7 @@ Per completare questa esercitazione, accertarsi di avere installato:
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
-Accedere al [Portale di Azure](https://portal.azure.com/).
+Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
 
@@ -131,7 +131,7 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
 
 Ottenere il nome completo del server per il server del database SQL di Azure nel portale di Azure. Usare il nome completo del server per connettersi al server tramite SQL Server Management Studio.
 
-1. Accedere al [Portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
 3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**.
 

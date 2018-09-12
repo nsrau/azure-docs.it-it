@@ -4,26 +4,23 @@ description: La soluzione Funzioni di Azure supporta più versioni del runtime. 
 services: functions
 documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 716f2b537a47c6e721c7393cba340a583c7ed064
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622637"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092139"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
  Esistono due versioni principali del runtime di Funzioni di Azure: 1.x e 2.x. Solo 1. x viene approvata per la produzione. Questo articolo illustra quali sono le novità della versione 2.x, disponibile in anteprima.
 
-| Runtime | Stato |
+| Runtime | Status |
 |---------|---------|
 |1.x|Disponibile a livello generale|
 |2.x|Anteprima<sup>*</sup>|

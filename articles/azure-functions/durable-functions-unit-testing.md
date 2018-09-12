@@ -3,29 +3,25 @@ title: Testing unità di Funzioni durevoli di Azure
 description: Informazioni su come eseguire lo unit test di Funzioni durevoli.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81d187cf5b75b7bd943d9dcedc97b56ba9c397de
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762761"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092577"
 ---
 # <a name="durable-functions-unit-testing"></a>Testing unità di Funzioni durevoli
 
 Il testing unità è una parte importante delle moderne procedure di sviluppo software. Gli unit test verificano il comportamento della logica di business e proteggono dall'introduzione futura di modifiche inosservate che causano un'interruzione. La complessità di Funzioni durevoli può facilmente aumentare e l'introduzione di unit test consentirà quindi di evitare le modifiche che causano un'interruzione. Le sezioni seguenti illustrano come eseguire lo unit test dei tre tipi di funzioni: funzioni del client di orchestrazione, dell'agente di orchestrazione e dell'attività. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Gli esempi di questo articolo richiedono la conoscenza dei concetti e dei framework seguenti: 
 

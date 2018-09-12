@@ -3,23 +3,19 @@ title: Interazione umana e timeout in Funzioni permanenti - Azure
 description: Informazioni su come gestire l'interazione umana e i timeout nell'estensione Funzioni permanenti per Funzioni di Azure.
 services: functions
 author: kashimiz
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a62baf64e35dfad55f76138e2f1aaef65dd434be
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 54c0c8e07ee4a248565b4d71562400c8f427fa77
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036306"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092921"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 

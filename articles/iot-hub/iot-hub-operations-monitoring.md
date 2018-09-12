@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186197"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160049"
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitoraggio delle operazioni dell'hub IoT
 
@@ -186,26 +186,6 @@ La categoria del routing dei messaggi tiene traccia degli errori che si verifica
 }
 ```
 
-## <a name="view-events"></a>Visualizzare eventi
-
-È possibile usare lo strumento *iothub-explorer* per verificare rapidamente che l'hub IoT stia generando eventi di monitoraggio. Per installare lo strumento, vedere le istruzioni disponibili nel repository GitHub [iothub-explorer][lnk-iothub-explorer].
-
-1. Assicurarsi che la categoria di monitoraggio **Connessioni** sia impostata su **Dettagliato** nel portale.
-
-1. Al prompt dei comandi eseguire il comando seguente per consentire la lettura dell'endpoint di monitoraggio:
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. A un altro prompt dei comandi eseguire il comando seguente per simulare un dispositivo che invia messaggi da dispositivo a cloud:
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. Il primo prompt dei comandi visualizza gli eventi di monitoraggio nel momento in cui il dispositivo simulato si connette all'hub IoT.
-
 ## <a name="connect-to-the-monitoring-endpoint"></a>Connettersi all'endpoint di monitoraggio
 
 L'endpoint di monitoraggio sull'hub IoT è un endpoint compatibile con Hub eventi. Per leggere i messaggi di monitoraggio da questo endpoint, è possibile usare qualsiasi meccanismo che funzioni con l'Hub eventi. L'esempio seguente crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. Per altre informazioni su come elaborare i messaggi da Hub eventi, vedere l'esercitazione [Introduzione all'Hub eventi][lnk-eventhubs-tutorial].
@@ -303,5 +283,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

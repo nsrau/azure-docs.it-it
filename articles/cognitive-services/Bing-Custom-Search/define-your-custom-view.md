@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8ffe3087df398d6310828e41d0c6992199fafbed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ef8aabc7363db88317a6428301512b0a0d4c055
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374769"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158773"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurare un'esperienza di ricerca personalizzata
 Un'istanza di Ricerca personalizzata consente di personalizzare l'esperienza di ricerca in modo da includere il contenuto solo dai siti Web a cui sono interessati gli utenti. Anziché eseguire una ricerca in tutto il Web, Bing esegue la ricerca solo nella parte di Web desiderata.
@@ -69,7 +69,7 @@ Per aggiungere suggerimenti all'elenco Active (Elementi attivi), fare clic sull'
 ## <a name="adjust-rank"></a>Modificare la classificazione
 Il portale consente di modificare la classificazione per controllare i risultati restituiti da Bing. Nel riquadro di anteprima immettere un termine di ricerca ed eseguire la query. Il riquadro di anteprima elenco risultati della ricerca per la query. A destra di ogni risultato è presente l'elenco di modifiche che è possibile apportare. 
 
-- Bloccare. Sposta il dominio, la pagina secondaria o la pagina Web nell'elenco Blocked (Elementi bloccati). È possibile selezionare il livello di blocco. Bing esclude il contenuto dal sito selezionato nei risultati della ricerca. 
+- Disporre di blocchi. Sposta il dominio, la pagina secondaria o la pagina Web nell'elenco Blocked (Elementi bloccati). È possibile selezionare il livello di blocco. Bing esclude il contenuto dal sito selezionato nei risultati della ricerca. 
 - Aumentare la priorità. Aumenta la priorità del contenuto del dominio o della pagina secondaria nei risultati della ricerca. Selezionare se si vuole aumentare la priorità del contenuto dal dominio o dalla pagina secondaria a cui appartiene la pagina Web.
 - Abbassare di livello. Abbassa di livello il contenuto del dominio o della pagina secondaria nei risultati della ricerca. Selezionare se si vuole abbassare di livello il contenuto dal dominio o dalla pagina secondaria a cui appartiene la pagina Web. 
 - Aggiungere in alto. Definire la pagina Web che viene visualizzata in cima ai risultati se il termine della query corrisponde esattamente al termine della query usato. L'elenco Active (Elementi attivi) non deve contenere la pagina Web da aggiungere. 
@@ -113,7 +113,7 @@ Seguire questi passaggi per usare Bing per aggiungere sezioni all'istanza di Ric
 5.  Fare clic su **Add site** (Aggiungi sito) accanto al risultato da includere.
 6.  Fare clic sul pulsante **OK** .
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="view-statistics"></a>Visualizzare le statistiche
 Se si è sottoscritto il livello appropriato di Ricerca personalizzata (vedere le [pagine sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), viene aggiunta la scheda **Statistics** (Statistiche) per le istanze di produzione. La scheda Statistics (Statistiche) mostra i dettagli sul modo in cui vengono usati gli endpoint di Ricerca personalizzata, inclusi volume delle chiamate, query principali, distribuzione geografica, codici di risposta e ricerca sicura. È possibile filtrare i dettagli con i controlli forniti.

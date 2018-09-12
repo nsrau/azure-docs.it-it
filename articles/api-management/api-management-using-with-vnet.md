@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187384"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093193"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 | Porte di origine/destinazione | Direzione | Protocollo di trasporto | Origine/Destinazione | Scopo (*) | Tipo di rete virtuale |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |In ingresso |TCP |INTERNET / VIRTUAL_NETWORK|Comunicazione tra client e Gestione API|Esterno |
-| */3443 |In ingresso |TCP |INTERNET / VIRTUAL_NETWORK|Endpoint di gestione per il portale di Azure e PowerShell |Interno |
+| */3443 |In ingresso |TCP |INTERNET / VIRTUAL_NETWORK|Endpoint di gestione per il portale di Azure e PowerShell |Esterno e interno |
 | * / 80, 443 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|**Dipendenza su Archiviazione di Azure**, Bus di servizio di Microsoft Azure e Azure Active Directory (ove applicabile).|Esterno e interno |
 | * / 1433 |In uscita |TCP |VIRTUAL_NETWORK/SQL|**Accesso agli endpoint SQL di Azure** |Esterno e interno |
 | * / 5672 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|Dipendenza per il criterio Registra a Hub eventi |Esterno e interno |

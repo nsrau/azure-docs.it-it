@@ -7,15 +7,16 @@ manager: douge
 tags: azure-resource-manager
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: a43f893c7ee87ffb02179c06ea5786715547e93a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a15f9c41c5af8803bfb230b19cbbf2f1bdbc2686
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781560"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050690"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-key-vault-connected-service"></a>Modifiche apportate al progetto ASP.NET (Servizio connesso Key Vault con Visual Studio)
 
@@ -31,7 +32,7 @@ Per informazioni sull'uso del servizio connesso, vedere l'[introduzione](vs-key-
 
 Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimenti NuGet).
 
-| type | Riferimenti |
+| type | riferimento |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |
@@ -52,10 +53,22 @@ Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimen
 - Sono state aggiunte le seguenti voci di configurazione:
 
     ```xml
-    <appSettings>
-       <add key="vaultName" value="<your Key Vault name>" />
-       <add key="vaultUri" value="<the URI to your Key Vault in Azure>" />
-    </appSettings>
+    <configSections>
+      <section
+           name="configBuilders"
+           type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
+           restartOnExternalChanges="false"
+           requirePermission="false" />
+    </configSections>
+    <configBuilders>
+      <builders>
+        <add 
+             name="AzureKeyVault"
+             vaultName="vaultname"
+             type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral" 
+             vaultUri="https://vaultname.vault.azure.net" />
+      </builders>
+    </configBuilders>
     ```
 
 ## <a name="changes-on-azure"></a>Modifiche in Azure

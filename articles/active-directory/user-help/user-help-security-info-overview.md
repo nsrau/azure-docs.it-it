@@ -11,19 +11,19 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: b2a7ce113b509bb734edb204896f2ee5603e8e80
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 617c086ec78c84104fb2d72d34100a3130967399
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389736"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163295"
 ---
 # <a name="security-info-preview-overview"></a>Panoramica delle informazioni di sicurezza (anteprima)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
->Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure Active Directory (Azure AD) nella [documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Impostare le informazioni per la verifica in due passaggi e la reimpostazione della password in **Informazione di sicurezza**. È sufficiente impostare le informazioni di sicurezza una sola volta. È tuttavia possibile modificare le informazioni e modificare il metodo predefinito in qualsiasi momento.
 
