@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8ecb2008b85bb6a7ac35b5f95deaf0fb321ce155
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e5915157c1ff2c1f58779e5c3b1d784241464b32
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142871"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669047"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
 
@@ -32,7 +32,10 @@ La tabella seguente descrive le differenze tra le tre versioni di Multi-Factor A
 | --- | --- |
 | Multi-Factor Authentication per Office 365 |Questa versione funziona solo con le applicazioni di Office 365 e viene gestita dal portale di Office 365. Gli amministratori possono [proteggere le risorse di Office 365 con la verifica in due passaggi](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Questa versione è inclusa in una sottoscrizione di Office 365. |
 | Multi-Factor Authentication per amministratori di Azure Active Directory | Gli utenti a cui è assegnato il ruolo di amministratori globali di tenant di Azure AD possono abilitare la verifica in due passaggi senza costi aggiuntivi.|
-| Azure Multi-Factor Authentication | Azure Multi-Factor Authentication, definito spesso la versione "completa", offre la più ampia gamma di funzionalità. Offre opzioni di configurazione aggiuntive tramite il [portale di Azure](https://portal.azure.com), segnalazione avanzata e il supporto per una gamma di applicazioni locali e cloud. Azure Multi-Factor Authentication è incluso nei [piani Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e può essere distribuito nel cloud o localmente. |
+| Azure Multi-Factor Authentication | Azure Multi-Factor Authentication, definito spesso la versione "completa", offre la più ampia gamma di funzionalità. Offre opzioni di configurazione aggiuntive tramite il [portale di Azure](https://portal.azure.com), segnalazione avanzata e il supporto per una gamma di applicazioni locali e cloud. Azure Multi-Factor Authentication è una funzione di [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e può essere distribuito nel cloud o localmente. |
+
+> [!NOTE]
+> I nuovi clienti non possono più acquistare Azure Multi-Factor Authentication come offerta autonoma valida dal 1 ° settembre 2018. L'autenticazione a più fattori continuerà a essere una funzionalità disponibile nelle licenze di Azure AD Premium.
 
 ## <a name="feature-comparison-of-versions"></a>Confronto tra le funzionalità delle versioni
 
@@ -77,9 +80,12 @@ Se si usa questa opzione, è consigliabile creare un provider Azure Multi-Factor
 
 ### <a name="option-2---mfa-consumption-based-model"></a>Opzione 2: modello in base al consumo di MFA
 
+> [!NOTE]
+> A partire dal 1 ° settembre 2018 non sarà più possibile creare nuovi provider di autenticazione. I provider di autenticazione esistenti potranno continuare a essere usati e aggiornato. L'autenticazione a più fattori continuerà a essere una funzionalità disponibile nelle licenze di Azure AD Premium.
+
 Creare un provider Azure Multi-Factor Authentication all'interno di una sottoscrizione di Azure. I provider Azure MFA sono risorse di Azure fatturate sulla base del contratto Enterprise, usando i fondi degli impegni monetari di Azure o sulla carta di credito come tutte le altre risorse di Azure. Questi provider possono essere creati solo nelle sottoscrizioni complete di Azure, non nelle sottoscrizione limitate di Azure con un limite di spesa di $ 0. Le sottoscrizioni limitate vengono create quando si attivano le licenze, come nell'opzione 1.
 
-Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili due modelli di uso fatturati tramite la sottoscrizione di Azure: 
+Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili due modelli di uso fatturati tramite la sottoscrizione di Azure:
 
 1. **Per utente abilitato**: per le aziende che vogliono abilitare la verifica in due passaggi per un numero fisso di dipendenti che richiedono regolarmente l'autenticazione. La fatturazione per utente si basa sul numero di utenti abilitati per MFA nel tenant di Azure AD e in Azure MFA Server. Se gli utenti sono abilitati per MFA sia in Azure AD che in Azure MFA Server e la sincronizzazione dei domini (Azure AD Connect) è abilitata, viene considerato il set di utenti più numeroso. Se la sincronizzazione dei domini non è abilitata, viene calcolata la somma di tutti gli utenti abilitati per MFA in Azure AD e in Azure MFA Server. La fatturazione viene ripartita e segnalata ogni giorno al sistema commerciale.
 
@@ -93,7 +99,7 @@ Quando si usa un provider di Azure Multi-Factor Authentication, sono disponibili
   > [!NOTE]
   > Esempio di fatturazione 3: oggi il servizio Azure MFA ha ricevuto 3.105 richieste di verifica in due passaggi. Alla sottoscrizione di Azure vengono fatturati 310,5 pacchetti di autenticazione.
 
-È importante notare che, anche con licenze Azure MFA, continua a essere fatturata la configurazione in base al consumo. Se si configura un provider Azure MFA per autenticazione, viene fatturata ogni richiesta di verifica in due passaggi, anche quelle eseguite dagli utenti con licenza. Se si configura un provider Azure MFA per utente in un dominio non collegato al tenant di Azure AD, viene fatturato ogni utente abilitato anche se gli utenti hanno licenze in Azure AD.
+È importante notare che, anche con licenze, continua a essere fatturata la configurazione in base al consumo. Se si configura un provider Azure MFA per autenticazione, viene fatturata ogni richiesta di verifica in due passaggi, anche quelle eseguite dagli utenti con licenza. Se si configura un provider Azure MFA per utente in un dominio non collegato al tenant di Azure AD, viene fatturato ogni utente abilitato anche se gli utenti hanno licenze in Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

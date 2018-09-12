@@ -7,14 +7,14 @@ author: ashmaka
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 7563a967ed23f98d8626092d58b5a0f5d4d1834c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 75c6476e86ee4a742e32ae0e7ffd27842f591843
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374436"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841763"
 ---
 # <a name="quickstart-for-text-analytics-api-with-ruby"></a>Avvio rapido di API Analisi del testo con Ruby 
 <a name="HOLTop"></a>
@@ -23,11 +23,11 @@ Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sent
 
 Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Analisi del testo**. Per completare questo Avvio rapido è possibile usare il **livello gratuito per 5.000 transazioni/mese**.
 
-È inoltre necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati automaticamente durante l'iscrizione. 
+È anche necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
 
 <a name="Detect"></a>
 
@@ -37,8 +37,8 @@ L'API Rilevamento lingua rileva la lingua di un documento di testo usando il [me
 
 1. Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `accessKey` con una chiave di accesso valida per la sottoscrizione.
-4. Sostituire il percorso in `uri` (attualmente `westus`) nell'area dell'iscrizione.
+3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
+4. Sostituire la località in `uri` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.
 5. Eseguire il programma.
 
 ```ruby
@@ -51,7 +51,7 @@ require 'json'
 # **********************************************
 
 # Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
+accessKey = 'ENTER KEY HERE'
 
 # Replace or verify the region.
 #
@@ -62,9 +62,9 @@ accessKey = 'enter key here'
 # NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 # a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/languages'
+path = '/text/analytics/v2.0/'
 
-uri = URI(uri + path)
+uri = URI(uri + path + 'languages')
 
 documents = { 'documents': [
     { 'id' => '1', 'text' => 'This is a document written in English.' },
@@ -86,9 +86,9 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Risposta rilevamento lingua**
+**Risposta di Rilevamento lingua**
 
-Una risposta con esito positivo viene restituita in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 
@@ -136,38 +136,12 @@ Una risposta con esito positivo viene restituita in JSON, come illustrato nell'e
 
 ## <a name="analyze-sentiment"></a>Analizzare la valutazione
 
-L'API Analisi del sentiment rileva il sentiment di un set di record di testo, usando il [metodo Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). L'esempio seguente assegna un punteggio a due documenti, uno in inglese e un altro in spagnolo.
+L'API Analisi del sentiment rileva il sentiment di un set di record di testo, usando l'apposito [metodo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). L'esempio seguente assegna un punteggio a due documenti, uno in inglese e un altro in spagnolo.
 
-1. Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `accessKey` con una chiave di accesso valida per la sottoscrizione.
-4. Sostituire il percorso in `uri` (attualmente `westus`) nell'area dell'iscrizione.
-5. Eseguire il programma.
+Aggiungere il codice seguente al codice della [sezione precedente](#Detect).
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
-
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/sentiment'
-
-uri = URI(uri + path)
+uri = URI(uri + path + 'sentiment')
 
 documents = { 'documents': [
     { 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -188,9 +162,9 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Risposta Analisi del sentiment**
+**Risposta di Analisi del sentiment**
 
-Una risposta con esito positivo viene restituita in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -212,39 +186,12 @@ Una risposta con esito positivo viene restituita in JSON, come illustrato nell'e
 
 ## <a name="extract-key-phrases"></a>Estrarre le frasi chiave
 
-L'API di Estrazione frasi chiave consente di estrarre le frasi chiave da un documento di testo usando il [metodo per le frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). L'esempio seguente estrae le frasi chiave per i documenti in inglese e in spagnolo.
+L'API Estrazione frasi chiave consente di estrarre le frasi chiave da un documento di testo usando il [metodo per le frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). L'esempio seguente estrae le frasi chiave per i documenti in inglese e in spagnolo.
 
-1. Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `accessKey` con una chiave di accesso valida per la sottoscrizione.
-4. Sostituire il percorso in `uri` (attualmente `westus`) nell'area dell'iscrizione.
-5. Eseguire il programma.
-
+Aggiungere il codice seguente al codice della [sezione precedente](#SentimentAnalysis).
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
-
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/keyPhrases'
-
-uri = URI(uri + path)
+uri = URI(uri + path + 'keyPhrases')
 
 documents = { 'documents': [
     { 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -266,9 +213,9 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Risposta estrazione frasi chiave**
+**Risposta di Estrazione frasi chiave**
 
-Una risposta con esito positivo viene restituita in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -307,41 +254,14 @@ Una risposta con esito positivo viene restituita in JSON, come illustrato nell'e
 ```
 <a name="Entities"></a>
 
-## <a name="identify-linked-entities"></a>Identificare entità collegate
+## <a name="identify-linked-entities"></a>Identificare le entità collegate
 
-L'API Collegamento delle entità identifica entità note in un documento di testo, usando il [metodo di collegamento delle entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). L'esempio seguente identifica le entità per i documenti in lingua inglese.
+L'API Collegamento delle entità identifica entità note in un documento di testo, usando il [metodo di collegamento delle entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). L'esempio seguente identifica le entità per i documenti in inglese.
 
-1. Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `accessKey` con una chiave di accesso valida per la sottoscrizione.
-4. Sostituire il percorso in `uri` (attualmente `westus`) nell'area dell'iscrizione.
-5. Eseguire il programma.
-
+Aggiungere il codice seguente al codice della [sezione precedente](#KeyPhraseExtraction).
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
-
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/entities'
-
-uri = URI(uri + path)
+uri = URI(uri + path + 'entities')
 
 documents = { 'documents': [
     { 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -362,9 +282,9 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Risposta collegamento delle entità**
+**Risposta del collegamento delle entità**
 
-Una risposta con esito positivo viene restituita in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -434,4 +354,4 @@ Una risposta con esito positivo viene restituita in JSON, come illustrato nell'e
 ## <a name="see-also"></a>Vedere anche  
 
  [Panoramica di Analisi del testo](../overview.md)  
- [Domande frequenti (FAQ)](../text-analytics-resource-faq.md)
+ [Domande frequenti](../text-analytics-resource-faq.md)

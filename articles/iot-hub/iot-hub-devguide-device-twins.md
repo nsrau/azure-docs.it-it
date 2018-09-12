@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui dispositivi gemelli nell'hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sui dispositivi gemelli nell'hub IoT di Azure | Microsoft Docs
 description: Guida per gli sviluppatori - Usare dispositivi gemelli per sincronizzare stato e dati di configurazione tra l'hub IoT e i dispositivi
 author: fsautomata
 manager: ''
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186789"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288279"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
@@ -254,7 +254,7 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
     }
     ```
 
-* Tutti i valori di stringa possono avere una lunghezza massima di 4 KB.
+* Tutti i valori di stringa possono avere una lunghezza massima di 512 byte.
 
 ## <a name="device-twin-size"></a>Dimensioni del dispositivo gemello
 L'hub IoT impone un limite di dimensioni pari a 8 KB per ognuno dei valori totali di `tags`, `properties/desired` e `properties/reported`, esclusi gli elementi di sola lettura.
@@ -354,6 +354,7 @@ Per provare alcuni dei concetti descritti in questo articolo, vedere le esercita
 
 * [Come usare il dispositivo gemello][lnk-twin-tutorial]
 * [Come usare le proprietà del dispositivo gemello][lnk-twin-properties]
+* [Gestione dei dispositivi con Azure IoT Toolkit per VS Code][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -377,6 +378,7 @@ Per provare alcuni dei concetti descritti in questo articolo, vedere le esercita
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

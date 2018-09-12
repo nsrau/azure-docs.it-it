@@ -3,22 +3,22 @@ title: Ripristino di Azure SQL Data Warehouse | Microsoft Docs
 description: Indicazioni per il ripristino di Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 583346f2297f590d8e9484c0a3c19c947de7f740
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 6eba50fbe7c2a7a40b08e37a96adac66583b8251
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191452"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781861"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Eseguire il ripristino di Azure SQL Data Warehouse 
-In questo articolo si apprenderà come eseguire le operazioni seguenti:
+Questo articolo illustra come effettuare le operazioni seguenti nel portale di Azure e in PowerShell:
 
 - Creare un punto di ripristino
 - Eseguire il ripristino da un punto di ripristino automatico o da un punto di ripristino definito dall'utente
@@ -26,15 +26,19 @@ In questo articolo si apprenderà come eseguire le operazioni seguenti:
 - Eseguire il ripristino da un backup geografico
 - Creare una copia del data warehouse da un punto di ripristino definito dall'utente
 
+> [!NOTE]
+> A partire dal 27/8, il ripristino tra server è stato disabilitato a causa di una regressione nota. Microsoft sta lavorando attivamente a una correzione con priorità massima. Ci scusiamo per l'inconveniente. Nel frattempo, è possibile sfruttare il [backup con ridondanza geografica](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) per il ripristino tra server.  
+>
+
 ## <a name="before-you-begin"></a>Prima di iniziare
 **Verificare la capacità in DTU.** Ogni SQL Data Warehouse è ospitato in un server SQL (ad esempio mioserver.database.windows.net), che ha una quota DTU predefinita.  Per poter ripristinare un database SQL, verificare che la quota DTU rimanente nell'istanza del server SQL sia sufficiente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere altre DTU, vedere come [richiedere una modifica della quota DTU][Request a DTU quota change].
 
-# <a name="restore-through-powershell"></a>Eseguire il ripristino tramite PowerShell
+## <a name="restore-through-powershell"></a>Eseguire il ripristino tramite PowerShell
 
 ## <a name="install-powershell"></a>Installare PowerShell
 Per usare Azure PowerShell con SQL Data Warehouse, è necessario installare Azure PowerShell versione 1.0 o successiva.  Per controllare la versione usata, eseguire **Get-Module -ListAvailable -Name AzureRM**.  È possibile installare la versione più recente usando [Installazione guidata piattaforma Web Microsoft][Microsoft Web Platform Installer].  Per altre informazioni sull'installazione della versione più recente, vedere [Come installare e configurare Azure PowerShell][How to install and configure Azure PowerShell].
 
-## <a name="restore-an-active-or-paused-database"></a>Ripristinare un database attivo o sospeso
+## <a name="restore-an-active-or-paused-database-using-powershell"></a>Ripristinare un database attivo o sospeso con PowerShell
 Per ripristinare un database da un punto di ripristino, usare il cmdlet di PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Aprire Windows PowerShell.
@@ -90,7 +94,7 @@ $RestoredDatabase.status
 > Al termine del ripristino sarà possibile configurare il database ripristinato seguendo le istruzioni disponibili in [Configurare il database dopo il ripristino][Configure your database after recovery].
 >
 
-## <a name="copy-your-data-warehouse-with-user-defined-restore-points"></a>Copiare il data warehouse con i punti di ripristino definiti dall'utente
+## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>Copiare il data warehouse con i punti di ripristino definiti dall'utente con PowerShell
 Per ripristinare un database da un punto di ripristino definito dall'utente, usare il cmdlet di PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Aprire Windows PowerShell.
@@ -98,10 +102,10 @@ Per ripristinare un database da un punto di ripristino definito dall'utente, usa
 3. Selezionare la sottoscrizione che contiene il database da ripristinare.
 4. Creare un punto di ripristino per una copia immediata del database
 5. Rinominare il database con un nome temporaneo.
-5. Recuperare il punto di ripristino più recente tramite il RestorePointLabel specificato.
-6. Ottenere l'id della risorsa del database per avviare il ripristino
-6. Ripristinare il database al punto di ripristino desiderato.
-7. Verificare che il database ripristinato sia online.
+6. Recuperare il punto di ripristino più recente tramite il RestorePointLabel specificato.
+7. Ottenere l'id della risorsa del database per avviare il ripristino
+8. Ripristinare il database al punto di ripristino desiderato.
+9. Verificare che il database ripristinato sia online.
 
 ```Powershell
 
@@ -138,7 +142,7 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-a-deleted-database"></a>Ripristino di un database eliminato
+## <a name="restore-a-deleted-database-using-powershell"></a>Ripristinare un database eliminato con PowerShell
 Per ripristinare un database eliminato, usare il cmdlet [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Aprire Windows PowerShell.
@@ -173,7 +177,7 @@ $RestoredDatabase.status
 > Al termine del ripristino sarà possibile configurare il database ripristinato seguendo le istruzioni disponibili in [Configurare il database dopo il ripristino][Configure your database after recovery].
 >
 
-## <a name="restore-from-an-azure-geographical-region"></a>Eseguire il ripristino da un'area geografica di Azure
+## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Eseguire il ripristino da un'area geografica di Azure con PowerShell
 Per ripristinare un database, usare il cmdlet [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 > [!NOTE]
@@ -208,9 +212,9 @@ $GeoRestoredDatabase.status
 
 Il database ripristinato sarà abilitato TDE se il database di origine è abilitato per questa tecnologia.
 
-# <a name="restore-through-the-azure-portal"></a>Eseguire il ripristino tramite il portale di Azure
+## <a name="restore-through-the-azure-portal"></a>Eseguire il ripristino tramite il portale di Azure
 
-## <a name="create-a-user-defined-restore-point"></a>Creare un punto di ripristino definito dall'utente
+## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Creare un il punto di ripristino definito dall'utente usando il portale di Azure
 1. Accedere al [portale di Azure][Azure portal].
 
 2. Passare al data warehouse SQL per cui si desidera creare un punto di ripristino.
@@ -218,37 +222,37 @@ Il database ripristinato sarà abilitato TDE se il database di origine è abilit
 3. Nella parte superiore del pannello della panoramica, selezionare **+ Nuovo punto di ripristino**.
 
     ![Nuovo punto di ripristino](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
-    
+
 4. Specificare un nome per il punto di ripristino.
 
     ![Nome del punto di ripristino](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
-## <a name="restore-an-active-or-paused-database"></a>Ripristinare un database attivo o sospeso
+## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Ripristinare un database attivo o sospeso con il portale di Azure
 1. Accedere al [portale di Azure][Azure portal].
 2. Passare al data warehouse SQL da ripristinare e selezionarlo.
 3. Nella parte superiore del pannello della panoramica, selezionare **Ripristina**.
 
     ![ Panoramica del servizio di ripristino](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
-    
+
 4. Selezionare **Punto di ripristino automatico** o **Punti di ripristino definiti dall'utente**.
 
     ![Punti di ripristino automatici](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
-    
+
 5. Per i punti di ripristino definiti dall'utente, **selezionare un punto di ripristino** oppure **creare un nuovo punto di ripristino definito dall'utente**.
 
     ![Punti di ripristino definiti dall'utente](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
-## <a name="restore-a-deleted-database"></a>Ripristino di un database eliminato
+## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Ripristinare un database eliminato con il portale di Azure
 1. Accedere al [portale di Azure][Azure portal].
 2. Passare al server SQL che ospitava il database eliminato.
 3. Selezionare l'icona dei database eliminati nel sommario.
 
     ![Database eliminati](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_0.png)
-    
+
 4. Selezionare il database eliminato che si vuole ripristinare.
 
     ![Selezionare i database eliminati](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_1.png)
-    
+
 5. Specificare un nuovo nome del database.
 
     ![Specificare il nome del database](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_2.png)

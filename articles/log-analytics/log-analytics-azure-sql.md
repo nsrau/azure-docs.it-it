@@ -1,5 +1,5 @@
 ---
-title: Soluzione Analisi SQL di Azure in Log Analytics | Microsoft Docs
+title: Soluzione Azure SQL Analytics in Log Analytics | Microsoft Docs
 description: La soluzione Analisi SQL di Azure consente di gestire i database SQL di Azure
 services: log-analytics
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 82845f475857f9a911febd496e86eb2a60f69c25
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886561"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782244"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Monitorare i database SQL di Azure usando Analisi SQL di Azure (Anteprima)
 
 ![Simbolo di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Analisi SQL di Azure è un cloud per la soluzione di monitoraggio per il monitoraggio delle prestazioni dei database SQL di Azure su larga scala tra più abbonamenti e pool elastici. Raccoglie e Visualizza importanti metriche sulle prestazioni di Database SQL di Azure con funzionalità di intelligence integrata per la risoluzione dei problemi nella parte superiore. 
+Analisi SQL di Azure è un cloud per la soluzione di monitoraggio per il monitoraggio delle prestazioni dei database SQL di Azure, i pool elastici, e le istanze gestite su larga scala e tra più abbonamenti. Raccoglie e Visualizza importanti metriche sulle prestazioni di Database SQL di Azure con funzionalità di intelligence integrata per la risoluzione dei problemi.
 
-Usando le metriche raccolte con la soluzione, è possibile creare regole e avvisi di monitoraggio personalizzati. La soluzione consente di identificare i problemi a ogni livello dello stack di applicazioni. Usa le metriche di Diagnostica di Azure insieme alle viste di Log Analytics per presentare i dati su tutti i database SQL di Azure e i pool elastici in un'unica area di lavoro di Log Analytics. Log Analytics consente di raccogliere, correlare e visualizzare dati strutturati e non strutturati.
+Usando le metriche raccolte con la soluzione, è possibile creare regole e avvisi di monitoraggio personalizzati. La soluzione consente di identificare i problemi a ogni livello dello stack di applicazioni. Usa le metriche di Diagnostica di Azure insieme alle viste di Log Analytics per presentare i dati su tutti i database SQL di Azure, i pool elastici e i database nelle istanze gestite in un'unica area di lavoro di Log Analytics. Log Analytics consente di raccogliere, correlare e visualizzare dati strutturati e non strutturati.
 
-Questa soluzione in anteprima supporta attualmente fino a 150.000 database SQL di Azure e 5.000 pool elastici SQL per area di lavoro.
+Questa soluzione in anteprima supporta attualmente fino a 200.000 database SQL di Azure e 5.000 pool elastici SQL per area di lavoro.
 
 Per una panoramica pratica sull'uso della soluzione Analisi SQL di Azure e per scenari di uso tipici, vedere il video incorporato:
 
@@ -39,15 +39,15 @@ Per una panoramica pratica sull'uso della soluzione Analisi SQL di Azure e per s
 
 ## <a name="connected-sources"></a>Origini connesse
 
-Analisi SQL di Azure è una soluzione di monitoraggio del cloud che supporta il flusso della telemetria di diagnostica per i database SQL di Azure e i pool elastici. Poiché non usa agenti per connettersi al servizio Log Analytics, la soluzione non supporta la connettività con risorse Windows, Linux o SCOM. Vedere la tabella di compatibilità riportata di seguito.
+Analisi SQL di Azure è una soluzione di monitoraggio solo per cloud che supporta il flusso della telemetria di diagnostica per i database SQL di Azure, i pool elastici e le istanze gestite. Poiché non usa agenti per connettersi al servizio Log Analytics, la soluzione non supporta il monitoraggio dei server SQL o delle macchine virtuali locali. Vedere la tabella di compatibilità riportata di seguito.
 
-| Origine connessa | Supporto | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
 | **[Diagnostica di Azure](log-analytics-azure-storage.md)** | **Sì** | I dati relativi alle metriche e ai log vengono inviati a Log Analytics direttamente da Azure. |
-| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No | Log Analytics non legge i dati da un account di archiviazione. |
-| [Agenti di Windows](log-analytics-windows-agent.md) | No | Gli agenti Windows diretti non vengono usati dalla soluzione. |
-| [Agenti Linux](log-analytics-linux-agents.md) | No | Gli agenti Linux diretti non vengono usati dalla soluzione. |
-| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No | Una connessione diretta dall'agente SCOM a Log Analytics non viene usata dalla soluzione. |
+| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | Log Analytics non legge i dati da un account di archiviazione. |
+| [Agenti di Windows](log-analytics-windows-agent.md) | No  | Gli agenti Windows diretti non vengono usati dalla soluzione. |
+| [Agenti Linux](log-analytics-linux-agents.md) | No  | Gli agenti Linux diretti non vengono usati dalla soluzione. |
+| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | Una connessione diretta dall'agente SCOM a Log Analytics non viene usata dalla soluzione. |
 
 ## <a name="configuration"></a>Configurazione
 
@@ -100,7 +100,7 @@ La selezione di uno dei riquadri consente di visualizzare un report drill-down n
 
 Ogni prospettiva fornisce riepiloghi relativi a sottoscrizione, server, pool elastico e livello di database. Inoltre ogni prospettiva mostra una prospettiva specifica del report a destra. Selezionando una sottoscrizione, un server, un pool o un database nell'elenco, il drilldown continua.
 
-| Prospettiva | Descrizione |
+| Prospettiva | DESCRIZIONE |
 | --- | --- |
 | Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. Il drill-down fornisce il riepilogo delle metriche relative a DTU e GB. |
 | Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights. Altre informazioni su Intelligent Insights. |

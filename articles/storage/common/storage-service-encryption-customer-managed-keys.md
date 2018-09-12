@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527087"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781565"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault
 In Microsoft Azure la protezione e la salvaguardia dei dati sono essenziali per soddisfare i criteri di sicurezza e conformità dell'organizzazione. Uno dei metodi usati dalla piattaforma di archiviazione di Azure per proteggere i dati è la crittografia del servizio di archiviazione, che crittografa i dati durante la scrittura nella risorsa di archiviazione e li decrittografa durante il recupero. Le operazioni di crittografia e decrittografia sono automatiche e trasparenti e usano la [crittografia AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, uno dei più efficaci algoritmi di crittografia a blocchi.
@@ -34,7 +34,7 @@ Per usare chiavi gestite dal cliente con la crittografia SSE è possibile creare
 Creare prima di tutto un account di archiviazione, se non ne è già disponibile uno. Per altre informazioni, vedere [Creare un account di archiviazione](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Passaggio 2: Abilitare la crittografia SSE per l'archiviazione BLOB e file
-Per abilitare la crittografia SSE usando chiavi gestite dal cliente, è necessario abilitare anche due funzionalità di sicurezza delle chiavi, per l'eliminazione temporanea e la protezione dall'eliminazione. Ciò consente di evitare che le chiavi vengano eliminate intenzionalmente o accidentalmente. Il periodo massimo di conservazione delle chiavi è impostato su 90 giorni, in modo da proteggere gli utenti da azioni di malintenzionati o attacchi ransomware.
+Per abilitare la crittografia SSE usando chiavi gestite dal cliente, è necessario abilitare in Azure Key Vault anche due funzionalità di sicurezza delle chiavi, per l'eliminazione temporanea e la protezione dall'eliminazione. Ciò consente di evitare che le chiavi vengano eliminate intenzionalmente o accidentalmente. Il periodo massimo di conservazione delle chiavi è impostato su 90 giorni, in modo da proteggere gli utenti da azioni di malintenzionati o attacchi ransomware.
 
 Se si vogliono abilitare a livello di codice le chiavi gestite dal cliente per la crittografia SSE, è possibile usare l'[API REST del provider di risorse di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp), la [libreria client dei provider delle risorse di archiviazione per .NET](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 

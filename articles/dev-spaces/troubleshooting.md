@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi | Documentazione Microsoft
+title: Risoluzione dei problemi | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,16 +11,24 @@ ms.topic: article
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141565"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841610"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
 Questa guida contiene informazioni sui problemi comuni in cui si potrebbe incorrere quando si usa Azure Dev Spaces.
+
+## <a name="enabling-detailed-logging"></a>Abilitazione della registrazione dettagliata
+
+Per risolvere i problemi in modo più efficace, può essere utile per creare log maggiormente dettagliati per la revisione.
+
+Per l'estensione di Visual Studio, è possibile effettuare questa operazione impostando la variabile di ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` su 1. Assicurarsi di riavviare Visual Studio per rendere effettiva la variabile di ambiente. Una volta abilitati, i log dettagliati verranno scritti nella directory `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
+
+Nell'interfaccia della riga di comando è possibile visualizzare altre informazioni durante l'esecuzione del comando usando lo switch `--verbose`.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Errore "Failed to create Azure Dev Spaces controller" (Non è stato possibile creare il controller di Azure Dev Spaces)
 
@@ -106,6 +114,16 @@ Avviare VS Code da un prompt dei comandi in cui la variabile di ambiente PATH è
     ```cmd
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
+
+## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Avviso 'Dockerfile could not be generated due to unsupported language' (Dockerfile non generato a causa di un linguaggio non supportato)
+Azure Dev Spaces fornisce il supporto nativo per C# e Node.js. Quando si esegue *azds prep* in una directory contenente codice scritto in uno di questi linguaggi, Azure Dev Spaces creerà automaticamente un Dockerfile appropriato per l'utente.
+
+È comunque possibile usare Azure Dev Spaces con il codice scritto in altri linguaggi, ma sarà necessario creare il Dockerfile prima di eseguire *azds up* per la prima volta.
+
+### <a name="try"></a>Soluzione:
+Se l'applicazione è scritta in un linguaggio non supportato da Azure Dev Spaces in modo nativo, è necessario fornire un Dockerfile appropriato per creare un'immagine del contenitore che esegua il codice. Docker offre un [elenco di procedure consigliate per la scrittura di Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) nonché un [riferimento a Dockerfile](https://docs.docker.com/engine/reference/builder/) per l'esecuzione di questa operazione.
+
+Quando si dispone di un Dockerfile appropriato è possibile procedere con l'esecuzione di *azds up* per eseguire l'applicazione in Azure Dev Spaces.
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Errore "upstream connect error or disconnect/reset before headers" (errore di connessione a monte o disconnessione/reset prima delle intestazioni)
 Questo errore potrebbe essere visualizzato quando si tenta di accedere al servizio. Ad esempio, quando si passa all'URL del servizio in un browser. 

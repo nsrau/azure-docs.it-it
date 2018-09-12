@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858807"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696820"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: elaborazione di database senza server con Funzioni di Azure
 
@@ -31,7 +31,7 @@ Funzioni di Azure e Azure Cosmos DB consentono di integrare i database e le app 
 * Associare una funzione di Azure a un contenitore di Azure Cosmos DB usando un'**associazione di output**. Le associazioni di output scrivono i dati in un contenitore al termine di una funzione.
 
 > [!NOTE]
-> Al momento, il trigger e le associazioni di input e output di Azure Cosmos DB funzionano solo con gli account API SQL e API Graph.
+> Al momento, il trigger e le associazioni di input e output di Azure Cosmos DB funzionano solo con gli account API SQL e API Gremlin.
 
 Il diagramma seguente illustra ognuna di questi tre integrazioni: 
 
@@ -82,7 +82,7 @@ Le immagini seguenti mostrano il codice nel portale di Azure per questo scenario
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Caso d'uso di gioco: trigger di Azure Cosmos DB e associazione di output
 
-Nei giochi, quando viene creato un nuovo utente è possibile cercare altri utenti che potrebbero conoscerlo usando l'[API Graph di Azure Cosmos DB](graph-introduction.md). È quindi possibile eseguire la scrittura dei risultati in un [database SQL di Azure Cosmos DB] per semplificarne il recupero.
+Nei giochi, quando viene creato un nuovo utente è possibile cercare altri utenti che potrebbero conoscerlo usando l'[API Gremlin di Azure Cosmos DB](graph-introduction.md). È quindi possibile eseguire la scrittura dei risultati in un [database SQL di Azure Cosmos DB] per semplificarne il recupero.
 
 **Implementazione:** usare un trigger di Azure Cosmos DB e un'associazione di output
 

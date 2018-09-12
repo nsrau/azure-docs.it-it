@@ -1,5 +1,5 @@
 ---
-title: Informazioni sull'utilizzo della prenotazione di Azure per l'iscrizione Enterprise | Microsoft Docs
+title: Informazioni sull'utilizzo delle prenotazioni di Azure per l'iscrizione Enterprise | Microsoft Docs
 description: Informazioni su come leggere l'utilizzo per comprendere come viene applicata la prenotazione di Azure per l'iscrizione Enterprise.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 5ce0103315f297996ed3f3bd88b5e53558e22e14
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 334271139b791ab60f2bc89ae695ba9bf06b7d12
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628233"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301021"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informazioni sull'utilizzo della prenotazione di Azure per l'iscrizione Enterprise
 
@@ -83,7 +83,7 @@ L'utilizzo della prenotazione di Azure viene visualizzato anche nella sezione di
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Cosa sono le prenotazioni di Azure?](billing-save-compute-costs-reservations.md)
+- [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md) 
 - [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)

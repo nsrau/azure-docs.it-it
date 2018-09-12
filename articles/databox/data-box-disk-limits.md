@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141125"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782026"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limiti di Azure Data Box Disk (anteprima)
 
@@ -33,7 +33,7 @@ Quando si distribuisce e si usa la soluzione Microsoft Azure Data Box Disk, tene
 
 ## <a name="data-box-service-limits"></a>Limiti di servizio Data Box
 
- - Il servizio Data Box è disponibile solo negli Stati Uniti e nell'Unione Europea in tutte le aree di Azure per il cloud pubblico di Azure.
+ - Il servizio Data Box è disponibile solo negli Stati Uniti, nell'Unione Europea, in Canada e in Australia in tutte le aree di Azure per il cloud pubblico di Azure.
  - Con Data Box Disk è supportato un unico account di archiviazione.
 
 ## <a name="data-box-disk-performance"></a>Prestazioni di Data Box Disk
@@ -86,4 +86,4 @@ Di seguito vengono indicate le dimensioni degli oggetti Azure che possono essere
 | Entità                                       | Convenzioni                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nomi di contenitori BLOB in blocchi e BLOB di pagine | Deve essere un nome DNS valido compreso tra 3 e 63 caratteri. <br>  Deve iniziare con una lettera o un numero. <br> Può contenere solo lettere minuscole, numeri e trattini (-). <br> Ogni trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero. <br> I trattini consecutivi non sono consentiti nei nomi. |
-| Nomi di BLOB per BLOB in blocchi e BLOB di pagine      | I nomi di BLOB fanno distinzione tra maiuscole e minuscole e possono contenere una qualsiasi combinazione di caratteri. <br> La lunghezza di un nome di BLOB deve essere compresa tra 1 e 1.024 caratteri. <br> I caratteri URL riservati devono essere correttamente preceduti da un carattere di escape. <br>Il numero di segmenti di linea che includono il nome BLOB non può essere superiore a 254. Un segmento di linea è la stringa tra caratteri di delimitatore consecutivi, ad esempio, la barra rovesciata '/', che corrisponde al nome di una directory virtuale. |
+| Nomi di BLOB per BLOB in blocchi e BLOB di pagine      | I nomi di BLOB fanno distinzione tra maiuscole e minuscole e possono contenere una qualsiasi combinazione di caratteri. <br> La lunghezza di un nome di BLOB deve essere compresa tra 1 e 1.024 caratteri. <br> I caratteri URL riservati devono essere preceduti da una sequenza di escape. <br>Il numero di segmenti del percorso che includono il nome BLOB non può essere superiore a 254. Un segmento di linea è la stringa tra caratteri di delimitatore consecutivi, ad esempio, la barra rovesciata '/', che corrisponde al nome di una directory virtuale. |

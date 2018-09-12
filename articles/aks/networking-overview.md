@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445508"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697242"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configurazione della rete in Azure Kubernetes Service (AKS)
 
@@ -64,43 +64,50 @@ Il piano di indirizzo IP per un cluster AKS è costituito da una rete virtuale, 
 
 | Intervallo di indirizzi / Risorsa di Azure | Limiti e dimensioni |
 | --------- | ------------- |
-| Rete virtuale | La rete virtuale di Azure può arrivare alle dimensioni /8, ma può avere solo 16.000 indirizzi IP configurati. |
+| Rete virtuale | La rete virtuale di Azure può avere dimensioni pari a /8, ma è limitata a 65.536 indirizzi IP configurati. |
 | Subnet | Deve essere sufficientemente grande da contenere i nodi, i pod e tutte le risorse Kubernetes e Azure che potrebbero essere sottoposte a provisioning nel cluster. Ad esempio, se si distribuisce un Azure Load Balancer interno, i relativi indirizzi IP front-end vengono allocati dalla subnet del cluster, ma non gli indirizzi IP pubblici. <p/>Per calcolare le dimensioni *minime* della subnet: `(number of nodes) + (number of nodes * pods per node)` <p/>Esempio relativo a un cluster a 50 nodi: `(50) + (50 * 30) = 1,550` (/21 o più grande) |
 | Intervallo di indirizzi del servizio Kubernetes | Questo intervallo non deve essere usato da nessun elemento della rete che si trova su questa rete virtuale o è connesso a essa. Il CIDR dell'indirizzo del servizio deve essere più piccolo di /12. |
 | Indirizzo IP del servizio DNS Kubernetes | Indirizzo IP compreso nell'intervallo di indirizzi del servizio Kubernetes che verrà usato dall'individuazione del servizio cluster (kube-dns). |
 | Indirizzo del bridge Docker | Indirizzo IP (in notazione CIDR) utilizzato come indirizzo IP del bridge Docker nei nodi. Il valore predefinito è 172.17.0.1/16. |
 
-Ogni rete virtuale di cui viene effettuato il provisioning per l'uso con il plug-in CNI di Azure è limitata a **16.000 indirizzi IP** configurati.
-
 ## <a name="maximum-pods-per-node"></a>Numero massimo di pod per nodo
 
-Il numero massimo predefinito di pod per ogni nodo in un cluster AKS varia tra la rete di base e avanzata, e il metodo di distribuzione del cluster.
+Il numero massimo predefinito di pod per ogni nodo in un cluster AKS varia tra la rete di base e avanzata e il metodo di distribuzione del cluster.
 
 ### <a name="default-maximum"></a>Massimo predefinito
 
-* Rete di base: **110 pod per nodo**
-* Rete avanzata: **30 pod per nodo**
+Questi sono i valori massimi *predefiniti* quando si distribuisce un cluster AKS senza specificare il numero massimo di pod nella fase di distribuzione:
 
-### <a name="configure-maximum"></a>Configurare il massimo
+| Metodo di distribuzione | Basic | Avanzate | Configurabile in fase di distribuzione |
+| -- | :--: | :--: | -- |
+| Interfaccia della riga di comando di Azure | 110 | 30 | Yes |
+| Modello di Resource Manager | 110 | 30 | Yes |
+| Portale | 110 | 30 | No  |
 
-A seconda del metodo di distribuzione, è possibile modificare il numero massimo di pod per nodo in un cluster AKS.
+### <a name="configure-maximum---new-clusters"></a>Configurare il valore massimo - nuovi cluster
+
+Quando si distribuisce un cluster AKS, per specificare un numero massimo di pod diverso per nodo:
 
 * **Azure CLI**: specificare l'`--max-pods`argomento quando si distribuisce un cluster con il comando [az aks create] [ az-aks-create].
 * **Modello di Gestione risorse**: specificare la `maxPods` proprietà nell'oggetto [ManagedClusterAgentPoolProfile] quando si distribuisce un cluster con un modello di Gestione risorse.
 * **Portale di Azure**: non è possibile modificare il numero massimo di pod per ogni nodo quando si distribuisce un cluster con il portale di Azure. I cluster di rete avanzata sono limitati a 30 pod per ogni nodo quando sono distribuiti nel portale di Azure.
 
+### <a name="configure-maximum---existing-clusters"></a>Configurare il valore massimo - cluster esistenti
+
+Non è possibile modificare il numero massimo di pod per ogni nodo in un cluster AKS esistente. È possibile modificare il numero solo quando si distribuisce inizialmente il cluster.
+
 ## <a name="deployment-parameters"></a>Parametri di distribuzione
 
 Quando si crea un cluster AKS, i parametri seguenti sono configurabili per la rete avanzata:
 
-**Rete virtuale**: rete virtuale in cui si vuole distribuire il cluster Kubernetes. Per creare una nuova rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una rete virtuale*. La rete virtuale è limitata a 16.000 indirizzi IP configurati.
+**Rete virtuale**: rete virtuale in cui si vuole distribuire il cluster Kubernetes. Per creare una nuova rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una rete virtuale*. Per altre informazioni su limiti e quote per una rete virtuale di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subnet**: subnet nella rete virtuale in cui si vuole distribuire il cluster. Per creare una nuova subnet nella rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una subnet*.
 
 **Intervallo di indirizzi del servizio Kubernetes**: set di indirizzi IP virtuali che Kubernetes assegna a [servizi][services] nel cluster. È possibile usare qualsiasi intervallo di indirizzi privati che soddisfi i requisiti seguenti:
 
 * Non deve essere compreso nell'intervallo di indirizzi IP della rete virtuale del cluster
-* Non deve sovrapporsi ad altre reti virtuali con cui la rete virtuale del cluster esegue il peering
+* Non deve sovrapporsi ad altre reti virtuali con cui la rete virtuale del cluster effettua il peering
 * Non deve sovrapporsi ad altri IP locali
 * Non deve essere compreso negli intervalli `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16`
 
@@ -150,11 +157,13 @@ Le domande e le risposte seguenti si applicano alla configurazione della rete**a
 
   Sì, quando si distribuisce un cluster con l'interfaccia della riga di comando di Azure o un modello di Gestione risorse. Consultare [Numero massimo di pod per nodo](#maximum-pods-per-node).
 
+  Non è possibile modificare il numero massimo di pod per ogni nodo in un cluster esistente.
+
 * *Come si configurano altre proprietà per la subnet creata durante la creazione del cluster AKS? Ad esempio, gli endpoint di servizio.*
 
   L'elenco completo delle proprietà per la rete virtuale e le subnet create durante la creazione del cluster AKS può essere configurato nella pagina di configurazione della rete virtuale standard nel portale di Azure.
 
-* *È possibile usare una subnet diversa all'interno della rete virtuale di un cluster per l'***intervallo di indirizzi del servizio Kubernetes**?
+* *È possibile usare una subnet diversa all'interno della rete virtuale del cluster per l'***intervallo di indirizzi del servizio Kubernetes**?
 
   Non è consigliabile, ma questa configurazione è possibile. L'intervallo di indirizzi del servizio è un set di indirizzi IP virtuali che Kubernetes assegna ai servizi nel cluster. La rete di Azure non ha visibilità sull'intervallo di indirizzi IP dei servizi del cluster Kubernetes. A causa di tale mancanza di visibilità, è possibile creare in un secondo momento nella rete virtuale del cluster una nuova subnet sovrapposta all'intervallo di indirizzi del servizio. Se si verifica una sovrapposizione di questo tipo, Kubernetes può assegnare a un servizio un indirizzo IP già usato da un'altra risorsa nella subnet, causando un comportamento imprevedibile o errori. Assicurandosi di usare un intervallo di indirizzi esterno alla rete virtuale del cluster, è possibile evitare il rischio di sovrapposizioni.
 

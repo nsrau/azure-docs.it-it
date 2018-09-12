@@ -7,14 +7,14 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 08/28/2018
 ms.author: heidist
-ms.openlocfilehash: 896a12db1ac196b6de1e57dde9b5910e11dcc8c7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb09e12a5122f6e6671e55c5b5623afdd6b35c29
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797043"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842290"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -23,16 +23,16 @@ ms.locfileid: "31797043"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestito usato per offrire un'esperienza di ricerca avanzata nelle app personalizzate. Questo articolo illustra le attività di *amministrazione del servizio* che è possibile eseguire nel [portale di Azure](https://portal.azure.com) per un servizio di ricerca di cui si è già effettuato il provisining. *Service administration* è leggera e limitata alle attività seguenti:
+Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestito usato per offrire un'esperienza di ricerca avanzata nelle app personalizzate. Questo articolo illustra le attività di amministrazione del servizio che è possibile eseguire nel [portale di Azure](https://portal.azure.com) per un servizio di ricerca di cui si è già effettuato il provisioning. L'amministrazione del servizio è leggera come previsto dalla progettazione ed è limitata alle attività seguenti:
 
-* Gestire e proteggere l'accesso alle *chiavi API* usate per l'accesso in lettura o scrittura al servizio.
+* Gestire l'accesso alle *chiavi API* usate per l'accesso in lettura o scrittura al servizio.
 * Regolare la capacità del servizio modificando l'allocazione di partizioni e repliche.
 * Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello del servizio.
 
 Tenere presente che l'*aggiornamento* non è un'attività amministrativa. Poiché le risorse vengono allocate quando viene eseguito il provisioning sul servizio, lo spostamento a un altro livello richiede un nuovo servizio. Per informazioni dettagliate vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
 > [!Tip]
-> Per indicazioni su come analizzare il traffico di ricerca o le prestazioni delle query, è opportuno ottenere informazioni sul volume delle query e sui termini cercati dagli utenti e scoprire se dai risultati della ricerca i clienti riescono ad arrivare a specifici documenti dell'indice. Per istruzioni, vedere [Analisi del traffico di ricerca per Ricerca di Azure](search-traffic-analytics.md), [Monitoraggio di un servizio di Ricerca di Azure](search-monitor-usage.md) e [Prestazioni e ottimizzazione](search-performance-optimization.md).
+> Per indicazioni su come analizzare il traffico di ricerca o le prestazioni delle query, è possibile monitorare il volume delle query e i termini cercati dagli utenti e scoprire se dai risultati della ricerca i clienti riescono ad arrivare a specifici documenti dell'indice. Per altre informazioni, vedere [Analisi del traffico di ricerca per Ricerca di Azure](search-traffic-analytics.md), [Utilizzo del monitoraggio e metriche delle query](search-monitor-usage.md) e [Prestazioni e ottimizzazione](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -66,11 +66,11 @@ Usando l'API REST del servizio di ricerca, è possibile ottenere un conteggio de
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interruzioni di servizio e ripristino di emergenza
 
-Sebbene sia possibile recuperare i dati, Ricerca di Azure non offre il failover immediato del servizio se è presente un'interruzione a livello di data center o di cluster. Se un cluster non funziona nel data center, il team operativo lo rileverà e provvederà a ripristinare il servizio. Si verificheranno tempi di inattività durante il ripristino del servizio. È possibile richiedere i crediti del servizio per compensarne la non disponibilità per il [Contratto di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Sebbene sia possibile recuperare i dati, Ricerca di Azure non offre il failover immediato del servizio se è presente un'interruzione a livello di data center o di cluster. Se un cluster non funziona nel data center, il team operativo lo rileverà e provvederà a ripristinare il servizio. Si verificheranno tempi di inattività durante il ripristino del servizio ma è possibile richiedere i crediti del servizio per compensarne la non disponibilità in base al [Contratto di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
 Se un servizio continuo è necessario in caso di errori irreversibili che Microsoft non può controllare, è necessario [eseguire il provisioning di un servizio aggiuntivo](search-create-service-portal.md) in un'area diversa e implementare una strategia di replica geografica per garantire che gli indici siano completamente ridondanti in tutti i servizi.
 
-I clienti che usano gli [indicizzatori](search-indexer-overview.md) per compilare e aggiornare gli indici possono gestire il ripristino di emergenza tramite gli indicizzatori specifici per l'area geografica che sfruttando la stessa origine dati. Due servizi in diverse aree, ognuno dei quali esegue un indicizzatore, possono indicizzare dalla stessa origine dati per ottenere la ridondanza geografica. Se si esegue l'indicizzazione da origini dati che hanno anche una ridondanza geografica, tenere presente che gli indicizzatori di Ricerca di Azure possono eseguire solo l'indicizzazione incrementale da repliche primarie. In un evento di failover, assicurarsi di puntare di nuovo all'indicizzatore per la nuova replica primaria. 
+I clienti che usano gli [indicizzatori](search-indexer-overview.md) per compilare e aggiornare gli indici possono gestire il ripristino di emergenza tramite gli indicizzatori specifici per l'area geografica che sfruttando la stessa origine dati. Due servizi in diverse aree, ognuno dei quali esegue un indicizzatore, possono indicizzare la stessa origine dati per ottenere la ridondanza geografica. Se si esegue l'indicizzazione da origini dati che hanno anche una ridondanza geografica, tenere presente che gli indicizzatori di Ricerca di Azure possono eseguire solo l'indicizzazione incrementale da repliche primarie. In un evento di failover, assicurarsi di puntare di nuovo all'indicizzatore per la nuova replica primaria. 
 
 Se non si usano gli indicizzatori, l'utente userà il codice dell'applicazione per eseguire il push sugli oggetti e i dati per diversi servizi in parallelo. Per altre informazioni, vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md).
 
@@ -78,7 +78,7 @@ Se non si usano gli indicizzatori, l'utente userà il codice dell'applicazione p
 
 Poiché Ricerca di Azure non è una soluzione di archiviazione dati primaria, Microsoft non fornisce un meccanismo formale per il backup e il ripristino self-service. Il codice dell'applicazione usato per la creazione e la compilazione di un indice è l'opzione di ripristino di fatto se si elimina un indice per errore. 
 
-Per ricompilare un indice, è necessario eliminarlo (supponendo che sia presente), ricreare l'indice nel servizio e ricaricare recuperando i dati dall'archivio dati primario. In alternativa, è possibile raggiungere [il supporto tecnico]() per salvare gli indici di recupero se è presente un'interruzione nell'area.
+Per ricompilare un indice, è necessario eliminarlo (supponendo che sia presente), ricreare l'indice nel servizio e ricaricare recuperando i dati dall'archivio dati primario.
 
 
 <a id="scale"></a>
@@ -103,12 +103,10 @@ Per la maggior parte delle applicazioni di servizio è indispensabile un numero 
 Al livello Standard le partizioni vengono aggiunte in multipli di 12 (ossia 1, 2, 3, 4, 6 o 12). Si tratta di un elemento del partizionamento orizzontale. Un indice viene creato in 12 sottopartizioni, tutte archiviabili a propria volta in 1 partizione o equamente distribuibili in 2, 3, 4, 6 o 12 partizioni (in quest'ultimo caso, una per partizione).
 
 ### <a name="remove-replicas"></a>Rimuovere repliche
-Dopo periodi di alti volumi di query è possibile ridurre le repliche dopo che i carichi di query di ricerca si sono normalizzati, ad esempio al termine di un periodo di vendite per le feste.
-
-Per fare ciò, spostare il dispositivo di scorrimento relativo alle repliche su un numero inferiore. Non vi sono altre azioni richieste da parte dell'utente. La riduzione del numero di repliche comporta il rilascio di macchine virtuali nel data center. Le operazioni di query e di inserimento dati verranno ora elaborate su un numero minore di VM rispetto a prima. Il limite minimo è di una replica.
+Dopo periodi di alti volumi di query è possibile usare il dispositivo di scorrimento per ridurre le repliche dopo che i carichi di query di ricerca si sono normalizzati, ad esempio al termine di un periodo di vendite per le feste. Non vi sono altre azioni richieste da parte dell'utente. La riduzione del numero di repliche comporta il rilascio di macchine virtuali nel data center. Le operazioni di query e di inserimento dati verranno ora elaborate su un numero minore di VM rispetto a prima. Il requisito minimo è una replica.
 
 ### <a name="remove-partitions"></a>Rimuovere partizioni
-A differenza della rimozione di repliche, che non richiede operazioni aggiuntive da parte dell'utente, potrebbe essere richiesto lavoro aggiuntivo se si occupa più archiviazione di quanta se ne vuole ottenere dopo una riduzione. Ad esempio, se la soluzione usa tre partizioni, il downsizing a una o due partizioni genererà un errore se il nuovo spazio di archiviazione è meno del necessario. Come è prevedibile, la scelta è di eliminare indici o documenti in un indice associato per liberare spazio oppure di mantenere la configurazione attuale.
+A differenza della rimozione di repliche, che non richiede operazioni aggiuntive da parte dell'utente, potrebbe essere richiesto lavoro aggiuntivo se si occupa più archiviazione di quanta se ne vuole ottenere dopo una riduzione. Ad esempio, se la soluzione usa tre partizioni, il ridimensionamento a una o due partizioni genererà un errore se il nuovo spazio di archiviazione è meno di quello necessario per l'hosting dell'indice. Come è prevedibile, la scelta è di eliminare indici o documenti in un indice associato per liberare spazio oppure di mantenere la configurazione attuale.
 
 Non è disponibile un metodo di rilevamento che indichi quante sottopartizioni di indice sono archiviate su una partizione specifica. Ogni partizione fornisce approssimativamente 25 GB di spazio di archiviazione, pertanto sarà necessario ridurre l'archiviazione a una dimensione che possa essere contenuta nel numero disponibile di partizioni. Se si vuole tornare a una partizione, questa dovrà contenere tutte e 12 le sottopartizioni.
 

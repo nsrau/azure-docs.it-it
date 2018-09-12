@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8cab491a874094ee195f12ba6fe7f19a87f09ef2
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522182"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841950"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -42,6 +42,9 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di usare la sincronizzazione dell'hash delle password insieme all'autenticazione pass-through, leggere le [note sulla versione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) per altre informazioni.
 
 * **Usare una topologia di Azure AD Connect supportata**: assicurarsi di usare una delle topologie supportate di Azure AD Connect descritte [qui](active-directory-aadconnect-topologies.md).
+
+    >[!NOTE]
+    >L'accesso Seamless SSO supporta più foreste di AD in presenza di trust di AD o meno.
 
 * **Configurare le credenziali dell'amministratore di dominio**: è necessario disporre di credenziali dell'amministratore di dominio per ogni foresta di Active Directory che:
     * Si sincronizza con Azure AD tramite Azure AD Connect.
@@ -180,7 +183,7 @@ Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente d
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
-Verificare che il computer che esegue macOS sia stato aggiunto ad AD. Per istruzioni sull'aggiunta ad AD, vedere [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf) (Procedure consigliate per l'integrazione di OS X con Active Directory).
+Verificare che il computer che esegue macOS sia stato aggiunto ad AD. Le istruzioni per l'aggiunta ad AD del dispositivo macOS non rientrano nell'ambito di questo articolo.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (tutte le piattaforme)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122577"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842256"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -165,7 +165,7 @@ Nella tabella seguente sono riportate le preallocazioni delle porte SNAT per i l
 | 801-1.000 | 32 |
 
 >[!NOTE]
-> Quando si usa Load Balancer Standard con [più front-end](load-balancer-multivip-overview.md), [ogni indirizzo IP front-end moltiplica il numero di porte SNAT disponibili](#multivipsnat) nella tabella precedente. Ad esempio, un pool back-end di 50 macchine virtuali con 2 regole di bilanciamento del carico, ognuna con indirizzi IP front-end distinti, userà 2048 porte SNAT (2 x 1024) per ogni configurazione IP. Vedere i dettagli per [più front-end](#multife).
+> Quando si usa Load Balancer Standard con [più front-end](load-balancer-multivip-overview.md), [ogni indirizzo IP front-end moltiplica il numero di porte SNAT disponibili](#multivipsnat) nella tabella precedente. Ad esempio, un pool back-end di 50 macchine virtuali con 2 regole di bilanciamento del carico, ognuna con indirizzo IP front-end distinti, userà 2048 porte SNAT (2 x 1024) per ogni configurazione IP. Vedere i dettagli per [più front-end](#multife).
 
 Ricordare che il numero di porte SNAT disponibili non viene convertito direttamente in un numero di flussi. È possibile riutilizzare una singola porta SNAT per più destinazioni univoche. Le porte vengono usate solo se è necessario per rendere univoci i flussi. Per indicazioni sulla progettazione e la mitigazione, vedere la sezione su [come gestire questa risorsa soggetta a esaurimento](#snatexhaust) e la sezione che descrive [PAT](#pat).
 

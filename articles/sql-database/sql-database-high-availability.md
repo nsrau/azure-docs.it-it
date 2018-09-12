@@ -1,24 +1,24 @@
 ---
-title: Disponibilità elevata - Servizio del database SQL di Azure | Documentazione Microsoft
+title: Disponibilità elevata - Servizio del database SQL di Azure | Microsoft Docs
 description: Informazioni sulle funzionalità di disponibilità elevata del servizio di database SQL di Azure
 services: sql-database
 author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/29/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 329af89e52af6f3599e2d86e6ac6d28b8b63f333
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 7a60d800ce76f8ff9a903cc068fa7bc87cd33f3f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42144385"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700636"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 
-Database SQL di Azure è la piattaforma distribuita come servizio del database a disponibilità elevata che garantisce che il database sia attivo e in esecuzione il 99,99% del tempo, senza doversi preoccupare di manutenzione e tempi di inattività. Si tratta di un processo del motore di database di SQL Server completamente gestito ospitato nel cloud di Azure che assicura che il database di SQL Server sia sempre aggiornato o con patch senza influire sul carico di lavoro. Database SQL di Azure può effettuare rapidamente il recupero anche nei casi più critici garantendo che i dati siano sempre disponibili.
+Database SQL di Azure è la piattaforma distribuita come servizio del database a disponibilità elevata che garantisce che il database sia attivo e in esecuzione il 99,99% del tempo, senza doversi preoccupare di manutenzione e tempi di inattività. Si tratta di un processo del motore di database di SQL Server completamente gestito ospitato nel cloud di Azure che assicura che il database di SQL Server sia sempre aggiornato o con patch senza influire sul carico di lavoro. Quando a un'istanza viene applicata una patch o un'istanza viene sottoposta a failover, il tempo di inattività non è in genere notificabile se si [impiega la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app. Se il tempo necessario per completare un failover è superiore a 60 secondi, è necessario aprire un caso di supporto. Database SQL di Azure può effettuare rapidamente il recupero anche nei casi più critici garantendo che i dati siano sempre disponibili.
 
 La piattaforma Azure gestisce completamente ogni database SQL di Azure e garantisce che i dati non vengano persi oltre a una percentuale elevata di disponibilità dei dati. Azure gestisce automaticamente l'applicazione di patch, i backup, la replica, il rilevamento degli errori, i possibili errori di hardware, software o rete sottostanti, la distribuzione di correzioni di bug, i failover, gli aggiornamenti del database e altre attività di manutenzione. Gli ingegneri di SQL Server hanno implementato le procedure note, assicurando che tutte le operazioni di manutenzione vengano completate in meno dello 0,01% del tempo del ciclo di vita del database. Questa architettura è progettata per garantire che i dati di cui è stato eseguito il commit non vengano mai persi e che le operazioni di manutenzione vengano eseguite senza influire sul carico di lavoro. Non ci sono finestre di manutenzione o tempi di inattività che richiedono l'arresto del carico di lavoro mentre il database viene aggiornato o se ne esegue la manutenzione. La disponibilità elevata incorporata nel database SQL di Azure garantisce che il database non sia mai un singolo punto di guasto nell'architettura del software.
 
@@ -41,7 +41,7 @@ Nel modello a disponibilità standard sono presenti due livelli:
 - Un livello di calcolo senza stato che esegue il processo sqlserver.exe e contiene solo i dati temporanei e memorizzati nella cache, ad esempio cache dei piani, pool di buffer, pool di archiviazione della colonna. Il nodo di SQL Server senza stato è gestito da Azure Service Fabric che inizializza il processo, controlla l'integrità del nodo e, se necessario, esegue il failover in un'altra posizione.
 - Un livello di dati con stato con i file di database (.mdf/.ldf) archiviati nell’archiviazione Premium di Azure. Archiviazione di Azure garantisce che i dati dei record che si trovano in un file di database non vengano persi. Archiviazione di Azure è dotato di disponibilità/ridondanza dei dati incorporata che assicura che ogni record nel file di log o pagina nel file di dati verrà conservato anche se si blocca il processo di SQL Server.
 
-Ogni volta che viene aggiornato il motore di database o il sistema operativo, ogni volta che qualche parte dell’infrastruttura sottostante non funziona oppure se viene rilevato un problema critico nel processo di SQL Server, Azure Service Fabric sposta il processo di SQL Server senza stato in un altro nodo di calcolo senza stato. È presente un set di nodi di riserva in attesa di eseguire un nuovo servizio di calcolo in caso di failover, per ridurre al minimo il tempo di failover. I dati nel livello di Archiviazione di Azure non sono interessati e i dati e i file di log vengono associati al processo di SQL Server appena inizializzato. Il tempo di failover previsto può essere misurato in secondi. Questo processo garantisce il 99,99% della disponibilità, ma potrebbe influire sulle prestazioni di un carico di lavoro importante in esecuzione a causa del tempo di transizione e del fatto che il nuovo nodo di SQL Server inizia con la cache a freddo.
+Ogni volta che viene aggiornato il motore di database o il sistema operativo, ogni volta che qualche parte dell’infrastruttura sottostante non funziona oppure se viene rilevato un problema critico nel processo di SQL Server, Azure Service Fabric sposta il processo di SQL Server senza stato in un altro nodo di calcolo senza stato. È presente un set di nodi di riserva in attesa di eseguire un nuovo servizio di calcolo in caso di failover, per ridurre al minimo il tempo di failover. I dati nel livello di Archiviazione di Azure non sono interessati e i dati e i file di log vengono associati al processo di SQL Server appena inizializzato. Questo processo garantisce il 99,99% della disponibilità, ma potrebbe influire sulle prestazioni di un carico di lavoro importante in esecuzione a causa del tempo di transizione e del fatto che il nuovo nodo di SQL Server inizia con la cache a freddo.
 
 ## <a name="premiumbusiness-critical-availability"></a>Disponibilità Premium/business critical
 
@@ -51,7 +51,7 @@ Nel modello Premium il database SQL di Azure integra calcolo e archiviazione nel
 
 ![Cluster di nodi di motore di database](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-Sia il processo del motore di database di SQL Server che i file mdf/ldf sottostanti vengono posizionati nello stesso nodo con una risorsa di archiviazione SSD collegata in locale che offre bassa latenza al carico di lavoro. La disponibilità elevata viene implementata usando i [gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) standard. Ogni database è un cluster di nodi del database con un database primario accessibile per il carico di lavoro del cliente e tre processi secondari contenenti le copie dei dati. Il nodo primario esegue il push costante delle modifiche ai nodi secondari per garantire che i dati siano disponibili nelle repliche secondarie se il nodo primario si arresta per un qualsiasi motivo. Il failover viene gestito dal motore di database di SQL Server: una replica secondaria diventa il nodo primario e viene creata una nuova replica secondaria per garantire un numero sufficiente di nodi nel cluster. Il carico di lavoro viene reindirizzato automaticamente al nuovo nodo primario. Il tempo di failover viene misurato in millisecondi e la nuova istanza primaria è subito pronta per continuare a gestire le richieste.
+Sia il processo del motore di database di SQL Server che i file mdf/ldf sottostanti vengono posizionati nello stesso nodo con una risorsa di archiviazione SSD collegata in locale che offre bassa latenza al carico di lavoro. La disponibilità elevata viene implementata usando i [gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) standard. Ogni database è un cluster di nodi del database con un database primario accessibile per il carico di lavoro del cliente e tre processi secondari contenenti le copie dei dati. Il nodo primario esegue il push costante delle modifiche ai nodi secondari per garantire che i dati siano disponibili nelle repliche secondarie se il nodo primario si arresta per un qualsiasi motivo. Il failover viene gestito dal motore di database di SQL Server: una replica secondaria diventa il nodo primario e viene creata una nuova replica secondaria per garantire un numero sufficiente di nodi nel cluster. Il carico di lavoro viene reindirizzato automaticamente al nuovo nodo primario.
 
 Inoltre, il cluster business critical fornisce un nodo di sola lettura integrato che può essere usato per l'esecuzione di sola lettura di query (ad esempio report) che non dovrebbero incidere sulle prestazioni del carico di lavoro primario. 
 

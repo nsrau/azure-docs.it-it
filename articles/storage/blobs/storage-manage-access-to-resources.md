@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: bf7dabc1c3765d86e7a0f87acaa6f06a68d3d530
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398819"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782009"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestire l'accesso in lettura anonimo a contenitori e BLOB
 È possibile abilitare l'accesso in lettura pubblico anonimo a un contenitore e ai relativi BLOB in Archiviazione BLOB di Azure. Ciò permette di concedere l'accesso in sola lettura a queste risorse senza condividere la chiave dell'account e senza richiedere una firma di accesso condiviso (SAS).
@@ -39,7 +39,7 @@ Per impostazione predefinita, solo il proprietario dell'account di archiviazione
 Per impostare le autorizzazioni per il contenitore nel [portale di Azure](https://portal.azure.com), seguire questa procedura:
 
 1. Selezionare il pannello **Account di archiviazione** nel portale di Azure. È possibile trovare l'account di archiviazione selezionando **Account di archiviazione** nel pannello del menu principale del portale.
-1. Nel pannello del menu, in **SERVIZIO BLOB** selezionare **Contenitori**.
+1. Nel pannello del menu in **SERVIZIO BLOB** selezionare **BLOB**.
 1. Fare clic con il pulsante destro del mouse sulla riga del contenitore o selezionare i puntini di sospensione per aprire il **menu di scelta rapida** del contenitore.
 1. In questo menu selezionare **Criteri di accesso**.
 1. Nel menu a discesa selezionare un **Tipo di accesso**.

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: marsma
-ms.openlocfilehash: 92e60b4213cb80d193a7c35f68b8f9fd099481d7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65ff60be992440c69e50a084b467a8efbb19574e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165096"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307150"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Archiviazione immagini del contenitore nel registro contenitori di Azure
 
@@ -43,7 +43,7 @@ Nella tabella seguente vengono descritti i limiti di archiviazione e di immagine
 | Tag | Nessun limite|
 | Archiviazione | 5 TB |
 
-Un numero molto elevato di repository e tag può compromettere le prestazioni del registro. Eliminare periodicamente i repository, le immagini e i tag non usati tramite l'[interfaccia della riga di comando di Azure](/cli/azure/acr), l'[API REST](/rest/api/containerregistry/) del record di controllo di accesso o il [portale di Azure][portal] nel quadro di una routine di manutenzione del registro. Le risorse del registro eliminate, come repository, immagini e tag, *non possono* essere recuperate dopo l'eliminazione.
+Un numero molto elevato di repository e tag può compromettere le prestazioni del registro. Eliminare periodicamente i repository inutilizzati, tag e le immagini come parte di una routine di manutenzione del registro. Le risorse del registro eliminate, come repository, immagini e tag, *non possono* essere recuperate dopo l'eliminazione. Per altre informazioni sull'eliminazione delle risorse del registro, vedere [Eliminare le immagini del contenitore nel Registro contenitori di Azure](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Costo di archiviazione
 

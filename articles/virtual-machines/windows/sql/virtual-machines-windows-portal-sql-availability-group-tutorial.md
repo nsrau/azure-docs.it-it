@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531580"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667448"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
@@ -33,7 +33,7 @@ Il diagramma illustra le operazioni di compilazione nell'esercitazione.
 
 ![Gruppo di disponibilità](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Nell'esercitazione si presuppone una conoscenza di base dei gruppi di disponibilità di SQL Server AlwaysOn. Se sono necessarie altre informazioni, vedere [Panoramica di Gruppi di disponibilità AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -45,7 +45,7 @@ La tabella seguente elenca i prerequisiti da completare prima di iniziare l'eser
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Controllo di condivisione file per il cluster |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Account del servizio SQL Server | Account di dominio |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Account del servizio SQL Server Agent | Account di dominio |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Porte del firewall aperte | - SQL Server: **1433** per l'istanza predefinita <br/> - Endpoint del mirroring del database: **5022** o qualsiasi porta disponibile <br/> - Probe di bilanciamento del carico di Azure: **59999** o qualsiasi porta disponibile |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Porte del firewall aperte | - SQL Server: **1433** per l'istanza predefinita <br/> - Endpoint del mirroring del database: **5022** o qualsiasi porta disponibile <br/> - Probe di integrità dell'indirizzo IP del bilanciamento del carico del gruppo di disponibilità: **59999** o qualsiasi porta disponibile <br/> - Probe di integrità dell'indirizzo IP del bilanciamento del carico principale del cluster: **58888** o qualsiasi porta disponibile |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Aggiunta della funzionalità Clustering di failover | Questa funzionalità è necessaria per entrambe le istanze di SQL Server |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Account di dominio dell'installazione | - Amministratore locale in ogni istanza di SQL Server <br/> - Membro del ruolo predefinito del server sysadmin di SQL Server per ogni istanza di SQL Server  |
 
@@ -78,7 +78,7 @@ Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di
    | Punto di accesso per l'amministrazione del cluster |Digitare un nome di cluster, ad esempio **SQLAGCluster1**, in **Nome cluster**.|
    | Conferma |Usare le impostazioni predefinite a meno a meno che non si usino spazi di archiviazione. Vedere la nota che segue questa tabella. |
 
-### <a name="set-the-cluster-ip-address"></a>Impostare l'indirizzo IP del cluster
+### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Impostare l'indirizzo IP del cluster di failover di Windows Server
 
 1. In **Gestione cluster di failover** scorrere verso il basso fino a **Risorse principali del cluster** ed espandere i dettagli del cluster. Lo stato visualizzato di entrambe le risorse **Nome** e **Indirizzo IP** deve essere **Operazione non riuscita**. La risorsa indirizzo IP non può essere portata online perché al cluster è assegnato lo stesso indirizzo IP del computer, quindi si tratta di un indirizzo duplicato.
 
@@ -343,13 +343,15 @@ A questo punto, è presente un gruppo di disponibilità con repliche in due ista
 
 Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico contiene gli indirizzi IP per i listener del gruppo di disponibilità e per il cluster di failover di Windows Server. Questa sezione è un riepilogo della creazione del servizio di bilanciamento del carico nel portale di Azure.
 
+Un Azure Load Balancer può essere un Load Balancer Standard o un servizio Load Balancer Basic. Il Load Balancer Standard ha più funzionalità rispetto al Load Balancer Basic. Per un gruppo di disponibilità, il Load Balancer Standard è obbligatorio se si usa una zona di disponibilità (invece di un Set di disponibilità). Per altre informazioni sulla differenza tra i tipi di bilanciamento del carico, vedere [Confronto tra gli SKU di Load Balancer](../../../load-balancer/load-balancer-overview.md#skus).
+
 1. Nel portale di Azure andare al gruppo di risorse in cui si trovano le istanze di SQL Server e fare clic su **+ Aggiungi**.
-2. Cercare **Servizio di bilanciamento del carico**. Scegliere il servizio di bilanciamento del carico pubblicato da Microsoft.
+1. Cercare **Servizio di bilanciamento del carico**. Scegliere il servizio di bilanciamento del carico pubblicato da Microsoft.
 
    ![Gruppo di disponibilità in Gestione cluster di failover](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1.  Fare clic su **Crea**.
-3. Configurare i parametri seguenti per il servizio di bilanciamento del carico.
+1. Fare clic su **Create**(Crea).
+1. Configurare i parametri seguenti per il servizio di bilanciamento del carico.
 
    | Impostazione | Campo |
    | --- | --- |
@@ -358,7 +360,7 @@ Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede
    | **Rete virtuale** |Usare il nome della rete virtuale di Azure. |
    | **Subnet** |Usare il nome della subnet in cui si trova la macchina virtuale.  |
    | **Assegnazione indirizzi IP** |statico |
-   | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. Si noti che questo indirizzo è diverso dall'indirizzo IP del cluster. |
+   | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. Usare questo indirizzo per il listener del gruppo di disponibilità. Si noti che questo indirizzo è diverso dall'indirizzo IP del cluster.  |
    | **Sottoscrizione** |Usare la stessa sottoscrizione della macchina virtuale. |
    | **Posizione** |Usare la stessa posizione della macchina virtuale. |
 
@@ -376,7 +378,9 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
    ![Trovare il servizio di bilanciamento del carico nel gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Fare clic sul servizio di bilanciamento del carico, quindi su **Pool back-end** e infine su **+Aggiungi**. 
+1. Fare clic sul servizio di bilanciamento del carico, quindi su **Pool back-end** e infine su **+Aggiungi**.
+
+1. Digitare un nome per il pool back-end.
 
 1. Associare il pool back-end con il set di disponibilità contenente le macchine virtuali.
 
@@ -391,7 +395,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Fare clic sul servizio di bilanciamento del carico, quindi su **Probe integrità** e infine su **+Aggiungi**.
 
-1. Impostare il probe di integrità nel modo seguente:
+1. Impostare il probe di integrità del listener nel modo seguente:
 
    | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
@@ -407,14 +411,14 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Fare clic sul servizio di bilanciamento del carico, quindi su **Regole di bilanciamento del carico** e infine su **+Aggiungi**.
 
-1. Impostare le regole di bilanciamento del carico come segue.
+1. Impostare le regole di bilanciamento del carico del listener come segue.
    | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando si è creato il servizio di bilanciamento del carico. |
    | **Protocollo** | Scegliere TCP |TCP |
-   | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 1435 |
-   | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 1435 |
+   | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 1433 |
+   | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 1433 |
    | **Probe** |Il nome specificato per il probe | SQLAlwaysOnEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
@@ -423,17 +427,17 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.
 
-1. Fare clic su **OK** per impostare le regole di bilanciamento del carico.
+1. Fare clic su **OK** per impostare le regole di bilanciamento del carico del listener.
 
-### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Aggiungere l'indirizzo IP front-end per il servizio WSFC
+### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>Aggiungere l'indirizzo IP principale del cluster per Windows Server Failover Cluster (WSFC)
 
-L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento del carico. 
+L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento del carico.
 
-1. Nel portale aggiungere una nuova configurazione IP front-end per il servizio WSFC. Usare l'indirizzo IP configurato per il servizio WSFC nelle risorse principali del cluster. Impostare l'indirizzo IP come statico. 
+1. Nel portale, sullo stesso servizio di bilanciamento del carico di Azure, fare clic su **Configurazione dell'indirizzo IP front-end** e fare clic su **+ Aggiungi**. Usare l'indirizzo IP configurato per il servizio WSFC nelle risorse principali del cluster. Impostare l'indirizzo IP come statico.
 
-1. Fare clic sul servizio di bilanciamento del carico, quindi su **Probe integrità** e infine su **+Aggiungi**.
+1. Sul servizio di bilanciamento del carico fare clic su **Probe integrità** e su **+Aggiungi**.
 
-1. Impostare il probe di integrità nel modo seguente:
+1. Impostare il probe di integrità dell'indirizzo IP principale del cluster WSFC come segue:
 
    | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
@@ -447,13 +451,13 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 
 1. Impostare le regole di bilanciamento del carico. Fare clic su **Regole di bilanciamento del carico** e quindi fare clic su **+Aggiungi**.
 
-1. Impostare le regole di bilanciamento del carico come segue.
+1. Impostare le regole di bilanciamento del carico dell'indirizzo IP principale del cluster come indicato di seguito.
    | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
-   | **Nome** | Text | WSFCPointListener |
-   | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. |
+   | **Nome** | Text | WSFCEndPoint |
+   | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. Questo comportamento è diverso dall'indirizzo IP del listener |
    | **Protocollo** | Scegliere TCP |TCP |
-   | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 58888 |
+   | **Porta** | Usare la porta per l'indirizzo IP del cluster. Si tratta di una porta disponibile che non viene usata per la porta probe del listener. | 58888 |
    | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 58888 |
    | **Probe** |Il nome specificato per il probe | WSFCEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
@@ -486,7 +490,7 @@ In SQL Server Management Studio impostare la porta del listener.
 
 1. Viene visualizzato il nome del listener creato in Gestione Cluster di Failover. Fare clic con il pulsante destro del mouse sul nome del listener e quindi su **Proprietà**.
 
-1. Nella casella **Porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il valore di $EndpointPort usato in precedenza (l'impostazione predefinita era 1433), quindi fare clic su **OK**.
+1. Nella casella **Porta** specificare il numero di porta per il listener del gruppo di disponibilità. Il valore predefinito è 1433, quindi fare clic su **OK**.
 
 Ora si ha un gruppo di disponibilità di SQL Server nelle macchine virtuali di Azure in esecuzione in modalità Resource Manager.
 
@@ -498,38 +502,20 @@ Per testare la connessione:
 
 1. Usare l'utilità **sqlcmd** per testare la connessione. Lo script seguente, ad esempio, stabilisce una connessione **sqlcmd** alla replica primaria tramite il listener con l'autenticazione di Windows:
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName> -E
+  ```
 
-    Se il listener usa una porta diversa da quella predefinita (1433), specificare la porta nella stringa di connessione. Il seguente comando sqlcmd, ad esempio, si connette a un listener nella porta 1435:
+  Se il listener usa una porta diversa da quella predefinita (1433), specificare la porta nella stringa di connessione. Il seguente comando sqlcmd, ad esempio, si connette a un listener nella porta 1435:
 
-    ```
-    sqlcmd -S <listenerName>,1435 -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName>,1435 -E
+  ```
 
 La connessione SQLCMD si connette automaticamente a qualsiasi istanza di SQL Server ospiti la replica primaria.
 
 > [!TIP]
 > Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](http://technet.microsoft.com/library/cc753558.aspx).
->
->
-
-
-
-<!--**Notes**: *Notes provide just-in-time info: A Note is “by the way” info, an Important is info users need to complete a task, Tip is for shortcuts. Don’t overdo*.-->
-
-
-<!--**Procedures**: *This is the second “step." They often include substeps. Again, use a short title that tells users what they’ll do*. *("Configure a new web project.")*-->
-
-<!--**UI**: *Note the format for documenting the UI: bold for UI elements and arrow keys for sequence. (Ex. Click **File > New > Project**.)*-->
-
-<!--**Screenshot**: *Screenshots really help users. But don’t include too many since they’re difficult to maintain. Highlight areas you are referring to in red.*-->
-
-<!--**No. of steps**: *Make sure the number of steps within a procedure is 10 or fewer. Seven steps is ideal. Break up long procedure logically.*-->
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
 ## <a name="next-steps"></a>Passaggi successivi
 

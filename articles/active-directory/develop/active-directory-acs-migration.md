@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dal Servizio di controllo di accesso di Azure | Documentazione Microsoft
+title: Eseguire la migrazione dal Servizio di controllo di accesso di Azure | Microsoft Docs
 description: Opzioni per lo spostamento di app e servizi dal Servizio di controllo di accesso di Azure
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 803dd69aed91f6e33c354d01d3f5419597d98de9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115885"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698061"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Eseguire la migrazione dal Servizio di controllo di accesso di Azure
 
@@ -106,7 +106,7 @@ I clienti di SharePoint 2013 e 2016 e di SharePoint Online hanno usato a lungo A
 
 | Funzionalità | Indicazioni |
 | ------- | -------- |
-| Autenticazione degli utenti da Azure AD | In precedenza Azure AD non supportava i token SAML 1.1 richiesti da SharePoint per l'autenticazione e ACS veniva usato come intermediario per rendere SharePoint compatibile con i formati di token di Azure AD. Ora è possibile [connettere SharePoint direttamente ad Azure AD usando criteri per il rilascio di token](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| Autenticazione degli utenti da Azure AD | In precedenza Azure AD non supportava i token SAML 1.1 richiesti da SharePoint per l'autenticazione e ACS veniva usato come intermediario per rendere SharePoint compatibile con i formati di token di Azure AD. A questo punto, è possibile [connettere SharePoint direttamente ad Azure AD usando l'app in locale per SharePoint della raccolta di app di Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticazione di app e da server a server in SharePoint locale](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. | 
 | [Autorizzazione di attendibilità bassa per componenti aggiuntivi di SharePoint (ospitati da provider e da SharePoint)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. |
 | [Ricerca ibrida su cloud di SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. |

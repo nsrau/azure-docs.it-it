@@ -5,16 +5,16 @@ keywords: VS Code,strumenti di Azure HDInsight,Hive,Python,PySpark,Spark,HDInsig
 services: hdinsight
 author: jejiang
 ms.author: jejiang
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 255f1ecb3c55ef94b6f4f3393257b3054ff1b725
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 58f930b7bb1dee8f8f95b6627ebf70fe095126c0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038287"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697850"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usare gli strumenti di Azure HDInsight per Visual Studio Code
 
@@ -25,7 +25,7 @@ Informazioni su come usare gli strumenti di Azure HDInsight per Visual Studio Co
 
 Per completare le procedure descritte in questo articolo, sono necessari gli elementi seguenti:
 
-- Un cluster HDInsight. Per creare un cluster, vedere [Introduzione a HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Un cluster HDInsight. Per creare un cluster, vedere [Introduzione a HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono è necessario solo per Linux e macOS.
 

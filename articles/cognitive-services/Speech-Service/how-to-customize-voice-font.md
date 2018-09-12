@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284888"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842471"
 ---
 # <a name="creating-custom-voice-fonts"></a>Creazione di caratteri voce personalizzati
 
@@ -22,7 +22,6 @@ Per creare un carattere voce, effettuare una registrazione in studio e caricare 
 
 È possibile iniziare con una piccola quantità di dati per un modello di verifica. Tuttavia, più dati si forniscono, più naturale e professionale risulterà la voce.
 
-La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-US) e il cinese (zh-CN).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,19 +31,20 @@ La funzionalità di personalizzazione della voce per la sintesi vocale è attual
 
 1. Accedere al [portale per la voce personalizzata](https://customvoice.ai) tramite lo stesso account Microsoft usato per richiedere l'accesso.
 
-2. Passare a "Sottoscrizioni" sotto il nome dell'account in alto a destra.
+2. Passare a "All Subscriptions" (Tutte le sottoscrizioni) sotto il nome dell'account in alto a destra.
 
     ![Sottoscrizioni](media/custom-voice/subscriptions.png)
 
 3. Nella pagina "Sottoscrizioni" scegli "Connect existing subscription" (Connetti a una sottoscrizione esistente).
-
-     ![Connettere una sottoscrizione esistente](media/custom-voice/connect-existing-sub.png)
 
 4. Incollare la chiave di sottoscrizione nella tabella, come illustrato di seguito. Ogni sottoscrizione dispone di due chiavi che è possibile usare nell'applicazione.
 
      ![Aggiungere la sottoscrizione](media/custom-voice/add-subscription.png)
 
 Ora si è pronti per iniziare.
+
+> [!IMPORTANT]
+> Durante la fase di anteprima privata, le sottoscrizioni devono essere incluse nell'elenco elementi consentiti per usare la funzionalità voce personalizzata. Seguire i passaggi nella pagina per includere le sottoscrizioni nell'elenco elementi.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Preparare le registrazioni e le trascrizioni
 
@@ -69,8 +69,6 @@ I file audio devono essere preparati come segue. Gli altri formati non sono supp
 | Formato di archiviazione| Zip      |
 | Dimensione massima del file|200 MB|
 
-Inserire il set di file audio in un'unica cartella senza sottodirectory e comprimere l'intero set di file audio in un unico archivio ZIP.
-
 > [!NOTE]
 > I file Wave con una frequenza di campionamento inferiore a 16.000 Hz vengono rifiutati. Se un file con estensione zip contiene file wave con frequenze di campionamento diverse, vengono importati solo i file con una frequenza uguale o superiore a 16.000 Hz.
 > Il portale attualmente consente di importare archivi ZIP fino a 200 MB. È tuttavia possibile caricare più archivi. Il numero massimo di set di dati consentito è di 10 file ZIP per gli utenti con una sottoscrizione gratuita e di 50 per gli utenti con una sottoscrizione standard.
@@ -90,7 +88,7 @@ Ad esempio:
 Il sistema per la voce personalizzata normalizza le trascrizioni convertendo il testo in lettere minuscole e rimuovendo la punteggiatura estranea. È importante che le trascrizioni riflettano in modo completamente accurato le registrazioni audio corrispondenti.
 
 > [!TIP]
-> Durante la creazione di voci per la sintesi vocale da usare in produzione, selezionare le espressioni (o scrivere gli script) considerando sia la copertura fonetica che l'efficienza.
+> Durante la creazione di voci per la sintesi vocale da usare in produzione, selezionare le espressioni (o scrivere gli script) considerando sia la copertura fonetica che l'efficienza. Problemi nell'ottenere i risultati desiderati? [Contattare il team di voce personalizzata](mailto:tts@microsoft.com) per altre informazioni su come ottenere assistenza.
 
 ## <a name="upload-your-datasets"></a>Caricare i set di dati
 
@@ -102,8 +100,6 @@ Dopo aver preparato l'archivio dei file audio e le trascrizioni, caricarli trami
 1. Accedere al portale.
 
 2. Scegliere **Data** (Dati) sotto Custom Voice (Voce personalizzata) nella pagina principale. 
-
-    ![Progetti personali](media/custom-voice/my-projects.png)
 
     Verrà visualizzata la tabella My Voice Data (Dati vocali personali). Se la tabella è vuota, non è stato ancora caricato alcun set di dati vocali.
 
@@ -124,7 +120,7 @@ Dopo aver preparato l'archivio dei file audio e le trascrizioni, caricarli trami
 > [!NOTE]
 > Gli utenti con una sottoscrizione gratuita possono caricare due set di dati alla volta. Gli utenti con una sottoscrizione standard possono caricare cinque set di dati contemporaneamente. Se si raggiunge il limite, attendere che venga completata l'importazione di almeno un set di dati, quindi riprovare.
 
-Una volta completato il caricamento, verrà visualizzata nuovamente la tabella My Voice Data (Dati vocali personali). Sarà presente una voce che corrisponde al set di dati appena caricato. 
+Una volta completato il caricamento, verrà visualizzata nuovamente la tabella My Voice Data (Dati vocali personali). Sarà presente una voce che corrisponde al set di dati appena caricato.
 
 I set di dati vengono convalidati automaticamente dopo il caricamento. La convalida dei dati include una serie di controlli sui file audio per verificare il formato dei file, le dimensioni e la frequenza di campionamento. I controlli sui file di trascrizione verificano il formato dei file ed eseguono alcune operazioni di normalizzazione del testo. Le espressioni sono trascritte usando il riconoscimento vocale e il testo risultante viene confrontato con la trascrizione specificata.
 
@@ -191,17 +187,11 @@ Il tempo necessario per il training varia a seconda del volume dei dati audio el
 
 ## <a name="test-your-voice-font"></a>Testare il carattere voce
 
-Dopo aver creato correttamente il carattere voce, è possibile testarlo prima di distribuirlo per l'uso. Fare clic su **Test** nella colonna Operations (Operazioni). Verrà visualizzata la pagina di test per il carattere voce selezionato. La tabella è vuota se non sono ancora state inviate richieste di test per la voce.
-
-![Caratteri voce personali, parte 2](media/custom-voice/my-voice-fonts2.png)
+Dopo aver creato correttamente il carattere voce, è possibile testarlo prima di distribuirlo per l'uso. Fare clic su **Test** nella colonna Operazioni della tabella My Voice Fonts (Caratteri voce personali). Verrà visualizzata la pagina di test per il carattere voce selezionato. La tabella è vuota se non sono ancora state inviate richieste di test per la voce.
 
 Fare clic sul pulsante **Test with text** (Test con testo) sotto il titolo della tabella per visualizzare un menu di scelta rapida per l'invio di richieste di test. È possibile inviare la richiesta di test in testo normale o in formato SSML. La dimensione massima di input è 1.024 caratteri, inclusi tutti i tag per la richiesta SSML. La lingua del testo deve corrispondere a quella del carattere voce.
 
-![Test del carattere voce](media/custom-voice/voice-font-testing.png)
-
 Dopo aver compilato la casella di testo e confermato la modalità di input, fare clic su **Sì** per inviare la richiesta di test e tornare alla pagina di prova. La tabella ora include una voce corrispondente alla nuova richiesta e la colonna dello stato. La sintesi vocale può richiedere alcuni minuti. Quando nella colonna dello stato è indicato Succeeded (Completato), è possibile scaricare l'input di testo (un file `.txt`) e l'output audio (un file `.wav`) e controllare la qualità di quest'ultimo.
-
-![Test del carattere voce, parte 2](media/custom-voice/voice-font-testing2.png)
 
 ## <a name="create-and-use-a-custom-endpoint"></a>Creare e usare un endpoint personalizzato
 
@@ -224,13 +214,20 @@ Quando lo stato della distribuzione è Succeeded (Completato), l'endpoint del ca
 Il test online dell'endpoint è anche disponibile tramite il portale per la voce personalizzata. Per testare l'endpoint, scegliere **Endpoints testing** (Test endpoint) dal menu a discesa Custom Voice (Voce personalizzata). Viene visualizzata la pagina di test degli endpoint. Scegliere una voce personalizzata distribuita, quindi immettere il testo da leggere (come testo normale o in formato SSML) nella casella di testo.
 
 > [!NOTE] 
-> Quando si usa il formato SSML, il tag `<voice>` deve specificare il nome assegnato alla voce personalizzata al momento della creazione.
+> Quando si usa il formato SSML, il tag `<voice>` deve specificare il nome assegnato alla voce personalizzata al momento della creazione. Se si invia testo normale, viene usata sempre la voce personalizzata.
 
 Fare clic su **Play** (Riproduci) per ascoltare il testo pronunciato con il carattere voce personalizzato.
 
 ![Test degli endpoint](media/custom-voice/endpoint-testing.png)
 
 Dal punto di vista funzionale, l'endpoint personalizzato è identico all'endpoint standard usato per le richieste di sintesi vocale. Per altre informazioni, vedere [API REST](rest-apis.md).
+
+## <a name="language-support"></a>Supporto per le lingue
+
+La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-US), il cinese (zh-CN) e l'italiano (it-IT).
+
+> [!NOTE]
+> Il training per la voce in italiano inizia con un set di dati di oltre 2000 espressioni. Anche i modelli bilingui in lingua cinese-inglese sono supportati con un set di dati di oltre 2000 espressioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

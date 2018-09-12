@@ -4,14 +4,14 @@ description: Questo articolo descrive come valutare un elevato numero di compute
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1f049b3e05ac17e416379762a0bced8340ae25d5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144891"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666544"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -22,7 +22,7 @@ Azure Migrate ha un limite di 1500 computer per progetto; questo articolo descri
 - **VMware**: le macchine virtuali di cui si intende eseguire la migrazione devono essere gestite dal server vCenter versione 5.5, 6.0 o 6.5. È inoltre necessario disporre di un unico host ESXi versione 5.0 o successiva per distribuire la macchina virtuale che funge da agente di raccolta.
 - **Account vCenter**: occorre avere un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.Azure Migrate usa questo account per individuare le macchine virtuali locali.
 - **Autorizzazioni**: nel server vCenter è necessario disporre delle autorizzazioni per creare una macchina virtuale importando un file in formato OVA.
-- **Impostazioni delle statistiche**: prima di iniziare la distribuzione, è consigliabile impostare le statistiche del server vCenter sul livello 3. Se si imposta un livello inferiore a 3, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. In questo caso, i consigli relativi alle dimensioni si baseranno sui dati delle prestazioni per la CPU e la memoria e sui dati di configurazione per le schede del disco e di rete.
+- **Impostazioni delle statistiche**: prima di iniziare la distribuzione, è consigliabile impostare le statistiche del server vCenter sul livello 3. Il livello delle statistiche deve essere impostato su 3 per ogni intervallo di raccolta giornaliero, settimanale e mensile. Se si imposta un livello inferiore a 3 per uno dei tre intervalli di raccolta, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. I consigli relativi alle dimensioni si baseranno quindi sui dati delle prestazioni per la CPU e la memoria e sui dati di configurazione per le schede del disco e di rete.
 
 
 ### <a name="set-up-permissions"></a>Impostare le autorizzazioni
@@ -126,6 +126,14 @@ Prima di distribuire il file con estensione ova, verificarne la sicurezza:
 
 3. Verificare che il valore hash generato corrisponda alle impostazioni seguenti.
 
+    Per OVA versione 1.0.9.14
+
+    **Algoritmo** | **Valore hash**
+    --- | ---
+    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+    
     Per OVA versione 1.0.9.12
 
     **Algoritmo** | **Valore hash**

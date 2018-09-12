@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/01/2017
+ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207860"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701535"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Reliable Services di Service Fabric
 
@@ -33,9 +33,7 @@ La parte restante di questo articolo presuppone che si conosca il funzionamento 
 
 ## <a name="aspnet-core-in-the-service-fabric-environment"></a>ASP.NET Core nell'ambiente Service Fabric
 
-Anche se le app ASP.NET Core possono essere eseguite in .NET o nella versione completa di .NET Framework, i servizi di Service Fabric possono essere attualmente eseguiti solo nella versione completa di .NET Framework. Ciò significa che quando si compila un servizio di Service Fabric in ASP.NET Core è comunque necessario usare la versione completa di .NET Framework.
-
-ASP.NET Core può essere usato in due modi diversi in Service Fabric:
+Le app ASP.NET Core e Service Fabric possono essere eseguite in .NET Core, così come .NET Framework completa. ASP.NET Core può essere usato in due modi diversi in Service Fabric:
  - **Ospitato come eseguibile guest**. Questa modalità viene usata principalmente per eseguire applicazioni ASP.NET Core esistenti in Service Fabric senza apportare modifiche al codice.
  - **Eseguito in un servizio Reliable Services**. Questa modalità offre una migliore integrazione con il runtime di Service Fabric e consente servizi ASP.NET Core con stato.
 
@@ -96,12 +94,15 @@ Il diagramma seguente illustra il flusso della richiesta con il middleware abili
 
 ![Integrazione ASP.NET Core di Service Fabric][2]
 
-Le implementazioni di `ICommunicationListener` di Kestrel e HttpSys usano questo meccanismo nello stesso identico modo. Anche se HttpSys può differenziare internamente le richieste in base a percorsi URL univoci usando la funzionalità di condivisione delle porte *http.sys* sottostante, questa funzionalità *non* viene usata dall'implementazione `ICommunicationListener` di HttpSys perché provocherebbe i codici di stato di errore HTTP 503 e HTTP 404 nello scenario descritto in precedenza. Ciò rende a sua volta molto difficile per i client determinare la finalità dell'errore, perché i codici HTTP 503 e HTTP 404 sono già comunemente usati per indicare altri errori. Le implementazioni di `ICommunicationListener` di Kestrel e HttpSys vengono quindi standardizzate con il middleware fornito dal metodo di estensione `UseServiceFabricIntegration`, in modo che i client debbano solo eseguire nuovamente la risoluzione dell'endpoint del servizio nelle risposte HTTP 410.
+Le implementazioni di `ICommunicationListener` di Kestrel e HttpSys usano questo meccanismo nello stesso identico modo. Anche se HttpSys può differenziare internamente le richieste in base a percorsi URL univoci usando la funzionalità di condivisione delle porte *http.sys* sottostante, questa funzionalità *non* viene usata dall'implementazione `ICommunicationListener` di HttpSys perché provocherebbe i codici di stato di errore HTTP 503 e HTTP 404 nello scenario descritto in precedenza. Ciò rende a sua volta difficile per i client determinare la finalità dell'errore, perché i codici HTTP 503 e HTTP 404 sono già comunemente usati per indicare altri errori. Le implementazioni di `ICommunicationListener` di Kestrel e HttpSys vengono quindi standardizzate con il middleware fornito dal metodo di estensione `UseServiceFabricIntegration`, in modo che i client debbano solo eseguire nuovamente la risoluzione dell'endpoint del servizio nelle risposte HTTP 410.
 
 ## <a name="httpsys-in-reliable-services"></a>HttpSys in Reliable Services
 HttpSys può essere usato in un servizio Reliable Services importando il pacchetto NuGet **Microsoft.ServiceFabric.AspNetCore.HttpSys**. Questo pacchetto contiene `HttpSysCommunicationListener`, un'implementazione di `ICommunicationListener`, che consente di creare un WebHost ASP.NET Core all'interno di un servizio Reliable Services usando HttpSys come server Web.
 
 HttpSys si basa sull'[API server HTTP di Windows](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx), che usa il driver del kernel *http.sys* usato da IIS per elaborare le richieste HTTP e indirizzarle ai processi che eseguono le applicazioni Web. Ciò consente a più processi nello stesso computer fisico o nella stessa macchina virtuale di ospitare applicazioni Web sulla stessa porta, identificate senza ambiguità dal nome host o dal percorso URL univoco. Queste funzionalità sono utili in Service Fabric per ospitare più siti Web nello stesso cluster.
+
+>[!NOTE]
+>L'implementazione di HttpSys funziona solo sulla piattaforma Windows.
 
 Il diagramma seguente illustra il modo in cui HttpSys usa il driver del kernel *http.sys* in Windows per la condivisione delle porte:
 
@@ -188,7 +189,7 @@ Per usare una porta assegnata dinamicamente con HttpSys, omettere la proprietà 
   </Resources>
 ```
 
-Si noti che una porta dinamica allocata da una configurazione `Endpoint` fornisce una sola porta *per ogni processo host*. Il modello di hosting corrente di Service Fabric consente l'hosting di più istanze e/o repliche del servizio nello stesso processo, vale a dire che ognuna condivide la stessa porta, se allocata tramite la configurazione `Endpoint`. Più istanze di HttpSys possono condividere una porta usando la funzionalità di condivisione delle porte *http.sys* sottostante, ma questa funzionalità non è supportata da `HttpSysCommunicationListener` a causa dei problemi che provoca per le richieste dei client. Per l'uso delle porte dinamiche, Kestrel è il server Web consigliato.
+Una porta dinamica allocata da una configurazione `Endpoint` fornisce una sola porta *per ogni processo host*. Il modello di hosting corrente di Service Fabric consente l'hosting di più istanze e/o repliche del servizio nello stesso processo, vale a dire che ognuna condivide la stessa porta, se allocata tramite la configurazione `Endpoint`. Più istanze di HttpSys possono condividere una porta usando la funzionalità di condivisione delle porte *http.sys* sottostante, ma questa funzionalità non è supportata da `HttpSysCommunicationListener` a causa dei problemi che provoca per le richieste dei client. Per l'uso delle porte dinamiche, Kestrel è il server Web consigliato.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel in Reliable Services
 Kestrel può essere usato in un servizio Reliable Services importando il pacchetto NuGet **Microsoft.ServiceFabric.AspNetCore.Kestrel**. Questo pacchetto contiene `KestrelCommunicationListener`, un'implementazione di `ICommunicationListener`, che consente di creare un WebHost ASP.NET Core all'interno di un servizio Reliable Services usando Kestrel come server Web.
@@ -250,7 +251,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 In questo esempio viene fornita un'istanza singleton di `IReliableStateManager` al contenitore di inserimento delle dipendenze WebHost. Questa operazione non è strettamente necessaria, ma consente di usare `IReliableStateManager` e Reliable Collections nei metodi di azione del controller MVC.
 
-Si noti che **non** viene fornito un nome di configurazione `Endpoint` a `KestrelCommunicationListener` in un servizio con stato, come spiegato più dettagliatamente nella sezione seguente.
+**Non** viene fornito un nome di configurazione `Endpoint` a `KestrelCommunicationListener` in un servizio con stato, come spiegato più dettagliatamente nella sezione seguente.
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
 Non è necessaria una configurazione `Endpoint` per usare Kestrel. 
@@ -281,7 +282,7 @@ Se non viene usata una configurazione `Endpoint`, omettere il nome nel costrutto
 #### <a name="use-kestrel-with-a-dynamic-port"></a>Usare Kestrel con una porta dinamica
 Kestrel non può usare l'assegnazione automatica delle porte della configurazione `Endpoint` in ServiceManifest.xml, perché l'assegnazione automatica delle porte di una configurazione `Endpoint` assegna una porta univoca per ogni *processo host* e un singolo processo host può contenere più istanze di Kestrel. Poiché Kestrel non supporta la condivisione delle porte, questa modalità di assegnazione non funziona perché ogni istanza di Kestrel deve essere aperta in una porta univoca.
 
-Per usare l'assegnazione dinamica delle porte con Kestrel è sufficiente omettere del tutto la configurazione `Endpoint` in ServiceManifest.xml e non passare un nome endpoint al costruttore `KestrelCommunicationListener`:
+Per usare l'assegnazione dinamica delle porte con Kestrel omettere del tutto la configurazione `Endpoint` in ServiceManifest.xml e non passare un nome endpoint al costruttore `KestrelCommunicationListener`:
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ddd30729aa2bcb616efab814dc4046d2817c64fa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128678"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782414"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console seriale per macchine virtuali (anteprima) 
 
 
-La console seriale per macchine virtuali di Azure fornisce l'accesso a una console basata su testo per macchine virtuali Linux e Windows. Questa connessione seriale viene stabilita con la porta seriale COM1 della macchina virtuale, fornisce l'accesso alla macchina virtuale e non è correlata allo stato del sistema operativo o della rete della macchina virtuale. L'accesso alla console seriale per una macchina virtuale attualmente può essere eseguito solo tramite il portale di Azure ed è consentito solo agli utenti che hanno l'accesso Collaboratore macchine virtuali o superiore alla VM. 
+La console seriale per macchine virtuali di Azure fornisce l'accesso a una console basata su testo per le macchine virtuali Windows. Questa connessione seriale viene stabilita con la porta seriale COM1 della macchina virtuale e fornisce l'accesso alla macchina virtuale che è indipendente dallo stato del sistema operativo o della rete della macchina virtuale. L'accesso alla console seriale per una macchina virtuale attualmente può essere eseguito solo tramite il portale di Azure ed è consentito solo agli utenti che dispongono dell'accesso Collaboratore Macchina virtuale o di livello superiore alla VM. 
 
 Per la documentazione della console seriale per macchine virtuali Linux [fare clic qui](../linux/serial-console.md).
 
@@ -39,14 +39,14 @@ Per la documentazione della console seriale per macchine virtuali Linux [fare cl
 * La macchina virtuale DEVE avere la [diagnostica di avvio](boot-diagnostics.md) abilitata 
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * L'account che usa la console seriale deve avere il [ruolo Collaboratore](../../role-based-access-control/built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
 * La macchina virtuale su cui si sta cercando di accedere alla console seriale deve avere anche un account basato su password. È possibile crearne uno tramite la funzionalità di [reimpostazione della password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) dell'estensione dell'accesso alla macchina virtuale; vedere la schermata seguente.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
 ## <a name="get-started-with-serial-console"></a>Introduzione alla console seriale
-La console seriale per le macchine virtuali è accessibile solo tramite il [portale di Azure](https://portal.azure.com). Di seguito sono riportati i passaggi per accedere alla console seriale per macchine virtuali tramite il portale 
+La console seriale per le macchine virtuali è accessibile solo tramite il [portale di Azure](https://portal.azure.com). Di seguito sono riportati i passaggi per accedere alla console seriale per macchine virtuali tramite il portale.
 
   1. Aprire il portale di Azure
   2. Nel menu a sinistra selezionare Macchine virtuali.
@@ -55,8 +55,8 @@ La console seriale per le macchine virtuali è accessibile solo tramite il [port
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="configure-serial-console-for-windows"></a>Configurare la console seriale per Windows 
-Per le immagini di Windows Server più recenti in Azure la [console amministrativa speciale](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC, Special Administrative Console) è abilitata per impostazione predefinita. La console SAC è supportata nelle versioni server di Windows, ma non è disponibile nelle versioni client (ad esempio, Windows 10, Windows 8 o Windows 7). Per abilitare la console seriale per le macchine virtuali Windows create usando immagini di febbraio 2018 o precedenti, seguire questa procedura: 
+## <a name="enable-serial-console-in-custom-or-older-images"></a>Abilitare la console seriale nelle immagini personalizzate o precedenti
+Per le immagini di Windows Server più recenti in Azure la [console amministrativa speciale](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC, Special Administrative Console) è abilitata per impostazione predefinita. La console SAC è supportata nelle versioni server di Windows, ma non è disponibile nelle versioni client (ad esempio, Windows 10, Windows 8 o Windows 7). Per abilitare la console seriale per le macchine virtuali Windows create prima di febbraio 2018, seguire questa procedura: 
 
 1. Connettersi alla macchina virtuale Windows tramite Desktop remoto
 2. Da un prompt dei comandi amministrativo eseguire i comandi seguenti 
@@ -73,13 +73,13 @@ Se necessario, la console SAC può essere abilitata anche offline:
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-### <a name="how-do-i-know-if-sac-is-enabled-or-not"></a>Come capire se la console SAC è abilitata 
+### <a name="how-do-i-know-if-sac-is-enabled"></a>Come capire se la console SAC è abilitata?
 
-Se la console [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) non è abilitata, la console seriale non visualizzerà il prompt SAC. In alcuni casi è possibile che vengano visualizzate informazioni sull'integrità della VM oppure nessuna informazione.  
+Se la console [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) non è abilitata, la console seriale non visualizzerà il prompt SAC. In alcuni casi, verranno visualizzate le informazioni di integrità della macchina virtuale e in altri casi sarà vuota.  
 
-### <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Abilitazione del menu di avvio da visualizzare nella console seriale 
+## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Abilitare il menu di avvio di Windows nella console seriale 
 
-Se è necessario abilitare i prompt del caricatore di avvio di Windows da visualizzare nella console seriale, è possibile aggiungere le opzioni seguenti al caricatore di avvio di Windows.
+Se è necessario abilitare i prompt del caricatore di avvio di Windows da visualizzare nella console seriale, è possibile aggiungere le opzioni seguenti ai dati di configurazione di avvio. Vedere [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) per altri dettagli
 
 1. Connettersi alla macchina virtuale Windows tramite Desktop remoto
 2. Da un prompt dei comandi amministrativo eseguire i comandi seguenti 
@@ -88,8 +88,14 @@ Se è necessario abilitare i prompt del caricatore di avvio di Windows da visual
 * `bcdedit /set {bootmgr} bootems yes`
 3. Riavviare il sistema per abilitare il menu di avvio
 
-> [!NOTE] 
-> A questo punto, il supporto per i tasti funzione non è abilitato. Se sono necessarie opzioni di avvio avanzate, usare bcdedit /set {current} onetimeadvancedoptions on. Per altre informazioni dettagliate, vedere [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set)
+## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Usare la console seriale per le chiamate NMI nelle macchine virtuali Windows
+Un interrupt non mascherabile (NMI) è progettato per creare un segnale che il software in una macchina virtuale non ignorerà. In passato, gli NMI sono stati usati per verificare la presenza di problemi hardware in sistemi che necessitavano di tempi di risposta specifici.  Oggi, gli amministratori di sistema e i programmatori usano spesso gli NMI come un meccanismo per eseguire il debug o risolvere i problemi di sistemi che sono bloccati.
+
+La console seriale può essere usata per inviare un NMI a una macchina virtuale di Azure usando l'icona della tastiera nella barra dei comandi, mostrata di seguito. Dopo che l'interrupt non mascherabile viene recapitato, la configurazione della macchina virtuale potrà controllare la modalità di risposta del sistema. Windows può essere configurato per l'arresto anomalo del sistema e per la creazione di un dump di arresto anomalo del sistema di memoria quando si riceve un NMI.
+
+![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+Per informazioni sulla configurazione di Windows per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere: [come generare un file di dump di arresto anomalo del sistema completo o un file di dump di arresto anomalo del sistema del kernel usando un NMI su un sistema basato su Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Disabilitare la console seriale
 Per impostazione predefinita, tutte le sottoscrizioni hanno accesso alla console seriale in tutte le macchine virtuali. È possibile disabilitare la console seriale a livello di sottoscrizione o a livello di macchina virtuale.
@@ -149,15 +155,23 @@ Se un utente è connesso alla console seriale e un altro utente ottiene l'access
 >[!CAUTION] 
 Questo significa che la sessione dell'utente che viene disconnesso non verrà chiusa. Non è ancora possibile imporre la chiusura della sessione in caso di disconnessione (tramite SIGHUP o un meccanismo simile). Nella console SAC è abilitato un timeout automatico per Windows, mentre per Linux è possibile configurare l'impostazione di timeout del terminale. 
 
-## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>Usando la console seriale per le chiamate NMI nelle macchine virtuali Windows
-Un interrupt non mascherabile (NMI) è progettato per creare un segnale che il software in una macchina virtuale non ignorerà. In passato, gli NMI sono stati usati per verificare la presenza di problemi hardware in sistemi che necessitavano di tempi di risposta specifici.  Oggi, gli amministratori di sistema e i programmatori usano spesso gli NMI come un meccanismo per eseguire il debug o risolvere i problemi di sistemi che sono bloccati.
+## <a name="common-scenarios-for-accessing-serial-console"></a>Scenari comuni per l'accesso alla console seriale 
+Scenario          | Azioni nella console seriale                
+:------------------|:-----------------------------------------
+Regole del firewall non corrette | Accedere alla console seriale e correggere le regole di Windows Firewall. 
+Danneggiamento/Controllo del file system | Accedere alla console seriale e recuperare il file system. 
+Problemi di configurazione RDP | Accedere alla console seriale e modificare le impostazioni. Andare alla [documentazione su RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
+Sistema di blocco della rete| Accedere alla console seriale tramite il portale per gestire il sistema. Alcuni comandi di rete sono elencati nella [documentazione sulla console seriale CMD e PowerShell](./serial-console-cmd-ps-commands.md). 
+Interazione con bootloader | Accedere a BCD tramite la console seriale. Andare a [Abilitazione del menu di avvio da visualizzare nella console seriale](#enabling-boot-menu-to-show-in-the-serial-console) per iniziare. 
 
-La console seriale può essere usata per inviare un NMI a una macchina virtuale di Azure usando l'icona della tastiera nella barra dei comandi, mostrata di seguito. Dopo che l'interrupt non mascherabile viene recapitato, la configurazione della macchina virtuale potrà controllare la modalità di risposta del sistema. Windows può essere configurato per l'arresto anomalo del sistema e per la creazione di un dump di arresto anomalo del sistema di memoria quando si riceve un NMI.
+## <a name="accessibility"></a>Accessibilità
+L'accessibilità è un obiettivo chiave della console seriale di Azure. A tale scopo, è stato garantito che la console seriale sia accessibile a utenti con problemi di vista e di udito, nonché a utenti che potrebbero non essere in grado di usare il mouse.
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+### <a name="keyboard-navigation"></a>Navigazione da tastiera
+Usare il tasto `tab` sulla tastiera per eseguire la navigazione nell'interfaccia della console seriale nel portale di Azure. La posizione verrà evidenziata sullo schermo. Per lasciare lo stato attivo del pannello della console seriale, premere `Ctrl + F6` sulla tastiera.
 
-Per informazioni sulla configurazione di Windows per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere: [come generare un file di dump di arresto anomalo del sistema completo o un file di dump di arresto anomalo del sistema del kernel usando un NMI su un sistema basato su Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
-
+### <a name="use-serial-console-with-a-screen-reader"></a>Usare la console seriale con un'utilità per la lettura dello schermo
+La console seriale viene fornita con il supporto dell'utilità per la lettura dello schermo incorporato. La navigazione con un'utilità per la lettura dello schermo attivata consentirà la lettura a voce alta del testo alternativo del pulsante attualmente selezionato da parte dell'utilità per la lettura dello schermo.
 
 ## <a name="errors"></a>Errors
 La maggior parte degli errori è di natura temporanea e, per risolverli, è sufficiente stabilire di nuovo la connessione. La tabella seguente contiene un elenco di errori e il modo per prevenirli
@@ -169,7 +183,7 @@ La macchina virtuale è in uno stato arrestato deallocato. Avviare la VM e prova
 Non si hanno le autorizzazioni necessarie per usare questa console seriale per la VM. Assicurarsi di avere almeno le autorizzazioni del ruolo Collaboratore Macchina virtuale.| L'accesso alla console seriale richiede determinate autorizzazioni. Per informazioni dettagliate, vedere i [requisiti di accesso](#prerequisites)
 Impossibile determinare il gruppo di risorse per l'account di archiviazione della diagnostica di avvio "<STORAGEACCOUNTNAME>". Verificare che la diagnostica di avvio sia abilitata per questa macchina virtuale e di avere accesso a questo account di archiviazione. | L'accesso alla console seriale richiede determinate autorizzazioni. Per informazioni dettagliate, vedere i [requisiti di accesso](#prerequisites)
 È stata rilevata una risposta "Accesso negato" durante l'accesso all'account di archiviazione di diagnostica di avvio della macchina virtuale. | Assicurarsi che la diagnostica di avvio non disponga di un firewall dell'account. Un account di archiviazione di diagnostica di avvio accessibile è necessario per il funzionamento della console seriale.
-Il Web socket è chiuso o non può essere aperto. | Potrebbe essere necessario usare l'elenco elementi consentiti `*.console.azure.com`. Un approccio più dettagliato, ma a lungo termine è l'uso di un elenco elementi consentiti per gli [intervalli IP dei datacenter di Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653), che cambiano piuttosto regolarmente.
+Il Web socket è chiuso o non può essere aperto. | Potrebbe essere necessario usare l'elenco elementi consentiti `*.console.azure.com`. Un approccio più dettagliato, ma a lungo termine è l'uso di un elenco elementi consentiti per gli [intervalli IP dei data center di Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653), che cambiano piuttosto regolarmente.
 
 ## <a name="known-issues"></a>Problemi noti 
 Poiché l'accesso alla console seriale è ancora in fase di anteprima, è in corso la soluzione di alcuni problemi noti. Di seguito è riportato un elenco di questi problemi con le possibili soluzioni alternative 

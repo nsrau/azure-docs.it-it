@@ -1,5 +1,5 @@
 ---
-title: Informazioni sullo sconto sulla prenotazione di Azure | Microsoft Docs
+title: Informazioni sullo sconto sulle prenotazioni di Azure | Microsoft Docs
 description: Informazioni su come viene applicato ai database SQL in esecuzione lo sconto sulla prenotazione.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 3a5339200309a50eace5b48dfbd9127b7eb1dae6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 923337291d297832e03892b505f4efa8d3bb3f36
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632969"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300715"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Informazioni su come viene applicato ai database SQL lo sconto sulla prenotazione
 
@@ -46,7 +46,7 @@ Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'u
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Cosa sono le prenotazioni di Azure?](billing-save-compute-costs-reservations.md)
+- [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)

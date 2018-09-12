@@ -1,19 +1,19 @@
 ---
-title: Informazioni sul registro delle identità dell'hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sul registro delle identità dell'hub IoT di Azure | Microsoft Docs
 description: "Guida per gli sviluppatori: descrizione del registro delle identità dell'hub IoT e come usarlo per gestire i dispositivi. Include informazioni sull'importazione e sull'esportazione in blocco delle identità dei dispositivi."
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 2039b7760704de35c688dda41e3b75425e5ec0e8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 78956c8e9d9248708ec326fc07d46f48e51e0f83
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186272"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341261"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
 
@@ -85,13 +85,12 @@ I dati del dispositivo archiviati da una soluzione IoT dipendono dai requisiti s
 
 ## <a name="device-heartbeat"></a>Heartbeat dispositivo
 
-Il registro delle identità dell'hub IoT contiene un campo denominato **connectionState**. Durante le fasi di sviluppo e debug, usare solo il campo **connectionState**. Le soluzioni IoT non devono eseguire query sul campo in fase di esecuzione. Ad esempio, non devono eseguire query sul campo **connectionState** per verificare se un dispositivo è connesso prima di inviare un messaggio da cloud a dispositivo o un SMS.
+Il registro delle identità dell'hub IoT contiene un campo denominato **connectionState**. Durante le fasi di sviluppo e debug, usare solo il campo **connectionState**. Le soluzioni IoT non devono eseguire query sul campo in fase di esecuzione. Ad esempio, non devono eseguire query sul campo **connectionState** per verificare se un dispositivo è connesso prima di inviare un messaggio da cloud a dispositivo o un SMS. È consigliabile iscriversi all'[**evento**dispositivo disconnesso][lnk-devguide-evgrid-evtype] in Griglia di eventi di Azure per ricevere avvisi e monitorare lo stato di connessione del dispositivo. Per informazioni su come integrare il dispositivo connesso e gli eventi dispositivo connesso dall'hub IoT nella soluzione IoT, usare questa [esercitazione][lnk-howto-evgrid-connstate].
 
-Se la soluzione IoT deve sapere se un dispositivo è connesso, è necessario implementare il *modello di heartbeat*.
-
+Se la soluzione IoT necessita di conoscere se un dispositivo è connesso, è necessario implementare il *modello di heartbeat*.
 Nel modello di heartbeat il dispositivo invia messaggi da dispositivo a cloud almeno una volta ogni intervallo di tempo stabilito, ad esempio almeno una volta ogni ora. Di conseguenza, anche se in un dispositivo non sono presenti dati da inviare, viene comunque inviato un messaggio vuoto da dispositivo a cloud, in genere con una proprietà che lo identifica come heartbeat. Sul lato servizio, la soluzione gestisce una mappa con l'ultimo heartbeat ricevuto per ogni dispositivo e presuppone che sia presente un problema con il dispositivo se non riceve un messaggio di heartbeat entro il tempo previsto.
 
-Un'implementazione più complessa può includere le informazioni acquisite dal [monitoraggio delle operazioni][lnk-devguide-opmon] per identificare i dispositivi che provano a connettersi o a comunicare ma con esito negativo. Quando si implementa il modello di heartbeat, assicurarsi di controllare [Quote e limitazioni dell'hub IoT][lnk-quotas].
+Un'implementazione più complessa può includere le informazioni acquisite da [Monitoraggio di Azure][lnk-AM] e [Integrità risorse di Azure][lnk-ARH] per identificare i dispositivi che provano a connettersi o a comunicare ma con esito negativo, consultare la guida [Monitor con diagnostica][lnk-devguide-mon]. Quando si implementa il modello di heartbeat, assicurarsi di controllare [Quote e limitazioni dell'hub IoT][lnk-quotas].
 
 > [!NOTE]
 > Se una soluzione IoT usa lo stato di connessione esclusivamente per determinare se inviare i messaggi da cloud a dispositivo e i messaggi non vengono trasmessi a grandi set di dispositivi, è da considerare l'uso del criterio *a breve scadenza* più semplice. Un modello di questo tipo consente di gestire il registro dello stato di connessione del dispositivo in modo analogo a un modello di heartbeat, ma con maggiore efficienza. Se si richiede l'acknowledgement dei messaggi, l'hub IoT può inviare una notifica per indicare quali dispositivi possono ricevere messaggi e quali no.
@@ -257,7 +256,7 @@ Per analizzare l'uso del servizio Device Provisioning dell'hub IoT per abilitare
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
@@ -266,3 +265,8 @@ Per analizzare l'uso del servizio Device Provisioning dell'hub IoT per abilitare
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

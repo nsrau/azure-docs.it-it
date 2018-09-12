@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/05/2018
+ms.date: 09/05/2018
 ms.author: juliako
-ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744752"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841840"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
@@ -52,7 +52,7 @@ Questo articolo illustra come creare un account di Video Indexer connesso a una 
 
 ## <a name="connect-to-azure"></a>Connect to Azure
 
-1. Accedere con tale utente e fare clic sul pulsante **Connect to Azure** (Connetti ad Azure):
+1. Accedere a [https://www.videoindexer.ai/](https://www.videoindexer.ai/) e fare clic sul pulsante **Connect to Azure** (Connetti ad Azure):
 
     ![connessione ad Azure](./media/create-account/connect-to-azure.png)
 
@@ -69,9 +69,21 @@ Questo articolo illustra come creare un account di Video Indexer connesso a una 
     * Per usare un account di Servizi multimediali esistente, selezionare **Usa risorsa esistente**. Nell'elenco degli account selezionare l'account.
 
         L'account di Servizi multimediali deve avere la stessa area dell'account di Video Indexer. Per ridurre al minimo la durata dell'indicizzazione e i problemi di velocità effettiva bassa, impostare il tipo e il numero delle unità riservate su **10 unità riservate S3** nell'account di Servizi multimediali.
-    * Per configurare manualmente la connessione, scegliere il collegamento **Switch to manual configuration** (Passa alla configurazione manuale) e specificare le informazioni necessarie:
+    * Per configurare manualmente la connessione, scegliere il collegamento **Switch to manual configuration** (Passa alla configurazione manuale). 
+    
+        È possibile configurare manualmente la connessione se per qualche motivo non è possibile completare l'opzione automatica, se il programma di installazione e configurazione è diverso da quello della maggior parte dei casi o se si vuole avere visibilità completa e controllo delle impostazioni. 
+        
+        In **Connect Video Indexer to an Azure subscription** (Connetti Video Indexer a una sottoscrizione di Azure) fornire le informazioni seguenti.
 
-    ![connessione di Video Indexer ad Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
+        |Impostazione|DESCRIZIONE|
+        |---|---|
+        |Area dell'account di Video Indexer|Il nome dell'area dell'account di Video Indexer. Per migliorare le prestazioni e ridurre i costi, si consiglia di specificare il nome dell'area in cui si trovano le risorse dei Servizi multimediali di Azure e un account di Archiviazione di Azure. |
+        |Tenant di Azure Active Directory (AAD)|Il nome del tenant di Azure AD, ad esempio "contoso.onmicrosoft.com". Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.|
+        |ID sottoscrizione|La sottoscrizione di Azure in cui deve essere creata la connessione. L'ID sottoscrizione può essere recuperato dal portale di Azure. Fare clic su **All services** (Tutti i servizi) nel pannello a sinistra e cercare "sottoscrizioni". Selezionare **Sottoscrizioni** e scegliere l'ID desiderato dall'elenco delle sottoscrizioni.|
+        |Nome del gruppo di risorse di Servizi multimediali di Azure|Il nome del gruppo di risorse in cui è presente l'account di Servizi multimediali.|
+        |Nome della risorsa dei servizi multimediali|Il nome della risorsa dei Servizi multimediali di Azure.|
+        |ID applicazione|L'ID dell'applicazione di Azure AD con le autorizzazioni per l'account di Servizi multimediali specificato. Per altre informazioni vedere [Autenticazione di un'entità servizio](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
+        |Chiave applicazione|Per altre informazioni vedere [Autenticazione di un'entità servizio](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
 5. Al termine, scegliere **Connetti**. L'operazione potrebbe richiedere alcuni minuti. 
 

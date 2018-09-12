@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900830"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341084"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Microsoft tramite Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Per usare un account Microsoft come provider di identità in Azure Active Direct
 3. Specificare un **Nome** per l'applicazione e fare clic su **Crea**.
 4. Nella pagina di registrazione, copiare il valore di **ID applicazione**. È necessario per configurare l'account Microsoft come provider di identità nel tenant.
 5. Selezionare **Aggiungi piattaforma** e scegliere **Web**.
-6. Immettere `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **URL di reindirizzamento**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com.
+6. Immettere `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **URL di reindirizzamento**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.
 7. Fare clic su **Genera nuova password** in **Segreti applicazione**. Copiare la nuova password visualizzata sullo schermo. È necessario per configurare un account Microsoft come provider di identità nel tenant. La password è una credenziale di sicurezza importante.
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Configurare un account Microsoft come provider di identità

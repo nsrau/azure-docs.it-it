@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: b888846056fd60f37cdb1da85904fa14ffe79a39
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 698f96b15a9387cd30d26e684ed03ff4cc3346a7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376364"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697901"
 ---
 # <a name="data-sources"></a>Origini dati 
 QnA Maker è in grado di estrarre automaticamente coppie di domanda/risposta da comuni formati di contenuto semistrutturati, quali domande frequenti e manuali di prodotti. I contenuti possono anche essere aggiunti alla Knowledge Base da file strutturati.
@@ -53,7 +53,7 @@ Un manuale è in genere materiale di riferimento fornito insieme a un prodotto. 
 
 | Domanda  | Risposta  | Metadata                |
 |-----------|---------|-------------------------|
-| Question1 | Answer1 | `Key1:Value1\|Key2:Value2` |
+| Question1 | Answer1 | `Key1:Value1|Key2:Value2` |
 | Question2 | Answer2 |      `Key:Value`           |
 Qualsiasi colonna aggiuntiva nel file di origine viene ignorata.
 
@@ -62,7 +62,7 @@ L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Ba
 
 | Domanda  | Risposta  | Sorgente| Metadata                |
 |-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1|`Key1:Value1\|Key2:Value2` |
+| Question1 | Answer1 | Url1|`Key1:Value1|Key2:Value2` |
 | Question2 | Answer2 | Editoriale|    `Key:Value`       |
 
 ## <a name="editorial"></a>Editoriale

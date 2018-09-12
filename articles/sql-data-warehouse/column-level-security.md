@@ -3,24 +3,26 @@ title: Sicurezza a livello di colonna di Azure SQL Data Warehouse | Microsoft Do
 description: La sicurezza a livello di colonna (CLS) consente ai clienti di controllare l'accesso alle colonne della tabella del database in base al contesto di esecuzione o dell'appartenenza ai gruppi dell'utente. CLS semplifica la progettazione e la codifica della sicurezza nell'applicazione. CLS consente di implementare le limitazioni per l'accesso alle colonne.
 services: sql-data-warehouse
 author: KavithaJonnakuti
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 5a916132f705f3c517ee6789b61a3972b2445b62
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36940016"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301056"
 ---
 # <a name="column-level-security"></a>Sicurezza a livello di colonna 
 La sicurezza a livello di colonna (CLS) consente ai clienti di controllare l'accesso alle colonne della tabella del database in base al contesto di esecuzione o dell'appartenenza ai gruppi dell'utente.  
 
-CLS semplifica la progettazione e la codifica della sicurezza nell'applicazione. CLS consente di implementare le limitazioni per l'accesso alle colonne per proteggere dati sensibili. Assicurando, ad esempio, che utenti specifici possano accedere solo determinate colonne di una tabella relative al loro reparto. La logica di restrizione dell'accesso si trova nel livello database e non lontano dai dati in un altro livello applicazione. Il database applica le restrizioni di accesso a ogni tentativo di accesso ai dati da qualsiasi livello. Il sistema di sicurezza è così più affidabile e solido, grazie alla riduzione della superficie di attacco del sistema di sicurezza generale. Inoltre, elimina anche l'esigenza di introduzione di visualizzazioni per filtrare le colonne per imporre limitazioni di accesso agli utenti. 
+> [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+
+CLS semplifica la progettazione e la codifica della sicurezza nell'applicazione. CLS consente di implementare le limitazioni per l'accesso alle colonne per proteggere dati sensibili. Assicurando, ad esempio, che utenti specifici possano accedere solo determinate colonne di una tabella relative al loro reparto. La logica di restrizione dell'accesso si trova nel livello database e non lontano dai dati in un altro livello applicazione. Il database applica le restrizioni di accesso a ogni tentativo di accesso ai dati da qualsiasi livello. Questa restrizione rende il sistema di sicurezza più affidabile e solido, grazie alla riduzione della superficie di attacco del sistema di sicurezza generale. CLS elimina anche l'esigenza di introduzione di visualizzazioni per filtrare le colonne per imporre limitazioni di accesso agli utenti. 
 
 È possibile implementare CLS con l'istruzione T-SQL [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql). Con questo meccanismo sono supportate sia l'autenticazione SQL che quella di Azure Active Directory (AAD).
 

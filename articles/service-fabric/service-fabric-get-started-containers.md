@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: e76ffa3256da5acecf55ad37ea3d927510565ffe
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 4a5ca4879f81533e3617ca9dfe9cdf8afcf2965b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577289"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700172"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 > [!div class="op_single_selector"]
@@ -27,6 +27,9 @@ ms.locfileid: "39577289"
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
 Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questo articolo illustra come creare un'immagine Docker contenente un'applicazione Web Python [Flask](http://flask.pocoo.org/) e come distribuirla in un cluster di Service Fabric. Si condividerà anche l'applicazione in contenitore tramite [Registro contenitori di Azure](/azure/container-registry/). L'articolo presuppone una conoscenza di base di Docker. Per informazioni su Docker, vedere [Docker overview](https://docs.docker.com/engine/understanding-docker/) (Panoramica su Docker).
+
+> [!NOTE]
+> Questo articolo si applica a un ambiente di sviluppo Windows.  Il runtime del cluster di Service Fabric e il runtime di Docker devono essere in esecuzione nello stesso sistema operativo.  Non è possibile eseguire contenitori Windows su un cluster Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Un computer di sviluppo che esegue:
@@ -204,6 +207,8 @@ Il servizio in contenitori richiede un endpoint per la comunicazione. Aggiungere
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> È possibile aggiungere altri endpoint per un servizio dichiarando elementi EndPoint aggiuntivi con valori della proprietà applicabili. Ogni porta può dichiarare un solo valore di protocollo.
 
 Definendo un endpoint, Service Fabric pubblica l'endpoint nel servizio Naming. Altri servizi in esecuzione nel cluster possono risolvere questo contenitore. È anche possibile eseguire la comunicazione da contenitore a contenitore usando il [proxy inverso](service-fabric-reverseproxy.md). La comunicazione avviene specificando la porta di ascolto HTTP del proxy inverso e il nome dei servizi con cui si vuole comunicare come variabili di ambiente.
 
@@ -247,6 +252,8 @@ Configurare una porta dell'host per la comunicazione con il contenitore. Il bind
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> È possibile aggiungere altri PortBinding per un servizio dichiarando elementi PortBinding aggiuntivi con valori della proprietà applicabili.
 
 ## <a name="configure-container-registry-authentication"></a>Configurare l'autenticazione del registro contenitori
 Configurare l'autenticazione del registro contenitori aggiungendo `RepositoryCredentials` a `ContainerHostPolicies` nel file ApplicationManifest.xml. Aggiungere l'account e la password per il contenitore myregistry.azurecr.io, per consentire al servizio di scaricare l'immagine del contenitore dal repository.
@@ -598,13 +605,13 @@ Il runtime di Service Fabric alloca 20 minuti per il download e l'estrazione del
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -626,7 +633,7 @@ A partire dalla versione 6.2 del runtime di Service Fabric è possibile avviare 
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

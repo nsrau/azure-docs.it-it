@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346716"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382706"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare ed eseguire il debug delle funzioni di Azure per Azure IoT Edge
 
@@ -33,12 +33,11 @@ In questo articolo viene usato Visual Studio Code come strumento di sviluppo pri
 * [Estensione Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Per creare un modulo, è necessario .NET per creare la cartella del progetto, Docker per creare l'immagine del modulo e un registro contenitori in cui memorizzare l'immagine del modulo:
+
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 * [Docker Community Edition](https://docs.docker.com/install/) nel computer di sviluppo 
 * [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) o [hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > Per prototipi e test è possibile usare un registro Docker locale anziché un registro nel cloud. 
+   * Per prototipi e test è possibile usare un registro Docker locale anziché un registro nel cloud. 
 
 Per testare il modulo in un dispositivo, è necessario un hub IoT attivo con almeno un dispositivo IoT Edge. Per usare il computer come un dispositivo IoT Edge, seguire i passaggi nella guida introduttiva per [Windows](quickstart.md) o [Linux](quickstart-linux.md). 
 
@@ -56,7 +55,9 @@ Eseguire questa procedura per creare una soluzione IoT Edge che dispone di un mo
 6. Immettere un nome per la soluzione. 
 7. Scegliere **Funzioni di Azure - C#** come modello per il primo modulo nella soluzione.
 8. Immettere un nome per il modulo. Scegliere un nome univoco all'interno del registro contenitori. 
-9. Specificare il repository di immagini per il modulo. VS Code popola automaticamente il nome del modulo con il valore **localhost:5000**. Sostituire tale valore con le proprie informazioni di registro. Se per il test si usa un registro Docker locale, **localhost** è corretto. Se si usa Registro contenitori di Azure, specificare il server di accesso indicato nelle impostazioni del registro. Il server di accesso ha un nome simile a **\<nome registro\>.azurecr.io**.
+9. Specificare il repository di immagini per il modulo. VS Code popola automaticamente il nome del modulo con il valore **localhost:5000**. Sostituire tale valore con le proprie informazioni di registro. Se per il test si usa un registro Docker locale, **localhost** è corretto. Se si usa Registro contenitori di Azure, specificare il server di accesso indicato nelle impostazioni del registro. Il server di accesso ha un nome simile a **\<nome registro\>.azurecr.io**. Sostituire solo la parte localhost della stringa, non eliminare il nome del modulo.
+
+   ![Specificare il repository di immagini Docker](./media/how-to-develop-csharp-function/repository.png)
 
 VS Code usa le informazioni fornite per creare una soluzione IoT Edge con un progetto per Funzioni di Azure, quindi la carica in una nuova finestra.
 
@@ -73,7 +74,7 @@ Nella soluzione sono presenti quattro elementi:
 
 ## <a name="develop-your-module"></a>Sviluppare il modulo
 
-Il codice funzione di Azure predefinito fornito con la soluzione si trova in **moduli** > **\<nome del modulo\>** > **EdgeHubTrigger-Csharp** > **run.csx**. Il modulo e il file deployment.template.json sono impostati in modo che sia possibile compilare la soluzione, inviarla al registro del contenitore e distribuirla in un dispositivo per avviare il test senza toccare alcun codice. Il modulo viene compilato solo per accettare l'input da un'origine (in questo caso, il modulo tempSensor che simula i dati) e collegarlo all'hub IoT. 
+Il codice funzione di Azure predefinito fornito con la soluzione si trova in **modules**> [nome del modulo] > **EdgeHubTrigger-Csharp** > **run.csx**. Il modulo e il file deployment.template.json sono impostati in modo che sia possibile compilare la soluzione, inviarla al registro del contenitore e distribuirla in un dispositivo per avviare il test senza toccare alcun codice. Il modulo viene compilato solo per accettare l'input da un'origine (in questo caso, il modulo tempSensor che simula i dati) e collegarlo all'hub IoT. 
 
 Quando si è pronti per personalizzare il modello di funzione di Azure con il proprio codice, usare gli [SDK per l'hub IoT di Azure](../iot-hub/iot-hub-devguide-sdks.md) per compilare moduli che rispondano alle esigenze chiave delle soluzioni IoT quali sicurezza, gestione dei dispositivi e affidabilità. 
 
@@ -85,7 +86,7 @@ Quando si è pronti per personalizzare il modello di funzione di Azure con il pr
 2. Ricompilare la soluzione. Nel riquadro comandi di VS Code immettere ed eseguire il comando **Azure IoT Edge: Build IoT Edge solution** (Azure IoT Edge: Compila soluzione IoT Edge).
 3. Fare clic con il pulsante destro del mouse sull'ID di un dispositivo IoT Edge nell'apposito strumento di esplorazione per l'hub IoT di Azure, quindi scegliere **Create deployment for Edge device** (Crea distribuzione per dispositivo Edge). Selezionare il file `deployment.json` nella cartella `config`. Si noterà quindi che la distribuzione è stata creata correttamente con un ID distribuzione in un terminale integrato di Visual Studio Code.
 
-Controllare lo stato del contenitore nello strumento di esplorazione Docker di Visual Studio Code o tramite il comando `docker images` nel terminale.
+Controllare lo stato del contenitore nello strumento di esplorazione Docker di Visual Studio Code o tramite il comando `docker ps` nel terminale.
 
 ## <a name="start-debugging-c-functions-in-vs-code"></a>Avviare il debug delle funzioni C# in Visual Studio Code
 1. Visual Studio Code consente di mantenere le informazioni di configurazione del debug in un file `launch.json` che si trova nella cartella `.vscode` nell'area di lavoro. Il file `launch.json` è stato generato durante la creazione di una nuova soluzione IoT Edge e viene aggiornato ogni volta che si aggiunge un nuovo modulo con il supporto per il debug. Passare alla visualizzazione di debug. Selezionare il file di configurazione del debug corrispondente. Il nome dell'opzione di debug deve essere simile a **Debug remoto NomeModulo (.NET Core)**.

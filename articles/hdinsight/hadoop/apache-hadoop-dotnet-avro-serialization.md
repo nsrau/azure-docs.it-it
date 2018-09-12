@@ -4,18 +4,18 @@ description: Informazioni su come serializzare e deserializzare i dati in Hadoop
 keywords: avro, avro hadoop
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 59e6116d1c325e32b4bead0ab44e00fb8682a205
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ad8d0392b4b0e1e9e8d94e0d5a7a0c72455ecfcb
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595597"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700998"
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Serializzare i dati con la libreria Microsoft Avro
 

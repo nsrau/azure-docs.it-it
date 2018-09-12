@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: f81a087a2595db41dbe84a54ad1fd01adf043515
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060404"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700844"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 Vivere in una società profondamente interconnessa porta, prima o poi, ad avere a che fare con i **social network**. I social network vengono usati per rimanere in contatto con amici, colleghi e familiari, ma anche per condividere passioni con persone con interessi simili.
@@ -39,7 +39,7 @@ Perché SQL non rappresenta la scelta migliore in questo scenario? A causa della
 Si potrebbe usare un'istanza di SQL di dimensioni enormi, con capacità sufficiente per risolvere migliaia di query con un numero di join adatto a rendere disponibile il contenuto, ma esiste una soluzione più semplice.
 
 ## <a name="the-nosql-road"></a>Approccio NoSQL
-In questo articolo verrà illustrata la modellazione dei dati della piattaforma di social networking con il database NoSQL di Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in modo conveniente sfruttando altre funzionalità di Azure Cosmos DB quali l'[API Graph Gremlin](../cosmos-db/graph-introduction.md). Con un approccio [NoSQL](https://en.wikipedia.org/wiki/NoSQL), che prevede l'archiviazione dei dati in formato JSON e l'applicazione della [denormalizzazione](https://en.wikipedia.org/wiki/Denormalization), il post che prima risultava complesso può essere trasformato in un singolo [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+In questo articolo verrà illustrata la modellazione dei dati della piattaforma di social networking con il database NoSQL di Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in modo conveniente sfruttando altre funzionalità di Azure Cosmos DB quali l'[API Gremlin](../cosmos-db/graph-introduction.md). Con un approccio [NoSQL](https://en.wikipedia.org/wiki/NoSQL), che prevede l'archiviazione dei dati in formato JSON e l'applicazione della [denormalizzazione](https://en.wikipedia.org/wiki/Denormalization), il post che prima risultava complesso può essere trasformato in un singolo [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {
@@ -130,7 +130,7 @@ Per risolvere il problema, è possibile adottare un approccio misto. Nel documen
         "totalPoints":11342
     }
 
-Il grafico effettivo di follower può essere archiviato tramite l'[API Graph Gremlin](../cosmos-db/graph-introduction.md) di Azure Cosmos DB, per creare [vertici](http://mathworld.wolfram.com/GraphVertex.html) per ogni utente e [bordi](http://mathworld.wolfram.com/GraphEdge.html) che gestiscono le relazioni "Segue-a-B". L'API Graph consente non solo di ottenere i follower di un determinato utente ma anche di creare query più complesse persino per suggerire gli utenti in comune. Se al grafico si aggiungono le categorie di contenuto che piacciono o a cui sono interessati gli utenti, è possibile avviare esperienze composte che includono l'individuazione intelligente dei contenuti, il suggerimento dei contenuti che interessano ai follower o la ricerca di persone con cui l'utente può avere molto in comune.
+Il grafico effettivo di follower può essere archiviato tramite l'[API Gremlin](../cosmos-db/graph-introduction.md) di Azure Cosmos DB, per creare [vertici](http://mathworld.wolfram.com/GraphVertex.html) per ogni utente e [bordi](http://mathworld.wolfram.com/GraphEdge.html) che gestiscono le relazioni "Segue-a-B". L'API Gremlin consente non solo di ottenere i follower di un determinato utente ma anche di creare query più complesse persino per suggerire gli utenti in comune. Se al grafico si aggiungono le categorie di contenuto che piacciono o a cui sono interessati gli utenti, è possibile avviare esperienze composte che includono l'individuazione intelligente dei contenuti, il suggerimento dei contenuti che interessano ai follower o la ricerca di persone con cui l'utente può avere molto in comune.
 
 Il documento Statistiche utente può ancora essere usato per creare schede nell'interfaccia utente o anteprime rapide del profilo.
 

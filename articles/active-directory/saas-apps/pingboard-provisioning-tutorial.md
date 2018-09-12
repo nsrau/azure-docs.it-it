@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c5cc20b4f20e3a4f746ab15aa5f139c8e7201a2c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447167"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382534"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Esercitazione: Configurare Pingboard per il provisioning utenti automatico
 
@@ -36,7 +36,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 *   Un account utente in Pingboard con autorizzazioni di amministratore 
 
 > [!NOTE] 
-> L'integrazione del provisioning di Azure AD si basa sull'[API Pingboard](`https://your_domain.pingboard.com/scim/v2`), disponibile per l'account in uso.
+> L'integrazione del provisioning di Azure AD si basa sull'[API Pingboard](https://pingboard.docs.apiary.io/#), disponibile per l'account in uso.
 
 ## <a name="assign-users-to-pingboard"></a>Assegnare utenti a Pingboard
 
@@ -95,7 +95,7 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
 1. Fare clic su **Salva** per avviare la sincronizzazione iniziale degli utenti assegnati a Pingboard.
 
-La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. Usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log attività di provisioning. I log descrivono tutte le azioni eseguite dal servizio di provisioning nell'app Pingboard.I report descrivono tutte le azioni eseguite dal servizio di provisioning nell'app Pingboard.
+La sincronizzazione iniziale richiede più tempo di esecuzione delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. Usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log attività di provisioning. I log descrivono tutte le azioni eseguite dal servizio di provisioning nell'app Pingboard.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Creazione di report sul provisioning automatico degli account utente](../active-directory-saas-provisioning-reporting.md).
 

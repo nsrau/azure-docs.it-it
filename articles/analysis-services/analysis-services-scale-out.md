@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092095"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840990"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -23,11 +23,15 @@ Con il ridimensionamento orizzontale le query client possono essere distribuite 
 
 In una distribuzione di server tipica, un server funge sia da server di elaborazione che da server di query. Se il numero di query client verso i modelli presenti nel server supera il numero di unità di elaborazione query (QPU, Query Processing Unit) del piano del server o se l'elaborazione dei modelli avviene contemporaneamente a carichi di lavoro di query elevati, le prestazioni possono peggiorare. 
 
-Con il ridimensionamento orizzontale è possibile creare un pool di query con un massimo di sette repliche di query aggiuntive (otto in totale, incluso il server). È possibile ridimensionare il numero di repliche di query per soddisfare le richieste di QPU nei momenti critici ed è possibile separare un server di elaborazione dal pool di query in qualsiasi momento. Tutte le repliche di query vengono create nella stessa area del server.
+Con il ridimensionamento orizzontale è possibile creare un pool di query con un massimo di sette risorse di replica di query aggiuntive (otto in totale, incluso il server). È possibile ridimensionare il numero di repliche di query per soddisfare le richieste di QPU nei momenti critici ed è possibile separare un server di elaborazione dal pool di query in qualsiasi momento. Tutte le repliche di query vengono create nella stessa area del server.
 
-Indipendentemente dal numero di repliche di query presenti in un pool di query, i carichi di lavoro di elaborazione non sono distribuiti tra le repliche di query. Un unico server funge da server di elaborazione. Le repliche di query servono solo le query verso i modelli sincronizzati tra ogni replica nel pool di query. 
+Indipendentemente dal numero di repliche di query presenti in un pool di query, i carichi di lavoro di elaborazione non sono distribuiti tra le repliche di query. Un unico server funge da server di elaborazione. Le repliche di query servono solo le query per i modelli sincronizzati tra ogni replica nel pool di query. 
 
-Al termine delle operazioni di elaborazione, è necessario effettuare una sincronizzazione tra il server di elaborazione e i server delle repliche di query. Quando si automatizzano le operazioni di elaborazione, è importante configurare un'operazione di sincronizzazione subito dopo il completamento delle operazioni di elaborazione stesse. La sincronizzazione può essere eseguita manualmente nel portale oppure tramite PowerShell o l'API REST.
+Quando si esegue il ridimensionamento orizzontale, le nuove repliche delle query vengono aggiunte al pool di query in modo incrementale. Per includere le nuove risorse di replica delle query nel pool di query sono necessari fino a 5 minuti, in modo che sia pronto per ricevere le query e le connessioni client. Quando tutte le nuove repliche delle query sono attive e in esecuzione, le nuove connessioni client vengono sottoposte al bilanciamento del carico in tutte le risorse del pool di query. Le connessioni client esistenti non vengono modificate dalla risorsa alla quale sono attualmente connesse.  Durante il ridimensionamento verticale, tutte le connessioni client esistenti a una risorsa del pool di query che viene rimossa dal pool di query vengono terminate. Vengono riconnesse a una risorsa del pool di query rimanente al termine del ridimensionamento verticale.
+
+Durante l'elaborazione dei modelli, al termine delle operazioni di elaborazione, è necessario effettuare una sincronizzazione tra il server di elaborazione e le repliche di query. Quando si automatizzano le operazioni di elaborazione, è importante configurare un'operazione di sincronizzazione subito dopo il completamento delle operazioni di elaborazione stesse. La sincronizzazione può essere eseguita manualmente nel portale oppure tramite PowerShell o l'API REST. 
+
+Per ottenere prestazioni ottimali sia delle operazioni di elaborazione che delle operazioni di query, è possibile scegliere di separare il server di elaborazione dal pool di query. Quando sono separati, le connessioni client nuove ed esistenti vengono assegnate alle repliche delle query solo nel pool di query. Se le operazioni di elaborazione richiedono pochi minuti, è possibile scegliere di separare il server di elaborazione dal pool di query solo per il tempo necessario per eseguire le operazioni di elaborazione e sincronizzazione e quindi includerlo nuovamente nel pool di query. 
 
 > [!NOTE]
 > Il ridimensionamento orizzontale è disponibile per i server del piano tariffario Standard. Ogni replica di query viene fatturata alla stessa tariffa del server.

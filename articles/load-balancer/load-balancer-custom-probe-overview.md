@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190734"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695426"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -36,7 +36,7 @@ I tipi di probe di integrità disponibili e il modo in cui si comportano dipende
 > [!IMPORTANT]
 > I probe di integrità di Load Balancer sono originati dall'indirizzo IP 168.63.129.16 e non devono essere bloccati perché possano contrassegnare l'istanza come attiva.  Per informazioni dettagliate, vedere [Indirizzo IP di origine dei probe](#probesource).
 
-## <a name="types"></a>Tipi di probe di integrità
+## <a name="types"></a>Tipi di probe
 
 I probe di integrità possono osservare qualsiasi porta in un'istanza di back-end, tra cui la porta su cui viene effettivamente fornito il servizio. È possibile configurare il protocollo dei probe di integrità per tre diversi tipi di probe di integrità:
 

@@ -1,32 +1,287 @@
 ---
 title: Informazioni di riferimento sulle funzioni per il linguaggio di definizione del flusso di lavoro - App per la logica di Azure | Microsoft Docs
-description: Informazioni sulle funzioni per la creazione di app per la logica on il linguaggio di definizione del flusso di lavoro
+description: Informazioni sulle funzioni del linguaggio di definizione del flusso di lavoro per App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 46ccf9484b76ec5f24dba470a194b5b83c32f013
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263777"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307114"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Informazioni di riferimento sulle funzioni per il linguaggio di definizione del flusso di lavoro in App per la logica di Azure
 
-Questo articolo descrive le funzioni che è possibile usare quando si creano flussi di lavoro automatizzati con [App per la logica di Azure](../logic-apps/logic-apps-overview.md). Per altre informazioni sulle funzioni nelle definizioni delle app per la logica, vedere [Linguaggio di definizione del flusso di lavoro per App per la logica di Azure](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
+Alcune [espressioni](../logic-apps/logic-apps-workflow-definition-language.md#expressions) nelle [App per la logica di Azure](../logic-apps/logic-apps-overview.md) ottengono i rispettivi valori da azioni di runtime, che potrebbero non esistere all'inizio dell'esecuzione della definizione di flusso di lavoro di un'app per la logica. Per usare questi valori o farvi riferimento nelle espressioni, è possibile usare le *funzioni* fornite dal [Linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md). È ad esempio possibile usare le funzioni matematiche per i calcoli, ad esempio la funzione [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) che restituisce la somma di numeri interi o float. Ecco un paio di attività di esempio che possono essere eseguite con le funzioni:
+
+| Attività | Sintassi della funzione | Risultato | 
+| ---- | --------------- | ------ | 
+| Restituisce una stringa in formato minuscolo. | toLower('<*text*>') <p>Ad esempio toLower('Hello') | "hello" | 
+| Restituisce un identificatore univoco globale (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
+|||| 
+
+Questo articolo descrive le funzioni che è possibile usare quando si creano le proprie definizioni di app per la logica.
+Per trovare le funzioni [in base all’utilizzo generico](#ordered-by-purpose), continuare con le tabelle seguenti. Oppure, per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](#alphabetical-list). 
 
 > [!NOTE]
 > Nella sintassi per le definizioni dei parametri, un punto interrogativo (?) visualizzato dopo un parametro indica che il parametro è facoltativo. Vedere, ad esempio, [getFutureTime()](#getFutureTime).
 
+## <a name="functions-in-expressions"></a>Funzioni nelle espressioni
+
+Per capire come usare una funzione in un’espressione, questo esempio mostra come ottenere il valore dal parametro `customerName` e assegnarlo alla proprietà `accountName` usando la funzione [parameters()](#parameters) in un'espressione:
+
+```json
+"accountName": "@parameters('customerName')"
+```
+
+Di seguito sono indicati altri modi generali per l'uso delle funzioni nelle espressioni:
+
+| Attività | Sintassi della funzione in un'espressione | 
+| ---- | -------------------------------- | 
+| Eseguire operazioni con un elemento passandolo a una funzione. | "\@<*functionName*>(<*item*>)" | 
+| 1. Ottenere il valore di *parameterName* usando la funzione `parameters()` annidata. </br>2. Eseguire operazioni con il risultato passando tale valore a *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" | 
+| 1. Ottenere il risultato dalla funzione interna annidata *functionName*. </br>2. Passare il risultato alla funzione esterna *functionName2*. | "\@<*functionName2*>(<*functionName*>(<*item*>))" | 
+| 1. Ottenere il risultato da *functionName*. </br>2. Dal momento che il risultato è un oggetto con proprietà *propertyName*, ottenere il valore della proprietà. | "\@<*functionName*>(<*item*>).<*propertyName*>" | 
+||| 
+
+Ad esempio, la funzione `concat()` può accettare due o più valori di stringa come parametri. Questa funzione combina queste stringhe in un'unica stringa. È possibile passare valori letterali di stringa, ad esempio, "Sophia" e "Owen", in modo da ottenere una stringa combinata, ovvero "SophiaOwen":
+
+```json
+"customerName": "@concat('Sophia', 'Owen')"
+```
+
+In alternativa, è possibile ottenere i valori delle stringhe dai parametri. Questo esempio usa la funzione `parameters()` in ogni parametro `concat()` e i parametri `firstName` e `lastName`. Si passano quindi le stringhe risultanti alla funzione `concat()` in modo da ottenere una stringa combinata, ad esempio "SophiaOwen":
+
+```json
+"customerName": "@concat(parameters('firstName'), parameters('lastName'))"
+```
+
+In entrambi i casi, gli esempi assegnano il risultato alla proprietà `customerName`. 
+
+Di seguito sono riportate le funzioni disponibili, ordinate in base al loro utilizzo generico, oppure è possibile esplorare le funzioni di base in [ordine alfabetico](#alphabetical-list).
+
+<a name="ordered-by-purpose"></a>
+<a name="string-functions"></a>
+
+## <a name="string-functions"></a>Funzioni stringa
+
+Per eseguire operazioni con le stringhe, è possibile usare queste funzioni di stringa e alcune [funzioni di raccolta](#collection-functions). Le funzioni di stringa funzionano solo sulle stringhe. 
+
+| Funzione di stringa | Attività | 
+| --------------- | ---- | 
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combina due o più stringhe e restituisce la stringa combinata. | 
+| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Verifica se una stringa termina con la sottostringa specificata. | 
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generare un identificatore univoco globale (GUID) sotto forma di stringa. | 
+| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Restituisce la posizione iniziale di una sottostringa. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Restituisce la posizione iniziale o il valore di indice per l'ultima occorrenza di una sottostringa. | 
+| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Sostituisce una sottostringa con la stringa specificata e restituisce la stringa aggiornata. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Restituisce una matrice che ha tutti i caratteri di una stringa e separa ogni carattere con il delimitatore specificato. | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verifica se una stringa inizia con una sottostringa specifica. | 
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Restituisce i caratteri di una stringa, partendo dalla posizione specificata. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Restituisce una stringa in formato minuscolo. | 
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Restituisce una stringa in formato maiuscolo. | 
+| [Trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Rimuove gli spazi iniziali e finali da una stringa e restituisce la stringa aggiornata. | 
+||| 
+
+<a name="collection-functions"></a>
+
+## <a name="collection-functions"></a>Funzioni di raccolta
+
+Per eseguire operazioni con le raccolte, generalmente matrici, stringhe e talvolta dizionari, è possibile usare queste funzioni di raccolta. 
+
+| Funzione di raccolta | Attività | 
+| ------------------- | ---- | 
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifica se una raccolta include un elemento specifico. |
+| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifica se una raccolta è vuota. | 
+| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Restituisce il primo elemento di una raccolta. | 
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Restituisce una raccolta che contiene *solo* gli elementi comuni alle raccolte specificate. | 
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Restituisce una stringa con *tutti* gli elementi di una matrice, separati dal carattere specificato. | 
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Restituisce l'ultimo elemento di una raccolta. | 
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Restituisce il numero di elementi in una stringa o matrice. | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Rimuove gli elementi dall'inizio di una raccolta e restituisce *tutti gli altri* elementi. | 
+| [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Restituisce gli elementi dall'inizio di una raccolta. | 
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Restituisce una raccolta che contiene *tutti* gli elementi delle raccolte specificate. | 
+||| 
+
+<a name="comparison-functions"></a>
+
+## <a name="logical-comparison-functions"></a>Funzioni di confronto logico
+
+Per eseguire operazioni con le condizioni, confrontare i valori e i risultati delle espressioni o valutare vari tipi di logica, è possibile usare queste funzioni di confronto logico. Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Funzione di confronto logico | Attività | 
+| --------------------------- | ---- | 
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Verifica se tutte le espressioni sono true. | 
+| [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Verifica se entrambi i valori sono equivalenti. | 
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Verifica se il primo valore è maggiore del secondo valore. | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Verifica se il primo valore è maggiore o uguale al secondo valore. | 
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Verifica se un'espressione è true o false. In base al risultato, restituisce un valore specificato. | 
+| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Verifica se il primo valore è minore del secondo valore. | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Verifica se il primo valore è minore o uguale al secondo valore. | 
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Verifica se un'espressione è false. | 
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Verifica se almeno un'espressione è true. |
+||| 
+
+<a name="conversion-functions"></a>
+
+## <a name="conversion-functions"></a>Funzioni di conversione
+
+Per modificare il tipo o il formato di un valore, è possibile usare queste funzioni di conversione. Ad esempio, è possibile modificare un valore da booleano a intero. Per informazioni sul modo in cui App per la logica gestisce i tipi di contenuto durante la conversione, vedere [Gestire i tipi di contenuti](../logic-apps/logic-apps-content-type.md). Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Funzione di conversione | Attività | 
+| ------------------- | ---- | 
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Restituisce una matrice da un singolo input specificato. Per più input, vedere [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
+| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Restituisce la versione di una stringa con codifica base64. | 
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Restituisce la versione binaria di una stringa con codifica base64. | 
+| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Restituisce la versione stringa di una stringa con codifica base64. | 
+| [binary](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Restituisce la versione binaria di un valore di input. | 
+| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Restituisce la versione booleana di un valore di input. | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Restituisce una matrice da più input. | 
+| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Restituisce l'URI dati di un valore di input. | 
+| [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Restituisce la versione binaria di un URI dati. | 
+| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Restituisce la versione stringa di un URI dati. | 
+| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Restituisce la versione stringa di una stringa con codifica base64. | 
+| [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Restituisce la versione binaria di un URI dati. | 
+| [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Restituisce una stringa che sostituisce i caratteri di escape con le versioni decodificate. | 
+| [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Restituisce una stringa che sostituisce i caratteri non sicuri dell'URL con caratteri di escape. | 
+| [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Restituisce un numero a virgola mobile per un valore di input. | 
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Restituisce la versione integer di una stringa. | 
+| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Restituisce il valore o l'oggetto di tipo JSON (JavaScript Object Notation ) per una stringa o un elemento XML. | 
+| [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Restituisce la versione stringa di un valore di input. | 
+| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Restituisce la versione codificata in formato URI per un valore di input sostituendo i caratteri non sicuri dell'URL con caratteri di escape. | 
+| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Restituisce la versione binaria di una stringa con codifica URI. | 
+| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Restituisce la versione stringa di una stringa con codifica URI. | 
+| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Restituisce la versione XML di una stringa. | 
+||| 
+
+<a name="math-functions"></a>
+
+## <a name="math-functions"></a>Funzioni matematiche
+
+Per eseguire operazioni con numeri interi o float, è possibile usare queste funzioni matematiche. Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Funzione matematica | Attività | 
+| ------------- | ---- | 
+| [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Restituisce il risultato della somma di due numeri. | 
+| [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Restituisce il risultato della divisione di due numeri. | 
+| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Restituisce il valore più alto di un set di numeri o una matrice. | 
+| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Restituisce il valore più basso di un set di numeri o una matrice. | 
+| [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Restituisce il resto della divisione di due numeri. | 
+| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Restituisce il prodotto della moltiplicazione di due numeri. | 
+| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Restituisce un numero intero casuale da un intervallo specificato. | 
+| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | Restituisce una matrice di valori interi che inizia da un valore intero specificato. | 
+| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Restituisce il risultato della sottrazione del secondo numero dal primo. | 
+||| 
+
+<a name="date-time-functions"></a>
+
+## <a name="date-and-time-functions"></a>Funzioni di data e ora
+
+Per eseguire operazioni con date e ore, è possibile usare queste funzioni di data e ora.
+Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Funzione di data e ora | Attività | 
+| --------------------- | ---- | 
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Aggiunge un numero di giorni a un timestamp. | 
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Aggiunge un numero di ore a un timestamp. | 
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Aggiunge un numero di minuti a un timestamp. | 
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Aggiunge un numero di secondi a un timestamp. |  
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Aggiunge un numero di unità di tempo a un timestamp. Vedere anche [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). | 
+| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Converte un timestamp da UTC (Universal Time Coordinated) al fuso orario di destinazione. | 
+| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Converte un timestamp dal fuso orario di origine al fuso orario di destinazione. | 
+| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Converte un timestamp dal fuso orario di origine a UTC (Universal Time Coordinated). | 
+| [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Restituisce il giorno del componente di mese di un timestamp. | 
+| [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Restituisce il giorno del componente settimana di un timestamp. | 
+| [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Restituisce il giorno del componente anno di un timestamp. | 
+| [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Restituisce la data di un timestamp. | 
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Restituisce il timestamp corrente più le unità di tempo specificate. Vedere anche [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). | 
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Restituisce il timestamp corrente meno le unità di tempo specificate. Vedere anche [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). | 
+| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Restituisce l'inizio del giorno per un timestamp. | 
+| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Restituisce l'inizio dell'ora per un timestamp. | 
+| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Restituisce l'inizio del mese per un timestamp. | 
+| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | Sottrae un numero di unità di tempo da un timestamp. Vedere [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime). | 
+| [ticks](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | Restituisce il valore della proprietà `ticks` per un timestamp specificato. | 
+| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | Restituisce il timestamp corrente come stringa. | 
+||| 
+
+<a name="workflow-functions"></a>
+
+## <a name="workflow-functions"></a>Funzioni del flusso di lavoro
+
+Queste funzioni del flusso di lavoro consentono di eseguire queste operazioni:
+
+* Ottenere dettagli su un'istanza del flusso di lavoro al momento dell'esecuzione. 
+* Eseguire operazioni con gli input usati per creare istanze di app per la logica.
+* Fare riferimento agli output da azioni e trigger.
+
+Ad esempio, è possibile fare riferimento agli output di un'azione e usare i dati in un'azione successiva. Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Funzione del flusso di lavoro | Attività | 
+| ----------------- | ---- | 
+| [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | Restituisce l'output dell'azione corrente in fase di esecuzione o i valori di altre coppie di nomi e valori JSON. Vedere anche [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Restituisce l'output `body` di un'azione in fase di esecuzione. Vedere anche [body](../logic-apps/workflow-definition-language-functions-reference.md#body). | 
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Restituisce l'output di un'azione in fase di esecuzione. Vedere [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Restituisce l'output di un'azione in fase di esecuzione o i valori di altre coppie di nomi e valori JSON. Vedere anche [action](../logic-apps/workflow-definition-language-functions-reference.md#action).  | 
+| [body](#body) | Restituisce l'oggetto `body` di output di un'azione in fase di esecuzione. Vedere anche [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Creare una matrice con i valori corrispondenti a un nome chiave negli ouput di azione *form-data* o *form-encoded*. | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Restituisce un singolo valore che corrisponde a un nome chiave nell'output *form-data* o *form-encoded* di un'azione. | 
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando si trova all'interno di un'azione ripetuta su una matrice, restituisce l'elemento corrente nella matrice durante l'iterazione corrente dell'azione. | 
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Quando si trova all'interno di un ciclo for-each o do-until, restituisce l'elemento corrente dal ciclo specificato.| 
+| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Restituisce l'URL callback che chiama un trigger o un'azione. | 
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Restituisce il corpo per una parte specifica dell'output di un'azione con più parti. | 
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Restituisce il valore per un parametro descritto nella definizione dell'app per la logica. | 
+| [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Restituisce l'output di un trigger in fase di esecuzione o i valori di altre coppie di nomi e valori JSON. Vedere anche [triggerOutputs](#triggerOutputs) e [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). | 
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Restituisce l'output `body` di un trigger in fase di esecuzione. Vedere [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Restituisce un singolo valore corrispondente a un nome di chiave negli output *form-data* o *form-encoded* del trigger. | 
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Restituisce il corpo di una parte specifica di un output a più parti di un trigger. | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Crea una matrice i cui valori corrispondono a un nome di chiave negli output *form-data* o *form-encoded* di un trigger. | 
+| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Restituisce l'output di un trigger in fase di esecuzione o i valori di altre coppie di nomi e valori JSON. Vedere [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [variables](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Restituisce il valore per una variabile specificata. | 
+| [workflow](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | Restituisce tutti i dettagli del flusso di lavoro stesso in fase di esecuzione. | 
+||| 
+
+<a name="uri-parsing-functions"></a>
+
+## <a name="uri-parsing-functions"></a>Funzioni di analisi dell'URI
+
+Per eseguire operazioni con URI (Uniform Resource Identifier) e ottenere vari valori di proprietà per questi URI, è possibile usare queste funzioni di analisi dell'URI. Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Funzione di analisi dell'URI | Attività | 
+| -------------------- | ---- | 
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Restituisce il valore `host` per un URI. | 
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Restituisce il valore `path` per un URI. | 
+| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | Restituisce i valori `path` e `query` per un URI. | 
+| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | Restituisce il valore `port` per un URI. | 
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | Restituisce il valore `query` per un URI. | 
+| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | Restituisce il valore `scheme` per un URI (Uniform Resource Identifier). | 
+||| 
+
+<a name="manipulation-functions"></a>
+
+## <a name="manipulation-functions-json--xml"></a>Funzioni di manipolazione: JSON & XML
+
+Per eseguire operazioni con gli oggetti JSON e i nodi XML, è possibile usare queste funzioni di manipolazione. Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Funzione di manipolazione | Attività | 
+| --------------------- | ---- | 
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Aggiunge una proprietà e il suo valore o una coppia nome-valore a un oggetto JSON e restituisce l'oggetto aggiornato. | 
+| [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Restituisce il primo valore non Null da uno o più parametri. | 
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Rimuove una proprietà da un oggetto JSON e restituisce l'oggetto aggiornato. | 
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Imposta il valore per la proprietà di un oggetto JSON e restituisce l'oggetto aggiornato. | 
+| [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Verifica nel codice XML la presenza di nodi o valori che corrispondono a un'espressione XPath (XML Path Language) e restituisce i nodi o i valori corrispondenti. | 
+||| 
+
+<a name="alphabetical-list"></a>
 <a name="action"></a>
 
-## <a name="action"></a>action
+### <a name="action"></a>action
 
 Restituisce l'output dell'azione *corrente* in fase di esecuzione oppure i valori di altre coppie nome-valore JSON che è possibile assegnare a un'espressione. Per impostazione predefinita, questa funzione fa riferimento all'intero oggetto azione, ma è possibile specificare una proprietà con il valore desiderato. Vedere anche [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
@@ -53,7 +308,7 @@ action().outputs.body.<property>
 
 <a name="actionBody"></a>
 
-## <a name="actionbody"></a>actionBody
+### <a name="actionbody"></a>actionBody
 
 Restituisce l'oggetto `body` di output di un'azione in fase di esecuzione. Sintassi abbreviata per `actions('<actionName>').outputs.body`. Vedere [body()](#body) e [actions()](#actions).
 
@@ -98,7 +353,7 @@ E viene restituito questo risultato:
 
 <a name="actionOutputs"></a>
 
-## <a name="actionoutputs"></a>actionOutputs
+### <a name="actionoutputs"></a>actionOutputs
 
 Restituisce l'output di un'azione in fase di esecuzione. Sintassi abbreviata per `actions('<actionName>').outputs`. Vedere [actions()](#actions).
 
@@ -161,7 +416,7 @@ E viene restituito questo risultato:
 
 <a name="actions"></a>
 
-## <a name="actions"></a>Azioni
+### <a name="actions"></a>Azioni
 
 Restituisce l'output di un'azione in fase di esecuzione oppure i valori di altre coppie nome-valore JSON che è possibile assegnare a un'espressione. Per impostazione predefinita, questa funzione fa riferimento all'intero oggetto azione, ma è possibile specificare una proprietà con il valore desiderato. Per le versioni a sintassi abbreviata, vedere [actionBody()](#actionBody), [actionOutputs()](#actionOutputs) e [body()](#body). Per l'azione corrente, vedere [action()](#action).
 
@@ -196,7 +451,7 @@ E viene restituito questo risultato: `"Succeeded"`
 
 <a name="add"></a>
 
-## <a name="add"></a>add
+### <a name="add"></a>add
 
 Restituisce il risultato della somma di due numeri.
 
@@ -226,7 +481,7 @@ E viene restituito questo risultato: `2.5`
 
 <a name="addDays"></a>
 
-## <a name="adddays"></a>addDays
+### <a name="adddays"></a>addDays
 
 Aggiunge un numero di giorni a un timestamp.
 
@@ -268,7 +523,7 @@ E viene restituito questo risultato: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
-## <a name="addhours"></a>addHours
+### <a name="addhours"></a>addHours
 
 Aggiunge un numero di ore a un timestamp.
 
@@ -310,7 +565,7 @@ E viene restituito questo risultato: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
-## <a name="addminutes"></a>addMinutes
+### <a name="addminutes"></a>addMinutes
 
 Aggiunge un numero di minuti a un timestamp.
 
@@ -352,7 +607,7 @@ E viene restituito questo risultato: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
-## <a name="addproperty"></a>addProperty
+### <a name="addproperty"></a>addProperty
 
 Aggiunge una proprietà e il suo valore o una coppia nome-valore a un oggetto JSON e restituisce l'oggetto aggiornato. Se l'oggetto esiste già in fase di esecuzione, la funzione genera un errore.
 
@@ -382,7 +637,7 @@ addProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="addSeconds"></a>
 
-## <a name="addseconds"></a>addSeconds
+### <a name="addseconds"></a>addSeconds
 
 Aggiunge un numero di secondi a un timestamp.
 
@@ -424,7 +679,7 @@ E viene restituito questo risultato: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
-## <a name="addtotime"></a>addToTime
+### <a name="addtotime"></a>addToTime
 
 Aggiunge un numero di unità di tempo a un timestamp. Vedere anche [getFutureTime()](#getFutureTime).
 
@@ -467,7 +722,7 @@ E restituisce il risultato usando il formato "D" facoltativo: `"Tuesday, January
 
 <a name="and"></a>
 
-## <a name="and"></a>e
+### <a name="and"></a>e
 
 Verifica se tutte le espressioni sono true. Restituisce true se tutte le espressioni sono true o false se almeno un'espressione è false.
 
@@ -519,7 +774,7 @@ E vengono restituiti questi risultati:
 
 <a name="array"></a>
 
-## <a name="array"></a>array
+### <a name="array"></a>array
 
 Restituisce una matrice da un singolo input specificato. Per più input, vedere [createArray()](#createArray). 
 
@@ -549,7 +804,7 @@ E viene restituito questo risultato: `["hello"]`
 
 <a name="base64"></a>
 
-## <a name="base64"></a>base64
+### <a name="base64"></a>base64
 
 Restituisce la versione di una stringa con codifica base64.
 
@@ -579,7 +834,7 @@ E viene restituito questo risultato: `"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
-## <a name="base64tobinary"></a>base64ToBinary
+### <a name="base64tobinary"></a>base64ToBinary
 
 Restituisce la versione binaria di una stringa con codifica base64.
 
@@ -611,7 +866,7 @@ E viene restituito questo risultato:
 
 <a name="base64ToString"></a>
 
-## <a name="base64tostring"></a>base64ToString
+### <a name="base64tostring"></a>base64ToString
 
 Restituisce la versione stringa di una stringa con codifica base64, decodificando in modo efficace la stringa base64. Usare questa funzione al posto di [decodeBase64()](#decodeBase64). Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `base64ToString()`.
 
@@ -641,7 +896,7 @@ E viene restituito questo risultato: `"hello"`
 
 <a name="binary"></a>
 
-## <a name="binary"></a>binary 
+### <a name="binary"></a>binary 
 
 Restituisce la versione binaria di una stringa.
 
@@ -673,7 +928,7 @@ E viene restituito questo risultato:
 
 <a name="body"></a>
 
-## <a name="body"></a>Corpo
+### <a name="body"></a>Corpo
 
 Restituisce l'oggetto `body` di output di un'azione in fase di esecuzione. Sintassi abbreviata per `actions('<actionName>').outputs.body`. Vedere [actionBody()](#actionBody) e [actions()](#actions).
 
@@ -718,7 +973,7 @@ E viene restituito questo risultato:
 
 <a name="bool"></a>
 
-## <a name="bool"></a>bool
+### <a name="bool"></a>bool
 
 Restituisce la versione booleana di un valore.
 
@@ -752,7 +1007,7 @@ E vengono restituiti questi risultati:
 
 <a name="coalesce"></a>
 
-## <a name="coalesce"></a>coalesce
+### <a name="coalesce"></a>coalesce
 
 Restituisce il primo valore non Null da uno o più parametri. Stringhe vuote, matrici vuote e oggetti vuoti sono non null.
 
@@ -788,7 +1043,7 @@ E vengono restituiti questi risultati:
 
 <a name="concat"></a>
 
-## <a name="concat"></a>concat
+### <a name="concat"></a>concat
 
 Combina due o più stringhe e restituisce la stringa combinata. 
 
@@ -818,7 +1073,7 @@ E viene restituito questo risultato: `"HelloWorld"`
 
 <a name="contains"></a>
 
-## <a name="contains"></a>contains
+### <a name="contains"></a>contains
 
 Verifica se una raccolta include un elemento specifico. Restituisce true se l'elemento viene trovato o false se non viene trovato. Questa funzione fa distinzione tra maiuscole e minuscole.
 
@@ -862,7 +1117,7 @@ contains('hello world', 'universe')
 
 <a name="convertFromUtc"></a>
 
-## <a name="convertfromutc"></a>convertFromUtc
+### <a name="convertfromutc"></a>convertFromUtc
 
 Converte un timestamp da UTC (Universal Time Coordinated) al fuso orario di destinazione.
 
@@ -904,7 +1159,7 @@ E viene restituito questo risultato: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
-## <a name="converttimezone"></a>convertTimeZone
+### <a name="converttimezone"></a>convertTimeZone
 
 Converte un timestamp dal fuso orario di origine al fuso orario di destinazione.
 
@@ -947,7 +1202,7 @@ E viene restituito questo risultato: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
-## <a name="converttoutc"></a>convertToUtc
+### <a name="converttoutc"></a>convertToUtc
 
 Converte un timestamp dal fuso orario di origine a UTC (Universal Time Coordinated).
 
@@ -989,7 +1244,7 @@ E viene restituito questo risultato: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
-## <a name="createarray"></a>createArray
+### <a name="createarray"></a>createArray
 
 Restituisce una matrice da più input. Per le matrici con input singolo, vedere [array()](#array).
 
@@ -1019,7 +1274,7 @@ E viene restituito questo risultato: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
-## <a name="datauri"></a>dataUri
+### <a name="datauri"></a>dataUri
 
 Restituisce un URI (Uniform Resource Identifier) di dati per una stringa. 
 
@@ -1049,7 +1304,7 @@ E viene restituito questo risultato: `"data:text/plain;charset=utf-8;base64,aGVs
 
 <a name="dataUriToBinary"></a>
 
-## <a name="datauritobinary"></a>dataUriToBinary
+### <a name="datauritobinary"></a>dataUriToBinary
 
 Restituisce la versione binaria di un URI (Uniform Resource Identifier) di dati. Usare questa funzione al posto di [decodeDataUri()](#decodeDataUri). Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `decodeDataUri()`.
 
@@ -1084,7 +1339,7 @@ E viene restituito questo risultato:
 
 <a name="dataUriToString"></a>
 
-## <a name="datauritostring"></a>dataUriToString
+### <a name="datauritostring"></a>dataUriToString
 
 Restituisce la versione stringa di un URI (Uniform Resource Identifier) di dati.
 
@@ -1114,7 +1369,7 @@ E viene restituito questo risultato: `"hello"`
 
 <a name="dayOfMonth"></a>
 
-## <a name="dayofmonth"></a>dayOfMonth
+### <a name="dayofmonth"></a>dayOfMonth
 
 Restituisce il giorno del mese da un timestamp. 
 
@@ -1144,7 +1399,7 @@ E viene restituito questo risultato: `15`
 
 <a name="dayOfWeek"></a>
 
-## <a name="dayofweek"></a>dayOfWeek
+### <a name="dayofweek"></a>dayOfWeek
 
 Restituisce il giorno della settimana da un timestamp.  
 
@@ -1174,7 +1429,7 @@ E viene restituito questo risultato: `3`
 
 <a name="dayOfYear"></a>
 
-## <a name="dayofyear"></a>dayOfYear
+### <a name="dayofyear"></a>dayOfYear
 
 Restituisce il giorno dell'anno da un timestamp. 
 
@@ -1204,7 +1459,7 @@ E viene restituito questo risultato: `74`
 
 <a name="decodeBase64"></a>
 
-## <a name="decodebase64"></a>decodeBase64
+### <a name="decodebase64"></a>decodeBase64
 
 Restituisce la versione stringa di una stringa con codifica base64, decodificando in modo efficace la stringa base64. Usare [base64ToString()](#base64ToString) al posto di `decodeBase64()`. Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `base64ToString()`.
 
@@ -1234,7 +1489,7 @@ E viene restituito questo risultato: `"hello"`
 
 <a name="decodeDataUri"></a>
 
-## <a name="decodedatauri"></a>decodeDataUri
+### <a name="decodedatauri"></a>decodeDataUri
 
 Restituisce la versione binaria di un URI (Uniform Resource Identifier) di dati. Usare [dataUriToBinary()](#dataUriToBinary) al posto di `decodeDataUri()`. Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `dataUriToBinary()`.
 
@@ -1269,7 +1524,7 @@ E viene restituito questo risultato:
 
 <a name="decodeUriComponent"></a>
 
-## <a name="decodeuricomponent"></a>decodeUriComponent
+### <a name="decodeuricomponent"></a>decodeUriComponent
 
 Restituisce una stringa che sostituisce i caratteri di escape con le versioni decodificate. 
 
@@ -1299,7 +1554,7 @@ E viene restituito questo risultato: `"https://contoso.com"`
 
 <a name="div"></a>
 
-## <a name="div"></a>div
+### <a name="div"></a>div
 
 Restituisce il risultato intero della divisione di due numeri. Per ottenere il resto, vedere [mod()](#mod).
 
@@ -1331,7 +1586,7 @@ E viene restituito questo risultato: `2`
 
 <a name="encodeUriComponent"></a>
 
-## <a name="encodeuricomponent"></a>encodeUriComponent
+### <a name="encodeuricomponent"></a>encodeUriComponent
 
 Restituisce la versione con codifica URI (Uniform Resource Identifier) per una stringa sostituendo i caratteri non sicuri per gli URL con caratteri di escape. Usare [uriComponent()](#uriComponent) al posto di `encodeUriComponent()`. Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `uriComponent()`.
 
@@ -1361,7 +1616,7 @@ E viene restituito questo risultato: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
-## <a name="empty"></a>empty
+### <a name="empty"></a>empty
 
 Verifica se una raccolta è vuota. Restituisce true se la raccolta è vuota o false se non lo è.
 
@@ -1396,7 +1651,7 @@ E vengono restituiti questi risultati:
 
 <a name="endswith"></a>
 
-## <a name="endswith"></a>endsWith
+### <a name="endswith"></a>endsWith
 
 Verifica se una stringa termina con una sottostringa specifica. Restituisce true se la sottostringa viene trovata o false se non viene trovata. Questa funzione non fa distinzione tra maiuscole e minuscole.
 
@@ -1437,7 +1692,7 @@ E viene restituito questo risultato: `false`
 
 <a name="equals"></a>
 
-## <a name="equals"></a>equals
+### <a name="equals"></a>equals
 
 Verifica se entrambi i valori, le espressioni o gli oggetti sono equivalenti. Restituisce true se entrambi gli elementi sono equivalenti o false se non lo sono.
 
@@ -1471,7 +1726,7 @@ E vengono restituiti questi risultati:
 
 <a name="first"></a>
 
-## <a name="first"></a>first
+### <a name="first"></a>first
 
 Restituisce il primo elemento di una stringa o una matrice.
 
@@ -1506,7 +1761,7 @@ E vengono restituiti questi risultati:
 
 <a name="float"></a>
 
-## <a name="float"></a>float
+### <a name="float"></a>float
 
 Converte una versione stringa per un numero a virgola mobile in un numero a virgola mobile effettivo. È possibile usare questa funzione solo quando si passano parametri personalizzati a un'app, ad esempio un'app per la logica.
 
@@ -1536,7 +1791,7 @@ E viene restituito questo risultato: `10.333`
 
 <a name="formatDateTime"></a>
 
-## <a name="formatdatetime"></a>formatDateTime
+### <a name="formatdatetime"></a>formatDateTime
 
 Restituisce un timestamp nel formato specificato.
 
@@ -1567,7 +1822,7 @@ E viene restituito questo risultato: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
-## <a name="formdatamultivalues"></a>formDataMultiValues
+### <a name="formdatamultivalues"></a>formDataMultiValues
 
 Restituisce una matrice con i valori corrispondenti a un nome di chiave nell'output di *dati del modulo* o *codifica per il modulo* di un'azione. 
 
@@ -1598,7 +1853,7 @@ E restituisce il testo dell'oggetto in una matrice, ad esempio: `["Hello world"]
 
 <a name="formDataValue"></a>
 
-## <a name="formdatavalue"></a>formDataValue
+### <a name="formdatavalue"></a>formDataValue
 
 Restituisce un singolo valore corrispondente a un nome di chiave nell'output di *dati del modulo* o *codifica per il modulo* di un'azione. Se la funzione trova più corrispondenze, genera un errore.
 
@@ -1629,7 +1884,7 @@ E restituisce il testo dell'oggetto come stringa, ad esempio: `"Hello world"`
 
 <a name="getFutureTime"></a>
 
-## <a name="getfuturetime"></a>getFutureTime
+### <a name="getfuturetime"></a>getFutureTime
 
 Restituisce il timestamp corrente più le unità di tempo specificate.
 
@@ -1671,7 +1926,7 @@ E viene restituito questo risultato: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
-## <a name="getpasttime"></a>getPastTime
+### <a name="getpasttime"></a>getPastTime
 
 Restituisce il timestamp corrente meno le unità di tempo specificate.
 
@@ -1713,7 +1968,7 @@ E viene restituito questo risultato: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
-## <a name="greater"></a>greater
+### <a name="greater"></a>greater
 
 Verifica se il primo valore è maggiore del secondo valore. Restituisce true se il primo valore è maggiore o false se è minore.
 
@@ -1749,7 +2004,7 @@ E vengono restituiti questi risultati:
 
 <a name="greaterOrEquals"></a>
 
-## <a name="greaterorequals"></a>greaterOrEquals
+### <a name="greaterorequals"></a>greaterOrEquals
 
 Verifica se il primo valore è maggiore o uguale al secondo valore.
 Restituisce true se il primo valore è maggiore o uguale o false se è minore.
@@ -1786,7 +2041,7 @@ E vengono restituiti questi risultati:
 
 <a name="guid"></a>
 
-## <a name="guid"></a>GUID
+### <a name="guid"></a>GUID
 
 Genera un identificatore univoco globale (GUID) sotto forma di stringa, ad esempio "c2ecc88d-88c8-4096-912c-d6f2e2b138ce": 
 
@@ -1822,7 +2077,7 @@ E viene restituito questo risultato: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-## <a name="if"></a>if
+### <a name="if"></a>if
 
 Verifica se un'espressione è true o false. In base al risultato, restituisce un valore specificato.
 
@@ -1852,7 +2107,7 @@ if(equals(1, 1), 'yes', 'no')
 
 <a name="indexof"></a>
 
-## <a name="indexof"></a>indexOf
+### <a name="indexof"></a>indexOf
 
 Restituisce la posizione iniziale o il valore di indice di una sottostringa. Questa funzione non fa distinzione tra maiuscole e minuscole e gli indici iniziano con il numero 0. 
 
@@ -1868,7 +2123,7 @@ indexOf('<text>', '<searchText>')
 
 | Valore restituito | type | DESCRIZIONE | 
 | ------------ | ---- | ----------- | 
-| <*index-value*>| Integer | Posizione iniziale o valore di indice per la sottostringa specificata. <p>Se la stringa non viene trovata, viene restituito -1. </br>Se la stringa è vuota, viene restituito 0. | 
+| <*index-value*>| Integer | Posizione iniziale o valore di indice per la sottostringa specificata. <p>Se la stringa non viene trovata, viene restituito -1. | 
 |||| 
 
 *Esempio* 
@@ -1883,7 +2138,7 @@ E viene restituito questo risultato: `6`
 
 <a name="int"></a>
 
-## <a name="int"></a>int
+### <a name="int"></a>int
 
 Restituisce la versione integer di una stringa.
 
@@ -1913,7 +2168,7 @@ E viene restituito questo risultato: `10`
 
 <a name="item"></a>
 
-## <a name="item"></a>item
+### <a name="item"></a>item
 
 Quando la funzione viene usata all'interno di un'azione ripetuta su una matrice, restituisce l'elemento corrente nella matrice durante l'iterazione corrente dell'azione. È anche possibile ottenere i valori dalle proprietà dell'elemento. 
 
@@ -1936,7 +2191,7 @@ item().body
 
 <a name="items"></a>
 
-## <a name="items"></a>items
+### <a name="items"></a>items
 
 Restituisce l'elemento corrente da ogni ciclo in un ciclo for-each. Usare questa funzione all'interno del ciclo for-each.
 
@@ -1964,7 +2219,7 @@ items('myForEachLoopName')
 
 <a name="json"></a>
 
-## <a name="json"></a>json
+### <a name="json"></a>json
 
 Restituisce il valore o l'oggetto di tipo JSON (JavaScript Object Notation ) per una stringa o un elemento XML.
 
@@ -2033,7 +2288,7 @@ E viene restituito questo risultato:
 
 <a name="intersection"></a>
 
-## <a name="intersection"></a>intersezione
+### <a name="intersection"></a>intersezione
 
 Restituisce una raccolta che contiene *solo* gli elementi comuni alle raccolte specificate. Per essere incluso nel risultato, un elemento deve essere presente in tutte le raccolte passate alla funzione. Se uno o più elementi hanno lo stesso nome, nel risultato viene incluso l'ultimo elemento con tale nome.
 
@@ -2064,7 +2319,7 @@ E restituisce una matrice con *solo* questi elementi: `[1, 2]`
 
 <a name="join"></a>
 
-## <a name="join"></a>join
+### <a name="join"></a>join
 
 Restituisce una stringa con tutti gli elementi di una matrice, in cui ogni carattere è separato da un *delimitatore*.
 
@@ -2095,7 +2350,7 @@ E viene restituito questo risultato: `"a.b.c"`
 
 <a name="last"></a>
 
-## <a name="last"></a>last
+### <a name="last"></a>last
 
 Restituisce l'ultimo elemento di una raccolta.
 
@@ -2130,9 +2385,9 @@ E vengono restituiti questi risultati:
 
 <a name="lastindexof"></a>
 
-## <a name="lastindexof"></a>lastIndexOf
+### <a name="lastindexof"></a>lastIndexOf
 
-Restituisce la posizione finale o il valore di indice di una sottostringa. Questa funzione non fa distinzione tra maiuscole e minuscole e gli indici iniziano con il numero 0.
+Restituire la posizione iniziale o il valore di indice per l'ultima occorrenza di una sottostringa. Questa funzione non fa distinzione tra maiuscole e minuscole e gli indici iniziano con il numero 0.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2146,22 +2401,22 @@ lastIndexOf('<text>', '<searchText>')
 
 | Valore restituito | type | DESCRIZIONE | 
 | ------------ | ---- | ----------- | 
-| <*ending-index-value*> | Integer | Posizione finale o valore di indice per la sottostringa specificata. <p>Se la stringa non viene trovata, viene restituito -1. </br>Se la stringa è vuota, viene restituito 0. | 
+| <*ending-index-value*> | Integer | La posizione iniziale o il valore di indice per l'ultima occorrenza della sottostringa specificata. <p>Se la stringa non viene trovata, viene restituito -1. | 
 |||| 
 
 *Esempio* 
 
-Questo esempio trova il valore di indice finale della sottostringa "world" nella stringa "hello world":
+Questo esempio trova il valore di indice iniziale per l'ultima occorrenza della sottostringa "world" nella stringa "hello world":
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-E viene restituito questo risultato: `10`
+E viene restituito questo risultato: `6`
 
 <a name="length"></a>
 
-## <a name="length"></a>length
+### <a name="length"></a>length
 
 Restituisce il numero di elementi in una raccolta.
 
@@ -2193,7 +2448,7 @@ E viene restituito questo risultato: `4`
 
 <a name="less"></a>
 
-## <a name="less"></a>less
+### <a name="less"></a>less
 
 Verifica se il primo valore è minore del secondo valore.
 Restituisce true se il primo valore è minore o false se è maggiore.
@@ -2230,7 +2485,7 @@ E vengono restituiti questi risultati:
 
 <a name="lessOrEquals"></a>
 
-## <a name="lessorequals"></a>lessOrEquals
+### <a name="lessorequals"></a>lessOrEquals
 
 Verifica se il primo valore è minore o uguale al secondo valore.
 Restituisce true se il primo valore è minore o uguale o false se è maggiore.
@@ -2267,7 +2522,7 @@ E vengono restituiti questi risultati:
 
 <a name="listCallbackUrl"></a>
 
-## <a name="listcallbackurl"></a>listCallbackUrl
+### <a name="listcallbackurl"></a>listCallbackUrl
 
 Restituisce l'"URL di callback" che chiama un trigger o un'azione. Questa funzione può essere usata solo con i trigger e le azioni per i tipi di connettore **HttpWebhook** e **ApiConnectionWebhook**, ma non con i tipi **Manual**, **Recurrence**, **HTTP** e **APIConnection**. 
 
@@ -2288,7 +2543,7 @@ Questo esempio mostra un URL di callback di esempio che questa funzione potrebbe
 
 <a name="max"></a>
 
-## <a name="max"></a>max
+### <a name="max"></a>max
 
 Restituisce il valore più alto di un elenco o una matrice con numeri che includono gli estremi. 
 
@@ -2321,7 +2576,7 @@ E viene restituito questo risultato: `3`
 
 <a name="min"></a>
 
-## <a name="min"></a>Min
+### <a name="min"></a>Min
 
 Restituisce il valore più basso di un set di numeri o una matrice.
 
@@ -2354,7 +2609,7 @@ E viene restituito questo risultato: `1`
 
 <a name="mod"></a>
 
-## <a name="mod"></a>mod
+### <a name="mod"></a>mod
 
 Restituisce il resto della divisione di due numeri. Per ottenere il risultato intero, vedere [div()](#div).
 
@@ -2385,7 +2640,7 @@ E viene restituito questo risultato: `1`
 
 <a name="mul"></a>
 
-## <a name="mul"></a>mul
+### <a name="mul"></a>mul
 
 Restituisce il prodotto della moltiplicazione di due numeri.
 
@@ -2420,7 +2675,7 @@ E vengono restituiti questi risultati:
 
 <a name="multipartBody"></a>
 
-## <a name="multipartbody"></a>multipartBody
+### <a name="multipartbody"></a>multipartBody
 
 Restituisce il corpo per una parte specifica dell'output di un'azione con più parti.
 
@@ -2441,7 +2696,7 @@ multipartBody('<actionName>', <index>)
 
 <a name="not"></a>
 
-## <a name="not"></a>not
+### <a name="not"></a>not
 
 Verifica se un'espressione è false. Restituisce true se l'espressione è false o false se è true.
 
@@ -2489,7 +2744,7 @@ E vengono restituiti questi risultati:
 
 <a name="or"></a>
 
-## <a name="or"></a>oppure
+### <a name="or"></a>oppure
 
 Verifica se almeno un'espressione è true. Restituisce true se almeno un'espressione è true o false se tutte le espressioni sono false.
 
@@ -2537,7 +2792,7 @@ E vengono restituiti questi risultati:
 
 <a name="parameters"></a>
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 Restituisce il valore per un parametro descritto nella definizione dell'app per la logica. 
 
@@ -2575,7 +2830,7 @@ E viene restituito questo risultato: `"Sophia Owen"`
 
 <a name="rand"></a>
 
-## <a name="rand"></a>rand
+### <a name="rand"></a>rand
 
 Restituisce un valore intero casuale da un intervallo specificato, che include solo l'estremo inziale.
 
@@ -2606,7 +2861,7 @@ E restituisce uno di questi numeri come risultato: `1`, `2`, `3` o `4`
 
 <a name="range"></a>
 
-## <a name="range"></a>range
+### <a name="range"></a>range
 
 Restituisce una matrice di valori interi che inizia da un valore intero specificato.
 
@@ -2637,7 +2892,7 @@ E viene restituito questo risultato: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
-## <a name="replace"></a>replace
+### <a name="replace"></a>replace
 
 Sostituisce una sottostringa con la stringa specificata e restituisce la stringa risultante. Questa funzione fa distinzione tra maiuscole e minuscole.
 
@@ -2669,7 +2924,7 @@ E viene restituito questo risultato: `"the new string"`
 
 <a name="removeProperty"></a>
 
-## <a name="removeproperty"></a>removeProperty
+### <a name="removeproperty"></a>removeProperty
 
 Rimuove una proprietà da un oggetto e restituisce l'oggetto aggiornato.
 
@@ -2698,7 +2953,7 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 <a name="setProperty"></a>
 
-## <a name="setproperty"></a>setProperty
+### <a name="setproperty"></a>setProperty
 
 Imposta il valore per la proprietà di un oggetto e restituisce l'oggetto aggiornato. Per aggiungere una nuova proprietà, è possibile usare questa funzione o la funzione [addProperty()](#addProperty).
 
@@ -2728,7 +2983,7 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-## <a name="skip"></a>skip
+### <a name="skip"></a>skip
 
 Rimuove gli elementi dall'inizio di una raccolta e restituisce *tutti gli altri* elementi.
 
@@ -2759,7 +3014,7 @@ E restituisce la matrice con gli elementi rimanenti: `[1,2,3]`
 
 <a name="split"></a>
 
-## <a name="split"></a>split
+### <a name="split"></a>split
 
 Restituisce una matrice con tutti i caratteri di una stringa, con ogni carattere separato da un *delimitatore*.
 
@@ -2790,7 +3045,7 @@ E viene restituito questo risultato: `[a, b, c]`
 
 <a name="startOfDay"></a>
 
-## <a name="startofday"></a>startOfDay
+### <a name="startofday"></a>startOfDay
 
 Restituisce l'inizio del giorno per un timestamp. 
 
@@ -2821,7 +3076,7 @@ E viene restituito questo risultato: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
-## <a name="startofhour"></a>startOfHour
+### <a name="startofhour"></a>startOfHour
 
 Restituisce l'inizio dell'ora per un timestamp. 
 
@@ -2852,7 +3107,7 @@ E viene restituito questo risultato: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
-## <a name="startofmonth"></a>startOfMonth
+### <a name="startofmonth"></a>startOfMonth
 
 Restituisce l'inizio del mese per un timestamp. 
 
@@ -2883,7 +3138,7 @@ E viene restituito questo risultato: `"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
-## <a name="startswith"></a>startsWith
+### <a name="startswith"></a>startsWith
 
 Verifica se una stringa inizia con una sottostringa specifica. Restituisce true se la sottostringa viene trovata o false se non viene trovata. Questa funzione non fa distinzione tra maiuscole e minuscole.
 
@@ -2924,7 +3179,7 @@ E viene restituito questo risultato: `false`
 
 <a name="string"></a>
 
-## <a name="string"></a>stringa
+### <a name="string"></a>stringa
 
 Restituisce la versione stringa di un valore.
 
@@ -2964,7 +3219,7 @@ E viene restituito questo risultato: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
-## <a name="sub"></a>sub
+### <a name="sub"></a>sub
 
 Restituisce il risultato della sottrazione del secondo numero dal primo.
 
@@ -2995,7 +3250,7 @@ E viene restituito questo risultato: `10`
 
 <a name="substring"></a>
 
-## <a name="substring"></a>substring
+### <a name="substring"></a>substring
 
 Restituisce i caratteri di una stringa, partendo dalla posizione o dall'indice specificato. I valori di Indice iniziano con il numero 0. 
 
@@ -3027,7 +3282,7 @@ E viene restituito questo risultato: `"world"`
 
 <a name="subtractFromTime"></a>
 
-## <a name="subtractfromtime"></a>subtractFromTime
+### <a name="subtractfromtime"></a>subtractFromTime
 
 Sottrae un numero di unità di tempo da un timestamp. Vedere anche [getPastTime](#getPastTime).
 
@@ -3070,7 +3325,7 @@ E restituisce questo risultato usando il formato "D" facoltativo: `"Monday, Janu
 
 <a name="take"></a>
 
-## <a name="take"></a>take
+### <a name="take"></a>take
 
 Restituisce gli elementi dall'inizio di una raccolta. 
 
@@ -3106,7 +3361,7 @@ E vengono restituiti questi risultati:
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>ticks
+### <a name="ticks"></a>ticks
 
 Restituisce il valore della proprietà `ticks` per un timestamp specificato. Un *tick* è un intervallo di 100 nanosecondi.
 
@@ -3126,7 +3381,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-## <a name="tolower"></a>toLower
+### <a name="tolower"></a>toLower
 
 Restituisce una stringa in formato minuscolo. Se un carattere nella stringa non ha un equivalente minuscolo, viene incluso senza modifiche nella stringa restituita.
 
@@ -3156,7 +3411,7 @@ E viene restituito questo risultato: `"hello world"`
 
 <a name="toUpper"></a>
 
-## <a name="toupper"></a>toUpper
+### <a name="toupper"></a>toUpper
 
 Restituisce una stringa in formato maiuscolo. Se un carattere nella stringa non ha un equivalente maiuscolo, viene incluso senza modifiche nella stringa restituita.
 
@@ -3186,7 +3441,7 @@ E viene restituito questo risultato: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
-## <a name="trigger"></a>trigger
+### <a name="trigger"></a>trigger
 
 Restituisce l'output di un trigger in fase di esecuzione oppure i valori di altre coppie nome-valore JSON che è possibile assegnare a un'espressione. 
 
@@ -3207,7 +3462,7 @@ trigger()
 
 <a name="triggerBody"></a>
 
-## <a name="triggerbody"></a>triggerBody
+### <a name="triggerbody"></a>triggerBody
 
 Restituisce l'oggetto `body` di output di un trigger in fase di esecuzione. Sintassi abbreviata per `trigger().outputs.body`. Vedere [trigger()](#trigger). 
 
@@ -3222,7 +3477,7 @@ triggerBody()
 
 <a name="triggerFormDataMultiValues"></a>
 
-## <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
+### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
 Restituisce una matrice con i valori corrispondenti a un nome di chiave nell'output di *dati del modulo* o *codifica per il modulo* di un trigger. 
 
@@ -3252,7 +3507,7 @@ E restituisce questa matrice come risultato di esempio: `["http://feeds.reuters.
 
 <a name="triggerFormDataValue"></a>
 
-## <a name="triggerformdatavalue"></a>triggerFormDataValue
+### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
 Restituisce una stringa con un singolo valore corrispondente a un nome di chiave nell'output di *dati del modulo* o *codifica per il modulo* di un trigger. Se la funzione trova più corrispondenze, genera un errore.
 
@@ -3282,6 +3537,8 @@ E restituisce questa stringa come risultato di esempio: `"http://feeds.reuters.c
 
 <a name="triggerMultipartBody"></a>
 
+### <a name="triggermultipartbody"></a>triggerMultipartBody
+
 Restituisce il corpo per una parte specifica dell'output di un trigger con più parti. 
 
 ```
@@ -3300,7 +3557,7 @@ triggerMultipartBody(<index>)
 
 <a name="triggerOutputs"></a>
 
-## <a name="triggeroutputs"></a>triggerOutputs
+### <a name="triggeroutputs"></a>triggerOutputs
 
 Restituisce l'output di un trigger in fase di esecuzione o i valori di altre coppie nome-valore JSON. Sintassi abbreviata per `trigger().outputs`. Vedere [trigger()](#trigger). 
 
@@ -3315,7 +3572,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-## <a name="trim"></a>Trim
+### <a name="trim"></a>Trim
 
 Rimuove gli spazi iniziali e finali da una stringa e restituisce la stringa aggiornata.
 
@@ -3345,7 +3602,7 @@ E viene restituito questo risultato: `"Hello World"`
 
 <a name="union"></a>
 
-## <a name="union"></a>union
+### <a name="union"></a>union
 
 Restituisce una raccolta che contiene *tutti* gli elementi delle raccolte specificate. Per essere incluso nel risultato, un elemento può essere presente in qualsiasi raccolta passata alla funzione. Se uno o più elementi hanno lo stesso nome, nel risultato viene incluso l'ultimo elemento con tale nome. 
 
@@ -3376,7 +3633,7 @@ E viene restituito questo risultato: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
-## <a name="uricomponent"></a>uriComponent
+### <a name="uricomponent"></a>uriComponent
 
 Restituisce la versione con codifica URI (Uniform Resource Identifier) per una stringa sostituendo i caratteri non sicuri per gli URL con caratteri di escape. Usare questa funzione al posto di [encodeUriComponent()](#encodeUriComponent). Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `uriComponent()`.
 
@@ -3406,7 +3663,7 @@ E viene restituito questo risultato: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
-## <a name="uricomponenttobinary"></a>uriComponentToBinary
+### <a name="uricomponenttobinary"></a>uriComponentToBinary
 
 Restituisce la versione binaria di un componente di un URI (Uniform Resource Identifier).
 
@@ -3441,7 +3698,7 @@ E viene restituito questo risultato:
 
 <a name="uriComponentToString"></a>
 
-## <a name="uricomponenttostring"></a>uriComponentToString
+### <a name="uricomponenttostring"></a>uriComponentToString
 
 Restituisce la versione stringa di una stringa con codifica URI (Uniform Resource Identifier), decodificando in modo efficace la stringa con codifica URI.
 
@@ -3471,7 +3728,7 @@ E viene restituito questo risultato: `"https://contoso.com"`
 
 <a name="uriHost"></a>
 
-## <a name="urihost"></a>uriHost
+### <a name="urihost"></a>uriHost
 
 Restituisce il valore `host` per un URI (Uniform Resource Identifier).
 
@@ -3501,7 +3758,7 @@ E viene restituito questo risultato: `"www.localhost.com"`
 
 <a name="uriPath"></a>
 
-## <a name="uripath"></a>uriPath
+### <a name="uripath"></a>uriPath
 
 Restituisce il valore `path` per un URI (Uniform Resource Identifier). 
 
@@ -3531,7 +3788,7 @@ E viene restituito questo risultato: `"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
-## <a name="uripathandquery"></a>uriPathAndQuery
+### <a name="uripathandquery"></a>uriPathAndQuery
 
 Restituisce i valori `path` e `query` per un URI (Uniform Resource Identifier).
 
@@ -3561,7 +3818,7 @@ E viene restituito questo risultato: `"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
-## <a name="uriport"></a>uriPort
+### <a name="uriport"></a>uriPort
 
 Restituisce il valore `port` per un URI (Uniform Resource Identifier).
 
@@ -3591,7 +3848,7 @@ E viene restituito questo risultato: `8080`
 
 <a name="uriQuery"></a>
 
-## <a name="uriquery"></a>uriQuery
+### <a name="uriquery"></a>uriQuery
 
 Restituisce il valore `query` per un URI (Uniform Resource Identifier).
 
@@ -3621,7 +3878,7 @@ E viene restituito questo risultato: `"?date=today"`
 
 <a name="uriScheme"></a>
 
-## <a name="urischeme"></a>uriScheme
+### <a name="urischeme"></a>uriScheme
 
 Restituisce il valore `scheme` per un URI (Uniform Resource Identifier).
 
@@ -3651,7 +3908,7 @@ E viene restituito questo risultato: `"http"`
 
 <a name="utcNow"></a>
 
-## <a name="utcnow"></a>utcNow
+### <a name="utcnow"></a>utcNow
 
 Restituisce il timestamp corrente. 
 
@@ -3694,7 +3951,7 @@ E viene restituito questo risultato: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
-## <a name="variables"></a>variables
+### <a name="variables"></a>variables
 
 Restituisce il valore per una variabile specificata. 
 
@@ -3724,7 +3981,7 @@ E viene restituito questo risultato: `20`
 
 <a name="workflow"></a>
 
-## <a name="workflow"></a>flusso di lavoro
+### <a name="workflow"></a>flusso di lavoro
 
 Restituisce tutti i dettagli del flusso di lavoro stesso in fase di esecuzione. 
 
@@ -3747,7 +4004,7 @@ workflow().run.name
 
 <a name="xml"></a>
 
-## <a name="xml"></a>xml
+### <a name="xml"></a>xml
 
 Restituisce la versione XML di una stringa contenente un oggetto JSON. 
 
@@ -3805,7 +4062,7 @@ E viene restituito questo elemento XML:
 
 <a name="xpath"></a>
 
-## <a name="xpath"></a>xpath
+### <a name="xpath"></a>xpath
 
 Verifica nel codice XML la presenza di nodi o valori che corrispondono a un'espressione XPath (XML Path Language) e restituisce i nodi o i valori corrispondenti. Un'espressione XPath, o semplicemente "XPath", aiuta a spostarsi nella struttura del documento XML in modo che sia possibile selezionare i nodi o i valori di calcolo nel contenuto XML.
 

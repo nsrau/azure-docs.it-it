@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005396"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841593"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi 
 
@@ -35,19 +35,20 @@ I codici di risposta HTTP seguenti indicano che un evento è stato recapitato co
 
 ### <a name="failure-codes"></a>Codici di errore
 
-I codici di risposta HTTP seguenti indicano che un tentativo di recapito di un evento non è riuscito. 
+I codici di risposta HTTP seguenti indicano che un tentativo di recapito di un evento non è riuscito.
 
 - 400 - Richiesta non valida
 - 401 - Non autorizzato
 - 404 - Non trovato
 - 408 - Timeout richiesta
+- 413 Entità della richiesta troppo grande
 - 414 - URI richiesta troppo lungo
 - 429 - Numero eccessivo di richieste
 - 500 - Errore interno del server
 - 503 - Servizio non disponibile
 - 504 - Timeout gateway
 
-Se Griglia di eventi riceve un errore che indica che l'endpoint è temporaneamente non disponibile o che una richiesta futura potrebbe avere esito positivo, tenta nuovamente di inviare l'evento. Se Griglia di eventi riceve un errore che indica che il recapito non avrà esito positivo ed [è stato configurato un endpoint per i messaggi non recapitabili](manage-event-delivery.md), invia l'evento all'endpoint per i messaggi non recapitabili. 
+Se è stato [configurato un endpoint di messaggio non recapitato](manage-event-delivery.md) e griglia di eventi riceve un codice di risposta 400 o 413 codice di risposta, Griglia di eventi invia immediatamente l'evento per l'endpoint di messaggio non recapitato. In caso contrario, Griglia di eventi esegue nuovi tentativi per tutti gli errori.
 
 ## <a name="retry-intervals-and-duration"></a>Intervalli e durata dei tentativi
 

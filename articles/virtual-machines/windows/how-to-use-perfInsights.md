@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946276"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668122"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
 
@@ -31,7 +31,7 @@ Se si verificano problemi di prestazioni delle macchine virtuali, eseguire lo st
 
 PerfInsights può raccogliere e analizzare diversi tipi di informazioni. Le sezioni seguenti trattano scenari comuni.
 
-### <a name="quick-performance-analysis"></a>Analisi rapida di prestazioni
+### <a name="quick-performance-analysis"></a>Analisi rapida delle prestazioni
 
 Questo scenario consente di raccogliere la configurazione dei dischi e altre importanti informazioni, tra cui:
 
@@ -64,7 +64,7 @@ Questo scenario esegue il test di benchmark [Diskspd](https://github.com/Microso
 > Questo scenario può influire sul sistema e non deve essere eseguito in un sistema di produzione live. Se necessario, eseguire questo scenario in una finestra di manutenzione dedicata per evitare qualsiasi problema. Un maggiore carico di lavoro causato da un test di traccia o di benchmark può influire negativamente sulle prestazioni della macchina virtuale.
 >
 
-### <a name="slow-vm-analysis"></a>Analisi di una macchina virtuale lenta
+### <a name="performance-analysis"></a>Analisi delle prestazioni
 
 Questo scenario esegue una traccia dei [contatori delle prestazioni](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) usando i contatori specificati nel file RuleEngineConfig.json. Se la macchina virtuale viene identificata come server che esegue SQL Server, viene eseguita una traccia del contatore delle prestazioni. Questa operazione viene eseguita usando i contatori che si trovano nel file RuleEngineConfig.json. Lo scenario include anche i dati di diagnostica delle prestazioni.
 
@@ -90,9 +90,9 @@ Questo scenario esegue una speciale acquisizione dei contatori delle prestazioni
 |              | Avg. media coda scrittura       |
 |              | Lunghezza media coda dati        |
 
-### <a name="advanced-slow-vm-analysis"></a>Analisi avanzata di una macchina virtuale lenta avanzata
+### <a name="advanced-performance-analysis"></a>Analisi avanzata delle prestazioni
 
-Quando si esegue un'analisi avanzata di una macchina virtuale lenta, l'utente deve selezionare le tracce da eseguire in parallelo. Se si vuole, è possibile eseguirle tutte (Performance Counter, Xperf, Network e StorPort).  
+Quando si esegue un'analisi avanzata delle prestazioni, l'utente deve selezionare le tracce da eseguire in parallelo. Se si vuole, è possibile eseguirle tutte (Performance Counter, Xperf, Network e StorPort).  
 
 > [!Note]
 > Questo scenario può influire sul sistema e non deve essere eseguito in un sistema di produzione live. Se necessario, eseguire questo scenario in una finestra di manutenzione dedicata per evitare qualsiasi problema. Un maggiore carico di lavoro causato da un test di traccia o di benchmark può influire negativamente sulle prestazioni della macchina virtuale.
@@ -104,28 +104,28 @@ Vengono raccolte informazioni sulla macchina virtuale Windows, sulla configurazi
 
 |Dati raccolti                              |  |  | Scenari delle prestazioni |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Analisi rapida di prestazioni | Benchmarking | Analisi di una macchina virtuale lenta | Analisi di File di Azure | Analisi avanzata di una macchina virtuale lenta avanzata |
-| Informazioni dei registri eventi       | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Informazioni di sistema                | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Mapping del volume                        | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Mapping del disco                          | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Attività in esecuzione                     | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Contatori di affidabilità di archiviazione      | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Informazioni sull'archiviazione               | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Output di fsutil                     | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Informazioni sul driver filtro                | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Output di netstat                    | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Network configuration             | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Configurazione del firewall            | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Configurazione di SQL Server          | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Tracce di diagnostica delle prestazioni *  | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
-| Traccia del contatore delle prestazioni **      |                            |                                    | Sì                      |                      | Sì                  |
-| Traccia del contatore SMB **              |                            |                                    |                          | Sì                  |                      |
-| Traccia del contatore SQL Server **       |                            |                                    | Sì                      |                      | Sì                  |
-| Traccia di XPerf                       |                            |                                    |                          |                      | Sì                  |
-| Traccia di StorPort                    |                            |                                    |                          |                      | Sì                  |
-| Traccia di rete                     |                            |                                    |                          | Sì                  | Sì                  |
-| Traccia del benchmark Diskspd ***       |                            | Sì                                |                          |                      |                      |
+|                               | Analisi rapida delle prestazioni | Benchmarking | Analisi delle prestazioni | Analisi di File di Azure | Analisi avanzata delle prestazioni |
+| Informazioni dei registri eventi       | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Informazioni di sistema                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Mapping del volume                        | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Mapping del disco                          | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Attività in esecuzione                     | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Contatori di affidabilità di archiviazione      | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Informazioni sull'archiviazione               | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Output di fsutil                     | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Informazioni sul driver filtro                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Output di netstat                    | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Configurazione di rete             | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Configurazione del firewall            | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Configurazione di SQL Server          | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Tracce di diagnostica delle prestazioni *  | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Traccia del contatore delle prestazioni **      |                            |                                    | Yes                      |                      | Yes                  |
+| Traccia del contatore SMB **              |                            |                                    |                          | Yes                  |                      |
+| Traccia del contatore SQL Server **       |                            |                                    | Yes                      |                      | Yes                  |
+| Traccia di XPerf                       |                            |                                    |                          |                      | Yes                  |
+| Traccia di StorPort                    |                            |                                    |                          |                      | Yes                  |
+| Traccia di rete                     |                            |                                    |                          | Yes                  | Yes                  |
+| Traccia del benchmark Diskspd ***       |                            | Yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Traccia di diagnostica delle prestazioni (*)
@@ -138,7 +138,7 @@ Esegue in background un motore basato su regole per raccogliere dati e diagnosti
 - Regola HighMemoryUsage: rileva i periodi di utilizzo della memoria elevato e visualizza i principali consumer di utilizzo della memoria.
 
 > [!NOTE] 
-> Sono attualmente supportate le versioni di Windows che includono .NET Framework 3.5 o versioni successive.
+> Sono attualmente supportate le versioni di Windows che includono .NET Framework 4.5 o versioni successive.
 
 ### <a name="performance-counter-trace-"></a>Traccia del contatore delle prestazioni (\*\*)
 
@@ -171,9 +171,9 @@ Il carico di lavoro di I/O Diskspd testa (disco del sistema operativo [scrittura
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possibili problemi quando si esegue lo strumento nelle macchine virtuali di produzione
 
--  Per lo scenario di benchmarking o per quello di analisi avanzata di una macchina virtuale lenta configurato per l'uso di XPerf o Diskspd, lo strumento può influire negativamente sulle prestazioni della macchina virtuale. Questi scenari non devono essere eseguiti in un ambiente di produzione attivo.
+-  Per lo scenario di benchmarking o per quello di analisi avanzata delle prestazioni configurato per l'uso di XPerf o Diskspd, lo strumento può influire negativamente sulle prestazioni della macchina virtuale. Questi scenari non devono essere eseguiti in un ambiente di produzione attivo.
 
--  Per lo scenario di benchmarking o per quello di analisi avanzata di una macchina virtuale lenta configurato per l'uso di Diskspd, verificare che non siano presenti interferenze di attività in background con il carico di lavoro di I/O.
+-  Per lo scenario di benchmarking o per quello di analisi avanzata delle prestazioni configurato per l'uso di Diskspd, verificare che non siano presenti interferenze di attività in background con il carico di lavoro di I/O.
 
 -  Per impostazione predefinita, lo strumento usa l'unità di archiviazione temporanea per raccogliere i dati. Se la traccia rimane abilitata per un periodo più lungo, la quantità di dati raccolti potrebbe essere rilevante. Ciò può ridurre la disponibilità di spazio nel disco temporaneo e può influire sulle applicazioni che si basano su questa unità.
 
@@ -212,7 +212,7 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
     PerfInsights /run <ScenarioName> [AdditionalOptions]
     ```
 
-    È possibile usare l'esempio seguente per eseguire lo scenario di analisi di una macchina virtuale lenta per 5 minuti:
+    È possibile usare l'esempio riportato di seguito per eseguire lo scenario di analisi delle prestazioni per 5 minuti:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
@@ -224,7 +224,7 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
     PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    È possibile usare l'esempio riportato di seguito per eseguire uno scenario di macchina virtuale lenta per 5 minuti e caricare il file ZIP finale nell'account di archiviazione:
+    È possibile usare l'esempio riportato di seguito per eseguire uno scenario di analisi delle prestazioni per 5 minuti e caricare il file ZIP finale nell'account di archiviazione:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
@@ -245,11 +245,11 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
     >
     >Se l'opzione relativa alla durata **/d** non è specificata, PerfInsights chiederà all'utente di riprodurre il problema durante l'esecuzione dello scenario di analisi della macchina virtuale lenta, di quello di File di Azure e di quello avanzato. 
 
-Al termine delle operazioni o delle tracce, viene visualizzato un nuovo file nella stessa cartella di PerfInsights. Il nome del file è **CollectedData\_aaaa-MM-gg\_hh-mm-ss-fff.zip.** È possibile inviare il file all'agente di supporto per l'analisi oppure aprire il report all'interno del file zip per esaminare i risultati e i consigli.
+Al termine delle operazioni o delle tracce, viene visualizzato un nuovo file nella stessa cartella di PerfInsights. Il nome del file è **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip.** È possibile inviare il file all'agente di supporto per l'analisi oppure aprire il report all'interno del file zip per esaminare i risultati e i consigli.
 
 ## <a name="review-the-diagnostics-report"></a>Esaminare il rapporto di diagnostica
 
-Nel file **CollectedData\_aaaa-MM-gg\_hh-mm-ss-fff.zip** è possibile trovare un report HTML che elenca in dettaglio i risultati di PerfInsights. Per esaminare il report, espandere il file **CollectedData\_aaaa-MM-gg\_hh-mm-ss-fff.zip** e quindi aprire il file **PerfInsights Report.html**.
+Nel file **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** è possibile trovare un report HTML che elenca in dettaglio i risultati di PerfInsights. Per esaminare il report, espandere il file **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** e quindi aprire il file **PerfInsights Report.html**.
 
 Selezionare la scheda **Risultati**.
 
@@ -314,4 +314,4 @@ Lo screenshot seguente mostra un messaggio simile a quello che l'utente potrebbe
 
 Seguire le istruzioni nel messaggio per accedere all'area di lavoro di trasferimento del file. Per maggiore sicurezza, l'utente dovrà cambiare la password al primo uso.
 
-Dopo aver effettuato l'accesso, verrà visualizzata una finestra di dialogo per caricare il file **CollectedData\_aaaa-MM-gg\_hh-mm-ss-fff.zip** raccolto da PerfInsights.
+Dopo aver effettuato l'accesso, verrà visualizzata una finestra di dialogo per caricare il file **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** raccolto da PerfInsights.

@@ -1,5 +1,5 @@
 ---
-title: Servizi e contenitori di scalabilità automatica in Azure Service Fabric | Documentazione Microsoft
+title: Servizi e contenitori di scalabilità automatica in Azure Service Fabric | Microsoft Docs
 description: Azure Service Fabric consente di impostare i criteri di scalabilità automatica per i servizi e i contenitori.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: a742ac79f1152816621312e2ebc59598772ba127
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990622"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782390"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduzione alla scalabilità automatica
 La scalabilità automatica è una funzionalità aggiuntiva di Service Fabric che consente di applicare in modo dinamico la scalabilità ai servizi in base al carico che i servizi segnalano o in base all'utilizzo delle risorse. La scalabilità automatica offre grande elasticità e consente di eseguire il provisioning di istanze o partizioni aggiuntive del servizio su richiesta. L'intero processo di scalabilità è automatico e trasparente e, dopo aver configurato i criteri in un servizio, non è necessario eseguire manualmente le operazioni di scalabilità a livello di servizio. La funzione di scalabilità automatica può essere attivata al momento della creazione del servizio o in qualsiasi momento tramite l'aggiornamento del servizio.
@@ -47,7 +47,7 @@ Sono disponibili due meccanismi che sono attualmente supportati per la scalabili
 Il primo tipo di trigger è basato sul carico delle istanze in una partizione del servizio senza stato. I carichi della metrica vengono innanzitutto livellati per ottenere il carico di ogni istanza di una partizione, quindi viene calcolata una media di questi valori per tutte le istanze della partizione. Esistono tre fattori che determinano quando il servizio verrà ridimensionato:
 
 * La _soglia di carico inferiore_ è un valore che determina quando il servizio sarà **ridotto**. Se il carico medio di tutte le istanze delle partizioni è inferiore a questo valore, il servizio verrà ridotto.
-* La _soglia di carico superiore_ è un valore che determina quando il servizio sarà **aumentato**. Se il carico medio di tutte le istanze delle partizioni è inferiore a questo valore, il servizio verrà aumentato.
+* La _soglia di carico superiore_ è un valore che determina quando il servizio sarà **aumentato**. Se il carico medio di tutte le istanze delle partizioni è superiore a questo valore, il servizio verrà aumentato.
 * L’_intervallo di scalabilità_ determina ogni quanto verrà eseguito un controllo del trigger. Una volta controllato il trigger, se è necessario eseguire un ridimensionamento verrà applicato il meccanismo. Se il ridimensionamento non è necessario, non verrà eseguita alcuna azione. In entrambi i casi, il trigger non verrà controllato nuovamente prima dello scadere dell'intervallo di scalabilità.
 
 Questo trigger può essere utilizzato solo con i servizi senza stato (contenitori senza stato o servizi di Service Fabric). Nel caso in cui un servizio dispone di più partizioni, il trigger viene valutato separatamente per ogni partizione e per ognuna di esse verrà applicato il meccanismo specificato in modo indipendente. Di conseguenza, in questo caso, è possibile che, in base al loro carico, alcune delle partizioni del servizio verranno aumentate, alcune verranno ridotte e altre non subiranno nessun ridimensionamento.

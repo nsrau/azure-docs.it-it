@@ -4,7 +4,7 @@ description: Informazioni su come usare trigger e associazioni dell'archiviazion
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/12/2018
+ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 4a5a0634e371e4a762b3877b0c3e45682924a27d
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b9dcc4d7edd24d545722dde85e682a658d5ef2bc
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143640"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667946"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -41,13 +41,13 @@ Le associazioni di archiviazione BLOB sono incluse nel pacchetto NuGet [Microsof
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
 
-Le associazioni di archiviazione BLOB sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob).
+Le associazioni di archiviazione BLOB sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs).
 
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Trigger
 
@@ -59,7 +59,7 @@ Usare Griglia eventi anziché il trigger di archiviazione BLOB per gli scenari s
 
 * Account di archiviazione solo BLOB
 * Scalabilità elevata
-* Ritardo di avvio a freddo
+* Riduzione al minimo del ritardo di avvio a freddo
 
 ### <a name="blob-only-storage-accounts"></a>Account di archiviazione solo BLOB
 
@@ -183,7 +183,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="trigger---java-example"></a>Trigger - esempio Java
+### <a name="trigger---java-example"></a>Trigger - Esempio Java
 
 L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e il [codice Java](functions-reference-java.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel contenitore `myblob`.
 
@@ -778,7 +778,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---java-example"></a>Output - esempio Java
+### <a name="output---java-example"></a>Output - Esempio Java
 
 L'esempio seguente mostra un input BLOB e le associazioni in una funzione Java di output. La funzione crea una copia di un BLOB di testo. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato {originalblobname}-Copy
 

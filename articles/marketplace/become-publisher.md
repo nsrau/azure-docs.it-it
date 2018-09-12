@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412016"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666385"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Diventare un editore del Marketplace cloud
 
@@ -48,7 +48,7 @@ Dopo la registrazione, prendere nota dell'ID Microsoft Partner Network dell'orga
 ---  
 
 ## <a name="2-create-a-microsoft-account"></a>2. Creare un account Microsoft  
-| 15 minuti |  
+| 15 min |  
 Un account Microsoft, ad esempio *@outlook.com o @live.com*, si usa per accedere a molti dispositivi e servizi Microsoft. È obbligatorio per le offerte di transazioni di Azure Marketplace e se ne consiglia l'uso a tutti gli editori del cloud. Per altre informazioni sui vantaggi e gli usi di un account Microsoft, [visitare questa pagina](https://account.microsoft.com/account/). Si userà un account Microsoft personale per accedere al portale Cloud Partner, la piattaforma di pubblicazione che consente di creare e gestire le offerte nel marketplace. 
 
 [! IMPORTANTE] Si noti che un account Microsoft associato un indirizzo di posta elettronica aziendale non consente di accedere al portale.
@@ -74,7 +74,8 @@ Verrà richiesto di includere le informazioni seguenti:
 
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Accedere al portale Cloud Partner
-| 1-3 giorni | Il team che gestisce l'onboarding in Marketplace esamina e convalida i dettagli di registrazione al marketplace specificati nel passaggio 3. Dopo l'approvazione, si riceverà un messaggio di benvenuto con le credenziali dell'account e informazioni aggiuntive sull'accesso al [portale Cloud Partner](https://cloudpartner.azure.com).
+| 1-3 giorni | <br>
+Il team che gestisce l'onboarding in Marketplace esamina e convalida i dettagli di registrazione al marketplace specificati nel passaggio 3. Dopo l'approvazione, si riceverà un messaggio di benvenuto con le credenziali dell'account e informazioni aggiuntive sull'accesso al [portale Cloud Partner](https://cloudpartner.azure.com).
 
 Si userà il [portale Cloud Partner](https://cloudpartner.azure.com) per creare, pubblicare e gestire le offerte nel marketplace. Dopo aver ricevuto il messaggio di benvenuto con l'approvazione, è possibile accedere immediatamente al [portale Cloud Partner](https://cloudpartner.azure.com) con il proprio account Microsoft per accedere a informazioni tecniche aggiuntive sulla pubblicazione nel marketplace e la creazione dell'offerta. 
 *   Per altre informazioni sull'uso del portale Cloud Partner, [consultare l'articolo introduttivo nella sezione delle informazioni](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Per accedere a questi dettagli è necessario eseguire l'accesso al portale Cloud Partner.

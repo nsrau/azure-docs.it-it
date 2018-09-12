@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056760"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666433"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -42,7 +42,7 @@ I requisiti di ridimensionamento del server di configurazione dipendono dalla fr
 | 12 vCPU (2 socket * 6 core \@ 2,5 GHz) |18 GB |600 GB |Da 500 GB a 1 TB |Replicare da 100 a 150 computer. |
 | 16 vCPU (2 socket * 8 core \@ 2,5 GHz) |32 GB |1 TB |Da 1 TB a 2 TB |Replicare da 150 a 200 computer. |
 
-Se si esegue la replica di più macchine virtuali VMware, leggere le [considerazioni sulla pianificazione della capacità](/site-recovery-plan-capacity-vmware.md). Eseguire lo [strumento di pianificazione della distribuzione](site-recovery-deployment-planner.md) per la replica VMware.
+Se si esegue la replica di più macchine virtuali VMware, leggere le [considerazioni sulla pianificazione della capacità](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Eseguire lo [strumento di pianificazione della distribuzione](site-recovery-deployment-planner.md) per la replica VMware.
 
 ## <a name="download-the-template"></a>Scaricare il modello
 
@@ -81,7 +81,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 1. Nell'inventario del client vSphere fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Edit Settings** (Modifica impostazioni).
 2. In **Hardware** selezionare **Add** (Aggiungi) > **Ethernet Adapter** (Scheda Ethernet). Quindi selezionare **Avanti**.
-3. Selezionare un tipo di scheda e una rete. 
+3. Selezionare un tipo di scheda e una rete.
 4. Per connettere la scheda di interfaccia di rete virtuale all'accensione della macchina virtuale, selezionare **Connect at power on** (Connetti all'accensione). Quindi selezionare **Next** (Avanti) > **Finish** (Fine)  > **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrare il server di configurazione con i servizi Azure Site Recovery
@@ -102,7 +102,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
     > [!NOTE]
     > Dopo la registrazione, non è più possibile cambiare l'insieme di credenziali di Servizi di ripristino.
-    
+
 3. In **Installa software di terze parti**
 
     |Scenario   |Procedura da seguire  |
@@ -144,6 +144,10 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 ## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
 
 Per aggiornare il server di configurazione alla versione più recente, leggere i passaggi disponibili [qui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+## <a name="manage-the-configuration-server"></a>Gestire il server di configurazione
+
+Per evitare interruzioni nella replica in corso, verificare che l'indirizzo IP del server di configurazione non cambi dopo aver registrato il server di configurazione per un insieme di credenziali. Atre informazioni sulle attività comuni di gestione del server di configurazione sono disponibili [qui](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 

@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 5b3cea87e7762e492432722c54a1a8aaa342b84a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142533"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840620"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Aggiungere Key Vault all'applicazione Web usando Servizi connessi di Visual Studio
 
@@ -74,6 +74,10 @@ A questo punto è possibile accedere ai segreti nel codice. I passaggi successiv
 
 ## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>Accedere ai segreti nel codice (progetti ASP.NET Core)
 
+La connessione a Key Vault è impostata all'avvio da una classe che implementa [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) usando un metodo di estensione di comportamento di avvio che è descritto in [Enhance an app from an external assembly in ASP.NET Core with IHostingStartup](/aspnet/core/fundamentals/host/platform-specific-configuration) (Migliorare un'app da un assembly esterno in ASP.NET Core con IHostingStartup). La classe di avvio usa due variabili di ambiente che contengono le informazioni di connessione di Key Vault: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, impostata su true e ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, impostata sull'URL di Key Vault. Queste vengono aggiunte al file launchsettings.json quando l'esecuzione avviene tramite il processo **Aggiungi servizio connesso**.
+
+Per accedere ai segreti:
+
 1. Nel progetto ASP.NET Core in Visual Studio è possibile ora fare riferimento a questi segreti usando le espressioni seguenti nel codice:
  
    ```csharp
@@ -99,6 +103,10 @@ A questo punto è possibile accedere ai segreti nel codice. I passaggi successiv
 1. Compilare ed eseguire l'applicazione Web, passare alla pagina delle informazioni e visualizzare il valore del "segreto".
 
 ## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>Accedere ai segreti nel codice (progetti ASP.NET 4.7.1)
+
+La connessione a Key Vault è impostata dalla classe ConfigurationBuilder mediante le informazioni aggiunte al file web.config. quando l'esecuzione avviene tramite il processo **Aggiungi servizio connesso**.
+
+Per accedere ai segreti:
 
 1. Modificare web.config nel modo seguente. Le chiavi sono segnaposti che verranno sostituiti da AzureKeyVault ConfigurationBuilder con i valori dei segreti nel Key Vault.
 

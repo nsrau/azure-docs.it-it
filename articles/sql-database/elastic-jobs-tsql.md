@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126426"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842621"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -184,7 +184,13 @@ Ad esempio, per raggruppare tutti i risultati relativi alla stessa esecuzione de
 
 ## <a name="monitor-database-performance"></a>Monitorare le prestazioni del database
 
-Nell'esempio seguente viene creato un nuovo processo per raccogliere i dati sulle prestazioni da più database.  
+Nell'esempio seguente viene creato un nuovo processo per raccogliere i dati sulle prestazioni da più database.
+
+Per impostazione predefinita l'agente processo cercherà di creare la tabella in cui archiviare i risultati. Di conseguenza l'accesso associato alle credenziali usate per le credenziali di output dovrà disporre delle autorizzazioni sufficienti per eseguire questa operazione. Se si vuole creare manualmente la tabella in anticipo, è necessario che disponga delle proprietà seguenti:
+1. Colonne con il nome e tipi di dati corretti per il set di risultati.
+2. Colonna aggiuntiva per internal_execution_id con il tipo di dati uniqueidentifier.
+3. Un indice non cluster denominato "IX_<TableName>_Internal_Execution_ID" nella colonna internal_execution_id.
+
 Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) ed eseguire i comandi seguenti:
 
 ```sql

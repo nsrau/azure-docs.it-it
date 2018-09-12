@@ -1,5 +1,5 @@
 ---
-title: Configurazione e uso dell'emulatore di archiviazione con Visual Studio | Documentazione Microsoft
+title: Configurazione e uso dell'emulatore di archiviazione con Visual Studio | Microsoft Docs
 description: Configurazione e uso dell'emulatore di archiviazione con Visual Studio
 services: visual-studio-online
 author: ghogen
@@ -7,16 +7,17 @@ manager: douge
 assetId: c8e7996f-6027-4762-806e-614b93131867
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: c502d5e0869d35ded5c3ba7e790da0558d219e0e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792243"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382637"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurazione e uso dell'emulatore di archiviazione con Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -32,7 +33,7 @@ Per informazioni dettagliate sull'emulatore di archiviazione, inclusi i requisit
 > 
 
 ## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Configurazione di una stringa di connessione per l'emulatore di archiviazione
-Per accedere all'emulatore di archiviazione dal codice in esecuzione in un ruolo, è consigliabile configurare una stringa di connessione che punti all'emulatore di archiviazione e che successivamente potrà essere modificata in modo da puntare a un account di archiviazione di Azure. Una stringa di connessione è un'impostazione di configurazione che può essere letta dal ruolo in fase di runtime per connettersi a un account di archiviazione. Per altre informazioni sulla creazione di stringhe di connessione, vedere [Configurazione dell'applicazione Azure con Visual Studio](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Per accedere all'emulatore di archiviazione dal codice in esecuzione in un ruolo, è consigliabile configurare una stringa di connessione che punti all'emulatore di archiviazione e che successivamente potrà essere modificata in modo da puntare a un account di archiviazione di Azure. Una stringa di connessione è un'impostazione di configurazione che può essere letta dal ruolo in fase di runtime per connettersi a un account di archiviazione. Per altre informazioni sulla creazione di stringhe di connessione, vedere [Configurazione delle stringhe di connessione di Archiviazione di Azure](/azure/storage/common/storage-configure-connection-string).
 
 > [!NOTE]
 > È possibile restituire un riferimento all'account dell'emulatore di archiviazione dal codice con la proprietà **DevelopmentStorageAccount**. Questo approccio produce i risultati desiderati quando si vuole accedere all'emulatore di archiviazione dal codice. Se invece si prevede di distribuire l'applicazione in Azure, sarà necessario creare una stringa di connessione per accedere all'account di archiviazione di Azure e modificare il codice al fine di usare tale stringa di connessione prima di effettuare la pubblicazione. Se si passa frequentemente dall'account dell'emulatore di archiviazione a un account di archiviazione di Azure, una stringa di connessione semplificherà questo processo.

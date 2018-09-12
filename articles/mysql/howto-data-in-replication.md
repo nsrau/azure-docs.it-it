@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294422"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667158"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
-In questo articolo si apprenderà come configurare la replica dei dati in ingresso nel servizio Database di Azure per MySQL eseguendo la configurazione di un server primario e di un server di replica. La funzione per la replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL primario, eseguito in locale, in macchine virtuali o servizi di database ospitati da altri provider cloud in una replica nel servizio Database di Azure per MySQL. 
+In questo articolo si apprenderà come configurare la Replica dei dati in ingresso nel servizio Database di Azure per MySQL eseguendo la configurazione del server master e di un server di replica. La funzione Replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL master, eseguito in locale, in macchine virtuali o servizi di database ospitati da altri provider cloud in una replica nel servizio Database di Azure per MySQL. 
 
 Per eseguire le procedure descritte in questo articolo è necessario avere già un certo livello di esperienza con i server e i database MySQL.
 
@@ -34,14 +34,14 @@ Per eseguire le procedure descritte in questo articolo è necessario avere già 
 
 2. Creare gli stessi account utente e i privilegi corrispondenti
 
-   Gli account utente non vengono replicati dal server primario al server di replica. Se si prevede di specificare gli utenti con accesso al server di replica, è necessario creare manualmente tutti gli account e i privilegi corrispondenti sul nuovo server di Database di Azure per MySQL.
+   Gli account utente non vengono replicati dal server master al server di replica. Se si prevede di specificare gli utenti con accesso al server di replica, è necessario creare manualmente tutti gli account e i privilegi corrispondenti sul nuovo server di Database di Azure per MySQL.
 
-## <a name="configure-the-primary-server"></a>Configurare il server primario
-I passaggi seguenti consentono di preparare e configurare il server MySQL ospitato in locale, in una macchina virtuale o un servizio di database ospitato da altri provider di cloud per la replica dei dati in ingresso. Questo è il server "primario" per la replica dei dati in ingresso. 
+## <a name="configure-the-master-server"></a>Configurare il server master
+I passaggi seguenti consentono di preparare e configurare il server MySQL ospitato in locale, in una macchina virtuale o un servizio di database ospitato da altri provider di cloud per la replica dei dati in ingresso. Questo è il server "master" per la replica dei dati in ingresso. 
 
 1. Attivare la registrazione binaria
 
-   Verificare se la registrazione binaria è stata abilitata sul server primario eseguendo questo comando: 
+   Verificare se la registrazione binaria è stata abilitata sul server master eseguendo questo comando: 
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
@@ -51,9 +51,9 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
    Se `log_bin` viene restituito con il valore "OFF", abilitare la registrazione binaria modificando il file my.cnf con `log_bin=ON` e riavviare il server per rendere effettive le modifiche.
 
-2. Impostazioni del server primario
+2. Impostazioni del server master
 
-   Per la replica dei dati in ingresso è necessario che il parametro `lower_case_table_names` sia coerente tra il server primario e quello di replica. Per impostazione predefinita, in Database di Azure per MySQL questo parametro è impostato su 1. 
+   Per la Replica dei dati in ingresso è necessario che il parametro `lower_case_table_names` sia coerente tra il server master e quello di replica. Per impostazione predefinita, in Database di Azure per MySQL questo parametro è impostato su 1. 
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -61,9 +61,9 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
 3. Creare un nuovo ruolo di replica e configurare le autorizzazioni
 
-   Sul server primario creare un account utente configurato con i privilegi di replica. Questa operazione può essere eseguita tramite comandi SQL o uno strumento come MySQL Workbench. Valutare se si prevede di eseguire la replica con SSL, poiché è necessario specificare questa impostazione quando si crea l'utente. Per istruzioni su come [aggiungere account utente](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) sul server primario, vedere la documentazione di MySQL. 
+   Sul server master creare un account utente configurato con i privilegi di replica. Questa operazione può essere eseguita tramite comandi SQL o uno strumento come MySQL Workbench. Valutare se si prevede di eseguire la replica con SSL, poiché è necessario specificare questa impostazione quando si crea l'utente. Per istruzioni su come [aggiungere account utente](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) sul server master, vedere la documentazione di MySQL. 
 
-   Nei comandi seguenti, il nuovo ruolo di replica creato è in grado di accedere al server primario da qualsiasi computer, non solo dal computer che ospita il server primario stesso. Questa operazione viene eseguita specificando "syncuser@'%'" nel comando per la creazione dell'utente. Per altre informazioni su come [specificare i nomi degli account](https://dev.mysql.com/doc/refman/5.7/en/account-names.html), vedere la documentazione di MySQL.
+   Nei comandi seguenti il nuovo ruolo di replica creato è in grado di accedere al server master da qualsiasi computer, non solo dal computer che ospita il server master stesso. Questa operazione viene eseguita specificando "syncuser@'%'" nel comando per la creazione dell'utente. Per altre informazioni su come [specificare i nomi degli account](https://dev.mysql.com/doc/refman/5.7/en/account-names.html), vedere la documentazione di MySQL.
 
    **Comando SQL**
 
@@ -100,9 +100,9 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    ![Slave di replica](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Impostare il server primario in modalità di sola lettura
+4. Impostare il server master in modalità di sola lettura
 
-   Prima di avviare il dump del database, il server deve essere impostato in modalità di sola lettura. In questa modalità, il server primario non sarà in grado di elaborare alcuna transazione di scrittura. Valutare l'impatto che questa impostazione può avere sulle attività aziendali e pianificare l'intervallo di impostazione in sola lettura in un orario di minore attività, se necessario.
+   Prima di avviare il dump del database, il server deve essere impostato in modalità di sola lettura. In questa modalità, il server master non sarà in grado di elaborare alcuna transazione di scrittura. Valutare l'impatto che questa impostazione può avere sulle attività aziendali e pianificare l'intervallo di impostazione in sola lettura in un orario di minore attività, se necessario.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
@@ -120,15 +120,15 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
    ![Risultati stato master](./media/howto-data-in-replication/masterstatus.png)
  
-## <a name="dump-and-restore-primary-server"></a>Eseguire il dump e il ripristino del server primario
+## <a name="dump-and-restore-master-server"></a>Eseguire il dump e il ripristino del server master
 
-1. Eseguire il dump di tutti i database dal server primario
+1. Eseguire il dump di tutti i database dal server master
 
-   Per eseguire il dump dei database dal server primario è possibile usare mysqldump. Per informazioni dettagliate, vedere [Dump e ripristino](concepts-migrate-dump-restore.md). Non è necessario eseguire il dump della libreria MySQL e della libreria di test.
+   Per eseguire il dump dei database dal server master è possibile usare mysqldump. Per informazioni dettagliate, vedere [Dump e ripristino](concepts-migrate-dump-restore.md). Non è necessario eseguire il dump della libreria MySQL e della libreria di test.
 
-2. Impostare il server primario in modalità di lettura/scrittura
+2. Impostare il server master in modalità di lettura/scrittura
 
-   Dopo avere eseguito il dump del database, ripristinare la modalità di lettura/scrittura sul server MySQL.
+   Dopo avere eseguito il dump del database, ripristinare la modalità di lettura/scrittura sul server MySQL master.
 
    ```sql
    SET GLOBAL read_only = OFF;
@@ -139,21 +139,21 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
    Ripristinare il file di dump nel server creato nel servizio Database di Azure per MySQL. Per informazioni su come ripristinare un file di dump in un server MySQL, vedere [Dump e ripristino](concepts-migrate-dump-restore.md). Se il file di dump ha grandi dimensioni, caricarlo in una macchina virtuale in Azure nella stessa area del server di replica. Ripristinare quindi il file nel server di Database di Azure per MySQL dalla macchina virtuale.
 
-## <a name="link-primary-and-replica-servers-to-start-data-in-replication"></a>Collegare il server primario e quello di replica per avviare la replica dei dati in ingresso
+## <a name="link-master-and-replica-servers-to-start-data-in-replication"></a>Collegare il server master e quello di replica per avviare la Replica dei dati in ingresso
 
-1. Impostare il server primario
+1. Impostare il server master
 
    Tutte le funzioni di replica dei dati in ingresso vengono eseguite tramite stored procedure. Per informazioni su tali procedure, vedere [Stored procedure per la replica dei dati in ingresso](reference-data-in-stored-procedures.md). Le stored procedure possono essere eseguite nella shell di MySQL o in MySQL Workbench. 
 
-   Per collegare due server e avviare la replica, accedere al server di replica di destinazione nel servizio Database di Azure per MySQL e impostare l'istanza esterna come server primario. Questa operazione viene eseguita tramite la stored procedure `mysql.az_replication_change_primary` nel server di Database di Azure per MySQL.
+   Per collegare due server e avviare la replica, accedere al server di replica di destinazione nel servizio Database di Azure per MySQL e impostare l'istanza esterna come server master. Questa operazione viene eseguita tramite la stored procedure `mysql.az_replication_change_master` nel server di Database di Azure per MySQL.
 
    ```sql
-   CALL mysql.az_replication_change_primary('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
 
-   - master_host: nome host del server primario
-   - master_user: nome utente del server primario
-   - master_password: password per il server primario
+   - master_host: nome host del server master
+   - master_user: nome utente del server master
+   - master_password: password per il server master
    - master_log_file: nome del file di log binario da `show master status` in esecuzione
    - master_log_pos: posizione del file di log binario da `show master status` in esecuzione
    - master_ssl_ca: contesto del certificato della CA. Se non si usa SSL, passare una stringa vuota.
@@ -171,17 +171,17 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    -----END CERTIFICATE-----'
    ```
 
-   La replica con SSL viene configurata tra un server primario ospitato nel dominio "companya.com" e un server di replica ospitato in Database di Azure per MySQL. Sulla replica viene eseguita questa stored procedure. 
+   La replica con SSL viene configurata tra un server master ospitato nel dominio "companya.com" e un server di replica ospitato in Database di Azure per MySQL. Sulla replica viene eseguita questa stored procedure. 
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *Replica senza SSL*
 
-   La replica senza SSL viene configurata tra un server primario ospitato nel dominio "companya.com" e un server di replica ospitato in Database di Azure per MySQL. Sulla replica viene eseguita questa stored procedure.
+   La replica senza SSL viene configurata tra un server master ospitato nel dominio "companya.com" e un server di replica ospitato in Database di Azure per MySQL. Sulla replica viene eseguita questa stored procedure.
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
 2. Avviare la replica
@@ -206,7 +206,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
 ### <a name="stop-replication"></a>Arrestare la replica
 
-Per arrestare la replica tra il server primario e quello di replica, usare la stored procedure seguente:
+Per arrestare la replica tra il server master e quello di replica, usare la stored procedure seguente:
 
 ```sql
 CALL mysql.az_replication_stop;
@@ -214,10 +214,10 @@ CALL mysql.az_replication_stop;
 
 ### <a name="remove-replication-relationship"></a>Rimuovere la relazione di replica
 
-Per rimuovere la relazione di replica tra il server primario e quello di replica, usare la stored procedure seguente:
+Per rimuovere la relazione di replica tra il server master e quello di replica, usare la stored procedure seguente:
 
 ```sql
-CALL mysql.az_replication_remove_primary;
+CALL mysql.az_replication_remove_master;
 ```
 
 ### <a name="skip-replication-error"></a>Ignorare un errore di replica

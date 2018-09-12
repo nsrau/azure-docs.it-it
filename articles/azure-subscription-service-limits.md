@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 570eee6cc849c474cfeacf5a9ba1798f64f27183
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 00955d5de314e6efb0e491e33708495fbdd14f3b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188077"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782591"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -35,7 +35,8 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 
 > [!NOTE]
 > È importante sottolineare che le quote per le risorse nei gruppi di risorse di Azure sono da intendersi per ogni area accessibile dalla sottoscrizione e non per ogni sottoscrizione, come nel caso delle quote di gestione del servizio. Si considerino, ad esempio, le quote di vCPU. Se è necessario richiedere un aumento della quota con supporto per le vCPU, è necessario stabilire quante vCPU si vuole usare e in quali aree e quindi effettuare una richiesta specifica per le quote di vCPU del gruppo di risorse di Azure per le quantità e le aree desiderate. Se quindi è necessario usare 30 vCPU in Europa occidentale per eseguire l'applicazione, è necessario richiedere in modo specifico 30 vCPU in Europa occidentale. La quota di vCPU per le altre aree non verrà tuttavia aumentata, ma sarà disponibile una quota di 30 vCPU solo in Europa occidentale.
-> <!-- --> Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse di Azure necessarie per il carico di lavoro in ogni area e richiedere tale quantità in ogni area in cui si prevede di eseguire la distribuzione. Per altre informazioni su come individuare le quote correnti per aree specifiche, vedere l'argomento relativo alla [risoluzione dei problemi di distribuzione](resource-manager-common-deployment-errors.md) .
+> <!-- -->
+> Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse di Azure necessarie per il carico di lavoro in ogni area e richiedere tale quantità in ogni area in cui si prevede di eseguire la distribuzione. Per altre informazioni su come individuare le quote correnti per aree specifiche, vedere l'argomento relativo alla [risoluzione dei problemi di distribuzione](resource-manager-common-deployment-errors.md) .
 >
 >
 
@@ -51,6 +52,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Database di Azure per PostgreSQL](#azure-database-for-postgresql)
 * [Griglia di eventi di Azure](#azure-event-grid-limits)
 * [Mappe di Azure](#azure-maps-limits)
+* [Criteri di Azure](#azure-policy-limits)
 * [Cache Redis di Azure](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -199,7 +201,7 @@ Vedere [Dimensioni della macchina virtuale](virtual-machines/linux/sizes.md?toc=
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### <a name="app-service-limits"></a>Limiti relativi a Servizio app
-I seguenti limiti del servizio App includono limiti per le App Web, App mobili, App API e App per la logica.
+I limiti del servizio App seguenti includono limiti per le App Web, App mobili e App API.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
@@ -293,6 +295,9 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 
 ### <a name="azure-maps-limits"></a>Limiti di Mappe di Azure
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### <a name="azure-policy-limits"></a>Limiti di Criteri di Azure
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Limiti relativi al sistema StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

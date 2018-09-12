@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142175"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782233"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbook figlio in Automazione di Azure
 
@@ -72,7 +72,9 @@ Se non si vuole bloccare il runbook padre in attesa, è possibile richiamare il 
 
 I parametri per un runbook figlio avviato con un cmdlet vengono forniti come una tabella hash, come descritto in [Parametri di Runbook](automation-starting-a-runbook.md#runbook-parameters). Possono essere utilizzati solo tipi di dati semplici. Se il runbook dispone di un parametro con un tipo di dati complessi, deve essere chiamato inline.
 
-Se sono disponibili più sottoscrizioni, il contesto della sottoscrizione potrebbe andare perso quando si richiama il runbook figlio. Per garantire che il contesto della sottoscrizione venga passato ai runbook figlio, aggiungere il parametro `DefaultProfile` al cmdlet e passargli il contesto.
+Il contesto della sottoscrizione potrebbe andare perso quando si richiamano i runbook figli per processi separati. Affinché il runbook figlio possa richiamare i cmdlet di Azure Resource Manager con una sottoscrizione di Azure desiderata, il runbook figlio deve autenticarsi presso tale sottoscrizione indipendentemente dal runbook padre.
+
+Se i processi nello stesso account di Automazione di Azure usano più sottoscrizioni, selezionare una sottoscrizione in un processo può cambiare il contesto della sottoscrizione attualmente selezionata anche per altri processi, che non è in genere consigliabile. Per evitare questo problema, salvare il risultato della chiamata cmdlet `Select-AzureRmSubscription` chiamata e passare questo oggetto al parametro `DefaultProfile` di tutte le chiamate cmdlet successive di Azure Resource Manager. Questo modello deve essere applicato in modo coerente a tutti i runbook in esecuzione nell'account di Automazione di Azure.
 
 ### <a name="example"></a>Esempio
 

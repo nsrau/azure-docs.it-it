@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 7ef26dc5fa7676ca590d56978c735bf4a195440b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698051"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382740"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in Azure
 In questo articolo viene illustrato come creare un servizio di bilanciamento del carico per un gruppo di disponibilità SQL Server Always On nelle macchine virtuali in esecuzione con Azure Resource Manager. Un gruppo di disponibilità richiede un servizio di bilanciamento del carico quando le istanze di SQL Server sono in macchine virtuali di Azure. Il servizio di bilanciamento del carico archivia l'indirizzo IP per il listener del gruppo di disponibilità. Se un gruppo di disponibilità si estende su più aree, è necessario un servizio di bilanciamento del carico per ogni area.
@@ -75,7 +75,7 @@ Per prima cosa creare il servizio di bilanciamento del carico.
    | **Gruppo di risorse** |Selezionare il gruppo di risorse in cui si trovano le istanze di SQL Server. |
    | **Posizione** |Selezionare il percorso di Azure in cui si trovano le istanze di SQL Server. |
 
-6. Fare clic su **Crea**. 
+6. Fare clic su **Create**(Crea). 
 
 Azure crea il servizio di bilanciamento del carico. Il servizio di bilanciamento del carico appartiene a una rete, a una subnet, a un gruppo di risorse e a una località specifici. Quando Azure termina l'attività, verificare le impostazioni del servizio di bilanciamento del carico in Azure. 
 
@@ -298,6 +298,8 @@ Se un gruppo di disponibilità fa parte di un gruppo di disponibilità distribui
    |**IP mobile (Direct Server Return)** | Attivato
 
 Ripetere questi passaggi per il bilanciamento del carico negli altri gruppi di disponibilità che fanno parte dei gruppi di disponibilità distribuiti.
+
+Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi che le regole di autorizzazione includano gli indirizzi IP della macchina virtuale di SQL Server di back-end e gli indirizzi IP del bilanciamento del carico mobile per il listener AG e l'indirizzo IP principale del cluster, se disponibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

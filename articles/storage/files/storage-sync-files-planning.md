@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247396"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382255"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -112,7 +112,7 @@ Per visualizzare i risultati in CSV:
 ```
 
 ### <a name="system-requirements"></a>Requisiti di sistema
-- Un server in cui è eseguito Windows Server 2012 R2 o Windows Server 2016 
+- Un server in cui è eseguito Windows Server 2012 R2 o Windows Server 2016:
 
     | Version | SKU supportati | Opzioni di distribuzione supportate |
     |---------|----------------|------------------------------|
@@ -121,15 +121,15 @@ Per visualizzare i risultati in CSV:
 
     Le versioni future di Windows Server verranno aggiunte non appena verranno rilasciate. Le versioni precedenti di Windows possono essere aggiunte in base ai commenti e ai suggerimenti degli utenti.
 
-- Un server con un minimo di 2 GB di memoria
+    > [!Important]  
+    > È consigliabile mantenere aggiornati tutti i server usati con Sincronizzazione file di Azure in base agli aggiornamenti più recenti disponibili in Windows Update. 
+
+- Un server con un minimo di 2 GiB di memoria.
 
     > [!Important]  
-    > Se il server è in esecuzione in una macchina virtuale con memoria dinamica abilitata, la macchina virtuale deve essere configurata con un minimo di 2048 MB di memoria.
+    > Se il server è in esecuzione in una macchina virtuale con memoria dinamica abilitata, la macchina virtuale deve essere configurata con un minimo di 2048 MiB di memoria.
     
-- Un volume collegato al computer locale formattato con il file system NTFS
-
-> [!Important]  
-> È consigliabile mantenere aggiornati tutti i server usati con Sincronizzazione file di Azure in base agli aggiornamenti più recenti disponibili in Windows Update. 
+- Un volume collegato al computer locale formattato con il file system NTFS.
 
 ### <a name="file-system-features"></a>Funzionalità del file system
 | Funzionalità | Stato del supporto | Note |

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123155"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668581"
 ---
 # <a name="supported-languages-for-speech-service"></a>Lingue supportate per il servizio Voce
 
@@ -39,7 +39,7 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti.
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
-L'API **Sintesi vocale** offre le voci seguenti, ognuna delle quali supporta una lingua e un dialetto specifici, identificati dalle impostazioni locali.
+L'API sintesi vocale offre le voci seguenti, ognuna delle quali supporta una lingua e un dialetto specifici, identificati dalle impostazioni locali.
 
 Impostazioni locali | Linguaggio | Sesso | Mapping nome del servizio
 -------|----------|---------|--------------------
@@ -128,13 +128,16 @@ zh-TW | Cinese (Taiwan)|Femmina | "Microsoft Server Speech Text to Speech Voice 
 
 ### <a name="customization"></a>Personalizzazione
 
-I caratteri voce di **Sintesi vocale** personalizzati supportano l'inglese Stati Uniti (en-US) e il cinese (zh-CN).
+La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-US), il cinese (zh-CN) e l'italiano (it-IT).
+
+> [!NOTE]
+> Il training per la voce in italiano inizia con un set di dati di oltre 2000 espressioni. Anche i modelli bilingui in lingua cinese-inglese sono supportati con un set di dati iniziale di oltre 2000 espressioni.
 
 ## <a name="speech-translation"></a>Traduzione vocale
 
 L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e con riconoscimento vocale. La lingua di origine deve essere sempre inclusa nella tabella Lingua per la sintesi vocale seguente. Le lingue di destinazione disponibili variano a seconda del fatto che siano parlate o scritte.
 
-È possibile ottenere l'elenco delle lingue a livello di codice o usando l'endpoint Languages dell'API REST. L'elenco fornice il codice di ogni lingua e il nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato dal servizio Microsoft Translator quando viene resa disponibile una nuova lingua.
+È possibile ottenere l'elenco delle lingue a livello di codice usando l'endpoint Languages dell'API REST. L'elenco fornice il codice di ogni lingua e il nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato dal servizio Microsoft Translator quando viene resa disponibile una nuova lingua.
 
 ### <a name="speech-languages"></a>Lingue per la sintesi vocale
 

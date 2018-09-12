@@ -3,7 +3,7 @@ title: Usare argomenti e sottoscrizioni del bus di servizio di Azure con Node.js
 description: Informazioni su come usare le sottoscrizioni e gli argomenti del bus di servizio in Azure da un'app Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: d3a7ebd135f705a6a3ea91feb4e037a9ed6d0c79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: daabf711e923e1c4ff3132c5e4765bdbff206948
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704997"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782912"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js
 
@@ -95,7 +95,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-Il metodo `createServiceBusService` supporta anche opzioni aggiuntive che consentono di eseguire l'override delle impostazioni predefinite degli argomenti, come la durata (TTL) dei messaggi o le dimensioni massime dell'argomento. 
+Il metodo `createTopicIfNotExists` supporta anche opzioni aggiuntive che consentono di eseguire l'override delle impostazioni predefinite degli argomenti, come la durata (TTL) dei messaggi o le dimensioni massime dell'argomento. 
 
 L'esempio seguente illustra come impostare la dimensione massima dell'argomento su 5 GB con una durata di un minuto:
 
@@ -235,7 +235,7 @@ var rule={
 }
 ```
 
-Un messaggio inviato a `MyTopic` verrà recapitato ai ricevitori con sottoscrizione all'argomento `AllMessages` e recapitato selettivamente ai ricevitori con sottoscrizioni agli argomenti `HighMessages` e `LowMessages` (a seconda del contenuto del messaggio).
+Un messaggio inviato a `MyTopic` viene recapitato ai ricevitori con sottoscrizione all'argomento `AllMessages` e recapitato selettivamente ai ricevitori con sottoscrizioni agli argomenti `HighMessages` e `LowMessages` (a seconda del contenuto del messaggio).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Come inviare messaggi a un argomento
 Per inviare un messaggio a un argomento del bus di servizio, l'applicazione deve usare il metodo `sendTopicMessage` dell'oggetto **ServiceBusService**.
@@ -268,7 +268,7 @@ Gli argomenti del bus di servizio supportano messaggi di dimensioni massime fino
 ## <a name="receive-messages-from-a-subscription"></a>Ricevere messaggi da una sottoscrizione
 I messaggi vengono ricevuti da una sottoscrizione usando il metodo `receiveSubscriptionMessage` nell'oggetto **ServiceBusService**. Per impostazione predefinita, i messaggi vengono eliminati dalla sottoscrizione non appena vengono letti. Tuttavia, per leggere e bloccare il messaggio senza eliminarlo dalla sottoscrizione è possibile impostare il parametro facoltativo `isPeekLock` su **True**.
 
-Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo comportamento, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio contrassegna il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a utilizzare nuovamente i messaggi, il messaggio utilizzato prima dell'arresto anomalo risulterà perso.
+Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambito dell'operazione di ricezione costituisce il modello più semplice ed è adatto per scenari in cui un'applicazione può tollerare la mancata elaborazione di un messaggio in caso di errore. Per comprendere meglio questo comportamento, si consideri uno scenario in cui il consumer invia la richiesta di ricezione e viene arrestato in modo anomalo prima dell'elaborazione. Poiché il bus di servizio ha contrassegnato il messaggio come utilizzato, quando l'applicazione viene riavviata e inizia a usare nuovamente i messaggi, il messaggio usato prima dell'arresto anomalo del sistema risulta perso.
 
 Se il parametro `isPeekLock` è impostato su **True**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione.
 Dopo aver elaborato il messaggio o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo **deleteMessage** e specificando il messaggio da eliminare come parametro. Il metodo **deleteMessage** contrassegna il messaggio come usato e lo rimuove dalla sottoscrizione.

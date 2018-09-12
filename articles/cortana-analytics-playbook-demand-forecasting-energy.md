@@ -1,25 +1,26 @@
 ---
-title: Studio del modello di soluzione Cortana Intelligence per la previsione della domanda di energia | Documentazione Microsoft
+title: Studio del modello di soluzione Cortana Intelligence per la previsione della domanda di energia | Microsoft Docs
 description: Modello di soluzione di Microsoft Cortana Intelligence utile per la previsione della domanda di energia per un'azienda di pubblici servizi.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: ilanr9
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
-ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yijichen
+ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23004036"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842584"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Studio del modello di soluzione Cortana Intelligence per la previsione della domanda di energia
 ## <a name="executive-summary"></a>Sunto
@@ -316,7 +317,7 @@ Il valore originale risulta quindi ridotto a un intervallo più piccolo, in gene
 ## <a name="modeling"></a>Modellazione
 La fase di modellazione è quella in cui i dati vengono convertiti in un modello. Alla base di questo processo ci sono algoritmi avanzati che analizzano i dati storici, o dati di training, ne estrapolano gli schemi e compilano un modello. Tale modello può essere usato successivamente per eseguire previsioni su nuovi dati non ancora usati per la compilazione del modello.
 
-Dopo aver ottenuto un modello affidabile funzionante, è possibile usarlo per il calcolo del punteggio dei nuovi dati strutturati in modo da includere le funzionalità necessarie (X). Il processo di calcolo del punteggio farà uso del modello persistente, proveniente dalla fase di training, per prevedere la variabile di destinazione, contrassegnata da Ŷ.
+Dopo aver ottenuto un modello affidabile funzionante, è possibile usarlo per il calcolo del punteggio dei nuovi dati strutturati in modo da includere le funzionalità necessarie (X). Il processo di assegnazione dei punteggi userà il modello persistente (oggetto dalla fase di training) e prevederà la variabile di destinazione che è indicata da Ŷ.
 
 ### <a name="demand-forecasting-modeling-techniques"></a>Tecniche di modellazione della previsione della domanda
 Nella previsione della domanda si usano i dati storici in ordine cronologico. I dati che includono la dimensione temporale sono in genere definiti [serie storiche](https://en.wikipedia.org/wiki/Time_series). Nella modellazione delle serie storiche l'obiettivo è identificare le tendenze legate al tempo, la stagionalità, l'auto-correlazione o correlazione nel tempo ed elaborare tali informazioni in un modello.

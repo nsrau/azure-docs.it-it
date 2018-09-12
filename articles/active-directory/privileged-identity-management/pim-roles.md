@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188987"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666337"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Ruoli della directory di Azure AD che è possibile gestire in PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -76,13 +76,36 @@ L'accesso al portale di Azure richiede che l'utente sia un amministratore del se
 L'accesso a Microsoft Online Services può richiedere che all'utente sia assegnata anche una licenza prima di poter aprire il portale del servizio o eseguire attività amministrative.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Assegnazione di una licenza a un utente in Azure AD
+
 1. Accedere al [portale di Azure](http://portal.azure.com) con un account di amministratore globale o di coamministratore.
-3. Selezionare Azure AD e la directory con cui si desidera lavorare e a cui sono associate licenze.
-4. Selezionare **Licenze** a sinistra. Verrà visualizzato l'elenco delle licenze disponibili.
-5. Fare clic sul piano di licenza che contiene le licenze da distribuire.
-6. Selezionare **Assegna utenti**.
-7. Selezionare l'utente a cui si desidera assegnare una licenza.
-8. Scegliere il pulsante **Assegna** .  L'utente ora può accedere ad Azure.
+
+1. Selezionare la directory di Azure AD con cui si intende lavorare e a cui sono associate licenze.
+
+1. Nel menu di spostamento a sinistra fare clic su **Azure Active Directory**.
+
+1. Fare clic su **Licenze**. Verrà visualizzato l'elenco delle licenze disponibili.
+
+    ![Licenze di Azure Active Directory](./media/pim-roles/licenses-overview.png)
+
+1. Scegliere il **prodotto**.
+
+1. Fare clic sul piano di licenza che contiene le licenze da distribuire.
+
+    ![Prodotti con licenza](./media/pim-roles/licenses-products.png)
+
+1. Fare clic su **Assegna** per aprire il riquadro Assegna licenza.
+
+    ![Utenti con licenza](./media/pim-roles/licenses-licensed-users.png)
+
+1. Selezionare l'utente o il gruppo a cui si vuole assegnare una licenza.
+
+    ![Assegnare una licenza](./media/pim-roles/licenses-assign-license.png)
+
+1. Fare clic su **Opzioni di assegnazione** per configurare le opzioni di assegnazione.
+
+    ![Opzioni di assegnazione](./media/pim-roles/licenses-assignment-options.png)
+
+1. Fare clic su **Assegna** per assegnare l'utente a un ruolo. A questo punto, l'utente dispone della licenza.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi

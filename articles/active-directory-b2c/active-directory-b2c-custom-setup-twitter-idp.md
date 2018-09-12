@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 28679ef07c2625908f7b08f808ff49c48ddb625b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440954"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339869"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: aggiungere Twitter come provider di identità OAuth1 tramite criteri personalizzati
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -36,9 +36,9 @@ Per usare Twitter come provider di identità in Azure Active Directory B2C (Azur
  
     a. Digitare i valori **Name** (Nome) e **Description** (Descrizione) per la nuova app. 
 
-    b. Nella casella **Sito Web** incollare **https://login.microsoftonline.com**. 
+    b. Nella casella **Sito Web** incollare **https://{tenant}.b2clogin.com**. In cui **{tenant}** è il nome del tenant (ad esempio, https://contosob2c.b2clogin.com).
 
-    c. 4. Per **URL callback** immettere `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Accertarsi di sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com e **{policyId}** con l'ID criterio, ad esempio b2c_1_policy.  **L'URL callback deve essere composto da lettere minuscole.** È consigliabile aggiungere un URL callback per tutti i criteri che usano l'account di accesso di Twitter. Assicurarsi di impostare `b2clogin.com` invece di ` login.microsoftonline.com` se viene usato nell'applicazione.
+    c. 4. Per **URL callback** immettere `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp`. Assicurarsi di sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c, e **{policyId}** con l'ID criterio, ad esempio b2c_1_policy.  **L'URL callback deve essere composto da lettere minuscole.** È consigliabile aggiungere un URL callback per tutti i criteri che usano l'account di accesso di Twitter. Assicurarsi di impostare `b2clogin.com` invece di ` login.microsoftonline.com` se viene usato nell'applicazione.
 
     d. Nella parte inferiore della pagina leggere e accettare le condizioni, quindi selezionare **Create your Twitter application** (Crea applicazione Twitter).
 

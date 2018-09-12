@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 69313adea1719324e2b22b45c6a45535ea65097f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fbed0f5fb213a18f4450ee3aa96c3b8485b16e8b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125043"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781327"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare a usare Condizioni per l'utilizzo di Azure AD.
@@ -223,7 +223,7 @@ R: Al momento non è possibile aggiornare un documento esistente sulle condizion
 R: viene eseguito il rendering predefinito del file PDF in formato JPEG, in modo che i collegamenti ipertestuali non siano selezionabili. Gli utenti hanno la possibilità di selezionare **In caso di problemi di visualizzazione fare clic qui** per eseguire il rendering PDF in modo nativo in cui sono supportati i collegamenti ipertestuali.
 
 **D: le condizioni per l'utilizzo possono supportare più lingue?**</br>
-A: Sì.  L'amministratore può attualmente configurare 18 lingue diverse per singole condizioni per l'utilizzo. 
+A: Sì. L'amministratore può attualmente configurare 108 lingue diverse per singole condizioni per l'utilizzo.
 
 **D: quando vengono attivate le condizioni per l'utilizzo?**</br>
 R: le condizioni per l'utilizzo vengono attivate durante l'accesso.

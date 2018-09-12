@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd460d92430f8ab011e90b969495972b744162df
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d25f46804c3320b7d941a945f3c4d9a5dfb6970c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798713"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702130"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -50,6 +50,18 @@ ms.locfileid: "34798713"
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Aggiunto il supporto dell'annullamento richiesta.
+* Aggiunta SetCurrentLocation a ConnectionPolicy, che popola automaticamente le posizioni preferite in base alla regione.
+* Correzione del bug nelle query su più partizioni con Min/Max e un filtro che mette in corrispondenza nessun documento in una singola partizione.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+
+* I metodi DocumentClient è ora dispongono della parità con IDocumentClient.
+* Aggiornato lo stack di trasporto TCP diretto per ridurre il numero di connessioni stabilite.
+* Aggiunta del supporto per TCP in modalità diretta per i client non Windows.
+
 ### <a name="a-name12201220"></a><a name="1.22.0"/>1.22.0
 
 * Aggiunta della proprietà ConsistencyLevel a FeedOptions.
@@ -297,6 +309,8 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.0.0-preview2](#2.0.0-preview2) |26 luglio 2018 |--- |
+| [2.0.0-preview](#2.0.0-preview) |11 maggio 2018 |--- |
 | [1.22.0](#1.22.0) |19 aprile 2018 |--- |
 | [1.21.1](#1.20.1) |09 marzo 2018 |--- |
 | [1.20.2](#1.20.1) |21 febbraio 2018 |--- |

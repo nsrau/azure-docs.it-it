@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442240"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842336"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -163,9 +163,9 @@ Per usare l'autenticazione token dell'applicazione Azure AD basata sull'identit�
 
 1. **Creare un gruppo in Azure AD.** Aggiungere l'identità del servizio gestita della factory come membro del gruppo.
 
-    a. Trovare l'identità del servizio della data factory nel portale di Azure. Accedere alle **proprietà** della data factory. Copiare l'ID IDENTITÀ DEL SERVIZIO.
+    1. Trovare l'identità del servizio della data factory nel portale di Azure. Accedere alle **proprietà** della data factory. Copiare l'ID IDENTITÀ DEL SERVIZIO.
 
-    b. Installare il [modulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Accedere usando il comando `Connect-AzureAD`. Eseguire i comandi seguenti per creare un gruppo e aggiungere come membro l'identità del servizio gestita della data factory.
+    1. Installare il [modulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Accedere usando il comando `Connect-AzureAD`. Eseguire i comandi seguenti per creare un gruppo e aggiungere come membro l'identità del servizio gestita della data factory.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
@@ -401,13 +401,14 @@ PolyBase di SQL Data Warehouse supporta direttamente Archiviazione BLOB di Azure
 Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostazioni e usa automaticamente il meccanismo BULKINSERT per lo spostamento dei dati.
 
 1. Il **servizio collegato di origine** è di tipo archiviazione BLOB di Azure (**AzureBLobStorage**/**AzureStorage**) con autenticazione mediante chiave dell'account o Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) con autenticazione mediante entità servizio.
-1. Il tipo di **set di dati di input** è **AzureBlob** o **AzureDataLakeStoreFile**. Il tipo di formato nelle proprietà `type` è **OrcFormat**, **ParquetFormat** o **TextFormat**, con le configurazioni seguenti:
+2. Il tipo di **set di dati di input** è **AzureBlob** o **AzureDataLakeStoreFile**. Il tipo di formato nelle proprietà `type` è **OrcFormat**, **ParquetFormat** o **TextFormat**, con le configurazioni seguenti:
 
-   1. `rowDelimiter` deve essere **\n**.
-   1. `nullValue` è impostato su **una stringa vuota** ("") o come valore predefinito e `treatEmptyAsNull` non è impostato su false.
-   1. `encodingName` è impostato su **utf-8**, ovvero il valore predefinito.
-   1. `escapeChar`, `quoteChar` e `skipLineCount` non sono specificati. Il supporto di PolyBase ignora la riga di intestazione che può essere configurata come `firstRowAsHeader` nella data factory di Azure.
-   1. `compression` può essere **no compression**, **GZip** o **Deflate**.
+   1. `fileName` non contiene il filtro con caratteri jolly.
+   2. `rowDelimiter` deve essere **\n**.
+   3. `nullValue` è impostato su **una stringa vuota** ("") o come valore predefinito e `treatEmptyAsNull` non è impostato su false.
+   4. `encodingName` è impostato su **utf-8**, ovvero il valore predefinito.
+   5. `escapeChar`, `quoteChar` e `skipLineCount` non sono specificati. Il supporto di PolyBase ignora la riga di intestazione che può essere configurata come `firstRowAsHeader` nella data factory di Azure.
+   6. `compression` può essere **no compression**, **GZip** o **Deflate**.
 
     ```json
     "typeProperties": {

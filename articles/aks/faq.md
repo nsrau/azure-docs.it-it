@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: b910b6cdf55ae7c2a220543bdb555d8e9bff59a0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f4bc7724c0bc288ab269d1b3ec054bd1a6ba26e3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146777"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701195"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative ad Azure Kubernetes Service (AKS)
 
@@ -58,7 +58,7 @@ Se si creano risorse che verranno usate con il cluster AKS, ad esempio account d
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>È possibile modificare i tag e le altre proprietà delle risorse del servizio Kubernetes di Azure nel gruppo di risorse MC_*?
 
-La modifica e l'eliminazione di tag e altre proprietà delle risorse nel gruppo di risorse *MC_** può causare risultati imprevisti, ad esempio un ridimensionamento o errori di aggiornamento. La modifica delle risorse nel gruppo *MC_** del cluster del servizio Kubernetes di Azure è una violazione dell'obiettivo del livello di servizio (SLO).
+La modifica e l'eliminazione di tag creati da Azure e altre proprietà delle risorse nel gruppo di risorse *MC_** può causare risultati imprevisti, ad esempio un ridimensionamento o errori di aggiornamento. È supportata la creazione e la modifica di tag personalizzati aggiuntivi, ad esempio per assegnare una Business Unit o un centro di costo. La modifica delle risorse nel gruppo *MC_** del cluster del servizio Kubernetes di Azure è una violazione dell'obiettivo del livello di servizio (SLO).
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quali controller di ammissione Kubernetes supporta AKS? È possibile aggiungere o rimuovere i controller di ammissione?
 

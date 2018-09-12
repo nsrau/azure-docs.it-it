@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: e7a63167285c06fdfe632e7d45d9fddd3cca7842
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248523"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700196"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>Risoluzione dei problemi dell'agente di Servizi di ripristino di Microsoft Azure (MARS)
 ## <a name="recommended-steps"></a>Procedure consigliate
@@ -66,7 +66,10 @@ Eseguire i passaggi seguenti quando i backup pianificati non vengono generati au
 <li>Fare doppio clic sull'attività 'Microsoft-OnlineBackup' e passare alla scheda 'Trigger'.
 <li>Verificare che lo stato dell'attività sia impostato su 'Attivato'. In caso contrario, fare clic su 'Modifica' e selezionare la casella di controllo 'Attivato'
 <li>Passare alla sezione *Opzioni di sicurezza* della scheda *Generali*
-<li>Assicurarsi che l'account utente selezionato per l'esecuzione dell'attività sia *SYSTEM* o Gruppo degli amministratori locali nel server > [!TIP]. È consigliabile riavviare il server dopo aver eseguito i passaggi precedenti per assicurarsi che le modifiche apportate vengano applicate in modo coerente
+<li>Assicurarsi che l'account utente selezionato per l'esecuzione dell'attività sia *SISTEMA* o il gruppo Amministratori locali nel server
+
+> [!TIP]
+> È consigliabile riavviare il server dopo aver eseguito i passaggi precedenti per assicurarsi che le modifiche apportate vengano applicate in modo coerente
 
 
 ## <a name="troubleshooting-restore-issues"></a>Risoluzione dei problemi di ripristino

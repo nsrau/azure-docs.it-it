@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: d47c85d4197f45db50f1974b6faea270e6761237
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628573"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382151"
 ---
-# <a name="manage-reservations-for-resources-in-azure"></a>Gestire le prenotazioni per le risorse in Azure
+# <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
-Dopo aver acquistato una prenotazione di Azure, potrebbe essere necessario applicare la prenotazione a una sottoscrizione diversa rispetto a quella specificata durante l'acquisto. In alternativa, se le macchine virtuali, i database SQL o altre risorse corrispondenti sono in esecuzione in più sottoscrizioni, potrebbe essere necessario modificare l'ambito della prenotazione impostandola sulla prenotazione condivisa. Per ottimizzare lo sconto associato alla prenotazione, assicurarsi che il numero di istanze acquistate corrisponda agli attributi e al numero di risorse in esecuzione. Per altre informazioni, vedere la documentazione sulle [prenotazioni di Azure](https://go.microsoft.com/fwlink/?linkid=862121).
+Dopo che si acquista una prenotazione di Azure, potrebbe essere necessario applicare la prenotazione a una sottoscrizione diversa, modificare chi può gestire la prenotazione, o modificare l'ambito della prenotazione. È inoltre possibile dividere una prenotazione in due prenotazioni per applicare alcune delle istanze acquistate a un'altra sottoscrizione.
+
+Se si acquistano le istanze di macchina virtuale riservate di Azure, è possibile modificare l'impostazione di ottimizzazione per la prenotazione. Lo sconto della prenotazione può essere applicato alle macchine virtuali nella stessa serie oppure è possibile riservare capacità del data center per una dimensione di macchina virtuale specifica.
 
 ## <a name="change-the-scope-for-a-reservation"></a>Modificare l'ambito di una prenotazione
 
@@ -34,7 +36,11 @@ Per aggiornare l'ambito di una prenotazione:
 2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare la prenotazione.
 4. Selezionare **Impostazioni** > **Configurazione**.
-5. Modificare l'ambito. Se si passa da un ambito condiviso a un ambito singolo, è possibile selezionare solo le sottoscrizioni di cui l'utente è proprietario. È possibile selezionare solo le sottoscrizioni all'interno dello stesso contesto di fatturazione della prenotazione. Il contesto di fatturazione è determinato dalla sottoscrizione selezionata quando viene acquistata la prenotazione. L'ambito è valido solo per le sottoscrizioni con pagamento in base al consumo MS-AZR-0003P e le sottoscrizioni di tipo Enterprise MS-AZR-0017P. Per i contratti Enterprise le sottoscrizioni di sviluppo/test non sono idonee per ottenere lo sconto associato alla prenotazione.
+5. Modificare l'ambito. 
+
+Se si passa da un ambito condiviso a un ambito singolo, è possibile selezionare solo le sottoscrizioni di cui l'utente è proprietario. È possibile selezionare solo le sottoscrizioni all'interno dello stesso contesto di fatturazione della prenotazione.
+
+L'ambito è valido solo per le sottoscrizioni con pagamento in base al consumo MS-AZR-0003P, MS-AZR-0017P di tipo Enterprise o CSP. Per i contratti Enterprise le sottoscrizioni di sviluppo/test non sono idonee per ottenere lo sconto associato alla prenotazione.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Aggiungere o modificare gli utenti che possono gestire una prenotazione
 
@@ -47,26 +53,14 @@ Per delegare la gestione dell'accesso per una prenotazione:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
 3. Selezionare la prenotazione per la quale si desidera delegare l'accesso ad altri utenti.
-4. Selezionare **Controllo di accesso (IAM)** nel menu.
-5. Selezionare **Aggiungi** > **Ruolo** > **Proprietario** oppure un ruolo diverso se si desidera concedere un ruolo limitato.
-6. Digitare l'indirizzo di posta elettronica dell'utente che si vuole aggiungere come proprietario. 
+4. Selezionare **Controllo di accesso (IAM)**.
+5. Selezionare **Aggiungi** > **Ruolo** > **Proprietario**. Oppure selezionare un ruolo diverso se si intende concedere un ruolo limitato.
+6. Digitare l'indirizzo e-mail dell'utente che si vuole aggiungere come proprietario.
 7. Selezionare l'utente e quindi selezionare **Salva**.
-
-## <a name="optimize-reserved-vm-instance-for-vm-size-flexibility-or-capacity-priority"></a>Ottimizzare l'istanza di macchina virtuale riservata per la priorità di capacità o la flessibilità delle dimensioni della macchina virtuale
-
- La flessibilità dell'istanza di macchina virtuale applicherà lo sconto sulla prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](https://aka.ms/RIVMGroups). Per impostazione predefinita, quando l'ambito della prenotazione è condiviso, la flessibilità delle dimensioni istanza è attiva e la capacità del data center non viene classificata in ordine di priorità per le distribuzioni di macchine virtuali. Per le prenotazioni con ambito singolo, è possibile ottimizzare la prenotazione per la priorità di capacità anziché per la flessibilità delle dimensioni istanza di macchina virtuale. La priorità di capacità prenota la capacità del data center per le distribuzioni, per garantire la possibilità di avviare le istanze di macchina virtuale quando servono.
-
-Per aggiornare l'ambito di una prenotazione:
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Tutti i servizi** > **Prenotazioni**.
-3. Selezionare la prenotazione.
-4. Selezionare **Impostazioni** > **Configurazione**.
-5. Modificare l'impostazione Ottimizza per.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dividere una prenotazione singola in due prenotazioni
 
- Dopo aver acquistato più di un'istanza, è possibile assegnare le istanze all'interno di una prenotazione a sottoscrizioni diverse. Per impostazione predefinita, tutte le istanze (quantità specificata durante l'acquisto) sono associate a un ambito (sottoscrizione singola o ambito condiviso). Si supponga, ad esempio, di aver acquistato 10 macchine virtuali Standard D2 e di avere impostato l'ambito sulla sottoscrizione A. Si desidera in seguito modificare l'ambito per sette prenotazioni sulla sottoscrizione A, mentre per le restanti 3 macchine virtuali l'ambito viene impostato sulla sottoscrizione B. La divisione di una prenotazione consente pertanto di distribuire le istanze per una gestione più granulare dell'ambito. È possibile semplificare il processo di allocazione alle sottoscrizioni scegliendo l'ambito condiviso. Tuttavia, per motivi di gestione di costi o budget dei costi è possibile allocare quantità a sottoscrizioni specifiche.
+ Dopo aver acquistato più di un'istanza di risorsa all'interno di una prenotazione, è possibile assegnare le istanze all'interno di tale prenotazione a sottoscrizioni diverse. Per impostazione predefinita, tutte le istanze sono associate a un ambito (sottoscrizione singola o ambito condiviso). Si supponga, ad esempio, di aver acquistato 10 istanze di prenotazione e di avere impostato l'ambito sulla sottoscrizione A. Si vuole in seguito modificare l'ambito per 7 prenotazioni sulla sottoscrizione A, e per le restanti 3 sulla sottoscrizione B. La divisione di una prenotazione consente pertanto di distribuire le istanze per una gestione più granulare dell'ambito. È possibile semplificare il processo di allocazione alle sottoscrizioni scegliendo l'ambito condiviso. Tuttavia, per motivi di gestione di costi o budget dei costi è possibile allocare quantità a sottoscrizioni specifiche.
 
  È possibile dividere una prenotazione in due prenotazioni tramite PowerShell, l'interfaccia della riga di comando oppure l'API.
 
@@ -92,18 +86,38 @@ Per aggiornare l'ambito di una prenotazione:
     Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. È possibile aggiornare l'ambito con il comando seguente:
+
     ```powershell
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
+
+## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifica l'impostazione di ottimizzazione per le istanze di macchina virtuale riservate
+
+ Quando si acquista un'istanza di macchina virtuale riservata, si sceglie la flessibilità delle dimensioni istanza o la priorità di capacità. La flessibilità delle dimensioni istanza applicherà lo sconto di prenotazione ad altre macchine virtuali dello stesso [gruppo di macchine virtuali](https://aka.ms/RIVMGroups). La priorità di capacità riserva capacità del data center per le distribuzioni. Questa opzione aumenta la certezza di avere la possibilità di avviare le istanze di macchina virtuale quando servono.
+
+Per impostazione predefinita, quando l'ambito della prenotazione è condiviso, la flessibilità delle dimensioni istanza è attiva. La capacità del data center non viene classificata per le distribuzioni di macchine virtuali.
+
+Per le prenotazioni con ambito singolo, è possibile ottimizzare la prenotazione per la priorità di capacità anziché per la flessibilità delle dimensioni istanza di macchina virtuale.
+
+Per aggiornare l'impostazione di ottimizzazione per la prenotazione:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Selezionare **Tutti i servizi** > **Prenotazioni**.
+3. Selezionare la prenotazione.
+4. Selezionare **Impostazioni** > **Configurazione**.
+5. Modificare l'impostazione **Ottimizza per**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Cosa sono le prenotazioni di Azure?](billing-save-compute-costs-reservations.md)
+- [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
-- [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
+- [Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Informazioni su come viene applicato lo sconto sulla prenotazione di macchine virtuali](billing-understand-vm-reservation-charges.md)
+- [Informazioni su come viene applicato lo sconto relativo al piano software SUSE Linux Enterprise](../billing/billing-understand-suse-reservation-charges.md)
+- [Informazioni su come vengono applicati gli altri sconti sulla prenotazione](billing-understand-reservation-charges.md)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)

@@ -1,25 +1,24 @@
 ---
 title: Installare il gateway dati locale - App per la logica di Azure | Microsoft Docs
-description: Come scaricare e installare il gateway dati locale prima di accedere a dati in locale da app per la logica
+description: Prima di poter accedere ai dati in locale delle App per la logica di Azure, è necessario scaricare e installare il gateway dati locale
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503649"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842448"
 ---
-# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per le app per la logica di Azure
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
-Prima di poter connettere le app per la logica a origini dati locali, è necessario scaricare e installare il gateway dati locale in un computer locale. Il gateway opera come un ponte che fornisce il trasferimento rapido dei dati e la crittografia tra le origini di dati locali (non nel cloud) e le app per la logica. Questo articolo illustra come scaricare, installare e configurare il gateway dati locale. 
+Prima di poter connettere le origini dati locali dalle App per la logica di Azure, è necessario scaricare e installare il gateway dati locale in un computer locale. Il gateway opera come un ponte che fornisce il trasferimento rapido dei dati e la crittografia tra le origini di dati locali (non nel cloud) e le app per la logica. Questo articolo illustra come scaricare, installare e configurare il gateway dati locale. 
 
 È possibile usare la stessa installazione del gateway con altri servizi come Power BI, Microsoft Flow, PowerApps e Azure Analysis Services. Altre informazioni sul [funzionamento del gateway dati](#gateway-cloud-service).
 
@@ -52,7 +51,11 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un [account aziendale o dell'istituto di istruzione](../active-directory/fundamentals/sign-up-organization.md) con una [sottoscrizione di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). Durante l'installazione del gateway, è necessario eseguire l'accesso a questo account in modo da associare l'installazione del gateway con la sottoscrizione di Azure. Lo stesso account verrà anche usato in un secondo momento, durante la creazione di una risorsa di Azure per l'installazione del gateway nel portale di Azure. Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
+* Un [account aziendale o dell'istituto di istruzione](../active-directory/fundamentals/sign-up-organization.md) con una [sottoscrizione di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+
+  Durante l'installazione del gateway, è necessario eseguire l'accesso a questo account in modo da associare l'installazione del gateway con la sottoscrizione di Azure. 
+  Lo stesso account verrà anche usato in un secondo momento, durante la creazione di una risorsa di Azure per l'installazione del gateway nel portale di Azure. 
+  Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
 
 * Di seguito sono riportati i requisiti per il computer locale:
 
@@ -72,8 +75,7 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
     > [!TIP]
     > Per ridurre al minimo la latenza, è possibile installare il gateway il più vicino possibile all'origine dati o nello stesso computer, presupponendo che si disponga delle autorizzazioni.
 
-  * *Non* installare il gateway in un computer che potrebbe essere spento, in modalità di sospensione o disconnesso da Internet. Il gateway non può essere eseguito in queste condizioni. 
-  Le prestazioni del gateway possono anche diminuire su una rete wireless.
+  * Installare il gateway in un computer in che sia connesso a Internet, sempre acceso e che *non* vada in sospensione. In caso contrario, il gateway non funziona. Le prestazioni possono anche diminuire su una rete wireless.
 
   * Durante l'installazione, è possibile accedere solo con un [account aziendale o dell'istituto di istruzione](../active-directory/sign-up-organization.md) gestito da Azure Active Directory (Azure AD) e non con un account Microsoft. 
   Verificare inoltre che questo account non sia un account Azure B2B (guest). 

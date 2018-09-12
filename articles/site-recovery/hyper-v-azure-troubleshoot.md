@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 95941b3f9333273c11208c56a63c62d5d37a9386
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: d5282e5954aa50ce67d6341b194177a89bdbe6cc
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213555"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666402"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Risolvere i problemi della replica e del failover da Hyper-V ad Azure
 
@@ -22,17 +22,17 @@ Questo articolo descrive i problemi comuni che possono verificarsi durante l'ese
 
 ## <a name="enable-protection-issues"></a>Problemi di abilitazione della protezione
 
-Se si verificano problemi quando si abilita la protezione per le macchine virtuali Hyper-V, verificare quanto segue:
+Se si verificano problemi quando si abilita la protezione per le macchine virtuali Hyper-V, verificare gli elementi consigliati seguenti:
 
 1. Controllare che gli host e le macchine virtuali Hyper-V siano conformi a tutti i [requisiti e prerequisiti](hyper-v-azure-support-matrix.md).
 2. Se i server Hyper-V si trovano nei cloud di System Center Virtual Machine Manager (VMM), verificare che il [server VMM](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional) sia stato predisposto.
 3. Verificare che il servizio Virtual Machine Management di Hyper-V sia in esecuzione negli host Hyper-V.
-4. Controllare eventuali problemi che vengono visualizzati nel log Hyper-V-VMMS\Admin nella macchina virtuale. Il log si trova in **Registri applicazioni e servizi** > **Microsoft** > **Windows**.
+4. Controllare eventuali problemi che vengono visualizzati nell'accesso Hyper-V-VMMS\Admin alla macchina virtuale. Il log si trova in **Registri applicazioni e servizi** > **Microsoft** > **Windows**.
 5. Nella macchina virtuale guest verificare che WMI sia abilitato e accessibile.
   - [Informazioni](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) sul test WMI di base.
   - [Risolvere i problemi](https://aka.ms/WMiTshooting) di WMI.
   - [Risolvere i problemi ](https://technet.microsoft.com/library/ff406382.aspx#H22) con gli script e i servizi WMI.
-5. Nella macchina virtuale guest verificare che sia in esecuzione la versione più recente di Integration Services.
+6. Nella macchina virtuale guest verificare che sia in esecuzione la versione più recente di Integration Services.
     - [Controllare](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) che sia disponibile l'ultima versione.
     - [Mantenere](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) aggiornato Integration Services.
     
@@ -54,8 +54,8 @@ Risolvere i problemi relativi alla replica iniziale e in corso come indicato di 
     - Se si esegue la replica con VMM nell'ambiente in uso, verificare che questi servizi siano in esecuzione:
         - Nell'host Hyper-V controllare che siano in esecuzione il servizio Virtual Machine Management, l'agente di Servizi di ripristino di Microsoft Azure e il servizio Host provider WMI.
         - Nel server VMM assicurarsi che sia in esecuzione il servizio System Center Virtual Machine Manager.
-4. Verificare la connettività tra il server Hyper-V e Azure. A tale scopo, aprire Gestione attività nell'host Hyper V. Nella scheda **Prestazioni** fare clic su **Apri Monitoraggio risorse**. Nella scheda **Rete** > **Processi con attività rete** controllare se cbengine.exe sta inviando attivamente volumi di dati di grandi dimensioni (MB).
-5. Verificare se gli host Hyper-V sono in grado di connettersi all'URL del BLOB di archiviazione di Azure. A tale scopo, selezionare **cbengine.exe**. Visualizzare **Connessioni TCP** per verificare la connettività dall'host al BLOB di archiviazione di Azure.
+4. Verificare la connettività tra il server Hyper-V e Azure. Per controllare la connettività, aprire Gestione attività nell'host Hyper V. Nella scheda **Prestazioni** fare clic su **Apri Monitoraggio risorse**. Nella scheda **Rete** > **Process with Network Activity** (Processo con attività rete) controllare se cbengine.exe sta inviando attivamente volumi di dati di grandi dimensioni (MB).
+5. Verificare se gli host Hyper-V sono in grado di connettersi all'URL del BLOB di archiviazione di Azure. Per verificare se gli host possono connettersi, selezionare e controllare **cbengine.exe**. Visualizzare **Connessioni TCP** per verificare la connettività dall'host al BLOB di archiviazione di Azure.
 6. Verificare i problemi di prestazioni, come descritto di seguito.
     
 ### <a name="performance-issues"></a>Problemi di prestazioni
@@ -92,7 +92,7 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
 
 1. Verificare che sia installata e in esecuzione la versione più recente di Integration Services.  Controllare se è disponibile un aggiornamento eseguendo il comando seguente da un prompt di PowerShell con privilegi elevati nell'host Hyper-V: **get-vm | select Name, State, IntegrationServicesState**.
 2. Verificare che il servizio Copia Shadow del volume sia in esecuzione e integro:
-    - A tale scopo, accedere alla macchina virtuale guest. Aprire quindi un prompt dei comandi come amministratore ed eseguire i comandi seguenti per verificare che tutti i VSS writer siano integri.
+    - Per controllare i servizi, accedere alla macchina virtuale guest. Aprire quindi un prompt dei comandi come amministratore ed eseguire i comandi seguenti per verificare che tutti i VSS writer siano integri.
         - **Vssadmin list writers**
         - **Vssadmin list shadows**
         - **Vssadmin list providers**
@@ -108,10 +108,10 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
     ![Disco dinamico](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. Controllare che non ci sia un disco iSCSI collegato alla macchina virtuale. Questa funzionalità non è supportata.
-5. Controllare che il servizio Backup sia abilitato. Verificare questo aspetto in **Impostazioni Hyper-V** > **Integration Services**.
+5. Controllare che il servizio Backup sia abilitato. Verificare l'abilitazione in **Impostazioni Hyper-V** > **Integration Services**.
 6. Assicurarsi che non ci siano conflitti con le app che creano snapshot VSS. I conflitti possono verificarsi se più app tentano di creare snapshot VSS contemporaneamente, ad esempio se un'app di Backup crea snapshot VSS quando Site Recovery è pianificato dai criteri di replica per creare uno snapshot.   
 7. Controllare se nella macchina virtuale viene riscontrata una varianza elevata:
-    - È possibile misurare la frequenza di modifica dei dati giornaliera per le macchine virtuali guest, usando i contatori delle prestazioni nell'host Hyper-V. A tale scopo, abilitare il contatore seguente. Aggregare un campione di questo valore tra i dischi delle macchine virtuali per 5-15 minuti, in modo da ottenere la varianza della macchina virtuale.
+    - È possibile misurare la frequenza di modifica dei dati giornaliera per le macchine virtuali guest, usando i contatori delle prestazioni nell'host Hyper-V. Per misurare la frequenza di modifica dei dati abilitare il contatore seguente. Aggregare un campione di questo valore tra i dischi delle macchine virtuali per 5-15 minuti, in modo da ottenere la varianza della macchina virtuale.
         - Categoria: “Dispositivo di archiviazione virtuale Hyper-V”
         - Contatore: “Byte scritti/sec”</br>
         - Questa varianza dei dati aumenterà o rimarrà a un livello elevato, a seconda del carico di lavoro della macchina virtuale o delle relative app.
@@ -138,7 +138,7 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
 **Codice errore** | **Messaggio** | **Dettagli**
 --- | --- | ---
 **0x800700EA** | "Non è stato possibile generare il set di snapshot VSS per la macchina virtuale. Sono disponibili più dati (0x800700EA). Potrebbe non essere possibile generare il set di snapshot VSS se l'operazione di backup è in corso.<br/><br/> Operazione di replica per la macchina virtuale non riuscita. Sono disponibili più dati". | Verificare se la macchina virtuale dispone di un disco dinamico abilitato. Questa funzionalità non è supportata.
-**0x80070032** | "Il richiedente del servizio Copia Shadow del volume di Hyper-V non è riuscito a connettersi alla macchina virtuale <./NomeVM> perché la versione non corrisponde alla versione prevista da Hyper-V". | Verificare se sono installati gli ultimi aggiornamenti di Windows.<br/><br/> [Eseguire l'aggiornamento](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md#keep-integration-services-up-to-date) alla versione più recente di Integration Services.
+**0x80070032** | "Il richiedente del servizio Copia Shadow del volume di Hyper-V non è riuscito a connettersi alla macchina virtuale <./NomeVM> perché la versione non corrisponde alla versione prevista da Hyper-V". | Verificare se sono installati gli ultimi aggiornamenti di Windows.<br/><br/> [Eseguire l'aggiornamento](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) alla versione più recente di Integration Services.
 
 
 
@@ -146,7 +146,7 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
 
 Tutti gli eventi di replica di Hyper-V vengono registrati nel log Hyper-V-VMMS\Admin, disponibile in **Registri applicazioni e servizi** > **Microsoft** > **Windows**. È anche possibile abilitare un registro analitico per il servizio Virtual Machine Management di Hyper-V, come indicato di seguito:
 
-1. Rendere i registri analitici e di debug visibili nel Visualizzatore eventi. A tale scopo, nel Visualizzatore eventi fare clic su **Visualizza** > **Visualizza registri analitici e di debug**. Il registro analitico viene visualizzato in **Hyper-V-VMMS**.
+1. Rendere i registri analitici e di debug visibili nel Visualizzatore eventi. Per rendere disponibili i log nel Visualizzatore eventi fare clic su **Visualizza** > **Show Analytic and Debug Logs** (Visualizza log analitici e di debug). Il registro analitico viene visualizzato in **Hyper-V-VMMS**.
 2. Nel riquadro **Azioni** fare clic su **Attiva registro**. 
 
     ![Attiva registro](media/hyper-v-azure-troubleshoot/enable-log.png)

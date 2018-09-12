@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4da97d708f8db2dcee406645a0eee409fa111012
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34652543"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696803"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Ridimensionare un processo di Analisi di flusso di Azure per aumentare la velocità effettiva
 Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. È possibile usare la seguente guida per ridimensionare il processo per gestire carichi più elevati e sfruttare i vantaggi di più risorse di sistema (ad esempio maggiore larghezza di banda, più risorse della CPU, una maggiore memoria).
@@ -42,7 +42,7 @@ Se la query è intrinsecamente completamente eseguibile in parallelo tra le part
 Se la query non è perfettamente parallela, è possibile seguire la procedura seguente.
 1.  Iniziare prima con una query senza **PARTITION BY** per evitare la complessità del partizionamento ed eseguire la query con 6 unità di ricerca per misurare il carico massimo come nel [Caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
 2.  Se è possibile ottenere il carico previsto in termini di velocità effettiva, l'operazione è conclusa. In alternativa è possibile scegliere di misurare lo stesso processo in esecuzione su SU 3 e SU 1 per determinare il numero minimo di SU adeguato per il proprio scenario.
-3.  Se non è possibile ottenere la velocità effettiva desiderata, provare a suddividere la query in più passaggi, se possibile e se non dispone già di più passaggi e allocare fino a SU 6 per ogni passaggio nella query. Ad esempio, se si dispone di 3 passaggi, allocare 18 unità di ricarca nell'opzione "Scalabilità".
+3.  Se non è possibile ottenere la velocità effettiva desiderata, provare a suddividere la query in più passaggi, se possibile e se non dispone già di più passaggi e allocare fino a SU 6 per ogni passaggio nella query. Ad esempio, se si dispone di 3 passaggi, allocare 18 unità di ricerca nell'opzione "Scalabilità".
 4.  Durante l'esecuzione di un processo di questo tipo, l'Analisi di flusso di Azure colloca ogni passaggio nel proprio nodo con 6 risorse dell'unità di risorse dedicate. 
 5.  Se ancora non è stata raggiunta la destinazione del carico, è possibile tentare di usare **PARTITION BY** a partire dai passaggi più vicini all'input. Per l'operatore **GROUP BY** che non può essere partizionabile naturalmente, è possibile usare il modello di aggregazione globale o locale per eseguire un **GROUP BY** partizionato seguito da un **GROUP BY**  non partizionato. Ad esempio, se si desidera contare quante automobili attraversano ciascun casello ogni 3 minuti e il volume dei dati va oltre ciò che può essere gestito da 6 unità di ricerca.
 
@@ -70,7 +70,7 @@ Per determinati casi d'uso ISV, in cui è più conveniente elaborare dati da pi�
 2.  Se si usa l'Hub eventi, ridurre il numero di partizione di input portandolo al valore minimo di 2.
 3.  Eseguire la query con 6 unità di ricerca. Con il carico previsto per ogni sottoquery, aggiungere più sottoquery possibili, fino a quando il processo non supera i limiti delle risorse di sistema. Fare riferimento al [Caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) per i sintomi riportati in questo caso.
 4.  Quando si raggiunge il limite di sottoquery misurato in precedenza, iniziare ad aggiungere la sottoquery ad un nuovo processo. Il numero di processi per l'esecuzione come una funzione del numero di query indipendente dovrebbe essere piuttosto lineare, presupponendo che non siano presenti asimmetrie del carico. È quindi possibile prevedere il numero di processi di 6 unità di ricerca necessari ad eseguire come una funzione del numero di tenant che si desidera gestire.
-5.  Quando si usano i join dei dati di riferimento con tali query, si dovrebbero unire gli input insieme, prima di creare un join con gli stessi dati di riferimento, quindi suddividere gli eventi se necessario. In caso contrario, ogni join dei dati di riferimento mantiene una copia dei dati di riferimento nella memoria, probabilmente ingrandendo inutilmente l'uso della memoria.
+5.  Quando si usano i join dei dati di riferimento con tali query, unire gli input insieme, prima di creare un join con gli stessi dati di riferimento. Quindi, se necessario, suddividere gli eventi. In caso contrario, ogni join dei dati di riferimento mantiene una copia dei dati di riferimento nella memoria, probabilmente ingrandendo inutilmente l'uso della memoria.
 
 > [!Note] 
 > Quanti tenant inserire in ogni processo?
