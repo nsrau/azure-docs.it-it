@@ -32,7 +32,7 @@ Rimuovere un utente o un gruppo dalla possibilità di accedere a una delle appli
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Come si rimuove un'assegnazione di utente o gruppo a un'app aziendale nel portale di Azure?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
-3. Nella pagina **Azure Active Directory - *nomedirectory***, vale a dire la pagina Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
+3. Nella pagina **Azure Active Directory - \*nomedirectory\*,** vale a dire la pagina Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
 
     ![Apertura di app aziendali](./media/remove-user-or-group-access-portal/open-enterprise-apps.png)
 4. Nella pagina **Applicazioni aziendali** selezionare **Tutte le applicazioni**. Verrà visualizzato un elenco di app che è possibile gestire.

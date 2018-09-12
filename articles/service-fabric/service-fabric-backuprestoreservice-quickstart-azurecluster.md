@@ -66,7 +66,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 ## <a name="enabling-backup-and-restore-service"></a>Attivazione del backup e del ripristino del servizio
 È innanzitutto necessario abilitare il _servizio di backup e ripristino_ nel cluster. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i [modelli di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) o creare un modello di Resource Manager. Per abilitare il _servizio di backup e ripristino_, seguire questa procedura:
 
-1. Verificare che `apiversion` sia impostato su ** per la risorsa `2018-02-01` e, se non lo è, aggiornarlo come illustrato nel frammento seguente:
+1. Verificare che `apiversion` sia impostato su **`2018-02-01`** per la risorsa `Microsoft.ServiceFabric/clusters` e, se non lo è, aggiornarlo come illustrato nel frammento seguente:
 
     ```json
     {

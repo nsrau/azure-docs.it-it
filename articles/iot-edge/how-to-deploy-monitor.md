@@ -94,7 +94,7 @@ Dopo aver configurato tutti i moduli per una distribuzione, selezionare **Avanti
 
 ### <a name="step-3-specify-routes-optional"></a>Passaggio 3: Specificare le route (facoltativo)
 
-Le route definiscono le modalità di comunicazione tra i moduli in una distribuzione. Per impostazione predefinita, la procedura guidata presenta una route denominata **route** e definita come **FROM /* INTO $upstream**, per indicare che i messaggi generati dai moduli vengono inviati all'hub IoT.  
+Le route definiscono le modalità di comunicazione tra i moduli in una distribuzione. Per impostazione predefinita, la procedura guidata presenta una route denominata **route** e definita come **FROM /\* INTO $upstream**, per indicare che i messaggi generati dai moduli vengono inviati all'hub IoT.  
 
 Aggiungere o aggiornare le route con le informazioni riportate in [Dichiarare le route](module-composition.md#declare-routes) e quindi scegliere **Avanti** per proseguire con la sezione di verifica.
 
