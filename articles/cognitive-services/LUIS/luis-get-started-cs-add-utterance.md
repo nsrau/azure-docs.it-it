@@ -1,59 +1,58 @@
 ---
-title: "Esercitazione: Come aggiungere espressioni a un'app di Language Understanding con C# | Microsoft Docs"
-description: Questa esercitazione illustra come chiamare un'app di Language Understanding con C#.
+title: "Guida introduttiva: Modificare il modello ed eseguire il training dell'app LUIS con C# - Servizi cognitivi di Azure | Microsoft Docs"
+description: In questa guida introduttiva per C# si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 02/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: d9b3ca46cc635d961edadf3e3555f9656b6b5a1d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: 0c631fe281587c86f26643367aead14683b699df
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264244"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160916"
 ---
-# <a name="tutorial-add-utterances-to-a-luis-app-using-c"></a>Esercitazione: Aggiungere espressioni a un'app di Language Understanding con C# 
-In questa esercitazione si scrive un programma per aggiungere un'espressione a una finalità usando le API di creazione in C#.
+# <a name="quickstart-change-model-using-c"></a>Guida introduttiva: Modificare il modello con C#
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Creare un progetto console di Visual Studio 
-> * Aggiungere il metodo per chiamare l'API di Language Understanding per aggiungere l'espressione ed eseguire il training dell'app
-> * Aggiungere il file JSON con espressioni di esempio per la finalità BookFlight
-> * Eseguire la console ed esaminare lo stato del training per le espressioni
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
-Per altre informazioni, vedere la documentazione tecnica per le API di [aggiunta dell'espressione di esempio alla finalità](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [training](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) e [stato del training](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
+## <a name="prerequisites"></a>Prerequisiti
 
-Per questo articolo è necessario un account gratuito di [Language Understanding][LUIS] per creare la propria applicazione.
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+* Versione più recente di [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/).
+* Linguaggio di programmazione C# installato
+* Pacchetti NuGet [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) e [CommandLine](https://www.nuget.org/packages/CommandLineParser/)
 
-## <a name="prerequisites"></a>prerequisiti
+[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
-* Versione più recente di [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/). 
-* **[Chiave di creazione](luis-concept-keys.md#authoring-key)** di Language Understanding. È possibile trovare questa chiave in Account Settings (Impostazioni account) nel sito Web di [Language Understanding](luis-reference-regions.md).
-* [**ID dell'applicazione**](./luis-get-started-create-app.md) di Language Understanding esistente. L'ID applicazione viene visualizzato nel dashboard delle applicazioni. L'applicazione di Language Understanding con le finalità e le entità usate nel file `utterances.json` deve esistere prima di eseguire questo codice. Il codice riportato in questo articolo non crea le finalità e le entità. Aggiunge le espressioni per le entità e le finalità esistenti. 
-* **ID della versione** all'interno dell'applicazione che riceve le espressioni. L'ID predefinito è "0.1"
-* Creare un nuovo file denominato `add-utterances.cs` in VSCode.
+## <a name="example-utterances-json-file"></a>File JSON delle espressioni di esempio
 
-> [!NOTE] 
-> La soluzione C# completa, che include un file `utterances.json` di esempio, è disponibile nel [repository GitHub **LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/csharp/).
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-## <a name="create-the-project-in-visual-studio"></a>Creare il progetto in Visual Studio
+## <a name="create-quickstart-code"></a>Creare il codice della guida introduttiva 
 
 In Visual Studio creare una nuova app **console Desktop classico di Windows** con .Net Framework. 
 
 ![Tipo di progetto di Visual Studio](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
-## <a name="add-the-systemweb-dependency"></a>Aggiungere la dipendenza System.Web
+### <a name="add-the-systemweb-dependency"></a>Aggiungere la dipendenza System.Web
 
 Per il progetto di Visual Studio è necessario **System.Web**. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**.
 
 ![Aggiungere il riferimento System.web](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
-## <a name="write-the-c-code"></a>Scrivere il codice C#
+### <a name="add-other-dependencies"></a>Aggiungere altre dipendenze
+
+Per il progetto di Visual Studio sono necessari i pacchetti **JsonFormatterPlus** e **CommandLineParser**. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** e selezionare **Gestisci pacchetti NuGet**. Cercare ognuno delle due pacchetti e aggiungerlo. 
+
+![Aggiungere dipendenze di terze parti](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
+
+
+### <a name="write-the-c-code"></a>Scrivere il codice C#
 Il file **Program.cs** deve essere:
 
 ```CSharp
@@ -72,246 +71,73 @@ namespace ConsoleApp3
         }
     }
 }
-
 ```
 
-Aggiungere le dipendenze System.IO e System.Net.Http.
+Aggiungere le dipendenze.
 
-   [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=1-6 "Add the dependencies")]
+   [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
 
 Aggiungere gli ID e le stringhe di Language Understanding alla classe **Program**.
 
-   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=12-30&dedent=8 "Add the LUIS IDs and strings")]
+   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=19-30&dedent=8 "Add the LUIS IDs and strings")]
 
-Aggiungere il metodo JsonPrettyPrint.
+Aggiungere la classe per gestire i parametri della riga di comando alla classe **Program**.
 
-   [!code-csharp[Add the JsonPrettyPrint method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=32-92 "Add the JsonPrettyPrint method")]
+   [!code-csharp[Add class to manage command line parameters.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=32-46 "Add class to manage command-line parameters.")]
 
-Aggiungere la richiesta GET usata per creare le espressioni o avviare il training. 
+Aggiungere il metodo della richiesta GET alla classe **Program**.
 
-   [!code-csharp[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=93-103 "SendGet")]
-
-
-Aggiungere la richiesta POST usata per creare le espressioni o avviare il training. 
-
-   [!code-csharp[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=104-115 "SendPost")]
-
-Aggiungere la funzione `AddUtterances`.
-
-   [!code-csharp[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=116-125 "AddUtterances method")]
+   [!code-csharp[Add the GET request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=49-59 "Add the GET request.")]
 
 
-Aggiungere la funzione `Train`. 
+Aggiungere il metodo della richiesta POST alla classe **Program**. 
 
-   [!code-csharp[Train](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=126-136 "Train")]
+   [!code-csharp[Add the POST request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=60-76 "Add the POST request.")]
 
-Aggiungere la funzione `Status`.
+Aggiungere espressioni di esempio del metodo del file alla classe **Program**.
 
-   [!code-csharp[Status](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=137-143 "Status")]
+   [!code-csharp[Add example utterances from file.
+](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
+")]
 
-Per gestire gli argomenti, aggiungere il codice principale.
+Dopo aver apportato le modifiche al modello, eseguire il training. Aggiungere il metodo alla classe **Program**.
 
-   [!code-csharp[Main code](~/samples-luis/documentation-samples/authoring-api-samples/csharp/ConsoleApp1/Program.cs?range=144-172 "Main code")]
+   [!code-csharp[After the changes are applied to the model, train the model.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=87-96 "After the changes are applied to the model, train the model.")]
 
-## <a name="specify-utterances-to-add"></a>Specificare le espressioni da aggiungere
-Creare e modificare il file `utterances.json` per specificare la **matrice di espressioni** da aggiungere all'app di Language Understanding. La finalità e le entità **devono** essere già presenti nell'app di Language Understanding.
+È possibile che il training non venga eseguito subito. Controllare lo stato per verificare il training sia stato completato. Aggiungere il metodo alla classe **Program**.
 
-> [!NOTE]
-> L'applicazione di Language Understanding con le finalità e le entità usate nel file `utterances.json` deve esistere prima di eseguire il codice in `add-utterances.cs`. Il codice riportato in questo articolo non crea le finalità e le entità. Aggiunge solo le espressioni per le entità e le finalità esistenti.
+   [!code-csharp[Training may not complete immediately, check status to verify training is complete.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=97-103 "Training may not complete immediately, check status to verify training is complete.")]
 
-Il campo `text` contiene il testo dell'espressione. Il campo `intentName` deve corrispondere al nome di una finalità nell'app di Language Understanding. Il campo `entityLabels` è obbligatorio. Se non si vuole etichettare alcuna entità, fornire un elenco vuoto come mostrato nell'esempio seguente:
+Per gestire gli argomenti della riga di comando, aggiungere il codice main. Aggiungere il metodo alla classe **Program**.
 
-Se l'elenco entityLabels non è vuoto, è necessario che `startCharIndex` e `endCharIndex` contrassegnino l'entità a cui si fa riferimento nel campo `entityName`. Entrambi gli indici sono conteggi in base zero, ovvero il 6 nell'esempio si riferisce alla "S" di Seattle e non allo spazio prima della S maiuscola.
+   [!code-csharp[To manage command line arguments, add the main code.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=104-137 "To manage command-line arguments, add the main code.")]
 
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
+### <a name="copy-utterancesjson-to-output-directory"></a>Copiare utterances.json nella directory di output
 
-## <a name="mark-the-json-file-as-content"></a>Contrassegnare il file JSON come contenuto
 In Esplora soluzioni fare clic con il pulsante destro del mouse su `utterances.json`, quindi scegliere **Proprietà**. Nelle finestre delle proprietà contrassegnare **Azione di compilazione** di `Content` e **Copia nella directory di output** di `Copy Always`.  
 
 ![Contrassegnare il file JSON come contenuto](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
-## <a name="add-an-utterance-from-the-command-line"></a>Aggiungere un'espressione dalla riga di comando
+## <a name="build-code"></a>Compilare il codice
 
-Compilare ed eseguire l'applicazione da una riga di comando con C# dalla directory /bin/Debug. Verificare che anche il file utterances.json sia nella directory.
+Compilare il codice in Visual Studio. 
 
-La chiamata ad add-utterances.cs con solo utterance.json come argomento aggiunge, ma non esegue il training di Language Understanding per le nuove espressioni.
-````
-ConsoleApp\bin\Debug> ConsoleApp1.exe utterances.json
-````
+## <a name="run-code"></a>Eseguire il codice
 
-Questa riga di comando visualizza i risultati della chiamata all'API di aggiunta delle espressioni. Il campo `response` è in questo formato per le espressioni aggiunte. `hasError` è false, a indicare che l'espressione è stata aggiunta.  
+Nella directory /bin/Debug del progetto eseguire l'applicazione da una riga di comando. 
 
-```json
-    "response": [
-        {
-            "value": {
-                "UtteranceText": "go to seattle",
-                "ExampleId": -5123383
-            },
-            "hasError": false
-        },
-        {
-            "value": {
-                "UtteranceText": "book a flight",
-                "ExampleId": -169157
-            },
-            "hasError": false
-        }
-    ]
+```CMD
+ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Aggiungere un'espressione ed eseguire il training dalla riga di comando
-Chiamare add-utterance con l'argomento `-train` per inviare una richiesta di training. 
+Questa riga di comando visualizza i risultati della chiamata all'API di aggiunta delle espressioni. 
 
-````
-ConsoleApp\bin\Debug> ConsoleApp1.exe -train utterances.json
-````
-
-> [!NOTE]
-> Le espressioni duplicate non vengono aggiunte di nuovo, ma non causano un errore. `response` contiene l'ID dell'espressione originale.
-
-Il codice JSON seguente riporta i risultati di una richiesta di training riuscita:
-
-```json
-{
-    "request": null,
-    "response": {
-        "statusId": 9,
-        "status": "Queued"
-    }
-}
-```
-
-Dopo che la richiesta di training è stata inserita in coda, il completamento del training può richiedere qualche istante.
-
-## <a name="get-training-status-from-the-command-line"></a>Ottenere lo stato del training dalla riga di comando
-Chiamare l'app con l'argomento `-status` per verificare lo stato del training e visualizzare i dettagli dello stato.
-
-````
-ConsoleApp\bin\Debug> ConsoleApp1.exe -status
-````
-
-```
-Requested training status.
-[
-   {
-      "modelId": "eb2f117c-e10a-463e-90ea-1a0176660acc",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "c1bdfbfc-e110-402e-b0cc-2af4112289fb",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "863023ec-2c96-4d68-9c44-34c1cbde8bc9",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "82702162-73ba-4ae9-a6f6-517b5244c555",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "37121f4c-4853-467f-a9f3-6dfc8cad2763",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "de421482-753e-42f5-a765-ad0a60f50d69",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "80f58a45-86f2-4e18-be3d-b60a2c88312e",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "c9eb9772-3b18-4d5f-a1e6-e0c31f91b390",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "2afec2ff-7c01-4423-bb0e-e5f6935afae8",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "95a81c87-0d7b-4251-8e07-f28d180886a1",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   }
-]
-```
+[!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Al termine dell'esercitazione, rimuovere Visual Studio e l'applicazione console se non sono più necessari. 
+Dopo aver completato la procedura illustrata, rimuovere tutti i file creati in questa guida introduttiva. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 
-> [Compilare un'app di Language Understanding a livello di codice](luis-tutorial-node-import-utterances-csv.md) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+> [Compilare un'app di Language Understanding Intelligent Service (LUIS) a livello di codice](luis-tutorial-node-import-utterances-csv.md) 

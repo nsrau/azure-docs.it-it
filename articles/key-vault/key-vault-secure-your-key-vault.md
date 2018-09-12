@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: conceptual
+ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d8c5e660b460e763fb4a500463543316c8c914ed
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41917739"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159408"
 ---
 # <a name="secure-your-key-vault"></a>Proteggere l'insieme di credenziali delle chiavi
 Insieme di credenziali delle chiavi di Azure è un servizio cloud che consente di proteggere le chiavi di crittografia e i segreti (ad esempio, certificati, stringhe di connessione e password) per le applicazioni cloud. Poiché questi dati sono riservati e importanti per l'azienda, è opportuno limitare l'accesso agli insiemi di credenziali delle chiavi alle applicazioni e agli utenti autorizzati. Questo articolo offre una panoramica del modello di accesso all'insieme di credenziali delle chiavi, illustra i criteri di autenticazione e autorizzazione e spiega come proteggere l'accesso all'insieme di credenziali delle chiavi per le applicazioni cloud presentando un esempio.
@@ -94,8 +94,8 @@ I criteri di accesso di Key Vault concedono autorizzazioni separate per chiavi, 
 
 > [!IMPORTANT]
 > Si noti che i criteri di accesso dell'insieme di credenziali delle chiavi si applicano a livello di insieme di credenziali. Ad esempio, quando a un utente viene concessa l'autorizzazione per creare ed eliminare chiavi, potrà eseguire tali operazioni su tutte le chiavi dell'insieme di credenziali.
-> 
-> 
+
+Oltre all'impostazione di criteri, è anche possibile limitare l'accesso al piano dati seguendo la procedura illustrata in [Endpoint del servizio di rete virtuale per Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) mediante la configurazione di [firewall e regole di rete virtuale](key-vault-network-security.md) per un livello di sicurezza aggiuntivo.
 
 ## <a name="example"></a>Esempio
 Si supponga di voler sviluppare un'applicazione che usa un certificato per SSL, il servizio Archiviazione di Azure per archiviare i dati e una chiave RSA a 2048 bit per le operazioni di firma. Si supponga inoltre che tale applicazione venga eseguita in una macchina virtuale (o in un set di scalabilità di macchine virtuali). È possibile usare un insieme di credenziali delle chiavi per archiviare tutti i segreti dell'applicazione e anche per archiviare il certificato bootstrap usato dall'applicazione per l'autenticazione con Azure Active Directory.
@@ -201,8 +201,8 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 
 > [!NOTE]
 > Nota: questo esempio mostra come l'accesso all'insieme di credenziali delle chiavi verrà bloccato nell'ambiente di produzione. Gli sviluppatori devono quindi avere una sottoscrizione o un gruppo di risorse personale su cui dispongono di autorizzazioni complete per gestire gli insiemi di credenziali delle chiavi, le macchine virtuali e l'account di archiviazione in cui sviluppano l'applicazione.
-> 
-> 
+
+È consigliabile proteggere ulteriormente l'accesso all'insieme di credenziali delle chiavi mediante la [configurazione di firewall e reti virtuali di Key Vault](key-vault-network-security.md).
 
 ## <a name="resources"></a>Risorse
 * [Controllo degli accessi in base al ruolo di Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
@@ -243,6 +243,8 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
   Questi documenti includono informazioni di riferimento per consentire ai cmdlet di PowerShell di gestire i criteri di accesso dell'insieme di credenziali delle chiavi.
 
 ## <a name="next-steps"></a>Passaggi successivi
+[Configurare reti virtuali e firewall di Key Vault](key-vault-network-security.md)
+
 Per un'esercitazione introduttiva per gli amministratori, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
 
 Per altre informazioni sulla registrazione dell'utilizzo per l'insieme di credenziali delle chiavi, vedere [Registrazione dell'insieme di credenziali delle chiavi di Azure](key-vault-logging.md).
