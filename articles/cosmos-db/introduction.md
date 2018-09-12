@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 488ec66eb485761d484e305c298dfb9117745a42
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145282"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696449"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Introduzione ad Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Come servizio di database multimodello distribuito a livello globale, Azure Cosm
         * [API SQL](sql-api-introduction.md): un motore di database JSON senza schema con funzionalità di esecuzione di query SQL avanzate.
         * [API MongoDB](mongodb-introduction.md): *MongoDB come servizio* a scalabilità elevata con la tecnologia della piattaforma Azure Cosmos DB. Compatibile con librerie, driver, strumenti e applicazioni MongoDB esistenti.
         * [API Cassandra](cassandra-introduction.md): Cassandra come servizio con distribuzione a livello globale con la tecnologia della piattaforma Azure Cosmos DB. Compatibile con librerie, driver, strumenti e applicazioni [Apache Cassandra](https://cassandra.apache.org/) esistenti.
-        * [API Gremlin](graph-introduction.md): servizio di database a grafo completamente gestito e scalabile orizzontalmente che semplifica la compilazione e l'esecuzione delle applicazioni che usano set di dati con connessione elevata che supportano le API Open Graph (in base alla [specifica Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [API Gremlin](graph-introduction.md): servizio di database a grafo completamente gestito e scalabile orizzontalmente che semplifica la compilazione e l'esecuzione delle applicazioni che usano set di dati con connessione elevata che supportano le API Open Gremlin (in base alla [specifica Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
         * [API Tabelle](table-introduction.md): servizio di database di coppie chiave-valore progettato per offrire funzionalità Premium (ad esempio, indicizzazione automatica, bassa latenza garantita, distribuzione globale) alle applicazioni di archiviazione tabelle di Azure senza apportare modifiche alle app.
         * Altri modelli di dati e API saranno presto disponibili.
 

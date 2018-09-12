@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: d7df652a5549f3cea1b3d5bd5652c6e39fbd456a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44381812"
+documentType: LandingData
+title: Documentazione della gestione delle applicazioni di Azure AD
+metadata:
+  title: Documentazione della gestione delle applicazioni di Azure Active Directory
+  meta.description: Learn how to manage and deploy applications with Azure Active Directory.
+  services: active-directory
+  author: barbkess
+  manager: mtillman
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/06/2018
+  ms.author: barbkess
+abstract:
+  description: Informazioni su come gestire e distribuire le applicazioni con Azure Active Directory.
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: Informazioni su come aggiungere un'applicazione per gli utenti a cui accedere tramite Azure Active Directory.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_protect.svg
+      text: Aggiungere un'applicazione
+      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_protect.svg
+      text: Visualizzare le proprie applicazioni
+      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come abilitare un processo di accesso semplice e sicuro per le proprie applicazioni.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configurare l'accesso Single Sign-On</a>

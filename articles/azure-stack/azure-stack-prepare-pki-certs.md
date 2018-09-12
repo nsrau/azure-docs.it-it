@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 387c4ce51d7bc9b618bb87fd347b9448926452b7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426796"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379588"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack per la distribuzione
 I file di certificato [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) devono essere importati ed esportati con proprietà corrispondenti requisiti dei certificati di Azure Stack.
@@ -45,7 +44,7 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
 
     ![Configurare l'archivio certificati](.\media\prepare-pki-certs\3.png)
 
-    a. Se si sta importando un file PFX verrà visualizzata una finestra di dialogo aggiuntive. Nel **protezione con chiave privata** pagina, immettere la password per i file di certificato e quindi abilitare il **contrassegna questa chiave come esportabile. In questo modo è possibile eseguire il backup o trasferire le chiavi in un secondo momento** opzione. Selezionare **Avanti**.
+    a. Se si sta importando un file PFX, verrà visualizzato con una finestra di dialogo aggiuntiva. Nel **protezione con chiave privata** pagina, immettere la password per i file di certificato e quindi abilitare il **contrassegna questa chiave come esportabile. In questo modo è possibile eseguire il backup o trasferire le chiavi in un secondo momento** opzione. Selezionare **Avanti**.
 
     ![Contrassegna le chiavi come esportabili](.\media\prepare-pki-certs\2.png)
 

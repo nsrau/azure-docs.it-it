@@ -15,11 +15,11 @@ ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
 ms.openlocfilehash: c55dcf0736642690f245f680db5cb1620c2175e7
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139307"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390963"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Usare i profili delle versioni API con Python in Azure Stack
 

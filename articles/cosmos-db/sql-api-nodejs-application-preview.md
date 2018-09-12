@@ -11,21 +11,22 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: sngun
-ms.openlocfilehash: 43c5b8beef523684a405f1396ad0a9d862c123e8
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8e788207e99a87e9635fbf668ad99c21ca101ecf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41920871"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697116"
 ---
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con Azure Cosmos DB e Node.js SDK (anteprima)
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.JS](sql-api-nodejs-application.md)
-> * [Node.js v2.0 (anteprima)](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.JS](sql-api-nodejs-application.md)
+> * [Node.js - v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 Questa esercitazione relativa a Node.js mostra come usare l'account API SQL di Azure Cosmos DB per archiviare i dati e accedervi da un'applicazione Node.js Express ospitata in Siti Web di Azure. In questa esercitazione verrà creata una semplice applicazione basata sul Web (app ToDo) che permette di creare, recuperare e completare attività. Le attività vengono memorizzate come documenti JSON in Azure Cosmos DB. L'immagine seguente mostra uno screenshot dell'applicazione ToDo:

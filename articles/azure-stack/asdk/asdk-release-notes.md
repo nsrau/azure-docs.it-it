@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: fe6be5a041b87af2323c7978c5371e326b3cd3d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c1b88518f9e27093ff00ad020e470fa5670dfcd6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051273"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391947"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit  
 Questo articolo fornisce informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit. Se non si conosce quale versione in esecuzione, è possibile [usare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -60,6 +60,8 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Esercitazioni introduttive* nel collegamento utente del dashboard del portale ora articoli pertinenti nella documentazione online di Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *Tutti i servizi* sostituisce *altri servizi* nei portali di amministratore e utente di Azure Stack. È ora possibile usare *tutti i servizi* alternativa per esplorare i portali di Azure Stack gli esattamente come nei portali di Azure.
+
+- <!-- TBD | IS, ASDK --> **+ Crea una risorsa** sostituisce **+ nuovo** nei portali di amministratore e utente di Azure Stack.  È ora possibile usare *+ crea una risorsa* alternativa per esplorare i portali di Azure Stack gli esattamente come nei portali di Azure. 
 
 - <!--  TBD – IS, ASDK --> *Una base* dimensioni delle macchine virtuali sono in pensione per [creazione di set di scalabilità di macchine virtuali](.\.\azure-stack-compute-add-scalesets.md) (VMSS) tramite il portale. Per creare un set di scalabilità con queste dimensioni, usare PowerShell o un modello. 
 

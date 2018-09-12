@@ -12,20 +12,22 @@ ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9efd7103ce9545f099506f49b2add7f7721cd7a7
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 725260e25a2df01ee0231fa724b13e51f6a7e788
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126763"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698282"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Creare un'applicazione Web Python Flask con Azure Cosmos DB
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.JS](sql-api-nodejs-application.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.JS](sql-api-nodejs-application.md)
+> * [Node.js - v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 Questa esercitazione illustra come usare Azure Cosmos DB per archiviare e accedere ai dati da un'applicazione Web Python Flask ospitata in Servizio app di Azure. Questa esercitazione presuppone una certa esperienza nell'uso di Python e dei siti Web di Azure.

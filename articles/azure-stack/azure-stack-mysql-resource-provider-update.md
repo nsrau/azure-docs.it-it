@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fb9f022f0af821d81e5b61b99ecb52b7f7151b5f
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049596"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391556"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Aggiornare il provider di risorse MySQL 
 
@@ -31,6 +31,7 @@ Una nuova scheda del provider di risorse SQL potrebbe essere rilasciata quando v
 >È necessario installare aggiornamenti nell'ordine in che cui vengono rilasciate. Non è possibile ignorare le versioni. Vedere l'elenco di versioni nel [distribuisce i prerequisiti di provider di risorse](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Aggiornare l'adattatore di provider di risorse MySQL (solo sistemi integrati)
+
 Una nuova scheda del provider di risorse SQL potrebbe essere rilasciata quando vengono aggiornate le compilazioni di Azure Stack. Mentre la scheda esistente continua a funzionare, è consigliabile aggiornare alla build più recente quanto prima.  
  
 Per l'aggiornamento del provider di risorse è usare il **UpdateMySQLProvider.ps1** script. Il processo è simile a quello usato per installare un provider di risorse, come descritto nel [distribuire il provider di risorse](#deploy-the-resource-provider) sezione di questo articolo. Lo script è incluso nel download del provider di risorse. 
@@ -39,6 +40,9 @@ Il **UpdateMySQLProvider.ps1** script crea una nuova macchina virtuale con il co
 
 >[!NOTE]
 >Si consiglia di scaricare l'immagine di Windows Server 2016 Core più recente dalla gestione di Marketplace. Se è necessario installare un aggiornamento, è possibile inserire un **singolo** nel percorso della dipendenza locale il pacchetto MSU. Lo script avrà esito negativo se è presente più di un file MSU in questa posizione.
+
+>[!NOTE]  
+> 
 
 Lo script richiede l'uso degli stessi argomenti che sono descritte per lo script DeployMySqlProvider.ps1. Specificare anche il certificato nel portale.  
 
@@ -97,6 +101,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 | **AzCredential** | Le credenziali per l'account di amministratore del servizio di Azure Stack. Usare le stesse credenziali di avere usato per la distribuzione di Azure Stack. | _Obbligatorio_ | 
 | **VMLocalCredential** |Le credenziali per l'account amministratore locale del provider di risorse SQL macchina virtuale. | _Obbligatorio_ | 
 | **PrivilegedEndpoint** | L'indirizzo IP o nome DNS dell'endpoint con privilegi. |  _Obbligatorio_ | 
+| **AzureEnvironment** | Ambiente di azure dell'account di amministratore del servizio che usato per la distribuzione di Azure Stack. Obbligatorio solo se non è ad FS. I nomi di ambiente supportati sono **AzureCloud**, **AzureUSGovernment**, o se si usa un China Azure Active Directory **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Il file con estensione pfx del certificato deve trovarsi in questa directory. | _Facoltativo_ (_obbligatorio_ a nodi multipli) | 
 | **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx. | _Obbligatorio_ | 
 | **MaxRetryCount** | Il numero di volte in cui che si desidera ripetere ogni operazione se si verifica un errore.| 2 | 

@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
-ms.openlocfilehash: cb378c2d2773096992ef688653fd77b2625f8754
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023078"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381999"
 ---
 # <a name="create-an-azure-sql-managed-instance"></a>Creare un'istanza gestita di SQL di Azure
 
@@ -60,7 +60,7 @@ La procedura seguente illustra come creare un'istanza gestita dopo che l'antepri
 2. Individuare **Istanza gestita** e quindi selezionare **Azure SQL Database Managed Instance (preview)** (Istanza gestita di database SQL di Azure - anteprima).
 3. Fare clic su **Create**(Crea).
 
-   ![Creare un'istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Creare un'istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Selezionare la sottoscrizione e verificare che le condizioni per l'anteprima risultino **Accettate**.
 
@@ -68,7 +68,7 @@ La procedura seguente illustra come creare un'istanza gestita dopo che l'antepri
 
 5. Compilare il modulo relativo all'istanza gestita con le informazioni richieste, usando le informazioni riportate nella tabella seguente:
 
-   | Impostazione| Valore consigliato | DESCRIZIONE |
+   | Impostazione| Valore consigliato | Descrizione |
    | ------ | --------------- | ----------- |
    |**Nome istanza gestita**|Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Account di accesso amministratore istanza gestita**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Non usare "serveradmin" perché è un ruolo a livello di server riservato.| 
@@ -77,26 +77,21 @@ La procedura seguente illustra come creare un'istanza gestita dopo che l'antepri
    |**Posizione**|Località selezionata in precedenza|Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
    |**Rete virtuale**|Rete virtuale creata in precedenza| Scegliere l'elemento **MyNewVNet/ManagedInstances** se nel passaggio precedente non sono stati modificati i nomi. In caso contrario, scegliere il nome della rete virtuale e la subnet delle istanze gestite immessi nella sezione precedente. **Non usare la subnet predefinita perché non è configurata per ospitare le istanze gestite**. |
 
-   ![Modulo per la creazione dell'istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
+   ![Modulo per la creazione dell'istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
 6. Fare clic su **Piano tariffario** per definire le dimensioni delle risorse di calcolo e di archiviazione ed esaminare le opzioni del piano tariffario. Per impostazione predefinita, all'istanza vengono assegnati gratuitamente 32 GB di spazio di archiviazione, **che potrebbero non essere sufficienti per le proprie applicazioni**.
 7. Usare i dispositivi di scorrimento o le caselle di testo per specificare la quantità di spazio di archiviazione e il numero di core virtuali. 
-   ![piano tariffario istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   ![piano tariffario istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. Al termine, fare clic su **Applica** per salvare le impostazioni selezionate.  
 9. Fare clic su **Crea** per distribuire l'istanza gestita.
 10. Fare clic sull'icona **Notifiche** per visualizzare lo stato della distribuzione.
- 
-   ![Stato di avanzamento della distribuzione](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
-
 11. Fare clic su **Distribuzione in corso** per aprire la finestra dell'istanza gestita e monitorare ulteriormente lo stato di avanzamento della distribuzione.
- 
-   ![Stato di avanzamento della distribuzione 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
 Mentre viene eseguita la distribuzione, passare alla procedura successiva.
 
 > [!IMPORTANT]
-> Per la prima istanza in una subnet, i tempi di distribuzione sono in genere molto più lunghi che in caso di istanze successive. Il completamento può richiedere talvolta più di 24 ore. Non annullare l'operazione di distribuzione perché la durata è superiore al previsto. Questa durata della distribuzione della prima istanza è una situazione temporanea. Poco dopo l'inizio dell'anteprima pubblica è prevista una riduzione significativa dei tempi di distribuzione. Creare la seconda istanza gestita nella subnet richiederà qualche minuto.
+> Per la prima istanza in una subnet, i tempi di distribuzione sono in genere molto più lunghi rispetto alle istanze successive. Non annullare l'operazione di distribuzione perché la durata è superiore al previsto. Creare la seconda istanza gestita nella subnet richiederà qualche minuto.
 
 ## <a name="prepare-client-machine"></a>Preparare il computer client
 

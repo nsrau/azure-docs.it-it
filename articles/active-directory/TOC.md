@@ -197,6 +197,7 @@
 #### [Restrizioni relative ai tenant](manage-apps/tenant-restrictions.md)
 #### [Use SCIM provision users](manage-apps/use-scim-to-provision-users-and-groups.md) (Usare SCIM per il provisioning degli utenti)
 
+### [Informazioni sulle esperienze di consenso per applicazioni Azure AD](application-consent-experience.md)
 
 ### Risolvere problemi
 

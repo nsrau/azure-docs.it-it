@@ -1,6 +1,6 @@
 ---
-title: Sostituire un disco fisico nello Stack di Azure | Documenti Microsoft
-description: Viene descritto il processo per informazioni su come sostituire un disco fisico nello Stack di Azure.
+title: Sostituire un disco fisico in Azure Stack | Microsoft Docs
+description: Descrive il processo per informazioni su come sostituire un disco fisico in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,46 +12,46 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311322"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376953"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Sostituire un disco fisico nello Stack di Azure
+# <a name="replace-a-physical-disk-in-azure-stack"></a>Sostituire un disco fisico in Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-In questo articolo viene descritto il processo generale per sostituire un disco fisico nello Stack di Azure. Se un disco fisico non riesce, è necessario sostituire appena possibile.
+Questo articolo descrive il processo generale per sostituire un disco fisico in Azure Stack. Se un disco fisico ha esito negativo, è necessario sostituirlo appena possibile.
 
-È possibile utilizzare questa procedura per sistemi integrati e per le distribuzioni di kit di sviluppo che dispongono di dischi a caldo.
+È possibile utilizzare questa procedura per i sistemi integrati e per le distribuzioni kit di sviluppo che dispongono di dischi a caldo.
 
-Sostituzione del disco effettivo passaggi variano in base al fornitore dell'hardware (OEM) original equipment manufacturer. Vedere la documentazione del fornitore campo unità sostituibili (FRU) per i passaggi dettagliati che sono specifiche per il sistema. 
+Sostituzione del disco effettivi passaggi variano in base al fornitore dell'hardware OEM (OEM). Vedere la documentazione del fornitore campo unità sostituibile sul (FRU) per informazioni dettagliate specifiche per il sistema. 
 
 ## <a name="review-disk-alert-information"></a>Informazioni sugli avvisi di revisione del disco
-Quando un disco ha esito negativo, viene visualizzato un avviso che informa che la connettività è stata interrotta a un disco fisico. 
+Quando un disco non riesce, si riceve un avviso che indica che la connettività è stata interrotta a un disco fisico. 
 
- ![Ha perso la connettività con avviso con disco fisico](media/azure-stack-replace-disk/DiskAlert.png)
+ ![Visualizzazione degli avvisi connettività persa al disco fisico](media/azure-stack-replace-disk/DiskAlert.png)
 
-Se si apre l'avviso, la descrizione dell'avviso contiene il nodo di unità di scala e la posizione esatta dello slot fisico per il disco che è necessario sostituire. Ulteriormente Stack Azure consente di identificare un disco guasto utilizzando funzionalità indicatore LED.
+Se si apre l'avviso, la descrizione dell'avviso contiene il nodo di unità di scala e la posizione esatta dello slot fisico per il disco che è necessario sostituire. Azure Stack ulteriormente aiuta a identificare il disco guasto usando le funzionalità di indicatore LED.
 
  ## <a name="replace-the-disk"></a>Sostituire il disco
 
-Seguire le istruzioni FRU del produttore dell'hardware OEM per la sostituzione del disco effettivo.
+Seguire le istruzioni FRU del produttore dell'hardware OEM per la sostituzione effettiva del disco.
 
 > [!note]
-> Sostituire dischi per un nodo di unità di scala alla volta. Attendere che i processi di ripristino disco virtuale da completare prima di passare al successivo nodo di unità di scala
+> Sostituire i dischi per un nodo di unità di scala alla volta. Attendere che i processi di ripristino disco virtuale da completare prima di procedere con il successivo nodo di unità di scala
 
-Per evitare l'utilizzo di un disco non supportato in un sistema integrato, il sistema blocca i dischi che non sono supportati dal fornitore del sistema. Se si tenta di utilizzare un disco non supportato, un nuovo avviso indica che un disco è stato messo in quarantena a causa di un modello non supportato o del firmware.
+Per evitare l'uso di un disco non supportato in un sistema integrato, il sistema consente di bloccare i dischi che non sono supportati dal fornitore del sistema. Se si prova a usare un disco non supportato, un nuovo avviso indica che un disco è stato messo in quarantena a causa di un modello non supportato o firmware.
 
-Dopo aver sostituito il disco, Stack di Azure automaticamente consente di individuare il nuovo disco e avvia il processo di ripristino del disco virtuale.  
+Dopo aver sostituito il disco, Azure Stack automaticamente consente di individuare il nuovo disco e viene avviato il processo di ripristino del disco virtuale.  
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>Controllare lo stato di ripristino disco virtuale
  
- Dopo aver sostituito il disco, è possibile monitorare lo stato di integrità del disco virtuale e ripristinare lo stato del processo tramite l'endpoint con privilegi. Seguire questi passaggi da qualsiasi computer con connettività di rete all'endpoint con privilegi.
+ Dopo aver sostituito il disco, è possibile monitorare lo stato di integrità del disco virtuale e ripristinare lo stato del processo utilizzando l'endpoint con privilegi. Seguire questi passaggi da qualsiasi computer dotato di connettività di rete all'endpoint con privilegi.
 
 1. Aprire una sessione di Windows PowerShell e connettersi all'endpoint con privilegi.
     ````PowerShell
@@ -64,15 +64,15 @@ Dopo aver sostituito il disco, Stack di Azure automaticamente consente di indivi
     ````PowerShell
         Get-VirtualDisk -CimSession s-cluster
     ````
-   ![Output del comando Get-VirtualDisk PowerShell](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
+   ![Output di PowerShell del comando Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
-3. Eseguire il comando seguente per visualizzare lo stato processo di archiviazione corrente:
+3. Eseguire il comando seguente per visualizzare lo stato del processo corrente archiviazione:
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ````
-      ![Output del comando Get-StorageJob PowerShell](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+      ![Output di PowerShell del comando Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-## <a name="troubleshoot-virtual-disk-repair"></a>Risoluzione dei problemi di riparazione del disco virtuale
+## <a name="troubleshoot-virtual-disk-repair"></a>Risolvere i problemi di riparazione del disco virtuale
 
 Se il disco virtuale Ripristina processo sembra bloccato, eseguire il comando seguente per riavviare il processo:
   ````PowerShell

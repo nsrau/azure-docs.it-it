@@ -1,6 +1,6 @@
 ---
-title: Backup e ripristino dei dati per lo Stack di Azure con il servizio di Backup infrastruttura | Documenti Microsoft
-description: È possibile eseguire il backup e ripristinare i dati di configurazione e del servizio tramite il servizio di Backup di infrastruttura.
+title: Backup e ripristino dei dati per Azure Stack con il servizio Backup di infrastruttura | Microsoft Docs
+description: È possibile eseguire il backup e ripristinare i dati di servizio usando il servizio Backup di infrastruttura e configurazione.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,53 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
+ms.date: 9/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 12138ac5a173f66d8b6b0041de9f31f4ac326485
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 9f2668ff84ade4ba99b7aa7dcd67feafadc1c6c4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34822956"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377837"
 ---
-# <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Backup e ripristino dei dati per lo Stack di Azure con il servizio di Backup di infrastruttura
+# <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Backup e ripristino dei dati per Azure Stack con il servizio Backup di infrastruttura
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-È possibile eseguire il backup e ripristinare i dati di configurazione e del servizio tramite il servizio di Backup di infrastruttura. Ogni installazione di Azure Stack contiene un'istanza del servizio. Per ripristinare l'identità, sicurezza e i dati di gestione risorse di Azure, è possibile utilizzare i backup creati dal servizio per la ridistribuzione di Stack di Cloud di Azure.
+È possibile eseguire il backup e ripristinare i dati di servizio usando il servizio Backup di infrastruttura e configurazione. Ogni installazione di Azure Stack contiene un'istanza del servizio. È possibile usare i backup creati dal servizio per la ridistribuzione del Cloud Azure Stack per il ripristino di identità, sicurezza e i dati di Azure Resource Manager.
 
-Quando si è pronti per inserire il cloud nell'ambiente di produzione, è possibile abilitare il backup. Non consentire il backup se si prevede di eseguire i test e convalida per un lungo periodo di tempo.
+È possibile abilitare il backup quando si è pronti a utilizzare il cloud nell'ambiente di produzione. Non abilitare il backup se si prevede di eseguire il test e convalida per un lungo periodo di tempo.
 
-Prima di abilitare il servizio di backup, assicurarsi di avere [requisiti sul posto](#verify-requirements-for-the-infrastructure-backup-service).
+Prima di abilitare il servizio backup, assicurarsi di avere [requisiti posto](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> Il servizio di Backup di infrastruttura non include applicazioni e dati utente. Vedere gli articoli seguenti per ulteriori informazioni sul backup e ripristino [servizi App](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), e [MySQL](https://aka.ms/azure-stack-mysql) provider di risorse e dati utente associati...
+> Il servizio di infrastruttura di Backup non include applicazioni e dati utente. Vedere gli articoli seguenti per istruzioni sul backup e ripristino [servizi App](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), e [MySQL](https://aka.ms/azure-stack-mysql) i provider di risorse e dati utente associati...
 
-## <a name="the-infrastructure-backup-service"></a>Il servizio di Backup di infrastruttura
+## <a name="the-infrastructure-backup-service"></a>Il servizio Backup di infrastruttura
 
-I servizi contiene le funzionalità seguenti.
+I servizi contengono le funzionalità seguenti.
 
 | Funzionalità                                            | DESCRIZIONE                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Servizi di infrastruttura di backup                     | Coordinare un sottoinsieme di servizi di infrastruttura nello Stack di Azure backup. Se si verifica un'emergenza, è possano ripristinare i dati come parte di ridistribuzione. |
-| La compressione e crittografia dei dati di Backup esportati | Dati di backup vengono compressi e crittografati dal sistema prima che viene esportato nel percorso di archiviazione esterno fornito dall'amministratore.                |
-| Monitoraggio del processo di backup                              | Sistema di notifica quando hanno esito negativo e correzione passaggi dei processi di backup.                                                                                                |
-| Esperienza di gestione dei backup                       | RP backup supporta l'attivazione di backup.                                                                                                                         |
-| Ripristino di cloud                                     | Se si verifica una perdita di dati, è possono utilizzare i backup per ripristinare le informazioni di base dello Stack di Azure come parte della distribuzione.                                 |
+| Servizi di infrastruttura di backup                     | Backup coordinato attraverso un subset dei servizi di infrastruttura in Azure Stack. Se si verifica una situazione di emergenza, i dati possono essere ripristinati come parte di ridistribuzione. |
+| La compressione e la crittografia dei dati di Backup esportati | I dati di backup vengono compressi e crittografati dal sistema prima che venga esportato nel percorso di archiviazione esterno fornito dall'amministratore.                |
+| Monitoraggio dei processi di backup                              | Sistema di notifica quando hanno esito negativo e la correzione passaggi dei processi di backup.                                                                                                |
+| Esperienza di gestione di backup                       | Applicazione relying Party backup supporta l'abilitazione del backup.                                                                                                                         |
+| Ripristino di cloud                                     | Se si verifica una grave perdita dei dati, backup possono essere usati per ripristinare le informazioni di Azure Stack core come parte della distribuzione.                                 |
 
-## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Verificare i requisiti per il servizio di Backup di infrastruttura
+## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Verificare i requisiti per il servizio Backup di infrastruttura
 
 - **Percorso di archiviazione**  
-  È necessario una condivisione file accessibile dallo Stack di Azure che può contenere i sette backup. Ogni backup è di circa 10 GB. La condivisione deve essere in grado di archiviare 140 GB di backup. Per ulteriori informazioni sulla selezione di un percorso di archiviazione per il servizio di Backup di Azure Stack infrastruttura, vedere [requisiti del Controller di Backup](azure-stack-backup-reference.md#backup-controller-requirements).
+  È necessaria una condivisione di file accessibili da Azure Stack che può contenere i backup di sette. Ogni backup è di circa 10 GB. La condivisione deve essere in grado di archiviare 140 GB di backup. Per altre informazioni sulla selezione di un percorso di archiviazione per il servizio Backup di Azure Stack dell'infrastruttura, vedere [requisiti del Controller Backup](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Credenziali**  
-  È necessario un account utente di dominio e le credenziali, ad esempio, è possibile utilizzare le credenziali di amministratore dello Stack di Azure.
+  È necessario un account utente di dominio e le credenziali, ad esempio, è possibile usare le credenziali di amministratore di Azure Stack.
 - **Chiave di crittografia**  
-  I file di backup vengono crittografati tramite la chiave. Assicurarsi di archiviare la chiave in un luogo sicuro. Dopo aver impostato questa chiave per la prima volta o ruotare la chiave in futuro, è possibile visualizzare la chiave da questa interfaccia. Per ulteriori istruzioni generare una chiave precondivisa, seguire gli script in [abilitare il Backup per lo Stack di Azure con PowerShell](azure-stack-backup-enable-backup-powershell.md).
+  I file di backup vengono crittografati usando questa chiave. Assicurarsi di conservare la chiave in un luogo sicuro. Dopo aver impostato questa chiave per la prima volta o ruotare la chiave in futuro, non è possibile visualizzare questa chiave da questa interfaccia. Per altre istruzioni generare una chiave precondivisa, seguire gli script in [abilitare il Backup per Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [abilitare il Backup per lo Stack di Azure dal portale di amministrazione](azure-stack-backup-enable-backup-console.md).
-- Informazioni su come [abilitare il Backup per lo Stack di Azure con PowerShell](azure-stack-backup-enable-backup-powershell.md).
-- Informazioni su come [backup Azure Stack](azure-stack-backup-back-up-azure-stack.md )
-- Informazioni su come [recupero dalla perdita di dati](azure-stack-backup-recover-data.md)
+- Informazioni su come [abilitare il Backup per Azure Stack dal portale di amministrazione](azure-stack-backup-enable-backup-console.md).
+- Informazioni su come [abilitare il Backup per Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
+- Informazioni su come [eseguire il backup di Azure Stack](azure-stack-backup-back-up-azure-stack.md )
+- Informazioni su come [risarcimento grave perdita dei dati](azure-stack-backup-recover-data.md)

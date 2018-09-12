@@ -1,18 +1,20 @@
 ---
 title: Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con Identità del servizio gestito
 description: Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con Identità del servizio gestito e la gestione dello stato remoto per distribuire facilmente le risorse in Azure.
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, MSI, macchina virtuale, stato remoto, azure
-author: VaijanathB
-manager: rloutlaw
+author: tomarcher
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 3/12/2018
-ms.topic: article
-ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413797"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669388"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con Identità del servizio gestito
 
@@ -22,7 +24,7 @@ Grazie all'immagine di Terraform del Marketplace è possibile imparare a usare T
 
 Per questa immagine di macchina virtuale Terraform non sono previsti costi per il software. Si pagano solo le spese di utilizzo dell'hardware di Azure valutate in base alle dimensioni della macchina virtuale di cui viene effettuato il provisioning. Per altre informazioni sui costi di calcolo, vedere la [pagina dei prezzi delle macchine virtuali Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per poter creare una macchina virtuale Linux Terraform è necessario avere una sottoscrizione di Azure. Se non è già disponibile, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/free/).  
 
 ## <a name="create-your-terraform-virtual-machine"></a>Creare la macchina virtuale Terraform 

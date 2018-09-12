@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5d988e8a8a32924b8424a07cf20c75f0e8f8cf4d
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465744"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391075"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Ottieni operatività con PowerShell in Azure Stack
 
@@ -27,12 +26,14 @@ ms.locfileid: "38465744"
 
 Questa Guida introduttiva illustra come installare e configurare un ambiente Azure Stack con PowerShell. Lo script che viene fornito in questo articolo ha come ambito il **operatore di Azure Stack** solo.
 
-Questo articolo è una versione ridotta dei passaggi descritti nel [installare PowerShell]( azure-stack-powershell-install.md), [scaricare strumenti]( azure-stack-powershell-download.md), e [configurare l'ambiente di PowerShell dell'operatore Azure Stack]( azure-stack-powershell-configure-admin.md) articoli. Usando gli script in questo argomento, è possibile configurare PowerShell per gli ambienti Azure Stack che vengono distribuiti con Azure Active Directory o Active Directory Federation Services (ADFS).  
+Questo articolo è una versione ridotta dei passaggi descritti nel [installare PowerShell]( azure-stack-powershell-install.md), [scaricare strumenti]( azure-stack-powershell-download.md), e [configurare l'ambiente di PowerShell dell'operatore Azure Stack]( azure-stack-powershell-configure-admin.md) articoli. Usando gli script in questo articolo, è possibile configurare PowerShell per gli ambienti Azure Stack che vengono distribuiti con Azure Active Directory o Active Directory Federation Services (ADFS).  
 
 
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Configurare PowerShell per le distribuzioni basate su Azure Active Directory
 
-Accedi per il database di Azure Stack Development Kit, o un client esterno basato su Windows se si è connessi tramite VPN. Aprire una sessione di PowerShell ISE con privilegi elevata e quindi eseguire lo script seguente. Assicurarsi di aggiornare il **Nometenant**, **ArmEndpoint**, e **GraphAudience** variabili in base alle esigenze per la configurazione di ambiente:
+<a name="sign-in-to-your-azure-stack-development-kit-or-a-windows-based-external-client-if-you-are-connected-through-vpn-open-an-elevated-powershell-ise-session-and-then-run-the-following-script"></a>Accedi per il database di Azure Stack Development Kit, o un client esterno basato su Windows se si è connessi tramite VPN. Aprire una sessione di PowerShell ISE con privilegi elevata e quindi eseguire lo script seguente. 
+-  
+- Assicurarsi di aggiornare il **Nometenant**, **ArmEndpoint**, e **GraphAudience** variabili in base alle esigenze per la configurazione di ambiente:
 
 ```powershell
 # Specify Azure Active Directory tenant name.

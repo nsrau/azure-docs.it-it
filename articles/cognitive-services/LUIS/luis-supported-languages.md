@@ -27,7 +27,7 @@ Se occorre un'applicazione client LUIS multilingue come una chatbot, sono dispon
 LUIS riconosce espressioni nelle lingue seguenti:
 
 
-| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Suggerimenti di siti | **[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)| 
+| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Suggerimenti di siti | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)| 
 |--|--|:--:|:--:|:--:|:--:|
 | Inglese americano |`en-US` | ✔ | ✔  |✔|✔|
 | Francese (Canada) |`fr-CA` |-|   -   |-|✔|
@@ -58,7 +58,7 @@ Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-e
      - でございます non è uguale a です. 
      - です non è uguale a だ. 
 
-### <a name="text-analytics-support-notes"></a>**Note di supporto sull'analisi del testo
+### <a name="text-analytics-support-notes"></a>\*\*Note di supporto sull'analisi del testo
 L'analisi del testo include l'entità predefinita keyPhrase e l'analisi del sentiment. Solo il portoghese è supportato per le impostazioni cultura secondarie: `pt-PT` e `pt-BR`. Tutte le altre lingue sono supportate a livello di impostazioni di cultura primarie. Altre informazioni sulle [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) per Analisi del testo. 
 
 ### <a name="speech-api-supported-languages"></a>Lingue supportate per Speech API

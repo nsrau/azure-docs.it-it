@@ -1,22 +1,24 @@
 ---
 title: Utilizzo di Terraform con Azure
 description: Introduzione all'utilizzo di Terraform per il controllo delle versioni e la distribuzione dell'infrastruttura di Azure.
-ms.service: virtual-machines-linux
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, panoramica, pianificare, applicare, automatizzare
-author: binderjoe
-ms.author: jbinder
-ms.date: 10/19/2017
-ms.topic: article
-ms.openlocfilehash: 5d313bda6a1067e6d023f62fb26704f9aee5c7bf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 08/31/2018
+ms.openlocfilehash: dd340238f8a70c1dd0cfc172976bef6b1ad282b1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114473"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665630"
 ---
 # <a name="terraform-with-azure"></a>Utilizzo di Terraform con Azure
 
-[Hashicorp Terraform](https://www.terraform.io/) è uno strumento open source per il provisioning e la gestione dell'infrastruttura. Consente di codificare l'infrastruttura nei file di configurazione che descrivono la topologia delle risorse cloud, ad esempio macchine virtuali, account di archiviazione e interfacce di rete. L'interfaccia della riga di comando di Terraform offre un meccanismo semplice per la distribuzione e il controllo della versione dei file di configurazione in Azure o in altri cloud supportati.
+[Hashicorp Terraform](https://www.terraform.io/) è uno strumento open source per il provisioning e la gestione dell'infrastruttura cloud. Consente di codificare l'infrastruttura nei file di configurazione che descrivono la topologia delle risorse cloud, ad esempio macchine virtuali, account di archiviazione e interfacce di rete. L'interfaccia della riga di comando di Terraform offre un meccanismo semplice per la distribuzione e il controllo della versione dei file di configurazione in Azure o in altri cloud supportati.
 
 Questo articolo descrive i vantaggi dell'utilizzo di Terraform nella gestione dell'infrastruttura di Azure.
 

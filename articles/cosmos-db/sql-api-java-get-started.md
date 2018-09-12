@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione su NoSQL: API di SQL per Azure Cosmos DB Java SDK | Documentazione Microsoft'
+title: 'Esercitazione su NoSQL: API di SQL per Azure Cosmos DB Java SDK | Microsoft Docs'
 description: Esercitazione su NoSQL che crea un database online e un'applicazione console Java con l'API di SQL per Azure Cosmos DB. SQL Azure è un database NoSQL per JSON.
 keywords: esercitazione su nosql, database online, applicazione console java
 services: cosmos-db
@@ -11,21 +11,22 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 11831ad6e80c86c3c276fea0524af522046f1a03
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c69aefa6271f9766687ce3b63f959dd4e414b98c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299762"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696677"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Esercitazione su NoSQL: Compilare un'applicazione console Java con l'API di SQL
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js per MongoDB](mongodb-samples.md)
-> * [Node.JS](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
->  
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.JS](sql-api-nodejs-get-started.md)
+> * [Node.js - v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Esercitazione su NoSQL per l'API di SQL per Azure Cosmos DB Java SDK. Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse Azure Cosmos DB.
@@ -46,7 +47,7 @@ Argomenti trattati:
 
 Ecco come procedere.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Assicurarsi che sia disponibile quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 

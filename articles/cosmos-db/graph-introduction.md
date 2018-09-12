@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle API Graph di Azure Cosmos DB | Documentazione Microsoft
+title: Introduzione all'API Gremlin di Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come usare Azure Cosmos DB per archiviare, eseguire query e attraversare grafi di grandi dimensioni con bassa latenza usando il linguaggio di query per grafi Gremlin di Apache TinkerPop.
 services: cosmos-db
 author: LuisBosquez
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 333bb4074ac741e854ff56c7c397b0e3be247f1b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a0eec8aec315eefcbcc859828fa68ea0ccee6190
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857151"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695351"
 ---
-# <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduzione ad Azure Cosmos DB: API Graph
+# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introduzione ad Azure Cosmos DB: API Gremlin
 
 [Azure Cosmos DB](introduction.md) è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni cruciali. Azure Cosmos DB include le funzionalità seguenti, che sono tutte supportate da [Contratti di servizio leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/):
 
@@ -29,13 +29,7 @@ ms.locfileid: "37857151"
 
 Azure Cosmos DB [indicizza automaticamente i dati](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) senza che sia necessario gestire manualmente indici e schemi. Si tratta di un database multimodello che supporta modelli di dati di tipo documento, coppia chiave-valore, grafo e colonna.
 
-È consigliabile guardare prima di tutto il video seguente, in cui Kirill Gavrylyuk illustra come iniziare a usare i grafi in Azure Cosmos DB:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
-> 
-> 
-
-L'API Graph di Azure Cosmos DB fornisce:
+L'API Gremlin di Azure Cosmos DB offre:
 
 - Modellazione di grafi.
 - API di attraversamento.
@@ -47,7 +41,7 @@ L'API Graph di Azure Cosmos DB fornisce:
 
 Per eseguire query su Azure Cosmos DB, è possibile usare il linguaggio di attraversamento tramite grafi [Apache TinkerPop](http://tinkerpop.apache.org) oppure [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
-Questo articolo fornisce una panoramica dell'API Graph di Azure Cosmos DB e spiega come usarla per archiviare grafi di grandi dimensioni con miliardi di vertici e bordi. È possibile eseguire query nei grafi con una latenza di un millisecondo ed evolvere facilmente la struttura e lo schema del grafo.
+Questo articolo offre una panoramica dell'API Gremlin di Azure Cosmos DB e spiega come usarla per archiviare grafi di grandi dimensioni con miliardi di vertici e bordi. È possibile eseguire query nei grafi con una latenza di un millisecondo ed evolvere facilmente la struttura e lo schema del grafo.
 
 ## <a name="graph-database"></a>Database del grafo
 I dati presenti nel mondo reale vengono connessi in modo naturale. La modellazione di dati tradizionale si basa sul concetto di entità. Per molte applicazioni sussiste anche la necessità di modellare sia le entità che le relazioni in modo naturale.
@@ -102,7 +96,7 @@ Azure Cosmos DB offre le seguenti funzionalità specifiche rispetto ad altri dat
 Azure Cosmos DB consente anche di usare più modelli, come il documento e il grafo all'interno degli stessi contenitori/database. È possibile usare un contenitore di documenti per archiviare i dati del grafico in modo affiancato con documenti. È possibile utilizzare query SQL su JSON e query Gremlin per eseguire query sugli stessi dati come grafo.
 
 ## <a name="get-started"></a>Attività iniziali
-È possibile usare l'interfaccia della riga di comando di Azure (CLI), Azure PowerShell o il portale di Azure con il supporto per l'API Graph per creare account Azure Cosmos DB. Dopo aver creato gli account, il portale di Azure fornisce un endpoint di servizio `https://<youraccount>.gremlin.cosmosdb.azure.com` che offre un front-end WebSocket per Gremlin. È possibile configurare gli strumenti compatibili con TinkerPop, come la [console di Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), per connettersi a questo endpoint e compilare applicazioni in Java, Node.js o un qualsiasi driver client Gremlin.
+È possibile usare l'interfaccia della riga di comando di Azure (CLI), Azure PowerShell o il portale di Azure con il supporto per l'API Gremlin per creare account Azure Cosmos DB. Dopo aver creato gli account, il portale di Azure fornisce un endpoint di servizio `https://<youraccount>.gremlin.cosmosdb.azure.com` che offre un front-end WebSocket per Gremlin. È possibile configurare gli strumenti compatibili con TinkerPop, come la [console di Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), per connettersi a questo endpoint e compilare applicazioni in Java, Node.js o un qualsiasi driver client Gremlin.
 
 La tabella seguente illustra i driver Gremlin noti che è possibile usare in Azure Cosmos DB:
 

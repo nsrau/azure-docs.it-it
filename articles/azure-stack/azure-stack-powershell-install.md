@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: b563117f4d4b0e3859f0478a66610b0238f265dd
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 995a22b947756fd0fb297c395846df26de20bdd9
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092560"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391828"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installare PowerShell per Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "44092560"
 
 Per usare il cloud, è necessario installare i moduli di PowerShell compatibile con Azure Stack. Compatibilità viene abilitata tramite una funzionalità denominata *profili API*.
 
-I profili delle API forniscono un modo per gestire le differenze di versione tra Azure e Azure Stack. Un profilo di versione API è un set di moduli di PowerShell per Azure Resource Manager con le versioni API specifiche. Ogni piattaforma di cloud ha un set di profili di versione API supportati. Ad esempio, Azure Stack supporta una versione del profilo con data di validità specifico, ad esempio **2017-03-09-profile**, e Azure supporta le **più recente** profilo di versione API. Quando si installa un profilo, vengono installati i moduli di PowerShell per Azure Resource Manager che corrispondono al profilo specificato.
+I profili delle API forniscono un modo per gestire le differenze di versione tra Azure e Azure Stack. Un profilo di versione API è un set di moduli di PowerShell per Azure Resource Manager con le versioni API specifiche. Ogni piattaforma di cloud ha un set di profili di versione API supportati. Ad esempio, Azure Stack supporta una versione del profilo con data di validità specifico, ad esempio **2017-03-09-profile**, e Azure supporta le **più recente** profilo di versione API. Quando si installa un profilo, vengono installati i moduli di PowerShell per Azure Resource Manager che corrispondono al profilo specificato.  
 
 È possibile installare Azure Stack i moduli di PowerShell compatibili in Internet connesso, parzialmente connessi o scenari disconnessi. Questo articolo illustra le istruzioni dettagliate per installare PowerShell per Azure Stack per questi scenari.
 

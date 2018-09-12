@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186231"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702528"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Creare un processo di Analisi di flusso per analizzare i dati delle telefonate e visualizzare i risultati in un dashboard di Power BI
  
@@ -69,7 +69,7 @@ Affinché Analisi di flusso possa analizzare il flusso di dati delle chiamate fr
 
 Affinché un'applicazione possa inviare dati ad Hub eventi di Azure, è necessario che l'hub eventi abbia criteri che consentono l'accesso appropriato. I criteri di accesso generano una stringa di connessione che include informazioni di autorizzazione.
 
-1. Passare all'istanza di **Hub eventi** creata nel passaggio precedente, ovvero "MyEventHub" > selezionare **Criteri di accesso condiviso** nel riquadro dell'hub eventi > selezionare **+ Aggiungi**.  
+1. Passare all'istanza di **Hub eventi** creata nel passaggio precedente, ovvero "MyEventHub", selezionare **Criteri di accesso condiviso** nel riquadro dell'hub eventi e quindi selezionare **+ Aggiungi**.  
 2. Assegnare ai criteri il nome **Mypolicy** > selezionare **Gestisci** > selezionare **Crea**.  
 
    ![Creare criteri di accesso condiviso dell'hub eventi](media/stream-analytics-manage-job/create-ehpolicy.png)

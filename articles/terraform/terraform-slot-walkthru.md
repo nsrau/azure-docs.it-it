@@ -1,18 +1,20 @@
 ---
 title: Terraform con gli slot di distribuzione del provider di Azure
 description: Esercitazione sull'uso di Terraform con gli slot di distribuzione del provider di Azure
+services: terraform
+ms.service: terraform
 keywords: Terraform, DevOps, macchina virtuale, Azure, slot di distribuzione
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 4/05/2018
-ms.topic: article
-ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416864"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667237"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Usare Terraform per effettuare il provisioning dell'infrastruttura con slot di distribuzione di Azure
 
@@ -217,7 +219,7 @@ A questo punto, è stato distribuito lo slot di produzione. Per distribuire lo s
 
 Nelle sezioni precedenti sono stati configurati due slot, **slotAppService** e **slotAppServiceSlotOne**, per la distribuzione da rami diversi in GitHub. Visualizzare ora le app Web in anteprima per verificare che siano state distribuite correttamente.
 
-Eseguire i passaggi seguenti due volte. Nel passaggio 3 selezionare **slotAppService** la prima volta e quindi selezionare **slotAppServiceSlotOne** la seconda volta.
+Eseguire due volte i passaggi seguenti. Nel passaggio 3 selezionare **slotAppService** la prima volta e quindi selezionare **slotAppServiceSlotOne** la seconda volta.
 
 1. Nel menu principale del portale di Azure selezionare **Gruppi di risorse**.
 

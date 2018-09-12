@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 5c34219d01c8670102df40d9157cb0deff74b8e4
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fbd728ec8cd2c8c4cd7ca74ecd84fd4d0d41cbd0
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724286"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143803"
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator per Android
 L'amministratore IT può consigliare di usare Microsoft Azure Authenticator per eseguire l'accesso alle risorse di lavoro. Questa applicazione fornisce due opzioni di accesso:
@@ -39,7 +39,7 @@ Le istruzioni seguenti sono applicabili a telefoni Samsung GS3 e modelli superio
 
 1. Nella schermata iniziale dell'app accettare il Contratto di Licenza con l'utente finale.
 2. Nella schermata Attiva account fare clic sul menu di scelta rapida a destra, quindi selezionare **Account aziendale**.
-3. Nella schermata Aggiungi account selezionare ** Account aziendale**.
+3. Nella schermata Aggiungi account selezionare ** Account aziendale\*\*.
 4. Nella schermata relativa all'attivazione dell'amministratore del dispositivo fare clic su **Attiva**.
 5. Nella schermata Informativa sulla privacy selezionare la casella di controllo e quindi fare clic su **Conferma**.
 6. Nella schermata Aggiunta all'area di lavoro immettere l'ID utente fornito dall'organizzazione, quindi fare clic su **Aggiungi**.
@@ -89,7 +89,7 @@ Dopo l'installazione dell'app Azure Authenticator, è anche possibile creare un 
 ### <a name="sending-log-files-to-report-issues"></a>Invio di file di log per segnalare problemi
 1. Seguire le istruzioni sul sito del Supporto Microsoft per segnalare un evento imprevisto con l'app Azure Authenticator, ottenere un numero di richiesta di assistenza e inviare file di log con il numero di richiesta di assistenza assegnato, come mostrato di seguito:
 2. Scegliere **Registrazione**dal menu a comparsa.
-3. Se è già stata aperta una richiesta di assistenza al Supporto Microsoft, prendere nota del numero corrispondente (sarà necessario in un passaggio successivo). Se non è ancora stata creata una richiesta di assistenza e si vuole ricevere assistenza, seguire le indicazioni del [Supporto Microsoft](https://support.microsoft.com/en-us/contactus) per creare una nuova richiesta di assistenza.
+3. Se è già stata aperta una richiesta di assistenza al Supporto Microsoft, prendere nota del numero corrispondente (sarà necessario in un passaggio successivo). Se non è ancora stata creata una richiesta di assistenza e si vuole ricevere assistenza, seguire le indicazioni del [Supporto Microsoft](https://support.microsoft.com/contactus) per creare una nuova richiesta di assistenza.
 4. Nella schermata di registrazione fare clic su **Invia ora**.
 5. Selezionare il provider di posta elettronica da usare.
 6. Se è già stata inviata una richiesta di assistenza al Supporto Microsoft, contattare il tecnico assegnato al problema in questione per scoprire come inviare i dati del log e fare in modo che vengano associati all'evento imprevisto segnalato. Il tecnico del supporto fornirà le informazioni relative all'indirizzo di posta elettronica e all'oggetto del messaggio. Se non è ancora stata creata una richiesta di assistenza, seguire le indicazioni del Supporto Microsoft per creare una nuova richiesta di assistenza.

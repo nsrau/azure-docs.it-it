@@ -1,6 +1,6 @@
 ---
-title: L'aggiornamento del provider di risorse di SQL Azure Stack | Documenti Microsoft
-description: Informazioni su come è possibile aggiornare il provider di risorse di SQL Azure dello Stack.
+title: L'aggiornamento del provider di risorse SQL di Azure Stack | Microsoft Docs
+description: Informazioni su come è possibile aggiornare il provider di risorse SQL di Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,48 +11,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: ac5073d1abc32b7598a869750f9c5a801559e9e6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3517114d5bc267aa32cea49161d0d34156a2ed1e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264078"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390910"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aggiornare il provider di risorse SQL
 
-*Si applica a: Azure Stack integrati sistemi.*
+*Si applica a: i sistemi integrati di Azure Stack.*
 
-Un nuovo provider di risorse SQL potrebbero essere rilasciati quando Azure Stack viene aggiornato a una nuova compilazione. Anche se l'adapter esistente continua a funzionare, si consiglia di aggiornare appena possibile per la build più recente.
+Un nuovo provider di risorse SQL potrebbe essere rilasciato quando Azure Stack viene aggiornato a una nuova compilazione. Anche se la scheda esistente continua a funzionare, è consigliabile aggiornare quanto prima della compilazione più recente.
 
 >[!IMPORTANT]
->È necessario installare gli aggiornamenti nell'ordine che vengano rilasciati. Non è possibile ignorare le versioni. Vedere l'elenco di versioni nel [distribuire i prerequisiti di provider di risorse](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+>È necessario installare aggiornamenti nell'ordine in che cui vengono rilasciate. Non è possibile ignorare le versioni. Vedere l'elenco di versioni nel [distribuisce i prerequisiti di provider di risorse](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="overview"></a>Panoramica
 
-Per aggiornare il provider di risorse, usare il *UpdateSQLProvider.ps1* script. Questo script è incluso con il download del nuovo provider di risorse SQL. È simile a quello utilizzato per il processo di aggiornamento [distribuire il provider di risorse](.\azure-stack-sql-resource-provider-deploy.md). Lo script di aggiornamento utilizza gli stessi argomenti come lo script DeploySqlProvider.ps1 e sarà necessario fornire le informazioni sul certificato.
+Per aggiornare il provider di risorse, usare il *UpdateSQLProvider.ps1* script. Questo script è incluso nel download del nuovo provider di risorse SQL. È simile a quello usato per il processo di aggiornamento [distribuire il provider di risorse](.\azure-stack-sql-resource-provider-deploy.md). Lo script di aggiornamento Usa gli stessi argomenti dello script DeploySqlProvider.ps1 e sarà necessario fornire le informazioni sul certificato.
 
 ### <a name="update-script-processes"></a>Processi di script di aggiornamento
 
-Il *UpdateSQLProvider.ps1* script crea una nuova macchina virtuale (VM) con il codice di provider di risorse più recente.
+Il *UpdateSQLProvider.ps1* script crea una nuova macchina virtuale (VM) con il codice del provider di risorse più recente.
 
 >[!NOTE]
->Si consiglia di scaricare l'immagine di Windows Server 2016 Core più recente dalla gestione Marketplace. Se è necessario installare un aggiornamento, è possibile inserire un **singolo** pacchetto MSU nel percorso locale. Lo script avrà esito negativo se non esiste più di un file MSU in questa posizione.
+>Si consiglia di scaricare l'immagine di Windows Server 2016 Core più recente dalla gestione di Marketplace. Se è necessario installare un aggiornamento, è possibile inserire un **singolo** nel percorso della dipendenza locale il pacchetto MSU. Lo script avrà esito negativo se è presente più di un file MSU in questa posizione.
 
-Dopo il *UpdateSQLProvider.ps1* script crea una nuova macchina virtuale, lo script viene eseguita la migrazione le impostazioni seguenti dal vecchio provider VM:
+Dopo il *UpdateSQLProvider.ps1* lo script crea una nuova macchina virtuale, lo script viene eseguita la migrazione le impostazioni seguenti dal vecchio provider macchina virtuale:
 
 * informazioni sul database
-* le informazioni sul server di hosting
+* informazioni sul server di hosting
 * record DNS necessario
 
-### <a name="update-script-powershell-example"></a>Aggiornare script PowerShell di esempio
+### <a name="update-script-powershell-example"></a>Aggiornare l'esempio di script di PowerShell
 
-È possibile modificare ed eseguire lo script seguente da un con privilegi elevati di PowerShell ISE. Ricordarsi di modificare le informazioni sull'account e password in base alle esigenze per l'ambiente.
+<a name="you-can-edit-and-run-the-following-script-from-an-elevated-powershell-ise"></a>È possibile modificare ed eseguire lo script seguente da un esempio di PowerShell con privilegi elevati ISE. 
+-  
+- Ricordarsi di modificare le informazioni sull'account e le password in base alle necessità per l'ambiente.
 
 > [!NOTE]
-> Questo processo di aggiornamento si applica solo ai sistemi Azure Stack integrato.
+> Questo processo di aggiornamento si applica solo ai sistemi integrati di Azure Stack.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module and set the profile.
@@ -97,18 +99,19 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ## <a name="updatesqlproviderps1-parameters"></a>Parametri UpdateSQLProvider.ps1
 
-È possibile specificare i seguenti parametri dalla riga di comando quando si esegue lo script. Se non sono presenti o se si verifica un errore di convalida qualsiasi parametro, viene chiesto di fornire i parametri obbligatori.
+È possibile specificare i parametri seguenti dalla riga di comando quando si esegue lo script. In caso contrario, o se ha esito negativo qualsiasi convalida dei parametri, viene chiesto di fornire i parametri obbligatori.
 
 | Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
 | --- | --- | --- |
 | **CloudAdminCredential** | Le credenziali per l'amministratore del cloud, necessaria per l'accesso all'endpoint con privilegi. | _Obbligatorio_ |
-| **AzCredential** | Le credenziali per l'account amministratore del servizio Azure Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure. | _Obbligatorio_ |
+| **AzCredential** | Le credenziali per l'account di amministratore del servizio di Azure Stack. Usare le stesse credenziali usate per la distribuzione di Azure Stack. | _Obbligatorio_ |
 | **VMLocalCredential** | Le credenziali per l'account amministratore locale del provider di risorse SQL macchina virtuale. | _Obbligatorio_ |
 | **PrivilegedEndpoint** | L'indirizzo IP o nome DNS dell'endpoint con privilegi. |  _Obbligatorio_ |
-| **DependencyFilesLocalPath** | È inoltre necessario inserire il file pfx del certificato in questa directory. | _Facoltativo per singolo nodo, ma obbligatoria a nodi multipli_ |
+| **AzureEnvironment** | Ambiente di azure dell'account di amministratore del servizio che usato per la distribuzione di Azure Stack. Obbligatorio solo se non è ad FS. I nomi di ambiente supportati sono **AzureCloud**, **AzureUSGovernment**, o se si usa un China Azure Active Directory **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | È anche necessario inserire il file con estensione pfx del certificato in questa directory. | _Facoltativo per singolo nodo, ma obbligatorio per multi-nodo_ |
 | **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx. | _Obbligatorio_ |
 | **MaxRetryCount** | Il numero di volte in cui che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
-| **RetryDuration** |L'intervallo di timeout tra due tentativi, in secondi. | 120 |
+| **RetryDuration** |L'intervallo di timeout tra i tentativi, in secondi. | 120 |
 | **Disinstallare** | Rimuove il provider di risorse e tutte le risorse associate. | No  |
 | **DebugMode** | Impedisce la pulizia automatica in caso di errore. | No  |
 

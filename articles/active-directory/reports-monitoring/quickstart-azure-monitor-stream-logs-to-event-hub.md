@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f6f3d9625e5469823a9c0c6eb6b549a6eaaeb0e9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1a7f91a0d15dd67d86f83485b4aad01a3bae37b3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41919834"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699070"
 ---
 # <a name="tutorial-stream-azure-ad-logs-to-an-azure-event-hub-preview"></a>Esercitazione: Trasmettere i log di Azure AD a un hub eventi di Azure (anteprima)
 
@@ -34,7 +34,7 @@ Per usare questa funzionalità, sono necessari:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
 * Un tenant di Azure AD.
 * Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
-* Uno spazio dei nomi di Hub eventi e un hub eventi nella sottoscrizione di Azure. Leggere le informazioni su come [creare un hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-create.md).
+* Uno spazio dei nomi di Hub eventi e un hub eventi nella sottoscrizione di Azure. Leggere le informazioni su come [creare un hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="archive-logs-to-an-event-hub"></a>Archiviare i log in un hub eventi
 
@@ -87,6 +87,6 @@ Dopo che i dati vengono visualizzati nell'hub eventi, è possibile accedervi e l
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Integrare i log di Azure AD con Splunk usando Monitoraggio di Azure](tutorial-integrate-activity-logs-with-splunk.md)
-* [Install the Azure AD Sumo Logic App and view dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) (Installare l'app Sumo Logic di Azure AD e visualizzare i dashboard)
+* [Integrate Azure AD logs with SumoLogic by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md) (Integrare i log di Azure AD con SumoLogic usando Monitoraggio di Azure)
 * [Interpretare lo schema dei log di controllo in Monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
 * [Interpretare lo schema dei log di accesso in Monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)

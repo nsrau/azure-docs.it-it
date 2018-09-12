@@ -1,5 +1,5 @@
 ---
-title: Active Directory Federation Services in Azure | Documentazione Microsoft
+title: Active Directory Federation Services in Azure | Microsoft Docs
 description: Questo documento illustra come distribuire AD FS in Azure per ottenere una disponibilità elevata.
 keywords: distribuire AD FS in azure, distribuire azure adfs, azure adfs, azure ad fs, distribuire adfs, distribuire ad fs, adfs in azure, distribuire adfs in azure, distribuire AD FS in azure, adfs azure, introduzione ad AD FS, Azure, AD FS in Azure, iaas, ADFS, trasferire adfs in azure
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917136"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381755"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuzione di Active Directory Federation Services in Azure
 AD FS offre funzionalità di federazione delle identità e Single Sign-On (SSO) Web protette e semplificate. La federazione con Azure AD o O365 consente agli utenti di eseguire l'autenticazione con credenziali locali e accedere a tutte le risorse nel cloud. Di conseguenza, diventa importante la presenza di un'infrastruttura AD FS a disponibilità elevata per garantire l'accesso alle risorse sia in locale sia nel cloud. La distribuzione di AD FS in Azure consente di raggiungere facilmente la disponibilità elevata necessaria.
@@ -187,12 +187,14 @@ Selezionare il servizio di bilanciamento del carico interno appena creato nel pa
 
 **6.3. Configurare il probe**
 
-Nel pannello Impostazioni del servizio di bilanciamento del carico interno selezionare Probe.
+Nel pannello Impostazioni del servizio di bilanciamento del carico interno selezionare Probe di integrità.
 
 1. Fare clic su Aggiungi
-2. Specificare i dettagli del probe a. **Nome**: nome del probe b. **Protocollo**: TCP c. **Porta**: 443 (HTTPS) d. **Intervallo**: 5 (valore predefinito). È l'intervallo con cui il servizio di bilanciamento del carico interno eseguirà il probe dei computer del pool back-end e. **Soglia di non integrità**: 2 (valore predefinito). È la soglia di errori di probe consecutivi in seguito ai quali il servizio di bilanciamento del carico interno dichiarerà che un computer del pool back-end non risponde e interromperà l'invio di traffico a tale computer.
+2. Specificare i dettagli del probe a. **Nome**: nome del probe b. **Protocollo**: HTTP c. **Porta**: 80 (HTTP) d. **Percorso**: /adfs/probe e. **Intervallo**: 5 (valore predefinito). È l'intervallo con cui il servizio di bilanciamento del carico interno eseguirà il probe dei computer del pool back-end f. **Soglia di non integrità**: 2 (valore predefinito). È la soglia di errori di probe consecutivi in seguito ai quali il servizio di bilanciamento del carico interno dichiarerà che un computer del pool back-end non risponde e interromperà l'invio di traffico a tale computer.
 
 ![Configurare il probe del servizio di bilanciamento del carico interno](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+Si sta usando l'endpoint /adfs/probe creato esplicitamente per i controlli di integrità in un ambiente AD FS in cui non può verificarsi un controllo completo del percorso HTTPS.  Questa situazione è sostanzialmente migliore rispetto a un controllo di base sulla porta 443, che non riflette lo stato di una distribuzione AD FS moderna.  Altre informazioni sono disponibili all'indirizzo https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
 
 **6.4. Creare le regole di bilanciamento del carico**
 
@@ -269,7 +271,7 @@ Seguire la stessa procedura indicata per il servizio di bilanciamento del carico
 
 In generale, per proteggere efficacemente la subnet interna sono necessarie le regole seguenti, nell'ordine indicato di seguito.
 
-| Regola | DESCRIZIONE | Flusso |
+| Regola | Descrizione | Flusso |
 |:--- |:--- |:---:|
 | AllowHTTPSFromDMZ |Consente la comunicazione HTTPS dalla rete perimetrale |In ingresso |
 | DenyInternetOutbound |Nessun accesso a Internet |In uscita |
@@ -283,7 +285,7 @@ In generale, per proteggere efficacemente la subnet interna sono necessarie le r
 
 **9.2. Proteggere la subnet perimetrale**
 
-| Regola | DESCRIZIONE | Flusso |
+| Regola | Descrizione | Flusso |
 |:--- |:--- |:---:|
 | AllowHTTPSFromInternet |Consente il traffico HTTPS da Internet alla rete perimetrale |In ingresso |
 | DenyInternetOutbound |Tutto il traffico non HTTPS verso Internet viene bloccato |In uscita |
@@ -321,7 +323,7 @@ Il modello consente di distribuire una configurazione a 6 computer, 2 per ogni c
 
 Durante la distribuzione di questo modello, è possibile usare una rete virtuale esistente o crearne una nuova. I diversi parametri disponibili per personalizzare la distribuzione sono elencati di seguito insieme alla descrizione dell'uso del parametro nel processo di distribuzione. 
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:--- |:--- |
 | Località |L'area in cui distribuire le risorse, ad esempio Stati Uniti orientali. |
 | StorageAccountType |Il tipo di account di archiviazione creato |

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 3bf1b4c9ea0db3a51f2455edf3e1e70aaa3dcdab
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 634abb107ce3578de4baccdfdec2c5bdde166f11
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595733"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668293"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Informazioni su Azure HDInsight e sullo stack di tecnologie Hadoop
 
@@ -39,7 +39,7 @@ I Big Data vengono raccolti in volumi sempre più elevati, a velocità crescenti
 Questa sezione elenca le funzionalità di Azure HDInsight.
 
 
-|Funzionalità  |DESCRIZIONE  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
 |Cloud nativo     |     Azure HDInsight permette di creare cluster ottimizzati per [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive Query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) e  [ML Services](../r-server/r-server-get-started.md) in Azure. HDInsight fornisce anche un contratto di servizio end-to-end per tutti i carichi di lavoro di produzione.  |
 |Costi contenuti e scalabilità     | HDInsight consente di [ridimensionare](../hdinsight-administer-use-portal-linux.md) i carichi di lavoro aumentando o riducendo le prestazioni. È possibile ridurre il costo  [creando cluster su richiesta](../hdinsight-hadoop-create-linux-clusters-adf.md)  e pagando solo per le risorse usate. È anche possibile compilare pipeline di dati per rendere operativi i processi. Calcolo e archiviazione disaccoppiati offrono migliori prestazioni e flessibilità. |
@@ -113,6 +113,17 @@ I cluster di HDInsight, tra cui Spark, HBase, Kafka, Hadoop e altri, supportano 
 |Linguaggi per macchine virtuali Java     | Molti linguaggi diversi da Java possono essere eseguiti in una macchina virtuale Java. Se tuttavia si eseguono alcuni di questi linguaggi, potrebbe essere necessario installare componenti aggiuntivi sui cluster. I linguaggi seguenti basati su JVM sono supportati nei cluster HDInsight: <ul><li>Clojure</li><li>Jython (Python per Java)</li><li>Scala</li></ul>     |
 |Linguaggi specifici di Hadoop     | I cluster HDInsight supportano i linguaggi seguenti, specifici dello stack di tecnologie Hadoop: <ul><li>Pig Latin per processi Pig</li><li>HiveQL per processi Hive e SparkSQL</li></ul>        |
  
+
+## <a name="development-tools-for-hdinsight"></a>Strumenti di sviluppo per HDInsight 
+È possibile usare gli strumenti di sviluppo di HDInsight, inclusi IntelliJ, Eclipse, Visual Studio Code e Visual Studio, per creare e inviare processi e query sui dati di HDInsight con una semplice integrazione con Azure.
+
+* [Toolkit di Azure per IntelliJ](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
+
+* [Toolkit di Azure per Eclipse](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin)
+
+* [Strumenti di Azure HDInsight per Visual Studio Code](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-22999)
+
+* [Strumenti di Azure Data Lake per Visual Studio](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
 
 ## <a name="business-intelligence-on-hdinsight"></a>Business intelligence in HDInsight
 Gli strumenti di business intelligence (BI) noti consentono di recuperare, analizzare e creare report di dati integrati con HDInsight usando il componente aggiuntivo Power Query o Microsoft Hive ODBC Driver:

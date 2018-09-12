@@ -4,7 +4,7 @@ description: Esercitazione su Node.js che illustra come connettersi ad Azure Cos
 keywords: esercitazione su node.js, database nodo
 services: cosmos-db
 author: deborahc
-manager: andrl
+manager: kfile
 editor: monicar
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -12,22 +12,23 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/30/2018
 ms.author: dech
-ms.openlocfilehash: 97b1e13532817b63a76cb57c5b63feb87cb92716
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: bb7c5c48a137c559cd0276de69cc2964bb6ed574
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41920724"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698231"
 ---
 # <a name="nodejs-tutorial-create-a-nodejs-console-application-with-azure-cosmos-db-sql-api-and-javascript-sdk-20-preview"></a>Esercitazione su Node. js: Creare un'applicazione console Node.js con l'API SQL Azure Cosmos DB e JavaScript SDK 2.0 (anteprima)
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.JS](sql-api-nodejs-get-started.md)
-> * [Node.js v2.0 (anteprima)](sql-api-nodejs-get-started-preview.md)
-> * [Node.js per MongoDB](mongodb-samples.md)
 > * [Java](sql-api-java-get-started.md)
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.JS](sql-api-nodejs-get-started.md)
+> * [Node.js - v2](sql-api-nodejs-get-started-preview.md) 
+> 
 
 
 Esercitazione su Node.js per Azure Cosmos DB JavaScript SDK Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse Azure Cosmos DB.

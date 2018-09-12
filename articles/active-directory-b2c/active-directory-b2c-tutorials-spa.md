@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591568"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343863"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Esercitazione: abilitare l'autenticazione a un'app a pagina singola con account che usano Azure Active Directory B2C
 
@@ -24,24 +24,24 @@ Questa esercitazione illustra come usare Azure Active Directory (Azure AD) B2C p
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Registrare un'applicazione a pagina singola di esempio nel tenant di Azure Active Directory B2C.
+> * Registrare un'applicazione a singola pagina di esempio nella directory di Azure AD B2C.
 > * Creare criteri per iscrizione, accesso, modifica del profilo e reimpostazione delle password.
-> * Configurare l'applicazione di esempio per l'uso del tenant di Azure AD B2C.
+> * Configurare l'applicazione di esempio per l'uso della directory di Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Creare il proprio [tenant di Azure AD B2C](active-directory-b2c-get-started.md)
+* Creare la [directory di Azure AD B2C](active-directory-b2c-get-started.md)
 * Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) o versione successiva
 * Installare [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-single-page-app"></a>Registrare l'app a pagina singola
 
-Le applicazioni devono essere [registrate](../active-directory/develop/developer-glossary.md#application-registration) nel tenant perché possano ricevere [token di accesso](../active-directory/develop/developer-glossary.md#access-token) da Azure Active Directory. La registrazione dell'app crea un [ID applicazione](../active-directory/develop/developer-glossary.md#application-id-client-id) per l'app nel tenant. 
+Le applicazioni devono essere [registrate](../active-directory/develop/developer-glossary.md#application-registration) nella directory prima di poter ricevere [token di accesso](../active-directory/develop/developer-glossary.md#access-token) da Azure Active Directory. La registrazione dell'app crea un [ID applicazione](../active-directory/develop/developer-glossary.md#application-id-client-id) per l'app nella directory. 
 
-Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
+Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale della directory di Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,7 +49,7 @@ Accedere al [portale di Azure](https://portal.azure.com/) come amministratore gl
 
 2. Nelle impostazioni di B2C fare clic su **Applicazioni** e quindi su **Aggiungi**. 
 
-    Per registrare l'app Web di esempio nel tenant, usare le impostazioni seguenti:
+    Per registrare l'app Web di esempio nella directory, usare le impostazioni seguenti:
     
     ![Aggiungere una nuova app](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,7 +63,7 @@ Accedere al [portale di Azure](https://portal.azure.com/) come amministratore gl
     
 3. Fare clic su **Crea** per registrare l'app.
 
-Le app registrate vengono visualizzate nell'elenco di applicazioni per il tenant di Azure AD B2C. Selezionare l'app a pagina singola dall'elenco. Verrà visualizzato il riquadro delle proprietà dell'app a pagina singola registrata.
+Le app registrate vengono visualizzate nell'elenco di applicazioni per la directory di Azure AD B2C. Selezionare l'app a pagina singola dall'elenco. Verrà visualizzato il riquadro delle proprietà dell'app a pagina singola registrata.
 
 ![Proprietà dell'app a pagina singola](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -127,25 +127,25 @@ Per abilitare la reimpostazione delle password nell'applicazione, è necessario 
 
 ## <a name="update-single-page-app-code"></a>Aggiornare il codice dell'app a pagina singola
 
-Ora che l'app è registrata e sono stati creati i criteri, è necessario configurare l'app per l'uso del tenant di Azure AD B2C. In questa esercitazione si configura un'app JavaScript a pagina singola di esempio che è possibile scaricare da GitHub. 
+Ora che l'app è registrata e sono stati creati i criteri, è necessario configurare l'app per l'uso della directory di Azure AD B2C. In questa esercitazione si configura un'app JavaScript a pagina singola di esempio che è possibile scaricare da GitHub. 
 
 [Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonare l'app Web di esempio da GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-L'app di esempio dimostra come un'app a pagina singola può usare Azure Active Directory B2C per l'iscrizione e l'accesso degli utenti e per chiamare un'API Web protetta. È necessario modificare l'app per l'uso della registrazione dell'app nel tenant e la configurazione dei criteri creati. 
+L'app di esempio dimostra come un'app a pagina singola può usare Azure Active Directory B2C per l'iscrizione e l'accesso degli utenti e per chiamare un'API Web protetta. È necessario modificare l'app per l'uso della registrazione dell'app nella directory e la configurazione dei criteri creati. 
 
 Per modificare le impostazioni dell'app:
 
 1. Aprire il file `index.html` nell'esempio di app a pagina singola Node.js.
-2. Configurare l'esempio con le informazioni di registrazione tenant di Azure Active Directory B2C. Modificare le righe di codice seguenti:
+2. Configurare l'esempio con le informazioni di registrazione della directory di Azure AD B2C. Modificare le righe di codice seguenti. Assicurarsi di sostituire i valori con i nomi della directory e delle API:
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ L'app di esempio supporta criteri di iscrizione, accesso, modifica del profilo e
 
     ![Flusso di lavoro di iscrizione](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Fare clic su **Crea** per creare un account locale nel tenant di Azure AD B2C.
+4. Fare clic su **Crea** per creare un account locale nella directory di Azure AD B2C.
 
 Ora l'utente può usare il proprio indirizzo e-mail per accedere e usare l'app a pagina singola.
 
 > [!NOTE]
-> Dopo l'accesso, l'app visualizza l'errore "Autorizzazioni insufficienti". L'errore viene visualizzato perché si sta tentando di accedere a una risorsa dal tenant dimostrativo. Poiché il token di accesso è valido solo per il tenant di Azure AD, la chiamata API non è autorizzata. Continuare con l'esercitazione successiva per la creazione di un'API Web protetta per il proprio tenant. 
+> Dopo l'accesso, l'app visualizza l'errore "Autorizzazioni insufficienti". L'errore viene visualizzato perché si sta tentando di accedere a una risorsa dalla directory dimostrativa. Poiché il token di accesso è valido solo per la directory di Azure AD, la chiamata API non è autorizzata. Continuare con l'esercitazione successiva per la creazione di un'API Web protetta per la directory. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-È possibile usare il tenant di Azure AD B2C se si prevede di provare altre esercitazioni relative ad Azure AD B2C. Quando non è più necessario, è possibile [eliminare il tenant di Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+È possibile usare la directory di Azure AD B2C se si prevede di provare altre esercitazioni relative ad Azure AD B2C. Quando non è più necessario, è possibile [eliminare la directory di Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come creare un tenant di Azure AD B2C, creare criteri e aggiornare l'app a pagina singola di esempio per l'uso del tenant di Azure AD B2C. Proseguire con l'esercitazione successiva per informazioni su come registrare, configurare e chiamare un'API Web protetta da un'app desktop.
+In questa esercitazione si è appreso come creare una directory di Azure AD B2C, creare criteri e aggiornare l'app a singola pagina di esempio per l'uso della directory di Azure AD B2C. Proseguire con l'esercitazione successiva per informazioni su come registrare, configurare e chiamare un'API Web protetta da un'app desktop.
 
 > [!div class="nextstepaction"]
 > 

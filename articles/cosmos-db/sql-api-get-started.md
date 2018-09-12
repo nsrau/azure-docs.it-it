@@ -11,20 +11,22 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 461279b5deb992be998e449f8f1ed062e91aae9b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 564824ae18cfeac22a2e817af67b2504d8f0b93c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38629462"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697884"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Esercitazione introduttiva per l'API SQL
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js per MongoDB](mongodb-samples.md)
+> * [Java](sql-api-java-get-started.md)
+> * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md) 
+> * [Node.js - v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Questa è un'esercitazione introduttiva per l'API SQL di Azure Cosmos DB. Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse Azure Cosmos DB.
@@ -45,7 +47,7 @@ Non si ha tempo? Nessun problema. La soluzione completa è disponibile in [GitHu
 
 Ecco come procedere.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
 

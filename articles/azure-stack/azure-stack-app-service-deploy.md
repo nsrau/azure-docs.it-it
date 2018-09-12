@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9e868788d0cf3b3c0f2f30095388046f64ced71c
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139687"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378541"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -97,7 +97,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 8. Immettere le informazioni per la condivisione file e quindi selezionare **successivo**. L'indirizzo della condivisione file deve usare il nome di dominio completo (FQDN) o l'indirizzo IP del File Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
 
    >[!NOTE]
-   >Il programma di installazione prova a verificare la connettività alla condivisione file prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, potrebbe essere file di questo test di connettività. Si riceve un avviso e un prompt dei comandi per continuare. Se la condivisione file di informazioni siano corrette, continua la distribuzione.
+   >Il programma di installazione prova a verificare la connettività alla condivisione file prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, questo test di connettività potrebbe non riuscire. Si riceve un avviso e un prompt dei comandi per continuare. Se la condivisione file di informazioni siano corrette, continua la distribuzione.
 
    ![Programma di installazione del servizio App][7]
 

@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 5288e9900c75eae7601b84f7366edf9ac739d5da
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125804"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783291"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Che cos'è Azure Data Box Disk? (Anteprima)
 
@@ -31,7 +31,7 @@ Le domande e le risposte sono suddivise nelle categorie seguenti:
 - Informazioni sul servizio
 - Configurazione e connessione 
 - Monitoraggio dello stato
-- Migrazione dei dati 
+- Eseguire la migrazione dei dati 
 - Verifica e caricamento dei dati 
 
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ R. I dischi di Azure Data Box consentono il trasferimento rapido, conveniente e 
 I dischi vengono crittografati tramite Crittografia unità BitLocker Microsoft e le chiavi di crittografia vengono gestite nel portale di Azure. È quindi possibile copiare i dati dai server del cliente. Nel data center, Microsoft esegue la migrazione dei dati dall'unità al cloud usando un collegamento di caricamento di rete privato e veloce e li carica in Azure.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>D: Quando è consigliabile usare i dischi di Data Box?
-R. Quando si ha l'esigenza di trasferire 35 TB di dati (o meno) in Azure, usare i dischi di Data Box può risultare vantaggioso.
+R. Quando si ha l'esigenza di trasferire 40 TB di dati (o meno) in Azure, l'uso dei dischi di Data Box può risultare vantaggioso.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>D: Qual è il prezzo dei dischi di Data Box?
 R. Nella versione di anteprima i dischi di Data Box sono disponibili gratuitamente. Anche la spedizione è gratis, ma verranno comunque addebitati i costi per l'archiviazione in Azure.
@@ -60,10 +60,10 @@ R.  Per ottenere i dischi di Azure Data Box, è prima di tutto necessario regist
 R. Per 5 dischi da 8 TB ognuno (con capacità utilizzabile di 7 TB), la capacità massima utilizzabile è di 35 TB. Di conseguenza, è possibile trasferire 35 TB di dati in una sola volta.  Per trasferire più dati, è necessario ordinare altri dischi.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>D: Come è possibile verificare se i dischi di Data Box sono disponibili nella propria area? 
-R.  I dischi di Data Box sono disponibili in tutti i paesi dell'Unione europea e negli Stati Uniti durante la fase di anteprima.  
+R.  I dischi di Data Box sono disponibili negli Stati Uniti, in Canada, in Australia e in tutti i paesi dell'Unione europea durante la fase di anteprima.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>D: In quali aree è possibile archiviare dati con i dischi di Data Box?
-R. I dischi di Data Box sono supportati per tutte le aree all'interno degli Stati Uniti e in Europa occidentale ed Europa settentrionale per l'anteprima. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
+R. I dischi di Data Box sono supportati per tutte le aree degli Stati Uniti, del Canada, dell'Australia e dell'Europa occidentale e settentrionale per l'anteprima. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>D: A chi ci si può rivolgere in caso di problemi con i dischi di Data Box?
 R. Se si riscontrano problemi con i dischi di Data Box, contattare il [supporto tecnico per i dischi di Data Box](mailto:expresspodsupport@microsoft.com).

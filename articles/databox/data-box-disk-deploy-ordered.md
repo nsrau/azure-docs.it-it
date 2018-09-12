@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f46a3ecb3c4ef6ace31b7010ba9068ab04a43315
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 37130e946aad00ef4eca14b7ce7942a8e435e6cd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126542"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782329"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Esercitazione: Ordinare un disco di Azure Data Box (anteprima)
 
-Azure Data Box Disk è una soluzione cloud che consente di importare i dati in locale in Azure in modo rapido, semplice e affidabile. È possibile trasferire i dati su dischi SSD (Solid State Disk) forniti da Microsoft e rispedire i dischi. Questi dati vengono poi caricati in Azure. 
+Azure Data Box Disk è una soluzione cloud ibrida che consente di importare i dati in locale in Azure in modo rapido, semplice e affidabile. È possibile trasferire i dati su dischi SSD (Solid State Disk) forniti da Microsoft e rispedire i dischi. Questi dati vengono poi caricati in Azure. 
 
 Questa esercitazione descrive come è possibile ordinare un disco di Azure Data Box. Questa esercitazione descrive quanto segue:
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 > [!IMPORTANT]
 > - Data Box Disk è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione. 
-> - Durante l'anteprima, i dischi di Data Box possono essere spediti ai clienti negli Stati Uniti e nell'Unione europea. Per altre informazioni, vedere [Disponibilità a livello di area](data-box-disk-overview.md#region-availability).
+> - Durante l'anteprima, i dischi di Data Box possono essere spediti ai clienti negli Stati Uniti, in Europa settentrionale e occidentale, in Canada e in Australia. Per altre informazioni, vedere [Disponibilità a livello di area](data-box-disk-overview.md#region-availability).
 
 ## <a name="sign-up"></a>Iscrizione 
 
@@ -56,7 +56,7 @@ Seguire questa procedura nel [portale di Azure](https://aka.ms/azuredataboxfromd
     
    ![Cercare Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
-2. Fare clic su **Crea**.
+2. Fare clic su **Create**(Crea).
 
 3. Controllare se il servizio Data Box è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi fare clic su **Applica**.
 
@@ -80,7 +80,7 @@ Seguire questa procedura nel [portale di Azure](https://aka.ms/azuredataboxfromd
     |---|---|
     |NOME|Specificare un nome descrittivo per tenere traccia dell'ordine.<br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero. |
     |Gruppo di risorse| Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme. |
-    |Area di Azure di destinazione| Selezionare l'area per l'account di archiviazione.<br> Attualmente sono supportati gli account di archiviazione in tutte le aree di Stati Uniti, Europa occidentale ed Europa settentrionale. |
+    |Area di Azure di destinazione| Selezionare l'area per l'account di archiviazione.<br> Attualmente sono supportati gli account di archiviazione in tutte le aree di Stati Uniti, Europa occidentale e settentrionale, Canada e Australia. |
     |Account di archiviazione|In base all'area di Azure specificata, selezionare un account di archiviazione esistente nell'elenco filtrato. <br>È anche possibile creare un nuovo account Utilizzo generico v1 o Utilizzo generico v2. |
     |Dimensioni dei dati stimate in TB| Immettere una stima in TB. <br>In base alle dimensioni dei dati, Microsoft invia un numero appropriato di dischi SSD da 8 TB (con capacità utilizzabile di 7 TB). <br>La capacità massima utilizzabile nei 5 dischi è di 35 TB. |
 

@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e69cf8753fb0cc9326e047ec97cbe08ee6f26610
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988926"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668462"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Avviare l'analisi dell'app per dispositivi mobili con App Center e Application Insights
 
@@ -68,20 +68,20 @@ Per assicurarsi che gli eventi personalizzati vengano ricevuti, passare alla sch
 Quando l'app invia eventi personalizzati e questi vengono ricevuti da App Center, è necessario creare una risorsa di Application Insights di tipo App Center nel portale di Azure:
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Selezionare **Crea una risorsa** > **Monitoraggio e gestione** > **Application Insights**.
+2. Selezionare **Crea una risorsa** > **Strumenti di gestione** > **Application Insights**.
 
-    ![Aggiunta di una risorsa di Application Insights](./media/app-insights-mobile-center-quickstart/add.png)
+    ![Aggiunta di una risorsa di Application Insights](./media/app-insights-mobile-center-quickstart/add-b.png)
 
     Verrà visualizzata una finestra di configurazione. Usare la tabella seguente per completare i campi di input.
 
-    | Impostazioni        |  Valore           | DESCRIZIONE  |
+    | Impostazioni        |  Valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Un valore univoco a livello globale, ad esempio "myApp-iOS" | Nome che identifica l'app da monitorare |
    | **Tipo di applicazione** | Applicazione App Center | Tipo di app da monitorare |
    | **Gruppo di risorse**     | Un nuovo gruppo di risorse o un gruppo esistente del menu | Il gruppo di risorse in cui creare la nuova risorsa di Application Insights |
    | **Posizione** | Un percorso del menu | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
-3. Fare clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 
 Se l'app supporta più piattaforme, iOS, Android e così via, è consigliabile creare risorse di Application Insights separate, una per ogni piattaforma.
 

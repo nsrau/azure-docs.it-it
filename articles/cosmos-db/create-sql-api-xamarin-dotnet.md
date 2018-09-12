@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB: Creare un'app ToDo con Xamarin | Microsoft Docs"
 description: Presenta un esempio di codice Xamarin che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
 services: cosmos-db
-author: SnehaGunda
+author: codemillmatt
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -10,15 +10,24 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
-ms.author: sngun
-ms.openlocfilehash: b224a40f1ed5e778da6429d44a449d3f9ffdf16d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: masoucou
+ms.openlocfilehash: 36236f8f8a7122369f5888ef21d8f69b719b45aa
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543901"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700464"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Creare un'app ToDo con Xamarin
+
+> [!div class="op_single_selector"]
+> * [.NET](create-sql-api-dotnet.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.JS](create-sql-api-nodejs.md)
+> * [Node.js - v2](create-sql-api-nodejs-preview.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+>  
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB.
 
@@ -29,7 +38,7 @@ Questa guida introduttiva mostra come creare un account dell'API SQL di Azure Co
 
 ![App ToDo Xamarin in esecuzione in iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se si esegue lo sviluppo su Windows e Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di applicazioni per dispositivi mobili con .NET**.
 

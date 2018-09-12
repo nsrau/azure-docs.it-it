@@ -3,18 +3,18 @@ title: Trovare un percorso con Mappe di Azure | Microsoft Docs
 description: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/04/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 09828fade464c3b7b5f6eedaa16513e9eab49467
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1ef4467862f47a833e0592c94c662170ca2946d8
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989643"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781450"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 
@@ -45,8 +45,9 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
         <style>
             html,
             body {
@@ -144,7 +145,7 @@ Per questa esercitazione, impostare Microsoft come punto di partenza e un distri
 Questa sezione illustra come usare l'API del servizio di pianificazione percorso di Mappe per trovare il percorso per raggiungere una destinazione da un determinato punto di partenza. Il servizio di pianificazione percorso fornisce le API per pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Consente inoltre agli utenti di pianificare percorsi per il futuro usando il database dei dati storici sul traffico di Azure e fornendo stime della durata dei percorsi per qualsiasi giorno e ora. Per altre informazioni, vedere [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali).
 
 
-1. Aggiungere prima un nuovo livello sulla mappa per visualizzare l'itinerario, ovvero l'elemento *linestring*. Aggiungere il codice JavaScript seguente al blocco *script*:
+1. Aggiungere prima un nuovo livello sulla mappa per visualizzare l'itinerario, ovvero l'elemento *linestring*. Aggiungere il codice JavaScript seguente al blocco *script*.
 
     ```JavaScript
     // Initialize the linestring layer for routes on the map
@@ -159,48 +160,45 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
     });
     ```
 
-2. Creare un oggetto [XMLHttpRequest](https://xhr.spec.whatwg.org/) e aggiungere un gestore eventi per analizzare la risposta JSON inviata dal servizio di pianificazione percorso di Mappe. Questo codice costruisce una matrice di coordinate per i segmenti di linea del percorso, quindi aggiunge il set di coordinate al livello linestring della mappa. 
-
+2.  Creare un'istanza del servizio client, aggiungendo il codice Javascript seguente al blocco di script.
     ```JavaScript
-    // Perform a request to the route service and draw the resulting route on the map
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(xhttp.responseText);
-
-            var route = response.routes[0];
-            var routeCoordinates = [];
-            for (var leg of route.legs) {
-                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                routeCoordinates = routeCoordinates.concat(legCoordinates);
-            }
-
-            var routeLinestring = new atlas.data.LineString(routeCoordinates);
-            map.addLinestrings([new atlas.data.Feature(routeLinestring)], { name: routeLinesLayerName });
-        }
-    };
+    var client = new atlas.service.Client(subscriptionKey);
     ```
 
-3. Aggiungere il codice seguente per compilare la query e inviare l'oggetto XMLHttpRequest al servizio di pianificazione percorso di Mappe:
-
+3. Aggiungere il blocco di codice seguente per creare una stringa di query di route.
     ```JavaScript
-    var url = "https://atlas.microsoft.com/route/directions/json?";
-    url += "api-version=1.0";
-    url += "&subscription-key=" + MapsAccountKey;
-    url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-
-    xhttp.open("GET", url, true);
-    xhttp.send();
+    // Construct the route query string 
+        var routeQuery = startPoint.coordinates[1] + 
+            "," + 
+            startPoint.coordinates[0] + 
+            ":" + 
+            destinationPoint.coordinates[1] + 
+            "," + 
+            destinationPoint.coordinates[0];     
     ```
 
-3. Salvare il file **MapRoute.html** e aggiornare il Web browser. Se la connessione con le API di Mappe è stata stabilita correttamente, verrà visualizzata una mappa simile alla seguente. 
+4. Per ottenere la route, aggiungere allo script il blocco di codice seguente. Viene eseguita una query al servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) e viene quindi analizzata la risposta in formato GeoJSON usando [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). Vengono aggiunte tutte le righe di risposta sulla mappa per eseguire il rendering della route. Per altre informazioni, è possibile vedere [Aggiungere una linea sulla mappa](./map-add-shape.md#addALine).
+
+    ```JavaScript
+    // Execute the query then add the route to the map once a response is received  
+    client.route.getRouteDirections(routeQuery).then(response => { 
+         // Parse the response into GeoJSON 
+         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response); 
+ 
+         // Get the first in the array of routes and add it to the map 
+         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], { 
+             name: routeLinesLayerName 
+         }); 
+    }); 
+    ```
+
+5. Salvare il file **MapRoute.html** e aggiornare il Web browser. Se la connessione con le API di Mappe è stata stabilita correttamente, verrà visualizzata una mappa simile alla seguente.
 
     ![Controllo mappa e servizio di pianificazione percorso di Azure](./media/tutorial-route-location/map-route.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa

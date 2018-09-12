@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione su Azure Cosmos DB: Creare, eseguire query e attraversare nella console Gremlin di Apache TinkerPop | Microsoft Docs'
-description: Guida di avvio rapido ad Azure Cosmos DB per creare vertici, archi e query usando l'API Graph di Azure Cosmos DB.
+description: Guida introduttiva ad Azure Cosmos DB per creare vertici, archi e query usando l'API Gremlin di Azure Cosmos DB.
 services: cosmos-db
 author: luisbosquez
 manager: kfile
@@ -10,24 +10,33 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 6f6a622c2b9faf6117a8212000e1e632df3526b2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 905873a695635ba80de258cbf458c8dd3e18d443
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634131"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700339"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Creare, eseguire query e attraversare un grafo nella console Gremlin
 
+> [!div class="op_single_selector"]
+> * [Console Gremlin](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.JS](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
+
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida introduttiva illustra come creare un account [API Graph](graph-introduction.md) di Azure Cosmos DB, un database e un grafo (contenitore) usando il portale di Azure e quindi usare la [console di Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) da [Apache TinkerPop](http://tinkerpop.apache.org) per usare i dati dell'API Graph (anteprima). Questa esercitazione descrive come creare ed eseguire query su vertici e archi, aggiornare la proprietà di un vertice, eseguire query sui vertici, attraversare il grafo ed eliminare un vertice.
+Questa guida introduttiva illustra come creare un account, un database e un grafo (contenitore) dell'[API Gremlin](graph-introduction.md) in Azure Cosmos DB usando il portale di Azure e quindi usare la [console di Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) da [Apache TinkerPop](http://tinkerpop.apache.org) per usare i dati dell'API Gremlin (anteprima). Questa esercitazione descrive come creare ed eseguire query su vertici e archi, aggiornare la proprietà di un vertice, eseguire query sui vertici, attraversare il grafo ed eliminare un vertice.
 
 ![Azure Cosmos DB dalla console Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
 La console Gremlin è basata su Groovy/Java e può essere eseguita su Linux, Mac e Windows. È possibile scaricare la console dal [sito Apache TinkerPop](http://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è necessaria una sottoscrizione di Azure.
 
@@ -47,7 +56,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Immettere le configurazioni per *host*, *port*, *username*, *password*, *connectionPool* e *serializer* in base alla tabella seguente:
 
-    Impostazione|Valore consigliato|DESCRIZIONE
+    Impostazione|Valore consigliato|Descrizione
     ---|---|---
     hosts|[*account-name*.gremlin.cosmosdb.azure.com] o [*account-name*.graphs.azure.com] per gli account creati prima del 20 dicembre 2017|Vedere lo screenshot seguente. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.
     port|443|Impostare su 443.
@@ -299,7 +308,7 @@ Input:
 :> g.V().drop()
 ```
 
-Congratulazioni! Questa esercitazione sull'API Graph di Azure Cosmos DB è stata completata.
+Congratulazioni! Questa esercitazione sull'API Gremlin in Azure Cosmos DB è stata completata.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

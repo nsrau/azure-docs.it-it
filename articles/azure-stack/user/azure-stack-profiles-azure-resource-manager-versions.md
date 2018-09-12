@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050650"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380217"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versioni di API del provider di risorse supportate da profili in Azure Stack
 
@@ -54,9 +54,9 @@ Per una spiegazione dei profili di API e ritmo di rilascio versione per Azure St
 | Resources_Locks | 2016-10-01 |
 | Sottoscrizioni | 2016-10-01 |
 
-Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel profilo di api, vedere [dettagli per il 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profilo.
+Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel profilo di API, vedere [dettagli per il 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profilo.
 
-## <a name="overview-of-2017-03-09-profile"></a>Panoramica del 2017-03-09-profilo
+## <a name="overview-of-2018-03-01-hybrid"></a>Panoramica del 2018-03-01-hybrid
 
 | Provider di risorse | Versione API-version |
 |------------------------------------------------|------------------------------|
@@ -76,7 +76,7 @@ Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel pr
 | Resources_Locks | 2016-09-01 |
 | Sottoscrizioni | 2016-06-1 |
 
-Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel profilo di api, vedere [dettagli per il 2017-03-09-profilo](#details-for-the-2017-03-09-profile)
+Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel profilo di api, vedere [i dettagli per il 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid)
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Dettagli per il 2018-03-01-hybrid
 
@@ -231,7 +231,7 @@ Il Provider di risorse archiviazione (SRP) consente di gestire l'account di arch
 | StorageAccounts | 2016-01-01 |
 | Usi | 2016-01-01 |
 
-## <a name="details-for-the-2017-03-09-profile"></a>Dettagli per il 2017-03-09-profilo
+## <a name="details-for-the-2018-03-01-hybrid"></a>Dettagli per il 2018-03-01-hybrid
 
 ### <a name="microsoft-authorization"></a>Autorizzazione Microsoft
 

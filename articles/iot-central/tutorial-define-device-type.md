@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41921044"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702545"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central
 
@@ -265,7 +265,7 @@ Le *impostazioni* sono usate per permettere a un operatore di inviare dati di co
     | Valore minimo        | 20              |
     | Valore massimo        | 200             |
     | Valore iniziale        | 80              |
-    | DESCRIZIONE          | Impostare la temperatura di destinazione per il condizionatore |
+    | Descrizione          | Impostare la temperatura di destinazione per il condizionatore |
 
     Quindi scegliere **Salva**:
 
@@ -280,22 +280,22 @@ Le *impostazioni* sono usate per permettere a un operatore di inviare dati di co
 
 ## <a name="use-properties--device-properties"></a>Usare le proprietà/proprietà del dispositivo
 
-Le *proprietà* sono usate per archiviare informazioni sul dispositivo nell'applicazione. In questa sezione si aggiungono le proprietà del dispositivo al modello di dispositivo **Connected Air Conditioner** (Condizionatore connesso) per archiviare il numero di serie e la versione del dispositivo. Si noti che sono entrambe proprietà di sola lettura segnalate dal dispositivo e non è possibile assegnare valori. Le proprietà che è possibile usare e a cui è possibile assegnare valori includono la posizione del dispositivo, le informazioni sulla titolarità e l'ultima data/ora di servizio per il dispositivo.
+Le *proprietà* sono usate per archiviare informazioni sul dispositivo nell'applicazione. In questa sezione si aggiungono le proprietà del cloud al modello di dispositivo **Connected Air Conditioner** (Condizionatore connesso) per archiviare la posizione del dispositivo e la data dell'ultimo utilizzo. Tenere presente che sono entrambe proprietà modificabili del dispositivo. Sono anche presenti proprietà di sola lettura segnalate dal dispositivo che non possono essere modificate, ad esempio il numero di serie del dispositivo e la versione del firmware.
  
 1. Passare alla pagina **Proprietà** per il modello di dispositivo **Condizionatore connesso**:
 
     ![Prepararsi per aggiungere una proprietà](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    È possibile creare proprietà del dispositivo di tipi diversi, ad esempio numeri o testo. Per aggiungere una proprietà di numero di serie al modello di dispositivo, scegliere **Testo**.
+    È possibile creare proprietà del dispositivo di tipi diversi, ad esempio numeri o testo. Per aggiungere una proprietà di posizione al modello di dispositivo, scegliere **Posizione**.
 
-2. Per configurare la proprietà del numero di serie, usare le informazioni nella tabella seguente:
+2. Per configurare la proprietà della posizione, usare le informazioni nella tabella seguente:
 
     | Campo                | Valore                |
     | -------------------- | -------------------- |
-    | Nome visualizzato         | Numero di serie        |
-    | Nome campo           | serialNumber         |
-    | Valore iniziale        | cac00001             |
-    | DESCRIZIONE          | Numero di serie del dispositivo |
+    | Nome visualizzato         | Località             |
+    | Nome campo           | location             |
+    | Valore iniziale        | Seattle, WA          |
+    | Descrizione          | Posizione dispositivo      |
 
     Mantenere i valori predefiniti per gli altri campi.
 
@@ -303,16 +303,16 @@ Le *proprietà* sono usate per archiviare informazioni sul dispositivo nell'appl
 
     Scegliere **Salva**.
 
-3. Per aggiungere una versione del firmware alle proprietà del dispositivo per il modello di dispositivo, scegliere **Testo**.
+3. Per aggiungere una proprietà relativa alla data dell'ultimo utilizzo al modello di dispositivo, scegliere **Data**.
 
-4. Per configurare la proprietà del dispositivo della versione del firmware, usare le informazioni nella tabella seguente:
+4. Per configurare la proprietà relativa alla data dell'ultimo utilizzo, usare le informazioni nella tabella seguente:
 
     | Campo                | Valore                   |
     | -------------------- | ----------------------- |
-    | Nome visualizzato         | Versione del firmware        |
-    | Nome campo           | firmwareVersion         |
-    | Valore iniziale        | 0,1                     |
-    | DESCRIZIONE          | Versione del firmware del dispositivo |
+    | Nome visualizzato         | Data ultimo utilizzo       |
+    | Nome campo           | serviceDate             |
+    | Valore iniziale        | 1/1/2018                |
+    | Descrizione          | Ultimo utilizzo           |
 
     ![Configurare le proprietà del dispositivo](./media/tutorial-define-device-type/configureproperties2.png)
 
@@ -343,7 +343,7 @@ I _comandi_ si usano per consentire a un operatore di eseguire i comandi diretta
     | Nome campo           | echo (eco)            |
     | Timeout predefinito      | 30              |
     | Tipo schermo         | text            |
-    | DESCRIZIONE          | Comando del dispositivo  |  
+    | Descrizione          | Comando del dispositivo  |  
 
 È possibile aggiungere altri input al comando facendo clic su **+** per gli input.
 
