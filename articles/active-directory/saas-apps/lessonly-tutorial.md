@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2a4bae196e956d92548944637509b23f78ceb5d2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121710"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Esercitazione: Integrazione di Azure Active Directory con Lessonly.com
 
@@ -126,7 +126,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Lessonly.com](mailto:dev@lessonly.com). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Lessonly.com](mailto:support@lessonly.com). 
 
 1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -165,7 +165,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. Per configurare l'accesso Single Sign-On sul lato **Lessonly.com** è necessario inviare il file **Certificato (Base64)** scaricato e i valori **Sign-Out URL (URL di disconnessione), SAML Entity ID (ID entità SAML) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** al [team di supporto di Lessonly.com](mailto:dev@lessonly.com).
+1. Per configurare l'accesso Single Sign-On sul lato **Lessonly.com** è necessario inviare il file **Certificato (Base64)** scaricato e i valori **Sign-Out URL (URL di disconnessione), SAML Entity ID (ID entità SAML) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** al [team di supporto di Lessonly.com](mailto:support@lessonly.com).
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -208,7 +208,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Lessonly.
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Lessonly.com verrà creato un nuovo utente, se questo non esiste già.
 
 > [!NOTE]
-> Per creare un utente manualmente, è necessario contattare il [team di supporto di Lessonly.com](mailto:dev@lessonly.com).
+> Per creare un utente manualmente, è necessario contattare il [team di supporto di Lessonly.com](mailto:support@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 

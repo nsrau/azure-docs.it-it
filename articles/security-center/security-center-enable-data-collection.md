@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 92e0b485f51ebeb2b743c8c01372e9056af4b6eb
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9043c6583a15d3be9d0d468e83a4bf79b3121794
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124868"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304119"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer che non hanno Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i registri del sistema operativo (registri eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
@@ -78,7 +78,7 @@ Per selezionare un'area di lavoro creata dal Centro sicurezza:
 1.  In **Configurazione dell'area di lavoro predefinita** selezionare l'opzione per usare un'altra area di lavoro creata dal Centro sicurezza.
    ![Selezionare un piano tariffario][10] 
 
-2. Fare clic su **Salva**.<br>
+2. Fare clic su **Save**.<br>
     Il Centro sicurezza crea un nuovo gruppo di risorse e un'area di lavoro predefinita in corrispondenza della posizione geografica specificata e quindi connette l'agente all'area di lavoro. Ecco le convenzioni di denominazione per l'area di lavoro e il gruppo di risorse:<br>
 **Area di lavoro: DefaultWorkspace-[subscription-ID]-[geo]<br> Gruppo di risorse: DefaultResouceGroup-[geo]**
 

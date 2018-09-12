@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: d22b86ad33db600eb5273e3ab09e71a1b1fd527b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cdce0ae223a637ac30ed472d2bf711aa36958414
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577497"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346764"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Eseguire la migrazione ad Azure di app locali di AD FS 
 
@@ -55,7 +55,7 @@ Per un'organizzazione che usa già AD FS, Ping o un altro provider di autenticaz
 - Come provider di identità per le app SaaS, Azure AD supporta funzionalità aggiuntive come le seguenti:
   - Certificati per la firma di token per applicazione.
   - [Date di scadenza dei certificati configurabili](manage-certificates-for-federated-single-sign-on.md).
-  - [Provisioning automatizzato](../active-directory-saas-app-provisioning.md) degli account utente (nelle principali app di Azure Marketplace) in base alle identità di Azure AD.
+  - [Provisioning automatizzato](user-provisioning.md) degli account utente (nelle principali app di Azure Marketplace) in base alle identità di Azure AD.
 
 **Mantenimento dei vantaggi di un provider di identità locale**
 - Pur ottenendo i vantaggi di Azure AD, è possibile continuare a usare la soluzione locale per l'autenticazione, usufruendo così di vantaggi come registrazione, controllo e soluzioni Multi-Factor Authentication locali. 
@@ -232,7 +232,7 @@ Grazie alla configurazione creata in precedenza in **Identity** (Identità) > **
 ![Selezione di Azure AD come servizio di autenticazione](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Facoltativo: configurare il provisioning utenti in Azure AD
-Se si vuole che Azure AD gestisca direttamente il provisioning utenti per un'app SaaS, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Se si vuole che Azure AD gestisca direttamente il provisioning utenti per un'app SaaS, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](user-provisioning.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

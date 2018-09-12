@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f34bb9eaa04491dfbef8fac711690d1b19677d89
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259595"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346339"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -27,7 +27,7 @@ Se l'app locale usa l'autenticazione basata su SAML, è possibile renderla facil
 
 Sono necessarie entrambe queste operazioni:
 
-- Integrare l'app SAML usando il modello di applicazione non nella raccolta, come descritto in [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../active-directory-saas-custom-apps.md). Assicurarsi di prendere nota del valore usato per **URL di accesso**.
+- Integrare l'app SAML usando il modello di applicazione non nella raccolta, come descritto in [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Assicurarsi di prendere nota del valore usato per **URL di accesso**.
 -  Usare Azure AD Application Proxy per pubblicare l'app locale, configurando **Azure Active Directory** come origine dell'autenticazione. Per istruzioni, vedere [Pubblicare applicazioni con Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Quando si configura l'impostazione **URL interno**, usare l'URL di accesso specificato nel modello di applicazione non nella raccolta. In questo modo, gli utenti possono accedere all'app dall'esterno dei confini dell'organizzazione. Application Proxy esegue l'accesso Single Sign-On SAML per l'app locale.
@@ -79,7 +79,7 @@ Prima di usare lo script, verificare i prerequisiti e leggere le considerazioni 
 
 ## <a name="license-considerations"></a>Considerazioni sulle licenze
 
-Assicurarsi di avere le licenze CAL (Client Access License) corrette per gli utenti guest esterni che accedono alle app locali. Per altre informazioni, vedere la sezione relativa ai connettori esterni in [Client Access Licenses and Management Licenses](https://www.microsoft.com/en-us/licensing/product-licensing/client-access-license.aspx) (Licenze di gestione e CAL). Per le esigenze di licenze specifiche, rivolgersi al rappresentante Microsoft o al rivenditore locale.
+Assicurarsi di avere le licenze CAL (Client Access License) corrette per gli utenti guest esterni che accedono alle app locali. Per altre informazioni, vedere la sezione relativa ai connettori esterni in [Client Access Licenses and Management Licenses](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx) (Licenze di gestione e CAL). Per le esigenze di licenze specifiche, rivolgersi al rappresentante Microsoft o al rivenditore locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

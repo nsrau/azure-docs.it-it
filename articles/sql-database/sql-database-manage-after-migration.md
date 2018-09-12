@@ -11,13 +11,13 @@ ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
-ms.component: migration
-ms.openlocfilehash: ab6a66821905901515258842176ce24e485a54e3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.component: data-movement
+ms.openlocfilehash: 133cba72a93d692851043f1c66d6a4a38e18b324
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110613"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379466"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione del database nel database SQL di Azure
 

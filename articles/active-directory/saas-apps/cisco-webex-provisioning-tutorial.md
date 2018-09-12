@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: fdaf77e3d8a1858372298fb0d67ca05c2717adf6
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8f5af3cba01e925591c9d90ea0e96ed78b2823e2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324166"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348379"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cisco Webex per il provisioning utenti automatico
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive la procedura da eseguire in Cisco Webex e Azure Ac
 
 
 > [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -116,7 +116,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
     * Scorrere fino alla sezione [Authentication](https://developer.webex.com/getting-started.html#authentication) (Autenticazione)
     ![Token di autenticazione di Cisco Webex](./media/cisco-webex-provisioning-tutorial/SecretToken.png)
     * La stringa alfanumerica riportata nella casella è il **token segreto**. Copiare il token negli Appunti
-    * Passare alla pagina [Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html) (Ottieni dettagli personali)
+    * Passare alla [pagina Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html) (Ottieni dettagli personali)
         * Verificare che la modalità di test sia attiva
         * Digitare la parola "Bearer" seguita da uno spazio e quindi incollare il token segreto nel campo Authorization (Autorizzazione) ![Token di autenticazione di Cisco Webex](./media/cisco-webex-provisioning-tutorial/GetMyDetails.png)
         * Fare clic su Run (Esegui)
@@ -153,7 +153,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Provisioning di Cisco Webex](./media/cisco-webex-provisioning-tutorial/UserMappingAttributes.png)
 
-12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../active-directory-saas-scoping-filters.md).
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Per abilitare il servizio di provisioning di Azure AD per Cisco Webex, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
@@ -170,7 +170,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning di Azure AD in Cisco Webex.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../active-directory-saas-provisioning-reporting.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Limitazioni dei connettori
+
+* Cisco Webex è attualmente nella fase EFT (Early Field Testing) di Cisco. Per altre informazioni, contattare il [team di supporto Cisco](https://www.webex.co.in/support/support-overview.html). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -180,7 +184,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../active-directory-saas-provisioning-reporting.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/cisco-webex-provisioning-tutorial/tutorial_general_01.png

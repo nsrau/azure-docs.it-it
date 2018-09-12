@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0b7de1f63f765705a78535ae04c1b844e06c029c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363054"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301158"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Limitare l'accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglia di limitare l'accesso tramite endpoint con connessione Internet se uno dei gruppi di sicurezza di rete contiene una o più regole in ingresso che consentono l'accesso da "qualsiasi" indirizzo IP di origine. L'accesso su "qualsiasi" origine potrebbe abilitare utenti malintenzionati ad accedere alle risorse. Il Centro sicurezza consiglierà di modificare queste regole in ingresso per limitare l'accesso agli indirizzi IP di origine che necessitano effettivamente dell'accesso.

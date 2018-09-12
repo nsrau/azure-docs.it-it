@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 06cfb375c6c18082a0d0316cfcb742a7779fc8a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d69e02126564388bf045693b9960e6e574307641
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206379"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391335"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Come specificare tramite parametri il numero di porta di un servizio in Service Fabric
 
@@ -82,7 +82,7 @@ In questo esempio si imposta il numero di porta per un'API Web ASP.NET Core usan
 
     ```xml
       <Parameters>
-        <Parameter Name="MyWebAPI_PortNumber" DefaultValue="80" />
+        <Parameter Name="MyWebAPI_PortNumber" Value="80" />
       </Parameters>
     ```
 

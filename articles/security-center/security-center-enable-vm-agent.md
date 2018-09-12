@@ -1,6 +1,6 @@
 ---
 title: Abilitare l'agente di macchine virtuali nel Centro sicurezza di Azure | Microsoft Docs
-description: Questo documento illustra come implementare la raccomandazione **Abilita l'agente di macchine virtuali** del Centro sicurezza di Azure.
+description: In questo documento viene illustrato come implementare l'indicazione **Abilita l'agente di macchine virtuali** del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 5b431c25-4241-45b7-9556-cf2a1956f3da
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 337a7adfd93c76882a749685702bea6d1524c96a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 200ab53839811e20200534b7168d6b4fb368e42a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040286"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295684"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Abilita l'agente di macchine virtuali nel Centro sicurezza di Azure
 Per [abilitare la raccolta dati](security-center-enable-data-collection.md), l'agente di macchine virtuali deve essere installato sulle macchine virtuali.  Il Centro sicurezza di Azure consente di visualizzare le VM che richiedono l'agente di macchine virtuali e consiglia di abilitare l'agente di macchine virtuali su queste VM.

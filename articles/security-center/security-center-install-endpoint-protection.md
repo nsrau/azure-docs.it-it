@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: terrylan
-ms.openlocfilehash: abbcb0a8e0206d78ca94520dfa81ab92506c47af
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: a3ac23f3874b85da9c0641264ca6f9c55a7b0515
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
-ms.locfileid: "23497349"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300004"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gestire i problemi di protezione degli endpoint con il Centro sicurezza di Azure
 Il Centro sicurezza di Azure monitora lo stato della protezione antimalware e lo segnala nel pannello dei problemi di protezione endpoint. Il Centro sicurezza evidenzia i problemi, quali minacce rilevate e protezione insufficiente, che può rendere i computer e le macchine virtuali vulnerabili ai rischi antimalware. Usando le informazioni in **Problemi di protezione degli endpoint**, è possibile sviluppare un piano per risolvere eventuali problemi identificati.

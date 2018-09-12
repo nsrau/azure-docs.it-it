@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: ee1a127696f20e2d67d61be2c598e5ee9386c069
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 523d326c3bfc799bc6a170275011ef8e134894a0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906227"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300767"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Modelli Blueprint per sicurezza e conformità di Azure: Applicazione Web PaaS per PCI DSS
 
@@ -103,7 +103,7 @@ Usare gli ambienti del servizio app per i controlli e le configurazioni seguenti
 - [Web application firewall - limitazione dei dati](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - [Traffico del database SQL di Azure](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview) consentito
 
-**App Web di Azure**: [App Web di Azure](https://docs.microsoft.com/azure/app-service/) consente ai clienti di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente le distribuzioni automatizzate da GitHub, Visual Studio Team Services o qualsiasi repository Git.
+**App Web di Azure**: [App Web di Azure](https://docs.microsoft.com/azure/app-service/) consente ai clienti di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente distribuzioni automatiche da GitHub, Azure DevOps o qualsiasi repository Git.
 
 ### <a name="virtual-network"></a>Rete virtuale
 

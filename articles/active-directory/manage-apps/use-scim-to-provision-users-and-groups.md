@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: b696325c19d4e1d9c9fe6b85a3c46add756340ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443512"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347699"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -84,7 +84,7 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 13. Fare clic su **Salva** per avviare il servizio di provisioning di Azure AD. 
 14. Se si sceglie di sincronizzare solo gli utenti e i gruppi assegnati (scelta consigliata), assicurarsi di selezionare la scheda **Utenti e gruppi** e di assegnare gli utenti e/o i gruppi che si vuole sincronizzare.
 
-Dopo aver avviato la sincronizzazione iniziale, è possibile usare la scheda **Log di controllo** per monitorare lo stato di avanzamento, che mostra tutte le azioni eseguite dal servizio di provisioning sull'app. Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../active-directory-saas-provisioning-reporting.md).
+Dopo aver avviato la sincronizzazione iniziale, è possibile usare la scheda **Log di controllo** per monitorare lo stato di avanzamento, che mostra tutte le azioni eseguite dal servizio di provisioning sull'app. Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](check-status-user-account-provisioning.md).
 
 >[!NOTE]
 >La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. 
@@ -152,7 +152,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
 13. Fare clic su **Salva** per avviare il servizio di provisioning di Azure AD. 
 14. Se si sceglie di sincronizzare solo gli utenti e i gruppi assegnati (scelta consigliata), assicurarsi di selezionare la scheda **Utenti e gruppi** e di assegnare gli utenti e/o i gruppi che si vuole sincronizzare.
 
-Dopo aver avviato la sincronizzazione iniziale, è possibile usare la scheda **Log di controllo** per monitorare lo stato di avanzamento, che mostra tutte le azioni eseguite dal servizio di provisioning sull'app. Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../active-directory-saas-provisioning-reporting.md).
+Dopo aver avviato la sincronizzazione iniziale, è possibile usare la scheda **Log di controllo** per monitorare lo stato di avanzamento, che mostra tutte le azioni eseguite dal servizio di provisioning sull'app. Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](check-status-user-account-provisioning.md).
 
 Il passaggio finale della verifica dell'esempio consiste nell'aprire il file TargetFile.csv nella cartella \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug del computer Windows. Dopo l'esecuzione del processo di provisioning, questo file include i dettagli di tutti gli utenti e gruppi assegnati e sottoposti a provisioning.
 
@@ -692,11 +692,11 @@ La figura seguente illustra i messaggi che Azure AD invia al servizio SCIM per g
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
-* [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](../active-directory-saas-app-provisioning.md)
-* [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](../active-directory-saas-customizing-attribute-mappings.md)
-* [Scrittura di espressioni per i mapping degli attributi](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Ambito dei filtri per il Provisioning utente](../active-directory-saas-scoping-filters.md)
-* [Notifiche relative al provisioning dell'account](../active-directory-saas-app-provisioning.md)
+* [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)
+* [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](customize-application-attributes.md)
+* [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
+* [Ambito dei filtri per il Provisioning utente](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Notifiche relative al provisioning dell'account](user-provisioning.md)
 * [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
 
 <!--Image references-->

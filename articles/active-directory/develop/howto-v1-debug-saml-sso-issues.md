@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620937"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347784"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Eseguire il debug dell'accesso Single Sign-On basato su SAML su applicazioni in Azure Active Directory
 
@@ -96,11 +96,11 @@ Per risolvere l'errore:
     - Attestazioni rilasciate nel token
     - Certificato usato per firmare il token. Per informazioni su come esaminare la risposta SAML, vedere [Protocollo SAML per Single Sign-On](single-sign-on-saml-protocol.md).
 4. Per altre informazioni sulla risposta SAML, vedere [Protocollo SAML per Single Sign-On](single-sign-on-saml-protocol.md).
-5. Dopo aver esaminato la risposta SAML, vedere [Errore nella pagina dell'applicazione dopo l'accesso](../application-sign-in-problem-application-error.md) per indicazioni sulla risoluzione del problema. 
+5. Dopo aver esaminato la risposta SAML, vedere [Errore nella pagina dell'applicazione dopo l'accesso](../manage-apps/application-sign-in-problem-application-error.md) per indicazioni sulla risoluzione del problema. 
 6. Se non si è ancora in grado di accedere correttamente, è possibile chiedere al fornitore dell'applicazione le informazioni mancanti nella risposta SAML.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Con l'accesso Single Sign-On operativo nell'applicazione, è possibile a questo punto [automatizzare il provisioning e il deprovisioning degli utenti nelle applicazioni SaaS](../active-directory-saas-app-provisioning.md) o eseguire le [attività iniziali per l'accesso condizionale](../conditional-access/app-based-conditional-access.md).
+Con l'accesso Single Sign-On operativo nell'applicazione, è possibile a questo punto [automatizzare il provisioning e il deprovisioning degli utenti nelle applicazioni SaaS](../manage-apps/user-provisioning.md) o eseguire le [attività iniziali per l'accesso condizionale](../conditional-access/app-based-conditional-access.md).
 
 

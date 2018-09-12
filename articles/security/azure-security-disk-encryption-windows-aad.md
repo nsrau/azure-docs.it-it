@@ -1,24 +1,18 @@
 ---
 title: Abilitare Crittografia dischi di Azure con un'app Azure AD per macchine virtuali IaaS Windows (versione precedente) | Microsoft Docs
 description: Questo articolo offre informazioni sull'abilitazione di Crittografia dischi di Microsoft Azure per le macchine virtuali IaaS Windows.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 30b1151b-3314-4526-ba4e-4f6b23b1b280
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 2ecc177f810c9a3fe2d096b71aed4886cf89d7b4
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 52b16341a4d2fb23709c4b97a7fec92ac3923c7d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889158"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348872"
 ---
 #  <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Abilitare Crittografia dischi di Azure per macchine virtuali IaaS Windows (versione precedente)
 
@@ -56,7 +50,7 @@ Catturare uno [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.
      -  Selezionare la macchina virtuale, quindi fare clic su **Dischi** sotto l'intestazione **Impostazioni** per verificare lo stato della crittografia nel portale. Nel grafico sotto **Crittografia** è indicato se lo stato è abilitato. 
            ![Portale di Azure - Crittografia dischi abilitata](./media/azure-security-disk-encryption/disk-encryption-fig2.png) La tabella seguente elenca i parametri del modello di Resource Manager per lo scenario con nuove macchine virtuali dal Marketplace con ID client di Azure AD:
 
-| Parametro | Descrizione | 
+| Parametro | DESCRIZIONE | 
 | --- | --- |
 | adminUserName | Nome utente dell'amministratore per la macchina virtuale. |
 | adminPassword | Password utente dell'amministratore per la macchina virtuale. |
@@ -166,13 +160,13 @@ Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryp
 È possibile abilitare la crittografia dei dischi nelle macchine virtuali IaaS Windows esistenti o in esecuzione in Azure usando il [modello di Resource Manager per crittografare una macchina virtuale Windows in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 
-1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure** (Distribuisci in Azure).
+1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure**.
 
 2. Selezionare la sottoscrizione, il gruppo di risorse, la posizione del gruppo di risorse, i parametri, i termini legali e il contratto. Fare clic su **Acquista** per abilitare la crittografia in una macchina IaaS esistente o in esecuzione.
 
 La tabella seguente elenca i parametri del modello di Resource Manager per macchine virtuali esistenti o in esecuzione che usano un ID client di Azure AD:
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | AADClientID | ID client dell'applicazione Azure AD con le autorizzazioni per la scrittura di segreti nell'insieme di credenziali delle chiavi. |
 | AADClientSecret | Segreto client dell'applicazione Azure AD con le autorizzazioni per la scrittura di segreti nell'insieme di credenziali delle chiavi. |
@@ -211,13 +205,13 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
 ### <a name="bkmk_VHDpreRM"> </a>Crittografare le macchine virtuali IaaS con dischi rigidi virtuali pre-crittografati con un modello di Resource Manager 
 È possibile abilitare la crittografia dei dischi nel disco rigido virtuale crittografato usando il modello di [Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm).
 
-1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure** (Distribuisci in Azure).
+1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure**.
 
 2. Selezionare la sottoscrizione, il gruppo di risorse, la posizione del gruppo di risorse, i parametri, i termini legali e il contratto. Fare clic su **Crea** per abilitare la crittografia nella nuova macchina virtuale IaaS.
 
 La tabella seguente elenca i parametri del modello di Resource Manager per il disco rigido virtuale crittografato:
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | newStorageAccountName | Nome dell'account di archiviazione per archiviare il disco rigido virtuale del sistema operativo. È necessario che questo account di archiviazione sia già stato creato nello stesso gruppo di risorse e nello stesso percorso della VM. |
 | osVhdUri | URI del disco rigido virtuale del sistema operativo dall'account di archiviazione. |
@@ -357,7 +351,7 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $VMName 
      ```
 - **Disabilitare la crittografia con un modello di Resource Manager:** 
 
-    1. Fare clic su **Deploy to Azure** (Distribuisci in Azure) dal modello per [disabilitare la crittografia dischi in una macchina virtuale Windows in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm).
+    1. Fare clic su **Deploy to Azure** dal modello [Disabilitare la crittografia dischi in una macchina virtuale Windows in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm).
     2. Selezionare la sottoscrizione, il gruppo di risorse, la posizione, la macchina virtuale, i termini legali e il contratto.
     3.  Fare clic su **Acquista** per disabilitare la crittografia dischi in una macchina virtuale Windows in esecuzione. 
 

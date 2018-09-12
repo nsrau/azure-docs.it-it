@@ -1,24 +1,18 @@
 ---
 title: Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux | Documentazione Microsoft
 description: Questo articolo rappresenta un'appendice per Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 98bbcb84-8e6c-4eb2-8490-c2a0c67aad79
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 9efd8730af292e6f720c3bacd5707c48f0eab7ac
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 2f932ff39495916c4a9fb55714c73383e06c72e1
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887934"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346844"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Appendice per Crittografia dischi di Azure 
 Questo articolo rappresenta un'appendice per [Crittografia dischi di Azure per macchine virtuali IaaS](azure-security-disk-encryption-overview.md). Assicurarsi di aver letto innanzitutto gli articoli sulla Crittografia dischi di Azure per macchine virtuali per comprendere il contesto. Questo articolo descrive come preparare dischi rigidi virtuali pre-crittografati e altre attività.
@@ -112,39 +106,39 @@ Se si ha già familiarità con i prerequisiti per Crittografia dischi di Azure, 
 La tabella seguente illustra i parametri che possono essere usati nello script di PowerShell: 
 
 
-|Parametro|Descrizione|È obbligatorio|
+|Parametro|DESCRIZIONE|È obbligatorio|
 |------|------|------|
 |$resourceGroupName| Nome del gruppo di risorse a cui appartiene l'insieme di credenziali delle chiavi.  Verrà creato un nuovo gruppo di risorse con questo nome, se non esiste già.| True |
 |$keyVaultName|Nome dell'insieme di credenziali delle chiavi in cui inserire le chiavi di crittografia. Verrà creato un nuovo insieme con questo nome, se non esiste già.| True |
 |$location|Percorso dell'insieme di credenziali delle chiavi. Assicurarsi che l'insieme di credenziali delle chiavi e le macchine virtuali da crittografare si trovino nello stesso percorso. Ottenere un elenco di percorsi con `Get-AzureRMLocation`.|True |
 |$subscriptionId|Identificatore della sottoscrizione di Azure da usare.  È possibile ottenere l'ID della sottoscrizione con `Get-AzureRMSubscription`.|True |
-|$aadAppName|Nome dell'applicazione Azure AD che verrà usata per scrivere segreti nell'insieme di credenziali delle chiavi. Verrà creata una nuova applicazione con questo nome, se non esiste già. Se l'app esiste già, passare il parametro aadClientSecret allo script.|False|
+|$aadAppName|Nome dell'applicazione Azure AD che verrà usata per scrivere segreti nell'insieme di credenziali delle chiavi. Viene creata una nuova applicazione con questo nome, se non esiste già. Se l'app esiste già, passare il parametro aadClientSecret allo script.|False|
 |$aadClientSecret|Segreto client dell'applicazione Azure AD che è stato creato in precedenza.|False|
 |$keyEncryptionKeyName|Nome della chiave di crittografia della chiave facoltativa nell'insieme di credenziali delle chiavi. Verrà creata una nuova chiave con questo nome, se non esiste già.|False|
 
 
-## <a name="resource-manager-templates"></a>Modelli di Resource Manage
+## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
 <!--   - [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) -->
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Crittografare o decrittografare le macchine virtuali senza un'app Azure AD
 
 
-- [Abilitare la crittografia dei dischi su macchine virtuali IaaS Windows esistenti o in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
+- [Abilitare la crittografia del disco su macchine virtuali IaaS Windows esistenti](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
 - [Disabilitare la crittografia dei dischi su macchine virtuali IaaS Windows esistenti o in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
-- [Abilitare la crittografia dei dischi su una macchina virtuale IaaS Linux esistente o in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
- -  [Disabilitare la crittografia su una macchina virtuale Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+- [Abilitare la crittografia del disco su macchine virtuali IaaS Linux esistenti](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+ -  [Disabilitare la crittografia su macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - È possibile disabilitare la crittografia solo nei volumi di dati per macchine virtuali Linux.  
 
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Crittografare o decrittografare le macchine virtuali senza un'app Azure AD (versione precedente) 
  
-- [Abilitare la crittografia dei dischi su macchine virtuali IaaS Windows esistenti o in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
+- [Abilitare la crittografia del disco su macchine virtuali IaaS Windows esistenti](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
 
-- [Abilitare la crittografia dei dischi su una macchina virtuale IaaS Linux esistente o in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
+- [Abilitare la crittografia del disco su macchine virtuali IaaS Linux esistenti](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
-- [Disabilitare la crittografia dei dischi su macchine virtuali IaaS Windows in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
+- [Disabilitare la crittografia del disco su macchine virtuali IaaS Windows in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
 
--  [Disabilitare la crittografia su una macchina virtuale Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
+-  [Disabilitare la crittografia su macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
     - È possibile disabilitare la crittografia solo nei volumi di dati per macchine virtuali Linux. 
 
 - [Abilitare la crittografia dischi nella nuova macchina virtuale IaaS Windows da Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)

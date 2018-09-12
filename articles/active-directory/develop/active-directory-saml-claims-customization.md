@@ -17,12 +17,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 4d7c9246b694fc1b5623ecd198e4ced330e78dde
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2405f1a8ab5ef03e5ed2992b7a089571077ce59b
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579419"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348515"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory
 Oggi Azure Active Directory supporta l'accesso single sign on con la maggior parte delle applicazioni aziendali comprese le applicazioni pre-integrate nella raccolta di app di Azure AD e le applicazioni personalizzate. Quando un utente esegue l'autenticazione in un'applicazione con Azure AD usando il protocollo SAML 2.0, Azure AD invia un token all'applicazione (via HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente denominate "attestazioni".
@@ -130,7 +130,7 @@ Esistono alcune attestazioni con restrizioni in SAML. Se si aggiungono queste at
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
-* [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

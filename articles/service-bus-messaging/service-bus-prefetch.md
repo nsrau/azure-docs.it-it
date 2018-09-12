@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: spelluru
-ms.openlocfilehash: ff0e3124168927d03816079a4f5ab322663459ac
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e6dd30fc8da919995849ba818f608604a57a0b37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702453"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346827"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prelettura dei messaggi del bus di servizio di Azure
 
@@ -44,7 +44,7 @@ Con la modalità di ricezione [ReceiveAndDelete](/dotnet/api/microsoft.servicebu
 
 Nella modalità di ricezione [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) i messaggi recuperati nel buffer di Prelettura vengono acquisiti nel buffer in uno stato di blocco e il clock di timeout per il blocco è attivato. Se il buffer di prelettura è di grandi dimensioni e l'elaborazione richiede una quantità di tempo tale che i blocchi del messaggio scadono durante la permanenza nel buffer di prelettura o addirittura mentre l'applicazione elabora il messaggio, è possibile che l'applicazione debba gestire alcuni eventi confusi.
 
-È possibile che l'applicazione acquisisca un messaggio con un blocco scaduto o con scadenza imminente. In questo caso è possibile che l'applicazione elabori il messaggio ma non riesca a completarlo a causa della scadenza di un blocco. L'applicazione può verificare la proprietà [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc), che è soggetta allo sfasamento di orario del clock del broker e del clock del computer locale. Se il blocco del messaggio è scaduto, l'applicazione deve ignorare il messaggio. Non deve essere effettuata alcuna chiamata API sul messaggio o con il messaggio. Se il messaggio non è scaduto ma la scadenza è imminente, il blocco può essere rinnovato ed esteso di un altro periodo di blocco predefinito chiamando [message.RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
+È possibile che l'applicazione acquisisca un messaggio con un blocco scaduto o con scadenza imminente. In questo caso è possibile che l'applicazione elabori il messaggio ma non riesca a completarlo a causa della scadenza di un blocco. L'applicazione può verificare la proprietà [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc), che è soggetta allo sfasamento di orario del clock del broker e del clock del computer locale. Se il blocco del messaggio è scaduto, l'applicazione deve ignorare il messaggio. Non deve essere effettuata alcuna chiamata API sul messaggio o con il messaggio. Se il messaggio non è scaduto ma la scadenza è imminente, il blocco può essere rinnovato ed esteso di un altro periodo di blocco predefinito chiamando [message.RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
 
 Se il blocco scade automaticamente nel buffer di prelettura, il messaggio viene considerato come abbandonato e viene reso di nuovo disponibile per il recupero dalla coda. È quindi possibile che venga recuperato nel buffer di prelettura e posizionato al termine del buffer. Se il buffer di prelettura non può essere in genere usato completamente durante la scadenza del messaggio, è possibile che i messaggi vengano preletti ripetutamente ma non vengano mai effettivamente recapitati in uno stato usabile (con blocco valido) e che vengano infine spostati nella coda di messaggi non recapitabili quando viene raggiunto il numero massimo di recapiti.
 

@@ -6,14 +6,14 @@ author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: adhurwit
+ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: f5382644af7e79234d6c3944cf354a3b2a70cc90
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5139f41832446add3431fc0f4e321af806342da2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397622"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296977"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali delle chiavi di Azure
 ## <a name="introduction"></a>Introduzione
@@ -61,9 +61,7 @@ Aggiungere i pacchetti NuGet necessari nella console Gestione pacchetti.
 
 ```
 Install-Package WindowsAzure.Storage
-
-// This is the latest stable release for ADAL.
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions

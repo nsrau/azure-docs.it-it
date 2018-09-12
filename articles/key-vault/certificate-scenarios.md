@@ -3,7 +3,7 @@ title: Introduzione ai certificati di Key Vault
 description: Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: bryanla
+ms.openlocfilehash: d5cc634451c5412f9a3339c8d2d26654c4d5c1b8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109485"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298914"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
 Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
@@ -51,14 +51,14 @@ I certificati sono costituiti da tre risorse correlate che collegate tra loro fo
 
 **Passaggio 3**. A seconda dell'autorità di certificazione, un amministratore di Contoso e un dipendente di Contoso (utente di Key Vault) proprietario di certificati possono ottenere un certificato dall'amministratore o direttamente dall'account con la CA.  
 
--   Avviare un'operazione di aggiunta di credenziali in un insieme di credenziali delle chiavi creando una risorsa [autorità di certificazione](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers). 
+-   Avviare un'operazione di aggiunta di credenziali in un insieme di credenziali delle chiavi [ impostando una risorsa autorità di certificazione](/rest/api/keyvault/setcertificateissuer). Un'autorità di certificazione è un'entità rappresentata in Azure Key Vault come risorsa CertificateIssuer. Viene usata per rendere disponibili informazioni sull'origine di un certificato di un insieme di credenziali delle chiavi: nome dell'autorità di certificazione, provider, credenziali e altri dettagli amministrativi.
     -   Esempio: MyDigiCertIssuer  
         -   Provider  
         -   Credenziali: credenziali dell'account CA. Ogni autorità di certificazione ha dati specifici.  
 
      Per altre informazioni sulla creazione di account con i provider CA, vedere il relativo post nel [blog su Key Vault](http://aka.ms/kvcertsblog).  
 
-**Passaggio 3.1**. Configurare i [contatti relativi al certificato](https://docs.microsoft.com/rest/api/keyvault/certificate-contacts) per le notifiche. Questi costituiscono il contatto per l'utente di Key Vault. Questo passaggio non viene applicato da Key Vault.  
+**Passaggio 3.1**. Configurare i [contatti relativi al certificato](/rest/api/keyvault/setcertificatecontacts) per le notifiche. Questi costituiscono il contatto per l'utente di Key Vault. Questo passaggio non viene applicato da Key Vault.  
 
 Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.  
 
@@ -121,5 +121,5 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
   (5) L'applicazione completa la creazione del nuovo certificato con l'unione del certificato X509 proveniente dalla CA.
 
 ## <a name="see-also"></a>Vedere anche
-- [Operazioni relative ai certificati](/rest/api/keyvault/certificate-operations)
+
 - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)

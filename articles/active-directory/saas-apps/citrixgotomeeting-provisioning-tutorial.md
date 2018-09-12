@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7b655ee21fccb0031137d7c3d71b89c82bf4abec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3d2dafd409c6c7b2be06a6f18c3d392aff681efe
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430237"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345778"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Esercitazione: Configurare GoToMeeting per il provisioning utenti automatico
 
@@ -88,7 +88,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a GoToMeeting nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app GoToMeeting.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../active-directory-saas-provisioning-reporting.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

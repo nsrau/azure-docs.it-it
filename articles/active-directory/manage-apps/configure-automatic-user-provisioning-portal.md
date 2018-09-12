@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 2b2b44deacf8278b8e8c2554cc873c5d0b75f6f9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366189"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349144"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
-Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per gestire il provisioning e il deprovisioning automatici degli account per le applicazioni che li supportano, in particolare per le applicazioni aggiunte dalla categoria "In primo piano" della [raccolta di applicazioni di Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per gestire il provisioning e il deprovisioning automatici degli account per le applicazioni che li supportano, in particolare per le applicazioni aggiunte dalla categoria "In primo piano" della [raccolta di applicazioni di Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Individuazione delle app nel portale
 Tutte le applicazioni configurate per l'accesso Single Sign-On in una directory da un amministratore di directory che usa la [raccolta di applicazioni di Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery) possono essere visualizzate e gestite nel [portale di Azure](https://portal.azure.com). Le applicazioni sono disponibili nella sezione **Tutti i servizi** &gt; **Applicazioni aziendali** del portale. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione.
@@ -46,7 +46,7 @@ Il riquadro **Provisioning** inizia con un menu **Modalità**, che mostra le mod
 Se si seleziona l'opzione **Automatico** , viene visualizzata una schermata suddivisa in quattro sezioni:
 
 ### <a name="admin-credentials"></a>Credenziali di amministratore
-In questa sezione vengono immesse le credenziali necessarie ad Azure AD per la connessione all'API di gestione degli utenti dell'applicazione. L'input necessario dipende dall'applicazione. Per informazioni sui tipi di credenziali e sui requisiti per applicazioni specifiche, vedere l' [esercitazione sulla configurazione per l'applicazione specifica](../active-directory-saas-app-provisioning.md).
+In questa sezione vengono immesse le credenziali necessarie ad Azure AD per la connessione all'API di gestione degli utenti dell'applicazione. L'input necessario dipende dall'applicazione. Per informazioni sui tipi di credenziali e sui requisiti per applicazioni specifiche, vedere l' [esercitazione sulla configurazione per l'applicazione specifica](user-provisioning.md).
 
 Se si seleziona il pulsante **Test connessione** , è possibile testare le credenziali mediante un tentativo di connessione di Azure AD all'app di provisioning dell'app con le credenziali fornite.
 
@@ -60,7 +60,7 @@ Esiste un set preconfigurato di mapping tra gli oggetti utente di Azure AD e gli
 Le personalizzazioni supportate includono:
 
 * Abilitazione e disabilitazione dei mapping per oggetti specifici, ad esempio l'oggetto utente di Azure AD all'oggetto utente dell'app SaaS.
-* Modifica degli attributi che devono essere trasmessi dall'oggetto utente di Azure AD all'oggetto utente dell'app. Per altre informazioni sul mapping degli attributi, vedere [Informazioni sui tipi di mapping degli attributi](../active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Modifica degli attributi che devono essere trasmessi dall'oggetto utente di Azure AD all'oggetto utente dell'app. Per altre informazioni sul mapping degli attributi, vedere [Informazioni sui tipi di mapping degli attributi](customize-application-attributes.md#understanding-attribute-mapping-types).
 * Filtrare le azioni di provisioning che Azure AD esegue nell'applicazione di destinazione. Invece di fare in modo che Azure AD esegua la sincronizzazione completa degli oggetti, è possibile limitare le azioni eseguite. Se si seleziona solo **Aggiorna**, ad esempio, Azure AD aggiorna solo gli account utente esistenti in un'applicazione e non crea nuovi account utente. Se si seleziona solo **Crea**, Azure crea solo nuovi account utente, ma non aggiorna gli account utente esistenti. Questa funzionalità consente agli amministratori di creare diversi mapping per i flussi di lavoro di creazione e aggiornamento degli account.
 
 ### <a name="settings"></a>Impostazioni

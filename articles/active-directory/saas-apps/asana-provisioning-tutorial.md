@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 9ab2b22840d162fc0194151c5eec02675aad92dc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 26642fefbb86b2709e110b13d782286fd18d5e60
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427653"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348056"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Esercitazione: Configurare Asana per il provisioning utenti automatico
 
@@ -89,7 +89,7 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
 1. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Asana** (Sincronizza utenti di Azure Active Directory in Asana).
 
-1. Nella sezione **Mapping degli attributi** esaminare gli attributi utente da sincronizzare da Azure AD ad Asana. Gli attributi selezionati come proprietà**corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Asana per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche. Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi del provisioning](../active-directory-saas-customizing-attribute-mappings.md).
+1. Nella sezione **Mapping degli attributi** esaminare gli attributi utente da sincronizzare da Azure AD ad Asana. Gli attributi selezionati come proprietà**corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Asana per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche. Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi del provisioning](../manage-apps/customize-application-attributes.md).
 
 1. Per abilitare il servizio di provisioning di Azure AD per Asana, nella sezione **Impostazioni** impostare **Stato del provisioning** su **Sì**.
 
@@ -97,7 +97,7 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti assegnati ad Asana nella sezione **Utenti**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. Usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log attività di provisioning. I log di controllo descrivono tutte le azioni eseguite dal servizio di provisioning nell'app Asana.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Creazione di report sul provisioning automatico degli account utente](../active-directory-saas-provisioning-reporting.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

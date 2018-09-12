@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42139950"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298676"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gestire i diritti di accesso a dati di Archiviazione di Azure con il controllo degli accessi in base al ruolo (anteprima)
 
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview). Archiviazione di Azure definisce un set di ruoli di controllo degli accessi in base al ruolo predefiniti che includono un set comune di autorizzazioni usate per accedere a contenitori o code. Quando un ruolo di controllo degli accessi in base al ruolo viene assegnato a un'identità di Azure AD, all'identità viene concesso l'accesso a queste risorse, in base all'ambito specificato. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. È possibile assegnare diritti di accesso per risorse di Archiviazione di Azure tramite il portale di Azure, strumenti da riga di comando di Azure e API di gestione di Azure. 
 
-Un'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'*identità del servizio gestita*. Un'entità di sicurezza può essere un utente, un gruppo o un'entità servizio dell'applicazione. Un'[identità del servizio gestita](../../active-directory/managed-service-identity/overview.md) è un'identità gestita automaticamente usata per l'autenticazione da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Per una panoramica dell'identità in Azure AD, vedere [Understand Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions) (Informazioni sulle soluzioni di gestione delle identità di Azure).
+Un'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'*identità del servizio gestita*. Un'entità di sicurezza può essere un utente, un gruppo o un'entità servizio dell'applicazione. Un'[identità del servizio gestita](../../active-directory/managed-identities-azure-resources/overview.md) è un'identità gestita automaticamente usata per l'autenticazione da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Per una panoramica dell'identità in Azure AD, vedere [Understand Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions) (Informazioni sulle soluzioni di gestione delle identità di Azure).
 
 ## <a name="rbac-roles-for-azure-storage"></a>Ruoli di controllo degli accessi in base al ruolo per Archiviazione di Azure
 
@@ -34,10 +34,7 @@ Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti per 
 
 È anche possibile definire ruoli personalizzati da usare con contenitori e code. Per altre informazioni, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
-> [!IMPORTANT]
-> Questa versione di anteprima è destinata solo per l'uso in ambienti non di produzione. Non saranno disponibili contratti di servizio per ambienti di produzione finché l'integrazione di Azure AD per Archiviazione di Azure non verrà dichiarata disponibile a livello generale. Se l'integrazione di Azure AD non è ancora supportata per il proprio scenario, continuare a usare l'autorizzazione con chiave condivisa o token di firma di accesso condiviso nelle applicazioni. Per altre informazioni sulla versione di anteprima, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
->
-> Durante l'anteprima, la propagazione delle assegnazioni dei ruoli di controllo degli accessi in base al ruolo può richiedere fino a cinque minuti.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Assegnare un ruolo a un'entità di sicurezza
 

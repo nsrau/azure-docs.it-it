@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: operations-management-suite
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: terrylan
-ms.openlocfilehash: 6685db4eeda72928753c74c64b4b26539ccb1eb9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d3b5f0ee4aa656fa66d577aa40f66fc98dff148d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659617"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301651"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gestire i dati degli utenti rilevati in un'indagine del Centro sicurezza di Azure
 Questo articolo illustra come gestire i dati degli utenti rilevati tramite la funzionalità di indagine del Centro sicurezza di Azure. I dati dell'indagine vengono archiviati in [Azure Log Analytics](../log-analytics/log-analytics-overview.md) ed esposti nel Centro sicurezza. La gestione dei dati degli utenti include la possibilità di eliminare o esportare i dati.

@@ -4,24 +4,20 @@ description: Informazioni su come usare trigger e associazioni del bus di serviz
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: eee60718bf848154b0097294b3c7eb325e96214b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: ee5b11bc04a7e13354c30b64dc55c165eea4f028
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346260"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303966"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
@@ -53,6 +49,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 * [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
@@ -177,6 +174,41 @@ module.exports = function(context, myQueueItem) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>Trigger - Esempio Java
+
+L'esempio seguente mostra un'associazione di trigger del bus di servizio in un file *function.json* e una [funzione Java](functions-reference-java.md) che usa l'associazione. La funzione viene attivata da un messaggio inserito in una coda del bus di servizio e la funzione registra il messaggio della coda.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "myqueuename",
+    "connection": "MyServiceBusConnection",
+    "name": "msg",
+    "type": "ServiceBusQueueTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Ecco il codice Java:
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
@@ -316,6 +348,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 * [Script C# (file con estensione csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output--java-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
 
@@ -470,6 +503,25 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
+
+
+### <a name="output---java-example"></a>Output - Esempio Java
+
+L'esempio seguente illustra una funzione Java che invia un messaggio alla coda di un bus di servizio `myqueue` quando la funzione viene attivata da una richiesta HTTP.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+ ```
+
+ Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare `@QueueOutput` l'annotazione per i parametri di funzione il cui valore viene scritto in una coda di bus di servizio.  Il tipo di parametro deve essere `OutputBinding<T>`, dove T corrisponde a un qualsiasi tipo Java nativo di un oggetto POJO.
 
 ## <a name="output---attributes"></a>Output - attributi
 

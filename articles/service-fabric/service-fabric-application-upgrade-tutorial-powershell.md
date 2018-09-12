@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205485"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348770"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Aggiornamento di un'applicazione di Service Fabric mediante PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "34205485"
 
 Il metodo di aggiornamento consigliato usato più frequentemente è l'aggiornamento in sequenza in modalità monitorata (Monitored).  Azure Service Fabric monitora l'integrità dell'applicazione che viene aggiornata in base a un set di criteri di integrità. Dopo che un dominio di aggiornamento è stato aggiornato, Service Fabric valuta l'integrità dell'applicazione e poi o passa al dominio di aggiornamento successivo o annulla l'aggiornamento in base ai criteri di integrità.
 
-L'aggiornamento di un'applicazione in modalità monitorata può essere eseguito usando le API gestite o native, PowerShell o REST. Per istruzioni su come eseguire un aggiornamento usando Visual Studio, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md).
+L'aggiornamento di un'applicazione in modalità monitorata può essere eseguito usando le API gestite o native, PowerShell, l'interfaccia della riga di comando di Azure, Java o REST. Per istruzioni su come eseguire un aggiornamento usando Visual Studio, vedere [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente all'amministratore di applicazioni di configurare i criteri di valutazione dell'integrità usati da Service Fabric per determinare se l'applicazione è integra. L'amministratore può anche configurare l'azione da intraprendere se la valutazione dell'integrità non riesce, ad esempio l'esecuzione di un rollback automatico. Questa sezione descrive in dettaglio un aggiornamento monitorato per uno degli esempi di SDK che usa PowerShell. Il video di Microsoft Virtual Academy seguente illustra anche come aggiornare un'app: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -46,7 +46,7 @@ Compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mo
 > 
 > 
 
-Dopo aver compilato il progetto in Visual Studio è possibile usare il comando di PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) per copiare il pacchetto dell'applicazione in ImageStore. Se si desidera verificare il pacchetto dell'applicazione in locale, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). Il passaggio successivo consiste nel registrare l'applicazione nel runtime di Service Fabric usando il cmdlet [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). Il passaggio seguente consiste nell'avviare un'istanza dell'applicazione con il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.  Al termine del provisioning, è consigliabile pulire il pacchetto dell'applicazione copiato dall'archivio immagini per ridurre le risorse utilizzate.  Se un tipo di applicazione non è più necessario, è consigliabile annullarne la registrazione per lo stesso motivo. Per altre informazioni, vedere [Distribuire e rimuovere applicazioni con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
+Dopo aver compilato il progetto in Visual Studio è possibile usare il comando di PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) per copiare il pacchetto dell'applicazione in ImageStore. Se si desidera verificare il pacchetto dell'applicazione in locale, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage). Il passaggio successivo consiste nel registrare l'applicazione nel runtime di Service Fabric usando il cmdlet [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype). Il passaggio seguente consiste nell'avviare un'istanza dell'applicazione con il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.  Al termine del provisioning, è consigliabile pulire il pacchetto dell'applicazione copiato dall'archivio immagini per ridurre le risorse utilizzate.  Se un tipo di applicazione non è più necessario, è consigliabile annullarne la registrazione per lo stesso motivo. Per altre informazioni, vedere [Distribuire e rimuovere applicazioni con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
 
 È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) nella barra degli indirizzi.  Verranno visualizzati alcuni oggetti visivi mobili sullo schermo.  È anche possibile usare [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) per verificare lo stato dell'applicazione.
 

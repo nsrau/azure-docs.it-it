@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 4a124299b8f70ce5c5b1518d923efb2f8e75097f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: f31bb6fe713514b7b34f5b16693cf7ea31db757f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906357"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302427"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Progetto per la sicurezza e la conformità di Azure: Applicazione Web PaaS per servizi finanziari di FFIEC
 
@@ -103,7 +103,7 @@ L'uso dell'ambiente del servizio app per questa architettura consente le configu
 - [Web application firewall - limitazione dei dati](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - [Traffico del database SQL di Azure](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview) consentito
 
-**App Web di Azure**: [App Web di Azure](https://docs.microsoft.com/azure/app-service/) consente ai clienti di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente le distribuzioni automatizzate da GitHub, Visual Studio Team Services o qualsiasi repository Git.
+**App Web di Azure**: [App Web di Azure](https://docs.microsoft.com/azure/app-service/) consente ai clienti di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente distribuzioni automatiche da GitHub, Azure DevOps o qualsiasi repository Git.
 
 ### <a name="virtual-network"></a>Rete virtuale
 

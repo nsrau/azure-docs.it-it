@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 215efc1f0597f5199dd37baf4b109d7e76040aae
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212994"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346254"
 ---
 # <a name="introduction-to-application-groups"></a>Introduzione ai gruppi di applicazioni
 Cluster Resource Manager di Service Fabric generalmente gestisce le risorse del cluster distribuendo il carico (rappresentato tramite [Metriche](service-fabric-cluster-resource-manager-metrics.md)) in modo uniforme nell'intero cluster. Service Fabric gestisce la capacità dei nodi del cluster e il cluster nel suo complesso tramite la [capacità](service-fabric-cluster-resource-manager-cluster-description.md). Metriche e capacità rappresentano un'ottima soluzione per molti tipi di carichi di lavoro, ma i modelli che fanno largo uso di diverse istanze di applicazione di Service Fabric comportano a volte requisiti aggiuntivi. Ad esempio, si può desiderare di:
@@ -47,7 +47,7 @@ PowerShell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
-Update-ServiceFabricApplication –Name fabric:/AppName –MaximumNodes 5
+Update-ServiceFabricApplication –ApplicationName fabric:/AppName –MaximumNodes 5
 ```
 
 C#
@@ -160,7 +160,7 @@ Per ogni applicazione con una Capacità dell'applicazione definita per una o pi�
 Powershell:
 
 ``` posh
-Get-ServiceFabricApplicationLoad –ApplicationName fabric:/MyApplication1
+Get-ServiceFabricApplicationLoadInformation –ApplicationName fabric:/MyApplication1
 ```
 
 C#

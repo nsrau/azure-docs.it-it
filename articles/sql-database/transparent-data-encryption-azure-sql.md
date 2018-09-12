@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 0ed05fd2d55f1c4c80bec9f64925be2eddddc067
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: afc53fc1abce74b247ec2e25bc3e4845bc870860
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043570"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380200"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption per il database SQL e Data Warehouse
 
@@ -128,7 +128,7 @@ Per configurare TDE usando API REST, è necessario essere connessi come il propr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una descrizione generale della funzionalità TDE, vedere [Transparent data encryption]((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption).
+- Per una descrizione generale della funzionalità TDE, vedere [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Per altre informazioni su TDE con supporto Bring Your Own Key per database SQL e Data Warehouse, vedere [TDE con supporto Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
 - Per iniziare a usare TDE con supporto Bring Your Own Key, vedere la guida [Abilitare Transparent Data Encryption usando la propria chiave di Key Vault con PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 - Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Pagina di documentazione di Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).

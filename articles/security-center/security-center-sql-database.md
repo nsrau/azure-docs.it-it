@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d8be831469659993da4f9f392e23b9408eb283e3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415946"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302221"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Centro sicurezza di Azure e servizio Database SQL di Azure
 Il [Centro sicurezza di Azure](https://azure.microsoft.com/documentation/services/security-center/) consente di impedire, rilevare e gestire le minacce. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
@@ -36,7 +36,7 @@ Il Centro sicurezza consente di proteggere i dati nel database SQL fornendo visi
 
 Oltre ad aiutare a proteggere le risorse del database SQL, il Centro sicurezza offre funzionalità per il monitoraggio e la gestione della sicurezza per le macchine virtuali di Azure, i servizi cloud, i servizi app, le reti virtuali e altro ancora. Per altre informazioni sul Centro sicurezza, fare clic [qui](security-center-intro.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Il livello gratuito del Centro sicurezza viene abilitato con la sottoscrizione. Per altre informazioni sui livelli gratuito e standard del Centro sicurezza, vedere [Centro sicurezza Prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 Il Centro sicurezza supporta l'accesso in base al ruolo. Per ulteriori informazioni sul controllo di accesso in base al ruolo (RBAC) in Azure, vedere [Controllo di accesso in base al ruolo di Azure Active Directory](../role-based-access-control/role-assignments-portal.md). Le domande frequenti relative al Centro sicurezza offrono informazioni sulla [modalità di gestione delle autorizzazioni nel Centro sicurezza](security-center-faq.md#permissions).
@@ -75,7 +75,7 @@ Dopo l'impostazione dei criteri di sicurezza, il Centro sicurezza analizza lo st
 
 Per visualizzare le raccomandazioni per le risorse di Azure, selezionare il riquadro **Raccomandazioni** nel pannello Centro sicurezza. Nel pannello **Raccomandazioni** selezionare una raccomandazione per visualizzare i dettagli. In questo esempio si seleziona **Enable Auditing & Threat detection on SQL servers** (Abilita il controllo e il rilevamento delle minacce nei server SQL).
 
-![Raccomandazioni][4]
+![Consigli][4]
 
 Come illustrato di seguito, il Centro sicurezza mostra i server SQL in cui il controllo e il rilevamento delle minacce non sono abilitati. Dopo aver abilitato il controllo, è possibile configurare le impostazioni di rilevamento delle minacce e di posta elettronica per ricevere gli avvisi di sicurezza. La funzionalità di rilevamento delle minacce visualizza un avviso quando rileva attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. Gli avvisi vengono visualizzati nel dashboard del Centro sicurezza.
 ![Controllo e rilevamento delle minacce][5]

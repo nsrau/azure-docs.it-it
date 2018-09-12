@@ -8,17 +8,17 @@ editor: bryanla
 ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
 ms.devlang: CSharp
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bryanla
-ms.openlocfilehash: f2bcace1ba328aff20971b46880f317295f3a406
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 7bbe5a9dd7c085bc20092358ee9acabe9cf85542
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42139911"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296531"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Guida alla migrazione e note sulla versione .NET 2.0 per l'insieme di credenziali delle chiavi di Azure
 Le informazioni seguenti consentono la migrazione alla versione 2.0 della libreria di Azure Key Vault per C# e .NET.  È necessario che le app scritte per le versioni precedenti siano aggiornate per supportare la versione più recente.  Queste modifiche sono necessarie per supportare completamente le funzionalità nuove e migliorate, come ad esempio i **certificati Key Vault**.

@@ -2,19 +2,19 @@
 ms.assetid: ''
 title: Chiavi dell'account di archiviazione Key Vault
 description: Le chiavi dell'account di archiviazione forniscono un'integrazione diretta tra Azure Key Vault e l'accesso basato sulla chiave dell'account di Archiviazione di Azure.
-ms.topic: article
+ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
-ms.date: 10/12/2017
-ms.openlocfilehash: 4f42a47a6d934bf0538efccbcf7f057fd28e2c03
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/21/2017
+ms.openlocfilehash: 7545a035541a4e464a6c82acb9fa9de18cf8e86d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179589"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304323"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chiavi dell'account di archiviazione Key Vault
 
@@ -38,8 +38,8 @@ Key Vault esegue diverse funzioni di gestione interne per conto dell'utente quan
     - Key Vault rigenera (ruota) le chiavi periodicamente.
     - I valori di chiave non vengono mai restituiti in risposta al chiamante.
     - Key Vault gestisce le chiavi sia degli account di archiviazione che degli account di archiviazione classici.
-- Key Vault consente al proprietario dell'insieme di credenziali/oggetto di creare definizioni SAS (SAS di account o di servizio).
-    - Il valore SAS, creato utilizzando la definizione SAS, viene restituito come una chiave privata tramite il percorso dell'URI REST. Per altre informazioni, vedere [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations) (Operazioni dell'account di archiviazione di Azure Key Vault).
+- Azure Key Vault consente al proprietario dell'insieme di credenziali/oggetto di creare definizioni SAS (firma di accesso condiviso, di account o di servizio).
+    - Il valore SAS, creato utilizzando la definizione SAS, viene restituito come una chiave privata tramite il percorso dell'URI REST. Per altre informazioni, vedere le operazioni di definizione di firma di accesso condiviso nel [riferimento all'API REST di Azure Key Vault](/rest/api/keyvault).
 
 ## <a name="naming-guidance"></a>Linee guida sulla denominazione
 
@@ -97,7 +97,9 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ## <a name="getting-started"></a>Introduzione
 
-### <a name="setup-for-role-based-access-control-rbac-permissions"></a>Configurazione per le autorizzazioni di controllo degli accessi in base al ruolo (RBAC)
+### <a name="give-key-vault-access-to-your-storage-account"></a>Autenticare l'accesso di Key Vault all'account di archiviazione 
+
+Come molte applicazioni, Key Vault è registrato con Azure AD per usare OAuth per accedere ad altri servizi. Durante la registrazione, un oggetto di [entità servizio](/azure/active-directory/develop/app-objects-and-service-principals) viene creato e usato per rappresentare l'identità dell'applicazione in fase di esecuzione. L'entità servizio viene anche utilizzata per autorizzare l'identità dell'applicazione ad accedere a un'altra risorsa, tramite il controllo di accesso basato sui ruoli (RBAC).
 
 Per *elencare* e *rigenerare* le chiavi per un account di archiviazione, l'identità di applicazione di Azure Key Vault necessita di autorizzazioni. Impostare queste autorizzazioni usando la procedura seguente:
 
@@ -106,7 +108,7 @@ Per *elencare* e *rigenerare* le chiavi per un account di archiviazione, l'ident
 # Below, we are fetching a storage account using Azure Resource Manager
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get ObjectId of Azure Key Vault Identity
+# Get Application ID of Azure Key Vault's service principal
 $servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 
 # Assign Storage Key Operator role to Azure Key Vault Identity
@@ -118,7 +120,7 @@ New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'St
 
 ## <a name="working-example"></a>Esempio di funzionamento
 
-L'esempio seguente illustra la creazione di un account di archiviazione di Azure gestito da Key Vault e le definizioni di firma di accesso condiviso (SAS) associate.
+L'esempio seguente illustra la creazione di un account di Archiviazione di Microsoft Azure gestito da Key Vault e le definizioni (SAS) associate.
 
 ### <a name="prerequisite"></a>Prerequisito
 
@@ -205,8 +207,9 @@ Si noti che il tentativo di accesso con *$readSasToken* ha esito negativo ma che
 $context1 = New-AzureStorageContext -SasToken $readSasToken -StorageAccountName $storage.StorageAccountName
 $context2 = New-AzureStorageContext -SasToken $writeSasToken -StorageAccountName $storage.StorageAccountName
 
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt" -Context $context2
+# Ensure the txt file in command exists in local path mentioned
+Set-AzureStorageBlobContent -Container containertest1 -File "./abc.txt" -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context2
 ```
 
 È possibile accedere al contenuto del BLOB di archiviazione con un token SAS che abbia accesso in scrittura.
@@ -232,7 +235,7 @@ Key Vault deve verificare che l'identità disponga delle autorizzazioni *rigener
 - Key Vault elenca le autorizzazioni RBAC per la risorsa dell'account di archiviazione.
 - Key Vault convalida la risposta tramite la corrispondenza mediante espressioni regolari di azioni e non-azioni.
 
-Trovare alcuni esempi di supporto in [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167) (Key Vault - Esempi di chiavi dell'account di archiviazione gestito).
+Trovare alcuni esempi di supporto in [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=) (Key Vault - Esempi di chiavi dell'account di archiviazione gestito).
 
 Se l'identità non dispone dell'autorizzazione *rigenera* o l'identità Key Vault propria non dispone dell'autorizzazione *elenca* o *rigenera*, la richiesta di onboarding ha esito negativo restituendo un messaggio e codice di errore appropriati.
 

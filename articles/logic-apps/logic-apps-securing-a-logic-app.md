@@ -1,34 +1,31 @@
 ---
 title: Proteggere l'accesso alle app per la logica di Azure | Documentazione Microsoft
-description: Aggiungere la sicurezza per la protezione dell'accesso ai trigger, agli input e output, ai parametri di azione e ai servizi utilizzati con i flussi di lavoro nelle app per la logica di Azure.
+description: Proteggere l'accesso ai trigger, agli input e output, ai parametri di azione e ai servizi utilizzati con i flussi di lavoro nelle App per la logica di Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: anneta
-editor: ''
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 11/22/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 3831c44a52fe4bb428021acac46188966087fdfe
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377395"
 ---
-# <a name="secure-access-to-your-logic-apps"></a>Proteggere l'accesso alle app per la logica
+# <a name="secure-access-in-azure-logic-apps"></a>Proteggere l'accesso alle App per la logica di Azure
 
-Sono disponibili molti strumenti per proteggere un'app per la logica.
+Ecco i metodi per cui è possibile proteggere l'accesso ai diversi componenti nell'app per la logica:
 
-* Protezione dell'accesso per attivare un'app per la logica (trigger di una richiesta HTTP)
-* Protezione dell'accesso per gestire, modificare o leggere un'app per la logica
-* Protezione dell'accesso ai contenuti di input e output per un'esecuzione
-* Protezione di parametri o input all'interno di azioni in un flusso di lavoro
-* Protezione dell'accesso ai servizi che ricevono richieste da un flusso di lavoro
+* Proteggere l'accesso per l'attivazione di un flusso di lavoro di app per la logica con trigger di richiesta HTTP.
+* Proteggere l'accesso per la gestione, la modifica o la lettura di un'app per la logica.
+* Proteggere l'accesso ai contenuti in input e output per l'esecuzione dell'app per la logica.
+* Proteggere i parametri o gli input per le azioni in un flusso di lavoro di app per la logica.
+* Proteggere l'accesso ai servizi che ricevono richieste da un flusso di lavoro dell'app per la logica.
 
 ## <a name="secure-access-to-trigger"></a>Proteggere l'accesso al trigger
 
@@ -80,7 +77,7 @@ Questa impostazione può essere configurata dalle impostazioni dell'app per la l
 1. Fare clic sulla voce di menu **Impostazioni del flusso di lavoro** in **Impostazioni**
 1. Specificare l'elenco di intervalli di indirizzi IP che devono essere accettati dal trigger.
 
-Un intervallo IP valido assume il formato `192.168.1.1/255`. Se si desidera che l'app per la logica venga attivata solo come app per la logica nidificata, selezionare l'opzione **Only other logic apps** (Solo altre app per la logica). L'opzione scrive una matrice vuota nella risorsa; ciò significa che vengono attivate correttamente solo le chiamate dal servizio stesso (app per la logica padre).
+Un intervallo IP valido assume il formato `192.168.1.1/32`. Se si desidera che l'app per la logica venga attivata solo come app per la logica nidificata, selezionare l'opzione **Only other logic apps** (Solo altre app per la logica). L'opzione scrive una matrice vuota nella risorsa; ciò significa che vengono attivate correttamente solo le chiamate dal servizio stesso (app per la logica padre).
 
 > [!NOTE]
 > Un'app per la logica con un trigger di richiesta potrebbe comunque essere eseguita tramite l'API REST/Gestione API `/triggers/{triggerName}/run` indipendentemente dall'IP. In questo caso potrebbe essere richiesta l'autenticazione all'API REST di Azure e tutti gli eventi potrebbero essere visualizzati nel log di controllo di Azure. Impostare i criteri di controllo di accesso di conseguenza.

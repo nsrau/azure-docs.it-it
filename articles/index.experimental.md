@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
-ms.openlocfilehash: 103d09b1a71239948c730f8dba47253741bbaa9c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 16d1466180e90d45b7c2adf00ab699bb39d5d785
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038270"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302457"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -779,11 +779,11 @@ ms.locfileid: "40038270"
                                         <li>
                                             <a href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/">
+                                            <a href="/services/devtest-lab/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
                                                 <p>Azure DevTest Labs</p>
                                             </a>
@@ -2737,7 +2737,7 @@ ms.locfileid: "40038270"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>Servizi per i team per condividere codice, tenere traccia del lavoro e fornire software</p>
                                                 </div>
                                             </div>
@@ -2746,7 +2746,7 @@ ms.locfileid: "40038270"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/">
+                                <a href="/services/devtest-lab/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3433,7 +3433,7 @@ ms.locfileid: "40038270"
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Download per Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download per Team Services</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download per Azure DevOps</a>
                                                 </p>
                                             </div>
                                         </div>

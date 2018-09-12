@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 3c56abcec37bb6abcb77ec8cc443b0656bd69932
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 74bfc3435ad6d247dabd3a7cbf2910ede5f8c8ca
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990796"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296244"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Correggere le configurazioni di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione della sicurezza consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.

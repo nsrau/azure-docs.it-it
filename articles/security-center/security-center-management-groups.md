@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441695"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298779"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come iniziare a eseguire diverse azioni che ottimizzano i vantaggi offerti dal Centro sicurezza di Azure. Queste azioni consentono di ottenere visibilità su tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory e di gestire in modo efficiente la sicurezza dell'organizzazione su vasta scala applicando i criteri di sicurezza in più sottoscrizioni secondo una logica aggregativa.

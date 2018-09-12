@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887345"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380291"
 ---
-# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurare un webhook in un avviso relativo alle metriche di Azure
+# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Impostare un avviso di metrica classico per l'invio di una notifica a un sistema non Azure tramite un webhook
 È possibile usare i webhook per instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite chat o servizi di messaggistica oppure per varie altre azioni. 
 
 Questo articolo descrive come impostare un webhook per un avviso di metrica di Azure. L'articolo illustra anche le caratteristiche del payload per un'operazione HTTP POST a un webhook. Per informazioni sulla configurazione e lo schema per un avviso del log attività di Azure (avviso per eventi), vedere [Chiamare un webhook negli avvisi dei log attività di Azure](insights-auditlog-to-webhook-email.md).
@@ -93,7 +93,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 | ResourceId |S | |ID della risorsa interessata. |
 | resourceRegion |S | |Area o posizione della risorsa interessata. |
 | portalLink |S | |Collegamento diretto alla pagina di riepilogo delle risorse del portale. |
-| properties |N |Facoltativo |Set di coppie chiave/valore contenente i dettagli sull'evento. Ad esempio, `Dictionary<String, String>`. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valore che può essere passata tramite il payload. Un metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query). |
+| properties |N |Facoltativo |Set di coppie chiave/valore contenente i dettagli sull'evento. Ad esempio: `Dictionary<String, String>`. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valore che può essere passata tramite il payload. Un metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query). |
 
 > [!NOTE]
 > È possibile impostare il campo delle **proprietà** solo tramite le [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).

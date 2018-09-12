@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 40b8f51c66ebe98cd1c312002b7bd5e96e5032bd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112706"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324751"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure
 Questo articolo include un elenco delle [soluzioni di gestione](monitoring-solutions.md) disponibili da Microsoft con collegamenti alla relativa documentazione dettagliata.  Sono inoltre disponibili informazioni sul metodo e la frequenza della raccolta dati in Log Analytics.  È possibile usare le informazioni in questo articolo per identificare le diverse soluzioni disponibili e per comprendere i requisiti di flusso di dati e connessione per le diverse soluzioni di gestione. 
@@ -65,7 +65,7 @@ L'elenco seguente include le spiegazioni per le colonne:
 | [Monitoraggio delle prestazioni di rete](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP esegue handshake ogni 5 secondi e i dati vengono inviati ogni 3 minuti |
 | [Analisi Office 365 (anteprima)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |su notifica |
 | **Soluzione di gestione** | **Piattaforma** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente di Operations Manager inviati tramite il gruppo di gestione** | **Frequenza di raccolta** |
-| [Service Fabric Analytics (anteprima)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minuti |
+| [Analisi di Service Fabric](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minuti |
 | [Elenco dei servizi](../operations-management-suite/operations-management-suite-service-map.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 5 secondi |
 | [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 giorni |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |all'arrivo |

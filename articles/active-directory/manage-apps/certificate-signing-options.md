@@ -17,12 +17,12 @@ ms.date: 09/07/2017
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: e86c7e82203e2ecd571d5ce5e450999704218e33
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: c7f2892586dd78f3e4b102deb8c51b9979ed07e2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579164"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348175"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opzioni avanzate di firma del certificato nel token SAML per le app della raccolta in Azure Active Directory
 Azure Active Directory (Azure AD) supporta attualmente migliaia di applicazioni preintegrate nella raccolta di app di Azure Active Directory. Tra queste sono incluse oltre 500 applicazioni che supportano l'accesso Single Sign-On con il protocollo SAML 2.0. Quando un utente esegue l'autenticazione per un'applicazione con Azure AD usando SAML, Azure AD invia un token all'applicazione (tramite HTTP POST). L'applicazione quindi convalida e usa il token per l'accesso dell'utente anziché richiedere un nome utente e una password. I token SAML vengono firmati con il certificato univoco generato in Azure AD e algoritmi standard specifici.
@@ -61,7 +61,7 @@ Azure AD supporta due algoritmi di firma per firmare la risposta SAML:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
-* [Configurare l'accesso Single Sign-On per applicazioni non incluse nella raccolta di app di Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Configurare l'accesso Single Sign-On per applicazioni non incluse nella raccolta di app di Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
 * [Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML](../develop/howto-v1-debug-saml-sso-issues.md)
 
 
