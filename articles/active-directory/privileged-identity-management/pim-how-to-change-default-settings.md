@@ -13,18 +13,20 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189338"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665435"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurare le impostazioni dei ruoli della directory di Azure AD in PIM
 
 Un amministratore dei ruoli con privilegi può personalizzare Azure AD Privileged Identity Management (PIM) nell'organizzazione, ad esempio modificando l'esperienza di un utente che attiva l'assegnazione di idoneo al ruolo.
 
 ## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
+
+Seguire questi passaggi per aprire le impostazioni per un ruolo della directory di Azure AD.
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
@@ -44,19 +46,19 @@ Un amministratore dei ruoli con privilegi può personalizzare Azure AD Privilege
 
 ## <a name="activations"></a>Attivazioni
 
-Il dispositivo di scorrimento **Attivazioni** è il tempo massimo, espresso in ore, per cui un ruolo rimane attivo prima della scadenza. Questo valore può essere compreso tra 1 e 72 ore.
+Usare il dispositivo di scorrimento **Attivazioni** per impostare il tempo massimo, espresso in ore, per cui un ruolo rimane attivo prima della scadenza. Questo valore può essere compreso tra 1 e 72 ore.
 
 ## <a name="notifications"></a>Notifiche
 
-L'opzione **Notifiche** consente di scegliere se il sistema invia messaggi di posta elettronica agli amministratori per confermare che hanno attivato un ruolo. Questa opzione può essere utile per il rilevamento di attivazioni non autorizzate o dannose.
+Usare l'opzione **Notifiche** per specificare se scegliere se il sistema invia messaggi di posta elettronica agli amministratori per confermare che hanno attivato un ruolo. Questa opzione può essere utile per il rilevamento di attivazioni non autorizzate o dannose.
 
 ## <a name="incidentrequest-ticket"></a>Ticket di evento imprevisto/richiesta
 
-L'opzione **Ticket di evento imprevisto/richiesta** consente di scegliere se richiedere agli amministratori idonei di includere un numero di ticket quando attivano il proprio ruolo. Questa opzione può essere utile quando si eseguono i controlli di accesso dei ruoli.
+Usare l'opzione **Ticket di evento imprevisto/richiesta** per specificare se richiedere agli amministratori idonei di includere un numero di ticket quando attivano il proprio ruolo. Questa opzione può essere utile quando si eseguono i controlli di accesso dei ruoli.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-L'opzione **Multi-Factor Authentication** consente di scegliere se richiedere agli utenti di verificare la propria identità con MFA prima di attivare i ruoli. La verifica è necessaria solo una volta per ogni sessione, non ogni volta che si attiva un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
+Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere agli utenti di verificare la propria identità con MFA prima di attivare i ruoli. La verifica è necessaria solo una volta per ogni sessione, non ogni volta che si attiva un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
 
 * Gli utenti che dispongono di account Microsoft per i relativi indirizzi di posta elettronica (in genere @outlook.com) non possono eseguire la registrazione per Azure MFA. Se si vuole assegnare ruoli agli utenti con account Microsoft, renderli amministratori permanenti o disabilitare l'autenticazione MFA per il ruolo.
 * Non è possibile disabilitare l'autenticazione MFA per i ruoli con privilegi elevati per Azure AD e Office365. Si tratta di una funzionalità di sicurezza poiché è necessaria una protezione elevata per questi ruoli:  
@@ -80,13 +82,13 @@ L'opzione **Multi-Factor Authentication** consente di scegliere se richiedere ag
   * Amministratore di Skype for Business  
   * Amministratore account utente  
 
-Per altre informazioni sull'uso di MFA con PIM, vedere [Richiedere l'autenticazione MFA (Multi-Factor Authentication) per i ruoli della directory di Azure AD in PIM](pim-how-to-require-mfa.md).
+Per altre informazioni, vedere [Multi-Factor Authentication (MFA) e PIM](pim-how-to-require-mfa.md).
 
 ## <a name="require-approval"></a>Richiedi approvazione
 
-L'opzione **Richiedi approvazione** consente di scegliere se richiedere l'approvazione per attivare il ruolo.
+Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa procedura.
 
-1. Quando si imposta l'opzione su **Abilitato**, il riquadro viene espanso con le opzioni per selezionare i responsabili dell'approvazione.
+1. Impostare l'opzione **Richiedi approvazione** su **Abilitato**. Il riquadro viene espanso con le opzioni per selezionare i responsabili dell'approvazione.
 
     ![Ruoli della directory di Azure AD - Impostazioni - Richiedi approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
@@ -107,5 +109,5 @@ L'opzione **Richiedi approvazione** consente di scegliere se richiedere l'approv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Richiedere l'autenticazione MFA (Multi-Factor Authentication) per i ruoli della directory di Azure AD in PIM](pim-how-to-require-mfa.md)
+- [Assegnare ruoli della directory di Azure AD in PIM](pim-how-to-add-role-to-user.md)
 - [Configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in PIM](pim-how-to-configure-security-alerts.md)

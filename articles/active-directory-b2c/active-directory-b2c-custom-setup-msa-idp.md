@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6a981f112c97ee35b476c92f6f698e68a12a1363
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449132"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336822"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Aggiungere un account Microsoft come provider di identità tramite criteri personalizzati
 
@@ -23,7 +23,7 @@ ms.locfileid: "37449132"
 
 Questo articolo illustra come consentire agli utenti di accedere da un account Microsoft tramite l'utilizzo di [criteri personalizzati](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
 
 La procedura include i passaggi seguenti:
@@ -58,7 +58,7 @@ Per usare un account Microsoft come provider di identità in Azure Active Direct
 
     ![Account Microsoft - Scegliere Web dall'elenco di piattaforme](media/active-directory-b2c-custom-setup-ms-account-idp/msa-web.png)
 
-7.  Immettere `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **URI di reindirizzamento** . Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com.
+7.  Immettere `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` nel campo **URI di reindirizzamento** . Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.
 
     ![Account Microsoft - Impostare gli URL di reindirizzamento](media/active-directory-b2c-custom-setup-ms-account-idp/msa-redirect-url.png)
 

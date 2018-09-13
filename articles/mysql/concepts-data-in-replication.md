@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: 72f8211ecc0534b15402911de8fc0ec3d541a835
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294905"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666077"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -29,16 +29,17 @@ Gli scenari principali da considerare quando si usa la funzione di replica dei d
 ## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
 
 ### <a name="data-not-replicated"></a>Dati non replicati
-Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) sul server primario non viene replicato. Le modifiche agli account e alle autorizzazioni sul server primario non vengono replicate. Se si crea un account sul server primario e questo deve accedere al server di replica, creare manualmente lo stesso account sul lato del server di replica. Per informazioni sulle tabelle contenute nel database di sistema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) sul server master non viene replicato. Le modifiche agli account e alle autorizzazioni sul server master non vengono replicate. Se si crea un account sul server master e questo deve accedere al server di replica, creare manualmente lo stesso account sul lato del server di replica. Per informazioni sulle tabelle contenute nel database di sistema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
 
 ### <a name="requirements"></a>Requisiti
-- Nel server primario deve essere installata almeno la versione 5.6 di MySQL. 
-- Le versioni del server primario e del server di replica devono essere identiche. Ad esempio, in entrambi deve essere installato MySQL versione 5.6 o MySQL versione 5.7.
+- Nel server master deve essere installata almeno la versione 5.6 di MySQL. 
+- Le versioni del server master e del server di replica devono essere identiche. Ad esempio, in entrambi deve essere installato MySQL versione 5.6 o MySQL versione 5.7.
 - Ogni tabella deve avere una chiave primaria.
-- Il server primario deve usare il motore InnoDB di MySQL.
-- L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server primario.
+- Il server master deve usare il motore InnoDB di MySQL.
+- L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server master.
 
 ### <a name="other"></a>Altri
+- La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.
 - Gli identificatori di transazione globale (GTID) non sono supportati.
 
 ## <a name="next-steps"></a>Passaggi successivi

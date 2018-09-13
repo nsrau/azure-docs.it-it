@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f7eefc7d6b067c360fdc3ce12b9a7ae36080bd8
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611372"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336875"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
@@ -45,6 +45,9 @@ Monitoraggio di Azure tiene traccia delle diverse operazioni che si verificano n
 #### <a name="connections"></a>connessioni
 
 La categoria Connessioni tiene traccia degli eventi di connessione e disconnessione del dispositivo da un hub IoT, nonché degli errori. Il rilevamento di questa categoria è utile per identificare i tentativi di connessione non autorizzati e per rilevare quando una connessione viene persa dai dispositivi in aree di scarsa connettività.
+
+> [!NOTE]
+> Per uno stato di connessione affidabile dei dispositivi, selezionare [Device heartbeat][lnk-devguide-heartbeat] (Heartbeat dispositivo).
 
 ```json
 {
@@ -155,7 +158,7 @@ Questa categoria non può intercettare errori che si verificano direttamente men
 
 #### <a name="cloud-to-device-twin-operations"></a>Operazioni da cloud a dispositivi gemelli
 
-La categoria relativa alle operazioni da cloud a dispositivo gemello tiene traccia degli eventi avviati dal servizio su dispositivi gemelli. Queste operazioni possono includere il recupero del dispositivo gemello, l'aggiornamento delle proprietà segnalate e la sottoscrizione alle proprietà desiderate
+La categoria relativa alle operazioni da cloud a dispositivo gemello tiene traccia degli eventi avviati dal servizio su dispositivi gemelli. Queste operazioni possono includere il recupero del dispositivo gemello, l'aggiornamento o la sostituzione dei tag e l'aggiornamento o la sostituzione delle proprietà desiderate. 
 
 ```json
 {
@@ -172,7 +175,7 @@ La categoria relativa alle operazioni da cloud a dispositivo gemello tiene tracc
 
 #### <a name="device-to-cloud-twin-operations"></a>Operazioni da dispositivo gemello a cloud
 
-La categoria relativa alle operazioni da dispositivo gemello a cloud tiene traccia degli eventi avviati dal servizio su dispositivi gemelli. Queste operazioni possono includere il recupero del dispositivo gemello, l'aggiornamento o la sostituzione dei tag e l'aggiornamento o la sostituzione delle proprietà desiderate. 
+La categoria relativa alle operazioni da dispositivo gemello a cloud tiene traccia degli eventi avviati dal servizio su dispositivi gemelli. Queste operazioni possono includere il recupero del dispositivo gemello, l'aggiornamento delle proprietà segnalate e la sottoscrizione alle proprietà desiderate.
 
 ```json
 {
@@ -334,3 +337,4 @@ Per altre informazioni su come interpretare i dati di integrità, vedere [Panora
 [lnk-AM-schemas]: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md
 [lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
 [lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

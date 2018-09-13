@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902963"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287326"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Uso del supporto del feed delle modifiche in Azure Cosmos DB
 
@@ -31,12 +31,6 @@ Il **supporto del feed di modifiche** in Azure Cosmos DB consente di creare solu
 
 > [!NOTE]
 > Il supporto del feed di modifiche viene fornito per tutti i modelli di dati e contenitori in Azure Cosmos DB. Il feed di modifiche tuttavia viene letto usando il client SQL e serializza gli elementi in formato JSON. A causa della formattazione JSON, nei client MongoDB i documenti in formato JSON non corrisponderanno al feed di modifiche in formato JSON.
-
-Nel video seguente Andrew Liu, Program Manager di Azure Cosmos DB, illustra il funzionamento del feed di modifiche in Azure Cosmos DB.
-
-> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
->
->
 
 ## <a name="how-does-change-feed-work"></a>Funzionamento del feed di modifiche
 
@@ -158,7 +152,7 @@ Questa sezione illustra come usare SQL SDK per lavorare con un feed di modifiche
     ```
 
 > [!NOTE]
-> Invece di `ChangeFeedOptions.PartitionKeyRangeId`, è possibile usare `ChangeFeedOptions.PartitionKey` per specificare una singola chiave di partizione per cui ottenere un feed di modifiche. Ad esempio, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> Invece di `ChangeFeedOptions.PartitionKeyRangeId`, è possibile usare `ChangeFeedOptions.PartitionKey` per specificare una singola chiave di partizione per cui ottenere un feed di modifiche. Ad esempio: `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
 > 
 >
 
@@ -510,7 +504,7 @@ La libreria Java per leggere il feed di modifiche è disponibile nel [repository
 
 _etag è un formato interno da cui è sconsigliabile dipendere, pertanto evitare di analizzarlo perché può cambiare in qualsiasi momento.
 _ts è un timestamp di creazione o modifica. Si può usare _ts per confronti cronologici.
-_lsn è un ID batch che viene aggiunto solo per i feed di modifiche e che rappresenta l'ID della transazione dall'archivio. Molti documenti potrebbero avere lo stesso _lsn.
+_lsn è un ID batch che viene aggiunto solo per i feed di modifiche e rappresenta l'ID transazione dall'archivio. Molti documenti potrebbero avere lo stesso _lsn.
 Un'altra cosa da segnalare: l'ETag di FeedResponse è diverso dal valore _etag visualizzato nel documento. _etag è un identificatore interno utilizzato per il controllo della concorrenza e indica la versione del documento mentre ETag viene utilizzato per la sequenziazione del feed.
 
 ### <a name="does-reading-change-feed-add-any-additional-cost-"></a>La lettura del feed di modifiche aggiunge costi supplementari?

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: de42e68116c147d81ed0211426bfa813d070b121
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e15e17a499ad33a270b220fa7483d96c2945f6bb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627995"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338078"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizzare e ridistribuire un microservizio
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Eseguire il pull della nuova immagine Docker
 > * Visualizzare le modifiche 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questa esercitazione, è necessario quanto segue:
 
@@ -187,7 +187,7 @@ In questa esercitazione si è visto come:
 > * Eseguire il pull della nuova immagine Docker
 > * Visualizzare le modifiche 
 
-Come operazione successiva è possibile provare a [personalizzare il microservizio di simulazione dei dispositivi nella soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-test.md)
+Come operazione successiva è possibile provare a [personalizzare il microservizio di simulazione dei dispositivi nella soluzione di monitoraggio remoto](iot-accelerators-microservices-example.md)
 
 Per altre informazioni per sviluppatori sulla soluzione di monitoraggio remoto, vedere:
 

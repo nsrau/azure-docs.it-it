@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c2fc3bcba4b685fba36683f89c0b6ad877dbb1d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0668eb33fe33b062c941ec4f2bff47c5ed77fb51
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595139"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287885"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: procedure consigliate per modificare la configurazione predefinita
 Questo argomento descrive le modifiche supportate e non supportate del servizio di sincronizzazione Azure AD Connect.
@@ -37,6 +37,9 @@ A partire dalle versioni rilasciate con la build 1.1 (febbraio 2016), è possibi
 
 ## <a name="changes-to-synchronization-rules"></a>Modifiche apportate alle regole di sincronizzazione
 L'installazione guidata fornisce una configurazione valida per gli scenari più comuni. Nel caso in cui sia necessario apportare modifiche alla configurazione, seguire queste regole per disporre ancora di una configurazione supportata.
+
+> [!WARNING]
+> Se si apportano modifiche alle regole di sincronizzazione predefinite, tali modifiche saranno sovrascritte al successivo aggiornamento di Azure AD Connect, con la possibilità di ottenere risultati di sincronizzazione inattesi e indesiderati.
 
 * È possibile [modificare i flussi degli attributi](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) se quelli diretti e predefiniti non sono adatti alla propria organizzazione.
 * Per [non trasmettere un attributo](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) e rimuovere i valori degli attributi esistenti in Azure AD, è necessario creare una regola per questo scenario.

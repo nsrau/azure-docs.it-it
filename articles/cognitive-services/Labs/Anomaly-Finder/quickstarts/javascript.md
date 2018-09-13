@@ -9,18 +9,18 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 105da0219efd7bf7c9a105a018dda7ea5b084cfd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375348"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665023"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>Usare l'API Ricerca di anomalie con Javascript
 
 Questo articolo fornisce informazioni ed esempi di codice per aiutare a iniziare rapidamente a usare l'API Rilevamento anomalie con Javascript per acquisire i risultati sul rilevamento di anomalie di dati di serie temporali.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -30,7 +30,9 @@ Questo articolo fornisce informazioni ed esempi di codice per aiutare a iniziare
 
 ### <a name="example-of-time-series-data"></a>Esempio di dati di serie temporali
 
-L'esempio di punti dati di una serie temporale è riportato di seguito: [!INCLUDE [Request](../includes/request.md)]
+L'esempio di punti dati di una serie temporale è riportato di seguito:
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>Esempio di analisi dei dati e acquisizione dei punti di anomalie con Javascript
 

@@ -7,21 +7,34 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390970"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664446"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
-Questo argomento illustra come usare l'API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video con Video Indexer di Azure. Illustra inoltre alcuni dei parametri che è possibile impostare sull'API per modificare il processo e l'output dell'API.
+Questo articolo illustra come caricare un video con Video Indexer di Azure. L'API Video Indexer offre due opzioni di caricamento: 
+
+* caricare il video da un URL (scelta consigliata),
+* inviare il file video come matrice di byte nel corpo della richiesta.
+
+Questo articolo illustra come usare l'API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video in base a un URL. L'esempio di codice nell'articolo include il codice impostato come commento che mostra come caricare la matrice di byte.  
+
+L'articolo illustra anche alcuni parametri che è possibile impostare per l'API per modificare il processo e l'output dell'API.
 
 > [!Note]
-> Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). <br/>Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. <br/>Con l'opzione a pagamento, si crea un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
+> Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). <br/>Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
+
+## <a name="uploading-considerations"></a>Considerazioni sul caricamento
+    
+- Quando si carica il video in base all'URL (scelta preferita), l'endpoint deve essere protetto con il protocollo TLS 1.2 (o versione successiva)
+- L'opzione della matrice di byte è limitata a 4 GB e scade dopo 30 minuti.
+- L'URL fornito nel parametro `videoURL` deve essere codificato.
 
 ## <a name="configurations-and-params"></a>Configurazioni e parametri
 
@@ -45,17 +58,23 @@ Il prezzo dipende dall'opzione di indicizzazione selezionata.
 
 URL POST a cui inviare una notifica quando l'indicizzazione è stata completata. Video Indexer vi aggiunge due parametri della stringa di query: id e state. Ad esempio, se l'URL di callback è 'https://test.com/notifyme?projectName=MyProject', la notifica verrà inviata con i parametri aggiuntivi a 'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
 
-È anche possibile aggiungere altri parametri all'URL prima di inviare la chiamata a Video Indexer. Questi parametri verranno inclusi nel callback. In un secondo momento, all'interno del codice, è possibile analizzare la stringa di query e ottenere tutti i parametri specificati nella stringa di query (i dati aggiunti in origine all'URL e le informazioni fornite da Video Indexer). 
+È anche possibile aggiungere altri parametri all'URL prima di inviare la chiamata a Video Indexer. Questi parametri verranno inclusi nel callback. In un secondo momento, all'interno del codice, è possibile analizzare la stringa di query e ottenere tutti i parametri specificati nella stringa di query (i dati aggiunti in origine all'URL e le informazioni fornite da Video Indexer). L'URL deve essere codificato.
 
-### <a name="streamingpereset"></a>streamingPreset
+### <a name="streamingpreset"></a>streamingPreset
 
 Una volta caricato il video, facoltativamente Video Indexer lo codifica. Procede quindi con l'indicizzazione e l'analisi del video. Quando Video Indexer termina l'analisi, si riceve una notifica con l'ID del video.  
 
-Quando si usano le API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) o [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), uno dei parametri facoltativi è `streamingPreset`. Se si imposta `streamingPereset` su `Default`, `SingleBitrate` o `AdaptiveBitrate`, viene attivato il processo di codifica. Dopo il completamento dei processi di indicizzazione e codifica, il video viene pubblicato in modo che sia possibile eseguirne lo streaming. L'endpoint di streaming da cui si vuole trasmettere il video deve essere nello stato **In esecuzione**.
+Quando si usano le API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) o [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), uno dei parametri facoltativi è `streamingPreset`. Se si imposta `streamingPreset` su `Default`, `SingleBitrate` o `AdaptiveBitrate`, viene attivato il processo di codifica. Dopo il completamento dei processi di indicizzazione e codifica, il video viene pubblicato in modo che sia possibile eseguirne lo streaming. L'endpoint di streaming da cui si vuole trasmettere il video deve essere nello stato **In esecuzione**.
 
 Per poter eseguire i processi di indicizzazione e codifica, l'[account di Servizi multimediali di Microsoft Azure connesso al proprio account di Video Indexer](connect-to-azure.md) richiede unità riservate. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Poiché si tratta di processi a elevato utilizzo di calcolo, è consigliabile il tipo di unità S3. Il numero di unità riservate definisce il numero massimo di processi che è possibile eseguire in parallelo. In linea generale è consigliabile usare 10 unità riservate S3. 
 
-Se si vuole solo indicizzare il video, ma non codificarlo, impostare `streamingPereset` su `NoStreaming`.
+Se si vuole solo indicizzare il video, ma non codificarlo, impostare `streamingPreset` su `NoStreaming`.
+
+### <a name="videourl"></a>videoUrl
+
+URL del file audio/video da indicizzare. L'URL deve puntare a un file multimediale; le pagine HTML non sono supportate. Il file può essere protetto da un token di accesso fornito come parte dell'URI e l'endpoint che gestisce il file deve essere protetto con il protocollo TLS 1.2 o versione successiva. L'URL deve essere codificato. 
+
+Se `videoUrl` non viene specificato, Video Indexer richiede che il file venga passato come contenuto di un corpo multipart/form.
 
 ## <a name="code-sample"></a>Esempio di codice
 

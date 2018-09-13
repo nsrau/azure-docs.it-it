@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 1d1cad4b614eb35be9235a721368db8048be050a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fcb7f2c1bb3e1653b9f8112abc0effaddc45fa54
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632793"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306470"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pagare in anticipo risorse di calcolo del database SQL con capacità di riserva del database SQL di Azure
 
@@ -65,10 +65,11 @@ Lo sconto sulla prenotazione di vCore si applica automaticamente al numero di is
 
 Per informazioni su come gestire la prenotazione di capacità di riserva del database SQL, vedere [Gestire la capacità di riserva del database SQL](../billing/billing-manage-reserved-vm-instance.md).
 
-Per altre informazioni sulla prenotazione di Azure, vedere gli articoli seguenti:
+Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Cosa sono le prenotazioni di Azure?](../billing/billing-save-compute-costs-reservations.md)
+- [Informazioni sulle prenotazioni di Azure](../billing/billing-save-compute-costs-reservations.md)
 - [Gestire le prenotazioni di Azure](../billing/billing-manage-reserved-vm-instance.md)
+- [Comprendere lo sconto sulle prenotazioni di Azure](../billing/billing-understand-reservation-charges.md)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../billing/billing-understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)

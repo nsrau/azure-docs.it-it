@@ -4,14 +4,14 @@ description: Risposte alle domande frequenti su Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952750"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699965"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -123,6 +123,12 @@ Se si dispone di un ambiente condiviso da più tenant e non si desidera individu
 ### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>Quante macchine virtuali è possibile individuare in un singolo progetto di migrazione?
 
 È possibile individuare 1500 macchine virtuali in un singolo progetto di migrazione. Se nell'ambiente locale sono presenti più macchine, sono disponibili [altre informazioni](how-to-scale-assessment.md) sul modo in cui è possibile individuare un ambiente di grandi dimensioni in Azure Migrate.
+
+### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate supporta il Contratto Enterprise Agreement (EA) basato sulla stima dei costi?
+
+Azure Migrate attualmente non supporta la stima dei costi per [offerta del Contratto Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). La soluzione temporanea consiste nello specificare Con pagamento in base al consumo come l'offerta e specificando manualmente la percentuale di sconto (applicabile alla sottoscrizione) nel campo 'Sconto' delle proprietà della valutazione.
+
+  ![Discount](./media/resources-faq/discount.png)
 
 ## <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 

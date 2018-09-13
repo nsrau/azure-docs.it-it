@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.openlocfilehash: ddeaf184138bd48d324799ddb45248b0a0ee8eeb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 14e6e8bb723eb236f8fb315454b8697a3bd947ef
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30174977"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286428"
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Concedere a molte applicazioni l'autorizzazione per accedere a Key Vault
 
-## <a name="q-i-have-several-over-16-applications-that-need-to-access-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>D: Sono presenti più applicazioni (oltre 16) che devono accedere a Key Vault. Poiché Key Vault consente solo 16 voci di controllo di accesso, come è possibile ottenere procedere?
+## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>D: se si hanno diverse applicazioni che devono accedere all'insieme di credenziali delle chiavi, come si può fare in modo che tali applicazioni, fino a 1024, accedano a Key Vault?
 
-I criteri di controllo di accesso a Key Vault supportano solo 16 voci. È tuttavia possibile creare un gruppo di sicurezza di Azure Active Directory. Aggiungere tutte le entità servizio associate a questo gruppo di sicurezza e quindi concedere a tale gruppo di accedere a Key Vault.
+I criteri di controllo di accesso di Key Vault supportano fino a 1024 elementi. È tuttavia possibile creare un gruppo di sicurezza di Azure Active Directory. Aggiungere tutte le entità servizio associate a questo gruppo di sicurezza e quindi concedere a tale gruppo di accedere a Key Vault.
 
 Di seguito vengono indicati i prerequisiti:
 * [Installare il modulo di Azure Active Directory V2 per PowerShell](https://www.powershellgallery.com/packages/AzureAD).

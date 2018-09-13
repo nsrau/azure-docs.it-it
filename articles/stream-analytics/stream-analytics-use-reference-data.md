@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 888a99cad68f98030d4481cc23cb82123c900ee6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 2a6172a4e163d937f5a0a2140831b730bca23c3f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480530"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696524"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
 I dati di riferimento, noti anche come tabella di ricerca, sono un set di dati limitato di natura statica o soggetti a lenti cambiamenti, usati per eseguire una ricerca o la correlazione con il flusso di dati. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. Analisi di flusso usa l'archivio BLOB di Azure come livello di archiviazione per i dati di riferimento e Azure Data Factory consente di trasformare e/o copiare nell'archivio BLOB di Azure i dati da usare come dati di riferimento da [qualsiasi numero di archivi dati locali e basati sul cloud](../data-factory/copy-activity-overview.md). I dati di riferimento sono modellati come una sequenza di BLOB (definiti nella configurazione di input) in ordine crescente in base alla data/ora specificata nel nome di BLOB. Supporta **solo** l'aggiunta alla fine della sequenza usando una data/ora **successiva** rispetto a quella specificata dall'ultimo BLOB nella sequenza.
@@ -73,7 +73,7 @@ Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di 
     * Usare {date}/{time} nel modello di percorso
     * Aggiungere un nuovo BLOB usando lo stesso modello di contenitore e percorso definito nell'input del processo
     * Usare un valore di data/ora **maggiore** rispetto a quello specificato dall'ultimo BLOB nella sequenza.
-3. I BLOB dei dati di riferimento **non** vengono ordinati in base all'ora dell'ultima modifica del BLOB, ma solo in base all'ora e alla data specificate nel nome del BLOB con le sostituzioni di {date} e {time}.
+3. I BLOB dei dati di riferimento **non** vengono ordinati in base all'ora dell'"ultima modifica" del BLOB, ma solo in base all'ora e alla data specificate nel nome del BLOB con le sostituzioni di {date} e {time}.
 3. Per evitare di dover elencare un numero elevato di BLOB, valutare l'eliminazione dei BLOB molto vecchi per cui non verrà più eseguita l'elaborazione. Si noti che ASA potrebbe doverne rielaborare una piccola quantità in alcuni scenari, ad esempio un riavvio.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -3,22 +3,22 @@ title: Architettura di Hadoop - Azure HDInsight
 description: Descrive le funzionalità di archiviazione ed elaborazione di Hadoop nei cluster HDInsight.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.author: ashishth
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: ashishth
-ms.openlocfilehash: 754f4538f7c2a8de6286198094b38d40c466a15f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f22cb6a56e0ef81e3d7799b38e33113f8b175457
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599473"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699431"
 ---
 # <a name="hadoop-architecture-in-hdinsight"></a>Architettura Hadoop in HDInsight
 
-Hadoop include due componenti fondamentali, ovvero HDFS (High Density File System) che fornisce l'archiviazione e YARN (Yet Another Resource Negotiator) che supporta l'elaborazione. Con le funzionalità di archiviazione ed elaborazione un cluster diventa in grado di eseguire programmi MapReduce per eseguire l'elaborazione dei dati desiderata.
+Hadoop include due componenti fondamentali: l'Hadoop Distributed File System (HDFS) che fornisce l'archiviazione e (il Yet Another Resource Negotiatior YARN (Yet Another Resource Negotiator) che supporta l'elaborazione. Con le funzionalità di archiviazione ed elaborazione un cluster diventa in grado di eseguire programmi MapReduce per eseguire l'elaborazione dei dati desiderata.
 
 > [!NOTE]
 > Un file system HDFS non viene in genere distribuito all'interno del cluster HDInsight per fornire l'archiviazione. I componenti di Hadoop usano invece un livello di interfaccia compatibile con HDFS. La funzionalità di archiviazione effettiva viene fornita da Archiviazione di Azure o Azure Data Lake Store. Per Hadoop, i processi MapReduce in esecuzione nel cluster di HDInsight vengono eseguiti come se fosse presente un HDFS e pertanto non necessitano di modifiche per supportare le esigenze di archiviazione. In Hadoop in HDInsight, l'archiviazione è esternalizzata, ma l'elaborazione YARN rimane un componente di base. Per altre informazioni, vedere [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-introduction.md).
@@ -32,13 +32,13 @@ YARN gestisce e orchestra l'elaborazione dei dati in Hadoop. YARN include due se
 * ResourceManager 
 * NodeManager
 
-Il ResourceManager concede le risorse di calcolo del cluster ad applicazioni come i processi MapReduce. Il ResourceManager concede queste risorse come contenitori, dove ogni contenitore è costituito da un'allocazione di core CPU e di memoria RAM. Se si combinano tutte le risorse disponibili in un cluster e quindi le si distribuisce in blocchi di un determinato numero di core e memoria, ogni blocco di risorse è un contenitore. Ogni nodo del cluster ha una capacità per un determinato numero di contenitori e pertanto il cluster ha un limite fisso per il numero di contenitori disponibili. Il numero di risorse in un contenitore è configurabile. 
+Il ResourceManager concede le risorse di calcolo del cluster ad applicazioni come i processi MapReduce. Il ResourceManager concede queste risorse come contenitori, dove ogni contenitore è costituito da un'allocazione di core CPU e di memoria RAM. Se si combinano tutte le risorse disponibili in un cluster e quindi si distribuiscono i core e la memoria in blocchi, ogni blocco di risorse è un contenitore. Ogni nodo del cluster ha una capacità per un determinato numero di contenitori, pertanto il cluster ha un limite fisso per il numero di contenitori disponibili. Il numero di risorse in un contenitore è configurabile. 
 
 Quando un'applicazione MapReduce viene eseguita in un cluster, il ResourceManager fornisce all'applicazione i contenitori per l'esecuzione. Il ResourceManager tiene traccia dello stato delle applicazioni in esecuzione, della capacità del cluster disponibile, nonché del completamento e del rilascio delle risorse delle applicazioni. 
 
-Il ResourceManager esegue anche un processo di server Web che fornisce un'interfaccia utente Web utilizzabile per monitorare lo stato delle applicazioni. 
+Il ResourceManager esegue anche un processo di server Web che fornisce un'interfaccia utente Web utilizzabile per monitorare lo stato delle applicazioni.
 
-Quando un utente invia un'applicazione MapReduce per l'esecuzione nel cluster, l'applicazione viene inviata al ResourceManager. A sua volta, il ResourceManager alloca un contenitore sui nodi NodeManager disponibili. I nodi NodeManager sono la posizione in cui viene effettivamente eseguita l'applicazione. Il primo contenitore allocato esegue un'applicazione speciale denominata ApplicationMaster. Questo ApplicationMaster è responsabile dell'acquisizione delle risorse, sotto forma di contenitori successivi, necessarie per eseguire l'applicazione inviata. L'ApplicationMaster esamina le fasi dell'applicazione (fase di mapping e fase di riduzione) e calcola la quantità di dati che devono essere elaborati. ApplicationMaster richiede quindi (*negozia*) le risorse dal ResourceManager per conto dell'applicazione. Il ResourceManager concede a sua volta le risorse dai NodeManager nel cluster all'ApplicationMaster, in modo che possa usarle per l'esecuzione dell'applicazione. 
+Quando un utente invia un'applicazione MapReduce per l'esecuzione nel cluster, l'applicazione viene inviata al ResourceManager. A sua volta, il ResourceManager alloca un contenitore sui nodi NodeManager disponibili. I nodi NodeManager sono la posizione in cui viene effettivamente eseguita l'applicazione. Il primo contenitore allocato esegue un'applicazione speciale denominata ApplicationMaster. Questo ApplicationMaster è responsabile dell'acquisizione delle risorse, sotto forma di contenitori successivi, necessarie per eseguire l'applicazione inviata. L'ApplicationMaster esamina le fasi dell'applicazione, ad esempio la fase di mapping e fase di riduzione e calcola la quantità di dati che devono essere elaborati. ApplicationMaster richiede quindi (*negozia*) le risorse dal ResourceManager per conto dell'applicazione. Il ResourceManager concede a sua volta le risorse dai NodeManager nel cluster all'ApplicationMaster, in modo che possa usarle per l'esecuzione dell'applicazione. 
 
 I NodeManager eseguono le attività che costituiscono l'applicazione, quindi segnalano l'avanzamento e lo stato all'ApplicationMaster. A sua volta, l'ApplicationMaster segnala lo stato dell'applicazione al ResourceManager. Il ResourceManager restituisce gli eventuali risultati al client.
 

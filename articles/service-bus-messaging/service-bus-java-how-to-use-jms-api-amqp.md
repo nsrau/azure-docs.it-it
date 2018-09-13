@@ -3,7 +3,7 @@ title: Come usare AMQP 1.0 con l'API del bus di servizio Java | Microsoft Docs
 description: Come usare JMS (Java Message Service ) con il bus di servizio di Azure e il protocollo AMQP (Advanced Message Queuing Protocol) 1.0.
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: spelluru
+ms.openlocfilehash: bfab0c374e4b20b09167f37363fe0681144426ac
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23044176"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699346"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0
 AMQP (Advanced Message Queuing Protocol) 1.0 è un protocollo di messaggistica wire-level efficiente e affidabile che può essere utilizzato per creare potenti applicazioni di messaggistica multipiattaforma.
@@ -87,7 +87,7 @@ Dove **[namespace]**, **[SASPolicyName]** e **[SASPolicyKey]** hanno i significa
 * **[SASPolicyKey]**: chiave del criterio della firma di accesso condiviso relativa alla coda.
 
 > [!NOTE]
-> è necessario applicare manualmente la codifica URL alla password. Sul sito [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) è disponibile un'utilità per codificare facilmente l'URL.
+> è necessario applicare manualmente la codifica URL alla password. Un'utilità di codifica dell'URL è disponibile all'indirizzo [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 > 
 > 
 

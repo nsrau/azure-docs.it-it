@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 7df4033a378ce3b37a99ed0335200e7f71696594
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67432c8751cd8809649d41195957a7d68b392074
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528647"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665600"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -114,7 +114,7 @@ Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script*
 *Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 ### <a name="canceling-recommendations"></a>Annullamento delle raccomandazioni
-Le raccomandazioni con stato **In sospeso**, **Verifica** o **Operazione completata** possono essere annullate. Le raccomandazioni con stato **In esecuzione** non possono essere annullate.
+Le raccomandazioni con stato **In sospeso**, **Convalida** oppure **Operazione completata** possono essere annullate. Le raccomandazioni con stato **In esecuzione** non possono essere annullate.
 
 1. Selezionare una raccomandazione nell'area **Cronologia ottimizzazione** per aprire la pagina dei **dettagli della raccomandazione**.
 2. Fare clic su **Annulla** per interrompere il processo di applicazione della raccomandazione.
@@ -126,7 +126,7 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 |:--- |:--- |
 | In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
-| Verifica |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
+| Convalida in corso. |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
 | Success |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
 | Tipi di errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
 | Ripristino |La raccomandazione è stata applicata, ma è stata considerata non efficiente e verrà ripristinata automaticamente. |

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238809"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344424"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -45,7 +45,7 @@ L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie
 
 
 
-## <a name="on-premises"></a>Locale 
+## <a name="on-premises"></a>Locale
 
 ### <a name="what-do-i-need-on-premises"></a>Cosa è necessario avere in locale?
 In locale sono necessari i componenti di Site Recovery, installati in una singola macchina virtuale VMware. Occorre avere anche un'infrastruttura VMware con almeno un host ESXi, oltre a un server vCenter come scelta consigliata. Inoltre, sono necessarie una o più macchine virtuali VMware da replicare. [Altre informazioni](vmware-azure-architecture.md) sull'architettura della replica da VMware ad Azure.
@@ -72,7 +72,7 @@ Sì, è possibile usare ExpressRoute per replicare macchine virtuali in Azure. S
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Perché non è possibile eseguire la replica su VPN?
 
-Quando si esegue la replica in Azure, il traffico di replica raggiunge gli endpoint pubblici di un account di archiviazione di Azure, quindi è possibile eseguire la replica solo su Internet pubblico con ExpressRoute (peering pubblico), mentre la VPN non è supportata. 
+Quando si esegue la replica in Azure, il traffico di replica raggiunge gli endpoint pubblici di un account di archiviazione di Azure, quindi è possibile eseguire la replica solo su Internet pubblico con ExpressRoute (peering pubblico), mentre la VPN non è supportata.
 
 
 
@@ -90,7 +90,7 @@ No, la replica concatenata o estesa non è supportata. Richiedere questa funzion
 Questa funzionalità non è supportata. Richiedere questa funzionalità nel [forum dei commenti](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>È possibile escludere dei dischi?
-Sì, è possibile escludere dischi dalla replica. 
+Sì, è possibile escludere dischi dalla replica.
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>È possibile eseguire la replica delle macchine virtuali con i dischi dinamici?
 I dischi dinamici possono essere replicati. Il disco del sistema operativo deve essere un disco di base.
@@ -105,7 +105,7 @@ Per eseguire la replica VMware in Azure, è possibile modificare le dimensioni d
 ## <a name="configuration-server"></a>Server di configurazione
 
 ### <a name="what-does-the-configuration-server-do"></a>Qual è la funzione del server di configurazione?
-Il server di configurazione esegue i componenti di Site Recovery locali, tra cui: 
+Il server di configurazione esegue i componenti di Site Recovery locali, tra cui:
 - Il server di configurazione che coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
 - Il server di elaborazione che funge da gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia ad Archiviazione di Azure. Il server di elaborazione installa anche il servizio Mobility nelle macchine virtuali da replicare ed esegue l'individuazione automatica delle macchine virtuali VMware locali.
 - Il server di destinazione master che gestisce i dati di replica durante il failback da Azure.
@@ -118,13 +118,13 @@ Per il server di configurazione è necessaria una macchina virtuale VMware local
 Esaminare i [prerequisiti](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>È possibile configurare manualmente il server di configurazione invece di usare un modello?
-È consigliabile usare l'ultima versione del modello OVF per [creare la macchina virtuale del server di configurazione](vmware-azure-deploy-configuration-server.md). Se per qualche motivo non è possibile, ad esempio se non si ha accesso al server VMware, è possibile [scaricare il file di Installazione unificata](physical-azure-set-up-source.md) dal portale ed eseguirlo su una macchina virtuale. 
+È consigliabile usare l'ultima versione del modello OVF per [creare la macchina virtuale del server di configurazione](vmware-azure-deploy-configuration-server.md). Se per qualche motivo non è possibile, ad esempio se non si ha accesso al server VMware, è possibile [scaricare il file di Installazione unificata](physical-azure-set-up-source.md) dal portale ed eseguirlo su una macchina virtuale.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Un server di configurazione può eseguire la replica in più aree?
 No. Occorre configurare un server di configurazione in ogni area.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>È possibile ospitare un server di configurazione in Azure?
-È possibile, ma a questo scopo la macchina virtuale di Azure che esegue il server di configurazione dovrebbe comunicare con l'infrastruttura VMware locale e con le macchine virtuali. Il sovraccarico non è probabilmente fattibile.
+È possibile, ma a questo scopo la macchina virtuale di Azure che esegue il server di configurazione dovrebbe comunicare con l'infrastruttura VMware locale e con le macchine virtuali. Ciò può aggiungere latenze e influire sulla replica in corso.
 
 
 ### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>Dove è possibile ottenere la versione più recente del modello di server di configurazione?
@@ -132,6 +132,9 @@ Scaricare la versione più recente dall'[Area download Microsoft](https://aka.ms
 
 ### <a name="how-do-i-update-the-configuration-server"></a>Come si aggiorna il server di configurazione?
 Occorre installare gli aggiornamenti cumulativi. Le informazioni più recenti sugli aggiornamenti sono disponibili nella [pagina wiki degli aggiornamenti](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+### <a name="should-i-backup-the-deployed-configuration-server"></a>È consigliabile eseguire il backup del server di configurazione distribuito?
+Si consiglia di eseguire backup pianificati regolari del server di configurazione. Affinché il failback riesca, la macchina virtuale di cui si esegue il failback deve esistere nel database del server di configurazione e il server di configurazione deve essere in esecuzione e in uno stato connesso. Altre informazioni sulle attività comuni di gestione del server di configurazione sono disponibili [qui](vmware-azure-manage-configuration-server.md).
 
 ## <a name="mobility-service"></a>Servizio Mobility
 
@@ -191,7 +194,7 @@ Sì, se è stato effettuato il failover ad Azure, è possibile eseguire il failb
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Perché è necessaria una VPN o ExpressRoute per eseguire il failback?
 
-Quando si esegue il failback da Azure, i dati di Azure vengono copiati di nuovo nella macchina virtuale locale ed è necessario l'accesso privato. 
+Quando si esegue il failback da Azure, i dati di Azure vengono copiati di nuovo nella macchina virtuale locale ed è necessario l'accesso privato.
 
 
 

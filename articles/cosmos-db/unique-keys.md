@@ -9,21 +9,21 @@ editor: monicar
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2018
+ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: d12109efbb157b1e0c15b1a4c0d005fa98c44858
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261101"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696140"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chiavi univoche in Azure Cosmos DB
 
 Le chiavi univoche consentono agli sviluppatori di aggiungere un livello di integrità dei dati nel database. Se si definiscono criteri di chiave univoca quando si crea un contenitore, si ha la sicurezza che uno o più valori siano univoci per ogni [chiave di partizione](partition-data.md). Dopo aver creato un contenitore con criteri di chiave univoca, non è infatti possibile creare o aggiornare elementi con valori che duplicano quelli specificati dal vincolo di chiave univoca.   
 
 > [!NOTE]
-> Le chiavi univoche sono supportate dalle versioni più recenti degli SDK di SQL per [.NET](sql-api-sdk-dotnet.md) e [.NET Core](sql-api-sdk-dotnet-core.md) e dell'[API MongoDB](mongodb-feature-support.md#unique-indexes), ma non sono attualmente supportate dalle API Graph e Table. 
+> Le chiavi univoche sono supportate dalle versioni più recenti degli SDK di SQL per [.NET](sql-api-sdk-dotnet.md) e [.NET Core](sql-api-sdk-dotnet-core.md) e dell'[API MongoDB](mongodb-feature-support.md#unique-indexes), ma non sono attualmente supportate dalle API Gremlin e Table. 
 > 
 >
 
@@ -128,6 +128,9 @@ Documento JSON di esempio.
 ## <a name="mongodb-api-sample"></a>Esempio di API MongoDB
 
 L'esempio di comando seguente illustra come creare un indice univoco in base ai campi firstName, lastName e email della raccolta users per l'API MongoDB. In questo modo si ha la certezza che la combinazione dei tre campi sia univoca in tutti i documenti della raccolta. Per le raccolte dell'API MongoDB, l'indice univoco viene creato dopo che la raccolta è stata creata, ma prima che venga popolata.
+
+> [!NOTE]
+> Il formato della chiave univoca per gli account API MongoDB è diverso da quello degli account API SQL, in cui non è necessario specificare il carattere barra rovesciata (/) prima del nome del campo. 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

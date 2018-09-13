@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226527"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344171"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizzare l'autenticazione e l'autorizzazione in Servizio app di Azure
 
@@ -34,9 +34,9 @@ Se si vuole iniziare subito, vedere una delle esercitazioni seguenti:
 * [Come configurare un'applicazione per usare l'account di accesso Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [Come configurare un'applicazione per usare l'account di accesso di Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## <a name="configure-multiple-sign-in-options"></a>Configurare più opzioni di accesso
+## <a name="use-multiple-sign-in-providers"></a>Usare più provider di accesso
 
-La configurazione del portale non offre una soluzione pronta all'uso per presentare agli utenti più opzioni di accesso (ad esempio tramite Facebook e Twitter). È tuttavia possibile aggiungere facilmente questa funzionalità all'app Web. Seguire questa procedura:
+La configurazione del portale non offre una soluzione pronta all'uso per presentare agli utenti più provider di accesso, ad esempio tramite Facebook e Twitter. È tuttavia possibile aggiungere facilmente questa funzionalità all'app Web. Seguire questa procedura:
 
 Prima di tutto, nella pagina **Autenticazione/Autorizzazione** nel portale di Azure configurare ogni provider di identità che si vuole abilitare.
 
@@ -58,6 +58,50 @@ Per reindirizzare l'utente dopo l'accesso a un URL personalizzato, usare il para
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="sign-out-of-a-session"></a>Disconnettersi da una sessione
+
+Gli utenti possono avviare una disconnessione inviando una richiesta `GET` all'endpoint `/.auth/logout` dell'app. La richiesta `GET` esegue le operazioni seguenti:
+
+- Cancella i cookie di autenticazione dalla sessione corrente.
+- Elimina i token dell'utente corrente dall'archivio di token.
+- Per Azure Active Directory e Google esegue una disconnessione lato server nel provider di identità.
+
+Ecco un semplice collegamento di disconnessione in una pagina Web:
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+Per impostazione predefinita, una corretta disconnessione reindirizza il client all'URL `/.auth/logout/done`. È possibile cambiare la pagina di reindirizzamento post-connessione aggiungendo il parametro di query `post_logout_redirect_uri`. Ad esempio: 
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+È consigliabile [codificare](https://wikipedia.org/wiki/Percent-encoding) il valore di `post_logout_redirect_uri`.
+
+Quando si usano URL completamente qualificati, l'URL deve essere ospitato nello stesso dominio o configurato come URL di reindirizzamento esterno consentito per l'app. Nell'esempio seguente per eseguire il reindirizzamento a `https://myexternalurl.com` che non è ospitato nello stesso dominio:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+È necessario eseguire il comando seguente in [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## <a name="preserve-url-fragments"></a>Mantenere i frammenti di URL
+
+Dopo che gli utenti hanno eseguito l'accesso all'app, di solito vogliono essere reindirizzati alla stessa sezione della stessa pagina, ad esempio `/wiki/Main_Page#SectionZ`. Tuttavia, poiché i [frammenti di URL](https://wikipedia.org/wiki/Fragment_identifier), ad esempio `#SectionZ`, non vengono mai inviati al server, non sono mantenuti per impostazione predefinita dopo che l'accesso OAuth si completa e ritorna all'app. Gli utenti otterranno un'esperienza ottimale quando dovranno tornare di nuovo al segnalibro. Questa limitazione si applica a tutte le soluzioni di autenticazione lato server.
+
+Nell'autenticazione del servizio app è possibile mantenere i frammenti di URL durante l'accesso OAuth. Per farlo è necessario configurare l'impostazione app `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` su `true`. Si procede dal [portale di Azure](https://portal.azure.com) o semplicemente eseguendo il comando seguente in [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
 ## <a name="access-user-claims"></a>Accedere alle attestazioni utente

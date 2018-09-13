@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918017"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666115"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
@@ -44,13 +44,15 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 * Non risentono degli aggiornamenti pianificati o dei tempi di inattività non pianificati e altre interruzioni dell'archiviazione di Azure che si verificano nei server che forniscono la condivisione del contenuto.
 * Risentono di un minor numero di riavvii delle app a seguito di modifiche alla condivisione dell'archiviazione.
 
-## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Modalità di modifica del comportamento del servizio app da parte della cache locale
-* La cache locale è una copia delle cartelle /site e /siteextensions dell'app Web. Viene creata nell'istanza di VM locale all'avvio dell'app web. Le dimensioni della cache locale di ogni app Web sono limitate a 300 MB per impostazione predefinita, ma possono essere aumentate fino a 2 GB.
-* La cache locale è di lettura/scrittura. Le eventuali modifiche vengono tuttavia rimosse quando l'app Web sposta le macchine virtuali o viene riavviata. Non usare la cache locale per le app che archiviano dati cruciali nell'archivio del contenuto.
-* Le app Web possono continuare a scrivere file di log e dati di diagnostica come avviene attualmente. File di log e dati vengono tuttavia archiviati in locale nella VM, quindi vengono copiati periodicamente nell'archivio del contenuto condiviso. La copia nell'archivio del contenuto condiviso è una soluzione basata sul principio del "massimo sforzo". I writeback potrebbero infatti andare persi a seguito di un arresto anomalo improvviso dell'istanza di una VM.
-* La struttura delle cartelle LogFiles e Data delle app Web che usano la cache locale è stata modificata. Le cartelle LogFiles e Data della risorsa di archiviazione includono ora sottocartelle che seguono il modello di denominazione "identificatore univoco" + timestamp. Ogni sottocartella corrisponde a un'istanza di VM in cui l'app Web è o era in esecuzione.  
-* Le modifiche di pubblicazione nell'app Web con uno dei meccanismi di pubblicazione saranno pubblicate nell'archivio durevole del contenuto condiviso. Per aggiornare la cache locale dell'app Web, è necessario riavviarla. vedere le informazioni più avanti in questo articolo per rendere il ciclo di vita più lineare.
-* D:\Home punta alla cache locale. D:\local continua a puntare all'archivio temporaneo specifico della macchina virtuale.
+## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Modalità di modifica del comportamento del servizio app da parte della cache locale
+* _D:\home_ punta alla cache locale, creata nell'istanza della macchina virtuale all'avvio dell'app. _D:\local_ continua a puntare all'archivio temporaneo specifico della macchina virtuale.
+* La cache locale contiene una copia eseguita una sola volta delle cartelle _/site_ e _/siteextensions_ dell'archivio del contenuto condiviso rispettivamente in _D:\home\site_ e _D:\home\ siteextensions_. I file vengono copiati nella cache locale all'avvio dell'app. La dimensione delle due cartelle per ogni app è limitata a 300 MB per impostazione predefinita, ma può essere aumentata fino a 2 GB.
+* La cache locale è di lettura/scrittura. Le eventuali modifiche vengono tuttavia rimosse quando l'app sposta le macchine virtuali o viene riavviata. Non usare la cache locale per le app che archiviano dati mission-critical nell'archivio del contenuto.
+* _D:\home\LogFiles_ e _D:\home\Data_ contengono i file di log e i dati delle app. Le due sottocartelle vengono archiviate in locale nell'istanza della macchina virtuale e vengono copiate periodicamente nell'archivio del contenuto condiviso. Le app possono salvare in modo permanente i dati e i file di log, scrivendoli in queste cartelle. Tuttavia, la copia nell'archivio del contenuto condiviso è di tipo massimo sforzo e quindi i dati e i file di log potrebbero andare persi a seguito di un arresto anomalo improvviso del sistema dell'istanza di una macchina virtuale.
+* La copia di tipo massimo sforzo influisce sul [flusso di registrazione](web-sites-enable-diagnostic-log.md#streamlogs). Si può verificare un ritardo massimo di un minuto per i log inviati nel flusso.
+* Nell'archivio del contenuto condiviso è stata modificata la struttura delle cartelle _LogFiles_ e _Data_ delle app che usano la cache locale. Le cartelle includono ora sottocartelle che seguono il modello di denominazione "identificatore univoco" + timestamp. Ogni sottocartella corrisponde a un'istanza di macchina virtuale in cui l'app è o era in esecuzione.
+* Le altre cartelle _D:\home_ rimangono nella cache locale e non vengono copiate nell'archivio del contenuto condiviso.
+* La distribuzione di app con un qualsiasi metodo supportato implica la pubblicazione direttamente nell'archivio durevole del contenuto condiviso. Per aggiornare le cartelle _D:\home\site_ e _D:\home\siteextensions_ nella cache locale, è necessario riavviare l'app. vedere le informazioni più avanti in questo articolo per rendere il ciclo di vita più lineare.
 * La visualizzazione del contenuto predefinita del sito SCM continua a essere quella dell'archivio del contenuto condiviso.
 
 ## <a name="enable-local-cache-in-app-service"></a>Abilitare la cache locale nel servizio app

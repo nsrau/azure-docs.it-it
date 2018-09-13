@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 0408b26e687dd31c408dbccc68f56e8198016c8f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716264"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664789"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementare Azure Multi-Factor Authentication basato su cloud
 
@@ -23,8 +23,8 @@ Iniziare a usare Azure Multi-Factor Authentication (MFA di Azure) è semplice.
 
 Prima di iniziare, verificare che i prerequisiti seguenti siano disponibili:
 
-* Un account amministratore globale nel tenant di Azure AD. Se occorre assistenza per completare questo passaggio, consultare l'articolo [Introduzione ad Azure AD](../get-started-azure-ad.md)
-* Licenze corrette assegnate agli utenti. Per altre informazioni, vedere l'argomento [Come ottenere Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+* Un account amministratore globale nel tenant di Azure AD. Per istruzioni su come completare questo passaggio, vedere l'articolo [Introduzione ad Azure AD](../get-started-azure-ad.md).
+* Licenze corrette assegnate agli utenti. Per altre informazioni, vedere l'argomento [Come ottenere Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
 ## <a name="choose-how-to-enable"></a>Scegliere come eseguire l'abilitazione
 
@@ -32,10 +32,10 @@ Prima di iniziare, verificare che i prerequisiti seguenti siano disponibili:
 
 Abilitato da Azure AD Identity Protection: questo metodo usa i criteri di rischio di Azure AD Identity Protection per richiedere la verifica in due passaggi basata solo sul rischio di accesso per tutte le applicazioni cloud. Questo metodo richiede una licenza di Azure Active Directory P2. Per altre informazioni su questo metodo, vedere [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins).
 
-Abilitato modificando lo stato utente: questo è il metodo tradizionale per richiedere la verifica in due passaggi. Può essere usato sia con Azure MFA nel cloud sia con Azure MFA Server. Con questo metodo gli utenti devono eseguire la verifica in due passaggi **ogni volta** che eseguono l'accesso e vengono ignorati i criteri di accesso condizionale. Altre informazioni su questo metodo sono disponibili in [Come richiedere la verifica in due passaggi per un utente](howto-mfa-userstates.md)
+Abilitato modificando lo stato utente: questo è il metodo tradizionale per richiedere la verifica in due passaggi. Può essere usato sia con Azure MFA nel cloud sia con Azure MFA Server. Con questo metodo gli utenti devono eseguire la verifica in due passaggi **ogni volta** che eseguono l'accesso e vengono ignorati i criteri di accesso condizionale. Altre informazioni su questo metodo sono disponibili in [Come richiedere la verifica in due passaggi per un utente](howto-mfa-userstates.md).
 
 > [!Note]
-> Altre informazioni sulle licenze e i prezzi sono reperibili nelle pagine relative ai prezzi di [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
+> Altre informazioni sulle licenze e i prezzi sono disponibili nelle pagine relative ai prezzi di [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
 ) e [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
 ## <a name="choose-authentication-methods"></a>Scegliere i metodi di autenticazione

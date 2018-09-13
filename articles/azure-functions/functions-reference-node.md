@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6099a818651cf75a75159f43748720b3eb01e4de
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005476"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287822"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -30,27 +30,28 @@ L'esperienza JavaScript per Funzioni di Azure semplifica l'esportazione di una f
 Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md).
 
 ## <a name="exporting-a-function"></a>Esportazione di una funzione
-Tutte le funzioni JavaScript devono esportare una singola `function` tramite `module.exports` per consentire al runtime di trovare la funzione ed eseguirla. Questa funzione deve sempre includere un oggetto `context` .
+Ogni funzione JavaScript deve esportare una singola `function` tramite `module.exports` per consentire al runtime di trovare la funzione ed eseguirla. Questa funzione deve sempre accettare un oggetto `context` come primo parametro.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
-    if(arguments.length === 4) {
-        context.log('This function has 4 inputs');
-    }
-};
-// or you can include additional inputs in your arguments
+// You must include a context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
+    context.done();
+};
+// You can also use 'arguments' to dynamically handle inputs
+module.exports = function(context) {
+    context.log('Number of inputs: ' + arguments.length);
+    // Iterates through trigger and input binding data
+    for (i = 1; i < arguments.length; i++){
+        context.log(arguments[i]);
+    }
+    context.done();
 };
 ```
 
-Le associazioni di `direction === "in"` vengono passate come argomenti della funzione, pertanto è possibile usare [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) per gestire in modo dinamico nuovi input, ad esempio usando `arguments.length` per l'iterazione di tutti gli input. Questa funzionalità è utile se si ha solo un trigger e nessun input aggiuntivo, in quanto consente di accedere ai dati del trigger in modo prevedibile senza fare riferimento all'oggetto `context`.
+Associazioni di input e trigger (associazioni di `direction === "in"`) possono essere passati alla funzione come parametri. Vengono passati alla funzione nell'ordine in cui sono definiti in *function.json*. È possibile gestire in modo dinamico gli input usando l'oggetto JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx). Se ad esempio si ha `function(context, a, b)` e viene modificato in `function(context, a)`, è comunque possibile ottenere il valore di `b` nel codice della funzione facendo riferimento a `arguments[2]`.
 
-Gli argomenti vengono sempre passati insieme alla funzione nell'ordine in cui sono indicati nel file *function.json*, anche se non vengono specificati nell'istruzione exports. Se ad esempio si ha `function(context, a, b)` e viene modificato in `function(context, a)`, è comunque possibile ottenere il valore di `b` nel codice della funzione facendo riferimento a `arguments[2]`.
-
-Anche tutte le associazioni, indipendentemente dalla direzione, vengono passate sull'oggetto `context` (vedere lo script seguente). 
+Anche tutte le associazioni, indipendentemente dalla direzione, vengono passate sull'oggetto `context` usando la proprietà `context.bindings`.
 
 ## <a name="context-object"></a>Oggetto context
 Il runtime usa un oggetto `context` per passare dati dalla e alla funzione e consentire la comunicazione con il runtime.
@@ -61,6 +62,7 @@ L'oggetto `context` è sempre il primo parametro di una funzione e deve essere i
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
     // function logic goes here :)
+    context.done();
 };
 ```
 
@@ -223,12 +225,12 @@ Di seguito sono elencate le proprietà dell'oggetto `request`:
 
 Di seguito sono elencate le proprietà dell'oggetto `response`:
 
-| Proprietà  | Descrizione                                               |
+| Proprietà  | DESCRIZIONE                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
 | _isRaw_   | Indica che la formattazione viene ignorata per la risposta.    |
-| _status_  | Codice di stato HTTP della risposta.                     |
+| _Stato_  | Codice di stato HTTP della risposta.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Accesso a richiesta e risposta 
 

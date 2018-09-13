@@ -9,16 +9,16 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e1b7c82e6998705bdc7e1c1a5d279bda7793667a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113352"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43305200"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Uso dei metadati e dell'API GenerateAnswer
 
-QnA Maker consente di aggiungere metadati, sotto forma di coppie chiave/valore, per i set di domande/risposte. Queste informazioni possono essere usate in diversi modi, ad esempio per filtrare i risultati per le query utente, aumentare la priorità di alcuni risultati e archiviare informazioni aggiuntive che possono essere usate nelle conversazioni successive. Per altre informazioni, vedere [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker consente di aggiungere metadati, sotto forma di coppie chiave/valore, per i set di domande/risposte. Queste informazioni possono essere usate per filtrare i risultati per le query utente e per archiviare informazioni aggiuntive utilizzabili nelle conversazioni di follow-up. Per altre informazioni, vedere [Knowledge base](../Concepts/knowledge-base.md).
 
 ## <a name="qna-entity"></a>Entità di tipo Domande e risposte
 

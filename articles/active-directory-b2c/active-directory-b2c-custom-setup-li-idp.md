@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 58a595c697b6e1a70089a6683493835e0d3a9780
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444379"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344319"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: aggiungere LinkedIn come provider di identità tramite criteri personalizzati
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Questo articolo illustra come consentire l'accesso agli utenti di un account LinkedIn tramite l'uso di [criteri personalizzati](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Passaggio 1: Creare un'applicazione di account LinkedIn
@@ -40,7 +40,7 @@ Per usare LinkedIn come provider di identità in Azure Active Directory B2C (Azu
 
     c. Selezionare un **utilizzo dell'applicazione**.
 
-    d. Nella casella **URL del sito Web** incollare **https://login.microsoftonline.com**.
+    d. Nella casella **URL del sito Web** incollare **https://{tenant}.b2clogin.com**.  Dove {*tenant*} è il nome del tenant, ad esempio contoso.b2clogin.com.
 
     e. Digitare l'indirizzo **e-mail aziendale** e il **telefono aziendale**.
 
@@ -50,7 +50,7 @@ Per usare LinkedIn come provider di identità in Azure Active Directory B2C (Azu
 
 3. Selezionare **Autenticazione** e quindi copiare i valori di **ID client** e **Segreto client**.
 
-4. Nella casella **Authorized Redirect URLs** (URL di reindirizzamento autorizzati) incollare **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Sostituire {*tenant*} con il nome del tenant, ad esempio contosob2c.onmicrosoft.com. Assicurarsi che sia in uso lo schema HTTPS. 
+4. Nella casella **URL reindirizzamento autorizzati** incollare **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Sostituire {*tenant*} con il nome del tenant, ad esempio contosob2c.onmicrosoft.com. Assicurarsi che sia in uso lo schema HTTPS. 
 
     ![Account di LinkedIn - Impostare gli URL di reindirizzamento autorizzati](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

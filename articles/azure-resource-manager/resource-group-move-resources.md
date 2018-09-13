@@ -4,22 +4,20 @@ description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503581"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783339"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -59,8 +57,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   * [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
   * [Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. Il servizio deve abilitare lo spostamento di risorse. In questo articolo sono elencati i servizi che consentono di spostare risorse e quelli che invece non lo consentono.
-3. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa.
+1. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa.
 
   In PowerShell, per ottenere lo stato della registrazione usare i comandi seguenti:
 
@@ -88,14 +85,16 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   az provider register --namespace Microsoft.Batch
   ```
 
-4. L'account che sposta le risorse deve avere almeno le autorizzazioni seguenti:
+1. L'account che sposta le risorse deve avere almeno le autorizzazioni seguenti:
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** sul gruppo di risorse di origine.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** sul gruppo di risorse di destinazione.
 
-5. Prima di spostare le risorse, controllare le quote della sottoscrizione in cui si desidera spostare le risorse. Se lo spostamento di risorse causa il superamento dei limiti della sottoscrizione, è necessario verificare se è possibile richiedere un aumento della quota. Per un elenco dei limiti e su come richiedere un aumento, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+1. Prima di spostare le risorse, controllare le quote della sottoscrizione in cui si desidera spostare le risorse. Se lo spostamento di risorse causa il superamento dei limiti della sottoscrizione, è necessario verificare se è possibile richiedere un aumento della quota. Per un elenco dei limiti e su come richiedere un aumento, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
-5. Quando possibile, suddividere spostamenti di grandi dimensioni in operazioni di spostamento separate. Resource Manager restituisce immediatamente l'esito negativo di tentativi di spostamento di più di 800 risorse in un'unica operazione. Anche lo spostamento di meno di 800 risorse può non riuscire a causa di un timeout.
+1. Quando possibile, suddividere spostamenti di grandi dimensioni in operazioni di spostamento separate. Resource Manager restituisce immediatamente l'esito negativo di tentativi di spostamento di più di 800 risorse in un'unica operazione. Anche lo spostamento di meno di 800 risorse può non riuscire a causa di un timeout.
+
+1. Il servizio deve abilitare lo spostamento di risorse. Per determinare se lo spostamento avrà esito positivo, [convalidare la richiesta di spostamento](#validate-move). Vedere le sezioni riportate di seguito in questo articolo riguardante i [servizi che consentono di spostare risorse](#services-that-can-be-moved) e [i servizi che invece non lo consentono](#services-that-cannot-be-moved).
 
 ## <a name="when-to-call-support"></a>Quando chiamare il supporto
 
@@ -109,22 +108,74 @@ Contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure
 * Spostare le risorse in un nuovo account di Azure (e tenant di Azure Active Directory) e serve assistenza con le istruzioni nella sezione precedente.
 * Spostare le risorse classiche ma si verificano problemi relativi alle limitazioni.
 
+## <a name="validate-move"></a>Convalidare lo spostamento
+
+L'[operazione di convalida dello spostamento](/rest/api/resources/resources/validatemoveresources) consente di testare lo scenario di spostamento senza realmente spostare le risorse. Usare questa operazione per determinare se lo spostamento avrà esito positivo. Per eseguire questa operazione, è necessario:
+
+* il nome del gruppo di risorse di origine
+* l'ID risorsa della risorsa del gruppo di risorse di destinazione
+* l'ID risorsa di ogni risorsa da spostare
+* il [token di accesso](/rest/api/azure/#acquire-an-access-token) per l'account
+
+Inviare la richiesta seguente:
+
+```
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+Con un corpo della richiesta:
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+Se la richiesta viene formattata correttamente, l'operazione restituisce:
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.azure.com/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+Il codice di stato 202 indica che la richiesta di convalida è stata accettata, ma non è stato ancora determinato se l'operazione di spostamento avrà esito positivo. Il valore `location` contiene un URL che si usa per controllare lo stato dell'operazione a esecuzione prolungata.  
+
+Per controllare lo stato, inviare la richiesta seguente:
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+Mentre l'operazione è ancora in esecuzione, si continua a ricevere il codice di stato 202. Attendere il numero di secondi indicato nel valore `retry-after` prima di riprovare. Se l'operazione di spostamento ha esito positivo, viene visualizzato il codice di stato 204. Se la convalida dello spostamento ha esito negativo, viene visualizzato un messaggio di errore, ad esempio:
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
+
 ## <a name="services-that-can-be-moved"></a>Servizi che possono essere spostati
 
 Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo gruppo di risorse e in una nuova sottoscrizione:
 
+* Analysis Services
 * Gestione API
 * App del servizio app (app Web): vedere [Limitazioni del servizio app](#app-service-limitations)
 * Certificati del servizio app
 * Application Insights
-* Analysis Services
 * Automazione
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Mappe di Azure
 * Servizio di inoltro di Azure
 * Azure Stack - registrazioni
-* Azure Migrate
 * Batch
 * Servizi BizTalk
 * Servizio bot
@@ -133,6 +184,8 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Servizi cognitivi
 * Registro di sistema del contenitore
 * Content Moderator
+* Gestione costi
+* Customer Insights
 * Data Catalog
 * Data Factory
 * Data Lake Analytics
@@ -141,12 +194,14 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Griglia di eventi
 * Hub eventi
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
+* Iot Central
 * Hub IoT
 * Key Vault
 * Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
 * Log Analytics
 * App per la logica
 * Machine Learning: i servizi Web di Machine Learning Studio possono essere spostati in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non in un'altra sottoscrizione. Altre risorse di Machine Learning possono essere spostate da una sottoscrizione all'altra.
+* Identità gestita assegnata dall'utente
 * Servizi multimediali
 * Mobile Engagement
 * Hub di notifica
@@ -160,6 +215,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Ricerca
 * Bus di servizio
 * Service Fabric
+* Service Fabric Mesh
 * Servizio SignalR
 * Archiviazione
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
@@ -185,9 +241,13 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * Database di Azure per PostgreSQL
 * Migrazione del database di Azure
 * Azure Databricks
+* Azure Migrate
 * Intelligenza artificiale per Batch
 * Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
+* Istanze di contenitore
 * Servizio contenitore
+* Data Box
+* Dev Spaces
 * Dynamics LCS
 * Express Route
 * Kubernetes Service
@@ -196,6 +256,7 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * Applicazioni gestite
 * Dischi gestiti: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Genomica di Microsoft
+* NetApp
 * Indirizzo IP pubblico: vedere [Limitazioni dell'indirizzo IP pubblico](#pip-limitations)
 * Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino, vedere [Limitazioni dei servizi di ripristino](#recovery-services-limitations).
 * SAP HANA in Azure
@@ -225,13 +286,11 @@ Le macchine virtuali con certificato archiviato in Key Vault possono essere spos
 
 ## <a name="virtual-networks-limitations"></a>Limitazioni delle reti virtuali
 
-Quando si esegue lo spostamento di una rete virtuale, è necessario spostare anche le relative risorse dipendenti. Ad esempio, è necessario spostare i gateway con la rete virtuale.
+Quando si esegue lo spostamento di una rete virtuale, è necessario spostare anche le relative risorse dipendenti. Per i gateway VPN, è necessario spostare gli indirizzi IP, i gateway di rete virtuale e tutte le risorse di connessione associata. I gateway di rete locali possono trovarsi in un gruppo di risorse diverso.
 
 Per spostare una rete virtuale con peering, è prima necessario disabilitare il peering. Dopo la disabilitazione del peering è possibile spostare la rete virtuale. Riabilitare il peering della rete virtuale dopo lo spostamento.
 
 Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la rete virtuale contiene una subnet con collegamenti di navigazione delle risorse. Se ad esempio una risorsa Cache Redis è distribuita in una subnet, tale subnet ha un collegamento di navigazione della risorsa.
-
-Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la rete virtuale contiene un server DNS personalizzato. Per spostare la rete virtuale, impostarla sul server DNS predefinito (fornito da Azure). Dopo lo spostamento, riconfigurare il server DNS personalizzato.
 
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 

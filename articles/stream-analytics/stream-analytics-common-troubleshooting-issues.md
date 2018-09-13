@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: e04d1072acee635235b0a5bd8465ca38c861017b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d7784792cd7e1475028dc0a5e9664916f1d45a07
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523524"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699220"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problemi comuni in Analisi di flusso e passaggi per risolvere tali problemi
 
@@ -38,7 +38,9 @@ Per ottenere altre informazioni, è possibile abilitare i log di diagnostica per
 
 3. Per ottenere i dati JSON in formato non valido, eseguire il codice CheckMalformedEvents.cs. Questo esempio è disponibile nel [repository degli esempi di GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Questo codice legge l'ID della partizione, l'offset e stampa i dati presenti nell'offset. 
 
-4. Dopo aver eseguito la lettura dei dati, è possibile analizzare e correggere il formato di serializzazione. 
+4. Dopo aver eseguito la lettura dei dati, è possibile analizzare e correggere il formato di serializzazione.
+
+5. È anche possibile [leggere gli eventi da un hub IoT con Service Bus Explorer](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
 
 ## <a name="delayed-output"></a>Output ritardato
 

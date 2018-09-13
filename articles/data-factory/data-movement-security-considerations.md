@@ -1,5 +1,5 @@
 ---
-title: Considerazioni sulla sicurezza in Azure Data Factory | Microsoft Docs
+title: Considerazioni sulla sicurezza in Azure Data Factory | Documentazione Microsoft
 description: Descrive l'infrastruttura di sicurezza di base usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745669"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783373"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -188,7 +188,7 @@ Questa funzionalità non è ancora supportata. ma Microsoft ci sta lavorando att
 
 **Quali sono i requisiti delle porte per il corretto funzionamento del runtime di integrazione self-hosted?**
 
-Il runtime di integrazione self-hosted stabilisce connessioni basate su HTTP per accedere a Internet. Le porte in uscita 443 e 80 devono essere aperte per permettere al runtime di integrazione self-hosted di stabilire una connessione. Aprire la porta in ingresso 8050 solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se si usa il database SQL di Azure o Azure SQL Data Warehouse come origine o destinazione, è necessario aprire anche la porta 1433. Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+Il runtime di integrazione self-hosted stabilisce connessioni basate su HTTP per accedere a Internet. La porta in uscita 443 deve essere aperta per permettere al runtime di integrazione self-hosted di stabilire una connessione. Aprire la porta in ingresso 8050 solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se si usa il database SQL di Azure o Azure SQL Data Warehouse come origine o destinazione, è necessario aprire anche la porta 1433. Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

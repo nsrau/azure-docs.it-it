@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: a57d5f8d857a8cfcdc81e86650466aec740f41e3
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344699"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286810"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -34,9 +34,9 @@ Questo argomento illustra i vari modi per eseguire il test delle funzioni e incl
 + Funzione attivata tramite timer
 + Test dell'applicazione o del framework
 
-Tutti questi metodi di test usano una funzione trigger HTTP che accetta l'input tramite un parametro della stringa di query o il corpo della richiesta. Questa funzione verrà creata nella prima sezione.
+Tutti questi metodi di test usano una funzione trigger HTTP che accetta l'input tramite un parametro della stringa di query o il corpo della richiesta. Questa funzione verrà creata usando il portale di Azure nella prima sezione.
 
-## <a name="create-a-function-for-testing"></a>Creare una funzione per i test
+## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Creare una semplice funzione a scopo di test tramite il portale di Azure
 Per la maggior parte di questa esercitazione si userà una versione leggermente modificata del modello di funzione HttpTrigger JavaScript disponibile quando si crea una funzione. Se occorre assistenza nella creazione di una funzione, rivedere questa [esercitazione](functions-create-first-azure-function.md). Scegliere il modello **HttpTrigger- JavaScript** quando si crea la funzione di test nel [Portale di Azure].
 
 Il modello di funzione predefinito è fondamentalmente una funzione Hello World che restituisce il nome dal parametro della stringa query o del corpo della richiesta, `name=<your name>`.  Il codice verrà aggiornato per consentire all'utente di fornire anche il nome e un indirizzo come contenuto JSON nel corpo della richiesta. La funzione restituirà quindi queste informazioni al client, se disponibile.   

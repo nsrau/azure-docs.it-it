@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187055"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702375"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure (anteprima)
  
@@ -169,13 +169,13 @@ A questo punto viene creata un'aggregazione JavaScript definita dall'utente in u
     }
     ````
 
-1. Dopo aver fatto clic sul pulsante "Salva", l'aggregazione definita dall'utente verrà visualizzata nell'elenco di funzioni.
+1. Dopo aver fatto clic sul pulsante "Salva", l'aggregazione definita dall'utente verrà visualizzata nell'elenco delle funzioni.
 
 1. Fare clic sulla nuova funzione "TWA" per verificare la definizione della funzione.
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Chiamata di un'aggregazione JavaScript definita dall'utente in una query ASA
 
-Nel portale di Azure aprire il processo, modificare la query e chiamare la funzione TWA() con un prefisso obbligatorio "uda", Ad esempio: 
+Nel portale di Azure aprire il processo, modificare la query e chiamare la funzione TWA() con un prefisso obbligatorio "uda". Ad esempio: 
 
 ````SQL
 WITH value AS

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2018
+ms.date: 08/31/2018
 ms.author: rithorn
-ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: b95dba65a7ab89306844e48641aba584e3d6b175
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480323"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371517"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure
 
@@ -38,7 +38,7 @@ Un altro scenario in cui è utile usare gruppi di gestione è per fornire agli u
 
 ### <a name="important-facts-about-management-groups"></a>Informazioni importanti sui gruppi di gestione
 
-- Una singola directory può supportare 10.000 gruppi di gestione.
+- Una singola directory (tenant di Azure Active Directory) può supportare 10.000 gruppi di gestione.
 - L'albero di un gruppo di gestione può supportare fino a sei livelli di profondità.
   - Questo limite non include il livello radice o il livello sottoscrizione.
 - Ogni gruppo di gestione e sottoscrizione può supportare un solo elemento padre.

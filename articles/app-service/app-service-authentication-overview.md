@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888101"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336805"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
 
@@ -135,7 +135,7 @@ Con questa opzione non è necessario scrivere codice di autenticazione nell'app.
 
 L'opzione è **Consenti richieste anonime**. Questa opzione attiva l'autenticazione e l'autorizzazione nel servizio app, ma rimanda le decisioni riguardanti l'autorizzazione al codice dell'applicazione. Per le richieste autenticate, il servizio app passa anche le informazioni di autenticazione nelle intestazioni HTTP. 
 
-Questa opzione offre maggiore flessibilità nella gestione delle richieste anonime. È ad esempio possibile [offrire diverse opzioni di accesso](app-service-authentication-how-to.md#configure-multiple-sign-in-options) agli utenti. È tuttavia necessario scrivere codice. 
+Questa opzione offre maggiore flessibilità nella gestione delle richieste anonime. Ad esempio consente di [presentare più opzioni di accesso](app-service-authentication-how-to.md#use-multiple-sign-in-providers) agli utenti. Tuttavia richiede di scrivere codice. 
 
 ## <a name="more-resources"></a>Altre risorse
 

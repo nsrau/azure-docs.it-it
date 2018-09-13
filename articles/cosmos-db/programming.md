@@ -10,24 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618897"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287445"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmazione lato server per Azure Cosmos DB: stored procedure, trigger del database e funzioni definite dall'utente
 
 L'esecuzione integrata e transazionale di JavaScript con il linguaggio di Azure Cosmos DB permette agli sviluppatori di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente (UDF)** in modo nativo in base alla specifica [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. L'integrazione di Javascript consente di scrivere la logica del programma che può essere distribuita ed eseguita direttamente nelle partizioni di archiviazione del database. 
 
-Per iniziare, è consigliabile guardare il video seguente, in cui Andrew Liu presenta il modello di programmazione di database lato server di Azure Cosmos DB. 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-Tornare quindi a questo articolo, che fornisce risposte alle domande seguenti:  
+In questo articolo sono riportate le risposte alle domande seguenti:  
 
 * Come è possibile scrivere una stored procedure, un trigger o una funzione definita dall'utente usando JavaScript?
 * In che modo Cosmos DB garantisce proprietà ACID?
@@ -98,7 +92,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-L'oggetto contesto offre accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di Cosmos DB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, si usa l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
+L'oggetto contesto offre accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di Cosmos DB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, si usa l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Elaborando ulteriormente questo esempio, è possibile aggiungere alla stored procedure altre funzionalità relative al database. Le stored procedure possono creare, aggiornare, leggere ed eliminare documenti e allegati all'interno della raccolta, oltre che eseguire query su di essi.    
 
@@ -591,7 +585,7 @@ I seguenti costrutti JavaScript non vengono ottimizzati per gli indici di Azure 
 * Flusso di controllo (ad esempio, if, for, while)
 * Chiamate di funzione
 
-Per altre informazioni, vedere [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/) (JSDocs lato server).
+Per altre informazioni, vedere [Server-Side JSDocs](https://azure.github.io/azure-cosmosdb-js-server/) (JSDocs lato server).
 
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Esempio: Scrivere una stored procedure usando l'API di query JavaScript
 L'esempio di codice seguente illustra come usare l'API Query JavaScript nel contesto di una stored procedure. La stored procedure inserisce un documento, fornito da un parametro di input, e aggiorna un documento di metadati, usando il metodo `__.filter()` , con minSize, maxSize e totalSize in base alla proprietà relativa alle dimensioni del documento di input.
@@ -674,7 +668,7 @@ Le descrizioni seguenti illustrano ogni query nella tabella sopra.
 
 
 ## <a name="runtime-support"></a>Supporto di runtime
-L'[API lato server JavaScript](http://azure.github.io/azure-documentdb-js-server/) di Azure Cosmos DB offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+L'[API lato server JavaScript](https://azure.github.io/azure-cosmosdb-js-server/) di Azure Cosmos DB offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Sicurezza
 Le stored procedure e i trigger di JavaScript vengono create in modalità sandbox in modo che gli effetti di un unico script non vengano trasferiti all'altro senza che siano stati prima sottoposti all'isolamento delle transazioni snapshot a livello di database. Gli ambienti di runtime vengono riuniti in pool, ma ripuliti dal contesto dopo ciascuna esecuzione. Di conseguenza è possibile garantirne la sicurezza rispetto a effetti collaterali imprevisti causati l'un l'altro.
@@ -683,7 +677,7 @@ Le stored procedure e i trigger di JavaScript vengono create in modalità sandbo
 Le stored procedure, le funzioni definite dall'utente e i trigger vengono precompilati implicitamente nel formato di codice byte per evitare il lavoro di compilazione per ogni chiamata dello script. La precompilazione garantisce velocità elevata e footprint ridotto delle chiamate delle stored procedure.
 
 ## <a name="client-sdk-support"></a>Supporto di client SDK
-Oltre all'API [Node.js](sql-api-sdk-node.md) di Azure Cosmos DB, Azure Cosmos DB include gli [SDK di .NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](sql-api-sdk-python.md) anche per l'API SQL. È possibile creare ed eseguire stored procedure, trigger e funzioni definite dall'utente anche usando anche uno di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
+Oltre all'API [Node.js](sql-api-sdk-node.md) di Azure Cosmos DB, Azure Cosmos DB include gli [SDK di .NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md) anche per l'API SQL. È possibile creare ed eseguire stored procedure, trigger e funzioni definite dall'utente anche usando anche uno di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -828,7 +822,7 @@ A differenza delle stored procedure, non è possibile eseguire direttamente i tr
 In questo caso, il pre-trigger da eseguire con la richiesta è specificato nell'intestazione x-ms-documentdb-pre-trigger-include. Di conseguenza, qualsiasi post-trigger viene indicato nell'intestazione x-ms-documentdb-post-trigger-include. Per una determinata richiesta è possibile specificare sia pre-trigger sia post-trigger.
 
 ## <a name="sample-code"></a>Codice di esempio
-Altri esempi di codice sul lato server, inclusi gli esempi relativi a [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e a [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js), sono disponibili nell'[archivio GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Altri esempi di codice sul lato server, inclusi gli esempi relativi a [bulk-delete](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/bulkDelete.js) e a [update](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/update.js), sono disponibili nell'[archivio GitHub](https://github.com/Azure/azure-cosmosdb-js-server/tree/master/samples).
 
 Si vuole condividere la stored procedure creata? È possibile contribuire al repository creando una richiesta di esecuzione pull. 
 

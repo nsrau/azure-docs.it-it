@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84b1ad2ecd2c027c7d8a105579059ceb957f41c6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e1949c32833bb1d5e6603a6f5e36e22dc58e8cec
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928999"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336929"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account LinkedIn tramite Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Per usare un account LinkedIn come provider di identità in Azure Active Directo
 3. Immettere **Nome società**, **Nome applicazione**, **Descrizione applicazione**, **Logo applicazione**, **Uso applicazione** , **URL del sito Web**, **Indirizzo di posta elettronica aziendale** e **Telefono (uff.)**.
 4. Accettare il documento **LinkedIn API Terms of Use** (Condizioni d'uso dell'API LinkedIn) e fare clic su **Submit** (Invia).
 5. Copiare i valori **ID client** e **Segreto client**. Si trovano nella sezione **Authentication Keys** (Chiavi di autenticazione) Sono necessari entrambi per configurare LinkedIn come provider di identità nel tenant. **Client Segreto** è un'importante credenziale di sicurezza.
-6. Immettere `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` negli **URL di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contoso.onmicrosoft.com. Fare clic su **Aggiungi** e quindi su **Aggiorna**.
+6. Immettere `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` negli **URL di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c. Fare clic su **Aggiungi** e quindi su **Aggiorna**.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Configurare un account LinkedIn come provider di identità
 

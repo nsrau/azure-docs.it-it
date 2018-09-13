@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128127"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669484"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -27,8 +27,7 @@ Le modifiche al software installato, ai servizi di Windows, ai file e al Registr
 
 Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate per l'agente Windows:
 
-* Windows Server 2008 Service Pack 1 (SP1) o versione successiva
-* Windows 7 SP1 e versioni successive.
+* Windows Server 2008 R2 o versione successiva
 
 ## <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
 
@@ -47,8 +46,8 @@ Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possi
 Per iniziare a tenere traccia delle modifiche, è necessario abilitare la soluzione Rilevamento modifiche e Inventario per l'account di Automazione.
 
 1. Nel portale di Azure passare all'account di Automazione.
-1. Selezionare **Rilevamento modifiche** in **CONFIGURAZIONE**.
-1. Selezionare un'area di lavoro di Log Analytics esistente oppure **Crea una nuova area di lavoro** e fare clic su **Abilita**.
+2. Selezionare **Rilevamento modifiche** in **CONFIGURAZIONE**.
+3. Selezionare un'area di lavoro di Log Analytics esistente oppure **Crea una nuova area di lavoro** e fare clic su **Abilita**.
 
 Verrà abilitata la soluzione per l'account di automazione. L'abilitazione della soluzione può richiedere fino a 15 minuti. Il banner blu notifica quando la soluzione è abilitata. Tornare alla pagina **Rilevamento modifiche** per gestire la soluzione.
 

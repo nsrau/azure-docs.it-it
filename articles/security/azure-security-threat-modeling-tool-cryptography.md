@@ -3,23 +3,23 @@ title: 'Crittografia: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
 description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911659"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306146"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastruttura di sicurezza: crittografia - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -107,11 +107,11 @@ ms.locfileid: "30911659"
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passaggi** | <p>I prodotti devono usare la famiglia SHA-2 di algoritmi (SHA256, SHA384 e SHA512). Se è necessario un hash più breve, ad esempio una lunghezza di output di 128 bit, per la corrispondenza con una struttura di dati progettata per il più breve hash MD5, i team dei prodotti possono troncare uno degli hash SHA-2 (in genere, SHA256). Si noti che SHA384 è una versione troncata di SHA512. Il troncamento di hash crittografici per motivi di sicurezza a meno di 128 bit non è consentito. Il codice nuovo non deve usare gli algoritmi hash MD2, MD4, MD5, SHA-0, SHA-1 o RIPEMD. Da un punto di vista computazionale, le collisioni di hash sono possibili per questi algoritmi, che li interrompono in modo efficace.</p><p>Algoritmi hash .NET consentiti per la flessibilità crittografica gestita (in ordine di preferenza):</p><ul><li>SHA512Cng (conforme allo standard FIPS)</li><li>SHA384Cng (conforme allo standard FIPS)</li><li>SHA256Cng (conforme allo standard FIPS)</li><li>SHA512Managed (non conforme allo standard FIPS). Usare SHA512 come nome di algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName</li><li>SHA384Managed (non conforme allo standard FIPS). Usare SHA384 come nome di algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName</li><li>SHA256Managed (non conforme allo standard FIPS). Usare SHA256 come nome di algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName</li><li>SHA512CryptoServiceProvider (conforme allo standard FIPS)</li><li>SHA256CryptoServiceProvider (conforme allo standard FIPS)</li><li>SHA384CryptoServiceProvider (conforme allo standard FIPS)</li></ul>| 
+| **Passaggi** | <p>I prodotti devono usare la famiglia SHA-2 di algoritmi (SHA256, SHA384 e SHA512). Se è necessario un hash più breve, ad esempio una lunghezza di output di 128 bit, per la corrispondenza con una struttura di dati progettata per il più breve hash MD5, i team dei prodotti possono troncare uno degli hash SHA-2 (in genere, SHA256). Si noti che SHA384 è una versione troncata di SHA512. Il troncamento di hash crittografici per motivi di sicurezza a meno di 128 bit non è consentito. Il codice nuovo non deve usare gli algoritmi hash MD2, MD4, MD5, SHA-0, SHA-1 o RIPEMD. Da un punto di vista computazionale, le collisioni di hash sono possibili per questi algoritmi, che li interrompono in modo efficace.</p><p>Algoritmi hash .NET consentiti per la flessibilità crittografica gestita (in ordine di preferenza):</p><ul><li>SHA512Cng (conforme allo standard FIPS)</li><li>SHA384Cng (conforme allo standard FIPS)</li><li>SHA256Cng (conforme allo standard FIPS)</li><li>SHA512Managed, non conforme allo standard FIPS. Usare SHA512 come nome di algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName</li><li>SHA384Managed, non conforme allo standard FIPS. Usare SHA384 come nome di algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName</li><li>SHA256Managed, non conforme allo standard FIPS. Usare SHA256 come nome di algoritmo nelle chiamate a HashAlgorithm.Create o CryptoConfig.CreateFromName</li><li>SHA512CryptoServiceProvider (conforme allo standard FIPS)</li><li>SHA256CryptoServiceProvider (conforme allo standard FIPS)</li><li>SHA384CryptoServiceProvider (conforme allo standard FIPS)</li></ul>| 
 
 ## <a id="strong-db"></a>Usare algoritmi di crittografia avanzata per crittografare i dati nel database
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -122,7 +122,7 @@ ms.locfileid: "30911659"
 
 ## <a id="ssis-signed"></a>I pacchetti SSIS devono essere crittografati ed essere con firma digitale
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -144,7 +144,7 @@ ms.locfileid: "30911659"
 
 ## <a id="ekm-keys"></a>Usare EKM di SQL Server per proteggere le chiavi di crittografia
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -166,7 +166,7 @@ ms.locfileid: "30911659"
 
 ## <a id="keys-iot"></a>Archiviare le chiavi di crittografia in modo sicuro nel dispositivo IoT
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Compilare |  
@@ -200,7 +200,7 @@ Come si può osservare, la chiave primaria del dispositivo non è presente nel c
 
 ## <a id="pin-remote"></a>Assicurarsi che sia attivo un criterio di gestione dei dispositivi che richiede di usare il PIN e consente la cancellazione remota
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Client Dynamics CRM Mobile | 
 | **Fase SDL**               | Distribuzione |  
@@ -222,7 +222,7 @@ Come si può osservare, la chiave primaria del dispositivo non è presente nel c
 
 ## <a id="rolled-server"></a>Assicurarsi che venga eseguito il rollover delle chiavi di firma quando si usa Identity Server
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase SDL**               | Distribuzione |  

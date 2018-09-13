@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 7401355c7920729933d0fcc3dd4cc8ce610c399e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b51f0c1e0c6ef713bf8d3ff0a124300f446a9373
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199076"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306809"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Linee guida sul ripristino di emergenza dei dati in Data Lake Store
 
-Azure Data Lake Store offre archiviazione con ridondanza locale (LRS). I dati nell'account Azure Data Lake Store sono pertanto resilienti agli errori hardware temporanei di un'area grazie all'uso di repliche automatizzate. Ciò garantisce durabilità e disponibilità elevata, rispettando il Contratto di servizio di Azure Data Lake Store. Questo articolo fornisce alcune linee guida su come proteggere ulteriormente i dati dalle rare interruzioni a livello di area o da eliminazioni accidentali.
+Azure Data Lake Store offre archiviazione con ridondanza locale (LRS). I dati nell'account Azure Data Lake Store sono pertanto resilienti agli errori hardware temporanei di un data center grazie all'uso di repliche automatizzate. Ciò garantisce durabilità e disponibilità elevata, rispettando il Contratto di servizio di Azure Data Lake Store. Questo articolo fornisce alcune linee guida su come proteggere ulteriormente i dati dalle rare interruzioni a livello di area o da eliminazioni accidentali.
 
 ## <a name="disaster-recovery-guidance"></a>Indicazioni sul ripristino di emergenza
 È fondamentale che ogni cliente prepari il proprio piano di ripristino di emergenza. Leggere le informazioni contenute in questo articolo per creare il proprio piano di ripristino di emergenza. Di seguito sono riportate alcune risorse che consentono di creare proprio piano.

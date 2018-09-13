@@ -1,6 +1,6 @@
 ---
-title: Che cos'è il pannello di accesso in Azure Active Directory? | Microsoft Docs
-description: Informazioni su come usare le varianti del pannello di accesso (Web browser, app per Android e app per iPhone e iPad) per accedere alle app SaaS.
+title: Cos'è il portale delle app personali in Azure Active Directory? | Microsoft Docs
+description: Informazioni su come usare le varianti del portale delle app personali, come Web browser, app per Android e app per iPhone e iPad, per accedere alle app SaaS.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143209"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302278"
 ---
-# <a name="what-is-the-access-panel"></a>Che cos'è il pannello di accesso?
+# <a name="what-is-the-myapps-portal"></a>Che cos'è il portale App personali?
 
-Il pannello di accesso è un portale basato sul Web. Se si ha un account aziendale o dell'istituto di istruzione in Azure Active Directory (Azure AD), è possibile usare il pannello di accesso per visualizzare e avviare le applicazioni basate sul cloud a cui un amministratore di Azure AD ha concesso l'accesso. Tramite il pannello di accesso è anche possibile usare le funzionalità di gestione self-service di gruppi e app.
+Se si ha un account aziendale o dell'istituto di istruzione in Azure Active Directory (Azure AD), è possibile usare il portale Web delle app personali per visualizzare e avviare le applicazioni basate sul cloud a cui un amministratore di Azure AD ha concesso l'accesso. Tramite il portale delle app personali è anche possibile usare le funzionalità di gestione self-service di gruppi e app.
 
-Il pannello di accesso è separato dal portale di Azure. Non è necessario avere una sottoscrizione di Azure.
+Il portale delle app personali è separato dal portale di Azure. Non è necessario avere una sottoscrizione di Azure.
 
-![Pannello di accesso][1] Con il pannello di accesso è possibile modificare alcune impostazioni del profilo ed eseguire le operazioni seguenti:
+![Portale delle app personali][1] Con il portale delle app personali è possibile modificare alcune impostazioni del profilo ed eseguire le operazioni seguenti:
 
 - Cambiare la password associata al proprio account aziendale o dell'istituto di istruzione.
 
@@ -39,12 +39,9 @@ Il pannello di accesso è separato dal portale di Azure. Non è necessario avere
 
 - Gestire i gruppi in modalità self-service. Gli amministratori possono creare e gestire gruppi di sicurezza e richiedere appartenenze a gruppi di sicurezza in Azure AD. Per altre informazioni, vedere [Gestione dei gruppi in modalità self-service per gli utenti in Azure AD](../users-groups-roles/groups-self-service-management.md) e [Gestione dei gruppi](../fundamentals/active-directory-manage-groups.md).
 
+## <a name="access-the-myapps-portal"></a>Accedere al portale delle app personali
 
-
-
-## <a name="access-the-access-panel"></a>Accedere al pannello di accesso
-
-Per accedere al pannello di accesso, andare in `http://myapps.microsoft.com`.
+Per accedere al portale delle app personali passare a `http://myapps.microsoft.com`.
 
 Se sono state configurate impostazioni di personalizzazione per la pagina di accesso, è possibile caricarle aggiungendo il dominio dell'organizzazione all'URL ad esempio `http://myapps.microsoft.com/<your domain>.com`.
 
@@ -54,7 +51,7 @@ Distribuire l'URL a tutti gli utenti che eseguiranno l'accesso ad applicazioni i
 
 ## <a name="authentication"></a>Authentication
 
-Per raggiungere il pannello di accesso, è necessario essere autenticati in Azure AD con un account aziendale o dell'istituto di istruzione. È possibile essere autenticati direttamente in Azure AD. In alternativa, se un'organizzazione ha configurato la federazione con Active Directory Federation Services (AD FS) o altre tecnologie, è possibile essere autenticati con Windows Server Active Directory.
+Per raggiungere il portale delle app personali è necessario essere autenticati in Azure AD con un account aziendale o dell'istituto di istruzione. È possibile essere autenticati direttamente in Azure AD. In alternativa, se un'organizzazione ha configurato la federazione con Active Directory Federation Services (AD FS) o altre tecnologie, è possibile essere autenticati con Windows Server Active Directory.
 
 Se si ha una sottoscrizione di Azure oppure un abbonamento a Office 365 ed è stato usato il portale di Azure o un'applicazione di Office 365, è possibile visualizzare l'elenco di applicazioni senza dover eseguire di nuovo l'accesso. Se non si è autenticati, viene chiesto di accedere usando il nome utente e la password dell'account in Azure AD. Se l'organizzazione ha configurato la federazione, sarà sufficiente digitare il nome utente.
 
@@ -62,12 +59,12 @@ Dopo l'autenticazione, è possibile interagire con le applicazioni che l'amminis
 
 ## <a name="web-browser-requirements"></a>Requisiti del Web browser
 
-Il pannello di accesso richiede almeno un browser che supporti JavaScript e abbia CSS abilitato. Per poter accedere alle applicazioni tramite l'accesso Single Sign-On (SSO) basato su password, è necessario installare l'estensione del pannello di accesso nel browser. Questa estensione viene scaricata automaticamente quando si seleziona un'applicazione configurata per l'accesso SSO basato su password.
+Come minimo, per il portale delle app personali è necessario un browser che supporti JavaScript e in cui sia abilitato CSS. Per poter accedere alle applicazioni tramite l'accesso Single Sign-On (SSO) basato su password, è necessario installare l'estensione del portale delle app personali nel browser. Questa estensione viene scaricata automaticamente quando si seleziona un'applicazione configurata per l'accesso SSO basato su password.
 
 Il programma di installazione è specifico dell'architettura. Facendo clic sul collegamento di download, si otterrà solo il programma di installazione per l'architettura del sistema operativo attualmente in esecuzione. Se si è un amministratore della distribuzione dell'applicazione, assicurarsi di visitare il collegamento di download da un dispositivo a 32 bit e a 64 bit per ottenere entrambi i programmi di installazione.
 
 
-L'estensione del pannello di accesso è attualmente disponibile per:
+L'estensione del portale delle app personali è attualmente disponibile per:
 - **Microsoft Edge**: su Windows 10 Anniversary Edition o versioni successive. 
 - **Chrome**: in Windows 7 o versioni successive e in MacOS X o versioni successive.
 - **Firefox 26.0 o versioni successive**: in Windows XP SP2 o versioni successive e in Mac OS X 10.6 o versioni successive.
@@ -77,7 +74,7 @@ L'estensione del pannello di accesso è attualmente disponibile per:
 Per usare l'accesso Single Sign-On basato su password, è necessario usare l'estensione. Dopo aver installato l'estensione, è possibile accedervi per abilitare le funzionalità aggiuntive selezionando **Accedere per iniziare**. 
 
 - È possibile accedere direttamente a un'app usando l'**URL di accesso** dell'app. Quando si usa l'URL dell'app, l'estensione rileva l'azione e consente di accedere dall'estensione.
-- È possibile avviare qualsiasi app dal pannello di accesso usando la funzionalità di *ricerca rapida* dell'estensione. 
+- È possibile avviare qualsiasi app dal portale delle app personali usando la funzionalità di *ricerca rapida* dell'estensione. 
 - L'estensione mostra le ultime tre applicazioni che sono state avviate nella sezione **Usati di recente**.
 - È possibile usare URL aziendali interne in remoto tramite [Proxy dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
@@ -111,7 +108,7 @@ Per usare gli URL aziendali interni in remoto con l'estensione, procedere come s
 Il team di Azure Active Directory pubblica l'app per dispositivi mobili App personali. Quando si installa l'app, è possibile accedere alle applicazioni SSO basate su password da dispositivi iOS e Android.
 
 > [!NOTE]
-> È possibile accedere alle applicazioni che supportano la federazione con Azure AD (tra cui Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e più di 70 altre applicazioni) praticamente in qualsiasi Web browser, su qualsiasi dispositivo, senza necessità di un plug-in o di un'app per dispositivi mobili. Tutte le altre [esperienze del pannello di accesso](https://myapps.microsoft.com/) non richiedono l'uso dell'app per dispositivi mobili App personali in un dispositivo mobile.
+> È possibile accedere alle applicazioni che supportano la federazione con Azure AD (tra cui Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e più di 70 altre applicazioni) praticamente in qualsiasi Web browser, su qualsiasi dispositivo, senza necessità di un plug-in o di un'app per dispositivi mobili. Tutte le altre [esperienze del portale delle app personali](https://myapps.microsoft.com/) non richiedono l'uso dell'app per dispositivi mobili App personali in un dispositivo mobile.
 >
 >
 
@@ -145,22 +142,22 @@ Intune Managed Browser è disponibile nell'[App Store di Apple](https://itunes.a
 
 ## <a name="tips-for-testing-the-user-experience"></a>Suggerimenti per testare l'esperienza utente
 
-Gli amministratori di Azure che hanno eseguito l'accesso al portale di Azure usando un account nella directory accedono automaticamente al pannello di accesso con l'account corrente. Questa vista mostra tutte le applicazioni assegnate all'utente.
+Gli amministratori di Azure che hanno eseguito l'accesso al portale di Azure usando un account nella directory accedono automaticamente al portale delle app personali con l'account corrente. Questa vista mostra tutte le applicazioni assegnate all'utente.
 
 Per eseguire il test con un account utente *diverso*, eseguire le operazioni seguenti:
 
-1. Nell'angolo superiore sinistro del portale di Azure o del pannello di accesso selezionare **Esci**. 
-2. Passare al [pannello di accesso](http://myapps.microsoft.com).
+1. Nell'angolo superiore sinistro del portale di Azure o del portale delle app personali selezionare **Esci**. 
+2. Accedere al [portale delle app personali](http://myapps.microsoft.com).
 3. Nella pagina di accesso immettere il nome utente e la password dell'account nella directory da testare.
 
 
 ## <a name="starting-applications"></a>Avvio delle applicazioni
 
-Questa sezione illustra diversi tipi di applicazioni che possono essere visualizzati nel pannello di accesso.
+Questa sezione illustra diversi tipi di applicazioni che possono essere visualizzati nel portale delle app personali.
 
 ### <a name="office-365-applications"></a>Applicazioni di Office 365
 
-Se l'organizzazione usa applicazioni di Office 365 di cui si ha la licenza, tali applicazioni vengono visualizzate nel pannello di accesso.
+Se l'organizzazione usa applicazioni di Office 365 di cui si ha la licenza, tali applicazioni vengono visualizzate nel portale delle app personali.
 
 Quando si seleziona il riquadro di un'applicazione di Office 365, si viene reindirizzati a tale applicazione e l'accesso viene eseguito automaticamente.
 
@@ -174,7 +171,7 @@ Quando si seleziona un riquadro per un'applicazione, si viene reindirizzati a ta
 
 L'amministratore può aggiungere applicazioni nella sezione Active Directory del portale di Azure con la modalità SSO impostata su **Accesso Single Sign-On basato su password**. Tutti gli utenti della directory possono visualizzare tutte le applicazioni configurate in questa modalità.
 
-La prima volta che si seleziona un riquadro di un'applicazione, viene chiesto di installare il plug-in per l'accesso Single Sign-On basato su password per Internet Explorer o Chrome. L'installazione potrebbe richiedere il riavvio del Web browser. Quando si torna al pannello di accesso e si seleziona di nuovo il riquadro dell'applicazione, viene chiesto di specificare un nome utente e una password per l'applicazione. Dopo l'immissione di nome utente e password, le credenziali vengono archiviate in modo sicuro e collegate all'account in Azure AD.
+La prima volta che si seleziona un riquadro di un'applicazione, viene chiesto di installare il plug-in per l'accesso Single Sign-On basato su password per Internet Explorer o Chrome. L'installazione potrebbe richiedere il riavvio del Web browser. Quando si torna al portale delle app personali e si seleziona di nuovo il riquadro dell'applicazione, viene chiesto di specificare un nome utente e una password per l'applicazione. Dopo l'immissione di nome utente e password, le credenziali vengono archiviate in modo sicuro e collegate all'account in Azure AD.
 
 La volta successiva che si seleziona il riquadro dell'applicazione, l'accesso all'applicazione viene eseguito automaticamente.  
 
@@ -194,7 +191,7 @@ L'amministratore può aggiungere applicazioni nella sezione Active Directory del
 
 La prima volta che si seleziona un riquadro di un'applicazione, viene chiesto di installare il plug-in per l'accesso Single Sign-On basato su password per Internet Explorer o Chrome. L'installazione potrebbe richiedere il riavvio del Web browser.  
 
-Quando si torna nel pannello di accesso e si seleziona di nuovo il riquadro dell'applicazione, l'accesso all'applicazione viene eseguito automaticamente.
+Quando si torna nel portale delle app personali e si seleziona di nuovo il riquadro dell'applicazione, l'accesso all'applicazione viene eseguito automaticamente.
 
 Alcune applicazioni potrebbero richiedere di cambiare la password al primo accesso. Se le credenziali sono cambiate nell'applicazione di destinazione di terze parti, è necessario aggiornare anche le credenziali archiviate in Azure AD. 
 
@@ -206,9 +203,9 @@ Per aggiornare le credenziali, eseguire le operazioni seguenti:
 
 ### <a name="application-with-existing-sso-solutions"></a>Applicazione con soluzioni Single Sign-On esistenti
 
-Per configurare l'accesso SSO per un'applicazione, il portale di Azure fornisce una terza opzione, ovvero Accesso Single Sign-On esistente. Questa opzione consente all'amministratore di creare un collegamento a un'applicazione e di inserirlo nel pannello di accesso per gli utenti selezionati.
+Per configurare l'accesso SSO per un'applicazione, il portale di Azure fornisce una terza opzione, ovvero Accesso Single Sign-On esistente. Questa opzione consente all'amministratore di creare un collegamento a un'applicazione e di inserirlo nel portale delle app personali per gli utenti selezionati.
 
-Se, ad esempio, un'applicazione è configurata per l'autenticazione degli utenti tramite AD FS 2.0, l'amministratore può usare l'opzione Accesso Single Sign-On esistente per creare un collegamento nel pannello di accesso. Quando si accede al collegamento, viene eseguita l'autenticazione tramite AD FS 2.0 o qualunque soluzione SSO fornita dall'applicazione.
+Se, ad esempio, un'applicazione è configurata per l'autenticazione degli utenti tramite AD FS 2.0, l'amministratore può usare l'opzione Accesso Single Sign-On esistente per creare un collegamento nel portale delle app personali. Quando si accede al collegamento, viene eseguita l'autenticazione tramite AD FS 2.0 o qualunque soluzione SSO fornita dall'applicazione.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

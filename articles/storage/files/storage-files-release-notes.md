@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/30/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: cc1b89ff94b4d4dc0b191512b110521d5fa05a7a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445023"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344367"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -27,16 +27,16 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 |----|----------------------|--------------|------------------|
 | Aggiornamento cumulativo di agosto | 3.2.0.0 | 15 agosto 2018 | Supportato (versione consigliata) |
 | Disponibilità generale | 3.1.0.0 | 19 Luglio 2018 | Supportato |
-| Aggiornamento cumulativo di giugno | 3.0.13.0 | 29 giugno 2018 | La versione dell'agente scadrà il 4 settembre 2018 |
-| Aggiornamento 2 | 3.0.12.0 | 22 maggio 2018 | La versione dell'agente scadrà il 4 settembre 2018 |
-| Aggiornamento cumulativo di aprile | 2.3.0.0 | 8 maggio 2018 | La versione dell'agente scadrà il 4 settembre 2018 |
-| Aggiornamento cumulativo di marzo | 2.2.0.0 | 12 marzo 2018 | La versione dell'agente scadrà il 4 settembre 2018 |
-| Aggiornamento cumulativo di febbraio | 2.1.0.0 | 28 febbraio 2018 | La versione dell'agente scadrà il 4 settembre 2018 |
-| Aggiornamento 1 | 2.0.11.0 | 8 febbraio 2018 | La versione dell'agente scadrà il 4 settembre 2018 |
-| Aggiornamento cumulativo di gennaio | 1.4.0.0 | 8 gennaio 2018 | La versione dell'agente scadrà il 4 settembre 2018 |
-| Aggiornamento cumulativo di novembre | 1.3.0.0 | 30 novembre 2017 | La versione dell'agente scadrà il 4 settembre 2018 |
-| Aggiornamento cumulativo di ottobre | 1.2.0.0 | 31 ottobre 2017 | La versione dell'agente scadrà il 4 settembre 2018 |
-| Versione di anteprima iniziale | 1.1.0.0 | 26 settembre 2017 | La versione dell'agente scadrà il 4 settembre 2018 |
+| Aggiornamento cumulativo di giugno | 3.0.13.0 | 29 giugno 2018 | La versione dell'agente scadrà il 1° settembre 2018 |
+| Aggiornamento 2 | 3.0.12.0 | 22 maggio 2018 | La versione dell'agente scadrà il 1° settembre 2018 |
+| Aggiornamento cumulativo di aprile | 2.3.0.0 | 8 maggio 2018 | La versione dell'agente scadrà il 1° settembre 2018 |
+| Aggiornamento cumulativo di marzo | 2.2.0.0 | 12 marzo 2018 | La versione dell'agente scadrà il 1° settembre 2018 |
+| Aggiornamento cumulativo di febbraio | 2.1.0.0 | 28 febbraio 2018 | La versione dell'agente scadrà il 1° settembre 2018 |
+| Aggiornamento 1 | 2.0.11.0 | 8 febbraio 2018 | La versione dell'agente scadrà il 1° settembre 2018 |
+| Aggiornamento cumulativo di gennaio | 1.4.0.0 | 8 gennaio 2018 | La versione dell'agente scadrà il 1° settembre 2018 |
+| Aggiornamento cumulativo di novembre | 1.3.0.0 | 30 novembre 2017 | La versione dell'agente scadrà il 1° settembre 2018 |
+| Aggiornamento cumulativo di ottobre | 1.2.0.0 | 31 ottobre 2017 | La versione dell'agente scadrà il 1° settembre 2018 |
+| Versione di anteprima iniziale | 1.1.0.0 | 26 settembre 2017 | La versione dell'agente scadrà il 1° settembre 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -49,6 +49,9 @@ Questa versione include la correzione seguente:
 
 ## <a name="agent-version-3100"></a>Agente versione 3.1.0.0
 Le note seguenti sulla versione si riferiscono alla versione 3.1.0.0 dell'agente Sincronizzazione file di Azure (data di rilascio 19 luglio 2018).
+
+### <a name="evaluation-tool"></a>Strumento di valutazione
+Prima di distribuire la Sincronizzazione file di Azure, è opportuno valutare se è compatibile con il sistema tramite lo strumento di valutazione di Sincronizzazione file di Azure. Questo strumento è un cmdlet di AzureRM di PowerShell che consente di rilevare potenziali problemi con il file system e il set di dati, ad esempio caratteri non supportati o versione del sistema operativo non supportata. Per istruzioni sull'installazione e l'utilizzo, vedere la sezione [Strumento di valutazione](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#evaluation-tool) nella Guida alla pianificazione. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Installazione dell'agente e configurazione del server
 Per altre informazioni su come installare e configurare l'agente Sincronizzazione file di Azure con Windows Server, vedere [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).

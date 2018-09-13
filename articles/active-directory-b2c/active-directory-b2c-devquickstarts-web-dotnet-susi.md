@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308032"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344498"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Creare un'app Web ASP.NET con criteri di iscrizione, accesso, modifica del profilo e reimpostazione della password di Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Questa esercitazione illustra come:
 > * Registrare l'app Web nella directory Azure AD B2C
 > * Creare criteri di iscrizione/accesso, modifica del profilo e reimpostazione della password per l'app Web
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario connettere il tenant B2C a un account Azure. È possibile creare un account Azure gratuito [qui](https://azure.microsoft.com/).
 - Per visualizzare e modificare il codice di esempio, è necessario [Microsoft Visual Studio](https://www.visualstudio.com/) o un programma simile.
@@ -95,7 +95,7 @@ L'esempio è configurato per l'uso dei criteri e dell'ID client del tenant demo.
 * `ida:ResetPasswordPolicyId` con il nome del criterio "Reimposta password"
 
 ## <a name="launch-the-app"></a>Avviare l'app
-Avviare l'app da Visual Studio. Passare alla scheda Elenco attività e notare che l'URI è: https://login.microsoftonline.com/*NomeTenant*/oauth2/v2.0/authorize?p=*NomeCriterioIscrizione*&client_id=*IDClient*.....
+Avviare l'app da Visual Studio. Passare alla scheda Elenco attività e notare che l'URI è: https://*NomeTenant*.b2clogin.com/*NomeTenant*/oauth2/v2.0/authorize?p=*NomeCriteriDiAccesso*&client_id=*IDclient*.....
 
 Effettuare l'iscrizione all'app usando un indirizzo e-mail o un nome utente. Disconnettersi, quindi accedere di nuovo e modificare il profilo o reimpostare la password. Disconnettersi ed eseguire l'accesso usando un account utente diverso. 
 

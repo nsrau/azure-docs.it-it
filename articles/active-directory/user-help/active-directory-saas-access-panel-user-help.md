@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343611"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306411"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Risolvere i problemi di accesso e uso del portale delle app personali
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Risolvere i problemi di accesso e utilizzo del portale delle app personali
 
-Se si verificano problemi durante l'accesso al portale delle app personali o durante il suo uso, fare riferimento ai suggerimenti sulla risoluzione dei problemi seguenti prima di contattare il supporto tecnico o l'amministratore per ottenere assistenza.
+Se si verificano problemi durante l'accesso al portale delle app personali o durante il suo utilizzo, fare riferimento ai suggerimenti sulla risoluzione dei problemi seguenti prima di contattare il supporto tecnico o l'amministratore per ottenere assistenza.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Si è verificato un problema durante l'accesso al portale App personali
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>Si è verificato un problema durante l'accesso al portale delle app personali
 
 Fare riferimento ai suggerimenti generali seguenti:
 

@@ -11,78 +11,112 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 901eb5ef43ddb2840ed7a3d83fc08f2f05849461
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4aecd276df8e5453f0c35d6290bbe8a8d156ffa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189736"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669364"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurare le impostazioni dei ruoli delle risorse di Azure in PIM
 
-Per configurare le impostazioni dei ruoli, occorre definire le impostazioni predefinite applicate alle assegnazioni nell'ambiente Privileged Identity Management (PIM). Per definire queste impostazioni per la propria risorsa, selezionare la scheda **Impostazioni dei ruoli** nel riquadro sinistro. È anche possibile scegliere il pulsante Impostazioni dei ruoli sulla barra delle azioni (in qualsiasi ruolo) per visualizzare le opzioni correnti.
+Per configurare le impostazioni dei ruoli delle risorse di Azure, è necessario definire le impostazioni predefinite applicate alle assegnazioni dei ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM). Per configurare il flusso di lavoro di approvazione e specificare gli utenti che possono approvare o rifiutare le richieste, usare le procedure seguenti.
 
-## <a name="overview"></a>Panoramica
+## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
 
-Con il flusso di lavoro di approvazione in Privileged Identity Management (PIM) per i ruoli delle risorse di Azure, gli amministratori possono proteggere ulteriormente o limitare l'accesso alle risorse critiche, ovvero possono richiedere l'approvazione per attivare le assegnazioni di ruolo. 
+Per aprire le impostazioni per un ruolo delle risorse di Azure seguire questa procedura.
 
-Il concetto di gerarchia delle risorse è specifico dei ruoli delle risorse di Azure. Questa gerarchia consente l'ereditarietà delle assegnazioni di ruolo da un oggetto risorsa padre verso il basso per tutte le risorse figlio all'interno del contenitore padre. 
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo [Amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-Si supponga, ad esempio, che Luca, un amministratore delle risorse, usi PIM per assegnare Alice come membro idoneo al ruolo Proprietario della sottoscrizione di Contoso. Con questa assegnazione, Alice è una proprietaria idonea di tutti i contenitori di gruppi di risorse all'interno della sottoscrizione di Contoso. Alice è anche una proprietaria idonea di tutte le risorse (ad esempio, le macchine virtuali) all'interno di ogni gruppo di risorse della sottoscrizione. 
+1. Aprire **Azure AD Privileged Identity Management**.
 
-Si supponga che nella sottoscrizione di Contoso esistano tre gruppi di risorse: Test Fabrikam, Sviluppo Fabrikam e Prod Fabrikam. Ognuno di questi gruppi di risorse contiene una singola macchina virtuale.
+1. Fare clic su **Risorse di Azure**.
 
-Le impostazioni PIM vengono configurate per ogni ruolo di una risorsa. Diversamente dalle assegnazioni, queste impostazioni non vengono ereditate e si applicano esclusivamente al ruolo della risorsa. [Altre informazioni sulle assegnazioni idonee e la visibilità delle risorse](pim-resource-roles-eligible-visibility.md).
+1. Fare clic sulla risorsa da gestire, ad esempio una sottoscrizione o un gruppo di gestione.
 
-Continuando con l'esempio precedente: Luca usa PIM per richiedere che tutti i membri del ruolo Proprietario della sottoscrizione di Contoso richiedano l'approvazione per l'attivazione. Per poter proteggere le risorse nel gruppo di risorse Prod Fabrikam, Luca richiede anche l'approvazione per i membri del ruolo Proprietario per questa risorsa. L'approvazione per l'attivazione non è richiesta per i ruoli Proprietario nei gruppi Test Fabrikam e Sviluppo Fabrikam.
+    ![Elenco delle risorse di Azure da gestire](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-Quando Alice richiede l'attivazione del ruolo Proprietario per la sottoscrizione di Contoso, un responsabile approvazione deve approvare o rifiutare la richiesta prima che lei diventi attiva nel ruolo. Se Alice decide di [limitare l'ambito dell'attivazione](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) al gruppo di risorse Prod Fabrikam, un responsabile approvazione deve approvare o rifiutare anche questa richiesta, ma, se Alice decide di estendere l'ambito dell'attivazione anche a uno o entrambi i gruppi di risorse Test Fabrikam o Sviluppo Fabrikam, l'approvazione non è necessaria.
+1. Fare clic su **Impostazioni dei ruoli**.
 
-Il flusso di lavoro di approvazione potrebbe non essere necessario per tutti i membri di un ruolo. Si consideri uno scenario in cui l'organizzazione assume diversi collaboratori a tempo determinato che contribuiscano allo sviluppo di un'applicazione che verrà eseguita in una sottoscrizione di Azure. L'amministratore delle risorse vuole che i dipendenti siano idonei all'accesso senza approvazione, ma che per i collaboratori a tempo determinato sia richiesta l'approvazione. Per configurare il flusso di lavoro di approvazione solo per i collaboratori a tempo determinato, è possibile creare un ruolo personalizzato con le stesse autorizzazioni del ruolo assegnato ai dipendenti. È possibile richiedere l'approvazione per attivare il ruolo personalizzato. [Altre informazioni sui ruoli personalizzati](pim-resource-roles-custom-role-policy.md).
+    ![Impostazioni dei ruoli](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
-Per configurare il flusso di lavoro di approvazione e specificare gli utenti che possono approvare o rifiutare le richieste, usare le procedure seguenti.
+1. Fare clic sul ruolo di cui si intende configurare le impostazioni.
+
+    ![Dettagli dell'impostazione del ruolo](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+
+1. Fare clic su **Modifica** per aprire il riquadro Impostazioni dei ruoli.
+
+    ![Modifica delle impostazioni dei ruoli](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+
+    Nella pagina delle impostazioni di ogni ruolo sono presenti numerose impostazioni che è possibile configurare.
+
+## <a name="assignment-duration"></a>Durata dell'assegnazione
+
+Quando si configurano le impostazioni per un ruolo è possibile scegliere tra due opzioni di durata dell'assegnazione per ogni tipo di assegnazione (idoneo e attivo). Queste opzioni diventano la durata massima predefinita quando un membro viene assegnato al ruolo in PIM.
+
+È possibile scegliere una delle opzioni seguenti per la durata dell'assegnazione **idonea**:
+
+| | |
+| --- | --- |
+| **Consenti le assegnazioni idonee permanenti** | Gli amministratori delle risorse possono assegnare l'appartenenza idonea permanente. |
+| **Scadenza delle assegnazioni attive dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni idonee venga specificata una data di inizio e fine. |
+
+L'utente può scegliere una delle opzioni di durata dell'assegnazione **attiva**:
+
+| | |
+| --- | --- |
+| **Consenti l'assegnazione permanente attiva** | Gli amministratori delle risorse possono assegnare l'appartenenza attiva permanente. |
+| **Scadenza delle assegnazioni attive dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni attive venga specificata una data di inizio e fine. |
+
+> [!NOTE] 
+> Tutte le assegnazioni con una data di fine specificata possono essere rinnovate dagli amministratori delle risorse. I membri possono anche avviare richieste self-service per [estendere o rinnovare le assegnazioni dei ruoli](pim-resource-roles-renew-extend.md).
+
+## <a name="require-multi-factor-authentication"></a>Richiedi autenticazione a più fattori
+
+PIM offre l'imposizione facoltativa dell'autenticazione MFA per due scenari distinti.
+
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Richiedi Multi-Factor Authentication in caso di assegnazione attiva
+
+Può essere necessario assegnare un membro a un ruolo per un breve periodo (un giorno, ad esempio). In questo caso, non è necessario che i membri assegnati richiedano l'attivazione. In questo scenario, PIM non può imporre l'autenticazione MFA quando il membro usa l'assegnazione di ruolo perché il membro è già attivo nel ruolo dal momento dell'assegnazione.
+
+Per assicurarsi che l'amministratore delle risorse che gestisce l'assegnazione sia effettivamente chi dichiara di essere, è possibile imporre l'autenticazione MFA all'assegnazione attiva selezionando l'opzione **Richiedi Multi-Factor Authentication in caso di assegnazione attiva**.
+
+### <a name="require-multi-factor-authentication-on-activation"></a>Richiedi il servizio Multi-Factor Authentication all'attivazione
+
+È possibile richiedere ai membri idonei di un ruolo di completare l'autenticazione MFA prima di poter essere attivati. Questo processo assicura che l'utente che richiede l'attivazione sia effettivamente chi dichiara di essere con ragionevole certezza. L'imposizione di questa opzione consente di proteggere risorse critiche in situazioni di potenziale compromissione dell'account utente.
+
+Per richiedere a un membro idoneo di eseguire l'autenticazione MFA prima dell'attivazione, selezionare l'opzione **Richiedi il servizio Multi-Factor Authentication all'attivazione**.
+
+Per altre informazioni, vedere [Multi-Factor Authentication (MFA) e PIM](pim-how-to-require-mfa.md).
+
+## <a name="activation-maximum-duration"></a>Durata massima dell'attivazione
+
+Usare il dispositivo di scorrimento **Durata massima dell'attivazione** per impostare il tempo massimo, espresso in ore, in cui un ruolo rimane attivo prima della scadenza. Questo valore può essere compreso tra 1 e 24 ore.
+
+## <a name="require-justification"></a>Immettere la giustificazione
+
+È possibile richiedere che i membri immettano una giustificazione in caso di assegnazione attiva o all'attivazione. Per richiedere l'immissione di una giustificazione, selezionare l'opzione **Richiedi la giustificazione in caso di assegnazione attiva** o l'opzione **Richiedi la giustificazione all'attivazione**.
 
 ## <a name="require-approval-to-activate"></a>Richiedere l'approvazione per l'attivazione
 
-1. Passare a PIM nel portale di Azure e selezionare una risorsa nell'elenco.
+Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa procedura.
 
-   ![Riquadro "Risorse di Azure" con una risorsa selezionata](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+1. Selezionare la casella di controllo **Richiedi l'approvazione per l'attivazione**.
 
-2. Selezionare **Impostazioni dei ruoli** nel riquadro sinistro.
+1. Fare clic su **Seleziona responsabili approvazione** per aprire il riquadro Selezionare un membro o un gruppo.
 
-3. Cercare e selezionare un ruolo e quindi selezionare **Modifica** per modificare le impostazioni.
+    ![Selezionare un membro o un gruppo](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-   ![Pulsante "Modifica" per il ruolo Operatore](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+1. Selezionare almeno un membro o un gruppo e quindi fare clic su **Seleziona**. È possibile aggiungere qualsiasi combinazione di membri e i gruppi. È necessario selezionare almeno un responsabile approvazione. Non esistono responsabili approvazione predefiniti.
 
-4. Nella sezione **Attivazione** selezionare la casella di controllo **Richiedi l'approvazione per l'attivazione**.
+    I responsabili dell'approvazione selezionati vengono visualizzati in un apposito elenco.
 
-   ![Sezione "Attivazione" delle impostazioni dei ruoli](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
-
-## <a name="specify-approvers"></a>Specificare i responsabili approvazione
-
-Fare clic su **Seleziona responsabili approvazione** per aprire il riquadro **Selezionare un utente o un gruppo**.
-
->[!NOTE]
->È necessario selezionare almeno un utente o gruppo per aggiornare l'impostazione. Non esistono responsabili approvazione predefiniti.
-
-Gli amministratori delle risorse possono aggiungere qualsiasi combinazione di utenti e gruppi all'elenco dei responsabili approvazione. 
-
-![Riquadro "Selezionare un utente o gruppo" con un utente selezionato](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
-
-## <a name="request-approval-to-activate"></a>Richiedere l'approvazione per l'attivazione
-
-La richiesta di approvazione non ha alcun impatto sulla procedura che deve seguire un membro per l'attivazione. [Vedere la procedura per l'attivazione di un ruolo](pim-resource-roles-activate-your-roles.md).
-
-Se un membro richiede l'attivazione di un ruolo per cui è richiesta l'approvazione e il ruolo non è più necessario, il membro può annullare la richiesta in PIM.
-
-Per annullare, passare a PIM e selezionare **Richieste personali**. Individuare la richiesta e selezionare **Annulla**.
-
-![Riquadro "Richieste personali"](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
+1. Dopo aver specificato tutte le impostazioni dei ruoli, fare clic su **Aggiorna** per salvare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Richiedere l'autenticazione MFA (Multi-Factor Authentication) per i ruoli delle risorse di Azure in PIM](pim-resource-roles-require-mfa.md)
-- [Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM](pim-resource-roles-configure-alerts.md)
+- [Assegnare i ruoli delle risorse di Azure in PIM](pim-resource-roles-assign-roles.md)
+- [Configurare gli avvisi di sicurezza per i ruoli delle risorse in PIM](pim-resource-roles-configure-alerts.md)

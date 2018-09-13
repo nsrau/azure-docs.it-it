@@ -1,23 +1,29 @@
 ---
-title: PowerShell per gli endpoint del servizio Rete virtuale e le regole in SQL | Microsoft Docs
-description: Vengono forniti script di PowerShell per la creazione e la gestione di endpoint del servizio virtuale per il database SQL di Azure.
+title: PowerShell per gli endpoint del servizio di rete virtuale e le regole in Azure SQL | Microsoft Docs
+description: Vengono forniti script di PowerShell per la creazione e la gestione di endpoint del servizio virtuale per i database SQL di Azure e di SQL Data Warehouse.
 services: sql-database
-author: MightyPen
+author: DhruvMsft
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.reviewer: genemi
+ms.date: 06/14/2018
+ms.reviewer: genemi, carlrab
 ms.author: dmalik
-ms.openlocfilehash: 503aef620679c9bf3f65cd7f463ba604c6b9e451
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 364dd2709c9000aae082976f3ec28396f92850da
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649517"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670014"
 ---
-# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Usare PowerShell per creare un endpoint del servizio virtuale e una regola per il database SQL di Azure
+# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database-and-sql-data-warehouse"></a>Usare PowerShell per creare un endpoint del servizio virtuale e una regola per i database SQL di Azure e di SQL Data Warehouse
+
+Sia il [database SQL di Azure](sql-database-technical-overview.md) che quello di [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) supportano gli endpoint del servizio virtuale. 
+
+> [!NOTE]
+> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 
 Questo articolo fornisce e descrive uno script di PowerShell che esegue le azioni seguenti:
 

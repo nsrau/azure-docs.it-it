@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 8ff2d126fd491ddc40f6223b6d4ec1fc4505b8fb
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ec4869ed5c4d823a8144ba430ebb29c65c2abc13
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630112"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302067"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reservations"></a>I costi del software Windows non sono inclusi nelle prenotazioni di Azure
+# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Costi del software Windows non inclusi nelle istanze di macchina virtuale riservate di Azure
 
 Se non si possiede l'offerta Vantaggio Azure Hybrid Use per le istanze di macchina virtuale riservate in uso, i costi verranno addebitati in base ai contatori relativi al software Windows elencati nella sezione seguente.
 
@@ -55,9 +55,9 @@ Se non si possiede l'offerta Vantaggio Azure Hybrid Use per le istanze di macchi
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Cosa sono le prenotazioni di Azure?](billing-save-compute-costs-reservations.md)
+- [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gestire le prenotazioni in Azure](billing-manage-reserved-vm-instance.md)
+- [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)
 - [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)

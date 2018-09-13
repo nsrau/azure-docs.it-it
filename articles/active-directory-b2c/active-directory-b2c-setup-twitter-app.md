@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bf5ae39d83fd021775fbd18cf23d2e6b9078e748
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6d8e9245e95c08aad69cd05f338b6260e554469b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927897"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337791"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Twitter tramite Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Per usare un account Twitter come provider di identità in Azure Active Director
 1. Accedere alle [app Twitter](https://apps.twitter.com/) con le proprie credenziali.
 2. Selezionare **Crea nuova app**.
 3. Compilare i campi **Nome**, **Descrizione** e **Sito Web**.
-4. Immettere `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp` negli **URL callback**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com e **{policyId}** con l'ID criterio, ad esempio b2c_1_policy. È consigliabile aggiungere un URL callback per tutti i criteri che usano l'account Twitter. Assicurarsi di impostare `b2clogin.com` invece di ` login.microsoftonline.com` se viene usato nell'applicazione.
+4. Immettere `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp` negli **URL callback**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c, e **{policyId}** con l'ID criterio, ad esempio b2c_1_policy. È consigliabile aggiungere un URL callback per tutti i criteri che usano l'account Twitter. 
 5. Accettare il **contratto per gli sviluppatori** e fare clic su **Create your Twitter application** (Crea applicazione Twitter).
 7. Selezionare la scheda **Keys and Access Tokens** .
 8. Copiare il valore di **Chiave utente** e **Segreto consumer**. Sono necessari entrambi per configurare un account Twitter come provider di identità nel tenant.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: bce4e05cbc4ecc8a44f2929eecbeee4093d39652
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: de4a771672b45f930385c2c923b3935c65b6c045
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628359"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301647"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Informazioni su come viene applicato alle macchine virtuali lo sconto sulla prenotazione di Azure
 
@@ -55,9 +55,9 @@ Quando si eseguono istanze di macchine virtuali Windows, viene applicata la pren
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle prenotazioni, vedere gli articoli seguenti:
+Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Cosa sono le prenotazioni di Azure?](billing-save-compute-costs-reservations.md)
+- [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)

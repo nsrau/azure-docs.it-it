@@ -1,0 +1,240 @@
+---
+title: Come configurare identità gestite assegnate dal sistema e dall'utente in una macchina virtuale di Azure mediante l'interfaccia della riga di comando di Azure
+description: Istruzioni passo per passo per configurare identità gestite assegnate dal sistema e dall'utente in una macchina virtuale di Azure mediante l'interfaccia della riga di comando di Azure.
+services: active-directory
+documentationcenter: ''
+author: daveba
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.component: msi
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/14/2017
+ms.author: daveba
+ms.openlocfilehash: eb30fc16145bb8fedba4760bbab4ef0ab0800bc9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337677"
+---
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
+
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+
+Le identità gestite per le risorse di Azure forniscono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+
+Questo articolo illustra come eseguire le seguenti operazioni relative alle identità gestite per le risorse di Azure in una macchina virtuale di Azure mediante l'interfaccia della riga di comando di Azure:
+
+- Abilitare e disabilitare l'identità gestita assegnata dal sistema in una macchina virtuale di Azure
+- Aggiungere e rimuovere un'identità gestita assegnata dall'utente in una macchina virtuale di Azure
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità gestita assegnata dal sistema e assegnata dall'utente](overview.md#how-does-it-work)**.
+- Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
+- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
+    - [Collaboratore macchine virtuali](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare una macchina virtuale e abilitare e rimuovere da una macchina virtuale di Azure l'identità gestita assegnata dal sistema e/o dall'utente.
+    - [Managed Identity Contributor (Collaboratore per identità gestita)](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare un'identità gestita assegnata dall'utente.
+    - [Managed Identity Operator (Operatore per identità gestita)](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare e rimuovere un'identità gestita assegnata dall'utente da e verso una macchina virtuale.
+- Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
+    - Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
+    - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
+    - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se si preferisce usare una console dell'interfaccia della riga di comando locale.
+      
+      > [!NOTE]
+      > I comandi sono stati aggiornati in base alla versione più recente dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).     
+        
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## <a name="system-assigned-managed-identity"></a>Identità gestita assegnata dal sistema
+
+Questa sezione illustra come abilitare e disabilitare l'identità gestita assegnata dal sistema in una macchina virtuale di Azure mediante l'interfaccia della riga di comando di Azure.
+
+### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Abilitare l'identità gestita assegnata dal sistema durante la creazione di una macchina virtuale di Azure
+
+Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal sistema abilitata:
+
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
+
+   ```azurecli-interactive
+   az login
+   ```
+
+2. Creare un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md#terminology) per il contenuto e la distribuzione della macchina virtuale e le risorse correlate, usando [az group create](/cli/azure/group/#az-group-create). Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio:
+
+   ```azurecli-interactive 
+   az group create --name myResourceGroup --location westus
+   ```
+
+3. Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm/#az-vm-create). L'esempio seguente crea una macchina virtuale denominata *myVM* con un'identità gestita assegnata dal sistema, come richiesto dal parametro `--assign-identity`. I parametri `--admin-username` e `--admin-password` specificano il nome utente e la password dell'account amministrativo per l'accesso alla macchina virtuale. Aggiornare questi valori in base alle esigenze specifiche dell'ambiente: 
+
+   ```azurecli-interactive 
+   az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
+   ```
+
+### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>Abilitare l'identità gestita assegnata dal sistema in una macchina virtuale di Azure esistente
+
+Se è necessario abilitare l'identità gestita assegnata dal sistema in una macchina virtuale esistente:
+
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure che contiene la VM.
+
+   ```azurecli-interactive
+   az login
+   ```
+
+2. Usare [az vm identity assign](/cli/azure/vm/identity/#az-vm-identity-assign) con il comando `identity assign` per abilitare l'identità assegnata dal sistema in una macchina virtuale esistente:
+
+   ```azurecli-interactive
+   az vm identity assign -g myResourceGroup -n myVm
+   ```
+
+### <a name="disable-system-assigned-identity-from-an-azure-vm"></a>Disabilitare un'identità assegnata dal sistema in una macchina virtuale di Azure
+
+Se si dispone di una macchina virtuale che non necessita più dell'identità assegnata dal sistema ma ha ancora bisogno di identità assegnate dall'utente, usare il comando seguente:
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
+```
+
+Se una macchina virtuale non necessita più dell'identità assegnata dal sistema ma non ha identità assegnate dall'utente, usare il comando seguente:
+
+> [!NOTE]
+> Il valore `none` distingue tra maiuscole e minuscole. Deve essere costituito da caratteri in minuscolo. 
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none"
+```
+
+Per rimuovere l'estensione della macchina virtuale relativa all'identità gestita per le risorse di Azure, usare il parametro `-n ManagedIdentityExtensionForWindows` o `-n ManagedIdentityExtensionForLinux`, a seconda del tipo di macchina virtuale, con [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+
+```azurecli-interactive
+az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
+```
+
+## <a name="user-assigned-managed-identity"></a>Identità gestita assegnata dall'utente
+
+Questa sezione illustra come aggiungere e rimuovere un'identità gestita assegnata dall'utente da una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure.
+
+### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Assegnare un'identità gestita assegnata dall'utente durante la creazione di una macchina virtuale di Azure
+
+Questa sezione descrive come creare una macchina virtuale con l'assegnazione di un'identità gestita assegnata dall'utente. Se si dispone già di una macchina virtuale che si intende usare, ignorare questa sezione e procedere alla successiva.
+
+1. Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio. Creare un [gruppo di risorse](~/articles/azure-resource-manager/resource-group-overview.md#terminology) per contenere e distribuire l'identità gestita assegnata dall'utente mediante [az group create](/cli/azure/group/#az-group-create). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<LOCATION>` con valori personalizzati. :
+
+   ```azurecli-interactive 
+   az group create --name <RESOURCE GROUP> --location <LOCATION>
+   ```
+
+2. Creare un'identità gestita assegnata dall'utente mediante [az identity create](/cli/azure/identity#az-identity-create).  Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità gestita assegnata dall'utente, mentre il parametro `-n` ne specifica il nome.    
+    
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+
+   ```azurecli-interactive
+   az identity create -g myResourceGroup -n myUserAssignedIdentity
+   ```
+   La risposta contiene i dettagli relativi all'identità gestita assegnata dall'utente creata ed è simile all'esempio seguente. Il valore id risorsa assegnato all'identità gestita assegnata dall'utente viene usato nel passaggio seguente.
+
+   ```json
+   {
+       "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+       "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<myUserAssignedIdentity>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+       "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>",
+       "location": "westcentralus",
+       "name": "<USER ASSIGNED IDENTITY NAME>",
+       "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+       "resourceGroup": "<RESOURCE GROUP>",
+       "tags": {},
+       "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+       "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+   }
+   ```
+
+3. Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm/#az-vm-create). L'esempio seguente crea una macchina virtuale associata alla nuova identità assegnata dall'utente, come specificato dal parametro `--assign-identity`. Sostituire i valori dei parametri `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY NAME>` con valori personalizzati. 
+
+   ```azurecli-interactive 
+   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
+   ```
+
+### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Assegnare un'identità gestita assegnata dall'utente a una VM di Azure esistente
+
+1. Creare un'identità assegnata dall'utente mediante [az identity create](/cli/azure/identity#az-identity-create).  Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità assegnata dall'utente, mentre il parametro `-n` ne specifica il nome. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` con valori personalizzati:
+
+    > [!IMPORTANT]
+    > La creazione di identità gestite assegnate dall'utente con caratteri speciali (ad esempio il carattere di sottolineatura) nel nome non è attualmente supportata. Usare solo caratteri alfanumerici. Ricontrollare in seguito per aggiornamenti.  Per altre informazioni, vedere [Domande frequenti e problemi noti](known-issues.md)
+
+    ```azurecli-interactive
+    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+    ```
+   La risposta contiene i dettagli relativi all'identità gestita assegnata dall'utente creata ed è simile all'esempio seguente. 
+
+   ```json
+   {
+        "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+        "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+        "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>",
+        "location": "westcentralus",
+        "name": "<USER ASSIGNED IDENTITY NAME>",
+        "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+        "resourceGroup": "<RESOURCE GROUP>",
+        "tags": {},
+        "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+   }
+   ```
+
+2. Assegnare l'identità assegnata dall'utente alla macchina virtuale mediante [az vm identity assign](/cli/azure/vm#az-vm-identity-assign). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. `<USER ASSIGNED IDENTITY NAME>` è la proprietà `name` della risorsa dell'identità gestita assegnata dall'utente creata nel passaggio precedente:
+
+    ```azurecli-interactive
+    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
+    ```
+
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Rimuovere un'identità gestita assegnata dall'utente da una macchina virtuale di Azure
+
+Per rimuovere un'identità gestita assegnata dall'utente da una macchina virtuale, usare [az vm identity remove](/cli/azure/vm#az-vm-identity-remove). Se è l'unica identità gestita assegnata dall'utente associata alla macchina virtuale, `UserAssigned` verrà rimosso dal valore del tipo di identità.  Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. `<USER ASSIGNED IDENTITY>` sarà la proprietà `name` dell'identità assegnata dall'utente, che si può trovare nella sezione relativa all'identità della macchina virtuale usando `az vm identity show`:
+
+```azurecli-interactive
+az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
+```
+
+Se la macchina virtuale non ha un'identità assegnata dal sistema e si vuole rimuovere tutte le identità gestite assegnate dall'utente al suo interno, usare il comando seguente:
+
+> [!NOTE]
+> Il valore `none` distingue tra maiuscole e minuscole. Deve essere costituito da caratteri in minuscolo.
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.userAssignedIdentities=null
+```
+
+Se la macchina virtuale ha identità sia assegnate dal sistema che assegnate dall'utente, è possibile rimuovere tutte le identità assegnate dall'utente iniziando a usare solo identità assegnate dal sistema. Usare il comando seguente:
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+- [Panoramica delle identità gestite per le risorse di Azure](overview.md)
+- Per la guida introduttiva completa sulla creazione di VM di Azure, vedere: 
+  - [Creare una macchina virtuale Windows con l'interfaccia della riga di comando](../../virtual-machines/windows/quick-create-cli.md)  
+  - [Creare una macchina virtuale Linux con l'interfaccia della riga di comando](../../virtual-machines/linux/quick-create-cli.md) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

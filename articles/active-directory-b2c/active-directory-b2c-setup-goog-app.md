@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dd0bf50d73b70e37195e8e5e45336b68e4e883e7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 477bd6047da639dcf21592a7ec0c1b80844e031e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915640"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337735"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Google tramite Azure Active Directory B2C
 
@@ -30,8 +30,8 @@ Per usare un account Google come provider di identità in Azure Active Directory
 4. Selezionare **Configure consent screen** (Configura schermata di consenso).
 5. Selezionare o specificare un **Indirizzo di posta elettronica** valido, fornire un **Product name shown to users** (Nome prodotto visualizzato dagli utenti) e fare clic su **Salva**.
 6. In **Tipo di applicazione** selezionare **Applicazione Web**.
-7. Fornire un **Nome** per l'applicazione, immettere `https://login.microsoftonline.com` nel campo **Origini JavaScript autorizzate** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com.
-8. Fare clic su **Crea**.
+7. Fornire un **Nome** per l'applicazione, immettere `https://{tenant}.b2clogin.com` nel campo **Origini JavaScript autorizzate** e `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.
+8. Fare clic su **Create**(Crea).
 9. Copiare i valori **ID client** e **Segreto client**. Sono necessari entrambi per configurare Google come provider di identità nel tenant. **Segreto client** è una credenziale di sicurezza importante.
 
 ## <a name="configure-a-google-account-as-an-identity-provider"></a>Configurare un account Google come provider di identità

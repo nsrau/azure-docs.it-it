@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62869d1ec0dca1859972e817fe1e5e2c1f4c1eb
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b8004500df2e29ab865a8eb78adf278ef61d5ee8
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797863"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702436"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>.NET Core SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -52,6 +52,18 @@ ms.locfileid: "34797863"
 ## <a name="release-notes"></a>Note sulla versione
 
 Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più recente di [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Aggiunto il supporto dell'annullamento richiesta.
+* Aggiunta SetCurrentLocation a ConnectionPolicy, che popola automaticamente le posizioni preferite in base alla regione.
+* Correzione del bug nelle query su più partizioni con Min/Max e un filtro che mette in corrispondenza nessun documento in una singola partizione.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+
+* I metodi DocumentClient ora dispongono della parità con IDocumentClient.
+* Aggiornato lo stack di trasporto TCP diretto per ridurre il numero di connessioni stabilite.
+* Aggiunta del supporto per TCP in modalità diretta per i client non Windows.
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 
@@ -174,6 +186,8 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.0.0-preview2](#2.0.0-preview2) |26 luglio 2018 |--- |
+| [2.0.0-preview](#2.0.0-preview) |11 maggio 2018 |--- |
 | [1.9.1](#1.9.1) |09 marzo 2018 |--- |
 | [1.8.2](#1.8.2) |21 febbraio 2018 |--- |
 | [1.8.1](#1.8.1) |05 febbraio 2018 |--- |

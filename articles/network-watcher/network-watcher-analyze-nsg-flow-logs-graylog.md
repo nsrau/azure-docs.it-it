@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 87d7c39a9340a82813f4df971c03a10be56e8f94
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146773"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666060"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Graylog
 
@@ -32,7 +32,7 @@ Nella rete possono essere presenti molti gruppi di sicurezza per cui la registra
 
 I log di flusso dei gruppi di sicurezza di rete vengono abilitati tramite Network Watcher e il contenuto viene inviato ad Archiviazione BLOB di Azure. Per connettersi ed elaborare log di flusso dall'archiviazione BLOB e per inviarli a Graylog, viene usato un plug-in Logstash. Dopo l'archiviazione in Graylog, i log di flusso possono essere analizzati e visualizzati in dashboard personalizzati.
 
-![Flusso di lavoro Graylog]](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Flusso di lavoro Graylog](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## <a name="installation-steps"></a>Procedura di installazione
 

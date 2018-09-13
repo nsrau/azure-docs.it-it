@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 19b7f708d43907ac45450a64f988b2a517293511
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f076a906ba38e6c8e8c9530baba1607553b41ea6
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446708"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338329"
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Aggiungere Google+ come provider di identità OAuth2 tramite criteri personalizzati
 
@@ -23,7 +23,7 @@ ms.locfileid: "37446708"
 
 Questa guida illustra come consentire agli utenti di accedere da un account Google+ tramite l'utilizzo di [criteri personalizzati](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
 
@@ -78,7 +78,7 @@ Per usare Google+ come provider di identità in Azure Active Directory (Azure AD
 
     ![Google+ - Selezionare il tipo di applicazione](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Fornire un **Nome** per l'applicazione, immettere `https://login.microsoftonline.com` nel campo **Origini JavaScript Autorizzate** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com. Il valore **{tenant}** distingue tra maiuscole e minuscole. Fare clic su **Crea**.
+13.  Fornire un **Nome** per l'applicazione, immettere `https://{tenant}.b2clogin.com` nel campo **Origini JavaScript Autorizzate** e `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c. Il valore **{tenant}** distingue tra maiuscole e minuscole. Fare clic su **Create**(Crea).
 
     ![Google+ - Specificare le origini JavaScript autorizzate e gli URI di reindirizzamento](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 

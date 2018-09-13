@@ -12,31 +12,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/30/2018
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: ebaa679c43bd577d4f37feb7f3a025086490e25f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8d8067fcf30b16dd3dbc7f6cf50129d837aa3a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785750"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306857"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
 
-Quando si crea un nuovo account di Servizi multimediali di Azure (AMS), viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile aggiungere più di un account di archiviazione all'account di Servizi multimediali. In questo argomento viene illustrato come far ruotare le chiavi di archiviazione. Viene inoltre illustrato come aggiungere gli account di archiviazione a un account multimediale. 
+Quando si crea un nuovo account di Servizi multimediali di Azure (AMS), viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile aggiungere più di un account di archiviazione all'account di Servizi multimediali. Questo articolo illustra come far ruotare le chiavi di archiviazione. Viene inoltre illustrato come aggiungere gli account di archiviazione a un account multimediale. 
 
-Per eseguire le operazioni descritte in questo argomento, è necessario utilizzare le [API ARM](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media).  Per ulteriori informazioni, vedere [Gestire le risorse di Azure con PowerShell e Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Per eseguire le operazioni descritte in questo articolo è necessario usare [Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Per altre informazioni, vedere [Gestire le risorse di Azure con PowerShell e Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
 
 ## <a name="overview"></a>Panoramica
 
 Quando viene creato un nuovo account di archiviazione, Azure genera due chiavi di accesso a 512 bit alle risorse di archiviazione, che consentono di autenticare l'accesso all'account di archiviazione. Per mantenere le connessioni di archiviazione più sicure, si consiglia di rigenerare e far ruotare periodicamente la chiave di accesso alle risorse di archiviazione. Per non perdere mai la connessione all'account di archiviazione, vengono fornite due chiavi di accesso (primaria e secondaria), in modo da poter usare la prima mentre si rigenera la seconda. Questa procedura viene anche denominata "rollover delle chiavi di accesso".
 
-Servizi multimediali dipende da una chiave di archiviazione fornita. In particolare, i localizzatori che sono usati per trasmettere in streaming o scaricare gli asset dipendono dalla chiave di accesso alle risorse di archiviazione specificata. Quando viene creato un account AMS, esso assume una dipendenza dalla chiave di accesso alle risorse di archiviazione primaria per impostazione predefinita, ma l’utente può aggiornare la chiave di archiviazione di Servizi multimediali di Azure. È necessario comunicare a Servizi multimediali la chiave da usare, seguendo i passaggi descritti in questo argomento.  
+Servizi multimediali dipende da una chiave di archiviazione fornita. In particolare, i localizzatori che sono usati per trasmettere in streaming o scaricare gli asset dipendono dalla chiave di accesso alle risorse di archiviazione specificata. Quando viene creato un account AMS, esso acquisisce una dipendenza dalla chiave di accesso alle risorse di archiviazione primaria per impostazione predefinita, ma l'utente può aggiornare la chiave di archiviazione di Servizi multimediali di Azure. È necessario comunicare a Servizi multimediali la chiave da usare, seguendo i passaggi descritti in questo articolo.  
 
 >[!NOTE]
 > Se si dispone di più account di archiviazione, è necessario eseguire questa procedura per ogni account di archiviazione. L'ordine in cui ruotare le chiavi di archiviazione non è prefissato. È possibile ruotare prima la chiave secondaria e quindi quella principale o viceversa.
 >
-> Prima di eseguire la procedura descritta in questo argomento su un account di produzione, effettuarne il test in un account di pre-produzione.
+> Prima di eseguire la procedura descritta in questo articolo su un account di produzione, effettuarne il test in un account di pre-produzione.
 >
 
 ## <a name="steps-to-rotate-storage-keys"></a>Passaggi per ruotare le chiavi di archiviazione 
@@ -68,7 +68,7 @@ Nell'esempio seguente viene illustrato come ottenere l'account di archiviazione 
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Passaggi per aggiungere gli account di archiviazione all'account AMS
 
-L'argomento seguente illustra come aggiungere gli account di archiviazione all'account AMS: [Collegare più account di archiviazione a un account di Servizi multimediali](meda-services-managing-multiple-storage-accounts.md).
+L'articolo seguente illustra come aggiungere gli account di archiviazione all'account AMS: [Collegare più account di archiviazione a un account di Servizi multimediali](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

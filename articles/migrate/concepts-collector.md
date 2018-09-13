@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122888"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665581"
 ---
 # <a name="collector-appliance"></a>Appliance Agente di raccolta
 
@@ -212,17 +212,27 @@ In base al numero di macchine virtuali nell'ambito selezionato, sono necessari f
 
 È possibile aggiornare l'agente di raccolta per la versione più recente senza scaricare nuovamente il file con estensione OVA.
 
-1. Scaricare il [pacchetto di aggiornamento](https://aka.ms/migrate/col/upgrade_9_13) più recente (versione 1.0.9.13).
+1. Scaricare il [pacchetto di aggiornamento](https://aka.ms/migrate/col/upgrade_9_14) più recente (versione 1.0.9.14).
 2. Per garantire la sicurezza dell'hotfix scaricato, aprire il prompt dei comandi come amministratore ed eseguire il comando seguente per generare l'hash del file ZIP. L'hash generato deve corrispondere con all'hash indicato nella versione specifica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (esempio d'uso C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+    (esempio d'utilizzo C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Copiare il file ZIP nella macchina virtuale dell'agente di raccolta di Azure Migrate (Agente di raccolta di Azure Migrate).
 4. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare Estrai tutto.
 5. Fare clic con il pulsante destro del mouse sul file Setup.ps1, selezionare Run with PowerShell (Esegui con PowerShell) e quindi seguire le istruzioni visualizzate sullo schermo per installare l'aggiornamento.
 
 ### <a name="list-of-updates"></a>Elenco degli aggiornamenti
+
+#### <a name="upgrade-to-version-10914"></a>Eseguire l'aggiornamento alla versione 1.0.9.14
+
+Valori hash per l'aggiornamento al [pacchetto 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)
+
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | c5bf029e9fac682c6b85078a61c5c79c
+SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
+SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
 #### <a name="upgrade-to-version-10913"></a>Eseguire l'aggiornamento alla versione 1.0.9.13
 

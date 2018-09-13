@@ -1,6 +1,6 @@
 ---
 title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Microsoft Docs
-description: "Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure."
+description: Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 54a335cf1386ab29c0e0214bccf1f53a076da02b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783511"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentare app Web in fase di esecuzione con Application Insights
 
-
 È possibile instrumentare un'app Web attiva con Azure Application Insights senza dover modificare o ridistribuire il codice. Se le applicazioni sono ospitate da un server IIS locale, installare Status Monitor. Se si tratta di app Web di Azure o vengono eseguite in una macchina virtuale di Azure, è possibile attivare il monitoraggio di Application Insights dal pannello di controllo di Azure. Sono disponibili anche articoli separati sulla strumentazione di [app Web J2EE live](app-insights-java-live.md) e [Servizi cloud di Azure](app-insights-cloudservices.md). È necessaria una sottoscrizione di [Microsoft Azure](http://azure.com) .
 
-![grafici di esempio](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![Screenshot dei grafi della panoramica di Application Insights contenente informazioni su richieste non riuscite, tempo di risposta del server e richieste server](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 È possibile scegliere di applicare Application Insights alle applicazioni Web .NET in tre modi:
 
@@ -36,14 +36,14 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 
 |  | Fase di compilazione | Fase di esecuzione |
 | --- | --- | --- |
-| Richieste ed eccezioni |Sì |Sì |
-| [Eccezioni più dettagliate](app-insights-asp-net-exceptions.md) | |Sì |
+| Richieste ed eccezioni |Yes |Yes |
+| [Eccezioni più dettagliate](app-insights-asp-net-exceptions.md) | |Yes |
 | [Diagnostica delle dipendenze](app-insights-asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
-| [Contatori delle prestazioni di sistema](app-insights-performance-counters.md) |Sì |Sì |
-| [API per telemetria personalizzata][api] |Sì |No  |
-| [Integrazione log di traccia](app-insights-asp-net-trace-logs.md) |Sì |No  |
-| [Visualizzazione pagina e dati utente](app-insights-javascript.md) |Sì |No  |
-| Ricompilazione del codice necessaria |Sì | No  |
+| [Contatori delle prestazioni di sistema](app-insights-performance-counters.md) |Yes |Yes |
+| [API per telemetria personalizzata][api] |Yes |No  |
+| [Integrazione log di traccia](app-insights-asp-net-trace-logs.md) |Yes |No  |
+| [Visualizzazione pagina e dati utente](app-insights-javascript.md) |Yes |No  |
+| Ricompilazione del codice necessaria |Yes | No  |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Monitorare un'app Web live di Azure

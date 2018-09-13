@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 735b152f55a9309e5d5dd85dac64a607de6417b0
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443970"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338763"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage di 1° generazione usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,8 +77,8 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 
 >[!IMPORTANT]
 > Assicurarsi di concedere all'entità servizio un'autorizzazione appropriata in Azure Data Lake Store:
->- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta come **Questa cartella e tutti gli elementi figlio** come ricorsiva e aggiungere **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
->- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella e impostare l'aggiunta di **Questa cartella e tutti gli elementi figlio** come ricorsiva e aggiungere una **voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
+>- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta ricorsiva su **Questa cartella e tutti gli elementi figlio** e scegliere di aggiungere **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
+>- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella; impostare l'aggiunta ricorsiva su **Questa cartella e tutti gli elementi figlio** e scegliere di aggiungere **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
 
 Sono supportate le proprietà seguenti:
 
@@ -125,8 +125,8 @@ Per usare l'autenticazione basata sull'identità del servizio gestito (MSI):
 
 >[!IMPORTANT]
 > Assicurarsi di concedere all'identità del servizio Data factory un'autorizzazione appropriata in Azure Data Lake Store:
->- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta come **Questa cartella e tutti gli elementi figlio** come ricorsiva e aggiungere **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
->- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella e impostare l'aggiunta di **Questa cartella e tutti gli elementi figlio** come ricorsiva e aggiungere una **voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
+>- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta ricorsiva su **Questa cartella e tutti gli elementi figlio** e scegliere di aggiungere **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
+>- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella; impostare l'aggiunta ricorsiva su **Questa cartella e tutti gli elementi figlio** e scegliere di aggiungere **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
 
 In Azure Data Factory non è necessario specificare alcuna proprietà oltre alle informazioni generali di Data Lake Store nel servizio collegato.
 

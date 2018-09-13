@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011949"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698384"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorare le soluzioni Batch conteggiando attività e nodi in base allo stato
 
-Per monitorare e gestire soluzioni Azure Batch su larga scala, è necessario un conteggio accurato delle risorse in vari stati. Azure Batch offre operazioni efficienti per ottenere i conteggi per le *attività* e i *nodi di calcolo* di Batch. Usare queste operazioni anziché chiamate all'API che potrebbero richiedere molto tempo per restituire informazioni dettagliate su raccolte di attività o nodi di grandi dimensioni.
+Per monitorare e gestire soluzioni Azure Batch su larga scala, è necessario un conteggio accurato delle risorse in vari stati. Azure Batch offre operazioni efficienti per ottenere i conteggi per le *attività* e i *nodi di calcolo* di Batch. Usare queste operazioni anziché le query dell'elenco che potrebbero richiedere molto tempo per restituire informazioni dettagliate su raccolte di attività o nodi di grandi dimensioni.
 
 * L'operazione di [recupero dei conteggi delle attività][rest_get_task_counts] consente di avere un conteggio aggregato delle attività attive, in corso e completate in un processo e delle attività che hanno avuto esito positivo o negativo. 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 Per ottenere i conteggi delle attività per un processo, è possibile usare un criterio simile per REST e per altri linguaggi supportati. 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>Verifica della coerenza per i conteggi delle attività
+### <a name="counts-for-large-numbers-of-tasks"></a>Conteggi per un numero elevato di attività
 
-Batch offre un'ulteriore convalida per i conteggi delle attività in base allo stato usando verifiche di coerenza su più componenti del sistema. Nell'improbabile caso che la verifica di coerenza trovi errori, Batch corregge il risultato dell'operazione di recupero dei conteggi delle attività in base ai risultati della verifica di coerenza.
+L'operazione di recupero dei conteggi delle attività restituisce i conteggi degli stati di attività nel sistema in un punto nel tempo. Quando il processo ha un numero elevato di attività, i conteggi restituiti dal recupero dei conteggi delle attività possono rallentare gli stati di attività effettivi di alcuni secondi. Batch garantisce la coerenza finale tra i risultati di recupero dei conteggi delle attività e gli stati di attività reali (di cui è possibile eseguire una query tramite l'API di elenco delle attività). Tuttavia, se il processo ha un numero molto elevato di attività (> 200.000), è consigliabile invece usare l'API di elenco delle attività e una [query filtrata](batch-efficient-list-queries.md) che fornisce informazioni più aggiornate. 
 
-La proprietà `validationStatus` nella risposta indica se Batch ha eseguito la verifica di coerenza. Se Batch non ha verificato i conteggi in base agli stati effettivi presenti nel sistema, la proprietà `validationStatus` è impostata su `unvalidated`. Poiché per motivi di prestazioni Batch non esegue la verifica di coerenza se il processo include più di 200.000 attività, in questo caso la proprietà `validationStatus` è impostata su `unvalidated`. Il conteggio delle attività non è necessariamente errato in questo caso, perché è improbabile persino una perdita di dati limitata. 
-
-Quando un'attività cambia stato, la pipeline di aggregazione elabora la modifica in pochi secondi. L'operazione di recupero dei conteggi delle attività riflette i conteggi delle attività aggiornati in questo periodo di tempo. Tuttavia, se la pipeline di aggregazione non rileva una modifica nello stato di un'attività, la modifica non viene registrata fino al successivo passaggio di convalida. Durante questo periodo di tempo i conteggi delle attività possono essere leggermente imprecisi a causa dell'evento ignorato, ma verranno corretti nel successivo passaggio di convalida.
+Le versioni di API del servizio di batch precedenti al 01-08-2018.7.0 restituiscono anche una proprietà `validationStatus` nella risposta di recupero dei conteggi delle attività. Questa proprietà indica se Batch ha controllato i conteggi per la coerenza con gli stati segnalati nell'API di elenco delle attività. Un valore di `validated` indica solo che Batch ha controllato la coerenza almeno una volta per il processo. Il valore della proprietà `validationStatus` non indica se i conteggi restituiti dal recupero dei conteggi delle attività sono attualmente aggiornati.
 
 ## <a name="node-state-counts"></a>Conteggi dei nodi in base allo stato
 

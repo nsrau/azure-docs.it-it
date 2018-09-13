@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: d9008956d3a5542d71438ee13050a3951230e101
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146515"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338808"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
 
@@ -81,13 +81,14 @@ Prima di creare una macchina virtuale per l'analisi scientifica dei dati per Lin
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Creare la macchina virtuale per l'analisi scientifica dei dati per Linux
 Di seguito sono elencati i passaggi per la creazione di un'istanza della macchina virtuale per l'analisi scientifica dei dati per Linux:
 
-1. Passare all'elenco di macchine virtuali nel [portale di Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
+1. Passare all'elenco di macchine virtuali nel [portale di Azure](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). Se non è stato eseguito l'accesso all'account Azure, verrà chiesto di farlo. 
 1. Fare clic su **Crea** (in basso) per aprire la procedura guidata.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. Le sezioni seguenti forniscono gli input per ognuno dei passaggi (elencati nella parte destra della figura precedente) della procedura guidata usata per creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft. Di seguito sono riportati gli input necessari per configurare ciascuno di questi passaggi:
    
    a. **Nozioni di base**:
    
    * **Name**: nome del server di analisi scientifica dei dati che si sta creando.
+   * **Tipo di disco VM**: se si preferisce un'unità a stato solido, scegliere **SSD Premium**. In caso contrario, scegliere **HDD Standard**. 
    * **Nome utente**: primo ID di accesso dell'account.
    * **Password**: la prima password dell'account. È possibile usare una chiave pubblica SSH invece di una password.
    * **Sottoscrizione**: se si ha più di una sottoscrizione, selezionare quella in cui viene creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
@@ -96,23 +97,17 @@ Di seguito sono elencati i passaggi per la creazione di un'istanza della macchin
    
    b. **Dimensione**:
    
-   * Selezionare uno dei tipi di server che soddisfa i requisiti funzionali e vincoli di costo. Selezionare **Visualizza tutto** per visualizzare altre opzioni per le dimensioni delle VM. Selezionare una macchina virtuale di classe NC o ND per il training GPU. Nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) sono elencate le aree con GPU.
+   * Selezionare uno dei tipi di server che soddisfa i requisiti funzionali e vincoli di costo. Selezionare una macchina virtuale di classe NC o ND per le istanze di VM basate su GPU. Nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) sono elencate le aree con GPU.
    
    c. **Impostazioni**:
    
-   * **Tipo di disco**: se si preferisce un'unità SSD, scegliere **Premium**. In caso contrario, scegliere **Standard**. Le macchine virtuali GPU richiedono un disco Standard.
-   * **Account di archiviazione**: è possibile creare un nuovo account di archiviazione di Azure nella sottoscrizione o usarne uno esistente nella stessa posizione scelta nel passaggio **Nozioni di base** della procedura guidata.
-   * **Altri parametri**: nella maggior parte dei casi si usano semplicemente i valori predefiniti. Nel caso in cui si desideri usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
+   * Nella maggior parte dei casi è possibile usare semplicemente i valori predefiniti. Nel caso in cui si desideri usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
    
    d. **Riepilogo**:
    
-   * Verificare che tutte le informazioni immesse siano corrette.
+   * Verificare che tutte le informazioni immesse siano corrette. Viene fornito un collegamento alle condizioni per l'utilizzo. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . Per avviare il provisioning, fare clic su **Crea**. 
    
-   e. **Acquisto**:
-   
-   * Fare clic su **Acquista**per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** .
-
-Per il provisioning sono necessari circa 5-10 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
+Per il provisioning sono necessari circa 5 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Come accedere alla macchina virtuale per l'analisi scientifica dei dati per Linux
 
@@ -434,6 +429,6 @@ Ecco come è possibile continuare l'apprendimento e l'esplorazione:
 
 * La procedura dettagliata [Analisi scientifica dei dati in una macchina virtuale Linux per l'analisi scientifica dei dati](linux-dsvm-walkthrough.md) illustra come eseguire diverse attività comuni di analisi scientifica dei dati con la macchina virtuale per l'analisi scientifica dei dati per Linux di cui si è effettuato il provisioning in questo articolo. 
 * Esaminare e provare i vari strumenti di analisi scientifica dei dati descritti in questo articolo nella VM di analisi scientifica dei dati. È anche possibile eseguire *dsvm-more-info* nella shell della macchina virtuale per un'introduzione di base e per visualizzare collegamenti ad altre informazioni sugli strumenti installati nella VM.  
-* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visitare la pagina relativa a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati tramite Cortana Analytics Suite.
+* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](http://aka.ms/tdsp).
+* Per esempi di apprendimento automatico e di analisi dei dati che usano i servizi di intelligenza artificiale per Azure, visitare [Azure AI Gallery](https://gallery.azure.ai/).
 
