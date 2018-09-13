@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/03/2018
+ms.date: 09/12/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298115"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721983"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelli di soluzioni di Azure Stack Ethereum blockchain
 
@@ -50,7 +50,7 @@ Il modello può distribuire consortium Ethereum per leader e aggiunta a un membr
 Il modello di leader consortium Configura footprint del primo membro della rete. 
 
 1. Scaricare il [modello leader da GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. Nel portale di amministrazione di Azure Stack, selezionare **nuovo > distribuzione modello** per la distribuzione da un modello personalizzato.
+2. Nel portale di amministrazione di Azure Stack, selezionare **+ crea una risorsa > distribuzione modello** per la distribuzione da un modello personalizzato.
 3. Selezionare **modifica modello** per modificare il nuovo modello personalizzato.
 4. Nel riquadro di modifica a destra, copiare e incollare il modello di leader JSON scaricati in precedenza.
     
@@ -105,7 +105,7 @@ Per verificare la distribuzione del leader, selezionare il sito di amministrazio
 ### <a name="joining-consortium-member-deployment"></a>Distribuzione di membro unione consortium
 
 1. Scaricare il [modello membro consortium da GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. Nel portale di amministrazione di Azure Stack, selezionare **nuovo > distribuzione modello** per la distribuzione da un modello personalizzato.
+2. Nel portale di amministrazione di Azure Stack, selezionare **+ crea una risorsa > distribuzione modello** per la distribuzione da un modello personalizzato.
 3. Selezionare **modifica modello** per modificare il nuovo modello personalizzato.
 4. Nel riquadro di modifica a destra, copiare e incollare il modello di leader JSON è stato scaricato in precedenza.
 5. Selezionare **Salva**.
@@ -157,7 +157,7 @@ Come illustrato nell'immagine, lo stato di nodi del membro è **non è in esecuz
 Questo modello crea una connessione tra i leader per un membro remote. 
 
 1. Scaricare il [connettersi membro e il carattere di riempimento modello da GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. Nel portale di amministrazione di Azure Stack, selezionare **nuovo > distribuzione modello** per la distribuzione da un modello personalizzato.
+2. Nel portale di amministrazione di Azure Stack, selezionare **+ crea una risorsa > distribuzione modello** per la distribuzione da un modello personalizzato.
 3. Selezionare **modifica modello** per modificare il nuovo modello personalizzato.
 4. Nel riquadro di modifica a destra, copiare e incollare il modello di leader JSON è stato scaricato in precedenza.
     

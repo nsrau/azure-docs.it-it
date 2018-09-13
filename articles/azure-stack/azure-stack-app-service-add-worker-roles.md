@@ -1,6 +1,6 @@
 ---
-title: Scalabilità dei ruoli di lavoro in servizi di App - Stack di Azure | Documenti Microsoft
-description: Linee guida dettagliate per la scalabilità in servizi di App di Azure Stack
+title: Scalabilità orizzontale dei ruoli di lavoro in servizi App - Azure Stack | Microsoft Docs
+description: Indicazioni dettagliate per la scalabilità dei servizi App di Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,39 +12,39 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 04a93bc841d553296dca7635151c14892970121c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: abfc75e40e146b1cf7cb237f18a1ff08626e5be1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357793"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35998491"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Servizio App nello Stack di Azure: aggiungere più ruoli di infrastruttura o di lavoro
+# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Servizio App in Azure Stack: aggiungere altri ruoli di lavoro o dell'infrastruttura
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*  
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*  
 
-Questo documento vengono fornite istruzioni su come ridimensionare il servizio App nei ruoli di lavoro e infrastruttura di Azure Stack. Contiene i passaggi per la creazione di ruoli di lavoro aggiuntivi per supportare le applicazioni di qualsiasi dimensione.
+Questo documento vengono fornite istruzioni su come ridimensionare il servizio App in ruoli di lavoro e infrastruttura di Azure Stack. Contiene i passaggi per la creazione di ruoli di lavoro aggiuntiva per supportare le applicazioni di qualsiasi dimensione.
 
 > [!NOTE]
-> Se l'ambiente dello Stack di Azure non dispone di più di 96 GB di RAM, è possibile aggiunta di ulteriore capacità difficoltà.
+> Se l'ambiente dello Stack di Azure non ha più di 96 GB di RAM, si potrebbero incontrare difficoltà aggiunta di ulteriore capacità.
 
-Servizio App nello Stack di Azure, per impostazione predefinita, supporta i piani di lavoro gratuito e condiviso. Per aggiungere altri piani di lavoro, è necessario aggiungere più ruoli di lavoro.
+Servizio App in Azure Stack, per impostazione predefinita, supporta i livelli gratuito e condiviso ruolo di lavoro. Per aggiungere altri piani di lavoro, è necessario aggiungere altri ruoli di lavoro.
 
-Se non si conoscono ciò che è stato distribuito con il valore predefinito di servizio App in Installazione dello Stack di Azure, è possibile esaminare informazioni aggiuntive nel [servizio App nella panoramica di Azure Stack](azure-stack-app-service-overview.md).
+Se non si conosce ciò che è stato distribuito con il servizio App predefinito nell'installazione di Azure Stack, è possibile rivedere informazioni aggiuntive sotto la [servizio App in panoramica di Azure Stack](azure-stack-app-service-overview.md).
 
-Servizio App di Azure nello Stack di Azure distribuisce tutti i ruoli utilizzando il set di scalabilità di macchine virtuali e di conseguenza sfrutta le funzionalità di scalabilità di questo carico di lavoro. Pertanto, tutti scalabilità dei piani di lavoro viene eseguita tramite l'amministratore di servizio App.
+Servizio App di Azure in Azure Stack consente di distribuire tutti i ruoli usando il set di scalabilità di macchine virtuali e di conseguenza si avvale delle funzionalità di scalabilità di questo carico di lavoro. Pertanto, tutti la scalabilità dei livelli di lavoro viene eseguita tramite l'amministratore del servizio App.
 
 > [!IMPORTANT]
-> Non è attualmente possibile ridimensionare il set di scalabilità di macchine virtuali nel portale, come indicato nelle note sulla versione di Azure Stack, pertanto utilizzare l'esempio di PowerShell per scalabilità orizzontale.
+> Attualmente non è possibile ridimensionare i set di scalabilità di macchine virtuali nel portale, come identificato le note sulla versione di Azure Stack, pertanto usare l'esempio di PowerShell per la scalabilità orizzontale.
 >
 >
 
-## <a name="add-additional-workers-with-powershell"></a>Aggiungere ulteriori processi di lavoro con PowerShell
+## <a name="add-additional-workers-with-powershell"></a>Aggiungere ruoli di lavoro aggiuntivi con PowerShell
 
-1. [Configurare l'ambiente Azure Stack Admin in PowerShell](azure-stack-powershell-configure-admin.md)
+1. [Configurare l'ambiente di amministrazione di Azure Stack in PowerShell](azure-stack-powershell-configure-admin.md)
 
 2. Usare questo esempio per scalare orizzontalmente il set di scalabilità:
    ```powershell
@@ -73,46 +73,46 @@ Servizio App di Azure nello Stack di Azure distribuisce tutti i ruoli utilizzand
    ```    
 
    > [!NOTE]
-   > Questo passaggio può richiedere un numero di ore in base al tipo di ruolo e il numero di istanze.
+   > Questo passaggio può richiedere un numero di ore a seconda del tipo di ruolo e il numero di istanze.
    >
    >
 
 3. Monitorare lo stato delle nuove istanze del ruolo nell'amministrazione del servizio App, per controllare lo stato di una singola istanza del ruolo, fare clic sul tipo di ruolo nell'elenco.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Aggiungere ulteriori processi di lavoro direttamente all'interno di amministratore. Provider di risorse del servizio App
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Aggiungere altri ruoli di lavoro direttamente all'interno di App Service Resource Provider amministratore.
 
-1. Accedere al portale di amministrazione di Stack di Azure come amministratore del servizio.
+1. Accedere al portale di amministrazione di Azure Stack come amministratore del servizio.
 
 2. Passare a **servizi App**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Fare clic su **Ruoli**. Qui è visualizzare la suddivisione di tutti i ruoli del servizio App distribuita.
+3. Fare clic su **Ruoli**. Qui è visualizzare la suddivisione di tutti i ruoli del servizio App distribuiti.
 
-4. Fare clic con il pulsante destro sulla riga del tipo di cui si desidera applicare la scalabilità e quindi fare clic su **ScaleSet**.
+4. Fare clic con il pulsante destro sulla riga del tipo di cui si desidera scalare e quindi fare clic su **set di scalabilità**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Fare clic su **Scaling**, selezionare il numero di istanze che si desidera scalare di e quindi fare clic su **salvare**.
+5. Fare clic su **Scaling**, selezionare il numero di istanze da ridimensionare a e quindi fare clic su **salvare**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. Servizio app di Azure stack verrà ora aggiungere le altre macchine virtuali, configurarli, installare tutti i software necessari e contrassegnarli come pronto quando questo processo è stato completato. Questo processo può richiedere circa 80 minuti.
+6. Servizio App in Azure Stack verrà a questo punto aggiungere le VM aggiuntive configurarli, installare tutto il software necessario e contrassegnarli come pronto quando questo processo è stato completato. Questo processo può richiedere circa 80 minuti.
 
-7. È possibile monitorare lo stato di conformità dei nuovi ruoli visualizzando i lavoratori il **ruoli** blade.
+7. È possibile monitorare lo stato di avanzamento della conformità dei nuovi ruoli visualizzando i ruoli di lavoro nel **ruoli** pannello.
 
 ## <a name="result"></a>Risultato
 
-Dopo che sono completamente distribuito e pronto, i processi di lavoro diventi disponibile per gli utenti di distribuire il carico di lavoro su di essi. Di seguito viene riportato un esempio di più livelli di prezzo disponibili per impostazione predefinita. Se sono non presenti processi di lavoro disponibili per un livello di lavoro specifico, non è disponibile l'opzione per scegliere il piano tariffario corrispondente.
+Dopo che sono completamente distribuito ed è pronto, i ruoli di lavoro diventano disponibili per gli utenti distribuire il carico di lavoro su di essi. Di seguito viene riportato un esempio di vari piani tariffari disponibili per impostazione predefinita. Se non sono presenti alcun thread di lavoro disponibili per un livello di computer di lavoro specifico, non è disponibile l'opzione per scegliere il piano tariffario corrispondente.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Per ampliare gestione, i ruoli Front-End o Publisher aggiungere che è necessario scalare orizzontalmente il tipo di ruolo corrispondente. 
+> Per scalare orizzontalmente Management, i ruoli Front-End o Publisher aggiungere che è necessario scalare orizzontalmente il tipo di ruolo corrispondente. 
 >
 >
 
-Per ampliare gestione, Front-End o ruoli del server di pubblicazione, la stessa procedura selezionando il tipo di ruolo appropriate. Controller non vengono distribuiti come set di scalabilità e pertanto due devono essere distribuiti in fase di installazione per tutte le distribuzioni di produzione.
+Per scalare orizzontalmente gestione, Front-End o ruoli del server di pubblicazione, seguire gli stessi passaggi selezionando il tipo di ruolo appropriate. I controller non vengono distribuiti come set di scalabilità e pertanto due devono essere distribuiti al momento dell'installazione per tutte le distribuzioni di produzione.
 
 ### <a name="next-steps"></a>Passaggi successivi
 

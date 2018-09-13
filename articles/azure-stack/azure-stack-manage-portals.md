@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024167"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717707"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Tramite il portale dell'amministratore in Azure Stack
 
@@ -70,7 +70,7 @@ I portali di amministratore e utente sono supportati da istanze separate di Azur
 
 ### <a name="customize-the-dashboard"></a>Personalizzare il dashboard
 
-Il dashboard contiene un set di riquadri predefiniti. È possibile selezionare **modifica dashboard** per modificare il dashboard predefinito o selezionare **nuovo dashboard** per aggiungere un dashboard personalizzato. È facilmente possibile aggiungere riquadri a un dashboard. Ad esempio, è possibile selezionare **New**, fare doppio clic su **offre + piani**, quindi selezionare **Aggiungi al dashboard**.
+Il dashboard contiene un set di riquadri predefiniti. È possibile selezionare **modifica dashboard** per modificare il dashboard predefinito o selezionare **nuovo dashboard** per aggiungere un dashboard personalizzato. È facilmente possibile aggiungere riquadri a un dashboard. Ad esempio, è possibile selezionare **+ crea una risorsa**, fare doppio clic su **offre + piani**, quindi selezionare **Aggiungi al dashboard**.
 
 ### <a name="quick-access-to-online-documentation"></a>Accesso rapido alla documentazione online
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: dacfa738a99eb2d580d825957d09b2b1a3111e93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051394"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722011"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotazione dei segreti in Azure Stack
 
@@ -110,6 +110,8 @@ Per ruotare un segreto interno sia esterni:
     Una stringa sicura della password utilizzata per tutti i file di certificato pfx creati.
 4. Attendere. ruotare i segreti.  
 Quando la rotazione segreta viene completata correttamente, verrà visualizzata la console di **stato dell'azione complessivo: esito positivo**. 
+    > [!note]  
+    > Se la rotazione segreta non riesce, seguire le istruzioni nel messaggio di errore ed eseguire di nuovo inizio-secretrotation con il **-Riesegui** parametro. Contattare il supporto tecnico se si riscontrano ripetuti errori di rotazione segreta. 
 5. Dopo il completamento della rotazione segreta, rimuovere i certificati dalla condivisione creata nel passaggio precedente e archiviarle nella posizione di backup sicura. 
 
 ## <a name="walkthrough-of-secret-rotation"></a>Procedura dettagliata di rotazione segreta
@@ -136,6 +138,10 @@ Per ruotare solo i segreti interni di Azure Stack:
 
 1. Creare una sessione di PowerShell con il [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. Nella sessione dell'Endpoint con privilegi, eseguire **Start-SecretRotation** senza argomenti.
+3. Attendere. ruotare i segreti.  
+Quando la rotazione segreta viene completata correttamente, verrà visualizzata la console di **stato dell'azione complessivo: esito positivo**. 
+    > [!note]  
+    > Se la rotazione segreta non riesce, seguire le istruzioni nel messaggio di errore ed eseguire di nuovo inizio-secretrotation con il **-rieseguire** parametro. Contattare il supporto tecnico se si riscontrano ripetuti errori di rotazione segreta. 
 
 ## <a name="start-secretrotation-reference"></a>Start-SecretRotation riferimento
 

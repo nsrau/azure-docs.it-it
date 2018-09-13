@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: c1b88518f9e27093ff00ad020e470fa5670dfcd6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: MT
+ms.openlocfilehash: 1d3e4724820f7109eb9b695fe06d221a2796c26f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391947"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722204"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit  
 Questo articolo fornisce informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit. Se non si conosce quale versione in esecuzione, è possibile [usare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -42,6 +42,10 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack.
 - <!-- IS, ASDK --> **Set di scalabilità di macchine virtuali ridimensionamento**.  È possibile usare il portale per [scalare un Set di scalabilità di macchine virtuali](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
 
 - <!-- 2489570 | IS ASDK--> **Supporto per le configurazioni di criteri IPSec/IKE personalizzati** per [i gateway VPN di Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
+
+- <!-- | IS ASDK--> **Elemento del marketplace Kubernetes**. È ora possibile distribuire cluster Kubernetes usando il [elemento del Marketplace di Kubernetes](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Gli utenti possono selezionare l'elemento di Kubernetes e inserire alcuni parametri per distribuire un cluster Kubernetes in Azure Stack. Lo scopo dei modelli è renderlo semplice per gli utenti alle distribuzioni di Kubernetes installazione sviluppo/test in pochi passaggi.
+
+- <!-- | IS ASDK--> **I modelli di Blockchain**. È ora possibile eseguire [distribuzioni consortium Ethereum](/azure/azure-stack/azure-stack-ethereum) in Azure Stack. È possibile trovare tre nuovi modelli nel [i modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Consentono all'utente di distribuire e configurare una rete Ethereum multimembro consorzio con una minima conoscenza di Azure ed Ethereum. Lo scopo dei modelli è renderlo semplice per gli utenti alle distribuzioni di Blockchain installazione sviluppo/test in pochi passaggi.
 
 
 ### <a name="fixed-issues"></a>Problemi risolti
@@ -68,6 +72,8 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack.
 ### <a name="known-issues"></a>Problemi noti
 
 #### <a name="portal"></a>Portale  
+- <!-- 2967387 – IS, ASDK --> L'account usato per accedere al portale di amministratore o utente di Azure Stack viene visualizzato come **utente non identificato**. Ciò si verifica quando l'account non dispone di uno una *primo* oppure *ultima* nome specificato. Per risolvere questo problema, modificare l'account utente per fornire il primo o ultimo nome. È necessario quindi disconnettersi e quindi accedere al portale. 
+
 -  <!--  2873083 - IS ASDK --> Quando si usa il portale per creare un set di scalabilità di macchine virtuali (VMSS), di impostare il *dimensioni istanze* elenco a discesa non viene caricato correttamente quando si usa Internet Explorer. Per risolvere questo problema, usare un altro browser quando si usa il portale per creare un set di scalabilità.  
 
 - <!-- TBD  ASDK --> Il fuso orario predefinito per tutte le distribuzioni di Azure Stack sono ora impostati per Coordinated Universal Time (UTC). È possibile selezionare un fuso orario durante l'installazione di Azure Stack, tuttavia, la raccomandazione Annulla automaticamente all'ora UTC come impostazione predefinita durante l'installazione.

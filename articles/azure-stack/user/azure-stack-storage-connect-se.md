@@ -1,6 +1,6 @@
 ---
-title: Connettere Esplora archivi per una sottoscrizione di Azure Stack o un account di archiviazione | Documenti Microsoft
-description: Informazioni su come Esplora archivi di connettersi a una sottoscrizione di Azure Stack
+title: Connettere storage explorer per un account di archiviazione o una sottoscrizione di Azure Stack | Microsoft Docs
+description: Informazioni su come connettere storage explorer a una sottoscrizione di Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,73 +10,73 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 06/15/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2f974b7773e7a4cbc0eda32a267bb5ab939644d8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714902"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35998518"
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connettere Esplora archivi per una sottoscrizione di Azure Stack o un account di archiviazione
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connettere storage explorer per una sottoscrizione di Azure Stack o un account di archiviazione
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-In questo articolo verrà illustrato come connettersi a Azure Stack sottoscrizioni e account di archiviazione tramite Esplora archivi. Esplora archivi Azure è un'app autonoma che consente di lavorare con i dati di archiviazione di Azure Stack in Windows, macOS e Linux.
+In questo articolo verrà illustrato come connettersi a sottoscrizioni di Azure Stack e gli account di archiviazione usando storage explorer. Azure storage explorer è un'app autonoma che consente di usare facilmente con i dati di archiviazione di Azure Stack in Windows, macOS e Linux.
 
 > [!NOTE]  
-> Sono disponibili diversi strumenti disponibili per lo spostamento di dati verso e da archiviazione di Azure Stack. Per ulteriori informazioni, vedere [strumenti per l'archiviazione di Azure Stack di trasferimento dei dati](azure-stack-storage-transfer.md).
+> Sono disponibili diversi strumenti disponibili per spostare i dati da e verso archiviazione di Azure Stack. Per altre informazioni, vedere [trasferimento dei dati degli strumenti per l'archiviazione di Azure Stack](azure-stack-storage-transfer.md).
 
-Se non è stato installato, Esplora archivi [scaricare Esplora archivi](http://www.storageexplorer.com/) e installarlo.
+Se non è stato installato, Esplora archivi [download di storage explorer](http://www.storageexplorer.com/) e installarlo.
 
-Dopo la connessione a una sottoscrizione di Azure Stack o un account di archiviazione, è possibile usare il [articoli di soluzioni di archiviazione di Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) per funzionare con i dati dello Stack di Azure. 
+Dopo la connessione a una sottoscrizione di Azure Stack o un account di archiviazione, è possibile usare la [articoli Esplora archiviazione di Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) per lavorare con i dati di Azure Stack. 
 
-## <a name="prepare-for-connecting-to-azure-stack"></a>Preparare per la connessione a Azure Stack
+## <a name="prepare-for-connecting-to-azure-stack"></a>Preparare per la connessione ad Azure Stack
 
-È necessario l'accesso diretto per lo Stack di Azure o una connessione VPN per Esplora risorse di archiviazione accedere alla sottoscrizione di Azure Stack. Per informazioni su come configurare una connessione VPN ad Azure Stack, vedere [Connettersi ad Azure Stack con VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+È necessario l'accesso diretto a una connessione VPN di storage explorer accedere alla sottoscrizione di Azure Stack o Azure Stack. Per informazioni su come configurare una connessione VPN ad Azure Stack, vedere [Connettersi ad Azure Stack con VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-Per il Kit di sviluppo dello Stack di Azure, è necessario esportare il certificato radice dell'autorità dello Stack di Azure.
+Per Azure Stack Development Kit, è necessario esportare il certificato radice dell'autorità di Azure Stack.
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Esportare e quindi importare il certificato di Azure Stack
 
-1. Aprire `mmc.exe` su un computer host di Azure Stack o un computer locale con una connessione VPN allo Stack di Azure. 
+1. Apri `mmc.exe` in un computer host Azure Stack, o un computer locale con una connessione VPN ad Azure Stack. 
 
-2. In **File**selezionare **Aggiungi/Rimuovi Snap-in**, quindi aggiungere **certificati** per gestire **account dell'utente**.
+2. Nel **File**, selezionare **Aggiungi/Rimuovi Snap-in**, quindi aggiungere **certificati** gestire **account dell'utente**.
 
-3. In **Root\Certificated Console (Computer locale) \Trusted Root Certification Authorities\Certificates** trovare **AzureStackSelfSignedRootCert**.
+3. Sotto **Root\Certificated Console (Computer locale) \Trusted Root Certification Authorities\Certificates** trovare **AzureStackSelfSignedRootCert**.
 
     ![Caricare il certificato radice di Azure Stack tramite mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. Il pulsante destro del certificato, selezionare **tutte le attività** > **esportare**e quindi seguire le istruzioni per esportare il certificato con **codificato Base 64 x. 509 (. CER)**.
+4. Fare clic su certificato, selezionare **tutte le attività** > **Esporta**, quindi seguire le istruzioni per esportare il certificato con **con codifica Base 64 X.509 (. Area a esecuzione vincolata)**.
 
     Il certificato esportato verrà usato nel passaggio successivo.
 
-5. Avviare Esplora archivi, e se viene visualizzato il **Connetti ad archiviazione di Azure** dialogo casella, annullare l'operazione.
+5. Avvio di storage explorer, e se viene visualizzato il **Connetti ad archiviazione di Azure** dialogo casella, annullare l'operazione.
 
-6. Nel **modificare** dal menu **i certificati SSL**, quindi selezionare **importazione certificati**. Usare la finestra di dialogo selezione file per trovare e aprire il certificato esportato nel passaggio precedente.
+6. Nel **Edit** dal menu **i certificati SSL**e quindi selezionare **Importa certificati**. Usare la finestra di dialogo selezione file per trovare e aprire il certificato esportato nel passaggio precedente.
 
-    Dopo avere importato il certificato, viene chiesto di riavviare Esplora archivi.
+    Dopo aver importato il certificato, viene chiesto di riavviare storage explorer.
 
-    ![Importare il certificato in Esplora archivi](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
+    ![Importare il certificato in storage explorer](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Dopo il riavvio di Esplora archivi, selezionare il **modificare** menu e verificare se **destinazione Azure Stack** sia selezionata. In caso contrario, selezionare **destinazione Azure Stack**, quindi riavviare Esplora archivi per la modifica diventi effettiva. Questa configurazione è obbligatoria per la compatibilità con l'ambiente di Azure Stack.
+7. Dopo il riavvio di Esplora archivi, selezionare la **Edit** menu di scelta e controllo per verificare se **Target Azure Stack** sia selezionata. In caso contrario, selezionare **Target Azure Stack**, quindi riavviare storage explorer per rendere effettiva la modifica. Questa configurazione è obbligatoria per la compatibilità con l'ambiente di Azure Stack.
 
     ![Verificare che Target Azure Stack (Azure Stack di destinazione) sia selezionato](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
-## <a name="connect-to-an-azure-stack-subscription"></a>Connettersi a una sottoscrizione di Azure Stack
+## <a name="connect-to-an-azure-stack-subscription-with-azure-ad"></a>Connettersi a una sottoscrizione di Azure Stack con Azure AD
 
-Utilizzare la procedura seguente per connettere Esplora archivi a una sottoscrizione di Azure Stack.
+Usare la procedura seguente per connettere storage explorer a una sottoscrizione di Azure Stack, che appartiene a un account Azure Active Directory (Azure AD).
 
-1. Nel riquadro sinistro di Esplora archivi, selezionare **Gestisci account**. 
-    Vengono visualizzati tutti la sottoscrizione di Microsoft che l'utente connesso.
+1. Nel riquadro sinistro di storage explorer, selezionare **Manage Accounts**. 
+    Vengono visualizzati tutti la sottoscrizione di Microsoft che hai effettuato l'accesso.
 
-2. Per connettersi alla sottoscrizione Azure Stack, selezionare **aggiungere un account**.
+2. Per connettersi alla sottoscrizione di Azure Stack, selezionare **aggiungere un account**.
 
     ![Aggiungere un account Azure Stack](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. In Connetti alla finestra di dialogo di archiviazione di Azure, sotto **ambiente Azure**, selezionare **Azure** o **Azure China**, che dipende dall'account di Azure Stack che è in uso, selezionare **Accedi** accedere con l'account di Azure Stack associato almeno una sottoscrizione di Azure Stack attiva.
+3. Nella finestra Connetti al finestra di dialogo archiviazione di Azure, sotto **ambiente di Azure**, selezionare **Azure** oppure **Azure Cina**, quale dipende l'account di Azure Stack che è in uso, selezionare **Accedi** accedere con l'account di Azure Stack associato ad almeno una sottoscrizione di Azure Stack attiva.
 
     ![Connessione ad Archiviazione di Azure](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
@@ -88,33 +88,71 @@ Utilizzare la procedura seguente per connettere Esplora archivi a una sottoscriz
 
     ![Elenco di account di archiviazione, inclusi gli account delle sottoscrizioni di Azure Stack](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
 
-## <a name="connect-to-an-azure-stack-storage-account"></a>Connettersi a un account di archiviazione Azure Stack
+## <a name="connect-to-an-azure-stack-subscription-with-ad-fs-account"></a>Connettersi a una sottoscrizione di Azure Stack con account AD FS
 
-È inoltre possibile connettersi a un account di archiviazione di Azure Stack mediante nome account di archiviazione e coppia di chiavi.
+> [!Note]  
+> L'esperienza di accesso servizio federato di Azure (AD FS) supporta Storage Explorer 1.2.0 o versioni più recenti con Azure Stack 1804 o aggiornamento più recente.
+Usare la procedura seguente per connettere storage explorer a una sottoscrizione di Azure Stack che appartiene a un account di AD FS.
 
-1. Nel riquadro sinistro di Esplora archivi, selezionare Gestisci account. Vengono visualizzati tutti gli account di Microsoft che l'utente connesso.
+1. Selezionare **gestire gli account**. Finestra di esplorazione Elenca le sottoscrizioni di Microsoft che è eseguito l'accesso.
+2. Selezionare **aggiungere un account** per connettersi alla sottoscrizione di Azure Stack.
+
+    ![Aggiungi un account](media/azure-stack-storage-connect-se/add-an-account.png)
+
+3. Selezionare **Avanti**. Nella finestra Connetti al finestra di dialogo archiviazione di Azure, sotto **ambiente di Azure**, selezionare **ambiente personalizzato di uso**, quindi fare clic su **Avanti**.
+
+    ![Connettersi ad archiviazione di Azure](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+
+4. Immettere le informazioni necessarie dell'ambiente personalizzato di Azure Stack. 
+
+    | Campo | Note |
+    | ---   | ---   |
+    | Nome ambiente | Il campo può essere personalizzato dall'utente. |
+    | Endpoint di Azure Resource Manager | Gli esempi di endpoint di risorse di Azure Resource Manager di Azure Stack Development Kit.<br>Per gli operatori: https://adminmanagement.local.azurestack.external <br> Per gli utenti: https://management.local.azurestack.external |
+
+    Se si lavora in Azure Stack integrato system e non conosce l'endpoint di gestione, contattare l'operatore.
+
+    ![Aggiungi un account](./media/azure-stack-storage-connect-se/custom-environments.png)
+
+5. Selezionare **Accedi**, per connettersi all'account di Azure Stack associato ad almeno una sottoscrizione di Azure Stack attiva.
+
+
+
+6. Selezionare le sottoscrizioni di Azure Stack che si desidera utilizzare. Selezionare **Applica**.
+
+    ![Gestione account](./media/azure-stack-storage-connect-se/account-management.png)
+
+    Il riquadro sinistro mostra gli account di archiviazione associati alle sottoscrizioni di Azure Stack selezionate.
+
+    ![Elenco di sottoscrizioni associate](./media/azure-stack-storage-connect-se/list-of-associated-subscriptions.png)
+
+## <a name="connect-to-an-azure-stack-storage-account"></a>Connettersi a un account di archiviazione di Azure Stack
+
+È anche possibile connettersi a un account di archiviazione di Azure Stack usando nome e una coppia di chiavi.
+
+1. Nel riquadro sinistro di storage explorer, selezionare Gestisci account. Vengono visualizzati tutti gli account Microsoft che hai effettuato l'accesso.
 
     ![Aggiungi un account](./media/azure-stack-storage-connect-se/azure-stack-sub-add-an-account.png)
 
-2. Per connettersi alla sottoscrizione Azure Stack, selezionare **aggiungere un account**.
+2. Per connettersi alla sottoscrizione di Azure Stack, selezionare **aggiungere un account**.
 
     ![Aggiungi un account](./media/azure-stack-storage-connect-se/azure-stack-use-a-storage-and-key.png)
 
-3. In Connetti alla finestra di dialogo di archiviazione di Azure, selezionare **utilizzare un nome account di archiviazione e una chiave**.
+3. Nella finestra Connetti alla finestra di dialogo archiviazione di Azure, selezionare **usare un nome account di archiviazione e la chiave**.
 
-4. Immettere il nome dell'account nel **nome dell'Account**, incollare chiave dell'account nel **chiave dell'Account** casella di testo, seleziona **altri (immettere di seguito)** in **gli endpoint di archiviazione dominio** e immettere l'endpoint dello Stack di Azure.
+4. Immettere il nome dell'account nel **nome dell'Account**, incollare la chiave account nella **chiave dell'Account** casella di testo, seleziona **altri (specificare sotto)** in **gli endpoint di archiviazione dominio** e immettere l'endpoint di Azure Stack.
 
-    Un endpoint di Azure Stack comprende due parti: il nome di un'area e il dominio di Azure Stack. Nel Kit di sviluppo dello Stack di Azure, l'endpoint predefinito è **local.azurestack.external**. Contattare l'amministratore del cloud se non si è sicuri sull'endpoint.
+    Un endpoint di Azure Stack include due parti: il nome di un'area e il dominio di Azure Stack. In Azure Stack Development Kit, è l'endpoint predefinito **local.azurestack.external**. Se non si è certi sull'endpoint della, contattare l'amministratore del cloud.
 
     ![Collegare nome e la chiave](./media/azure-stack-storage-connect-se/azure-stack-attach-name-and-key.png)
 
 5. Selezionare **Connessione**.
-6. Dopo che l'account di archiviazione viene collegato, l'account di archiviazione viene visualizzato con (**esterne, anche altri**) aggiunto al nome.
+6. Dopo essere stato collegato correttamente l'account di archiviazione, l'account di archiviazione viene visualizzato con (**esterne, altri**) aggiunto al nome.
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Introduzione a Esplora archivi](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Archiviazione di Azure dello Stack: considerazioni e le differenze](azure-stack-acs-differences.md)
-* Per ulteriori informazioni sull'archiviazione di Azure, vedere [Introduzione all'archiviazione di Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Guida introduttiva a storage explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Archiviazione di Azure Stack: differenze e considerazioni](azure-stack-acs-differences.md)
+* Per altre informazioni sull'archiviazione di Azure, vedere [Introduzione ad archiviazione di Microsoft Azure](../../storage/common/storage-introduction.md)

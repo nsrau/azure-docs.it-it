@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e868788d0cf3b3c0f2f30095388046f64ced71c
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378541"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717506"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -228,7 +228,7 @@ Dopo che si distribuisce e si registra il provider di risorse del servizio App, 
 
 Per creare un'app web di test, seguire questa procedura:
 
-1. Nel portale tenant di Azure Stack, selezionare **New** > **Web e dispositivi mobili** > **App Web**.
+1. Nel portale per gli utenti Azure Stack, selezionare **+ crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 
 2. Sotto **App Web**, immettere un nome nella **app Web**.
 

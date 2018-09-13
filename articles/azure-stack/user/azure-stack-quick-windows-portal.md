@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 7277aeb97409815e2e218da8f233cd836bccc72b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022417"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713741"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Guida introduttiva: creare una macchina virtuale di Windows server con il portale di Azure Stack
 
@@ -36,7 +36,7 @@ Accedere al portale di Azure Stack. L'indirizzo del portale di Azure Stack dipen
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-1. Fare clic su **nuove** > **calcolo** > **Windows Server 2016 Datacenter: come si-pagamento** > **creare**. Se non viene visualizzata **Windows Server 2016 Datacenter: come si-pagamento** voce, contattare l'operatore di Azure Stack. Chiedere a essi aggiungerlo a marketplace come spiegato nel [aggiungere l'immagine di macchina virtuale di Windows Server 2016 nel Marketplace di Azure Stack](../azure-stack-add-default-image.md) articolo.
+1. Fare clic su **+ crea una risorsa** > **calcolo** > **Windows Server 2016 Datacenter: come si-pagamento**  >   **Creare**. Se non viene visualizzata **Windows Server 2016 Datacenter: come si-pagamento** voce, contattare l'operatore di Azure Stack. Chiedere a essi aggiungerlo a marketplace come spiegato nel [aggiungere l'immagine di macchina virtuale di Windows Server 2016 nel Marketplace di Azure Stack](../azure-stack-add-default-image.md) articolo.
 
     ![Passaggi per creare una macchina virtuale Windows nel portale](media/azure-stack-quick-windows-portal/image01.png)
 2. Sotto **nozioni di base**, digitare un **Name**, **nome utente**, e **Password**. Scegliere una **Sottoscrizione**. Creare un **gruppo di risorse**, o selezionarne un esistente, selezionare una **posizione**, quindi fare clic su **OK**.

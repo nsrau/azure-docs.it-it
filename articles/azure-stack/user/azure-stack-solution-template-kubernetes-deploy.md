@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c0c625852ff131aaa26e424ded75fbe51f94f23d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 00c3fd0d1f637575904ebaa8031159344adf7e9f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159300"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718577"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Distribuire un cluster Kubernetes in Azure Stack
 
@@ -106,7 +106,7 @@ Assegnare l'entità servizio l'accesso alla sottoscrizione in modo che l'entità
 
 1. Aprire il [portale di Azure Stack](https://portal.local.azurestack.external).
 
-1. Selezionare **+ nuovo** > **calcolo** > **Cluster Kubernetes**. Fare clic su **Create**(Crea).
+1. Selezionare **+ crea una risorsa** > **calcolo** > **Kubernetes Cluster**. Fare clic su **Create**(Crea).
 
     ![Distribuisci modello di soluzione](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

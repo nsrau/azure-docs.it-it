@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139732"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720498"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connettere Azure Stack per Azure tramite Azure ExpressRoute
 
@@ -98,7 +98,7 @@ Usare le procedure seguenti per creare le risorse di rete necessarie in Azure St
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Creare la rete virtuale e la subnet della macchina virtuale
 
 1. Accedere al portale per gli utenti con un account utente (tenant).
-1. Nel portale, selezionare **New**.
+1. Nel portale, selezionare **+ crea una risorsa**.
 
 1. Sotto **Azure Marketplace**, selezionare **Networking**.
 
@@ -131,7 +131,7 @@ Usare le procedure seguenti per creare le risorse di rete necessarie in Azure St
 
 #### <a name="create-the-virtual-network-gateway"></a>Creare il gateway di rete virtuale
 
-1. Nel portale per gli utenti Azure Stack, selezionare **New**.
+1. Nel portale per gli utenti Azure Stack, selezionare **+ crea una risorsa**.
 1. Sotto **Azure Marketplace**, selezionare **Networking**.
 1. Selezionare **Gateway di rete virtuale** dall'elenco di risorse di rete.
 1. Nel **Name** immettere **GW1**.
@@ -146,7 +146,7 @@ Usare le procedure seguenti per creare le risorse di rete necessarie in Azure St
 
 La risorsa gateway di rete locale identifica il gateway remoto a altra estremità della connessione VPN. Per questo esempio, l'estremità della connessione remota è la sottointerfaccia di LAN del router ExpressRoute. Per Tenant 1, illustrato nella *figura 2*, l'indirizzo remoto è 10.60.3.255.
 
-1. Accedere al portale utenti di Azure Stack con l'account utente e selezionare **New**.
+1. Accedere al portale utenti di Azure Stack con l'account utente e selezionare **+ crea una risorsa**.
 1. Sotto **Azure Marketplace**, selezionare **Networking**.
 1. Selezionare **Gateway di rete locale** dall'elenco di risorse.
 1. Nel **Name** immettere **ER-Router-GW**.
@@ -163,7 +163,7 @@ La risorsa gateway di rete locale identifica il gateway remoto a altra estremit�
 
 #### <a name="create-the-connection"></a>Creare la connessione
 
-1. Nel portale per gli utenti Azure Stack, selezionare **New**.
+1. Nel portale per gli utenti Azure Stack, selezionare **+ crea una risorsa**.
 1. Sotto **Azure Marketplace**, selezionare **Networking**.
 1. Selezionare **Connessione** dall'elenco di risorse.
 1. Sotto **nozioni di base**, scegliere **(IPSec) Site-to-site** come il **tipo di connessione**.
@@ -187,7 +187,7 @@ Dopo aver creato il gateway di rete virtuale è possibile ottenere l'indirizzo I
 
 Per testare il traffico dei dati tramite una connessione VPN, è necessario le macchine virtuali per inviare e ricevere i dati nella rete virtuale di Azure Stack. Creare una macchina virtuale e distribuirlo alla subnet VM per la rete virtuale.
 
-1. Nel portale per gli utenti Azure Stack, selezionare **New**.
+1. Nel portale per gli utenti Azure Stack, selezionare **+ crea una risorsa**.
 1. Sotto **Azure Marketplace**, selezionare **Compute**.
 1. Nell'elenco di immagini di macchine virtuali, selezionare la **Windows Server 2016 Datacenter Eval** immagine.
 

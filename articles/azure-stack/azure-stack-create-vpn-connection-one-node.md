@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6225a12b50ebb7bf0a0cb9244153800ba734d93a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a219f44cb27bb6ebe4e17079ad487457ae8852f0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006904"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718118"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Creare una connessione VPN site-to-site tra due reti virtuali in diversi ambienti di Azure Stack Development Kit
 ## <a name="overview"></a>Panoramica
@@ -53,7 +53,7 @@ Nella tabella seguente viene riepilogata la configurazione di rete per entrambi 
 **Tabella di configurazione di rete**
 |   |POC1|POC2|
 |---------|---------|---------|
-|Nome della rete virtuale     |VNET-01|VNET-02 |
+|Nome rete virtuale     |VNET-01|VNET-02 |
 |Spazio indirizzi della rete virtuale |10.0.10.0/23|10.0.20.0/23|
 |Nome della subnet     |Subnet-01|Subnet-02|
 |Intervallo di indirizzi subnet|10.0.10.0/24 |10.0.20.0/24 |
@@ -92,10 +92,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Creare la rete virtuale e la subnet della macchina virtuale
 1. Usare un account tenant per accedere al portale per gli utenti.
-2. Nel portale per gli utenti, selezionare **New**.
-
-    ![Crea nuova rete virtuale](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
-
+2. Nel portale per gli utenti, selezionare **+ crea una risorsa**.
 3. Passare a **Marketplace**, quindi selezionare **Networking**.
 4. Selezionare **Rete virtuale**.
 5. Per **Name**, **dello spazio di indirizzi**, **Subnet name**, e **intervallo di indirizzi Subnet**, usare i valori visualizzati in precedenza nella rete tabella di configurazione.
@@ -103,7 +100,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 7. Per la **gruppo di risorse**, è possibile creare un gruppo di risorse o se già presente, selezionare **Usa esistente**.
 8. Verificare la località predefinita.
 9. Selezionare **Aggiungi al dashboard**.
-10. Selezionare **Crea**.
+10. Selezionare **Create**.
 
 ### <a name="create-the-gateway-subnet"></a>Creare la subnet del gateway
 1. Nel dashboard aprire la risorsa di rete virtuale VNET-01 creato in precedenza.
@@ -118,7 +115,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 6. Selezionare **OK** per creare la subnet del gateway.
 
 ### <a name="create-the-virtual-network-gateway"></a>Creare il gateway di rete virtuale
-1. Nel portale di Azure, selezionare **New**. 
+1. Nel portale di Azure, selezionare **+ crea una risorsa**. 
 2. Passare a **Marketplace**, quindi selezionare **Networking**.
 3. Nell'elenco delle risorse di rete, selezionare **gateway di rete virtuale**.
 4. Nelle **Name**, immettere **GW1**.
@@ -128,7 +125,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 7. Nelle **Name**, immettere **GW1-PiP**, quindi selezionare **OK**.
 8.  Per impostazione predefinita, per **tipo di VPN**, **basato su Route** sia selezionata.
     Mantenere il **basato su Route** tipo VPN.
-9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Crea**.
+9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Create**.
 
 ### <a name="create-the-local-network-gateway"></a>Creare il gateway di rete locale
 L'implementazione di un *gateway di rete locale* in questa distribuzione di valutazione di Azure Stack è un po' diversa da quella di una distribuzione di Azure effettiva.
@@ -140,7 +137,7 @@ Un modo per pensare ciò più in generale è che la risorsa gateway di rete loca
 
 ### <a name="create-the-local-network-gateway-resource"></a>Creare la risorsa gateway di rete locale
 1. Accedere al computer fisico di Azure Stack per POC1.
-2. Nel portale per gli utenti, selezionare **New**.
+2. Nel portale per gli utenti, selezionare **+ crea una risorsa**.
 3. Passare a **Marketplace**, quindi selezionare **Networking**.
 4. Nell'elenco delle risorse, selezionare **gateway di rete locale**.
 5. Nelle **Name**, immettere **POC2-GW**.
@@ -149,7 +146,7 @@ Un modo per pensare ciò più in generale è che la risorsa gateway di rete loca
 8. Verificare che il **abbonamento**, **gruppo di risorse**, e **posizione** siano corrette e quindi selezionare **Create**.
 
 ### <a name="create-the-connection"></a>Creare la connessione
-1. Nel portale per gli utenti, selezionare **New**.
+1. Nel portale per gli utenti, selezionare **+ crea una risorsa**.
 2. Passare a **Marketplace**, quindi selezionare **Networking**.
 3. Nell'elenco delle risorse, selezionare **connessione**.
 4. Nel **nozioni di base** pannello impostazioni per il **tipo di connessione**, selezionare **Site-to-site (IPSec)**.
@@ -163,7 +160,7 @@ Un modo per pensare ciò più in generale è che la risorsa gateway di rete loca
 ### <a name="create-a-vm"></a>Creare una macchina virtuale
 Per convalidare i dati che passano attraverso la connessione VPN, è necessario disporre di macchine virtuali per inviare e ricevere dati in ogni database di Azure Stack Development Kit. Creare ora una macchina virtuale in POC1 e quindi nella rete virtuale, inserirlo nella subnet VM.
 
-1. Nel portale di Azure, selezionare **New**.
+1. Nel portale di Azure, selezionare **+ crea una risorsa**.
 2. Passare a **Marketplace**, quindi selezionare **Compute**.
 3. Nell'elenco di immagini di macchine virtuali, selezionare la **Windows Server 2016 Datacenter Eval** immagine.
 4. Nel **nozioni di base** pannello nella **Name**, immettere **VM01**.
@@ -185,7 +182,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Creare la rete virtuale e la subnet della macchina virtuale
 
 1. Accedere con un account tenant.
-2. Nel portale per gli utenti, selezionare **New**.
+2. Nel portale per gli utenti, selezionare **+ crea una risorsa**.
 3. Passare a **Marketplace**, quindi selezionare **Networking**.
 4. Selezionare **Rete virtuale**.
 5. Usare le informazioni visualizzate in precedenza nella tabella di configurazione di rete per identificare i valori per il POC2 **Name**, **dello spazio di indirizzi**, **nome Subnet**e **Intervallo di indirizzi subnet**.
@@ -193,7 +190,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 7. Per la **gruppo di risorse**, creare un gruppo di risorse nuovo o, se è già presente, selezionare **Usa esistente**.
 8. Verificare il valore predefinito **posizione**.
 9. Selezionare **Aggiungi al dashboard**.
-10. Selezionare **Crea**.
+10. Selezionare **Create**.
 
 ### <a name="create-the-gateway-subnet"></a>Creare la subnet del gateway
 1. Aprire la risorsa rete virtuale creata (**VNET-02**) dal dashboard.
@@ -205,7 +202,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 6. Selezionare **OK** per creare la subnet del gateway.
 
 ### <a name="create-the-virtual-network-gateway"></a>Creare il gateway di rete virtuale
-1. Nel portale di Azure, selezionare **New**.  
+1. Nel portale di Azure, selezionare **+ crea una risorsa**.  
 2. Passare a **Marketplace**, quindi selezionare **Networking**.
 3. Nell'elenco delle risorse di rete, selezionare **gateway di rete virtuale**.
 4. Nelle **Name**, immettere **GW2**.
@@ -214,11 +211,11 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 7. Nelle **Name**, immettere **GW2-PiP**, quindi selezionare **OK**.
 8. Per impostazione predefinita, per **tipo di VPN**, **basato su Route** sia selezionata.
     Mantenere il **basato su Route** tipo VPN.
-9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Crea**.
+9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Create**.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Creare la risorsa gateway di rete locale
 
-1. Nel portale per gli utenti POC2, selezionare **New**. 
+1. Nel portale per gli utenti POC2, selezionare **+ crea una risorsa**. 
 4. Passare a **Marketplace**, quindi selezionare **Networking**.
 5. Nell'elenco delle risorse, selezionare **gateway di rete locale**.
 6. Nelle **Name**, immettere **POC1-GW**.
@@ -227,7 +224,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 9. Verificare che il **abbonamento**, **gruppo di risorse**, e **posizione** siano corrette e quindi selezionare **Create**.
 
 ## <a name="create-the-connection"></a>Creare la connessione
-1. Nel portale per gli utenti, selezionare **New**. 
+1. Nel portale per gli utenti, selezionare **+ crea una risorsa**. 
 2. Passare a **Marketplace**, quindi selezionare **Networking**.
 3. Nell'elenco delle risorse, selezionare **connessione**.
 4. Nel **base** pannello impostazioni per il **tipo di connessione**, scegliere **Site-to-site (IPSec)**.
@@ -241,7 +238,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 Creare una macchina virtuale in POC2, ora e inserirlo nella subnet VM nella rete virtuale.
 
-1. Nel portale di Azure, selezionare **New**.
+1. Nel portale di Azure, selezionare **+ crea una risorsa**.
 2. Passare a **Marketplace**, quindi selezionare **Compute**.
 3. Nell'elenco di immagini di macchine virtuali, selezionare la **Windows Server 2016 Datacenter Eval** immagine.
 4. Nel **nozioni di base** pannello per **Name**, immettere **VM02**.

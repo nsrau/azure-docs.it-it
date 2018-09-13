@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/08/2018
+ms.date: 09/12/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: 9feb2e538d3578fe259aa3fbc693a1e953f2f894
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3d3701c670236d67697f4109a59fa31900037a0d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440352"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720937"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuire un cluster di Service Fabric in Azure Stack
 
@@ -120,7 +120,7 @@ Per altre informazioni, vedere [gestire Key Vault in Azure Stack con PowerShell]
 
 ## <a name="deploy-the-marketplace-item"></a>Distribuire l'elemento del Marketplace
 
-1. Nel portale per gli utenti, passare a **New** > **calcolo** > **Cluster di Service Fabric**. 
+1. Nel portale per gli utenti, passare a **+ crea una risorsa** > **calcolo** > **Cluster di Service Fabric**. 
 
    ![Selezionare i Cluster di Service Fabric](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 

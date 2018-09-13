@@ -1,5 +1,5 @@
 ---
-title: Distribuire Azure Stack - PowerShell | Documenti Microsoft
+title: Distribuire Azure Stack - PowerShell | Microsoft Docs
 description: In questo articolo, si installa il ASDK dalla riga di comando tramite PowerShell.
 services: azure-stack
 documentationcenter: ''
@@ -13,76 +13,76 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849958"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716027"
 ---
-# <a name="deploy-the-asdk-from-the-command-line"></a>Distribuire ASDK dalla riga di comando
-Il ASDK è un ambiente di testing e sviluppo che è possibile distribuire per valutare e illustrano i servizi e le funzionalità dello Stack di Azure. Per ottenerlo attivo e in esecuzione, è necessario preparare l'hardware di ambiente ed eseguire alcuni script (l'operazione richiederà diverse ore). Successivamente, è possibile accedere ai portali amministratore e utente per iniziare a usare Azure Stack.
+# <a name="deploy-the-asdk-from-the-command-line"></a>Distribuire il ASDK dalla riga di comando
+Il ASDK è un ambiente di test e sviluppo che è possibile distribuire per valutare e illustrano i servizi e funzionalità di Azure Stack. Per renderlo attivo e in esecuzione, è necessario preparare l'ambiente hardware ed eseguire alcuni script (questa operazione richiederà diverse ore). Successivamente, è possibile accedere ai portali di amministratore e utente per iniziare a usare Azure Stack.
 
 ## <a name="prerequisites"></a>Prerequisiti 
-Preparare il computer host kit di sviluppo. Pianificare l'hardware e software e rete. Il computer che ospita il kit di sviluppo (l'host di kit di sviluppo) deve soddisfare requisiti di rete, hardware e software. È inoltre necessario scegliere tra l'utilizzo di Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS). Assicurarsi di rispettare i prerequisiti prima di avviare la distribuzione in modo che il processo di installazione viene eseguito in modo uniforme. 
+Preparare il computer host kit di sviluppo. Pianificare l'hardware, software e rete. Computer che ospita il kit di sviluppo (host development kit) deve soddisfare i requisiti di rete, hardware e software. È anche necessario scegliere tra l'uso di Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS). Assicurarsi di rispettare questi prerequisiti prima di avviare la distribuzione in modo che il processo di installazione venga eseguito senza problemi. 
 
 Prima di distribuire il ASDK, assicurarsi che l'hardware del computer di sviluppo pianificato kit host, sistema operativo, account e le configurazioni di rete soddisfino i requisiti minimi per l'installazione di ASDK.
 
-**[Esaminare le considerazioni di pianificazione della distribuzione ASDK](asdk-deploy-considerations.md)**
+**[Esaminare le considerazioni di pianificazione della distribuzione di ASDK](asdk-deploy-considerations.md)**
 
 > [!TIP]
-> È possibile usare il [dello strumento di verifica dei requisiti di distribuzione di Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) dopo aver installato il sistema operativo per confermare che l'hardware soddisfi tutti i requisiti.
+> È possibile usare la [dello strumento di controllare i requisiti di distribuzione di Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) dopo aver installato il sistema operativo per verificare che l'hardware soddisfi tutti i requisiti.
 
 ## <a name="download-and-extract-the-deployment-package"></a>Scaricare ed estrarre il pacchetto di distribuzione
-Dopo aver verificato che il computer host di kit sviluppo soddisfi i requisiti di base per l'installazione di ASDK, il passaggio successivo consiste a scaricare ed estrarre il pacchetto di distribuzione ASDK. Il pacchetto di distribuzione include il file Cloudbuilder.vhdx, cioè un disco rigido virtuale che include i file di installazione dello Stack di Azure e un sistema operativo avviabile.
+Dopo aver verificato che il computer host kit di sviluppo soddisfi i requisiti di base per l'installazione di ASDK, il passaggio successivo è per scaricare ed estrarre il pacchetto di distribuzione ASDK. Il pacchetto di distribuzione include il file Cloudbuilder.vhdx, ovvero un disco rigido virtuale che include un sistema operativo avviabile e i file di installazione di Azure Stack.
 
-È possibile scaricare il pacchetto di distribuzione per l'host del kit di sviluppo o in un altro computer. I file estratti distribuzione richiedere 60 GB di spazio libero su disco, in modo usando un altro computer consente di ridurre i requisiti hardware per l'host del kit di sviluppo.
+È possibile scaricare il pacchetto di distribuzione per l'host del kit di sviluppo o in un altro computer. I file estratti distribuzione occupano 60 GB di spazio libero su disco, in modo usando un altro computer consente di ridurre i requisiti hardware per l'host del kit di sviluppo.
 
-**[Scaricare ed estrarre il Kit di sviluppo dello Stack di Azure (ASDK)](asdk-download.md)**
+**[Scaricare ed estrarre Azure Stack Development Kit (ASDK)](asdk-download.md)**
 
 ## <a name="prepare-the-development-kit-host-computer"></a>Preparare il computer host kit di sviluppo
-Prima di installare il ASDK nel computer host, è necessario preparare l'ambiente e il sistema è configurato per l'avvio da disco rigido virtuale. Dopo questo passaggio, verrà avviato l'host di kit sviluppo Cloudbuilder.vhdx (un disco rigido virtuale che include un sistema operativo avviabile e i file di installazione dello Stack di Azure).
+Prima di installare il ASDK nel computer host, è necessario preparare l'ambiente e il sistema è configurato per l'avvio dal disco rigido virtuale. Dopo questo passaggio, verrà avviato l'host del kit di sviluppo Cloudbuilder.vhdx (un disco rigido virtuale che include un sistema operativo avviabile e i file di installazione di Azure Stack).
 
-Utilizzare PowerShell per configurare il computer host ASDK per l'avvio da CloudBuilder.vhdx. Questi comandi configurano il computer host ASDK per l'avvio dallo scaricati ed estratti Stack Azure virtual harddisk (CloudBuilder.vhdx). Dopo aver completato questi passaggi, riavviare il computer host ASDK.
+Usare PowerShell per configurare il computer host ASDK per l'avvio da CloudBuilder.vhdx. Questi comandi configurano il computer host ASDK per l'avvio dallo scaricato ed estratto Azure Stack virtuale disco rigido (CloudBuilder.vhdx). Dopo aver completato questi passaggi, riavviare il computer host ASDK.
 
-Per configurare il computer host ASDK per l'avvio da CloudBuilder.vhdx:
+Per configurare il computer host per l'avvio da CloudBuilder.vhdx ASDK:
 
   1. Avviare un prompt dei comandi come amministratore.
   2. Eseguire `bcdedit /copy {current} /d "Azure Stack"`
-  3. Copia (CTRL + C), il valore CLSID restituito, tra cui la {}' s. Questo valore è detto {CLSID} e dovrà essere incollato nel (CTRL + V o destro) negli altri passaggi.
+  3. Copia (CTRL + C), il valore CLSID restituito, tra cui richiesti {}' s. Questo valore è detta {CLSID} e dovrà essere incollato in (CTRL + V oppure pulsante destro del mouse) nei passaggi successivi.
   4. Eseguire `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` 
   5. Eseguire `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` 
   6. Eseguire `bcdedit /set {CLSID} detecthal on` 
   7. Eseguire `bcdedit /default {CLSID}`
   8. Per verificare le impostazioni di avvio, eseguire `bcdedit`. 
-  9. Verificare che il CloudBuilder.vhdx file è stato spostato nella radice dell'unità C:\ (C:\CloudBuilder.vhdx) e riavviare il computer host kit di sviluppo. Quando viene riavviato il computer host ASDK, deve avvio dal disco rigido CloudBuilder.vhdx macchina virtuale per iniziare la distribuzione ASDK. 
+  9. Verificare che il CloudBuilder.vhdx file è stato spostato nella radice dell'unità C:\ (C:\CloudBuilder.vhdx) e riavviare il computer host kit di sviluppo. Quando viene riavviato il computer host ASDK, deve avvio dall'unità disco rigido CloudBuilder.vhdx macchina virtuale per iniziare la distribuzione ASDK. 
 
 > [!IMPORTANT]
-> Assicurarsi di aver fisica diretta o l'accesso KVM al computer host kit di sviluppo prima di riavviarlo. Al primo avvio della macchina virtuale, viene richiesto di completare l'installazione di Windows Server. Fornire le stesse credenziali di amministratore che è utilizzato per accedere al computer host kit di sviluppo. 
+> Assicurarsi di avere accesso KVM al computer host kit di sviluppo o fisica diretta prima del riavvio. Al primo avvio della macchina virtuale, viene richiesto di completare l'installazione di Windows Server. Fornire le stesse credenziali di amministratore usato per accedere al computer host kit di sviluppo. 
 
-### <a name="prepare-the-development-kit-host-using-powershell"></a>Preparare l'host del kit di sviluppo con PowerShell 
-Dopo il kit di sviluppo computer host ha avviato correttamente nell'immagine CloudBuilder.vhdx, accedere con le stesse credenziali di amministratore locale utilizzato per accedere al computer host kit di sviluppo (e fornito come parte della finalizzazione del Server di Windows Programma di installazione quando il computer host avviata dal disco rigido virtuale). 
+### <a name="prepare-the-development-kit-host-using-powershell"></a>Preparare l'host del kit di sviluppo usando PowerShell 
+Dopo il kit di sviluppo computer host si avvia correttamente nell'immagine CloudBuilder.vhdx, accedere con le stesse credenziali di amministratore locale usato per accedere al computer host kit di sviluppo (e specificato come parte della finalizzazione del Server di Windows Programma di installazione quando il computer host avviato dal disco rigido virtuale). 
 
 > [!NOTE]
-> Facoltativamente, è inoltre possibile configurare [le impostazioni di telemetria di Azure Stack](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *prima di* il ASDK l'installazione.
+> Facoltativamente, è anche possibile configurare [le impostazioni di telemetria di Azure Stack](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *prima di* installando il ASDK.
 
 Aprire una console di PowerShell con privilegi elevata ed eseguire i comandi in questa sezione per distribuire il ASDK nell'host di kit di sviluppo.
 
 > [!IMPORTANT] 
 > Installazione ASDK supporta esattamente una scheda di interfaccia di rete (NIC) per la rete. Se si dispone di più schede di rete, assicurarsi che solo uno è attivato (e tutti gli altri sono disabilitati) prima di eseguire lo script di distribuzione.
 
-È possibile distribuire Azure Stack con Azure Active Directory o ADFS di Windows Server come provider di identità. Stack di Azure, i provider di risorse e altre applicazioni funzionano con entrambe.
+È possibile distribuire Azure Stack con Azure AD o Windows Server AD FS come provider di identità. Azure Stack, i provider di risorse e altre applicazioni funzionano allo stesso modo con entrambe.
 
 > [!TIP]
-> Se non si specifica alcun parametro di installazione (vedere parametri facoltativi InstallAzureStackPOC.ps1 ed esempi riportati di seguito), viene richiesto per i parametri obbligatori.
+> Se si non specificano i parametri di installazione (vedere esempi riportati di seguito e i parametri facoltativi InstallAzureStackPOC.ps1), richiesto per i parametri obbligatori.
 
-### <a name="deploy-azure-stack-using-azure-ad"></a>Distribuire Azure Stack mediante Azure AD 
-Per distribuire Azure Stack **mediante Azure AD come provider di identità**, è necessario disporre della connettività internet, direttamente o tramite un proxy trasparente. 
+### <a name="deploy-azure-stack-using-azure-ad"></a>Distribuire Azure Stack tramite Azure AD 
+Per distribuire Azure Stack **usando Azure AD come provider di identità**, è necessario disporre della connettività internet, direttamente o tramite un proxy trasparente. 
 
-Eseguire i seguenti comandi di PowerShell per distribuire il kit di sviluppo mediante Azure AD:
+Eseguire i comandi di PowerShell seguenti per distribuire il kit di sviluppo tramite Azure AD:
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -90,10 +90,12 @@ Eseguire i seguenti comandi di PowerShell per distribuire il kit di sviluppo med
   .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password
   ```
 
-Alcuni minuti in installazione ASDK che verrà richiesto per le credenziali di Azure AD. È necessario fornire credenziali di amministratore globale per il tenant di Azure AD. 
+Alcuni minuti in installazione ASDK che verrà richiesto per le credenziali di Azure AD. È necessario fornire le credenziali di amministratore globale per il tenant di Azure AD. 
 
-### <a name="deploy-azure-stack-using-ad-fs"></a>Distribuire Azure Stack con ADFS 
-Per distribuire il kit di sviluppo **con ADFS come provider di identità**, eseguire i comandi di PowerShell seguenti (è sufficiente aggiungere il parametro - UseADFS): 
+Dopo la distribuzione, l'autorizzazione di amministratore globale di Azure Active Directory non è necessaria. Tuttavia, alcune operazioni potrebbero richiedere le credenziali di amministratore globale. Ad esempio, uno script di programma di installazione di provider di risorse o una nuova funzionalità che richiedono un'autorizzazione da concedere. È possibile temporaneamente riattivare le autorizzazioni di amministratore globale dell'account o utilizzare un account di amministratore globale separata che è un proprietario del *predefinita sottoscrizione provider*.
+
+### <a name="deploy-azure-stack-using-ad-fs"></a>Distribuire Azure Stack tramite AD FS 
+Per distribuire il kit di sviluppo **tramite AD FS come provider di identità**, eseguire i comandi PowerShell seguenti (è sufficiente aggiungere il parametro - UseADFS): 
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -101,18 +103,18 @@ Per distribuire il kit di sviluppo **con ADFS come provider di identità**, eseg
   .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -UseADFS
   ```
 
-Nelle distribuzioni di AD FS, l'indicatore di valore predefinito del servizio di Directory viene usato come provider di identità. L'account predefinito per l'accesso è azurestackadmin@azurestack.local, e la password verrà impostata su fornite come parte dei comandi di installazione di PowerShell.
+Nelle distribuzioni di AD FS, l'indicatore predefinita del servizio di Directory viene usato come provider di identità. L'account predefinito per l'accesso è azurestackadmin@azurestack.local, e la password verrà impostata su ciò che è fornito come parte dei comandi di installazione di PowerShell.
 
-Il processo di distribuzione può richiedere alcune ore, durante il quale il sistema viene riavviato automaticamente una volta. Quando la distribuzione ha esito positivo, nella console di PowerShell vengono visualizzati: **completa: azione "Distribuzione"**. Se la distribuzione non riesce, è possibile provare a eseguire di nuovo lo script usando eseguire nuovamente il parametro-. In alternativa, è possibile [ridistribuire ASDK](asdk-redeploy.md) da zero.
+Il processo di distribuzione può richiedere alcune ore, durante i quali il sistema si riavvia automaticamente una volta. Quando la distribuzione ha esito positivo, nella console di PowerShell vengono visualizzati: **completa: azione 'Deployment'**. Se la distribuzione non riesce, è possibile provare a eseguire di nuovo lo script usando eseguire nuovamente il parametro-. In alternativa, è possibile [ridistribuire ASDK](asdk-redeploy.md) da zero.
 
 > [!IMPORTANT]
-> Se si desidera monitorare lo stato di distribuzione dopo il riavvio dell'host ASDK, è necessario accedere come AzureStack\AzureStackAdmin. Se si accede come amministratore locale dopo che il computer host viene riavviato (e aggiunti al dominio azurestack.local), non verrà visualizzata l'avanzamento della distribuzione. Non rieseguire la distribuzione, invece Accedi come azurestack verificare che sia in esecuzione.
+> Se si desidera monitorare l'avanzamento della distribuzione dopo il riavvio dell'host ASDK, è necessario accedere come AzureStack\AzureStackAdmin. Se si accede come amministratore locale dopo che il computer host viene riavviato (e aggiunti al dominio con azurestack. Local), non verrà visualizzata l'avanzamento della distribuzione. Non rieseguire la distribuzione, invece accedere come azurestack per convalidare che venga eseguito.
 
 
 #### <a name="azure-ad-deployment-script-examples"></a>Esempi di script di distribuzione AD Azure
-È possibile generare script l'intera distribuzione di Azure AD. Ecco alcuni esempi di commenti che includono alcuni parametri facoltativi.
+È possibile creare script l'intera distribuzione di Azure AD. Ecco alcuni esempi con commenti che includono alcuni parametri facoltativi.
 
-Se l'identità di Azure AD è associato solo **uno** directory di Azure AD:
+Se l'identità di Azure AD è associata solo con **uno** directory di Azure AD:
 ```powershell
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
@@ -120,7 +122,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>"
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
-Se l'identità di Azure AD è associata a **maggiore di uno** directory di Azure AD:
+Se l'identità di Azure AD è associata **maggiore di uno** directory di Azure AD:
 ```powershell
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
@@ -128,7 +130,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
-Se l'ambiente non dispone di DHCP abilitato, è necessario includere i seguenti parametri aggiuntivi per una delle opzioni sopra (utilizzo di esempio forniti): 
+Nel caso dell'ambiente non DHCP abilitato, è necessario includere i seguenti parametri aggiuntivi per una delle opzioni sopra (utilizzo di esempio fornito): 
 
 ```powershell
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
@@ -137,35 +139,35 @@ Se l'ambiente non dispone di DHCP abilitato, è necessario includere i seguenti 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Parametri facoltativi ASDK InstallAzureStackPOC.ps1
 |Parametro|Obbligatorio/Facoltativo|DESCRIZIONE|
 |-----|-----|-----|
-|AdminPassword|Obbligatoria|Imposta l'account amministratore locale e tutti gli altri account utente in tutte le macchine virtuali create come parte della distribuzione kit di sviluppo. Questa password deve corrispondere alla password di amministratore locale corrente nell'host.|
-|InfraAzureDirectoryTenantName|Obbligatoria|Imposta la directory del tenant. Utilizzare questo parametro per specificare una directory specifica in cui l'account AAD disponga delle autorizzazioni per la gestione di più directory. Nome di un Tenant di Directory nel formato completo. c o m o Azure Active Directory il nome di dominio personalizzato verificato.|
-|TimeServer|Obbligatoria|Utilizzare questo parametro per specificare un server di tempo specifico. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.|
-|InfraAzureDirectoryTenantAdminCredential|Facoltativo|Imposta il nome utente di Azure Active Directory e la password. Le credenziali di Azure devono essere ID. Org|
-|InfraAzureEnvironment|Facoltativo|Selezionare l'ambiente di Azure con cui si desidera registrare la distribuzione di Azure Stack. Le opzioni includono pubblica Azure, Azure - Cina, Azure - governo.|
-|DNSForwarder|Facoltativo|Un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per la risoluzione dei nomi di fuori l'indicatore, fornire i server di infrastruttura DNS esistente. Il server DNS in timbro inoltra le richieste di risoluzione nome sconosciuto al server.|
-|NatIPv4Address|Richiesta per il supporto DHCP NAT|Imposta un indirizzo IP statico per definiti BGPNAT01. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
-|NatIPv4Subnet|Richiesta per il supporto DHCP NAT|Prefisso di Subnet IP utilizzato per DHCP sul supporto NAT. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
-|PublicVlanId|Facoltativo|Imposta l'ID VLAN. Utilizzare questo parametro solo se l'host e definiti BGPNAT01 necessario configurare l'ID VLAN per accedere alla rete fisica (e Internet). Ad esempio,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Esegui di nuovo|Facoltativo|Utilizzare questo flag per rieseguire la distribuzione. Tutti gli input precedenti viene utilizzato. Dati reimmettere forniti in precedenza non sono supportati perché più valori univoci vengono generati e utilizzati per la distribuzione.|
+|AdminPassword|Obbligatorio|Imposta l'account amministratore locale e tutti gli altri account utente in tutte le macchine virtuali create come parte della distribuzione kit di sviluppo. Questa password deve corrispondere alla password di amministratore locale corrente nell'host.|
+|InfraAzureDirectoryTenantName|Obbligatorio|Imposta la directory del tenant. Usare questo parametro per specificare una directory specifica in cui l'account AAD ha le autorizzazioni per gestire più directory. Il nome di un Tenant di Directory di AAD nel formato completo. onmicrosoft.com oppure ad Azure AD verificato il nome del dominio personalizzato.|
+|TimeServer|Obbligatorio|Usare questo parametro per specificare un server specifico. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.|
+|InfraAzureDirectoryTenantAdminCredential|Facoltativo|Imposta il nome utente di Azure Active Directory e la password. Queste credenziali di Azure devono essere un ID. Org|
+|InfraAzureEnvironment|Facoltativo|Selezionare l'ambiente di Azure con cui si vuole registrare la distribuzione di Azure Stack. Le opzioni includono Azure pubblico, Azure - Cina, Azure - governo degli Stati Uniti.|
+|DNSForwarder|Facoltativo|Un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per risolvere i nomi all'esterno di timbro, forniscono server di infrastruttura DNS esistente. Il server DNS nel timbro inoltra le richieste di risoluzione nome sconosciuto a questo server.|
+|NatIPv4Address|Necessari per il supporto di DHCP NAT|Imposta un indirizzo IP statico per MAS-BGPNAT01. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
+|NatIPv4Subnet|Necessari per il supporto di DHCP NAT|Prefisso di Subnet IP usato per DHCP sul supporto NAT. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
+|PublicVlanId|Facoltativo|Imposta l'ID VLAN. Usare questo parametro solo se l'host e MAS-BGPNAT01 deve configurare l'ID VLAN per l'accesso di rete fisica (e Internet). Ad esempio,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
+|Esegui di nuovo|Facoltativo|Usare questo flag per rieseguire la distribuzione. Tutti gli input precedenti viene utilizzato. Dover immettere di nuovo i dati forniti in precedenza non sono supportati perché alcuni valori univoci vengono generati e utilizzati per la distribuzione.|
 
 
-## <a name="perform-post-deployment-configurations"></a>Esegui le configurazioni post-distribuzione
-Dopo aver installato il ASDK, esistono alcuni controlli consigliati di post-installazione e le modifiche di configurazione che devono essere rese. È possibile convalidare l'installazione è stato installato correttamente usando il cmdlet test-AzureStack e installare gli strumenti di Azure PowerShell dello Stack e GitHub. 
+## <a name="perform-post-deployment-configurations"></a>Eseguire le configurazioni di post-distribuzione
+Dopo aver installato il ASDK, esistono alcuni controlli di post-installazione consigliati e modifiche di configurazione che devono essere resi. È possibile convalidare l'installazione è stato installato correttamente usando il cmdlet test-AzureStack e installare gli strumenti PowerShell per Azure Stack e GitHub. 
 
-È inoltre necessario reimpostare i criteri di scadenza delle password per assicurarsi che la password per l'host di kit sviluppo senza scadenza prima la fine del periodo di valutazione.
+È anche necessario reimpostare i criteri di scadenza delle password per assicurarsi che la password per l'host del kit di sviluppo non scada prima della scadenza periodo della valutazione.
 
 > [!NOTE]
-> Facoltativamente, è inoltre possibile configurare [le impostazioni di telemetria di Azure Stack](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment) *dopo* il ASDK l'installazione.
+> Facoltativamente, è anche possibile configurare [le impostazioni di telemetria di Azure Stack](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment) *dopo* installando il ASDK.
 
 **[Registra le attività di distribuzione ASDK](asdk-post-deploy.md)**
 
-## <a name="register-with-azure"></a>Registrare con Azure
-È necessario registrare dello Stack di Azure con Azure in modo da poter [scaricare gli elementi di Azure marketplace](asdk-marketplace-item.md) allo Stack di Azure.
+## <a name="register-with-azure"></a>Registrazione in Azure
+È necessario registrare Azure Stack con Azure in modo da poter [download di Azure marketplace elementi](asdk-marketplace-item.md) ad Azure Stack.
 
-**[Registro dello Stack di Azure con Azure](asdk-register.md)**
+**[Registrare Azure Stack con Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni! Dopo aver completato questi passaggi, sarà necessario un ambiente di kit sviluppo con entrambi [amministratore](https://adminportal.local.azurestack.external) e [utente](https://portal.local.azurestack.external) portali. 
+Congratulazioni! Dopo aver completato questi passaggi, si otterrà un ambiente del kit di sviluppo con entrambe [administrator](https://adminportal.local.azurestack.external) e [utente](https://portal.local.azurestack.external) portali. 
 
 [Attività post-installazione ASDK configurazione](asdk-post-deploy.md)
 

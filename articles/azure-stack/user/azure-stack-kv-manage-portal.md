@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: 91035f84d02810d838127ecf6a2f6424ef5df6cf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139519"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713936"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gestire Key Vault in Azure Stack tramite il portale
 
@@ -33,7 +33,7 @@ ms.locfileid: "42139519"
 
 1. Accedi per il [portale per gli utenti](https://portal.local.azurestack.external).
 
-2. Dal dashboard, selezionare **New** > **sicurezza e identità** > **Key Vault**.
+2. Dal dashboard, selezionare **+ crea una risorsa** > **sicurezza e identità** > **Key Vault**.
 
     ![Schermata di Key Vault](media/azure-stack-kv-manage-portal/image1.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "42139519"
 
 4. Scegliere una **sottoscrizione** dall'elenco delle sottoscrizioni disponibili. Nell'elenco a discesa vengono visualizzate tutte le sottoscrizioni che offrono il servizio Key Vault.
 
-5. Selezionare un oggetto esistente **gruppo di risorse** o crearne uno nuovo.
+5. Selezionare un gruppo esistente in **Gruppo di risorse** oppure creare un nuovo gruppo.
 
 6. Selezionare il **tariffario**.
     >[!NOTE]

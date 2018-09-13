@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: thoroet
-ms.openlocfilehash: 02602243bcb4e426ebf4984e387da8e8c148232e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 0899b1784c796e5f6265dda842ca8955615a1584
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139567"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718100"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Aggiungere nodi di unità di scalabilità aggiuntiva in Azure Stack
 
@@ -64,7 +64,7 @@ I passaggi seguenti sono una panoramica generale di come aggiungere un nodo. Non
 ### <a name="use-the-admin-portal"></a>Usare il portale di amministrazione
 
 1. Accedere al portale di amministrazione di Azure Stack come un operatore di Azure Stack.
-2. Passare a **nuove** > **capacità** > **scalare unità nodo**.
+2. Passare a **+ crea una risorsa** > **capacità** > **nodo di unità di scala**.
    ![Nodo di unità di scala](media/azure-stack-add-scale-node/select-node1.png)
 3. Nel **Aggiungi nodo** riquadro, selezionare la *area*e quindi selezionare il *unità di scala* che si desidera aggiungere il nodo a. Specificare anche il *indirizzo IP BMC* per il nodo di unità di scala si sta aggiungendo. È possibile aggiungere solo un nodo alla volta.
    ![Aggiungere i dettagli del nodo](media/azure-stack-add-scale-node/select-node2.png)

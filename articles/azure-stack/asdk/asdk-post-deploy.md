@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24f237a04d19d03ab7357db6fb9c7ab60036f3d2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4eadbe38eede505a3339d4b6090d0a34c12a5fc2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390994"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721960"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Attività post-installazione ASDK configurazione
 
@@ -162,6 +162,11 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ![Console Gestione criteri di gruppo](media/asdk-post-deploy/gpmc.png)
 
+## <a name="enable-multi-tenancy"></a>Abilitare il multi-tenancy
+Per le distribuzioni usando Azure AD, è necessario [abilitare multi-tenancy](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) per l'installazione ASDK.
+
+> [!NOTE]
+> Quando gli account utente o amministratore da domini diversi da quello usato per registrare Azure Stack vengono usati per accedere a un portale di Azure Stack, il nome di dominio usato per registrare Azure Stack deve essere aggiunto al portale di url. Ad esempio, se Azure Stack è stato registrato con fabrikam.onmicrosoft.com e l'account utente di accesso viene admin@contoso.com, l'url da usare per accedere al portale per gli utenti sarà: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Registrare il ASDK con Azure](asdk-register.md)

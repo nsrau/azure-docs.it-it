@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: e61b4457cd88c236145ce7595ee7db4340538465
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 0a10662e359379356ecc8d82af1b7d6331c41a65
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331140"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720056"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multi-tenancy in Azure Stack
 
@@ -101,6 +101,18 @@ Register-AzSWithMyDirectoryTenant `
 > Se l'amministratore di Azure Stack consente di installare nuovi servizi o aggiornamenti in futuro, si potrebbe essere necessario eseguire nuovamente lo script.
 >
 > Eseguire questo script in qualsiasi momento per verificare lo stato delle applicazioni nella directory di Azure Stack.
+
+
+### <a name="activate-the-administrator-and-tenant-portals"></a>Attivare i portali tenant e di amministratore
+Dopo le distribuzioni che usano Azure AD, è necessario attivare entrambi i portali a amministratore e del tenant di Azure Stack. Questa attivazione dà il consenso a fornendo il portale di Azure Stack e Azure Resource Manager le autorizzazioni corrette (elencate nella pagina di consenso) per tutti gli utenti della directory.
+
+- Per il portale dell'amministratore, passare a https://adminportal.local.azurestack.external/guest/signup, leggere le informazioni e quindi fare clic su Accetta. Dopo aver accettato, è possibile aggiungere gli amministratori del servizio che non sono anche amministratori di tenant di directory.
+- Per il portale tenant, passare a https://portal.local.azurestack.external/guest/signup, leggere le informazioni e quindi fare clic su Accetta. Dopo aver accettato, gli utenti della directory possono accedere al portale tenant. 
+ 
+> [!NOTE] 
+> Se non sono attivati i portali, solo l'amministratore di directory possa accedere e usare i portali. Se un altro utente esegue l'accesso, si verrà visualizzato un errore che informa che l'amministratore non dispone di autorizzazioni ad altri utenti. Quando l'amministratore in modo nativo non appartengono alla directory di in che Azure Stack è registrato, la directory di Azure Stack deve essere aggiunto all'URL di attivazione. Ad esempio, se Azure Stack è registrato con fabrikam.onmicrosoft.com e l'utente amministratore viene admin@contoso.com, passare a https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com per attivare il portale.
+
+
 
 ### <a name="direct-users-to-sign-in"></a>Indirizzare gli utenti per l'accesso
 

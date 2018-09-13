@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e36e470c3516c55089ce1e44540b6b1eacbb6b2
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139736"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718730"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
@@ -226,7 +226,7 @@ Si *necessario* dispone di una sottoscrizione di tenant per creare applicazioni 
 >
 A partire da technical preview terzo, per creare web, API e Azure funzioni delle App, è necessario usare il portale tenant e avere una sottoscrizione tenant.
 
-1. Nel portale tenant di Azure Stack, fare clic su **New** > **Web e dispositivi mobili** > **App Web**.
+1. Nel portale tenant di Azure Stack, fare clic su **+ crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 
 2. Nel **App Web** digitare un nome nel pannello il **app Web** casella.
 

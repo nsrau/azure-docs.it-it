@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d4322e5a7f9d587049e9225c3adde08d04325afc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8de34e4ac01dea9cf4a0c718883e8cc828be6403
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024305"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714618"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack
 
@@ -40,7 +40,7 @@ L'elenco seguente descrive i requisiti dei certificati necessari per distribuire
 - Ruotare i certificati, i certificati devono essere che entrambi emesso dall'autorità di certificazione interna stesso utilizzato per firmare i certificati specificati alla distribuzione o qualsiasi autorità di certificazione pubblica in precedenza
 - L'uso di certificati autofirmati non sono supportati
 - Per la distribuzione e la rotazione è possibile utilizzare un solo certificato che coprono tutti spazi dei nomi nei campi nome soggetto e nome alternativo soggetto (SAN) del certificato oppure è possibile usare singoli certificati per ogni spazio dei nomi seguente che Azure Stack si prevede di utilizzare i servizi richiedono. Nota: entrambi gli approcci richiedono l'uso di caratteri jolly per gli endpoint in cui sono necessarie, ad esempio **KeyVault** e **KeyVaultInternal**. 
-- L'algoritmo di firma del certificato non può essere SHA1, che deve essere più avanzato. 
+- L'algoritmo di firma del certificato deve essere 3DES. L'algoritmo non può essere SHA1, che deve essere più avanzato. 
 - Il formato del certificato deve essere PFX, perché entrambe le chiavi pubbliche e private sono necessarie per l'installazione di Azure Stack. 
 - Il file pfx del certificato devono avere un valore "Firma digitale" e "KeyEncipherment" nel campo relativo al "Key Usage".
 - Il file pfx del certificato devono avere i valori "Autenticazione Server (1.3.6.1.5.5.7.3.1)" e "Autenticazione Client (1.3.6.1.5.5.7.3.2)" nel campo "Enhanced Key Usage".

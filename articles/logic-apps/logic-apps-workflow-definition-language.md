@@ -17,9 +17,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 08/18/2018
 ms.locfileid: "42141396"
 ---
-# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Informazioni di riferimento sullo schema per il linguaggio di definizione del flusso di lavoro in App per la logica di Azure
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Schema del linguaggio di definizione del flusso di lavoro in App per la logica di Azure - Informazioni di riferimento
 
-Quando si crea un flusso di lavoro di app per la logica con [App per la logica di Azure](../logic-apps/logic-apps-overview.md), la definizione alla base del flusso di lavoro descrive la logica effettiva eseguita per l'app per la logica. Questa descrizione segue una struttura definita e convalidata dallo schema del linguaggio di definizione del flusso di lavoro che usa [JSON (JavaScript Object Notation)](https://www.json.org/). 
+Quando si crea un flusso di lavoro di app per la logica utilizzando [App per la logica di Azure](../logic-apps/logic-apps-overview.md), la definizione alla base del flusso di lavoro descrive la logica effettiva eseguita per l'app per la logica. Questa descrizione segue una struttura definita e convalidata dallo schema del linguaggio di definizione del flusso di lavoro che usa [JSON (JavaScript Object Notation)](https://www.json.org/). 
   
 ## <a name="workflow-definition-structure"></a>Struttura della definizione del flusso di lavoro
 

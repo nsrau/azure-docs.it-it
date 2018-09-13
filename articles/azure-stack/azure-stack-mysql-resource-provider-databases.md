@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 77dca29b0c60726f0a072dd662aba0d12730502a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 650fead700afcc1f6d1d18c7356324074fb9365b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413689"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716452"
 ---
 # <a name="create-mysql-databases"></a>Creare i database MySQL
 
@@ -28,7 +28,7 @@ ms.locfileid: "39413689"
 ## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Testare la distribuzione tramite la creazione di un database MySQL
 
 1. Accedere al portale utenti di Azure Stack.
-2. Selezionare **+ nuovo** > **Data + Storage** > **Database MySQL** > **aggiungere**.
+2. Selezionare **+ crea una risorsa** > **Data + Storage** > **MySQL Database** > **Add**.
 3. Sotto **Create MySQL Database**, immettere il nome del Database e configurare altre impostazioni come richiesto per l'ambiente.
 
     ![Creare un test di database MySQL](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
