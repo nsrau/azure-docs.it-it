@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698384"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391760"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorare le soluzioni Batch conteggiando attività e nodi in base allo stato
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 Per ottenere i conteggi delle attività per un processo, è possibile usare un criterio simile per REST e per altri linguaggi supportati. 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>Conteggi per un numero elevato di attività
-
-L'operazione di recupero dei conteggi delle attività restituisce i conteggi degli stati di attività nel sistema in un punto nel tempo. Quando il processo ha un numero elevato di attività, i conteggi restituiti dal recupero dei conteggi delle attività possono rallentare gli stati di attività effettivi di alcuni secondi. Batch garantisce la coerenza finale tra i risultati di recupero dei conteggi delle attività e gli stati di attività reali (di cui è possibile eseguire una query tramite l'API di elenco delle attività). Tuttavia, se il processo ha un numero molto elevato di attività (> 200.000), è consigliabile invece usare l'API di elenco delle attività e una [query filtrata](batch-efficient-list-queries.md) che fornisce informazioni più aggiornate. 
-
-Le versioni di API del servizio di batch precedenti al 01-08-2018.7.0 restituiscono anche una proprietà `validationStatus` nella risposta di recupero dei conteggi delle attività. Questa proprietà indica se Batch ha controllato i conteggi per la coerenza con gli stati segnalati nell'API di elenco delle attività. Un valore di `validated` indica solo che Batch ha controllato la coerenza almeno una volta per il processo. Il valore della proprietà `validationStatus` non indica se i conteggi restituiti dal recupero dei conteggi delle attività sono attualmente aggiornati.
+> [!NOTE]
+> Le versioni di API del servizio di batch precedenti al 01-08-2018.7.0 restituiscono anche una proprietà `validationStatus` nella risposta di recupero dei conteggi delle attività. Questa proprietà indica se Batch ha controllato i conteggi per la coerenza con gli stati segnalati nell'API di elenco delle attività. Un valore di `validated` indica solo che Batch ha controllato la coerenza almeno una volta per il processo. Il valore della proprietà `validationStatus` non indica se i conteggi restituiti dal recupero dei conteggi delle attività sono attualmente aggiornati.
+>
 
 ## <a name="node-state-counts"></a>Conteggi dei nodi in base allo stato
 
