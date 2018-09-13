@@ -273,12 +273,12 @@ La funzione di Azure è stata inoltre progettata per leggere e proteggere i dati
 
 **2. Ricovero di nuovi pazienti**
 
-Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a** distribuzione ed esecuzione della demo**, vengono eseguite le pipeline di elaborazione seguenti: ![](images/securetransact.png)
+Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a **distribuzione ed esecuzione della demo**, vengono eseguite le pipeline di elaborazione seguenti: ![](images/securetransact.png)
 **1. Funzione di Azure** attivata e la funzione richiede un [token di connessione](/rest/api/) da Azure Active Directory.
 
 **2. Key Vault** richiesto per un segreto associato al token richiesto.
 
-**3. I ruoli di Azure convalidano la richiesta e autorizzano la richiesta di accesso a Key Vault.
+\*\*3. I ruoli di Azure convalidano la richiesta e autorizzano la richiesta di accesso a Key Vault.
 
 **4. Key Vault** restituisce il segreto, in questo caso la stringa di connessione al database SQL.
 
