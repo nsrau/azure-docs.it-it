@@ -1,0 +1,64 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 85613f24d7bfed03a94733509aa5cb91e59f4333
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624457"
+documentType: LandingData
+title: Documentazione di Ricerca personalizzata Bing
+metadata:
+  title: Documentazione di Ricerca personalizzata Bing - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  description: Informazioni su come usare il portale di Ricerca personalizzata Bing per creare istanze di ricerca personalizzata
+  services: cognitive-services
+  author: v-deken
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2018
+  ms.author: v-deken
+abstract:
+  description: Informazioni su come usare Ricerca personalizzata Bing per creare esperienze di ricerca personalizzata per gli argomenti a cui si è interessati. Se ad esempio si è proprietari di un sito Web di biciclette che offre un'esperienza di ricerca, è possibile specificare i domini, i siti secondari e le pagine Web cercati da Bing. Le guide introduttive, le esercitazioni e le informazioni di riferimento sulle API illustrano come fare.
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Eseguire ricerche nella visualizzazione personalizzata del Web tramite:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/logo_Csharp.svg
+      href: call-endpoint-csharp
+      text: C&#35;
+    - image:
+        src: media/logo_java.svg
+      href: call-endpoint-java
+      text: Java
+    - image:
+        src: media/logo_nodejs.svg
+      href: call-endpoint-nodejs
+      text: Node.js
+    - image:
+        src: media/logo_python.svg
+      href: call-endpoint-python
+      text: Python
+- title: Esercitazione dettagliata
+  items:
+  - type: paragraph
+    text: "Informazioni su come sviluppare applicazioni con l'API Ricerca personalizzata Bing:"
+  - type: paragraph
+    text: <a href="tutorials/custom-search-web-page">Compilare una pagina Web di Ricerca personalizzata</a>
+- title: riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">API Ricerca personalizzata Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">API Suggerimenti automatici Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">API Ricerca immagini personalizzata Bing v7</a></p>
+    - title: SDK
+      html: <p><a href="sdk.md">Bing Search SDK</a></p>

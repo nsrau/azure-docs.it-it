@@ -36,45 +36,9 @@ items:
     href: concepts-connectivity.md
 - name: Guide alle procedure
   items:
-  - name: Amministratore
-    items:
-    - name: Creare e gestire un'applicazione come CSP
-      href: howto-create-and-manage-applications-as-CSP.md
-    - name: Amministrare l'applicazione
-      href: howto-administer.md
-    - name: Esportare i dati personali
-      href: howto-export-data.md
-    - name: Visualizzare dati in Power BI
-      href: howto-connect-powerbi.md
-  - name: Generatore
-    items:
-    - name: Configurare il modello del dispositivo
-      href: howto-set-up-template.md
-    - name: Creare una versione del modello del dispositivo
-      href: howto-version-devicetemplate.md
-    - name: Creare una regola di telemetria
-      href: howto-create-telemetry-rules.md
-    - name: Creare una regola eventi
-      href: howto-create-event-rules.md
-    - name: Creare azioni webhook per le regole
-      href: howto-create-webhooks.md
-    - name: Creare flussi di lavoro in Microsoft Flow
-      href: howto-add-microsoft-flow.md
-    - name: Attivare Funzioni di Azure
-      href: howto-trigger-azure-functions.md
-    - name: Configurare la home page
-      href: howto-configure-homepage.md
-    - name: Preparare e caricare immagini
-      href: howto-prepare-images.md
-  - name: Operatore
-    items:
-    - name: Gestire i dispositivi
-      href: howto-manage-devices.md
-    - name: Usare i set di dispositivi
-      href: howto-use-device-sets.md
-    - name: Creare analisi personalizzate
-      href: howto-create-analytics.md
-  - name: Sviluppatore di dispositivi
+  - name: Creare un'applicazione
+    href: howto-create-application.md
+  - name: Connettere dispositivi
     items:
     - name: Preparare e connettere un'applicazione Node.js (generica)
       href: howto-connect-nodejs.md
@@ -86,6 +50,46 @@ items:
       href: howto-connect-raspberry-pi-csharp.md
     - name: Preparare e connettere un dispositivo Windows IoT Core
       href: howto-connect-windowsiotcore.md
+  - name: Gestire i dispositivi
+    items:
+    - name: Configurare un modello di dispositivo
+      href: howto-set-up-template.md
+    - name: Gestire i dispositivi
+      href: howto-manage-devices.md
+    - name: Usare i set di dispositivi
+      href: howto-use-device-sets.md
+    - name: Creare una versione del modello del dispositivo
+      href: howto-version-devicetemplate.md
+  - name: Monitoraggio e analisi
+    items:
+    - name: Creare una regola di telemetria
+      href: howto-create-telemetry-rules.md
+    - name: Creare una regola eventi
+      href: howto-create-event-rules.md
+    - name: Creare analisi personalizzate
+      href: howto-create-analytics.md
+  - name: Azioni ed estendibilità
+    items:
+    - name: Creare azioni webhook per le regole
+      href: howto-create-webhooks.md
+    - name: Creare flussi di lavoro in Microsoft Flow
+      href: howto-add-microsoft-flow.md
+    - name: Attivare Funzioni di Azure
+      href: howto-trigger-azure-functions.md
+    - name: Esportare i dati personali
+      href: howto-export-data.md
+    - name: Visualizzare dati in Power BI
+      href: howto-connect-powerbi.md
+  - name: Amministrazione
+    items:
+    - name: Amministrare l'applicazione
+      href: howto-administer.md
+    - name: Creare e gestire un'applicazione come CSP
+      href: howto-create-and-manage-applications-as-CSP.md
+    - name: Configurare la home page
+      href: howto-configure-homepage.md
+    - name: Preparare e caricare immagini
+      href: howto-prepare-images.md
 - name: Risorse correlate
   items:
   - name: Soluzioni
@@ -118,9 +122,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 83afcefb0e8fa90253e917ba700644b21bb61100
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6cfa705fbcdf7c876dd78fb28210742eb5562e8a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348923"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714599"

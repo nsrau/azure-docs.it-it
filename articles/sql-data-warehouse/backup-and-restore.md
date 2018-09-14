@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/24/2018
+ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: bdcc0510503e48caf70f4f0d91d7602d767ca9ab
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248656"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092479"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
 Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare gli snapshot del data warehouse per ripristinare o copiare il data warehouse in un punto di ripristino precedente dell'area primaria. Usare i backup con ridondanza geografica del data warehouse per eseguire il ripristino in un'altra area geografica. 
@@ -40,19 +40,20 @@ order by run_id desc
 ```
 
 ## <a name="user-defined-restore-points"></a>Punti di ripristino definiti dall'utente
-Questa funzionalità consente di attivare gli snapshot manualmente per creare punti di ripristino del data warehouse prima e dopo modifiche di grandi dimensioni. Questa funzionalità garantisce la coerenza logica dei punti di ripristino, offrendo così altra protezione dei dati in caso di eventuali interruzioni del carico di lavoro o errori dell'utente e ottenere un tempo di ripristino rapido. I punti di ripristino definiti dall'utente sono disponibili per sette giorni e vengono eliminati automaticamente per conto dell'utente. Non è possibile modificare il periodo di conservazione dei punti di ripristino definiti dall'utente. Poiché in qualsiasi momento sono supportati solo 42 punti di ripristino definiti dall'utente, è necessario [eliminarne uno](https://go.microsoft.com/fwlink/?linkid=875299) prima di creare un nuovo punto di ripristino. È possibile attivare gli snapshot per creare punti di ripristino definiti dall'utente tramite [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) o il portale di Azure.
+Questa funzionalità consente di attivare gli snapshot manualmente per creare punti di ripristino del data warehouse prima e dopo modifiche di grandi dimensioni. Questa funzionalità garantisce la coerenza logica dei punti di ripristino, offrendo così altra protezione dei dati in caso di eventuali interruzioni del carico di lavoro o errori dell'utente e ottenere un tempo di ripristino rapido. I punti di ripristino definiti dall'utente sono disponibili per sette giorni e vengono eliminati automaticamente per conto dell'utente. Non è possibile modificare il periodo di conservazione dei punti di ripristino definiti dall'utente. Poiché in qualsiasi momento sono garantiti **42 punti di ripristino definiti dall'utente**, è necessario [eliminarli](https://go.microsoft.com/fwlink/?linkid=875299) prima di creare un nuovo punto di ripristino. È possibile attivare gli snapshot per creare punti di ripristino definiti dall'utente tramite [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) o il portale di Azure.
 
 
 > [!NOTE]
 > Se occorre creare punti di ripristino che durino più di 7 giorni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). È anche possibile creare un punto di ripristino definito dall'utente ed eseguire il ripristino dal punto di ripristino appena creato in un nuovo data warehouse. Dopo avere eseguito il ripristino, il data warehouse diventa disponibile online e può essere messo in pausa per un periodo imprecisato al fine di risparmiare sui costi. Il database messo in pausa comporta costi di archiviazione alla frequenza dell'archiviazione Premium di Azure. Nel momento in cui occorre una copia attiva del data warehouse ripristinato, la ripresa dell'esecuzione del data warehouse richiede solo alcuni minuti.
 >
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Conservazione degli snapshot quando un data warehouse viene sospeso
-Mentre un data warehouse è in pausa, SQL Data Warehouse non crea snapshot e non fa scadere i punti di ripristino. Mentre il data warehouse è in pausa, i punti di ripristino non cambiano. La conservazione dei punti di ripristino è basata sul numero di giorni in cui il data warehouse rimane in linea e non sui giorni di calendario.
-
-Se ad esempio uno snapshot viene avviato il 1° ottobre alle 16.00 e il data warehouse viene messo in pausa il 3 ottobre alle 16.00, l'età dei punti di ripristino è di due giorni. Quando il data warehouse ritorna in linea, i punti di ripristino hanno due giorni. Se il data warehouse torna in linea il 5 ottobre alle 16.00, il punto di ripristino ha due giorni e viene conservato per altri cinque giorni.
-
-Quando il data warehouse ritorna in linea, SQL Data Warehouse riprende a creare nuovi punti di ripristino e li fa scadere quando superano i sette giorni di dati.
+### <a name="restore-point-retention"></a>Conservazione del punto di ripristino
+Di seguito sono disponibili i dettagli relativi ai periodi di conservazione dei punti di ripristino:
+1. SQL Data Warehouse elimina un punto di ripristino quando viene raggiunto il rispettivo limite di 7 giorni per il periodo di conservazione **e** quando sono presenti almeno 42 punti di ripristino totali, inclusi i punti di ripristino definiti dall'utente e automatici
+2. Non vengono creati snapshot quando un data warehouse è in pausa
+3. La durata di un punto di ripristino viene misurata in base ai giorni di calendario assoluti a partire dal momento della creazione del punto di ripristino, inclusi i periodi in cui il data warehouse è in pausa
+4. In qualsiasi momento viene garantito che un data warehouse è in grado di archiviare fino a 42 punti di ripristino definiti dall'utente e 42 punti di ripristino automatici, purché tali punti di ripristino non abbiano raggiunto il limite di 7 giorni per il periodo di conservazione
+5. Se viene creato uno snapshot, il data warehouse rimane in pausa per più di 7 giorni e quindi viene riattivato, è possibile che il punto di ripristino venga conservato fino al raggiungimento di 42 punti di ripristino totali, inclusi i punti di ripristino definiti dall'utente e automatici
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Conservazione degli snapshot quando un data warehouse viene rilasciato
 Quando si elimina un data warehouse, SQL Data Warehouse Crea uno snapshot finale e lo conserva per sette giorni. È possibile ripristinare il data warehouse al punto di ripristino finale creato al momento dell'eliminazione. 

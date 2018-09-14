@@ -6,101 +6,91 @@ items:
   - name: Informazioni sulla Visione artificiale
     href: Home.md
   expanded: true
-- name: Guide introduttive per le API
+- name: Guide introduttive
   items:
-  - name: Summary
-    href: QuickStarts/quickstart-summary.md
-  - name: C#
-    items:
-    - name: Analizzare un'immagine
-      href: QuickStarts/CSharp-analyze.md
-    - name: Generare un'anteprima
-      href: QuickStarts/CSharp-thumb.md
-    - name: Estrarre testo stampato
-      href: QuickStarts/CSharp-print-text.md
-    - name: Estrarre testo scritto a mano
-      href: QuickStarts/CSharp-hand-text.md
-  - name: cURL
+  - name: Uso dell'API REST
     items:
     - name: Analizzare un'immagine remota
-      href: QuickStarts/curl-analyze.md
+      items:
+      - name: cURL
+        href: QuickStarts/curl-analyze.md
+      - name: Go
+        href: QuickStarts/go-analyze.md
+      - name: Java
+        href: QuickStarts/java-analyze.md
+      - name: JavaScript
+        href: QuickStarts/javascript-analyze.md
+      - name: Node.js
+        href: QuickStarts/node-analyze.md
+      - name: PHP
+        href: QuickStarts/php-analyze.md
+      - name: Python
+        href: QuickStarts/python-analyze.md
+      - name: Ruby
+        href: QuickStarts/ruby-analyze.md
     - name: Analizzare un'immagine locale
-      href: QuickStarts/curl-disk.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-analyze.md
+      - name: Python
+        href: QuickStarts/python-disk.md
     - name: Generare un'anteprima
-      href: QuickStarts/curl-thumb.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-thumb.md
+      - name: cURL
+        href: QuickStarts/curl-thumb.md
+      - name: Go
+        href: QuickStarts/go-thumb.md
+      - name: Java
+        href: QuickStarts/java-thumb.md
+      - name: JavaScript
+        href: QuickStarts/javascript-thumb.md
+      - name: Node.js
+        href: QuickStarts/node-thumb.md
+      - name: PHP
+        href: QuickStarts/php-thumb.md
+      - name: Python
+        href: QuickStarts/python-thumb.md
+      - name: Ruby
+        href: QuickStarts/ruby-thumb.md
     - name: Estrarre testo stampato
-      href: QuickStarts/curl-print-text.md
-  - name: Go
-    items:
-    - name: Analizzare un'immagine
-      href: QuickStarts/go-analyze.md
-    - name: Generare un'anteprima
-      href: QuickStarts/go-thumb.md
-    - name: Estrarre testo stampato
-      href: QuickStarts/go-print-text.md
-  - name: Java
-    items:
-    - name: Analizzare un'immagine
-      href: QuickStarts/java-analyze.md
-    - name: Generare un'anteprima
-      href: QuickStarts/java-thumb.md
-    - name: Estrarre testo stampato
-      href: QuickStarts/java-print-text.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-print-text.md
+      - name: cURL
+        href: QuickStarts/curl-print-text.md
+      - name: Go
+        href: QuickStarts/go-print-text.md
+      - name: Java
+        href: QuickStarts/java-print-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-print-text.md
+      - name: Node.js
+        href: QuickStarts/node-print-text.md
+      - name: PHP
+        href: QuickStarts/php-print-text.md
+      - name: Python
+        href: QuickStarts/python-print-text.md
+      - name: Ruby
+        href: QuickStarts/ruby-print-text.md
     - name: Estrarre testo scritto a mano
-      href: QuickStarts/java-hand-text.md
-  - name: JavaScript
-    items:
-    - name: Analizzare un'immagine
-      href: QuickStarts/javascript-analyze.md
-    - name: Generare un'anteprima
-      href: QuickStarts/javascript-thumb.md
-    - name: Estrarre testo stampato
-      href: QuickStarts/javascript-print-text.md
-    - name: Estrarre testo scritto a mano
-      href: QuickStarts/javascript-hand-text.md
-  - name: Node.js
-    items:
-    - name: Analizzare un'immagine
-      href: QuickStarts/node-analyze.md
-    - name: Generare un'anteprima
-      href: QuickStarts/node-thumb.md
-    - name: Estrarre testo stampato
-      href: QuickStarts/node-print-text.md
-  - name: PHP
-    items:
-    - name: Analizzare un'immagine
-      href: QuickStarts/php-analyze.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-hand-text.md
+      - name: Java
+        href: QuickStarts/java-hand-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-hand-text.md
+      - name: Python
+        href: QuickStarts/python-hand-text.md
     - name: Usare un modello di dominio
-      href: QuickStarts/php-domain.md
-    - name: Generare un'anteprima
-      href: QuickStarts/php-thumb.md
-    - name: Estrarre testo stampato
-      href: QuickStarts/php-print-text.md
-  - name: Python
-    items:
-    - name: Analizzare un'immagine remota
-      href: QuickStarts/python-analyze.md
-    - name: Analizzare un'immagine locale
-      href: QuickStarts/python-disk.md
-    - name: Usare un modello di dominio
-      href: QuickStarts/python-domain.md
-    - name: Generare un'anteprima
-      href: QuickStarts/python-thumb.md
-    - name: Estrarre testo stampato
-      href: QuickStarts/python-print-text.md
-    - name: Estrarre testo scritto a mano
-      href: QuickStarts/python-hand-text.md
-  - name: Ruby
-    items:
-    - name: Analizzare un'immagine
-      href: QuickStarts/ruby-analyze.md
-    - name: Generare un'anteprima
-      href: QuickStarts/ruby-thumb.md
-    - name: Estrarre testo stampato
-      href: QuickStarts/ruby-print-text.md
-- name: Guide introduttive per SDK
-  items:
-  - name: C#
+      items:
+      - name: PHP
+        href: QuickStarts/php-domain.md
+      - name: Python
+        href: QuickStarts/python-domain.md
+  - name: Uso di .NET SDK
     items:
     - name: Analizzare un'immagine
       href: quickstarts-sdk/csharp-analyze-sdk.md
@@ -108,6 +98,30 @@ items:
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: Estrarre testo scritto a mano
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Concetti
+  items:
+  - name: Assegnazione di tag alle immagini
+    href: concept-tagging-images.md
+  - name: Classificazione delle immagini
+    href: concept-categorizing-images.md
+  - name: Descrizione delle immagini
+    href: concept-describing-images.md
+  - name: Rilevamento dei visi
+    href: concept-detecting-faces.md
+  - name: Rilevamento dei tipi di immagine
+    href: concept-detecting-image-types.md
+  - name: Rilevamento di contenuti specifici del dominio
+    href: concept-detecting-domain-content.md
+  - name: Rilevamento delle combinazioni di colori
+    href: concept-detecting-color-schemes.md
+  - name: Generazione di anteprime
+    href: concept-generating-thumbnails.md
+  - name: Estrazione di testo con OCR
+    href: concept-extracting-text-ocr.md
+  - name: Riconoscendo di testo stampato e scritto a mano
+    href: concept-recognizing-text.md
+  - name: Rilevamento di contenuti audaci e per adulti
+    href: concept-detecting-adult-content.md
 - name: Guide alle procedure
   items:
   - name: Prime app di Visione artificiale
@@ -124,12 +138,10 @@ items:
     href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Chiamare l'API Visione artificiale
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Usare il servizio connesso di Visione artificiale
+    href: vs-computer-vision-connected-service.md
   - name: Analizzare video in tempo reale
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-  - name: Utilizzo di Visual Studio
-    items:
-    - name: Usare il servizio connesso di Visione artificiale
-      href: vs-computer-vision-connected-service.md
 - name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
@@ -172,9 +184,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Tassonomia delle categorie
     href: Category-Taxonomy.md
-ms.openlocfilehash: 9fc95708365458dcebcf40a759db3f8267fa0c96
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 6bdbfc9285665c6e0f7eb678c50e19bd82238696
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086752"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714412"

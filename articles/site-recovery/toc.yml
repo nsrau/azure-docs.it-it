@@ -66,6 +66,10 @@ items:
       href: azure-to-azure-architecture.md
     - name: Matrice di supporto da Azure ad Azure
       href: azure-to-azure-support-matrix.md
+    - name: Rete accelerata per il ripristino di emergenza di VM di Azure
+      href: azure-vm-disaster-recovery-with-accelerated-networking.md
+    - name: ExpressRoute con il ripristino di emergenza di VM di Azure
+      href: azure-vm-disaster-recovery-with-expressroute.md
   - name: Macchine virtuali VMware e server fisici
     items:
     - name: Replica in Azure
@@ -136,10 +140,6 @@ items:
         href: azure-to-azure-network-mapping.md
       - name: Configurare gli indirizzi IP per il failover
         href: site-recovery-retain-ip-azure-vm-failover.md
-      - name: Rete accelerata con il ripristino di emergenza di VM di Azure
-        href: azure-vm-disaster-recovery-with-accelerated-networking.md
-      - name: ExpressRoute con il ripristino di emergenza di VM di Azure
-        href: azure-vm-disaster-recovery-with-expressroute.md
     - name: Ripristino di emergenza
       items:
       - name: Ripristino di emergenza delle macchine virtuali di Azure dopo la migrazione in Azure
@@ -392,9 +392,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 01f369aede31d44ff404c1ff5e7d2d1e9bb92950
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: df857d7ed0878dc4375ddc34f45e80f7e78c0e39
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343974"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715160"

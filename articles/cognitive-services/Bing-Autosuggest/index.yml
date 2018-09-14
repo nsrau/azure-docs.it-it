@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 88413db5556e20632112444e3779bb5eee0ecf8e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624424"
+documentType: LandingData
+title: Documentazione di Suggerimenti automatici Bing
+metadata:
+  document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
+  title: Documentazione di Suggerimenti automatici Bing - Esercitazioni, guide introduttive e informazioni di riferimento sulle API | Microsoft Docs
+  description: Informazioni su come usare l'API Suggerimenti automatici Bing per ottenere suggerimenti di query basati su una query parziale. Le esercitazioni illustrano come compilare app che usano il servizio.
+  services: cognitive-services
+  author: v-jaswel
+  manager: kamrani
+  ms.service: autosuggest
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/10/2017
+  ms.author: v-jaswel
+abstract:
+  description: L'API Suggerimenti automatici Bing consente di inviare un termine di query di ricerca parziale a Bing e ottenere un elenco di query suggerite usate da altri utenti.  Quando un utente inserisce ad esempio ogni carattere del termine di ricerca, l'API viene chiamata e popola l'elenco a discesa della casella di ricerca con stringhe di query suggerite. Si apprenderà come usare l'API Suggerimenti automatici con guide introduttive, esercitazioni ed esempi.
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: "Iniziare a usare l'API Suggerimenti automatici Bing creando una query e visualizzando la risposta JSON:"
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: quickstarts/csharp
+      text: C&#35;
+    - image:
+        src: media/index/logo_java.svg
+      href: quickstarts/java
+      text: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: quickstarts/nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: quickstarts/php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: quickstarts/python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: quickstarts/ruby
+      text: Ruby
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: "Informazioni su come sviluppare applicazioni con l'API Suggerimenti automatici Bing:"
+  - type: paragraph
+    text: <a href="tutorials/autosuggest.md">App Web a pagina singola</a> &#124; <a href="tutorials/autosuggest-source.md">Codice sorgente</a>
+- title: riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference">API Suggerimenti automatici Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference">API Suggerimenti automatici Bing v5</p>
