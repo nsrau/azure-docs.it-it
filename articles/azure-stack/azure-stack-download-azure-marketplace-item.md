@@ -3,7 +3,7 @@ title: Scaricare elementi di marketplace di Azure | Microsoft Docs
 description: L'operatore cloud può scaricare elementi di marketplace di Azure per la distribuzione di Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
-ms.author: brenduns
+ms.date: 09/13/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: abcf71f81d89f8b6a8c7b9523dd67592b8808baa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714668"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630280"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare elementi di marketplace di Azure ad Azure Stack
 
@@ -148,9 +148,9 @@ Lo scenario è composto da due parti:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importare il download e la pubblicazione in Marketplace Azure Stack
 1. I file di immagini di macchine virtuali o modelli di soluzione che hai [scaricati in precedenza](#use-the-marketplace-syndication-tool-to-download-marketplace-items) devono essere rese disponibili in locale nell'ambiente Azure Stack.  
 
-2. Usare il portale di amministrazione per caricare il pacchetto di elemento di marketplace (il file con estensione azpkg) in archiviazione Blob di Azure Stack. Caricamento del pacchetto lo rende disponibile in Azure Stack in modo che in un secondo momento è possibile pubblicare l'elemento di Marketplace di Azure Stack.
+2. Usare il portale di amministrazione per caricare il pacchetto di elemento di marketplace (il file con estensione azpkg) e l'immagine di disco rigido virtuale (file con estensione vhd) in archiviazione Blob di Azure Stack. Caricamento del pacchetto e i file del disco li rende disponibili in Azure Stack in modo che è possibile pubblicare l'elemento in un secondo momento per il Marketplace di Azure Stack.
 
-   Caricamento richiede di disporre di un account di archiviazione con un contenitore accessibile pubblicamente (vedere i prerequisiti per questo scenario)   
+   Caricamento richiede di disporre di un account di archiviazione con un contenitore accessibile pubblicamente (vedere i prerequisiti per questo scenario).  
    1. Nel portale di amministrazione di Azure Stack, passare a **tutti i servizi** e quindi nel **dati e archiviazione** categoria, seleziona **account di archiviazione**.  
    
    2. Selezionare un account di archiviazione dalla sottoscrizione e quindi sotto **servizio BLOB**, selezionare **contenitori**.  
@@ -159,7 +159,7 @@ Lo scenario è composto da due parti:
    3. Selezionare il contenitore a cui si vuole usare e quindi selezionare **caricare** per aprire il **carica blob** riquadro.  
       ![Contenitore](media/azure-stack-download-azure-marketplace-item/container.png)  
    
-   4. Nel riquadro di caricamento blob, passare ai file che si vuole caricare nell'archivio e quindi selezionare **caricare**.  
+   4. Nel riquadro blob Upload, individuare i file di pacchetto e il disco da caricare nell'archivio e quindi selezionare **caricare**.  
       ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
 
    5. File caricati vengono visualizzati nel riquadro del contenitore. Selezionare un file e quindi copiare l'URL dal **proprietà Blob** riquadro. Si userà questo URL nel passaggio successivo quando si importa l'elemento del marketplace per Azure Stack.  Nell'immagine seguente, il contenitore è *test-blob-storage* e il file sia *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Il file è di URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
@@ -169,7 +169,7 @@ Lo scenario è composto da due parti:
 
    È possibile ottenere il *server di pubblicazione*, *offrono*, e *sku* i valori dell'immagine dal file di testo che consente di scaricare il file con estensione AZPKG. Il file di testo viene archiviato nel percorso di destinazione. Il *versione* valore è la versione osservata durante il download dell'elemento da Azure nella procedura precedente. 
  
-   Nello script di esempio seguente, vengono usati i valori per Windows Server 2016 Datacenter - macchina virtuale di base del Server. Sostituire *URI_path* con il percorso al percorso di archiviazione blob per l'elemento.
+   Nello script di esempio seguente, vengono usati i valori per Windows Server 2016 Datacenter - macchina virtuale di base del Server. Il valore per *- Osuri* è un percorso di esempio per la posizione di archiviazione blob per l'elemento.
 
    ```PowerShell  
    Add-AzsPlatformimage `
@@ -178,7 +178,7 @@ Lo scenario è composto da due parti:
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
-    -OsUri "URI_path"  
+    -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
    **Informazioni sui modelli di soluzione:** alcuni modelli possono includere un piccolo 3 MB. File di disco rigido virtuale con il nome **fixed3.vhd**. Non è necessario importare il file di Azure Stack. Fixed3.vhd.  Questo file è incluso con alcuni modelli di soluzione per soddisfare i requisiti di pubblicazione per Azure Marketplace.
 
@@ -198,7 +198,7 @@ Lo scenario è composto da due parti:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Dopo aver pubblicato un elemento della raccolta, si visitando **tutti i servizi**. Quindi, sotto il **generali** categoria, seleziona **Marketplace**.  Se il download è un modello di soluzione, assicurarsi che si aggiunge un'immagine di disco rigido virtuale dipendenti per tale modello di soluzione.  
+5. Dopo aver pubblicato un elemento della raccolta, è ora disponibile per l'uso. Per verificare che l'elemento della raccolta viene pubblicato, passare a **tutti i servizi**, quindi nel **generali** categoria, seleziona **Marketplace**.  Se il download è un modello di soluzione, assicurarsi che si aggiunge un'immagine di disco rigido virtuale dipendenti per tale modello di soluzione.  
   ![Marketplace di visualizzazione](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

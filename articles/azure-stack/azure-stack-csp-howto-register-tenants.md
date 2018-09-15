@@ -3,7 +3,7 @@ title: Aggiungere i tenant per l'utilizzo e fatturazione per Azure Stack | Micro
 description: I passaggi necessari aggiungono un utente finale ad Azure Stack gestito da un Provider del servizio Cloud (CSP).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: af28bff0a9826bb96451ae944a377ad0ee284d87
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089911"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633997"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Aggiungere tenant per l'utilizzo e fatturazione per Azure Stack
 
@@ -91,5 +91,5 @@ Una volta aggiunti i nuovi clienti in Azure Stack, o tenant del cliente end ha a
 ## <a name="next-steps"></a>Passaggi successivi
 
  - Per esaminare i messaggi di errore se vengono attivate nel processo di registrazione, vedere [i messaggi di errore di registrazione del Tenant](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - Per altre informazioni su come recuperare le informazioni sull'utilizzo di risorse di Azure Stack, vedere [informazioni sull'utilizzo e fatturazione in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Per altre informazioni su come recuperare le informazioni sull'utilizzo di risorse di Azure Stack, vedere [informazioni sull'utilizzo e fatturazione in Azure Stack](azure-stack-billing-and-chargeback.md).
  - Per esaminare come un cliente finale può aggiungere l'utente, come CSP, come la gestione per loro Azure Stack, tenant, vedere [abilitare un Provider di servizi Cloud gestire la sottoscrizione di Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).

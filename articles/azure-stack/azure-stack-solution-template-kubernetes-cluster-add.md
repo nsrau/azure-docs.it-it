@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c9429f5909e5ba3fd66681fa62cf16125922d075
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ded2aa17fe9b8de2d8c8f662f5d99b1ce33a2b25
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721773"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634204"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Aggiungere un Cluster Kubernetes per il Marketplace di Azure Stack
 
@@ -110,7 +110,7 @@ Aggiungere il Cluster Kubernetes dal Marketplace:
 
 1. Aprire il [portale di amministrazione](https://adminportal.local.azurestack.external).
 
-1. Selezionare **un; servizi** e quindi nel **amministrazione** categoria, seleziona **gestione Marketplace**.
+1. Selezionare **aggiungere i servizi** e quindi nel **amministrazione** categoria, seleziona **gestione Marketplace**.
 
 1. Selezionare **+ Aggiungi da Azure**.
 

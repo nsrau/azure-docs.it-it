@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3d856f4fad845dfdd4d9a30fa176a4c0bfbc875b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b6196ec434d00a6fbc6714095fa4182ede98ce91
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024343"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633436"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Come usare i dati di monitoraggio di Azure Stack
 
@@ -35,7 +35,7 @@ ms.locfileid: "44024343"
 | Metriche di archiviazione | Metrica | Archiviazione di Azure | Tabella di archiviazione:<br>di Analisi archiviazione |
 | Log attività | Eventi | Tutti i servizi di Azure | API REST:<br>API Event di monitoraggio di Azure |
 | Calcolo di log del sistema operativo guest (ad esempio, IIS, ETW, Syslog) | Eventi | Windows e macchine virtuali Linux | Blob o tabella di archiviazione:<br>Diagnostica di Azure per Linux o Windows <br>Hub eventi:<br>Diagnostica di Azure per Windows |
-| Log di archiviazione | Eventi | Archiviazione di Azure | Tabella di archiviazione:<br>di Analisi archiviazione<br>`Vita: how about hybrid OMS/AppInsights, shall we mention?` |
+| Log di archiviazione | Eventi | Archiviazione di Azure | Tabella di archiviazione:<br>di Analisi archiviazione |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

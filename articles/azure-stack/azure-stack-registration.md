@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6f406f63f4ae7518b93153db30c9ca51564b848c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720141"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630444"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -52,7 +52,7 @@ Prima di registrare Azure Stack con Azure, è necessario disporre di:
 
 - Il nome utente e la password per un account che è un proprietario per la sottoscrizione (sono supportati gli account MSA/2FA).
 
-- L'account utente deve essere un amministratore nel tenant di Azure AD a cui è registrato Azure Stack, ad esempio, `yourazurestacktenant.onmicrosoft.com`.
+- L'account utente deve avere accesso alla sottoscrizione di Azure e disporre delle autorizzazioni per creare applicazioni a identità ed entità servizio nella directory associata alla sottoscrizione.
 
 - Registrato il provider di risorse di Azure Stack (vedere la sezione di registrazione del Provider di risorse Azure Stack di seguito per informazioni dettagliate).
 
@@ -106,7 +106,7 @@ Ambienti connessi possono accedere a internet e Azure. Per questi ambienti, è n
 
 1. Per registrare il provider di risorse di Azure Stack con Azure, avviare PowerShell ISE come amministratore e usare i cmdlet di PowerShell seguenti con il **EnvironmentName** parametro impostato sul tipo di sottoscrizione Azure appropriata (vedere parametri seguenti).
 
-2. Aggiungere l'account di Azure da usare per registrarsi in Azure Stack. Per aggiungere l'account, eseguire la **Add-AzureRmAccount** cmdlet. Viene chiesto di immettere le credenziali dell'account amministratore globale di Azure e potrebbe essere necessario usare l'autenticazione a 2 fattori in base alla configurazione dell'account.
+2. Aggiungere l'account di Azure da usare per registrarsi in Azure Stack. Per aggiungere l'account, eseguire la **Add-AzureRmAccount** cmdlet. Viene chiesto di immettere le credenziali dell'account Azure e potrebbe essere necessario usare l'autenticazione a 2 fattori in base alla configurazione dell'account.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -166,7 +166,7 @@ Ambienti connessi possono accedere a internet e Azure. Per questi ambienti, è n
 
 1. Per registrare il provider di risorse di Azure Stack con Azure, avviare PowerShell ISE come amministratore e usare i cmdlet di PowerShell seguenti con il **EnvironmentName** parametro impostato sul tipo di sottoscrizione Azure appropriata (vedere parametri seguenti).
 
-2. Aggiungere l'account di Azure da usare per registrarsi in Azure Stack. Per aggiungere l'account, eseguire la **Add-AzureRmAccount** cmdlet. Viene chiesto di immettere le credenziali dell'account amministratore globale di Azure e potrebbe essere necessario usare l'autenticazione a 2 fattori in base alla configurazione dell'account.
+2. Aggiungere l'account di Azure da usare per registrarsi in Azure Stack. Per aggiungere l'account, eseguire la **Add-AzureRmAccount** cmdlet. Viene chiesto di immettere le credenziali dell'account Azure e potrebbe essere necessario usare l'autenticazione a 2 fattori in base alla configurazione dell'account.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
