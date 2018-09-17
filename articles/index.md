@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: beb993150dca5d6a5b0d4701af8149cf9000e79e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 9b9bbb9f584cf5fb071e75ea731c2325e334d10d
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391964"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605964"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1405,6 +1405,12 @@ Progetto DevOps di Azure </a>
                                                 <p>App per le API</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/azure-signalr/">
+                                                <img src="media/index/azure-signalr.svg" alt="" />
+                                                <p>Servizio Azure SignalR</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Mobile</h3>
                                     <ul>
@@ -2553,6 +2559,25 @@ Progetto DevOps di Azure </a>
                                                 <div class="cardText">
                                                     <h3>App per le API</h3>
                                                     <p>Compilare e usare facilmente API cloud</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-signalr">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-signalr.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Servizio Azure SignalR</h3>
+                                                    <p>Aggiungere facilmente funzionalità Web in tempo reale</p>
                                                 </div>
                                             </div>
                                         </div>

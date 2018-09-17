@@ -21,8 +21,8 @@ Per ottenere build automatiche da server di compilazione Kudu di Servizio app, a
 
 | Runtime | File della directory radice |
 |-|-|
-| ASP.NET (solo Windows) | file con estensione _sln_, _csproj_ o _default.aspx_ |
-| ASP.NET Core | file con estensione _sln_ o _csproj_ |
+| ASP.NET (solo Windows) | file con estensione _\*.sln_, _\*.csproj_ o _default.aspx_ |
+| ASP.NET Core | file con estensione _\*.sln_ o _\*.csproj_ |
 | PHP | _index.php_ |
 | Ruby (solo Linux) | _Gemfile_ |
 | Node.js | _server.js_, _app.js_ o _package.json_ con uno script di avvio |

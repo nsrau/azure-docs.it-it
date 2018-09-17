@@ -3,14 +3,14 @@
 
 # Panoramica
 ## [Panoramica di Data Lake Storage Gen1](data-lake-store-overview.md)
-## [Confrontare Data Lake Storage Gen1 con Archiviazione di Azure](data-lake-store-comparison-with-blob-storage.md)
-## [Data Lake Storage Gen1 per l'elaborazione di Big Data](data-lake-store-data-scenarios.md)
-## [Applicazioni open source che interagiscono con Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+## [Confronto con Archiviazione di Azure](data-lake-store-comparison-with-blob-storage.md)
+## [Elaborazione di Big Data](data-lake-store-data-scenarios.md)
+## [Uso di applicazioni open source](data-lake-store-compatible-oss-other-applications.md)
 ## [Procedure consigliate](data-lake-store-best-practices.md)
 
 # Attività iniziali
-## [Uso del portale](data-lake-store-get-started-portal.md)
-## [Tramite PowerShell](data-lake-store-get-started-powershell.md)
+## [Uso del portale di Azure](data-lake-store-get-started-portal.md)
+## [Uso di Azure PowerShell](data-lake-store-get-started-powershell.md)
 ## [Uso dell'interfaccia della riga di comando di Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 
 

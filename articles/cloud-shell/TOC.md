@@ -7,16 +7,19 @@
 # Strumenti e funzionalità
 ## [Strumenti e funzionalità](features.md)
 
-# Procedura
+# Esercitazioni
+## Ansible
+### [Eseguire il playbook Ansible](/azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
+### [Gestire gli inventari dinamici di Azure](/azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
+## Terraform
+### [Creare un piano di esecuzione](example-terraform-bash.md)
+
+# Guide alle procedure
 ## [Cloud Shell di PowerShell per utenti Windows](cloud-shell-windows-users.md)
 ## [Rendere persistenti i file nella risorsa di archiviazione](persisting-shell-storage.md)
 ## [Usare la finestra](using-the-shell-window.md)
 ## [Usare MSI in Cloud Shell](msi-authorization.md)
 ## [Incorporare Cloud Shell](embed-cloud-shell.md)
-
-# Esempi
-## [Bash - Creare risorse con Terraform](example-terraform-bash.md)
-## [Bash - Eseguire playbook Ansible](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Usare l'editor di Cloud Shell](using-cloud-shell-editor.md)
 
