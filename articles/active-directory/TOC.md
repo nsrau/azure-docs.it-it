@@ -323,34 +323,8 @@
 
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md) (Configurare la durata dei token)
 
-## Verifiche di accesso
-### [Panoramica delle verifiche di accesso](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Completare una verifica di accesso](active-directory-azure-ad-controls-complete-access-review.md)
-### [Creare una verifica di accesso](active-directory-azure-ad-controls-create-access-review.md)
-### [Come eseguire una verifica dell'accesso](active-directory-azure-ad-controls-perform-access-review.md)
-### [Come verificare l'accesso](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Accesso guest con verifiche di accesso](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Gestione dell'accesso utente con verifiche](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Gestione di programmi e controlli](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Recuperare i risultati della verifica di accesso](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [Condizioni d'uso](active-directory-tou.md)
-
 ## Proteggere le identità
 
-### Azure AD Identity Protection
-#### [Overview](identity-protection/overview.md)
-#### [Abilitazione](identity-protection/enable.md)
-#### [Rilevare le vulnerabilità](identity-protection/vulnerabilities.md)
-#### [Eventi di rischio](active-directory-identity-protection-risk-events.md)
-#### [Notifications](identity-protection/notifications.md)
-#### [Esperienza d'accesso](identity-protection/flows.md)
-#### [Simulare eventi di rischio](identity-protection/playbook.md)
-#### [Sbloccare utenti](identity-protection/howto-unblock-user.md)
-#### [Bloccare l'accesso quando viene rilevato un rischio nella sessione](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [Domande frequenti](identity-protection/faqs.md)
-#### [Glossario](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Distribuire AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
