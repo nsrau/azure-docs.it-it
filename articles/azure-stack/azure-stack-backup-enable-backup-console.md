@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 1373e98b8edac81ebdb15aaf36d8bbfc910029fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026186"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985797"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Abilitare il backup per Azure Stack dal portale di amministrazione
 Abilitare il servizio di infrastruttura di Backup tramite il portale di amministrazione in modo che Azure Stack può generare backup. È possibile usare questi backup per ripristinare l'ambiente cloud di ripristino in caso di utilizzo [un errore irreversibile](.\azure-stack-backup-recover-data.md). Lo scopo di ripristino di cloud è garantire che gli operatori e gli utenti possono accedere di nuovo il portale al termine del ripristino completo. Gli utenti avranno gli abbonamenti ripristinati incluse le autorizzazioni di accesso basato sui ruoli e i ruoli, originali piani, offerte e calcolo definito in precedenza, archiviazione e le quote di rete.
@@ -62,7 +62,7 @@ Gli amministratori e gli utenti sono tenuti a backup e ripristino delle risorse 
 ## <a name="start-backup"></a>Avviare il backup
 Per avviare un backup, fare clic su **Esegui Backup ora** per avviare un backup su richiesta. Un backup su richiesta non modificherà il tempo per il successivo backup pianificato. Al termine dell'attività, è possibile confermare le impostazioni in **Essentials**:
 
-![Azure Stack - backup su richiesta](media\azure-stack-backup\scheduled-backup.png).
+![Azure Stack - backup su richiesta](media\azure-stack-backup\scheduled-backup.png)
 
 È anche possibile eseguire il cmdlet di PowerShell **Start-AzsBackup** nel computer di amministrazione di Azure Stack. Per altre informazioni, vedere [eseguire il backup di Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 

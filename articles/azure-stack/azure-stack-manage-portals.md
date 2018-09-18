@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717707"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985295"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Tramite il portale dell'amministratore in Azure Stack
 
@@ -71,6 +71,8 @@ I portali di amministratore e utente sono supportati da istanze separate di Azur
 ### <a name="customize-the-dashboard"></a>Personalizzare il dashboard
 
 Il dashboard contiene un set di riquadri predefiniti. È possibile selezionare **modifica dashboard** per modificare il dashboard predefinito o selezionare **nuovo dashboard** per aggiungere un dashboard personalizzato. È facilmente possibile aggiungere riquadri a un dashboard. Ad esempio, è possibile selezionare **+ crea una risorsa**, fare doppio clic su **offre + piani**, quindi selezionare **Aggiungi al dashboard**.
+
+In alcuni casi, è possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, fare clic su **modifica Dashboard**, quindi fare clic e selezionare **predefinite reimpostati**.
 
 ### <a name="quick-access-to-online-documentation"></a>Accesso rapido alla documentazione online
 

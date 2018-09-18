@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ba8778bad9ed1b8ec095da084ffcec79658bdea8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139661"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982154"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gestire i profili delle versioni API in Azure Stack
 
@@ -46,7 +46,7 @@ Questo argomento consente di:
     Rilasciato al ritmo biennale, questa versione è incentrata sulla stabilità e la coerenza tra più cloud. Questo profilo è destinato a compatibilità ottimale di Azure Stack.
     - **aaaa-mm-gg-profilo** risiede tra le funzionalità più recenti e stabilità ottimale.
 
-### <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Profili di API di Azure e la compatibilità di Azure Stack
+## <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Profili di API di Azure e la compatibilità di Azure Stack
 
 I profili di API di Azure più recenti non sono compatibili con Azure Stack. È possibile usare le seguenti convenzioni di denominazione per identificare i profili da usare per le soluzioni di Azure Stack.
 
@@ -67,7 +67,7 @@ Invece di ricerche ogni provider di risorse e la versione specifica supportate d
 
 I profili di API funzionano con gli strumenti che usano Azure Resource Manager, ad esempio PowerShell, CLI di Azure, codice fornito nel SDK e Microsoft Visual Studio. SDK e gli strumenti possono usare i profili per leggere la versione delle librerie da includere quando si compila un'applicazione e i moduli.
 
-Se, ad esempio, usare PowerShell per creare una risorsa di archiviazione dell'account usando il **Microsoft. Storage** provider di risorse, che supporta la versione api-version 2016-03-30 e una macchina virtuale usando il provider di risorse Microsoft. COMPUTE con api-version 2015-12-01 , è necessario cercare che supporta il modulo PowerShell 2016-03-30 per l'archiviazione e il modulo supporta 2015-02-01 per il calcolo e installarli. In alternativa, è possibile usare un profilo. Usare il cmdlet * * Installa profilo * profilename * * * e PowerShell carica la versione corretta dei moduli.
+Ad esempio, se si usa PowerShell per creare un account di archiviazione usando il **Microsoft. Storage** provider di risorse, che supporta la versione api-version 2016-03-30 e una macchina virtuale usando il provider di risorse Microsoft. COMPUTE con api-version 2015-12-01, è necessario cercare che supporta il modulo PowerShell 2016-03-30 per l'archiviazione e il modulo supporta 2015-02-01 per il calcolo e installarli. In alternativa, è possibile usare un profilo. Usare il cmdlet * * Installa profilo * profilename * * * e PowerShell carica la versione corretta dei moduli.
 
 Analogamente, quando si usano Python SDK per compilare un'applicazione basata su Python, è possibile specificare il profilo. il SDK carica i moduli appropriati per i provider di risorse specificato nello script.
 
