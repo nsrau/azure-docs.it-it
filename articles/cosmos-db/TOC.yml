@@ -119,7 +119,7 @@ items:
   items:
   - name: Documentazione sull'API SQL
     items:
-    - name: Panoramica
+    - name: Introduzione
       href: sql-api-introduction.md
     - name: Scrivere query SQL
       href: sql-api-sql-query.md
@@ -221,7 +221,7 @@ items:
         href: sql-api-sql-query-reference.md
   - name: Documentazione sull'API MongoDB
     items:
-    - name: Panoramica
+    - name: Introduzione
       href: mongodb-introduction.md
     - name: Supporto per MongoDB
       href: mongodb-feature-support.md
@@ -271,7 +271,7 @@ items:
         href: mongodb-indexing.md
   - name: Documentazione sull'API Gremlin
     items:
-    - name: Panoramica
+    - name: Introduzione
       href: graph-introduction.md
     - name: Supporto Gremlin
       href: gremlin-support.md
@@ -285,7 +285,7 @@ items:
         href: bulk-executor-graph-dotnet.md
   - name: Documentazione sull'API Cassandra
     items:
-    - name: Panoramica
+    - name: Introduzione
       href: cassandra-introduction.md
     - name: Esercitazioni
       items:
@@ -295,7 +295,7 @@ items:
         href: cassandra-import-data.md
   - name: Documentazioni sull'API di tabella
     items:
-    - name: Panoramica
+    - name: Introduzione
       href: table-introduction.md
     - name: Esercitazioni
       items:
@@ -460,9 +460,9 @@ items:
       href: use-cases.md
     - name: App di social media
       href: social-media-apps.md
-ms.openlocfilehash: d36c53605ad79fcb6d2d54dac27894691f8398e8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2bc1fcfab7399cc52500b832721e7ca7509758fd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720872"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737278"
