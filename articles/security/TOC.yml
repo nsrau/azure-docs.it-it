@@ -16,8 +16,6 @@ items:
     href: abstract-container-security-microsoft-azure.md
   - name: Abilitazione della sicurezza operativa
     href: abstract-azure-operational-security.md
-  - name: Governance in Azure
-    href: governance-in-azure.md
   - name: Isolamento nel cloud di Azure
     href: azure-isolation.md
   - name: Architettura di rete ibrida sicura
@@ -38,6 +36,7 @@ items:
   - name: Crittografia del disco
     items:
     - name: Procedure consigliate
+      displayName: transit
       href: azure-security-data-encryption-best-practices.md
     - name: Crittografia dei dati inattivi
       href: azure-security-encryption-atrest.md
@@ -64,12 +63,16 @@ items:
       - name: risoluzione dei problemi
         href: azure-security-disk-encryption-tsg.md
       - name: Crittografia dischi di Azure con un'app Azure AD (versione precedente)
+        displayName: active directory
         items:
         - name: Prerequisiti di Crittografia dischi con un'app Azure AD
+          displayName: active directory
           href: azure-security-disk-encryption-prerequisites-aad.md
         - name: Crittografia dischi con un'app Azure AD per VM Windows
+          displayName: active directory
           href: azure-security-disk-encryption-windows-aad.md
         - name: Crittografia dischi con un'app Azure AD per VM Linux
+          displayName: active directory
           href: azure-security-disk-encryption-linux-aad.md
   - name: Sicurezza di Archiviazione di Azure
     href: security-storage-overview.md
@@ -113,12 +116,16 @@ items:
     href: security-identity-management-overview.md
     items:
     - name: Scegliere l'autenticazione di Azure AD
+      displayName: identity, active directory
       href: azure-ad-choose-authn.md
     - name: Elenco di controllo relativo alla sicurezza
+      displayName: identity, active directory, password
       href: azure-ad-secure-steps.md
     - name: Procedure consigliate
+      displayName: password, identity, active directory
       href: azure-security-identity-management-best-practices.md
     - name: Applicare Multi-Factor Authentication agli amministratori della sottoscrizione
+      displayName: identity
       href: azure-security-global-admin.md
   - name: Sicurezza di rete
     href: security-network-overview.md
@@ -172,10 +179,12 @@ items:
       - name: Attività iniziali
         href: security-azure-log-integration-get-started.md
       - name: Integrare i log di controllo di Azure AD
+        displayName: active directory
         href: security-azure-log-integration-ad.md
       - name: Integrare gli avvisi del Centro sicurezza
         href: security-azure-log-integration-security-center.md
       - name: Integrare i log di Key Vault
+        displayName: keyvault
         href: security-azure-log-integration-keyvault-eventhub.md
       - name: Domande frequenti
         href: security-azure-log-integration-faq.md
@@ -187,14 +196,17 @@ items:
     - name: Elenco di controllo relativo alla sicurezza
       href: azure-operational-security-checklist.md
 - name: Governance e conformità
+  displayName: blueprint
   items:
   - name: AU-PROTECTED
+    displayName: blueprint
     items:
     - name: Applicazione Web IaaS
       href: ./blueprints/au-protected-iaaswa-overview.md
     - name: Applicazione Web PaaS
       href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
+    displayName: blueprint
     items:
     - name: Analisi dei dati
       href: ./blueprints/fedramp-analytics-overview.md
@@ -205,6 +217,7 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
+    displayName: blueprint
     items:
     - name: Analisi dei dati
       href: ./blueprints/ffiec-analytics-overview.md
@@ -215,6 +228,7 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/ffiec-paaswa-overview.md
   - name: GDPR
+    displayName: blueprint
     items:
     - name: Analisi dei dati
       href: ./blueprints/gdpr-analytics-overview.md
@@ -225,10 +239,12 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
+    displayName: blueprint
     items:
     - name: Dati e intelligenza artificiale per il settore sanitario
       href: ./blueprints/azure-health.md
   - name: NIST SP 800-171
+    displayName: blueprint
     items:
     - name: Analisi dei dati
       href: ./blueprints/nist171-analytics-overview.md
@@ -239,6 +255,7 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
+    displayName: blueprint
     items:
     - name: Analisi dei dati
       href: ./blueprints/pcidss-analytics-overview.md
@@ -249,10 +266,12 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/pcidss-paaswa-overview.md
   - name: TIC
+    displayName: blueprint
     items:
     - name: Trusted Internet Connection con Azure
       href: ./compliance/compliance-tic.md
   - name: Servizio sanitario nazionale (NHS) Regno Unito
+    displayName: blueprint
     items:
     - name: Analisi dei dati
       href: ./blueprints/uknhs-analytics-overview.md
@@ -263,6 +282,7 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/uknhs-paaswa-overview.md
   - name: UFFICIALE DEL REGNO UNITO
+    displayName: blueprint
     items:
     - name: Applicazione Web IaaS
       href: ./blueprints/ukofficial-iaaswa-overview.md
@@ -318,9 +338,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: Gestione delle sessioni
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: 2e0bdab31a721c5b55488ac21579f0cb9ac45151
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 99ff7a6ba5a2289855739ce8b269c4b3aae10e61
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841565"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364857"
