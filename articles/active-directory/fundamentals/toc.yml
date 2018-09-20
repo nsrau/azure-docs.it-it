@@ -18,6 +18,8 @@ items:
   items:
   - name: Gestione delle identità di Azure
     href: identity-fundamentals.md
+  - name: Punteggio di sicurezza delle identità
+    href: identity-secure-score.md
   - name: Gestione dei gruppi e dell'accesso
     href: active-directory-manage-groups.md
   - name: Licenze basate sui gruppi
@@ -26,16 +28,18 @@ items:
     href: active-directory-architecture.md
   - name: Autorizzazioni utente predefinite
     href: users-default-permissions.md
+  - name: Distribuzione 30, 90 e successive
+    href: active-directory-deployment-checklist-p2.md
   - name: Archiviazione dei dati relativi alle identità per la UE
     href: active-directory-data-storage-eu.md
 - name: Guide alle procedure
   items:
   - name: Organizzazione
     items:
-    - name: Iscriversi ad Azure AD Premium
-      href: active-directory-get-started-premium.md
     - name: Iscriversi ad Azure AD come organizzazione
       href: sign-up-organization.md
+    - name: Iscriversi ad Azure AD Premium
+      href: active-directory-get-started-premium.md
     - name: Aggiungere un nome di dominio personalizzato
       href: add-custom-domain.md
     - name: Aggiungere il marchio aziendale
@@ -83,9 +87,9 @@ items:
     href: active-directory-administer.md
   - name: Soluzioni per le identità di Azure
     href: understand-azure-identity-solutions.md
-ms.openlocfilehash: 70f51f82b34423cdde57109f384dcae851dc0d50
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: b31baf4a0472afd09343673e2cdf94dc29b4cb12
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636292"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465555"

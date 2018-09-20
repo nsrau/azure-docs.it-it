@@ -36,8 +36,6 @@ items:
     href: concepts-connectivity.md
 - name: Guide alle procedure
   items:
-  - name: Creare un'applicazione
-    href: howto-create-application.md
   - name: Connettere dispositivi
     items:
     - name: Preparare e connettere un'applicazione Node.js (generica)
@@ -50,12 +48,16 @@ items:
       href: howto-connect-raspberry-pi-csharp.md
     - name: Preparare e connettere un dispositivo Windows IoT Core
       href: howto-connect-windowsiotcore.md
+    - name: Monitorare la connettività dei dispositivi con la riga di comando
+      href: howto-use-iotc-explorer.md
   - name: Gestire i dispositivi
     items:
     - name: Configurare un modello di dispositivo
       href: howto-set-up-template.md
     - name: Gestire i dispositivi
       href: howto-manage-devices.md
+    - name: Eseguire un processo
+      href: howto-run-a-job.md
     - name: Usare i set di dispositivi
       href: howto-use-device-sets.md
     - name: Creare una versione del modello del dispositivo
@@ -66,7 +68,7 @@ items:
       href: howto-create-telemetry-rules.md
     - name: Creare una regola eventi
       href: howto-create-event-rules.md
-    - name: Creare analisi personalizzate
+    - name: Analizzare i dati del dispositivo
       href: howto-create-analytics.md
   - name: Azioni ed estendibilità
     items:
@@ -82,14 +84,12 @@ items:
       href: howto-connect-powerbi.md
   - name: Amministrazione
     items:
-    - name: Amministrare l'applicazione
-      href: howto-administer.md
+    - name: Gestire IoT Central dal portale di gestione di Azure
+      href: howto-manage-iot-central-from-portal.md
     - name: Creare e gestire un'applicazione come CSP
       href: howto-create-and-manage-applications-as-CSP.md
     - name: Configurare la home page
       href: howto-configure-homepage.md
-    - name: Preparare e caricare immagini
-      href: howto-prepare-images.md
 - name: Risorse correlate
   items:
   - name: Soluzioni
@@ -122,9 +122,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 6cfa705fbcdf7c876dd78fb28210742eb5562e8a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3e8292ce6780381f4e8ead009002959fe42a9d02
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714599"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465675"
