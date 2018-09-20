@@ -6,6 +6,7 @@ items:
   - name: Cos'è Azure Stack?
     href: azure-stack-poc.md
   - name: Note sulla versione
+    href: azure-stack-servicing-policy.md#update-package-release-cadence
     items:
     - name: aggiornamento 1808
       href: azure-stack-update-1808.md
@@ -15,6 +16,8 @@ items:
       href: azure-stack-update-1805.md
     - name: aggiornamento 1804
       href: azure-stack-update-1804.md
+    expanded: true
+  expanded: true
 - name: Guide introduttive
   items:
   - name: Valuta Azure Stack
@@ -32,6 +35,15 @@ items:
     href: azure-stack-ethereum.md
 - name: Concetti
   items:
+  - name: Capacity Planning
+    href: capacity-planning.md
+    items:
+    - name: Pianificazione della capacità di calcolo
+      href: capacity-planning-compute.md
+    - name: Pianificazione della capacità di archiviazione
+      href: capacity-planning-storage.md
+    - name: Pianificazione della capacità di Azure Stack
+      href: capacity-planning-spreadsheet.md
   - name: Integrazione di Datacenter
     items:
     - name: Considerazioni relative all'integrazione di Azure Stack generale
@@ -223,8 +235,6 @@ items:
       href: azure-stack-solution-template-kubernetes-cluster-add.md
   - name: Offrire servizi
     href: azure-stack-offer-services-overview.md
-  - name: Panoramica dei servizi PaaS
-    href: azure-stack-tools-paas-services.md
   - name: Offrire SQL come PaaS
     href: azure-stack-sql-resource-provider.md
     items:
@@ -373,9 +383,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formazione e certificazione
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: c6032eb4482dafaebcc376f3f22102a15f6f4cf4
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d6f327a6fa7addaef8ecc21fdc2831ff20e4ba4f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985614"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368189"

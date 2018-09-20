@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630444"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364602"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -45,18 +45,18 @@ Le informazioni contenute in questo articolo descrivono la registrazione di sist
 
 Prima di registrare Azure Stack con Azure, è necessario disporre di:
 
-- L'ID sottoscrizione per una sottoscrizione di Azure. Per ottenere l'ID, accedere ad Azure, fare clic su **tutti i servizi**. Quindi, sotto il **generale** categoria, seleziona **sottoscrizioni**, scegliere la sottoscrizione da usare, quindi in **Essentials** è possibile trovare l'ID sottoscrizione.
+- L'ID sottoscrizione per una sottoscrizione di Azure. Solo EA, CSP o CSP shared services sono supportate le sottoscrizioni per la registrazione. I CSP devono decidere se si desidera [usare una sottoscrizione CSP o CSPSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Per ottenere l'ID, accedere ad Azure, fare clic su **tutti i servizi**. Quindi, sotto il **generale** categoria, seleziona **sottoscrizioni**, scegliere la sottoscrizione da usare, quindi in **Essentials** è possibile trovare l'ID sottoscrizione.
 
   > [!Note]  
   > Sottoscrizioni cloud Germania non sono attualmente supportate.
 
-- Il nome utente e la password per un account che è un proprietario per la sottoscrizione (sono supportati gli account MSA/2FA).
+- Il nome utente e password per un account che è un proprietario per la sottoscrizione.
 
 - L'account utente deve avere accesso alla sottoscrizione di Azure e disporre delle autorizzazioni per creare applicazioni a identità ed entità servizio nella directory associata alla sottoscrizione.
 
 - Registrato il provider di risorse di Azure Stack (vedere la sezione di registrazione del Provider di risorse Azure Stack di seguito per informazioni dettagliate).
 
-Dopo la registrazione, l'autorizzazione di amministratore globale di Azure Active Directory non è necessaria. Tuttavia, alcune operazioni potrebbero richiedere le credenziali di amministratore globale. Ad esempio, uno script di programma di installazione di provider di risorse o una nuova funzionalità che richiedono un'autorizzazione da concedere. È possibile temporaneamente riattivare le autorizzazioni di amministratore globale dell'account o utilizzare un account di amministratore globale separata che è un proprietario del *predefinita sottoscrizione provider*.
+Dopo la registrazione, l'autorizzazione di amministratore globale di Azure Active Directory non è necessaria. Tuttavia, alcune operazioni potrebbero richiedere le credenziali di amministratore globale. Ad esempio, uno script di programma di installazione di provider di risorse o una nuova funzionalità che richiedono un'autorizzazione da concedere. È possibile temporaneamente reinstate autorizzazioni di amministratore globale dell'account o utilizzare un account di amministratore globale separata che è un proprietario del *predefinita sottoscrizione provider*.
 
 Se non hai una sottoscrizione di Azure che soddisfa questi requisiti, è possibile [crea qui un account Azure gratuito](https://azure.microsoft.com/free/?b=17.06). La registrazione di Azure Stack viene addebitata alcuna tariffa nella sottoscrizione di Azure.
 
