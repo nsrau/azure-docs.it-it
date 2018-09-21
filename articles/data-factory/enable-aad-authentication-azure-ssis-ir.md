@@ -12,18 +12,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: 93d3e25957fb1f04400fa78423a5658d32f7d5fd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: aa06110a6f6fe668388c6aecd98c1ddeeae37edd
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749719"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576630"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Abilitare l'autenticazione di Azure Active Directory per il runtime di integrazione Azure-SSIS
 
 Questo articolo illustra come creare un runtime di integrazione Azure-SSIS con l'identità del servizio di Azure Data Factory. L'autenticazione di Azure Active Directory (Azure AD) con l'identità del servizio gestita per il runtime di integrazione Azure-SSIS consente di usare l'identità del servizio gestita di Data Factory anziché l'autenticazione SQL per creare un runtime di integrazione Azure-SSIS.
 
-Per altre informazioni sull'identità del servizio gestita di Data Factory, vedere [Identità del servizio di Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity).
+Per altre informazioni sull'identità del servizio gestita di Data Factory, vedere [Identità del servizio di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > Se è già stato creato un runtime di integrazione Azure-SSIS con autenticazione SQL, ora è possibile riconfigurarlo tramite PowerShell in modo da usare l'autenticazione di Azure AD.
@@ -53,7 +53,7 @@ Per altre informazioni sull'identità del servizio gestita di Data Factory, vede
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Aggiungere l'identità del servizio gestita di Data Factory al gruppo. È possibile seguire la procedura in [Identità del servizio di Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) per ottenere l'ID IDENTITÀ dell'entità SERVIZIO (ad esempio 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, ma non usare l'ID APPLICAZIONE IDENTITÀ DEL SERVIZIO per questo scopo).
+3.  Aggiungere l'identità del servizio gestita di Data Factory al gruppo. È possibile seguire la procedura in [Identità del servizio di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) per ottenere l'ID IDENTITÀ dell'entità SERVIZIO (ad esempio 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, ma non usare l'ID APPLICAZIONE IDENTITÀ DEL SERVIZIO per questo scopo).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -71,7 +71,7 @@ Il database SQL di Azure supporta la creazione di un database con un utente di A
 
 ### <a name="enable-azure-ad-authentication-for-the-azure-sql-database"></a>Abilitare l'autenticazione di Azure AD per il database SQL di Azure
 
-È possibile [configurare l'autenticazione di Azure AD per il database SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) seguendo questa procedura:
+È possibile [configurare l'autenticazione di Azure AD per il database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) seguendo questa procedura:
 
 1.  Nel portale di Azure selezionare **Tutti i servizi** -> **SQL Server** dal menu a sinistra.
 
@@ -93,7 +93,7 @@ Per il passaggio successivo è necessario [Microsoft SQL Server Management Studi
 
 2.  Nella finestra di dialogo **Connetti al server** immettere il nome del server SQL nel campo **Nome server**.
 
-3.  Nel campo **Autenticazione** selezionare **Active Directory - Universale con supporto MFA**. (È possibile usare anche altri due tipi di autenticazione di Active Directory. Vedere [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL, con Istanza gestita oppure con SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure).)
+3.  Nel campo **Autenticazione** selezionare **Active Directory - Universale con supporto MFA**. (È possibile usare anche altri due tipi di autenticazione di Active Directory. Vedere [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL, con Istanza gestita oppure con SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).)
 
 4.  Nel campo **Nome utente** immettere il nome dell'account di Azure AD impostato come amministratore del server, ad esempio testuser@xxxonline.com.
 
@@ -123,7 +123,7 @@ Per il passaggio successivo è necessario [Microsoft SQL Server Management Studi
 
 Istanza gestita di database SQL di Azure non supporta la creazione di un database con un utente di Azure AD diverso dall'amministratore di Active Directory. Di conseguenza, è necessario impostare il gruppo di Azure AD come amministratore di Active Directory. Non è necessario creare l'utente indipendente.
 
-È possibile [configurare l'autenticazione di Azure AD per il server dell'Istanza gestita di database SQL di Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) usando la procedura seguente:
+È possibile [configurare l'autenticazione di Azure AD per il server dell'Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) usando la procedura seguente:
 
 7.  Nel portale di Azure selezionare **Tutti i servizi** -> **SQL Server** dal menu a sinistra.
 
@@ -141,7 +141,7 @@ Istanza gestita di database SQL di Azure non supporta la creazione di un databas
 
 Quando si esegue il provisioning del runtime di integrazione Azure-SSIS nel portale di Azure, nella pagina **Impostazioni SQL** selezionare l'opzione "Use AAD authentication with your ADF MSI" (Usa autenticazione AAD con l'identità del servizio gestita di Azure Data Factory). (La schermata seguente mostra le impostazioni per il runtime di integrazione con il database SQL di Azure. Per il runtime di integrazione con Istanza gestita, la proprietà "Catalog Database Service Tier" (Livello di servizio database di catalogo) non è disponibile, mentre le altre impostazioni sono uguali.)
 
-Per altre informazioni su come creare un runtime di integrazione Azure-SSIS, vedere [Creare un runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+Per altre informazioni su come creare un runtime di integrazione Azure-SSIS, vedere [Creare un runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 ![Impostazioni per il runtime di integrazione Azure-SSIS](media/enable-aad-authentication-azure-ssis-ir/enable-aad-authentication.png)
 

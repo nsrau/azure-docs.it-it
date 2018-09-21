@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: deguhath
-ms.openlocfilehash: 559af47bcf41cd6af59f8ba1b27ff8e64e849925
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 9e5018bc4c7b90897f7f8c91169410284217b172
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296898"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577008"
 ---
 # <a name="twitter-sentiment-classification-with-azure-machine-learning-aml-package-for-text-analytics-amlpta-and-team-data-science-process-tdsp"></a>Classificazione del sentiment di Twitter con il pacchetto di Azure Machine Learning (AML) per l'analisi del testo (AMLPTA) e il processo di data science per i team (TDSP)
 
 ## <a name="introduction"></a>Introduzione
 La standardizzazione della struttura e della documentazione dei progetti di data science, che è associata a un [ciclo di vita di data science](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md) prestabilito, è fondamentale per favorire una collaborazione efficace nei team di data science.
 
-In passato è stato reso disponibile un [repository GitHub per la struttura e i modelli del progetto di TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Oggi è possibile creare progetti di Azure Machine Learning di cui creare istanze con la [struttura e i modelli di documentazione di TDSP per Azure Machine Learning](https://github.com/amlsamples/tdsp). Le istruzioni su come usare la struttura e i modelli di TDSP in Azure Machine Learning sono disponibili [qui](https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-tdsp-in-azure-ml). 
+In passato è stato reso disponibile un [repository GitHub per la struttura e i modelli del progetto di TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Oggi è possibile creare progetti di Azure Machine Learning di cui creare istanze con la [struttura e i modelli di documentazione di TDSP per Azure Machine Learning](https://github.com/amlsamples/tdsp). Le istruzioni su come usare la struttura e i modelli di TDSP in Azure Machine Learning sono disponibili [qui](https://docs.microsoft.com/azure/machine-learning/preview/how-to-use-tdsp-in-azure-ml). 
 
 In questo esempio viene illustrato l'uso del pacchetto di Azure Machine Learning per l'analisi del testo e del processo di data science per i team per sviluppare e distribuire modelli predittivi per la classificazione del sentiment di Twitter.
 
@@ -56,7 +56,7 @@ Lo scopo principale di questo esempio è mostrare come creare un'istanza di un p
 Il progetto evidenzia diverse funzionalità di Azure Machine Learning, tra cui la creazione di istanze e l'uso della struttura del processo di data science per i team (TDSP), l'esecuzione di codice in Azure Machine Learning Workbench e la semplice operazionalizzazione in servizi contenitore di Azure con Docker e Kubernetes.
 
 ## <a name="team-data-science-process-tds"></a>Processo di data science per i team (TDSP)
-Per eseguire questo esempio, vengono usati la struttura di progetto e i modelli di documentazione del processo di data science per i team (TDSP). Viene seguito il [ciclo di vita del processo di data science per i team](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle). Il progetto viene creato in base alle istruzioni fornite [qui](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
+Per eseguire questo esempio, vengono usati la struttura di progetto e i modelli di documentazione del processo di data science per i team (TDSP). Viene seguito il [ciclo di vita del processo di data science per i team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle). Il progetto viene creato in base alle istruzioni fornite [qui](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
 
 
 <img src="./media/predict-twitter-sentiment-amltextpackage/tdsp-lifecycle2.png" alt="tdsp-lifecycle" width="800" height="600">
@@ -100,17 +100,17 @@ Viene fornito il codice per caricare e valutare più modelli sottoposti a traini
 
 
 ### <a name="deploymenthttpsgithubcomazuremachinelearningsamples-amltextpackage-twittersentimentpredictiontreemastercode03deployment"></a>[Distribuzione](https://github.com/Azure/MachineLearningSamples-AMLTextPackage-TwitterSentimentPrediction/tree/master/code/03_deployment)
-In questa parte vengono forniti collegamenti alle istruzioni per l'operazionalizzazione di un modello di stima del sentiment prima del training in un servizio Web in un cluster nel servizio contenitore di Azure (AKS). L'ambiente di operazionalizzazione effettua il provisioning di Docker e Kubernetes nel cluster per gestire la distribuzione del servizio Web. Altre informazioni sul processo di operazionalizzazione sono disponibili [qui](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+In questa parte vengono forniti collegamenti alle istruzioni per l'operazionalizzazione di un modello di stima del sentiment prima del training in un servizio Web in un cluster nel servizio contenitore di Azure (AKS). L'ambiente di operazionalizzazione effettua il provisioning di Docker e Kubernetes nel cluster per gestire la distribuzione del servizio Web. Altre informazioni sul processo di operazionalizzazione sono disponibili [qui](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
 
 ## <a name="conclusion"></a>Conclusioni
 Sono state presentate informazioni dettagliate su come eseguire il training di un modello di rappresentazione distribuita delle parole usando l'algoritmo Word2Vec e quindi usare le rappresentazioni distribuite estratte come caratteristiche per il training di due modelli diversi per prevedere il punteggio del sentiment dei dati di testo di Twitter. Uno di questi modelli viene distribuito nel servizio contenitore di Azure (AKS). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per iniziare, leggere altra documentazione sul [pacchetto di Azure Machine Learning per l'analisi del testo (AMLPTA)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/textanalytics?view=azure-ml-py-latest) e sul [processo di data science per i team (TDSP)](https://aka.ms/tdsp).
+Per iniziare, leggere altra documentazione sul [pacchetto di Azure Machine Learning per l'analisi del testo (AMLPTA)](https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics?view=azure-ml-py-latest) e sul [processo di data science per i team (TDSP)](https://aka.ms/tdsp).
 
 ## <a name="references"></a>Riferimenti
-* [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
+* [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml) (Come usare Team Data Science Process, TDSP, in Azure Machine Learning)
 * [TDSP project template for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo) (Modello di progetto di TDSP per Azure Machine Learning)
-* [Azure ML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+* [Azure ML Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
 * [Mikolov, Tomas, et al. Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems. 2013.](https://arxiv.org/abs/1310.4546)

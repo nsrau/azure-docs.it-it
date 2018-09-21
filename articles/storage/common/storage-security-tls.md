@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 47cc38226799c5fd3afa2e13e7731a7683b736ba
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 86331f60e1be7d55c39e5d59f85b0f090a322587
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527518"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573859"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
 
@@ -25,7 +25,7 @@ Per essere certi che la connessione ad Archiviazione di Azure sia sicura e confo
 
 ## <a name="enable-tls-12-in-net-client"></a>Abilitare TLS 1.2 nel client .NET
 
-Per consentire al client di eseguire la negoziazione TLS 1.2, il sistema operativo e la versione di .NET Framework devono entrambi supportare TLS 1.2. Per informazioni più dettagliate, vedere [Supporto per TLS 1.2](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).
+Per consentire al client di eseguire la negoziazione TLS 1.2, il sistema operativo e la versione di .NET Framework devono entrambi supportare TLS 1.2. Per informazioni più dettagliate, vedere [Supporto per TLS 1.2](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).
 
 L'esempio seguente mostra come abilitare TLS 1.2 nel client .NET.
 

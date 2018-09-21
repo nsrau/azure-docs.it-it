@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: ebe8745db06113d0508d86554bf031a4235c8e44
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045950"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577133"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo risponde ad alcune domande frequenti su Azure Data Factory.  
@@ -82,7 +82,7 @@ Dopo la versione di anteprima pubblica iniziale del 2017, Data Factory è stato 
 -   Database SQL di Azure con endpoint del servizio di rete virtuale
 -   Istanza gestita
 -   Pool elastico
--   Supporto per la rete virtuale di Azure Resource Manager sopra la rete virtuale classica che sarà deprecata in futuro. In questo modo, è possibile inserire o aggiungere il runtime di integrazione SSIS di Azure in una rete virtuale configurata per il database SQL di Azure con endpoint del servizio di rete virtuale, istanza gestita e accesso ai dati locali. Per informazioni, vedere: https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network. 
+-   Supporto per la rete virtuale di Azure Resource Manager sopra la rete virtuale classica che sarà deprecata in futuro. In questo modo, è possibile inserire o aggiungere il runtime di integrazione SSIS di Azure in una rete virtuale configurata per il database SQL di Azure con endpoint del servizio di rete virtuale, istanza gestita e accesso ai dati locali. Per informazioni, vedere: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network. 
 -   Supporto per l'autenticazione Azure Active Directory (AAD) sopra l'autenticazione SQL per la connessione a SSISDB. In questo modo, è possibile usare l'autenticazione AAD con l'identità del servizio gestita di ADF.
 -   Supporto per portare la licenza di SQL Server locale in modo da ottenere un notevole risparmio sui costi grazie all'opzione Vantaggio Azure Hybrid (AHB).
 -   Supporto per l'edizione Enterprise del runtime di integrazione SSIS di Azure che consente di usare funzionalità avanzate o di livello Premium, configurazione personalizzata per installare estensioni e componenti aggiuntivi ed ecosistema di terze parti. Per informazioni, vedere: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/. 
@@ -107,7 +107,7 @@ Non sono previsti limiti rigidi per il numero di istanze di runtime di integrazi
 Una sottoscrizione di Azure può includere una o più istanze di Azure Data Factory (o data factory). Azure Data Factory contiene quattro componenti chiave che interagiscono come piattaforma nella quale è possibile comporre flussi di lavoro basati sui dati con passaggi per lo spostamento e la trasformazione dei dati stessi.
 
 ### <a name="pipelines"></a>Pipeline
-Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività per eseguire un'unità di lavoro, che insieme eseguono un'operazione. Una pipeline, ad esempio, può contenere un gruppo di attività che inseriscono dati da un BLOB di Azure e quindi eseguono una query Hive in un cluster HDInsight per partizionare i dati. Il vantaggio è che è possibile usare una pipeline per gestire le attività come set invece che singolarmente. È possibile concatenare le attività in una pipeline per usarle in modo sequenziale o indipendentemente in parallelo.
+Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività per eseguire un'unità di lavoro, L'insieme delle attività di una pipeline esegue un'operazione. Una pipeline, ad esempio, può contenere un gruppo di attività che inseriscono dati da un BLOB di Azure e quindi eseguono una query Hive in un cluster HDInsight per partizionare i dati. Il vantaggio è che è possibile usare una pipeline per gestire le attività come set invece che singolarmente. È possibile concatenare le attività in una pipeline per usarle in modo sequenziale o indipendentemente in parallelo.
 
 ### <a name="activity"></a>Attività
 Le attività rappresentano un passaggio di elaborazione in una pipeline. È ad esempio possibile usare un'attività di *copia* per copiare i dati da un archivio dati all'altro. Allo stesso modo, è possibile usare un'attività Hive che esegue una query Hive su un cluster Azure HDInsight per trasformare o analizzare i dati. Data Factory supporta tre tipi di attività: attività di spostamento dei dati, attività di trasformazione dei dati e attività di controllo.

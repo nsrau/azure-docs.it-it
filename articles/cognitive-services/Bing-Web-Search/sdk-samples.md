@@ -1,22 +1,21 @@
 ---
 title: Esempi di SDK di Ricerca Bing Web
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Usare l'SDK di ricerca Web Bing per aggiungere funzionalità di ricerca all'applicazione Python, Node.js, C# o Java.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: ''
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: sample
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 0f82d40611dde69eb8ab63f49d6fd337e34cb8cc
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b15f4000d30b7b6c6f8055d596b9ab5336d173c5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191273"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126021"
 ---
 # <a name="bing-web-search-sdk-samples"></a>Esempi di SDK di Ricerca Bing Web
 

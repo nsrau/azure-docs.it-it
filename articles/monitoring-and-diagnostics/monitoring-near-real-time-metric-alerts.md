@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 4d51b099532d3052acc190231ec4be17765a427e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 019f245a7cc1feedcbd520c336f53a60ed1e9ddc
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971024"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579090"
 ---
-# <a name="introduction"></a>Introduzione
+# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>Risorse supportate per gli avvisi delle metriche di Monitoraggio di Azure più recenti
 Monitoraggio di Azure supporta ora un [nuovo tipo di avvisi delle metriche](monitoring-overview-unified-alerts.md) che presenta vantaggi significativi rispetto agli [avvisi delle metriche classici](insights-alerts-portal.md). Sono disponibili metriche per un [lungo elenco di servizi di Azure](monitoring-supported-metrics.md). Gli avvisi più recenti supportano un sottoinsieme (in espansione) di tipi di risorse. In questo articolo viene illustrato tale sottoinsieme. 
 
 È possibile usare gli avvisi delle metriche più recenti anche nei log di Log Analytics più comuni estratti come metriche nel quadro delle metriche dei log (anteprima)  
@@ -37,36 +37,36 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 
 |Tipo di risorsa  |Dimensioni supportate  | Metriche disponibili|
 |---------|---------|----------------|
-|Microsoft.ApiManagement/service     | Sì        | [Gestione API](monitoring-supported-metrics.md#microsoftapimanagementservice)|
-|Microsoft.Automation/automationAccounts     |     Sì   | [Account di automazione](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
+|Microsoft.ApiManagement/service     | Yes        | [Gestione API](monitoring-supported-metrics.md#microsoftapimanagementservice)|
+|Microsoft.Automation/automationAccounts     |     Yes   | [Account di automazione](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
 |Microsoft.Batch/batchAccounts | N/D| [Account Batch](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
 |Microsoft.Cache/Redis     |    N/D     |[Cache Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.CognitiveServices/accounts     |    N/D     | [Servizi cognitivi](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    N/D     | [Macchine virtuali](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/D      |[Set di scalabilità di macchine virtuali](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
-|Microsoft.ContainerInstance/containerGroups | Sì| [Gruppi di contenitori](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
-|Microsoft.ContainerService/managedClusters | Sì | [Cluster gestiti](monitoring-supported-metrics.md#microsoftcontainerservicemanagedclusters)|
-|Microsoft.DataFactory/datafactories| Sì| [Data factory V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
-|Microsoft.DataFactory/factories     |   Sì     |[Data factory V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
+|Microsoft.ContainerInstance/containerGroups | Yes| [Gruppi di contenitori](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
+|Microsoft.ContainerService/managedClusters | Yes | [Cluster gestiti](monitoring-supported-metrics.md#microsoftcontainerservicemanagedclusters)|
+|Microsoft.DataFactory/datafactories| Yes| [Data factory V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
+|Microsoft.DataFactory/factories     |   Yes     |[Data factory V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/D      |[Database per MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/D     | [Database per PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
-|Microsoft.EventHub/namespaces     |  Sì      |[Hub eventi](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.EventHub/namespaces     |  Yes      |[Hub eventi](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| No  | [Vaults](monitoring-supported-metrics.md#microsoftkeyvaultvaults) (Insiemi di credenziali)|
 |Microsoft.Logic/workflows     |     N/D    |[App per la logica](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/D     | [Gateway applicazione](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/expressRouteCircuits | N/D |  [Circuiti Express Route](monitoring-supported-metrics.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/dnsZones | N/D| [Zone DNS](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
-|Microsoft.Network/loadBalancers (solo per SKU Standard)| Sì| [Servizi di bilanciamento del carico](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
+|Microsoft.Network/loadBalancers (solo per SKU Standard)| Yes| [Servizi di bilanciamento del carico](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/D       |[Indirizzi IP pubblici](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.PowerBIDedicated/capacities | N/D | [Capacità](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
-|Microsoft.Network/trafficManagerProfiles | Sì | [Profili di Gestione traffico](monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.Network/trafficManagerProfiles | Yes | [Profili di Gestione traffico](monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.Search/searchServices     |   N/D      |[Servizi di ricerca](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
-|Microsoft.ServiceBus/namespaces     |  Sì       |[Bus di servizio](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
-|Microsoft.Storage/storageAccounts     |    Sì     | [Account di archiviazione](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAccounts/services     |     Sì    | [Servizi BLOB](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [servizi file](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [servizi di accodamento](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) e [servizi tabelle](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.ServiceBus/namespaces     |  Yes       |[Bus di servizio](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
+|Microsoft.Storage/storageAccounts     |    Yes     | [Account di archiviazione](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAccounts/services     |     Yes    | [Servizi BLOB](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [servizi file](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [servizi di accodamento](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) e [servizi tabelle](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/D       | [Analisi dei flussi](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
-| Microsoft.Web/serverfarms | Sì | [Piani del servizio app](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
-|Microsoft.OperationalInsights/workspaces (anteprima) | Sì|[Aree di lavoro di Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+| Microsoft.Web/serverfarms | Yes | [Piani del servizio app](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
+|Microsoft.OperationalInsights/workspaces (anteprima) | Yes|[Aree di lavoro di Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

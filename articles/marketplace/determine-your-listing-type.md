@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035861"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578498"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 L'opzione di pubblicazione scelta per l'offerta è correlata direttamente sia ai requisiti di idoneità che ai vantaggi GMT del marketplace. L'aspetto più importante è che la selezione dell'opzione di pubblicazione e del tipo di offerta nel portale Cloud Partner definisce il modo in cui gli utenti interagiranno con l'offerta nel marketplace.
@@ -80,7 +80,7 @@ Prima di creare un'offerta, è necessario sceglierne il tipo. Il tipo di offerta
 
 Un unico tipo di offerta può essere configurato in modo diverso nel portale Cloud Partner per abilitare opzioni di pubblicazione, inviti all'azione, operazioni di provisioning o prezzi differenti. L'opzione di pubblicazione e la configurazione del tipo di offerta si allineano anche ai requisiti tecnici e di idoneità. 
 
-Prima di creare l'offerta, esaminare la vetrina e i requisiti di idoneità del tipo di offerta nella [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide) e i requisiti tecnici di pubblicazione.
+Prima di creare l'offerta, esaminare la vetrina e i requisiti di idoneità del tipo di offerta nella [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e i requisiti tecnici di pubblicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

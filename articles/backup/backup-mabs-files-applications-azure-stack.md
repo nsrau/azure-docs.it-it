@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617116"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579202"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Eseguire il backup dei file in Azure Stack
 È possibile usare Backup di Azure per proteggere (o eseguire il backup) di file e applicazioni in Azure Stack. Per eseguire il backup di file e applicazioni, installare il server di Backup di Microsoft Azure come macchina virtuale in esecuzione in Azure Stack. È possibile proteggere i file in un server di Azure Stack che si trova nella stessa rete virtuale. Dopo aver installato il server di Backup di Azure, aggiungere i dischi di Azure per aumentare lo spazio di archiviazione locale disponibile per i dati di backup a breve termine. Il server di Backup di Azure usa l'archiviazione di Azure per la conservazione a lungo termine.
@@ -49,7 +49,7 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
 
     ![Si apre la creazione guidata del nuovo gruppo protezione dati](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Si consiglia di inserire tutti i dati che condivideranno un criterio di protezione in un unico gruppo protezione dati. Per informazioni complete sulla pianificazione e la distribuzione dei gruppi protezione dati, vedere l'articolo di System Center DPM relativo alla [distribuzione dei gruppi protezione dati](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Si consiglia di inserire tutti i dati che condivideranno un criterio di protezione in un unico gruppo protezione dati. Per informazioni complete sulla pianificazione e la distribuzione dei gruppi protezione dati, vedere l'articolo di System Center DPM relativo alla [distribuzione dei gruppi protezione dati](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. Nella schermata **Seleziona metodo protezione dati** digitare un nome per il gruppo protezione dati. Selezionare la casella di controllo per la **protezione dati a breve termine** e la **protezione dati online**. Fare clic su **Avanti**.
 
@@ -135,5 +135,5 @@ Per visualizzare le entità del server di Backup di Azure nel portale di Azure, 
 
 ## <a name="see-also"></a>Vedere anche 
 Per informazioni sull'uso del server di Backup di Azure per proteggere altri carichi di lavoro, vedere uno degli articoli seguenti:
-- [Eseguire il backup di una farm di SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [Eseguire il backup di SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Eseguire il backup di una farm di SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Eseguire il backup di SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

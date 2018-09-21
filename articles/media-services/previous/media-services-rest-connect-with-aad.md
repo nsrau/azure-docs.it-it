@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785990"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984658"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con REST
 
@@ -43,7 +43,7 @@ In questa esercitazione si apprenderà come:
 > [!IMPORTANT]
 > Attualmente Servizi multimediali supporta il modello di autenticazione dei servizi di Controllo di accesso di Azure. L'autenticazione di Controllo di accesso, tuttavia, verrà dichiarata deprecata il 1° giugno 2018. È consigliabile eseguire al più presto la migrazione al modello di autenticazione di Azure AD.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 - [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
@@ -97,7 +97,7 @@ Per ottenere le informazioni, seguire questa procedura:
     1. Selezionare l'applicazione.
     2. Ottenere l'**ID Client** dalla finestra a destra. 
 
-    ![Accesso all'API](./media/connect-with-rest/existing-client-id.png).
+    ![Accesso all'API](./media/connect-with-rest/existing-client-id.png)
 
 7.  Ottenere la **chiave** (segreto client) dell'applicazione. 
 

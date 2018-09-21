@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1bd6f048682b93e3dfa1e19f6b3c50bff2ed232e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 19d2472b526c38880f9241ec448f8a9d4a327f2a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41918330"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294187"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati nei dispositivi perimetrali con database di SQL Server
 
@@ -73,7 +73,7 @@ Per inviare dati in un database, è necessario un modulo con cui strutturare i d
 La procedura seguente illustra come creare una funzione di IoT Edge tramite Visual Studio Code e l'estensione Azure IoT Edge.
 
 1. Aprire Visual Studio Code.
-2. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale integrato**.
+2. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale**.
 3. Aprire il riquadro comandi di VS Code selezionando **Visualizza** > **Riquadro comandi**.
 4. Nel riquadro comandi digitare ed eseguire il comando **Azure: Sign in** (Azure: Accedi) seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
 3. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
@@ -176,7 +176,11 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
 
 1. Nello strumento di esplorazione di Visual Studio Code aprire il file **deployment.template.json**. 
 2. Trovare la sezione **moduleContent.$edgeAgent.properties.desired.modules**. Dovrebbero essere elencati due moduli: **tempSensor**, che genera i dati simulati, e il modulo **sqlFunction**.
-3. Aggiungere il codice seguente per dichiarare un terzo modulo:
+3. Se si usano contenitori Windows, modificare la sezione **sqlFunction.settings.image**.
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. Aggiungere il codice seguente per dichiarare un terzo modulo. Aggiungere una virgola dopo la sezione sqlFunction e inserire:
 
    ```json
    "sql": {
@@ -191,16 +195,18 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
    }
    ```
 
-4. A seconda del sistema operativo del dispositivo IoT Edge, aggiornare i parametri **sql.settings** con il codice seguente:
+   Se non si sa esattamente come aggiungere un elemento JSON, vedere questo esempio. ![Aggiungere un contenitore di SQL Server](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. A seconda del tipo di contenitori Docker presenti nel dispositivo IoT Edge, aggiornare i parametri **sql.settings** con il codice seguente:
+
+   * Contenitori Windows:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux:
+   * Contenitori Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +216,21 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
    >[!Tip]
    >Ogni volta che si crea un contenitore SQL Server in un ambiente di produzione, è necessario [modificare la password dell'amministratore di sistema predefinita](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
-5. Salvare il file **deployment.template.json**. 
+6. Salvare il file **deployment.template.json**.
 
 ## <a name="build-your-iot-edge-solution"></a>Compilare la soluzione IoT Edge
 
 Nelle sezioni precedenti è stata creata una soluzione con un modulo e quindi ne è stata aggiunta un'altra al modello di manifesto della distribuzione. È ora necessario compilare la soluzione, creare le immagini del contenitore per i moduli ed eseguire il push delle immagini nel registro contenitori. 
 
-1. Nel file deployment.template.json assegnare al runtime IoT Edge le credenziali del registro in modo che possa accedere alle immagini di modulo. Trovare la sezione **moduleContent.$edgeAgent.properties.desired.runtime.settings**. 
-2. Inserire il codice JSON seguente dopo **loggingOptions**:
+1. Nel file con estensione env assegnare al runtime IoT Edge le credenziali del registro in modo che possa accedere alle immagini di modulo. Trovare le sezioni **CONTAINER_REGISTRY_USERNAME** e **CONTAINER_REGISTRY_PASSWORD** e inserire le credenziali dopo il segno di uguale: 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
 
-3. Inserire le credenziali del registro nei campi **username**, **password** e **address**. Usare i valori copiati durante la creazione del registro contenitori di Azure all'inizio dell'esercitazione.
-4. Salvare il file **deployment.template.json**.
-5. Accedere al registro contenitori in Visual Studio Code per poter eseguire il push delle immagini nel registro. Usare le stesse credenziali appena aggiunte al manifesto della distribuzione. Immettere il comando seguente nel terminale integrato: 
+2. Salvare il file con estensione env.
+3. Accedere al registro contenitori in Visual Studio Code per poter eseguire il push delle immagini nel registro. Usare le stesse credenziali aggiunte al file con estensione env. Immettere il comando seguente nel terminale integrato:
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +242,7 @@ Nelle sezioni precedenti è stata creata una soluzione con un modulo e quindi ne
     Login Succeeded
     ```
 
-6. Nello strumento di esplorazione di VS Code fare clic con il pulsante destro del mouse sul file **deployment.template.json** e scegliere **Build IoT Edge solution** (Compila soluzione IoT Edge). 
+4. Nello strumento di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul file **deployment.template.json** e scegliere **Build and Push IoT Edge solution** (Compila ed esegui il push della soluzione IoT Edge). 
 
 ## <a name="deploy-the-solution-to-a-device"></a>Distribuire la soluzione in un dispositivo
 
@@ -252,16 +251,16 @@ Nelle sezioni precedenti è stata creata una soluzione con un modulo e quindi ne
 1. Nel riquadro comandi di VS Code selezionare **Azure IoT Hub: Select IoT Hub** (Hub IoT di Azure: Seleziona l'hub IoT).
 2. Seguire le istruzioni per accedere all'account Azure. 
 3. Nel riquadro comandi selezionare la sottoscrizione di Azure, quindi selezionare l'hub IoT. 
-4. Nello strumento di esplorazione di VS Code espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi dell'Hub IoT di Azure). 
-5. Fare clic con il pulsante destro del mouse sul dispositivo che si vuole specificare come destinazione della distribuzione e scegliere **Create deployment for IoT Edge device** (Crea la distribuzione per il dispositivo IoT Edge). 
+4. Nello strumento di esplorazione di VS Code espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi dell'hub IoT di Azure). 
+5. Fare clic con il pulsante destro del mouse sul dispositivo che si vuole specificare come destinazione della distribuzione e scegliere **Create deployment for single device** (Crea la distribuzione per un unico dispositivo). 
 6. In Esplora file passare alla cartella **config** nella soluzione e scegliere **deployment.json**. Fare clic su **Select Edge deployment manifest** (Seleziona il manifesto della distribuzione di Edge). 
 
 Se la distribuzione ha esito positivo, nell'output di VS Code viene visualizzato un messaggio di conferma. È anche possibile verificare che tutti i moduli siano operativi nel dispositivo. 
 
 Nel dispositivo IoT Edge eseguire questo comando per visualizzare lo stato dei moduli. L'operazione potrebbe richiedere alcuni minuti.
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## <a name="create-the-sql-database"></a>Creare il database SQL
@@ -287,7 +286,7 @@ Questa sezione descrive come configurare il database SQL per l'archiviazione dei
    * Contenitore Windows:
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Contenitore Linux: 

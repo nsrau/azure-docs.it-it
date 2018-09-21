@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 7ff3a2b3547874fd10d35867574c020500c48cd4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d17a1c7700f1e0ac9533b7117b50a14431d0e5f1
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022918"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716622"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e VS Code)
 
@@ -56,7 +56,7 @@ Seguire questa procedura per configurare Azure Dev Spaces:
 1. Compilare ed eseguire il codice in AKS. Dalla **cartella webfrontend** nella finestra del terminale eseguire questo comando: `azds up`
 1. Analizzare l'output della console per informazioni sull'URL che è stato creato con il comando `up`. Sarà nel formato: 
 
-   `Service 'webfrontend' port 'http' is available at <url>` 
+   `(pending registration) Service 'webfrontend' port 'http' will be available at <url>\r\nService 'webfrontend' port 80 (TCP) is available at http://localhost:<port>` 
 
    Aprire l'URL in una finestra del browser; si dovrebbe visualizzare il caricamento dell'applicazione Web. 
    
@@ -94,7 +94,7 @@ Per prima cosa è necessario configurare il progetto di codice in modo che Visua
 
 Aprire il **riquadro comandi** (usando il menu **Visualizza | Riquadro comandi**) e usare il completamento automatico per digitare e selezionare questo comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. 
 
-In questo modo viene aggiunta la configurazione di debug per Azure Dev Spaces nella cartella `.vscode`.
+In questo modo viene aggiunta la configurazione di debug per Azure Dev Spaces nella cartella `.vscode`. Questo comando non deve essere confuso con il comando `azds prep` che configura il progetto per la distribuzione.
 
 ![](./media/common/command-palette.png)
 

@@ -7,16 +7,16 @@ ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: df29117235e890a9b20619744df6320f298a73b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831870"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35634794"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Come usare Cronologia di esecuzione e le metriche del modello in Azure Machine Learning Workbench
 
@@ -25,7 +25,7 @@ Azure Machine Learning Workbench supporta esperimenti di data science tramite la
 **Le metriche del modello** possono essere registrate in qualsiasi punto degli script, e consentono di tracciare i valori più importanti negli esperimenti di data science eseguiti.
 Questo articolo descrive come usare al meglio queste funzionalità per aumentare la velocità e la qualità degli esperimenti di data science.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida è necessario:
 * [Creare e installare istanze di Azure Machine Learning](../service/quickstart-installation.md)
 - [Creare un progetto](../service/quickstart-installation.md)

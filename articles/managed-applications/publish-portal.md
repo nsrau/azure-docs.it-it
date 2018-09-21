@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e52acd8587203c4729ac2bcd6e4bbc09620ead86
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305124"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35769274"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Pubblicare un'applicazione del catalogo di servizi tramite il portale di Azure
 
 È possibile usare il portale di Azure per pubblicare [applicazioni gestite](overview.md) studiate per i membri della propria organizzazione. Un reparto IT può, ad esempio, pubblicare applicazioni gestite che garantiscano la conformità agli standard aziendali. Queste applicazioni gestite sono disponibili nel catalogo dei servizi, non in Azure Marketplace.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Quando si pubblica un'applicazione gestita, si specifica un'identità per la gestione delle risorse. È consigliabile specificare un gruppo di utenti Azure Active Directory. Per creare un gruppo di utenti Azure Active Directory, vedere [Creare un gruppo e aggiungere membri in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md). 
+Quando si pubblica un'applicazione gestita, si specifica un'identità per la gestione delle risorse. È consigliabile specificare un gruppo di utenti Azure Active Directory. Per creare un gruppo di utenti Azure Active Directory, vedere [Creare un gruppo e aggiungere membri in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). 
 
 Il file ZIP che contiene la definizione di applicazione gestita deve essere disponibile tramite un URI. È consigliabile caricare il file ZIP in un BLOB di archiviazione. 
 

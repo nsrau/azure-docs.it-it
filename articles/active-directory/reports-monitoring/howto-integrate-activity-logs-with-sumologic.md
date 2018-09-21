@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c805416b71e7cdb7ce3cdef84baf1167694eda12
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2a90e70a9e7951b298be408992ee5e5fc6332131
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703364"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729326"
 ---
 # <a name="integrate-azure-ad-logs-with-sumologic-by-using-azure-monitor-preview"></a>Integrate Azure AD logs with SumoLogic by using Azure Monitor (Integrare i log di Azure AD con SumoLogic usando Monitoraggio di Azure) (anteprima)
 
@@ -45,4 +45,4 @@ Per usare questa funzionalità, sono necessari:
 
 * [Interpretare lo schema dei log di controllo in Monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
 * [Interpretare lo schema dei log di accesso in Monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
-* [Domande frequenti e problemi noti](overview-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Domande frequenti e problemi noti](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)

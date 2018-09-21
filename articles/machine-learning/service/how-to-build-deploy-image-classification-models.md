@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1188ff040c12fd431cfcef5eea982647df6b9a71
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888433"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576392"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Compilare e distribuire modelli di classificazione delle immagini con Azure Machine Learning
 
@@ -38,7 +38,7 @@ Viene usato [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) come fram
 
 Vedere la [documentazione di riferimento del pacchetto](https://aka.ms/aml-packages/vision) per informazioni dettagliate su ogni modulo e classe.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -174,7 +174,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Immagini di realtà aumentata
 
-Il modulo [`augmentation` ](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) offre funzionalità per l'aumento di un oggetto dataset con tutte le trasformazioni descritte nella raccolta [imgaug](https://github.com/aleju/imgaug). Le trasformazioni delle immagini possono essere raggruppate in una singola pipeline, in tal caso tutte le trasformazioni nella pipeline vengono applicate simultaneamente a ogni immagine. 
+Il modulo [`augmentation` ](https://docs.microsoft.com/python/api/cvtk.augmentation) offre funzionalità per l'aumento di un oggetto dataset con tutte le trasformazioni descritte nella raccolta [imgaug](https://github.com/aleju/imgaug). Le trasformazioni delle immagini possono essere raggruppate in una singola pipeline, in tal caso tutte le trasformazioni nella pipeline vengono applicate simultaneamente a ogni immagine. 
 
 Se si preferisce applicare diversi passaggi di aumento separati oppure in qualsiasi modo diverso, è possibile definire più pipeline e passarle alla funzione *augment_dataset*. Per altre informazioni ed esempi di aumento di un'immagine, vedere la [documentazione di imgaug](https://github.com/aleju/imgaug).
 

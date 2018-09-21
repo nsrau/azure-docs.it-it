@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 381263a39716ad1271c853ec4b7453a5a922b43e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364429"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633708"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -119,19 +119,7 @@ In questo scenario, per la definizione dei parametri dell'iniziativa **initiativ
 
 ## <a name="maximum-count-of-policy-objects"></a>Numero massimo di oggetti di criteri
 
-È previsto un numero massimo per ogni tipo di oggetto per Criteri di Azure. La voce _Ambito_ indica la sottoscrizione o il gruppo di gestione.
-
-| Where | Cosa | Numero massimo |
-|---|---|---|
-| Scope | Definizioni dei criteri | 250 |
-| Scope | Definizioni di iniziativa | 100 |
-| Tenant | Definizioni di iniziativa | 1000 |
-| Scope | Assegnazioni di criteri/iniziative | 100 |
-| Definizione di criteri | Parametri | 20 |
-| Definizione di iniziativa | Criteri | 100 |
-| Definizione di iniziativa | Parametri | 100 |
-| Assegnazioni di criteri/iniziative | Esclusioni (notScopes) | 100 |
-| Regola dei criteri | Istruzioni condizionali annidate | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>Raccomandazioni per la gestione dei criteri
 
@@ -147,7 +135,7 @@ Durante la creazione e la gestione delle definizioni e delle assegnazioni di cri
 
 La panoramica di Criteri di Azure riportata di seguito è tratta da Build 2018. Per scaricare le diapositive o il video, visitare [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Governance dell'ambiente di Azure tramite Criteri di Azure) su Channel 9.
 
-> [!VIDEO https://channel9.msdn.com/events/Build/2018/THR2030/player]
+> [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

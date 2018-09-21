@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b7abbd486e9c357a5bdba093214a3801f88c39ab
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227773"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575899"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -46,7 +46,7 @@ Calcolare la velocità effettiva prevista del carico di lavoro. Se la velocità 
 
 Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione della partizione per gli input e dalla query definita nel processo. La pagina **Ridimensiona** consente di impostare il numero corretto di unità di streaming. È consigliabile allocare più unità di streaming di quelle necessarie. Il motore di elaborazione di Analisi di flusso è ottimizzato per la latenza e la velocità effettiva al costo di allocazione di memoria aggiuntiva.
 
-In generale la procedura consigliata consiste nell'iniziare con 6 unità di streaming per le query che non usano **PARTITION BY**. Determinare quindi il punto critico usando un metodo di valutazione e correzione degli errori con cui modificare il numero di unità di streaming dopo aver passato quantità rappresentative di dati e aver esaminato la metrica di utilizzo in percentuale delle unità di streaming. Il numero massimo di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni in ogni passaggio. Altre informazioni sui limiti sono disponibili [qui](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
+In generale la procedura consigliata consiste nell'iniziare con 6 unità di streaming per le query che non usano **PARTITION BY**. Determinare quindi il punto critico usando un metodo di valutazione e correzione degli errori con cui modificare il numero di unità di streaming dopo aver passato quantità rappresentative di dati e aver esaminato la metrica di utilizzo in percentuale delle unità di streaming. Il numero massimo di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni in ogni passaggio. Altre informazioni sui limiti sono disponibili [qui](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
 Per altre informazioni sulla scelta del numero corretto di unità di streaming, vedere questa pagina: [Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati](stream-analytics-scale-jobs.md)
 
@@ -85,7 +85,7 @@ Per risolvere i problemi causati dalla cardinalità elevata nella query preceden
 
    ```sql
    SELECT count(*) 
-   FROM PARTITION BY PartitionId
+   FROM input PARTITION BY PartitionId
    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
    ```
 

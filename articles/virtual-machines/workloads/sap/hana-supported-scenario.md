@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859953"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576494"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenari supportati nelle istanze Large di HANA
 Questo documento descrive gli scenari supportati e i dettagli delle relative architettura per istanze Large di HANA (HLI).
@@ -198,7 +198,7 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni sulle chiavi
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- La distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
+- La distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
 
 ## <a name="3-single-node-with-dr-normal"></a>3. Nodo singolo con ripristino di emergenza (normale)
  
@@ -235,9 +235,9 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni sulle chiavi
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
 - Nel ripristino di emergenza: i volumi e i punti di montaggio sono configurati, vale a dire contrassegnati come "Required for HANA installation" (Obbligatori per l'installazione HANA) per l'installazione dell'istanza HANA di produzione nell'unità HLI di ripristino di emergenza. 
-- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
+- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
 - Il volume di avvio della **classe SKU di Tipo I** è replicato nel nodo ripristino di emergenza.
 
 
@@ -284,9 +284,9 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni sulle chiavi
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
 - Nel ripristino di emergenza: i volumi e i punti di montaggio sono configurati, vale a dire contrassegnati come "Required for HANA installation" (Obbligatori per l'installazione HANA) per l'installazione dell'istanza HANA di produzione nell'unità HLI di ripristino di emergenza. 
-- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Nel ripristino di emergenza: i dati, i backup dei file di log, i log e i volumi condivisi per QA, contrassegnati come “QA Instance installation” (Installazione dell'istanza QA) sono configurati per l'installazione dell'istanza QA.
 - Il volume di avvio della **classe SKU di Tipo I** è replicato nel nodo ripristino di emergenza.
 
@@ -335,7 +335,7 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni sulle chiavi
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
 - STONITH: per l'installazione STONITH è configurato un SBD. Tuttavia, l'uso di STONITH è facoltativo.
 
 
@@ -391,11 +391,11 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ### <a name="key-considerations"></a>Considerazioni sulle chiavi
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
-- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
+- Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
 - STONITH: per l'installazione STONITH è configurato un SBD. Tuttavia, l'uso di STONITH è facoltativo.
 - Nel di ripristino di emergenza: **sono necessari due gruppi di volumi di archiviazione** per la replica del nodo primario e secondario.
 - Nel ripristino di emergenza: i volumi e i punti di montaggio sono configurati, vale a dire contrassegnati come "Required for HANA installation" (Obbligatori per l'installazione HANA) per l'installazione dell'istanza HANA di produzione nell'unità HLI di ripristino di emergenza. 
-- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Nel ripristino di emergenza: i dati, i backup dei file di log, i log e i volumi condivisi per QA, contrassegnati come “QA Instance installation” (Installazione dell'istanza QA) sono configurati per l'installazione dell'istanza QA.
 - Il volume di avvio della **classe SKU di Tipo I** è replicato nel nodo ripristino di emergenza.
 
@@ -559,10 +559,10 @@ I punti di montaggio seguenti sono preconfigurati:
 ### <a name="key-considerations"></a>Considerazioni sulle chiavi
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
 -  Nel ripristino di emergenza: i volumi e i punti di montaggio sono configurati, vale a dire contrassegnati come "Required for HANA installation" (Obbligatori per l'installazione HANA) per l'installazione dell'istanza HANA di produzione nell'unità HLI di ripristino di emergenza. 
-- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Il volume di avvio della **classe SKU di Tipo I** è replicato nel nodo ripristino di emergenza.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Fare riferimento a [Infrastruttura e connettività](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) per HLI
-- Fare riferimento a [Disponibilità elevata e ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) per HLI
+- Fare riferimento a [Infrastruttura e connettività](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) per HLI
+- Fare riferimento a [Disponibilità elevata e ripristino di emergenza](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) per HLI

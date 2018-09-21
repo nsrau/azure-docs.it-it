@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3657b619dc57b994158c711c46d4db6924aa2930
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5e8048dc6b49a0f6c9a465e82a7278e491351034
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089822"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574131"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -61,8 +61,8 @@ La versione di anteprima pubblica di Firewall di Azure presenta i problemi noti 
 |---------|---------|---------|
 |Interoperabilità con i gruppi di sicurezza di rete     |Se un gruppo di sicurezza di rete (NSG) viene applicato nella subnet del firewall, può bloccare la connettività Internet in uscita anche se il gruppo di sicurezza di rete è configurato per consentire l'accesso a Internet in uscita. Le connessioni Internet in uscita sono contrassegnate come provenienti da una rete virtuale e la destinazione è Internet. Un gruppo di sicurezza di rete ha per impostazione predefinita una regola di *autorizzazione* per consentire il traffico dalla rete virtuale alla rete virtuale, ma non quando la destinazione è Internet.|Per attenuare il problema, aggiungere la regola in ingresso seguente al gruppo di sicurezza di rete da applicare alla subnet del firewall:<br><br>Origine: Rete virtuale Porte di origine: Qualsiasi <br><br>Destinazione: Qualsiasi destinazione Porte: Qualsiasi <br><br>Protocollo: Tutti Accesso: Consenti|
 |Conflitto con la funzionalità JIT (Just-in-Time) del Centro sicurezza di Azure|Se per accedere a una macchina virtuale che si trova in una subnet con una route definita dall'utente che punta a Firewall di Azure come gateway predefinito viene usata la funzionalità JIT del Centro sicurezza di Azure, questa non funziona. Ciò è dovuto al routing asimmetrico, ovvero un pacchetto viene ricevuto tramite l'indirizzo IP della macchina virtuale (accesso aperto da JIT), ma il percorso di ritorno è tramite il firewall, che elimina il pacchetto perché nel firewall non è stata stabilita alcuna sessione.|Per risolvere questo problema, posizionare le macchine virtuali JIT in una subnet separata che non contenga una route definita dall'utente al firewall.|
-|Il peering globale con hub e spoke non funziona|Il modello hub e spoke, in cui l'hub e il firewall vengono distribuiti in un'unica area di Azure con gli spoke in un'altra area di Azure connessi all'hub tramite il peering reti virtuali globale, non è supportato.|Per altre informazioni, vedere [Creare, modificare o eliminare un peering reti virtuali](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
-Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview#limitations). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.
+|Il peering globale con hub e spoke non funziona|Il modello hub e spoke, in cui l'hub e il firewall vengono distribuiti in un'unica area di Azure con gli spoke in un'altra area di Azure connessi all'hub tramite il peering reti virtuali globale, non è supportato.|Per altre informazioni, vedere [Creare, modificare o eliminare un peering reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
+Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.
 
 
 

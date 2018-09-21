@@ -16,12 +16,12 @@ ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a79679068b03103bd8ca63455dd2d1758751aa6f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 617a2ab4f98155789ae882c4253f07d8712050d2
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131234"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985550"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Raccogliere dati sulle macchine virtuali di Azure
 [Azure Log Analytics](log-analytics-overview.md) può raccogliere i dati direttamente dalle macchine virtuali di Azure e da altre risorse dell'ambiente in un unico archivio per analisi dettagliate e per la correlazione.  Questa guida introduttiva illustra come configurare e raccogliere dati dalle VM Linux o Windows di Azure in pochi semplici passaggi.  
@@ -78,7 +78,7 @@ Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Sy
 7. Selezionare **Windows Performance Data** (Dati di prestazione di Windows) per abilitare la raccolta di contatori delle prestazioni in un computer Windows. 
 8. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
-    ![Contatori delle prestazioni di Windows predefiniti selezionati](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).
+    ![Contatori delle prestazioni di Windows predefiniti selezionati](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png)
 
     Fare clic su **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.
   
@@ -93,7 +93,7 @@ Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Sy
 5. Selezionare **Linux Performance Data** (Dati di prestazione di Linux) per abilitare la raccolta di contatori delle prestazioni in un computer Linux. 
 6. Quando si configurano i contatori delle prestazioni di Linux per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.
 
-    ![Contatori delle prestazioni di Windows predefiniti selezionati](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).
+    ![Contatori delle prestazioni di Windows predefiniti selezionati](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)
 
     Fare clic su **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.  
 

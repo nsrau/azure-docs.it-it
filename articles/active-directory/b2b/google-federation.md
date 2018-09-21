@@ -4,18 +4,18 @@ description: Configurare una federazione con Google per consentire agli utenti g
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: d36a4071dbbfb52e22a4e0ecc850da68ebeae6e5
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 4ffe6cf3f1da4c149d1cb39856d02fc40acd20cf
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888118"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984793"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
 
@@ -43,7 +43,7 @@ Prima di tutto creare un nuovo progetto nella console di Google Developers per o
 
    ![Credenziali delle API di Google](media/google-federation/google-api.png)
  
-4. Scegliere la scheda **OAuth consent screen** (Schermata di consenso OAuth) e immettere un nome in **Product name shown to users** (Nome prodotto visibile agli utenti). Lasciare invariate le altre impostazioni. Selezionare **Save** (Salva).
+4. Scegliere la scheda **OAuth consent screen** (Schermata di consenso OAuth) e immettere un nome in **Product name shown to users** (Nome prodotto visibile agli utenti). Lasciare invariate le altre impostazioni. Selezionare **Salva**.
 
    ![Schermata di consenso Google OAuth](media/google-federation/google-oauth-consent-screen.png)
 
@@ -60,7 +60,7 @@ Prima di tutto creare un nuovo progetto nella console di Google Developers per o
 
    ![Creare un ID client OAuth](media/google-federation/google-create-oauth-client-id.png)
 
-7. Selezionare **Create** (Crea). Copiare l'ID client e il segreto client, che verranno usati quando si aggiungerà il provider di identità nel portale di Azure AD.
+7. Selezionare **Create**. Copiare l'ID client e il segreto client, che verranno usati quando si aggiungerà il provider di identità nel portale di Azure AD.
 
    ![ID client e segreto client OAuth](media/google-federation/google-auth-client-id-secret.png)
 

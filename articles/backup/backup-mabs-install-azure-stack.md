@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970884"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576698"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -310,7 +310,7 @@ Il server di Backup di Azure condivide codice con Data Protection Manager. Verra
 
 ## <a name="add-backup-storage"></a>Aggiungere risorse di archiviazione di backup
 
-La prima copia di backup viene salvata in una risorsa di archiviazione collegata al computer del server di Backup di Azure. Per altre informazioni sull'aggiunta di dischi, vedere [Add Modern Backup storage](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801) (Aggiungere Modern Backup Storage).
+La prima copia di backup viene salvata in una risorsa di archiviazione collegata al computer del server di Backup di Azure. Per altre informazioni sull'aggiunta di dischi, vedere [Add Modern Backup storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801) (Aggiungere Modern Backup Storage).
 
 > [!NOTE]
 > È necessario aggiungere una risorsa di archiviazione di backup anche se si prevede di inviare i dati ad Azure. Nell'architettura del server di Backup di Azure, l'insieme di credenziali di Servizi di ripristino contiene la *seconda* copia dei dati, mentre la risorsa di archiviazione locale contiene la prima (obbligatoria) copia di backup.
@@ -360,10 +360,10 @@ In caso di errori del server di Backup di Microsoft Azure durante la fase di ins
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'articolo sulla [preparazione dell'ambiente per DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contiene informazioni sulle configurazioni supportate per il server di Backup di Azure.
+L'articolo sulla [preparazione dell'ambiente per DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contiene informazioni sulle configurazioni supportate per il server di Backup di Azure.
 
 È possibile usare gli articoli seguenti per acquisire una comprensione più profonda della protezione dei carichi di lavoro con il server di Backup di Microsoft Azure.
 
-- [Backup di SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [Backup di SharePoint Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Backup di SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [Backup di SharePoint Server](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Backup del server alternativo](backup-azure-alternate-dpm-server.md)

@@ -3,20 +3,20 @@ title: Account di accesso e utenti SQL di Azure | Documentazione Microsoft
 description: Informazioni sulla gestione della sicurezza del database SQL e di SQL Data Warehouse, in particolare la modalità di gestione dell'accesso al database e la sicurezza degli account di accesso tramite l'account delle entità di sicurezza a livello di server.
 keywords: sicurezza del database sql, gestione della sicurezza del database, sicurezza degli account di accesso, sicurezza del database, accesso al database
 services: sql-database
-author: CarlRabeler
+author: VanMSFT
 manager: craigg
 ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: carlrab
-ms.openlocfilehash: 4abdbac44f4730d15c36d587190db1f95ea54d19
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.author: vanto
+ms.openlocfilehash: d3f2e190dd2f3f29dc70e0d635fd1f8ef5b0bbf9
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050730"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717619"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controllo e concessione dell'accesso al database SQL e a SQL Data Warehouse
 

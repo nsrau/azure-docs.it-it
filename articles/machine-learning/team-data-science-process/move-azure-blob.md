@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 40ec20765bf7874f245d3e37800b0b38dcda475d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 854c671d4db6cdca2b019ed9adb0475e588281b1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838048"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35622552"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Spostamento dei dati da e verso l'archivio BLOB di Azure
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
@@ -43,9 +43,9 @@ In alternativa, è possibile utilizzare [Data factory di Azure](https://azure.mi
 * ricevere i risultati di analisi predittiva; 
 * caricare i risultati nell'archiviazione. 
 
-Per altre informazioni, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning](../../data-factory/v1/data-factory-azure-ml-batch-execution-activity.md).
+Per altre informazioni, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 In questo documento si presuppone di avere una sottoscrizione di Azure, un account di archiviazione e chiavi di archiviazione corrispondenti per quell'account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure.
 
 * Per configurare una sottoscrizione di Azure, vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f45f9337a5522f490c268bbdae3ef1a41205175
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859375"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574675"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare i dati da e in Dynamics 365 (Common Data Service) o Dynamics CRM usando Azure Data Factory
 
@@ -59,11 +59,11 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **Dynamics**. | Sì |
-| deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"Online"** per Dynamics online. | Sì |
-| serviceUri | URL del servizio dell'istanza di Dynamics, ad esempio `https://adfdynamics.crm.dynamics.com`. | Sì |
-| authenticationType | Il tipo di autenticazione per la connessione a un server Dynamics. Specificare **"Office365"** per Dynamics online. | Sì |
-| username | Specificare il nome utente per la connessione a Dynamics. | Sì |
+| type | La proprietà type deve essere impostata su **Dynamics**. | Yes |
+| deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"Online"** per Dynamics online. | Yes |
+| serviceUri | URL del servizio dell'istanza di Dynamics, ad esempio `https://adfdynamics.crm.dynamics.com`. | Yes |
+| authenticationType | Il tipo di autenticazione per la connessione a un server Dynamics. Specificare **"Office365"** per Dynamics online. | Yes |
+| username | Specificare il nome utente per la connessione a Dynamics. | Yes |
 | password | Specificare la password dell'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink se il servizio collegato all'origine non dispone di un runtime di integrazione |
 
@@ -105,14 +105,14 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su **Dynamics**. | Sì |
-| deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"OnPremisesWithIfd"** per Dynamics locale con IFD.| Sì |
-| hostName | Nome host del server Dynamics locale. | Sì |
+| type | La proprietà type deve essere impostata su **Dynamics**. | Yes |
+| deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"OnPremisesWithIfd"** per Dynamics locale con IFD.| Yes |
+| hostName | Nome host del server Dynamics locale. | Yes |
 | port | Porta del server Dynamics locale. | No, il valore predefinito è 443 |
-| organizationName | Il nome organizzazione dell'istanza di Dynamics. | Sì |
-| authenticationType | Tipo di autenticazione per la connessione al server Dynamics. Specificare **"Ifd"** per Dynamics locale con IFD. | Sì |
-| username | Specificare il nome utente per la connessione a Dynamics. | Sì |
-| password | Specificare la password dell'account utente specificato per il nome utente. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, vedere [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| organizationName | Il nome organizzazione dell'istanza di Dynamics. | Yes |
+| authenticationType | Tipo di autenticazione per la connessione al server Dynamics. Specificare **"Ifd"** per Dynamics locale con IFD. | Yes |
+| username | Specificare il nome utente per la connessione a Dynamics. | Yes |
+| password | Specificare la password dell'account utente specificato per il nome utente. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, vedere [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink |
 
 >[!IMPORTANT]
@@ -154,7 +154,7 @@ Per copiare dati da e in Dynamics, impostare la proprietà type del set di dati 
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su **DynamicsEntity**. |Sì |
+| type | La proprietà type del set di dati deve essere impostata su **DynamicsEntity**. |Yes |
 | entityName | Il nome logico dell'entità da recuperare. | No per l'origine (se nell'origine dell'attività è specificato "query"), Sì per il sink |
 
 > [!IMPORTANT]
@@ -207,7 +207,7 @@ Per copiare dati da Dynamics, impostare il tipo di origine nell'attività di cop
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **DynamicsSource**. | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **DynamicsSource**. | Yes |
 | query | FetchXML è un linguaggio di query proprietario usato in Dynamics (online e locale). Vedere l'esempio seguente. Per altre informazioni, vedere [Creare query con FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (se nel set di dati è specificato "entityName") |
 
 >[!NOTE]
@@ -271,15 +271,15 @@ Per copiare dati in Dynamics, impostare il tipo di sink nell'attività di copia 
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su **DynamicsSink**. | Sì |
-| writebehavior | Comportamento dell'azione di scrittura dell'operazione.<br/>Il valore consentito è **"Upsert"**. | Sì |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su **DynamicsSink**. | Yes |
+| writebehavior | Comportamento dell'azione di scrittura dell'operazione.<br/>Il valore consentito è **"Upsert"**. | Yes |
 | writeBatchSize | Conteggio delle righe di dati scritti da Dynamics in ogni batch. | No (il valore predefinito è 10) |
 | ignoreNullValues | Indica se ignorare i valori null dai dati di input (tranne i campi chiave) durante un'operazione di scrittura.<br/>I valori consentiti sono **true** e **false**.<br>- **True**: i dati nell'oggetto di destinazione rimangono invariati quando si esegue un'operazione di upsert/aggiornamento. Inserire un valore predefinito definito quando si esegue un'operazione di inserimento.<br/>- **False**: i dati nell'oggetto di destinazione vengono aggiornati a NULL quando si esegue un'operazione di upsert/aggiornamento. Inserire un valore NULL quando si esegue un'operazione di inserimento. | No (il valore predefinito è false) |
 
 >[!NOTE]
 >Il valore predefinito di "**writeBatchSize**" del sink e di "**[parallelCopies](copy-activity-performance.md#parallel-copy)**" per l'attività di copia per il sink di Dynamics è in entrambi i casi 10. Pertanto, vengono inviati simultaneamente 100 record a Dynamics.
 
-Per Dynamics 365 online, è previsto un limite di [2 chiamate di batch simultanee per ogni organizzazione](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Se tale limite viene superato, viene generato un errore "Server occupato" prima che venga eseguita la prima richiesta. Mantenendo "writeBatchSize" minore o uguale a 10 si evita la limitazione delle richieste di chiamate simultanee.
+Per Dynamics 365 online, è previsto un limite di [2 chiamate di batch simultanee per ogni organizzazione](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Se tale limite viene superato, viene generato un errore "Server occupato" prima che venga eseguita la prima richiesta. Mantenendo "writeBatchSize" minore o uguale a 10 si evita la limitazione delle richieste di chiamate simultanee.
 
 La combinazione ottimale di "**writeBatchSize**" e di "**parallelCopies**" dipende dallo schema dell'entità, ad esempio numero di colonne, le dimensioni delle righe, il numero di attività di plug-in/flussi di lavoro/flusso di lavoro collegate a tali chiamate e così via. L'impostazione predefinita 10 writeBatchSize * 10 parallelCopies è quella consigliata in base al servizio di Dynamics e che funzionerà per la maggior parte delle entità di Dynamics benché potrebbe non garantire prestazioni ottimali. È possibile ottimizzare le prestazioni regolando la combinazione nelle impostazioni di attività di copia.
 
@@ -333,7 +333,7 @@ Nella struttura del set di dati, configurare il tipo di dati corrispondente di D
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | string | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ (associata con tipo singolo) |
+| AttributeType.Lookup | Guid | ✓ | ✓ (associata a destinazione singola) |
 | AttributeType.ManagedProperty | boolean | ✓ | |
 | AttributeType.Memo | string | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2da388ef2fc0df8b08658900fe91ecc9d440fd3a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389824"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579293"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -29,7 +29,7 @@ Queste risorse di input possono trovarsi nella stessa sottoscrizione del process
 Analisi di flusso supporta la compressione tra tutte le origini di input del flusso dei dati. I tipi di riferimento attualmente supportati sono: Nessuno, GZip e Deflate. Il supporto per la compressione non è disponibile per i dati di riferimento. Se il formato di input è dati Avro compressi, viene gestito in modo trasparente. Non è necessario specificare il tipo di compressione con la serializzazione Avro. 
 
 ## <a name="create-edit-or-test-inputs"></a>Creare, modificare o testare gli input
-È possibile usare il [portale di Azure](https://portal.azure.com) per [creare nuovi input](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [testare le query](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-manage-job#test-your-query) dai dati di esempio. Quando si scrive una query, si elencano gli input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
+È possibile usare il [portale di Azure](https://portal.azure.com) per [creare nuovi input](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) e visualizzare o modificare gli input esistenti nel processo di streaming. È anche possibile testare le connessioni di input e [testare le query](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) dai dati di esempio. Quando si scrive una query, si elencano gli input nella clausola FROM. È possibile ottenere l'elenco degli input disponibili dalla pagina **Query** del portale. Per usare più input, è possibile usare il comando `JOIN` per unirli oppure scrivere più query `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Trasmettere dati da Hub eventi

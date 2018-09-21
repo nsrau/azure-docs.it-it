@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 618df9b4bcc4a1b6f44d9cabc29c797a2cabcc80
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366793"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982273"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
 
@@ -109,7 +109,7 @@ Per iniziare con la conversione dei collegamenti, è sufficiente fare clic su un
 2. Passare ad **Azure Active Directory** > **Applicazioni aziendali** > **Tutte le applicazioni** > selezionare l'app che si desidera gestire > **Proxy di applicazione**.
 3. Impostare l'opzione di **conversione URL nel corpo dell'applicazione** su **Sì**.
 
-   ![Selezionare Sì per convertire gli URL nel corpo dell'applicazione](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png).
+   ![Selezionare Sì per convertire gli URL nel corpo dell'applicazione](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Selezionare **Salva** per applicare le modifiche.
 
 Ora, quando gli utenti accedono a questa applicazione, il proxy esegue automaticamente un'analisi per individuare gli URL interni che sono stati pubblicati tramite il proxy di applicazione nel tenant.

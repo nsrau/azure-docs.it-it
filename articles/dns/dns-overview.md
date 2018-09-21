@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/7/2018
 ms.author: victorh
-ms.openlocfilehash: e95617664ee30f1b9253f1892176fd39649ee2c2
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174633"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574182"
 ---
 # <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
 
 DNS di Azure è un servizio di hosting per i domini DNS, che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Ospitando i domini in Azure, è possibile gestire i record DNS usando le stesse credenziali, API, strumenti e fatturazione come per gli altri servizi Azure.
 
-Non è possibile usare DNS di Azure per acquistare un nome di dominio. Per una tariffa annuale, è possibile acquistare un nome di dominio usando [App Web di Azure](https://docs.microsoft.com/en-us/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) o un registrar di nomi di dominio di terze parti. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record. Per informazioni dettagliate, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md) .
+Non è possibile usare DNS di Azure per acquistare un nome di dominio. Per una tariffa annuale, è possibile acquistare un nome di dominio usando [App Web di Azure](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) o un registrar di nomi di dominio di terze parti. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record. Per informazioni dettagliate, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md) .
 
 DNS di Azure offre le funzionalità seguenti:
 
@@ -30,11 +30,11 @@ I domini DNS nel servizio DNS di Azure sono ospitati nella rete globale di Azure
 
 Il servizio DNS di Azure è basato su Azure Resource Manager. È pertanto possibile ottenere funzionalità di Resource Manager quali:
 
-* [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#access-control): per controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione.
+* [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control): per controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione.
 
-* [Log attività](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#activity-logs): per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa o per trovare un errore durante la risoluzione dei problemi.
+* [Log attività](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs): per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa o per trovare un errore durante la risoluzione dei problemi.
 
-* [Blocco delle risorse](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources): per bloccare una sottoscrizione, una risorsa o un gruppo di risorse in modo da impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche.
+* [Blocco delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources): per bloccare una sottoscrizione, una risorsa o un gruppo di risorse in modo da impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche.
 
 Per altre informazioni, vedere [Come proteggere le zone e i record DNS](dns-protect-zones-recordsets.md). 
 

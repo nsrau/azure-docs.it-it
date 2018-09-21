@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 4467c193b5ff70a304b4ec5f632276ca14551b08
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d30d164a3e2896b1a300bf665ca09f57ce97fdf3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501999"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295870"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Panoramica
@@ -65,7 +65,7 @@ Di seguito sono illustrati alcuni degli aspetti più importanti del dominio gest
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Servizi di dominio Azure AD per le organizzazioni ibride
 Le organizzazioni con un'infrastruttura IT ibrida utilizzano una combinazione di risorse cloud e risorse locali. Queste organizzazioni sincronizzano le informazioni relative alle identità della directory locale con il tenant Azure AD. Poiché le organizzazioni ibride hanno l'obiettivo di eseguire la migrazione della maggior parte delle applicazioni locali nel cloud, in particolare le applicazioni legacy compatibili con le directory, Servizi di dominio Azure AD può risultare utile.
 
-Litware Corporation ha distribuito [Azure AD Connect](../active-directory/active-directory-aadconnect.md)in modo da sincronizzare le informazioni relative alle identità della directory locale con il tenant Azure AD. Le informazioni sull'identità sincronizzate includono gli account utente, i relativi hash delle credenziali per l'autenticazione (sincronizzazione delle password) e le appartenenze ai gruppi.
+Litware Corporation ha distribuito [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)in modo da sincronizzare le informazioni relative alle identità della directory locale con il tenant Azure AD. Le informazioni sull'identità sincronizzate includono gli account utente, i relativi hash delle credenziali per l'autenticazione (sincronizzazione delle password) e le appartenenze ai gruppi.
 
 > [!NOTE]
 > **La sincronizzazione delle password è un requisito obbligatorio per le organizzazioni ibride per poter usare Servizi di dominio Azure Active Directory**. Questo perché nel dominio gestito fornito da Servizi di dominio Azure AD le credenziali degli utenti sono necessarie per autenticare gli utenti tramite i metodi di autenticazione NTLM o Kerberos.

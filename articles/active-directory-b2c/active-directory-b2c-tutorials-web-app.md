@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 729bd9f83c288cc5a326ddef8fff553c6d7700fb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e215577fdb39b3dc1a9c5ce641c44e3cdef8fb45
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711614"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604094"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Esercitazione: abilitare un'applicazione Web per l'autenticazione con account che usano Azure Active Directory B2C
 
@@ -30,20 +30,20 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Creare il proprio [tenant di Azure AD B2C](active-directory-b2c-get-started.md)
 * Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
 
 ## <a name="register-web-app"></a>Registrare l'app Web
 
-Le applicazioni devono essere [registrate](../active-directory/develop/active-directory-dev-glossary.md#application-registration) nel tenant perché possano ricevere [token di accesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) da Azure Active Directory. La registrazione dell'app crea un [ID applicazione](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) per l'app nel tenant. 
+Le applicazioni devono essere [registrate](../active-directory/develop/developer-glossary.md#application-registration) nel tenant perché possano ricevere [token di accesso](../active-directory/develop/developer-glossary.md#access-token) da Azure Active Directory. La registrazione dell'app crea un [ID applicazione](../active-directory/develop/developer-glossary.md#application-id-client-id) per l'app nel tenant. 
 
 Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Selezionare **Azure AD B2C** dall'elenco di servizi nel portale di Azure. 
+1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo. A questo punto, dovrebbe essere in uso il tenant creato nell'esercitazione precedente. 
 
 2. Nelle impostazioni di B2C fare clic su **Applicazioni** e quindi su **Aggiungi**. 
 
@@ -54,8 +54,8 @@ Accedere al [portale di Azure](https://portal.azure.com/) come amministratore gl
     | Impostazione      | Valore consigliato  | Descrizione                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | App Web di esempio | Immettere un **nome** che descriva l'app agli utenti. | 
-    | **Includi app Web/API Web** | Sì | Selezionare **Sì** per un'app Web. |
-    | **Consenti il flusso implicito** | Sì | Selezionare **Sì** perché l'app usa l'[accesso OpenID Connect](active-directory-b2c-reference-oidc.md). |
+    | **Includi app Web/API Web** | Yes | Selezionare **Sì** per un'app Web. |
+    | **Consenti il flusso implicito** | Yes | Selezionare **Sì** perché l'app usa l'[accesso OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL di risposta** | `https://localhost:44316` | Gli URL di risposta sono gli endpoint a cui Azure AD B2C restituisce eventuali token richiesti dall'app. In questa esercitazione, l'app di esempio viene eseguita in locale (localhost) ed è in ascolto sulla porta 44316. |
     | **Includi client nativo** | No  | Trattandosi di un'app Web e non un client nativo, selezionare No. |
     
@@ -65,11 +65,11 @@ Le app registrate vengono visualizzate nell'elenco di applicazioni per il tenant
 
 ![Proprietà dell'app Web](./media/active-directory-b2c-tutorials-web-app/b2c-web-app-properties.png)
 
-Annotare l'**ID client applicazione**. L'ID identifica l'app in modo univoco ed è necessario per configurare l'app più avanti nell'esercitazione.
+Annotare l'**ID applicazione**. L'ID identifica l'app in modo univoco ed è necessario per configurare l'app più avanti nell'esercitazione.
 
 ### <a name="create-a-client-password"></a>Creare una password client
 
-Azure AD B2C usa l'autorizzazione OAuth2 per le [applicazioni client](../active-directory/develop/active-directory-dev-glossary.md#client-application). Le app Web sono [client riservati](../active-directory/develop/active-directory-dev-glossary.md#web-client) e richiedono un ID client o un ID applicazione e un segreto client, una password client o una chiave applicazione.
+Azure AD B2C usa l'autorizzazione OAuth2 per le [applicazioni client](../active-directory/develop/developer-glossary.md#client-application). Le app Web sono [client riservati](../active-directory/develop/developer-glossary.md#web-client) e richiedono un ID client o un ID applicazione e un segreto client, una password client o una chiave applicazione.
 
 1. Selezionare la pagina Chiavi per l'app Web registrata e fare clic su **Genera chiave**.
 
@@ -98,7 +98,7 @@ Per configurare gli utenti per l'iscrizione e l'accesso all'app Web, creare **cr
     | **Nome** | SiUpIn | Immettere un **nome** per il criterio. Il nome del criterio ha il prefisso **b2c_1_**. Usare il nome completo **b2c_1_SiUpIn** del criterio nel codice di esempio. | 
     | **Provider di identità** | Iscrizione tramite posta elettronica | Provider di identità usato per identificare l'utente in modo univoco. |
     | **Attributi di iscrizione** | Nome visualizzato e Codice postale | Selezionare gli attributi che devono essere raccolti dall'utente durante l'iscrizione. |
-    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, Nuovo utente, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/active-directory-dev-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, Nuovo utente, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Fare clic su **Crea** per creare i criteri. 
 
@@ -115,7 +115,7 @@ Per consentire agli utenti di reimpostare autonomamente le informazioni del prof
     | **Nome** | SiPe | Immettere un **nome** per il criterio. Il nome del criterio ha il prefisso **b2c_1_**. Usare il nome completo **b2c_1_SiPe** del criterio nel codice di esempio. | 
     | **Provider di identità** | Accesso all'account locale | Provider di identità usato per identificare l'utente in modo univoco. |
     | **Attributi del profilo** | Nome visualizzato e Codice postale | Selezionare gli attributi che un utente può modificare durante la modifica del profilo. |
-    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/active-directory-dev-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) dopo aver completato la modifica del profilo. |
+    | **Attestazioni dell'applicazione** | Nome visualizzato, Codice postale, ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token) dopo aver completato la modifica del profilo. |
 
 2. Fare clic su **Crea** per creare i criteri. 
 
@@ -131,7 +131,7 @@ Per abilitare la reimpostazione delle password nell'applicazione, è necessario 
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | SSPR | Immettere un **nome** per il criterio. Il nome del criterio ha il prefisso **b2c_1_**. Usare il nome completo **b2c_1_SSPR** del criterio nel codice di esempio. | 
     | **Provider di identità** | Reimpostare la password usando l'indirizzo e-mail | Provider di identità usato per identificare l'utente in modo univoco. |
-    | **Attestazioni dell'applicazione** | ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/active-directory-dev-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) dopo aver completato la reimpostazione delle password. |
+    | **Attestazioni dell'applicazione** | ID oggetto dell'utente | Selezionare le [attestazioni](../active-directory/develop/developer-glossary.md#claim) da includere nel [token di accesso](../active-directory/develop/developer-glossary.md#access-token) dopo aver completato la reimpostazione delle password. |
 
 2. Fare clic su **Crea** per creare i criteri. 
 
@@ -139,7 +139,7 @@ Per abilitare la reimpostazione delle password nell'applicazione, è necessario 
 
 Ora che l'app Web è registrata e sono stati creati i criteri, è necessario configurare l'app per l'uso del tenant di Azure AD B2C. In questa esercitazione si configura un'app Web di esempio che è possibile scaricare da GitHub. 
 
-[Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) o clonare l'app Web di esempio da GitHub.
+[Scaricare un file ZIP](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) o clonare l'app Web di esempio da GitHub. Assicurarsi di estrarre il file di esempio in una cartella il cui percorso sia costituito da un numero totale di caratteri minore di 260.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -153,26 +153,13 @@ La soluzione di esempio contiene due progetti:
 
 **App di esempio dell'API Web (TaskService):** API Web che supporta la funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco di attività. L'API Web è protetta da Azure AD B2C e chiamata dall'app Web.
 
-È necessario modificare l'app per l'uso della registrazione dell'app nel tenant, che include l'ID client o l'ID applicazione e la password client o la chiave applicazione. È anche necessario configurare i criteri creati. L'app Web di esempio definisce i valori di configurazione come impostazioni dell'app nel file Web.config. Per modificare le impostazioni dell'app:
+È necessario modificare l'app per l'uso della registrazione dell'app nel tenant, che include l'ID applicazione e la chiave registrati in precedenza. È anche necessario configurare i criteri creati. L'app Web di esempio definisce i valori di configurazione come impostazioni dell'app nel file Web.config. Per modificare le impostazioni dell'app:
 
 1. Aprire la soluzione **B2C-WebAPI-DotNet** in Visual Studio.
 
-2. Nel progetto **TaskWebApp** dell'app Web aprire il file **Web.config** e apportare le modifiche seguenti alle chiavi esistenti:
+2. Nel progetto di app Web **TaskWebApp** aprire il file **Web.config**. Sostituire il valore di `ida:Tenant` con il nome del tenant creato. Sostituire il valore di `ida:ClientId` con l'ID applicazione registrato. Sostituire il valore di `ida:ClientSecret` con la chiave registrata.
 
-    ```C#
-    <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
-    
-    <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
-    
-    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
-    ```
-3. Aggiornare le chiavi esistenti con i valori dei nomi dei criteri creati in precedenza. Ricordare di includere il prefisso *b2c_1_*.
-
-    ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
-    <add key="ida:EditProfilePolicyId" value="b2c_1_SiPe" />
-    <add key="ida:ResetPasswordPolicyId" value="b2c_1_SSPR" />
-    ```
+3. Nel file **Web.config** sostituire il valore di `ida:SignUpSignInPolicyId` con `b2c_1_SiUpIn`. Sostituire il valore di `ida:EditProfilePolicyId` con `b2c_1_SiPe`. Sostituire il valore di `ida:ResetPasswordPolicyId` con `b2c_1_SSPR`.
 
 ## <a name="run-the-sample-web-app"></a>Eseguire l'app Web di esempio
 

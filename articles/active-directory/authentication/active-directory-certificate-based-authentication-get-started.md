@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: 62ee6aae825d822a1d87858ea6a7eab953a33318
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2f6b9ee7a23341f27272a4614bed6be5ae422ce0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346384"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297273"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
@@ -29,7 +29,7 @@ La configurazione di questa funzionalità elimina la necessità di immettere una
 In questo argomento:
 
 - Viene descritto come configurare e usare l'autenticazione basata su certificati per gli utenti dei tenant nei piani Office 365 Enterprise, Business, Education e US Government. Questa funzionalità è disponibile in anteprima nei piani Office 365 China, US Government Defense e US Government Federal.
-- Si presuppone che siano già configurati un'[infrastruttura a chiave pubblica (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) e [AD FS](../connect/active-directory-aadconnectfed-whatis.md).
+- Si presuppone che siano già configurati un'[infrastruttura a chiave pubblica (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) e [AD FS](../hybrid/how-to-connect-fed-whatis.md).
 
 ## <a name="requirements"></a>Requisiti
 

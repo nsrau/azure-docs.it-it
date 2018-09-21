@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f069134c0665769316b794122cc077b05941f635
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c645b0a99493c71a9fa1416c16876da30bcff891
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346169"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367657"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Esercitazione: Configurare GitHub per il provisioning utenti automatico
 
@@ -80,7 +80,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
     ![Finestra di dialogo di autorizzazione](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Nel portale di Azure immettere l'**URL tenant** e fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app GitHub. Se la connessione non riesce, verificare che l'account GitHub abbia le autorizzazioni di amministratore e che l'**URL tenant** sia stato immesso correttamente, quindi provare a eseguire di nuovo il passaggio per l'autorizzazione. È possibile calcolare l'**URL tenant** seguendo la regola: `https://api.github.com/scim/v2/<Organizations_name>`. È possibile individuare le organizzazioni nell'account GitHub in **Impostazioni**  > **Organizzazioni**.
+7. Nel portale di Azure immettere l'**URL tenant** e fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app GitHub. Se la connessione non riesce, verificare che l'account GitHub abbia le autorizzazioni di amministratore e che l'**URL tenant** sia stato immesso correttamente, quindi provare a eseguire di nuovo il passaggio per l'autorizzazione. È possibile calcolare l'**URL tenant** seguendo la regola: `https://api.github.com/scim/v2/organizations/<Organization_name>`. È possibile individuare le organizzazioni nell'account GitHub in **Impostazioni**  > **Organizzazioni**.
 
     ![Finestra di dialogo di autorizzazione](./media/github-provisioning-tutorial/GitHub3.png)
 

@@ -3,7 +3,7 @@ title: Proteggere i servizi back-end usando l'autenticazione con certificati cli
 description: Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 844a7ea1c2dd8f7dbb4984fc148575529ac154db
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 5983e6236d1aee80b2cc5b83b65dd2f7945039a1
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292859"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579969"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 
 Gestione API consente di proteggere l'accesso al servizio back-end di un'API usando i certificati client. Questa guida illustra come gestire i certificati nell'istanza del servizio Gestione API di Azure nel portale di Azure. Viene inoltre spiegato come configurare un'API per usare un certificato per accedere a un servizio back-end.
 
-Per informazioni sulla gestione dei certificati con l'API REST di Gestione API, vedere <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entità certificato dell'API REST di Gestione API di Azure</a>.
+Per informazioni sulla gestione dei certificati con l'API REST di Gestione API, vedere <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entità certificato dell'API REST di Gestione API di Azure</a>.
 
 ## <a name="prerequisites"> </a>Prerequisiti
 
@@ -41,7 +41,7 @@ Seguire questa procedura per caricare un nuovo certificato client. Se non è anc
 3. Fare clic sul pulsante **+ Aggiungi**.  
     ![Aggiungere certificati client](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
 4. Selezionare il certificato, quindi specificarne ID e password.  
-5. Fare clic su **Crea**.
+5. Fare clic su **Create**(Crea).
 
 > [!NOTE]
 > Il certificato deve essere nel formato **.pfx** . Sono consentiti i certificati autofirmati.

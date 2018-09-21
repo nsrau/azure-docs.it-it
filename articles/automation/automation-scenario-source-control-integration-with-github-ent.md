@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 04/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 685d434affd0561658ae99c50bbe7b1fc27a5572
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8c7dc256b92252793545336ffc45a987054a5509
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195523"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35636215"
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Scenario di Automazione di Azure - Integrazione del controllo del codice sorgente di Automazione con GitHub Enterprise
 
@@ -42,7 +42,7 @@ GitHRWCredential | Asset credenziali che viene creato per contenere il nome uten
 
 ## <a name="installing-and-configuring-this-scenario"></a>Installazione e configurazione dello scenario
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 1. Il runbook Sync-LocalGitFolderToAutomationAccount esegue l'autenticazione usando l'[account RunAs di Azure](automation-sec-configure-azure-runas-account.md).
 
@@ -59,7 +59,7 @@ Per importare i runbook *Export-RunAsCertificateToHybridWorker* e *Sync-LocalGit
 
 ### <a name="deploy-and-configure-hybrid-runbook-worker"></a>Distribuire e configurare un ruolo di lavoro ibrido per runbook
 
-Se un ruolo di lavoro ibrido per runbook non è già stato distribuito nel data center, è consigliabile esaminare i requisiti e seguire i passaggi di installazione automatica usando la procedura descritta in Funzionalità Hybrid Runbook Workers di Automazione di Azure - Automate Install and Configuration (Automazione dell'installazione e della configurazione) per [Windows](automation-windows-hrw-install.md#automated-deployment) o [Linux](automation-linux-hrw-install.md#installing-linux-hybrid-runbook-worker). Dopo aver installato il ruolo di lavoro ibrido nel computer, eseguire i passaggi seguenti per completare la configurazione in modo da supportare questo scenario.
+Se un ruolo di lavoro ibrido per runbook non è già stato distribuito nel data center, è consigliabile esaminare i requisiti e seguire i passaggi di installazione automatica usando la procedura descritta in Funzionalità Hybrid Runbook Workers di Automazione di Azure - Automate Install and Configuration (Automazione dell'installazione e della configurazione) per [Windows](automation-windows-hrw-install.md#automated-deployment) o [Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker). Dopo aver installato il ruolo di lavoro ibrido nel computer, eseguire i passaggi seguenti per completare la configurazione in modo da supportare questo scenario.
 
 1. Accedere al computer che ospita il ruolo di lavoro ibrido per runbook con un account dotato di diritti amministrativi locali e creare una directory in cui inserire i file runbook di Git. Clonare il repository Git interno nella directory.
 1. Se non si dispone di un account RunAs o si vuole crearne uno nuovo dedicato a questo scopo, dal portale di Azure passare agli account di Automazione, selezionare l'account di Automazione e creare un [asset credenziali](automation-credentials.md) contenente il nome utente e la password per un utente dotato delle autorizzazioni per il ruolo di lavoro ibrido.

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 33d017d0e09e9b288b0514e85c8865f83a8a2fa1
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 22888c76b27d287a8d7fb0f0f1f0a0d39d92375d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23984117"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35778529"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Risoluzione dei problemi relativi ad errori di allocazione quando si distribuiscono servizi Cloud in Azure
 ## <a name="summary"></a>Summary

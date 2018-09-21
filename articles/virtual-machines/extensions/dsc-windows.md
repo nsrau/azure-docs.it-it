@@ -3,8 +3,8 @@ title: Gestore dell'estensione DSC (Desired State Configuration) di Azure | Micr
 description: Caricare e applicare una configurazione DSC PowerShell in una macchina virtuale di Azure tramite l'estensione DSC
 services: virtual-machines-windows
 documentationcenter: ''
-author: eshaparmar
-manager: jeconnoc
+author: bobbytreed
+manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
-ms.author: esparmar
-ms.openlocfilehash: b34314951980f7dbe2269119883dec52a90a0587
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: robreed
+ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944813"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630933"
 ---
 # <a name="powershell-dsc-extension"></a>Estensione DSC di PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "33944813"
 
 L'estensione DSC di PowerShell per Windows è pubblicata e supportata da Microsoft. L'estensione carica e applica una configurazione DSC di PowerShell in una macchina virtuale di Azure. L'estensione DSC esegue una chiamata in PowerShell DSC per applicare la configurazione DSC ricevuta nella VM. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale DSC per Windows.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413104"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296397"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -95,6 +95,9 @@ Quando si usa un'app per dispositivi mobili, ad esempio l'app Microsoft Authenti
 
 Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili durante la registrazione per la reimpostazione della password in modalità self-service da [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Gli utenti possono registrare l'app per dispositivi mobili al link in [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o nella nuova anteprima di registrazione delle informazioni di sicurezza alla pagina [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
+> [!WARNING]
+> È necessario abilitare la [registrazione convergente per la reimpostazione password self-service e Azure Multi-Factor Authentication (anteprima pubblica)](concept-registration-mfa-sspr-converged.md) prima che gli utenti siano in grado di accedere alla nuova esperienza in [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
 ### <a name="change-authentication-methods"></a>Modifica dei metodi di autenticazione
 
 Cosa succede se si inizia con un criterio che ha solo un metodo di autenticazione registrato necessario per la reimpostazione o lo sblocco e si passa a due?
@@ -158,8 +161,8 @@ Se Azure AD Connect è stato installato, configurato e abilitato, saranno dispon
 Questa pagina fornisce uno stato rapido del client di writeback locale. In base alla configurazione corrente viene visualizzato uno dei seguenti messaggi:
 
 * Il client di writeback locale è attivo e in esecuzione.
-* Azure AD è online e connesso al client di writeback locale. Tuttavia sembra che la versione installata di Azure AD Connect non sia aggiornata. Prendere in considerazione l'[aggiornamento di Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) per assicurarsi di disporre delle funzionalità di connettività più recenti e di importanti correzioni di bug.
-* Purtroppo non è possibile verificare lo stato del client di writeback locale perché la versione installata di Azure AD Connect non è aggiornata. [Aggiornare Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) per essere in grado di controllare lo stato della connessione.
+* Azure AD è online e connesso al client di writeback locale. Tuttavia sembra che la versione installata di Azure AD Connect non sia aggiornata. Prendere in considerazione l'[aggiornamento di Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) per assicurarsi di disporre delle funzionalità di connettività più recenti e di importanti correzioni di bug.
+* Purtroppo non è possibile verificare lo stato del client di writeback locale perché la versione installata di Azure AD Connect non è aggiornata. [Aggiornare Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) per essere in grado di controllare lo stato della connessione.
 * Purtroppo al momento non è possibile connettersi al client di writeback locale. [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.
 * Purtroppo non è possibile eseguire la connessione al client di writeback locale perché il writeback delle password non è stato configurato correttamente. [Configurare il writeback delle password](howto-sspr-writeback.md) per ripristinare la connessione.
 * Purtroppo al momento non è possibile connettersi al client di writeback locale. Ciò può essere dovuto a errori temporanei nel sistema. Se il problema persiste, vedere [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.

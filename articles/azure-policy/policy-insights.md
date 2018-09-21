@@ -8,18 +8,18 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: a83402316854b23fe85bff813dc9f5665bccd1fb
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 0f188b2c6ff5bbfe7b90a90b9e036089dae1f59e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794811"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35635674"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creare criteri a livello di codice e visualizzare i dati di conformità
 
 Questo articolo illustra la creazione a livello di codice e la gestione dei criteri. Illustra anche come visualizzare gli stati di conformità delle risorse e i criteri. Le definizioni dei criteri applicano regole ed effetti diversi in relazione alle risorse. L'imposizione consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che i prerequisiti seguenti siano soddisfatti:
 

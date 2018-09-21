@@ -4,18 +4,18 @@ description: Le proprietà di un utente guest sono configurabili in Collaborazio
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 64f15095bd260cd5f83e0e834607cd64bb3a47ee
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ae3d2603cbb1c52c5bbe5e72ef7880cf0da6eb
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267062"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984603"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Controllo e creazione di report per un utente di Collaborazione B2B
 Con gli utenti guest, sono disponibili funzionalità di controllo analoghe a quelle degli utenti membri. Di seguito è riportato un esempio di cronologia di inviti e riscatti dell'invitato Sam Oogle:

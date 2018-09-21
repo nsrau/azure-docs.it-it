@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 71d50a55d9c584b61a1412bb03a03ad99f1bb96c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 548c94ce502da8c6a8d208daafb5b0fb624de1e1
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632913"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603938"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Introduzione alle query in Log Analytics
 
@@ -28,6 +28,7 @@ ms.locfileid: "39632913"
 > [!NOTE]
 > Prima di seguire questa esercitazione, è consigliabile completare l'esercitazione [Introduzione al portale di analisi](get-started-analytics-portal.md).
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 In questa esercitazione si apprenderà come scrivere query di Azure Log Analytics. Si apprenderà come:
 
@@ -49,7 +50,7 @@ Le query possono iniziare con un nome di tabella o con il comando *search*. È c
 ### <a name="table-based-queries"></a>Query basate su tabella
 Azure Log Analytics organizza i dati in tabelle, ognuna composta da più colonne. Tutte le tabelle e le colonne vengono visualizzate nel riquadro dello schema, nel portale di analisi. Identificare una tabella di interesse ed esaminarne i dati:
 
-```OQL
+```KQL
 SecurityEvent
 | take 10
 ```
@@ -65,7 +66,7 @@ Sarebbe stato possibile eseguire la query anche senza aggiungere `| take 10`. La
 ### <a name="search-queries"></a>Query di ricerca
 Le query di ricerca sono meno strutturate e in genere più appropriate per trovare record che includono un valore specifico in una delle relative colonne:
 
-```OQL
+```KQL
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -87,7 +88,7 @@ In questo modo, tuttavia, possono venire restituiti troppi risultati e la query 
 
 Il modo migliore per ottenere solo i 10 record più recenti consiste nell'usare **top**, che consente di ordinare l'intera tabella sul lato server e quindi restituisce i primi record:
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -102,14 +103,14 @@ I filtri, come indica il loro nome, filtrano i dati in base a una condizione spe
 
 Per aggiungere un filtro a una query, usare l'operatore **where** seguito da una o più condizioni. La query seguente, ad esempio, restituisce solo i record *SecurityEvent* in cui _Level_ corrisponde a _8_:
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8
 ```
 
 Quando si scrivono le condizioni di filtro, è possibile usare le espressioni seguenti:
 
-| Espressione | DESCRIZIONE | Esempio |
+| Expression | DESCRIZIONE | Esempio |
 |:---|:---|:---|
 | == | Controllo dell'uguaglianza<br>(fa distinzione tra maiuscole e minuscole) | `Level == 8` |
 | =~ | Controllo dell'uguaglianza<br>(non fa distinzione tra maiuscole e minuscole) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -118,14 +119,14 @@ Quando si scrivono le condizioni di filtro, è possibile usare le espressioni se
 
 Per filtrare in base a più condizioni, è possibile usare **and**:
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 oppure inoltrare tramite pipe più elementi **where**, uno dopo l'altro:
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -139,13 +140,13 @@ SecurityEvent
 ### <a name="time-picker"></a>Controllo di selezione di data e ora
 Il controllo di selezione di data e ora si trova nell'angolo in alto a sinistra e indica che viene eseguita una query solo sui record delle ultime 24 ore. Si tratta dell'intervallo di tempo predefinito applicato a tutte le query. Per ottenere solo i record dall'ultima ora, selezionare _Ultima ora_ ed eseguire di nuovo la query.
 
-![Controllo di selezione di data e ora](media/get-started-queries/timepicker.png)
+![Selezione ora](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtro temporale nella query
 È anche possibile definire un intervallo di tempo personalizzato aggiungendo un filtro temporale alla query. È consigliabile posizionare il filtro temporale immediatamente dopo il nome della tabella: 
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -157,7 +158,7 @@ Nel filtro temporale precedente, `ago(30m)` indica "30 minuti fa", quindi la que
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project ed extend: selezionare e calcolare le colonne
 Usare **project** per selezionare colonne specifiche da includere nei risultati:
 
-```OQL
+```KQL
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -174,7 +175,7 @@ L'esempio precedente genera l'output seguente:
 * Creare una nuova colonna denominata *EventCode*. La funzione **substring()** viene usata per ottenere solo i primi quattro caratteri del campo Activity.
 
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -182,7 +183,7 @@ SecurityEvent
 
 Il comando **extend** mantiene tutte le colonne originali nel set di risultati e definisce colonne aggiuntive. La query seguente usa **extend** per aggiungere una colonna *localtime* che contiene un valore TimeGenerated localizzato.
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -192,7 +193,7 @@ SecurityEvent
 Usare **summarize** per identificare i gruppi di record, in base a una o più colonne, e applicarvi aggregazioni. L'uso più comune di **summarize** è con *count*, che restituisce il numero di risultati in ogni gruppo.
 
 La query seguente esamina tutti i record *Perf* dell'ultima ora, li raggruppa in base a *ObjectName* e conta i record in ogni gruppo: 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -200,7 +201,7 @@ Perf
 
 In alcuni casi è opportuno definire i gruppi in base a più dimensioni. Ogni combinazione univoca di questi valori definisce un gruppo separato:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -208,7 +209,7 @@ Perf
 
 Un altro uso comune consiste nell'eseguire calcoli matematici o statistici su ogni gruppo. Ad esempio, di seguito viene calcolata la media di *CounterValue* per ogni computer:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -216,7 +217,7 @@ Perf
 
 Sfortunatamente, i risultati di questa query non sono significativi perché combinano i valori di diversi contatori delle prestazioni. Per renderli più significativi, è necessario calcolare la media separatamente per ogni combinazione di *CounterName* e *Computer*:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -227,7 +228,7 @@ Il raggruppamento dei risultati può anche essere basato su una colonna temporal
 
 Per creare gruppi basati su valori continui, è consigliabile suddividere l'intervallo in unità gestibili tramite **bin**. La query seguente analizza i record *Perf* che misurano la memoria libera (*Available MBytes*) in un computer specifico. Calcola il valore medio per ogni periodo di 1 ora, negli ultimi 2 giorni:
 
-```OQL
+```KQL
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

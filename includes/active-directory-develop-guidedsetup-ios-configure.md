@@ -1,3 +1,17 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: active-directory
+documentationcenter: dev-center-name
+author: brandwe
+manager: mtillman
+ms.openlocfilehash: ca7a47fbe2c5ee2a4eb10abf3b9b50a2d28c252e
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466183"
+---
 ## <a name="register-your-application"></a>Registrare l'applicazione
 È possibile registrare l'applicazione in uno dei due modi descritti nelle due sezioni successive.
 
@@ -11,7 +25,7 @@
 ### <a name="option-2-advanced-mode"></a>Opzione 2: Modalità avanzata
 
 1.  Passare al [Portale di registrazione delle applicazioni di Microsoft](https://apps.dev.microsoft.com/portal/register-app)
-2.  Immettere un nome per l'applicazione e l'indirizzo di posta elettronica
+2.  Immettere un nome per l'applicazione
 3.  Assicurarsi che l'opzione per l'installazione guidata sia deselezionata
 4.  Fare clic su `Add Platform`, selezionare `Native Application` e quindi fare clic su `Save`
 5.  Tornare a Xcode. In `ViewController.swift` sostituire la riga che inizia con "`let kClientID`" con l'ID dell'applicazione appena registrata:
@@ -41,7 +55,6 @@ Sotto il nodo radice <code>dict</code> aggiungere quanto segue:
         <key>CFBundleURLSchemes</key>
         <array>
             <string>msal[Your_Application_Id_Here]</string>
-            <string>auth</string>
         </array>
     </dict>
 </array>
