@@ -229,7 +229,7 @@ L'aspetto negativo di questo approccio diventa però immediatamente evidente se 
 Poiché attualmente non esiste alcun vincolo, chiave esterna o altro, le relazioni esistenti tra i documenti sono di fatto "collegamenti deboli" e non verranno verificate dal database. Per essere certi che i dati a cui un documento fa riferimento esistano davvero, è eseguire questa operazione nell'applicazione oppure tramite trigger lato server o stored procedure in Azure Cosmos DB.
 
 ### <a name="when-to-reference"></a>Quando fare riferimento
-In generale, usare i modelli di dati denormalizzati quando:
+In generale, usare i modelli di dati normalizzati quando:
 
 * Si rappresentano relazioni **uno a molti** .
 * Si rappresentano relazioni **molti a molti** .
