@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ms.openlocfilehash: 46bc043681bbba37a2dfb6476e1dd0784e1abf10
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139727"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46874028"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Usare gli strumenti di trasferimento dei dati per l'archiviazione di Azure Stack
 
@@ -246,7 +246,7 @@ Il comando di Azure è l'esperienza della riga di comando di Azure per la gestio
 
 Comando di Azure è ottimizzata per la gestione e amministrazione delle risorse di Azure dalla riga di comando e per la creazione di script di automazione che funzionano con Azure Resource Manager. Offre inoltre molte delle stesse funzioni disponibili nel portale di Azure Stack, incluso l'accesso ai dati avanzati.
 
-Azure Stack richiede di comando di Azure versione 2.0. Per altre informazioni sull'installazione e configurazione della riga di comando di Azure con Azure Stack, vedere [installare e configurare l'interfaccia della riga di comando di Azure Stack](azure-stack-version-profiles-azurecli2.md). Per altre informazioni su come usare il comando di Azure 2.0 per eseguire diverse attività con le risorse nell'account di archiviazione di Azure Stack, vedere [usando CLI2.0 di Azure con archiviazione di Azure](../../storage/storage-azure-cli.md)
+Azure Stack richiede Azure CLI 2.0 o versione successiva. Per altre informazioni sull'installazione e configurazione della riga di comando di Azure con Azure Stack, vedere [installare e configurare l'interfaccia della riga di comando di Azure Stack](azure-stack-version-profiles-azurecli2.md). Per altre informazioni su come usare il comando di Azure per eseguire diverse attività con le risorse nell'account di archiviazione di Azure Stack, vedere [tramite la CLI di Azure con archiviazione di Azure](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Script di esempio della riga di comando Azure per Azure Stack
 
