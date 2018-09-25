@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 2/14/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 2fd993960d8ae5d1f26939d333e546da760d8f43
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2bd5e3e022c0e780b1efede6facb8924fa6cde4f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432583"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998186"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Ripristinare file in una macchina virtuale in Azure
 Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si esegue il ripristino da un punto di recupero, è possibile ripristinare l'intera macchina virtuale o file singoli. In questo articolo viene illustrato come ripristinare singoli file. In questa esercitazione si apprenderà come:
@@ -27,7 +27,7 @@ Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di c
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.18 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.18 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
