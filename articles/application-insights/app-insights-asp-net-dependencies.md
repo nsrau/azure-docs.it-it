@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293640"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999702"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Impostare Application Insights: tenere traccia delle dipendenze
 Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](app-insights-overview.md) misura per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce. È possibile esaminare chiamate specifiche e correlarle a richieste ed eccezioni.
@@ -133,7 +133,7 @@ Fare clic su un'occorrenza di una richiesta non riuscita ed esaminare gli eventi
 ![Fare clic su un tipo di richiesta, fare clic sull'istanza per ottenere una vista diversa della stessa istanza, fare clic su di essa per ottenere informazioni dettagliate sull'eccezione.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analytics
-È possibile tenere traccia delle dipendenze nel [linguaggio di query di Log Analytics](https://docs.loganalytics.io/). Di seguito sono riportati alcuni esempi.
+È possibile tenere traccia delle dipendenze nel [linguaggio di query di Log Analytics](https://aka.ms/LogAnalyticsLanguage). Di seguito sono riportati alcuni esempi.
 
 * Trovare eventuali chiamate alle dipendenze non riuscite:
 
@@ -207,7 +207,7 @@ Consultare la tabella seguente e assicurarsi di aver scelto la configurazione co
 
 | Piattaforma | Installa |
 | --- | --- |
-| Server IIS |O [installare Status Monitor nel server](app-insights-monitor-performance-live-website-now.md). Oppure [](http://go.microsoft.com/fwlink/?LinkId=528259)[Aggiornare l'applicazione a .NET Framework 4.6 o versione successiva](app-insights-asp-net.md) e installare Application Insights SDK nell'app. |
+| Server IIS |O [installare Status Monitor nel server](app-insights-monitor-performance-live-website-now.md). Oppure [Aggiornare l'applicazione a .NET Framework 4.6 o versione successiva](http://go.microsoft.com/fwlink/?LinkId=528259) e installare [Application Insights SDK](app-insights-asp-net.md) nell'app. |
 | App Web di Azure |[Aprire il pannello Application Insights nel pannello di controllo dell'app Web](app-insights-azure-web-apps.md) e scegliere Installa, se richiesto. |
 | Servizio cloud di Azure |[Usare l'attività di avvio](app-insights-cloudservices.md) oppure [installare .NET Framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
