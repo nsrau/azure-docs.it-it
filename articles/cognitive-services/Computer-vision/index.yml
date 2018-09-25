@@ -1,28 +1,58 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: da70af8eb2239fb9246071605aa5323e2e9e041e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958442"
 documentType: LandingData
-title: Documentazione di Visione artificiale
+title: Documentazione dell'API Visione artificiale
 metadata:
-  title: 'Documentazione di Visione artificiale: guide introduttive, esercitazioni, informazioni di riferimento sulle API- Servizi cognitivi di Azure | Microsoft Docs'
+  title: Documentazione dell'API Visione artificiale - Guide introduttive, esercitazioni, informazioni di riferimento sulle API- Servizi cognitivi di Azure | Microsoft Docs
   description: Informazioni su come usare Visione artificiale per elaborare immagini e restituire informazioni. Le esercitazioni illustrano come compilare app che usano l'API.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: nitinme
+  manager: cgronlun
   ms.service: cognitive-services
   ms.component: computer-vision
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/22/2018
-  ms.author: nolachar
-  ms.openlocfilehash: 7a68ff1e0cc80c99ec94cfe6f0480408afa92431
-  ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 07/02/2018
-  ms.locfileid: "37340713"
+  ms.date: 09/24/2018
+  ms.author: nitinme
 abstract:
   description: L'API Visione artificiale basata sul cloud consente agli sviluppatori di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione delle informazioni. Caricando un'immagine o specificando l'URL di un'immagine, gli algoritmi di Visione artificiale di Microsoft possono analizzare i contenuti visivi in diversi modi in base agli input e alle scelte dell'utente. Informazioni su come analizzare il contenuto visivo in modi diversi con guide introduttive, esercitazioni ed esempi.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/computer-vision-landing-page-video.png
+      width: 250
+    title: Applicare l'intelligence alle app con le API Visione artificiale (05:41)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
+    width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/computer-vision/home
+      html: <p>Informazioni sull'API Visione artificiale.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Informazioni sulla Visione artificiale
+    - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
+      html: <p>Informazioni su come ottenere le chiavi di sottoscrizione per l'API Visione artificiale.</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: Chiavi di sottoscrizione per l'API Visione artificiale
+    - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
+      html: <p>Informazioni sui concetti fondamentali delle chiamate a un'API Visione artificiale.</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: Chiamare l'API Visione artificiale
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
@@ -50,7 +80,15 @@ sections:
         src: media/index/logo_go.svg
       text: Go
       href: QuickStarts/go-analyze
-- title: Riferimenti
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: 'Informazioni su come sviluppare applicazioni con Visione artificiale:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="Tutorials/CSharpTutorial.md">Creare un'app di Visione artificiale con C#</a>
+- title: riferimento
   items:
   - type: list
     style: cards
@@ -60,3 +98,7 @@ sections:
       html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">API Visione artificiale v2.0</a></p> <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">API Visione artificiale v1.0</a></p>
     - title: SDK
       html: <p><a href="https://github.com/Microsoft/Cognitive-vision-windows">Windows</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules">Python</a></p> <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-vision-android">Android</a></p> <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Interfaccia della riga di comando di Azure</a></p>

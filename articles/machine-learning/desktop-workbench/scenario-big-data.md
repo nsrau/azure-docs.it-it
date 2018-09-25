@@ -16,14 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450671"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964702"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsione del carico di lavoro server in terabyte di dati
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Questo articolo descrive in che modo i data scientist possono usare Azure Machine Learning Workbench per sviluppare soluzioni che richiedono l'uso di Big Data. Si può iniziare da un campione di un set di dati di grandi dimensioni, eseguire un'iterazione su preparazione dati, progettazione delle funzionalità e machine learning e quindi estendere il processo all'intero set di dati di grandi dimensioni. 
 
@@ -49,11 +52,11 @@ In questo scenario si analizza la stima del carico di lavoro per ogni computer (
 I prerequisiti per eseguire questo esempio sono i seguenti:
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
-* Una copia installata di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Per installare il programma e creare un'area di lavoro, vedere la [guida rapida all'installazione](../service/quickstart-installation.md). Se si dispone di più sottoscrizioni, è possibile [impostare quella desiderata come sottoscrizione attiva corrente](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+* Una copia installata di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Per installare il programma e creare un'area di lavoro, vedere la [guida rapida all'installazione](quickstart-installation.md). Se si dispone di più sottoscrizioni, è possibile [impostare quella desiderata come sottoscrizione attiva corrente](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (le istruzioni generali riportate in questo esempio sono le stesse per i sistemi macOS).
 * Una macchina virtuale di data science (DSVM) per Linux (Ubuntu), preferibilmente nell'area Stati Uniti orientali in cui si trovano i dati. È possibile eseguire il provisioning di una macchina virtuale di data science Ubuntu seguendo [queste istruzioni](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Si può anche vedere [questa Guida rapida](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). È consigliabile usare una macchina virtuale con almeno 8 core e 32 GB di memoria. 
 
-Seguire le [istruzioni](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) per abilitare l'accesso a sudoers senza password nella macchina virtuale per Azure Machine Learning Workbench.  È possibile scegliere di usare l'[autenticazione basata su chiave SSH per la creazione e l'uso della macchina virtuale in Azure Machine Learning Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In questo esempio viene usata la password per accedere alla macchina virtuale.  Conservare la tabella seguente con le informazioni sulla macchina virtuale di data science per i passaggi successivi:
+Seguire le [istruzioni](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) per abilitare l'accesso a sudoers senza password nella macchina virtuale per Azure Machine Learning Workbench.  È possibile scegliere di usare l'[autenticazione basata su chiave SSH per la creazione e l'uso della macchina virtuale in Azure Machine Learning Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In questo esempio viene usata la password per accedere alla macchina virtuale.  Conservare la tabella seguente con le informazioni sulla macchina virtuale di data science per i passaggi successivi:
 
  Nome campo| Valore |  
  |------------|------|

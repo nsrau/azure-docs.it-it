@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ROBOTS: NOINDEX
+ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973173"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950629"
 ---
 # <a name="consuming-web-services"></a>Uso dei servizi Web
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Dopo aver distribuito un modello come un servizio Web in tempo reale è possibile inviare dati e ottenere stime da un'ampia gamma di piattaforme e applicazioni. Il servizio Web in tempo reale espone un'API REST per l'ottenimento delle stime. È possibile inviare dati al servizio Web nel formato di riga singola o multipla per ottenere una o più stime contemporaneamente.
 
 Con il [servizio Web di Azure Machine Learning](model-management-service-deploy.md) un'applicazione esterna comunica con un modello predittivo in modo sincrono effettuando una chiamata HTTP POST all'URL del servizio. Per chiamare un servizio Web, l'applicazione client deve specificare la chiave API che viene creata quando si distribuisce una stima e si inseriscono i dati della richiesta nel corpo della richiesta POST.

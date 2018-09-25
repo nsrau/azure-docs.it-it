@@ -7,18 +7,23 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 6802d1dfc360a48d8085ff07a8d4488ee1751e33
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832102"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968714"
 ---
 # <a name="model-management-setup"></a>Installazione di Gestione modelli
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="overview"></a>Panoramica
 Questo documento fornisce un'introduzione all'uso di Gestione modelli di Azure Machine Learning per distribuire e gestire i modelli di Machine Learning come servizi Web. 

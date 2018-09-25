@@ -1,273 +1,381 @@
-- name: Panoramica
-  href: azure-ad-developers-guide.md
+items:
+- name: Microsoft Identity Platform (Azure Active Directory per sviluppatori)
+  href: index.yml
+- name: Informazioni su Microsoft Identity Platform
+  href: about-microsoft-identity-platform.md
+- name: v1.0
   items:
-    - name: Vantaggi di Azure AD
-      href: 'https://azure.microsoft.com/develop/identity/signin/'
-    - name: Nozioni di base sull'autenticazione
-      href: authentication-scenarios.md
-    - name: Tipi di app
-      href: 'authentication-scenarios.md#application-types-and-scenarios'
-- name: Attività iniziali
-  items:
-    - name: App per dispositivi mobili e desktop
+  - name: Panoramica
+    href: azure-ad-developers-guide.md
+  - name: Guide introduttive
+    items:
+    - name: Configurare un ambiente di sviluppo
+      href: quickstart-create-new-tenant.md
+    - name: Configurare un'applicazione
       items:
-        - name: Panoramica
-          href: 'active-directory-authentication-scenarios.md#native-application-to-web-api'
-        - name: iOS
-          href: quickstart-v1-ios.md
-        - name: Android
-          href: quickstart-v1-android.md
-        - name: .NET (Windows Desktop)
-          href: quickstart-v1-dotnet.md
-        - name: .NET (Xamarin)
-          href: quickstart-v1-xamarin.md
-        - name: OAuth 2.0
-          href: v1-protocols-oauth-code.md
-    - name: App Web
-      items:
-        - name: Panoramica
-          href: 'active-directory-authentication-scenarios.md#web-browser-to-web-application'
-        - name: ASP.NET
-          href: quickstart-v1-aspnet-webapp.md
-        - name: ASP.NET Core
-          href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore'
-        - name: Java
-          href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
-        - name: Python
-          href: 'https://github.com/Azure-Samples/active-directory-python-webapp-graphapi'
-        - name: NodeJS
-          href: quickstart-v1-openid-connect-code.md
-        - name: OpenID Connect
-          href: v1-protocols-openid-connect-code.md
+      - name: Registrare un'app
+        href: quickstart-v1-add-azure-ad-app.md
+      - name: Aggiornare un'app
+        href: quickstart-v1-update-azure-ad-app.md
+      - name: Rimuovere un'app
+        href: quickstart-v1-remove-azure-ad-app.md
     - name: App a pagina singola
       items:
-        - name: Panoramica
-          href: 'active-directory-authentication-scenarios.md#single-page-application-spa'
-        - name: Angular JS
-          href: quickstart-v1-angularjs-spa.md
-        - name: JavaScript
-          href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
+      - name: AngularJS
+        href: quickstart-v1-angularjs-spa.md
+      - name: JavaScript
+        href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
+    - name: App Web
+      items:
+      - name: ASP .NET
+        href: quickstart-v1-aspnet-webapp.md
+      - name: Java
+        href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+      - name: NodeJS
+        href: quickstart-v1-openid-connect-code.md
+      - name: Python
+        href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
     - name: API Web
       items:
-        - name: Panoramica
-          href: 'active-directory-authentication-scenarios.md#web-application-to-web-api'
-        - name: ASP.NET
-          href: quickstart-v1-dotnet-webapi.md
-        - name: NodeJS
-          href: quickstart-v1-nodejs-webapi.md
-    - name: Da servizio a servizio
+      - name: ASP .NET
+        href: quickstart-v1-dotnet-webapi.md
+      - name: NodeJS
+        href: quickstart-v1-nodejs-webapi.md
+    - name: App per dispositivi mobili e desktop
       items:
-        - name: Panoramica
-          href: 'active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api'
-        - name: .NET
-          href: 'sample-v1-code.md#server-or-daemon-application-to-web-api'
-        - name: Credenziali client OAuth 2.0
-          href: v1-oauth2-client-creds-grant-flow.md
-- name: Guide
-  items:
-    - name: Registrazione dell'applicazione
-      href: quickstart-v1-integrate-apps-with-azure-ad.md
-    - name: App multi-tenant
-      href: howto-convert-app-to-be-multi-tenant.md
+      - name: Android
+        href: quickstart-v1-android.md
+      - name: iOS
+        href: quickstart-v1-ios.md
+      - name: .NET per Windows Desktop
+        href: quickstart-v1-dotnet.md
+      - name: Xamarin
+        href: quickstart-v1-xamarin.md
+    - name: Da servizio a servizio
+      href: sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity
+  - name: Esempi
+    href: sample-v1-code.md
+  - name: Concetti
+    items:
+    - name: Tipi di applicazioni
+      href: app-types.md
+      items:
+      - name: Applicazione a pagina singola
+        href: single-page-application.md
+      - name: app Web
+        href: web-app.md
+      - name: API Web
+        href: web-api.md
+      - name: App per dispositivi mobili e desktop
+        href: native-app.md
+      - name: Daemon o applicazione server
+        href: service-to-service.md
+    - name: Authentication
+      href: authentication-scenarios.md
+      items:
+      - name: Protocolli
+        items:
+        - name: OAuth e il protocollo OpenID Connect
+          items:
+          - name: Flusso di concessione implicita OAuth 2.0
+            href: v1-oauth2-implicit-grant-flow.md
+          - name: Concessione del codice di autenticazione OAuth 2.0
+            href: v1-protocols-oauth-code.md
+          - name: Flusso on-behalf-of di OAuth 2.0
+            href: v1-oauth2-on-behalf-of-flow.md
+          - name: Concessione di credenziali client OAuth 2.0
+            href: v1-oauth2-client-creds-grant-flow.md
+        - name: SAML 2.0
+          items:
+          - name: Single sign-on
+            href: single-sign-on-saml-protocol.md
+          - name: Disconnessione
+            href: single-sign-out-saml-protocol.md
+        - name: WS-Federation
+          items:
+          - name: Metadati della federazione
+            href: azure-ad-federation-metadata.md
+        - name: Rollover della chiave di firma
+          href: active-directory-signing-key-rollover.md
+      - name: Token ID
+        href: id-tokens.md
+      - name: Token di accesso
+        href: access-tokens.md
+      - name: Credenziali di un certificato
+        href: active-directory-certificate-credentials.md
+      - name: Token SAML
+        href: reference-saml-tokens.md
+    - name: Configurazione dell'applicazione
+      href: app-objects-and-service-principals.md
+      items:
+      - name: Come e perché le app vengono aggiunte ad Azure AD
+        href: active-directory-how-applications-are-added.md
+      - name: App a tenant singolo e multi-tenant
+        href: single-and-multi-tenant-apps.md
+    - name: Autorizzazioni e consenso
+      displayName: Scopes
+      href: v1-permissions-and-consent.md
+      items:
+      - name: Framework di consenso
+        href: consent-framework.md
+      - name: Esperienze di consenso per le applicazioni
+        href: ../application-consent-experience.md
     - name: Accesso condizionale
       href: conditional-access-dev-guide.md
-    - name: Autorizzazioni
-      href: v1-permissions-and-consent.md
-    - name: OAuth e OpenID Connect
+    - name: Cloud nazionali
+      href: authentication-national-cloud.md
+  - name: Guide alle procedure
+    items:
+    - name: Authentication
       items:
-        - name: Protocollo OpenID Connect
-          href: v1-protocols-openid-connect-code.md
-        - name: Concessione del codice di autenticazione OAuth 2.0
-          href: v1-protocols-oauth-code.md
-        - name: Concessione implicita OAuth 2.0
-          href: v1-oauth2-implicit-grant-flow.md
-    - name: SAML 2.0
-      href: active-directory-saml-protocol-reference.md
-      items:
-        - name: Configurazione dell'attestazione basata su ruolo
-          href: ../active-directory-enterprise-app-role-management.md
-        - name: Personalizzare le attestazioni
-          href: active-directory-saml-claims-customization.md
-        - name: Eseguire il debug di Single Sign-On basato su SAML
-          href: howto-v1-debug-saml-sso-issues.md
-        - name: Protocollo SAML per Single Sign-On
-          href: single-sign-on-saml-protocol.md
-        - name: Protocollo SAML per Single Sign-Out
-          href: single-sign-out-saml-protocol.md
-    - name: Creare un tenant
-      href: quickstart-create-new-tenant.md
-    - name: Condizioni per l'utilizzo del servizio e informativa sulla privacy
-      href: howto-add-terms-of-service-privacy-statement.md
-    - name: Linee guida sulla personalizzazione
-      href: howto-add-branding-in-azure-ad-apps.md
-    - name: Accesso Single Sign-On per dispositivi mobili e desktop
-      items:
+      - name: Configura accesso Single Sign-On
+        displayName: SSO
+        items:
         - name: Abilitare l'accesso Single Sign-On in Android
           href: howto-v1-enable-sso-android.md
         - name: Abilitare l'accesso Single Sign-On in iOS
           href: howto-v1-enable-sso-ios.md
-    - name: Azure AD B2B
-      href: ../active-directory-b2b-what-is-azure-ad-b2b.md
-    - name: Provisioning utenti con SCIM
-      href: ../active-directory-scim-provisioning.md
+        - name: Eseguire il debug di Single Sign-On basato su SAML
+          href: howto-v1-debug-saml-sso-issues.md
+      - name: Configurare le attestazioni
+        items:
+        - name: Configurare le attestazioni per i ruoli
+          href: ../active-directory-enterprise-app-role-management.md
+        - name: Personalizzare le attestazioni
+          href: active-directory-saml-claims-customization.md
+    - name: Configurazione dell'applicazione
+      items:
+      - name: Convertire un'app a tenant singolo in un'app multi-tenant
+        href: howto-convert-app-to-be-multi-tenant.md
+      - name: Limitare l'app a un set di utenti
+        href: howto-restrict-your-app-to-a-set-of-users.md
+      - name: Aggiungere ruoli dell'app nell'applicazione
+        href: howto-add-app-roles-in-azure-ad-apps.md
+      - name: Linee guida sulla personalizzazione
+        href: howto-add-branding-in-azure-ad-apps.md
+      - name: Condizioni per l'utilizzo del servizio e informativa sulla privacy
+        href: howto-add-terms-of-service-privacy-statement.md
+    - name: Utilizzo di Visual Studio
+      items:
+      - name: Usare il servizio connesso Active Directory
+        href: vs-active-directory-add-connected-service.md
+      - name: Introduzione ai progetti MVC .NET
+        href: vs-active-directory-dotnet-getting-started.md
+      - name: Modifiche apportate al progetto MVC .NET
+        href: vs-active-directory-dotnet-what-happened.md
+      - name: Introduzione ai progetti WebAPI
+        href: vs-active-directory-webapi-getting-started.md
+      - name: Modifiche apportate al progetto WebAPI
+        href: vs-active-directory-webapi-what-happened.md
+      - name: Errore durante il rilevamento dell'autenticazione
+        href: vs-active-directory-error.md
+    - name: Commercializzare un'app
+      items:
+      - name: Pubblicare in AppSource
+        href: howto-get-appsource-certified.md
+      - name: Pubblicare nella raccolta di app di Azure AD
+        href: howto-app-gallery-listing.md
+      - name: Pubblicare nel Dashboard venditori di Office 365
+        href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+    - name: Eseguire la migrazione dal Servizio di controllo di accesso di Azure
+      href: active-directory-acs-migration.md
+    - name: Usare l'API Graph di Azure AD
+      href: active-directory-graph-api-quickstart.md
+    - name: AD FS per sviluppatori
+      href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
+  - name: Riferimenti
+    items:
+    - name: Librerie di autenticazione di Azure AD
+      displayName: ADAL
+      href: active-directory-authentication-libraries.md
     - name: API Graph di Azure AD
       href: active-directory-graph-api.md
-      items:
-        - name: Introduzione ad AAD Graph
-          href: active-directory-graph-api-quickstart.md
-    - name: Certificazione AppSource
-      href: howto-get-appsource-certified.md
-    - name: Raccolta di app di Azure AD
-      href: howto-app-gallery-listing.md
-    - name: Dashboard venditori di Office 365
-      href: 'https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard'
-    - name: Uso di Visual Studio
-      items:
-        - name: Usare il servizio connesso Active Directory
-          href: vs-active-directory-add-connected-service.md
-        - name: Introduzione ai progetti MVC .NET
-          href: vs-active-directory-dotnet-getting-started.md
-        - name: Modifiche apportate al progetto MVC .NET
-          href: vs-active-directory-dotnet-what-happened.md
-        - name: Introduzione ai progetti WebAPI
-          href: vs-active-directory-webapi-getting-started.md
-        - name: Modifiche apportate al progetto WebAPI
-          href: vs-active-directory-webapi-what-happened.md
-        - name: Errore durante il rilevamento dell'autenticazione
-          href: vs-active-directory-error.md
-    - name: Windows Server AD FS
-      href: 'https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers'
-    - name: Migrazione del servizio di controllo di accesso
-      href: active-directory-acs-migration.md
-    - name: Procedure consigliate per la gestione degli errori di ADAL
-      href: active-directory-devhowto-adal-error-handling.md
-- name: riferimento
-  items:
-    - name: Esempi di codice
-      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
-    - name: Librerie di autenticazione (ADAL)
-      href: active-directory-authentication-libraries.md
-    - name: Esempi di codice per scenario
-      href: sample-v1-code.md
-    - name: Glossario
-      href: developer-glossary.md
-    - name: Protocolli di autenticazione
-      href: active-directory-authentication-protocols.md
-      items:
-        - name: OpenID Connect
-          href: v1-protocols-openid-connect-code.md
-        - name: Oauth
-          href: v1-protocols-oauth-code.md
-        - name: Chiamate da servizio a servizio
-          href: v1-oauth2-client-creds-grant-flow.md
-        - name: Flusso on-behalf-of
-          href: v1-oauth2-on-behalf-of-flow.md
-        - name: Token e tipi di attestazioni supportati
-          href: v1-id-and-access-tokens.md
-        - name: Configurare attestazioni facoltative e personalizzate per l'applicazione
-          href: active-directory-optional-claims.md
-        - name: Rollover della chiave di firma
-          href: active-directory-signing-key-rollover.md
-        - name: Metadati della federazione
-          href: azure-ad-federation-metadata.md
-        - name: Credenziali di un certificato
-          href: active-directory-certificate-credentials.md
-    - name: Oggetti applicazione
-      href: app-objects-and-service-principals.md
-      items:
-        - name: App e Azure AD
-          href: active-directory-how-applications-are-added.md
+    - name: Attestazioni nei token di sicurezza di Azure AD
+      href: active-directory-optional-claims.md
     - name: Manifesto dell'applicazione
       href: reference-app-manifest.md
-    - name: Durata dei token
-      href: ../active-directory-configurable-token-lifetimes.md
-    - name: Limiti del servizio
-      href: ../active-directory-service-limits-restrictions.md
-- name: Endpoint v2.0
+    - name: Codici di errore per autenticazione e autorizzazione
+      href: reference-aadsts-error-codes.md
+    - name: Modifiche di rilievo
+      href: reference-breaking-changes.md
+  expanded: true
+- name: v2.0
   items:
-    - name: Panoramica
-      href: active-directory-appmodel-v2-overview.md
+  - name: Panoramica
+    href: v2-overview.md
+  - name: Guide introduttive
+    items:
+    - name: Configurare un ambiente di sviluppo
+      href: quickstart-create-new-tenant.md
+    - name: Configurare un'applicazione
       items:
-        - name: Tipi di app
-          href: v2-app-types.md
-        - name: Limitazioni
-          href: active-directory-v2-limitations.md
-        - name: Confronto tra la versione 1 e la versione 2
-          href: azure-ad-endpoint-comparison.md
-    - name: Attività iniziali
+      - name: Registrare un'app
+        href: quickstart-v2-register-an-app.md
+      - name: Aggiornare un'app
+        href: quickstart-v1-update-azure-ad-app.md
+      - name: Rimuovere un'app
+        href: quickstart-v1-remove-azure-ad-app.md
+    - name: App a pagina singola
       items:
-        - name: App per dispositivi mobili e desktop
-          items:
-            - name: iOS
-              href: tutorial-v2-ios.md
-            - name: Android
-              href: tutorial-v2-android.md
-            - name: .NET per Windows Desktop
-              href: tutorial-v2-windows-desktop.md
-            - name: Piattaforma UWP (Universal Windows Platform)
-              href: tutorial-v2-windows-uwp.md
-        - name: App Web
-          items:
-            - name: ASP.NET
-              href: tutorial-v2-asp-webapp.md
-            - name: ASP.NET Core
-              href: 'https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2'
-            - name: NodeJS
-              href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
-        - name: API Web
-          items:
-            - name: ASP.NET
-              href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
-            - name: ASP.NET Core
-              href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
-            - name: NodeJS
-              href: 'https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2'
-        - name: App a singola pagina
-          items:
-            - name: JavaScript
-              href: tutorial-v2-javascript-spa.md
-        - name: Da servizio a servizio
-          items:
-            - name: ASP.NET
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
-    - name: Guide
+      - name: JavaScript
+        href: quickstart-v2-javascript.md
+    - name: App Web
       items:
-        - name: Registrare un'app
-          href: quickstart-v2-register-an-app.md
-        - name: Riferimento alla registrazione delle app
-          href: active-directory-v2-registration-portal.md
-    - name: riferimento
+      - name: ASP .NET
+        href: quickstart-v2-aspnet-webapp.md
+      - name: ASP .NET Core
+        href: quickstart-v2-aspnet-core-webapp.md
+      - name: NodeJS
+        href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+    - name: API Web
       items:
-        - name: Librerie di autenticazione
-          href: reference-v2-libraries.md
-        - name: Esempi di codice per scenario per la versione 2.0
-          href: sample-v2-code.md
-        - name: Protocolli di autenticazione v2.0
-          href: active-directory-v2-protocols.md
+      - name: ASP .NET
+        href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
+      - name: ASP .NET Core
+        href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
+    - name: App per dispositivi mobili e desktop
+      items:
+      - name: Android
+        href: quickstart-v2-android.md
+      - name: iOS
+        href: quickstart-v2-ios.md
+      - name: Piattaforma UWP (Universal Windows Platform)
+        href: quickstart-v2-uwp.md
+      - name: .NET per Windows Desktop
+        href: quickstart-v2-windows-desktop.md
+    - name: Da servizio a servizio
+      items:
+      - name: ASP .NET
+        href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
+  - name: Esercitazioni
+    items:
+    - name: App a pagina singola
+      items:
+      - name: JavaScript
+        href: tutorial-v2-javascript-spa.md
+    - name: App Web
+      items:
+      - name: ASP .NET
+        href: tutorial-v2-asp-webapp.md
+    - name: App per dispositivi mobili e desktop
+      items:
+      - name: Android
+        href: tutorial-v2-android.md
+      - name: iOS
+        href: tutorial-v2-ios.md
+      - name: Piattaforma UWP (Universal Windows Platform)
+        href: tutorial-v2-windows-uwp.md
+      - name: .NET per Windows Desktop
+        href: tutorial-v2-windows-desktop.md
+  - name: Esempi
+    href: sample-v2-code.md
+  - name: Concetti
+    items:
+    - name: Scelta tra v1.0 e v2.0
+      href: azure-ad-endpoint-comparison.md
+    - name: Tipi di applicazioni
+      href: v2-app-types.md
+    - name: Authentication
+      href: authentication-scenarios.md
+      items:
+      - name: Protocolli
+        items:
+        - name: OAuth e il protocollo OpenID Connect
           items:
-            - name: OpenID Connect
-              href: v2-protocols-oidc.md
-            - name: Concessione del codice di autorizzazione OAuth 2.0
-              href: v2-oauth2-auth-code-flow.md
-            - name: Concessione implicita OAuth 2.0
-              href: v2-oauth2-implicit-grant-flow.md
-            - name: Concessione di credenziali client OAuth 2.0
-              href: v2-oauth2-client-creds-grant-flow.md
-            - name: Flusso on-behalf-of di OAuth 2.0
-              href: v2-oauth2-on-behalf-of-flow.md
-            - name: Credenziali di un certificato
-              href: active-directory-certificate-credentials.md
-            - name: Codice di esempio Oauth 2.0
-              href: active-directory-protocols-oauth-get-jwt-token.md
-        - name: Tokens
-          href: v2-id-and-access-tokens.md
-        - name: Ambiti e consenso
-          href: v2-permissions-and-consent.md
+          - name: Flusso di concessione implicita OAuth 2.0
+            href: v2-oauth2-implicit-grant-flow.md
+          - name: Concessione del codice di autenticazione OAuth 2.0
+            href: v2-oauth2-auth-code-flow.md
+          - name: Flusso on-behalf-of di OAuth 2.0
+            href: v2-oauth2-on-behalf-of-flow.md
+          - name: Concessione di credenziali client OAuth 2.0
+            href: v2-oauth2-client-creds-grant-flow.md
+      - name: Token ID
+        href: id-tokens.md
+      - name: Token di accesso
+        href: access-tokens.md
+      - name: Credenziali di un certificato
+        href: active-directory-certificate-credentials.md
+    - name: Configurazione dell'applicazione
+      href: app-objects-and-service-principals.md
+      items:
+      - name: App a tenant singolo e multi-tenant
+        href: single-and-multi-tenant-apps.md
+    - name: Autorizzazioni e consenso
+      displayName: Scopes
+      href: v2-permissions-and-consent.md
+      items:
+      - name: Framework di consenso
+        href: consent-framework.md
+      - name: Esperienze di consenso per le applicazioni
+        href: ../application-consent-experience.md
+    - name: Cloud nazionali
+      href: authentication-national-cloud.md
+  - name: Guide alle procedure
+    items:
+    - name: Authentication
+      items:
+      - name: Configurare le attestazioni per i ruoli
+        href: ../active-directory-enterprise-app-role-management.md
+      - name: Personalizzare le attestazioni
+        href: active-directory-saml-claims-customization.md
+    - name: Configurazione dell'applicazione
+      items:
+      - name: Convertire un'app a tenant singolo in un'app multi-tenant
+        href: howto-convert-app-to-be-multi-tenant.md
+      - name: Limitare l'app a un set di utenti
+        href: howto-restrict-your-app-to-a-set-of-users.md
+      - name: Aggiungere ruoli dell'app nell'applicazione
+        href: howto-add-app-roles-in-azure-ad-apps.md
+      - name: Linee guida sulla personalizzazione
+        href: howto-add-branding-in-azure-ad-apps.md
+      - name: Condizioni per l'utilizzo del servizio e informativa sulla privacy
+        href: howto-add-terms-of-service-privacy-statement.md
+    - name: Utilizzo di Visual Studio
+      items:
+      - name: Usare il servizio connesso Active Directory
+        href: vs-active-directory-add-connected-service.md
+      - name: Introduzione ai progetti MVC .NET
+        href: vs-active-directory-dotnet-getting-started.md
+      - name: Modifiche apportate al progetto MVC .NET
+        href: vs-active-directory-dotnet-what-happened.md
+      - name: Introduzione ai progetti WebAPI
+        href: vs-active-directory-webapi-getting-started.md
+      - name: Modifiche apportate al progetto WebAPI
+        href: vs-active-directory-webapi-what-happened.md
+      - name: Errore durante il rilevamento dell'autenticazione
+        href: vs-active-directory-error.md
+  - name: Riferimenti
+    items:
+    - name: Microsoft Authentication Library
+      displayName: MSAL
+      href: reference-v2-libraries.md
+    - name: API Azure AD in Microsoft Graph
+      href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+    - name: Manifesto dell'applicazione
+      href: reference-app-manifest.md
+    - name: Codici di errore per autenticazione e autorizzazione
+      href: reference-aadsts-error-codes.md
+    - name: Modifiche di rilievo
+      href: reference-breaking-changes.md
+  expanded: true
 - name: Risorse
   items:
-    - name: Risorse della Guida
-      href: developer-support-help-options.md
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
-    - name: Calcolatore prezzi
-      href: 'https://azure.microsoft.com/pricing/calculator/'
+  - name: Glossario
+    href: developer-glossary.md
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blog di Azure AD
+    href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Provare l'opzione Accedi con Microsoft
+    href: https://azure.microsoft.com/develop/identity/signin/
+  - name: Risorse della Guida
+    href: developer-support-help-options.md
+  - name: Identità del servizio gestita per le risorse di Azure
+    href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
+ms.openlocfilehash: f43ff4699faaddb51a43ce6ea282c61b226729e3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988523"

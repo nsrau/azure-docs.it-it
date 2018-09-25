@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 5c1a884ebe6216c4e8099f2ada2182ccff68b63e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 435ef29192682f1bf19a9a53923dd043676256ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450331"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954943"
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Raccogliere i dati di modello tramite la raccolta dati
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 La funzionalità di raccolta dati di modello in Azure Machine Learning consente di archiviare gli input e le previsioni del modello da un servizio Web.
 
@@ -105,7 +108,7 @@ Per visualizzare i dati raccolti nell'archiviazione blob:
 I dati possono essere usati dai BLOB di Azure in diversi modi, sia tramite il software Microsoft che tramite strumenti open source. Di seguito sono riportati alcuni esempi:
 - Azure Machine Learning Workbench: aprire il file CSV in Azure Machine Learning Workbench aggiungendolo come origine dati.
 - Excel: aprire i file CSV giornalieri come foglio di calcolo.
-- [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): creare grafici con i dati estratti dai dati CSV nei BLOB.
+- [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): creare grafici con i dati estratti dai dati CSV nei BLOB.
 - [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): creare un frame di dati con una parte significativa dei dati CSV.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")

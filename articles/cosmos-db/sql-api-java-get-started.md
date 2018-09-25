@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione su NoSQL: API di SQL per Azure Cosmos DB Java SDK | Microsoft Docs'
+title: 'Esercitazione su NoSQL: API di SQL per Azure Cosmos DB Java SDK | Documentazione Microsoft'
 description: Esercitazione su NoSQL che crea un database online e un'applicazione console Java con l'API di SQL per Azure Cosmos DB. SQL Azure è un database NoSQL per JSON.
 keywords: esercitazione su nosql, database online, applicazione console java
 services: cosmos-db
@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: c69aefa6271f9766687ce3b63f959dd4e414b98c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 99accb8a822aedc387bbe137e8e80e298fe7cd1d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696677"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991182"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Esercitazione su NoSQL: Compilare un'applicazione console Java con l'API di SQL
 
@@ -26,7 +26,6 @@ ms.locfileid: "43696677"
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
-> * [Node.js - v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Esercitazione su NoSQL per l'API di SQL per Azure Cosmos DB Java SDK. Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse Azure Cosmos DB.

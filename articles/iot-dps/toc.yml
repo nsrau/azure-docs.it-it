@@ -41,6 +41,10 @@ items:
         href: quick-create-simulated-device-x509-node.md
       - name: Python
         href: quick-create-simulated-device-x509-python.md
+    - name: Attestazione con chiave simmetrica
+      items:
+      - name: C
+        href: quick-create-simulated-device-symm-key.md
   - name: Registrazione dei dispositivi con le API del servizio di provisioning
     items:
     - name: Attestazione TPM
@@ -84,6 +88,8 @@ items:
   items:
   - name: Provisioning automatico
     href: concepts-auto-provisioning.md
+  - name: Ripetizione del provisioning
+    href: concepts-device-reprovision.md
   - name: Dispositivi
     href: concepts-device.md
   - name: Sicurezza
@@ -92,6 +98,8 @@ items:
     href: concepts-service.md
   - name: Attestazione TPM
     href: concepts-tpm-attestation.md
+  - name: Attestazione con chiave simmetrica
+    href: concepts-symmetric-key-attestation.md
 - name: Guide alle procedure
   items:
   - name: Connettere MXChip IoT DevKit all'hub IoT
@@ -104,8 +112,10 @@ items:
       href: how-to-manage-enrollments-sdks.md
     - name: Configurare certificati della CA verificati
       href: how-to-verify-certificates.md
-    - name: Rinnovo dei certificati dei dispositivi
+    - name: Rinnovare i certificati dei dispositivi
       href: how-to-roll-certificates.md
+    - name: Effettuare di nuovo il provisioning dei dispositivi
+      href: how-to-reprovision.md
     - name: Gestire la revoca delle registrazioni
       href: how-to-revoke-device-access-portal.md
     - name: Gestire il deprovisioning
@@ -126,6 +136,12 @@ items:
       maintainContext: true
   - name: Usare meccanismi di attestazione con SDK
     href: use-hsm-with-sdk.md
+  - name: Effettuare il provisioning per la multi-tenancy
+    href: how-to-provision-multitenant.md
+  - name: Usare criteri di allocazione personalizzati
+    href: how-to-use-custom-allocation-policies.md
+  - name: Usare chiavi simmetriche con dispositivi legacy
+    href: how-to-legacy-device-symm-key.md
   - name: Usare gli strumenti SDK per lo sviluppo
     href: how-to-use-sdk-tools.md
 - name: riferimento
@@ -210,9 +226,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 0a4369214f26622c2a30136a814b8e788e187144
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 7c662941bc72a9650cd40bd1361a6d43c11a4c5b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41929655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989397"

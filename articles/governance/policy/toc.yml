@@ -1,0 +1,225 @@
+items:
+- name: Documentazione di Criteri di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Panoramica dei criteri di Azure
+    href: overview.md
+- name: Guide introduttive
+  items:
+  - name: Assegnare un criterio - Portale
+    href: assign-policy-portal.md
+  - name: Assegnare un criterio - PowerShell
+    href: assign-policy-powershell.md
+  - name: Assegnare un criterio - Interfaccia della riga di comando di Azure
+    href: assign-policy-azurecli.md
+  expanded: true
+- name: Esercitazioni
+  items:
+  - name: Creare e gestire i criteri di Azure
+    href: ./tutorials/create-and-manage.md
+- name: Esempi
+  href: ./samples/index.md
+  items:
+  - name: Generale
+    items:
+    - name: Denominazione
+      items:
+      - name: Consentire modelli nome multipli
+        href: samples/allow-multiple-name-patterns.md
+      - name: Richiedere il modello like
+        href: samples/enforce-like-pattern.md
+      - name: Richiedere il modello di corrispondenza
+        href: samples/enforce-match-pattern.md
+      - name: Richiedere il modello di corrispondenza tag
+        href: samples/enforce-tag-match-pattern.md
+    - name: Tag
+      items:
+      - name: Applicare il tag e il relativo valore predefinito
+        href: samples/apply-tag-def-val.md
+      - name: Iniziativa relativa ai criteri dei tag di fatturazione
+        href: samples/billing-tags-policy-init.md
+      - name: Imporre un tag e il relativo valore
+        href: samples/enforce-tag-val.md
+      - name: Applicare un tag e il relativo valore a gruppi di risorse
+        href: samples/enforce-tag-rg.md
+    - name: Località
+      items:
+      - name: Percorsi consentiti
+        href: samples/allowed-locs.md
+    - name: Tipi di risorse
+      items:
+      - name: Tipi di risorse consentiti
+        href: samples/allowed-res-types.md
+      - name: Tipi di risorse non consentiti
+        href: samples/not-allowed-res-type.md
+  - name: Calcolo
+    items:
+    - name: Macchine virtuali
+      items:
+      - name: Consentire un'immagine di macchina virtuale personalizzata da un gruppo di risorse
+        href: samples/allow-custom-vm-image.md
+      - name: SKU consentiti per account di archiviazione e macchine virtuali
+        href: samples/allowed-skus-storage.md
+      - name: Immagini di macchine virtuali approvate
+        href: samples/allowed-custom-images.md
+      - name: Controllare se l'estensione non esiste
+        href: samples/audit-ext-not-exist.md
+      - name: Estensioni di macchine virtuali non consentite
+        href: samples/not-allowed-vm-ext.md
+    - name: set di scalabilità di macchine virtuali
+      items:
+      - name: Controllare quando la macchina virtuale non usa il disco gestito
+        href: samples/create-vm-managed-disk.md
+      - name: Creare una macchina virtuale usando un disco gestito
+        href: samples/use-managed-disk-vm.md
+      - name: Deny hybrid use benefit (Rifiuta vantaggio Hybrid Use)
+        href: samples/deny-hybrid-use.md
+      - name: Consentire solo una determinata immagine della piattaforma della macchina virtuale
+        href: samples/allow-certain-vm-image.md
+  - name: Data Lake
+    items:
+    - name: Applicare la crittografia di Data Lake Store
+      href: samples/enforce-datalakestore-encryption.md
+  - name: Monitoraggio
+    items:
+    - name: Audit diagnostic setting (Controllare le impostazioni di diagnostica)
+      href: samples/audit-diag-setting.md
+  - name: Rete
+    items:
+    - name: Interfacce di rete
+      items:
+      - name: NSG X in ogni scheda di interfaccia di rete
+        href: samples/nsg-on-nic.md
+      - name: Usare una subnet approvata per le interfacce di rete delle macchine virtuali
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: Reti virtuali
+      items:
+      - name: SKU del gateway applicazione consentiti
+        href: samples/allowed-app-gate-sku.md
+      - name: Nessun peering reti per la rete ER
+        href: samples/no-peering-er-net.md
+      - name: Nessuna tabella di route definita dall'utente
+        href: samples/no-user-def-route-table.md
+      - name: NSG X in ogni subnet
+        href: samples/nsg-on-subnet.md
+      - name: Usare una subnet approvata per le interfacce di rete delle macchine virtuali
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: Gruppi di sicurezza di rete
+      items:
+      - name: NSG X in ogni scheda di interfaccia di rete
+        href: samples/nsg-on-nic.md
+      - name: NSG X in ogni subnet
+        href: samples/nsg-on-subnet.md
+    - name: Istanze di ExpressRoute
+      items:
+      - name: Larghezza di banda di Express Route consentita
+        href: samples/allowed-er-band.md
+      - name: SKU di Express Route consentiti
+        href: samples/allowed-er-skus.md
+      - name: Località di peering consentita per Express Route
+        href: samples/allowed-peering-er.md
+    - name: Network Watcher
+      items:
+      - name: Controllare se Network Watcher non è abilitato per l'area
+        href: samples/net-watch-not-enabled.md
+    - name: Gateway di applicazione
+      items:
+      - name: SKU del gateway applicazione consentiti
+        href: samples/allowed-app-gate-sku.md
+  - name: SQL
+    items:
+    - name: Server SQL
+      items:
+      - name: Controlla l'assenza di un amministratore per Azure Active Directory
+        href: samples/audit-no-aad-admin.md
+      - name: Controllare l'impostazione di rilevamento delle minacce a livello di server
+        href: samples/audit-sql-ser-threat-det-setting.md
+      - name: Verificare le impostazioni di controllo di SQL Server
+        href: samples/sql-server-audit.md
+      - name: Controllare l'impostazione di controllo a livello di SQL Server
+        href: samples/audit-sql-ser-leve-audit-setting.md
+      - name: Richiedere SQL Server versione 12.0
+        href: samples/req-sql-12.md
+    - name: DATABASE SQL
+      items:
+      - name: SKU del database SQL consentiti
+        href: samples/allowed-sql-db-skus.md
+      - name: Controllare l'impostazione di rilevamento delle minacce a livello di database SQL
+        href: samples/audit-db-threat-det-setting.md
+      - name: Controllare la crittografia del database SQL
+        href: samples/sql-database-encryption-audit.md
+      - name: Controllare l'impostazione di controllo a livello di database SQL
+        href: samples/audit-sql-db-audit-setting.md
+      - name: Controllare lo stato di Transparent Data Encryption
+        href: samples/audit-trans-data-enc-status.md
+  - name: Archiviazione
+    items:
+    - name: SKU consentiti per l'account di archiviazione e le macchine virtuali
+      href: samples/allowed-skus-storage.md
+    - name: SKU degli account di archiviazione consentiti
+      href: samples/allowed-stor-acct-skus.md
+    - name: Rifiutare la suddivisione in livelli di accesso sporadico per gli account di archiviazione
+      href: samples/deny-cool-access-tiering.md
+    - name: Assicurare solo traffico HTTPS per un account di archiviazione
+      href: samples/ensure-https-stor-acct.md
+    - name: Assicurare la crittografia dei file di archiviazione
+      href: samples/ensure-store-file-enc.md
+    - name: Richiedere la crittografia dell'account di archiviazione
+      href: samples/req-store-acct-enc.md
+- name: Concetti
+  items:
+  - name: Struttura delle definizioni di criteri di Azure
+    href: ./concepts/definition-structure.md
+  - name: Informazioni sugli effetti di Criteri
+    href: ./concepts/effects.md
+- name: Guide alle procedure
+  items:
+  - name: Creare criteri a livello di programmazione
+    href: ./how-to/programmatically-create.md
+  - name: Ottenere dati sulla conformità
+    href: ./how-to/getting-compliance-data.md
+  - name: Correggere le risorse non conformi
+    href: ./how-to/remediate-resources.md
+- name: riferimento
+  items:
+  - name: Interfaccia della riga di comando di Azure
+    href: /cli/azure/policy
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources/#policies
+  - name: API REST
+    items:
+    - name: Eventi
+      href: /rest/api/policy-insights/policyevents
+    - name: Stati
+      href: /rest/api/policy-insights/policystates
+    - name: Assegnazioni
+      href: /rest/api/resources/policyassignments
+    - name: Definizioni dei criteri
+      href: /rest/api/resources/policydefinitions
+    - name: Definizioni delle iniziative
+      href: /rest/api/resources/policysetdefinitions
+- name: Risorse
+  items:
+  - name: GitHub - Esempi di Criteri di Azure
+    href: https://github.com/Azure/azure-policy
+  - name: Video - Build 2018
+    href: https://channel9.msdn.com/events/Build/2018/THR2030
+  - name: Video - Ignite 2017
+    href: https://myignite.microsoft.com/videos/54781
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Calcolatore prezzi
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: UserVoice
+    href: https://feedback.azure.com/forums/915958-azure-governance
+ms.openlocfilehash: edae8729cc6089c61261b1e388512d5cbd856574
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054711"

@@ -11,14 +11,19 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ROBOTS: NOINDEX
+ms.openlocfilehash: f74889cdf727bc132723d16df295849769001ce9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951968"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ottimizzazione distribuita di iperparametri con Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Questo scenario mostra come usare Azure Machine Learning Workbench per scalare orizzontalmente l'ottimizzazione degli iperparametri di algoritmi di apprendimento automatico che implementano l'API scikit-learn. Viene illustrato come configurare e usare un contenitore Docker remoto e un cluster Spark come back-end di esecuzione per l'ottimizzazione degli iperparametri.
 
@@ -35,10 +40,10 @@ Una tecnica comune per l'ottimizzazione degli iperparametri consiste in una *ric
 
 La ricerca a griglia con la convalida incrociata può richiedere molto tempo. Se un algoritmo ha cinque iperparametri, ognuno con cinque valori candidati, si usa K=5 iterazioni. Una ricerca a griglia viene quindi completata eseguendo il training di 5<sup>6</sup>=15625 modelli. Fortunatamente, la ricerca a griglia con convalida incrociata è una procedura con un elevatissimo livello di parallelismo e il training di tutti questi modelli può essere eseguito in parallelo.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
-* Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione e alla creazione](../service/quickstart-installation.md) per installare Workbench e creare gli account.
+* Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione e alla creazione](quickstart-installation.md) per installare Workbench e creare gli account.
 * Questo scenario presuppone che Azure ML Workbench sia in esecuzione in un computer Windows 10 o MacOS con il motore Docker installato in locale. 
 * Per eseguire lo scenario con un contenitore Docker remoto, effettuare il provisioning di una macchina virtuale di data science (DSVM) Ubuntu seguendo le [istruzioni](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). È consigliabile usare una macchina virtuale con almeno 8 core e 28 GB di memoria. Le istanze D4 delle macchine virtuali offrono questa capacità. 
 * Per eseguire questo scenario con un cluster Spark, eseguire il provisioning del cluster Spark di HDInsight seguendo queste [istruzioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). È consigliabile usare un cluster con la configurazione seguente sia nell'intestazione sia nei nodi del ruolo di lavoro:
@@ -157,7 +162,7 @@ Selezionare quindi il contenitore denominato dataset nell'elenco e fare clic sul
 
 Il caricamento dei file richiede alcuni minuti, a seconda della connessione Internet. 
 
-Nel codice viene usato [Azure Storage SDK](https://docs.microsoft.com/en-us/python/azure/) per scaricare il set di dati dall'archiviazione BLOB nell'ambiente di esecuzione corrente. Il download viene eseguito nella funzione load\_data() del file load_data.py. Per usare questo codice, è necessario sostituire <ACCOUNT_NAME> e <ACCOUNT_KEY> con il nome e la chiave primaria dell'account di archiviazione che ospita il set di dati. Il nome dell'account viene visualizzato nell'angolo superiore sinistro della pagina di Azure relativa all'account di archiviazione. Per ottenere la chiave dell'account, selezionare Chiavi di accesso nella pagina di Azure dell'account di archiviazione (vedere il primo screenshot nella sezione relativa all'inserimento dei dati) e quindi copiare la lunga stringa nella prima riga di colonne chiave:
+Nel codice viene usato [Azure Storage SDK](https://docs.microsoft.com/python/azure/) per scaricare il set di dati dall'archiviazione BLOB nell'ambiente di esecuzione corrente. Il download viene eseguito nella funzione load\_data() del file load_data.py. Per usare questo codice, è necessario sostituire <ACCOUNT_NAME> e <ACCOUNT_KEY> con il nome e la chiave primaria dell'account di archiviazione che ospita il set di dati. Il nome dell'account viene visualizzato nell'angolo superiore sinistro della pagina di Azure relativa all'account di archiviazione. Per ottenere la chiave dell'account, selezionare Chiavi di accesso nella pagina di Azure dell'account di archiviazione (vedere il primo screenshot nella sezione relativa all'inserimento dei dati) e quindi copiare la lunga stringa nella prima riga di colonne chiave:
  
 ![Chiave di accesso](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

@@ -7,19 +7,24 @@ ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832697"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996214"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Manutenzione predittiva per scenari reali
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 L'impatto del tempo di inattività delle apparecchiature non pianificato può danneggiare un'azienda. È fondamentale mantenere in funzione le attrezzature sul campo per massimizzare l'uso e le prestazioni, riducendo il costoso tempo di inattività non pianificato. L'identificazione preventiva dei problemi può aiutare ad allocare una quantità limitata di risorse di manutenzione in modo più conveniente e migliorare la qualità e i processi della supply chain. 
 
@@ -38,13 +43,13 @@ Questo scenario si ispira al [playbook per la manutenzione predittiva](https://d
 
 Il problema aziendale per questi dati simulati consiste nel prevedere i problemi causati dai guasti dei componenti. La domanda che l'azienda si pone è "*Qual è la probabilità che una macchina si arresti a causa di un guasto di un componente?*" Questo problema viene formattato come problema di classificazione multiclasse (più componenti per macchina). Per creare il modello predittivo viene usato un algoritmo di Machine Learning. Il training del modello viene eseguito usando i dati cronologici raccolti dalle macchine. In questo scenario l'utente esegue diversi passaggi per implementare il modello nell'ambiente di Azure Machine Learning Workbench.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
-* Una copia installata di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Per installare il programma e creare un'area di lavoro, vedere la [guida introduttiva all'installazione](../service/quickstart-installation.md).
+* Una copia installata di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Per installare il programma e creare un'area di lavoro, vedere la [guida introduttiva all'installazione](quickstart-installation.md).
 * L'operazionalizzazione di Azure Machine Learning richiede un ambiente di distribuzione locale e un [account di Gestione modelli di Azure Machine Learning](model-management-overview.md).
 
-Questo esempio funziona in qualsiasi contesto di calcolo di Machine Learning Workbench. Tuttavia, è consigliabile eseguire l'esempio con almeno 16 GB di memoria. Questo scenario è stato compilato e testato in un computer Windows 10 che esegue uno standard DS4_V2 remoto [Macchina virtuale di data science per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+Questo esempio funziona in qualsiasi contesto di calcolo di Machine Learning Workbench. Tuttavia, è consigliabile eseguire l'esempio con almeno 16 GB di memoria. Questo scenario è stato compilato e testato in un computer Windows 10 che esegue uno standard DS4_V2 remoto [Macchina virtuale di data science per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 L'operazionalizzazione del modello è stata eseguita usando la versione 0.1.0a22 dell'interfaccia della riga di comando di Microsoft Azure Machine Learning.
 
@@ -71,7 +76,7 @@ Questo comando fornisce una chiave di autenticazione da usare con l'URL https:\\
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-È preferibile procedere all'esecuzione in una [macchina virtuale di data science per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) per i requisiti di memoria e disco. Dopo avere configurato la macchina virtuale di data science, preparare l'ambiente Docker remoto con i due comandi seguenti:
+È preferibile procedere all'esecuzione in una [macchina virtuale di data science per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) per i requisiti di memoria e disco. Dopo avere configurato la macchina virtuale di data science, preparare l'ambiente Docker remoto con i due comandi seguenti:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

@@ -7,19 +7,23 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 540f22e38201ec488d8e2c1d7494bc83d7b83a7e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 326f71ef18934d95771e6de99faeedc437139d9e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831922"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949248"
 ---
 # <a name="model-management-command-line-interface-reference"></a>Informazioni di riferimento sull'interfaccia della riga di comando di Gestione modelli
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 
 ## <a name="base-cli-concepts"></a>Concetti CLI di base:
 

@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8533023a16cb350828127d0603e6add0876b37a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146525"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948850"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificazione dei redditi con un progetto di Team Data Science Process (TDSP)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="introduction"></a>Introduzione
 
@@ -55,7 +60,7 @@ Vedere [Team Data Science Process (TDSP) Lifecycle](https://github.com/Azure/Mic
 1. Una [sottoscrizione di Azure](https://azure.microsoft.com). È anche possibile ottenere una [sottoscrizione gratuita](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) per eseguire questo esempio.
 2. Una [macchina virtuale di data science di Azure con Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm). Dimensioni della macchina virtuale: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), con 4 CPU virtuali e 14 GB di RAM. Benché questo esempio sia stato testato su una macchina virtuale di data science di Azure, è probabile che funzionerà su qualsiasi computer Windows 10.
 3. Esaminare la documentazione di Azure Machine Learning e dei servizi correlati. Vedere di seguito per i collegamenti.
-4. Assicurarsi di aver installato correttamente Azure Machine Learning in base a quando indicato nella [guida introduttiva all'installazione](../service/quickstart-installation.md).
+4. Assicurarsi di aver installato correttamente Azure Machine Learning in base a quando indicato nella [guida introduttiva all'installazione](quickstart-installation.md).
 
 Il set di dati per questo esempio è stato ottenuto dal repository UCI per l'apprendimento automatico [[collegamento]](https://archive.ics.uci.edu/ml/datasets/adult). Il set di dati è stato tratto dal database del censimento degli Stati Uniti del 1994 e contiene informazioni su censimento e reddito di circa 50.000 persone. Si tratta di un set di dati strutturato con caratteristiche numeriche e di categoria e una destinazione costituita da due categorie di reddito (">50.000" e " <=50.000"). 
 
@@ -65,7 +70,7 @@ Per salvare e sottoporre al controllo delle versioni il progetto e il suo conten
 ### <a name="informational-about-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 * [FAQ - How to get started](frequently-asked-questions.md) (Domande frequenti - Come iniziare)
 * [Overview](../service/overview-what-is-azure-ml.md)
-* [Installazione](../service/quickstart-installation.md)
+* [Installazione](quickstart-installation.md)
 * [Execution](experimentation-service-configuration.md) (Esecuzione)
 * [Uso di TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Leggere e scrivere file](how-to-read-write-files.md)

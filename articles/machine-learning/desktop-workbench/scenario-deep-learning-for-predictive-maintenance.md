@@ -7,20 +7,25 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 26b061c6bd6ff3ec9d1edbb7d99053d17db9b773
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d52433a32d8dc764c7535dacf5872e55f0082ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832602"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995517"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Apprendimento avanzato per scenari reali di manutenzione predittiva
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 L'apprendimento avanzato è una delle tendenze più diffuse nell'ambito dell'apprendimento automatico e ha applicazioni in molte aree tra cui:
 - Automobili senza conducente e robotica.
@@ -46,7 +51,7 @@ Il presupposto principale in questo caso è che il motore viene progressivamente
 
 Questo scenario crea una rete LSTM per stimare la vita utile rimanente dei motori degli aeroplani usando i valori cronologici del sensore. Lo scenario usa la libreria [Keras](https://keras.io/) con il framework di apprendimento avanzato [Tensorflow](https://www.tensorflow.org/) come motore di calcolo. Lo scenario esegue il training di LSTM con un set di motori e testa la rete su un set di motori non visibili.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 - Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 - Azure Machine Learning Workbench, con un'area di lavoro creata.
 - Per l'operazionalizzazione del modello: operazionalizzazione di Azure Machine Learning con un ambiente di distribuzione locale configurato e un [account di Gestione modelli di Azure Machine Learning](model-management-overview.md).
@@ -75,7 +80,7 @@ Questo comando fornisce una chiave di autenticazione da usare con l'URL https:\\
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-È preferibile procedere all'esecuzione in una [macchina virtuale di data science (DSVM) per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) per i requisiti di memoria e disco. Dopo avere configurato la macchina virtuale di data science, preparare l'ambiente Docker remoto con i due comandi seguenti:
+È preferibile procedere all'esecuzione in una [macchina virtuale di data science (DSVM) per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) per i requisiti di memoria e disco. Dopo avere configurato la macchina virtuale di data science, preparare l'ambiente Docker remoto con i due comandi seguenti:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

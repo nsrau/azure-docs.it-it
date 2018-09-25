@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: e19130c5ee418ebaa41f9ee42e217c52cdeec6cb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 18d9a2dade271e61fa3db423da610a7f982aa47b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697943"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949673"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -45,10 +45,10 @@ Quando si distribuisce un set di scalabilità, è anche possibile procedere con 
 
 ### <a name="zone-balancing"></a>Bilanciamento delle zone
 
-Infine, per i set di scalabilità distribuiti in più zone è anche possibile scegliere tra il bilanciamento delle zone con massimo sforzo e il bilanciamento delle zone restrittivo. Un set di scalabilità viene considerato "bilanciato" se il numero di macchine virtuali in ogni zona è compreso nel numero di macchine virtuali in ognuna di tutte le altre zone per il set di scalabilità. Ad esempio: 
+Infine, per i set di scalabilità distribuiti in più zone è anche possibile scegliere tra il bilanciamento delle zone con massimo sforzo e il bilanciamento delle zone restrittivo. Un set di scalabilità viene considerato "bilanciato" se ogni zona del set ha lo stesso numero di macchine virtuali o +\\- 1 macchine virtuali in tutte le altre zone. Ad esempio: 
 
-- Un set di scalabilità con 2 macchine virtuali nella zona 1, 3 macchine virtuali nella zona 2 e 3 macchine virtuali nella zona 3 è considerato bilanciato.
-- Un set di scalabilità con 1 macchina virtuale nella zona 1, 3 nella zona 2 e 3 nella zona 3 è considerato sbilanciato.
+- Un set di scalabilità con 2 macchine virtuali nella zona 1, 3 macchine virtuali nella zona 2 e 3 macchine virtuali nella zona 3 è considerato bilanciato. C'è solo una zona con un numero di macchine virtuali diverso e la differenza è di 1 sola in meno rispetto alle altre zone. 
+- Un set di scalabilità con 1 macchina virtuale nella zona 1, 3 nella zona 2 e 3 nella zona 3 è considerato sbilanciato. La zona 1 ha 2 macchine virtuali in meno rispetto alle zone 2 e 3.
 
 È possibile che le macchine virtuali nel set di scalabilità vengano create correttamente, ma che non sia possibile distribuire le estensioni in tali macchine virtuali. Queste macchine virtuali con errori di estensione vengono comunque conteggiate per determinare se un set di scalabilità è bilanciato. Ad esempio, un set di scalabilità con 3 macchine virtuali nella zona 1, 3 nella zona 2 e 3 nella zona 3 viene considerato bilanciato anche se tutte le estensioni non sono riuscite nella zona 1 e tutte le estensioni sono riuscite nelle zone 2 e 3.
 
@@ -64,8 +64,8 @@ Quando si crea un set di scalabilità in una sola zona, la zona in cui tutte le 
 
 Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'[area di Azure supportata](../availability-zones/az-overview.md#regions-that-support-availability-zones). È possibile creare un set di scalabilità che usa le zone di disponibilità in uno dei modi seguenti:
 
-- [Portale di Azure](#use-the-azure-portal)
-- [Interfaccia della riga di comando di Azure 2.0](#use-the-azure-cli-20)
+- [portale di Azure](#use-the-azure-portal)
+- [Interfaccia della riga di comando di Azure](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelli di Gestione risorse di Azure](#use-azure-resource-manager-templates)
 
@@ -77,7 +77,7 @@ La procedura per creare un set di scalabilità che usa una zona di disponibilit�
 
 Il set di scalabilità e le risorse di supporto, ad esempio Azure Load Balancer e l'indirizzo IP pubblico, vengono creati nella sola zona specificata.
 
-## <a name="use-the-azure-cli-20"></a>Usare l'interfaccia della riga di comando di Azure 2.0
+## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
 La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-cli.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata.
 
@@ -98,7 +98,7 @@ Per un esempio completo di un set di scalabilità a zona singola e delle relativ
 
 ### <a name="zone-redundant-scale-set"></a>Set di scalabilità con ridondanza della zona
 
-Per creare un set di scalabilità con ridondanza della zona, si usano un indirizzo IP pubblico e un servizio di bilanciamento del carico dello SKU *Standard*. Per una ridondanza ottimizzata, lo SKU *Standard* crea risorse di rete con ridondanza della zona. Per altre informazioni, vedere [Panoramica dello SKU Standard di Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md).
+Per creare un set di scalabilità con ridondanza della zona, si usano un indirizzo IP pubblico e un servizio di bilanciamento del carico dello SKU *Standard*. Per una ridondanza ottimizzata, lo SKU *Standard* crea risorse di rete con ridondanza della zona. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Per creare un set di scalabilità con ridondanza della zona, specificare più zone nel parametro `--zones`. L'esempio seguente crea un set di scalabilità con ridondanza della zona denominato *myScaleSet* nelle zone *1,2,3*:
 
@@ -215,7 +215,7 @@ Per creare un set di scalabilità con ridondanza della zona, specificare più va
 }
 ```
 
-Se si crea un indirizzo IP pubblico o un servizio di bilanciamento del carico, specificare la proprietà *"sku": { "name": "Standard" }"* per creare risorse di rete con ridondanza della zona. È anche necessario creare un gruppo di sicurezza di rete e le relative regole per consentire ogni tipo di traffico. Per altre informazioni, vedere [Panoramica dello SKU Standard di Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md).
+Se si crea un indirizzo IP pubblico o un servizio di bilanciamento del carico, specificare la proprietà *"sku": { "name": "Standard" }"* per creare risorse di rete con ridondanza della zona. È anche necessario creare un gruppo di sicurezza di rete e le relative regole per consentire ogni tipo di traffico. Per altre informazioni, vedere [Panoramica di Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Per un esempio completo di un set di scalabilità con ridondanza della zona e delle relative risorse di rete, vedere [questo modello di esempio di Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json).
 

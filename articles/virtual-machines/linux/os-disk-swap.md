@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 1732b60ee135b765cdeea43f981bcef9575ff32c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 983c2e6d03735ba26f7660fc07dcf1a05ef88189
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195974"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960397"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Modificare il disco del sistema operativo usato da una macchina virtuale di Azure usando l'interfaccia della riga di comando
 
@@ -31,7 +31,7 @@ La macchina virtuale deve essere arrestata\deallocata, quindi l'ID risorsa del d
 
 Assicurarsi che il tipo di archiviazione e le dimensioni della macchina virtuale siano compatibili con il disco che si intende collegare. Ad esempio, se il disco che si vuole usare si trova in Archiviazione Premium, la macchina virtuale deve essere idonea per Archiviazione Premium (ad esempio con le dimensioni della serie DS).
 
-Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.25 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.25 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 
 Usare [az disk list](/cli/azure/disk#list) per ottenere un elenco dei dischi nel gruppo di risorse.
@@ -73,4 +73,4 @@ az vm start \
    
 **Passaggi successivi**
 
-Per creare una copia di un disco, vedere come [creare la snapshot di un disco](snapshot-copy-managed-disk.md).
+Per creare una copia di un disco, vedere [Snapshot di un disco](snapshot-copy-managed-disk.md).

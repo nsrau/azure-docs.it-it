@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 421c4e0464eac22a7feba01e2e84660b02a32455
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174650"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958102"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Guida introduttiva: Configurare DNS di Azure per la risoluzione dei nomi con il portale di Azure
 
@@ -24,7 +24,7 @@ In questa guida introduttiva verrà creato un dominio di test e quindi sarà cre
 È importante tenere presente che tutti i nomi e gli indirizzi IP usati in questa guida introduttiva sono solo esempi e non intendono rappresentare uno scenario reale. Tuttavia, dove applicabile, sono anche descritti scenari reali.
 
 <!---
-You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
 Una zona DNS viene usata per contenere le voci DNS per un particolare dominio. Per iniziare a ospitare il dominio in DNS di Azure, è necessario creare una zona DNS per il nome di dominio. Ogni voce (o record) DNS per il dominio viene quindi creata all'interno di questa zona DNS. I passaggi che seguono spiegano come eseguire questa operazione.

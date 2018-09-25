@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 52b02460d444464211fc74c8982379424abebb5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35634794"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965517"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Come usare Cronologia di esecuzione e le metriche del modello in Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning Workbench supporta esperimenti di data science tramite la funzionalità di **Cronologia di esecuzione**  e le **metriche del modello**.
 **Cronologia di esecuzione** consente di tenere traccia dell'output degli esperimenti di machine learning e quindi di filtrarne e confrontarne i risultati.
@@ -27,8 +32,8 @@ Questo articolo descrive come usare al meglio queste funzionalità per aumentare
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida è necessario:
-* [Creare e installare istanze di Azure Machine Learning](../service/quickstart-installation.md)
-- [Creare un progetto](../service/quickstart-installation.md)
+* [Creare e installare istanze di Azure Machine Learning](quickstart-installation.md)
+- [Creare un progetto](quickstart-installation.md)
 
 
 ## <a name="azure-ml-logging-api-overview"></a>Cenni preliminari sull'API di registrazione di Azure Machine Learning
@@ -51,7 +56,7 @@ logger.log("all values", [5, 6, 7])
 Usare il logger nei progetti di Azure Machine Learning Workbench è facile; questo articolo illustra come fare.
 
 ## <a name="create-a-project-in-azure-ml-workbench"></a>Creare un progetto in Azure Machine Learning Workbench
-Se non si dispone già di un progetto, è possibile creare uno nella [guida introduttiva alla creazione e all'installazione ](../service/quickstart-installation.md). Dal **dashboard del progetto**, aprire lo script **iris_sklearn.py** come illustrato.
+Se non si dispone già di un progetto, è possibile creare uno nella [guida introduttiva alla creazione e all'installazione ](quickstart-installation.md). Dal **dashboard del progetto**, aprire lo script **iris_sklearn.py** come illustrato.
 
 ![accesso a uno script dalla scheda file](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
 

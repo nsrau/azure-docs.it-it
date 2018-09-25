@@ -3,27 +3,28 @@ title: Associazione di domande e risposte con Azure Machine Learning Workbench |
 description: Come usare diversi metodi di apprendimento automatico efficaci per associare query aperte a coppie di domande frequenti e risposte preesistenti.
 services: machine-learning
 documentationcenter: ''
-author: mezmicrosoft
-editor: mezmicrosoft
-ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: rastala
+ms.author: roastala
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: mez
-manager: tihazen
-ms.openlocfilehash: 3695657d819f52ef04468a0f1a44828403c65373
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: e0f6148e1fb28838bf99c63fbfbfbfe8cd127c8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835101"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973204"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Associazione di domande e risposte con Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 È difficile rispondere a domande aperte e spesso a questo scopo è necessario l'intervento di esperti in materia. Per ridurre l'esigenza di ricorrere a esperti in materia interni, le società spesso creano elenchi di domande frequenti come strumento per offrire assistenza agli utenti. Questo esempio mostra diversi metodi di apprendimento automatico efficaci per associare query aperte a coppie di domande frequenti e risposte preesistenti. Questo esempio mostra un semplice processo di sviluppo per creare la soluzione con Azure Machine Learning Workbench. 
 
 ## <a name="link-to-the-gallery-github-repository"></a>Collegamento al repository GitHub delle raccolte
@@ -41,12 +42,12 @@ I passaggi principali necessari per creare questa soluzione sono i seguenti:
 4. Eseguire il training dei modelli di classificazione del testo e valutare le prestazioni dei modelli.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 I prerequisiti per eseguire questo esempio sono i seguenti:
 
 1. Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
-2. Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](../service/quickstart-installation.md) per installare il programma e creare un'area di lavoro.
+2. Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](quickstart-installation.md) per installare il programma e creare un'area di lavoro.
 3. Questo esempio può essere eseguito in qualsiasi contesto di calcolo. Tuttavia, è consigliabile eseguirlo in un computer multicore con almeno 16 GB di memoria e 5 GB di spazio su disco.
 
 ## <a name="create-a-new-workbench-project"></a>Creare un nuovo progetto Workbench

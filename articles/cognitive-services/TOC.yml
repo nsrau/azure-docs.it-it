@@ -1,6 +1,6 @@
 items:
 - name: Documentazione di Servizi cognitivi di Azure
-  href: index.yml
+  href: index.md
 - name: Panoramica
   items:
   - name: Che cosa sono i servizi cognitivi?
@@ -12,20 +12,20 @@ items:
   items:
   - name: Creare un account
     href: cognitive-services-apis-create-account.md
-  - name: Compilare un classificatore di immagini
-    href: ./custom-vision-service/getting-started-build-a-classifier.md
-  - name: Compilare un'app di domotica
-    href: ./luis/luis-get-started-create-app.md
-  - name: Creare un'app di analisi del testo .NET
-    href: ./text-analytics/quickstarts/csharp.md
 - name: Esercitazioni
   items:
-  - name: Pagina Web di ricerca personalizzata
-    href: ./bing-custom-search/tutorials/custom-search-web-page.md
-  - name: App di Language Understanding
-    href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
-  - name: Migliorare l'accuratezza della finalità per i comandi
-    href: ./luis/luis-tutorial-batch-testing.md
+  - name: Sviluppare un'app con Visione artificiale
+    href: ./Computer-vision/tutorials/csharptutorial.md
+  - name: Riconoscere le finalità con Speech SDK e LUIS
+    href: ./speech-service/how-to-recognize-intents-from-speech-csharp.md
+  - name: Creare un'app LUIS
+    href: ./luis/luis-quickstart-intents-only.md
+  - name: Usare Analisi del testo con Power BI
+    href: ./Text-Analytics/tutorials/tutorial-power-bi-key-phrases.md
+  - name: Creare un'app di Ricerca Web Bing
+    href: ./bing-web-search/tutorial-bing-web-search-single-page-app.md
+  - name: Creare un'app di Ricerca immagini Bing
+    href: ./bing-image-search/tutorial-bing-image-search-single-page-app.md
 - name: Risorse
   items:
   - name: Roadmap per Azure
@@ -42,9 +42,9 @@ items:
     href: http://go.microsoft.com/fwlink/?LinkId=698895
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase
-ms.openlocfilehash: 8bd7984fd713a2acbb1ca2cc66e3d64bd49ef5a4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 233a9bb508c8e6d02fd3e95cb8176f56bc9726b9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023826"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972623"

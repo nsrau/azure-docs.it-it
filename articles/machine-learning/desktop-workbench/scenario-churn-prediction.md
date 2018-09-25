@@ -9,21 +9,26 @@ editor: miprasad
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: a4e3441e4b7512d60be8ce5433822a95732cd802
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0210e65c0859b00caac0fe66baa1c73063f644c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832391"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947942"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Stima dell'abbandono dei clienti con Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 In media, conservare i clienti esistenti è cinque volte più economico rispetto al costo per trovarne di nuovi. Di conseguenza, i dirigenti di marketing cercano spesso di stimare la probabilità di abbandono da parte dei clienti e di individuare le azioni necessarie per ridurre al minimo il tasso di abbandono.
 
@@ -57,11 +62,11 @@ Alcuni dei fattori che contribuiscono all'abbandono da parte dei clienti nel set
 
 In questa soluzione verrà usato un esempio concreto di creazione di un modello predittivo per l'abbandono dei clienti per le aziende di telecomunicazioni.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 
-* Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](../service/quickstart-installation.md) per installare il programma e creare un'area di lavoro.
+* Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](quickstart-installation.md) per installare il programma e creare un'area di lavoro.
 
 * Per l'operazionalizzazione, è consigliabile installare ed eseguire in locale un motore Docker. In caso contrario, è possibile usare l'opzione cluster, ma tenere presente che l'esecuzione di un servizio contenitore di Azure può essere costosa.
 

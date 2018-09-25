@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f5b678f9936a6d405c06ff085a802fcd76328ebe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bb3df82e66024b49e399ab2f7795a27932f7559e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953974"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrare dati locali in una risorsa di archiviazione cloud tramite AzCopy
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, scaricare la versione più recente di AzCopy su [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) o [Windows](http://aka.ms/downloadazcopy). 
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 >[!NOTE]
 >Se si vuole poter scaricare elementi BLOB da un'area secondaria in una risorsa di archiviazione locale e viceversa, impostare **Replica** su **Archiviazione con ridondanza geografica e accesso in lettura**. In questo modo, viene creato un account di [archiviazione con ridondanza geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage). 

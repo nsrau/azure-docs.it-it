@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: willzhan;juliako
-ms.openlocfilehash: 3a33c4b157ded3162919494d27488285e52fdd3b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 724d9779293a520cf843013d096f8a99f6b06c0f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530440"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952128"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso 
 
@@ -303,9 +303,9 @@ Che cosa accade se il rollover della chiave viene eseguito dopo che Azure AD ha 
 Poiché il rollover di una chiave può essere eseguito in qualsiasi momento, nel documento metadati federazione è sempre disponibile più di una chiave pubblica valida. Il servizio di distribuzione delle licenze di Servizi multimediali può usare una qualsiasi delle chiavi specificate nel documento. Poiché di una chiave può essere eseguito il rollback immediatamente, un'altra può sostituirla e così via.
 
 ### <a name="where-is-the-access-token"></a>Dov'è il token di accesso?
-Se si esamina come un'app Web chiama un'app per le API in [Identità applicazione con concessione delle credenziali client OAuth 2.0](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), il flusso di autenticazione è il seguente:
+Se si esamina come un'app Web chiama un'app per le API in [Identità applicazione con concessione delle credenziali client OAuth 2.0](../../active-directory/develop/web-api.md), il flusso di autenticazione è il seguente:
 
-* Un utente accede ad Azure AD nell'applicazione Web. Per altre informazioni, vedere [Da Web browser ad applicazione Web](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
+* Un utente accede ad Azure AD nell'applicazione Web. Per altre informazioni, vedere [Da Web browser ad applicazione Web](../../active-directory/develop/web-app.md).
 * L'endpoint di autorizzazione di Azure AD reindirizza di nuovo l'agente utente all'applicazione client con un codice di autorizzazione. L'agente utente restituisce il codice di autorizzazione all'URI di reindirizzamento dell'applicazione client.
 * L'applicazione Web deve acquisire un token di accesso per l'autenticazione nell'API Web e il recupero della risorsa desiderata. Esegue una richiesta all'endpoint di token di Azure AD e fornisce credenziali, ID client e URI dell'ID applicazione dell'API Web. Presenta il codice di autorizzazione per dimostrare che l'utente ha acconsentito.
 * Azure AD autentica l'applicazione e restituisce un token di accesso JWT che viene usato per chiamare l'API Web.

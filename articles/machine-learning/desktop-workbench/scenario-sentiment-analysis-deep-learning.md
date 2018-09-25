@@ -9,21 +9,26 @@ editor: miprasad
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: c780063074ec1cffbb2a667cb26ab1c86f820167
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: e2fbb0b7b0dede198be0e57ffcd2b58a7da7fce7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833581"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947772"
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analisi del sentiment tramite tecniche di apprendimento avanzato con Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 L'analisi del sentiment è un'attività ben nota negli scenari di elaborazione del linguaggio naturale. Dato un set di testi, l'obiettivo è determinare la valutazione del testo. L'obiettivo di questa soluzione è di usare le tecniche di apprendimento avanzato per la previsione del sentiment nelle recensioni cinematografiche.
 
@@ -41,11 +46,11 @@ L'incredibile aumento dei dati e la diffusione dei dispositivi mobili hanno offe
 
 Per ottenere valore dall'analisi del sentiment, le aziende devono poter eseguire il data mining di vasti archivi di dati di social networking non strutturati per ricavare informazioni di utilità pratica. In questo esempio vengono sviluppati modelli di apprendimento avanzato per l'esecuzione dell'analisi del sentiment di un insieme di recensioni cinematografiche con Azure Machine Learning Workbench
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 
-* Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](../service/quickstart-installation.md) per installare il programma e creare un'area di lavoro.
+* Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](quickstart-installation.md) per installare il programma e creare un'area di lavoro.
 
 * Per l'operazionalizzazione, è consigliabile installare ed eseguire in locale un motore Docker. In caso contrario, è possibile usare l'opzione cluster. Tuttavia, l'esecuzione di un servizio contenitore di Azure può essere costosa.
 

@@ -9,21 +9,26 @@ editor: anta
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 19e62364599ec9f1d0571e6f6e35205b0bb93b4b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 934d37783165c2e57dcabd0ff764747e1ab4b65e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832534"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946863"
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Previsione in serie temporale della domanda di energia
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 
 La previsione in serie temporale è l'attività di stimare valori futuri in una sequenza di osservazioni ordinata nel tempo. Si tratta di un'esigenza comune, che ha applicazioni in diversi settori. Ad esempio, le società di vendita al dettaglio devono prevedere le vendite future dei prodotti in modo da poter organizzare in modo efficiente le catene di approvvigionamento per soddisfare la domanda. Allo stesso modo, le aziende di spedizione devono stimare la domanda dei propri servizi in modo da pianificare in anticipo i requisiti relativi alla forza lavoro e gli itinerari. In molti casi, il rischio finanziario associato a previsioni inaccurate può essere significativo. Di conseguenza, la previsione è spesso un'attività aziendale critica.
@@ -54,10 +59,10 @@ Questo scenario è incentrato sulla previsione della domanda di energia, il cui 
 
 Questo scenario presenta in modo dettagliato la creazione di una soluzione di apprendimento automatico per la previsione della domanda di energia. Il training della soluzione è stato eseguito su un set di dati pubblico del [New York Independent System Operator (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), che gestisce la rete elettrica dello stato di New York. Il set di dati include i dati relativi alla domanda di elettricità ora per ora per la città di New York in un periodo di cinque anni. È stato inoltre recuperato un set di dati aggiuntivo contenente le condizioni meteo ora per ora nella città di New York durante lo stesso periodo di tempo da [darksky.net](https://darksky.net).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
-- Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](../service/quickstart-installation.md) per installare il programma e creare un'area di lavoro.
+- Una copia di [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](quickstart-installation.md) per installare il programma e creare un'area di lavoro.
 - Questo esempio presuppone l'esecuzione di Azure Machine Learning Workbench su Windows 10 con il [motore Docker](https://www.docker.com/) installato in locale. Se si usa macOS, le istruzioni sono in gran parte uguali.
 - Operazionalizzazione di Azure Machine Learning installato con un ambiente di distribuzione locale configurato e un account di gestione del modello creato seguendo questa [guida](./model-management-configuration.md).
 - Per questo esempio è necessario aggiornare l'installazione di Pandas alla versione 0.20.3 o successiva e installare matplotlib. Scegliere *Open Command Prompt* (Apri prompt dei comandi) dal menu *File* in Workbench ed eseguire i comandi seguenti per installare queste dipendenze:

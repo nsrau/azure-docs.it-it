@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 53ad780ff0b199764c354327439fa69c360e7cb5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109675"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996809"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Java in un cluster di Service Fabric in Azure
 
@@ -41,12 +41,12 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-java-elk.md)
 > * [Configurare CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Installare Service Fabric SDK per [Mac](service-fabric-get-started-mac.md) o [Linux](service-fabric-get-started-linux.md)
 * [Installare Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -173,7 +173,7 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
 
     L'URL di firma di accesso condiviso per Hub eventi segue la struttura https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Ad esempio: https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. Aprire il file *sfdeploy.parameters.json* e sostituire il contenuto seguente dei passaggi precedenti
+12. Aprire il file *sfdeploy.parameters.json* e sostituire il contenuto seguente dei passaggi precedenti. [SAS-URL-STORAGE-ACCOUNT] è stato annotato nel passaggio 8. [SAS-URL-EVENT-HUBS] è stato annotato nel passaggio 11.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -187,7 +187,12 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
     }
     ```
 
-13. Eseguire questo comando per creare il cluster di Service Fabric
+13. Aprire **sfdeploy.parameters.json**. Modificare i parametri seguenti e quindi salvare il file.
+    - **clusterName**. Usare solo lettere minuscole e numeri.
+    - **adminUserName** (su un valore diverso da zero)
+    - **adminPassword** (su un valore diverso da zero)
+
+14. Eseguire questo comando per creare il cluster di Service Fabric
 
     ```bash
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -206,13 +211,13 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
 2. Per distribuire l'applicazione in questo cluster è necessario usare SFCTL per stabilire una connessione con il cluster. SFCTL richiede un file PEM con la chiave pubblica e quella privata per la connessione al cluster. Eseguire il comando seguente per generare un file PEM con la chiave pubblica e quella privata. 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. Eseguire questo comando per connettersi al cluster.
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. Per distribuire l'applicazione, passare alla cartella *Voting/Scripts* ed eseguire lo script **install.sh**.

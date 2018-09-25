@@ -7,18 +7,23 @@ ms.author: tedway
 manager: mwinkle
 ms.reviewer: mldocs, raymondl
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: 715b4c1f02622b015e4118ac38edd9fe6a051ed7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: d4cfb7067510ec06df3319035dee5e2195cb2f9d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834710"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997540"
 ---
 # <a name="customize-the-container-image-used-for-azure-ml-models"></a>Personalizzare l'immagine del contenitore usata per i modelli di Azure ML
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Questo articolo descrive come personalizzare un'immagine del contenitore per i modelli di Azure Machine Learning.  Azure Machine Learning Workbench usa i contenitori per distribuire i modelli di apprendimento automatico. I modelli vengono distribuiti con le relative dipendenze e Azure Machine Learning crea un'immagine dal modello, dalle dipendenze e dai file associati.
 

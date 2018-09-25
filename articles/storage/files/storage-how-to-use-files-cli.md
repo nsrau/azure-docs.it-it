@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: ebf8605a0f4686a69f89adf0c36d072f12d3c750
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 07d1d1f7050437306d5c2737b9f62b5615753869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525257"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980424"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Gestire condivisioni file di Azure con l'interfaccia della riga di comando di Azure
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questo articolo contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con l'interfaccia della riga di comando di Azure. È possibile passare agli argomenti seguenti: 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, per le procedure in questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire **az --version** per trovare la versione dell'interfaccia della riga di comando di Azure in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
+Se si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, per le procedure in questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire **az --version** per trovare la versione dell'interfaccia della riga di comando di Azure in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 Per impostazione predefinita, i comandi dell'interfaccia della riga di comando di Azure restituiscono codice JSON (JavaScript Object Notation). JSON è il formato standard per l'invio e la ricezione di messaggi dalle API REST. Per facilitare l'uso delle risposte JSON, alcuni esempi in questo articolo usano il parametro *query* nei comandi dell'interfaccia della riga di comando di Azure. Questo parametro usa il [linguaggio di query JMESPath](http://jmespath.org/) per analizzare il codice JSON. Per altre informazioni su come usare i risultati dei comandi dell'interfaccia della riga di comando di Azure seguendo il linguaggio di query JMESPath, vedere l'[esercitazione di JMESPath](http://jmespath.org/tutorial.html).
 

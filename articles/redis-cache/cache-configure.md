@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 58e913aa2b4a89a573f6d901803979e662c27af2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420732"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954042"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Questo argomento illustrata anche la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -49,7 +49,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Redis Cache Advisor](#redis-cache-advisor)
     * [Ridimensionare](#scale)
     * [Dimensione del cluster Redis](#cluster-size)
-    * [Persistenza dei dati Redis:](#redis-data-persistence)
+    * [Persistenza dei dati Redis](#redis-data-persistence)
     * [Pianificare gli aggiornamenti](#schedule-updates)
     * [Replica geografica](#geo-replication)
     * [Rete virtuale](#virtual-network)
@@ -101,7 +101,7 @@ La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per 
 * [Redis Cache Advisor](#redis-cache-advisor)
 * [Ridimensionare](#scale)
 * [Dimensione del cluster Redis](#cluster-size)
-* [Persistenza dei dati Redis:](#redis-data-persistence)
+* [Persistenza dei dati Redis](#redis-data-persistence)
 * [Pianificare gli aggiornamenti](#schedule-updates)
 * [Replica geografica](#geo-replication)
 * [Rete virtuale](#virtual-network)
@@ -174,15 +174,15 @@ Per altre informazioni, vedere [Notifiche di Keyspace Redis](http://redis.io/top
 ## <a name="redis-cache-advisor"></a>Redis Cache Advisor
 Il pannello **Redis Cache Advisor** visualizza le raccomandazioni per la cache. Durante il normale funzionamento non viene visualizzata nessuna raccomandazione. 
 
-![Raccomandazioni](./media/cache-configure/redis-cache-no-recommendations.png)
+![Consigli](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Se durante l'uso della cache si verifica una determinata condizione, ad esempio uso della memoria, larghezza di banda di rete o carico del server elevato, nel pannello **Cache Redis** viene visualizzato un avviso.
 
-![Raccomandazioni](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Consigli](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Per altre informazioni, vedere il pannello **Raccomandazioni** .
 
-![Raccomandazioni](./media/cache-configure/redis-cache-recommendations.png)
+![Consigli](./media/cache-configure/redis-cache-recommendations.png)
 
 È possibile monitorare le metriche nelle sezioni relative ai grafici di [Monitoraggio](cache-how-to-monitor.md#monitoring-charts) e [Utilizzo](cache-how-to-monitor.md#usage-charts) del pannello **Cache Redis**.
 
@@ -353,10 +353,10 @@ Fare clic su **Regole di avviso** per configurare gli avvisi in base alle metric
 
 ### <a name="diagnostics"></a>Diagnostica
 
-Per impostazione predefinita, le metriche relative alla cache in Monitoraggio di Azure vengono [archiviate per 30 giorni](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) e quindi vengono eliminate. Per rendere permanenti le metriche relative alla cache per più di 30 giorni, fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#export-cache-metrics) usato per archiviare la diagnostica della cache.
+Per impostazione predefinita, le metriche relative alla cache in Monitoraggio di Azure vengono [archiviate per 30 giorni](../monitoring/monitoring-data-collection.md#metrics) e quindi vengono eliminate. Per rendere permanenti le metriche relative alla cache per più di 30 giorni, fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#export-cache-metrics) usato per archiviare la diagnostica della cache.
 
 >[!NOTE]
->Oltre ad archiviare le metriche della cache, è possibile [eseguirne lo streaming a un hub eventi o inviarle a Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>Oltre ad archiviare le metriche della cache, è possibile [eseguirne lo streaming a un hub eventi o inviarle a Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 >
 >
 

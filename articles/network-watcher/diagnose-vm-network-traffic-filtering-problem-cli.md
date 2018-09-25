@@ -17,22 +17,22 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2f6011103c86895c455b284a0982636a0d31fbe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4be1fac519ee0a7bcd61bd4cced4d829c275679d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180471"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990111"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Guida introduttiva - Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 
-In questa guida introduttiva si apprende come distribuire una macchina virtuale e quindi controllare le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Vengono determinate le cause degli errori di comunicazione e si apprende come è possibile risolverli.
+In questa guida introduttiva si apprende come distribuire una macchina virtuale e quindi controllare le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Dopo aver verificato la versione dell'interfaccia della riga di comando, eseguire `az login` per creare una connessione con Azure. I comandi dell'interfaccia della riga di comando di questa guida introduttiva sono formattati per essere eseguiti in una shell Bash.
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Dopo avere verificato la versione dell'interfaccia della riga di comando, eseguire `az login` per creare una connessione con Azure. I comandi dell'interfaccia della riga di comando di questa guida introduttiva sono formattati per essere eseguiti in una shell Bash.
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
@@ -56,7 +56,7 @@ La creazione della VM richiede alcuni minuti. Non continuare con i passaggi rima
 
 ## <a name="test-network-communication"></a>Testare la comunicazione di rete
 
-Per testare la comunicazione di rete con Network Watcher è necessario innanzitutto abilitare un watcher di rete nell'area in cui si trova la macchina virtuale che si intende testare, quindi usare la funzionalità di verifica del flusso IP di Network Watcher per testare la comunicazione.
+Per testare la comunicazione di rete con Network Watcher è necessario innanzitutto abilitare un network watcher nell'area in cui si trova la macchina virtuale che si intende testare, quindi usare la funzionalità di verifica del flusso IP di Network Watcher per testare la comunicazione.
 
 ### <a name="enable-network-watcher"></a>Abilitare Network Watcher
 
@@ -89,7 +89,7 @@ az network watcher test-ip-flow \
 
 Dopo alcuni secondi, il risultato restituito informa l'utente che l'accesso è consentito dalla regola di sicurezza denominata **AllowInternetOutbound**.
 
-Testare le comunicazioni in uscita dalla macchina virtuale a 172.31.0.100:
+Testare le comunicazioni in uscita dalla macchina virtuale verso 172.31.0.100:
 
 ```azurecli-interactive
 az network watcher test-ip-flow \
@@ -236,7 +236,7 @@ Quando si esegue il comando `az network watcher test-ip-flow` in [Usare la verif
 },
 ```
 
-La regola **DenyAllInBound** viene applicata perché, come illustrato nell'output, non è presente nessuna altra regola con priorità più alta nell'output derivante dal comando `az network nic list-effective-nsg` che consente l'ingresso alla porta 80 verso la macchina virtuale da 172.131.0.100. Per consentire la comunicazione in ingresso, è possibile aggiungere una regola di sicurezza con una priorità più alta, che consente il traffico in ingresso sulla porta 80 da 172.131.0.100.
+La regola **DenyAllInBound** viene applicata perché, come illustrato nell'output, non è presente un'altra regola con priorità più alta nell'output del comando `az network nic list-effective-nsg` che consente l'ingresso della porta 80 nella macchina virtuale da 172.131.0.100. Per consentire la comunicazione in ingresso, è possibile aggiungere una regola di sicurezza con una priorità più alta, che consente il traffico in ingresso sulla porta 80 da 172.131.0.100.
 
 I controlli eseguiti in questa guida introduttiva hanno consentito di testare la configurazione di Azure. Se i controlli hanno restituito i risultati previsti ma sussistono ancora problemi di rete, verificare che non sia presente un firewall tra la macchina virtuale e l'endpoint con cui si sta comunicando e che il sistema operativo nella macchina virtuale non disponga di un firewall che stia consentendo o negando la comunicazione.
 
@@ -250,6 +250,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come creare una macchina virtuale e diagnosticare problemi dei filtri del traffico di rete in ingresso e in uscita. Si è appreso che le regole del gruppo di sicurezza di rete consentono o negano il traffico da e verso una macchina virtuale. Altre informazioni sulle [regole di sicurezza](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e su come [creare regole di sicurezza](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+In questa guida introduttiva si è appreso come creare una macchina virtuale e diagnosticare problemi dei filtri del traffico di rete in ingresso e in uscita. Si è appreso che le regole del gruppo di sicurezza di rete consentono o negano il traffico da e verso una macchina virtuale. Altre informazioni sulle [regole di sicurezza](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e su come [creare le regole di sicurezza](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
-Anche se i filtri del traffico di rete non presentano problemi, la comunicazione verso una macchina virtuale può non riuscire a causa della configurazione di routing. Per informazioni su come diagnosticare problemi di routing della rete delle macchine virtuali, vedere [Diagnosticare i problemi di routing delle macchine virtuali](diagnose-vm-network-routing-problem-cli.md) o, per diagnosticare con uno strumento i problemi inerenti il routing in uscita, la latenza e i filtri del traffico, vedere [Risolvere i problemi relativi alle connessioni](network-watcher-connectivity-cli.md).
+Anche se i filtri del traffico di rete non presentano problemi, la comunicazione verso una macchina virtuale può non riuscire a causa della configurazione del routing. Per informazioni su come diagnosticare problemi di routing della rete delle macchine virtuali, vedere [Diagnosticare i problemi di routing delle macchine virtuali](diagnose-vm-network-routing-problem-cli.md) o, per diagnosticare con uno strumento i problemi inerenti il routing in uscita, la latenza e i filtri del traffico, vedere [Risolvere i problemi relativi alle connessioni](network-watcher-connectivity-cli.md).

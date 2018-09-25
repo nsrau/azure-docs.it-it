@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: cae80408a7440136b504647596c84a459a0d679c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439901"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971706"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Esercitazione: uso di Azure Machine Learning Workbench per la preparazione avanzata dei dati (dati di bike sharing)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (anteprima) è una soluzione integrata di analisi scientifica dei dati e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
 In questa esercitazione si usano i servizi di Machine Learning (anteprima) per imparare a:
@@ -36,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'installazione locale di Azure Machine Learning Workbench. Per altre informazioni, seguire le istruzioni della [Guida introduttiva all'installazione](../service/quickstart-installation.md).
+* Un'installazione locale di Azure Machine Learning Workbench. Per altre informazioni, seguire le istruzioni della [Guida introduttiva all'installazione](quickstart-installation.md).
 * Se l'interfaccia della riga di comando di Azure non è installata, seguire le istruzioni per [installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Un [cluster HDInsights Spark](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) creato in Azure.
 * Un account di archiviazione di Azure.

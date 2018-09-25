@@ -7,23 +7,27 @@ ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 07076a1d551d4dfb513deabaedb650a3262bbeab
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c59969d5a56bd2eb4eb8c490d4f1b5af20d7f056
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830990"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998696"
 ---
 # <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>Usare i notebook di Jupyter in Azure Machine Learning Workbench
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+
 Azure Machine Learning Workbench supporta l'esecuzione di esperimenti di data science interattivi grazie all'integrazione con Jupyter Notebook. Questo articolo descrive come sfruttare al meglio questa funzionalità per aumentare la velocità e la qualità degli esperimenti di data science interattivi.
 
-## <a name="prerequisites"></a>prerequisiti
-- [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../service/quickstart-installation.md).
+## <a name="prerequisites"></a>Prerequisiti
+- [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](quickstart-installation.md).
 - Acquisire familiarità con [Jupyter Notebook](http://jupyter.org/). Questo articolo non contiene informazioni per imparare a usare Jupyter.
 
 ## <a name="jupyter-notebook-architecture"></a>Architettura di Jupyter Notebook

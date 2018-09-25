@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: e4c1efbf4c2c844bae971fa1136e0fe3bed18bcc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9d967cc7509ef0d558327da2299b0478b62de430
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112964"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960720"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrazione di istanze di contenitore con Azure Log Analytics
 
@@ -149,7 +149,7 @@ Per informazioni sul monitoraggio delle risorse di CPU e memoria per l'istanza d
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/
-[query_lang]: https://docs.loganalytics.io/
+[query_lang]: https://aka.ms/LogAnalyticsLanguage
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

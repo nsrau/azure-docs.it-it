@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 1adfef9c679ccbe7a56178a041175713f4932aac
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984442"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056540"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit  
 Questo articolo fornisce informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit. Se non si conosce quale versione in esecuzione, è possibile [usare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -289,7 +289,7 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack.
 
 - <!-- 2368581 - IS. ASDK --> Un operatore di Azure Stack, se si riceve un avviso di memoria insufficiente e le macchine virtuali tenant non riuscire a distribuire con un *errore di creazione della macchina virtuale di Fabric*, è possibile che l'indicatore di Azure Stack ha esaurito la memoria disponibile. Usare la [Capacity Planner di Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) per comprendere meglio la capacità disponibile per i carichi di lavoro.
 
-- <!-- TBD - IS. ASDK --> Quando si esegue il cmdlet Test-AzureStack nell'endpoint con privilegi (PEP), il test verrà generato un messaggio di avviso/non superato per la VM ERCS. È possibile continuare a usare il ASDK.
+- <!-- TBD - IS. ASDK --> Quando si esegue la **Test-AzureStack** cmdlet nell'endpoint con privilegi (PEP), il **delle prestazioni istanza di ruolo dell'infrastruttura di Azure Stack** test verrà generato un messaggio di avviso per la VM ERCS. In modo sicuro, è possibile ignorare il messaggio di avviso e continuare a usare il ASDK.
 
 #### <a name="compute"></a>Calcolo
 - <!-- 2494144 - IS, ASDK --> Quando si seleziona una dimensione di macchina virtuale per una distribuzione della macchina virtuale, alcune dimensioni di VM serie F non sono visibili nell'ambito del selettore di dimensione quando si crea una macchina virtuale. Le dimensioni delle macchine Virtuali seguenti non vengono visualizzati nel selettore: *F8s_v2*, *F16s_v2*, *F32s_v2*, e *F64s_v2*.  

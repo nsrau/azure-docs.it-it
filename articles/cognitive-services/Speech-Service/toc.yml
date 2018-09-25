@@ -1,5 +1,5 @@
 items:
-- name: Servizio di riconoscimento vocale e Speech SDK
+- name: Documentazione di Speech Service SDK
   href: index.yml
 - name: Panoramica
   items:
@@ -34,14 +34,16 @@ items:
     - name: Uso di Java (Windows o Linux)
       displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
       href: quickstart-java-jre.md
+    - name: Uso di JavaScript (browser)
+      displayName: recognize speech, speech recognition, speech to text, stt
+      href: quickstart-js-browser.md
+    - name: Uso di Objective-C (iOS)
+      displayName: recognize speech, speech recognition, speech to text, stt, xcode
+      href: quickstart-objectivec-ios.md
   - name: Introduzione a Speech Devices SDK
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk-qsg.md
 - name: Esercitazioni
-  items:
-  - name: Riconoscere le finalità nei contenuti vocali (C#)
-    href: how-to-recognize-intents-from-speech-csharp.md
-- name: Guide alle procedure
   items:
   - name: Riconoscimento vocale
     displayName: recognize speech, speech recognition, speech to text, stt
@@ -54,12 +56,11 @@ items:
       href: how-to-recognize-speech-java.md
     - name: REST
       href: how-to-recognize-speech-rest.md
-  - name: Sintesi vocale (REST)
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-    href: how-to-text-to-speech.md
   - name: Riconoscere le finalità dai contenuti vocali
     displayName: recognize intent, intent recognition, language understanding service, luis
     items:
+    - name: C#
+      href: how-to-recognize-intents-from-speech-csharp.md
     - name: C++
       href: how-to-recognize-intents-from-speech-cpp.md
     - name: Java
@@ -73,29 +74,36 @@ items:
       href: how-to-translate-speech-cpp.md
     - name: Java
       href: how-to-translate-speech-java.md
+- name: Guide alle procedure
+  items:
+  - name: Sintesi vocale (REST)
+    displayName: synthesize speech, speech synthesis, text to speech, tts
+    href: how-to-text-to-speech.md
   - name: Trascrizione Batch (REST)
     displayName: recognize speech, speech recognition, speech to text, stt
     href: batch-transcription.md
   - name: Ottenere Speech Devices SDK
     displayName: roobo, speech devices sdk, download
     href: get-speech-devices-sdk.md
-  - name: Personalizzare modelli acustici
-    href: how-to-customize-acoustic-models.md
-  - name: Personalizzare modelli di lingua
-    href: how-to-customize-language-model.md
-  - name: Personalizzare la pronuncia
-    href: how-to-customize-pronunciation.md
-  - name: Personalizzare i caratteri voce (voce bot)
-    href: how-to-customize-voice-font.md
+  - name: Personalizza
+    items:
+    - name: Personalizzare modelli acustici
+      href: how-to-customize-acoustic-models.md
+    - name: Personalizzare modelli di lingua
+      href: how-to-customize-language-model.md
+    - name: Personalizzare la pronuncia
+      href: how-to-customize-pronunciation.md
+    - name: Personalizzare i caratteri voce (voce bot)
+      href: how-to-customize-voice-font.md
+    - name: Personalizzare la parola di attivazione del dispositivo (Devices SDK)
+      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+      href: speech-devices-sdk-create-kws.md
   - name: Registrare esempi vocali
     href: record-custom-voice-samples.md
   - name: Preparare le trascrizioni
     href: prepare-transcription.md
   - name: Usare flussi audio personalizzati
     href: how-to-use-audio-input-streams.md
-  - name: Personalizzare la parola di attivazione del dispositivo (Devices SDK)
-    displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
-    href: speech-devices-sdk-create-kws.md
 - name: Concetti
   items:
   - name: Riconoscimento vocale
@@ -180,9 +188,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacy e cookie
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: fd6df22b2d96dd72d6a3da0c6946a461420b3153
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 7b8b81afa5090144f1be7d747d4af1f4a319a0f1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605579"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985872"

@@ -7,18 +7,23 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 5360c9371b0e1d3191624cd1a65e505e7b9968de
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a486da73d00ddaebee5c1fe32fc6112c177f01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832044"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992338"
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Distribuzione di un modello di Machine Learning come un servizio Web
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Gestione modelli di Azure Machine Learning fornisce interfacce per distribuire i modelli come servizi Web basati su Docker in contenitori. È possibile distribuire i modelli creati tramite framework come Spark, Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow e Python. 
 

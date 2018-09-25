@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: f11d08e56fe1970aa7a0d82f368eb73589ece2fe
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 08fcb244ada319dccf62c134a0155dd117e79184
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412300"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977041"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Linux
 
 Se si vuole impedire l'uso o l'installazione di determinate estensioni nelle macchine virtuali Linux, è possibile creare criteri di Azure tramite l'interfaccia della riga di comando per limitare le estensioni per le macchine virtuali all'interno di un gruppo di risorse. 
 
-Questa esercitazione usa l'interfaccia della riga di comando in Azure Cloud Shell, che viene costantemente aggiornato alla versione più recente. Se si vuole eseguire l'interfaccia della riga di comando di Azure in locale, è necessario installare la versione 2.0.26 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Questa esercitazione usa l'interfaccia della riga di comando in Azure Cloud Shell, che viene costantemente aggiornato alla versione più recente. Se si vuole eseguire l'interfaccia della riga di comando di Azure in locale, è necessario installare la versione 2.0.26 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-rules-file"></a>Creare un file delle regole
 

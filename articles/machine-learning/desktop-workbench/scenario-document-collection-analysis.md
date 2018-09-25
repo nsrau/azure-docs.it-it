@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861257"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947218"
 ---
 # <a name="document-collection-analysis"></a>Analisi delle raccolta di documenti
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Questo scenario dimostra la procedura per riepilogare e analizzare una vasta raccolta di documenti, incluse tecniche quali apprendimento della frase, modellazione dell'argomento e analisi del modello di argomento mediante Azure ML Workbench. Azure Machine Learning Workbench consente di affrontare facilmente vaste raccolte di documenti e fornisce meccanismi per addestrare e ottimizzare i modelli in un'ampia varietà di contesti di calcolo, che spaziano dal calcolo locale, alle macchine virtuali per data science, al cluster Spark. Lo sviluppo semplificato è fornito tramite notebook Jupyter all'interno di Azure Machine Learning Workbench.
 
@@ -56,11 +61,11 @@ Le tecniche/algoritmi di machine learning utilizzati in questo scenario includon
 
 1. Rilevamento delle tendenze e delle anomalie degli argomenti
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 I prerequisiti per eseguire questo esempio sono i seguenti:
 
-* Assicurarsi che [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) sia stato installato correttamente seguendo la [Guida introduttiva all'installazione e alla creazione](../service/quickstart-installation.md).
+* Assicurarsi che [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) sia stato installato correttamente seguendo la [Guida introduttiva all'installazione e alla creazione](quickstart-installation.md).
 
 * Questo esempio può essere eseguito in qualsiasi contesto di calcolo, tuttavia è consigliabile eseguirlo in un computer multicore con almeno 16 GB di memoria e 5 GB di spazio su disco.
 
@@ -90,12 +95,12 @@ Nel file di dati sono presenti nove campi dati. I nomi e le descrizioni dei camp
 | `ID` | string | L'ID della legge/risoluzione. Il formato di questo campo è [tipo_legge][numero]-[congresso]. Ad esempio "hconres1-93" significa che il tipo di legge è "hconres" (sta per House Concurrent Resolution, vedere [questo documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), il numero della legge è "1" e il numero del Congresso è "93". | No  |
 | `Text` | string | Il contenuto della legge/risoluzione. | No  |
 | `Date` | string | La data in cui la legge/risoluzione è stata proposta inizialmente. Nel formato "aaaa-mm-gg". | No  |
-| `SponsorName` | string | Il nome del promotore primario che ha proposto la legge/risoluzione. | Sì |
-| `Type` | string | Il tipo di titolo dello promotore primario, che può essere "rep" (rappresentante) o "sen" (senatore). | Sì |
-| `State` | string | Lo stato del promotore primario. | Sì |
-| `District` | Integer | Il numero di zona del promotore primario se il titolo del promotore è "rappresentante". | Sì |
-| `Party` | string | Il partito del promotore primario. | Sì |
-| `Subjects` | string | I termini della materia aggiunti in modo cumulativo dalla Libreria del Congresso alla legge. I termini sono concatenati con virgole. Questi termini vengono scritti da una persona nella Libreria del Congresso e non sono in genere presenti nella prima pubblicazione delle informazioni sulla legge. Possono essere aggiunti in qualsiasi momento. In questo modo, alla fine del ciclo di vita di una legge, una materia potrebbe non essere più rilevante. | Sì |
+| `SponsorName` | string | Il nome del promotore primario che ha proposto la legge/risoluzione. | Yes |
+| `Type` | string | Il tipo di titolo dello promotore primario, che può essere "rep" (rappresentante) o "sen" (senatore). | Yes |
+| `State` | string | Lo stato del promotore primario. | Yes |
+| `District` | Integer | Il numero di zona del promotore primario se il titolo del promotore è "rappresentante". | Yes |
+| `Party` | string | Il partito del promotore primario. | Yes |
+| `Subjects` | string | I termini della materia aggiunti in modo cumulativo dalla Libreria del Congresso alla legge. I termini sono concatenati con virgole. Questi termini vengono scritti da una persona nella Libreria del Congresso e non sono in genere presenti nella prima pubblicazione delle informazioni sulla legge. Possono essere aggiunti in qualsiasi momento. In questo modo, alla fine del ciclo di vita di una legge, una materia potrebbe non essere più rilevante. | Yes |
 
 ## <a name="scenario-structure"></a>Struttura dello scenario
 

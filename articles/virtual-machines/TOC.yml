@@ -1,5 +1,6 @@
+items:
 - name: Documentazione delle macchine virtuali
-  href: index.md
+  href: index.yml
 - name: Macchine virtuali Linux in Azure
   href: linux/overview.md
 - name: Macchine virtuali Windows in Azure
@@ -8,19 +9,27 @@
   href: extensions/overview.md
 - name: Carichi di lavoro
   items:
-    - name: Oracle
-      href: workloads/oracle/oracle-considerations.md
-    - name: SAP
-      href: workloads/sap/get-started.md
+  - name: Oracle
+    href: workloads/oracle/oracle-considerations.md
+  - name: SAP
+    href: workloads/sap/get-started.md
 - name: Distribuzioni classiche
   items:
-    - name: Macchine virtuali Linux con distribuzione classica
-      href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
-    - name: Macchine virtuali Windows con distribuzione classica
-      href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
+  - name: Macchine virtuali Linux con distribuzione classica
+    href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
+  - name: Macchine virtuali Windows con distribuzione classica
+    href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
 - name: Risorse
   items:
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Calcolatore prezzi
-      href: 'https://azure.microsoft.com/pricing/calculator/'
+  - name: Sviluppare le proprie competenze con Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Calcolatore prezzi
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 25155f7bbb64ba8e18cc7a18265e29f936fe2479
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994480"

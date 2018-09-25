@@ -4,17 +4,17 @@ description: In questa esercitazione Azure Machine Learning viene distribuito co
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/25/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c13cd495f7802f14937321134a975b7a00c791ab
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: ddc5adbb5b6bc7f04a893b05df3601714ed85eec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41918074"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991454"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Azure Machine Learning come modulo di IoT Edge (anteprima)
 
@@ -46,7 +46,7 @@ Un dispositivo Azure IoT Edge:
 Risorse cloud:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
-* Un account di Azure Machine Learning. Seguire le istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Non è necessario installare l'applicazione workbench per questa esercitazione. 
+* Un account di Azure Machine Learning. Seguire le istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/desktop-workbench/quickstart-installation.md). Non è necessario installare l'applicazione workbench per questa esercitazione. 
 
 Risorse per lo sviluppo:
 
@@ -61,7 +61,7 @@ Risorse per lo sviluppo:
 
 Per disabilitare l'identificazione di un processo nel dispositivo IoT Edge, sarà necessario fornire l'indirizzo IP e la porta per **workload_uri** e **management_uri** nella sezione **connect** della configurazione del daemon IoT Edge.
 
-Ottenere prima l'indirizzo IP. Immettere `ifconfig` nella riga di comando e copiare l'indirizzo IP dell'interfaccia **docker0**.
+Ottenere prima l'indirizzo IP. Immettere `ipconfig` nella riga di comando e copiare l'indirizzo IP dell'interfaccia **docker0**.
 
 Modificare il file di configurazione del daemon IoT Edge:
 

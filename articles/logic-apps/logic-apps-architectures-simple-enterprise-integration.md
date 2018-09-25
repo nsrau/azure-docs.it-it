@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5ed6fa9f514bae3ea651edba6702714e2680091f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122496"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955946"
 ---
 # <a name="simple-enterprise-integration-architecture"></a>Architettura di integrazione aziendale semplice
 
@@ -66,7 +66,7 @@ Tutte le istanze di Gestione API comportano un addebito quando sono in esecuzion
 
 ### <a name="logic-apps-pricing"></a>Prezzi di App per la logica
 
-App per la logica funziona come modello [serverless](../logic-apps/logic-apps-serverless-overview.md). La fatturazione viene calcolata in base all'esecuzione del connettore e dell'azione. Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/). Attualmente non sono disponibili considerazioni per la scelta del livello per App per la logica.
+App per la logica funziona come modello [senza server](../logic-apps/logic-apps-serverless-overview.md). La fatturazione viene calcolata in base all'esecuzione del connettore e dell'azione. Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/). Attualmente non sono disponibili considerazioni per la scelta del livello per App per la logica.
 
 ### <a name="logic-apps-for-asynchronous-api-calls"></a>App per la logica per le chiamate API asincrone
 
@@ -76,11 +76,11 @@ App per la logica funziona meglio negli scenari che non richiedono una latenza b
 
 Per ridurre al minimo la latenza di rete, scegliere la stessa area per Gestione API, App per la logica e il bus di servizio. È in genere consigliabile scegliere l'area più vicina agli utenti.
 
-Anche il gruppo di risorse è associato a un'area. Questa area specifica il percorso in cui archiviare i metadati di distribuzione e in cui eseguire il modello di distribuzione. Per migliorare la disponibilità durante la distribuzione, aggiungere il gruppo di risorse e le risorse nella stessa area.
+Anche il gruppo di risorse è associato a un'area Questa area specifica il percorso in cui archiviare i metadati di distribuzione e in cui eseguire il modello di distribuzione. Per migliorare la disponibilità durante la distribuzione, aggiungere il gruppo di risorse e le risorse nella stessa area.
 
 ## <a name="scalability"></a>Scalabilità
 
-Per migliorare la scalabilità quando si amministra un servizio di Gestione API, aggiungere [criteri di memorizzazione nella cache](../api-management/api-management-howto-cache.md) laddove appropriato. La memorizzazione nella cache aiuta a ridurre il carico sui servizi di back-end.
+Per migliorare la scalabilità quando si amministra un servizio di Gestione API, aggiungere [criteri di memorizzazione nella cache](../api-management/api-management-howto-cache.md) laddove appropriato. e ridurre il carico sui servizi di back-end.
 
 Per offrire una maggiore capacità, è possibile effettuare lo scale-out dei livelli Basic, Standard e Premium di Gestione API di Azure in un'area di Azure. Per analizzare l'utilizzo per il servizio, nel menu **Metriche** selezionare l'opzione **Metrica della capacità** e quindi aumentare o ridurre le prestazioni in base alle esigenze.
 
@@ -154,7 +154,7 @@ Sebbene sia possibile usare le revisioni per testare un'API prima di renderle "o
 
 ### <a name="configuration-and-sensitive-information"></a>Configurazione e informazioni riservate
 
-Non archiviare mai le password, le chiavi di accesso o le stringhe di connessione nel controllo del codice sorgente. Se questi valori sono necessari, usare le tecniche appropriate per distribuire e proteggere questi valori. 
+Non archiviare mai le password, le chiavi di accesso o le stringhe di connessione nel controllo del codice sorgente, Se questi valori sono necessari, usare le tecniche appropriate per distribuire e proteggere questi valori. 
 
 In App per la logica, se un'app per la logica richiede un qualsiasi valore sensibile che non è possibile creare all'interno di una connessione, archiviare questo valore in Azure Key Vault e farvi riferimento da un modello di Resource Manager. Usare i parametri del modello di distribuzione e i file di parametri per ogni ambiente. Per maggiori informazioni, consultare [Protezione dei parametri e degli input all'interno di un flusso di lavoro](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
 
@@ -162,7 +162,7 @@ In Gestione API i segreti vengono gestiti usando oggetti chiamati *Valori denomi
 
 ## <a name="diagnostics-and-monitoring"></a>Diagnostica e monitoraggio
 
-Per il monitoraggio operativo è possibile usare [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) sia in [Gestione API](../api-management/api-management-howto-use-azure-monitor.md) che in [App per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md). Il servizio Monitoraggio di Azure include informazioni basate sulle metriche configurate per ogni servizio ed è abilitato per impostazione predefinita.
+Per il monitoraggio operativo è possibile usare [Monitoraggio di Azure](../azure-monitor/overview.md) sia in [Gestione API](../api-management/api-management-howto-use-azure-monitor.md) che in [App per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md). Il servizio Monitoraggio di Azure include informazioni basate sulle metriche configurate per ogni servizio ed è abilitato per impostazione predefinita.
 
 Ogni servizio dispone inoltre di queste opzioni:
 

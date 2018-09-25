@@ -7,19 +7,23 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 1f8dbe5ccae34ab185cbe5105ac793a0d401b48e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 718f351ad4ce325f3585ebcbe7adfc4b5905e734
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831667"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998611"
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Ridimensionamento del cluster per gestire la velocità effettiva del servizio Web
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 ## <a name="why-scale-the-cluster"></a>Perché ridimensionare il cluster?
 

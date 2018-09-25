@@ -7,19 +7,22 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: ff80130ebb9c4095d4a20202cdfabd9aaf1b1992
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c047555c30481f34b607197f71483197bc64620c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832007"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961468"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Informazioni di riferimento sulle API di raccolta di dati del modello di Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 La raccolta di dati del modello consente di archiviare gli input e le stime del modello da un servizio Web di Machine Learning. Vedere la [Guida alle procedure per la raccolta dati del modello](how-to-use-model-data-collection.md) per comprendere come installare `azureml.datacollector` in computer Windows e Linux.
 

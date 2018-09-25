@@ -4,18 +4,17 @@ description: Data Lake Analytics consente di gestire le attività aziendali usan
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ec0e8c11a1d60d4454d962b8ec4c363e35d1182a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623622"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988751"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Che cos'è Azure Data Lake Analytics?
 
@@ -39,7 +38,7 @@ Data Lake Analytics sfrutta gli investimenti IT esistenti per identità, gestion
 
 ### <a name="affordable-and-cost-effective"></a>Conveniente ed economico
 
-Data Lake Analytics è una soluzione a costi ridotti per l'esecuzione di carichi di lavoro di Big Data. Il pagamento avviene in base a ogni processo quando vengono elaborati i dati. Non sono necessari hardware, licenze o contratti di supporto specifici del servizio. Poiché il sistema è in grado di ridimensionarsi automaticamente all'avvio e al completamento del processo, non si paga mai più del necessario. [Altre informazioni sul controllo dei costi e il risparmio](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+Data Lake Analytics è una soluzione a costi ridotti per l'esecuzione di carichi di lavoro di Big Data. Il pagamento avviene in base a ogni processo quando vengono elaborati i dati. Non sono necessari hardware, licenze o contratti di supporto specifici del servizio. Poiché il sistema è in grado di ridimensionarsi automaticamente all'avvio e al completamento del processo, non si paga mai più del necessario. [Altre informazioni sul controllo dei costi e il risparmio](https://aka.ms/adlasavemoney).
     
 ### <a name="works-with-all-your-azure-data"></a>Per tutti i dati di Azure
   
@@ -47,6 +46,6 @@ Data Lake Analytics interagisce con Azure Data Lake Store per fornire il massimo
 
 ### <a name="next-steps"></a>Passaggi successivi
  
-  * Introduzione ad Azure Data Lake Analytics con [portale di Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Interfaccia della riga di comando](data-lake-analytics-get-started-cli2.md)
+  * Introduzione ad Azure Data Lake Analytics con [portale di Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Interfaccia della riga di comando](data-lake-analytics-get-started-cli.md)
   * Gestire Azure Data Lake Analytics con [portale di Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [interfaccia della riga di comando](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
   * [Come controllare i costi e risparmiare denaro con Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)

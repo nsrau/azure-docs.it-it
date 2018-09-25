@@ -7,19 +7,24 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: cc53fc52590bc9991dcfd4730d9e4cb03e05efd5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3edf49484e5bc05a297b8d8969632fb902aa1714
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831483"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953736"
 ---
 # <a name="split-column-by-example-transformation"></a>Trasformazione Split Column by Example (Dividi colonna in base all'esempio)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Questa trasformazione divide in modo predittivo il contenuto di una colonna in base a limiti significativi senza richiedere l'input dell'utente. L'algoritmo di divisione seleziona i limiti dopo avere analizzato il contenuto della colonna. Questi limiti possono essere definiti da:
 * Un delimitatore predefinito
 * Più delimitatori arbitrari presenti in contesti specifici oppure
@@ -182,4 +187,4 @@ Nell'esempio seguente si vuole separare i valori del peso dalle unità di misura
 
 ## <a name="technical-notes"></a>Note tecniche
 
-La funzionalità della trasformazione di divisione si basa sulla tecnica **Program Synthesis predittiva**. Con questa tecnica i programmi di trasformazione dei dati vengono appresi automaticamente in base ai dati di input. I programmi vengono sintetizzati in un linguaggio specifico di dominio. Il linguaggio Domain-Specific Language è basato su delimitatori e campi presenti in specifici contesti di espressioni regolari. Altre informazioni su questa tecnologia sono disponibili in una [recente pubblicazione su questo argomento](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
+La funzionalità della trasformazione di divisione si basa sulla tecnica **Program Synthesis predittiva**. Con questa tecnica i programmi di trasformazione dei dati vengono appresi automaticamente in base ai dati di input. I programmi vengono sintetizzati in un linguaggio specifico di dominio. Il linguaggio Domain-Specific Language è basato su delimitatori e campi presenti in specifici contesti di espressioni regolari. Altre informazioni su questa tecnologia sono disponibili in una [recente pubblicazione su questo argomento](https://www.microsoft.com/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 

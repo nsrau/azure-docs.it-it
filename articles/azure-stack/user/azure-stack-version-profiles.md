@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982154"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034369"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gestire i profili delle versioni API in Azure Stack
 
@@ -79,14 +79,14 @@ Gli sviluppatori, è possibile concentrarsi sulla scrittura della soluzione. Inv
 
 - **PowerShell**  
 È possibile usare la **AzureRM.Bootstrapper** modulo disponibile tramite la raccolta di PowerShell per ottenere i cmdlet di PowerShell necessari per lavorare con i profili della versione API. Per informazioni, vedere [profili di usare l'API della versione per PowerShell](azure-stack-version-profiles-powershell.md).
-- **Interfaccia della riga di comando di Azure 2.0**  
-È possibile aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure. Per informazioni, vedere [profili della versione di usare l'API di Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+- **Interfaccia della riga di comando di Azure**  
+È possibile aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure. Per informazioni, vedere [i profili delle versioni API di utilizzo della riga di comando di Azure](azure-stack-version-profiles-azurecli2.md).
 - **GO**  
 In GO SDK, un profilo è una combinazione di diversi tipi di risorse con versioni diverse da servizi diversi. i profili sono disponibili sotto i profili / percorso, con la rispettiva versione nel **AAAA-MM-GG** formato. Per informazioni, vedere [i profili delle versioni API di utilizzo per GO](azure-stack-version-profiles-go.md).
 - **Ruby**  
 Ruby SDK per Azure Stack Resource Manager fornisce strumenti che consentono di compilare e gestire l'infrastruttura. I provider di risorse nel SDK includono calcolo, le reti virtuali e archiviazione con il linguaggio Ruby. Per informazioni, vedere [i profili delle versioni API di utilizzo con Ruby](azure-stack-version-profiles-ruby.md)
 - **Python**  
-- Python SDK supporta i profili delle versioni API per diverse piattaforme cloud, ad esempio Azure Stack e Azure globale di destinazione. È possibile usare i profili delle API di creazione di soluzioni per un cloud ibrido. Per informazioni, vedere [i profili delle versioni API di utilizzo di Python](azure-stack-version-profiles-python.md)
+Python SDK supporta i profili delle versioni API per diverse piattaforme cloud, ad esempio Azure Stack e Azure globale di destinazione. È possibile usare i profili delle API di creazione di soluzioni per un cloud ibrido. Per informazioni, vedere [i profili delle versioni API di utilizzo di Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

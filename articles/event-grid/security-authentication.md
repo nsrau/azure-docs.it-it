@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144275"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965456"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -39,7 +39,7 @@ Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una fu
 
 2. **Handshake ValidationURL (handshake manuale)**: in determinati casi non è possibile controllare il codice sorgente dell'endpoint e quindi non è possibile implementare l'handshake basato su ValidationCode. Se ad esempio si usa un servizio di terze parti, ad esempio [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), è possibile che non si riesca a restituire il codice di convalida a livello di programmazione. A partire dalla versione 2018-05-01-preview, Griglia di eventi supporta quindi un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi tramite SDK/strumenti che usano questa nuova versione dell'API (2018-05-01-preview), Griglia di eventi invia una proprietà `validationUrl`, oltre alla proprietà `validationCode`, come parte della porzione "data" dell'evento di convalida della sottoscrizione. Per completare l'handshake, è sufficiente inviare una richiesta GET in tale URL, tramite un client REST oppure il Web browser. L'URL di convalida specificato è valido solo per circa 10 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se si non completata la convalida manuale entro 10 minuti, lo stato di provisioning è impostato su `Failed`. Sarà necessario tentare di nuovo la creazione della sottoscrizione di eventi prima di provare a eseguire nuovamente la convalida manuale.
 
-Questo meccanismo di convalida manuale è disponibile in anteprima. Per usarla, è necessario installare l'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list) per [AZ CLI 2.0](/cli/azure/install-azure-cli). È possibile installarla con `az extension add --name eventgrid`. Se si usa l'API REST, assicurarsi di usare `api-version=2018-05-01-preview`.
+Questo meccanismo di convalida manuale è disponibile in anteprima. Per usarla, è necessario installare l'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list) per l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). È possibile installarla con `az extension add --name eventgrid`. Se si usa l'API REST, assicurarsi di usare `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Dettagli di convalida
 

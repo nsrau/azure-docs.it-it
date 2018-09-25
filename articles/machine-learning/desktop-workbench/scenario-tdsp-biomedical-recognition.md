@@ -3,27 +3,32 @@ title: Riconoscimento di entità biomediche - Team Data Science Process - Azure 
 description: Guida introduttiva per un progetto di Team Data Science Process che usa l'apprendimento avanzato per il riconoscimento di entità biomediche in Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: ae8c8ed9d397df0c82b74f051ff14729c0f41623
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837279"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973763"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 L'estrazione di entità è una sottoattività dell'estrazione di informazioni (nota anche come [riconoscimento di entità denominate (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), suddivisione di entità in blocchi e identificazione di entità). L'obiettivo di questo scenario reale è mostrare come usare Azure Machine Learning Workbench per risolvere una complessa attività di elaborazione del linguaggio naturale, ad esempio l'estrazione di entità da testo non strutturato:
 
@@ -54,7 +59,7 @@ I risultati mostrano che il training del modello di estrazione di entità biomed
 
 La figura seguente mostra l'architettura usata per elaborare i dati ed eseguire il training dei modelli.
 
-![Architecture](./media/scenario-tdsp-biomedical-recognition/architecture.png)
+![Architettura](./media/scenario-tdsp-biomedical-recognition/architecture.png)
 
 ## <a name="data-description"></a>Descrizione dei dati
 
@@ -92,10 +97,10 @@ Di seguito viene fornito il collegamento al repository GitHub pubblico dello sce
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 * Una [sottoscrizione](https://azure.microsoft.com/free/) di Azure.
-* Azure Machine Learning Workbench. Vedere la [guida all'installazione](../service/quickstart-installation.md). Attualmente Azure Machine Learning Workbench può essere installato solo nei sistemi operativi seguenti: 
+* Azure Machine Learning Workbench. Vedere la [guida all'installazione](quickstart-installation.md). Attualmente Azure Machine Learning Workbench può essere installato solo nei sistemi operativi seguenti: 
     * Windows 10 o Windows Server 2016
     * macOS Sierra (o versioni successive)
 
@@ -118,7 +123,7 @@ Tutte le dipendenze necessarie sono definite nel file aml_config/conda_dependenc
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Istruzioni di base per Azure Machine Learning Workbench
 * [Overview](../service/overview-what-is-azure-ml.md)
-* [Installazione](../service/quickstart-installation.md)
+* [Installazione](quickstart-installation.md)
 * [Uso di TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [Come leggere e scrivere file](how-to-read-write-files.md)
 * [Come usare i notebook di Jupyter](how-to-use-jupyter-notebooks.md)

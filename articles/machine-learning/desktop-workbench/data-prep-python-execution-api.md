@@ -7,20 +7,25 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: dac13d36477dccce3bce2ecb9fe2326c36d9ef59
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5280ed4143ef2ee980300cebe234de7f2020a14f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830596"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968102"
 ---
 # <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>Eseguire pacchetti di origini dati e preparazioni dati da Python
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Per usare un pacchetto di origini dati di Azure Machine Learning o di preparazioni dati di Azure Machine Learning all'interno di Python:
 

@@ -1,5 +1,5 @@
 ---
-title: Applicare la sicurezza con criteri a macchine virtuali Windows in Azure | Microsoft Docs
+title: Applicare la sicurezza con criteri a macchine virtuali Windows in Azure | Documentazione Microsoft
 description: Come applicare criteri a una macchina virtuale Windows di Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: b6a42e1a0b0256a6b19220958f98940764273a2d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 42b62c819fd3d26c6ea944f968e0d5956a7f055e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114385"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987459"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Applicare criteri alle macchine virtuali Windows con Azure Resource Manager
 Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione. Questo articolo illustra come usare i criteri di Azure Resource Manager per definire il comportamento desiderato per le macchine virtuali dell'organizzazione.
@@ -106,7 +106,7 @@ Per modificare il criterio precedente e consentire qualsiasi immagine Windows Se
 }
 ```
 
-Per informazioni sui campi dei criteri, vedere [Alias dei criteri](../../azure-policy/policy-definition.md#aliases).
+Per informazioni sui campi dei criteri, vedere [Alias dei criteri](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## <a name="managed-disks"></a>Dischi gestiti
 

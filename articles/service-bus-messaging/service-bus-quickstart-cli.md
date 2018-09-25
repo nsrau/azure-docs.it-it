@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: spelluru
-ms.openlocfilehash: a39b93a0b778de6fb6e09e4359678713cc308aac
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 279f71496cc408ba991c4335f98eff649ad1b923
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701650"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983991"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Guida introduttiva: Inviare e ricevere messaggi usando l'interfaccia della riga di comando di Azure e Java
 
@@ -270,5 +270,5 @@ In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e a
 
 [account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
+[Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

@@ -9,14 +9,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 24ed164f4a1dfdb9a3913efa78fe58fab2b53696
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146516"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991964"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configurare il servizio Sperimentazione di Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>Panoramica
 L'account, l'area di lavoro e il progetto del servizio Sperimentazione di Azure Machine Learning sono risorse di Azure e possono pertanto essere distribuiti tramite i modelli di Resource Manager. I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
@@ -158,4 +161,4 @@ Creare un file con il contenuto riportato di seguito e salvarlo come <parameters
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare e installare istanze di Azure Machine Learning](../service/quickstart-installation.md)
+* [Creare e installare istanze di Azure Machine Learning](quickstart-installation.md)

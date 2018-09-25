@@ -1,5 +1,6 @@
 ---
 title: API Sintesi vocale del Servizio di riconoscimento vocale Microsoft | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Usare l'API Sintesi vocale per fornire la sintesi vocale in tempo reale in una varietà di voci e lingue
 services: cognitive-services
 author: priyaravi20
@@ -7,14 +8,15 @@ manager: yanbo
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 4b633cefa37c11511a8171d5a7f61b03dfaa4466
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 664b696d5323177eaac2e7ce7b80a7c81ce601f1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949401"
 ---
 # <a name="bing-text-to-speech-api"></a>API Sintesi vocale Bing
 
@@ -37,7 +39,7 @@ Content-Length: 0
 
 Le informazioni di intestazione necessarie per il token di accesso sono le seguenti.
 
-Nome| Formato | Descrizione
+NOME| Format | DESCRIZIONE
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | Your subscription key (Chiave della sottoscrizione)
 
@@ -118,7 +120,7 @@ Content-Length: 0
 
 ### <a name="ErrorResponse"></a>Risposte di errore
 
-Tipi di errore | Descrizione
+Tipi di errore | DESCRIZIONE
 ----|----
 HTTP/400 (Richiesta non valida) | Un parametro obbligatorio è assente, vuoto o Null oppure il valore passato a un parametro obbligatorio o facoltativo non è valido. Uno dei motivi per cui si riceve una risposta di tipo "non valido" è il passaggio di un valore di stringa più lungo del limite massimo consentito. È inclusa una breve descrizione del parametro che causa il problema.
 HTTP/401 (Non autorizzato) | La richiesta non è autorizzata.
@@ -234,11 +236,10 @@ hr-HR | Maschio | "Microsoft Server Speech Text to Speech Voice (hr-HR, Matej)"
 hu-HU | Maschio | "Microsoft Server Speech Text to Speech Voice (hu-HU, Szabolcs)"
 id-ID | Maschio | "Microsoft Server Speech Text to Speech Voice (id-ID, Andika)"
 it-IT | Maschio | "Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)"
+it-IT | Femmina | "Microsoft Server Speech Text to Speech Voice (it-IT, LuciaRUS)"
 ja-JP | Femmina | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)"
 ja-JP | Maschio | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)"
 ja-JP | Femmina | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)"
-ja-JP | Femmina | "Microsoft Server Speech Text to Speech Voice (ja-JP, LuciaRUS)"
-ja-JP | Maschio | "Microsoft Server Speech Text to Speech Voice (ja-JP, EkaterinaRUS)"
 ko-KR | Femmina | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)"
 ms-MY | Maschio | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)"
 nb-NO | Femmina | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)"
@@ -250,6 +251,7 @@ pt-PT | Femmina | "Microsoft Server Speech Text to Speech Voice (pt-PT, HeliaRUS
 ro-RO | Maschio | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)"
 ru-RU | Femmina | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 ru-RU | Maschio | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"
+ru-RU | Femmina | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)"
 sk-SK | Maschio | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
 sl-SI | Maschio | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
 sv-SE | Femmina | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"

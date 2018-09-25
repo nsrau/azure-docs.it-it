@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 43bee297b917143c9014b28049c6dfa28727b757
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: abce80528479ba180783dbab604d4c836ddb7f1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35637903"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950778"
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>File di configurazione del servizio Sperimentazione di Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Quando si esegue uno script in Azure Machine Learning (Azure ML) Workbench, il comportamento dell'esecuzione viene controllato dai file nella cartella **aml_config**. Questa cartella si trova sotto la radice della cartella di progetto. È importante comprendere il contenuto di questi file per ottenere il risultato desiderato per un'esecuzione ottimale.
 

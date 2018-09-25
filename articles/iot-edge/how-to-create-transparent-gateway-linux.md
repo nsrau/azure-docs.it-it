@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: df1ca1358d1b111d8412d730575eb7bf66c8ebdf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247684"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950013"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creare un dispositivo IoT Edge Linux come gateway trasparente
 
@@ -188,6 +188,8 @@ Il runtime IoT Edge può instradare i messaggi inviati dai dispositivi downstrea
    ```
 
 Per altri dettagli sul routing dei messaggi, vedere l'[articolo sulla composizione dei moduli][lnk-module-composition].
+
+[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev] (Informazioni sui requisiti e sugli strumenti per sviluppare moduli IoT Edge).

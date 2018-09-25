@@ -5,17 +5,17 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 0e5d1214a8e1af8299cb40d1a3b31ff6eafc8c5c
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c3365450c90c4fda37884e8998fad70f5d164244
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40185449"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47006503"
 ---
-È previsto un numero massimo per ogni tipo di oggetto per Criteri di Azure. La voce _Ambito_ indica la sottoscrizione o il [gruppo di gestione](../articles/azure-resource-manager/management-groups-overview.md).
+È previsto un numero massimo per ogni tipo di oggetto per Criteri di Azure. La voce _Ambito_ indica la sottoscrizione o il [gruppo di gestione](../articles/governance/management-groups/overview.md).
 
 | Where | Cosa | Numero massimo |
 |---|---|---|

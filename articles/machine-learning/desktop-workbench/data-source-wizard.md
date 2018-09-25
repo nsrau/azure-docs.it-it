@@ -7,18 +7,23 @@ ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: dcf064817f2ad9855cfeef8fec6775d32ee992ec
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: a3aeb021d5d3726a31b62d66efc44dc29f3dded0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831140"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959649"
 ---
 # <a name="data-source-wizard"></a>Creazione guidata dell'origine dati #
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 La creazione guidata dell'origine dati è un modo semplice e rapido per portare un set di dati in Azure Machine Learning Workbench senza codice. Consente anche di scegliere una strategia di esempio per il set di dati e i tipi di dati di ogni colonna. 
 
