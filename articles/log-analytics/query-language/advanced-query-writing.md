@@ -15,22 +15,24 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 72c151fec0637822411f8cac44f4e13a8df96445
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40191010"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958558"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Scrittura di query avanzate in Log Analytics
 
 > [!NOTE]
 > Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di Analytics](get-started-analytics-portal.md) e [Introduzione alle query](get-started-queries.md).
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 ## <a name="reusing-code-with-let"></a>Riutilizzo del codice con let
 Usare `let` per assegnare i risultati a una variabile e farvi riferimento successivamente nella query:
 
-```OQL
+```Kusto
 // get all events that have level 2 (indicates warning level)
 let warning_events=
 Event
@@ -42,7 +44,7 @@ warning_events
 
 È inoltre possibile assegnare valori costanti alle variabili. In questo modo si possono impostare parametri per i campi che è necessario modificare ogni volta che si esegue la query. Modificare tali parametri in base alle proprie esigenze. Ad esempio, per calcolare lo spazio libero su disco e la memoria libera (in percentili) in un determinato intervallo di tempo:
 
-```OQL
+```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
 let endDate = datetime(2018-08-02T13:21:35);
 let FreeDiskSpace =
@@ -63,7 +65,7 @@ In questo modo è facile modificare l'inizio dell'ora di fine alla successiva es
 ### <a name="local-functions-and-parameters"></a>Funzioni e parametri locali
 Usare le istruzioni `let` per creare funzioni che possono essere usate nella stessa query. Ad esempio, definire una funzione che accetta un campo datetime (nel formato UTC) e lo converte in un formato standard degli Stati Uniti. 
 
-```OQL
+```Kusto
 let utc_to_us_date_format = (t:datetime)
 {
   strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
@@ -78,7 +80,7 @@ Event
 ## <a name="functions"></a>Funzioni
 È possibile salvare una query con un alias di funzione in modo che sia possibile farvi riferimento con altre query. La query standard seguente, ad esempio, restituisce tutti gli aggiornamenti della sicurezza mancanti segnalati nell'ultimo giorno:
 
-```OQL
+```Kusto
 Update
 | where TimeGenerated > ago(1d) 
 | where Classification == "Security Updates" 
@@ -87,7 +89,7 @@ Update
 
 È possibile salvare questa query come funzione e assegnarle un alias, ad esempio _security_updates_last_day_, che può essere usato successivamente in un'altra query per cercare gli aggiornamenti della sicurezza necessari correlati a SQL:
 
-```OQL
+```Kusto
 security_updates_last_day | where Title contains "SQL"
 ```
 
@@ -100,7 +102,7 @@ Per salvare una query come funzione, selezionare il pulsante **Salva** nel porta
 ## <a name="print"></a>Print
 `print` restituisce una tabella con una sola colonna e una sola riga, che mostra il risultato di un calcolo. Questa funzione viene spesso usata nei casi in cui è necessario eseguire un calcolo semplice. Ad esempio, per trovare l'ora corrente in PST e aggiungere una colonna con EST:
 
-```OQL
+```Kusto
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
@@ -108,7 +110,7 @@ print nowPst = now()-8h
 ## <a name="datatable"></a>Datatable
 `datatable` consente di definire un set di dati. Si specifica uno schema e un set di valori e quindi si invia la tabella ad altri elementi di query. Ad esempio, per creare una tabella relativa all'utilizzo della RAM e calcolare il valore medio ogni ora:
 
-```OQL
+```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
 [
   "2018-06-02T15:15:46.3418323Z", 15.5,
@@ -125,7 +127,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 
 I costrutti di datatable sono molto utili anche quando si crea una tabella di ricerca. Ad esempio, per mappare gli ID evento della tabella _SecurityEvent_ a tipi di evento elencati altrove, creare una tabella di ricerca con i tipi di evento usando `datatable` e quindi creare un join tra questa datatable e i dati di _SecurityEvent_:
 
-```OQL
+```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
 [
     4625, "Account activity",

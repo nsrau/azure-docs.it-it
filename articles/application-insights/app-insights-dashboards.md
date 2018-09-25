@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 72859f68fc1bb76a6c71bbd7b98cd713f1f0fe02
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8161fda80b5fa498f9321371c9ad2c8a2d97441a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296401"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962420"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigazione e dashboard nel portale Application Insights
 Dopo aver [impostato Application Insights nel progetto](app-insights-overview.md), i dati di telemetria sull'uso e le prestazioni dell'app verranno visualizzati nella risorsa di Application Insights del progetto nel [portale di Azure](https://portal.azure.com).
@@ -63,7 +63,7 @@ Il grafico viene aggiornato automaticamente con una frequenza che dipende dall'i
 * Intervallo di tempo superiore a 24 ore: (intervallo di tempo) / 60.
 
 ### <a name="pin-any-query-in-analytics"></a>Aggiungere query in Analisi
-È anche possibile aggiungere grafici di [Analisi](app-insights-analytics-using.md#pin-to-dashboard) a un dashboard [condiviso](#share-dashboards-with-your-team). In questo modo è possibile aggiungere grafici di una query arbitraria insieme alle metriche standard. 
+È anche possibile aggiungere grafici di [Analisi](../log-analytics/query-language/get-started-analytics-portal.md) a un dashboard [condiviso](#share-dashboards-with-your-team). In questo modo è possibile aggiungere grafici di una query arbitraria insieme alle metriche standard. 
 
 I risultati vengono ricalcolati automaticamente ogni ora. Fare clic sull'icona Aggiorna del grafico per un ricalcolo immediato. (L'aggiornamento del browser non esegue il ricalcolo).
 

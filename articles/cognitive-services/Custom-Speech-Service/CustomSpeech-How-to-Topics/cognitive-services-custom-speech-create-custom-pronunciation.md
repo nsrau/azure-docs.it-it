@@ -9,17 +9,18 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ms.openlocfilehash: a74b69b84cc80809a25f18b580a18abb5721b8b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: c51ef6b25b454d0b8bf450b791f5c0fa9c6dfdee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373140"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999376"
 ---
 # <a name="enable-custom-pronunciation"></a>Abilitare la pronuncia personalizzata
 La pronuncia personalizzata consente agli utenti di definire la forma fonetica e la visualizzazione di una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Tutto ciò che serve è un file di pronunce, un semplice file con estensione txt.
 
-Ecco come funziona. In un singolo file TXT è possibile immettere più voci di pronuncia personalizzate. La struttura è analoga alla seguente:
+e funziona nel modo seguente: In un singolo file TXT è possibile immettere più voci di pronuncia personalizzate. La struttura è analoga alla seguente:
 
 ```
 Display form <Tab> Spoken form <Newline>
@@ -45,7 +46,7 @@ La forma parlata è la sequenza fonetica della forma visualizzata. È composta d
 ## <a name="supported-pronunciation-characters"></a>Caratteri di pronuncia supportati
 La pronuncia personalizzata è al momento supportata solo per l'inglese (en-US) e il tedesco (de-DE). La tabella seguente mostra il set di caratteri che può essere usato per esprimere la forma parlata di un termine nel file di pronunce personalizzato: 
 
-| Lingua | Caratteri |
+| Linguaggio | Caratteri |
 |---------- |----------|
 | Inglese (en-Us) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 | Tedesco (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |

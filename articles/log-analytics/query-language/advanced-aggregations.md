@@ -15,24 +15,26 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 4f2d49233a6eb92f567d4265210fcab394aa6461
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 288af0eae50634f44d6af8c787b56112bb3119ff
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190979"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998594"
 ---
 # <a name="advanced-aggregations-in-log-analytics-queries"></a>Aggregazioni avanzate nelle query di Log Analytics
 
 > [!NOTE]
 > Prima di seguire questa lezione, è consigliabile completare [Aggregazioni nelle query di Log Analytics](./aggregations.md).
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 Questo articolo descrive alcune delle opzioni di aggregazione più avanzate disponibili per le query di Log Analytics.
 
 ## <a name="generating-lists-and-sets"></a>Generazione di elenchi e set
 È possibile usare `makelist` per variare la visualizzazione dei dati in base all'ordine dei valori di una determinata colonna. Se ad esempio è necessario esaminare l'ordine più comune in cui si verificano gli eventi nei computer, è possibile scegliere di visualizzare i dati in base all'ordine degli ID evento in ogni computer. 
 
-```OQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -48,7 +50,7 @@ Event
 
 È anche utile creare un elenco di semplici valori distinti. Un elenco di questo tipo è definito _Set_ e può essere generato con `makeset`:
 
-```OQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -65,11 +67,12 @@ Analogamente a `makelist`, anche `makeset` funziona con i dati ordinati e genera
 ## <a name="expanding-lists"></a>Espansione di elenchi
 L'operazione inversa di `makelist` o `makeset` è `mvexpand`, che espande un elenco di valori in righe separate. Questa funzione può espandere i valori in un numero qualsiasi di colonne dinamiche, sia JSON che matrice. Si supponga ad esempio di controllare la tabella *Heartbeat* per visualizzare le soluzioni che hanno trasmesso dati dai computer che hanno inviato un heartbeat nell'ultima ora:
 
-```OQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
 ```
+
 | Computer | Soluzioni | 
 |--------------|----------------------|
 | computer1 | "security", "updates", "changeTracking" |
@@ -79,9 +82,14 @@ Heartbeat
 
 Usare `mvexpand` per mostrare ogni valore in una riga separata anziché in un elenco delimitato da virgole:
 
-Heartbeat | where TimeGenerated > ago(1h) | project Computer, split(Solutions, ",") | mvexpand Solutions
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(1h)
+| project Computer, split(Solutions, ",")
+| mvexpand Solutions
 ```
-| Computer | Solutions | 
+
+| Computer | Soluzioni | 
 |--------------|----------------------|
 | computer1 | "security" |
 | computer1 | "updates" |
@@ -91,11 +99,11 @@ Heartbeat | where TimeGenerated > ago(1h) | project Computer, split(Solutions, "
 | computer3 | "antiMalware" |
 | computer3 | "changeTracking" |
 | ... | ... | ... |
-```
+
 
 È quindi possibile usare nuovamente `makelist` per raggruppare gli elementi e questa volta visualizzare l'elenco dei computer per ogni soluzione:
 
-```OQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
@@ -113,7 +121,7 @@ Heartbeat
 ## <a name="handling-missing-bins"></a>Gestione di bin mancanti
 Un'applicazione utile di `mvexpand` è quella di inserire i valori predefiniti per i bin mancanti. Si supponga, ad esempio, di voler conoscere il tempo di attività di un determinato computer esaminandone l'heartbeat e di voler visualizzare l'origine dell'heartbeat che è riportata nella colonna _category_. In genere, si usa una semplice istruzione summarize, come indicato di seguito:
 
-```OQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
@@ -129,7 +137,7 @@ Heartbeat
 
 In questi risultati, tuttavia, l'intervallo di tempo associato a "2017-06-06T19:00:00Z" non è elencato perché non sono presenti dati relativi ad heartbeat per tale ora. Per assegnare un valore predefinito agli intervalli di tempo vuoti usare la funzione `make-series`. In questo modo viene generata una riga per ogni categoria con due colonne matrice supplementari, una per i valori e l'altra per gli intervalli di tempo corrispondenti:
 
-```OQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
@@ -141,7 +149,7 @@ Heartbeat
 
 Il terzo elemento della matrice *count_* è pari a 0 come previsto e nella matrice _TimeGenerated_ è presente un timestamp "2017-06-06T19:00:00.0000000Z" corrispondente. Questo formato di matrice è tuttavia difficile da leggere. Usare `mvexpand` per espandere le matrici e generare l'output nello stesso formato di quello generato da `summarize`:
 
-```OQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 | mvexpand TimeGenerated, count_
@@ -163,7 +171,7 @@ Heartbeat
 Uno scenario comune consiste nel selezionare i nomi di alcune entità specifiche in base a un set di criteri e quindi filtrare un altro set di dati fino a tale set di entità. Può ad esempio essere necessario trovare i computer a cui non risultano applicati aggiornamenti e identificare gli indirizzi IP a cui questi computer hanno inviato chiamate:
 
 
-```OQL
+```Kusto
 let ComputersNeedingUpdate = toscalar(
     Update
     | summarize makeset(Computer)

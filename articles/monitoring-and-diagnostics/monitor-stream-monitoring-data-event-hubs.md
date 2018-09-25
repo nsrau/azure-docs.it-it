@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049125"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954841"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -76,7 +76,7 @@ Le risorse di Azure generano due tipi di dati di monitoraggio:
 Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione di diagnostica delle risorse. [Seguire queste istruzioni](./monitoring-stream-diagnostic-logs-to-event-hubs.md) per configurare un'impostazione di diagnostica per una determinata risorsa. Configurare un'impostazione di diagnostica per ogni risorsa di cui si vogliono raccogliere i log.
 
 > [!TIP]
-> I criteri di Azure consentono di assicurarsi che tutte le risorse di un determinato ambito siano sempre configurate con un'impostazione di diagnostica [usando l'effetto di DeployIfNotExists nella regola dei criteri](../azure-policy/policy-definition.md#policy-rule). DeployIfNotExists è attualmente supportato solo nei criteri predefiniti.
+> I criteri di Azure consentono di assicurarsi che tutte le risorse di un determinato ambito siano sempre configurate con un'impostazione di diagnostica [usando l'effetto di DeployIfNotExists nella regola dei criteri](../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="guest-os-data"></a>Dati del sistema operativo guest
 

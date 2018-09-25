@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ce2c92f984f835c8e8f49ec94d65a9f3390812f9
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 013fd019771fb9994c87e363c78eae36431f91de
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493123"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953226"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usare l'API Graph di Azure AD
 
@@ -27,7 +27,7 @@ I tenant di Azure Active Directory (Azure AD) B2C tendono ad avere dimensioni mo
 Per i tenant di B2C esistono essenzialmente due modalità di comunicazione con l'API Graph.
 
 * Per le attività interattive da eseguire una sola volta, è consigliabile eseguire le attività con un account amministratore nel tenant di B2C. Questa modalità richiede che un amministratore acceda con le credenziali prima di effettuare chiamate all'API Graph.
-* Per le attività automatizzate e continue è consigliabile usare un account del servizio a cui assegnare i privilegi necessari per eseguire le attività di gestione. In Azure AD è possibile ottenere questo risultato registrando un'applicazione ed effettuando l'autenticazione in Azure AD. A questo scopo usare un **ID applicazione** che usa la [concessione delle credenziali client OAuth 2.0](../active-directory/develop/authentication-scenarios.md#daemon-or-server-application-to-web-api). In questo caso l'applicazione agisce autonomamente, non come utente, per chiamare l'API Graph.
+* Per le attività automatizzate e continue è consigliabile usare un account del servizio a cui assegnare i privilegi necessari per eseguire le attività di gestione. In Azure AD è possibile ottenere questo risultato registrando un'applicazione ed effettuando l'autenticazione in Azure AD. A questo scopo usare un **ID applicazione** che usa la [concessione delle credenziali client OAuth 2.0](../active-directory/develop/service-to-service.md). In questo caso l'applicazione agisce autonomamente, non come utente, per chiamare l'API Graph.
 
 In questo articolo viene illustrato come eseguire il caso d'uso automatizzato. Verrà compilato un `B2CGraphClient` .NET 4.5 che esegue operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) di utenti. Il client avrà un'interfaccia della riga di comando di Windows che consente di richiamare diversi metodi. Tuttavia, il codice viene scritto affinché si comporti in modo automatico e non interattivo.
 

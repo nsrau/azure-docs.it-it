@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: 6d92459deb3464cd97c215cbf9a8320628b6da80
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 44411e0c92f4e24e274761821dd99efbe60c5f5d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374132"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964974"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Eseguire la migrazione delle distribuzioni al nuovo modello tariffario
 Da luglio 2017, il Servizio di riconoscimento vocale personalizzato offre un [nuovo modello tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). Il nuovo modello è *più facile da comprendere*, consente di *calcolare i costi in modo più semplice* ed è *più flessibile* in termini di scalabilità. Per la scalabilità, Microsoft ha introdotto il concetto di un'unità di scala. Ogni unità di scala può gestire cinque richieste simultanee. La scalabilità per le richieste simultanee nel modello precedente era impostata a 5 richieste simultanee per il piano S0 e a 12 richieste simultanee per il piano S1. Questi limiti sono stati aperti per offrire maggiore flessibilità con i requisiti dei casi d'uso.

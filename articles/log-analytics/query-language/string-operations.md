@@ -15,18 +15,20 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: de1ba8b8560e65586ac59f9a04165a93492f3e05
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 6ac697fa12b56840e5dc361500f81e2b7e2ce11a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190989"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950251"
 ---
 # <a name="working-with-strings-in-log-analytics-queries"></a>Uso di stringhe nelle query di Log Analytics
 
 
 > [!NOTE]
 > Prima di seguire questa esercitazione, è consigliabile completare [Introduzione al portale di analisi](get-started-analytics-portal.md) e [Introduzione alle query](get-started-queries.md).
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Questo articolo descrive come modificare e confrontare le stringhe, eseguire ricerche al loro interno e svolgere numerose altre operazioni sulle stringhe. 
 
@@ -36,13 +38,13 @@ Ogni carattere in una stringa ha un numero di indice, in base alla relativa posi
 ## <a name="strings-and-escaping-them"></a>Stringhe e caratteri di escape
 I valori di stringa sono racchiusi tra virgolette singole o doppie. La barra rovesciata (\) viene usata come carattere di escape per il carattere successivo, ad esempio \t per tab \n per newline e \" per le virgolette.
 
-```OQL
+```Kusto
 print "this is a 'string' literal in double \" quotes"
 ```
 
 Per evitare che "\\" venga considerato come carattere di escape, aggiungere\"\@\" come prefisso per la stringa:
 
-```OQL
+```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
@@ -106,7 +108,7 @@ Il numero di volte in cui la stringa di ricerca può essere trovata nel contenit
 
 #### <a name="plain-string-matches"></a>Corrispondenze con stringhe di testo normale
 
-```OQL
+```Kusto
 print countof("The cat sat on the mat", "at");  //result: 3
 print countof("aaa", "a");  //result: 3
 print countof("aaaa", "aa");  //result: 3 (not 2!)
@@ -116,7 +118,7 @@ print countof("ababa", "aba");  //result: 2
 
 #### <a name="regex-matches"></a>Corrispondenze con espressioni regolari
 
-```OQL
+```Kusto
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
 print countof("ababa", "aba", "regex");  //result: 1
 print countof("abcabc", "a.c", "regex");  // result: 2
@@ -129,7 +131,7 @@ Ottiene una corrispondenza per un'espressione regolare da una stringa specifica.
 
 ### <a name="syntax"></a>Sintassi
 
-```OQL
+```Kusto
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
@@ -147,7 +149,7 @@ Se non ci sono corrispondenze o la conversione del tipo non riesce, restituisce 
 ### <a name="examples"></a>Esempi
 
 L'esempio seguente estrae l'ultimo ottetto di *ComputerIP* da un record di heartbeat:
-```OQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -155,7 +157,7 @@ Heartbeat
 ```
 
 L'esempio seguente estrae l'ultimo ottetto, esegue il cast a un tipo *real* (numero) e calcola il valore IP successivo
-```OQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -165,7 +167,7 @@ Heartbeat
 ```
 
 Nell'esempio seguente viene eseguita una ricerca nella stringa *Trace* per una definizione di "Duration". Viene eseguito il cast della corrispondenza a un tipo *real* e il valore viene moltiplicato per una costante di tempo (1 s) *eseguendo il cast di Duration a un tipo timespan*.
-```OQL
+```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
 print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s);  //result: 00:09:27
@@ -179,14 +181,14 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 
 ### <a name="syntax"></a>Sintassi
 
-```
+```Kusto
 isempty(value)
 isnotempty(value)
 ```
 
 ### <a name="examples"></a>Esempi
 
-```OQL
+```Kusto
 print isempty("");  // result: true
 
 print isempty("0");  // result: false
@@ -211,7 +213,7 @@ parseurl(urlstring)
 
 ### <a name="examples"></a>Esempi
 
-```OQL
+```Kusto
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
@@ -251,7 +253,7 @@ Il testo dopo la sostituzione di tutte le corrispondenze dell'espressione regola
 
 ### <a name="examples"></a>Esempi
 
-```OQL
+```Kusto
 SecurityEvent
 | take 1
 | project Activity 
@@ -282,7 +284,7 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="examples"></a>Esempi
 
-```OQL
+```Kusto
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
 print split("aa_bb", "_");          // result: ["aa","bb"]
 print split("aaa_bbb_ccc", "_", 1); // result: ["bbb"]
@@ -301,7 +303,7 @@ strcat("string1", "string2", "string3")
 ```
 
 ### <a name="examples"></a>Esempi
-```OQL
+```Kusto
 print strcat("hello", " ", "world") // result: "hello world"
 ```
 
@@ -316,7 +318,7 @@ strlen("text_to_evaluate")
 ```
 
 ### <a name="examples"></a>Esempi
-```OQL
+```Kusto
 print strlen("hello")   // result: 5
 ```
 
@@ -337,7 +339,7 @@ substring(source, startingIndex [, length])
 - `length`: parametro facoltativo che può essere usato per specificare la lunghezza richiesta della sottostringa restituita.
 
 ### <a name="examples"></a>Esempi
-```OQL
+```Kusto
 print substring("abcdefg", 1, 2);   // result: "bc"
 print substring("123456", 1);       // result: "23456"
 print substring("123456", 2, 2);    // result: "34"
@@ -356,7 +358,7 @@ toupper("value")
 ```
 
 ### <a name="examples"></a>Esempi
-```OQL
+```Kusto
 print tolower("HELLO"); // result: "hello"
 print toupper("hello"); // result: "HELLO"
 ```
