@@ -7,6 +7,7 @@
 #### [Eseguire la registrazione nel Dev Center](./register-dev-center.md) 
 #### [Opzioni di fatturazione per Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Attribuzione dell'utilizzo da parte del cliente dei partner di Azure](./azure-partner-customer-usage-attribution.md)
+#### [Gestione dei lead per il marketplace cloud](./lead-management-for-cloud-marketplace.md)
 
 ### [Vetrine](./comparing-appsource-azure-marketplace.md)  
 
@@ -20,7 +21,7 @@
 #### [Contenitori](./marketplace-containers.md)
 #### [Servizio di consulenza](./consulting-services.md)  
 #### [Guida alla pubblicazione per Office 365, Dynamics 365 e Power BI](./appsource-offer-publishing-guide.md)
-#### [Abilitare l'esperienza di valutazione del Marketplace con Azure Active Directory](./enable-trial-using-azure-ad.md)
+#### [Consentire una pubblicazione su Microsoft AppSource e Azure Marketplace con Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Far crescere l'azienda con il marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Soluzioni preferite](./preferred-solutions.md) 

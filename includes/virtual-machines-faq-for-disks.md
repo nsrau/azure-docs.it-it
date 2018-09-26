@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935793"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060570"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -67,7 +67,7 @@ No. No, i dischi nelle macchine virtuali in un set di disponibilità devono esse
 
 **Managed Disks è l'opzione predefinita nel portale di Azure?**
 
-Sì. 
+Sì.
 
 **È possibile creare un disco vuoto gestito?**
 
@@ -101,8 +101,7 @@ I clienti possono eseguire uno snapshot dei relativi dischi gestiti e usarlo per
 
 Sì, sono supportati sia i dischi non gestiti che quelli gestiti. È consigliabile usare i dischi gestiti per i nuovi carichi di lavoro ed eseguire la migrazione dei carichi di lavoro correnti a dischi gestiti.
 
-
-**Se si crea un disco da 128 GB e si aumentano le dimensioni a 130 GB, verranno addebitati i costi relativi al livello di dimensioni successivo (256 GB)?**
+**Se si crea un disco da 128 GB e si aumentano le dimensioni a 130 GiB, verranno addebitati i costi relativi al livello di dimensioni successivo (256 GiB)?**
 
 Sì.
 
@@ -130,23 +129,24 @@ No. Non è possibile aggiornare la proprietà del nome del computer. La nuova VM
 
 No.
 
-## <a name="standard-ssd-disks-preview"></a>Dischi SSD Standard (anteprima)
+**Quando si crea un disco da un BLOB, è presente una relazione continua con il BLOB di origine?**
+
+No, quando viene creato, il nuovo disco è una copia completamente autonoma del BLOB in quel determinato momento e non esiste alcuna connessione tra i due. Dopo aver creato il disco, è possibile eliminare il BLOB di origine senza modificare in alcun modo il disco appena creato.
+
+**È possibile rinominare un disco gestito o non gestito dopo che è stato creato?**
+
+Non è possibile rinominare i dischi gestiti. È tuttavia possibile rinominare un disco non gestito purché non sia collegato a una macchina virtuale o a un disco rigido virtuale.
+
+## <a name="standard-ssd-disks"></a>Dischi SSD Standard
 
 **Cosa sono i dischi SSD Standard di Azure?**
-I dischi SSD standard sono dischi standard supportati da unità SSD, ottimizzati come spazio di archiviazione conveniente per carichi di lavoro che richiedono prestazioni coerenti ai livelli di operazioni di I/O al secondo inferiori. Nell'anteprima sono disponibili in un numero limitato di aree, con gestibilità limitata (disponibili tramite modelli di Resource Manager).
+I dischi SSD standard sono dischi standard supportati da unità SSD, ottimizzati come spazio di archiviazione conveniente per carichi di lavoro che richiedono prestazioni coerenti ai livelli di operazioni di I/O al secondo inferiori.
 
-<a id="standard-ssds-azure-regions"></a>**Quali sono le aree attualmente supportate per i dischi SSD Standard (anteprima)?**
-* Europa settentrionale
-* Francia centrale
-* Stati Uniti orientali 2
-* Stati Uniti centrali
-* Canada centrale
-* Asia orientale
-* Corea del Sud meridionale
-* Australia orientale
+<a id="standard-ssds-azure-regions"></a>**Quali sono le aree attualmente supportate per i dischi SSD Standard?**
+Tutte le aree di Azure supportano ora i dischi SSD Standard.
 
 **Come si creano i dischi SSD Standard?**
-Attualmente, è possibile creare dischi SSD Standard usando modelli di Azure Resource Manager. Di seguito sono elencati i parametri necessari nel modello di Resource Manager per creare dischi SSD Standard:
+È possibile creare dischi SSD Standard usando modelli di Azure Resource Manager, SDK, PowerShell o l'interfaccia della riga di comando. Di seguito sono elencati i parametri necessari nel modello di Resource Manager per creare dischi SSD Standard:
 
 * *apiVersion* per Microsoft.Computer deve essere impostato su `2018-04-01` (o versioni successive)
 * Specificare *managedDisk.storageAccountType* come `StandardSSD_LRS`
@@ -171,17 +171,20 @@ Per un esempio di modello completo di come creare un disco SSD standard con un m
 Sì, Per le linee guida generali per la conversione di Azure Managed Disks fare riferimento a [Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage). Usare anche il valore seguente per aggiornare il tipo di disco in SSD Standard.
 -AccountType StandardSSD_LRS
 
+**Quali sono i vantaggi offerti dall'uso dei dischi SSD Standard rispetto ai dischi HDD?**
+I dischi SSD Standard offrono latenza, coerenza, disponibilità e affidabilità migliori rispetto ai dischi HDD. Per questo motivo, i carichi di lavoro delle applicazioni vengono eseguiti in modo molto più efficiente su unità SSD Standard. Si noti che i dischi SSD Premium rappresentano la soluzione consigliata per la maggior parte dei carichi di lavoro di produzione con I/O intensivo. 
+
 **Si possono usare dischi SSD Standard come dischi non gestiti?**
 No, i dischi SSD Standard sono disponibili solo come dischi gestiti.
 
 **I dischi SSD Standard supportano "contratti di servizio per macchine virtuali a istanza singola"?**
 No, i dischi SSD Standard non supportano contratti di servizio per macchine virtuali a istanza singola. Per i contratti di servizio per macchine virtuali a istanza singola, usare dischi SSD Premium.
 
-## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks 
+## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks
 
 **Quali modifiche sono necessarie in una configurazione del servizio Backup di Azure preesistente prima/dopo la migrazione a Managed Disks?**
 
-Non sono necessarie modifiche. 
+Non sono necessarie modifiche.
 
 **I backup di macchine virtuali creati tramite il servizio Backup di Azure prima della migrazione continueranno a funzionare correttamente?**
 
@@ -189,15 +192,15 @@ Sì, i backup continueranno a funzionare senza problemi.
 
 **Quali modifiche sono necessarie in una configurazione preesistente di Crittografia dischi di Azure prima/dopo la migrazione a Managed Disks?**
 
-Non sono necessarie modifiche. 
+Non sono necessarie modifiche.
 
 **È supportata la migrazione automatica di un set di scalabilità di macchine virtuali esistente da dischi non gestiti a Managed Disks?**
 
-No. È possibile creare un nuovo set di scalabilità di macchine virtuali con Managed Disks usando l'immagine dal vecchio set di scalabilità con dischi non gestiti. 
+No. È possibile creare un nuovo set di scalabilità di macchine virtuali con Managed Disks usando l'immagine dal vecchio set di scalabilità con dischi non gestiti.
 
 **È possibile creare un disco gestito da uno snapshot di BLOB di pagine eseguito prima della migrazione a Managed Disks?**
 
-No. È possibile esportare uno snapshot di BLOB di pagine come BLOB di pagine e quindi creare un disco gestito dal BLOB di pagine esportato. 
+No. È possibile esportare uno snapshot di BLOB di pagine come BLOB di pagine e quindi creare un disco gestito dal BLOB di pagine esportato.
 
 **È possibile eseguire il failover su macchine virtuali locali protette da Azure Site Recovery in una macchina virtuale con Managed Disks?**
 
@@ -209,9 +212,9 @@ Sì. Attualmente, la protezione tramite Azure Site Recovery da Azure ad Azure pe
 
 **È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Sì
+Yes
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e crittografia del servizio di archiviazione 
+## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e crittografia del servizio di archiviazione
 
 **La crittografia del servizio di archiviazione è abilitata per impostazione predefinita quando si crea un nuovo disco gestito?**
 
@@ -246,7 +249,7 @@ Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengo
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Sì
+Yes
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 
@@ -272,7 +275,7 @@ Un disco dati Premium creato da un disco rigido virtuale da 80 GB viene consider
 
 **Quali sono i limiti per IOPS e velocità effettiva che è possibile ottenere dalla cache del disco?**
 
-I limiti combinati per la cache e l'unità SSD locale per la serie DS sono 4.000 IOPS per core e 33 MB al secondo per core. La serie GS offre 5,000 IOPS per core e 50 MB al secondo per core.
+I limiti combinati per la cache e l'unità SSD locale per la serie DS sono 4.000 operazioni di I/O al secondo per core e 33 MiB al secondo per core. La serie GS offre 5,000 operazioni di I/O al secondo per core e 50 MiB al secondo per core.
 
 **Sono supportate le unità SSD locali per le macchine virtuali di Managed Disks?**
 
@@ -284,38 +287,60 @@ L'uso di TRIM su dischi Azure Premium o Standard non ha alcun impatto negativo.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Dimensioni dei nuovi dischi, gestiti e non gestiti
 
-**Quali sono le dimensioni massime supportate per i dischi dati e del sistema operativo?**
+**Qual è la dimensioni massima supportata per i dischi gestiti e il sistema operativo?**
 
-Il tipo di partizione supportata da Azure per un disco del sistema operativo è MBR (Master Boot Record). Il formato MBR supporta dischi di dimensioni fino a 2 TB. Azure supporta dischi del sistema operativo di dimensioni massime pari a 2 TB. Azure supporta fino a 4 TB per i dischi dati. 
+Il tipo di partizione supportata da Azure per un disco del sistema operativo è MBR (Master Boot Record). Il formato MBR supporta un disco con dimensioni massime pari a 2 TiB. La dimensione massima supportata da Azure per un disco di sistema operativo è a 2 TiB. Azure supporta fino a 32 TiB per i dischi dati gestiti. Le dimensioni del disco gestito superiori a 4 TiB sono disponibili in anteprima. Per altre informazioni, visitare il [post di blog](http://aka.ms/azure-large-disk-32TB-preview-blog).
+
+**Quali sono le dimensioni massime del disco non gestito supportate per il sistema operativo e i dischi dati?**
+
+Il tipo di partizione supportata da Azure per un disco del sistema operativo è MBR (Master Boot Record). Il formato MBR supporta un disco con dimensioni massime pari a 2 TiB. La dimensione massima supportata da Azure per un disco non gestito del sistema operativo è di 2 TiB. Azure supporta fino a 4 TiB per i dischi non gestiti di dati.
 
 **Quali sono le dimensioni massime supportate per un BLOB di pagine?**
 
-Le dimensioni massime supportate da Azure per un BLOB di pagine sono di 8 TB (8.191 GB). Le dimensioni massime per un BLOB di pagine collegato a una macchina virtuale come dischi dati o dischi del sistema operativo sono di 4 TB (4.095 GB).
+Le dimensioni massime supportate da Azure per un BLOB di pagine sono di 8 TiB (8.191 GiB). Le dimensioni massime per un BLOB di pagine collegato a una macchina virtuale come dischi dati o dischi del sistema operativo sono di 4 TiB (4.095 GiB).
 
-**È necessario usare una nuova versione degli strumenti di Azure per creare, collegare, ridimensionare e caricare dischi più grandi di 1 TB?**
+**È necessario usare una nuova versione degli strumenti di Azure per creare, collegare, ridimensionare e caricare dischi più grandi di 1 TiB?**
 
-Non è necessario aggiornare gli strumenti di Azure esistenti per creare, collegare o ridimensionare i dischi di dimensioni superiori a 1 TB. Per caricare il file VHD dall'ambiente locale direttamente in Azure come BLOB di pagine o disco non gestito, è necessario usare i set di strumenti più recenti:
+Non è necessario aggiornare gli strumenti di Azure esistenti per creare, collegare o ridimensionare i dischi di dimensioni superiori a 1 TiB. Per caricare il file VHD dall'ambiente locale direttamente in Azure come BLOB di pagine o disco non gestito, è necessario usare i set di strumenti più recenti, elencati di seguito: Sono supportati solo i caricamenti del disco rigido virtuale fino a 8 TiB.
 
 |Strumenti di Azure      | Versioni supportate                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Numero di versione 4.1.0: versione di giugno 2017 o successiva|
 |Interfaccia della riga di comando di Azure v1     | Numero di versione 0.10.13: versione di maggio 2017 o successiva|
+|Interfaccia della riga di comando di Azure versione 2     | Numero di versione 2.0.12: versione di giugno 2017 o successiva|
 |AzCopy           | Numero di versione 6.1.0: versione di giugno 2017 o successiva|
-
-Il supporto per l'interfaccia della riga di comando di Azure v2 e Azure Storage Explorer sarà disponibile a breve. 
 
 **Le dimensioni del disco P4 e P6 sono supportate per i dischi gestiti o i BLOB di pagine?**
 
-No. Le dimensioni del disco P4 (32 GB) e P6 (64 GB) sono supportate solo per i dischi gestiti. Il supporto per dischi non gestiti e BLOB di pagine sarà disponibile a breve.
+Le dimensioni dei dischi P4 (32 GiB) e P6 (64 GiB) non sono supportate come livelli di disco predefinito per i dischi non gestiti e i BLOB di pagine. È necessario [impostare il livello di Blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) in modo esplicito su P4 e P6 per eseguire il mapping su questi livelli. Se si distribuisce un disco non gestito o un BLOB di pagine con dimensioni del disco o lunghezza del contenuto inferiori a 32 GiB o tra 32 GiB a 64 GiB senza aver impostato il livello di blob, P10 continuerà con 500 IOPS e 100 MiB/secondo e persisterà il piano tariffario mappato.
 
-**Come viene fatturato un disco gestito Premium di dimensioni inferiori a 64 GB creato prima dell'abilitazione dei dischi più piccoli (intorno al 15 giugno 2017)?**
+**Come viene fatturato un disco gestito Premium di dimensioni inferiori a 64 GiB creato prima dell'abilitazione dei dischi più piccoli (intorno al 15 giugno 2017)?**
 
-I dischi Premium esistenti di dimensioni inferiori a 64 GB continuano a essere fatturati in base al piano tariffario P10. 
+I dischi Premium esistenti di dimensioni inferiori a 64 GiB continuano a essere fatturati in base al piano tariffario P10.
 
-**Come è possibile modificare il piano tariffario dei dischi Premium di dimensioni inferiori a 64 GB da P10 a P4 o P6?**
+**Secondo quali modalità è possibile modificare il piano tariffario dei dischi Premium di dimensioni inferiori a 64 GiB da P10 a P4 o P6?**
 
-È possibile creare uno snapshot dei dischi di piccole dimensioni e quindi creare un disco per passare automaticamente al piano tariffario a P4 o P6 in base alla dimensione del disco di cui viene effettuato il provisioning. 
+È possibile creare uno snapshot dei dischi di piccole dimensioni e quindi creare un disco per passare automaticamente al piano tariffario a P4 o P6 in base alla dimensione del disco di cui viene effettuato il provisioning.
 
+**È possibile ridimensionare i dischi gestiti esistenti da dimensioni inferiori a 4 TiB a nuove dimensioni dei dischi fino a un massimo di 32 TiB?**
+
+Le nuove dimensioni di disco gestito da 8 TiB, 16 e 32 TiB sono attualmente in anteprima. Il ridimensionamento dei dischi esistenti per nuove dimensioni dei dischi non è al momento supportato.
+
+**Quali sono le dimensioni massime dei dischi supportate dal servizio Backup di Azure e Azure Site Recovery?**
+
+La dimensione del disco massima supportata dal Backup di Azure e dal servizio Azure Site Recovery è di 4 TiB.
+
+**Quali sono le dimensioni delle macchine virtuali consigliate per dischi di grandi dimensioni (>4TiB) come SDD Standard e HDD Standard che consentono di ottimizzare le operazioni di I/O al secondo relative al disco e la larghezza di banda?**
+
+Per raggiungere la velocità effettiva dei dischi SDD Standard e HDD Standard di ampie dimensioni (>4TB) che superano le 500 operazioni di I/O al secondo e i 60 MiB/s, è consigliabile usare una delle seguenti dimensioni di macchina virtuale per ottimizzare le prestazioni: serie B, serie DSv2, serie Dsv3, serie ESv3, serie Fs, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o serie LS.
+
+**In quali aree sono supportate le dimensioni di disco gestito più grandi di 4 TiB?**
+
+Attualmente, nell'anteprima le dimensioni dei dischi gestiti sono supportate solo negli Stati Uniti centrali.
+
+**L'abilitazione della memorizzazione della cache dell'host è supportata nelle dimensioni di disco più recenti?**
+
+La memorizzazione della cache dell'host in modalità Sola lettura e Lettura/Scrittura è supportata per dimensioni di disco minori di 4 TiB. Per una dimensione disco superiore a 4 TiB, non è supportata l'impostazione dell'opzione di memorizzazione nella cache diversa da Nessuno. È consigliabile sfruttare la memorizzazione nella cache per una dimensione disco inferiore in merito alla quale sarà possibile osservare l'incremento delle prestazioni con i dati memorizzati nella cache per la macchina virtuale.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 

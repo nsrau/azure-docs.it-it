@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 09/24/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: f0ed4b20f9dbfef4824f66eab3ab953a5dbcfaae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060833"
+---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 
 Questo articolo fornisce indicazioni per lo sviluppo di applicazioni a prestazioni elevate mediante l'Archiviazione Premium di Azure. È possibile usare le istruzioni disponibili in questo documento insieme alle procedure consigliate per le prestazioni applicabili alle tecnologie usate dall'applicazione. Per illustrare le indicazioni, è stato usato SQL Server in esecuzione nell'Archiviazione Premium come esempio nell'intero documento.
@@ -17,16 +34,19 @@ Queste indicazioni sono specifiche per l'Archiviazione Premium, perché i carich
 Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere gli articoli [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md) e [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/common/storage-scalability-targets.md).
 
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
+
 È possibile valutare se le prestazioni di un'applicazione sono adeguate o meno usando indicatori di prestazioni, ad esempio la velocità di elaborazione di una richiesta utente da parte di un'applicazione, la quantità di dati elaborata da un'applicazione per ogni richiesta, il numero di richieste elaborate da un'applicazione in un periodo specifico, la durata dell'attesa da parte di un utente per ottenere una risposta dopo l'invio della richiesta. I termini tecnici per definire questi indicatori di prestazioni sono IOPS, velocità effettiva o larghezza di banda e latenza.
 
 In questa sezione verranno illustrati gli indicatori di prestazioni comuni nel contesto dell'Archiviazione Premium. Nella sezione seguente, Recupero dei requisiti dell'applicazione, verrà illustrato come misurare questi indicatori di prestazioni dell'applicazione. In Ottimizzazione delle prestazioni dell'applicazione verranno descritti infine i fattori che influiscono su questi indicatori di prestazioni e verranno fornite indicazioni utili per l'ottimizzazione degli indicatori.
 
 ## <a name="iops"></a>IOPS
+
 IOPS indica il numero di richieste inviate dall'applicazione ai dischi di archiviazione in un secondo. Un'operazione di input/output può essere di lettura o di scrittura, sequenziale o casuale. Le applicazioni OLTP, ad esempio un sito Web per la rivendita online, devono elaborare immediatamente molte richieste utente concomitanti. Le richieste utente sono transazioni di database con un numero elevato di inserimenti e aggiornamenti, che devono essere elaborate rapidamente dall'applicazione. Le applicazioni OLTP richiedono quindi valori molto elevati per IOPS. Queste applicazioni gestiscono milioni di richieste I/O di piccole dimensioni e casuali. Se si crea un'applicazione di questo tipo, sarà necessario progettare l'infrastruttura dell'applicazione in modo che sia ottimizzata per IOPS. Nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*, verranno illustrati in modo dettagliato tutti i fattori da valutare per ottenere valori elevati per IOPS.
 
 Quando si collega un disco di Archiviazione Premium alla VM a scalabilità elevata, Azure effettua automaticamente il provisioning di un numero garantito di IOPS, in base alla specifica del disco. Ad esempio, un disco P50 effettua il provisioning di 7500 IOPS. Ogni dimensione di VM a scalabilità elevata prevede anche un limite di IOPS specifico sostenibile. Ad esempio, una VM GS5 Standard ha un limite di 80.000 IOPS.
 
 ## <a name="throughput"></a>Velocità effettiva
+
 La velocità effettiva o larghezza di banda è la quantità di dati che l'applicazione invia ai dischi di archiviazione in un intervallo specificato. Se l'applicazione esegue operazioni di input/output con dimensioni elevate per le unità I/O, richiederà una velocità effettiva elevata. Le applicazioni di tipo data warehouse tendono a emettere operazioni che richiedono quantità elevate di analisi, accedono a grandi porzioni di dati ed eseguono in genere operazione in blocco. In altri termini, queste applicazioni richiedono una velocità effettiva più elevata. Se si crea un'applicazione di questo tipo, sarà necessario progettare l'infrastruttura dell'applicazione in modo che sia ottimizzata per la velocità effettiva. Nella sezione successiva verranno illustrati in modo dettagliato i fattori da ottimizzare per ottenere questo risultato.
 
 Quando si collega un disco di Archiviazione Premium a una VM a scalabilità elevata, Azure effettua automaticamente il provisioning della velocità effettiva in base alla specifica del disco. Ad esempio, un disco P50 effettua il provisioning di una velocità effettiva di 250 MB al secondo per il disco. Ogni dimensione di VM a scalabilità elevata prevede anche un limite di velocità effettiva specifico sostenibile. Ad esempio, una VM GS5 Standard ha una velocità effettiva massima di 2.000 MB al secondo. 
@@ -38,18 +58,20 @@ Come illustrato dalla formula seguente, esiste una relazione tra la velocità ef
 È quindi importante determinare i valori ottimali per la velocità effettiva e IOPS richiesti dall'applicazione. I tentativi di ottimizzazione di uno dei valori influiscono anche sull'altro. In una sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*, verrà illustrata in modo dettagliato l'ottimizzazione di IOPS e velocità effettiva.
 
 ## <a name="latency"></a>Latenza
+
 La latenza è il tempo necessario perché un'applicazione riceva una singola richiesta, la invii ai dischi di archiviazione e restituisca la risposta al client. Si tratta di una misura essenziale delle prestazioni di un'applicazione, oltre a IOPS e velocità effettiva. La latenza di un disco di Archiviazione Premium è il tempo necessario per recuperare le informazioni per una richiesta e restituirle all'applicazione. L'Archiviazione Premium offre latenze uniformemente basse. Se si abilita la memorizzazione nella cache host ReadOnly nei dischi di Archiviazione Premium, sarà possibile ottenere una latenza di lettura molto più bassa. La memorizzazione nella cache dei dischi sarà illustrata in modo più dettagliato nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*.
 
 Quando si ottimizza l'applicazione per ottenere valori più elevati per IOPS e velocità effettiva, ciò influirà sulla latenza dell'applicazione. Dopo il perfezionamento delle prestazioni dell'app, è necessario valutare sempre la latenza dell'applicazione per evitare comportamenti imprevisti con latenza elevata.
 
 ## <a name="gather-application-performance-requirements"></a>Recuperare i requisiti dell'applicazione
+
 Il primo passaggio nella progettazione di applicazioni a prestazioni elevate in esecuzione nell'Archiviazione Premium di Azure consiste nel comprendere i requisiti relativi alle prestazioni dell'applicazione. Dopo la raccolta dei requisiti relativi alle prestazioni, sarà possibile ottimizzare l'applicazione per ottenere le prestazioni più elevate possibili.
 
 Nella sezione precedente sono stati illustrati gli indicatori di prestazioni comuni, ovvero IOPS, velocità effettiva e latenza. È necessario identificare gli indicatori di prestazioni essenziali per consentire all'applicazione di offrire l'esperienza utente desiderata. Ad esempio, un valore elevato per IOPS è molto importante per le applicazioni OLTP che elaborano milioni di transazioni al secondo. Una velocità effettiva elevata, invece, è essenziale per applicazioni di tipo data warehouse che elaborano quantità elevate di dati in un secondo. Una latenza estremamente bassa è critica per applicazioni in tempo reale come siti Web per lo streaming di video.
 
 È quindi necessario misurare i requisiti massimi relativi alle prestazioni per l'intero ciclo di vita dell'applicazione. Per iniziare, usare l'elenco di controllo di esempio seguente. Registrare i requisiti massimi relativi alle prestazioni durante i periodi di carico di lavoro normale, di picco e in orari di minore attività. L'identificazione dei requisiti per tutti i livelli di carico di lavoro consente di determinare i requisiti complessivi relativi alle prestazioni per l'applicazione. Ad esempio, il carico di lavoro normale di un sito Web per l'e-commerce sarà costituito dalle transazioni gestite durante la maggior parte dei giorni in un anno. Il carico di lavoro di picco del sito Web sarà costituito dalle transazioni gestite durante le festività o in caso di svendite speciali. Il carico di lavoro di picco è in genere relativo a un periodo limitato, ma può richiedere un ridimensionamento dell'applicazione pari a due o più volte i livelli necessari per il funzionamento normale. Occorre trovare i requisiti relativi al 50° percentile, al 90° percentile e al 99° percentile. Ciò consente di escludere tramite filtri eventuali outlier nei requisiti relativi alle prestazioni e di concentrarsi sull'ottimizzazione dei valori corretti.
 
-**Elenco di controllo per i requisiti relativi alle prestazioni dell'applicazione**
+### <a name="application-performance-requirements-checklist"></a>Elenco di controllo per i requisiti relativi alle prestazioni dell'applicazione
 
 | **Requisiti relativi alle prestazioni** | **50° percentile** | **90° percentile** | **99° percentile** |
 | --- | --- | --- | --- |
@@ -71,14 +93,13 @@ Nella sezione precedente sono stati illustrati gli indicatori di prestazioni com
 
 > [!NOTE]
 > è consigliabile prendere in considerazione il ridimensionamento di questi numeri sulla base della crescita futura prevista per l'applicazione. È consigliabile prepararsi con anticipo alla crescita dell'applicazione, perché in seguito potrebbe risultare più difficile modificare l'infrastruttura per migliorare le prestazioni.
->
->
 
 Se si ha già un'applicazione e si vuole passare all'Archiviazione Premium, creare prima di tutto l'elenco di controllo precedente per l'applicazione esistente. Creare quindi un prototipo dell'applicazione nell'Archiviazione Premium e progettare l'applicazione in base alle indicazioni disponibili nella sezione *Ottimizzazione delle prestazioni dell'applicazione* più avanti in questo documento. La sezione successiva illustra gli strumenti disponibili per raccogliere le misurazioni relative alle prestazioni.
 
 Creare un elenco di controllo analogo a quello per l'applicazione esistente per il prototipo. Usando gli strumenti di benchmarking è possibile simulare i carichi di lavoro e misurare le prestazioni nel prototipo dell'applicazione. Per altre informazioni, vedere la sezione [Benchmarking](#benchmarking) . Sarà quindi possibile determinare se l'Archiviazione Premium può soddisfare o sorpassare i requisiti relativi alle prestazioni per l'applicazione. Si potranno quindi implementare le stesse indicazioni per l'applicazione di produzione.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Contatori per misurare i requisiti relativi alle prestazioni per l'applicazione
+
 Il modo migliore per misurare i requisiti relativi alle prestazioni per l'applicazione consiste nell'usare gli strumenti per il monitoraggio delle prestazioni forniti dal sistema operativo del server. È possibile usare PerfMon per Windows e iostat per Linux. Questi strumenti acquisiscono i contatori corrispondenti a ogni misura illustrata nella sezione precedente. È necessario acquisire i valori di questi contatori quando l'applicazione esegue i carichi di lavoro normali, di picco e di orari di minore attività.
 
 Sono disponibili contatori di PerfMon per il processore, la memoria e ogni disco logico e fisico del server. Quando si usano dischi di Archiviazione Premium con una VM, i contatori per dischi fisici sono relativi a ogni disco di Archiviazione Premium e i contatori per dischi logici sono relativi a ogni volume creato nei dischi di Archiviazione Premium. È necessario acquisire i valori per i dischi che ospitano il carico di lavoro dell'applicazione. Se è disponibile il mapping uno a uno tra i dischi logici e i dischi fisici, sarà possibile fare riferimento ai contatori per i dischi fisici. In caso contrario, fare riferimento ai contatori per i dischi logici. In Linux il comando iostat genera un report relativo all'utilizzo della CPU e dei dischi. Il report di utilizzo dischi fornisce statistiche relative al singolo dispositivo o alla singola partizione. Se è presente un server di database con dati e log in dischi separati, raccogliere questi dati per entrambi i dischi. La tabella seguente illustra i contatori per dischi, processore e memoria:
@@ -97,6 +118,7 @@ Sono disponibili contatori di PerfMon per il processore, la memoria e ogni disco
 Altre informazioni su [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## <a name="optimizing-application-performance"></a>Ottimizzazione delle prestazioni dell'applicazione
+
 I fattori principali che influenzano le prestazioni di un'applicazione in esecuzione nell'Archiviazione Premium sono costituiti dalla natura delle richieste I/O, dalle dimensioni della VM e del disco, dal numero di dischi, dalla memorizzazione nella cache del disco, dal multithreading e dalla profondità della coda. È possibile controllare alcuni di questi fattori con manopole fornite dal sistema. È possibile che la maggior parte delle applicazioni non consenta di modificare direttamente le dimensioni di I/O e la profondità della coda. Ad esempio, se si usa SQL Server, non sarà possibile scegliere le dimensioni di I/O e la profondità della coda. SQL Server sceglie i valori ottimali per le dimensioni di I/O e la profondità della coda per ottenere le prestazioni migliori possibili. È importante comprendere gli effetti di entrambi i tipi di fattori sulle prestazioni dell'applicazione, in modo da effettuare il provisioning delle risorse appropriate per soddisfare le esigenze relative alle prestazioni.
 
 In questa sezione è consigliabile vedere l'elenco di controllo creato relativo ai requisiti dell'applicazione per identificare le esigenze di ottimizzazione per le prestazioni dell'applicazione. L'elenco di controllo consentirà di determinare i fattori da perfezionare tra quelli illustrati in questa sezione. Per verificare gli effetti di ogni fattore sulle prestazioni dell'applicazione, eseguire gli strumenti di benchmarking sulla configurazione dell'applicazione. Per informazioni sui passaggi necessari per eseguire gli strumenti di benchmarking comuni in VM Windows e Linux, vedere la sezione [Benchmarking](#Benchmarking) alla fine dell'articolo.
@@ -122,6 +144,7 @@ Per altre informazioni sulle dimensioni delle macchine virtuali e le operazioni 
 | **Profondità coda** |Una profondità maggiore per la coda genera valori più elevati per IOPS. |Una profondità maggiore per la coda genera valori più elevati per la velocità effettiva. |Una profondità minore per la coda genera latenze più basse. |
 
 ## <a name="nature-of-io-requests"></a>Natura delle richieste I/O
+
 Una richiesta I/O è un'unità di operazioni di input/output che verrà eseguita dall'applicazione. L'identificazione della natura delle richieste I/O, ovvero casuali o sequenziali, di lettura o scrittura, grandi o piccole, consentirà di determinare i requisiti relativi alle prestazioni per l'applicazione. È molto importante comprendere la natura delle richieste I/O, in modo da pendere le decisioni corrette durante la progettazione dell'infrastruttura dell'applicazione.
 
 La dimensione di I/O è uno dei fattori più importanti. Le dimensioni di I/O sono le dimensioni della richiesta di operazioni di input/output generata dall'applicazione. Le dimensioni di I/O hanno un impatto significativo sulle prestazioni, in particolare sui valori di IOPS e larghezza di banda che l'applicazione è in grado di ottenere. La formula seguente illustra la relazione tra IOPS, dimensioni di I/O e larghezza di banda/velocità effettiva.  
@@ -152,12 +175,11 @@ Per ottenere valori di IOPS e larghezza di banda più elevati rispetto al valore
 
 > [!NOTE]
 > poiché se si aumenta il valore di IOPS o di velocità effettiva aumenterà anche l'altro valore, è necessario assicurarsi di non raggiungere i limiti di velocità effettiva o IOPS del disco o della VM in caso di aumento di uno dei valori.
->
->
 
 Per verificare gli effetti delle dimensioni di I/O sulle prestazioni dell'applicazione, è possibile eseguire gli strumenti di benchmarking sulle VM e sui dischi. Creare più esecuzioni dei test e usare diverse dimensioni di I/O per ogni esecuzione per verificarne l'impatto. Per altri dettagli, vedere la sezione [Benchmarking](#Benchmarking) alla fine di questo articolo.
 
 ## <a name="high-scale-vm-sizes"></a>Dimensioni di VM a scalabilità elevata
+
 Quando si inizia a progettare un'applicazione, uno dei primi passaggi da eseguire consiste nel scegliere una VM in cui ospitare l'applicazione. L'Archiviazione Premium include dimensioni di VM a scalabilità elevata in grado di eseguire applicazioni che richiedono capacità di calcolo elevate e prestazioni di I/O elevate per il disco locale. Queste VM forniscono processori più veloci, un rapporto più elevato tra memoria e core e un'unità SSD (Solid-State Drive) per il disco locale. Esempi di VM a scalabilità elevata che supportano l'Archiviazione Premium sono le VM serie DS, DSv2 e GS.
 
 Le VM a scalabilità elevata sono disponibili in dimensioni diverse con un numero diverso di core CPU, memoria, sistema operativo e dimensioni del disco temporaneo. Ogni dimensione di VM prevede anche un numero massimo di dischi dati che possono essere collegati alla VM. La dimensione di VM scelta influirà quindi sulla quantità di elaborazione, memoria e capacità di archiviazione disponibile per l'applicazione. Influisce anche sui costi di calcolo e archiviazione. Ad esempio, sono riportate di seguito le specifiche per la VM di dimensione massima per le serie DS, DSv2 e GS:
@@ -196,14 +218,14 @@ Archiviazione Premium di Azure offre lo stesso livello di prestazioni per le mac
 Quando si esegue Linux con l'Archiviazione Premium, verificare se sono disponibili aggiornamenti recenti per i driver necessari, in modo da assicurare prestazioni elevate.
 
 ## <a name="premium-storage-disk-sizes"></a>Dimensioni dei dischi di Archiviazione Premium
-Archiviazione Premium di Azure offre attualmente otto dimensioni di disco. Ogni dimensione di disco ha un limite di scala diverso per IOPS, larghezza di banda e archiviazione. Scegliere la dimensione del disco di Archiviazione Premium appropriata, in base ai requisiti dell'applicazione e le dimensioni delle VM a scalabilità elevata. La tabella seguente illustra le otto dimensioni di disco e le relative capacità. Le dimensioni di disco P4, P6 e P15 sono attualmente supportate solo per Managed Disks.
 
-| Tipo di disco Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Dimensioni disco           | 32 GB | 64 GB | 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS per disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 
-| Velocità effettiva per disco | 25 MB al secondo  | 50 MB al secondo  | 100 MB al secondo |125 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo | 
+L'Archiviazione Premium di Azure offre attualmente otto dimensioni di disco nella versione di disponibilità generale e tre dimensioni di disco in anteprima. Ogni dimensione di disco ha un limite di scala diverso per IOPS, larghezza di banda e archiviazione. Scegliere la dimensione del disco di Archiviazione Premium appropriata, in base ai requisiti dell'applicazione e le dimensioni delle VM a scalabilità elevata. La tabella seguente illustra le sette dimensioni di disco e le relative capacità. Le dimensioni di disco P4, P6, P15, P60, P70 e P80 sono attualmente supportate solo per Managed Disks.
 
+| Tipo di disco Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Dimensioni disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 GiB)    |
+| IOPS per disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20.000              |
+| Velocità effettiva per disco | 25 MiB al secondo  | 50 MiB al secondo  | 100 MiB al secondo |125 MiB al secondo | 150 MiB al secondo | 200 MiB al secondo | 250 MiB al secondo | 250 MiB al secondo | 480 MiB al secondo | 750 MiB al secondo | 750 MiB al secondo |
 
 Il numero di dischi scelto dipende dalla dimensione scelta per il disco. È possibile usare un singolo disco P50 o più dischi P10 per soddisfare i requisiti dell'applicazione. Valutare le considerazioni elencate di seguito quando si effettua la scelta.
 
@@ -216,8 +238,6 @@ Ad esempio, si supponga che un requisito di applicazione preveda una velocità e
 > le operazioni di lettura fornite dalla cache non sono incluse nei valori di IOPS e velocità effettiva, quindi non sono soggette ai limiti del disco. La cache ha un limite di IOPS e velocità effettiva specifico per ogni VM.
 >
 > Ad esempio, le operazioni di lettura e scrittura iniziali sono rispettivamente pari a 60 MB/sec e 40 MB/sec. Nel corso del tempo, la cache migliora la propria operatività e fornisce un numero sempre maggiore di operazioni di lettura dalla cache. Sarà quindi possibile ottenere una velocità effettiva di lettura superiore dal disco.
->
->
 
 *Numero di dischi*  
 Determinare il numero di dischi necessari esaminando i requisiti dell'applicazione. Ogni dimensione di VM prevede anche un limite per il numero di dischi che possono essere collegati alla VM. In genere, questo valore corrisponde al doppio dei core. Assicurarsi che la dimensione di VM scelta sia in grado di supportare il numero di dischi necessari.
@@ -225,12 +245,12 @@ Determinare il numero di dischi necessari esaminando i requisiti dell'applicazio
 Occorre ricordare che i dischi di Archiviazione Premium hanno capacità di prestazioni più elevate rispetto ai dischi di Archiviazione Standard. Se quindi si esegue la migrazione dell'applicazione da una VM IaaS di Azure usando il passaggio dall'Archiviazione Standard all'Archiviazione Premium, è probabile che sia necessario un numero inferiore di dischi per ottenere le stesse prestazioni o prestazioni più elevate per l'applicazione.
 
 ## <a name="disk-caching"></a>Memorizzazione nella cache del disco
+
 Le VM a scalabilità elevata che sfruttano i vantaggi dell'Archiviazione Premium di Azure includono una tecnologia di memorizzazione nella cache multilivello denominata BlobCache. BlobCache usa una combinazione della RAM della macchina virtuale e dell'unità SSD locale per la memorizzazione nella cache. Questa cache è disponibile per i dischi persistenti di Archiviazione Premium e i dischi locali della VM. Per impostazione predefinita, questa impostazione della cache viene configurata su Read/Write per dischi del sistema operativo e ReadOnly per i dischi dati ospitati nell'Archiviazione Premium. Quando la memorizzazione nella cache su disco è abilitata nei dischi di Archiviazione Premium, le VM a scalabilità elevata possono raggiungere livelli estremamente elevati di prestazioni che superano le prestazioni sottostanti del disco.
 
 > [!WARNING]
+> La memorizzazione nella cache del disco è supportata solo per dimensioni di disco fino a 4 TiB.
 > La modifica dell'impostazione della cache di un disco di Azure scollega e ricollega il disco di destinazione. Se si tratta del disco del sistema operativo, la VM viene riavviata. Arrestare tutte le applicazioni/i servizi che potrebbero essere interessati da questa interruzione prima di modificare l'impostazione della cache del disco.
->
->
 
 Per altre informazioni sul funzionamento di BlobCache, vedere il post di blog relativo all' [Archiviazione Premium di Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
 
@@ -267,6 +287,7 @@ Per impostazione predefinita, la memorizzazione nella cache ReadWrite è abilita
    a.  I file di log hanno principalmente operazioni intensive a livello di lettura. Non ottengono quindi alcun vantaggio dalla cache ReadOnly.
 
 ## <a name="disk-striping"></a>Striping del disco
+
 Quando una VM a scalabilità elevata è collegata ad alcuni dischi persistenti di Archiviazione Premium, è possibile effettuare lo striping dei dischi per aggregare le relative capacità di IOPS, larghezza di banda e archiviazione.
 
 In Windows è possibile usare gli spazi di archiviazione per lo striping dei dischi. È necessario configurare una colonna per ogni disco in un pool. In caso contrario, le prestazioni complessive di un volume con striping possono essere inferiori al previsto, a causa della distribuzione non uniforme del traffico nei dischi.
@@ -284,10 +305,9 @@ Scegliere una dimensione di striping appropriata in base a tipo di carico di lav
 
 > [!NOTE]
 > è possibile effettuare lo striping di un massimo di 32 dischi di Archiviazione Premium in una VM di serie DS e di 64 dischi di Archiviazione Premium in una VM di serie GS.
->
->
 
 ## <a name="multi-threading"></a>Multithreading
+
 Azure ha progettato la piattaforma di Archiviazione Premium in modo che sia notevolmente parallela. Un'applicazione multithreading ottiene prestazioni molto più elevate rispetto a un'applicazione a thread singolo. Un'applicazione multithreading suddivide le proprie attività in più thread e aumenta l'efficienza dell'esecuzione utilizzando al massimo la VM e le risorse del disco.
 
 Ad esempio, se l'applicazione è in esecuzione su una VM a core singolo con due thread, la CPU può passare da un thread all'altro per ottenere l'efficienza. Mentre un thread attende il completamento di un'operazione I/O su disco, la CPU può passare all'altro thread. In questo modo, due thread possono ottenere molto di più rispetto a un singolo thread. Se la VM ha più di un core, riduce ulteriormente il tempo di esecuzione, perché ogni core può eseguire attività in parallelo.
@@ -301,6 +321,7 @@ Ad esempio, si supponga che l'applicazione che usa SQL Server stia eseguendo con
 Altre informazioni sui [Gradi di parallelismo](https://technet.microsoft.com/library/ms188611.aspx) in SQL Server. Individuare le impostazioni che influenzano il multithreading nell'applicazione e le relative configurazioni per ottimizzare le prestazioni.
 
 ## <a name="queue-depth"></a>Profondità coda
+
 Il valore per la profondità, la lunghezza o la dimensione della coda indica il numero di richieste I/O in sospeso nel sistema. Il valore della profondità della coda determina il numero di operazioni di I/O che possono essere accodate dall'applicazione e che verranno elaborate dai dischi di archiviazione. Influisce su tutti e tre gli indicatori di prestazioni illustrati in questo articolo, ovvero IOPS, velocità effettiva e latenza.
 
 La profondità della coda e il multithreading sono strettamente correlati. Il valore della profondità della coda indica la quantità di multithreading che l'applicazione può ottenere. Se il valore della profondità della coda è elevato, l'applicazione potrà eseguire più applicazioni contemporaneamente, ovvero potrà ottenere un multithreading maggiore. Se il valore della profondità della coda è ridotto, anche se l'applicazione è abilitata al multithreading, il numero di richieste accodate non sarà sufficiente per l'esecuzione simultanea.
@@ -327,9 +348,11 @@ Per un volume con striping è consigliabile mantenere una profondità della coda
     ![](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitazione
+
 L'Archiviazione Premium di Azure effettua il provisioning di un numero specificato di IOPS e di velocità effettiva in base alle dimensioni delle VM e alle dimensioni dei dischi scelte. Ogni volta che l'applicazione prova a superare i limiti di IOPS o velocità effettiva che possono essere gestiti dalla VM o dal disco, l'Archiviazione Premium limiterà l'applicazione. Questo problema si manifesta sotto forma di una riduzione delle prestazioni dell'applicazione. Ciò può comportare una latenza più alta, una velocità effettiva minore o valori di IOPS più bassi. Se l'Archiviazione Premium non applica la limitazione, è possibile che si verifichi un errore irreversibile dell'applicazione a causa del superamento dei limiti delle risorse. Per evitare problemi di prestazioni dovuti alla limitazione, è necessario effettuare sempre il provisioning di un numero di risorse sufficiente per l'applicazione. Prendere in considerazione i concetti illustrati nelle sezioni precedenti relative alle dimensioni delle VM e dei dischi. Il benchmarking è il modo migliore per determinare le risorse necessarie per l'hosting dell'applicazione.
 
 ## <a name="benchmarking"></a>Benchmarking
+
 Il benchmarking è il processo di simulazione di diversi carichi di lavoro sull'applicazione e di misurazione delle prestazioni dell'applicazione per ogni carico di lavoro. Eseguendo la procedura illustrata in una sezione precedente, sono stati raccolti i requisiti relativi alle prestazioni dell'applicazione. Eseguendo gli strumenti di benchmarking nelle VM che ospitano l'applicazione sarà possibile determinare i livelli di prestazioni che l'applicazione è in grado di ottenere con l'Archiviazione Premium. In questa sezione sono disponibili esempi di benchmarking per una VM DS14 Standard con provisioning con dischi di Archiviazione Premium di Azure.
 
 Sono stati usati gli strumenti di benchmarking comuni Iometer e FIO, rispettivamente per Windows e Linux. Questi strumenti generano più thread che simulano un carico di lavoro analogo a quello di produzione e misurano le prestazioni del sistema. Questi strumenti consentono anche di configurare i parametri quali la dimensione dei blocchi e la profondità della coda, che in genere non possono essere modificati per un'applicazione. Ciò offre maggiore flessibilità per ottenere il livello massimo di prestazioni su una VM a scalabilità elevata con provisioning con dischi Premium per diversi tipi di carichi di lavoro dell'applicazione. Per altre informazioni su ogni strumento di benchmarking, vedere [Iometer](http://www.iometer.org/) e [FIO](http://freecode.com/projects/fio).
@@ -341,10 +364,9 @@ Il disco con memorizzazione nella cache dell'host di tipo ReadOnly sarà in grad
 
 > **Importante:**  
 > è necessario preparare la cache prima di eseguire il benchmarking, ogni volta che la VM viene riavviata.
->
->
 
 #### <a name="iometer"></a>Iometer
+
 [Scaricare lo strumento Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) nella VM.
 
 *File di test*  
@@ -414,6 +436,7 @@ Le schermate seguenti illustrano i risultati dei test di Iometer per scenari com
 ![](media/premium-storage-performance/image10.png)
 
 ### <a name="fio"></a>FIO
+
 FIO è uno strumento popolare per il benchmarking dell'archiviazione sulle VM Linux. Offre la flessibilità necessaria per selezionare diverse dimensioni di I/O e letture e scritture sequenziali o casuali. Genera thread di lavoro o processi per l'esecuzione delle operazioni I/O specificate. È possibile specificare il tipo di operazioni I/O che ogni thread di lavoro deve eseguire usando i file processo. È stato creato un file processo per ogni scenario illustrato negli esempi seguenti. È possibile cambiare le specifiche di questi file processo per il benchmarking di diversi carichi di lavoro in esecuzione sull'Archiviazione Premium. Negli esempi viene usata una VM DS 14 Standard che esegue **Ubuntu**. Usare la stessa configurazione illustrata all'inizio della [sezione Benchmarking](#Benchmarking) e preparare la cache prima di eseguire i test di benchmarking.
 
 Prima di iniziare, [scaricare FIO](https://github.com/axboe/fio) e installarlo nella macchina virtuale.
@@ -567,6 +590,7 @@ Durante l'esecuzione del test, sarà possibile visualizzare il numero di operazi
 Per ottenere la velocità effettiva massima combinata di lettura e scrittura, usare una dimensione di blocco superiore e una profondità della coda elevata con più thread che eseguono letture e scritture. È possibile usare una dimensione di blocco pari a 64 KB e una profondità della coda pari a 128.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Altre informazioni sull'Archiviazione Premium di Azure:
 
 * [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md)  

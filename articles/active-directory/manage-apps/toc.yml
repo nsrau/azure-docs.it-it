@@ -1,5 +1,5 @@
 items:
-- name: Documentazione della gestione delle applicazioni di Azure AD
+- name: Documentazione della gestione delle applicazioni
   href: index.yml
 - name: Panoramica
   items:
@@ -46,7 +46,7 @@ items:
       href: use-scim-to-provision-users-and-groups.md
     - name: Personalizzare gli attributi dell'applicazione
       href: Customize-application-attributes.md
-    - name: Scrivere espressioni per i mapping degli attributi
+    - name: Scrivere espressioni per il mapping degli attributi
       href: functions-for-customizing-application-data.md
     - name: Filtri per la definizione dell'ambito
       href: define-conditional-rules-for-provisioning-user-accounts.md
@@ -95,7 +95,7 @@ items:
     - name: Cambiare nome o logo
       href: change-name-or-logo-portal.md
     - name: Esercitazioni per app SaaS
-      href: ../saas-apps/tutorial-list.md
+      href: /azure/active-directory/saas-apps/tutorial-list?context=azure/active-directory/manage-apps/context/manage-apps-context
   - name: Integrazione di app locali
     items:
     - name: Abilitare il proxy dell’applicazione
@@ -236,6 +236,8 @@ items:
       href: access-panel-troubleshoot-self-service-access.md
   - name: Migrazione
     items:
+    - name: Risorse per la migrazione
+      href: migration-resources.md
     - name: Eseguire la migrazione di un'app AD FS in Azure
       href: migrate-adfs-apps-to-azure.md
   - name: Risolvere i problemi di accesso degli utenti
@@ -265,7 +267,7 @@ items:
 - name: Risorse
   items:
   - name: Piani di distribuzione di Azure AD
-    href: ../fundamentals/active-directory-deployment-plans.md
+    href: /azure/active-directory/fundamentals/active-directory-deployment-plans?context=azure/active-directory/manage-apps/context/manage-apps-context
   - name: Forum di commenti e suggerimenti su Azure
     href: https://feedback.azure.com/forums/169401-azure-active-directory
   - name: Roadmap per Azure
@@ -282,9 +284,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: de8f961b5f39751aac95c7fcde47a73c848ef96e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: e0daacda86b782ba2e18d820a829df9bf5193844
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721790"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040779"

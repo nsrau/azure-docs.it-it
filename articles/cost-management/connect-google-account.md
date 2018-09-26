@@ -1,38 +1,38 @@
 ---
-title: Connettere un account di Google Cloud Platform a Gestione costi di Azure | Microsoft Docs
-description: Connettere un account di Google Cloud Platform per visualizzare i dati relativi ai costi e all'utilizzo nei report di Gestione costi.
+title: Connettere un account di Google Cloud Platform a Cloudyn in Azure | Microsoft Docs
+description: Connettere un account di Google Cloud Platform per visualizzare i dati relativi ai costi e all'uso nei report di Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: d4b906bd966da66659d23b935f7dbbd44b33899a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 09035146fe3211f9fc46d3ad51326a6e76921b7d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296442"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977299"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Connettere un account di Google Cloud Platform
 
-È possibile connettere un account esistente di Google Cloud Platform a Gestione costi di Azure. Dopo la connessione dell'account a Gestione costi, i dati relativi ai costi e all'utilizzo sono disponibili nei report di Gestione costi. Questo articolo contiene informazioni utili per configurare l'account di Google e connetterlo a Gestione costi.
+È possibile connettere un account Google Cloud Platform esistente a Cloudyn. Dopo aver connesso l'account a Cloudyn, i costi e i dati di utilizzo sono disponibili nei report di Cloudyn. Questo articolo contiene informazioni utili per configurare l'account di Google e connetterlo a Cloudyn.
 
 ## <a name="collect-project-information"></a>Raccogliere le informazioni sul progetto
 
 È necessario prima di tutto raccogliere le informazioni sul progetto.
 
 1. Accedere alla console di Google Cloud Platform all'indirizzo [https://console.cloud.google.com](https://console.cloud.google.com).
-2. Rivedere le informazioni sul progetto da caricare in Gestione costi e prendere nota dei valori dei campi **Project name** (Nome progetto) e **Project ID** (ID progetto). Tenere a portata di mano queste informazioni per i passaggi successivi.  
+2. Rivedere le informazioni sul progetto da caricare in Cloudyn e prendere nota dei valori dei campi **Nome progetto** e **ID progetto**. Tenere a portata di mano queste informazioni per i passaggi successivi.  
     ![Console di Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
 3. Se la fatturazione non è abilitata e collegata al progetto, creare un account di fatturazione. Per altre informazioni, vedere [Create a new billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account) (Creare un nuovo account di fatturazione).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Abilitare l'esportazione dei dati di fatturazione nel bucket di archiviazione
 
-Gestione costi recupera i dati di fatturazione di Google da un bucket di archiviazione. Tenere a portata di mano i valori dei campi **Bucket name** (Nome bucket) e **Report prefix** (Prefisso report) che saranno utili più avanti durante la registrazione di Gestione costi.
+Cloudyn recupera i dati di fatturazione di Google da un bucket di archiviazione. Tenere a portata di mano i valori dei campi **Nome bucket** e **Prefisso report**, che saranno utili più avanti durante la registrazione di Cloudyn.
 
 L'uso di Google Cloud Storage per archiviare i report sull'utilizzo comporta costi minimi. Per altre informazioni, vedere [Prezzi di Cloud Storage](https://cloud.google.com/storage/pricing).
 
@@ -42,7 +42,7 @@ L'uso di Google Cloud Storage per archiviare i report sull'utilizzo comporta cos
 
 ## <a name="enable-google-cloud-platform-apis"></a>Abilitare le API di Google Cloud Platform
 
-Per raccogliere le informazioni sull'utilizzo e sugli asset, Gestione costi richiede che siano abilitate le API di Google Cloud Platform seguenti:
+Per raccogliere le informazioni sull'utilizzo e sugli asset, Cloudyn richiede che siano abilitate le seguenti API di Google Cloud Platform:
 
 - BigQuery
 - Google Cloud SQL
@@ -53,12 +53,12 @@ Per raccogliere le informazioni sull'utilizzo e sugli asset, Gestione costi rich
 
 ### <a name="enable-or-verify-apis"></a>Abilitare o verificare le API
 
-1. Nella console di Google Cloud Platform selezionare il progetto che si vuole registrare con Gestione costi.
+1. Nella console di Google Cloud Platform, selezionare il progetto che si vuole registrare con Cloudyn.
 2. Passare a **APIs & Services** > **Library** (API e servizi - Libreria).
 3. Usare la funzione di ricerca per trovare ogni API elencata in precedenza.
 4. Per ogni API verificare che sia visualizzato lo stato **API enabled** (API abilitata). In caso contrario, fare clic su **ENABLE** (ABILITA).
 
-## <a name="add-a-google-cloud-account-to-cost-management"></a>Aggiungere un account di Google Cloud a Gestione costi
+## <a name="add-a-google-cloud-account-to-cloudyn"></a>Aggiungere un account di Google Cloud a Cloudyn
 
 1. Aprire il portale di Cloudyn dal portale di Azure oppure passare a [https://azure.cloudyn.com](https://azure.cloudyn.com/) ed eseguire l'accesso.
 2. Fare clic su **Settings** (Impostazioni) (simbolo con ruota dentata) e quindi selezionare **Cloud Accounts** (Account cloud).
@@ -70,8 +70,8 @@ Per raccogliere le informazioni sull'utilizzo e sugli asset, Gestione costi rich
 
 L'account di Google verrà visualizzato nell'elenco degli account e dovrebbe risultare **Authenticated** (Autenticato). Al di sotto dell'account dovrebbero essere visualizzati il nome e l'ID del progetto Google, contrassegnati da un segno di spunta verde. Lo stato dell'account dovrebbe essere **Completed** (Completato).
 
-Entro alcune ore, nei report di Gestione costi saranno visibili le informazioni relative ai costi e all'utilizzo di Google.
+Entro alcune ore, nei report di Cloudyn saranno visibili le informazioni relative a costi e uso di Google.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su Gestione costi di Azure, passare all'esercitazione [Esaminare l'uso e i costi](./tutorial-review-usage.md) per Gestione costi.
+- Per altre informazioni su Cloudyn, passare all'esercitazione [Esaminare uso e costi](./tutorial-review-usage.md) per Cloudyn.

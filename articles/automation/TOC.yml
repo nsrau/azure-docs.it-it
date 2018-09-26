@@ -42,6 +42,8 @@ items:
       href: automation-update-management.md
     - name: Gestire gli aggiornamenti per più macchine virtuali
       href: manage-update-multi.md
+    - name: Script precedenti e successivi all'esecuzione
+      href: pre-post-scripts.md
     - name: Eseguire la migrazione delle distribuzioni aggiornate di OMS in Azure
       href: migrate-oms-update-deployments.md
     - name: Integrare SCCM con Gestione aggiornamenti
@@ -93,7 +95,9 @@ items:
     - name: Output del Runbook
       href: automation-runbook-output-and-messages.md
     - name: Integrazione del controllo del codice sorgente
-      href: automation-source-control-integration.md
+      href: source-control-integration.md
+    - name: Integrazione del controllo del codice sorgente (legacy)
+      href: automation-source-control-integration-legacy.md
     - name: Creare runbook con l'SDK per runbook grafici
       href: graphical-runbook-sdk.md
   - name: Automatizzare
@@ -114,6 +118,8 @@ items:
       href: automation-pass-json-string.md
     - name: Avviare/arrestare le VM durante gli orari di minore attività
       href: automation-solution-vm-management.md
+    - name: Gestire i pacchetti di Python 2
+      href: python-packages.md
   - name: ruolo di lavoro ibrido per runbook
     items:
     - name: Panoramica del ruolo di lavoro ibrido per runbook
@@ -182,8 +188,6 @@ items:
     items:
     - name: Inoltrare dati dei processi di Automazione di Azure a Log Analytics
       href: automation-manage-send-joblogs-log-analytics.md
-    - name: Scollegare l'account di Automazione di Azure da Log Analytics
-      href: automation-unlink-from-log-analytics.md
   - name: Migrazione
     items:
     - name: Eseguire la migrazione dall'agente di orchestrazione
@@ -232,9 +236,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: 9cede828d0ec62562f3f3c2fc0627f5505f21fd9
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 102f70d3c0ea4c87b47e2a0967da967b7eef73f6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603958"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040313"

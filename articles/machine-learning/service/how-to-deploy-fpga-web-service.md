@@ -1,5 +1,5 @@
 ---
-title: Come distribuire un modello come servizio Web in un FPGA con Azure Machine Learning
+title: Distribuire un modello come servizio Web in un FPGA con Azure Machine Learning
 description: Informazioni su come distribuire un servizio Web con un modello in esecuzione in un FPGA con Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -8,119 +8,165 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 05/07/2018
-ms.openlocfilehash: f3237980a1ad1969b5cf8d42d547ddf96608dd97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 09/24/2018
+ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784470"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971485"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Distribuire un modello come servizio Web in un FPGA con Azure Machine Learning
 
-Questo documento illustra come configurare l'ambiente delle workstation e distribuire un modello come servizio Web in circuiti [FPGA (field programmable gate array)](concept-accelerate-with-fpgas.md). Il servizio Web usa Project Brainwave per eseguire il modello in FPGA.
+È possibile distribuire un modello come servizio web in [Field programmable gate arrays (FPGA)](concept-accelerate-with-fpgas.md).  L'uso di FPGA offre inferenze a latenza estremamente bassa, anche con una singola dimensione batch.   
 
-L'uso di FPGA offre inferenze a latenza estremamente bassa, anche con una singola dimensione batch.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="create-an-azure-machine-learning-model-management-account"></a>Creare un account di Gestione modelli di Azure Machine Learning
+- Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-1. Passare alla pagina di creazione dell'account di Gestione modelli nel [portale di Azure](https://aka.ms/aml-create-mma).
+- Un'area di lavoro di Azure Machine Learning e Azure Machine Learning SDK per Python installata. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
+ 
+  - L'area di lavoro deve trovarsi nell'area degli *Stati Uniti orientali 2*.
 
-2. Nel portale creare un account di Gestione modelli nell'area **Stati Uniti orientali 2**.
+  - Installare le funzionalità aggiuntive contrib:
 
-   ![Immagine della schermata Crea account di Gestione modelli](media/how-to-deploy-fpga-web-service/azure-portal-create-mma.PNG)
+    ```shell
+    pip install --upgrade azureml-sdk[contrib]
+    ```  
 
-3. Assegnare un nome all'account di Gestione modelli, quindi scegliere una sottoscrizione e un gruppo di risorse.
+## <a name="create-and-deploy-your-model"></a>Creare e distribuire un modello
+Creare una pipeline per pre-elaborare l'immagine di input, trasformare utilizzando ResNet 50 in un FPGA e quindi eseguire le funzionalità attraverso una classificazione sottoposto con training sul set di dati ImageNet.
 
-   >[!IMPORTANT]
-   >Per la posizione è NECESSARIO scegliere l'area **Stati Uniti orientali 2**.  Non sono attualmente disponibili altre aree.
+Seguire le istruzioni per:
 
-4. Scegliere un piano tariffario. S1 è sufficiente, ma vanno bene anche S2 e S3.  Il piano DevTest non è supportato.  
-
-5. Fare clic su **Seleziona** per confermare il piano tariffario.
-
-6. Fare clic su **Crea** in Gestione modelli di ML a sinistra.
-
-## <a name="get-model-management-account-information"></a>Ottenere informazioni dell'account di Gestione modelli
-
-Per ottenere informazioni sull'account di Gestione modelli, fare clic sull'__account di Gestione modelli__ nel portale di Azure.
-
-Copiare i valori degli elementi seguenti:
-
-+ Nome dell'account di Gestione modelli (nell'angolo in alto a sinistra)
-+ Nome del gruppo di risorse
-+ ID sottoscrizione
-+ Posizione (usare "eastus2")
-
-![Informazioni dell'account di Gestione modelli](media/how-to-deploy-fpga-web-service/azure-portal-mma-info.PNG)
-
-## <a name="set-up-your-machine"></a>Configurare il computer
-
-Per configurare la workstation per la distribuzione in FPGA, seguire questa procedura:
-
-1. Scaricare e installare la versione più recente di [Git](https://git-scm.com/downloads).
-
-2. Installare [Anaconda (Python 3.6)](https://conda.io/miniconda.html).
-
-3. Per scaricare un ambiente Anaconda usare il comando seguente dal prompt di Git:
-
-    ```
-    git clone https://aka.ms/aml-real-time-ai
-    ```
-
-4. Per creare l'ambiente, aprire un **prompt di Anaconda** (non un prompt di Azure Machine Learning Workbench) ed eseguire questo comando:
-
-    > [!IMPORTANT]
-    > Il file `environment.yml` si trova nel repository Git clonato nel passaggio precedente. Modificare il percorso in modo da puntare al file nella workstation.
-
-    ```
-    conda env create -f environment.yml
-    ```
-
-5. Per attivare l'ambiente, usare il comando seguente:
-
-    ```
-    conda activate amlrealtimeai
-    ```
-
-6. Per avviare il server Jupyter Notebook, usare il comando seguente:
-
-    ```
-    jupyter notebook
-    ```
-
-    L'output di questo comando è simile al testo seguente:
-
-    ```text
-    Copy/paste this URL into your browser when you connect for the first time, to login with a token:
-        http://localhost:8888/?token=bb2ce89cc8ae931f5df50f96e3a6badfc826ff4100e78075
-    ```
-
-    > [!TIP]
-    > Si otterrà un token diverso ogni volta che si esegue il comando.
-
-    Se il browser non si apre automaticamente sul notebook di Jupyter, usare l'URL HTTP restituito dal comando precedente per aprire la pagina.
-
-    ![Immagine della pagina Web di Jupyter Notebook](./media/how-to-deploy-fpga-web-service/jupyter-notebook.png)
-
-## <a name="deploy-your-model"></a>Distribuire il modello
-
-Da Jupyter Notebook, aprire il notebook `00_QuickStart.ipynb` dalla directory `notebooks/resnet50`. Seguire le istruzioni contenute nel notebook per:
-
-* Definire il servizio
+* Definire il modello di pipeline
 * Distribuire il modello
 * Utilizzare il modello distribuito
 * Eliminare i servizi distribuiti
 
 > [!IMPORTANT]
-> Per ottimizzare la latenza e la velocità effettiva, la workstation deve trovarsi nella stessa area di Azure in cui si trova l'endpoint.  Le API vengono attualmente create nell'area Stati Uniti orientali.
+> Per ottimizzare la latenza e la velocità effettiva, il client deve trovarsi nella stessa area di Azure in cui si trova l'endpoint.  Le API vengono attualmente create nell'area Stati Uniti orientali.
 
-## <a name="ssltls-and-authentication"></a>SSL/TLS e autenticazione
+### <a name="get-the-notebook"></a>Ottenere il notebook
 
-Azure Machine Learning fornisce il supporto SSL e l'autenticazione basata su chiavi. In questo modo è possibile limitare l'accesso al servizio e proteggere i dati inviati dai client.
+Per comodità, questa esercitazione è disponibile anche come notebook di Jupyter. Usare uno di questi metodi per eseguire il notebook `project-brainwave/project-brainwave-quickstart.ipynb`:
 
-> [!NOTE]
-> I passaggi di questa sezione sono applicabili solo ai modelli di accelerazione hardware di Azure Machine Learning. Per i servizi standard di Azure Machine Learning, vedere il documento [Abilitare SSL in un cluster di calcolo di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc).
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+
+### <a name="preprocess-image"></a>Pre-elaborare l'immagine
+La prima fase della pipeline consiste nella pre-elaborazione delle immagini.
+
+```python
+import os
+import tensorflow as tf
+
+# Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
+import azureml.contrib.brainwave.models.utils as utils
+in_images = tf.placeholder(tf.string)
+image_tensors = utils.preprocess_array(in_images)
+print(image_tensors.shape)
+```
+### <a name="add-featurizer"></a>Aggiungere utilità di funzioni
+Inizializzare il modello e scaricare un checkpoint TensorFlow della versione quantizzata ResNet50 da usare come utilità di funzioni.
+
+```python
+from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+model_path = os.path.expanduser('~/models')
+model = QuantizedResnet50(model_path, is_frozen = True)
+feature_tensor = model.import_graph_def(image_tensors)
+print(model.version)
+print(feature_tensor.name)
+print(feature_tensor.shape)
+```
+
+### <a name="add-classifier"></a>Aggiungere il classificatore
+Questo classificatore è stato eseguito con training sul set di dati ImageNet.
+
+```python
+classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+```
+
+### <a name="create-service-definition"></a>Creare la definizione del servizio
+Ora che avete definiti l'immagine di pre-elaborazione, l'utilità di funzioni e il classificatore eseguiti sul servizio, è possibile creare una definizione di servizio. La definizione del servizio è un set di file generato dal modello che viene distribuito nel servizio FPGA. La definizione del servizio è costituita da una pipeline. La pipeline è una serie di fasi che vengono eseguite in ordine.  Le fasi di TensorFlow, fasi Keras e fasi di BrainWave sono supportate.  Le fasi vengono eseguite nell'ordine nel servizio, con l'output di ogni input di fase in quello della fase successiva.
+
+Per creare una fase TensorFlow, specificare una sessione che contiene il grafico (in questo caso viene utilizzato il grafico predefinito) e l'input e output di tensors per questa fase.  Queste informazioni consentono di salvare il grafico in modo che possa essere eseguito nel servizio.
+
+```python
+from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
+
+save_path = os.path.expanduser('~/models/save')
+model_def_path = os.path.join(save_path, 'service_def.zip')
+
+model_def = ModelDefinition()
+with tf.Session() as sess:
+    model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
+    model_def.pipeline.append(BrainWaveStage(sess, model))
+    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.save(model_def_path)
+    print(model_def_path)
+```
+
+### <a name="deploy-model"></a>Distribuzione del modello
+Creare un servizio dalla definizione del servizio.  L'area di lavoro deve trovarsi nell'area degli Stati Uniti orientali 2.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+
+from azureml.core.model import Model
+model_name = "resnet-50-rtai"
+registered_model = Model.register(ws, model_def_path, model_name)
+
+from azureml.core.webservice import Webservice
+from azureml.exceptions import WebserviceException
+from azureml.contrib.brainwave import BrainwaveWebservice, BrainwaveImage
+service_name = "imagenet-infer"
+service = None
+try:
+    service = Webservice(ws, service_name)
+except WebserviceException:
+    image_config = BrainwaveImage.image_configuration()
+    deployment_config = BrainwaveWebservice.deploy_configuration()
+    service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
+    service.wait_for_deployment(true)
+```
+
+### <a name="test-the-service"></a>Testare il servizio
+Per inviare un'immagine per l'API e testare la risposta, aggiungere un mapping dall'ID di classe di output per il nome della classe ImageNet.
+
+```python
+import requests
+classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
+```
+
+Chiamare il servizio e sostituire il nome del file "your-Image. jpg" di seguito con un'immagine dal computer. 
+
+```python
+with open('your-image.jpg') as f:
+    results = service.run(f)
+# map results [class_id] => [confidence]
+results = enumerate(results)
+# sort results by confidence
+sorted_results = sorted(results, key=lambda x: x[1], reverse=True)
+# print top 5 results
+for top in sorted_results[:5]:
+    print(classes_entries[top[0]], 'confidence:', top[1])
+``` 
+
+### <a name="clean-up-service"></a>Pulizia del servizio
+Eliminare il servizio Web.
+
+```python
+service.delete()
+    
+registered_model.delete()
+```
+
+## <a name="secure-fpga-web-services"></a>Proteggere i servizi web FPGA
+
+Azure Machine Learning eseguito su FPGA fornisce il supporto SSL e l'autenticazione basata su chiavi. In questo modo è possibile limitare l'accesso al servizio e proteggere i dati inviati dai client.
 
 > [!IMPORTANT]
 > L'autenticazione è abilitata solo per i servizi che forniscono un certificato SSL e una chiave. 
@@ -200,7 +246,7 @@ Usare gli strumenti forniti dal registrar per aggiornare il record DNS per il no
 > [!NOTE]
 > A seconda del registrar e della durata (TTL) configurata per il nome di dominio, possono essere necessari da alcuni minuti a diverse ore prima che i client possano risolvere il nome di dominio.
 
-### <a name="consuming-authenticated-services"></a>Utilizzo di servizi autenticati
+### <a name="consume-authenticated-services"></a>Utilizzo di servizi autenticati
 
 Gli esempi seguenti illustrano come utilizzare un servizio autenticato con Python e C#:
 

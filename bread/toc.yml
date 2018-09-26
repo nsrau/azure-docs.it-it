@@ -37,6 +37,9 @@ items:
     - name: Guida dell'utente
       tocHref: /azure/active-directory/user-help/
       topicHref: /azure/active-directory/user-help/
+    - name: B2B
+      tocHref: /azure/active-directory/b2b/
+      topicHref: /azure/active-directory/b2b/
     - name: B2C
       tocHref: /azure/active-directory-b2c/
       topicHref: /azure/active-directory-b2c/
@@ -49,7 +52,7 @@ items:
     - name: Verifiche di accesso
       tocHref: /azure/active-directory/governance/
       topicHref: /azure/active-directory/governance/
-    - name: Gestire le applicazioni
+    - name: Gestione delle applicazioni
       tocHref: /azure/active-directory/manage-apps/
       topicHref: /azure/active-directory/manage-apps/
     - name: Report e monitoraggio
@@ -90,15 +93,27 @@ items:
   - name: Gateway applicazione
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
-  - name: Application Insights
-    tocHref: /azure/application-insights/
-    topicHref: /azure/application-insights/
   - name: Automazione
     tocHref: /azure/automation/
     topicHref: /azure/automation/
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
+  - name: Esplora dati di Azure
+    tocHref: /azure/data-explorer/
+    topicHref: /azure/data-explorer/
+  - name: Monitoraggio di Azure
+    tocHref: /azure/application-insights/
+    topicHref: /azure/azure-monitor/
+  - name: Monitoraggio di Azure
+    tocHref: /azure/log-analytics/
+    topicHref: /azure/azure-monitor/
+  - name: Monitoraggio di Azure
+    tocHref: /azure/monitoring/
+    topicHref: /azure/azure-monitor/
+  - name: Monitoraggio di Azure
+    tocHref: /azure/monitoring-and-diagnostics/
+    topicHref: /azure/azure-monitor/
   - name: Registro di sistema del contenitore
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -126,6 +141,9 @@ items:
   - name: Gestione risorse
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+  - name: Servizio SignalR
+    tocHref: /azure/azure-signalr/
+    topicHref: /azure/azure-signalr/
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
@@ -250,7 +268,7 @@ items:
     - name: Speech API
       tocHref: /azure/cognitive-services/Speech/
       topicHref: /azure/cognitive-services/Speech/home
-    - name: Servizio di riconoscimento vocale (anteprima)
+    - name: Servizio di riconoscimento vocale
       tocHref: /azure/cognitive-services/Speech-Service/
       topicHref: /azure/cognitive-services/Speech-Service/
     - name: Text Analytics
@@ -296,6 +314,12 @@ items:
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Data Box
+    tocHref: /azure/databox/
+    topicHref: /azure/databox/
+  - name: Data Box Edge/Data Box Gateway
+    tocHref: /azure/databox-online/
+    topicHref: /azure/databox-online/
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -326,6 +350,25 @@ items:
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Servizio Frontdoor
+    tocHref: /azure/frontdoor/
+    topicHref: /azure/frontdoor/
+  - name: Governance
+    tocHref: /azure/governance/
+    topicHref: /azure/governance/
+    items:
+    - name: Blueprint
+      tocHref: /azure/governance/blueprints/
+      topicHref: /azure/governance/blueprints/
+    - name: Gruppi di gestione
+      tocHref: /azure/governance/management-groups/
+      topicHref: /azure/governance/management-groups/
+    - name: Criterio
+      tocHref: /azure/governance/policy/
+      topicHref: /azure/governance/policy/
+    - name: Diagramma delle risorse
+      tocHref: /azure/governance/resource-graph/
+      topicHref: /azure/governance/resource-graph/
   - name: Indicazioni
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
@@ -394,9 +437,6 @@ items:
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
-  - name: Log Analytics
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/log-analytics/
   - name: App per la logica
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -404,7 +444,7 @@ items:
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
     items:
-    - name: Servizi (anteprima)
+    - name: Service
       tocHref: /azure/machine-learning/service
       topicHref: /azure/machine-learning/service/
     - name: Studio
@@ -438,9 +478,6 @@ items:
   - name: Servizi mobili
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: Monitoraggio e diagnostica
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/monitoring-and-diagnostics/
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/
@@ -463,31 +500,6 @@ items:
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: Documentazione per i criteri
-    tocHref: /azure/azure-policy/
-    topicHref: /azure/azure-policy/
-    items:
-    - name: Panoramica dei criteri di Azure
-      tocHref: /azure/azure-policy/azure-policy-introduction/
-      topicHref: /azureazure-policy/azure-policy-introduction/
-    - name: Assegnare un criterio - Portale
-      tocHref: /azure/azure-policy/assign-policy-definition/
-      topicHref: /azureazure-policy/assign-policy-definition/
-    - name: Assegnare un criterio - PowerShell
-      tocHref: /azure/azure-policy/assign-policy-definition-ps/
-      topicHref: /azureazure-policy/assign-policy-definition-ps/
-    - name: Assegnare un criterio - Interfaccia della riga di comando di Azure
-      tocHref: /azure/azure-policy/assign-policy-definition-cli/
-      topicHref: /azureazure-policy/assign-policy-definition-cli/
-    - name: Creare e gestire i criteri di Azure
-      tocHref: /azure/azure-policy/create-manage-polic/
-      topicHref: /azureazure-policy/create-manage-polic/
-    - name: Modelli di criteri
-      tocHref: /azure/azure-policy/json-samples/
-      topicHref: /azureazure-policy/json-samples/
-    - name: Struttura delle definizioni di criteri di Azure
-      tocHref: /azure/azure-policy/policy-definition/
-      topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/
@@ -610,9 +622,9 @@ items:
   - name: Gateway VPN
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: 9acef41cc94d59fb48a77cf5dadbbde67186673d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 5d6fc550b41b8d90064e3ae950b2e29efb5b3170
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365240"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042466"
