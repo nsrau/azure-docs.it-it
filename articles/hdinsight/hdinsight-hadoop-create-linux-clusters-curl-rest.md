@@ -3,18 +3,18 @@ title: Creare i cluster Hadoop tramite l'API REST di Azure - Azure
 description: Informazioni su come creare cluster HDInsight inviando i modelli di Azure Resource Manager all'API REST di Azure.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jasonh
-ms.openlocfilehash: 06aa88dec705288edfbe6fecdd92ca31807ed015
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6d2e0b06f0402ae26212be45a00b4c9a5394a117
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593418"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983702"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Creare i cluster Hadoop tramite l'API REST di Azure
 
@@ -218,7 +218,7 @@ Questo esempio viene usato nei passaggi di questo documento. Sostituire i *valor
 
 ## <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
 
-Seguire i passaggi illustrati [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e connettersi alla sottoscrizione tramite il comando `az login`.
+Seguire i passaggi illustrati in [Introduzione all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e connettersi alla sottoscrizione tramite il comando `az login`.
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 

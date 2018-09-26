@@ -3,18 +3,18 @@ title: Installare o aggiornare Mono in HDInsight - Azure
 description: Informazioni su come usare una versione specifica di Mono con cluster HDInsight. Mono viene usato per eseguire applicazioni .NET in cluster HDInsight basati su Linux.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
 ms.custom: hdinsightactive
-ms.openlocfilehash: 5f15d199ac60421340ad844c0964c39a8bfe705a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 54e5a5b72627dc9cd2d842ccb24d10e2f9ab9dce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598304"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957177"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Installare o aggiornare Mono in HDInsight
 
@@ -44,7 +44,7 @@ __Requisiti__:
 
 ## <a name="to-use-the-script"></a>Per usare lo script
 
-Per informazioni su come usare questo script con HDInsight, vedere il documento [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster). È possibile usare lo script tramite il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
+Per informazioni su come usare questo script con HDInsight, vedere il documento [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster). È possibile usare lo script mediante il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando classica di Azure.
 
 Quando si segue il documento di azione di script, usare l'URI seguente:
 

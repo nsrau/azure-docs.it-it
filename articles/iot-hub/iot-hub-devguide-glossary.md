@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1a5df1081edeb8b8e7520064a71534f70a9a9d33
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344301"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954399"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT.
@@ -27,11 +27,11 @@ La gestione automatica dei dispositivi nell'hub IoT di Azure consente di automat
 ## <a name="automatic-device-configuration"></a>Configurazione automatica dei dispositivi
 Il back-end della soluzione può usare le [configurazioni automatiche dei dispositivi](iot-hub-auto-device-config.md) per assegnare le proprietà desiderate a un set di [dispositivi gemelli](#device-twin) e segnalare lo stato usando metriche di sistema e metriche personalizzate. 
 
-## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-L'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md) è uno strumento di comando multipiattaforma open source basato sulla shell per creare e gestire le risorse in Microsoft Azure. Questa versione dell'interfaccia della riga di comando viene implementata usando Node.js.
+## <a name="azure-classic-cli"></a>Interfaccia della riga di comando classica di Azure
+L'[interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md) è uno strumento di comando multipiattaforma open source basato sulla shell per creare e gestire le risorse in Microsoft Azure. Questa versione dell'interfaccia della riga di comando deve essere usata per le sole distribuzioni classiche.
 
-## <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) è uno strumento di comando multipiattaforma open source basato sulla shell che consente di creare e gestire le risorse in Microsoft Azure. Questa versione di anteprima dell'interfaccia della riga di comando viene implementata usando Python.
+## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+L'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) è uno strumento di comando multipiattaforma open source basato sulla shell per creare e gestire le risorse in Microsoft Azure.
 
 
 ## <a name="azure-iot-device-sdks"></a>SDK dispositivo IoT Azure
@@ -185,8 +185,8 @@ Il [linguaggio di query di Hub IoT](iot-hub-devguide-query-language.md) è un li
 ## <a name="iot-solution-accelerators"></a>Acceleratori di soluzioni IoT
 Gli acceleratori di soluzioni Azure IoT raggruppano più servizi di Azure in soluzioni. Tali soluzioni consentono di iniziare a usare rapidamente implementazioni end-to-end di scenari IoT comuni. Per altre informazioni, vedere [Panoramica degli acceleratori di soluzioni di Azure IoT](../iot-accelerators/about-iot-accelerators.md).
 
-## <a name="the-iot-extension-for-azure-cli-20"></a>Estensione IoT dell'interfaccia della riga di comando di Azure 2.0
-[L'estensione IoT dell'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) è uno strumento multipiattaforma da riga di comando. Lo strumento consente di gestire i dispositivi nel [registro delle identità](#identity-registry), inviare e ricevere messaggi e file dai dispositivi e monitorare le operazioni dell'hub IoT.
+## <a name="the-iot-extension-for-azure-cli"></a>L'estensione IoT per l'interfaccia della riga di comando di Azure 
+[L'estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension) è uno strumento multipiattaforma da riga di comando. Lo strumento consente di gestire i dispositivi nel [registro delle identità](#identity-registry), inviare e ricevere messaggi e file dai dispositivi e monitorare le operazioni dell'hub IoT.
 
 ## <a name="job"></a>Processo
 Il back-end della soluzione può usare i [processi](iot-hub-devguide-jobs.md) per pianificare e tenere traccia delle attività in un set di dispositivi registrati con l'hub IoT. Le attività includono l'aggiornamento delle [proprietà desiderate](#desired-properties) di un dispositivo gemello, l'aggiornamento dei [tag](#tags) di un dispositivo gemello e la chiamata di [metodi diretti](#direct-method). [Hub IoT](#iot-hub) usa anche per eseguire [importazioni ed esportazioni](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) nel [registro delle identità](#identity-registry).

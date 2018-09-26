@@ -1,6 +1,6 @@
 ---
-title: Gestire record DNS in DNS di Azure usando l'interfaccia della riga di comando 2.0 | Microsoft Docs
-description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi dell'interfaccia della riga di comando 2.0 per le operazioni sui set di record e i record.
+title: Gestire record DNS in DNS di Azure tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure.
 services: dns
 documentationcenter: na
 author: vhorne
@@ -14,23 +14,23 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 41366f29ecf5dcd6ffe23148acd61100681620df
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963816"
 ---
-# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gestire record e recordset DNS in DNS di Azure con l'interfaccia della riga di comando 2.0
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gestire record e recordset DNS in DNS di Azure con l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-operations-recordsets-portal.md)
-> * [Interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md)
+> * [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-Questo articolo descrive come gestire i record DNS per la zona DNS usando l'interfaccia della riga di comando di Azure 2.0 multipiattaforma, disponibile per Windows, Mac e Linux. È anche possibile gestire i record DNS tramite [Azure PowerShell](dns-operations-recordsets.md) o il [portale di Azure](dns-operations-recordsets-portal.md).
+Questo articolo descrive come gestire i record DNS per la zona DNS usando l'interfaccia della riga di comando multipiattaforma di Azure, disponibile per Windows, Mac e Linux. È anche possibile gestire i record DNS tramite [Azure PowerShell](dns-operations-recordsets.md) o il [portale di Azure](dns-operations-recordsets-portal.md).
 
-Gli esempi contenuti in questo articolo presuppongono che l'utente abbia [installato l'interfaccia della riga di comando di Azure 2.0, eseguito l'accesso e creato una zona DNS](dns-operations-dnszones-cli.md).
+Gli esempi contenuti in questo articolo presuppongono che l'utente abbia [installato l'interfaccia della riga di comando di Azure, eseguito l'accesso e creato una zona DNS](dns-operations-dnszones-cli.md).
 
 ## <a name="introduction"></a>Introduzione
 

@@ -1,0 +1,62 @@
+items:
+- name: Documentazione di Esplora dati di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Informazioni su Esplora dati
+    href: data-explorer-overview.md
+- name: Guide introduttive
+  items:
+  - name: Creare un cluster - Portale di Azure
+    href: create-cluster-database-portal.md
+  - name: Inserire dati
+    items:
+    - name: Streaming di dati - Hub eventi
+      href: ingest-data-event-hub.md
+    - name: Invio in batch dei dati - Python
+      href: python-ingest-data.md
+    expanded: true
+  - name: Eseguire query sui dati
+    items:
+    - name: Interfaccia utente Web
+      href: web-query-data.md
+    - name: Python
+      href: python-query-data.md
+    expanded: true
+  expanded: true
+- name: Esercitazioni
+  items:
+  - name: Visualizzare i dati - Power BI
+    href: visualize-power-bi.md
+- name: Concetti
+  items:
+  - name: Panoramica dell'inserimento dati
+    href: ingest-data-overview.md
+- name: Guide alle procedure
+  items:
+  - name: Scrivere query
+    href: write-queries.md
+  - name: Inserire dati di esempio
+    href: ingest-sample-data.md
+  - name: Gestire le autorizzazioni per i database
+    href: manage-database-permissions.md
+  - name: Controllare l'integrità del cluster
+    href: check-cluster-health.md
+  - name: risoluzione dei problemi
+    items:
+    - name: Creazione di un cluster
+      href: troubleshoot-create-cluster.md
+    - name: Connessione a un cluster
+      href: troubleshoot-connect-cluster.md
+    - name: Uso di database e tabelle
+      href: troubleshoot-database-table.md
+- name: riferimento
+  items:
+  - name: Informazioni di riferimento sul linguaggio
+    href: https://aka.ms/kustolangref
+ms.openlocfilehash: 6373afdadf9d3916cb8e10be976d141ba55177cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964940"

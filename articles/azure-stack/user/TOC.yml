@@ -36,6 +36,14 @@ items:
     href: azure-stack-subscribe-services.md
   - name: Creare una macchina virtuale da un modello
     href: azure-stack-create-vm-template.md
+  - name: Creare una soluzione di apprendimento edge
+    href: azure-stack-solution-machine-learning.md
+  - name: Creare una soluzione analitica di dati di staging
+    href: azure-stack-solution-staged-data-analytics.md
+  - name: Creare soluzioni di scalabilità tra cloud con Azure
+    href: azure-stack-solution-cloud-burst.md
+  - name: Creare una soluzione di app con distribuzione geografica
+    href: azure-stack-solution-geo-distributed.md
 - name: Guide alle procedure
   items:
   - name: Usare il portale di Azure Stack
@@ -138,9 +146,11 @@ items:
       - name: Usando i profili delle versioni API
         href: azure-stack-version-profiles.md
         items:
+        - name: .NET
+          href: azure-stack-version-profiles-net.md
         - name: PowerShell
           href: azure-stack-version-profiles-powershell.md
-        - name: Interfaccia della riga di comando di Azure 2.0
+        - name: Interfaccia della riga di comando di Azure
           href: azure-stack-version-profiles-azurecli2.md
         - name: GO
           href: azure-stack-version-profiles-go.md
@@ -196,9 +206,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formazione e certificazione
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 56bcdb6606c09c7d81d52a44e6e36f7900ec82e9
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c4571c10617033cdfec2e89e0dc0fe124ec515a2
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366897"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181100"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c17d97e708c50d0670288eefdfde1b2d30e9fc19
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 52af3ada5d32a2cd6c3e7edb3ea5b4a693548cf8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184347"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954433"
 documentType: LandingData
 title: Documentazione delle macchine virtuali
 metadata:
@@ -77,6 +77,29 @@ sections:
         src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/cli.svg
       text: Interfaccia della riga di comando di Azure
       href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=/azure/virtual-machines/windows/toc.json
+- title: Sviluppare le proprie competenze con Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduzione al calcolo di Azure
+      href: /learn/modules/intro-to-azure-compute/
+      image:
+        src: /learn/achievements/intro-to-azure-compute.svg
+        href: /learn/modules/intro-to-azure-compute/
+    - title: Introduzione alle macchine virtuali di Azure
+      href: /learn/modules/intro-to-azure-virtual-machines/
+      image:
+        src: /learn/achievements/intro-to-azure-virtual-machines.svg
+        href: /learn/modules/intro-to-azure-virtual-machines/
+    - title: Aggiungere e ridimensionare dischi nelle macchine virtuali di Azure
+      href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
+      image:
+        src: /learn/achievements/add-and-size-disks-in-azure-virtual-machines.svg
+        href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-virtual-machines">Altre risorse di apprendimento interattivo</a>
 - title: Video di formazione gratuiti su PluralSight
   items:
   - type: list

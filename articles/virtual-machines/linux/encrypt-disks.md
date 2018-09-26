@@ -1,6 +1,6 @@
 ---
 title: Crittografare i dischi di una macchina virtuale Linux | Documentazione Microsoft
-description: Come crittografare i dischi virtuali in una VM di Linux per una maggiore sicurezza tramite l'interfaccia della riga di comando di Azure 2.0
+description: Come crittografare i dischi virtuali in una VM di Linux per una maggiore sicurezza tramite l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,19 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 75ec087536d6f833a9a2106b1fdf4ed1fd73ef8e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 044486424f8bcc9d66998f775154eff9c52e7d1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634621"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981230"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Come crittografare una macchina virtuale Linux in Azure
-Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali, i dischi virtuali e la macchina virtuale stessa possono essere crittografati. Le macchine virtuali vengono crittografate usando chiavi di crittografia protette in Azure Key Vault. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una VM di Linux tramite l'interfaccia della riga di comando di Azure 2.0. 
+
+Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali, i dischi virtuali e la macchina virtuale stessa possono essere crittografati. Le macchine virtuali vengono crittografate usando chiavi di crittografia protette in Azure Key Vault. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una macchina virtuale di Linux tramite l'interfaccia della riga di comando di Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.30 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.30 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="overview-of-disk-encryption"></a>Panoramica della crittografia dei dischi
 I dischi virtuali delle VM Linux vengono crittografati a riposo mediante [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Non è previsto alcun addebito per la crittografia dei dischi virtuali in Azure. Le chiavi di crittografia vengono archiviate nell'insieme di credenziali delle chiavi di Azure che usano la protezione del software oppure è possibile importare o generare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 di livello 2. È possibile esercitare il controllo su queste chiavi di crittografia e sul loro uso. Queste chiavi di crittografia vengono usate per crittografare e decrittografare i dischi virtuali collegati alla VM. Un'entità servizio di Azure Active Directory offre un meccanismo protetto per il rilascio delle chiavi di crittografia all'accensione e allo spegnimento delle VM.

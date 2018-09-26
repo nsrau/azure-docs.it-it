@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44cc582bfa0a6940de7eeea9b54e3979735c07e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726221"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998239"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione, stessa sottoscrizione
 
@@ -81,64 +81,66 @@ Per creare un peering di rete virtuale, è possibile usare il [portale di Azure]
 
 ## <a name="cli"></a>Creare un peering - Interfaccia della riga di comando di Azure
 
-1. [Installare](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) l'interfaccia della riga di comando di Azure 1.0 per creare la rete virtuale con modello di distribuzione classico.
-2. Aprire una sessione di comando e accedere ad Azure usando il comando `azure login`.
-3. Eseguire l'interfaccia della riga di comando in modalità di gestione del servizio immettendo il comando `azure config mode asm`.
-4. Per creare una rete virtuale con modello di distribuzione classico, immettere il comando seguente:
- 
-    ```azurecli
-    azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
-    ```
+Completare i seguenti passaggi con l'interfaccia della riga di comando classica di Azure e l'interfaccia della riga di comando di Azure. È possibile completare i passaggi da Azure Cloud Shell selezionando il pulsante **Prova** in uno dei seguenti passaggi oppure installando l'[interfaccia della riga di comando classica](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e l'[interfaccia della riga di comando](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ed eseguendo i comandi nel computer locale.
 
-5. Creare un gruppo di risorse e una rete virtuale con Resource Manager. È possibile usare l'interfaccia della riga di comando 1.0 o 2.0 ([installare](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). In questa esercitazione, l'interfaccia della riga di comando 2.0 viene usata per creare la rete virtuale con Resource Manager, poiché è necessaria per creare il peering. Eseguire lo script dell'interfaccia della riga di comando bash seguente dal computer locale con l'interfaccia della riga di comando 2.0.4 o una versione successiva installata. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando bash nel client Windows, vedere [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows). È anche possibile eseguire lo script con Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **Prova** nello script seguente per richiamare una Cloud Shell con cui è possibile accedere all'account Azure personale. Per eseguire lo script, fare clic sul pulsante **Copia** e incollarne il contenuto nella Cloud Shell, quindi premere `Enter`.
+1. Se si usa Cloud Shell, andare al passaggio 2, poiché Cloud Shell esegue automaticamente l'accesso ad Azure. Aprire una sessione di comando e accedere ad Azure usando il comando `azure login`.
+2. Eseguire l'interfaccia della riga di comando in modalità di gestione del servizio immettendo il comando `azure config mode asm`.
+3. Per creare una rete virtuale con modello di distribuzione classico, immettere il comando seguente:
 
-    ```azurecli-interactive
-    #!/bin/bash
+   ```azurecli-interactive
+   azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
+   ```
 
-    # Create a resource group.
-    az group create \
-      --name myResourceGroup \
-      --location eastus
+4. Eseguire il seguente script dell'interfaccia della riga di comando bash usando l'interfaccia della riga di comando, non l'interfaccia della riga di comando classica. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando bash nel computer Windows, vedere [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows).
 
-    # Create the virtual network (Resource Manager).
-    az network vnet create \
-      --name myVnet1 \
-      --resource-group myResourceGroup \
-      --location eastus \
-      --address-prefix 10.0.0.0/16
-    ```
+   ```azurecli-interactive
+   #!/bin/bash
 
-6. Creare un peering di rete virtuale tra due reti virtuali create con modelli di distribuzione diversi. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<subscription id>` con l'ID della sottoscrizione. Se l'ID della sottoscrizione non è noto, immettere il comando `az account show`. Il valore per **id** nell'output è l'ID della sottoscrizione. Incollare lo script modificato nella sessione dell'interfaccia della riga di comando e quindi premere `Enter`.
+   # Create a resource group.
+   az group create \
+     --name myResourceGroup \
+     --location eastus
 
-    ```azurecli-interactive
-    # Get the id for VNet1.
-    vnet1Id=$(az network vnet show \
-      --resource-group myResourceGroup \
-      --name myVnet1 \
-      --query id --out tsv)
+   # Create the virtual network (Resource Manager).
+   az network vnet create \
+     --name myVnet1 \
+     --resource-group myResourceGroup \
+     --location eastus \
+     --address-prefix 10.0.0.0/16
+   ```
 
-    # Peer VNet1 to VNet2.
-    az network vnet peering create \
-      --name myVnet1ToMyVnet2 \
-      --resource-group myResourceGroup \
-      --vnet-name myVnet1 \
-      --remote-vnet-id /subscriptions/<subscription id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2 \
-      --allow-vnet-access
-    ```
-7. Dopo aver eseguito lo script, rivedere i peering di ciascuna rete virtuale creata con Resource Manager. Copiare il comando seguente, incollarlo nella sessione dell'interfaccia della riga di comando e quindi premere `Enter`:
+5. Creare un peering di rete virtuale tra due reti virtuali create con modelli di distribuzione diversi mediante l'interfaccia della riga di comando. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<subscription id>` con l'ID della sottoscrizione. Se l'ID della sottoscrizione non è noto, immettere il comando `az account show`. Il valore per **id** nell'output è l'ID della sottoscrizione. Incollare lo script modificato nella sessione dell'interfaccia della riga di comando e quindi premere `Enter`.
 
-    ```azurecli-interactive
-    az network vnet peering list \
-      --resource-group myResourceGroup \
-      --vnet-name myVnet1 \
-      --output table
-    ```
-    
-    L'output mostra **Connesso** nella colonna **PeeringState**. 
+   ```azurecli-interactive
+   # Get the id for VNet1.
+   vnet1Id=$(az network vnet show \
+     --resource-group myResourceGroup \
+     --name myVnet1 \
+     --query id --out tsv)
 
-    Tutte le risorse di Azure create in una delle reti virtuali possono ora comunicare tra loro tramite i relativi indirizzi IP. Se si usa la risoluzione dei nomi di Azure predefinita per le reti virtuali, le risorse contenute nelle reti virtuali non sono in grado di risolvere i nomi tra le reti virtuali. Se si intende risolvere i nomi tra le reti virtuali in peering, è necessario creare un proprio server DNS. Per informazioni sulla configurazione, vedere [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-8. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
-9. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-cli) in questo articolo.
+   # Peer VNet1 to VNet2.
+   az network vnet peering create \
+     --name myVnet1ToMyVnet2 \
+     --resource-group myResourceGroup \
+     --vnet-name myVnet1 \
+     --remote-vnet-id /subscriptions/<subscription id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2 \
+     --allow-vnet-access
+   ```
+
+6. Dopo aver eseguito lo script, rivedere i peering di ciascuna rete virtuale creata con Resource Manager. Copiare il comando seguente, incollarlo nella sessione dell'interfaccia della riga di comando e quindi premere `Enter`:
+
+   ```azurecli-interactive
+   az network vnet peering list \
+     --resource-group myResourceGroup \
+     --vnet-name myVnet1 \
+     --output table
+   ```
+
+   L'output mostra **Connesso** nella colonna **PeeringState**.
+
+   Tutte le risorse di Azure create in una delle reti virtuali possono ora comunicare tra loro tramite i relativi indirizzi IP. Se si usa la risoluzione dei nomi di Azure predefinita per le reti virtuali, le risorse contenute nelle reti virtuali non sono in grado di risolvere i nomi tra le reti virtuali. Se si intende risolvere i nomi tra le reti virtuali in peering, è necessario creare un proprio server DNS. Per informazioni sulla configurazione, vedere [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+7. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
+8. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-cli) in questo articolo.
 
 ## <a name="powershell"></a>Creare un peering - PowerShell
 
@@ -214,15 +216,15 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
 
 ### <a name="delete-cli"></a>
 
-1. Usare l'interfaccia della riga di comando di Azure 2.0 per eliminare la rete virtuale creata con Resource Manager con il comando seguente:
+1. Usare l'interfaccia della riga di comando di Azure per eliminare la rete virtuale (Resource Manager) con il seguente comando:
 
     ```azurecli-interactive
     az group delete --name myResourceGroup --yes
     ```
 
-2. Usare l'interfaccia della riga di comando di Azure 1.0 per eliminare la rete virtuale creata con distribuzione classica con il comando seguente:
+2. Usare l'interfaccia della riga di comando classica di Azure per eliminare la rete virtuale (classica) con il seguente comando:
 
-    ```azurecli
+    ```azurecli-interactive
     azure config mode asm
 
     azure network vnet delete --vnet myVnet2 --quiet

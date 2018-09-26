@@ -19,6 +19,8 @@ items:
     href: traffic-manager-configure-weighted-routing-method.md
   - name: Indirizzare il traffico a un endpoint prioritario
     href: traffic-manager-configure-priority-routing-method.md
+  - name: Indirizzare il traffico in base alla subnet dell'utente
+    href: tutorial-traffic-manager-subnet-routing.md
 - name: Esempi
   items:
   - name: Interfaccia della riga di comando di Azure
@@ -54,6 +56,10 @@ items:
   items:
   - name: Configurare il routing per le prestazioni in Gestione traffico
     href: traffic-manager-configure-performance-routing-method.md
+  - name: Configurare il routing multivalore in Gestione traffico
+    href: traffic-manager-configure-multivalue-routing-method.md
+  - name: Configurare il routing per subnet in Gestione traffico
+    href: traffic-manager-configure-subnet-routing-method.md
   - name: Inviare le misurazioni utente effettivo a Gestione traffico
     items:
     - name: Uso di Visual Studio SDK
@@ -124,9 +130,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
   - name: Video
     href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
-ms.openlocfilehash: 98f9cd75227342876ab05bec7591ebd6f2d769d6
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: e83620f2a1d72483979b545c2805927916d7f788
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41927203"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954365"

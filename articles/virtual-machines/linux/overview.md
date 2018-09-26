@@ -15,20 +15,20 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6ed1ef6019e339768c4ba6a62d8b4d99d844f254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911319"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949526"
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
-Microsoft Azure è una raccolta in continua crescita di servizi cloud pubblici integrati, che includono analisi, macchine virtuali, database, dispositivi mobili, rete, archiviazione, servizi cloud e Web&mdash;, ideali per l'hosting delle soluzioni.  Microsoft Azure fornisce una piattaforma di elaborazione scalabile che consente di pagare solo ciò che si usa, quando necessario, senza dover investire in hardware locale.  Azure è subito pronto quando occorre aumentare le prestazioni e le istanze delle soluzioni per ottenere la massima scalabilità necessaria per soddisfare le esigenze dei clienti.
+Microsoft Azure è una raccolta in continua crescita di servizi cloud pubblici integrati, che includono analisi, macchine virtuali, database, dispositivi mobili, rete, archiviazione, servizi cloud e Web, ideali per l'hosting delle soluzioni.  Microsoft Azure fornisce una piattaforma di elaborazione scalabile che consente di pagare solo ciò che si usa, quando necessario, senza dover investire in hardware locale.  Azure è subito pronto quando occorre aumentare le prestazioni e le istanze delle soluzioni per ottenere la massima scalabilità necessaria per soddisfare le esigenze dei clienti.
 
 Se si ha familiarità con le varie caratteristiche di Amazon AWS, è possibile esaminare il [documento di mapping delle definizioni](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)di confronto tra Visual Studio Azure e AWS.
 
 ## <a name="regions"></a>Regioni
-Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in tutto il mondo.  Una "area" rappresenta più data center in una singola area geografica. A novembre 2017 Azure dispone di 36 aree con disponibilità generale in tutto il mondo e sono state annunciate altre 6 aree aggiuntive. L'elenco aggiornato delle aree esistenti e annunciate di recente è disponibile nella pagina seguente:
+Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in tutto il mondo.  Una "area" rappresenta più data center in una singola area geografica. A partire da agosto 2018 Azure dispone di 42 aree con disponibilità generale in tutto il mondo e sono state annunciate altre 12 aree aggiuntive: molte più aree globali di qualsiasi altro provider di servizi cloud. L'elenco aggiornato delle aree esistenti e annunciate di recente è disponibile nella pagina seguente:
 
 * [Aree di Azure](https://azure.microsoft.com/regions/)
 
@@ -37,7 +37,7 @@ Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in t
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Il servizio Managed Disks gestisce in background le operazioni di creazione e gestione dell'account di archiviazione di Azure ed elimina la necessità di preoccuparsi dei limiti di scalabilità dell'account di archiviazione. Specificare le dimensioni del disco e il livello di prestazioni, Standard o Premium, e Azure si occuperà della creazione e della gestione del disco. Durante l'aggiunta di dischi o il ridimensionamento della macchina virtuale non è necessario preoccuparsi dello spazio di archiviazione usato. Se si creano nuove macchine virtuali, [usare l'interfaccia della riga di comando di Azure 2.0](quick-create-cli.md) o il portale di Azure per creare macchine virtuali con dischi dati e del sistema operativo gestiti. Se si dispone di macchine virtuali con dischi non gestiti, è possibile [convertire le macchine virtuali per eseguire il backup con Managed Disks](convert-unmanaged-to-managed-disks.md).
+Il servizio Managed Disks gestisce in background le operazioni di creazione e gestione dell'account di archiviazione di Azure ed elimina la necessità di preoccuparsi dei limiti di scalabilità dell'account di archiviazione. Specificare le dimensioni del disco e il livello di prestazioni, Standard o Premium, e Azure si occuperà della creazione e della gestione del disco. Durante l'aggiunta di dischi o il ridimensionamento della macchina virtuale non è necessario preoccuparsi dello spazio di archiviazione usato. Se si creano nuove macchine virtuali, [usare l'interfaccia della riga di comando di Azure](quick-create-cli.md) o il portale di Azure per creare macchine virtuali con dischi dati e del sistema operativo gestiti. Se si dispone di macchine virtuali con dischi non gestiti, è possibile [convertire le macchine virtuali per eseguire il backup con Managed Disks](convert-unmanaged-to-managed-disks.md).
 
 È anche possibile gestire le immagini personalizzate in un unico account di archiviazione per ogni area di Azure e usarle per creare centinaia di macchine virtuali nella stessa sottoscrizione. Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../linux/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
 
@@ -73,7 +73,7 @@ Microsoft collabora con i partner per verificare che le immagini disponibili ven
 
 * Linux in Azure - [Distribuzioni supportate](endorsed-distros.md)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
@@ -91,7 +91,7 @@ Per iniziare a usare Azure, è necessario un account Azure, aver installato l'in
 Il primo passaggio quando si usa il cloud di Azure è effettuare l'iscrizione per un account Azure.  Per iniziare, accedere alla pagina relativa alla [creazione di un account Azure](https://azure.microsoft.com/pricing/free-trial/) .
 
 ### <a name="install-the-cli"></a>Installare l'interfaccia della riga di comando
-Con il nuovo account di Azure, è possibile iniziare a usare immediatamente il portale di Azure, che è un pannello di amministrazione basato sul Web.  Per gestire il cloud di Azure tramite la riga di comando, installare `azure-cli`.  Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) nella workstation Mac o Linux.
+Con il nuovo account di Azure, è possibile iniziare a usare immediatamente il portale di Azure, che è un pannello di amministrazione basato sul Web.  Per gestire il cloud di Azure tramite la riga di comando, installare `azure-cli`.  Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) sulla workstation Mac o Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
 A questo punto si dispone di un account Azure, del portale Web di Azure e dell'interfaccia della riga di comando di Azure.  Il passaggio successivo consiste nel creare una coppia di chiavi SSH per accedere tramite SSH in Linux senza specificare una password.  [Creare le chiavi SSH in Linux e Mac](mac-create-ssh-keys.md) per abilitare gli accessi senza password e migliorare la sicurezza.

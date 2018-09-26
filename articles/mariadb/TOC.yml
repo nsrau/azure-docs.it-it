@@ -1,0 +1,122 @@
+items:
+- name: Documentazione di Database di Azure per MariaDB
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Database di Azure per MariaDB
+    href: overview.md
+- name: Guide introduttive
+  items:
+  - name: 'Creare un database: portale'
+    href: quickstart-create-mariadb-server-database-using-azure-portal.md
+  - name: 'Creare un database: interfaccia della riga di comando di Azure'
+    href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: Connettersi ed eseguire query
+    items:
+    - name: MySQL Workbench
+      href: connect-workbench.md
+  expanded: true
+- name: Esercitazioni
+  items:
+  - name: 1. Progettare un database
+    items:
+    - name: Portale di Azure
+      href: tutorial-design-database-using-portal.md
+- name: Concetti
+  items:
+  - name: Database e server
+    items:
+    - name: Server
+      href: concepts-servers.md
+    - name: Versioni supportate
+      href: concepts-supported-versions.md
+    - name: Log del server
+      href: concepts-server-logs.md
+    - name: Disponibilità elevata
+      href: concepts-high-availability.md
+  - name: Risorse
+    items:
+    - name: Piani tariffari
+      href: concepts-pricing-tiers.md
+    - name: Limiti
+      href: concepts-limits.md
+  - name: Accesso ai dati e sicurezza
+    items:
+    - name: Regole del firewall
+      href: concepts-firewall-rules.md
+    - name: Configurazione di SSL
+      href: concepts-ssl-connection-security.md
+  - name: Continuità aziendale
+    items:
+    - name: Panoramica
+      href: concepts-business-continuity.md
+    - name: Backup e ripristino
+      href: concepts-backup.md
+  - name: Replica
+    items:
+    - name: Replica dei dati in ingresso
+      href: concepts-data-in-replication.md
+- name: Guide alle procedure
+  items:
+  - name: Regole del firewall
+    items:
+    - name: Portale di Azure
+      href: howto-manage-firewall-portal.md
+  - name: Ripristinare un server
+    items:
+    - name: Portale di Azure
+      href: howto-restore-server-portal.md
+  - name: Eseguire la migrazione di un database
+    items:
+    - name: Dump e ripristino
+      href: howto-migrate-dump-restore.md
+  - name: Connettere le applicazioni
+    items:
+    - name: Creare gli utenti
+      href: howto-create-users.md
+    - name: Stringhe di connessione
+      href: howto-connection-string.md
+    - name: Configurare SSL
+      href: howto-configure-ssl.md
+  - name: Configurare i parametri del server
+    items:
+    - name: Portale di Azure
+      href: howto-server-parameters.md
+  - name: Accesso ai registri server
+    items:
+    - name: Portale di Azure
+      href: howto-configure-server-logs-portal.md
+  - name: Replica
+    items:
+    - name: Configurare la replica dei dati in ingresso
+      href: howto-data-in-replication.md
+- name: riferimento
+  items:
+  - name: API REST
+    href: /rest/api/mariadb
+  - name: Stored procedure per la replica di dati in ingresso
+    href: reference-data-in-stored-procedures.md
+- name: Risorse
+  items:
+  - name: Modelli di distribuzione
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Prezzi
+    href: https://azure.microsoft.com/pricing/details/mariadb/
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-mariadb
+  - name: Richiedere una funzionalità
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Aree di disponibilità
+    href: https://azure.microsoft.com/regions/services/
+  - name: Opzioni di supporto
+    href: https://azure.microsoft.com/support/options/
+ms.openlocfilehash: a1b24ca3800866f00a97647d59e1f7353a0bdcc9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958493"

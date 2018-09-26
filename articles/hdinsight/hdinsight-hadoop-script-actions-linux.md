@@ -3,18 +3,18 @@ title: Sviluppo di azioni script con HDInsight basati su Linux - Azure
 description: Informazioni su come usare script Bash per personalizzare cluster HDInsight basati su Linux. La funzionalità di azione script in HDInsight consente di eseguire script durante o dopo la creazione del cluster. Gli script possono essere usati per modificare le impostazioni di configurazione del cluster o per installare software aggiuntivo.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
-ms.openlocfilehash: 35d54970e41a7e1533f3d5adc09fc60dc1bbd68d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9a10620e3a388fa47076afd54e1789607e5ca47e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600490"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986252"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -33,7 +33,7 @@ L'azione script può essere applicata usando i metodi seguenti:
 | --- |:---:|:---:|
 | Portale di Azure |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
-| Interfaccia della riga di comando di Azure 1.0 |&nbsp; |✓ |
+| Interfaccia della riga di comando classica di Azure |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
 | Modello di Azure Resource Manager |✓ |&nbsp; |
 

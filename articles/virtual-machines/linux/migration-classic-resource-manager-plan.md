@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1efe5a12da665901cdf1d09d45c36a1e3272c367
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653502"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948673"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione. 
@@ -122,7 +122,7 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
     - Gruppi di sicurezza di rete
     - Tabelle di route
 
-    È possibile controllare le quote correnti Azure Resource Manager usando i seguenti comandi con la versione più recente dell'interfaccia della riga di comando 2.0.
+    È possibile controllare le quote correnti Azure Resource Manager usando i seguenti comandi con la versione più recente dell'interfaccia della riga di comando di Azure.
 
     **Calcolo** *(memoria centrale, set di disponibilità)*
 

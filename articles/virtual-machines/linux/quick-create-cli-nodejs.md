@@ -1,6 +1,6 @@
 ---
-title: Creare una VM Linux usando l'interfaccia della riga di comando di Azure 1.0 |Microsoft Docs
-description: Creare una VM Linux in Azure tramite l'interfaccia della riga di comando 1.0
+title: Creare una VM Linux usando l'interfaccia della riga di comando classica di Azure | Microsoft Docs
+description: Creare una VM Linux in Azure tramite l'interfaccia della riga di comando classica di Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: ea9eab1a02a29005917848ed54ab8ba160b89b63
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 94362256dfb5b8deff233f7c575d0720f29eec5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30901810"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987852"
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Creare una VM Linux usando l'interfaccia della riga di comando di Azure 1.0
+# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Creare una VM Linux usando l'interfaccia della riga di comando classica di Azure
 
 Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux in Azure usando il comando `azure vm quick-create` nell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una VM all'interno di un'infrastruttura di base protetta, che può essere usata per creare un prototipo o testare un concetto rapidamente.
 
 > [!NOTE]
-Per creare una VM usando l'interfaccia della riga di comando di Azure 2.0, vedere [Creare una VM con l'interfaccia della riga di comando di Azure](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per creare una VM usando l'interfaccia della riga di comando di Azure, vedere [Creare una VM con l'interfaccia della riga di comando di Azure](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

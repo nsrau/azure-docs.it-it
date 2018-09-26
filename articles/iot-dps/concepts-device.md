@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: bd77a56acee948995bb2fcbb5beea60f69cda9ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 354ef48f7935536864cde9dc0d9a130fa5aeb865
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630154"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972862"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concetti relativi ai dispositivi del servizio Device Provisioning in hub IoT
 
@@ -28,9 +28,10 @@ Il meccanismo di attestazione è il metodo usato per verificare l'identità di u
 > [!NOTE]
 > L'hub IoT usa lo "schema di autenticazione" per un concetto simile in tale servizio.
 
-Il servizio Device Provisioning supporta due tipi di attestazione:
+Il servizio Device Provisioning supporta i seguenti tipi di attestazione:
 * **Certificati X.509** basati sul flusso di autenticazione del certificato X.509 standard.
 * **Trusted Platform Module (TPM)** basato su una richiesta di verifica nonce, che usa lo standard TPM relativo alle chiavi per presentare un token di firma di accesso condiviso (SAS). Non è necessario un modulo TPM fisico nel dispositivo, ma il servizio prevede di eseguire l'attestazione usando la chiave di verifica dell'autenticità in base alle [specifiche TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Chiave simmetrica** basata sui [Token di autenticazione](../iot-hub/iot-hub-devguide-security.md#security-tokens) della sulla firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per maggiori informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
 
 ## <a name="hardware-security-module"></a>Modulo di protezione hardware
 

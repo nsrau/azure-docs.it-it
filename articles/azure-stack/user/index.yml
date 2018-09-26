@@ -1,10 +1,16 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: e10dbc5ef0899134a1d629a058412b1eb36df335
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163410"
 documentType: LandingData
 title: Documentazione dell'utente di Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: Documentazione di Azure Stack - Esercitazioni e informazioni di riferimento sulle API
-  description: Informazioni su come utilizzare i servizi di Azure Stack e come compilare App per lo Stack di Azure.
+  description: Informazioni su come usare servizi di Azure Stack e su come creare App per Azure Stack.
   services: azure-stack
   author: jeffgilb
   manager: femila
@@ -12,16 +18,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/13/2018
+  ms.date: 09/25/2018
   ms.author: jeffgilb
-  ms.openlocfilehash: 4b258290b197ff4fdee9490012a36519b041622c
-  ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-  ms.translationtype: MT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 05/04/2018
-  ms.locfileid: "33205432"
 abstract:
-  description: Azure Stack è una piattaforma cloud ibrida che permette di usare i servizi di Azure dal data center aziendale o del provider di servizi. Azure Stack permette agli sviluppatori di compilare app e quindi distribuirle in Azure Stack o in Azure. In alternativa è possibile compilare app veramente ibride che sfruttano la connettività tra un cloud di Azure Stack e Azure. Questo articolo contiene informazioni su come creare le risorse e distribuire le app con esercitazioni e guide introduttive.<br/><br/>Se si ha un operatore di Stack di Azure che gestisce l'infrastruttura e offre servizi, vedere il nostro <a href="/azure/azure-stack/">documentazione operatore</a>.<br/><br/>Se non ha un operatore di Azure Stack interessato in di Azure Stack Development Kit (ASDK), una distribuzione a nodo singolo dello Stack di Azure che è possibile scaricare e usare gratuitamente, vedere il nostro <a href="/azure/azure-stack/asdk">documentazione ASDK</a>.
+  description: Azure Stack è una piattaforma cloud ibrida che permette di usare i servizi di Azure dal data center aziendale o del provider di servizi. Azure Stack permette agli sviluppatori di compilare app e quindi distribuirle in Azure Stack o in Azure. In alternativa è possibile compilare app veramente ibride che sfruttano la connettività tra un cloud di Azure Stack e Azure. Questo articolo contiene informazioni su come creare le risorse e distribuire le app con esercitazioni e guide introduttive.<br/><br/>Se si ha un operatore di Azure Stack che gestisce l'infrastruttura e offre servizi, vedere la <a href="/azure/azure-stack/">documentazione dell'operatore</a>.<br/><br/>Se non ha un operatore di Azure Stack interessato in di Azure Stack Development Kit (ASDK), una distribuzione a nodo singolo di Azure Stack che è possibile scaricare e usare gratuitamente, vedere la <a href="/azure/azure-stack/asdk">documentazione ASDK</a>.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
@@ -62,13 +62,19 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Distribuire le applicazioni tra Azure e Azure Stack.
+    text: Distribuire le applicazioni in Azure e Azure Stack.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Distribuire app in Azure Stack e Azure</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-identity">Configurare identità cloud ibrido con le applicazioni di Azure e Azure Stack</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-connectivity">Configurare la connettività di cloud ibrido con Azure e Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-identity">Configurare identità del cloud ibrido con le applicazioni di Azure e Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-connectivity">Configurare la connettività cloud ibrida con Azure e Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-machine-learning">Creare una bordo soluzione di machine learning con Azure e Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">Creare una soluzione analitica di dati di staging con Azure e Azure Stack </a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">Creare soluzioni di scalabilità tra cloud con Azure</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">Creare una soluzione di app con distribuzione geografica con Azure e Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-sql">Creare il database SQL a disponibilità elevata</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-mysql">Creare il database MySQL a disponibilità elevata</a>
 - title: Riferimenti
   items:
   - type: list
@@ -76,4 +82,4 @@ sections:
     className: cardsD
     items:
     - title: Riga di comando
-      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">PowerShell per Azure Stack</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">Stack Azure CLI</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">PowerShell per Azure Stack</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">Comando di Azure Stack</a></p>

@@ -1,6 +1,6 @@
 ---
 title: Espandere i dischi rigidi virtuali in una macchina virtuale Linux in Azure | Microsoft Docs
-description: Informazioni su come espandere i dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando 2.0 di Azure
+description: Informazioni su come espandere i dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -14,21 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0c2d4d1413b6cfd0b5e457e720b59c6c7b575092
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421189"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974545"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Procedura per espandere i dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
-Le dimensioni predefinite del disco rigido virtuale per il sistema operativo sono in genere di 30 GB in una VM Linux in Azure. È possibile [aggiungere dischi dati](add-disk.md) per aumentare lo spazio di archiviazione, ma è anche possibile espandere un disco dati esistente. Questo articolo illustra come espandere i dischi gestiti di una macchina virtuale Linux tramite l'interfaccia della riga di comando 2.0 di Azure. 
+
+Le dimensioni predefinite del disco rigido virtuale per il sistema operativo sono in genere di 30 GB in una VM Linux in Azure. È possibile [aggiungere dischi dati](add-disk.md) per aumentare lo spazio di archiviazione, ma è anche possibile espandere un disco dati esistente. Questo articolo illustra come espandere i dischi gestiti di una macchina virtuale Linux mediante l'interfaccia della riga di comando di Azure. 
 
 > [!WARNING]
 > Assicurarsi sempre di eseguire il backup dei dati prima di eseguire operazioni di ridimensionamento dei dischi. Per altre informazioni, vedere [Eseguire il backup di macchine virtuali Linux in Azure](tutorial-backup-vms.md).
 
 ## <a name="expand-azure-managed-disk"></a>Creare un disco gestito di Azure
-Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index#az_login).
+Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index#az_login).
 
 Questo articolo richiede una VM esistente in Azure con almeno un disco dati collegato e preparato. Se non si ha già una VM da usare, vedere [Creare e preparare una VM con dischi dati](tutorial-manage-disks.md#create-and-attach-disks).
 

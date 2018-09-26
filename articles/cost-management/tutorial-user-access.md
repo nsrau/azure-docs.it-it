@@ -1,29 +1,29 @@
 ---
-title: 'Esercitazione: Assegnare un accesso in Gestione costi di Azure | Microsoft Docs'
-description: In questa esercitazione si apprenderà come assegnare un accesso ai dati di gestione costi con account utente che definiscono i livelli di accesso alle entità.
+title: 'Esercitazione: Assegnare un accesso in Azure con Cloudyn | Microsoft Docs'
+description: In questa esercitazione si apprenderà come assegnare un accesso ai dati di Cloudyn con account utente che definiscono i livelli di accesso alle entità.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/10/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188183"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957470"
 ---
-# <a name="tutorial-assign-access-to-cost-management-data"></a>Esercitazione: Assegnare l'accesso ai dati di gestione costi
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>Esercitazione: Assegnare un accesso ai dati di Cloudyn
 
-L'accesso ai dati di Gestione dei costi è fornito per utente o gestione di entità. Gli account utente Cloudyn determinano l'accesso a *entità* e le funzioni amministrative. Esistono due tipi di accesso: amministratore e utente. A meno che non sia modificato per ogni utente, l'accesso amministrativo consente all'utente di usare senza restrizioni tutte le funzioni del portale Cloudyn, tra cui: gestione degli utenti, la gestione degli elenchi di destinatari e accesso all'entità radice per tutti i dati di entità. L'accesso utente consente agli utenti finali di visualizzare e creare report usando l'accesso di cui dispongono ai dati di entità.
+L'accesso ai dati di Cloudyn è fornito per utente o gestione di entità. Gli account utente Cloudyn determinano l'accesso a *entità* e le funzioni amministrative. Esistono due tipi di accesso: amministratore e utente. A meno che non sia modificato per ogni utente, l'accesso amministrativo consente all'utente di usare senza restrizioni tutte le funzioni del portale Cloudyn, tra cui: gestione degli utenti, la gestione degli elenchi di destinatari e accesso all'entità radice per tutti i dati di entità. L'accesso utente consente agli utenti finali di visualizzare e creare report usando l'accesso di cui dispongono ai dati di entità.
 
 Le entità vengono usate in modo da riflettere la struttura gerarchica dell'organizzazione e consentono di identificare reparti, divisioni e team dell'organizzazione in Cloudyn. La gerarchia delle entità consente di verificare in modo accurato la spesa per le entità.
 
-Al momento della registrazione dell'account o del contratto di Azure, in Cloudyn è stato creato un account con autorizzazione di amministratore, in modo da poter eseguire tutti i passaggi in questa esercitazione. Questa esercitazione illustra l'accesso ai dati di gestione dei costi, incluso la gestione utente e la gestione di entità. Si apprenderà come:
+Al momento della registrazione dell'account o del contratto di Azure, in Cloudyn è stato creato un account con autorizzazione di amministratore, in modo da poter eseguire tutti i passaggi in questa esercitazione. Questa esercitazione illustra l'accesso ai dati di Cloudyn, incluse la gestione utente e la gestione di entità. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un utente con accesso amministrativo
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>prerequisiti
 
 - È necessario disporre di un account Azure.
-- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
+- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
 
 ## <a name="create-a-user-with-admin-access"></a>Creare un utente con accesso amministrativo
 
@@ -47,10 +47,10 @@ Anche se si dispone già di un accesso amministrativo, lo stesso potrebbe essere
 Immettere le informazioni necessarie relative all'utente. L'**ID di accesso** deve essere un indirizzo di posta elettronica valido. Scegliere le autorizzazioni per consentire la Gestione utenti in modo che l'utente possa creare e modificare altri utenti. La gestione degli elenchi di destinatari consente all'utente di modificare gli elenchi di destinatari. Selezionando **Notify user by email** (Notifica utente tramite posta elettronica), all'utente verrà inviato tramite posta elettronica da Cloudyn un collegamento con informazioni di accesso. L'utente imposta una password al primo accesso.
 
 In **User has admin access** (L'utente dispone di un accesso amministrativo), viene selezionata l'entità radice dell'organizzazione. Lasciare la radice selezionata e salvare le informazioni utente. La selezione dell'entità radice consente all'utente di disporre dell'autorizzazione di amministratore non solo per l'entità radice nell'albero, ma anche per tutte le entità che si trovano sotto di essa.  
-  ![aggiungere un nuovo utente con accesso amministrativo](.\media\tutorial-user-access\new-admin-access.png)
+  ![Aggiungere un nuovo utente con accesso amministrativo](.\media\tutorial-user-access\new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Creare un utente con accesso utente
-Gli utenti tipici che richiedono l'accesso a dati di gestione dei costi come dashboard e report devono disporre di un accesso utente per visualizzarli. Creare un nuovo utente con accesso utente simile a quello creato con accesso amministrativo, con le differenze seguenti:
+Gli utenti tipici che richiedono l'accesso a dati di Cloudyn, come dashboard e report, devono disporre di un accesso utente per visualizzarli. Creare un nuovo utente con accesso utente simile a quello creato con accesso amministrativo, con le differenze seguenti:
 
 - Deselezionare **Allow User Management** (Consenti gestione utente), **Allow Recipient lists Management** (Consenti gestione elenchi di utenti) e deselezionare tutto nell'elenco **User has admin access** (L'utente dispone dell'accesso amministrativo).
 - Selezionare le entità a cui l'utente deve accedere nell'elenco **User has user access** (L'utente dispone di un accesso utente).
@@ -58,7 +58,7 @@ Gli utenti tipici che richiedono l'accesso a dati di gestione dei costi come das
 
 ![aggiungere un nuovo utente con accesso utente](.\media\tutorial-user-access\new-user-access.png)
 
-Per guardare un video di esercitazione sull'aggiunta di utenti, vedere [Aggiungere utenti in Gestione costi di Azure](https://youtu.be/Nzn7GLahx30).
+Per guardare un video di esercitazione sull'aggiunta di utenti, vedere [Aggiungere utenti in Cloudyn](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="delete-a-user"></a>Eliminare un utente
 
@@ -88,11 +88,11 @@ Al momento della registrazione del contratto o dell'account di Azure con Cloudyn
 
 Nel portale di Cloudyn fare clic sul simbolo a forma di ingranaggio in alto a destra e selezionare **Cloud Accounts** (Account cloud). Si inizierà con una singola entità (radice), per poi compilare la struttura ad albero a partire da essa. Di seguito è riportato un esempio di una gerarchia di entità che potrebbe somigliare a molte organizzazioni IT dopo avere completato la struttura ad albero:
 
-![struttura ad albero di entità](.\media\tutorial-user-access\entity-tree.png)
+![Struttura ad albero di entità](.\media\tutorial-user-access\entity-tree.png)
 
 Accanto a **Entità**, fare clic su **Aggiungi entità**. Immettere le informazioni sulla persona o sul reparto che si desidera aggiungere. I campi **Nome e cognome** e **Posta elettronica** non devono corrispondere a utenti esistenti. Per visualizzare un elenco di livelli di accesso, cercare *Aggiunta di un'entità* nella Guida.
 
-![aggiungi entità](.\media\tutorial-user-access\add-entity.png)
+![Aggiungi entità](.\media\tutorial-user-access\add-entity.png)
 
 Al termine, **salvare** l'entità.
 
@@ -114,13 +114,13 @@ Nel portale di Cloudyn fare clic sul simbolo a forma di ingranaggio in alto a de
 
 È anche possibile associare più account a un'entità. Selezionare gli account e quindi fare clic su **Sposta**. Nel riquadro Move Accounts (Sposta account), selezionare l'entità in cui si intende spostare l'account e quindi fare clic su **Salva**. Nel riquadro Move Accounts (Sposta account) viene chiesto di confermare lo spostamento degli account. Fare clic su **Sì** e quindi su **OK**.
 
-Per guardare un video di esercitazione sulla creazione di una gerarchia di entità costo, vedere [Creare una gerarchia di entità costo in Gestione costi di Azure](https://youtu.be/dAd9G7u0FmU).
+Per guardare un video di esercitazione sulla creazione di una gerarchia di entità costo, vedere [Creare una gerarchia di entità costo in Cloudyn](https://youtu.be/dAd9G7u0FmU).
 
-Per gli utenti di un contratto Enterprise di Azure, è disponibile un video di esercitazione sull'associazione di account e sottoscrizioni a entità nella pagina [Connessione ad Azure Resource Manager con Gestione costi di Azure](https://youtu.be/oCIwvfBB6kk).
+Per gli utenti di un contratto Enterprise di Azure, è disponibile un video di esercitazione sull'associazione di account e sottoscrizioni a entità nella pagina [Connessione ad Azure Resource Manager con Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un utente con accesso amministrativo

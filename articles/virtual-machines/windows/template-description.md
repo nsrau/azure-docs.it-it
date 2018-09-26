@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 18a9709893533c2c0b606077a126437282f9195e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42140757"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987697"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -164,7 +164,7 @@ Per ottenere le versioni dell'API più aggiornate:
 
 - API REST: [Elencare tutti i provider di risorse](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell: [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Interfaccia della riga di comando di Azure 2.0: [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Interfaccia della riga di comando di Azure: [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>Parametri e variabili
 
@@ -442,7 +442,7 @@ Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio,
 
 ![Recuperare lo stato dell'estensione](./media/template-description/virtual-machines-show-extensions.png)
 
-È possibile anche ottenere informazioni sull'estensione tramite il comando **Get-AzureRmVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure 2.0 oppure l'API REST **Get extension information**.
+È possibile anche ottenere informazioni sull'estensione mediante il comando **Get-AzureRmVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure oppure l'API REST **Get extension information**.
 
 ## <a name="deployments"></a>Deployments
 

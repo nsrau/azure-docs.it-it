@@ -2,7 +2,7 @@
 title: Alta disponibilità per Hadoop - Azure HDInsight
 description: Informazioni su come i cluster HDInsight migliorano l'affidabilità e la disponibilità tramite l'uso di un nodo head aggiuntivo. Informazioni su come questo influisce sui servizi di Hadoop come Ambari e Hive, e anche su come connettersi singolarmente a ogni nodo head tramite SSH.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 keywords: alta disponibilità di hadoop
 ms.service: hdinsight
@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
-ms.openlocfilehash: ad42c1acd795d15bbbe951d90ec9b6b09695cd0a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592584"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953589"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Hadoop in HDInsight
 
@@ -208,13 +208,13 @@ Dall'interfaccia utente Web di Ambari, selezionare il servizio di cui si voglion
 
 È possibile selezionare le dimensioni di un nodo solo durante la creazione del cluster. È possibile trovare un elenco delle varie dimensioni di VM disponibili per HDInsight sulla [pagina dei prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene illustrato come specificare le dimensioni usando il [portale di Azure][preview-portal], [Azure PowerShell][azure-powershell] e l'[interfaccia della riga di comando di Azure][azure-cli]:
+Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Di seguito viene illustrato come specificare le dimensioni usando il [portale di Azure][preview-portal], [Azure PowerShell][azure-powershell], e l'[interfaccia della riga di comando classica di Azure][azure-cli]:
 
 * **Portale di Azure**: quando si crea un cluster, è possibile impostare le dimensioni dei nodi usati dal cluster:
 
     ![Immagine della creazione guidata di cluster con la selezione delle dimensioni del nodo](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Interfaccia della riga di comando di Azure**: quando si usa il comando `azure hdinsight cluster create`, è possibile impostare le dimensioni dei nodi head, di lavoro e ZooKeeper usando i parametri `--headNodeSize`, `--workerNodeSize` e `--zookeeperNodeSize`.
+* **Interfaccia della riga di comando classica di Azure**: quando si usa il comando `azure hdinsight cluster create`, è possibile impostare le dimensioni dei nodi head, di lavoro e ZooKeeper usando i parametri `--headNodeSize`, `--workerNodeSize` e `--zookeeperNodeSize`.
 
 * **Azure PowerShell**: quando si usa il cmdlet `New-AzureRmHDInsightCluster`, è possibile impostare le dimensioni dei nodi head, di lavoro e ZooKeeper usando i parametri `-HeadNodeVMSize`, `-WorkerNodeSize` e `-ZookeeperNodeSize`.
 
@@ -223,7 +223,7 @@ Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Di s
 Per altre informazioni sugli aspetti menzionati in questo documento, usare i collegamenti seguenti.
 
 * [Riferimento REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
+* [Installare e configurare l'interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md)
 * [Installare e configurare Azure PowerShell](/powershell/azure/overview)
 * [Gestire HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 * [provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)

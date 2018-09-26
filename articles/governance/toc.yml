@@ -1,0 +1,83 @@
+items:
+- name: Documentazione sulla governance di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Gestione di Azure
+    href: azure-management.md
+  expanded: true
+- name: Componenti e servizi
+  items:
+  - name: Gruppi di gestione
+    href: management-groups/overview.md
+    items:
+    - name: Create
+      href: management-groups/create.md
+    - name: Gestisci
+      href: management-groups/manage.md
+  - name: Resource Graph
+    href: resource-graph/overview.md
+  - name: Criterio
+    href: policy/overview.md
+  - name: Progetti
+    href: blueprints/overview.md
+  expanded: true
+- name: Implementazioni
+  items:
+  - name: Adozione del cloud nell'organizzazione
+    items:
+    - name: Informazioni sulla governance delle risorse cloud
+      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+    - name: Governance dell'accesso alle risorse in Azure
+      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
+    - name: Progettazione di governance per un team singolo
+      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
+    - name: Progettazione di governance per più team
+      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
+  - name: Scaffolding aziendale Azure
+    items:
+    - name: Governance prescrittiva delle sottoscrizioni
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+    - name: Implementare lo scaffolding aziendale Azure
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+  expanded: true
+- name: Riferimenti
+  items:
+  - name: Progetti
+    items:
+    - name: API REST
+      href: /rest/api
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure
+  - name: Criterio
+    items:
+    - name: API REST
+      href: /rest/api
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
+  - name: Resource Graph
+    items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
+- name: Risorse
+  items:
+  - name: Collegamento video
+    href: /
+  - name: GitHub
+    href: /
+  - name: Roadmap per Azure
+    href: /
+  - name: Calcolatore prezzi
+    href: /
+  - name: Articolo di blog
+    href: /
+ms.openlocfilehash: 4006c484adcdb0cf46646ebace847ba4d45efe26
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982247"

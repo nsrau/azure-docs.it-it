@@ -2,32 +2,39 @@
 title: Prezzi e fatturazione - App per la logica di Azure | Microsoft Docs
 description: Informazioni sui prezzi e sulla fatturazione per App per la logica di Azure
 services: logic-apps
-author: kevinlam1
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/11/2018
+ms.suite: logic-apps
+author: kevinlam1
 ms.author: klam
-ms.openlocfilehash: e1702de42be8510412a6479b594a198a84d15ae2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: estfan, LADocs
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
+ms.topic: article
+ms.date: 09/24/2018
+ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299257"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974307"
 ---
-# <a name="logic-apps-pricing-model"></a>Modello di determinazione prezzi delle app per la logica
+# <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
 Con App per la logica di Azure è possibile creare ed eseguire flussi di lavoro di integrazione automatizzati e scalabili nel cloud. Di seguito sono riportate informazioni dettagliate sul funzionamento dei prezzi e della fatturazione per App per la logica di Azure. 
 
+<a name="consumption-pricing"></a>
+
 ## <a name="consumption-pricing-model"></a>Modello di prezzi a consumo
 
-Le nuove app per la logica create prevedono che si paghi solo per le risorse effettivamente usate. Le nuove app per la logica usano infatti un modello di determinazione dei prezzi a consumo, in base al quale vengono calcolate tutte le esecuzioni di azioni avviate da un'istanza dell'app per la logica. Ogni passaggio della definizione di un'app per la logica è un'azione che include trigger, passaggi del flusso di controllo, chiamate ad azioni integrate e chiamate a connettori. Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
+Per le nuove app per la logica create con il servizio di App per la logica "globale" o pubblico, si paga solo per le risorse usate. Queste app per la logica usano infatti un piano e un modello di determinazione dei prezzi basati sul consumo, pertanto vengono calcolate tutte le esecuzioni di azioni dell'app per la logica. Ogni passaggio della definizione di un'app per la logica è un'azione che include trigger, passaggi del flusso di controllo, chiamate ad azioni integrate e chiamate a connettori. Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
+
+<a name="fixed-pricing"></a>
+
+## <a name="fixed-pricing-model"></a>Modello di determinazione dei prezzi fissi
+
+> [!NOTE]
+> L'ambiente del servizio di integrazione è in *anteprima privata*. Per richiedere l'accesso, [creare la richiesta di iscrizione qui](https://aka.ms/iseprivatepreview).
+
+Per le nuove app per la logica create con un [*ambiente del servizio di integrazione* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), ovvero un'istanza privata isolata di App per la logica che usa risorse dedicate, si paga un prezzo mensile fisso per le azioni predefinite e i connettori standard ISE. ISE include un connettore aziendale a titolo gratuito, mentre ulteriori connettori aziendali prevedono costi in base ai prezzi aziendali al consumo. Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 

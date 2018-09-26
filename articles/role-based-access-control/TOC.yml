@@ -1,76 +1,88 @@
+items:
 - name: Documentazione sul controllo degli accessi in base al ruolo
   href: index.yml
-  items: null
 - name: Panoramica
   items:
-    - name: Informazioni sul controllo degli accessi in base al ruolo
-      href: overview.md
-    - name: Informazioni sui diversi ruoli
-      href: rbac-and-directory-admin-roles.md
+  - name: Informazioni sul controllo degli accessi in base al ruolo
+    href: overview.md
+  - name: Informazioni sui diversi ruoli
+    href: rbac-and-directory-admin-roles.md
 - name: Guide introduttive
   items:
-    - name: Concedere l'accesso per un utente
-      href: quickstart-assign-role-user-portal.md
+  - name: Concedere l'accesso per un utente
+    href: quickstart-assign-role-user-portal.md
 - name: Esercitazioni
   items:
-    - name: Concedere l'accesso per un utente - PowerShell
-      href: tutorial-role-assignments-user-powershell.md
-    - name: Concedere l'accesso per un gruppo - PowerShell
-      href: tutorial-role-assignments-group-powershell.md
-    - name: Creare un ruolo personalizzato - PowerShell
-      href: tutorial-custom-role-powershell.md
-    - name: Creare un ruolo personalizzato - Interfaccia della riga di comando
-      href: tutorial-custom-role-cli.md
+  - name: Concedere l'accesso per un utente - PowerShell
+    href: tutorial-role-assignments-user-powershell.md
+  - name: Concedere l'accesso per un gruppo - PowerShell
+    href: tutorial-role-assignments-group-powershell.md
+  - name: Creare un ruolo personalizzato - PowerShell
+    href: tutorial-custom-role-powershell.md
+  - name: Creare un ruolo personalizzato - Interfaccia della riga di comando
+    href: tutorial-custom-role-cli.md
 - name: Concetti
   items:
-    - name: Informazioni sulle definizioni del ruolo
-      href: role-definitions.md
-    - name: Privileged Identity Management (PIM) per il controllo degli accessi in base al ruolo
-      href: pim-azure-resource.md
-    - name: Accesso condizionale per la gestione di Azure
-      href: conditional-access-azure-management.md
+  - name: Informazioni sulle definizioni del ruolo
+    href: role-definitions.md
+  - name: Informazioni sulle assegnazioni di rifiuto
+    href: deny-assignments.md
+  - name: Privileged Identity Management (PIM) per il controllo degli accessi in base al ruolo
+    href: pim-azure-resource.md
+  - name: Accesso condizionale per la gestione di Azure
+    href: conditional-access-azure-management.md
 - name: Guide alle procedure
   items:
-    - name: Gestire l'accesso
-      items:
-        - name: Portale
-          href: role-assignments-portal.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: Interfaccia della riga di comando di Azure
-          href: role-assignments-cli.md
-        - name: API REST
-          href: role-assignments-rest.md
-        - name: Modello
-          href: role-assignments-template.md
-    - name: Ruoli personalizzati
-      href: custom-roles.md
-      items:
-        - name: PowerShell
-          href: custom-roles-powershell.md
-        - name: Interfaccia della riga di comando di Azure
-          href: custom-roles-cli.md
-        - name: API REST
-          href: custom-roles-rest.md
-    - name: Visualizzare log di attività
-      href: change-history-report.md
-    - name: Eseguire con privilegi elevati l'accesso per l'amministratore globale
-      href: elevate-access-global-admin.md
-    - name: Gestire l'accesso per gli utenti esterni
-      href: role-assignments-external-users.md
-    - name: Risolvere problemi
-      href: troubleshooting.md
+  - name: Gestire l'accesso
+    items:
+    - name: Portale
+      href: role-assignments-portal.md
+    - name: PowerShell
+      href: role-assignments-powershell.md
+    - name: Interfaccia della riga di comando di Azure
+      href: role-assignments-cli.md
+    - name: API REST
+      href: role-assignments-rest.md
+    - name: Modello
+      href: role-assignments-template.md
+  - name: Rifiutare l'accesso
+    items:
+    - name: API REST
+      href: deny-assignments-rest.md
+  - name: Ruoli personalizzati
+    href: custom-roles.md
+    items:
+    - name: PowerShell
+      href: custom-roles-powershell.md
+    - name: Interfaccia della riga di comando di Azure
+      href: custom-roles-cli.md
+    - name: API REST
+      href: custom-roles-rest.md
+  - name: Visualizzare log di attività
+    href: change-history-report.md
+  - name: Eseguire con privilegi elevati l'accesso per l'amministratore globale
+    href: elevate-access-global-admin.md
+  - name: Gestire l'accesso per gli utenti esterni
+    href: role-assignments-external-users.md
+  - name: Risolvere problemi
+    href: troubleshooting.md
 - name: riferimento
   items:
-    - name: Ruoli predefiniti
-      href: built-in-roles.md
-    - name: Operazioni del provider di risorse
-      href: resource-provider-operations.md
-    - name: Limiti relativi al controllo degli accessi in base al ruolo
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.resources
-    - name: Interfaccia della riga di comando di Azure
-      href: /cli/azure/role?view=azure-cli-latest
-    - name: API REST
-      href: /rest/api/authorization/
+  - name: Ruoli predefiniti
+    href: built-in-roles.md
+  - name: Operazioni del provider di risorse
+    href: resource-provider-operations.md
+  - name: Limiti relativi al controllo degli accessi in base al ruolo
+    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources
+  - name: Interfaccia della riga di comando di Azure
+    href: /cli/azure/role?view=azure-cli-latest
+  - name: API REST
+    href: /rest/api/authorization/
+ms.openlocfilehash: 8a113e60cd9af0e7f9c0f192bc20ca674c56c0f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982784"

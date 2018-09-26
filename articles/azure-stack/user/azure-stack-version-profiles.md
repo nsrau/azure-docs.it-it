@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1b63a75a2505ecbd82896932018ef4f0936b9b37
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034369"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182893"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gestire i profili delle versioni API in Azure Stack
 
@@ -77,6 +77,7 @@ Gli sviluppatori, è possibile concentrarsi sulla scrittura della soluzione. Inv
 
 È possibile trovare esempi di codice che consentono di integrare la soluzione con il tuo linguaggio preferito con Azure Stack usando i profili. Attualmente, è possibile trovare informazioni aggiuntive ed esempi per le lingue seguenti:
 
+- **.NET** è possibile usare il profilo di API .NET per ottenere la versione più recente e più stabile di ogni tipo di risorsa in un pacchetto di provider di risorse. Per altre informazioni, vedere [profili della versione di usare l'API con .NET in Azure Stack](azure-stack-version-profiles-net.md).
 - **PowerShell**  
 È possibile usare la **AzureRM.Bootstrapper** modulo disponibile tramite la raccolta di PowerShell per ottenere i cmdlet di PowerShell necessari per lavorare con i profili della versione API. Per informazioni, vedere [profili di usare l'API della versione per PowerShell](azure-stack-version-profiles-powershell.md).
 - **Interfaccia della riga di comando di Azure**  

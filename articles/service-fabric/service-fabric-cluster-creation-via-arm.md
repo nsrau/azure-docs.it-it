@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b71c1d75dc9d988c7b26f9720cc03d9fee9109b1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287343"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970312"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creare un cluster di Service Fabric usando Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Per la creazione di un cluster di produzione per l'esecuzione di carichi di lavo
 In questo articolo, è possibile usare powershell Resource Manager di Service Fabric o moduli dell’interfaccia della riga di comando di Azure per distribuire un cluster:
 
 * [Azure PowerShell 4.1 e versioni successive][azure-powershell]
-* [Interfaccia della riga di comando di Azure 2.0 e versioni successive][azure-CLI]
+* [Interfaccia della riga di comando di Azure versione 2.0 e versioni successive][azure-CLI]
 
 È possibile trovare la documentazione di riferimento per i moduli di Service Fabric di seguito:
 * [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)

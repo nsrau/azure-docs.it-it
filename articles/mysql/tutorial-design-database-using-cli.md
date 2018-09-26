@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Progettare un'istanza di Database di Azure per MySQL con l'interfaccia della riga di comando di Azure"
-description: In questa esercitazione viene illustrato come creare e gestire il database di Azure per il server e il database MySQL tramite l'interfaccia della riga di comando di Azure 2.0 dalla riga di comando.
+description: In questa esercitazione viene illustrato come creare e gestire il database di Azure per il server e il Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure dalla riga di comando.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 07dc1c2fa166be066df9bd8a663e08db830fe1af
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446331"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966980"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per MySQL con l'interfaccia della riga di comando di Azure
 
@@ -31,11 +31,11 @@ Il database di Azure per MySQL è un servizio di database relazionale in Microso
 > * Aggiornare i dati
 > * Ripristinare i dati
 
-È possibile usare Azure Cloud Shell nel browser o [installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli) nel computer in uso per eseguire i blocchi di codice di questa esercitazione.
+È possibile usare Azure Cloud Shell nel browser o [installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli) nel computer in uso per eseguire i blocchi di codice di questa esercitazione.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 Se si dispone di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui la risorsa esiste o per cui è configurata. Selezionare un ID di sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive

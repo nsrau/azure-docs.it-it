@@ -1,26 +1,19 @@
 ---
-title: Eseguire l'interfaccia della riga di comando di Azure con Jenkins | Microsoft Docs
+title: Eseguire l'interfaccia della riga di comando di Azure con Jenkins
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per distribuire un'app web di Java in Azure in Jenkins Pipeline
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
 ms.service: jenkins
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
+keywords: jenkins, azure, devops, servizio app, interfaccia della riga di comando
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 6/7/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 1796e9f76e39334c8bbdd03463a0f91e9b47cb17
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b9ca8848da543bbfb27246109c3a4ab97eb6bc58
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421305"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974919"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Distribuire nel servizio app di Azure con Jenkins e l'interfaccia della riga di comando di Azure
 Per distribuire un'app Web di Java in Azure, è possibile usare l'interfaccia della riga di comando di Azure in [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). In questa esercitazione viene creata una pipeline CI/CD in una macchina virtuale di Azure e viene illustrato come:
@@ -33,7 +26,7 @@ Per distribuire un'app Web di Java in Azure, è possibile usare l'interfaccia de
 > * Creare una pipeline Jenkins
 > * Eseguire la pipeline e verificare l'app Web
 
-Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -122,7 +115,7 @@ Quando la definizione dell'app Web è pronta, l'interfaccia della riga di comand
 
 ### <a name="configure-java"></a>Configurare Java 
 
-Impostare la configurazione del runtime Java necessaria per l'app con il comando [az appservice web config update](/cli/azure/appservice/web/config#az-appservice-web-config-update).
+Impostare la configurazione del runtime Java necessaria per l'app con il comando [az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update).
 
 Il comando seguente configura l'app Web per l'esecuzione in un'istanza recente di Java 8 JDK e in [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 

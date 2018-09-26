@@ -1,28 +1,32 @@
 ---
-title: "Esercitazione: Esaminare l'utilizzo e i costi in Gestione costi di Azure | Microsoft Docs"
+title: "Esercitazione: Esaminare l'utilizzo e i costi di Azure con Cloudyn | Microsoft Docs"
 description: In questa esercitazione si esamineranno l'utilizzo e i costi per tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35628718"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987714"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Esercitazione: Esaminare l'utilizzo e i costi
 
-Gestione costi di Azure visualizza l'utilizzo e i costi consentendo di tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi. Tutti i dati di utilizzo e i dati sui costi sono visualizzati nei dashboard e nei report di Cloudyn. Gli esempi di questa esercitazione illustrano come esaminare l'utilizzo e i costi tramite i dashboard e i report. In questa esercitazione si apprenderà come:
+Cloudyn mostra l'utilizzo e i costi consentendo di tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi. Tutti i dati di utilizzo e i dati sui costi sono visualizzati nei dashboard e nei report di Cloudyn. Gli esempi di questa esercitazione illustrano come esaminare l'utilizzo e i costi tramite i dashboard e i report.
+
+Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per ulteriori informazioni, vedere [Gestione costi di Azure](overview-cost-mgt.md).
+
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Tenere traccia delle tendenze di utilizzo e dei costi
@@ -32,10 +36,10 @@ Gestione costi di Azure visualizza l'utilizzo e i costi consentendo di tenere tr
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - È necessario disporre di un account Azure.
-- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
+- È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
 
 ## <a name="open-the-cloudyn-portal"></a>Aprire il portale Cloudyn
 
@@ -59,7 +63,7 @@ Nell'esempio precedente è stato speso meno denaro a partire dal 31-08-2017 risp
 
 Nell'esempio è chiaramente visibile che il costo di Archiviazione di Azure è calato a partire dal 31-08-2017 mentre la spesa per gli altri servizi di Azure si è mantenuta costante. Che cosa ha causato il calo della spesa? In questo esempio alcuni dipendenti erano in vacanza e non hanno usato il servizio Archiviazione.
 
-Per guardare un video di esercitazione su come tenere traccia delle tendenze di utilizzo e dei costi, vedere [Analyzing your cloud billing data vs. time with Azure Cost Management](https://youtu.be/7LsVPHglM0g) (Analisi del rapporto fatturazione/tempo per il cloud con Gestione costi di Azure).
+Per guardare un video di esercitazione su come tenere traccia delle tendenze di utilizzo e dei costi, vedere [Analyzing your cloud billing data vs. time with Cloudyn](https://youtu.be/7LsVPHglM0g) (Analisi del rapporto fatturazione/tempo per il cloud con Cloudyn).
 
 ## <a name="detect-usage-inefficiencies"></a>Rilevare le inefficienze dell'utilizzo
 
@@ -83,7 +87,7 @@ Fare clic sul segno più accanto a **List of Candidates** (Elenco dei candidati)
 
 ![Elenco dei candidati](./media/tutorial-review-usage/sizing03.png)
 
-Per guardare un video di esercitazione per il rilevamento delle inefficienze di utilizzo, vedere [Optimizing VM Size in Azure Cost Management](https://youtu.be/1xaZBNmV704) (Ottimizzazione delle dimensioni delle macchine virtuali in Gestione costi di Azure).
+Per guardare un video di esercitazione per il rilevamento delle inefficienze di utilizzo, vedere [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) (Ottimizzazione delle dimensioni delle macchine virtuali in Cloudyn).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Creare avvisi per spese inusuali
 

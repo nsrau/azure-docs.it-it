@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 59274dd042c136770d0f4bab5ab69854dbfb3896
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f4f0c3e21f755dbf431be72ebf7568155ab1bc89
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43663768"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949435"
 documentType: LandingData
 title: Documentazione dell'analisi di flusso
 metadata:
@@ -58,6 +58,8 @@ sections:
     - html: <a href="stream-analytics-manage-job">Creare un processo di Analisi di flusso per analizzare i dati delle telefonate e visualizzare i risultati in un dashboard di Power BI</a>
     - html: <a href="stream-analytics-with-azure-functions">Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure</a>
     - html: <a href="stream-analytics-javascript-user-defined-functions">Eseguire funzioni JavaScript definite dall'utente in processi di Analisi di flusso di Azure</a>
+    - html: <a href="stream-analytics-tools-visual-studio-cicd-vsts">Distribuire un processo di Analisi di flusso di Azure con CI/CD usando Azure Pipelines</a>
+    - html: <a href="stream-analytics-edge-csharp-udf">Scrivere una funzione C# definita dall'utente per un processo Edge di Analisi di flusso di Azure (anteprima)</a>
 - title: riferimento
   items:
   - type: list

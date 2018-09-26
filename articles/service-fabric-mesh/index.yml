@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e7347b521bf490f1148fb1c7ca7e94d502be9019
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 3425a7b65ce81ca3d45a0ccdfe613ffdfef4f90f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281732"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953617"
 documentType: LandingData
 title: Documentazione di mesh Azure Service Fabric
 metadata:
@@ -40,11 +40,11 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come creare, eseguire il debug e distribuire un'app mesh Azure Service Fabric multiservizio.
+    text: Informazioni su come creare e distribuire un'app mesh con Visual Studio.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Creare, eseguire il debug e distribuire un'applicazione Web multiservizio in Service Fabric Mesh</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Eseguire la creazione, il debug, la distribuzione e l'aggiornamento di un'applicazione Web multiservizio in Service Fabric Mesh</a>
 - title: riferimento
   items:
   - type: list
