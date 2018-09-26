@@ -1,6 +1,6 @@
 ---
-title: Caricare o copiare una macchina virtuale Linux personalizzata con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Caricare o copiare una macchina virtuale personalizzata usando il modello di distribuzione di Resource Manager e l'interfaccia della riga di comando di Azure 2.0
+title: Caricare o copiare una macchina virtuale Linux personalizzata con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Caricare o copiare una macchina virtuale personalizzata usando il modello di distribuzione di Resource Manager e l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: fc3d72ace6398b69a5efa5543c590bba166baaf0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b5df02c9f07549aec406cf449bb0ae49ee9e280a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918575"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957432"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Creare una macchina virtuale Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure 2.0
+# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Creare una macchina virtuale Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure
 
 <!-- rename to create-vm-specialized -->
 
@@ -57,11 +57,11 @@ Per completare la procedura seguente, è necessario:
 > 
 
 
-* Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index#az_login).
+* Assicurarsi di avere installato la versione più recente dell'[Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure mediante il comando [az login](/cli/azure/reference-index#az_login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *mystorageaccount* e *mydisks*.
 
-<a id="prepimage"></a>
+<a id="prepimage"> </a>
 
 ## <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 
@@ -113,7 +113,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>Ottenere chiavi degli account di archiviazione
-Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono usate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Visualizzare le chiavi di accesso con [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
+Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono usate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../../storage/common/storage-account-manage.md#access-keys). Visualizzare le chiavi di accesso con [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Visualizzare le chiavi di accesso per l'account di archiviazione creato:
 

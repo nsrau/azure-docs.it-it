@@ -1,6 +1,6 @@
 ---
-title: Distribuire OpenShift Origin in Azure| Microsoft Docs
-description: Distribuire OpenShift Origin in Azure.
+title: Distribuire OKD in Azure | Microsoft Docs
+description: Distribuire OKD in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f7a668f30d7acb1ea14fe9fd8921066d40a6669b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 75a02e61adf3e5477b9945afc778e867d5d9c88c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29123120"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958136"
 ---
-# <a name="deploy-openshift-origin-in-azure"></a>Distribuire OpenShift Origin in Azure
+# <a name="deploy-okd-in-azure"></a>Distribuire OKD in Azure
 
-La distribuzione di OpenShift Origin in Azure può essere eseguita in uno dei due modi seguenti:
+La distribuzione di OKD (in precedenza OpenShift Origin) in Azure può essere eseguita in uno dei due modi seguenti:
 
-- È possibile distribuire manualmente tutti i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione](https://docs.openshift.org/3.6/welcome/index.html) di OpenShift Origin.
-- È anche possibile usare un [modello di Resource Manager](https://github.com/Microsoft/openshift-origin) esistente che semplifica la distribuzione del cluster OpenShift Origin.
+- È possibile distribuire manualmente tutti i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione](https://docs.okd.io/3.10/welcome/index.html) di OKD.
+- È anche possibile usare un [modello di Resource Manager](https://github.com/Microsoft/openshift-origin) esistente che semplifica la distribuzione del cluster OKD.
 
-## <a name="deploy-by-using-the-openshift-origin-template"></a>Eseguire la distribuzione usando il modello di OpenShift Origin
+## <a name="deploy-by-using-the-okd-template"></a>Distribuire usando il modello OKD
 
 Usare il valore `appId` dall'entità servizio creata in precedenza per il parametro `aadClientId`.
 
@@ -99,9 +99,9 @@ L'esempio seguente crea un file di parametri denominato azuredeploy.parameters.j
 
 
 > [!NOTE] 
-> Il comando seguente richiede l'interfaccia della riga di comando di Azure 2.0.8 o versione successiva. È possibile verificare la versione dell'interfaccia della riga di comando di Azure con il comando `az --version`. Per aggiornare la versione della CLI, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Il comando seguente richiede l'interfaccia della riga di comando di Azure 8 o versione successiva. È possibile verificare la versione dell'interfaccia della riga di comando di Azure con il comando `az --version`. Per aggiornare la versione della CLI, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-L'esempio seguente consente di distribuire il cluster OpenShift e tutte le risorse correlate in un gruppo di risorse denominato myResourceGroup con nome di distribuzione myOpenShiftCluster. Viene fatto riferimento al modello direttamente dal repository GitHub e viene usato un file di parametri locale denominato azuredeploy.parameters.json.
+L'esempio seguente consente di distribuire il cluster ODK e tutte le risorse correlate in un gruppo di risorse denominato myResourceGroup con nome di distribuzione myOpenShiftCluster. Viene fatto riferimento al modello direttamente dal repository GitHub e viene usato un file di parametri locale denominato azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -109,7 +109,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-La distribuzione richiede almeno 25 minuti, a seconda del numero totale di nodi distribuiti. Al termine della distribuzione, l'URL della console di OpenShift e il nome DNS del master di OpenShift vengono visualizzati sul terminale.
+La distribuzione richiede almeno 25 minuti, a seconda del numero totale di nodi distribuiti. Al termine della distribuzione, l'URL della console di ODK e il nome DNS del master di OpenShift vengono visualizzati sul terminale.
 
 ```json
 {
@@ -118,9 +118,9 @@ La distribuzione richiede almeno 25 minuti, a seconda del numero totale di nodi 
 }
 ```
 
-## <a name="connect-to-the-openshift-cluster"></a>Eseguire la connessione al cluster OpenShift
+## <a name="connect-to-the-okd-cluster"></a>Connettersi al cluster OKD
 
-Al termine della distribuzione, eseguire la connessione alla console di OpenShift tramite il browser immettendo `OpenShift Console Uri`. In alternativa, è possibile connettersi al master OpenShift usando il comando seguente:
+Al termine della distribuzione, eseguire la connessione alla console di ODK tramite il browser immettendo `OpenShift Console Uri`. In alternativa, è possibile connettersi al master ODK usando il comando seguente:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -138,4 +138,4 @@ az group delete --name myResourceGroup
 
 - [Attività di post-distribuzione](./openshift-post-deployment.md)
 - [Risoluzione dei problemi relativi alla distribuzione di OpenShift](./openshift-troubleshooting.md)
-- [Introduzione a OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Introduzione a OKD](https://docs.okd.io/latest/getting_started/index.html)

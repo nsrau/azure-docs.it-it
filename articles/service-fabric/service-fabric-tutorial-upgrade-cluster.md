@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 367528353d5849a64ed1924d1b1e02a9b2c38252
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d467bc88e1ed3b8dbe42a17095e4f0d14f14fe9a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007934"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950234"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: aggiornare il runtime di un cluster di Service Fabric in Azure
 
@@ -49,7 +49,7 @@ In questa serie di esercitazioni si apprenderà come:
 Prima di iniziare questa esercitazione:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o [la versione 2.0 dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o [l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure
 * Se si distribuisce un cluster di Windows, configurare un ambiente di sviluppo di Windows. Installare [Visual Studio 2017](http://www.visualstudio.com) e installare i carichi di lavoro per lo **sviluppo di Azure**, lo **sviluppo ASP.NET e Web** e lo **sviluppo multipiattaforma .NET Core**.  Configurare un [ambiente di sviluppo .NET](service-fabric-get-started.md).
 * Se si distribuisce un cluster Linux, configurare un ambiente di sviluppo Java in [Linux](service-fabric-get-started-linux.md) o [MacOS](service-fabric-get-started-mac.md).  Installare l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md).
@@ -197,7 +197,7 @@ sfctl cluster upgrade-status
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Ottenere la versione del runtime del cluster

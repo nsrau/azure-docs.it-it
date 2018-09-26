@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 48b6287fef673c5f335531b6f230993969fc9e1c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186915"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996333"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuire OpenShift Container Platform in Azure
 
@@ -139,7 +139,7 @@ Sostituire gli elementi tra parentesi con le proprie informazioni.
 ### <a name="deploy-by-using-azure-cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
 
 > [!NOTE] 
-> Il comando seguente richiede l'interfaccia della riga di comando di Azure 2.0.8 o versione successiva. È possibile verificare la versione dell'interfaccia della riga di comando di Azure con il comando `az --version`. Per aggiornare la versione della CLI, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Il comando seguente richiede l'interfaccia della riga di comando di Azure 8 o versione successiva. È possibile verificare la versione dell'interfaccia della riga di comando di Azure con il comando `az --version`. Per aggiornare la versione della CLI, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 L'esempio seguente consente di distribuire il cluster OpenShift e tutte le risorse correlate in un gruppo di risorse denominato myResourceGroup con nome di distribuzione myOpenShiftCluster. Viene fatto riferimento al modello direttamente dal repository GitHub e viene usato un file di parametri locale denominato azuredeploy.parameters.json.
 

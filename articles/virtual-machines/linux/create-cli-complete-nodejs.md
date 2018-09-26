@@ -1,6 +1,6 @@
 ---
-title: Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Usare l'interfaccia della riga di comando 1.0 di Azure per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete.
+title: Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure Classic | Documentazione Microsoft
+description: Usare l'interfaccia della riga di comando di Azure Classico per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda NIC, un IP pubblico e un gruppo di sicurezza di rete.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 1fb5542af77fbb584effca24a74b9e233359cf0e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932343"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952801"
 ---
-# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure 1.0
+# <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Creare un ambiente Linux completo con l'interfaccia della riga di comando di Azure Classic
 In questo articolo viene spiegato come creare una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per calcoli semplici. Viene presentato in dettaglio l'intero processo, comando dopo comando, fino a creare due VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si potrà quindi passare a reti e ambienti più complessi.
 
 Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Resource Manager e sulle potenzialità che offre. Dopo aver osservato come viene realizzato il sistema, è possibile ricrearlo molto più rapidamente utilizzando i [modelli di Azure Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). In più, dopo aver scoperto come interagiscono le parti dell'ambiente, diventa più facile creare modelli per automatizzarle.
@@ -33,20 +33,20 @@ Nell'ambiente sono presenti:
 * Un servizio di bilanciamento del carico con una regola di bilanciamento del carico sulla porta 80.
 * Regole del gruppo di sicurezza di rete (NSG) per proteggere la VM dal traffico indesiderato.
 
-Per creare questo ambiente personalizzato, è necessario aver installato l'[interfaccia della riga di comando di Azure 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in modalità Resource Manager (`azure config mode arm`). È inoltre necessario uno strumento di analisi JSON. In questo esempio viene utilizzato [jq](https://stedolan.github.io/jq/).
+Per creare questo ambiente personalizzato, è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure Classic](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in modalità gestione risorse (`azure config mode arm`). È inoltre necessario uno strumento di analisi JSON. In questo esempio viene utilizzato [jq](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
-- [Interfaccia della riga di comando di Azure 1.0](#quick-commands): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure Classic](#quick-commands): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
+- [Interfaccia della riga di comando di Azure Classic](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi base per caricare una VM in Azure. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, a partire da [qui](#detailed-walkthrough).
 
-Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e di usare la modalità Resource Manager:
+Assicurarsi di aver effettuato l'accesso a [Interfaccia della riga di comando di Azure Classic](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e che sia in modalità gestione delle risorse:
 
 ```azurecli
 azure config mode arm
@@ -270,7 +270,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>Procedura dettagliata
 La procedura dettagliata seguente illustra il funzionamento di ciascun comando durante la creazione dell'ambiente. Questi concetti torneranno utili in fase di creazione degli ambienti personalizzati per lo sviluppo o per la produzione.
 
-Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e di usare la modalità Resource Manager:
+Assicurarsi di aver effettuato l'accesso a [Interfaccia della riga di comando di Azure Classic](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e che sia in modalità gestione delle risorse:
 
 ```azurecli
 azure config mode arm

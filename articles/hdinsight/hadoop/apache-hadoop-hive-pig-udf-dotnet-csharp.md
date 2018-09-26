@@ -3,18 +3,18 @@ title: Usare C# con Hive e Pig in Hadoop in HDInsight - Azure
 description: Informazioni su come usare le funzioni definite dall'utente C# con lo streaming Hive e Pig in Azure HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: a2a5581f62a4aa2d9af8302907a144573fd8d3b8
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ebc4c918745e273700a0efb54db4408bb702c75e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596780"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991369"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Usare le funzioni definite dall'utente C# con lo streaming Hive e Pig in Hadoop in HDInsight
 
@@ -31,7 +31,7 @@ Sia Hive sia Pig sono in grado di passare i dati alle applicazioni esterne per l
 
     * Usare qualsiasi IDE desiderato. Si consigliano [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017 o [Visual Studio Code](https://code.visualstudio.com/). Nella procedura di questo documento viene usato Visual Studio 2017.
 
-* Un modo per caricare i file con estensione exe nel cluster ed eseguire i processi Pig e Hive. Si consiglia di usare gli strumenti Data Lake per Visual Studio, Azure PowerShell e l'interfaccia della riga di comando di Azure. La procedura in questo documento usa gli strumenti Data Lake per Visual Studio per caricare i file ed eseguire l'esempio di query Hive.
+* Un modo per caricare i file con estensione exe nel cluster ed eseguire i processi Pig e Hive. Si consiglia di usare gli strumenti Data Lake per Visual Studio, Azure PowerShell e l'interfaccia della riga di comando di Azure classica. La procedura in questo documento usa gli strumenti Data Lake per Visual Studio per caricare i file ed eseguire l'esempio di query Hive.
 
     Per informazioni su altri modi per eseguire query Hive e processi Pig, vedere i seguenti documenti:
 

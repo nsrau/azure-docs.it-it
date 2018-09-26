@@ -1,6 +1,6 @@
 ---
-title: Gestire Cache Redis di Azure con l'interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Come installare l'interfaccia della riga di comando di Azure su qualsiasi piattaforma, come utilizzarla per connettersi all'account Azure e come creare e gestire una Cache Redis dall'interfaccia della riga di comando di Azure.
+title: Gestire Cache Redis di Azure con l'interfaccia della riga di comando classica di Azure | Microsoft Docs
+description: Come installare l'interfaccia della riga di comando classica di Azure su qualsiasi piattaforma, come usarla per connettersi all'account Azure e come creare e gestire una Cache Redis dall'interfaccia della riga di comando classica.
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -14,34 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0e8bbaad920f35028c51641779a3272f73f81f37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27911279"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978406"
 ---
-# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Come creare e gestire Cache Redis di Azure tramite l'interfaccia della riga di comando di Azure (Azure CLI)
+# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-classic-cli"></a>Come creare e gestire Cache Redis di Azure mediante l'interfaccia della riga di comando classica di Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-> * [Interfaccia della riga di comando di Azure](cache-manage-cli.md)
->
+> * [Interfaccia della riga di comando classica di Azure](cache-manage-cli.md)
 >
 
-L'interfaccia della riga di comando di Azure è un ottimo modo di gestire l'infrastruttura di Azure da qualsiasi piattaforma. In questo articolo viene illustrato come creare e gestire le istanze di Cache Redis di Azure tramite la CLI di Azure.
+L'interfaccia della riga di comando classica di Azure è un ottimo modo di gestire l'infrastruttura di Azure da qualsiasi piattaforma. In questo articolo viene illustrato come creare e gestire le istanze di Cache Redis di Azure mediante l'interfaccia della riga di comando classica di Azure.
 
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 > [!NOTE]
-> Questo articolo si applica a una versione precedente dell'interfaccia della riga di comando di Azure. Per script di esempio della più recente interfaccia della riga di comando di Azure 2.0, vedere gli [esempi dell'interfaccia della riga di comando di Azure per Cache Redis](cli-samples.md).
-> 
-> 
+> Per script di esempio della più recente interfaccia della riga di comando di Azure, vedere gli [esempi di Cache Redis con l'interfaccia della riga di comando di Azure](cli-samples.md).
 
-## <a name="prerequisites"></a>prerequisiti
-Per creare e gestire le istanze di Cache Redis di Azure utilizzando CLI di Azure, è necessario completare i passaggi seguenti.
+## <a name="prerequisites"></a>Prerequisiti
+Per creare e gestire le istanze di Cache Redis di Azure usando l'interfaccia della riga di comando classica di Azure è necessario completare i seguenti passaggi.
 
 * È necessario disporre di un account Azure. Se non è disponibile, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi istanti.
-* [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
-* Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure, e accedere dall’interfaccia della riga di comando di Azure utilizzando il comando `azure login` . Per comprendere le differenze e scegliere, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure (Azure CLI)](/cli/azure/authenticate-azure-cli).
-* Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando di Azure in modalità di Gestione delle risorse eseguendo il comando `azure config mode arm` . Per altre informazioni, vedere l'articolo su come [usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse di Azure](../xplat-cli-azure-resource-manager.md).
+* [Installare l'interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md).
+* Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure e accedere dall’interfaccia della riga di comando classica usando il comando `azure login`.
+* Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando classica in modalità di Gestione risorse eseguendo il comando `azure config mode arm`. Per altre informazioni, vedere l'articolo [Usare l'interfaccia della riga di comando classica di Azure per gestire risorse e gruppi di risorse di Azure](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Proprietà di Cache Redis
 Le seguenti proprietà vengono utilizzate durante la creazione e l’aggiornamento delle istanze di Cache Redis.

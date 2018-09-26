@@ -1,6 +1,6 @@
 ---
-title: Creare un gruppo di sicurezza di rete (versione classica) con l'interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
-description: Informazioni su come creare e distribuire un gruppo di sicurezza di rete (versione classica) con l'interfaccia della riga di comando di Azure 1.0.
+title: Creare un gruppo di sicurezza di rete (versione classica) con l'interfaccia della riga di comando classica di Azure | Microsoft Docs
+description: Informazioni su come creare e distribuire un gruppo di sicurezza di rete (versione classica) con l'interfaccia della riga di comando classica di Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: 5468801e56849498d712f51e71cfb31bf068398a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5e81fa709589e5fa4a109cdf7709b87bc446ac3c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696619"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947235"
 ---
-# <a name="create-a-network-security-group-classic-using-the-azure-cli-10"></a>Creare un gruppo di sicurezza di rete (versione classica) con l'interfaccia della riga di comando di Azure 1.0
+# <a name="create-a-network-security-group-classic-using-the-azure-classic-cli"></a>Creare un gruppo di sicurezza di rete (versione classica) con l'interfaccia della riga di comando classica di Azure
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -37,7 +37,7 @@ I comandi di esempio dell'interfaccia della riga di comando di Azure riportati d
 
 ## <a name="create-an-nsg-for-the-front-end-subnet"></a>Creare un gruppo di sicurezza di rete per la subnet front-end
 
-1. Se non si è mai usata l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
+1. Se non si è mai usata l'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](/cli/azure/install-cli-version-1.0).
 2. Passare alla modalità classica:
 
     ```azurecli

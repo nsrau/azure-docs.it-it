@@ -3,18 +3,18 @@ title: Usare Hive di Hadoop con Curl in HDInsight - Azure
 description: Informazioni su come inviare in modalità remota processi Pig a HDInsight mediante Curl.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: ff1805a68186120049da7ae49d38a0cc4a1a0c16
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8a9dd45a8d5ebf506899c733107ff2fd01b08a2c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598927"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964531"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Esecuzione di query Hive con Hadoop in HDInsight tramite REST
 
@@ -171,7 +171,7 @@ Questo documento usa anche Windows PowerShell e [Jq](http://stedolan.github.io/j
 
 6. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output; in questo caso `/example/rest`. Questo indirizzo archivia l'output nella directory `example/curl` nell'archiviazione predefinita dei cluster.
 
-    È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Per altre informazioni sull'uso dell'Interfaccia della riga di comando di Azure con Archiviazione di Azure, vedere il documento [Usa Interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs).
+    È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure, vedere il documento [Usa interfaccia della riga di comando di Azure con Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs).
 
 ## <a id="nextsteps"></a>Passaggi successivi
 

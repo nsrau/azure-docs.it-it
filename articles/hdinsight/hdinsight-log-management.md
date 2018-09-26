@@ -3,18 +3,18 @@ title: Gestire i log per un cluster HDInsight - Azure HDInsight
 description: Determinare i tipi, le dimensioni e i criteri di conservazione per i file di log attività di HDInsight.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 1155ec2ebd64b5eab7323e61808840a72d0a09cd
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593435"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988493"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -43,12 +43,13 @@ I dettagli dei cluster seguenti sono utili per raccogliere informazioni nell'amb
 * Stato del cluster, inclusi i dettagli dell'ultima modifica dello stato
 * Tipo e numero di istanze di HDInsight specificate per i nodi master, principali e attività
 
-È possibile ottenere la maggior parte di queste informazioni generali usando il portale di Azure.  In alternativa, è possibile usare l'interfaccia della riga di comando di Azure per ottenere informazioni sui cluster HDInsight:
+È possibile ottenere la maggior parte di queste informazioni generali usando il portale di Azure.  In alternativa, è possibile usare l'interfaccia della riga di comando di Azure classica per ottenere informazioni sui cluster HDInsight:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Per visualizzare queste informazioni, è anche possibile usare PowerShell.  Per altre informazioni, vedere [Gestire cluster Hadoop in HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md).
 

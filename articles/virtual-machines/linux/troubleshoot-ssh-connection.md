@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 5d2544ec9ef758cf34a846562fa659b28044c52d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b170a675482f69f8188894f8503703c235497503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932688"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982614"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure che ha esito negativo, genera errori o è stata rifiutata.
 Sono vari i motivi per cui possono verificarsi errori Secure Shell (SSH), la connessione SSH non riesce o viene rifiutata durante il tentativo di connessione a una macchina virtuale Linux. Questo articolo consente di individuare i problemi e correggerli. È possibile usare il portale di Azure, l'interfaccia della riga di comando Azure o l'estensione dell'accesso alle VM per Linux per risolvere i problemi di connessione.
@@ -50,7 +50,7 @@ Continuare la lettura per la procedura di risoluzione dei problemi e spiegazioni
 È possibile reimpostare le credenziali o la configurazione SSH usando uno dei metodi seguenti:
 
 * [Portale di Azure](#use-the-azure-portal): indicato per ripristinare rapidamente la configurazione SSH o la chiave SSH nel caso in cui non siano stati installati gli strumenti di Azure.
-* [Interfaccia della riga di comando di Azure 2.0](#use-the-azure-cli-20): se ci si trova già nella riga di comando, reimpostare rapidamente le credenziali o la configurazione SSH. È possibile anche usare l'[interfaccia della riga di comando di Azure 1.0](#use-the-azure-cli-10)
+* [Interfaccia della riga di comando di Azure](#use-the-azure-cli-20): se ci si trova già nella riga di comando, reimpostare rapidamente le credenziali o la configurazione SSH. È possibile anche usare l'[interfaccia della riga di comando classica di Azure](#use-the-azure-cli-10)
 * [Estensione VMAccessForLinux di Azure](#use-the-vmaccess-extension): creare e usare di nuovo i file di definizione JSON per reimpostare le credenziali utente o la configurazione di SSH.
 
 Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di connettersi alla VM. Se ancora non è possibile connettersi, procedere al passaggio successivo.
@@ -78,8 +78,8 @@ Usare la funzionalità [Verifica flusso IP](../../network-watcher/network-watche
 
 Usare la funzionalità [Hop successivo](../../network-watcher/network-watcher-check-next-hop-portal.md) di Network Watcher per verificare che una route non impedisca il routing del traffico da o verso una macchina virtuale. È anche possibile esaminare le route per determinare tutte quelle valide per un'interfaccia di rete. Per altre informazioni, vedere [Uso di route valide per risolvere i problemi relativi al flusso di traffico delle macchine virtuali](../../virtual-network/diagnose-network-routing-problem.md).
 
-## <a name="use-the-azure-cli-20"></a>Usare l'interfaccia della riga di comando di Azure 2.0
-Se non è già stato fatto, installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account di Azure tramite il comando [az login](/cli/azure/reference-index#az_login).
+## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+Se non è già stato fatto, installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e accedere a un account di Azure mediante il comando [az login](/cli/azure/reference-index#az_login).
 
 Se è stata creata e caricata un'immagine del disco Linux personalizzata, verificare che sia installato l'[agente Linux di Microsoft Azure](../extensions/agent-windows.md) in versione 2.0.5 o successiva. Per le macchine virtuali create tramite le immagini della raccolta, questa estensione dell'accesso è già installata e configurata automaticamente.
 
@@ -149,8 +149,8 @@ az vm extension set --resource-group philmea --vm-name Ubuntu \
     --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
-## <a name="use-the-azure-cli-10"></a>Usare l'interfaccia della riga di comando di Azure 1.0
-Se necessario, [installare l'interfaccia della riga di comando di Azure 1.0 e connettersi alla sottoscrizione di Azure](../../cli-install-nodejs.md). Verificare di usare la modalità di Resource Manager come indicato di seguito:
+## <a name="use-the-azure-classic-cli"></a>Usare l'interfaccia della riga di comando classica di Azure
+Se necessario, [installare l'interfaccia della riga di comando classica di Azure e connettersi alla sottoscrizione di Azure](../../cli-install-nodejs.md). Verificare di usare la modalità di Resource Manager come indicato di seguito:
 
 ```azurecli
 azure config mode arm
@@ -192,14 +192,14 @@ Per riavviare una macchina virtuale dal portale di Azure, selezionare la macchin
 
 ![Riavviare una macchina virtuale nel portale di Azure](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
+### <a name="azure-classic-cli"></a>Interfaccia della riga di comando classica di Azure
 L'esempio seguente riavvia la macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`. Usare i valori personalizzati come di seguito:
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 L'esempio seguente usa il comando [az vm restart](/cli/azure/vm#az_vm_restart) per riavviare la macchina virtuale denominata `myVM` nel gruppo di risorse denominato `myResourceGroup`. Usare i valori personalizzati come di seguito:
 
 ```azurecli
@@ -220,14 +220,14 @@ Per ridistribuire una macchina virtuale dal portale di Azure, selezionare la mac
 
 ![Ridistribuire una macchina virtuale nel portale di Azure](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
+### <a name="azure-classic-cli"></a>Interfaccia della riga di comando classica di Azure
 L'esempio seguente ridistribuisce la macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`. Usare i valori personalizzati come di seguito:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 L'esempio seguente usa il comando [az vm redeploy](/cli/azure/vm#az_vm_redeploy) per ridistribuire la macchina virtuale denominata `myVM` nel gruppo di risorse denominato `myResourceGroup`. Usare i valori personalizzati come di seguito:
 
 ```azurecli

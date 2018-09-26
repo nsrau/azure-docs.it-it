@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: glenga
-ms.openlocfilehash: dff0aace6c46340f07ff6fb4fd7f92ee93b7fa8c
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 31fe0f85b258524b4ac0af03ec19a91a93e1463b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091751"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968878"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 
@@ -33,7 +33,7 @@ Di seguito sono indicati alcuni scenari in cui questa funzionalità è utile:
 
 * Installare [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc o versione successiva nel progetto Funzioni durevoli.
 * Installare l'[emulatore di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
-* Installare l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) oppure usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) oppure usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Creare un argomento personalizzato di Griglia di eventi
 

@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a93467404232b0fff51136cb7648d84a81165bdb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ae9d8053f7463c069a7305bbd07a91a387e31d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697960"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972301"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali nel portale di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app.
 
-Questo articolo illustra come creare regole di scalabilità automatica nel portale di Azure per monitorare le prestazioni delle istanze di macchine virtuali nel set di scalabilità. Queste regole di scalabilità automatica aumentano o diminuiscono il numero di istanze di macchine virtuali in risposta a queste metriche delle prestazioni. È anche possibile completare questa procedura con [Azure PowerShell](tutorial-autoscale-powershell.md) o l'[interfaccia della riga di comando di Azure 2.0](tutorial-autoscale-cli.md).
+Questo articolo illustra come creare regole di scalabilità automatica nel portale di Azure per monitorare le prestazioni delle istanze di macchine virtuali nel set di scalabilità. Queste regole di scalabilità automatica aumentano o diminuiscono il numero di istanze di macchine virtuali in risposta a queste metriche delle prestazioni. È anche possibile completare questa procedura con [Azure PowerShell](tutorial-autoscale-powershell.md) o l'[interfaccia della riga di comando di Azure CLI](tutorial-autoscale-cli.md).
 
 
-## <a name="prerequisites"></a>prerequisiti
-Per creare regole di scalabilità automatica, è necessario un set di scalabilità di macchina virtuale esistente. È possibile creare un set di scalabilità con il [portale di Azure](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) o l'[interfaccia della riga di comando di Azure 2.0](quick-create-cli.md).
+## <a name="prerequisites"></a>Prerequisiti
+Per creare regole di scalabilità automatica, è necessario un set di scalabilità di macchina virtuale esistente. È possibile creare un set di scalabilità con il [portale di Azure](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) o l'[interfaccia della riga di comando di Azure CLI](quick-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Creare una regola per l'aumento automatico
