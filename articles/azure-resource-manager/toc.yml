@@ -24,12 +24,16 @@ items:
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: Creare modelli collegati
     href: resource-manager-tutorial-create-linked-templates.md
+  - name: Usare procedure di distribuzione sicure
+    href: deployment-manager-tutorial.md
 - name: Concetti
   items:
   - name: Provider e tipi di risorse
     href: resource-manager-supported-services.md
   - name: Gruppi di gestione
     href: management-groups-overview.md
+  - name: Deployment Manager
+    href: deployment-manager-overview.md
   - name: Governance per le sottoscrizioni
     href: /azure/architecture/cloud-adoption-guide/subscription-governance
     maintainContext: true
@@ -200,6 +204,10 @@ items:
       href: resource-group-template-functions-resource.md
     - name: Funzioni stringa
       href: resource-group-template-functions-string.md
+  - name: REST - Resource Manager
+    href: /rest/api/resources/
+  - name: REST - Deployment Manager
+    href: /rest/api/deploymentmanager/
   - name: PowerShell
     href: /powershell/module/azurerm.resources
   - name: Interfaccia della riga di comando di Azure
@@ -210,8 +218,6 @@ items:
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html
-  - name: REST
-    href: /rest/api/resources/
 - name: Risorse
   items:
   - name: Roadmap per Azure
@@ -226,9 +232,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: a05049ad29f3f5fa01e08058cc8a1db5621724eb
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0083101c22b5c09f520b4d92692b6edce043d819
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302487"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391540"
