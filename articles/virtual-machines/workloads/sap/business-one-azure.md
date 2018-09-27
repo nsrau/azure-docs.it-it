@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0960f569f2a582d9712473081f66205272cfe31a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e8bd5ddab4553807f59b7afdf32fbfc1703e3d75
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116961"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949534"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One nelle macchine virtuali di Azure
 Questo documento contiene indicazioni per la distribuzione di SAP Business One nelle macchine virtuali di Azure, ma non sostituisce la documentazione relativa all'installazione di Business One per SAP. Presenta le linee guida di base per la pianificazione e la distribuzione per consentire l'esecuzione di applicazioni Business One nell'infrastruttura di Azure.
@@ -30,7 +30,7 @@ Business One supporta due diversi database:
 - SQL Server: vedere [Nota SAP n. 928839 - Release Planning for Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/928839) (Pianificazione del rilascio per Microsoft SQL Server)
 - SAP HANA: per l'esatta matrice di supporto di SAP Business One per SAP HANA, vedere [SAP Product Availability Matrix](https://support.sap.com/pam) (Matrice di disponibilità dei prodotti SAP)
 
-Per SQL Server sono applicabili le considerazioni di base relative alla distribuzione riportate nell'articolo [Distribuzione DBMS in macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms-guide). Per SAP HANA le considerazioni sono riportate in questo documento.
+Per SQL Server sono applicabili le considerazioni di base relative alla distribuzione riportate nell'articolo [Distribuzione DBMS in macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide). Per SAP HANA le considerazioni sono riportate in questo documento.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare questa guida sono necessarie conoscenze di base dei componenti di Azure seguenti:
@@ -39,9 +39,9 @@ Per usare questa guida sono necessarie conoscenze di base dei componenti di Azur
 - [Macchine virtuali di Azure in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Rete di Azure e gestione di reti virtuali con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
 - [Rete di Azure e gestione di reti virtuali con l'interfaccia della riga di comando](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
-Anche se si è interessati solo a Business One, il documento [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide) può essere una buona fonte di informazioni.
+Anche se si è interessati solo a Business One, il documento [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) può essere una buona fonte di informazioni.
 
 Si presuppone che la distribuzione di SAP Business One venga eseguita da un utente che abbia familiarità con:
 
@@ -89,23 +89,23 @@ In teoria è sempre preferibile usare le versioni di sistema operativo più rece
 Nelle sezioni che seguono sono illustrati i principali componenti dell'infrastruttura per la distribuzione di SAP.
 
 ### <a name="azure-network-infrastructure"></a>Infrastruttura di rete di Azure
-L'infrastruttura di rete da distribuire in Azure varia a seconda che si distribuisca in modo autonomo un singolo sistema Business One o che si esegua l'hosting di decine di sistemi Business One per i clienti. La progettazione può anche variare leggermente a seconda della modalità di connessione ad Azure. Tra le diverse possibilità è inclusa una progettazione con connettività VPN ad Azure ed estensione di Active Directory ad Azure tramite [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design) o [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction).
+L'infrastruttura di rete da distribuire in Azure varia a seconda che si distribuisca in modo autonomo un singolo sistema Business One o che si esegua l'hosting di decine di sistemi Business One per i clienti. La progettazione può anche variare leggermente a seconda della modalità di connessione ad Azure. Tra le diverse possibilità è inclusa una progettazione con connettività VPN ad Azure ed estensione di Active Directory ad Azure tramite [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Configurazione di rete semplificata con Business One](./media/business-one-azure/simple-network-with-VPN.PNG)
 
 Questa configurazione semplificata presenta diverse istanze di sicurezza che consentono di controllare e limitare il routing. L'istanza iniziale è costituita da: 
 
 - Router o firewall sul lato locale del cliente.
-- L'istanza successiva consiste nel [gruppo di sicurezza di rete di Azure](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) che è possibile usare per introdurre le regole di routing e sicurezza per la rete virtuale di Azure in cui viene eseguita la configurazione di SAP Business One.
+- L'istanza successiva consiste nel [gruppo di sicurezza di rete di Azure](https://docs.microsoft.com/azure/virtual-network/security-overview) che è possibile usare per introdurre le regole di routing e sicurezza per la rete virtuale di Azure in cui viene eseguita la configurazione di SAP Business One.
 - Per evitare che gli utenti del client Business One possano vedere anche il server Business One che esegue il database, è necessario separare la macchina virtuale che ospita il client Business One e il server Business One in due subnet diverse all'interno della rete virtuale.
 - Per limitare l'accesso al server Business One, si usa il gruppo di sicurezza di rete di Azure assegnato alle due diverse subnet.
 
-Una versione più sofisticata di una configurazione di rete di Azure si basa sulle [procedure consigliate per un'architettura hub-spoke in Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Nel modello di architettura hub-spoke la prima configurazione semplificata assumerebbe l'aspetto seguente:
+Una versione più sofisticata di una configurazione di rete di Azure si basa sulle [procedure consigliate per un'architettura hub-spoke in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Nel modello di architettura hub-spoke la prima configurazione semplificata assumerebbe l'aspetto seguente:
 
 
 ![Configurazione hub-spoke con Business One](./media/business-one-azure/hub-spoke-network-with-VPN.PNG)
 
-Per i casi in cui gli utenti si connettono ad Azure attraverso Internet senza connettività privata, la progettazione della rete in Azure deve essere allineata ai principi documentati nell'architettura di riferimento di Azure per una [rete perimetrale tra Azure e Internet](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+Per i casi in cui gli utenti si connettono ad Azure attraverso Internet senza connettività privata, la progettazione della rete in Azure deve essere allineata ai principi documentati nell'architettura di riferimento di Azure per una [rete perimetrale tra Azure e Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ### <a name="business-one-database-server"></a>Server di database Business One
 Per il tipo di database sono disponibili SQL Server e SAP HANA. Indipendentemente dal sistema DBMS, è consigliabile leggere il documento [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) per informazioni generali sulle distribuzioni DBMS nelle macchine virtuali di Azure e gli argomenti correlati relativi alla rete e all'archiviazione.
@@ -151,7 +151,7 @@ Per le strategie di backup e ripristino di SAP HANA, è consigliabile leggere [G
 ### <a name="business-one-client-server"></a>Client server Business One
 Per questi componenti, le considerazioni relative all'archiviazione non sono di primaria importanza. Tuttavia, per avere una piattaforma affidabile, è opportuno usare Archiviazione Premium di Azure per questa macchina virtuale, anche per il disco rigido virtuale di base. Per definire la dimensione della macchina virtuale, seguire le informazioni riportate in [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf) (Guida ai requisiti hardware di SAP Business One). Per Azure, esaminare e calcolare con attenzione i requisiti indicati nel capitolo 2.4 del documento. Quando si calcolano i requisiti, per trovare la macchina virtuale ideale è necessario confrontarli con i dati riportati nei documenti seguenti:
 
-- [Dimensioni per le macchine virtuali Windows in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
+- [Dimensioni per le macchine virtuali Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [Nota SAP n. 1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Confrontare i requisiti di CPU e memoria rispetto ai dati riportati nella documentazione Microsoft. Inoltre, quando si scelgono le macchine virtuali, tenere presente la velocità effettiva della rete.

@@ -7,30 +7,28 @@ items:
     href: overview-what-is-azure-ml.md
   - name: Modifiche apportate al Workbench
     href: overview-what-happened-to-workbench.md
-  - name: Come eseguire la migrazione
-    href: how-to-migrate.md
   - name: Confrontare i prodotti di apprendimento automatico di Microsoft
     href: overview-more-machine-learning.md
   expanded: true
 - name: Guide introduttive
   items:
-  - name: Introduzione - Portale
+  - name: Attività iniziali
     href: quickstart-get-started.md
 - name: Esercitazioni
   items:
-  - name: 1. Eseguire il training dei modelli
+  - name: 'Eseguire il training dei modelli: parte 1'
     href: tutorial-train-models-with-aml.md
-  - name: 2. Distribuire i modelli
+  - name: 'Distribuire i modelli: parte 2'
     href: tutorial-deploy-models-with-aml.md
   - name: Eseguire il training di modelli di apprendimento automatico automatizzati
     href: tutorial-auto-train-models.md
 - name: Concetti
   items:
-  - name: Architettura e termini
+  - name: Funzionamento del servizio
     href: concept-azure-machine-learning-architecture.md
   - name: Gestione di modelli
     href: concept-model-management-and-deployment.md
-  - name: Accelerazioni FPGA
+  - name: Accelerazione con FPGA
     href: concept-accelerate-with-fpgas.md
   - name: Pipeline di apprendimento automatico
     href: concept-ml-pipelines.md
@@ -122,6 +120,8 @@ items:
     href: support-for-aml-services.md
   - name: Documenti deprecati
     items:
+    - name: Come eseguire la migrazione
+      href: how-to-migrate.md
     - name: Guida introduttiva sul Workbench
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Esercitazione 1: Preparare i dati'
@@ -322,9 +322,9 @@ items:
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
     - name: Supporto
       href: support-for-aml-services.md
-ms.openlocfilehash: 963961d43bf455d735bc46e01c919a932a06a6ca
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0e069ce7bb04a4aef2e631488ec807a1539c32e5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036661"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162152"

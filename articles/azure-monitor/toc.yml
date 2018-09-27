@@ -65,7 +65,7 @@ items:
 - name: Concetti
   items:
   - name: Gestione di Azure
-    href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md?toc=/azure/azure-monitor/toc.json
   - name: Dati di monitoraggio
     items:
     - name: Metriche e log
@@ -103,9 +103,9 @@ items:
       - name: Metriche basate su log e preaggregate
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Contenitori
-      href: https://aka.ms/AzureMonitorContainers
+      href: ../monitoring/monitoring-container-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Macchine virtuali
-      href: https://aka.ms/AzureMonitorVirtualMachines
+      href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Soluzioni di monitoraggio
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Analizzare i dati
@@ -504,10 +504,16 @@ items:
         href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
     - name: Monitorare i contenitori
       items:
-      - name: Panoramica del monitoraggio dei contenitori
-        href: ../monitoring/monitoring-container-overview.md?toc=/azure/azure-monitor/toc.json
-      - name: Integrità dei contenitori Azure Kubernetes Service
-        href: ../monitoring/monitoring-container-health.md?toc=/azure/azure-monitor/toc.json
+      - name: Monitoraggio di Azure per contenitori
+        items:
+        - name: Onboarding
+          href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Analizzare
+          href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Interrompere il monitoraggio
+          href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: risoluzione dei problemi
+          href: ../monitoring/monitoring-container-insights-troubleshoot.md
       - name: Monitoraggio dei contenitori Docker e Windows
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Monitorare applicazioni Docker
@@ -538,6 +544,22 @@ items:
           href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
     - name: Monitorare le macchine virtuali
       items:
+      - name: Monitoraggio di Azure per VM
+        items:
+        - name: Problemi noti
+          href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
+        - name: Domande frequenti
+          href: ../monitoring/monitoring-vminsights-faq.md?toc=/azure/azure-monitor/toc.json
+        - name: Onboarding
+          href: ../monitoring/monitoring-vminsights-onboard.md?toc=/azure/azure-monitor/toc.json
+        - name: Monitorare l'integrità
+          href: ../monitoring/monitoring-vminsights-health.md?toc=/azure/azure-monitor/toc.json
+        - name: Eseguire il mapping delle dipendenze
+          href: ../monitoring/monitoring-vminsights-maps.md?toc=/azure/azure-monitor/toc.json
+        - name: Monitorare le prestazioni
+          href: ../monitoring/monitoring-vminsights-performance.md?toc=/azure/azure-monitor/toc.json
+        - name: Eseguire query sui dati con Log Analytics
+          href: ../monitoring/monitoring-vminsights-log-search.md?toc=/azure/azure-monitor/toc.json
       - name: Integrità agente
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: Capacità e prestazioni
@@ -615,8 +637,6 @@ items:
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Eseguire query sui dati di log
       items:
-      - name: Informazioni di riferimento sul linguaggio
-        href: https://docs.loganalytics.io
       - name: Attività iniziali
         items:
         - name: Introduzione al portale di Analytics
@@ -651,8 +671,20 @@ items:
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+      - name: Informazioni di riferimento sul linguaggio
+        items:
+        - name: Informazioni di riferimento sul linguaggio
+          href: /azure/kusto/query
+        - name: Differenze rispetto a Kusto
+          href: ../log-analytics/query-language/kusto.md
+        - name: Espressione dell'app
+          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
+        - name: Espressione dell'area di lavoro
+          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Dati dell'applicazione
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Proprietà standard
+        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Ricerche in più risorse
         href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
       - name: Intervenire dai risultati della ricerca
@@ -946,9 +978,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: c5f69264c293cb5e10c016fc79bc86dd091da533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ef2057d55903d3fdc4d2fc7f914f29e84cffc638
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981815"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181966"

@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ed00b75fa956d0197d3672d84b097f99ec3c35ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814864"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956387"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Chiamare l'endpoint di Ricerca personalizzata Bing (C#)
 
@@ -22,31 +22,32 @@ Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'i
 
 ## <a name="prerequisites"></a>Prerequisiti
 
--  Un'istanza di Ricerca personalizzata pronta per l'uso. Vedere [Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md).
--  [.Net Core](https://www.microsoft.com/net/download/core) installato.
-- Un [account dell'API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **API di ricerca Bing**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.  
+Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
-  >[!NOTE]  
-  >I clienti di Ricerca personalizzata Bing esistenti che hanno effettuato il provisioning di una chiave di anteprima entro il 15 ottobre 2017 potranno continuare a usare le chiavi fino al 30 novembre 2017 o fino al raggiungimento del numero massimo di query consentite. In seguito dovranno eseguire la migrazione alla versione disponibile a livello generale in Azure. 
- 
+- Un'istanza di Ricerca personalizzata pronta per l'uso. Vedere [Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md).
+- [.Net Core](https://www.microsoft.com/net/download/core) installato.
+- Una chiave di sottoscrizione. È possibile ottenere una chiave di sottoscrizione quando si attiva la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure (vedere [account delle API servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+
+
 ## <a name="run-the-code"></a>Eseguire il codice
 
 Per eseguire l'esempio, seguire questa procedura:
 
-1. Creare una cartella per il codice.
-2. Da un terminale o un prompt dei comandi passare alla cartella appena creata.
+1. Creare una cartella per il codice.  
+  
+2. Da un terminale o un prompt dei comandi passare alla cartella appena creata.  
+  
 3. Eseguire i comandi seguenti:
     ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-   ```
+    ```
+  
+4. Copiare il codice seguente in Program.cs. Sostituire **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** con la chiave di sottoscrizione e l'ID di configurazione.
 
-4. Copiare il codice seguente in Program.cs.
-5. Sostituire **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** con la chiave e l'ID configurazione.
-
-    ``` CSharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -124,7 +125,7 @@ Per eseguire l'esempio, seguire questa procedura:
     dotnet build 
     </pre>
     
-7. Eseguire l'applicazione usando il comando seguente e sostituendo **PATH TO OUTPUT** con il percorso a cui viene fatto riferimento nel passaggio di compilazione.
+7. Eseguire l'applicazione usando il comando seguente e sostituendo **PATH TO OUTPUT** con il percorso DLL a cui viene fatto riferimento nel passaggio 6.
 
     <pre>    
     dotnet **PATH TO OUTPUT**

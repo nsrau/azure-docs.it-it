@@ -8,6 +8,7 @@
 ## [Eseguire la migrazione di SQL Server nel database SQL di Azure offline](tutorial-sql-server-to-azure-sql.md)
 ## [Eseguire la migrazione di SQL Server nel database SQL di Azure online](tutorial-sql-server-azure-sql-online.md)
 ## [Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure offline](tutorial-sql-server-to-managed-instance.md)
+## [Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure online](tutorial-sql-server-managed-instance-online.md)
 ## [Eseguire la migrazione di MySQL in Database di Azure per MySQL online](tutorial-mysql-azure-mysql-online.md)
 ## [Eseguire la migrazione di PostgreSQL in Database di Azure per PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
 

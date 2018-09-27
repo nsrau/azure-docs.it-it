@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 951c012dd22cf83741211b9601a5e7502de33be6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985597"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393027"
 ---
 # <a name="azure-stack-1807-update"></a>Aggiornamento di Azure Stack 1807
 
@@ -158,20 +158,18 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 - <!-- 2830461 - IS --> In determinate circostanze quando un aggiornamento richiede attenzione, l'avviso corrispondente potrebbe non essere generato. Uno stato accurato comunque si rifletteranno nel portale e non è interessato.
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
+Dopo l'installazione di questo aggiornamento, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md). 
+- [KB 4464231 – Azure Stack hotfix per Azure Stack Hotfix 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-- <!-- 2933866 – IS --> **Stato migliorato per le installazioni di aggiornamento non riuscito.** Questa versione introduce due nuove categorie di stato per fornire operatori ulteriori dettagli sulle installazioni di aggiornamento non riuscito. Le due categorie sono *PreparationFailed*, e *InstallationFailed*. Dopo aver installato questa versione, è possibile visualizzare le informazioni per precedenti errori di installazione aggiornamento rivisto per riflettere le nuove categorie. 
-
-<!-- *There are no post-update steps for update 1807.* -->
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> Dopo l'installazione di questo aggiornamento, è possibile visualizzare **migliorato lo stato per le installazioni di aggiornamento non riuscito.** Potrebbe trattarsi di informazioni sugli errori di installazione aggiornamento precedente che sono soggette a revisione in modo da riflettere le due nuove categorie di stato. Le nuove categorie di stato vengono *PreparationFailed*, e *InstallationFailed*.  
 
 ## <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
 
 Di seguito sono problemi noti di post-installazione per questa versione di build.
 
 ### <a name="portal"></a>Portale
+
+- La documentazione tecnica di Azure Stack è incentrato sulla versione più recente. A causa di un portale modifiche tra le versioni, ciò che viene visualizzato quando si utilizzano i portali di Azure Stack può variare da quelli visualizzati nella documentazione. 
 
 - La possibilità [aprire una nuova richiesta di supporto nell'elenco a discesa](azure-stack-manage-portals.md#quick-access-to-help-and-support) entro l'amministratore del portale non è disponibile. Per Azure Stack i sistemi integrati, usare invece il collegamento seguente: [ https://aka.ms/newsupportrequest ](https://aka.ms/newsupportrequest).
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3425a7b65ce81ca3d45a0ccdfe613ffdfef4f90f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 14938e25cc41ea11baef94b6a9e01e070ffac654
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953617"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158191"
 documentType: LandingData
 title: Documentazione di mesh Azure Service Fabric
 metadata:
@@ -40,11 +40,12 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come creare e distribuire un'app mesh con Visual Studio.
+    text: Informazioni su come creare e distribuire un'app mesh con Visual Studio o con l'interfaccia della riga di comando di Azure.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Eseguire la creazione, il debug, la distribuzione e l'aggiornamento di un'applicazione Web multiservizio in Service Fabric Mesh</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Eseguire la creazione, il debug, la distribuzione e l'aggiornamento di un'app multiservizio in Service Fabric Mesh con Visual Studio.</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app">Distribuire, ridimensionare e aggiornare un'app Service Fabric Mesh con un modello.</a>
 - title: riferimento
   items:
   - type: list

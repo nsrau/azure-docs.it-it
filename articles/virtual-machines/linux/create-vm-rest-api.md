@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f77b46be0207b0ce96e6dc2562fb5298afbe36b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928183"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969394"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
 
@@ -141,9 +141,9 @@ Una risposta condensata *201 Creato* dall'esempio di corpo della richiesta prece
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle API REST di Azure o su altri strumenti di gestione, ad esempio l'interfaccia della riga di comando di Azure 2.0 o Azure PowerShell, vedere gli argomenti seguenti:
+Per altre informazioni sulle API REST di Azure o su altri strumenti di gestione, ad esempio l'interfaccia della riga di comando di Azure o Azure PowerShell, vedere gli argomenti seguenti:
 
 - [API REST del provider Calcolo di Azure](/rest/api/compute/)
 - [Introduzione all'API REST di Azure](/rest/api/azure/)
-- [Interfaccia della riga di comando di Azure 2.0](/cli/azure/)
+- [Interfaccia della riga di comando di Azure](/cli/azure/)
 - [Modulo di Azure PowerShell](/powershell/azure/overview)

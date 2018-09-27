@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4d8a79862dac53429acda14f81818f92a96df529
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376851"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222497"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gestire gli aggiornamenti nella panoramica di Azure Stack
 
@@ -34,7 +34,7 @@ Il fornitore dell'hardware (OEM) original equipment manufacturer rilasceranno an
 Per mantenere il sistema sottoposto a supporto, è necessario mantenere aggiornato a un livello di versione specifica di Azure Stack. Assicurarsi di rivedere le [criteri di manutenzione Azure Stack](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> È possibile applicare i pacchetti di aggiornamento di Azure Stack per Azure Stack Development Kit. I pacchetti di aggiornamento sono progettati per i sistemi integrati. Per informazioni, vedere [ridistribuire il ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk).
+> È possibile applicare i pacchetti di aggiornamento di Azure Stack per Azure Stack Development Kit. I pacchetti di aggiornamento sono progettati per i sistemi integrati. Per informazioni, vedere [ridistribuire il ASDK](https://docs.microsoft.com/azure/azure-stack/asdk).
 
 ## <a name="the-update-resource-provider"></a>Il provider di risorse di aggiornamento
 
@@ -45,6 +45,13 @@ Come installare gli aggiornamenti, è possibile visualizzare lo stato di alto li
 ## <a name="plan-for-updates"></a>Piano per gli aggiornamenti
 
 È consigliabile inviare notifiche agli utenti di tutte le operazioni di manutenzione e pianificare finestre di manutenzione normale durante non lavorative se possibile. Carichi di lavoro tenant sia operazioni nel portale, possono influire sulle operazioni di manutenzione.
+
+
+- Prima di iniziare l'installazione di questo aggiornamento, eseguire [Test-AzureStack](azure-stack-diagnostic-test.md) con i parametri seguenti per convalidare lo stato di Azure Stack e risolvere eventuali problemi operativi trovati, inclusi tutti gli avvisi e gli errori. Anche gli avvisi attivi rivedere e risolvere gli eventuali che richiedono un'azione.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ## <a name="using-the-update-tile-to-manage-updates"></a>Usando il riquadro Update per gestire gli aggiornamenti
 Gestire gli aggiornamenti dal portale di amministratore. Un operatore di Azure Stack è possibile usare il riquadro di aggiornamento nel dashboard di:

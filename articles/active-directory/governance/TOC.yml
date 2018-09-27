@@ -1,33 +1,41 @@
 items:
-- name: Documentazione delle verifiche di accesso di Azure AD
+- name: Documentazione di Azure AD Identity Governance
+  href: index.yml
 - name: Panoramica
   items:
-  - name: Informazioni sulla verifica di accesso
-    href: access-reviews-overview.md
+  - name: Informazioni su Identity Governance
+    href: identity-governance-overview.md
+  expanded: true
 - name: Guide alle procedure
   items:
-  - name: Creare una verifica di accesso
-    href: create-access-review.md
-  - name: Completare una verifica di accesso
-    href: complete-access-review.md
-  - name: Eseguire una verifica di accesso
-    href: perform-access-review.md
-  - name: Verificare l'accesso
-    href: review-your-access.md
-  - name: Accesso guest con verifiche di accesso
-    href: manage-guest-access-with-access-reviews.md
-  - name: Gestire l'accesso utente con verifiche
-    href: manage-user-access-with-access-reviews.md
-  - name: Gestire i programmi e i relativi controlli
-    href: manage-programs-controls.md
-  - name: Recuperare i risultati della verifica di accesso
-    href: retrieve-access-review.md
+  - name: Verifiche di accesso
+    items:
+    - name: Informazioni sulla verifica di accesso
+      href: access-reviews-overview.md
+    - name: Creare una verifica di accesso
+      href: create-access-review.md
+    - name: Completare una verifica di accesso
+      href: complete-access-review.md
+    - name: Eseguire una verifica di accesso
+      href: perform-access-review.md
+    - name: Verificare l'accesso
+      href: review-your-access.md
+    - name: Accesso guest con verifiche di accesso
+      href: manage-guest-access-with-access-reviews.md
+    - name: Gestire l'accesso utente con verifiche
+      href: manage-user-access-with-access-reviews.md
+    - name: Gestire i programmi e i relativi controlli
+      href: manage-programs-controls.md
+    - name: Recuperare i risultati della verifica di accesso
+      href: retrieve-access-review.md
+    - name: Gestire gli utenti esclusi
+      href: conditional-access-exclusion.md
   - name: Condizioni per l'utilizzo
     href: active-directory-tou.md
   expanded: true
-ms.openlocfilehash: 302273bc1fe1ed73fff4cb4f5a8bc90f08636340
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6280e42839344169ab651cd5d882bb6abfbf388
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606746"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163138"

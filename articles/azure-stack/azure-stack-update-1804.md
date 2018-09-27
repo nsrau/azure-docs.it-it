@@ -3,7 +3,7 @@ title: Aggiornamento di Azure Stack 1804 | Microsoft Docs
 description: Informazioni sulle novità nell'aggiornamento 1804 per Azure Stack integrati sistemi, i problemi noti e dove scaricare l'aggiornamento.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 16f12d8119a14e668a7502d99fa2d9c976d23833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413517"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393520"
 ---
 # <a name="azure-stack-1804-update"></a>Aggiornamento di Azure Stack 1804
 
@@ -102,6 +102,9 @@ Dopo l'installazione di 1804, installare eventuali hotfix applicabili. Per altre
 Di seguito sono riportati problemi noti di post-installazione per la compilazione **20180513.1**.
 
 #### <a name="portal"></a>Portale
+
+- La documentazione tecnica di Azure Stack è incentrato sulla versione più recente. A causa di un portale modifiche tra le versioni, ciò che viene visualizzato quando si utilizzano i portali di Azure Stack può variare da quelli visualizzati nella documentazione. 
+
 - <!-- TBD - IS ASDK --> È possibile applicare gli aggiornamenti dei driver tramite un pacchetto di estensione OEM con questa versione di Azure Stack.  Non è disponibile alcuna soluzione per questo problema.
 
 - <!-- 1272111 - IS --> Dopo l'installazione o aggiornamento a questa versione di Azure Stack, potrebbe non essere in grado di visualizzare unità di scala di Azure Stack nel portale di amministrazione.  
