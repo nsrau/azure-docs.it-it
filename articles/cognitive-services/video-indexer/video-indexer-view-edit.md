@@ -1,25 +1,27 @@
 ---
-title: Visualizzare e modificare le informazioni dettagliate di Video Indexer di Azure | Microsoft Docs
+title: Visualizzare e modificare le informazioni dettagliate di Video Indexer
+titlesuffix: Azure Cognitive Services
 description: Questo argomento illustra come visualizzare e modificare le informazioni dettagliate di Azure Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/31/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 797c09d72402cfc1ee2524e7792cc1310a53fb1e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c9b229e2fb3297d724ec8de02bf54e9765689ab7
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399478"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984539"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Visualizzare e modificare le informazioni dettagliate di Video Indexer
 
 Questo argomento illustra come visualizzare e modificare le informazioni dettagliate di Video Indexer per un video.
 
-1. Accedere all'account di [Video Indexer](https://api-portal.videoindexer.ai/).
+1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
 2. Trovare un video da cui si vogliono creare le informazioni dettagliate di Video Indexer. Per altre informazioni, vedere [Trovare momenti esatti nei video](video-indexer-search.md).
 3. Premere **Riproduci**.
 

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 89c72e21733b01a3e42c0e58d65cb7877e47d374
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163495"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409355"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuzione di Kubernetes in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!Note]  
-> Kubernetes in Azure Stack è disponibile in anteprima. L'operatore di Azure Stack sarà necessario richiedere l'accesso per l'elemento del Marketplace di Cluster Kubernetes necessario per eseguire le istruzioni riportate in questo articolo.
+> Kubernetes in Azure Stack è disponibile in anteprima.
 
 L'articolo seguente esamina usando un modello di soluzione di Azure Resource Manager per la distribuzione e provisioning delle risorse di Kubernetes in un'unica operazione coordinata. Verrà necessario per raccogliere le informazioni necessarie relative all'installazione di Azure Stack, generare il modello e quindi distribuire il cloud. Si noti il modello non sono lo stesso servizio AKS gestito disponibile in Azure globale.
 
@@ -55,6 +55,8 @@ Per iniziare, assicurarsi che si abbia le autorizzazioni appropriate e che Azure
 1. Verificare che si abbia una sottoscrizione valida nel portale tenant di Azure Stack e di avere sufficiente IP pubblico indirizzi disponibili per aggiungere nuove applicazioni.
 
     Il cluster non può essere distribuito in Azure Stack **amministratore** sottoscrizione. È necessario usare una **utente** sottoscrizione. 
+
+1. Se non è un Kubernetes Cluster nel marketplace, rivolgersi all'amministratore di Azure Stack.
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Creare un'entità servizio in Azure AD
 

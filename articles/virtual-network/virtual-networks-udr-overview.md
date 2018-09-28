@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 7ff4c6ce5e42154b3ded9c05ef1437d30f9477f0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41919963"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978917"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -105,13 +105,13 @@ Non è possibile specificare **Peering di rete virtuale** o **VirtualNetworkServ
 
 Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è diverso tra il portale di Azure e gli strumenti da riga di comando e tra i modelli di distribuzione Azure Resource Manager e classica. La tabella seguente elenca i nomi usati per fare riferimento a ogni tipo di hop successivo nei diversi strumenti e [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
-|Tipo hop successivo                   |Interfaccia della riga di comando di Azure 2.0 e PowerShell (Resource Manager) |Interfaccia della riga di comando di Azure 1.0 e PowerShell (classica)|
+|Tipo hop successivo                   |Interfaccia della riga di comando di Azure e PowerShell (Resource Manager) |Interfaccia della riga di comando classica di Azure e PowerShell (classica)|
 |-------------                   |---------                                       |-----|
 |Gateway di rete virtuale         |VirtualNetworkGateway                           |VPNGateway|
-|Rete virtuale                 |VNetLocal                                       |VNETLocal (non disponibile nell'interfaccia della riga di comando 1.0 in modalità asm)|
-|Internet                        |Internet                                        |Internet (non disponibile nell'interfaccia della riga di comando 1.0 in modalità asm)|
+|Rete virtuale                 |VNetLocal                                       |VNETLocal (non disponibile nell'interfaccia della riga di comando classica in modalità asm)|
+|Internet                        |Internet                                        |Internet (non disponibile nell'interfaccia della riga di comando classica in modalità asm)|
 |Appliance virtuale               |VirtualAppliance                                |VirtualAppliance|
-|Nessuna                            |Nessuna                                            |Null (non disponibile nell'interfaccia della riga di comando 1.0 in modalità asm)|
+|Nessuna                            |Nessuna                                            |Null (non disponibile nell'interfaccia della riga di comando classica in modalità asm)|
 |Peering di rete virtuale         |Peering reti virtuali                                    |Non applicabile|
 |Endpoint del servizio di rete virtuale|VirtualNetworkServiceEndpoint                   |Non applicabile|
 
@@ -167,7 +167,7 @@ Quando si esegue l'override del prefisso degli indirizzi 0.0.0.0/0, oltre all'in
         - Poter convertire l'indirizzo di rete, inoltrare il traffico alla risorsa di destinazione nella subnet e restituire il traffico a Internet. 
     - **Gateway di rete virtuale**: se il gateway è un gateway di rete virtuale ExpressRoute, un dispositivo connesso a Internet in locale può convertire l'indirizzo di rete e inoltrare il traffico alla risorsa di destinazione nella subnet tramite [peering privato](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) di ExpressRoute. 
 
-Se la rete virtuale è connessa a un gateway VPN di Azure, non associare una tabella di route al [GatewaySubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) che include una route con una destinazione 0.0.0.0/0. Ciò potrebbe impedire il corretto funzionamento del gateway.
+Se la rete virtuale è connessa a un gateway VPN di Azure, non associare una tabella di route alla [subnet del gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) che include una route con una destinazione 0.0.0.0/0. Ciò potrebbe impedire il corretto funzionamento del gateway. Per informazioni dettagliate, vedere la domanda *Perché determinate porte sono aperte nella mia gateway VPN?* nelle [Domande frequenti sul gateway VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway).
 
 Vedere [Rete perimetrale tra Azure e il data center locale](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Rete perimetrale tra Azure e Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) per i dettagli di implementazione quando si usano i gateway di rete virtuale e le appliance virtuali tra Internet e Azure.
 

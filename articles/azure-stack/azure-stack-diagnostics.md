@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616950"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419608"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Strumenti di diagnostica di Azure Stack
 
@@ -143,14 +143,6 @@ if($s)
  |Cloud|Provider di identità|OnboardRP|     |   
  |HDInsight|nomi IDN|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>Raccogliere i log tramite un'interfaccia utente grafica
-Anziché fornire i parametri obbligatori per il cmdlet Get-AzureStackLog per recuperare i log di Azure Stack, è anche possibile sfruttare gli strumenti di Azure Stack disponibile open source che si trova nel repository principale di Azure Stack strumenti GitHub strumenti in http://aka.ms/AzureStackTools.
-
-Il **ERCS_AzureStackLogs.ps1** script di PowerShell viene archiviato nel repository GitHub degli strumenti e viene aggiornato a intervalli regolari. Per assicurarsi che si dispone della versione più recente disponibile, è necessario scaricarlo direttamente da http://aka.ms/ERCS. Avviato da una sessione di PowerShell amministrativa, lo script si connette all'endpoint con privilegi ed esegue Get-AzureStackLog con parametri forniti. Se viene specificato alcun parametro, per impostazione predefinita lo script di cui viene richiesto per i parametri tramite un'interfaccia utente grafica.
-
-Per altre informazioni sullo script PowerShell ERCS_AzureStackLogs.ps1, è possibile guardare [un breve video](https://www.youtube.com/watch?v=Utt7pLsXEBc) o visualizzare lo script [file Leggimi](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) che si trova nel repository GitHub degli strumenti di Azure Stack. 
 
 ### <a name="additional-considerations"></a>Ulteriori considerazioni
 

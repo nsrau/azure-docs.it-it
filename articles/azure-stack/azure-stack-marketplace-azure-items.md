@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.reviewer: ''
+ms.openlocfilehash: 8e9d40451cd0d9c3a6505ee24ca02852d9d4c527
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221724"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423477"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per Azure Stack
 
@@ -143,6 +143,7 @@ Microsoft Azure Stack supporta le seguenti macchine virtuali di Azure Marketplac
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | Distributed potente sistema di messaggistica di pubblicazione-sottoscrizione. | Bitnami |
 | ![Cluster Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Cluster Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka è messaggistica di pubblicazione-sottoscrizione riprogettare come log di commit distribuito. Questa soluzione consente di migliorare l'affidabilità di un cluster Kafka effettuando il provisioning di più Broker Kafka e istanze di Zookeeper. **Questo modello di soluzione richiede inoltre Debian 8 e dello Script personalizzata per Linux 2.0 Extension.** | Bitnami |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Sicurezza di Cloud ibrido Kaspersky](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | La sicurezza di Cloud ibrido Kaspersky consente a un ecosistema di cybersecurity adattivo e orchestrato senza problemi. | Kaspersky Lab |
+| ![kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Questa soluzione distribuisce un cluster Kubernetes in esecuzione come un cluster autonomo con i modelli generati utilizzando ACS-Engine.<br>**Questo modello di soluzione richiede inoltre Ubuntu Server 16.04 LTS e dello Script personalizzata per Linux 2.0.**| Microsoft |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | Completamente integrato e pronto per l'esecuzione di ambiente di sviluppo. | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | Completare l'ambiente di sviluppo di PHP, PostgreSQL e Apache. | Bitnami |
 | ![È possibile comunicare via Chat](media/azure-stack-marketplace-azure-items/letschat.png) | [È possibile comunicare via Chat](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | Applicazione di messaggistica persistente di open source. | Bitnami |
@@ -207,6 +208,7 @@ Microsoft Azure Stack supporta le seguenti macchine virtuali di Azure Marketplac
 | ![ResourceSpace](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.resourcespace) | Sistema di gestione di asset digitali per migliorare la collaborazione. | Bitnami |
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | Client IMAP basata su browser con funzionalità quali il supporto MIME. | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Ambiente di sviluppo di facile utilizzo per Ruby on Rails. | Bitnami |
+| ![Cluster di Service Fabric](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Cluster di Service Fabric](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | Questa soluzione consente di distribuire Service Fabric in esecuzione come un cluster autonomo in un Set di scalabilità di macchine virtuali. <br>**Questo modello di soluzione è necessario anche scaricare Windows Server 2016 Datacenter**| Microsoft |
 | ![Pannello SEO](media/azure-stack-marketplace-azure-items/seopanel.png) | [Pannello SEO](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | Applicazione di gestione open source SEO per tenere traccia di più siti Web. | Bitnami |
 | ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | E-commerce open source della piattaforma. | Bitnami |
 | ![Forum su computer semplice](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Forum su computer semplice](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Software di forum semplice per compilare la tua community online. | Bitnami |
@@ -241,6 +243,7 @@ Microsoft Azure Stack supporta le seguenti macchine virtuali di Azure Marketplac
 | ![KEMP LoadMaster Load Balancer ADC contenuto commutatore](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC contenuto commutatore](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Load Balancer di livello 4-7 Application Delivery Controller (ADC), contenuto Switch e gestione traffico. | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite - Conductor multi-Cloud](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Conductor multi-Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Un unico pannello di controllo per monitorare, configurare, eseguire il provisioning, automatizzare e gestire qualsiasi carico di lavoro o cloud. | NRI |
 | ![Compatibile con NooBaa ibrida AWS S3 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa ibrida AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Servizio di archiviazione compatibili con S3 che si estende su pubblico e alle capacità risorse locali. | NooBaa |
+| ![Gateway NetFoundry per Multipoint, Zero di considerare attendibili le connessioni di Azure Stack](media/azure-stack-marketplace-azure-items/netfoundry.png) | [Gateway NetFoundry per Multipoint, Zero di considerare attendibili le connessioni di Azure Stack](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | Solo software, multi-punto la connettività tra Azure Stack e ovunque, su qualsiasi connessione di rete, con settore iniziale Zero sicurezza con attendibilità, 5 x la velocità effettiva della VPN e un numero illimitato di utenti simultanei. | NetFoundry |
 | ![Firewall di nuova generazione di Palo Alto serie di macchine Virtuali](media/azure-stack-marketplace-azure-items/paloalto.png) | [Firewall di nuova generazione di Palo Alto serie di macchine Virtuali](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | Il firewall di prossima generazione della serie di macchine Virtuali consente ai clienti di in modo sicuro la migrazione delle applicazioni e dati ad Azure Stack, che li proteggono dalle minacce conosciute e sconosciute con i criteri di prevenzione delle minacce e nell'elenco elementi consentiti applicazioni. **Questa immagine richiede un modello per la distribuzione. vedere questo [articolo](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) per informazioni importanti.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall rileva le vulnerabilità note & sconosciute e impedisce gli attacchi all'App web. **Scaricare entrambi gli elementi di Marketplace PT.** | Tecnologie positive |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise ti permette di automatizzare l'intero ciclo di vita dell'infrastruttura di Azure Stack. **Scaricare entrambi gli elementi di Marketplace Puppet.** | Puppet |

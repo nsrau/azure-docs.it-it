@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 09/05/2018
+ms.date: 09/26/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 02ff83b41af47492a67bea94c5e5deecec42d15e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 3e35b0d9ba697b54b0fb85096caceeaa024b1f3d
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025992"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405241"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparazione per l'host dell'estensione per Azure Stack
 
@@ -70,7 +70,7 @@ Lo strumento di controllo dello stato di preparazione di Azure Stack offre la po
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD -ExtensionHostFeature $true
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD -ExtensionHostFeature
     ```
 
 5. Inserire i certificati nelle directory appropriate.
@@ -93,9 +93,9 @@ Usare un computer in grado di connettersi all'endpoint di Azure Stack con privil
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 
-    [Byte[]] $AdminHostingCertContent = [Byte[]](Get-Content c:\certificate\myadminhostingcertificate.pfx -Encoding Byte)
+    [Byte[]]$AdminHostingCertContent = [Byte[]](Get-Content c:\certificate\myadminhostingcertificate.pfx -Encoding Byte)
 
-    Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
+    Invoke-Command -ComputerName <PrivilegedEndpoint computer name> `
     -Credential $CloudAdminCred `
     -ConfigurationName "PrivilegedEndpoint" `
     -ArgumentList @($AdminHostingCertContent, $CertPassword) `
@@ -110,9 +110,9 @@ Usare un computer in grado di connettersi all'endpoint di Azure Stack con privil
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 
-    [Byte[]] $HostingCertContent = [Byte[]](Get-Content c:\certificate\myhostingcertificate.pfx  -Encoding Byte)
+    [Byte[]]$HostingCertContent = [Byte[]](Get-Content c:\certificate\myhostingcertificate.pfx  -Encoding Byte)
 
-    Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
+    Invoke-Command -ComputerName <PrivilegedEndpoint computer name> `
     -Credential $CloudAdminCred `
     -ConfigurationName "PrivilegedEndpoint" `
     -ArgumentList @($HostingCertContent, $CertPassword) `

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 9d8e868eb11e45a01b3992022b729369da6b42e4
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 20d3568fa3f583c190f087de861d857fe3e793a9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931491"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985435"
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Come crittografare i dischi virtuali in una VM di Windows
-Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati. I dischi vengono crittografati usando chiavi di crittografia protette in un insieme di credenziali delle chiavi di Azure. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una VM di Windows tramite Azure PowerShell. È inoltre possibile [crittografare una VM di Linux usando l'interfaccia della riga di comando di Azure 2.0](../linux/encrypt-disks.md).
+Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (VM), i dischi virtuali in Azure possono essere crittografati. I dischi vengono crittografati usando chiavi di crittografia protette in un insieme di credenziali delle chiavi di Azure. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una VM di Windows tramite Azure PowerShell. È inoltre possibile [crittografare una VM di Linux usando l'interfaccia della riga di comando di Azure](../linux/encrypt-disks.md).
 
 ## <a name="overview-of-disk-encryption"></a>Panoramica della crittografia dei dischi
 I dischi virtuali delle VM di Windows vengono crittografati a riposo mediante Bitlocker. Non è previsto alcun addebito per la crittografia dei dischi virtuali in Azure. Le chiavi di crittografia vengono archiviate nell'insieme di credenziali delle chiavi di Azure che usano la protezione del software oppure è possibile importare o generare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 di livello 2. Queste chiavi di crittografia vengono usate per crittografare e decrittografare i dischi virtuali collegati alla VM. È possibile esercitare il controllo su queste chiavi di crittografia e sul loro uso. Un'entità servizio di Azure Active Directory offre un meccanismo protetto per il rilascio delle chiavi di crittografia all'accensione e allo spegnimento delle VM.

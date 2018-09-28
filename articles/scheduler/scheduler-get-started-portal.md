@@ -1,155 +1,152 @@
 ---
-title: Introduzione all'Utilità di pianificazione di Azure nel portale di Azure | Documentazione di Microsoft
-description: Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
+title: Creare un processo pianificato con l'Utilità di pianificazione di Azure - Portale di Azure | Documentazione di Microsoft
+description: Informazioni su come creare, pianificare ed eseguire il primo processo automatizzato con l’utilità di pianificazione di Azure nel portale di Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/10/2016
+ms.suite: infrastructure-services
+author: derek1ee
 ms.author: deli
-ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: klam
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.topic: hero-article
+ms.date: 09/17/2018
+ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413431"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949588"
 ---
-# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introduzione all'Utilità di pianificazione di Azure nel portale di Azure
-L'Utilità di pianificazione di Azure permette di creare facilmente processi pianificati. In questa esercitazione si apprenderà come creare un processo. Si apprenderanno anche le funzionalità di monitoraggio e gestione dell'Utilità di pianificazione.
+# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Crea e pianifica il primo processo con l’utilità di pianificazione di Azure - Portale di Azure
 
-## <a name="create-a-job"></a>Creare un processo
+> [!IMPORTANT]
+> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà l'Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+Questa esercitazione illustra quanto è facile creare, pianificare, monitorare e gestire un processo. 
+
+Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
+
+## <a name="create-job"></a>Creare il processo
+
 1. Accedere al [portale di Azure](https://portal.azure.com/).  
-2. Fare clic su **+Nuovo**, digitare *Utilità di pianificazione* nella casella di ricerca, selezionare **Utilità di pianificazione** tra i risultati e quindi fare clic su **Crea**.
-   
-    ![][marketplace-create]
-3. È ora possibile creare un processo che accede semplicemente a http://www.microsoft.com/ con una richiesta GET. Nella schermata **Processo dell'Utilità di pianificazione** immettere le informazioni seguenti:
-   
-   1. **Nome:** `getmicrosoft`  
-   2. **Sottoscrizione:** sottoscrizione di Azure   
-   3. **Raccolta processi:** selezionare una raccolta di processi esistente oppure fare clic su **Crea nuovo** e immettere un nome.
-4. Successivamente, in **Impostazioni azione**definire i valori seguenti:
-   
-   1. **Tipo di azione:** ` HTTP`  
-   2. **Metodo:** `GET`  
-   3. **URL:** ` http://www.microsoft.com`  
-      
-      ![][action-settings]
-5. Infine, definire una pianificazione. È possibile impostare il processo come unico, ma in questo esempio viene selezionata una pianificazione ricorrenza.
-   
-   1. **Ricorrenza:**`Recurring`
-   2. **Inizia**: data odierna
-   3. **Ricorre ogni:** `12 Hours`
-   4. **Termina entro**: due giorni dalla data odierna  
-      
-      ![][recurrence-schedule]
-6. Fare clic su **Crea**
 
-## <a name="manage-and-monitor-jobs"></a>Gestire e monitorare i processi
-Un processo appena creato viene visualizzato nel dashboard principale di Azure. Fare clic sul processo per visualizzare una nuova finestra con le schede seguenti:
+1. Nel menu principale di Azure scegliere **Crea una risorsa**. Nella casella di ricerca immettere “utilità di pianificazione”. Nell'elenco dei risultati, selezionare **utilità di pianificazione**, quindi scegliere **Crea**.
 
-1. Properties  
-2. Impostazioni azione  
-3. Pianificazione  
-4. Cronologia
-5. Utenti
+   ![Creare la risorsa dell'Utilità di pianificazione di Microsoft Azure](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
+
+   A questo punto creare un processo per inviare una richiesta GET a questo URL: `http://www.microsoft.com/` 
+
+1. Sotto **Processo dell'utilità di pianificazione**, immettere queste informazioni:
+
+   | Proprietà | Valore di esempio | DESCRIZIONE |
+   |----------|---------------|-------------| 
+   | **Nome** | getMicrosoft | Il nome del processo | 
+   | **Raccolta di processi** | <*nome-raccolta-processi*> | Creare una raccolta di processi o selezionare una raccolta esistente. | 
+   | **Sottoscrizione** | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure | 
+   |||| 
+
+1. Selezionare **Configura impostazioni azione**, fornire queste informazioni e quindi scegliere **OK**:
+
+   | Proprietà | Valore di esempio | DESCRIZIONE |
+   |----------|---------------|-------------| 
+   | **Azione** | **Http** | Tipo di azione da eseguire | 
+   | **Metodo** | **GET** | Il metodo da chiamare | 
+   | **URL** | **http://www.microsoft.com** | URL di destinazione | 
+   |||| 
    
-   ![][job-overview]
+   ![Definire il processo](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)
+
+1. Selezionare **Configura pianificazione**, definire la pianificazione e quindi selezionare **OK**:
+
+   Sebbene sia possibile creare un processo singolo, in questo esempio viene configurata una pianificazione ricorrente.
+
+   | Proprietà | Valore di esempio | DESCRIZIONE |
+   |----------|---------------|-------------| 
+   | **Ricorrenza** | **Ricorrente** | Immettere un processo singolo o ricorrente | 
+   | **Data di inizio** | <*data-odierna*> | La data di inizio del processo | 
+   | **Ricorre ogni** | **1 ora(e)** | L'intervallo e la frequenza di ricorrenza | 
+   | **Fine** | **Termina entro** due giorni dalla data odierna | La data di fine del processo | 
+   | **Differenza dall'ora UTC** | **UTC +08:00** | La differenza oraria tra il fuso orario UTC (Coordinated Universal Time) e il fuso orario della tua posizione | 
+   |||| 
+
+   ![Definire una pianificazione](./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png)
+
+1. Al termine, scegliere **Crea**.
+
+   Dopo aver creato il processo, Azure distribuisce il processo, che viene visualizzato nel dashboard di Azure. 
+
+1. Quando Azure visualizza una notifica che la distribuzione ha avuto esito positivo, scegliere **Aggiungi al dashboard**. In caso contrario, scegliere l’icona **Notifiche** (campanello) sulla barra degli strumenti di Azure, quindi scegliere **Aggiungi al dashboard**.
+
+## <a name="monitor-and-manage-jobs"></a>Monitoraggio e gestione dei processi
+
+Per esaminare, monitorare e gestire il processo, scegliere il processo nel dashboard di Azure. Sotto **impostazioni** sono indicate le aree che è possibile esaminare e gestire per il processo:
+
+![Impostazioni del processo](./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png)
+
+Per altre informazioni su queste aree, selezionare un’area:
+
+* [**Proprietà**](#properties)
+* [**Impostazioni azione**](#action-settings)
+* [**Pianificazione**](#schedule)
+* [**Cronologia**](#history)
+* [**Utenti**](#users)
+
+<a name="properties"></a>
 
 ### <a name="properties"></a>Properties
-Queste proprietà di sola lettura descrivono i metadati di gestione per il processo dell'Utilità di pianificazione.
 
-   ![][job-properties]
+Per visualizzare le proprietà di sola lettura che descrivono i metadati di gestione per il processo, selezionare **Proprietà**.
+
+![Visualizzare le proprietà del processo](./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png)
+
+<a name="action-settings"></a>
 
 ### <a name="action-settings"></a>Impostazioni azione
-Per configurare un processo, fare clic sul processo corrispondente nella schermata **Processi** . Questo permette di configurare le impostazioni avanzate, se non sono state configurate nella procedura guidata di creazione rapida.
 
-Per tutti i tipi di azione è possibile modificare i criteri per i tentativi e l'azione di errore.
+Per modificare le impostazioni avanzate del processo, selezionare **Impostazioni azione**. 
 
-Per le azioni di processo di tipo HTTP e HTTPS, è possibile modificare il metodo a qualsiasi verbo HTTP consentito. È inoltre possibile aggiungere, eliminare o modificare le intestazioni e le informazioni di autenticazione di base.
+![Esaminare le Impostazioni dell'azione](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-Per le azioni di tipo coda di archiviazione, è possibile modificare l'account di archiviazione, il nome della coda, token SAS e corpo.
+| Tipo di azione | DESCRIZIONE | 
+|-------------|-------------| 
+| Tutti i tipi | È possibile modificare i **Criteri di ripetizione** e l'**Azione di errore** per tutti i tipi di azione. | 
+| HTTP e HTTPS | È possibile modificare **Metodo** a qualsiasi metodo consentito. Inoltre, è possibile aggiungere, eliminare o modificare le intestazioni e le informazioni di autenticazione di base. | 
+| Coda di archiviazione| È possibile modificare account di archiviazione, nome della coda, token SAS e corpo. | 
+| Bus di servizio | È possibile modificare lo spazio dei nomi, il percorso della coda o dell'argomento, le impostazioni di autenticazione, il tipo di trasporto, le proprietà del messaggio e il corpo del messaggio. | 
+||| 
 
-Per i tipi di azione del bus di servizio è possibile modificare lo spazio dei nomi, il percorso della coda o dell'argomento, le impostazioni di autenticazione, il tipo di trasporto, le proprietà del messaggio e il corpo del messaggio.
-
-   ![][job-action-settings]
+<a name="schedule"></a>
 
 ### <a name="schedule"></a>Pianificazione
-Permette di riconfigurare la pianificazione creata nella procedura guidata di creazione rapida.
 
-Offre la possibilità di creare [pianificazioni complesse e operazioni ricorrenti avanzate nel processo](scheduler-advanced-complexity.md)
+Se si configura una pianificazione tramite la procedura guidata del processo, è possibile modificare tale pianificazione, ad esempio data e ora di inizio, pianificazione della ricorrenza e data e ora di fine per i processi ricorrenti.
+Inoltre, è possibile creare [pianificazioni più complesse e ricorrenze avanzate](scheduler-advanced-complexity.md).
 
-È possibile modificare data e ora di inizio, la pianificazione di ricorrenza, e data e ora di fine (se il processo è ricorrente).
+Per cambiare visualizzazione o modificare la pianificazione del processo, selezionare **Pianificazione**:
 
-   ![][job-schedule]
+![Visualizza pianificazione processi](./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png)
+
+<a name="history"></a>
 
 ### <a name="history"></a>Cronologia
-La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di processo nel sistema per il processo selezionato. Le metriche forniscono valori in tempo reale relativi all'integrità dell'Utilità di pianificazione:
 
-1. Status  
-2. Dettagli  
-3. Tentativi
-4. Occorrenza: 1, 2, 3 e così via
-5. Ora di inizio dell'esecuzione  
-6. Ora di fine dell'esecuzione
-   
-   ![][job-history]
+Per visualizzare le metriche relative a ogni esecuzione per un processo selezionato, selezionare **Cronologia**. Queste metriche forniscono valori in tempo reale sull'integrità del processo, ad esempio stato, numero di tentativi, numero di occorrenze, ora di inizio e ora di fine.
 
-È possibile fare clic su un'esecuzione per visualizzarne i **Dettagli cronologia**, inclusa l'intera risposta per ogni esecuzione. La finestra di dialogo consente anche di copiare la risposta negli appunti.
+![Visualizzare la cronologia e le metriche del processo](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png)
 
-   ![][job-history-details]
+Per visualizzare i dettagli della cronologia per ogni esecuzione, ad esempio la risposta completa per ogni esecuzione, selezionare ogni esecuzione sotto **Cronologia**. 
+
+![Visualizzare i dettagli della cronologia del processo](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png)
+
+<a name="users"></a>
 
 ### <a name="users"></a>Utenti
-Il controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per l'Utilità di pianificazione di Azure. Per informazioni sull'uso della scheda Utenti, vedere [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="see-also"></a>Vedere anche 
- [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
+È possibile gestire l'accesso all'utilità di pianificazione di Azure per ogni utente a un livello granulare tramite il controllo degli accessi in base al ruolo (RBAC). Per informazioni su come configurare l'accesso basato sui ruoli, vedere [Gestire l'accesso tramite RBAC](../role-based-access-control/role-assignments-portal.md)
 
- [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione](scheduler-concepts-terms.md)
+## <a name="next-steps"></a>Passaggi successivi
 
- [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
-
- [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
-
- [Riferimento API REST dell'utilità di pianificazione](https://msdn.microsoft.com/library/mt629143)
-
- [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione](scheduler-powershell-reference.md)
-
- [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione](scheduler-high-availability-reliability.md)
-
- [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione](scheduler-limits-defaults-errors.md)
-
- [Autenticazione in uscita dell'Utilità di pianificazione](scheduler-outbound-authentication.md)
-
-[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
-[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
-[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
-[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
-[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
-[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
-[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
-[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
-[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
-
-
-[1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
-[2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
-[3]: ./media/scheduler-get-started-portal/scheduler-get-started-portal003.png
-[4]: ./media/scheduler-get-started-portal/scheduler-get-started-portal004.png
-[5]: ./media/scheduler-get-started-portal/scheduler-get-started-portal005.png
-[6]: ./media/scheduler-get-started-portal/scheduler-get-started-portal006.png
-[7]: ./media/scheduler-get-started-portal/scheduler-get-started-portal007.png
-[8]: ./media/scheduler-get-started-portal/scheduler-get-started-portal008.png
-[9]: ./media/scheduler-get-started-portal/scheduler-get-started-portal009.png
-[10]: ./media/scheduler-get-started-portal/scheduler-get-started-portal010.png
-[11]: ./media/scheduler-get-started-portal/scheduler-get-started-portal011.png
-[12]: ./media/scheduler-get-started-portal/scheduler-get-started-portal012.png
-[13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
-[14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
-[15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
+* Informazioni su [concetti, terminologia e gerarchia di entità](scheduler-concepts-terms.md)
+* [Creare pianificazioni complesse e ricorrenze avanzate](scheduler-advanced-complexity.md)
+* Informazioni sui [livelli elevati di disponibilità e affidabilità nell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
+* Informazioni su [limiti, quote, valori predefiniti e codici di errore](scheduler-limits-defaults-errors.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 21cd06692fe1c26cfa276d1f8ec7ace77b11d3c2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23479610"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979982"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creare e modificare un circuito ExpressRoute tramite l'interfaccia della riga di comando
 
@@ -37,7 +37,7 @@ Questo articolo descrive la procedura di creazione di un circuito di Azure Expre
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* Prima di iniziare, installare la versione più recente dei comandi dell'interfaccia della riga di comando (2.0 o successiva). Per informazioni sull'installazione dei comandi dell'interfaccia della riga di comando, vedere [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Installare l'interfaccia della riga di comando di Azure 2.0) e [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Introduzione all'interfaccia della riga di comando di Azure 2.0).
+* Prima di iniziare, installare la versione più recente dei comandi dell'interfaccia della riga di comando (2.0 o successiva). Per informazioni sull'installazione dei comandi dell'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e [Introduzione all'interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli).
 * Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
 
 ## <a name="create"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning

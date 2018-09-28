@@ -1,22 +1,22 @@
 ---
-title: Architettura di HDInsight aggiunto a un dominio di Azure
-description: Informazioni su come pianificare HDInsight aggiunto a un dominio.
+title: Architettura di Azure HDInsight con Enterprise Security Package
+description: Informazioni su come pianificare la sicurezza di HDInsight con Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: 1744a824e3b3fef848ad0513c95b1c6bb21f9fc9
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 09/24/2018
+ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597576"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998927"
 ---
-# <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Pianificare cluster Hadoop aggiunti a un dominio di Azure in HDInsight
+# <a name="use-enterprise-security-package-in-hdinsight"></a>Uso di Enterprise Security Package in HDInsight
 
 Il cluster Azure HDInsight standard è un cluster a utente singolo. Si tratta di un cluster adatto alla maggior parte delle aziende con team di piccole dimensioni che compilano carichi di lavoro di dati di grandi dimensioni. Ogni utente può creare un cluster dedicato diverso su richiesta ed eliminarlo quando non è più necessario. 
 
@@ -29,7 +29,7 @@ Le macchine virtuali (VM) in HDInsight sono parte del dominio specificato. Perta
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrare HDInsight con Active Directory
 
-Hadoop open source si basa su Kerberos per l'autenticazione e la sicurezza. Pertanto, i nodi del cluster HDInsight vengono aggiunti a un dominio gestito tramite Azure Active Directory Domain Services. La sicurezza Kerberos è configurata per i componenti Hadoop nel cluster. 
+Hadoop open source si basa su Kerberos per l'autenticazione e la sicurezza. Pertanto, i nodi del cluster HDInsight con Enterprise Security Package (ESP) vengono aggiunti a un dominio gestito da Azure Active Directory Domain Services. La sicurezza Kerberos è configurata per i componenti Hadoop nel cluster. 
 
 Per ciascun componente Hadoop viene creata automaticamente un'entità servizio. Viene creata anche un'entità computer corrispondente per ogni computer aggiunto al dominio. Per poter archiviare queste entità servizio e computer, è necessario specificare un'unità organizzativa nel controller di dominio (Azure Active Directory Domain Services) in cui posizionare queste entità. 
 
@@ -45,7 +45,7 @@ In sintesi, è necessario configurare un ambiente con gli elementi seguenti:
 
 Lo screenshot seguente mostra un'unità organizzativa creata in contoso.com. Sono visualizzate anche alcune delle entità servizio ed entità computer.
 
-![Unità organizzativa dei cluster HDInsight aggiunti al domini](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
+![Unità organizzativa per i cluster HDInsight con ESP](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Configurazione diversa dei controller di dominio
 HDInsight attualmente supporta solo Azure Active Directory Domain Services come controller di dominio principale che il cluster userà per la comunicazione Kerberos. Ma sono possibili anche altre configurazioni complesse di Active Directory, purché tali configurazioni portino all'abilitazione di Azure Active Directory Domain Services per l'accesso a HDInsight.
@@ -55,17 +55,18 @@ HDInsight attualmente supporta solo Azure Active Directory Domain Services come 
 
 Utenti, gruppi e password vengono sincronizzati da Azure Active Directory (Azure AD). La sincronizzazione unidirezionale dall'istanza di Azure AD per Azure Active Directory Domain Services consente agli utenti di accedere al cluster usando le stesse credenziali aziendali. 
 
-Per altre informazioni, consultare [Configurare i cluster HDInsight aggiunti al dominio con Azure PowerShell](./apache-domain-joined-configure-using-azure-adds.md).
+Per altre informazioni, vedere [Configurare un cluster HDInsight con Enterprise Security Package usando Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
 ### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>Active Directory locale o Active Directory nelle macchine virtuali IaaS
 
 Se si dispone di un'istanza di Active Directory locale o di configurazioni più complesse di Active Directory per il dominio, è possibile sincronizzare le identità in Azure AD tramite Azure AD Connect. È quindi possibile abilitare Azure Active Directory Domain Services in tale tenant di Active Directory. 
 
-Poiché Kerberos si basa sugli hash delle password, sarà necessario [abilitare la sincronizzazione degli hash delle password in Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se si usa la federazione con Active Directory Federation Services (AD FS), è possibile configurare facoltativamente la sincronizzazione dell'hash delle password come backup in caso di errore dell'infrastruttura di AD FS. Per altre informazioni, vedere l'articolo [Abilitare la sincronizzazione degli hash delle password con la sincronizzazione di Azure AD Connect](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). 
+Poiché Kerberos si basa sugli hash delle password, sarà necessario [abilitare la sincronizzazione degli hash delle password in Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se si usa la federazione con Active Directory Federation Services (AD FS), è possibile configurare facoltativamente la sincronizzazione dell'hash delle password come backup in caso di errore dell'infrastruttura di AD FS. Per altre informazioni, vedere l'articolo [Abilitare la sincronizzazione degli hash delle password con la sincronizzazione di Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
-L'utilizzo di Active Directory locale o Active Directory sulle sole macchine virtuali IaaS, senza Azure AD e Azure Active Directory Domain Services, non è una configurazione supportata per i cluster HDInsight connessi al dominio.
+L'utilizzo di Active Directory locale o Active Directory sulle sole macchine virtuali IaaS, senza Azure AD e Azure Active Directory Domain Services, non è una configurazione supportata per i cluster HDInsight con ESP.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Configurare i cluster HDInsight aggiunti al dominio](apache-domain-joined-configure-using-azure-adds.md)
-* [Configurare criteri Hive per i cluster HDInsight aggiunti al dominio](apache-domain-joined-run-hive.md)
-* [Gestire i cluster HDInsight aggiunti al dominio](apache-domain-joined-manage.md) 
+
+* [Configurare i cluster HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md)
+* [Configurare i criteri Hive per i cluster HDInsight con ESP](apache-domain-joined-run-hive.md)
+* [Gestire i cluster HDInsight con ESP](apache-domain-joined-manage.md) 

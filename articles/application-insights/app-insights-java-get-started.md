@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 91c097d2ac661aa4ac9b578b7d9060b97ee6f549
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 093124432314472da06065fad3a7cdff0f558d22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126174"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999818"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introduzione ad Application Insights in un progetto Web Java
 
@@ -405,6 +405,30 @@ I contatori delle prestazioni sono visibili come metriche personalizzate in [Esp
 ### <a name="unix-performance-counters"></a>Contatori delle prestazioni Unix
 * [Installare collectd con il plug-in di Application Insights](app-insights-java-collectd.md) per ottenere una vasta gamma di dati di sistema e di rete.
 
+## <a name="local-forwarder"></a>Server d'inoltro locale
+
+Il [server d'inoltro locale](https://docs.microsoft.com/azure/application-insights/local-forwarder) è un agente che raccoglie dati di telemetria di Application Insights o [OpenCensus](https://opencensus.io/) da un'ampia gamma di SDK e framework e li instrada ad Application Insights. Può essere eseguito sia in Windows sia in Linux.
+
+```xml
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+<DeveloperMode>false</DeveloperMode>
+<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+<!-- The properties below are optional. The values shown are the defaults for each property -->
+<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
+
+Se si usa Spring Boot Starter, aggiungere il codice seguente al file di configurazione (application.properties):
+
+```yml
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
+azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
+azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
+```
+
+I valori predefiniti sono gli stessi per la configurazione di application.properties di Spring Boot e di applicationinsights.xml.
+
 ## <a name="get-user-and-session-data"></a>Ottenere i dati relativi a utenti e sessioni
 I dati di telemetria vengono normalmente inviati dal server Web. Per un quadro completo a 360 gradi dell'applicazione, è però possibile aggiungere altre funzionalità di monitoraggio:
 
@@ -453,7 +477,7 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 [apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
+[eclipse]: /app-insights-java-quick-start.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md

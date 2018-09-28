@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 9e53fa896f1d958e505d26af430b262be9195605
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f3bc64bd010bed9e177fd18cc6cb238b94669248
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859684"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990236"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare parametri per alcuni di essi.
@@ -232,7 +232,29 @@ Determina le dimensioni massime in MB assegnate all'archivio permanente sul disc
    </ApplicationInsights>
 ```
 
+#### <a name="local-forwarder"></a>Server d'inoltro locale
 
+Il [server d'inoltro locale](https://docs.microsoft.com/azure/application-insights/local-forwarder) è un agente che raccoglie dati di telemetria di Application Insights o [OpenCensus](https://opencensus.io/) da un'ampia gamma di SDK e framework e li instrada ad Application Insights. Può essere eseguito sia in Windows sia in Linux. 
+
+```xml
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+<DeveloperMode>false</DeveloperMode>
+<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+<!-- The properties below are optional. The values shown are the defaults for each property -->
+<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
+
+Se si usa Spring Boot Starter, aggiungere il codice seguente al file di configurazione (application.properies):
+
+```yml
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
+azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
+azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
+```
+
+I valori predefiniti sono gli stessi per la configurazione di application.properties di Spring Boot e di applicationinsights.xml.
 
 ## <a name="instrumentationkey"></a>InstrumentationKey
 Determina la risorsa di Application Insights in cui vengono visualizzati i dati. In genere, viene creata una risorsa separata, con una chiave separata, per ognuna delle applicazioni.

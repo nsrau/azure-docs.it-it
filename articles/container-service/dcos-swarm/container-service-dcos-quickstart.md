@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4cd7f2284f3449fe8abdf1a6f8e85b9b0b712d7a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429327"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998560"
 ---
 # <a name="deploy-a-dcos-cluster"></a>Distribuire un cluster DC/OS
 
@@ -22,7 +22,7 @@ DC/OS fornisce una piattaforma distribuita per l'esecuzione di applicazioni in c
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure 
 
@@ -78,7 +78,7 @@ Se il tunnel SSH è stato creato correttamente, viene restituito il portale di D
 
 ## <a name="install-dcos-cli"></a>Installare l'interfaccia della riga di comando di DC/OS
 
-L'interfaccia della riga di comando di DC/OS viene usata per gestire un cluster DC/OS dalla riga di comando. Installare l'interfaccia della riga di comando di DC/OS con il comando [az acs dcos install-cli](/azure/acs/dcos#install-cli). Se si usa Azure CloudShell, l'interfaccia della riga di comando di DC/OS è già installata. 
+L'interfaccia della riga di comando di DC/OS viene usata per gestire un cluster DC/OS dalla riga di comando. Installare l'interfaccia della riga di comando di DC/OS con il comando [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli). Se si usa Azure CloudShell, l'interfaccia della riga di comando di DC/OS è già installata. 
 
 Se si esegue l'interfaccia della riga di comando di Azure in macOS o Linux, potrebbe essere necessario eseguire il comando con sudo.
 

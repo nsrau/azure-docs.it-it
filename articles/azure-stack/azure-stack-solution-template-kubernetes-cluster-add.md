@@ -11,26 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e0a96d947bce579d2c1d7d31de83c7ef53eabd3a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 978cce4642dc61143bd829fcae03357fd8c969c2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165807"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405513"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Aggiungere Kubernetes per il Marketplace di Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!note]  
-> Kubernetes in Azure Stack è disponibile in anteprima. Per richiedere l'accesso per l'elemento del Marketplace di Cluster Kubernetes necessaria per eseguire le istruzioni riportate in questo articolo [inviare una richiesta per ottenere l'accesso](https://aka.ms/azsk8).
+> Kubernetes in Azure Stack è disponibile in anteprima.
 
 È possibile offrire Kubernetes come un elemento del Marketplace per gli utenti. Gli utenti possono distribuire Kubernetes in un'unica operazione coordinata.
 
-Esaminare l'articolo seguente usando un modello di Azure Resource Manager per la distribuzione e provisioning delle risorse per un cluster autonomo di Kubernetes. Prima di iniziare, verificare le impostazioni di globale tenant di Azure e Azure Stack. Raccogliere le informazioni necessarie su Azure Stack. Aggiungere le risorse necessarie per il tenant e per il Marketplace di Azure Stack. Il cluster dipende da un server Ubuntu, uno script personalizzato e gli elementi di Kubernetes in marketplace.
+Esaminare l'articolo seguente usando un modello di Azure Resource Manager per la distribuzione e provisioning delle risorse per un cluster autonomo di Kubernetes. L'elemento del Marketplace di Cluster Kubernetes 0.3.0 richiede la versione di Azure Stack 1808. Prima di iniziare, verificare le impostazioni di globale tenant di Azure e Azure Stack. Raccogliere le informazioni necessarie su Azure Stack. Aggiungere le risorse necessarie per il tenant e per il Marketplace di Azure Stack. Il cluster dipende da un server Ubuntu, uno script personalizzato e gli elementi di Kubernetes in marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Creare un piano, un'offerta e una sottoscrizione
 

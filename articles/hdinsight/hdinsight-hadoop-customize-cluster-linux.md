@@ -3,18 +3,18 @@ title: Personalizzare i cluster HDInsight con azioni script - Azure
 description: Aggiungere componenti personalizzati nei cluster HDInsight basati su Linux tramite azioni script. Le azioni script sono script Bash usabili per personalizzare la configurazione del cluster o aggiungere servizi e utilità come Hue, Solr o R.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jasonh
-ms.openlocfilehash: 0837029cbe22ba7f659efefb113ed47ae1cf2dfe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038336"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978030"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizzare i cluster HDInsight basati su Linux tramite azioni script
 
@@ -89,7 +89,7 @@ Un'azione di script è uno script Bash eseguito sui nodi di un cluster HDInsight
 
 * Eseguire lo script con **privilegi a livello radice** nei nodi del cluster.
 
-* Possono essere usate con il **portale di Azure**, **Azure PowerShell**, l'**interfaccia della riga di comando di Azure 1.0** o **HDInsight .NET SDK**.
+* Possono essere usate con il **portale di Azure**, **Azure PowerShell**, l'**interfaccia della riga di comando classica di Azure** o **HDInsight .NET SDK**
 
 Il cluster mantiene una cronologia di tutti gli script eseguiti. La cronologia è utile quando è necessario trovare l'ID di uno script per le operazioni di innalzamento o abbassamento di livello.
 
@@ -147,7 +147,7 @@ Gli script di azione script possono essere usati tramite le utilità seguenti:
 
 * Portale di Azure
 * Azure PowerShell
-* Interfaccia della riga di comando di Azure 1.0
+* Interfaccia della riga di comando classica di Azure
 * HDInsight .NET SDK
 
 HDInsight fornisce script di esempio per installare i componenti seguenti nei cluster HDInsight:
@@ -292,10 +292,9 @@ Al termine dell'operazione, vengono visualizzate informazioni simili alle seguen
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Applicare un'azione script a un cluster in esecuzione dall'interfaccia della riga di comando di Azure
 
-Prima di procedere, assicurarsi di aver installato e configurato l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md).
+Prima di procedere, assicurarsi di aver installato e configurato l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md).
 
-> [!IMPORTANT]
-> HDInsight richiede l'interfaccia della riga di comando di Azure 1.0. L'interfaccia della riga di comando di Azure 2.0 non offre attualmente comandi per l'interazione con HDInsight.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 1. Per passare alla modalità Azure Resource Manager, usare il comando seguente nella riga di comando:
 
@@ -380,7 +379,7 @@ Lo script di esempio seguente mostra come usare i cmdlet per alzare di livello e
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
-### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
+### <a name="using-the-azure-classic-cli"></a>Uso dell'interfaccia della riga di comando classica di Azure
 
 | Usare | Per |
 | --- | --- |
