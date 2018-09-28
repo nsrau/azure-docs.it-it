@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302297"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950166"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -66,15 +66,25 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
 >Il peering pubblico è stato disabilitato sui circuiti nuovi di ExpressRoute. I servizi di Azure sono disponibili nel peering Microsoft.
 >
 
+* Power BI
+* Dynamics 365 for Finance Operations (noto in precedenza come Dynamics AX Online)
+* È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br>
+  I servizi seguenti NON sono supportati:
+    * RETE CDN
+    * Test di carico di Azure DevOps Services
+    * Multi-Factor Authentication
+    * Gestione traffico
+
 ### <a name="microsoft-peering"></a>Peering Microsoft
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Test del carico di Visual Studio Team Services
+* Test di carico di Azure DevOps Services
 * È supportata la maggior parte dei servizi di Azure. Contattare direttamente il servizio che si vuole usare per verificarne il supporto.<br>I servizi seguenti **non sono supportati**:
     * RETE CDN
+    * Test di carico di Azure DevOps Services
     * Multi-Factor Authentication
     * Gestione traffico
 
@@ -337,3 +347,11 @@ Il circuito esistente continuerà ad annunciare i prefissi per Office 365 e Dyna
 * Il peering Microsoft dei circuiti ExpressRoute che sono stati configurati prima del 1° agosto 2017, avranno tutti i prefissi di servizio pubblicati tramite il peering Microsoft, anche se non sono definiti i filtri di route.
 
 * Il peering Microsoft dei circuiti ExpressRoute che vengono configurati dopo il 1° agosto 2017 non avrà alcun prefisso annunciato fino a quando non viene associato un filtro di route per il circuito. Per impostazione predefinita, non verrà visualizzato alcun prefisso.
+
+## <a name="globalreach"></a>ExpressRoute Direct (anteprima)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Copertura globale (anteprima)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

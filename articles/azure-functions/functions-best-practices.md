@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fe8b2cc09c7a08ab6d897a0fe1f1204d1903eca
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dbb21e63a25d6e357287f2f91181f2326850a898
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090864"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952852"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -73,6 +73,10 @@ Sfruttare le misure difensive già messe a disposizione per i componenti usati n
 ## <a name="scalability-best-practices"></a>Procedure consigliate per la scalabilità
 
 Sulla scalabilità delle istanze dell'app per le funzioni influiscono vari tipi di fattori. Informazioni dettagliate sono disponibili nella documentazione relativa alla [scalabilità delle funzioni](functions-scale.md).  Di seguito sono descritte alcune procedure consigliate per garantire la scalabilità ottimale di un'app per le funzioni.
+
+### <a name="share-and-manage-connections"></a>Condividere e gestire le connessioni
+
+Riutilizzare le connessioni per risorse esterne, laddove possibile.  Vedere [come gestire le connessioni in Funzioni di Azure](./manage-connections.md).
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Non combinare codice di test e di produzione nella stessa app per le funzioni
 

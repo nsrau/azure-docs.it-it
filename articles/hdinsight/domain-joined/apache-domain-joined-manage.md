@@ -1,23 +1,23 @@
 ---
-title: Gestire i cluster HDInsight aggiunti al dominio - Azure
-description: Come configurare i cluster HDInsight aggiunti al dominio
+title: Gestire i cluster HDInsight con Enterprise Security Package - Azure
+description: Informazioni su come gestire i cluster HDInsight con Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-editor: jasonwhowell
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.openlocfilehash: 51feb7099328e366e59519ce108ccd9afc1e277e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/24/2018
+ms.openlocfilehash: 02a77ef9589a42a6f33087ba7e22efc3144a8f2c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597676"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973559"
 ---
-# <a name="manage-domain-joined-hdinsight-clusters"></a>Gestione dei cluster HDInsight aggiunti al dominio
-Informazioni su utenti e ruoli nei cluster HDInsight aggiunti al dominio e su come gestire i cluster HDInsight aggiunti al dominio.
+# <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gestire i cluster HDInsight con Enterprise Security Package
+Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e su come gestire i cluster ESP.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Usare VSCode per collegarsi a un cluster aggiunto al dominio
 
@@ -140,12 +140,12 @@ Per trovare il nome di dominio completo di un nodo head, usare le informazioni c
 
 
 
-## <a name="users-of-domain-joined-hdinsight-clusters"></a>Utenti dei cluster HDInsight aggiunti al dominio
-Un cluster HDInsight non aggiunto al dominio dispone di due account utente creati durante la creazione del cluster:
+## <a name="users-of-hdinsight-clusters-with-esp"></a>Utenti dei cluster HDInsight con ESP
+Un cluster HDInsight non ESP dispone di due account utente creati durante la creazione del cluster:
 
 * **Amministratore Ambari**: questo account è denominato anche *Utente Hadoop* o *Utente HTTP*. Può essere usato per accedere ad Ambari all'indirizzo https://&lt;nomecluster>.azurehdinsight.net. Può essere usato anche per eseguire query sulle viste Ambari, eseguire i processi tramite strumenti esterni (ad esempio PowerShell, Templeton, Visual Studio) ed eseguire l'autenticazione con Hive ODBC Driver e gli strumenti di business intelligence (ad esempio Excel, PowerBI o Tableau).
 
-Un cluster HDInsight aggiunto a un dominio ha tre nuovi utenti, oltre all'amministratore di Ambari.
+Un cluster HDInsight con ESP ha tre nuovi utenti, oltre all'amministratore di Ambari.
 
 * **Amministrazione Ranger**: questo account è l'account di amministratore Ranger locale di Apache. Non si tratta di un utente del dominio di Active Directory. Questo account può essere usato per configurare criteri e creare altri utenti amministratori o amministratori con delega (i quali potranno gestire i criteri). Per impostazione predefinita, il nome utente è *admin* e la password corrisponde alla password dell'amministratore Ambari. La password può essere aggiornata dalla pagina delle impostazioni di Ranger.
 * **Utente del dominio di amministrazione cluster**: questo account corrisponde a un utente del dominio di Active Directory designato come amministratore del cluster Hadoop che include Ambari e Ranger. Durante la creazione del cluster, è necessario fornire le credenziali dell'utente. L'utente dispone dei privilegi seguenti:
@@ -159,8 +159,8 @@ Un cluster HDInsight aggiunto a un dominio ha tre nuovi utenti, oltre all'ammini
     Il cluster contiene alcuni endpoint (ad esempio, Templeton) non gestiti tramite Ranger e pertanto non sicuri. Questi endpoint sono bloccati per tutti gli utenti, tranne l'utente del dominio di amministrazione del cluster.
 * **Normale**: durante la creazione del cluster, è possibile specificare più gruppi di Active Directory. Gli utenti di questi gruppi sono sincronizzati con Ranger e Ambari. Questi utenti sono utenti di dominio e possono accedere solo agli endpoint gestiti da Ranger (ad esempio, Hiveserver2). A questi utenti potranno essere applicati tutti i criteri di controllo e controllo degli accessi in base al ruolo.
 
-## <a name="roles-of-domain-joined-hdinsight-clusters"></a>Ruoli dei cluster HDInsight aggiunti al dominio
-I cluster HDInsight aggiunti al dominio includono i seguenti ruoli:
+## <a name="roles-of-hdinsight-clusters-with-esp"></a>Ruoli dei cluster HDInsight con ESP
+Enterprise Security Package per HDInsight ha i seguenti ruoli:
 
 * Amministratore del cluster
 * Operatore del cluster
@@ -174,7 +174,7 @@ I cluster HDInsight aggiunti al dominio includono i seguenti ruoli:
 2. Fare clic su **Roles** (Ruoli) nel menu a sinistra.
 3. Fare clic sul punto interrogativo blu per visualizzare le autorizzazioni:
 
-    ![Autorizzazioni dei ruoli dei cluster HDInsight aggiunti al dominio](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
+    ![Autorizzazioni dei ruoli HDInsight con ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Aprire l'interfaccia utente per la gestione di Ambari.
 
@@ -184,43 +184,43 @@ I cluster HDInsight aggiunti al dominio includono i seguenti ruoli:
 4. Eseguire l'accesso usando il nome utente e la password di amministratore del cluster.
 5. Fare clic sul menu a discesa **Admin** (Amministratore) in alto a destra e quindi fare clic su **Manage Ambari** (Gestisci Ambari).
 
-    ![Gestire Ambari nel cluster HDInsight aggiunto al dominio](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    ![Gestire Ambari nel cluster HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
     L'interfaccia utente ha il seguente aspetto:
 
-    ![Interfaccia utente della gestione di Ambari nel cluster HDInsight aggiunto al dominio](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    ![Interfaccia utente per la gestione di Ambari in HDInsight con ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Elencare gli utenti del dominio sincronizzati da Active Directory
 1. Aprire l'interfaccia utente per la gestione di Ambari.  Vedere [Open the Ambari Management UI](#open-the-ambari-management-ui) (Aprire l'interfaccia utente per la gestione di Ambari).
 2. Scegliere **Users**(Utenti) dal menu a sinistra. Verranno visualizzati tutti gli utenti sincronizzati da Active Directory al cluster HDInsight.
 
-    ![Elenco degli utenti dell'interfaccia per la gestione di Ambari nel cluster HDInsight aggiunto al dominio](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
+    ![Elenco degli utenti dell'interfaccia utente per la gestione di Ambari in HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
 ## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Elencare gli utenti del dominio sincronizzati da Active Directory
 1. Aprire l'interfaccia utente per la gestione di Ambari.  Vedere [Open the Ambari Management UI](#open-the-ambari-management-ui) (Aprire l'interfaccia utente per la gestione di Ambari).
 2. Scegliere **Groups** (Gruppi) dal menu a sinistra. Verranno visualizzati tutti i gruppi sincronizzati da Active Directory al cluster HDInsight.
 
-    ![Elenco dei gruppi dell'interfaccia utente per la gestione di Ambari nel cluster HDInsight aggiunto al dominio](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
+    ![Elenco dei gruppi dell'interfaccia utente per la gestione di Ambari in HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
 ## <a name="configure-hive-views-permissions"></a>Configurare le autorizzazioni delle viste Hive
 1. Aprire l'interfaccia utente per la gestione di Ambari.  Vedere [Open the Ambari Management UI](#open-the-ambari-management-ui) (Aprire l'interfaccia utente per la gestione di Ambari).
 2. Fare clic su **Views** (Viste) nel menu a sinistra.
 3. Fare clic su **HIVE** per visualizzare i dettagli.
 
-    ![Viste Hive dell'interfaccia utente per la gestione di Ambari nel cluster HDInsight aggiunto al dominio](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
+    ![Viste Hive dell'interfaccia utente per la gestione di Ambari in HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
 4. Fare clic sul collegamento **Hive View** (Vista Hive) per configurare le viste Hive.
 5. Scorrere verso il basso fino alla sezione **Permissions** Autorizzazioni.
 
-    ![Configurare le autorizzazioni delle viste Hive nell'interfaccia utente per la gestione di Ambari nel cluster HDInsight aggiunto al dominio](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
+    ![Configurare le autorizzazioni delle viste Hive nell'interfaccia utente per la gestione di Ambari in HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
 6. Fare clic su **Add User** (Aggiungi utente) o **Add group** (Aggiungi gruppo), quindi specificare gli utenti o i gruppi autorizzati a usare le viste Hive.
 
 ## <a name="configure-users-for-the-roles"></a>Configurare i ruoli degli utenti
- Per visualizzare un elenco dei ruoli con le relative autorizzazioni, vedere [Roles of Domain-joined HDInsight clusters](#roles-of-domain---joined-hdinsight-clusters) (Ruoli dei cluster HDInsight aggiunti al dominio).
+ Per visualizzare un elenco dei ruoli con le relative autorizzazioni, vedere [Ruoli dei cluster HDInsight con ESP](#roles-of-domain---joined-hdinsight-clusters).
 
 1. Aprire l'interfaccia utente per la gestione di Ambari.  Vedere [Open the Ambari Management UI](#open-the-ambari-management-ui) (Aprire l'interfaccia utente per la gestione di Ambari).
 2. Fare clic su **Roles** (Ruoli) nel menu a sinistra.
 3. Fare clic su **Add User** (Aggiungi utente) o su **Add Group** (Aggiungi gruppo) per assegnare utenti e gruppi a ruoli diversi.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per configurare un cluster HDInsight aggiunto al dominio, vedere [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configurare i cluster HDInsight aggiunti al dominio).
-* Per configurare i criteri ed eseguire query Hive, vedere [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Configurare criteri Hive per cluster HDInsight aggiunti al dominio).
+* Per configurare un cluster HDInsight con Enterprise Security Package, vedere [Configurare i cluster HDInsight con ESP](apache-domain-joined-configure.md).
+* Per configurare i criteri Hive ed eseguire le query Hive, vedere [Configurare criteri Hive per i cluster HDInsight con ESP](apache-domain-joined-run-hive.md).

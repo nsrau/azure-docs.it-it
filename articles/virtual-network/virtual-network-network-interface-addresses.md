@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 018ca5d0510ef37c58a6d841ac17d2920817e216
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895361"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975299"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Aggiungere, modificare o rimuovere indirizzi IP per un'interfaccia di rete di Azure
 
@@ -35,7 +35,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 - Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
 - Se si usa il portale, aprire https://portal.azure.com e accedere con l'account Azure.
 - Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo Azure PowerShell 5.7.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
-- Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.31 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
+- Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.31 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
 L'account con cui si accede o con cui ci si collega ad Azure deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nelle [autorizzazioni dell'interfaccia di rete](virtual-network-network-interface.md#permissions).
 
@@ -51,9 +51,9 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 
     |Impostazione|Obbligatorio?|Dettagli|
     |---|---|---|
-    |NOME|Sì|Deve essere univoco per l'interfaccia di rete|
-    |type|Sì|Dato che si aggiunge una configurazione IP a un'interfaccia di rete esistente e ogni interfaccia di rete deve avere una configurazione IP [primaria](#primary), l'unica opzione possibile è **Secondaria**.|
-    |Metodo di assegnazione di indirizzi IP privati|Sì|[**Dinamico**](#dynamic): Azure assegna l'indirizzo successivo disponibile per l'intervallo di indirizzi della subnet in cui viene distribuita l'interfaccia di rete. [**Statico**](#static): assegnare un indirizzo non usato per l'intervallo di indirizzi di subnet in cui viene distribuita l'interfaccia di rete.|
+    |NOME|Yes|Deve essere univoco per l'interfaccia di rete|
+    |type|Yes|Dato che si aggiunge una configurazione IP a un'interfaccia di rete esistente e ogni interfaccia di rete deve avere una configurazione IP [primaria](#primary), l'unica opzione possibile è **Secondaria**.|
+    |Metodo di assegnazione di indirizzi IP privati|Yes|[**Dinamico**](#dynamic): Azure assegna l'indirizzo successivo disponibile per l'intervallo di indirizzi della subnet in cui viene distribuita l'interfaccia di rete. [**Statico**](#static): assegnare un indirizzo non usato per l'intervallo di indirizzi di subnet in cui viene distribuita l'interfaccia di rete.|
     |Indirizzo IP pubblico|No |**Disabilitato:** nessuna risorsa di indirizzo IP pubblico è attualmente associata alla configurazione IP. **Abilitato:** selezionare un indirizzo IPv4 pubblico esistente o crearne uno nuovo. Per informazioni su come creare un indirizzo IP pubblico, vedere l'articolo [Indirizzi IP](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Aggiungere manualmente gli indirizzi IP privati secondari al sistema operativo della macchina virtuale seguendo le istruzioni disponibili nell'articolo [Assegnare più indirizzi IP ai sistemi operativi della macchina virtuale](virtual-network-multiple-ip-addresses-portal.md#os-config). Vedere indirizzi IP [privati](#private) per alcune considerazioni specifiche prima di aggiungere manualmente gli indirizzi IP a un sistema operativo della macchina virtuale. Non aggiungere indirizzi IP pubblici al sistema operativo della macchina virtuale.
 
@@ -72,7 +72,7 @@ Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4
 2. Selezionare l'interfaccia di rete di cui si vogliono visualizzare o modificare le impostazioni dell'indirizzo IP dall'elenco.
 3. In **IMPOSTAZIONI**, selezionare **Configurazioni IP**.
 4. Selezionare la configurazione IP che si desidera modificare dall'elenco.
-5. Modificare le impostazioni in base alle esigenze usando le informazioni sulle impostazioni descritte al passaggio 5 della sezione [Aggiungere una configurazione IP](#create-ip-config).
+5. Modificare le impostazioni in base alle esigenze usando le informazioni sulle impostazioni descritte al passaggio 5 della sezione [Aggiungere una configurazione IP](#add-ip-addresses).
 6. Selezionare **Salva**.
 
 >[!NOTE]
@@ -170,9 +170,9 @@ Gli indirizzi IPv4 e (facoltativamente) IPv6 privati dinamici vengono assegnati 
 
 ### <a name="static"></a>statico
 
-Facoltativamente, è possibile assegnare un indirizzo IPv4 statico pubblico o privato a una configurazione IP. Non è possibile assegnare un indirizzo IPv6 statico pubblico o privato a una configurazione IP. Per altre informazioni su come Azure assegna gli indirizzi IPv4 pubblici statici, vedere l'articolo [Indirizzo IP pubblico](virtual-network-public-ip-address.md).
+Facoltativamente, è possibile assegnare un indirizzo IPv4 statico pubblico o privato a una configurazione IP. Non è possibile assegnare un indirizzo IPv6 statico pubblico o privato a una configurazione IP. Per altre informazioni su come Azure assegna gli indirizzi IPv4 pubblici statici, vedere [Indirizzo IP pubblico](virtual-network-public-ip-address.md).
 
-- **Solo pubblico**: Azure assegna gli indirizzi da un intervallo univoco a ogni area di Azure. Per informazioni sull'assegnazione degli intervalli a ogni area, vedere [Intervalli IP del data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). L'indirizzo non cambia finché non viene eliminata la risorsa di indirizzo IP pubblico a cui è stato assegnato o il metodo di assegnazione non diventa dinamico. Se la risorsa di indirizzo IP pubblico è associata a una configurazione IP, prima di modificare il metodo di assegnazione è necessario annullare l'associazione della configurazione IP.
+- **Solo pubblico**: Azure assegna gli indirizzi da un intervallo univoco a ogni area di Azure. È possibile scaricare l'elenco degli intervalli (prefissi) per i cloud [Pubblico](https://www.microsoft.com/download/details.aspx?id=56519), [US Government](https://www.microsoft.com/download/details.aspx?id=57063), [Cina](https://www.microsoft.com/download/details.aspx?id=57062) e [Germania](https://www.microsoft.com/download/details.aspx?id=57064) di Azure. L'indirizzo non cambia finché non viene eliminata la risorsa di indirizzo IP pubblico a cui è stato assegnato o il metodo di assegnazione non diventa dinamico. Se la risorsa di indirizzo IP pubblico è associata a una configurazione IP, prima di modificare il metodo di assegnazione è necessario annullare l'associazione della configurazione IP.
 - **Solo privato**: si seleziona e si assegna un indirizzo dell'intervallo di indirizzi della subnet. È possibile assegnare qualsiasi indirizzo nell'intervallo di indirizzi della subnet che non sia uno dei primi quattro indirizzi di tale intervallo e non sia attualmente assegnato ad altre risorse nella subnet. Gli indirizzi statici vengono rilasciati solo in caso di eliminazione di un'interfaccia di rete. Se si modifica il metodo di allocazione in statico, Azure assegna dinamicamente l'indirizzo IP statico assegnato in precedenza come indirizzo dinamico, anche se non è l'indirizzo disponibile successivo nell'intervallo di indirizzi della subnet. L'indirizzo viene modificato anche in caso di assegnazione dell'interfaccia di rete a un'altra subnet nella stessa rete virtuale, ma per assegnare l'interfaccia di rete a un'altra subnet è prima necessario modificare il metodo di allocazione da statico a dinamico. Dopo aver assegnato l'interfaccia di rete a un'altra subnet, è possibile modificare il metodo di allocazione di nuovo in statico e assegnare un indirizzo IP dell'intervallo di indirizzi della nuova subnet.
 
 ## <a name="ip-address-versions"></a>Versioni di indirizzi IP
@@ -188,7 +188,7 @@ Ogni interfaccia di rete deve avere una configurazione IP [primaria](#primary) a
 È possibile assegnare uno o nessun indirizzo [IPv6](#ipv6) privato a una configurazione IP secondaria di un'interfaccia di rete. L'interfaccia di rete non può avere configurazioni IP secondarie esistenti. Non è possibile aggiungere una configurazione IP con un indirizzo IPv6 tramite il portale. Per aggiungere una configurazione IP con un indirizzo IPv6 privato a un'interfaccia di rete esistente, usare PowerShell o l'interfaccia della riga di comando. Non è possibile collegare l'interfaccia di rete a una macchina virtuale esistente.
 
 > [!NOTE]
-> Anche se è possibile creare un'interfaccia di rete con un indirizzo IPv6 tramite il portale, il portale non consente di aggiungere un'interfaccia di rete esistente a una macchina virtuale nuova o esistente. Usare PowerShell o l'interfaccia della riga di comando di Azure 2.0 per creare un'interfaccia di rete con un indirizzo IPv6 privato e quindi collegare l'interfaccia di rete durante la creazione di una macchina virtuale. Non è possibile collegare un'interfaccia di rete con un indirizzo IPv6 privato ad essa assegnato in una macchina virtuale esistente. Non è possibile aggiungere un indirizzo IPv6 privato a una configurazione IP per qualsiasi interfaccia di rete associata a una macchina virtuale usando gli strumenti (portale, interfaccia della riga di comando o PowerShell).
+> Anche se è possibile creare un'interfaccia di rete con un indirizzo IPv6 tramite il portale, il portale non consente di aggiungere un'interfaccia di rete esistente a una macchina virtuale nuova o esistente. Usare PowerShell o l'interfaccia della riga di comando di Azure per creare un'interfaccia di rete con un indirizzo IPv6 privato e quindi collegare l'interfaccia di rete durante la creazione di una macchina virtuale. Non è possibile collegare un'interfaccia di rete con un indirizzo IPv6 privato ad essa assegnato in una macchina virtuale esistente. Non è possibile aggiungere un indirizzo IPv6 privato a una configurazione IP per qualsiasi interfaccia di rete associata a una macchina virtuale usando gli strumenti (portale, interfaccia della riga di comando o PowerShell).
 
 Non è possibile assegnare un indirizzo IPv6 pubblico a una configurazione IP primaria o secondaria.
 

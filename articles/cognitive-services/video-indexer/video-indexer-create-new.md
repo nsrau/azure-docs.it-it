@@ -1,26 +1,27 @@
 ---
-title: Usare Video Indexer di Azure per creare informazioni dettagliate video da video esistenti | Microsoft Docs
-description: Questo argomento illustra come creare e pubblicare informazioni dettagliate basate sui video di altri utenti.
+title: 'Esercitazione: Creare informazioni dettagliate del video da video esistenti'
+titlesuffix: Azure Cognitive Services
+description: Questo argomento illustra come creare e pubblicare informazioni dettagliate basate su file video esistenti.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/25/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 161a47f72a0f8038a515c09f25ec2a8e8a520547
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 3a3e5c62d9eb96563d395106db62cc91a8307658
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390841"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983918"
 ---
-# <a name="create-highlights-from-existing-videos"></a>Creare informazioni dettagliate da video esistenti
+# <a name="tutorial-create-highlights-from-existing-videos"></a>Esercitazione: Creare informazioni dettagliate da video esistenti
 
 Questo argomento illustra come creare e pubblicare informazioni dettagliate basate sui video di altri utenti.
 
-1. Accedere all'account di [Video Indexer](https://api-portal.videoindexer.ai/).
+1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
 2. Trovare un video da cui si vogliono creare le informazioni dettagliate.
 3. Premere **Riproduci**.
 

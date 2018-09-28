@@ -14,19 +14,19 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 220132f5f8c926999ac18299c3e8362be78d23a8
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171790"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990179"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gestire record e recordset DNS in DNS di Azure con Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-operations-recordsets-portal.md)
-> * [Interfaccia della riga di comando di Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
-> * [Interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md)
+> * [Interfaccia della riga di comando classica di Azure](dns-operations-recordsets-cli-nodejs.md)
+> * [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Questo articolo descrive come gestire i record DNS per la zona DNS usando Azure PowerShell. Per gestire i record DNS è anche possibile usare l'[interfaccia della riga di comando multipiattaforma di Azure](dns-operations-recordsets-cli.md) o il [portale di Azure](dns-operations-recordsets-portal.md).

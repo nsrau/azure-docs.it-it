@@ -1,6 +1,6 @@
 ---
-title: Usare il DNS interno per la risoluzione dei nomi di VM con l'interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: Come creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure con l'interfaccia della riga di comando di Azure 2.0
+title: Usare il DNS interno per la risoluzione dei nomi di VM con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Come creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -15,15 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: c1ca250d7255877cc811bf7c03034ecbb8f1f372
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936905"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961502"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure
-Questo articolo illustra come impostare nomi DNS interni statici per VM Linux usando schede di interfaccia di rete virtuale (vNic) e nomi di etichette DNS con l'interfaccia della riga di comando di Azure 2.0. Si ricorre ai nomi DNS statici per i servizi di infrastruttura permanenti, ad esempio per un server di compilazione Jenkins, usato per questo documento, o un server Git.
+
+Questo articolo illustra come impostare nomi DNS interni statici per VM Linux usando schede di interfaccia di rete virtuale (vNic) e nomi di etichette DNS con l'interfaccia della riga di comando di Azure. Si ricorre ai nomi DNS statici per i servizi di infrastruttura permanenti, ad esempio per un server di compilazione Jenkins, usato per questo documento, o un server Git.
 
 I requisiti sono:
 
@@ -31,7 +32,7 @@ I requisiti sono:
 * [File di chiavi SSH pubbliche e private](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Comandi rapidi
-Se si vuole eseguire rapidamente l'attività, la sezione seguente indica dettagliatamente i comandi necessari. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, a partire da [qui](#detailed-walkthrough). Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index#az_login).
+Se si vuole eseguire rapidamente l'attività, la sezione seguente indica dettagliatamente i comandi necessari. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, a partire da [qui](#detailed-walkthrough). Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index#az_login).
 
 Pre-requisiti: gruppo di risorse, rete virtuale e subnet, gruppo di sicurezza di rete con SSH in ingresso.
 

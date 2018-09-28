@@ -1,45 +1,43 @@
 ---
-title: Usare l'API Video Indexer di Azure | Microsoft Docs
+title: "Esercitazione: Usare l'API Video Indexer"
+titlesuffix: Azure Cognitive Services
 description: Questo articolo illustra come iniziare a usare l'API Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/25/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 73359955861b88f2bc5ca297c32fa78c2632148c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7bd7ed1b2d2f437ef57598c42ca12ce8bfb174a1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449480"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985566"
 ---
-# <a name="use-azure-video-indexer-api"></a>Usare l'API Video Indexer di Azure
+# <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
 > [!Note]
 > L'API Video Indexer v1 è stata deprecata l'1 agosto 2018. È ora necessario usare l'API Video Indexer v2. <br/>Per le attività di sviluppo con le API Video Indexer v2, fare riferimento alle istruzioni disponibili [qui](https://api-portal.videoindexer.ai/). 
 
 Video Indexer consolida diverse tecnologie di intelligenza artificiale audio e video offerte da Microsoft in un unico servizio integrato, semplificando così lo sviluppo. Le API sono progettate per consentire agli sviluppatori di concentrarsi sull'uso delle tecnologie di intelligenza artificiale per i contenuti multimediali senza doversi preoccupare della scalabilità, della portata globale, della disponibilità e dell'affidabilità della piattaforma cloud. È possibile usare l'API per caricare file, ottenere informazioni dettagliate sui video, ottenere gli URL dei widget delle informazioni dettagliate e del lettore per incorporarli nell'applicazione ed eseguire altre attività.
 
-Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
+Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account di Azure Media Services. 
 
-Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio dall'[API Video Indexer](https://api-portal.videoindexer.ai/). Per una panoramica più dettagliata del servizio Video Indexer, vedere l'articolo [Panoramica](video-indexer-overview.md).
+Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio dall'[API Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="subscribe-to-the-api"></a>Eseguire la sottoscrizione all'API
 
-1. Accedere.
-
-    Per iniziare a eseguire attività di sviluppo con Video Indexer, è prima necessario accedere al portale [Video Indexer](https://api-portal.videoindexer.ai/). 
+1. Accedere al [portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/).
     
-    ![Iscrizione](./media/video-indexer-use-apis/video-indexer-api01.png)
+    ![Accesso](./media/video-indexer-use-apis/video-indexer-api01.png)
 
     > [!Important]
     > * È necessario usare lo stesso provider usato per l'iscrizione a Video Indexer.
     > * Gli account Google e Microsoft (Outlook/Live) personali possono essere usati solo per gli account di valutazione. Gli account connessi ad Azure richiedono Azure AD.
     > * Può essere presente un solo account attivo per ogni indirizzo di posta elettronica. Se un utente tenta di effettuare l'accesso con user@gmail.com per LinkedIn e successivamente con user@gmail.com per Google, verrà visualizzata una pagina di errore che indica che l'utente già esiste.
-
 
 2. Eseguire la sottoscrizione.
 
@@ -91,15 +89,15 @@ I valori applicabili sono descritti nella tabella seguente. **Valore parametro**
 
 Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle operazioni. L'ID account è un GUID che può essere ottenuto in uno dei modi seguenti:
 
-* Usare il portale di Video Indexer per ottenere l'ID account:
+* Usare il **sito Web di Video Indexer** per ottenere l'ID account:
 
-    1. Accedere a [videoindexer](https://www.videoindexer.ai/).
+    1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
     2. Passare alla pagina **Impostazioni**.
     3. Copiare l'ID account.
 
         ![Account ID](./media/video-indexer-use-apis/account-id.png)
 
-* Usare l'API ottenere l'ID account a livello di codice.
+* Usare il **portale per sviluppatori di Video Indexer** per ottenere l'ID account a livello di codice.
 
     Usare l'API [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) (Ottieni account).
     
@@ -225,7 +223,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Esaminare i dettagli dell'output JSON](video-indexer-output-json.md).
-
-## <a name="see-also"></a>Vedere anche 
 
 [Panoramica di Video Indexer](video-indexer-overview.md)

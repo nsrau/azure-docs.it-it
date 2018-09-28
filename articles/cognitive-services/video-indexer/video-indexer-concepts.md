@@ -1,36 +1,29 @@
 ---
-title: Concetti relativi ad Video Indexer di Azure | Microsoft Docs
+title: Concetti di Video Indexer
+titlesuffix: Azure Cognitive Services
 description: Questo argomento descrive alcuni concetti relativi al servizio Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/31/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 224c8b05027f51fb99c8d58be34c3604032c0f77
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 740f13e90397650ed9274937b16254e46c6deced
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399496"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984122"
 ---
 # <a name="video-indexer-concepts"></a>Concetti di Video Indexer
  
-Questo argomento descrive alcuni concetti relativi al servizio Video Indexer.
+Questo articolo descrive alcuni concetti relativi al servizio Video Indexer.
     
 ## <a name="summarized-insights"></a>Informazioni dettagliate riepilogate
 
-Le informazioni dettagliate riepilogate contengono una visualizzazione aggregata dei dati: visi, parole chiave e sentiment. Ad esempio, invece di esaminare singolarmente le migliaia di intervalli di tempo e controllare quali visi contengono, le informazioni dettagliate riepilogate mostrano tutti i visi e, per ognuno di essi, gli intervalli di tempo in cui viene visualizzato e la percentuale di tempo per cui viene visualizzato.
-
-## <a name="topicskeywords"></a>Argomenti/parole chiave
-
-Gli argomenti/parole chiave sono nell'elenco delle frasi chiave che Video Indexer estrae dal testo. Ad esempio, un video di Scott Guthrie potrebbe contenere gli argomenti/parole chiave seguenti: sicurezza, Azure, Microsoft Cloud, ricavi.
-
-## <a name="sentiments"></a>Sentiment
-
-Quando Video Indexer analizza le trascrizioni, rileva anche il sentiment. Ad esempio, "questo è un evento molto interessante" è un sentiment positivo.
+Le informazioni dettagliate riepilogate contengono una visualizzazione aggregata dei dati: visi, argomenti ed emozioni. Ad esempio, invece di esaminare singolarmente le migliaia di intervalli di tempo e controllare quali visi contengono, le informazioni dettagliate riepilogate mostrano tutti i visi e, per ognuno di essi, gli intervalli di tempo in cui viene visualizzato e la percentuale di tempo per cui viene visualizzato.
 
 ## <a name="time-range-vs-adjusted-time-range"></a>Intervallo di tempo e intervallo di tempo rettificato
 

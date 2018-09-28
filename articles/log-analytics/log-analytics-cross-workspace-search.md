@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 716f96b7723a947c35eb54acd67f13261363fd38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049848"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972879"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Eseguire ricerche nei log di più risorse con Log Analytics  
 
 Azure Log Analytics consentiva in precedenza di analizzare i dati solo all'interno dell'area di lavoro corrente, limitando la possibilità di eseguire query tra più aree di lavoro definite nella sottoscrizione.  Inoltre, era possibile solo cercare gli elementi di telemetria raccolti dall'applicazione basata sul Web con Application Insights direttamente in Application Insights o in Visual Studio.  Per questi motivi, risultava difficile anche analizzare insieme in modo nativo i dati operativi e quelli dell'applicazione.   
 
-Ora è possibile eseguire query non solo tra più aree di lavoro di Log Analytics, ma anche su dati di un'app specifica di Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema.  Query di questo tipo possono essere eseguite solo nel [portale Advanced](log-analytics-log-search-portals.md#advanced-analytics-portal), non nel portale di Azure. Il numero di risorse (aree di lavoro di Log Analytics e app Application Insights) che è possibile includere in una singola query è limitato a 100. 
+Ora è possibile eseguire query non solo tra più aree di lavoro di Log Analytics, ma anche su dati di un'app specifica di Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema.  È possibile eseguire questi tipi di query solo in [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). Il numero di risorse (aree di lavoro di Log Analytics e app Application Insights) che è possibile includere in una singola query è limitato a 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Esecuzione di query tra aree di lavoro di Log Analytics e da Application Insights
 Per fare riferimento a un'altra area di lavoro nella query, usare l'identificatore [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()), mentre per un'app di Application Insights usare l'identificatore [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  

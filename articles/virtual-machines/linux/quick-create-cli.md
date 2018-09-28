@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs"
-description: In questo avvio rapido si apprenderà come usare l'interfaccia della riga di comando di Azure 2.0 per creare una macchina virtuale Linux
+title: "Avvio rapido: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure | Microsoft Docs"
+description: In questa guida introduttiva si apprenderà come usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,22 +16,22 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6536860bb75d068a96899f2d30ec7a6126a28436
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 87a36e027515319c4bdfeaa559f55fd6e5a1c75b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927632"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958527"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli-20"></a>Avvio rapido: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure 2.0
+# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Avvio rapido: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure 2.0 viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo avvio rapido illustra come usare l'interfaccia della riga di comando di Azure 2.0 per distribuire una macchina virtuale Linux in Azure che esegue Ubuntu. Per vedere la macchina virtuale in azione, eseguire SSH nella macchina virtuale e installare il server Web NGINX.
+L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per distribuire in Azure una macchina virtuale Linux che esegue Ubuntu. Per vedere la macchina virtuale in azione, eseguire SSH nella macchina virtuale e installare il server Web NGINX.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo avvio rapido richiede la versione 2.0.30 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo avvio rapido richiede la versione 2.0.30 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

@@ -1,6 +1,6 @@
 ---
-title: Introduzione alla pagina di Log Analytics nel portale di Azure | Microsoft Docs
-description: Questo articolo fornisce un'esercitazione per l'uso della pagina di Log Analytics per la scrittura di query.
+title: Introduzione a Log Analytics nel portale di Azure | Microsoft Docs
+description: Questo articolo contiene un'esercitazione per l'uso di Log Analytics nel portale di Azure per la scrittura di query.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,16 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142461"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978200"
 ---
-# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Introduzione alla pagina di Log Analytics nel portale di Azure
+# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Introduzione a Log Analytics nel portale di Azure
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 In questa esercitazione si apprenderà come usare la pagina di Log Analytics nel portale di Azure (attualmente in anteprima) per scrivere query di Log Analytics. Si apprenderà come:
 
@@ -45,7 +47,7 @@ La pagina di Log Analytics è uno strumento Web usato per scrivere ed eseguire q
 ## <a name="basic-queries"></a>Query di base
 È possibile usare le query per cercare termini, identificare le tendenze, analizzare i modelli e ottenere molte altre informazioni dettagliate basate sui dati. Iniziare con una query di base:
 
-```OQL
+```Kusto
 Event | search "error"
 ```
 
@@ -55,7 +57,7 @@ Le query possono iniziare con un nome di tabella o un comando **search**. L'esem
 
 Un altro modo per scrivere la stessa query è il seguente:
 
-```OQL
+```Kusto
 search in (Event) "error"
 ```
 
@@ -79,7 +81,7 @@ In ogni tabella i dati sono organizzati in colonne con tipi di dati diversi, com
 ## <a name="filter-the-results"></a>Filtrare i risultati
 Per iniziare, recuperare tutti gli elementi della tabella _Event_.
 
-```OQL
+```Kusto
 Event
 ```
 
@@ -133,7 +135,7 @@ Se la query contiene in modo esplicito un filtro per _TimeGenerated_, nel titolo
 ## <a name="charts"></a>Grafici
 Oltre a restituire i risultati in una tabella, è possibile presentare i risultati della query in formato visivo. Usare la query seguente come esempio:
 
-```OQL
+```Kusto
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

@@ -1,6 +1,6 @@
 ---
-title: Tempo di inserimento dati in Azure Log Analytics | Microsoft Docs
-description: Illustra i diversi fattori che influiscono sulla latenza nella raccolta dati in Azure Log Analytics.
+title: Tempo di inserimento dei dati in Azure Log Analytics | Microsoft Docs
+description: Illustra i diversi fattori che influiscono sulla latenza nella raccolta dei dati in Azure Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2018
+ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: 0e513cc4f6a7d5d030ded807870de9eb0fdc0ed8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973183"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955255"
 ---
-# <a name="data-ingestion-time-in-log-analytics"></a>Tempo di inserimento dati in Log Analytics
-Azure Log Analytics è un servizio dati a scalabilità elevata che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati diventino disponibili in Log Analytics dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
+# <a name="data-ingestion-time-in-log-analytics"></a>Tempo di inserimento dei dati in Log Analytics
+Azure Log Analytics è un servizio dati su vasta scala in Monitoraggio di Azure che serve migliaia di clienti che ogni mese inviano terabyte di dati a un ritmo crescente. Spesso sono state poste domande sul tempo necessario affinché i dati diventino disponibili in Log Analytics dopo la raccolta. Questo articolo illustra i diversi fattori che influiscono su questa latenza.
 
 ## <a name="typical-latency"></a>Latenza tipica
-La latenza si riferisce al tempo in cui i dati vengono creati nel sistema monitorato e al tempo necessario affinché diventino disponibili per l'analisi in Log Analytics. La latenza tipica per inserire dati in Log Analytics è compresa tra 3 e 10 minuti, con il 95% dei dati inseriti in meno di 7 minuti. La latenza specifica per dati particolari varia in base a una serie di fattori illustrati di seguito.
+La latenza si riferisce al tempo in cui i dati vengono creati nel sistema monitorato e al tempo necessario affinché diventino disponibili per l'analisi in Log Analytics. La latenza tipica per inserire dati in Log Analytics va da 2 a 5 minuti. La latenza specifica per dati particolari varia in base a una serie di fattori illustrati di seguito.
 
-## <a name="sla-for-log-analytics"></a>Contratto di servizio per Log Analytics
-Il [Contratto di servizio per Log Analytics](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) è un contratto giuridico vincolante che definisce quando Microsoft rimborsa i clienti se il servizio non soddisfa gli obiettivi fissati. Non si basa sulle prestazioni tipiche del sistema, ma sul peggiore dei casi che tiene conto delle potenziali situazioni irreversibili.
 
 ## <a name="factors-affecting-latency"></a>Fattori che influiscono sulla latenza
 Il tempo totale di inserimento per un determinato set di dati può essere suddiviso nelle seguenti aree di alto livello. 
@@ -60,7 +58,7 @@ Alcune soluzioni non raccolgono i dati da un agente e possono usare un metodo di
 Per determinare la frequenza di raccolta specifica, consultare la documentazione relativa a ciascuna soluzione.
 
 ### <a name="pipeline-process-time"></a>Tempo di elaborazione della pipeline
-Dopo l'inserimento nella pipeline di Log Analytics, i record di log vengono scritti nella risorsa di archiviazione temporanea per garantire l'isolamento del tenant e assicurarsi che i dati non vengano persi. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti.
+Dopo l'inserimento nella pipeline di Log Analytics, i record di log vengono scritti nella risorsa di archiviazione temporanea per garantire l'isolamento del tenant e assicurarsi che i dati non vengano persi. Questo processo richiede in genere altri 5-15 secondi. Alcune soluzioni di gestione implementano algoritmi più pesanti per aggregare i dati e derivare informazioni dettagliate mentre i dati sono in streaming. Ad esempio, Monitoraggio prestazioni rete aggrega i dati in ingresso a intervalli di 3 minuti, aggiungendo di fatto una latenza di 3 minuti. Un altro processo che aggiunge latenza è il processo che gestisce i log personalizzati. In alcuni casi, questo processo potrebbe aggiungere alcuni minuti di latenza ai log che vengono raccolti dai file dall'agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisioning di nuovi tipi di dati personalizzati
 Quando viene creato un nuovo tipo di dati personalizzati da un [log personalizzato](../log-analytics/log-analytics-data-sources-custom-logs.md) o dall'[API dell'agente di raccolta dati](../log-analytics/log-analytics-data-collector-api.md), il sistema crea un contenitore di archiviazione dedicato. Questo sovraccarico è occasionale poiché si verifica solo alla prima occorrenza di questo tipo di dati.
@@ -75,7 +73,7 @@ Attualmente questo processo richiede circa 5 minuti in caso di un volume ridotto
 
 
 
-## <a name="checking-ingestion-time"></a>Controllo del tempo di inserimento dati
+## <a name="checking-ingestion-time"></a>Controllo del tempo di inserimento dei dati
 È possibile usare la tabella **Heartbeat** per ottenere una stima della latenza per i dati dagli agenti. Poiché l'heartbeat viene inviato una volta al minuto, la differenza tra il tempo corrente e l'ultimo record di heartbeat sarà in teoria il più vicino possibile al minuto.
 
 Usare la query seguente per elencare i computer con la latenza più alta.

@@ -1,6 +1,6 @@
 ---
-title: Creare un servizio di bilanciamento del carico di base interno - Interfaccia della riga di comando 2.0 di Azure | Microsoft Docs
-description: Informazioni su come creare un servizio di bilanciamento del carico interno con l'interfaccia della riga di comando 2.0 di Azure
+title: Creare un servizio di bilanciamento del carico di base interno - Interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come creare un servizio di bilanciamento del carico interno con l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: bd4dda835279a21509f77814f4d5f9e30e8a42c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e556d3900d257410050e37b714d2005675e185d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439199"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967711"
 ---
-# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante l'interfaccia della riga di comando 2.0 di Azure
+# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come creare un servizio di bilanciamento del carico interno per bilanciare il carico delle macchine virtuali. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali (VM) che eseguono Ubuntu Server per bilanciare il carico di un'app Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

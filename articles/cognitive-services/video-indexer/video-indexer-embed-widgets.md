@@ -1,47 +1,52 @@
 ---
-title: Incorporare i widget di Video Indexer di Azure nelle applicazioni | Microsoft Docs
-description: ''
+title: 'Esempio: Incorporare i widget di Video Indexer nelle applicazioni'
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come incorporare i widget di Video Indexer nell'applicazione.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/31/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: ba81030c3d6384ca6b66d6a3b14e614d1626e3e0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 0d75a58ddf0607286d41867828119fdd05e07d22
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41929877"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985581"
 ---
-# <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporare i widget di Video Indexer nelle applicazioni
+# <a name="example-embed-video-indexer-widgets-into-your-applications"></a>Esempio: Incorporare i widget di Video Indexer nelle applicazioni
 
-Video Indexer supporta l'incorporamento nelle applicazioni di due tipi di widget: **Cognitive Insights** e **Player**. 
+Questo articolo illustra come incorporare i widget di Video Indexer nelle applicazioni. Video Indexer supporta l'incorporamento nelle applicazioni di due tipi di widget: **Cognitive Insights** e **Player**. 
+## <a name="widget-types"></a>Tipi di widget
 
-* Un widget **Cognitive Insights** include tutte le informazioni dettagliate visive estratte dal processo di indicizzazione del video. 
-    Il widget delle informazioni dettagliate supporta i parametri URL facoltativi seguenti:
+### <a name="cognitive-insights-widget"></a>Widget Cognitive Insights
 
-    |NOME|Definizione|DESCRIZIONE|
-    |---|---|---|
-    |widgets|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/>Esempio: **widgets=people,brands** esegue il rendering solo delle informazioni dettagliate su persone e marchi<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search | 
-* Un widget **Player** consente di eseguire lo streaming del video a bitrate adattivo.
+Un widget **Cognitive Insights** include tutte le informazioni dettagliate visive estratte dal processo di indicizzazione del video. Il widget delle informazioni dettagliate supporta i parametri URL facoltativi seguenti:
 
-    Il widget del lettore supporta i parametri URL facoltativi seguenti:
+|NOME|Definizione|DESCRIZIONE|
+|---|---|---|
+|widgets|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate su persone e marchi<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Non supportato tramite URL con version=2<br/><br/>**Nota:** il parametro URL **widgets** non è supportato se si usa **version=2**. |
+|version|Versioni del widget **Cognitive Insights**|Per ottenere gli aggiornamenti più recenti per il widget Cognitive Insights, aggiungere il parametro di query `?version=2` all'URL di incorporamento. Ad esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Per ottenere la versione precedente, rimuovere semplicemente `version=2` dall'URL.
 
-    |NOME|Definizione|DESCRIZIONE|
-    |---|---|---|
-    |t|Secondi dall'inizio|Fa partire il lettore dal tempo specificato.<br/>Esempio: t=60|
-    |captions|Codice lingua|Recupera i sottotitoli nella lingua specificata durante il caricamento del widget in modo che siano disponibili nel menu dei sottotitoli.<br/>Esempio: captions=it-it|
-    |showCaptions|Valore booleano|Carica il lettore con i sottotitoli già abilitati.<br/>Esempio: showCaptions=true|
-    |type||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: type=audio|
-    |autoplay|Valore booleano|Stabilisce se il lettore deve iniziare la riproduzione del video al caricamento (il valore predefinito è true).<br/>Esempio: autoplay=false|
-    |Linguaggio|Codice lingua|Controlla la lingua dei controlli del lettore (il valore predefinito è en-US)<br/>Esempio: language=de-DE|
+### <a name="player-widget"></a>Widget Player
+
+Un widget **Player** consente di eseguire lo streaming del video a bitrate adattivo. Il widget del lettore supporta i parametri URL facoltativi seguenti:
+
+|NOME|Definizione|DESCRIZIONE|
+|---|---|---|
+|t|Secondi dall'inizio|Fa partire il lettore dal tempo specificato.<br/>Esempio: t=60|
+|captions|Codice lingua|Recupera i sottotitoli nella lingua specificata durante il caricamento del widget in modo che siano disponibili nel menu dei sottotitoli.<br/>Esempio: captions=it-IT|
+|showCaptions|Valore booleano|Carica il lettore con i sottotitoli già abilitati.<br/>Esempio: showCaptions=true|
+|type||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: type=audio|
+|autoplay|Valore booleano|Indica se il lettore deve iniziare la riproduzione del video al caricamento (il valore predefinito è true).<br/>Esempio: autoplay=false|
+|Linguaggio|Codice lingua|Controlla la lingua del lettore (il valore predefinito è en-US)<br/>Esempio: language=de-DE|
 
 ## <a name="embedding-public-content"></a>Incorporamento di contenuto pubblico
 
-1. Accedere all'account di [Video Indexer](https://api-portal.videoindexer.ai/). 
+1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
 2. Fare clic sul pulsante di incorporamento che compare sotto il video.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
@@ -60,7 +65,7 @@ Video Indexer supporta l'incorporamento nelle applicazioni di due tipi di widget
 
 Se si vuole incorporare un video **privato**, è necessario passare un token di accesso nell'attributo **src** dell'**iframe**:
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<VideoId>/?accessToken=<accessToken>
+     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
     
 Usare l'API [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) per recuperare il contenuto del widget Cognitive Insights oppure usare [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) e aggiungerlo come parametro di query all'URL, come mostrato sopra. Specificare questo URL come valore **src** dell'**iframe**.
 
@@ -95,7 +100,7 @@ Questa sezione illustra come ottenere l'interazione tra due widget di Video Inde
 
 Ora quando un utente fa clic sul controllo delle informazioni dettagliate nell'applicazione, il lettore passa al momento pertinente.
 
-Per altre informazioni, vedere [questa demo](https://api-portal.videoindexer.ai/demo-all-widgets).
+Per altre informazioni, vedere [questa demo](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### <a name="embed-the-cognitive-insights-widget-and-use-azure-media-player-to-play-the-content"></a>Incorporare il widget Cognitive Insights e usare Azure Media Player per riprodurre il contenuto
 
@@ -153,7 +158,7 @@ Questa sezione illustra come ottenere l'interazione tra un widget **Cognitive In
 
 Ora dovrebbe essere possibile comunicare con Azure Media Player.
 
-Per altre informazioni, vedere [questa demo](https://api-portal.videoindexer.ai/demo-your-amp).
+Per altre informazioni, vedere [questa demo](https://codepen.io/videoindexer/pen/rYONrO).
 
 ### <a name="embed-video-indexer-cognitive-insights-widget-and-use-your-own-player-could-be-any-player"></a>Incorporare il widget Cognitive Insights di Video Indexer e usare un lettore personalizzato (può trattarsi di qualsiasi lettore)
 
@@ -201,7 +206,7 @@ Se si usa il proprio lettore, è necessario modificarlo personalmente per ottene
         </script>
 
 
-Per altre informazioni, vedere [questa demo](https://api-portal.videoindexer.ai/demo-your-player).
+Per altre informazioni, vedere [questa demo](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## <a name="adding-subtitles"></a>Aggiunta di sottotitoli
 
@@ -216,24 +221,24 @@ Se si incorporano informazioni dettagliate di Video Indexer in un lettore AMP, �
 
 I valori possibili sono: people, keywords, sentiments, transcript, search.
 
-Ad esempio, se si vuole incorporare un widget che contiene solo informazioni dettagliate su persone e ricerca, l'URL di incorporamento dell'iframe avrà un aspetto simile al seguente: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people,search
+Ad esempio, se si vuole incorporare un widget che contiene solo informazioni dettagliate su persone e ricerca, l'URL di incorporamento dell'iframe avrà un aspetto simile al seguente https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search
 
 Si può anche personalizzare il titolo della finestra dell'iframe, fornendo il valore **&title=**<YourTitle> all'URL dell'iframe. (In questo modo verrà personalizzato il valore html \<title>).
-Ad esempio, se si vuole dare alla finestra dell'iframe il titolo "MyInsights", l'URL avrà un aspetto simile al seguente: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?title=MyInsights. Si noti che questa opzione è pertinente solo nei casi in cui è necessario aprire le informazioni dettagliate in una nuova finestra.
+Ad esempio, se si vuole dare alla finestra dell'iframe il titolo "MyInsights", l'URL sarà simile al seguente: https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights. Si noti che questa opzione è pertinente solo nei casi in cui è necessario aprire le informazioni dettagliate in una nuova finestra.
 
 ### <a name="player-widget"></a>Widget Player
-Se si incorpora il lettore Video Indexer è possibile sceglierne le dimensioni specificando le dimensioni dell'iframe.
+Se si incorpora il lettore Video Indexer, è possibile sceglierne le dimensioni specificando le dimensioni dell'iframe.
 
-Ad esempio:
+Ad esempio: 
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
 
 Per impostazione predefinita, il lettore Video Indexer avrà sottotitoli codificati generati automaticamente, basati sulla trascrizione estratta dal video, nella lingua di origine che è stata selezionata al momento del caricamento del video.
 
-Se si vuole incorporare il lettore con una lingua diversa è possibile aggiungere **&captions=< Language | ”all” | “false” >** all'URL di incorporamento del lettore o inserire "all" come valore se si vogliono avere i sottotitoli in tutte le lingue disponibili.
+Se si vuole incorporare il lettore con una lingua diversa, è possibile aggiungere **&captions=< Language | "all" | "false" >** all'URL di incorporamento del lettore o inserire "all" come valore se si vogliono avere i sottotitoli in tutte le lingue disponibili.
 Se si vuole che i sottotitoli siano visualizzati per impostazione predefinita, è possibile passare **&showCaptions=true**
 
-L'URL di incorporamento sarà simile al seguente: https://www.videoindexer.ai/embed/player/9a296c6ec3/?captions=italian. Per disabilitare i sottotitoli è possibile passare "false" come valore per il parametro dei sottotitoli.
+L'URL di incorporamento sarà simile al seguente: https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian. Per disabilitare i sottotitoli, è possibile passare "false" come valore per il parametro captions.
 
 Per impostazione predefinita il lettore all'avvio inizia a riprodurre il video. Si può modificare questo comportamento passando &autoplay=false all'URL di incorporamento precedente.
 

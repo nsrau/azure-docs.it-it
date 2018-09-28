@@ -1,6 +1,6 @@
 ---
 title: Creare un servizio di bilanciamento del carico con connessione Internet - Interfaccia della riga di comando di Azure classica | Documentazione Microsoft
-description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante l'interfaccia della riga di comando di Azure
+description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante l’interfaccia della riga di comando di Azure classica
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
-ms.openlocfilehash: bacf135da25a5315e61922179db9a29fa8a152f1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a91a53070985a24ccd87f16254f652fe48c42c5a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540009"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988156"
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nell’interfaccia della riga di comando di Azure
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Introduzione alla creazione del servizio di bilanciamento del carico Internet (classico) nell’interfaccia della riga di comando classica di Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
-> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Interfaccia della riga di comando classica di Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Servizi cloud di Azure](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -33,13 +33,15 @@ ms.locfileid: "38540009"
 > [!IMPORTANT]
 > Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, la distribuzione classica e Azure Resource Manager. È importante comprendere i [modelli e strumenti di distribuzione](../azure-classic-rm.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. In questo articolo viene illustrato il modello di distribuzione classica. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse di Azure](load-balancer-get-started-internet-arm-ps.md).
 
+[!INCLUDE [requires-classic-cli](../../includes/contains-classic-cli-content.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="create-an-internet-facing-load-balancer-using-cli"></a>Creare un servizio di bilanciamento del carico con connessione Internet usando l'interfaccia della riga di comando
 
 In questa guida viene illustrato come creare un servizio di bilanciamento del carico Internet in base allo scenario precedente.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se è la prima volta che si usa l'interfaccia della riga di comando classica di Azure, vedere [Installare l'interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità classica, come illustrato di seguito.
 
     ```azurecli

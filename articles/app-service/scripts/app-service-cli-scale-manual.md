@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare un'App Web manualmente usando l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare un'App Web manualmente usando l'interfaccia della riga di comando di Azure 2.0
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare un'App Web manualmente usando l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare un'App Web manualmente usando l'interfaccia della riga di comando di Azure
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 844250dce567bac280ae3a9a688cc8e5bc5852c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 28ca20d44d18e8fe25153b7f9298d5174412ad79
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282447"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988581"
 ---
 # <a name="scale-a-web-app-manually"></a>Ridimensionare un'App Web manualmente
 
@@ -31,7 +31,7 @@ Questo script di esempio crea un gruppo di risorse, un piano di servizio app e u
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 

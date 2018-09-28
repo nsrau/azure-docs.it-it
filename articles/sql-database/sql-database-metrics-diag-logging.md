@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: aa031b87df51bd9f7dec40a6c3e56023e2d82d96
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 55274b08695bacf0b63b937f9e8e21c8565f1715
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579497"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967388"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica 
 Il database SQL di Azure può generare metriche e log di diagnostica per facilitare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
 
 * **Archiviazione di Azure**: usata per l'archiviazione di enormi quantità di dati di telemetria a un costo conveniente.
 * **Hub eventi di Azure**: usata per l'integrazione dei dati di telemetria di database SQL con soluzioni di monitoraggio personalizzate o pipeline attive.
-* **Log Analytics di Azure**: usata per una soluzione di monitoraggio già pronta con funzionalità di reporting, avviso e mitigazione. Si tratta di una funzionalità di [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md).
+* **Log Analytics di Azure**: usata per una soluzione di monitoraggio già pronta con funzionalità di reporting, avviso e mitigazione. Azure Log Analytics è una funzionalità di [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Architettura](./media/sql-database-metrics-diag-logging/architecture.png)
 

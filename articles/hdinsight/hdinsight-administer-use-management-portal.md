@@ -3,18 +3,18 @@ title: Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale 
 description: Informazioni su come amministrare il servizio HDInsight. Creare un cluster HDInsight, aprire la console interattiva JavaScript e aprire la console dei comandi di Hadoop.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: a4cbc0c14d0f6c505b391becf33c56dd95bfc251
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592221"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970278"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure
 
@@ -207,7 +207,7 @@ Questo processo può essere programmato in molti modi:
 
 * Usare Data factory di Azure. Per i servizi collegati di HDInsight su richiesta e autodefiniti, vedere [Servizio collegato Azure HDInsight](../data-factory/compute-linked-services.md) e [Trasformare e analizzare tramite Azure Data Factory](../data-factory/transform-data.md).
 * Usare Azure PowerShell.  Vedere [Analizzare i dati relativi ai ritardi dei voli](hdinsight-analyze-flight-delay-data.md).
-* Usare l'interfaccia della riga di comando di Azure. Vedere [Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md).
+* Usare l'interfaccia della riga di comando classica di Azure. Vedere [Manage HDInsight clusters using Azure Classic CLI](hdinsight-administer-use-command-line.md) (Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando classica di Azure).
 * Usare HDInsight .NET SDK. Vedere [Inviare processi di Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Per informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Per eliminare un cluster dal portale, vedere [Eliminare cluster](#delete-clusters)
@@ -364,7 +364,7 @@ Nella schermata precedente il numero di versione di Hadoop è incorporato nel no
 In questo articolo è stato illustrato come creare un cluster HDInsight tramite il portale, e come aprire lo strumento da riga di comando di Hadoop. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Amministrare HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Amministrare HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)
+* [Amministrare HDInsight tramite l'interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md)
 * [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Inviare processi Hadoop a livello di codice](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

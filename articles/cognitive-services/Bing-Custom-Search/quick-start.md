@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: v-brapel
-ms.openlocfilehash: 35f0bca01de1c2087f6ae30949cca9b03192b838
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 25d622772fe47ffad001834d476e612f8c606904
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374740"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981659"
 ---
 # <a name="create-your-first-bing-custom-search-instance"></a>Creare la prima istanza di Ricerca personalizzata Bing
 Per usare Ricerca personalizzata Bing è necessario creare un'istanza di ricerca personalizzata che definisce la visualizzazione o sezione del Web. L'istanza contiene le impostazioni che specificano i domini pubblici, i siti Web e le pagine Web in cui si vuole eseguire la ricerca con Bing e le modifiche di classificazione. Per creare l'istanza, usare il [portale](https://customsearch.ai) di Ricerca personalizzata Bing. 
@@ -24,12 +24,12 @@ Per usare Ricerca personalizzata Bing è necessario creare un'istanza di ricerca
 Per creare un'istanza di Ricerca personalizzata Bing:
 
 1.  Ottenere una chiave per l'API Ricerca personalizzata. Vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-2.  Accedere al portale usando un account Microsoft (account del servizio gestito). Fare clic sul pulsante **Accedi**. Se è la prima volta che si usa il portale, seguire i passaggi aggiuntivi seguenti. In caso contrario, continuare con il passaggio 3.
+2.  Fare clic sul pulsante **Accedi** per accedere al portale usando un account Microsoft (account del servizio gestito). 
     - Se non si ha un account Microsoft, fare clic su **Crea un account Microsoft**. Verranno chieste le autorizzazioni necessarie per accedere ai dati. Fare clic su **Sì**.
     - Accettare le condizioni di Servizi cognitivi. Selezionare **Accetto** e fare clic su **Accetto**.  
 3.  Dopo aver eseguito l'accesso, fare clic su **Nuova istanza** e assegnare un nome all'istanza. Usare un nome significativo che descriva il tipo di contenuto restituito dalla ricerca. È possibile modificare il nome in qualsiasi momento. 
-4.  Nell'**esperienza di ricerca** fare clic sulla scheda **Elementi attivi** e immettere l'URL di uno o più siti da includere nella ricerca.
-5.  Per verificare che l'istanza restituisca risultati, immettere una query nel riquadro di anteprima a destra. Se non sono presenti risultati, specificare un altro sito. Bing restituisce risultati solo per i siti pubblici che ha indicizzato.
+4.  Nell'**esperienza di ricerca** fare clic sulla scheda **Elementi attivi** e immettere l'URL di uno o più siti Web da includere nella ricerca.
+5.  Per verificare che l'istanza restituisca risultati, immettere una query nel riquadro di anteprima a destra. Se non sono presenti risultati, specificare un nuovo sito Web. Bing restituisce risultati solo per i siti pubblici che ha indicizzato.
 6.  Fare clic su **Pubblica** per pubblicare le modifiche di configurazione in produzione. Quando richiesto, fare clic su **Pubblica** per confermare.
 7.  Fare clic su **Produzione** > **Endpoint** e copiare l'**ID di configurazione personalizzato**. Questo ID è necessario per chiamare l'API Ricerca personalizzata.
 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: dcf4721012fb8ec39bcd1de02c294747357b3539
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213062"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949619"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 
 
 I cluster di Service Fabric in esecuzione in Azure sono basati su set di scalabilità di macchine virtuali.  L'articolo sulla [scalabilità dei cluster](./service-fabric-cluster-scale-up-down.md) descrive come aumentare o ridurre i cluster di Service Fabric manualmente o usando regole di ridimensionamento automatico. Questo articolo descrive come gestire le credenziali e ridimensionare un cluster usando l'SDK di calcolo di Azure Fluent, ovvero in uno scenario più avanzato. Per una panoramica, leggere le informazioni sui [metodi per coordinare a livello di codice le operazioni di ridimensionamento di Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 ## <a name="manage-credentials"></a>Gestire le credenziali
-Un problema in fase di scrittura di un servizio per gestire la scalabilità è che il servizio deve essere in grado di accedere alle risorse dei set di scalabilità di macchine virtuali senza un accesso interattivo. L'accesso al cluster Service Fabric è semplice se il servizio di scalabilità sta modificando la propria applicazione Service Fabric, ma sono necessarie le credenziali per accedere al set di scalabilità. Per accedere, è possibile usare un'[entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creata con l'[interfaccia della riga di comando di Azure 2.0](https://github.com/azure/azure-cli).
+Un problema in fase di scrittura di un servizio per gestire la scalabilità è che il servizio deve essere in grado di accedere alle risorse dei set di scalabilità di macchine virtuali senza un accesso interattivo. L'accesso al cluster Service Fabric è semplice se il servizio di scalabilità sta modificando la propria applicazione Service Fabric, ma sono necessarie le credenziali per accedere al set di scalabilità. Per accedere, è possibile usare un'[entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creata con l'[interfaccia della riga di comando di Azure](https://github.com/azure/azure-cli).
 
 È possibile creare un'entità servizio con i passaggi seguenti:
 

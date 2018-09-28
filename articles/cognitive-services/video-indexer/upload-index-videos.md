@@ -1,22 +1,23 @@
 ---
-title: Caricare e indicizzare video con Video Indexer di Azure | Microsoft Docs
-description: Questo argomento illustra come usare le API per caricare e indicizzare i video con Video Indexer di Azure
+title: 'Esempio: Caricare e indicizzare video con Video Indexer'
+titlesuffix: Azure Cognitive Services
+description: Questo argomento illustra come usare le API per caricare e indicizzare i video con Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 08/17/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664446"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983886"
 ---
-# <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
+# <a name="example-upload-and-index-your-videos"></a>Esempio: Caricare e indicizzare i video  
 
 Questo articolo illustra come caricare un video con Video Indexer di Azure. L'API Video Indexer offre due opzioni di caricamento: 
 
@@ -33,7 +34,7 @@ L'articolo illustra anche alcuni parametri che è possibile impostare per l'API 
 ## <a name="uploading-considerations"></a>Considerazioni sul caricamento
     
 - Quando si carica il video in base all'URL (scelta preferita), l'endpoint deve essere protetto con il protocollo TLS 1.2 (o versione successiva)
-- L'opzione della matrice di byte è limitata a 4 GB e scade dopo 30 minuti.
+- L'opzione della matrice di byte è limitata a 2 GB e scade dopo 30 minuti
 - L'URL fornito nel parametro `videoURL` deve essere codificato.
 
 ## <a name="configurations-and-params"></a>Configurazioni e parametri

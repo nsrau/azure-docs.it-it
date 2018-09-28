@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure - Interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Questa pagina spiega come usare Network Watcher di Azure per risolvere i problemi nell'interfaccia della riga di comando di Azure 2.0
+title: Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure - Interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Questa pagina spiega come usare l'interfaccia della riga di comando di Azure per risolvere i problemi in Network Watcher di Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 5f843b42a108968e2fbefacddcd22f331a04691e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a8ac32f43ecadb8908582fa853fc3f2bec7ac55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091102"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970992"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni tramite l'interfaccia della riga di comando di Azure 2.0 in Network Watcher di Azure
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure tramite l'interfaccia della riga di comando di Azure in Network Watcher di Azure
 
 > [!div class="op_single_selector"]
 > - [di Microsoft Azure](diagnose-communication-problem-between-networks.md)
@@ -31,9 +31,7 @@ ms.locfileid: "39091102"
 
 Network Watcher offre numerose funzionalità che consentono di comprendere le risorse di rete in Azure. Una di queste funzionalità è la risoluzione dei problemi riscontrati con le risorse. La funzionalità può essere chiamata dal portale, da PowerShell, dall'interfaccia della riga di comando o dall'API REST. Quando chiamata, Network Watcher controlla l'integrità di un gateway di rete virtuale o di una connessione e restituisce i risultati.
 
-Questo articolo usa l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse, ovvero l'interfaccia della riga di comando di Azure 2.0, disponibile per Windows, Mac e Linux.
-
-Per eseguire i passaggi indicati in questo articolo è necessario [installare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (interfaccia della riga di comando di Azure)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Per eseguire i passaggi indicati in questo articolo è necessario [installare l'interfaccia della riga di comando (CLI) di Azure per Mac, Linux e Windows](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

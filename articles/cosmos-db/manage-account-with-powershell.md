@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 90de671d8e57244765f1da439649e57485814533
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 60b13c8284708ce46d62b6659b2631a4f551c2ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051664"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983115"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Creare un account di Azure Cosmos DB mediante PowerShell
 
-La guida seguente illustra i comandi per automatizzare la gestione degli account del database Azure Cosmos DB usando Azure Powershell. Include anche i comandi per gestire le chiavi dell'account e le priorità di failover in [account di database tra più aree][scaling-globally]. L'aggiornamento dell'account del database consente di modificare i criteri di coerenza e di aggiungere/rimuovere le aree. Per la gestione multipiattaforma dell'account di Azure Cosmos DB, è possibile usare l'[interfaccia della riga di comando di Azure](cli-samples.md), l'[API REST del provider di risorse][rp-rest-api] o il [portale di Azure](create-sql-api-dotnet.md#create-account).
+La guida seguente illustra i comandi per automatizzare la gestione degli account del database Azure Cosmos DB usando Azure Powershell. Include anche i comandi per gestire le chiavi dell'account e le priorità di failover in [multi-region database accounts][distribute-data-globally.md]. L'aggiornamento dell'account del database consente di modificare i criteri di coerenza e di aggiungere/rimuovere le aree. Per la gestione multipiattaforma dell'account di Azure Cosmos DB, è possibile usare l'[interfaccia della riga di comando di Azure](cli-samples.md), l'[API REST del provider di risorse][rp-rest-api] o il [portale di Azure](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -33,7 +33,7 @@ Seguire le istruzioni in [Come installare e configurare Azure PowerShell][powers
 
 ## <a id="create-documentdb-account-powershell"></a> Creare un account di Azure Cosmos DB
 
-Questo comando consente di creare un account del database di Azure Cosmos DB. Configurare il nuovo account del database come ad area singola o [a più aree][scaling-globally] con un determinato [criterio di coerenza](consistency-levels.md).
+Questo comando consente di creare un account del database di Azure Cosmos DB. Configurare il nuovo account del database come ad area singola o [multi-region][distribute-data-globally.md] con un determinato [criterio di coerenza](consistency-levels.md).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -60,7 +60,7 @@ Esempio:
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>Note
-* L'esempio precedente crea un account di database con due aree. È anche possibile creare un account di database con un'area (designata come area di scrittura con un valore di priorità di failover pari a 0) o con più di due aree. Per altre informazioni, vedere gli [account di database tra più aree][scaling-globally].
+* L'esempio precedente crea un account di database con due aree. È anche possibile creare un account di database con un'area (designata come area di scrittura con un valore di priorità di failover pari a 0) o con più di due aree. Per altre informazioni, vedere [multi-region database accounts][distribute-data-globally.md].
 * Le località devono essere aree in cui Azure Cosmos DB è disponibile a livello generale. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
 
 ## <a id="update-documentdb-account-powershell"></a> Aggiornare un account di database Azure Cosmos DB

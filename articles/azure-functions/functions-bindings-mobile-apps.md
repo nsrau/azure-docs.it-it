@@ -11,14 +11,17 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d43032f854aa37f150945c25515c03ec97277b41
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6b5a45bfcfc02c6b313e868fb3ba037ce3ba48c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091306"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967575"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associazioni di app per dispositivi mobili per Funzioni di Azure 
+
+> [!NOTE]
+> Le associazioni di App per dispositivi mobili di Azure sono disponibili solo per Funzioni di Azure 1.x. Non sono supportate in Funzioni di Azure 2.x.
 
 Questo articolo descrive come usare le associazioni di [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md) in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per App per dispositivi mobili.
 
@@ -31,12 +34,6 @@ Le associazioni di app per dispositivi mobili consentono di leggere e aggiornare
 Le associazioni di App per dispositivi mobili sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) versione 1.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
-
-## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
-
-Le associazioni di App per dispositivi mobili sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/).
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>Input
 
@@ -74,8 +71,7 @@ Ecco i dati di associazione nel file *function.json*:
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 Queste proprietà sono descritte nella sezione [configuration](#input---configuration).
@@ -120,8 +116,7 @@ Ecco i dati di associazione nel file *function.json*:
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 Queste proprietà sono descritte nella sezione [configuration](#input---configuration).
@@ -219,8 +214,7 @@ Ecco i dati di associazione nel file *function.json*:
     "apiKey": "My_MobileApp_Key",
     "direction": "out"
     }
-],
-"disabled": false
+]
 }
 ```
 

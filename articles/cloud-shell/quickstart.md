@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: 4b7e4302bba2efed12e19043da1f592bed12a2fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b3616a723e793ab1ce8d7bcca1f53ca10ec4f96
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608883"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970666"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -36,7 +36,7 @@ Questo documento illustra dettagliatamente come usare Bash in Azure Cloud Shell 
 3. Fare clic su "Create storage" (Crea risorsa di archiviazione)
 
 > [!TIP]
-> Si viene automaticamente autenticati per l'interfaccia della riga di comando di Azure 2.0 in ogni sessione.
+> Si viene automaticamente autenticati per l'interfaccia della riga di comando di Azure in ogni sessione.
 
 ### <a name="select-the-bash-environment"></a>Selezionare l'ambiente Bash
 Controllare che l'elenco a discesa degli ambienti dal lato sinistro della finestra della shell sia impostato su `Bash`. <br>
@@ -63,14 +63,14 @@ az group create --location westus --name MyRG
 ```
 
 ### <a name="create-a-linux-vm"></a>Creare una macchina virtuale Linux
-Creare una VM Ubuntu nel nuovo gruppo di risorse. L'interfaccia della riga di comando di Azure 2.0 creerà chiavi SSH con cui configurerà la macchina virtuale. <br>
+Creare una VM Ubuntu nel nuovo gruppo di risorse. L'interfaccia della riga di comando di Azure creerà chiavi SSH con cui configurerà la macchina virtuale. <br>
 
 ```azurecli-interactive
 az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> L'utilizzo di `--generate-ssh-keys` indica all'interfaccia della riga di comando di Azure 2.0 di creare e configurare chiavi pubbliche e private nella macchina virtuale e nella directory `$Home`. Per impostazione predefinita, le chiavi vengono inserite in Cloud Shell in corrispondenza di `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub`. La cartella `.ssh` è persistente nell'immagine da 5 GB della condivisione file collegata usata per rendere persistente `$Home`.
+> L'utilizzo di `--generate-ssh-keys` indica all'interfaccia della riga di comando di Azure di creare e configurare chiavi pubbliche e private nella macchina virtuale e nella directory `$Home`. Per impostazione predefinita, le chiavi vengono inserite in Cloud Shell in corrispondenza di `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub`. La cartella `.ssh` è persistente nell'immagine da 5 GB della condivisione file collegata usata per rendere persistente `$Home`.
 
 Il nome utente in questa VM sarà quello usato in Cloud Shell ($User@Azure:).
 
@@ -100,5 +100,5 @@ az group delete -n MyRG
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni sulla persistenza dei file per Bash all’interno di Cloud Shell.](persisting-shell-storage.md) <br>
-[Informazioni sull'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Informazioni sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Informazioni sull'archiviazione di File di Azure](../storage/files/storage-files-introduction.md) <br>

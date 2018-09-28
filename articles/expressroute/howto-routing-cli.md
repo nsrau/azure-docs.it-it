@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: f4ad959de1425e828ce11fb658f8b5304e9d8775
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: cd7a6c43cb791ed607a763f10e781794ef513500
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316427"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950404"
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Creare e modificare il routing per un circuito ExpressRoute con l'interfaccia della riga di comando
 
@@ -38,7 +38,7 @@ Questo articolo consente di creare e gestire la configurazione di routing per un
 
 ## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
 
-* Prima di iniziare, installare la versione più recente dei comandi dell'interfaccia della riga di comando (2.0 o successiva). Per informazioni sull'installazione dei comandi dell'interfaccia della riga di comando, vedere [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Installare l'interfaccia della riga di comando di Azure 2.0).
+* Prima di iniziare, installare la versione più recente dei comandi dell'interfaccia della riga di comando (2.0 o successiva). Per informazioni sull'installazione dei comandi dell'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Prima di procedere con la configurazione, assicurarsi di avere letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti di routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md).
 * È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](howto-circuit-cli.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i comandi descritti in questo articolo deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
 
