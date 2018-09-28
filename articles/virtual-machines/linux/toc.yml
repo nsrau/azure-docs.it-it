@@ -125,6 +125,8 @@ items:
     href: infrastructure-automation.md
   - name: Sicurezza e criteri
     href: security-policy.md
+  - name: Stati e ciclo di vita
+    href: states-lifecycle.md
   - name: Monitoraggio
     href: monitor.md
   - name: Backup e ripristino
@@ -239,7 +241,7 @@ items:
       href: prepay-reserved-vm-instances.md
     - name: Pagare in anticipo il software SUSE
       href: prepay-suse-software-charges.md
-    - name: Informazioni sulle prenotazioni di Azure
+    - name: Cosa sono le prenotazioni di Azure?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: Flessibilità delle dimensioni istanza di VM
       href: reserved-vm-instance-size-flexibility.md
@@ -498,55 +500,7 @@ items:
       - name: Domande frequenti
         href: migration-classic-resource-manager-faq.md
   - name: Risolvere problemi
-    items:
-    - name: Connessioni SSH
-      href: troubleshoot-ssh-connection.md
-      items:
-      - name: Procedura di risoluzione dei problemi dettagliata
-        href: detailed-troubleshoot-ssh-connection.md
-    - name: Reimpostare la password di una VM Linux
-      href: reset-password.md
-    - name: Informazioni sul riavvio del sistema
-      href: understand-vm-reboot.md
-    - name: Diagnostica di avvio
-      href: boot-diagnostics.md
-    - name: Console seriale
-      href: serial-console.md
-      items:
-      - name: Modalità utente singolo/GRUB con la console seriale
-        href: serial-console-grub-single-user-mode.md
-      - name: NMI/SysRq con la console seriale
-        href: serial-console-nmi-sysrq.md
-    - name: Accesso alle applicazioni
-      href: troubleshoot-app-connection.md
-    - name: Errori di allocazione
-      href: allocation-failure.md
-    - name: Errori di allocazione nelle macchine virtuali classiche
-      href: allocation-failure-classic.md
-    - name: Problemi di distribuzione
-      href: troubleshoot-deploy-vm.md
-    - name: Creazione di una VM
-      href: troubleshoot-deployment-new-vm.md
-    - name: Modifiche ai nomi dei dispositivi
-      href: troubleshoot-device-names-problems.md
-    - name: Ridistribuire la macchina virtuale in un nuovo nodo di Azure
-      href: redeploy-to-new-node.md
-    - name: Messaggi di errore comuni
-      href: error-messages.md
-    - name: Accesso di ripristino di macchine virtuali
-      items:
-      - name: Interfaccia della riga di comando di Azure
-        href: troubleshoot-recovery-disks.md
-      - name: Portale di Azure
-        href: troubleshoot-recovery-disks-portal.md
-    - name: Dischi rigidi virtuali collegati
-      items:
-      - name: Errori nell'eliminazione di risorse di archiviazione
-        href: storage-resource-deletion-errors.md
-      - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
-        href: unexpected-reboots-attached-vhds.md
-    - name: Errori di limitazione
-      href: troubleshooting-throttling-errors.md
+    href: ../troubleshooting/index.md
 - name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
@@ -583,9 +537,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Domande frequenti
     href: faq.md
-ms.openlocfilehash: 5ac900d783b72689759bdfe5d2ba47c11aa2157c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9887abf2965b7122c6d0fda1954cc249d67f3380
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035592"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409000"
