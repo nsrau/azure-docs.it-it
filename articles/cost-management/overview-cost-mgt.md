@@ -1,0 +1,61 @@
+---
+title: Panoramica di Gestione costi di Azure | Microsoft Docs
+description: Gestione costi di Azure è una soluzione di gestione dei costi che consente di monitorare e controllare le spese per Azure e di ottimizzare l'uso delle risorse.
+services: cost-management
+keywords: ''
+author: bandersmsft
+ms.author: banders
+ms.date: 09/12/2018
+ms.topic: overview
+ms.service: cost-management
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 10fef55ef09e4be427fbd36c730528a993dd64e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960862"
+---
+# <a name="what-is-azure-cost-management"></a>Che cos'è la gestione dei costi di Azure?
+
+Gestione costi è il processo con consente di pianificare e controllare i costi aziendali. Le attività di gestione dei costi vengono eseguite in genere dai team finanziario, di gestione e dai team app. Gestione costi di Azure consente alle organizzazioni con contratti Microsoft Enterprise (EA) di pianificare tenendo in considerazione i costi. Consente inoltre di analizzare in modo efficace i costi e di intraprendere azioni per ottimizzare la spesa per il cloud. Per altre informazioni su come approcciare la gestione dei costi come organizzazione, consultare l'articolo [Procedure consigliate di Gestione costi di Azure](cost-mgt-best-practices.md).
+
+Anche se correlate, le operazioni di fatturazione e di gestione dei costi sono differenti. La fatturazione è il processo di invio di fatture ai clienti per di merci o servizi e di gestione delle relazioni commerciali.  I team di approvvigionamento e quello finanziario svolgono solitamente le attività di fatturazione.
+
+Gestione costi mostra i costi aziendali e i criteri di utilizzo tramite analisi avanzate. I report in Gestione costi mostrano i costi di Azure, l'utilizzo, le istanze riservate e l'uso di Vantaggio Azure Hybrid. Collettivamente, i report mostrano i costi interni ed esterni. I report consentono di comprendere l'uso di risorse e spese e possono suggerire come trovare le anomalie di spesa. È inoltre disponibile analisi predittiva. Gestione costi usa i gruppi di gestione di Azure, i budget e gli elementi consigliati per mostrare chiaramente come sono organizzate le spese e come si potrebbero ridurre i costi.
+
+È possibile usare il portale di Azure o varie API per l'esportazione di automazione per integrare i dati sui costi con i processi e sistemi esterni. Sono inoltre disponibili l'esportazione automatizzata dei dati di fatturazione e report pianificati.
+
+## <a name="plan-and-control-expenses"></a>Pianificare e controllare le spese
+
+Le modalità che Gestione costi usa per pianificare e controllare i costi includono: analisi dei costi, budget, elementi consigliati ed esportazione dei dati di gestione dei costi.
+
+L'analisi dei costi consente di esplorare e analizzare i costi aziendali. È possibile visualizzare i costi aggregati per organizzazione per comprendere dove i costi sono maggiori e identificare le tendenze di spesa. È possibile visualizzare i costi accumulati nel corso del tempo per stimare i trend mensili, trimestrali o addirittura annuali rispetto a un budget.
+
+I budget consentono di pianificare e soddisfare i controlli amministrativi aziendali. Consentono di impedire il superamento delle soglie per costo o i limiti di costo. I budget consentono inoltre di segnalare ad altri utenti le spese per gestire i costi in modo proattivo. Inoltre, aiutano a visualizzare l'avanzamento della spesa nel corso del tempo.
+
+Gli elementi consigliati mostrano come ottimizzare e migliorare l'efficienza identificando le risorse inattive e sottoutilizzate. In alternativa, mostrano le opzioni delle risorse meno costose. Quando si agisce sugli elementi consigliati, si modifica la modalità di uso delle risorse per risparmiare denaro. Per prendere un'iniziativa, visualizzare innanzitutto gli elementi consigliati per l'ottimizzazione dei costi e identificare potenziali inefficienze di utilizzo. Successivamente, agire su un elemento consigliato per modificare l'utilizzo delle risorse di Azure per un'opzione più conveniente. Verificare quindi l'azione per assicurarsi che la modifica apportata abbia avuto esito positivo.
+
+Se si utilizzano sistemi esterni per accedere o per revisionare i dati di gestione dei costi, è possibile esportare facilmente i dati da Azure. È possibile impostare un'esportazione giornaliera pianificata in formato CSV e archiviare i file di dati in archiviazione di Azure. È quindi possibile accedere ai dati dal sistema esterno.
+
+## <a name="consider-cloudyn"></a>Prendere in considerazione Cloudyn
+
+[Cloudyn](overview.md) è un servizio di Azure correlato a Gestione costi. Con Cloudyn, è possibile tenere traccia dell'utilizzo del cloud e delle spese per le risorse di Azure. Supporta anche altri provider di cloud, inclusi AWS e Google. I dashboard report di facile comprensione agevolano l'allocazione dei costi e gli showback/chargeback. Attualmente Gestione costi non supporta showback/chargeback o altri provider di servizi cloud. Tuttavia, Cloudyn è un'opzione che _viene_ supportata. Gestione costi supporta attualmente solo gli account di Azure con Contratto Enterprise. Benché non supporti account singoli o con pagamento in base al consumo o provider di servizi Microsoft Cloud, Cloudyn li supporta. Se si dispone di uno di questi account, è possibile usare Cloudyn per la gestione dei costi.
+
+## <a name="additional-azure-tools"></a>Strumenti aggiuntivi di Azure
+
+Azure offre altri strumenti che non fanno parte del set di funzionalità di Gestione costi di Azure. Tuttavia, svolgono un ruolo importante nel processo di gestione costi. Per altre informazioni riguardo questi strumenti, consultare i collegamenti seguenti.
+
+- [Calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) - Usare questo strumento per stimare i costi iniziali del cloud.
+- [Azure Migrate](../migrate/migrate-overview.md) - Valutare il carico di lavoro corrente del proprio centro dati logico per informazioni dettagliate su ciò che serve da una soluzione di sostituzione di Azure.
+- [Azure Advisor](../advisor/advisor-overview.md) - Identificare le macchine virtuali inutilizzate e ricevere consigli sugli acquisti di istanza riservata di Azure.
+- [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) - Utilizzare le licenze correnti di Windows Server o SQL Server per permettere alle macchine virtuali in Azure di effettuare un salvataggio.
+
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Ora che si ha familiarità con Gestione costi, il passaggio successivo serve per iniziare a usare il servizio.
+
+- Iniziare a usare Gestione costi di Azure per eseguire l'[analisi dei costi](quick-acm-cost-analysis.md).
+- Per altre informazioni, consultare [Procedure consigliate di Gestione costi di Azure](cost-mgt-best-practices.md).
