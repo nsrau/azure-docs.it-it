@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c29d6cb0da2e394912a2584b0d3c3cedf13f054c
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304072"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999512"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
@@ -32,7 +32,7 @@ Le [soluzioni di gestione](monitoring-solutions.md) includeranno in genere [rice
 > [!NOTE]
 > Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Progettare e creare una soluzione di gestione in Azure](monitoring-solutions-creating.md)  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che si abbia già familiarità con la [creazione di una soluzione di gestione](monitoring-solutions-creating.md) e la struttura di un [modello di Resource Manager](../resource-group-authoring-templates.md) e un file di soluzione.
 
 
@@ -90,7 +90,7 @@ Le singole proprietà di una ricerca salvata sono descritte nella tabella seguen
 Gli [avvisi del log di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) vengono creati dalle regole di avviso di Azure che eseguono le query di log specificate a intervalli regolari.  Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni usando i [gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> A partire dal 14 maggio 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics inizierà ad estendersi automaticamente ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Le regole di avviso in una soluzione di gestione sono costituite dalle tre diverse risorse riportate di seguito.
 
@@ -130,9 +130,9 @@ Le proprietà delle risorse pianificazione sono descritte nella tabella seguente
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
-| Enabled       | Sì | Specifica se l'avviso viene abilitato al momento della creazione. |
-| interval      | Sì | Frequenza, in minuti, con cui viene eseguita la query. |
-| queryTimeSpan | Sì | Periodo di tempo, in minuti, per cui verranno valutati i risultati. |
+| Enabled       | Yes | Specifica se l'avviso viene abilitato al momento della creazione. |
+| interval      | Yes | Frequenza, in minuti, con cui viene eseguita la query. |
+| queryTimeSpan | Yes | Periodo di tempo, in minuti, per cui verranno valutati i risultati. |
 
 La risorsa pianificazione dipenderà dalla ricerca salvata, che verrà quindi creata prima della pianificazione.
 
@@ -146,7 +146,7 @@ Una pianificazione può avere più azioni. Un'azione può definire uno o più pr
 Le azioni possono essere definite usando la risorsa [gruppo di azioni] o la risorsa azione.
 
 > [!NOTE]
-> A partire dal 14 maggio 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics inizierà ad estendersi automaticamente ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 La proprietà **Type** specifica due tipi di risorsa azione.  Una pianificazione richiede un'azione **Alert** che definisce i dettagli della regola di avviso e le azioni da eseguire quando viene creato un avviso. Le risorse azione sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -190,10 +190,10 @@ Le proprietà delle risorse azione di avviso sono descritte nella tabella seguen
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
-| type | Sì | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
-| NOME | Sì | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
+| type | Yes | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
+| NOME | Yes | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
 | DESCRIZIONE | No  | Descrizione facoltativa dell'avviso. |
-| Severity | Sì | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
+| Severity | Yes | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Soglia
@@ -201,8 +201,8 @@ Questa sezione è obbligatoria  e definisce le proprietà della soglia dell'avvi
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
-| Operatore | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| Valore | Sì | Valore per il confronto dei risultati. |
+| Operatore | Yes | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| Valore | Yes | Valore per il confronto dei risultati. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Questa sezione è facoltativa.  Includere la sezione per un avviso di misurazione delle metriche.
@@ -212,9 +212,9 @@ Questa sezione è facoltativa.  Includere la sezione per un avviso di misurazion
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
-| TriggerCondition | Sì | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
-| Operatore | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| Valore | Sì | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
+| TriggerCondition | Yes | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
+| Operatore | Yes | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| Valore | Yes | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
 
 
 #### <a name="throttling"></a>Limitazione
@@ -232,7 +232,7 @@ Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devo
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
-| AzNsNotification | Sì | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
+| AzNsNotification | Yes | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
 | CustomEmailSubject | No  | Riga dell'oggetto personalizzata del messaggio inviato a tutti gli indirizzi specificati nel gruppo di azioni associato. |
 | CustomWebhookPayload | No  | Payload personalizzato da inviare a tutti gli endpoint webhook definiti nel gruppo di azioni associato. Il formato dipende da ciò che è previsto dal webhook e deve essere un oggetto JSON serializzato valido. |
 
@@ -242,15 +242,15 @@ Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devo
 Ogni pianificazione ha un'azione **Alert**.  che definisce i dettagli dell'avviso e, facoltativamente, le azioni di notifica e correzione.  Una notifica invia un messaggio di posta elettronica a uno o più indirizzi.  Una correzione avvia un runbook in Automazione di Azure per provare a risolvere il problema rilevato.
 
 > [!NOTE]
-> A partire dal 14 maggio 2018, tutti gli avvisi in un'area di lavoro verranno automaticamente estesi ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics inizierà ad estendersi automaticamente ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Questa sezione è facoltativa. Includere la sezione se si vuole inviare un messaggio di posta elettronica a uno o più destinatari.
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
-| Destinatari | Sì | Elenco delimitato da virgole di indirizzi di posta elettronica a cui inviare una notifica quando viene creato un avviso, come nell'esempio seguente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Oggetto | Sì | Riga dell'oggetto del messaggio di posta elettronica. |
+| Destinatari | Yes | Elenco delimitato da virgole di indirizzi di posta elettronica a cui inviare una notifica quando viene creato un avviso, come nell'esempio seguente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Oggetto | Yes | Riga dell'oggetto del messaggio di posta elettronica. |
 | Attachment | No  | Gli allegati non sono attualmente supportati.  Se questo elemento è incluso, il valore dovrà essere **None**. |
 
 
@@ -259,8 +259,8 @@ Questa sezione è facoltativa. Includere la sezione se si vuole avviare un runbo
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
-| RunbookName | Sì | Nome del runbook da avviare. |
-| WebhookUri | Sì | URI del webhook per il runbook. |
+| RunbookName | Yes | Nome del runbook da avviare. |
+| WebhookUri | Yes | URI del webhook per il runbook. |
 | Expiry | No  | Data e ora di scadenza della correzione. |
 
 ##### <a name="webhook-actions"></a>Azioni webhook
@@ -289,9 +289,9 @@ Le proprietà delle risorse azione webhook sono descritte nella tabella seguente
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
-| type | Sì | Tipo di azione.  Per le azioni webhook, il tipo è **Webhook**. |
-| name | Sì | Nome visualizzato per l'azione.  Non viene visualizzato nella console. |
-| wehookUri | Sì | URI del webhook. |
+| type | Yes | Tipo di azione.  Per le azioni webhook, il tipo è **Webhook**. |
+| name | Yes | Nome visualizzato per l'azione.  Non viene visualizzato nella console. |
+| wehookUri | Yes | URI del webhook. |
 | customPayload | No  | Payload personalizzato da inviare al webhook. Il formato dipende da ciò che il webhook si aspetta. |
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525468"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954552"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT
 
@@ -34,9 +34,12 @@ Per inserire temporaneamente il dispositivo nell'elenco di elementi non consenti
 2. Selezionare nell'elenco di risorse il servizio di provisioning da inserire nell'elenco di elementi non consentiti per il dispositivo in uso.
 3. Nel servizio di provisioning, fare clic su **Gestisci registrazioni** e quindi selezionare la scheda **Registrazioni singole**.
 4. Selezionare la voce di registrazione per il dispositivo che si vuole inserire nell'elenco di elementi non consentiti. 
-5. Scorrere verso il basso e selezionare **Disabilita** per l'opzione **Abilita voce** e quindi scegliere **Salva**.  
 
-   [![Disabilitare la voce di registrazione singola nel portale](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![Selezionare la propria registrazione singola](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. Nella pagina della registrazione scorrere verso il basso, selezionare **Disabilita** per l'opzione **Abilita voce** e quindi scegliere **Salva**.  
+
+   ![Disabilitare la voce di registrazione singola nel portale](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 Per inserire in modo permanente il dispositivo nell'elenco di elementi non consentiti eliminando la relativa voce di registrazione:
 
@@ -47,7 +50,8 @@ Per inserire in modo permanente il dispositivo nell'elenco di elementi non conse
 5. Selezionare **Elimina** nella parte superiore della finestra e quindi fare clic su **Sì** per confermare che si vuole rimuovere la registrazione. 
 
    ![Eliminare la voce di registrazione singola nel portale](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 Dopo aver completato la procedura, la voce apparirà rimossa dall'elenco delle registrazioni singole.  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Inserire un certificato intermedio X.509 o un certificato CA radice nell'elenco di elementi non consentiti mediante un gruppo di registrazioni
@@ -91,14 +95,18 @@ Per inserire un singolo dispositivo in un gruppo di registrazioni nell'elenco di
 1. Accedere al portale di Azure e selezionare **Tutte le risorse** nel menu a sinistra.
 2. Nell'elenco delle risorse selezionare il servizio di provisioning che contiene il gruppo di registrazioni per il dispositivo che si vuole inserire nell'elenco di elementi non consentiti.
 3. Nel servizio di provisioning, fare clic su **Gestisci registrazioni** e quindi selezionare la scheda **Registrazioni singole**.
-4. Selezionare il pulsante **Aggiungi** in alto. 
-5. Selezionare **X.509** come meccanismo di attestazione per il dispositivo e caricare il certificato del dispositivo. Questo sarà il certificato dell'entità finale firmato installato nel dispositivo, che verrà usato per generare i certificati per l'autenticazione.
-6. Nel campo **ID dispositivo hub IoT** immettere un valore valido per il dispositivo. 
-7. Selezionare **Disabilita** per l'opzione **Abilita voce** e quindi scegliere **Salva**. 
+4. Selezionare il pulsante **Aggiungi registrazione singola** nella parte superiore. 
+5. Nella pagina **Aggiungi registrazione**  selezionare **X.509** come **meccanismo** di attestazione per il dispositivo.
+
+    Caricare il certificato del dispositivo e immettere l'ID del dispositivo da impostare come non consentito. Come certificato, usare il certificato dell'entità finale firmato installato nel dispositivo. Il dispositivo usa tale certificato per l'autenticazione.
+
+    ![Impostare le proprietà per il dispositivo non consentito](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. Scorrere fino alla fine della pagina **Aggiungi registrazione** e selezionare **Disabilita** per l'opzione **Abilita voce**, quindi selezionare **Salva**. 
 
     [![Disabilitare la voce di registrazione singola per disabilitare il dispositivo dalla registrazione di gruppo nel portale](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-Dopo avere creato la registrazione, nella la scheda **Registrazioni singole** verrà visualizzato il dispositivo.
+Dopo avere creato la registrazione, nella scheda **Registrazioni singole** viene visualizzata la registrazione del dispositivo disabilitato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

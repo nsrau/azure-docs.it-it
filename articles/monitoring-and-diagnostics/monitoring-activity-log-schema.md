@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917228"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998233"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
 Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema degli eventi per ogni categoria di dati. Lo schema dei dati varia a seconda che si stiano leggendo i dati nel portale, in PowerShell, nell'interfaccia della riga di comando o direttamente tramite l'API REST rispetto allo [streaming dei dati nella risorsa di archiviazione o in Hub eventi usando un profilo di log](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Gli esempi seguenti mostrano lo schema reso disponibile tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Un mapping di queste proprietà allo [schema di log di diagnostica di Azure](./monitoring-diagnostic-logs-schema.md) è disponibile alla fine dell'articolo.
@@ -120,7 +120,7 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 | Description |Testo statico che descrive un evento. |
 | eventDataId |Identificatore univoco di un evento. |
 | httpRequest |BLOB che descrive la richiesta HTTP. In genere include "clientRequestId", "clientIpAddress" e "method" (metodo HTTP, ad esempio PUT). |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose" |
+| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
 | resourceProviderName |Nome del provider di risorse della risorsa interessata. |
 | ResourceId |ID risorsa della risorsa interessata. |
@@ -192,6 +192,95 @@ Questa categoria contiene il record degli eventi imprevisti di integrità del se
 }
 ```
 Per la documentazione relativa ai valori nelle proprietà fare riferimento all'articolo sulle [notifiche sull'integrità dei servizi](./monitoring-service-notifications.md).
+
+## <a name="resource-health"></a>Integrità delle risorse
+Questa categoria contiene il record degli eventi di integrità delle risorse che si sono verificati nelle risorse di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "Stato di integrità della macchina virtuale modificato su non disponibile". Gli eventi di integrità delle risorse possono rappresentare uno dei quattro stati di integrità: Disponibile, Non disponibile, Danneggiato e Sconosciuto. Inoltre, gli eventi di integrità delle risorse possono essere classificati come avviati dalla piattaforma o avviati dall'utente.
+
+### <a name="sample-event"></a>Evento di esempio
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>Descrizioni delle proprietà
+| Nome dell'elemento | DESCRIZIONE |
+| --- | --- |
+| channels | Sempre "Admin, Operation" |
+| correlationId | GUID in formato stringa. |
+| description |Testo statico che descrive l'evento dell'avviso. |
+| eventDataId |Identificatore univoco dell'evento dell'avviso. |
+| category | Sempre "ResourceHealth" |
+| eventTimestamp |Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento. |
+| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose" |
+| operationId |GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
+| operationName |Nome dell'operazione. |
+| resourceGroupName |Nome del gruppo di risorse che contiene la risorsa. |
+| resourceProviderName |Sempre "Microsoft.Resourcehealth/healthevent/action" |
+| resourceType | Il tipo di risorsa che è stata interessata da un evento di integrità risorse. |
+| ResourceId | Nome dell'ID risorsa della risorsa interessata. |
+| status |Stringa che descrive lo stato dell'evento di integrità. I valori possono essere: Attivo, Risolto, In corso, Aggiornato. |
+| subStatus | In genere null per gli avvisi. |
+| submissionTimestamp |Timestamp del momento in cui l'evento è diventato disponibile per l'esecuzione di query. |
+| subscriptionId |ID sottoscrizione di Azure. |
+| properties |Set di coppie `<Key, Value>`, ovvero un dizionario, che descrive i dettagli dell'evento.|
+| Properties.title | Stringa descrittiva che descrive lo stato di integrità della risorsa. |
+| properties.details | Stringa descrittiva che descrive più dettagliatamente l'evento. |
+| properties.currentHealthStatus | Lo stato di integrità corrente della risorsa. Uno dei seguenti valori: "Disponibile", "Non disponibile", "Danneggiato" e "Sconosciuto". |
+| properties.previousHealthStatus | Lo stato di integrità precedente della risorsa. Uno dei seguenti valori: "Disponibile", "Non disponibile", "Danneggiato" e "Sconosciuto". |
+| properties.type | Descrizione del tipo di evento di integrità risorse. |
+| properties.cause | Descrizione della causa dell'evento di integrità risorse. "Avviata dall'utente" e "Avviata dalla piattaforma". |
+
 
 ## <a name="alert"></a>Avviso
 Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "CPU % on myVM has been over 80 for the past 5 minutes". In diversi sistemi Azure il concetto di avviso prevede la possibilità di definire una regola di qualche tipo e di ricevere una notifica quando le condizioni corrispondono a tale regola. Ogni volta che un tipo di avviso di Azure supportato viene "attivato" o vengono soddisfatte le condizioni per generare una notifica, viene anche eseguito il push di un record dell'attivazione in questa categoria del log attività.
@@ -266,7 +355,7 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 | correlationId | GUID in formato stringa. |
 | description |Testo statico che descrive l'evento dell'avviso. |
 | eventDataId |Identificatore univoco dell'evento dell'avviso. |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose" |
+| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è il nome del gruppo di risorse contenente l'avviso stesso. |
 | resourceProviderName |Nome del provider di risorse della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è il nome del provider di risorse per l'avviso stesso. |
 | ResourceId | ID della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è l'ID della risorsa dell'avviso stessa. |
@@ -375,7 +464,7 @@ Questa categoria contiene il record degli eventi correlati all'operazione del mo
 | correlationId | GUID in formato stringa. |
 | description |Testo statico che descrive l'evento di ridimensionamento automatico. |
 | eventDataId |Identificatore univoco dell'evento di ridimensionamento automatico. |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose" |
+| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse dell'impostazione di ridimensionamento automatico. |
 | resourceProviderName |Nome del provider di risorse dell'impostazione di ridimensionamento automatico. |
 | ResourceId |ID risorsa dell'impostazione di scalabilità automatica. |
@@ -465,7 +554,7 @@ Questa categoria contiene il record degli avvisi generati dal Centro sicurezza d
 | eventDataId |Identificatore univoco dell'evento di sicurezza. |
 | eventName |Nome descrittivo dell'evento di sicurezza. |
 | id |Identificatore di risorsa univoco dell'evento di sicurezza. |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose" |
+| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" o "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa. |
 | resourceProviderName |Nome del provider di risorse per il Centro sicurezza di Azure. Sempre "Microsoft.Security". |
 | resourceType |Il tipo di risorsa che ha generato l'evento di sicurezza, ad esempio "Microsoft.Security/locations/alerts" |
@@ -545,7 +634,7 @@ Questa categoria include il record di tutte le nuove raccomandazioni che vengono
 | eventDataId | Identificatore univoco dell'evento di raccomandazione. |
 | category | Sempre "Recommendation" |
 | id |Identificatore univoco di risorsa dell'evento di raccomandazione. |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose" |
+| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" o "Informational" |
 | operationName |Nome dell'operazione.  Sempre "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Nome del gruppo di risorse della risorsa. |
 | resourceProviderName |Nome del provider di risorse per la risorsa a cui si applica la raccomandazione, ad esempio "MICROSOFT.COMPUTE" |

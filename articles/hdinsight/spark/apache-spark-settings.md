@@ -4,17 +4,17 @@ description: Come configurare Spark per un cluster Azure HDInsight.
 services: hdinsight
 author: maxluk
 ms.author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018
-ms.openlocfilehash: fb0a70f160df9dc4fdb292e54f41baf4bd296250
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 926ce58872b06b41a0c7942b7090dcb4d5c8df03
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619584"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956490"
 ---
 # <a name="configure-spark-settings"></a>Configurare le impostazioni di Spark
 
@@ -37,7 +37,7 @@ Quando si crea un nuovo cluster, è possibile scegliere tra le seguenti versioni
 Spark 2.x offre caratteristiche di esecuzione migliori rispetto a Spark 1.x. Spark 2.x include numerose ottimizzazioni delle prestazioni, ad esempio Tungsten, Catalyst Query Optimization e molte altre.  
 
 > [!NOTE]
-> La versione predefinita di Apache Spark nel servizio HDInsight può cambiare senza preavviso. In caso di dipendenza dalla versione, è consigliabile indicare la versione specifica quando si creano i cluster tramite .NET SDK, Azure PowerShell e l'interfaccia della riga di comando di Azure.
+> La versione predefinita di Apache Spark nel servizio HDInsight può cambiare senza preavviso. In caso di dipendenza dalla versione, è consigliabile indicare la versione specifica quando si creano i cluster tramite .NET SDK, Azure PowerShell e l'interfaccia della riga di comando classica di Azure.
 
 Apache Spark ha tre posizioni per le configurazioni di sistema:
 

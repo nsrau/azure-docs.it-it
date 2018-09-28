@@ -14,16 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667651"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974324"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Esercitazione: Autenticazione del servizio Azure SignalR
-
-Il servizio Microsoft Azure SignalR è attualmente disponibile in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questa esercitazione si basa sull'applicazione di chat room presentata nella guida di avvio rapido. Se non è stato completato l'esercizio [Creare una chat room con il servizio SignalR](signalr-quickstart-dotnet-core.md), completarlo ora. 
 
@@ -396,7 +394,7 @@ In questa sezione si attiverà l'autenticazione reale aggiungendo l'attributo `A
 
 In questa sezione si userà l'interfaccia della riga di comando (CLI) da Azure Cloud Shell per creare una nuova [App Web di Azure](https://docs.microsoft.com/azure/app-service/) per ospitare l'applicazione ASP.NET in Azure. L'app Web verrà configurata per usare la distribuzione Git locale. L'app Web verrà configurata anche con la stringa di connessione SignalR, i segreti dell'app OAuth di GitHub e un utente di distribuzione.
 
-I passaggi di questa sezione usano l'estensione *signalr* per l'interfaccia della riga di comando di Azure. Eseguire il comando seguente per installare l'estensione *signalr* per l'interfaccia della riga di comando di Azure 2.0:
+I passaggi di questa sezione usano l'estensione *signalr* per l'interfaccia della riga di comando di Azure. Eseguire il comando seguente per installare l'estensione *signalr* per l'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 az extension add -n signalr

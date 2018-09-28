@@ -1,6 +1,6 @@
 ---
 title: Esempi di avvio rapido dell'interfaccia della riga di comando di Monitoraggio di Azure
-description: Comandi dell'interfaccia della riga di comando 2.0 di esempio per le funzionalità di Monitoraggio di Azure. Monitoraggio di Azure è un servizio di Microsoft Azure che permette di inviare notifiche di avviso, chiamare URL Web in base ai valori dei dati di telemetria configurati e ridimensionare automaticamente servizi cloud, macchine virtuali e app Web.
+description: Comandi dell'interfaccia della riga di comando di esempio per le funzionalità di Monitoraggio di Azure. Monitoraggio di Azure è un servizio di Microsoft Azure che permette di inviare notifiche di avviso, chiamare URL Web in base ai valori dei dati di telemetria configurati e ridimensionare automaticamente servizi cloud, macchine virtuali e app Web.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: dfc9a65325d25889c9d8d3c10aa0dcda2b5a9980
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1728511402d48904fa968790f790314fdf57767c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213212"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961519"
 ---
-# <a name="azure-monitor-cli-20-quick-start-samples"></a>Esempi di avvio rapido dell'interfaccia della riga di comando 2.0 per Monitoraggio di Azure
+# <a name="azure-monitor-cli-quick-start-samples"></a>Esempi di avvio rapido dell'interfaccia della riga di comando di Monitoraggio di Azure
 Questo articolo illustra i comandi dell'interfaccia della riga di comando di esempio per accedere alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web e di inviare notifiche di avviso o chiamare URL Web in base ai valori dei dati di telemetria configurati.
 
 ## <a name="prerequisites"></a>Prerequisiti

@@ -1,5 +1,5 @@
 ---
-title: Associazioni di Azure Cosmos DB per Funzioni 2.x (anteprima)
+title: Associazioni di Azure Cosmos DB per Funzioni 2.x
 description: Informazioni su come usare trigger e associazioni di Azure Cosmos DB in Funzioni di Azure.
 services: functions
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ea1403ed8afe6e84a3118d891e8c2d34b390d158
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093431"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953480"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x (anteprima)
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versione 1 - Disponibilità generale](functions-bindings-cosmosdb.md)
@@ -27,7 +27,7 @@ ms.locfileid: "44093431"
 Questo articolo illustra come usare le associazioni di [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) in Funzioni di Azure 2.x. Funzioni di Azure supporta i trigger e le associazioni di input e output per Azure Cosmos DB.
 
 > [!NOTE]
-> Questo articolo riguarda [Funzioni di Azure versione 2.x](functions-versions.md), disponibile in anteprima.  Per informazioni su come usare le associazioni in Funzioni 1.x, vedere [Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x](functions-bindings-cosmosdb.md).
+> Questo articolo riguarda [Funzioni di Azure versione 2.x](functions-versions.md).  Per informazioni su come usare le associazioni in Funzioni 1.x, vedere [Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x](functions-bindings-cosmosdb.md).
 >
 > Questa associazione è stata originariamente denominata DocumentDB. In Funzioni versione 2.x, i trigger, le associazioni e il pacchetto sono tutti denominati Cosmos DB.
 

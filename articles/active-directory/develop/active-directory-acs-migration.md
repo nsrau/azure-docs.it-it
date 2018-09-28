@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione dal Servizio di controllo di accesso di Azure | Microsoft Docs
-description: Opzioni per lo spostamento di app e servizi dal Servizio di controllo di accesso di Azure
+title: Eseguire la migrazione dal Servizio di controllo di accesso di Azure | Documentazione Microsoft
+description: Informazioni sulle opzioni per lo spostamento di app e servizi da Servizio di controllo di accesso (ACS) di Azure.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 09/07/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.reviewer: jlu, annaba, hirsin
+ms.openlocfilehash: 2c7dc650109ecc3844ee2ae90e50b2267f5716c4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698061"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996520"
 ---
-# <a name="migrate-from-the-azure-access-control-service"></a>Eseguire la migrazione dal Servizio di controllo di accesso di Azure
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Azure
 
-Controllo di accesso di Azure, un servizio di Azure Active Directory (Azure AD), verrà ritirato il 7 novembre 2018. Le applicazioni e i servizi che attualmente utilizzano questo servizio devono eseguire la migrazione completa a un meccanismo di autenticazione diverso entro tale data. Questo articolo presenta i consigli per i clienti attuali che pianificano la deprecazione dell'uso di Controllo di accesso. Se attualmente non si utilizza Controllo di accesso, non è necessario intraprendere alcuna azione.
-
+Servizio di controllo di accesso di Microsoft Azure, un servizio di Azure Active Directory (Azure AD), verrà ritirato il 7 novembre 2018. Le applicazioni e i servizi che attualmente utilizzano questo servizio devono eseguire la migrazione completa a un meccanismo di autenticazione diverso entro tale data. Questo articolo presenta i consigli per i clienti attuali che pianificano la deprecazione dell'uso di Controllo di accesso. Se attualmente non si utilizza Controllo di accesso, non è necessario intraprendere alcuna azione.
 
 ## <a name="overview"></a>Panoramica
 
@@ -38,7 +37,7 @@ I casi d'uso per Controllo di accesso possono essere suddivisi in tre categorie 
 - Aggiunta di autenticazione ad applicazioni Web, sia personalizzate che preconfenzionate (come SharePoint). Tramite l'autenticazione "passiva" di Controllo di accesso, le applicazioni Web possono supportare l'accesso con un account Microsoft (precedentemente Live ID) e con account di Google, Facebook, Yahoo, Azure AD e Active Directory Federation Services (AD FS).
 - Protezione di servizi Web personalizzati con token rilasciati da Controllo di accesso. Tramite l'autenticazione "attiva", i servizi Web possono garantire che l'accesso sia consentito solo a client noti che hanno eseguito l'autenticazione con Controllo di accesso.
 
-Questi casi d'uso e le rispettive strategie di migrazione consigliate vengono illustrati nelle sezioni seguenti. 
+Questi casi d'uso e le rispettive strategie di migrazione consigliate vengono illustrati nelle sezioni seguenti.
 
 > [!WARNING]
 > Nella maggior parte dei casi sono necessarie modifiche significative al codice per la migrazione delle app e dei servizi esistenti in tecnologie più recenti. È consigliabile iniziare subito a pianificare ed eseguire la migrazione, per evitare qualsiasi rischio di interruzione o di tempo di inattività.
@@ -73,7 +72,6 @@ Di seguito è riportata la pianificazione della deprecazione dei componenti di C
 - **2 aprile 2018**: il portale di Azure classico è stato completamente ritirato. Pertanto, la gestione degli spazi dei nomi di Controllo di accesso non è più disponibile tramite un URL. A questo punto, è impossibile disabilitare o abilitare, eliminare o enumerare gli spazi dei nomi di Controllo di accesso. Il portale di gestione di Controllo di accesso, tuttavia, sarà completamente funzionante e disponibile all'indirizzo `https://\<namespace\>.accesscontrol.windows.net`. Tutti gli altri componenti di Controllo di accesso continuano a funzionare normalmente.
 - **7 novembre 2018**: tutti i componenti di Controllo di accesso vengono arrestati in modo permanente. Sono inclusi il portale di gestione di Controllo di accesso, il servizio di gestione, il servizio token di sicurezza e il motore di regole di trasformazione dei token. A questo punto, tutte le richieste inviate a Controllo di accesso (all'indirizzo \<spaziodeinomi\>.accesscontrol.windows.net) hanno esito negativo. È necessario eseguire la migrazione di tutte le app e di tutti i servizi esistenti ad altre tecnologie molto prima di questa data.
 
-
 ## <a name="migration-strategies"></a>Strategie di migrazione
 
 Le sezioni seguenti illustrano i consigli generali per la migrazione da Controllo di accesso ad altre tecnologie Microsoft.
@@ -98,7 +96,6 @@ Ogni servizio cloud Microsoft che accetta token rilasciati da Controllo di acces
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
-
 
 ### <a name="sharepoint-customers"></a>Clienti di SharePoint
 
@@ -175,26 +172,14 @@ Per utilizzare WS-Federation o WIF per l'integrazione con Azure AD, è consiglia
 - Si ottiene la flessibilità completa della personalizzazione dei token di Azure AD. È possibile personalizzare le attestazioni rilasciate da Azure AD per associarle alle attestazioni generate da Controllo di accesso. In particolare è inclusa l'attestazione di ID utente o Identificatore nome. Per continuare a ricevere identificatori utente coerenti per gli utenti anche dopo il passaggio a tecnologie diverse, assicurarsi che gli ID utente rilasciati da Azure AD corrispondano a quelli rilasciati da Controllo di accesso.
 - È possibile configurare un certificato per la firma di token specifico per l'applicazione e controllarne la durata.
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > Questo approccio richiede una licenza di Azure AD Premium. Se si è un cliente di Controllo di accesso e si necessita di una licenza premium per la configurazione dell'accesso Single Sign-On per un'applicazione, contattare Microsoft. Verranno fornite licenze per sviluppatori.
 
 Un approccio alternativo consiste nell'attenersi a [questo esempio di codice](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) che fornisce istruzioni leggermente diverse sulla configurazione di WS-Federation. L'esempio di codice non usa WIF, ma il middleware OWIN di ASP.NET 4.5. Le istruzioni per la registrazione dell'app, tuttavia, sono valide per le app che usano WIF e non richiedono una licenza di Azure AD Premium. 
 
-Se si sceglie questo approccio, è necessario comprendere il [rollover della chiave di firma in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Questo approccio usa la chiave di firma globale di Azure AD per rilasciare token. Per impostazione predefinita, WIF non aggiorna automaticamente le chiavi di firma. Quando Azure AD ruota le rispettive chiavi di firma globali, l'implementazione di WIF deve essere preparata per l'accettazione delle modifiche.
+Se si sceglie questo approccio, è necessario comprendere il [rollover della chiave di firma in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Questo approccio usa la chiave di firma globale di Azure AD per rilasciare token. Per impostazione predefinita, WIF non aggiorna automaticamente le chiavi di firma. Quando Azure AD ruota le rispettive chiavi di firma globali, l'implementazione di WIF deve essere preparata per l'accettazione delle modifiche. Per altre informazioni, vedere [Important information about signing key rollover in Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx) (Informazioni importanti sul rollover della chiave di firma in Azure AD).
 
 Se si riesce a eseguire l'integrazione con Azure AD tramite i protocolli OAuth o OpenID Connect, è consigliabile scegliere questo approccio. Documentazione e indicazioni complete sull'integrazione di Azure AD nell'applicazione Web sono disponibili nella [Guida per gli sviluppatori di Azure AD](https://aka.ms/aaddev).
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migrazione ad Azure Active Directory B2C
 
@@ -237,7 +222,6 @@ Se si decide che Azure AD B2C è l'approccio ottimale per le applicazioni e i se
 - [Criteri personalizzati di Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Prezzi di Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Eseguire la migrazione a Ping Identity o Auth0
 
 In alcuni casi, è possibile che Azure AD e Azure AD B2C non siano sufficienti a sostituire Controllo di accesso nelle applicazioni Web senza apportare modifiche importanti al codice. Ecco alcuni esempi tipici:
@@ -249,8 +233,6 @@ In alcuni casi, è possibile che Azure AD e Azure AD B2C non siano sufficienti a
 - Applicazioni web multi-tenant che utilizzano ACS per la gestione centralizzata della federazione a molti provider di identità diversi
 
 In questi casi, è necessario considerare la migrazione dell'applicazione web a un altro servizio di autenticazione cloud. Si consiglia di valutare le opzioni seguenti. Ciascuna delle opzioni seguenti offre funzionalità simili a Controllo di accesso:
-
-
 
 |     |     | 
 | --- | --- |

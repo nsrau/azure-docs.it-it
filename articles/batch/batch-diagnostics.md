@@ -15,16 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 54034b9a851fc6f06f97be9cfd5f261465bad455
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248263"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965535"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
-Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Monitoraggio di Azure raccoglie [metriche](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) per ricevere notifiche quando una metrica raggiunge un valore specificato. 
+ 
+Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../monitoring/monitoring-data-collection.md#metrics) e [log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../monitoring-and-diagnostics/monitoring-overview-alerts.md) per ricevere notifiche quando una metrica raggiunge un valore specificato. 
 
 ## <a name="batch-metrics"></a>Metriche di Batch
 
@@ -64,7 +65,8 @@ Per configurare un avviso sulle metriche nel portale:
 2. In **Monitoraggio** fare clic su **Regole di avviso** > **Aggiungi avviso per la metrica**.
 3. Selezionare una metrica, una condizione di avviso, ad esempio quando una metrica supera un valore specifico durante un periodo, e una o più notifiche.
 
-È anche possibile configurare un avviso praticamente in tempo reale usando l'[API REST](). Per altre informazioni, vedere [Usare gli avvisi sulle metriche più recenti per i servizi di Azure nel portale di Azure](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+È anche possibile configurare un avviso praticamente in tempo reale usando l'[API REST](https://docs.microsoft.com/rest/api/monitor/). Per altre informazioni, vedere la [panoramica degli avvisi](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 ## <a name="batch-diagnostics"></a>Diagnostica di Batch
 
 I log di diagnostica contengono informazioni generate dalle risorse di Azure che descrivono il funzionamento di ogni risorsa. Per Batch, è possibile raccogliere i log seguenti:

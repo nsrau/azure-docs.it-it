@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b799cde0a696b4a764893c545a8d55d363a4800
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188241"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989023"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrazione di applicazioni con Azure Active Directory
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 Gli sviluppatori aziendali e i provider SaaS possono sviluppare servizi cloud commerciali o applicazioni line-of-business che possono essere integrate con Azure Active Directory (Azure AD) per garantire la sicurezza dell'accesso e delle autorizzazioni per i loro servizi. Per integrare un'applicazione o un servizio con Azure AD, uno sviluppatore deve prima di tutto registrare l'applicazione con Azure AD.
 
@@ -33,9 +34,11 @@ Questo articolo mostra come aggiungere, aggiornare o rimuovere la registrazione 
 Per altre informazioni sui due oggetti Azure AD che rappresentano un'applicazione registrata e la relazione tra di essi, vedere [Oggetti applicazione e oggetti entità servizio](app-objects-and-service-principals.md). Per altre informazioni sulle linee guida sulla personalizzazione da usare quando si sviluppano applicazioni con Azure Active Directory, vedere [Linee guida sulla personalizzazione per le app integrate](howto-add-branding-in-azure-ad-apps.md).
 
 ## <a name="adding-an-application"></a>Aggiunta di un'applicazione
+
 Qualsiasi applicazione che vuole usare le funzionalità di Azure AD deve prima essere registrata in un tenant di Azure AD. Questo processo di registrazione comporta l'assegnazione ad Azure AD dei dettagli sull'applicazione, come l'URL in cui è disponibile, l'URL per inviare le risposte dopo l'autenticazione di un utente, l'URI che identifica l'app e così via.
 
 ### <a name="to-register-a-new-application-using-the-azure-portal"></a>Per registrare una nuova applicazione mediante il portale di Azure
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Se l'account consente di accedere a più tenant, fare clic sull'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
 3. Nel riquadro di spostamento a sinistra fare clic sul servizio **Azure Active Directory**, fare clic su **Registrazioni per l'app** e fare clic su **Registrazione nuova applicazione**.
@@ -59,10 +62,9 @@ Qualsiasi applicazione che vuole usare le funzionalità di Azure AD deve prima e
 
   > [!NOTE]
   > Per impostazione predefinita, un'applicazione Web appena registrata viene configurata in modo da consentire **solo** agli utenti dello stesso tenant di accedere all'applicazione stessa.
-  > 
-  > 
 
 ## <a name="updating-an-application"></a>Aggiornamento di un'applicazione
+
 Una volta registrata con Azure AD, l'applicazione potrebbe dover essere aggiornata per fornire l'accesso ad API Web, essere resa disponibile in altre organizzazioni e altro ancora. Questa sezione descrive vari modi in cui è possibile configurare ulteriormente l'applicazione. Si inizierà con una panoramica del framework di consenso, che è importante conoscere quando si compilano applicazioni che devono essere usate da altri utenti o applicazioni.
 
 ### <a name="overview-of-the-consent-framework"></a>Panoramica del framework di consenso
@@ -93,7 +95,7 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
    
   ![Esperienza di autorizzazione utente](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-5. Dopo che l'utente ha concesso il consenso, all'applicazione viene restituito un codice di autorizzazione, che viene riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere la sezione [Da applicazione Web ad API Web di Scenari di autenticazione per Azure AD](authentication-scenarios.md#web-application-to-web-api).
+5. Dopo che l'utente ha concesso il consenso, all'applicazione viene restituito un codice di autorizzazione, che viene riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere [API Web]](web-api.md).
 
 6. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo evita la visualizzazione della finestra di dialogo di consenso per ogni utente del tenant e può essere eseguito nel [portale di Azure](https://portal.azure.com) da utenti con ruolo di amministratore. Nella pagina **Impostazioni** dell'applicazione fare clic su **Autorizzazioni necessarie** e quindi fare clic sul pulsante **Concedi autorizzazioni**. 
 
@@ -103,6 +105,7 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
   > La concessione esplicita del consenso usando il pulsante **Concedi autorizzazioni** è attualmente richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurare un'applicazione client per accedere alle API Web
+
 Per consentire a un'applicazione Web/client riservato di partecipare a un flusso di concessioni di autorizzazioni che richiede l'autenticazione (e ottenere un token di accesso), è necessario definire credenziali protette. Il metodo di autenticazione predefinito supportato dal portale di Azure è ID client + chiave privata. Questa sezione illustra i passaggi di configurazione necessari per fornire alla chiave privata le credenziali del client.
 
 Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazione della risorsa (ad esempio l'API Graph Microsoft), il framework di consenso assicura che il client ottenga la concessione delle autorizzazioni necessaria, in base alle autorizzazioni richieste. Per impostazione predefinita, tutte le applicazioni possono scegliere le autorizzazioni da "Windows Azure Active Directory" (API Graph) e "API Gestione dei servizi di Microsoft Azure". L'[autorizzazione "Accedi e leggi il profilo di un altro utente" dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) è selezionata anch'essa per impostazione predefinita. Se il client viene registrato in un tenant che dispone di account con sottoscrizione per Office 365, saranno disponibili per la selezione le API Web e le autorizzazioni per SharePoint ed Exchange Online. È possibile scegliere fra [due tipi di autorizzazioni](developer-glossary.md#permissions) per ogni API Web desiderata:
@@ -115,6 +118,7 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
   > L'aggiunta di un'autorizzazione delegata a un'applicazione non concede automaticamente il consenso all'utente all'interno del tenant. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive in fase di esecuzione, a meno che l'amministratore non conceda il consenso per conto di tutti gli utenti.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Per aggiungere credenziali dell'applicazione o autorizzazioni per accedere alle API Web
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Se l'account consente di accedere a più tenant, fare clic sull'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
 3. Nel riquadro di spostamento a sinistra fare clic sul servizio **Azure Active Directory**, fare clic su **Registrazioni per l'app** quindi trovare/fare clic sull'applicazione che si vuole configurare.
@@ -213,8 +217,6 @@ Per informazioni dettagliate sugli ambiti esposti dall'API Graph Microsoft, vede
 
 > [!NOTE]
 > A causa di una limitazione attualmente in vigore, le applicazioni client native possono richiamare l'API Graph di Azure AD solo se usano l'autorizzazione "Accedere alla directory dell'organizzazione". Questa restrizione non è valida per le applicazioni Web.
-> 
-> 
 
 ### <a name="configuring-multi-tenant-applications"></a>Configurazione di applicazioni multi-tenant
 
@@ -260,9 +262,9 @@ Per altre informazioni sulle modifiche dell'applicazione necessarie per supporta
 - L'elenco di [esempi di codice multi-tenant](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant). 
 - [Avvio rapido: Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso in Azure AD](../fundamentals/customize-branding.md)
 
-### <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Abilitazione della concessione implicita OAuth 2.0 per le applicazioni a singola pagina
+### <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Abilitazione della concessione implicita OAuth 2.0 per le applicazioni a pagina singola
 
-Le applicazioni a singola pagina (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end. 
+Le applicazioni a pagina singola (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end. 
 
 Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per ulteriori informazioni sulla concessione di autorizzazione implicita e per stabilire se sia adatta allo scenario della propria applicazione, vedere [Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
@@ -272,7 +274,6 @@ Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata
 
 > [!NOTE]
 > Per informazioni dettagliate su come modificare il manifesto dell'applicazione, vedere innanzitutto la precedente sezione [Configurazione di un'applicazione della risorsa per esporre le API Web](#configuring-a-resource-application-to-expose-web-apis).
->
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Se l'account consente di accedere a più tenant, fare clic sull'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
@@ -285,12 +286,15 @@ Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata
 5. Salvare il manifesto aggiornato. Dopo il salvataggio, l'API Web è configurata in modo da usare la concessione implicita OAuth 2.0 per autenticare gli utenti.
 
 ## <a name="removing-an-application"></a>Rimozione di un'applicazione
+
 Questa sezione descrive come rimuovere la registrazione di un'applicazione dal tenant di Azure AD.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Rimozione di un'applicazione autorizzata dall'organizzazione
+
 Le applicazioni che l'organizzazione ha registrato appaiono sotto il filtro "Mie app" nella pagina principale "Registrazioni per l'app" del tenant. Queste sono applicazioni registrate manualmente nel portale di Azure classico o a livello di codice con PowerShell o l'API Graph. Più precisamente, sono rappresentate sia da un oggetto applicazione che da un oggetto entità servizio nel tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](app-objects-and-service-principals.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Per rimuovere un'applicazione a tenant singolo dalla directory
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Se l'account consente di accedere a più tenant, fare clic sull'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
 3. Nel riquadro di spostamento a sinistra fare clic sul servizio **Azure Active Directory**, fare clic su **Registrazioni per l'app** quindi trovare/fare clic sull'applicazione che si vuole configurare. Viene visualizzata la pagina di registrazione principale dell'applicazione che apre la pagina **Impostazioni** per l'applicazione.
@@ -298,6 +302,7 @@ Le applicazioni che l'organizzazione ha registrato appaiono sotto il filtro "Mie
 5. Nel messaggio di conferma fare clic su **Sì** .
 
 #### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>Per rimuovere un'applicazione multi-tenant dalla sua home directory
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Se l'account consente di accedere a più tenant, fare clic sull'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
 3. Nel riquadro di spostamento a sinistra fare clic sul servizio **Azure Active Directory**, fare clic su **Registrazioni per l'app** quindi trovare/fare clic sull'applicazione che si vuole configurare. Viene visualizzata la pagina di registrazione principale dell'applicazione che apre la pagina **Impostazioni** per l'applicazione.
@@ -306,15 +311,16 @@ Le applicazioni che l'organizzazione ha registrato appaiono sotto il filtro "Mie
 6. Nel messaggio di conferma fare clic su **Sì** .
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Rimozione di un'applicazione multi-tenant autorizzata da un'altra organizzazione
+
 Un sottoinsieme delle applicazioni visualizzate con il filtro "Tutte le app" (escluse le registrazioni "Mie app") nella pagina "Registrazioni per l'app" principale del tenant, sono applicazioni multi-tenant. In termini tecnici, queste applicazioni multi-tenant provengono da un altro tenant e sono state registrate nel tenant durante il processo di consenso. Più precisamente, sono rappresentate solo da un oggetto entità servizio nel tenant, senza oggetto applicazione corrispondente. Per altre informazioni sulle differenze fra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure AD](app-objects-and-service-principals.md).
 
 Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo avere concesso il consenso), l'amministratore della società deve rimuovere la sua entità servizio. L'amministratore deve avere l'accesso di amministratore globale e può rimuoverlo tramite il portale di Azure o usando i [cmdlet di Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](authentication-scenarios.md).
 - Per suggerimenti sulle indicazioni visive per l'applicazione, vedere [Linee guida sulla personalizzazione per le applicazioni](howto-add-branding-in-azure-ad-apps.md).
 - Per altre informazioni sulla relazione tra gli oggetti applicazione e gli oggetti entità servizio di un'applicazione, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md).
 - Per informazioni sul ruolo svolto dal manifesto dell'applicazione, vedere [Informazioni sul manifesto dell'applicazione in Azure Active Directory](reference-app-manifest.md).
 - Per le definizioni di alcuni concetti di Azure Active Directory (AD) fondamentali per gli sviluppatori, vedere il [Glossario per gli sviluppatori di Azure Active Directory](developer-glossary.md).
 - Per una panoramica di tutti i contenuti correlati allo sviluppo, vedere la [Guida per gli sviluppatori di Active Directory](azure-ad-developers-guide.md).
-

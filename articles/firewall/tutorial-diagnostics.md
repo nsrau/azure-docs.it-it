@@ -1,27 +1,22 @@
 ---
-title: 'Esercitazione: Monitorare i log di Firewall di Azure'
-description: In questa esercitazione viene descritto come abilitare e gestire i log di Firewall di Azure.
+title: 'Esercitazione: Monitorare i log e le metriche di Firewall di Azure'
+description: In questa esercitazione viene descritto come abilitare e gestire i log e le metriche di Firewall di Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/11/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: a4922fda80b957138a9929090f9d3c349348185d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991904"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991046"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs"></a>Esercitazione: Monitorare i log di Firewall di Azure
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Esercitazione: Monitorare i log e le metriche di Firewall di Azure
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Gli esempi negli articoli di Firewall di Azure presuppongono che sia già stata abilitata l'anteprima pubblica di Firewall di Azure. Per altre informazioni, vedere [Abilitare l'anteprima pubblica di Firewall di Azure](public-preview.md).
-
-È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure.
+È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure. Usando le metriche, è possibile visualizzare i contatori delle prestazioni nel portale. 
 
 Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati a [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati in Log Analytics o con strumenti diversi come ad esempio Excel e Power BI.
 
@@ -32,69 +27,12 @@ In questa esercitazione si apprenderà come:
 > * Abilitare la registrazione con PowerShell
 > * Visualizzare e analizzare Log attività
 > * Visualizzare e analizzare i log delle regole di rete e di applicazione
+> * Visualizzare le metriche
 
-## <a name="diagnostic-logs"></a>Log di diagnostica
+## <a name="prerequisites"></a>Prerequisiti
 
- I log di diagnostica seguenti sono disponibili per Firewall di Azure:
+Prima di iniziare questa esercitazione, è consigliabile leggere [Azure Firewall logs and metrics](logs-and-metrics.md) (Log e metriche di Firewall di Azure) per una panoramica dei log di diagnostica e delle metriche disponibili per Firewall di Azure.
 
-* **Log delle regole di applicazione**
-
-   Il log delle regole di applicazione viene salvato in un account di archiviazione, trasmesso all'Hub eventi e/o inviato a Log Analytics solo se è stato abilitato per ogni Firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di applicazione configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-   {
-    "category": "AzureFirewallApplicationRule",
-    "time": "2018-04-16T23:45:04.8295030Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallApplicationRuleLog",
-    "properties": {
-        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
-    }
-   }
-   ```
-
-* **Log delle regole di rete**
-
-   Il log delle regole di rete viene salvato in un account di archiviazione, trasmesso all'Hub eventi e/o inviato a Log Analytics solo se è stato abilitato per ogni Firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di rete configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-  {
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallNetworkRuleLog",
-    "properties": {
-        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
-    }
-   }
-
-   ```
-
-Sono disponibili tre opzioni di archiviazione dei log:
-
-* **Account di archiviazione**: ideali quando i log vengono archiviati per un periodo più lungo ed esaminati quando necessario.
-* **Hub eventi**: ottima opzione per l'integrazione con altri strumenti di gestione delle informazioni di sicurezza e degli eventi (SEIM) per ricevere avvisi sulle risorse.
-* **Log Analytics**: soluzione adatta al monitoraggio generale in tempo reale dell'applicazione o all'analisi delle tendenze.
-
-## <a name="activity-logs"></a>Log attività
-
-   Le voci dei log attività vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure.
-
-   È possibile usare i [log attività di Azure](../azure-resource-manager/resource-group-audit.md), chiamati in precedenza log operativi e log di controllo, per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.
 
 ## <a name="enable-diagnostic-logging-through-the-azure-portal"></a>Abilitare la registrazione diagnostica tramite il portale di Azure
 
@@ -105,8 +43,8 @@ Dopo aver completato questa procedura per abilitare la registrazione diagnostica
 
    Per Firewall di Azure sono disponibili due log specifici del servizio:
 
-   * Log delle regole di applicazione
-   * Log delle regole di rete
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. Fare clic su **Abilita diagnostica** per avviare la raccolta dei dati.
 4. La pagina **Impostazioni di diagnostica** include le impostazioni per i log di diagnostica. 
@@ -163,6 +101,8 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 > [!TIP]
 > Se si ha familiarità con Visual Studio e i concetti di base della modifica dei valori di costanti e variabili in C#, è possibile usare i [convertitori di log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibili in GitHub.
 
+## <a name="view-metrics"></a>Visualizzare le metriche
+Passare a un firewall di Azure e in **Monitoraggio** fare clic su **Metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 563194ea0b3e4bda2021c75c544d068f00d74ba7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293622"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963833"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integrità back-end, log di diagnostica e metriche per il gateway applicazione
 
@@ -58,7 +58,7 @@ Il codice PowerShell seguente illustra come visualizzare l'integrità back-end u
 Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-### <a name="view-back-end-health-through-azure-cli-20"></a>Visualizzare l'integrità back-end tramite l'interfaccia della riga di comando di Azure 2.0
+### <a name="view-back-end-health-through-azure-cli"></a>Visualizzare l'integrità back-end tramite l'interfaccia della riga di comando di Azure
 
 ```azurecli
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
@@ -311,6 +311,10 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 > Se si ha familiarità con Visual Studio e i concetti di base della modifica dei valori di costanti e variabili in C#, è possibile usare i [convertitori di log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibili in GitHub.
 > 
 > 
+
+#### <a name="analyzing-access-logs-through-goaccess"></a>Analisi dei log di accesso con GoAccess
+
+È stato pubblicato un modello di Resource Manager che installa ed esegue il diffuso analizzatore di log [GoAccess](https://goaccess.io/) per i log di accesso del gateway applicazione. GoAccess offre utili statistiche sul traffico HTTP, come ad esempio visitatori univoci, file richiesti, host, sistemi operativi, browser, codici di stato HTTP e altro ancora. Per altre informazioni, vedere il [file leggimi nella cartella del modello di Resource Manager in GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ## <a name="metrics"></a>Metriche
 

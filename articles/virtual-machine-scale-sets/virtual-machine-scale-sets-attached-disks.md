@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cfe49e7f4e3692518c890b48582a2f4a6aa16faa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187874"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952461"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Set di scalabilità di macchine virtuali di Azure e dischi di dati collegati
 Per espandere lo spazio di archiviazione disponibile, i [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure supportano le istanze di macchina virtuale con dischi dati collegati. È possibile collegare i dischi dati quando il set di scalabilità viene creato, ma anche a un set di scalabilità esistente.
 
 > [!NOTE]
->  Quando si crea un set di scalabilità con dischi dati collegati definiti, per usare i dischi è necessario montarli e formattarli in una macchina virtuale, come per le macchine virtuali di Azure autonome. Un modo pratico per completare questo processo consiste nell'usare un'estensione di script personalizzato che chiama uno script per creare partizioni e formattare tutti i dischi dati in una macchina virtuale. Per esempi, vedere [Interfaccia della riga di comando di Azure 2.0](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
+>  Quando si crea un set di scalabilità con dischi dati collegati definiti, per usare i dischi è necessario montarli e formattarli in una macchina virtuale, come per le macchine virtuali di Azure autonome. Un modo pratico per completare questo processo consiste nell'usare un'estensione di script personalizzato che chiama uno script per creare partizioni e formattare tutti i dischi dati in una macchina virtuale. Per alcuni esempi, vedere [Interfaccia della riga di comando di Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Creare e gestire i dischi un set di scalabilità
 Per informazioni dettagliate su come creare un set di scalabilità con dischi dati collegati, preparare e formattare oppure aggiungere e rimuovere i dischi dati, vedere una delle esercitazioni seguenti:
 
-- [Interfaccia della riga di comando di Azure 2.0](tutorial-use-disks-cli.md)
+- [Interfaccia della riga di comando di Azure](tutorial-use-disks-cli.md)
 - [Azure PowerShell](tutorial-use-disks-powershell.md)
 
 La parte rimanente di questo articolo illustra casi d'uso specifici, ad esempio cluster di Service Fabric che richiedono dischi dati o il collegamento di dischi dati con contenuto esistenti a un set di scalabilità.

@@ -6,21 +6,21 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287251"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946937"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Esercitazione: Configurare il routing dei messaggi con l'IoT Hub
 
-Il routing dei messaggi consente l'invio dei dati di telemetria dai dispositivi IoT agli endpoint compatibili con Hub eventi predefiniti o agli endpoint personalizzati, ad esempio l'archiviazione BLOB, la coda del Bus di servizio, l'argomento del Bus di servizio e Hub eventi. Durante la configurazione del routing dei messaggi, è possibile creare regole di routing per personalizzare la route che corrisponde a una determinata regola. Una volta impostati, i dati in ingresso vengono automaticamente indirizzati agli endpoint dall'hub IoT. 
+Il [routing dei messaggi](iot-hub-devguide-messages-d2c.md) consente l'invio dei dati di telemetria dai dispositivi IoT agli endpoint compatibili con Hub eventi predefiniti o agli endpoint personalizzati, ad esempio l'archiviazione BLOB, la coda del bus di servizio, l'argomento del bus di servizio e Hub eventi. Durante la configurazione del routing dei messaggi, è possibile creare [query di routing](iot-hub-devguide-routing-query-syntax.md) per personalizzare la route che corrisponde a una determinata condizione. Una volta impostati, i dati in ingresso vengono automaticamente indirizzati agli endpoint dall'hub IoT. 
 
-In questa esercitazione, è illustrato come impostare e usare le regole di routing con l'hub IoT. Si indirizzano i messaggi di routing da un dispositivo IoT a uno dei servizi multipli, compresa l'archiviazione BLOB e una coda del Bus di servizio. I messaggi per la coda del Bus di servizio saranno prelevati da un'App per la logica e inviati tramite posta elettronica. I messaggi che non dispongono di un routing specificamente impostato vengono inviati all'endpoint predefinito e visualizzati in una visualizzazione di Power BI.
+In questa esercitazione, si apprenderà come configurare e usare le query di routing con l'hub IoT. Si indirizzano i messaggi di routing da un dispositivo IoT a uno dei servizi multipli, compresa l'archiviazione BLOB e una coda del Bus di servizio. I messaggi per la coda del Bus di servizio saranno prelevati da un'App per la logica e inviati tramite posta elettronica. I messaggi che non dispongono di un routing specificamente impostato vengono inviati all'endpoint predefinito e visualizzati in una visualizzazione di Power BI.
 
 In questa esercitazione si eseguono le seguenti attività:
 
@@ -39,58 +39,35 @@ In questa esercitazione si eseguono le seguenti attività:
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Installare [Visual Studio per Windows](https://www.visualstudio.com/). 
+- Installare [Visual Studio](https://www.visualstudio.com/). 
 
 - Un account di Power BI per analizzare l'analisi di flusso dell'endpoint predefinito. ([Provare gratuitamente Power BI](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - Un account Office 365 per inviare notifiche tramite messaggi di posta elettronica. 
 
-Sono necessari o l'interfaccia della riga di comando di Azure o Azure PowerShell per eseguire i passaggi di installazione per questa esercitazione. 
-
-Per usare l'interfaccia della riga di comando di Azure, sebbene sia possibile installare l'interfaccia della riga di comando di Azure in locale, è consigliabile usare Azure Cloud Shell. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire gli script dell'interfaccia della riga di comando di Azure. Gli strumenti comuni di Azure sono preinstallati e configurati in Cloud Shell per l'uso con l'account, pertanto non è necessario installarli localmente. 
-
-Per usare PowerShell, installarlo in locale usando le istruzioni seguenti. 
-
-### <a name="azure-cloud-shell"></a>Azure Cloud Shell
-
-Esistono alcuni modi per aprire Cloud Shell:
-
-|  |   |
-|-----------------------------------------------|---|
-| Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. | ![Cloud Shell in questo articolo](./media/tutorial-routing/cli-try-it.png) |
-| Aprire Cloud Shell nel browser. | [![https://shell.azure.com/bash](./media/tutorial-routing/launchcloudshell.png)](https://shell.azure.com) |
-| Selezionare il pulsante **Cloud Shell** nel menu nell'angolo superiore destro del [portale di Azure](https://portal.azure.com). |    ![Cloud Shell nel portale](./media/tutorial-routing/cloud-shell-menu.png) |
-|  |  |
-
-### <a name="using-azure-cli-locally"></a>Usare l'interfaccia della riga di comando di Azure localmente
-
-Se si preferisce usare l'interfaccia della riga di comando in locale piuttosto che Cloud Shell, è necessario che la versione del modulo dell'interfaccia della riga di comando di Azure sia 2.0.30.0 o una versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
-
-### <a name="using-powershell-locally"></a>Uso di PowerShell in locale
-
-Questa esercitazione richiede il modulo Azure PowerShell 5.7 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-resources"></a>Configurare le risorse
 
-Per questa esercitazione, è necessario un hub IoT, un account di archiviazione e una coda del Bus di servizio. Queste risorse possono essere create tutte usando l'interfaccia della riga di comando di Azure o Azure PowerShell. Usare lo stesso gruppo di risorse e lo stesso percorso per tutte le risorse. Alla fine, poi, è possibile rimuovere tutti gli elementi in un unico passaggio tramite l'eliminazione del gruppo di risorse.
+Per questa esercitazione, è necessario un hub IoT, un account di archiviazione e una coda del Bus di servizio. Queste risorse possono essere create usando l'interfaccia della riga di comando di Azure o Azure PowerShell. Usare lo stesso gruppo di risorse e lo stesso percorso per tutte le risorse. Alla fine, poi, è possibile rimuovere tutti gli elementi in un unico passaggio tramite l'eliminazione del gruppo di risorse.
 
 Le sezioni seguenti descrivono come eseguire questa procedura necessaria. Seguire l'interfaccia della riga di comando *o* le istruzioni di PowerShell.
 
 1. Creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md). 
 
-    <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
+2. Creare un hub IoT nel livello S1. Aggiungere un gruppo di consumer all'hub IoT Il gruppo di consumer è usato da Analisi di flusso di Azure quando si recuperano i dati.
 
-1. Creare un hub IoT nel livello S1. Aggiungere un gruppo di consumer all'hub IoT Il gruppo di consumer è usato da Analisi di flusso di Azure quando si recuperano i dati.
+3. Creare un account di archiviazione V1 standard con la replica Standard_LRS.
 
-1. Creare un account di archiviazione V1 standard con la replica Standard_LRS.
+4. Creare uno spazio dei nomi del bus di servizio e una coda 
 
-1. Creare uno spazio dei nomi del bus di servizio e una coda 
+5. Creare un'identità del dispositivo per il dispositivo simulato che invia messaggi all'hub dell'utente. Salvare la chiave per la fase del test.
 
-1. Creare un'identità del dispositivo per il dispositivo simulato che invia messaggi all'hub dell'utente. Salvare la chiave per la fase del test.
+### <a name="set-up-your-resources-using-azure-cli"></a>Configurare le risorse usando l'interfaccia della riga di comando di Azure
 
-### <a name="azure-cli-instructions"></a>Istruzioni per l'interfaccia della riga di comando di Azure
+Copiare e incollare lo script seguente in Cloud Shell. Presupponendo che si sia già eseguito l'accesso, lo script verrà eseguito una riga alla volta. 
 
-Il modo più semplice per usare questo script è copiarlo e incollarlo in Cloud Shell. Presupponendo che si sia già fatto l'accesso, eseguirà la riga di uno script alla volta. 
+Le variabili che devono essere globalmente univoche hanno l'elemento `$RANDOM` concatenato. Quando viene eseguito lo script e le variabili vengono configurate, viene generata una stringa numerica casuale che viene concatenata alla fine della stringa fissa, rendendola univoca.
 
 ```azurecli-interactive
 
@@ -182,9 +159,11 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ```
 
-### <a name="powershell-instructions"></a>Istruzioni per PowerShell
+### <a name="set-up-your-resources-using-azure-powershell"></a>Configurare le risorse usando Azure PowerShell
 
-Il modo più semplice per usare questo script è aprire [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6), copiare lo script negli Appunti e quindi incollare l'intero script nella finestra dello script. È quindi possibile modificare i valori per i nomi della risorsa (se si desidera) ed eseguire l'intero script. 
+Copiare e incollare lo script seguente in Cloud Shell. Presupponendo che si sia già eseguito l'accesso, lo script verrà eseguito una riga alla volta.
+
+Le variabili che devono essere globalmente univoche hanno l'elemento `$(Get-Random)` concatenato. Quando viene eseguito lo script e le variabili vengono configurate, viene generata una stringa numerica casuale che viene concatenata alla fine della stringa fissa, rendendola univoca.
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -265,15 +244,15 @@ Successivamente, creare un'identità del dispositivo e salvare la chiave per un 
 
 1. Aprire il [portale di Azure](https://portal.azure.com) ed eseguire l'accesso all'account di Azure.
 
-1. Fare clic su **Gruppi di risorse** e selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**.
+2. Fare clic su **Gruppi di risorse** e selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**.
 
-1. Nell'elenco di risorse, fare clic sull'hub IoT. Questa esercitazione usa **ContosoTestHub**. Selezionare **dispositivi IoT** dal riquadro Hub.
+3. Nell'elenco di risorse, fare clic sull'hub IoT. Questa esercitazione usa **ContosoTestHub**. Selezionare **dispositivi IoT** dal riquadro Hub.
 
-1. Fare clic su **+ Aggiungi**. Nel riquadro Aggiungi dispositivo, immettere l'ID del dispositivo. Questa esercitazione usa **Contoso-Test-Device**. Lasciare vuote le chiavi e controllare **Genera chiavi automaticamente**. Assicurarsi che **Connetti dispositivo all'hub IoT** sia abilitata. Fare clic su **Save**.
+4. Fare clic su **+ Aggiungi**. Nel riquadro Aggiungi dispositivo, immettere l'ID del dispositivo. Questa esercitazione usa **Contoso-Test-Device**. Lasciare vuote le chiavi e controllare **Genera chiavi automaticamente**. Assicurarsi che **Connetti dispositivo all'hub IoT** sia abilitata. Fare clic su **Save**.
 
    ![Screenshot che mostra la schermata Aggiungi dispositivi.](./media/tutorial-routing/add-device.png)
 
-1. Ora che è stato creato, fare clic sul dispositivo per visualizzare le chiavi generate. Fare clic sull'icona Copia sulla chiave primaria e salvarla in un punto, ad esempio nel Blocco note per la fase di test di questa esercitazione.
+5. Ora che è stato creato, fare clic sul dispositivo per visualizzare le chiavi generate. Fare clic sull'icona Copia sulla chiave primaria e salvarla in un punto, ad esempio nel Blocco note per la fase di test di questa esercitazione.
 
    ![Screenshot che mostra i dettagli del dispositivo, comprese le chiavi.](./media/tutorial-routing/device-details.png)
 
@@ -289,69 +268,85 @@ Si stanno per inviare messaggi a diverse risorse in base alle proprietà allegat
 
 ### <a name="routing-to-a-storage-account"></a>Routing a un account di archiviazione 
 
-Ora configurare il routing per l'account di archiviazione. Definire un endpoint e quindi configurare una route per quell'endpoint. I messaggi in cui la proprietà **livello** è impostata su **archiviazione** vengono scritti automaticamente in un account di archiviazione.
+Ora configurare il routing per l'account di archiviazione. Passare al riquadro Routing messaggi e quindi aggiungere una route. Quando si aggiunge la route, definire un nuovo endpoint per la route. Dopo aver completato la configurazione, i messaggi in cui la proprietà **livello** è impostata su **archiviazione** vengono scritti automaticamente in un account di archiviazione.
 
-1. Nel [portale di Azure](https://portal.azure.com), fare clic su **Gruppi di risorse**, quindi selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**. Fare clic sull'hub IoT sotto l'elenco di risorse. Questa esercitazione usa **ContosoTestHub**. Fare clic su **Endpoint**. Nel riquadro **endpoint**, fare clic su **+ Aggiungi**. Immettere le seguenti informazioni:
+1. Nel [portale di Azure](https://portal.azure.com), fare clic su **Gruppi di risorse**, quindi selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**. 
 
-   **Nome**: inserire un nome per l'endpoint. Questa esercitazione usa **StorageContainer**.
+2. Fare clic sull'hub IoT sotto l'elenco di risorse. Questa esercitazione usa **ContosoTestHub**. 
+
+3. Fare clic su **Routing messaggi**. Nel riquadro **Routing messaggi** fare clic su **+Aggiungi**. Nel riquadro **Aggiungi route** fare clic su +**Aggiungi** accanto al campo Endpoint, come visualizzato nell'immagine seguente:
+
+   ![Screenshot che mostra come aggiungere un endpoint a una route.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+
+4. Selezionare **Archivio BLOB**. Verrà visualizzato il riquadro **Aggiungi endpoint di archiviazione**. 
+
+   ![Screenshot che illustra l'aggiunta di un endpoint.](./media/tutorial-routing/message-routing-add-storage-ep.png)
+
+5. Immettere un nome per l'endpoint. Questa esercitazione usa **StorageContainer**.
+
+6. Fare clic su **Selezionare un contenitore**. Verrà visualizzato un elenco degli account di archiviazione. Selezionare quello configurato nei passaggi di preparazione. Questa esercitazione usa **contosostorage**. Mostra un elenco dei contenitori nell'account di archiviazione. Selezionare il contenitore configurato nei passaggi di preparazione. Questa esercitazione usa **contosoresults**. Fare clic su **Seleziona**. Si tornerà al riquadro **Aggiungi endpoint**. 
+
+7. Usare le impostazioni predefinite nei campi rimanenti. Fare clic su **Create** per creare l'endpoint di archiviazione e aggiungerlo alla route. Si tornerà al riquadro **Aggiungi route**.
+
+8.  Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi al contenitore di archiviazione appena aggiunto come endpoint. Compilare i campi sullo schermo. 
+
+   **Nome**: immettere un nome per la query di routing. Questa esercitazione usa **StorageRoute**.
+
+   **Endpoint**: viene visualizzato l'endpoint appena configurato. 
    
-   **Tipo di endpoint**: selezionare **Contenitore di archiviazione Azure** dall'elenco a discesa.
+   **Origine dati**: selezionare **Device Telemetry Messages** (Messaggi telemetria dispositivo) nell'elenco a discesa.
 
-   Fare clic su **Selezionare un contenitore** per visualizzare l'elenco degli account di archiviazione. Selezionare l'account di archiviazione. Questa esercitazione usa **contosostorage**. Poi selezionare il contenitore. Questa esercitazione usa **contosoresults**. Fare clic su **Seleziona** per tornare al riquadro **Aggiungi endpoint**. 
+   **Enable route** (Abilita route): verificare che questa opzione sia abilitata.
    
-   ![Screenshot che illustra l'aggiunta di un endpoint.](./media/tutorial-routing/add-endpoint-storage-account.png)
-   
-   Fare clic su **OK** per completare l'aggiunta dell'endpoint.
-   
-1. Fare clic su **Route** sull'hub IoT dell'utente. Si intende creare una regola di routing che indirizzi i messaggi al contenitore di archiviazione appena aggiunto come endpoint. Fare clic su **+Aggiungi** nella parte superiore del riquadro Route. Compilare i campi sullo schermo. 
+   **Routing query** (Query di routing): immettere `level="storage"` come stringa di query. 
 
-   **Nome**: Inserire un nome per la regola di routing. Questa esercitazione usa **StorageRule**.
-
-   **Origine dati**: selezionare **Messaggi del dispositivo** dall'elenco a discesa.
-
-   **Endpoint**: selezionare l'endpoint appena configurato. Questa esercitazione usa **StorageContainer**. 
+   ![Screenshot che mostra la creazione di una query di routing per l'account di archiviazione.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
-   **Stringa di query**: inserire `level="storage"` come stringa di query. 
-
-   ![Screenshot che mostra la creazione di una regola di gestione per l'account di archiviazione.](./media/tutorial-routing/create-a-new-routing-rule-storage.png)
-   
-   Fare clic su **Save**. Al termine, si torna al riquadro di route, dove è possibile visualizzare la nuova regola di routing per l'archiviazione. Chiudere il riquadro delle route, che rimanda alla pagina del gruppo risorse.
+   Fare clic su **Save**. Al termine, si torna al riquadro Routing messaggi, dove è possibile visualizzare la nuova query di routing per l'archiviazione. Chiudere il riquadro delle route, che rimanda alla pagina del gruppo risorse.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Routing a una coda del bus di servizio. 
 
-Ora configurare il routing per la coda del bus di servizio. Definire un endpoint e quindi configurare una route per quell'endpoint. I messaggi in cui la proprietà **livello** è impostata su **critico** vengono scritti nella coda del Bus di servizio, che attiva un'app per la logica, che quindi invia un messaggio di posta elettronica con le informazioni. 
+Ora configurare il routing per la coda del bus di servizio. Passare al riquadro Routing messaggi e quindi aggiungere una route. Quando si aggiunge la route, definire un nuovo endpoint per la route. Dopo aver completato la configurazione, i messaggi in cui la proprietà **livello** è impostata su **critico** vengono scritti nella coda del bus di servizio, che attiva un'app per la logica, che quindi invia un messaggio di posta elettronica con le informazioni. 
 
-1. Nella pagina gruppo risorse, scegliere l'hub IoT, quindi fare clic su **Endpoint**. Nel riquadro **endpoint**, fare clic su **+ Aggiungi**. Immettere le seguenti informazioni.
+1. Nella pagina Gruppo risorse fare clic sull'hub IoT e quindi su **Routing messaggi**. 
 
-   **Nome**: inserire un nome per l'endpoint. Questa esercitazione usa **CriticalQueue**. 
+2. Nel riquadro **Routing messaggi** fare clic su **+Aggiungi**. 
 
-   **Tipo di endpoint**: selezionare **Coda del bus di servizio** dall'elenco a discesa.
+3. Nel riquadro **Aggiungi route** fare clic su +**Aggiungi** accanto al campo Endpoint. Selezionare **Coda del bus di servizio**. Verrà visualizzato il riquadro **Aggiungi endpoint bus di servizio**. 
 
-   **Spazio dei nomi del Bus di servizio**: selezionare lo spazio dei nomi del Bus di servizio per questa esercitazione dall'elenco a discesa. Questa esercitazione usa **ContosoSBNamespace**.
+   ![Screenshot dell'aggiunta di un endpoint del bus di servizio](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
-   **Coda del bus di servizio**: selezionare la coda del bus di servizio dall'elenco a discesa. Questa esercitazione usa **contososbqueue**.
+4. Compilare i campi:
 
-   ![Screenshot che mostra l'aggiunta di un endpoint per la coda del Bus di servizio.](./media/tutorial-routing/add-endpoint-sb-queue.png)
-
-   Fare clic su **OK** per salvare l'endpoint. Al termine, chiudere il riquadro di endpoint. 
-    
-1. Fare clic su **Route** sull'hub IoT dell'utente. Si intende creare una regola di routing che indirizzi i messaggi alla coda del Bus di servizio appena aggiunto come endpoint. Fare clic su **+Aggiungi** nella parte superiore del riquadro Route. Compilare i campi sullo schermo. 
-
-   **Nome**: Inserire un nome per la regola di routing. Questa esercitazione si usa **SBQueueRule**. 
-
-   **Origine dati**: selezionare **Messaggi del dispositivo** dall'elenco a discesa.
-
-   **Endpoint**: selezionare l'endpoint appena configurato, **CriticalQueue**.
-
-   **Stringa di query**: inserire `level="critical"` come stringa di query. 
-
-   ![Screenshot che mostra la creazione di una regola di gestione per la coda del bus di servizio.](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
+   **Nome endpoint**: immettere un nome per l'endpoint. Questa esercitazione usa **CriticalQueue**.
    
-   Fare clic su **Save**. Quando si torna al riquadro delle route, è possibile visualizzare entrambe le nuove regole di routine, come visualizzato di seguito.
+   **Spazio dei nomi del bus di servizio**: fare clic su questo campo per visualizzare l'elenco a discesa; selezionare lo spazio dei nomi del bus di servizio configurato nei passaggi di preparazione. Questa esercitazione usa **ContosoSBNamespace**.
 
-   ![Screenshot che mostra le route appena impostate.](./media/tutorial-routing/show-routing-rules-for-hub.png)
+   **Coda del bus di servizio**: fare clic su questo campo per visualizzare l'elenco a discesa; selezionare la coda del bus di servizio nell'elenco a discesa. Questa esercitazione usa **contososbqueue**.
 
-   Chiudere il riquadro delle route, che rimanda alla pagina del gruppo risorse.
+5. Fare clic su **Crea** per aggiungere l'endpoint della coda del bus di servizio. Si tornerà al riquadro **Aggiungi route**. 
+
+6.  Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi alla coda del bus di servizio appena aggiunta come endpoint. Compilare i campi sullo schermo. 
+
+   **Nome**: immettere un nome per la query di routing. Questa esercitazione usa **SBQueueRoute**. 
+
+   **Endpoint**: viene visualizzato l'endpoint appena configurato.
+
+   **Origine dati**: selezionare **Device Telemetry Messages** (Messaggi telemetria dispositivo) nell'elenco a discesa.
+
+   **Routing query** (Query di routing): immettere `level="critical"` come stringa di query. 
+
+   ![Screenshot che mostra la creazione di una query di routing per la coda del bus di servizio.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+
+7. Fare clic su **Save**. Quando si torna al riquadro delle route, è possibile visualizzare entrambe le nuove route, come visualizzato di seguito.
+
+   ![Screenshot che mostra le route appena impostate.](./media/tutorial-routing/message-routing-show-both-routes.png)
+
+8. È possibile visualizzare gli endpoint personalizzati configurati facendo clic sulla scheda **Endpoint personalizzati**.
+
+   ![Screenshot che mostra gli endpoint personalizzati appena configurati.](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+
+9. Chiudere il riquadro Routing messaggi. Si ritornerà al riquadro Gruppo risorse.
 
 ## <a name="create-a-logic-app"></a>Creare un'app per la logica  
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8512c04cb0efc698ca688724c3806291bb02d200
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386521"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947648"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuire con Terraform da Bash in Azure Cloud Shell
 Questo articolo descrive in modo dettagliato come creare un gruppo di risorse con il [provider AzureRM di Terraform](https://www.terraform.io/docs/providers/azurerm/index.html). 
@@ -26,9 +26,9 @@ Questo articolo descrive in modo dettagliato come creare un gruppo di risorse co
 Lo strumento open source [Hashicorp Terraform](https://www.terraform.io/) consente di codificare le API in file di configurazione dichiarativi che è possibile condividere tra i membri del team per la modifica, la revisione e il controllo della versione. Il provider Microsoft AzureRM viene usato per interagire con le risorse supportate da Azure Resource Manager tramite le API AzureRM. 
 
 ## <a name="automatic-authentication"></a>Autenticazione automatica
-Per impostazione predefinita, Terraform viene installato in Bash in Cloud Shell. Cloud Shell esegue inoltre automaticamente l'autenticazione della sottoscrizione dell'interfaccia della riga di comando di Azure 2.0 predefinita per distribuire le risorse tramite i moduli Azure di Terraform.
+Per impostazione predefinita, Terraform viene installato in Bash in Cloud Shell. Cloud Shell esegue inoltre automaticamente l'autenticazione della sottoscrizione dell'interfaccia della riga di comando di Azure predefinita per distribuire le risorse tramite i moduli Azure di Terraform.
 
-Terraform usa la sottoscrizione predefinita impostata dell'interfaccia della riga di comando di Azure 2.0. Per aggiornare le sottoscrizioni predefinite, eseguire:
+Terraform usa la sottoscrizione predefinita impostata dell'interfaccia della riga di comando di Azure. Per aggiornare le sottoscrizioni predefinite, eseguire:
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
@@ -144,7 +144,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 Il [comando terraform apply](https://www.terraform.io/docs/commands/apply.html) consente di applicare le modifiche necessarie per raggiungere lo stato desiderato della configurazione.
 
-### <a name="verify-deployment-with-azure-cli-20"></a>Verificare la distribuzione con l'interfaccia della riga di comando di Azure 2.0
+### <a name="verify-deployment-with-azure-cli"></a>Verificare la distribuzione con l'interfaccia della riga di comando di Azure
 Per verificare che il provisioning della risorsa sia stato completato, eseguire `az group show -n myRgName`.
 
 ```azcliinteractive

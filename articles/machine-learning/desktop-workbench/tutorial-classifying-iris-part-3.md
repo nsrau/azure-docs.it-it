@@ -1,6 +1,6 @@
 ---
-title: Esercitazione sulla distribuzione di un modello per i servizi di Azure Machine Learning
-description: Questa esaustiva esercitazione illustra come usare i servizi di Azure Machine Learning end-to-end. Questa terza parte illustra il modello di distribuzione.
+title: Esercitazione sulla distribuzione di un modello per il servizio Azure Machine Learning
+description: Questa esaustiva esercitazione illustra come usare tutti gli aspetti del servizio Azure Machine Learning. Questa terza parte illustra il modello di distribuzione.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41920630"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946613"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Esercitazione 3: Classificare i dati Iris - Distribuire un modello
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (anteprima) è una soluzione integrata di data science e analisi avanzata end-to-end per i data scientist professionisti. Consente ai data scientist di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
 Questa esercitazione è la **terza di una serie in tre parti**. In questa parte dell'esercitazione si usa Machine Learning (anteprima) per:
@@ -38,7 +42,7 @@ Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://
 
 Per completare questa esercitazione, sono necessari:
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
-- Un account di Sperimentazione e Azure Machine Learning Workbench installato come illustrato in questa [guida introduttiva](../service/quickstart-installation.md)
+- Un account di Sperimentazione e Azure Machine Learning Workbench installato come illustrato in questa [guida introduttiva](quickstart-installation.md)
 - Il modello di classificazione dalla [Parte 2 dell'esercitazione](tutorial-classifying-iris-part-2.md)
 - Un motore Docker installato e in esecuzione localmente
 
@@ -224,9 +228,9 @@ A questo punto è possibile creare il servizio Web in tempo reale.
 1. Usare il comando seguente per creare un servizio Web in tempo reale:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   Viene generato un ID servizio Web che può essere usato in un secondo momento.
+   Viene generato un ID servizio Web che può essere usato in un secondo momento. Se in un notebook, omettere la directory di output.
 
    Con il comando **az ml service create realtime** vengono usate le opzioni seguenti.
 
@@ -276,9 +280,9 @@ Registrare prima il modello. Generare quindi il manifesto, compilare l'immagine 
    Per creare un manifesto, usare il comando seguente e specificare l'ID modello restituito nel passaggio precedente:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   Questo comando genera un ID manifesto.
+   Questo comando genera un ID manifesto.  Se in un notebook, omettere la directory di output.
 
 1. Creare un'immagine Docker.
 

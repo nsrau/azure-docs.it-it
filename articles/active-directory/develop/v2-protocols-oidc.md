@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4c7b46972a8c07675e1318a900c1f07043beb3de
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591936"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971451"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 e il protocollo OpenID Connect
 
@@ -139,7 +139,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parametro | DESCRIZIONE |
 | --- | --- |
-| id_token |Token ID richiesto dall'app. È possibile usare il parametro `id_token` per verificare l'identità dell'utente e avviare una sessione con l'utente. Per altre informazioni sui token ID e il relativo contenuto, vedere le [informazioni di riferimento ai token dell'endpoint 2.0](v2-id-and-access-tokens.md). |
+| id_token |Token ID richiesto dall'app. È possibile usare il parametro `id_token` per verificare l'identità dell'utente e avviare una sessione con l'utente. Per informazioni dettagliate sui token ID e sul relativo contenuto, vedere le [informazioni di riferimento su `id_tokens`](id-tokens.md). |
 | state |Se un parametro `state` è incluso nella richiesta, lo stesso valore deve essere visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici. |
 
 ### <a name="error-response"></a>Risposta di errore
@@ -175,20 +175,18 @@ La tabella seguente descrive i codici di errore che possono essere restituiti ne
 
 ## <a name="validate-the-id-token"></a>Convalidare il token ID
 
-La ricezione di un token ID non è sufficiente per autenticare l'utente. È anche necessario convalidare la firma del token ID e verificare se le attestazioni nel token soddisfano i requisiti dell'app. L'endpoint 2.0 usa i [token Web JSON](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità.
+La semplice ricezione di un token ID non è sufficiente per autenticare l'utente. È necessario convalidare la firma del token ID e verificare le attestazioni nel token per i requisiti dell'app. L'endpoint 2.0 usa i [token Web JSON](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e la crittografia a chiave pubblica per firmare i token e verificarne la validità.
 
-È possibile scegliere di convalidare il token ID nel codice client, ma una procedura comune consiste nell'inviare il token ID a un server back-end in cui eseguire la convalida. Dopo aver convalidato la firma del token ID, è necessario verificare alcune attestazioni. Per altre informazioni, ad esempio relative alla [convalida del token](v2-id-and-access-tokens.md#validating-tokens) e al [rollover della chiave di firma](v2-id-and-access-tokens.md#validating-tokens), vedere il [riferimento ai token della versione 2.0](v2-id-and-access-tokens.md). È consigliabile usare una libreria per analizzare e convalidare i token. È disponibile almeno una libreria per la maggior parte dei linguaggi e delle piattaforme.
+È possibile scegliere di convalidare `id_token` nel codice client, ma una procedura comune consiste nell'inviare `id_token` a un server back-end dove verrà eseguita la convalida. Dopo aver convalidato la firma dell'id_token, è necessario verificare alcune attestazioni. Vedere le [informazioni di riferimento su `id_token`](id-tokens.md) per altre informazioni, ad esempio relative alla [convalida del token](id-tokens.md#validating-idtokens) e al [rollover della chiave di firma](active-directory-signing-key-rollover.md). È consigliabile usare una libreria per l'analisi e la convalida dei token. È disponibile almeno una libreria per la maggior parte dei linguaggi e delle piattaforme.
 <!--TODO: Improve the information on this-->
 
-È anche possibile convalidare attestazioni aggiuntive, a seconda dello scenario. Alcune convalide comuni includono:
+È inoltre consigliabile convalidare attestazioni aggiuntive in base allo scenario. Alcune convalide comuni includono:
 
-* Verificare che l'utente o l'organizzazione abbia eseguito la registrazione per l'app.
-* Assicurarsi che l'utente abbia l'autorizzazione o i privilegi necessari.
-* Verificare che sia stato applicato un determinato livello di autenticazione, ad esempio l'autenticazione a più fattori.
+* Garantire che l'utente o l'organizzazione dispongano dell'iscrizione all'app.
+* Garantire che l'utente disponga di autorizzazioni/privilegi adeguati.
+* Garantire che sia stato applicato un determinato livello di autenticazione, ad esempio l'autenticazione a più fattori.
 
-Per altre informazioni sulle attestazioni di un token ID, vedere il [riferimento ai token dell'endpoint v2.0](v2-id-and-access-tokens.md).
-
-Dopo avere convalidato il token ID, è possibile avviare una sessione con l'utente. Usare le attestazioni del token ID per ottenere informazioni sull'utente nell'app. Queste informazioni possono essere usate per la visualizzazione, i record, le autorizzazioni e così via.
+Dopo aver convalidato completamente il token ID, è possibile avviare una sessione con l'utente e usare le attestazioni nel token ID per ottenere informazioni sull'utente nell'app. Queste informazioni possono essere usate per la visualizzazione, i record, la personalizzazione e così via.
 
 ## <a name="send-a-sign-out-request"></a>Inviare una richiesta di disconnessione
 
@@ -257,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parametro | DESCRIZIONE |
 | --- | --- |
-| id_token |Token ID richiesto dall'app. È possibile usare il token ID per verificare l'identità dell'utente e avviare una sessione con l'utente. Altre informazioni sui token ID e il relativo contenuto sono disponibili nel [riferimento ai token dell'endpoint v2.0](v2-id-and-access-tokens.md). |
+| id_token |Token ID richiesto dall'app. È possibile usare il token ID per verificare l'identità dell'utente e avviare una sessione con l'utente. Altre informazioni sui token ID e il relativo contenuto sono disponibili nelle [informazioni di riferimento su `id_tokens`](id-tokens.md). |
 | code |Codice di autorizzazione richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. La durata del codice di autorizzazione è molto breve. In genere, un codice di autorizzazione scade dopo circa 10 minuti. |
 | state |Se un parametro di stato è incluso nella richiesta, lo stesso valore viene visualizzato nella risposta. L'app deve verificare che i valori dello stato nella richiesta e nella risposta siano identici. |
 
@@ -280,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Per una descrizione dei possibili codici di errore e delle risposte client consigliate, vedere [Codici per gli errori dell'endpoint di autorizzazione](#error-codes-for-authorization-endpoint-errors).
 
-Dopo aver ottenuto un codice di autorizzazione e un token ID, è possibile far accedere l'utente e ottenere i token di accesso per suo conto. Per far accedere l'utente, è necessario convalidare il token ID [esattamente come descritto](#validate-the-id-token). Per ottenere i token di accesso, seguire la procedura descritta nella [documentazione del protocollo OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Dopo aver ottenuto un codice di autorizzazione e un token ID, è possibile far accedere l'utente e ottenere i token di accesso per suo conto. Per far accedere l'utente, è necessario convalidare il token ID [esattamente come descritto](id-tokens.md#validating-idtokens). Per ottenere i token di accesso, seguire la procedura descritta nella [documentazione del flusso del codice OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).

@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: wesmc
-ms.openlocfilehash: 4450a8f7f16e3503626c9ee0ca125fc2b1ed9052
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 01773e1ec24e6ab7d1899df6774230b7ce5b5676
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27909840"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957898"
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>Esempi dell'interfaccia della riga di comando di Azure per Cache Redis di Azure
 
@@ -38,4 +38,4 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 | [Eliminare una cache](./scripts/delete-cache.md) | Elimina un'istanza di Cache Redis di Azure  |
 | | |
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure 2.0, vedere [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Installare l'interfaccia della riga di comando di Azure 2.0) e [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) (Introduzione all'interfaccia della riga di comando di Azure 2.0).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Introduzione all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).

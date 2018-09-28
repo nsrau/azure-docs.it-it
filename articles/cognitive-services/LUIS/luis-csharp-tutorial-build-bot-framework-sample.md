@@ -1,5 +1,6 @@
 ---
-title: Usando C#, integrare LUIS con un bot usando Bot Builder SDK in Azure | Microsoft Docs
+title: Bot LUIS con C# - Bot per app Web - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: Usando C#, creare un chat bot integrato con Language Understanding (LUIS). Questo bot chat utilizza il dominio di HomeAutomation precompilato per implementare rapidamente una soluzione di bot.
 services: cognitive-services
 author: diberry
@@ -7,18 +8,18 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2779c4109201cf40a8771f9e339d60680cb3ef31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41929884"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951005"
 ---
-# <a name="web-app-bot-using-the-luis-template-for-c"></a>App Bot Web usando il modello LUIS per C#
+# <a name="luis-bot-in-c"></a>Bot LUIS in C#
 
-Usando C#, creare un chat bot integrato con Language Understanding (LUIS). Questo bot chat utilizza il dominio di HomeAutomation precompilato per implementare rapidamente una soluzione di bot. 
+Usando C#, creare un chat bot integrato con Language Understanding (LUIS). Questo bot chat utilizza il dominio di HomeAutomation precompilato per implementare rapidamente una soluzione di bot. Il bot viene compilato con Bot Framework 3.x e il bot per app Web di Azure.
 
 ## <a name="prerequisite"></a>Prerequisito
 
@@ -46,7 +47,10 @@ Usando C#, creare un chat bot integrato con Language Understanding (LUIS). Quest
 4. In **Bot Service** (Servizio bot) fornire le informazioni necessarie, quindi fare clic su **Create** (Crea). Il servizio bot e l'app LUIS vengono creati e distribuiti in Azure. Se si desidera usare il [priming del riconoscimento vocale](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), rivedere i [requisiti della regione](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) prima di creare il bot. 
     * Impostare il **nome dell'app** sul nome del bot. Il nome viene usato come sottodominio durante la distribuzione del bot nel cloud, ad esempio mynotesbot.azurewebsites.net. <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Selezionare la sottoscrizione, il [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), il piano di servizio dell'app e la [posizione](https://azure.microsoft.com/regions/).
-    * Selezionare il modello **Language understanding (C#)** per il campo **Bot template** (Modello bot).
+    * Come **modello del bot**, selezionare:
+        * **SDK v3**
+        * **C#**
+        * **Comprensione del linguaggio**
     * Selezionare la **posizione dell'app LUIS**. Si tratta della [regione](luis-reference-regions.md) in cui viene creata l'app.
     * Selezionare la casella di controllo di conferma per le note legali. Il contenuto delle note legali si trova sotto la casella di controllo.
 

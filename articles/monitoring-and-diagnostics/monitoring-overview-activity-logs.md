@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 51cc4c37ba661feb63880c138e98200c981f6054
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918482"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948965"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
 
@@ -43,11 +43,12 @@ Guardare il video seguente di introduzione al log attività.
 Il log attività contiene diverse categorie di dati. Per informazioni dettagliate sugli schemi di queste categorie, [vedere questo articolo](monitoring-activity-log-schema.md). incluse le seguenti:
 * **Amministrativa**: questa categoria contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi "create virtual machine" e "delete network security group". Ogni azione eseguita da un utente o da un'applicazione usando Resource Manager viene modellata come operazione in un determinato tipo di risorsa. Se l'operazione è di tipo scrittura, eliminazione o azione, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria amministrativa. La categoria amministrativa include anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione.
 * **Integrità del servizio**: questa categoria contiene il record degli eventi imprevisti di integrità del servizio che si sono verificati in Azure. Un esempio del tipo di evento visualizzato in questa categoria è "SQL Azure in East US is experiencing downtime". Gli eventi di integrità del servizio sono di sei tipi: Action Required, Assisted Recovery, Incident, Maintenance, Information o Security, che vengono visualizzati solo se una risorsa della sottoscrizione è interessata dall'evento.
+* **Integrità risorse**: questa categoria contiene il record degli eventi di integrità delle risorse che si sono verificati nelle risorse di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "Stato di integrità della macchina virtuale modificato su non disponibile". Gli eventi di integrità delle risorse possono rappresentare uno dei quattro stati di integrità: Disponibile, Non disponibile, Danneggiato e Sconosciuto. Inoltre, gli eventi di integrità delle risorse possono essere classificati come avviati dalla piattaforma o avviati dall'utente.
 * **Avviso**: questa categoria contiene il record di tutte le attivazioni degli avvisi di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "CPU % on myVM has been over 80 for the past 5 minutes". In diversi sistemi Azure il concetto di avviso prevede la possibilità di definire una regola di qualche tipo e di ricevere una notifica quando le condizioni corrispondono a tale regola. Ogni volta che un tipo di avviso di Azure supportato viene "attivato" o vengono soddisfatte le condizioni per generare una notifica, viene anche eseguito il push di un record dell'attivazione in questa categoria del log attività.
 * **Ridimensionamento automatico**: questa categoria contiene il record degli eventi correlati all'operazione del motore di ridimensionamento automatico in base alle impostazioni di scalabilità automatica definite nella sottoscrizione. Un esempio del tipo di evento visualizzato in questa categoria è "Autoscale scale up action failed". Con il ridimensionamento automatico è possibile aumentare o ridurre automaticamente il numero di istanze in un tipo di risorsa supportato in base all'ora del giorno e/o ai dati di caricamento (metrica) usando un'impostazione di ridimensionamento automatico. Quando vengono soddisfatte le condizioni per aumentare o ridurre le prestazioni, gli eventi di avvio riusciti o quelli non riusciti vengono registrati in questa categoria.
 * **Raccomandazione**: questa categoria contiene gli eventi di raccomandazione di Azure Advisor.
 * **Sicurezza**: questa categoria contiene il record degli avvisi generati dal Centro sicurezza di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "Suspicious double extension file executed".
-* **Criterio e Integrità risorse**: queste categorie non contengono eventi, ma sono riservate per usi futuri.
+* **Criteri**: questa categoria non contiene eventi, è riservata per utilizzi futuri. 
 
 ## <a name="event-schema-per-category"></a>Schema di eventi per categoria
 [Vedere questo articolo per comprendere lo schema di eventi del log attività per categoria.](monitoring-activity-log-schema.md)
@@ -106,7 +107,7 @@ Un **profilo di log** controlla la modalità di esportazione del log attività. 
 >  Non è al momento possibile archiviare i dati in un account di archiviazione che risiede dietro una rete virtuale protetta.
 
 > [!WARNING]
-> Il formato dei dati di log nell'account di archiviazione verrà modificato a JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+> Il formato dei dati di log nell'account di archiviazione verrà modificato in JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -146,11 +147,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| NOME |Sì |Nome del profilo di log. |
+| NOME |Yes |Nome del profilo di log. |
 | StorageAccountId |No  |ID risorsa dell'account di archiviazione in cui salvare il log attività. |
 | serviceBusRuleId |No  |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa nel formato seguente: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Località |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
-| RetentionInDays |Sì |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
+| Località |Yes |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
+| RetentionInDays |Yes |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
 | Categoria |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 #### <a name="remove-a-log-profile"></a>Rimozione di un profilo di log
@@ -158,7 +159,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Configurare i profili di log tramite l'interfaccia della riga di comando di Azure 2.0
+### <a name="configure-log-profiles-using-the-azure-cli"></a>Configurare i profili di log tramite l'interfaccia della riga di comando di Azure
 
 #### <a name="get-existing-log-profile"></a>Ottenere un profilo di log esistente
 

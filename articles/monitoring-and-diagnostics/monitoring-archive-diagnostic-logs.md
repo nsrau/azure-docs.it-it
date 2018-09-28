@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629685"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983685"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiviare i log di diagnostica di Azure
 
@@ -81,7 +81,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | RetentionEnabled |No  |Valore booleano che indica se un criterio di conservazione è abilitato per questa risorsa. |
 | RetentionInDays |No  |Numero di giorni per cui gli eventi devono essere conservati, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono conservati all'infinito. |
 
-## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Archiviare i log di diagnostica tramite l'interfaccia della riga di comando di Azure 2.0
+## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>Archiviare i log di diagnostica tramite l'interfaccia della riga di comando di Azure
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -105,7 +105,7 @@ L'argomento `--resource-group` è obbligatorio solo se `--storage-account` non �
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Archiviare i log di diagnostica tramite l'API REST
 
-[Vedere questo documento](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) per informazioni su come è possibile configurare un'impostazione di diagnostica usando l'API REST di Monitoraggio di Azure.
+[Vedere questo documento](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) per informazioni su come è possibile configurare un'impostazione di diagnostica usando l'API REST di Monitoraggio di Azure.
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Schema dei log di diagnostica nell'account di archiviazione
 

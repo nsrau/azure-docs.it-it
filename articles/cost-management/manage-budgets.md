@@ -1,31 +1,33 @@
 ---
-title: Gestire i budget in Gestione costi di Azure | Microsoft Docs
-description: Questo articolo descrive come creare e gestire i budget in Gestione costi.
+title: Gestire i budget Cloudyn in Azure | Microsoft Docs
+description: Questo articolo agevola la creazione e la gestione di budget in Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2018
+ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9d6bf29909393846ec17a1bcc210fb989efd7f99
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: bbd232c819a11de691c4d3c3209273b064eddf62
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963434"
 ---
 # <a name="manage-budgets"></a>Gestire i budget
 
-L'impostazione dei budget e gli avvisi basati sui budget aiutano a migliorare la rendicontazione e la governance nel cloud. Questo articolo aiuta a creare rapidamente i budget e a iniziare a gestirli in Gestione costi.
+L'impostazione dei budget e gli avvisi basati sui budget aiutano a migliorare la rendicontazione e la governance nel cloud. Questo articolo consente di creare rapidamente i budget e di iniziare a gestirli in Cloudyn.
 
 Quando si dispone di un conto aziendale o MSP, è possibile usare la struttura delle entità costo gerarchica per assegnare quote di budget mensili a differenti Business Unit, reparti o qualsiasi altra entità costo. Se si dispone dell'account Premium, è possibile usare la funzionalità di gestione del budget, che viene applicata all'intera spesa nel cloud. Tutti i budget vengono assegnati manualmente.
 
 In base ai budget assegnati, è possibile impostare avvisi di soglia basati sulla percentuale del budget che viene consumata e definire la gravità di ogni soglia.
 
 I report dei budget mostrano il budget assegnato. Gli utenti possono visualizzare quando la spesa è sopra, sotto o pari al valore nominale del consumo nel corso del tempo. Quando si seleziona **Mostra/Nascondi campi** nella parte superiore di un report di budget, è possibile visualizzare il costo, il preventivo, il costo accumulato o il budget totale.
+
+Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per altre informazioni sui budget in Gestione costi, vedere [Creare e gestire i budget](tutorial-acm-create-budgets.md).
 
 ## <a name="create-budgets"></a>Creare i budget
 
@@ -83,5 +85,5 @@ Nel report di confronto tra costo e budget nel tempo fare clic su **Azioni** e q
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se non è stata ancora completata la prima esercitazione di Gestione costi, leggere le informazioni riportate in [Esaminare l'utilizzo e i costi](https://docs.microsoft.com/en-us/azure/cost-management/tutorial-review-usage).
-- Altre informazioni sui [report disponibili in Gestione costi](use-reports.md).
+- Se non è stata ancora completata la prima esercitazione di Cloudyn, leggere le informazioni riportate in [Esaminare l'utilizzo e i costi](tutorial-review-usage.md).
+- Altre informazioni sui [report disponibili in Cloudyn](use-reports.md).

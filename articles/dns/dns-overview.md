@@ -5,14 +5,14 @@ author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 6/7/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574182"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967626"
 ---
 # <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
 
@@ -52,6 +52,14 @@ I domini e i record possono essere gestiti tramite il portale di Azure, i cmdlet
 DNS di Azure supporta anche i domini DNS privati, attualmente disponibili in anteprima pubblica. Questo consente di usare nomi di dominio personalizzati nelle reti private virtuali, anziché i nomi forniti da Azure attualmente disponibili.
 
 Per altre informazioni, vedere [Uso di DNS di Azure per i domini privati](private-dns-overview.md).
+
+## <a name="alias-records"></a>Record alias
+
+DNS di Azure supporta i set di record alias. È possibile usare un set di record alias per fare riferimento a una risorsa di Azure, come ad esempio un indirizzo IP pubblico di Azure o un profilo di Gestione traffico. Se l'indirizzo IP della risorsa sottostante viene modificato, il set di record alias si aggiorna automaticamente durante la risoluzione DNS. Il set di record alias fa riferimento all'istanza del servizio e l'istanza del servizio è associata a un indirizzo IP. 
+
+Inoltre, ora è possibile indirizzare il dominio radice o di tipo naked (ad esempio, contoso.com) a un profilo di Gestione traffico usando un record alias.
+
+Per altre informazioni, vedere la [panoramica dei record alias DNS di Azure](dns-alias.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

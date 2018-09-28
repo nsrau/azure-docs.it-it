@@ -12,48 +12,68 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/21/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125117"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960329"
 ---
-# <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Ambiti, autorizzazioni e consenso nell'endpoint di Azure Active Directory v2.0
+# <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Autorizzazioni e consenso nell'endpoint v2.0 di Azure Active Directory
 
-Le app che si integrano con Azure Active Directory (Azure AD) seguono un modello di autorizzazione che consente agli utenti di controllare la modalità di accesso ai dati da parte di un'app. L'implementazione v2.0 di questo modello di autorizzazione è stata aggiornata, modificando la modalità di interazione di un'app con Azure AD. Questo articolo illustra i concetti di base di questo modello di autorizzazione, inclusi gli ambiti, le autorizzazioni e il consenso.
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
+Le applicazioni che si integrano con Microsoft Identity Platform seguono un modello di autorizzazione che offre a utenti e amministratori il controllo sulle modalità di accesso ai dati. L'implementazione del modello di autorizzazione è stata aggiornata nell'endpoint v2.0, modificando la modalità di interazione di un'app con Microsoft Identity Platform. Questo articolo illustra i concetti di base di questo modello di autorizzazione, inclusi gli ambiti, le autorizzazioni e il consenso.
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint v2.0. Per determinare se è necessario usare l'endpoint 2.0, vedere l'articolo relativo alle [limitazioni della versione 2.0](active-directory-v2-limitations.md).
+> L'endpoint v2.0 non supporta tutti gli scenari e le funzionalità. Per determinare se è necessario usare l'endpoint 2.0, vedere l'articolo relativo alle [limitazioni della versione 2.0](active-directory-v2-limitations.md).
 
 ## <a name="scopes-and-permissions"></a>Ambiti e autorizzazioni
 
-Azure AD implementa il protocollo di autorizzazione [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 è un metodo tramite cui un'applicazione di terze parti può accedere alle risorse ospitate sul Web per conto dell'utente. Qualsiasi risorsa ospitata sul Web che si integra con Azure AD dispoen di un identificatore di risorsa o di un *URI ID dell'applicazione*. Ad esempio, alcune delle risorse ospitate sul Web di Microsoft includono:
+Microsoft Identity Platform implementa il protocollo di autorizzazione [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 è un metodo tramite cui un'applicazione di terze parti può accedere alle risorse ospitate sul Web per conto dell'utente. Qualsiasi risorsa ospitata sul Web che si integra con Microsoft Identity Platform ha un identificatore di risorsa, o *URI dell'ID applicazione*. Ad esempio, alcune delle risorse ospitate sul Web di Microsoft includono:
 
-* L'API di posta unificata di Office 365: `https://outlook.office.com`
-* L'API Graph di Azure AD: `https://graph.windows.net`
 * Microsoft Graph: `https://graph.microsoft.com`
+* API Office 365 Mail: `https://outlook.office.com`
+* Azure AD Graph: `https://graph.windows.net`
 
-Anche le risorse di terze parti integrate con Azure AD devono disporre di tale identificatore. Tali risorse possono anche definire un set di autorizzazioni che può essere usato per suddividere le funzionalità di tale risorsa in blocchi più piccoli. Ad esempio, [Microsoft Graph](https://graph.microsoft.io) ha definito le autorizzazioni per eseguire le attività seguenti, tra le altre:
+> [!NOTE]
+> È consigliabile usare Microsoft Graph invece di Azure AD Graph, dell'API Office 365 Mail e così via.
+
+Lo stesso vale per le risorse di terze parti integrate con Microsoft Identity Platform. Tali risorse possono anche definire un set di autorizzazioni che può essere usato per suddividere le funzionalità di tale risorsa in blocchi più piccoli. Ad esempio, [Microsoft Graph](https://graph.microsoft.com) ha definito le autorizzazioni per eseguire le attività seguenti, tra le altre:
 
 * Lettura del calendario dell'utente
 * Scrittura nel calendario dell'utente
 * Invio di messaggi di posta elettronica come utente
 
-Con la definizione di questi tipi di autorizzazioni, la risorsa può avere un controllo accurato dei dati e dell'esposizione degli stessi. Un'app di terze parti può richiedere tali autorizzazioni da un utente del'app. L'utente dell'app deve approvare le autorizzazioni prima che l'applicazione possa agire a suo nome. Suddividendo le funzionalità della risorsa in set di autorizzazioni più piccoli, è possibile creare le app di terze parti affinché richiedano solo le autorizzazioni specifiche necessarie per il relativo funzionamento. Gli utenti dell'app possono sapere esattamente come un'app userà i propri dati e possono essere più sicuri che l'app non agisca per fini dannosi.
+Con la definizione di questi tipi di autorizzazioni, la risorsa può avere un controllo accurato dei dati e dell'esposizione delle funzionalità API. Un'app di terze parti può richiedere queste autorizzazioni da utenti e amministratori, che devono approvare la richiesta prima che l'app possa accedere ai dati o agire per conto di un utente. Suddividendo le funzionalità della risorsa in set di autorizzazioni più piccoli, è possibile creare le app di terze parti affinché richiedano solo le autorizzazioni specifiche necessarie per il relativo funzionamento. Utenti e amministratori possono sapere esattamente a quali dati ha accesso l'app e possono essere più sicuri che l'app non agisca per fini dannosi. Gli sviluppatori devono sempre rispettare il concetto di privilegio minimo, richiedendo solo le autorizzazioni necessarie per il funzionamento delle loro applicazioni.
 
-In Azure AD e OAuth queste autorizzazioni vengono definite *ambiti* o *oAuth2Permissions*. Un ambito è rappresentato in Azure AD come valore stringa. Nell'esempio relativo a Microsoft Graph il valore di ambito per ogni autorizzazione è:
+In OAuth questi tipi di autorizzazioni vengono definiti *ambiti* o spesso semplicemente *autorizzazioni*. In Microsoft Identity Platform un'autorizzazione è rappresentata come valore stringa. Nell'esempio relativo a Microsoft Graph il valore stringa per ogni autorizzazione è:
 
 * Lettura del calendario dell'utente tramite `Calendars.Read`
 * Scrittura del calendario dell'utente tramite `Calendars.ReadWrite`
 * Invio di messaggi di posta elettronica come utente tramite `Mail.Send`
 
-Un'app può richiedere tali autorizzazioni specificando gli ambiti nelle richieste all'endpoint 2.0.
+Un'app più comunemente richiede queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione v2.0. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo con il consenso dell'amministratore e in genere vengono richieste e concesse tramite l'[endpoint di consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-scopes). Per altre informazioni, continuare la lettura.
+
+## <a name="permission-types"></a>Tipi di autorizzazioni
+
+Microsoft Identity Platform supporta due tipi di autorizzazioni: **autorizzazioni delegate** e **autorizzazioni dell'applicazione**.
+
+- Le **autorizzazioni delegate** sono usate dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate alla risorsa di destinazione. Alcune autorizzazioni delegate possono essere concesse da utenti senza privilegi di amministratore, mentre altre con privilegi più elevati richiedono il [consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-scopes).  
+
+- Le **autorizzazioni dell'applicazione** sono usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon.  Le autorizzazioni dell'applicazione possono essere [concesse esclusivamente da un amministratore](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+
+Le _autorizzazioni valide_ sono le autorizzazioni che l'app avrà quando effettuerà le richieste alla risorsa di destinazione. È importante comprendere la differenza tra le autorizzazioni delegate e quelle dell'applicazione che vengono concesse all'app e le autorizzazioni valide quando si effettuano chiamate alla risorsa di destinazione.
+
+- Per le autorizzazioni delegate, le _autorizzazioni valide_ dell'app sono costituite dall'intersezione con meno privilegi tra le autorizzazioni delegate concesse all'app (tramite il consenso) e i privilegi dell'utente attualmente connesso. L'app non può mai avere più privilegi rispetto all'utente connesso. All'interno delle organizzazioni, i privilegi dell'utente connesso possono essere determinati da criteri o dall'appartenenza a uno o più ruoli di amministratore. Per altre informazioni sui ruoli di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+  Si supponga, ad esempio, che all'app sia stata concessa l'autorizzazione delegata _User.ReadWrite.All_. Questa autorizzazione concede nominalmente all'app l'autorizzazione per leggere e aggiornare il profilo di ogni utente in un'organizzazione. Se l'utente connesso è un amministratore globale, l'app sarà in grado di aggiornare il profilo di tutti gli utenti dell'organizzazione. Se tuttavia l'utente connesso non ha un ruolo di amministratore, l'app sarà in grado di aggiornare solo il profilo dell'utente connesso. Non sarà in grado di aggiornare i profili di altri utenti nell'organizzazione, perché l'utente per conto del quale è autorizzata ad agire non dispone di tali privilegi.
+  
+- Per le autorizzazioni dell'applicazione, le _autorizzazioni valide_ dell'app corrispondono al livello completo di privilegi impliciti nell'autorizzazione. Un'app che ha l'autorizzazione dell'applicazione _User.ReadWrite.All_ può ad esempio aggiornare il profilo di tutti gli utenti dell'organizzazione. 
 
 ## <a name="openid-connect-scopes"></a>Ambiti di OpenID Connect
 
@@ -69,7 +89,7 @@ L'ambito `email` può essere usato con l'ambito `openid` e con tutti gli altri. 
 
 ### <a name="profile"></a>Profilo
 
-L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere a numerose informazioni sull'utente, tra cui il nome e il cognome dell'utente, il nome utente preferito, l'ID dell'oggetto e così via. Per un elenco completo delle attestazioni profilo disponibili nel parametro token ID per un determinato utente, vedere il [riferimento al token della versione 2.0](v2-id-and-access-tokens.md).
+L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere a numerose informazioni sull'utente, tra cui il nome e il cognome dell'utente, il nome utente preferito, l'ID dell'oggetto e così via. Per un elenco completo delle attestazioni profilo disponibili nel parametro id_tokens per un determinato utente, vedere le [informazioni di riferimento su `id_tokens`](id-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
 
@@ -78,19 +98,6 @@ L'ambito [`offline_access`](http://openid.net/specs/openid-connect-core-1_0.html
 Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md), si riceve solo un token di accesso dall'endpoint `/token`. Il token di accesso è valido per un breve periodo. Il token di accesso ha in genere una durata di un'ora. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, a seconda del tipo di app, l'utente potrebbe dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni.
 
 Per altre informazioni su come ottenere e usare i token di aggiornamento, vedere il [riferimento al protocollo della versione 2.0](active-directory-v2-protocols.md).
-
-## <a name="accessing-v10-resources"></a>Accesso alle risorse v1.0
-le applicazioni v2.0 possono richiedere i token e fornire il consenso per le applicazioni v1.0 (ad esempio l'API Power BI `https://analysis.windows.net/powerbi/api` o l'API Sharepoint `https://{tenant}.sharepoint.com`).  A tale scopo, è possibile fare riferimento all’app URI e alla stringa dell’ambito nel parametro `scope`.  Ad esempio, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` richiederà l'autorizzazione di Power BI `View all Datasets` per l'applicazione. 
-
-Per richiedere più autorizzazioni, aggiungere l'intero URI con uno spazio o `+`, ad esempio `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://analysis.windows.net/powerbi/api/Report.Read.All`.  Questo richiede entrambe le autorizzazioni `View all Datasets` e `View all Reports`.  Si noti che come con tutti gli ambiti di Azure AD e le autorizzazioni, le applicazioni possono solo effettuare una richiesta a una risorsa alla volta, pertanto la richiesta `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://api.skypeforbusiness.com/Conversations.Initiate`, che richiede sia l’autorizzazione PowerBI `View all Datasets` e l’autorizzazione Skype for Business `Initiate conversations`, verrà rifiutata a causa delle richieste di autorizzazioni in due risorse diverse.  
-
-### <a name="v10-resources-and-tenancy"></a>tenancy e risorse v1.0
-Sia i protocolli di Azure AD sia v1.0 che v2.0 usano un `{tenant}` parametro incorporati nell'URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Quando si usa l'endpoint v2.0 per accedere a una risorsa aziendale v1.0, non è possibile usare i tenant `common` e `consumers`, poiché queste risorse sono accessibili solo con gli account aziendali (Azure AD).  Di conseguenza, quando si accede a tali risorse, solo il tenant GUID oppure `organizations` può essere utilizzato come parametro `{tenant}`.  
-
-Se un'applicazione tenta di accedere a una risorsa v1.0 aziendale usando un tenant non corretto, verrà restituito un errore simile a quello riportato di seguito. 
-
-`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
-
 
 ## <a name="requesting-individual-user-consent"></a>Richiesta di consenso per un singolo utente
 
@@ -108,40 +115,51 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-Il parametro `scope` è un elenco di ambiti separati da spazi richiesti dall'app. Ogni ambito è indicato dall'aggiunta del valore dell'ambito all'identificatore della risorsa (URI ID dell'app). Nella richiesta di esempio precedente, l'app richiede l'autorizzazione per la lettura del calendario dell'utente e l'invio di messaggi di posta elettronica come utente.
+Il parametro `scope` è un elenco di autorizzazioni delegate separate da spazi richieste dall'app. Ogni autorizzazione è indicata dall'aggiunta del valore dell'autorizzazione all'identificatore della risorsa (URI dell'ID applicazione). Nella richiesta di esempio precedente, l'app richiede l'autorizzazione per la lettura del calendario dell'utente e l'invio di messaggi di posta elettronica come utente.
 
-Dopo che l'utente immette le proprie credenziali, l'endpoint 2.0 verifica la disponibilità di un record corrispondente di *consenso dell'utente*. Se l'utente non ha fornito in precedenza il consenso per nessuna delle autorizzazioni necessarie, l'endpoint 2.0 chiede all'utente di fornire il consenso per le autorizzazioni obbligatorie.
+Dopo che l'utente immette le proprie credenziali, l'endpoint 2.0 verifica la disponibilità di un record corrispondente di *consenso dell'utente*. Se l'utente non ha acconsentito a nessuna delle autorizzazioni richieste in passato o se un amministratore non ha dato il proprio consenso a queste autorizzazioni per conto dell'intera organizzazione, l'endpoint v2.0 chiede all'utente di concedere le autorizzazioni richieste.
 
 ![Consenso dell'account aziendale](./media/v2-permissions-and-consent/work_account_consent.png)
 
-Quando l'utente approva l'autorizzazione, il consenso viene registrato in modo che non debba essere fornito nuovamente agli accessi successivi da parte degli account.
+Quando l'utente approva la richiesta di autorizzazione, il consenso viene registrato e l'utente non deve fornirlo nuovamente agli accessi successivi all'applicazione.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Richiesta di consenso per un intero tenant
 
-Quando un'organizzazione acquista una licenza o una sottoscrizione a un'applicazione, desidera fornire accesso completo ai dipendenti. Come parte di questo processo, un amministratore può concedere il consenso all'applicazione ad agire per conto di qualsiasi dipendente. Se l'amministratore concede il consenso per l'intero tenant, i dipendenti dell'organizzazione non visualizzeranno la pagina di consenso per l'applicazione.
+Spesso, quando un'organizzazione acquista una licenza o una sottoscrizione per un'applicazione, vuole configurare in modo proattivo l'applicazione per l'uso da parte di tutti i membri dell'organizzazione. Come parte di questo processo, un amministratore può concedere il consenso all'applicazione ad agire per conto di qualsiasi utente nel tenant. Se l'amministratore concede il consenso per l'intero tenant, gli utenti dell'organizzazione non visualizzeranno la pagina di consenso per l'applicazione.
 
-Per richiedere il consenso per tutti gli utenti in un tenant, è possibile usare l'applicazione dell'endpoint di consenso dell'amministratore.
+Per richiedere il consenso per le autorizzazioni delegate per tutti gli utenti in un tenant, l'app può usare l'endpoint di consenso amministratore.
 
-## <a name="admin-restricted-scopes"></a>Ambiti riservati all'amministratore
+Le applicazioni devono inoltre usare l'endpoint di consenso amministratore per richiedere le autorizzazioni dell'applicazione.
 
-Alcune autorizzazioni con privilegi elevati nell'ecosistema Microsoft possono essere impostati come *riservati all'amministratore*. Gli esempi di questi tipi di ambiti includono le autorizzazioni seguenti:
+## <a name="admin-restricted-permissions"></a>Autorizzazioni riservate all'amministratore
 
-* Lettura di dati in una directory aziendale tramite `Directory.Read`
-* Scrittura di dati in una directory aziendale tramite `Directory.ReadWrite`
-* Lettura dei gruppi di sicurezza nella directory aziendale tramite `Groups.Read.All`
+Alcune autorizzazioni con privilegi elevati nell'ecosistema Microsoft possono essere impostati come *riservati all'amministratore*. Tra gli esempi di questi tipi di autorizzazioni sono incluse le seguenti:
+
+* Lettura dei profili completi degli utenti tramite `User.Read.All`
+* Scrittura di dati in una directory aziendale tramite `Directory.ReadWrite.All`
+* Lettura di tutti i gruppi nella directory aziendale tramite `Groups.Read.All`
 
 Sebbene un utente consumer possa concedere a un'applicazione l'accesso a questi tipi di dati, gli utenti aziendali non possono concedere accesso allo stesso set di dati riservati dell'azienda. Se l'applicazione richiede l'accesso a una di queste autorizzazioni da un utente aziendale, l'utente riceve un messaggio di errore che indica che non è autorizzato a fornire il consenso alle autorizzazioni dell'applicazione.
 
 Se l'applicazione richiede accesso ad ambiti riservati all'amministratore delle organizzazioni, è necessario richiederle direttamente all'amministratore dell'azienda anche tramite l'endpoint di consenso dell'amministratore, come descritto di seguito.
 
-Quando un amministratore concede le autorizzazioni tramite l'endpoint di consenso dell'amministratore, il consenso viene concesso a tutti gli utenti del tenant.
+Se l'applicazione richiede autorizzazioni delegate con privilegi elevati e un amministratore concede queste autorizzazioni tramite l'endpoint di consenso amministratore, il consenso viene concesso a tutti gli utenti del tenant.
+
+Se l'applicazione richiede autorizzazioni dell'applicazione e un amministratore concede queste autorizzazioni tramite l'endpoint di consenso amministratore, il consenso non è concesso per conto di un utente specifico. Al contrario, all'applicazione client le autorizzazioni verranno concesse *direttamente*. Questi tipi di autorizzazioni generalmente vengono usati solo dai servizi daemon e da altre applicazioni non interattive eseguite in background.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Uso dell'endpoint di consenso dell'amministratore
 
-Seguendo questa procedura, l'applicazione può ottenere le autorizzazioni per tutti gli utenti di un tenant, inclusi gli ambiti riservati all'amministratore. Per un esempio di codice che implementa la procedura, vedere l'[esempio sugli ambiti riservati all'amministratore](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
+Quando un amministratore aziendale usa l'applicazione e viene indirizzato all'endpoint di autorizzazione, Microsoft Identity Platform rileverà il ruolo dell'utente e chiederà se vuole fornire il consenso per conto dell'intero tenant per le autorizzazioni richieste. Tuttavia, è disponibile anche un endpoint di consenso amministratore dedicato utilizzabile per richiedere in modo proattivo che un amministratore conceda l'autorizzazione per conto dell'intero tenant. L'uso di questo endpoint è necessario anche per la richiesta di autorizzazioni dell'applicazione (che non possono essere richieste tramite l'endpoint di autorizzazione).
+
+Seguendo questa procedura, l'app può richiedere le autorizzazioni per tutti gli utenti di un tenant, inclusi gli ambiti riservati all'amministratore. Questa è un'operazione con privilegi elevati e deve essere eseguita solo se necessario per lo scenario in uso.
+
+Per un esempio di codice che implementa la procedura, vedere l'[esempio sugli ambiti riservati all'amministratore](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Richiedere le autorizzazioni nel portale di registrazione dell'app
 
+Il consenso amministratore non accetta un parametro di ambito, pertanto tutte le autorizzazioni richieste devono essere definite in modo statico nella registrazione dell'applicazione. In generale, è consigliabile verificare che le autorizzazioni definite in modo statico per una determinata applicazione siano un superset delle autorizzazioni che verranno richieste in modo dinamico o incrementale.
+
+Per configurare l'elenco delle autorizzazioni richieste in modo statico per un'applicazione: 
 1. Passare all'applicazione nel [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o [creare un'app](quickstart-v2-register-an-app.md), se non se ne possiede già una.
 2. Individuare la sezione **Autorizzazioni di Microsoft Graph**  e aggiungere le autorizzazioni richieste dall'applicazione.
 3. **Salvare** la registrazione dell'app.
@@ -233,3 +251,7 @@ Content-Type: application/json
 È possibile usare il token di accesso risultante nelle richieste HTTP per la risorsa. Esso indica alla risorsa, in modo affidabile, che l'applicazione dispone delle autorizzazioni appropriate per eseguire un'attività specifica. 
 
 Per altre informazioni sul protocollo OAuth 2.0 e su come ottenere i token di accesso, vedere il [riferimento al protocollo dell'endpoint v2.0](active-directory-v2-protocols.md).
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+Se gli utenti dell'applicazione visualizzano messaggi di errore imprevisti durante il processo di consenso, per la risoluzione dei problemi fare riferimento all'articolo [Errore imprevisto durante la richiesta di consenso per un'applicazione](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

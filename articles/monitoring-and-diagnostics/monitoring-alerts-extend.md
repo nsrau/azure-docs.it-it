@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6484142eafa8388117c1e96ab31eefeab188e488
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 13a84b7254207a9cfcfff4af43283130a0f6c587
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750273"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998475"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Estendere gli avvisi di Log Analytics in Avvisi di Azure
 Azure Log Analytics includeva fino a poco tempo fa una propria funzionalità di avviso, in grado di informare l'utente in modo proattivo relativamente ad alcune condizioni in base ai dati di Log Analytics. Le regole degli avvisi venivano gestite nel portale Microsoft Operations Management Suite (OMS). La nuova esperienza Avvisi è ora integrata nei diversi servizi e componenti di Microsoft Azure. È disponibile come **Avvisi** in Monitoraggio di Azure nel portale di Azure e supporta avvisi dei log attività, avvisi delle metriche e avvisi relativi ai log per Log Analytics e Application Insights. 
@@ -30,7 +30,7 @@ La creazione e la gestione degli avvisi nel portale di Azure offre diversi vanta
 Il processo di estensione degli avvisi da Log Analytics in Azure non comporta la modifica della definizione, della query o della configurazione degli avvisi. L'unica modifica necessaria è che in Azure tutte le azioni vengono eseguite usando un gruppo di azioni. Se i gruppi di azioni sono già associati con l'avviso, questi vengono inclusi durante l'estensione in Azure.
 
 > [!NOTE]
-> Microsoft estenderà automaticamente gli avvisi creati in Log Analytics negli Avvisi di Azure a partire dal 14 maggio 2018, in serie ricorrenti fino al completamento. Se si riscontrano problemi con la creazione di [gruppi di azioni](monitoring-action-groups.md), adottare i [passaggi di correzione](monitoring-alerts-extend-tool.md#troubleshooting) seguenti per creare automaticamente i gruppi di azioni. È possibile applicare questi passaggi fino al 5 luglio 2018. 
+> Microsoft estenderà automaticamente gli avvisi creati nelle istanze del cloud pubblico in Log Analytics negli Avvisi di Azure a partire dal 14 maggio 2018, in serie ricorrenti fino al completamento. Se si riscontrano problemi con la creazione di [gruppi di azioni](monitoring-action-groups.md), adottare i [passaggi di correzione](monitoring-alerts-extend-tool.md#troubleshooting) seguenti per creare automaticamente i gruppi di azioni. È possibile applicare questi passaggi fino al 5 luglio 2018. *Non applicabile per gli utenti del cloud per il Governo e Soveriegn di Azure di Log Analytics*. 
 > 
 
 Quando vengono pianificati per l'estensione ad Azure, gli avvisi presenti in un'area di lavoro di Log Analytics continuano a funzionare, senza compromettere in alcun modo la configurazione. Se pianificati, gli avvisi possono risultare temporaneamente non disponibili per la modifica, ma in questo intervallo è possibile continuare a creare nuovi avvisi in Azure. Se si tenta di modificare o creare avvisi dal portale di OMS, è possibile continuare la loro creazione dall'area di lavoro di Log Analytics. È anche possibile crearli da Avvisi di Azure nel portale di Azure.

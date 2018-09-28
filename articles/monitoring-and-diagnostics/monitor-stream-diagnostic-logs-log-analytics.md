@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d8966edb6061ed07f5aecb9682fca081ed589040
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083975"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993018"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Trasmettere i log di diagnostica di Azure a Log Analytics
 
-I **[log di diagnostica Azure](monitoring-overview-of-diagnostic-logs.md)** possono essere trasmessi quasi in tempo reale ad Azure Log Analytics usando il portale, i cmdlet PowerShell o l'interfaccia della riga di comando di Azure 2.0.
+**[I log di diagnostica Azure](monitoring-overview-of-diagnostic-logs.md)** possono essere trasmessi quasi in tempo reale ad Azure Log Analytics usando il portale, i cmdlet PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Che cosa si può fare con i log di diagnostica in Log Analytics
 
@@ -30,7 +30,7 @@ Log Analytics di Azure è uno strumento di analisi e ricerca log flessibile che 
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Abilitare la trasmissione dei log di diagnostica a Log Analytics
 
-È possibile abilitare la trasmissione dei log di diagnostica a livello di codice tramite il portale o tramite le [API REST di Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). In entrambi i casi, si crea un'impostazione di diagnostica in cui specificare un'area di lavoro di Log Analytics, le categorie di log e le metriche da inviare all'area di lavoro. Una **categoria di log** di diagnostica è un tipo di log che una risorsa può fornire.
+È possibile abilitare la trasmissione dei log di diagnostica a livello di codice tramite il portale o tramite le [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). In entrambi i casi, si crea un'impostazione di diagnostica in cui specificare un'area di lavoro di Log Analytics, le categorie di log e le metriche da inviare all'area di lavoro. Una **categoria di log** di diagnostica è un tipo di log che una risorsa può fornire.
 
 L'area di lavoro di Log Analytics non deve trovarsi nella stessa sottoscrizione della risorsa che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
 
@@ -73,9 +73,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Si noti che la proprietà ID dell'area di lavoro assume l'intero ID della risorsa Azure dell'area di lavoro e non l'ID/chiave dell'area di lavoro visualizzata nel portale Log Analytics.
 
-### <a name="via-azure-cli-20"></a>Tramite l'interfaccia della riga di comando di Azure 2.0
+### <a name="via-azure-cli"></a>Tramite l'interfaccia della riga di comando di Azure
 
-Per abilitare lo streaming tramite l'[interfaccia della riga di comando di Azure 2.0](insights-cli-samples.md), è possibile usare il comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Per abilitare lo streaming tramite l'[interfaccia della riga di comando di Azure](insights-cli-samples.md), è possibile usare il comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

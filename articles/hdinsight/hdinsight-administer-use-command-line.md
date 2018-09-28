@@ -1,40 +1,40 @@
 ---
-title: Gestire i cluster Hadoop tramite l'interfaccia della riga di comando di Azure - Azure HDInsight
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure per gestire i cluster Hadoop in Azure HDInsight. L'interfaccia della riga di comando di Azure funziona in Windows, Mac e Linux.
+title: Gestire i cluster Hadoop tramite l'interfaccia della riga di comando classica di Azure - Azure HDInsight
+description: Informazioni su come usare l'interfaccia della riga di comando classica di Azure per gestire i cluster Hadoop in Azure HDInsight.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: dea0f004c4283bf594e46097092a52dedabb9f4b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2586b9219eb145b2033fe2d8fc64b8ae72f34eda
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599021"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958289"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Gestire cluster Hadoop in HDInsight tramite la CLI di Azure
+# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Gestire cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando classica di Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Informazioni su come usare l' [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md) per gestire i cluster Hadoop in Azure HDInsight. L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux. Attualmente HDInsight non supporta l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure).
+Informazioni su come usare l'[interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md) per gestire i cluster Hadoop in Azure HDInsight. L'interfaccia della riga di comando classica viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux.
 
-In questo articolo viene illustrato solo l’uso dell’interfaccia della riga di comando di Azure con HDInsight. Per una guida generale sull'uso dell'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure][azure-command-line-tools].
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Interfaccia della riga di comando di Azure** : per informazioni sull’installazione e la configurazione vedere [Installare e configurare l’interfaccia della riga di comando di Azure](../cli-install-nodejs.md) .
+* **Interfaccia della riga di comando classica di Azure**: per informazioni sull'installazione e la configurazione, vedere [Installare e configurare l'interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md).
 * **Collegarsi ad Azure**, usando il comando seguente:
 
     ```cli
     azure login
     ```
   
-    Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
+    Per altre informazioni sull'autenticazione con un account aziendale o dell'istituto di istruzione, vedere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando classica di Azure](/cli/azure/authenticate-azure-cli).
 * **Passare alla modalità Gestione risorse di Azure**, usando il comando seguente:
   
     ```cli
@@ -48,7 +48,7 @@ azure hdinsight cluster create -h
 ```
 
 ## <a name="create-clusters-with-the-cli"></a>Creare cluster con l'interfaccia della riga di comando
-Vedere [Creare cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+Vedere [Creare cluster Hadoop in HDInsight tramite l'interfaccia della riga di comando classica di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="list-and-show-cluster-details"></a>Elencare i cluster e visualizzarne i dettagli
 Utilizzare i comandi seguenti per elencare e mostrare i dettagli dei cluster:
@@ -101,7 +101,7 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 * [Amministrare HDInsight con il portale di Azure][hdinsight-admin-portal]
 * [Amministrare HDInsight con Azure PowerShell][hdinsight-admin-powershell]
 * [Introduzione ad Azure HDInsight][hdinsight-get-started]
-* [Come usare l'interfaccia della riga di comando di Azure][azure-command-line-tools]
+* [Come usare l'interfaccia della riga di comando classica di Azure][azure-command-line-tools]
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md

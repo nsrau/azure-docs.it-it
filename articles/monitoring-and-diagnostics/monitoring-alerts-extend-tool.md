@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301032"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990247"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estendere avvisi da Log Analytics ad Avvisi di Azure
 La funzionalità degli avvisi in Azure Log Analytics verrà sostituita da avvisi di Azure. Nel quadro della transizione, gli avvisi originariamente configurati in Log Analytics verranno estesi in Azure. Se non si desidera attendere che gli avvisi vengano spostati automaticamente in Azure, è possibile avviare il processo:
@@ -22,7 +22,7 @@ La funzionalità degli avvisi in Azure Log Analytics verrà sostituita da avvisi
 - A livello di codice, tramite l'API AlertsVersion.  
 
 > [!NOTE]
-> Microsoft estenderà automaticamente gli avvisi creati in Log Analytics negli Avvisi di Azure a partire dal 14 maggio 2018, in serie ricorrenti fino al completamento. Microsoft pianificherà la migrazione degli avvisi in Azure. Durante la transizione, gli avvisi potranno essere gestiti sia dal portale di Operations Management Suite che dal portale di Azure. Tale processo non provoca né eliminazioni, né interruzioni.  
+> Microsoft estenderà automaticamente gli avvisi creati nelle istanze del cloud pubblico in Log Analytics negli Avvisi di Azure a partire dal 14 maggio 2018, in serie ricorrenti fino al completamento. Se si riscontrano problemi con la creazione di [gruppi di azioni](monitoring-action-groups.md), adottare i [passaggi di correzione](monitoring-alerts-extend-tool.md#troubleshooting) seguenti per creare automaticamente i gruppi di azioni. È possibile applicare questi passaggi fino al 5 luglio 2018. *Non applicabile per gli utenti del cloud per il Governo e Soveriegn di Azure di Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Opzione 1: procedere dal portale di Operations Management Suite
 Nei passaggi seguenti viene descritto come estendere gli avvisi per l'area di lavoro dal portale di Operations Management Suite.  
@@ -457,7 +457,7 @@ Lo script è dettagliato e restituisce i passaggi durante l'esecuzione:
 Durante il processo di estensione degli avvisi, alcuni problemi possono impedire al sistema di creare i [gruppi di azioni](monitoring-action-groups.md) necessari. In questi casi, viene visualizzato un messaggio di errore in uno striscione nella sezione **Avviso** del portale di Operations Management Suite o nella chiamata GET effettuata per l'API.
 
 > [!IMPORTANT]
-> Se non si esegue la procedura di correzione seguente prima del 5 luglio 2018, gli avvisi verranno eseguito in Azure, ma non genereranno alcuna azione o notifica. Per ottenere le notifiche degli avvisi è necessario apportare una modifica manuale aggiungendo [gruppi di azioni](monitoring-action-groups.md), oppure usare il precedente [script PowerShell personalizzato](#option-3---using-custom-powershell-script).
+> Se gli utenti di Log Analyticsbase basato su cloud pubblico non eseguono la procedura di correzione seguente prima del 5 luglio 2018, gli avvisi verranno eseguito in Azure, ma non genereranno alcuna azione o notifica. Per ottenere le notifiche degli avvisi è necessario apportare una modifica manuale aggiungendo [gruppi di azioni](monitoring-action-groups.md), oppure usare il precedente [script PowerShell personalizzato](#option-3---using-custom-powershell-script).
 
 Di seguito viene elencata la procedura di correzione per ogni errore:
 - **Error: Scope Lock is present at subscription/resource group level for write operations** (Errore: a livello di sottoscrizione/gruppo di risorse è presente un blocco dell'ambito per le operazioni di scrittura): ![Schermata della pagina Impostazioni avvisi del portale di Operations Management Suite con messaggio di errore di blocco dell'ambito evidenziato](./media/monitor-alerts-extend/ErrorScopeLock.png)

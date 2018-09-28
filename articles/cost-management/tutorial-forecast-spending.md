@@ -1,25 +1,25 @@
 ---
-title: 'Esercitazione: Prevedere la spesa in Gestione costi di Azure | Microsoft Docs'
+title: Esercitazione - Previsione della spesa con Cloudyn in Azure | Microsoft Docs
 description: In questa esercitazione si apprenderà come prevedere la spesa tramite dati cronologici di utilizzo e spesa.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 411b4797510b26dec43ea7f2232457199808c857
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162195"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953685"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Esercitazione: Prevedere la spesa futura
 
-Gestione costi di Azure consente di prevedere la spesa futura tramite l'utilizzo cronologico e dati di spesa. Usare i report di Cloudyn per visualizzare tutti i dati di previsione dei costi. Gli esempi inclusi in questa esercitazione descrivono come esaminare le previsioni dei costi usando i report. In questa esercitazione si apprenderà come:
+Cloudyn consente di prevedere la spesa futura basandosi sui dati cronologici di utilizzo e spesa. Usare i report di Cloudyn per visualizzare tutti i dati di previsione dei costi. Gli esempi inclusi in questa esercitazione descrivono come esaminare le previsioni dei costi usando i report. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Prevedere la spesa futura
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>prerequisiti
 
 - È necessario disporre di un account Azure.
-- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
+- È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
 
 ## <a name="forecast-future-spending"></a>Prevedere la spesa futura
 
@@ -37,7 +37,7 @@ Cloudyn include report di previsione dei costi che consentono di prevedere la sp
 
 Il report Current Month Projected Cost (Previsione costi mese corrente) mostra i costi dei servizi. Usa i costi dall'inizio del mese e quelli del mese precedente per visualizzare il costo previsto. Dal menu dei report nella parte superiore del portale, fare clic su **Cost** > **Projection and Budget** > **Current Month Projected Cost** (Costo\Previsione e budget\Previsione costi mese corrente). La figura seguente mostra un esempio.
 
-![Current Month Projected Cost (Previsione costi mese corrente)](./media/tutorial-forecast-spending/project-month01.png)
+![Previsione costi mese corrente](./media/tutorial-forecast-spending/project-month01.png)
 
 Nell'esempio è possibile visualizzare i servizi maggiormente costosi. I costi di Azure sono inferiori ai costi AWS. Se si desidera visualizzare i dettagli di previsione di costo per le macchine virtuali di Azure, nell'elenco **Filter** (Filtro) selezionare **Azure/VM** (Macchina virtuale di Azure).
 
@@ -49,7 +49,7 @@ Annual Projected Cost (Previsione costi annuali) mostra il costo estrapolato dei
 
 Dal menu dei report nella parte superiore del portale, fare clic su **Cost** > **Projection and Budget** > **Annual Projected Cost** (Costo\Previsione e budget\Previsione costi annuali). La figura seguente mostra un esempio.
 
-![report Annual Projected Cost (Previsione costi annuali)](./media/tutorial-forecast-spending/project-annual01.png)
+![Report Previsione costi annuali](./media/tutorial-forecast-spending/project-annual01.png)
 
 Nell'esempio è possibile visualizzare i servizi maggiormente costosi. Come illustrato nell'esempio mensile, i costi di Azure sono stati inferiori ai costi AWS. Se si desidera visualizzare i dettagli di previsione di costo per le macchine virtuali di Azure, nell'elenco **Filter** (Filtro) selezionare **Azure/VM** (Macchina virtuale di Azure).
 

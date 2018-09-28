@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: modifica, rilevamento, automazione
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 02/28/2018
+ms.date: 09/12/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 16d5a025f0c0ff571298e0f528fb9119e37950f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866818"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995260"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -32,8 +32,9 @@ In questa esercitazione si apprenderà come:
 > * Abilitare la connessione al log attività
 > * Attivare un evento
 > * Visualizzare le modifiche
+> * Configurare gli avvisi
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 
@@ -41,7 +42,7 @@ Per completare questa esercitazione, sono necessari:
 * Un [account di automazione](automation-offering-get-started.md) per contenere i runbook watcher e azione e l'attività watcher.
 * Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md) da caricare.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
@@ -57,7 +58,7 @@ Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento mod
 L'area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Inventario.
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
-Durante l'onboarding, il provisioning della macchina virtuale viene eseguito con Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido.
+Durante l'onboarding, il provisioning della macchina virtuale viene effettuato con Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido.
 L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sul software installato.
 
 L'abilitazione della soluzione può richiedere fino a 15 minuti. Durante questo intervallo di tempo, non chiudere la finestra del browser.
@@ -66,20 +67,22 @@ Affinché i dati diventino disponibili per l'analisi, sarà necessario attendere
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Uso di Rilevamento modifiche in Log Analytics
 
-Rilevamento modifiche genera dati di log che vengono inviati a Log Analytics. Per eseguire ricerche nei log tramite l'esecuzione di query, selezionare **Log Analytics** nella parte superiore della finestra **Rilevamento modifiche**.
-I dati di Rilevamento modifiche vengono archiviati sotto il tipo **ConfigurationChange**. L'esempio di query di Log Analytics seguente restituisce tutti i servizi di Windows arrestati.
+Rilevamento modifiche genera dati di log che vengono inviati a Log Analytics.
+Per eseguire ricerche nei log tramite l'esecuzione di query, selezionare **Log Analytics** nella parte superiore della finestra **Rilevamento modifiche**.
+I dati di Rilevamento modifiche vengono archiviati sotto il tipo **ConfigurationChange**.
+L'esempio di query di Log Analytics seguente restituisce tutti i servizi di Windows arrestati.
 
 ```
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Per altre informazioni sull'esecuzione e sulla ricerca nei file di log in Log Analytics, vedere [Azure Log Analytics](https://docs.loganalytics.io/index).
+Per altre informazioni sull'esecuzione e sulla ricerca nei file di log in Log Analytics, vedere [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ## <a name="configure-change-tracking"></a>Configurare Rilevamento modifiche
 
 Rilevamento modifiche consente di tenere traccia delle modifiche apportate alla configurazione nella macchina virtuale. I passaggi seguenti illustrano come configurare il rilevamento di chiavi del Registro di sistema e file.
- 
+
 Per scegliere i file e le chiavi del Registro di sistema di cui tenere traccia, selezionare **Modifica impostazioni** nella parte superiore della pagina **Rilevamento modifiche**.
 
 > [!NOTE]
@@ -92,7 +95,7 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 1. Nella scheda **Registro di sistema di Windows** selezionare **Aggiungi**.
     Verrà visualizzata la finestra **Aggiungi Registro di sistema di Windows per Rilevamento modifiche**.
 
-3. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**
+1. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**
 
 |Proprietà  |DESCRIZIONE  |
 |---------|---------|
@@ -112,8 +115,9 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 |Attivato     | Determina se l'impostazione viene applicata        |
 |Item Name     | Nome descrittivo del file da rilevare        |
 |Group     | Nome del gruppo per il raggruppamento logico dei file        |
-|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\myfile.txt"       |
-|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file nelle modifiche di cui si è tenuta traccia. Opzioni disponibili: **True** o **False**.|
+|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\\\*.txt"<br>È anche possibile usare le variabili di ambiente, ad esempio "%winDir%\System32\\\*.*"         |
+|Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
+|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
 
 ### <a name="add-a-linux-file"></a>Aggiungere un file di Linux
 
@@ -131,9 +135,9 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
 |Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
-|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file nelle modifiche di cui si è tenuta traccia. Opzioni disponibili: **True** o **False**.|
+|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
 
-   > [!NOTE]   
+   > [!NOTE]
    > Questa opzione dei collegamenti "Gestisci" non è consigliata. Il recupero del contenuto del file non è supportato.
 
 ## <a name="enable-activity-log-connection"></a>Abilitare la connessione al log attività
@@ -167,6 +171,49 @@ Selezionare una modifica **WindowsServices** per aprire la finestra **Dettagli m
 
 ![Visualizzazione dei dettagli delle modifiche nel portale](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
+## <a name="configure-alerts"></a>Configurare gli avvisi
+
+La visualizzazione delle modifiche nel portale di Azure può essere utile, ma la possibilità di ricevere un avviso quando viene apportata una modifica, ad esempio in caso di arresto di un servizio, offre ancora più vantaggi.
+
+Per aggiungere un avviso per un arresto del servizio, nel portale di Azure passare a **Monitoraggio**. In **Servizi condivisi** selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**
+
+In **1. Definire la condizione dell'avviso** fare clic su **+ Seleziona destinazione**. In **Filtra per tipo di risorsa** selezionare **Log Analytics**. Selezionare l'area di lavoro di Log Analytics e quindi selezionare **Fine**.
+
+![Selezionare una risorsa](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+
+Selezionare **+ Aggiungi criteri**.
+In **Configurare la logica dei segnali** selezionare **Custom log search** (Ricerca log personalizzata) nella tabella. Immettere la query seguente nella casella di testo Query di ricerca:
+
+```loganalytics
+ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+```
+
+Questa query restituisce i computer in cui il servizio W3SVC è stato arrestato nell'intervallo di tempo specificato.
+
+In **Logica avvisi**, per **Soglia** immettere **0**. Al termine, fare clic su **Fine**.
+
+![Configurare la logica dei segnali](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+
+In **2. Definire i dettagli dell'avviso** assegnare un nome e una descrizione per l'avviso. Impostare **Gravità** su **Informazioni (gravità 2)**, **Avviso (gravità 1)** o **Critico (gravità 0)**.
+
+![Definire i dettagli dell'avviso](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
+
+In **3. Definire il gruppo di azioni** selezionare **Nuovo gruppo di azioni**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md).
+
+Nella casella **Nome gruppo di azioni** immettere un nome per l'avviso e un nome breve. Il nome breve viene usato al posto del nome completo di un gruppo di azioni quando le notifiche vengono inviate usando questo gruppo.
+
+In **Azioni** immettere un nome per l'azione, ad esempio **Amministratori posta elettronica**. In **TIPO DI AZIONE** selezionare **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce). In **DETTAGLI** selezionare **Modifica dettagli**.
+
+![Aggiungere un gruppo di azioni](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+Nel riquadro **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce) immettere un nome. Selezionare la casella di controllo **Posta elettronica** e quindi immettere un indirizzo di posta elettronica valido. Fare clic su **OK** nella pagina **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce) e quindi fare clic su **OK** nella pagina **Aggiungi gruppo di azioni**.
+
+Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, in **Crea regola** selezionare **Oggetto del messaggio di posta elettronica** nella sezione **Personalizza azioni**. Al termine, selezionare **Crea regola di avviso**. L'avviso segnala quando una distribuzione di un aggiornamento ha esito positivo e indica i computer inclusi nella distribuzione.
+
+L'immagine seguente illustra un messaggio di posta elettronica di esempio ricevuto in caso di arresto del servizio W3SVC.
+
+![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione si è appreso come:
@@ -178,6 +225,7 @@ In questa esercitazione si è appreso come:
 > * Abilitare la connessione al log attività
 > * Attivare un evento
 > * Visualizzare le modifiche
+> * Configurare gli avvisi
 
 Per altre informazioni, passare alla panoramica della soluzione Rilevamento modifiche e inventario.
 

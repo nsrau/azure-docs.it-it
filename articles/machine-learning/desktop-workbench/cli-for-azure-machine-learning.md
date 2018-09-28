@@ -11,16 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: 0e37e1839d2248507a30de08e2ac4c975bd3b859
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 06e85845d41b240638a5b5b4d75d64fd460a99bf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35635655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953328"
 ---
 # <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Installare e usare l'interfaccia della riga di comando di apprendimento automatico per le principali attività in Azure Machine Learning
 
-I servizi di Azure Machine Learning sono una soluzione integrata di data science e analisi avanzata end-to-end. I data scientist professionisti possono usare i servizi di Azure Machine Learning per preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud. 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Il servizio di Azure Machine Learning è una soluzione integrata di data science e analisi avanzata end-to-end. I data scientist professionisti possono usare il servizio di Azure Machine Learning per preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud. 
 
 Azure Machine Learning fornisce un'interfaccia della riga di comando con cui è possibile:
 + Gestire l'area di lavoro e i progetti
@@ -39,7 +42,7 @@ Questo articolo presenta alcuni dei comandi dell'interfaccia della riga di coman
 È necessario disporre di un accesso come collaboratore a una sottoscrizione di Azure o di un gruppo di risorse in cui è possibile distribuire i modelli. Inoltre, è necessario installare Azure Machine Learning Workbench per eseguire l'interfaccia della riga di comando. 
 
 >[!IMPORTANT]
->L'interfaccia della riga di comando disponibile con i servizi di Azure Machine Learning è diversa dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), usata per la gestione delle risorse di Azure.
+>L'interfaccia della riga di comando disponibile con il servizio di Azure Machine Learning è diversa dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) usata per la gestione delle risorse di Azure.
 
 ## <a name="get-and-start-cli"></a>Ottenere e avviare l'interfaccia della riga di comando
 
@@ -201,7 +204,7 @@ az ml env set -n <environment name> -g <resource group name>
 ## <a name="next-steps"></a>Passaggi successivi
 
 Iniziare con uno di questi articoli: 
-+ [Installare e iniziare a usare Azure Machine Learning](../service/quickstart-installation.md)
++ [Installare e iniziare a usare Azure Machine Learning](quickstart-installation.md)
 + [Esercitazione sulla classificazione dei dati Iris: Parte 1](tutorial-classifying-iris-part-1.md)
 
 Approfondire l'argomento con uno di questi articoli:

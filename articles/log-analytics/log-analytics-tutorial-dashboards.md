@@ -16,12 +16,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a4b1e59ff9ac4d7f455c87e821fb014ba238d3c9
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2c7c1e71830eb3fe4f7240195dac828ac9dfed3a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127476"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951566"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creare e condividere i dashboard dei dati di Log Analytics
 
@@ -56,7 +56,7 @@ Viene chiesto di scegliere una sottoscrizione e un gruppo di risorse in cui pubb
 
 È possibile creare query di base in un'unica riga dal portale per la ricerca log nel portale di Azure. Il portale per la ricerca log può essere usato senza avviare un portale esterno ed è possibile usarlo per eseguire svariate funzioni, tra le quali la creazione di regole di avviso, la creazione di gruppi di computer e l'esportazione dei risultati delle query. 
 
-Il [portale Advanced Analytics](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) è un portale dedicato che offre funzionalità avanzate non disponibili nel portale per la ricerca log. Le funzionalità includono la possibilità di modificare una query su più righe, eseguire codice in modo selettivo, Intellisense sensibile al contesto e analisi intelligente. Nel portale Advanced Analytics è possibile creare una visualizzazione delle prestazioni sotto forma di grafico, salvarla per ricerche future e aggiungerla al dashboard condiviso creato in precedenza.   
+Il [portale di Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md) è un portale dedicato che offre funzionalità avanzate non disponibili nel portale per la ricerca log. Le funzionalità includono la possibilità di modificare una query su più righe, eseguire codice in modo selettivo, Intellisense sensibile al contesto e analisi intelligente. Nel portale Advanced Analytics è possibile creare una visualizzazione delle prestazioni sotto forma di grafico, salvarla per ricerche future e aggiungerla al dashboard condiviso creato in precedenza.   
 
 Avviare il portale Advanced Analytics da un collegamento nel portale per la ricerca log.<br> ![Avviare il portale Advanced Analytics](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

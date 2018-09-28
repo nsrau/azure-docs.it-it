@@ -10,60 +10,39 @@ ms.service: signalr
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: c574a3dd26b36b656cc931a0801cbf0ef23cf362
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a159833936ec4762213f063e235fa4f9237af95b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668242"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951101"
 ---
 # <a name="what-is-azure-signalr-service"></a>Informazioni sul servizio Azure SignalR
 
-Il servizio Microsoft Azure SignalR è attualmente disponibile in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Il servizio Azure SignalR semplifica il processo di aggiunta di funzionalità Web in tempo reale alle applicazioni tramite HTTP. Questa funzionalità in tempo reale consente al servizio di eseguire il push degli aggiornamenti di contenuto ai client connessi, ad esempio un'applicazione Web o per dispositivi mobili a pagina singola. Di conseguenza, i client vengono aggiornati senza che sia necessario eseguire il polling del server o inviare nuove richieste HTTP per gli aggiornamenti.
 
-Il servizio Azure SignalR è un servizio di Azure basato su [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction). ASP.NET Core SignalR è una [libreria open source](https://github.com/aspnet/signalr) che semplifica il processo di aggiunta di funzionalità Web in tempo reale alle applicazioni tramite HTTP. Questa funzionalità in tempo reale consente al server Web di eseguire il push degli aggiornamenti dei contenuti ai client connessi. Di conseguenza, i client vengono aggiornati senza che sia necessario eseguire il polling del server o inviare nuove richieste HTTP per gli aggiornamenti.
+Questo articolo offre una panoramica del servizio Azure SignalR.
 
-Questo articolo offre una panoramica del servizio Azure SignalR. Per iniziare, vedere la [guida introduttiva di ASP.NET Core](signalr-quickstart-dotnet-core.md).
+## <a name="what-is-azure-signalr-service-used-for"></a>Tipi di utilizzo del servizio Azure SignalR 
 
-## <a name="what-is-signalr-service-used-for"></a>Per cosa viene usato il servizio SignalR? 
+Esistono molti tipi di applicazioni che richiedono aggiornamenti dei contenuti in tempo reale. Gli esempi elencati di seguito sono buoni candidati per l'uso del servizio Azure SignalR:
 
-Esistono molti tipi di applicazioni che richiedono aggiornamenti dei contenuti in tempo reale. I tipi di applicazioni di esempio elencati di seguito sono buoni candidati per l'uso del servizio Azure SignalR:
-
-* App che richiedono aggiornamenti con frequenza elevata dal server, ad esempio giochi, social network, mappe, aste e app GPS e di voto.
-* Dashboard e app di monitoraggio, ad esempio dashboard aziendali, aggiornamenti di vendite istantanee o avvisi di viaggio.
+* App che richiedono aggiornamenti con frequenza elevata dal server, ad esempio giochi, mappe, aste e app GPS e di voto.
+* Dashboard e app di monitoraggio, ad esempio dashboard aziendali e aggiornamenti di vendite istantanee.
 * App di collaborazione, ad esempio app per lavagne e software per riunioni in team.
 * App che richiedono notifiche. Social network, posta elettronica, chat, giochi, avvisi di viaggio e molte altre app usano le notifiche.
 
-Internamente, SignalR è un'astrazione su diverse tecniche usate per la compilazione di applicazioni Web in tempo reale. I [WebSocket](https://wikipedia.org/wiki/WebSocket) costituiscono il trasporto ottimale, ma quando non sono disponibili altre opzioni vengono usate altre tecniche come [Server-Sent Events (SSE)](https://wikipedia.org/wiki/Server-sent_events) e il polling prolungato. SignalR rileva e inizializza automaticamente il trasporto appropriato in base alle funzionalità supportate nel server e nel client.
+SignalR offre un'astrazione su diverse tecniche usate per la compilazione di applicazioni Web in tempo reale. I [WebSocket](https://wikipedia.org/wiki/WebSocket) costituiscono il trasporto ottimale, ma quando non sono disponibili altre opzioni vengono usate altre tecniche come [Server-Sent Events (SSE)](https://wikipedia.org/wiki/Server-sent_events) e il polling prolungato. SignalR rileva e inizializza automaticamente il trasporto appropriato in base alle funzionalità supportate nel server e nel client.
 
-## <a name="developing-signalr-apps"></a>Sviluppo di app SignalR
+Inoltre, SignalR offre un modello di programmazione per applicazioni in tempo reale che consente al server di inviare messaggi a tutte le connessioni o a un sottoinsieme di connessioni che appartengono a un utente specifico o che sono state inserite in un gruppo arbitrario.
 
-Attualmente, sono disponibili due versioni di SignalR utilizzabili con le applicazioni Web: SignalR per ASP.NET e ASP.NET Core SignalR, ovvero la versione più recente. Il servizio Azure SignalR è un servizio gestito da Azure basato su ASP.NET Core SignalR. 
+## <a name="how-to-use-azure-signalr-service"></a>Modalità di utilizzo del servizio Azure SignalR
 
-ASP.NET Core SignalR è una riscrittura della versione precedente. Di conseguenza, ASP.NET Core SignalR non è compatibile con la versione precedente di SignalR. Le API e i comportamenti sono diversi. ASP.NET Core SignalR SDK è .NET Standard, pertanto è ancora possibile usarlo con .NET Framework. Tuttavia, è necessario usare le nuove API al posto di quelle precedenti. Se si usa SignalR e si vuole passare ad ASP.NET Core SignalR o al servizio Azure SignalR, sarà necessario apportare modifiche al codice per gestire le differenze tra le API.
+Attualmente esistono tre modi per usare il servizio Azure SignalR:
 
-Con il servizio Azure SignalR, il componente sul lato server di ASP.NET Core SignalR è ospitato in Azure. Tuttavia, poiché la tecnologia si basa su ASP.NET Core, è possibile eseguire l'applicazione Web effettiva su più piattaforme (Windows, Linux e MacOS) durante l'hosting con [Servizio app di Azure](../app-service/app-service-web-overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache) e [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index). È inoltre possibile usare il self-hosting in un processo personalizzato.
-
-Se gli obiettivi dell'applicazione includono il supporto delle funzionalità più recenti per l'aggiornamento dei client Web con gli aggiornamenti dei contenuti in tempo reale, l'esecuzione tra più piattaforme (Azure, Windows, Linux e MacOS) e l'hosting in ambienti diversi, la scelta migliore potrebbe essere quella di usare il servizio Azure SignalR.
-
-
-## <a name="why-not-deploy-signalr-myself"></a>Perché non distribuire direttamente SignalR?
-
-È ancora un approccio valido distribuire un'app Web di Azure che supporta ASP.NET Core SignalR come componente di back-end per l'applicazione Web generale.
-
-Uno dei motivi principali per usare il servizio Azure SignalR è la semplicità. Con il servizio Azure SignalR, non è necessario gestire problemi di prestazioni, scalabilità e disponibilità. Questi problemi vengono gestiti automaticamente con un contratto di servizio con disponibilità del 99,9%.
-
-Inoltre, i WebSocket sono in genere la tecnologia preferita per supportare gli aggiornamenti dei contenuti in tempo reale. Tuttavia, il bilanciamento del carico di un numero elevato di connessioni WebSocket permanenti diventa un problema complesso da risolvere in caso di ridimensionamento. Le soluzioni comuni usano il bilanciamento del carico DNS, i servizi di bilanciamento del carico hardware e il bilanciamento del carico software. Il servizio Azure SignalR gestisce questo problema automaticamente.
-
-Un altro motivo potrebbe essere che non è richiesto ospitare effettivamente un'applicazione Web. La logica dell'applicazione Web può sfruttare l'[elaborazione senza server](https://azure.microsoft.com/overview/serverless-computing/). Ad esempio, il codice potrebbe essere solo ospitato ed eseguito su richiesta con trigger di [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/). Questo scenario può risultare complesso perché il codice viene eseguito solo su richiesta e non mantiene lunghe connessioni con i client. Il servizio Azure SignalR può gestire questa situazione dal momento che il servizio gestisce già automaticamente le connessioni.
-
-## <a name="how-does-it-scale"></a>Come avviene il ridimensionamento?
-
-È comune ridimensionare SignalR con SQL Server, il bus di servizio di Azure o Cache Redis. Il servizio Azure SignalR gestisce automaticamente l'approccio di ridimensionamento. Le prestazioni e i costi sono paragonabili a questi approcci senza la complessità di gestione di questi altri servizi. È sufficiente aggiornare il numero di unità per il servizio. Ogni unità di servizio supporta fino a 1000 connessioni client.
-
-## <a name="next-steps"></a>Passaggi successivi
-* [Guida introduttiva: Creare una chat room con Azure SignalR](signalr-quickstart-dotnet-core.md)  
-  
+- **[Ridimensionare un'app ASP.NET Core SignalR](signalr-overview-scale-aspnet-core.md)**: integrare il servizio Azure SignalR in un'applicazione ASP.NET Core SignalR per la scalabilità orizzontale fino a centinaia di migliaia di connessioni.
+- **[Creare app in tempo reale senza server ](signalr-overview-azure-functions.md)**: usare l'integrazione delle Funzioni di Azure con il servizio Azure SignalR per creare applicazioni in tempo reale senza server in linguaggi come JavaScript, C# e Java.
+- **[Inviare messaggi dal server ai client tramite l'API REST](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)**: il servizio Azure SignalR offre l'API REST per consentire alle applicazioni di inviare messaggi ai client connessi con il servizio SignalR, in qualsiasi linguaggio di programmazione che supporta REST.
 

@@ -1,6 +1,6 @@
 ---
-title: Gestire le zone DNS in DNS di Azure - Interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: È possibile gestire le zone DNS usando l'interfaccia della riga di comando Azure 2.0. Questo articolo illustra come aggiornare, eliminare e creare le zone DNS in DNS di Azure.
+title: Gestire le zone DNS in DNS di Azure - Interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: È possibile gestire le zone DNS utilizzando Azure CLI. Questo articolo illustra come aggiornare, eliminare e creare le zone DNS in DNS di Azure.
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,30 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: c81d8add7ae37e03a98da0ad86deaa1d9d7ec8e0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7f132c513354a87b4f1bd37db4c6c6ed8e0fd041
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172620"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949962"
 ---
-# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure 2.0
+# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [di Microsoft Azure](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md)
+> * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
 
 
 Questa guida illustra come gestire le zone DNS usando l'interfaccia della riga di comando di Azure multipiattaforma, disponibile per Windows, Mac e Linux. È anche possibile gestire le zone DNS usando [Azure PowerShell](dns-operations-dnszones.md) o il portale di Azure.
 
-Questa guida è incentrata in particolare sulle zone DNS pubbliche. Per informazioni sull'uso dell'interfaccia della riga di comando di Azure per gestire Zone private di DNS di Azure, vedere [Introduzione alle zone private di Azure DNS con interfaccia della riga di comando di Azure 2.0](private-dns-getstarted-cli.md).
+Questa guida è incentrata in particolare sulle zone DNS pubbliche. Per informazioni sull'uso dell'interfaccia della riga di comando di Azure per gestire Zone private di DNS di Azure, vedere [Introduzione alle zone private di Azure DNS con interfaccia della riga di comando di Azure](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Introduzione
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-## <a name="set-up-azure-cli-20-for-azure-dns"></a>Configurare l'interfaccia della riga di comando di Azure 2.0 per DNS di Azure
+## <a name="set-up-azure-cli-for-azure-dns"></a>Configurare l'interfaccia della riga di comando di Azure per DNS di Azure
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
@@ -44,7 +44,7 @@ Prima di iniziare la configurazione, verificare di essere in possesso degli elem
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
-* Installare la versione più recente dell'interfaccia della riga di comando di Azure 2.0, disponibile per Windows, Linux o Mac. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+* Installare la versione più recente dell'interfaccia della riga di comando di Azure, disponibile per Windows, Linux o Mac. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Accedere con l'account Azure
 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Risorse della Guida
 
-Tutti i comandi dell'interfaccia della riga di comando 2.0 relativi a DNS di Azure iniziano con `az network dns`. Sono disponibili informazioni per ogni comando tramite l'opzione `--help` (forma breve `-h`).  Ad esempio: 
+Tutti i comandi dell'interfaccia della riga di comando di Azure relativi a DNS di Azure iniziano con `az network dns`. Sono disponibili informazioni per ogni comando tramite l'opzione `--help` (forma breve `-h`).  Ad esempio: 
 
 ```azurecli
 az network dns --help

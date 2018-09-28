@@ -6,30 +6,26 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 7/16/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 5e8048dc6b49a0f6c9a465e82a7278e491351034
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 2961f6cc8607ba7ec670b297a1858bf433c3ec89
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574131"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960788"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
 Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo come servizio con disponibilità elevata incorporata e scalabilità del cloud senza restrizioni. 
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
 ![Panoramica del firewall](media/overview/firewall-overview.png)
-
-
 
 È possibile creare, applicare e registrare criteri di connettività di applicazione e di rete in modo centralizzato tra le sottoscrizioni e le reti virtuali. Firewall di Azure usa un indirizzo IP pubblico statico per le risorse della rete virtuale consentendo ai firewall esterni di identificare il traffico proveniente dalla rete virtuale.  Il servizio è completamente integrato con Monitoraggio di Azure per la registrazione e l'analisi.
 
 ## <a name="features"></a>Funzionalità
 
-La versione di anteprima pubblica di Firewall di Azure offre le funzionalità seguenti:
+Il Firewall di Azure offre le funzionalità seguenti:
 
 ### <a name="built-in-high-availability"></a>Disponibilità elevata predefinita
 La disponibilità elevata è integrata, quindi non sono necessari servizi di bilanciamento del carico aggiuntivi e non è necessario eseguire altre configurazioni.
@@ -37,16 +33,25 @@ La disponibilità elevata è integrata, quindi non sono necessari servizi di bil
 ### <a name="unrestricted-cloud-scalability"></a>Scalabilità del cloud senza restrizioni 
 È possibile aumentare le prestazioni di Firewall di Azure a seconda delle esigenze in modo da soddisfare i mutevoli flussi del traffico di rete senza dover stabilire un budget per i periodi di traffico più intenso.
 
-### <a name="fqdn-filtering"></a>Filtro dei nomi di dominio completi 
+### <a name="application-fqdn-filtering-rules"></a>Regole di filtro del nome di dominio completo dell'applicazione
+
 È possibile limitare il traffico HTTP/S in uscita a un elenco specifico di nomi di dominio completo (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione SSL.
 
 ### <a name="network-traffic-filtering-rules"></a>Regole di filtro per il traffico di rete
 
 È possibile creare in modo centralizzato regole di filtro di rete per *consentire* o *negare* il traffico in base all'indirizzo IP di origine e di destinazione, alla porta e al protocollo. Firewall di Azure è un servizio con stato completo, quindi in grado di distinguere i pacchetti validi per diversi tipi di connessioni. Le regole vengono applicate e registrate in più sottoscrizioni e reti virtuali.
 
+### <a name="fqdn-tags"></a>Tag FQDN
+
+I tag FQDN rendono più semplice consentire il traffico di rete noto del servizio di Azure attraverso il firewall. Ad esempio, si supponga di voler consentire il traffico di rete di Windows Update attraverso il firewall. Creare una regola di applicazione e includere il tag di Windows Update. A questo punto il traffico di rete da Windows Update può attraversare il firewall.
+
 ### <a name="outbound-snat-support"></a>Supporto SNAT in uscita
 
 Tutti gli indirizzi IP del traffico di rete virtuale in uscita vengono convertiti nell'indirizzo IP pubblico di Firewall di Azure (Source Network Address Translation). È possibile identificare e consentire il traffico proveniente dalla rete virtuale a destinazioni Internet remote.
+
+### <a name="inbound-dnat-support"></a>Supporto DNAT in ingresso
+
+Il traffico di rete in ingresso all'indirizzo IP pubblico del firewall viene convertito (Destination Network Address Translation) e filtrato per gli indirizzi IP nelle reti virtuali. 
 
 ### <a name="azure-monitor-logging"></a>Registrazione di Monitoraggio di Azure
 
@@ -54,17 +59,16 @@ Tutti gli eventi vengono integrati con Monitoraggio di Azure, che consente di ar
 
 ## <a name="known-issues"></a>Problemi noti
 
-La versione di anteprima pubblica di Firewall di Azure presenta i problemi noti seguenti:
+Il Firewall di Azure presenta i problemi noti seguenti:
 
 
 |Problema  |DESCRIZIONE  |Mitigazione  |
 |---------|---------|---------|
-|Interoperabilità con i gruppi di sicurezza di rete     |Se un gruppo di sicurezza di rete (NSG) viene applicato nella subnet del firewall, può bloccare la connettività Internet in uscita anche se il gruppo di sicurezza di rete è configurato per consentire l'accesso a Internet in uscita. Le connessioni Internet in uscita sono contrassegnate come provenienti da una rete virtuale e la destinazione è Internet. Un gruppo di sicurezza di rete ha per impostazione predefinita una regola di *autorizzazione* per consentire il traffico dalla rete virtuale alla rete virtuale, ma non quando la destinazione è Internet.|Per attenuare il problema, aggiungere la regola in ingresso seguente al gruppo di sicurezza di rete da applicare alla subnet del firewall:<br><br>Origine: Rete virtuale Porte di origine: Qualsiasi <br><br>Destinazione: Qualsiasi destinazione Porte: Qualsiasi <br><br>Protocollo: Tutti Accesso: Consenti|
 |Conflitto con la funzionalità JIT (Just-in-Time) del Centro sicurezza di Azure|Se per accedere a una macchina virtuale che si trova in una subnet con una route definita dall'utente che punta a Firewall di Azure come gateway predefinito viene usata la funzionalità JIT del Centro sicurezza di Azure, questa non funziona. Ciò è dovuto al routing asimmetrico, ovvero un pacchetto viene ricevuto tramite l'indirizzo IP della macchina virtuale (accesso aperto da JIT), ma il percorso di ritorno è tramite il firewall, che elimina il pacchetto perché nel firewall non è stata stabilita alcuna sessione.|Per risolvere questo problema, posizionare le macchine virtuali JIT in una subnet separata che non contenga una route definita dall'utente al firewall.|
 |Il peering globale con hub e spoke non funziona|Il modello hub e spoke, in cui l'hub e il firewall vengono distribuiti in un'unica area di Azure con gli spoke in un'altra area di Azure connessi all'hub tramite il peering reti virtuali globale, non è supportato.|Per altre informazioni, vedere [Creare, modificare o eliminare un peering reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
-Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.
-
-
+Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.|
+|Destination NAT (DNAT) non funziona per la porta 80 e 22.|Il campo Porta di destinazione nella raccolta di regole NAT non può includere la porta 80 o la porta 22.|Stiamo lavorando per risolvere questo problema nel prossimo futuro. Nel frattempo, è possibile usare qualsiasi altra porta come porta di destinazione nelle regole NAT. La porta 80 o 22 è ancora utilizzabile come porta convertita (ad esempio, è possibile mappare ip:81 pubblica a ip:80 privata).|
+|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

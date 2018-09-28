@@ -1,6 +1,6 @@
 ---
-title: Esempi dell'interfaccia della riga di comando di Azure 2.0 - Abilitare la scalabilità automatica basata su host | Microsoft Docs
-description: Esempi dell'interfaccia della riga di comando di Azure 2.0
+title: Esempi dell'interfaccia della riga di comando di Azure - Abilitare la scalabilità automatica basata su host | Microsoft Docs
+description: Esempi dell'interfaccia della riga di comando di Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2f41ca6f85e28f57d6606d85c3a1d58ee390148c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f146f673127d4495c2a2a392e26c1f51cd82a188
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652140"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951271"
 ---
-# <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Scalare automaticamente un set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0
+# <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Scalare automaticamente un set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure
 Questo script crea un set di scalabilità di macchine virtuali che esegue Ubuntu e usa metriche basate su host per la scalabilità automatica in base alle variazioni del carico CPU.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -51,6 +51,6 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, il set di 
 | [az group delete](/cli/azure/ad/group#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'interfaccia della riga di comando di Azure 2.0, vedere la [documentazione dell'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/overview).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Altri esempi di script dell'interfaccia della riga di comando di Azure 2.0 per i set di scalabilità di macchine virtuali sono disponibili nella [documentazione dei set di scalabilità di macchine virtuali di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando di Azure per i set di scalabilità di macchine virtuali sono disponibili nella [documentazione dei set di scalabilità di macchine virtuali di Azure](../cli-samples.md).

@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1091b9d252f32086c237e7c62f11c166eb558a6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 33ffb9d1685f3d76e884ae0d90545f659b5ec87c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345158"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953349"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Come trovare immagini di macchine virtuali Linux in Azure Marketplace con l'interfaccia della riga di comando di Azure
-Questo argomento descrive come usare l'interfaccia della riga di comando di Azure 2.0 per trovare immagini di VM (Virtual Machine, macchina virtuale) in Azure Marketplace. Usare queste informazioni per specificare un'immagine del Marketplace quando si crea una macchina virtuale a livello di codice mediante l'interfaccia della riga di comando, modelli di Resource Manager o altri strumenti.
+Questo argomento descrive come usare l'interfaccia della riga di comando di Azure per trovare immagini di macchine virtuali in Azure Marketplace. Usare queste informazioni per specificare un'immagine del Marketplace quando si crea una macchina virtuale a livello di codice mediante l'interfaccia della riga di comando, modelli di Resource Manager o altri strumenti.
 
 Sfogliare poi le immagini e le offerte disponibili usando la vetrina di [Azure Marketplace](https://azuremarketplace.microsoft.com/), il [portale di Azure](https://portal.azure.com) o [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
-Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di avere effettuato l'accesso a un account di Azure (`az login`).
+Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e di avere effettuato l'accesso a un account di Azure (`az login`).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -99,7 +99,7 @@ Applicare filtri simili con le opzioni `--location`, `--publisher` e `--sku`. È
 
 Se non si indica una posizione specifica con l'opzione `--location`, vengono restituiti i valori relativi alla posizione predefinita. Per impostare un percorso predefinito diverso eseguire `az configure --defaults location=<location>`.
 
-Ad esempio, il comando seguente elenca tutti gli SKU di Debian 8 nella posizione Europa occidentale:
+Ad esempio, il comando seguente elenca tutte le SKU di Debian 8 nella posizione Europa occidentale:
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -133,7 +133,7 @@ Un altro modo per trovare un'immagine in una posizione è l'esecuzione in sequen
 2. Elencando le offerte di un determinato editore.
 3. Elencando le SKU di una determinata offerta.
 
-Quindi, è possibile scegliere una versione da distribuire per uno SKU selezionato.
+Quindi, è possibile scegliere una versione da distribuire per una SKU selezionata.
 
 Ad esempio, il comando seguente elenca i server di pubblicazione di immagini nella posizione Stati Uniti occidentali (westus):
 

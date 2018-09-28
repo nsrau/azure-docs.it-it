@@ -1,6 +1,6 @@
 ---
-title: Importare ed esportare un file di zona del dominio in DNS di Azure usando l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Informazioni su come importare ed esportare un file di zona DNS in DNS di Azure usando l'interfaccia della riga di comando di Azure 2.0
+title: Importare ed esportare un file di zona del dominio in DNS di Azure usando l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come importare ed esportare un file di zona DNS in DNS di Azure con l'interfaccia della riga di comando di Azure
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 7578d078b147b5c4bf42f5343d3fdfdf6f0bc42e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171606"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956354"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure 2.0 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure 
 
-Questo articolo spiega come importare ed esportare file di zona DNS per DNS di Azure usando l'interfaccia della riga di comando di Azure 2.0.
+Questo articolo spiega come importare ed esportare file di zona DNS per DNS di Azure usando l'interfaccia della riga di comando di Azure.
 
 ## <a name="introduction-to-dns-zone-migration"></a>Introduzione alla migrazione di zone DNS
 
@@ -30,7 +30,7 @@ Un file di zona DNS è un file di testo che contiene i dettagli di tutti i recor
 
 DNS di Azure supporta l'importazione e l'esportazione di file di zona tramite l'interfaccia della riga di comando di Azure. L'importazione di file di zona **non** è attualmente supportata tramite Azure PowerShell o il portale di Azure.
 
-L'interfaccia della riga di comando di Azure 2.0 è uno strumento a riga di comando multipiattaforma usato per la gestione di servizi di Azure. È disponibile per le piattaforme Windows, Mac e Linux nella [pagina di download di Azure](https://azure.microsoft.com/downloads/). Il supporto multipiattaforma è importante per importare ed esportare i file di zona, perché il software server più conosciuto, [BIND](https://www.isc.org/downloads/bind/), viene generalmente eseguito in Linux.
+L'interfaccia della riga di comando di Azure è uno strumento da riga di comando multipiattaforma usato per la gestione dei servizi di Azure. È disponibile per le piattaforme Windows, Mac e Linux nella [pagina di download di Azure](https://azure.microsoft.com/downloads/). Il supporto multipiattaforma è importante per importare ed esportare i file di zona, perché il software server più conosciuto, [BIND](https://www.isc.org/downloads/bind/), viene generalmente eseguito in Linux.
 
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Recupero del file di zona DNS esistente

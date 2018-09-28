@@ -1,31 +1,31 @@
 ---
-title: Domande frequenti su Gestione costi di Azure | Microsoft Docs
-description: Risposte ad alcune domande comuni su Gestione costi di Azure.
+title: Domande frequenti su Cloudyn in Azure | Microsoft Docs
+description: Risposte ad alcune domande comuni su Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/20/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 255056390cdbdbee49eba47f8168618929b386c8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 2126875a18d4a6581629ea1c8362236242a666a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187258"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961026"
 ---
-# <a name="frequently-asked-questions-for-azure-cost-management"></a>Domande frequenti su Gestione costi di Azure
+# <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
 
-Questo articolo affronta alcune domande comuni su Gestione costi di Azure (chiamata anche Cloudyn). Eventuali domande su Gestione costi possono essere formulate nel forum [FAQs for Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn) (Domande frequenti su Gestione costi di Azure).
+Questo articolo affronta alcune domande comuni su Cloudyn. Eventuali domande su Cloudyn possono essere formulate nel forum [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn) (Domande frequenti su Cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Come è possibile risolvere i problemi di configurazione indiretta dell'organizzazione?
 
 Quando si usa per la prima volta il portale di Cloudyn, vengono visualizzati i messaggi seguenti se si ha un contratto Enterprise o Provider di soluzioni cloud (CSP):
 
-- "The specified API key is not a top level enrollment key" (La chiave API specificata non è una chiave di registrazione principale), nella procedura guidata di **configurazione di Gestione costi di Azure**.
+- "The specified API key is not a top level enrollment key" (La chiave API specificata non è una chiave di registrazione principale), nella procedura guidata **Set Up Cloudyn** (Configurazione di Cloudyn).
 - "Direct Enrollment – No" (Registrazione diretta - No), nel portale per i contratti Enterprise.
 - "No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account" (Non sono stati trovati dati di utilizzo per gli ultimi 30 giorni. Contattare il distributore per verificare che per l'account Azure sia stato abilitato il markup), nel portale di Cloudyn.
 
@@ -35,9 +35,9 @@ Ecco come risolvere i problemi:
 
 1. Il rivenditore deve abilitare il _markup_ per l'account. Per le istruzioni, vedere la [guida introduttiva per i clienti indiretti](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
-2. Generare la chiave del contratto Enterprise di Azure da usare con Cloudyn. Per le istruzioni, vedere [Adding Your Azure EA](https://support.cloudyn.com/hc/en-us/articles/210429585-Adding-Your-AZURE-EA) (Aggiunta del contratto Enterprise di Azure) o [How to Find Your EA Enrollment ID and API Key](https://youtu.be/u_phLs_udig) (Come trovare l'ID registrazione e la chiave API del contratto Enterprise).
+2. Generare la chiave del contratto Enterprise di Azure da usare con Cloudyn. Per le istruzioni, vedere [Adding Your Azure EA](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) (Aggiunta del contratto Enterprise di Azure) o [How to Find Your EA Enrollment ID and API Key](https://youtu.be/u_phLs_udig) (Come trovare l'ID registrazione e la chiave API del contratto Enterprise).
 
-Gestione costi può essere abilitato solo da un amministratore del servizio Azure. Le autorizzazioni di coamministratore non sono sufficienti.
+Cloudyn può essere abilitato solo da un amministratore del servizio Azure. Le autorizzazioni di coamministratore non sono sufficienti.
 
 Per poter generare la chiave API del contratto Enterprise di Azure per la configurazione di Cloudyn, abilitare prima di tutto l'API di fatturazione di Azure seguendo queste istruzioni:
 
@@ -74,7 +74,7 @@ Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le racc
 
 Di seguito sono elencati gli scenari più comuni in cui gli account utente diventano *initiallySuspended*.
 
-> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o di Enterprise Agreement. La sua organizzazione è pronta per iniziare a usare Gestione costi.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Essendo la persona che registra il servizio Gestione costi e accede al portale di Cloudyn, diventa l'*amministratore primario*. Admin1 non crea account utente. ma, usando il portale di Cloudyn, crea account Azure e configura una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che deve eseguire la registrazione con Gestione costi e accedere al portale di Cloudyn.
+> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o di Enterprise Agreement. La sua organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Essendo la persona che registra il servizio Cloudyn e accede al portale di Cloudyn, diventa l'*amministratore primario*. Admin1 non crea account utente. ma, usando il portale di Cloudyn, crea account Azure e configura una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che deve eseguire la registrazione con Cloudyn e accedere al portale di Cloudyn.
 
 > Admin2 esegue la registrazione tramite il portale di Azure, ma, quando prova ad accedere al portale di Cloudyn, viene visualizzato un errore indicante che il suo account è **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
 
@@ -94,13 +94,13 @@ La modifica dell'indirizzo di posta elettronica in Cloudyn rispetto all'indirizz
 
 È consigliabile creare almeno due account amministratore di Cloudyn nel caso in cui uno venga bloccato.
 
-Se non si riesce ad accedere al portale di Cloudyn, verificare di usare l'URL di Gestione costi di Azure corretto per l'accesso a Cloudyn. Usare [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Se non si riesce ad accedere al portale di Cloudyn, verificare di usare l'URL corretto per l'accesso a Cloudyn. Usare [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Evitare di usare l'URL diretto di Cloudyn https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Come si attivano account non attivati con le credenziali di Azure?
 
-Non appena Cloudyn individua account Azure, i dati sui costi vengono immediatamente resi disponibili in report basati sui costi. Affinché Cloudyn fornisca dati di utilizzo e sulle prestazioni, tuttavia, è necessario registrare le credenziali di Azure per gli account. Per le istruzioni, vedere [Add Azure Resource Manager](https://support.cloudyn.com/hc/en-us/articles/212784085-Adding-Azure-Resource-Manager) (Aggiungere Azure Resource Manager).
+Non appena Cloudyn individua account Azure, i dati sui costi vengono immediatamente resi disponibili in report basati sui costi. Affinché Cloudyn fornisca dati di utilizzo e sulle prestazioni, tuttavia, è necessario registrare le credenziali di Azure per gli account. Per le istruzioni, vedere [Add Azure Resource Manager](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager) (Aggiungere Azure Resource Manager).
 
 Per aggiungere le credenziali di Azure per un account, nel portale di Cloudyn selezionare il simbolo di modifica a destra del nome dell'account, non della sottoscrizione.
 
@@ -110,8 +110,8 @@ Finché le credenziali di Azure non vengono aggiunte a Cloudyn, l'account risult
 
 Le entità aggiuntive vengono usate per includere altri contratti Enterprise in una sottoscrizione di Cloudyn. Per una descrizione dell'aggiunta di altre entità, vedere i link seguenti:
 
-- Articolo [Adding an Entity](https://support.cloudyn.com/hc/en-us/articles/212016145-Adding-an-Entity) (Aggiunta di un'entità)
-- Video [Defining your hierarchy with Cost Entities](https://support.cloudyn.com/hc/en-us/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) (Definizione della gerarchia con entità di costo)
+- Articolo [Adding an Entity](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity) (Aggiunta di un'entità)
+- Video [Defining your hierarchy with Cost Entities](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) (Definizione della gerarchia con entità di costo)
 
 Per CSP:
 
@@ -141,7 +141,7 @@ Se si verifica un ritardo nell'invio dei dati da Azure a Cloudyn, i dati vengono
 
 ## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Fluttuazioni dei costi nei report di costo Cloudyn
 
-I report di costo mostrano le fluttuazioni dei costi, ogni volta che i provider di servizi cloud inviano i file aggiornati di fatturazione. Le fluttuazioni dei costi si verificano quando i nuovi file vengono ricevuti da un provider di servizi cloud esterno alla consueta pianificazione dei report giornaliera o mensile. Le modifiche dei costi non dipendono dal ricalcolo di Cloudyn. 
+I report di costo mostrano le fluttuazioni dei costi, ogni volta che i provider di servizi cloud inviano i file aggiornati di fatturazione. Le fluttuazioni dei costi si verificano quando i nuovi file vengono ricevuti da un provider di servizi cloud esterno alla consueta pianificazione dei report giornaliera o mensile. Le modifiche dei costi non dipendono dal ricalcolo di Cloudyn.
 
 Nel corso del mese, tutti i file di fatturazione inviati dal provider di servizi cloud sono una stima dei costi giornalieri. In alcuni casi, i dati vengono aggiornati di frequente; occasionalmente, più volte al giorno. Gli aggiornamenti sono più frequenti con AWS rispetto ad Azure. I costi totali dovrebbero rimanere stabili quando il calcolo della fatturazione per il mese precedente è stato completato e si riceve il file di fatturazione finale. In genere, entro il 10 del mese.
 
@@ -155,7 +155,7 @@ Per le istruzioni, vedere [Configurare l'accesso CSP indiretto in Cloudyn](quick
 
 Dopo aver aggiunto l'accesso di Azure Resource Manager e aver raccolto i dati, viene visualizzata l'opzione **Optimizer** (Ottimizzatore). Per attivare l'accesso da Azure Resource Manager, vedere [Come si attivano account non attivati con le credenziali di Azure?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
 
-## <a name="is-cost-managementcloudyn-agent-based"></a>Si basa sull'agente di Gestione costi di Azure/Cloudyn?
+## <a name="is-cloudyn-agent-based"></a>Si basa sull'agente di Cloudyn?
 
 No. Gli agenti non vengono usati. I dati di metrica della macchina virtuale di Azure per le macchine virtuali vengono raccolti dall'API di Microsoft Insights. Se si desidera raccogliere dati di metrica da macchine virtuali di Azure, queste dovranno avere abilitate le impostazioni di diagnostica.
 

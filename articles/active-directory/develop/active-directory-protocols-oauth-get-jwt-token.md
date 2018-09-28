@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: eb26101229ad60abae7a8a84f8dfa496488e84ba
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579004"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981798"
 ---
 # <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>Richiedere un token di accesso usando OAuth 2.0 per accedere alle API e alle applicazioni Web protette da Azure Active Directory
 
@@ -75,12 +75,12 @@ Una risposta del token corretta conterrà un token JWT e avrà un aspetto simile
 ```
 | Parametro     | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| access_token  | Token di accesso richiesto. L'app può usare questo token per l'autenticazione alla risorsa protetta, ad esempio un'API Web.                                                                                                                                                                                                                                                                                                                                    |
+| access_token  | [Token di accesso](access-tokens.md) richiesto. L'app può usare questo token per l'autenticazione alla risorsa protetta, ad esempio un'API Web.                                                                                                                                                                                                                                                                                                                                    |
 | token_type    | Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è 'Bearer'.                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | Validità del token di accesso (espressa in secondi).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | Ambiti per i quali il token di accesso è valido.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | Token di aggiornamento di OAuth 2.0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente. I token di aggiornamento hanno una durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. Per informazioni dettagliate, consultare l'argomento [Anteprima Azure AD B2C: Riferimento al Token](v2-id-and-access-tokens.md). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `offline_access`.                                               |
-| id_token      | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sui token ID, vedere le [informazioni di riferimento sui token dell'endpoint v2.0](v2-id-and-access-tokens.md). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `openid`. |
+| refresh_token | Token di aggiornamento di OAuth 2.0. L'app può usare questo token per acquisire token di accesso aggiuntivi dopo la scadenza del token di accesso corrente. I token di aggiornamento hanno una durata elevata e possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. Per altre informazioni, vedere le [informazioni di riferimento sulla concessione del codice v2.0](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `offline_access`.                                               |
+| id_token      | Token JWT (Token Web JSON) non firmato. L'app può decodificare i segmenti di questo token per richiedere informazioni sull'utente che ha eseguito l'accesso. L'app può memorizzare nella cache i valori e visualizzarli, ma non deve basarsi su di essi per eventuali autorizzazioni o limiti di sicurezza. Per altre informazioni sugli oggetti id_token, vedere [`id_token reference`](id-tokens.md). <br> **Nota:** viene fornito solo è stato richiesto l'ambito `openid`. |
 
 
 

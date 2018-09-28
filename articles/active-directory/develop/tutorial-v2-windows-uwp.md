@@ -16,14 +16,18 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 48d03b590d718cf82d692dc177a69f6d54de43d1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495915"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966385"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
+
+
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Questa guida illustra come un'applicazione nativa della piattaforma UWP (Universal Windows) può richiedere un token di accesso e quindi chiamare l'API Microsoft Graph. La guida si applica anche ad altre API che richiedono i token di accesso dall'endpoint di Azure Active Directory v2.
 
@@ -71,11 +75,14 @@ L'applicazione creata in questa guida consente di visualizzare un pulsante per e
 2. Nella finestra **Console di Gestione pacchetti** copiare e incollare il comando seguente:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > Questo comando installa [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquisisce, memorizza nella cache e aggiorna i token utente che accedono alle API protette da Azure Active Directory v2.
+
+> [!NOTE]
+> Questa esercitazione non usa ancora la versione più recente di MSAL.NET, ma è in corso l'aggiornamento.
 
 ## <a name="initialize-msal"></a>Inizializzare MSAL
 Questo passaggio consente di creare una classe per gestire l'interazione con la libreria MSAL, ad esempio per la gestione dei token.

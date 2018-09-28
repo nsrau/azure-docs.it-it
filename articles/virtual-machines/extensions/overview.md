@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c54bcc1239c2d8b8a88d5e30b06f8856b73b47ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412601"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960686"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Estensioni e funzionalità delle macchine virtuali di Azure
 Le estensioni macchina virtuale (VM) di Azure sono piccole applicazioni che consentono di eseguire attività di configurazione e automazione post-distribuzione nelle VM di Azure. È possibile usare le immagini esistenti e quindi personalizzarle durante le distribuzioni, evitando così di dover compilare immagini personalizzate.
@@ -41,7 +41,7 @@ Le estensioni possono essere aggregate con una nuova distribuzione di VM. Posson
 È possibile visualizzare le estensioni disponibili nella sezione delle estensioni nel pannello della VM nel portale. Queste sono solo una piccola parte. Per l'elenco completo, è possibile usare gli strumenti dell'interfaccia della riga di comando. Vedere [Discovering VM Extensions for Linux](features-linux.md) (Individuazione delle estensioni VM per Linux) e [Discovering VM Extensions for Windows](features-windows.md) (Individuazione delle estensioni VM per Windows).
 
 ## <a name="how-can-i-install-an-extension"></a>Come installare un'estensione
-Le estensioni macchina virtuale di Azure possono essere gestite con l'interfaccia della riga di comando di Azure 2.0, Azure PowerShell, i modelli di Azure Resource Manager e il portale di Azure. Per provare un'estensione, è possibile andare al portale di Azure, selezionare l'estensione di script personalizzati, quindi passare un comando/script ed eseguire le estensioni.
+Le estensioni di macchina virtuale di Azure possono essere gestite con l'interfaccia della riga di comando di Azure, Azure PowerShell, i modelli di Azure Resource Manager e il portale di Azure. Per provare un'estensione, è possibile andare al portale di Azure, selezionare l'estensione di script personalizzati, quindi passare un comando/script ed eseguire le estensioni.
 
 Per usare la stessa estensione aggiunta nel portale con l'interfaccia della riga di comando o il modello di Resource Manager, vedere la documentazione relativa alle altre estensioni, ad esempio [Estensione di script personalizzati Windows](custom-script-windows.md) e [Estensione di script personalizzati Linux](custom-script-linux.md).
 

@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: ca9d03cb14e79b23ccc2021e0a31650eb9bbd95b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171239"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954382"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Come gestire le zone DNS nel portale di Azure
 
 > [!div class="op_single_selector"]
 > * [di Microsoft Azure](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Interfaccia della riga di comando di Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
-> * [Interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md)
+> * [Interfaccia della riga di comando classica di Azure](dns-operations-dnszones-cli-nodejs.md)
+> * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
 
 Questo articolo spiega come gestire le zone DNS usando il portale di Azure. È anche possibile gestire le zone DNS usando l'[interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md) multipiattaforma o Azure [PowerShell](dns-operations-dnszones.md).
 

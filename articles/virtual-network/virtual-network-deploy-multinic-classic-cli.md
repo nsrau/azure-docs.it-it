@@ -1,6 +1,6 @@
 ---
-title: Creare una VM (classica) con più schede di interfaccia di rete - interfaccia della riga di comando 1.0 di Azure| Documentazione Microsoft
-description: Informazioni su come creare una VM (classica) con più schede di interfaccia di rete usando l'interfaccia della riga di comando 1.0 di Azure.
+title: Creare una macchina virtuale (classica) con più schede di interfaccia di rete - Interfaccia della riga di comando classica di Azure | Microsoft Docs
+description: Informazioni su come creare una macchina virtuale (classica) con più schede di interfaccia di rete tramite l'interfaccia della riga di comando classica di Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b56ab474ff23748487c50bd34487c80242c6429
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651987"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953369"
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Creare una VM (classica) con più schede di interfaccia di rete usando l'interfaccia della riga di comando 1.0 di Azure
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Creare una macchina virtuale (classica) con più schede di interfaccia di rete tramite l'interfaccia della riga di comando classica di Azure
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "38651987"
 
 La procedura seguente usa un gruppo di risorse denominato *IaaSStory* per i server Web e un gruppo di risorse denominato *IaaSStory-BackEnd* per i server di database.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di creare i server di database, è necessario creare il gruppo di risorse *IaaSStory* con tutte le risorse richieste per questo scenario. Per creare le risorse, seguire questa procedura. Creare una rete virtuale seguendo la procedura riportata nell'articolo [Creare una rete virtuale](virtual-networks-create-vnet-classic-cli.md).
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]

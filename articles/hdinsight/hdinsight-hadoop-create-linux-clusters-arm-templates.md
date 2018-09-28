@@ -3,18 +3,18 @@ title: Creare cluster Hadoop mediante modelli - Azure Microsoft Azure HDInsight
 description: Informazioni su come creare cluster per HDInsight usando modelli di Resource Manager
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: aea620fcbce4906646c9a52ab042a86c421e32bf
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600672"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961315"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creare cluster Hadoop in HDInsight mediante modelli di Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +27,7 @@ In questo articolo vengono illustrati diversi modi per creare cluster di Azure H
 Per seguire le istruzioni di questo articolo sono necessari:
 
 * Una [sottoscrizione di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell e/o l'interfaccia della riga di comando di Azure.
+* Azure PowerShell e/o l'interfaccia della riga di comando classica di Azure.
 
 ### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 Un modello di Gestione risorse consente di creare facilmente le risorse seguenti per l'applicazione in un'unica operazione coordinata:
@@ -49,7 +49,7 @@ Gestione risorse consente di esportare un modello di Gestione risorse dalle riso
 
 - Portale di Azure: vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: vedere [Esportare modelli di Azure Resource Manager con PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Interfaccia della riga di comando di Azure: vedere [Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Interfaccia della riga di comando classica di Azure: vedere [Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando classica di Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Distribuire tramite il portale
@@ -60,9 +60,9 @@ Gestione risorse consente di esportare un modello di Gestione risorse dalle riso
 
 È possibile distribuire un modello di Gestione risorse tramite Azure PowerShell. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
-## <a name="deploy-using-cli"></a>Distribuire tramite l'interfaccia della riga di comando
+## <a name="deploy-using-azure-cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
 
-È possibile distribuire un modello di Gestione risorse tramite l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-manager-cli-sas-token.md).
+È possibile distribuire un modello di Gestione risorse tramite l'interfaccia della riga di comando classica. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>Distribuire tramite l'API REST
 È possibile distribuire un modello di Gestione risorse tramite l'API REST. Per altre informazioni, vedere [Distribuire le risorse con i modelli e l'API REST di Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md).

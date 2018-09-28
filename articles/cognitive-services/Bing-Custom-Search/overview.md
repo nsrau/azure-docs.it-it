@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7cd61fc63d0d7734b842ed222c67c6753da9a418
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374737"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948078"
 ---
 # <a name="what-is-bing-custom-search"></a>Informazioni su Ricerca personalizzata Bing
 
@@ -30,18 +30,34 @@ La figura seguente mostra la semplicità di integrazione della ricerca personali
 
 ![alt immagine](./media/bcs-overview.png "Come funziona Ricerca personalizzata Bing.")
 
-## <a name="customize-search-suggestions"></a>Personalizzare i suggerimenti di ricerca
+## <a name="adding-custom-search-box-suggestions"></a>Aggiunta di suggerimenti personalizzati della casella di ricerca
 
-Se si è sottoscritto il livello appropriato di Ricerca personalizzata (vedere le [pagine sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), è possibile personalizzare i suggerimenti di ricerca visualizzati durante l'uso di Ricerca personalizzata. L'API Suggerimenti automatici personalizzati restituisce un elenco di query suggerite in base a una stringa di query parziale fornita dall'utente. Suggerimenti automatici personalizzati consente di fornire suggerimenti di ricerca personalizzati, pertinenti all'esperienza di ricerca dell'utente. È possibile specificare se restituire solo i suggerimenti personalizzati o includere i suggerimenti di Bing. Se vengono inclusi suggerimenti Bing, i suggerimenti personalizzati vengono visualizzati prima dei suggerimenti forniti da Bing. I suggerimenti di Bing sono limitati al contesto dell'istanza di Ricerca personalizzata.
+È possibile arricchire la propria esperienza di ricerca con i suggerimenti personalizzati della casella di ricerca. Questa funzionalità consente di offrire suggerimenti di ricerca personalizzati pertinenti all'esperienza di ricerca dell'utente. Man mano che l'utente digita nella casella di ricerca, nell'elenco a discesa vengono suggerite stringhe di query in base alla stringa di query parziale dell'utente. È possibile specificare se restituire solo i suggerimenti personalizzati o se includere anche i suggerimenti di Bing. [Altre informazioni](define-custom-suggestions.md).
+
+## <a name="adding-custom-image-search-experience"></a>Aggiunta dell'esperienza di ricerca di immagini personalizzata
+
+È possibile arricchire la propria esperienza di ricerca con le immagini. Come per i risultati Web, la ricerca personalizzata supporta la ricerca di immagini nell'elenco di siti Web dell'istanza. [Altre informazioni](get-images-from-instance.md).
+
+## <a name="adding-custom-video-search-experience"></a>Aggiunta dell'esperienza di ricerca di video personalizzata
+
+È possibile arricchire la propria esperienza di ricerca con i video. Come per i risultati Web, la ricerca personalizzata supporta la ricerca di video nell'elenco di siti Web dell'istanza. [Altre informazioni](get-videos-from-instance.md).
+
+## <a name="sharing-your-custom-search-instance-with-others"></a>Condivisione dell'istanza di ricerca personalizzata con altri utenti
+
+È possibile condividere l'istanza con i membri del team per eseguire con facilità la modifica e il test dell'istanza stessa in modo collaborativo. [Altre informazioni](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per iniziare rapidamente, vedere [Create your first Bing Custom Search instance](quick-start.md) (Creare la prima istanza di Ricerca personalizzata Bing).
 
-Per informazioni dettagliate sulle opzioni disponibili per personalizzare l'istanza di ricerca, vedere [Define a custom search instance](define-your-custom-view.md) (Definire un'istanza di Ricerca personalizzata).
+Per informazioni dettagliate sulla personalizzazione dell'istanza di ricerca, vedere [Definire un'istanza di ricerca personalizzata](define-your-custom-view.md).
 
-Acquisire familiarità con le informazioni di riferimento sull'[API Ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference). La documentazione di riferimento contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i risultati della ricerca. Include anche le definizioni degli oggetti della risposta.
+È consigliabile acquisire familiarità con il contenuto di riferimento per ognuno degli endpoint di ricerca personalizzata. La documentazione di riferimento contiene gli endpoint, le intestazioni e i parametri di query da usare per richiedere risultati della ricerca. Include anche le definizioni degli oggetti della risposta.
 
-Per informazioni su come personalizzare i suggerimenti, vedere [Define custom search suggestions](define-custom-suggestions.md) (Definire suggerimenti di ricerca personalizzati).
+- [API Ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [API Ricerca personalizzata immagini](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [API Ricerca personalizzata video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [API Suggerimenti automatici personalizzati](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+
 
 Per non violare nessuna delle regole relative all'uso dei risultati della ricerca, vedere [Bing Use and Display Requirements](./use-and-display-requirements.md) (Requisiti per l'uso e la visualizzazione di Bing).

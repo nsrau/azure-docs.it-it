@@ -1,5 +1,5 @@
 ---
-title: Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory | Microsoft Docs
+title: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory | Microsoft Docs
 description: Informazioni su come personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2405f1a8ab5ef03e5ed2992b7a089571077ce59b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348515"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956970"
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure AD
+
 Oggi Azure Active Directory supporta l'accesso single sign on con la maggior parte delle applicazioni aziendali comprese le applicazioni pre-integrate nella raccolta di app di Azure AD e le applicazioni personalizzate. Quando un utente esegue l'autenticazione in un'applicazione con Azure AD usando il protocollo SAML 2.0, Azure AD invia un token all'applicazione (via HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente denominate "attestazioni".
 
 Per quanto riguarda le identità, un'"attestazione" è un insieme di informazioni relative ad un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. Nel [token SAML](http://en.wikipedia.org/wiki/SAML_2.0) questi dati sono in genere contenuti nell'istruzione degli attributi SAML. L'ID univoco dell'utente viene in genere rappresentato nel soggetto SAML definito anche identificatore del nome.
@@ -73,7 +74,7 @@ Se ad esempio è necessario inviare il reparto dell'organizzazione cui appartien
 > Se per un determinato utente non è stato archiviato alcun valore per un attributo selezionato, l'attestazione non verrà rilasciata nel token.
 
 > [!TIP]
-> **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** sono supportati solo se si esegue la sincronizzazione dei dati utente da Active Directory in locale usando lo [strumento Azure AD Connect](../active-directory-aadconnect.md).
+> **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** sono supportati solo se si esegue la sincronizzazione dei dati utente da Active Directory in locale usando lo [strumento Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="restricted-claims"></a>Attestazioni con restrizioni
 
@@ -129,7 +130,7 @@ Esistono alcune attestazioni con restrizioni in SAML. Se si aggiungono queste at
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
+* [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](howto-v1-debug-saml-sso-issues.md)
 

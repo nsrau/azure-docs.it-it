@@ -9,34 +9,34 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 03d622e3c7a3315238f2bceedae529bbe06af299
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35378503"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951815"
 ---
 # <a name="call-bing-custom-search-endpoint-java"></a>Chiamare l'endpoint di Ricerca personalizzata Bing (Java)
 
 Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'istanza di ricerca personalizzata usando Java per chiamare l'endpoint di Ricerca personalizzata Bing. 
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
-- Un'istanza di ricerca personalizzata. Vedere [Create your first Bing Custom Search instance](quick-start.md) (Creare la prima istanza di Ricerca personalizzata Bing).
 
+- Un'istanza di Ricerca personalizzata pronta per l'uso. Vedere [Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md).
 - [Java](https://www.java.com) installato.
-
-- Un [account dell'API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **API di ricerca Bing**. La [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) è sufficiente per questa guida introduttiva. È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+- Una chiave di sottoscrizione. È possibile ottenere una chiave di sottoscrizione quando si attiva la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure (vedere [Account delle API di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
-Per chiamare l'endpoint di Ricerca personalizzata Bing, eseguire queste operazioni:
+Per eseguire l'esempio, seguire questa procedura:
 
-1. Usando l'ambiente IDE Java desiderato, creare un pacchetto.
-2. Creare il file CustomSrchJava.java e copiare il codice seguente nel file.
-3. Sostituire **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** con la chiave e l'ID configurazione.
-
-    ``` Java
+1. Usando l'ambiente IDE Java desiderato, creare un pacchetto.  
+  
+2. Creare un file denominato CustomSrchJava.java nel pacchetto e copiare il codice seguente al suo interno. Sostituire **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** con la chiave di sottoscrizione e l'ID di configurazione.  
+  
+    ```java
     import java.io.InputStream;
     import java.net.URL;
     import java.net.URLEncoder;
@@ -58,9 +58,9 @@ Per chiamare l'endpoint di Ricerca personalizzata Bing, eseguire queste operazio
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
         static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
     
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
+        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
     
-        public static SearchResults SearchImages (String searchQuery) throws Exception {
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
             URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -96,15 +96,15 @@ Per chiamare l'endpoint di Ricerca personalizzata Bing, eseguire queste operazio
     
         public static void main (String[] args) {
             if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Bing Search API subscription key!");
+                System.out.println("Invalid Custom Search subscription key!");
                 System.out.println("Please paste yours into the source code.");
                 System.exit(1);
             }
     
             try {
-                System.out.println("Searching the Web for: " + searchTerm);
+                System.out.println("Searching your slice of the Web for: " + searchTerm);
     
-                SearchResults result = SearchImages(searchTerm);
+                SearchResults result = SearchWeb(searchTerm);
     
                 System.out.println("\nRelevant HTTP Headers:\n");
                 for (String header : result.relevantHeaders.keySet())
@@ -130,8 +130,8 @@ Per chiamare l'endpoint di Ricerca personalizzata Bing, eseguire queste operazio
         }
     
     }
-    
-    ```
+    ```  
+  
 4. Eseguire il programma.
     
 ## <a name="next-steps"></a>Passaggi successivi

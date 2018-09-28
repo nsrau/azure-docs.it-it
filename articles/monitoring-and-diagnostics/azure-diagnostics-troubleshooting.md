@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6ea68bce81094f4745616e32c7434d6c833a45ee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263847"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952580"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](azure-diagnostics.md).
@@ -53,7 +53,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mancata visualizzazione dei dati relativi alle metriche nel portale di Azure
-Diagnostica di Azure offre dati relativi alle metriche che possono essere visualizzati nel portale di Azure. In caso di problemi con la visualizzazione dei dati nel portale, controllare la tabella WADMetrics\* nell'account di archiviazione di Diagnostica di Azure per verificare se siano presenti i record delle metriche corrispondenti. 
+Diagnostica di Azure offre dati relativi alle metriche che possono essere visualizzati nel portale di Azure. In caso di problemi con la visualizzazione dei dati nel portale, controllare la tabella WADMetrics\* nell'account di archiviazione di Diagnostica di Azure per verificare se siano presenti i record delle metriche corrispondenti.
 
 Il valore **PartitionKey** della tabella è l'ID risorsa, la macchina virtuale o il set di scalabilità di macchine virtuali. **RowKey** è il nome della metrica (detto anche nome del contatore delle prestazioni).
 
@@ -83,7 +83,7 @@ Se la configurazione è impostata correttamente ma i dati relativi alle metriche
 
 
 ## <a name="azure-diagnostics-isnt-starting"></a>Mancato avvio di Diagnostica di Azure
-Per informazioni sui motivi per cui non è stato possibile avviare Diagnostica di Azure, vedere i file **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** nel percorso dei file di log riportati in precedenza. 
+Per informazioni sui motivi per cui non è stato possibile avviare Diagnostica di Azure, vedere i file **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** nel percorso dei file di log riportati in precedenza.
 
 Se questi log indicano `Monitoring Agent not reporting success after launch`, significa che si è verificato un errore di avvio di MonAgentHost.exe. Esaminare i log nel percorso indicato per `MonAgentHost log file` nella sezione precedente.
 
@@ -105,14 +105,14 @@ La causa più comune per cui non viene visualizzato alcun dato di eventi è la d
 
 Soluzione: correggere la configurazione della diagnostica e reinstallare Diagnostica.
 
-Se l'account di archiviazione è configurato correttamente, accedere in remoto al computer e verificare che DiagnosticsPlugin.exe e MonAgentCore.exe siano in esecuzione. Se non sono in esecuzione, seguire la procedura illustrata in [Mancato avvio di Diagnostica di Azure](#azure-diagnostics-is-not-starting). 
+Se l'account di archiviazione è configurato correttamente, accedere in remoto al computer e verificare che DiagnosticsPlugin.exe e MonAgentCore.exe siano in esecuzione. Se non sono in esecuzione, seguire la procedura illustrata in [Mancato avvio di Diagnostica di Azure](#azure-diagnostics-is-not-starting).
 
 Se i processi sono in esecuzione, passare a [I dati vengono acquisiti in locale?](#is-data-getting-captured-locally) e seguire le istruzioni riportate in tale sottoparagrafo.
 
 ### <a name="part-of-the-data-is-missing"></a>Alcuni dati sono mancanti
 Se vengono visualizzati alcuni dati ma non tutti, la pipeline di raccolta/trasferimento dati è impostata correttamente. Seguire le istruzioni di questi sottoparagrafi per circoscrivere il problema.
 
-#### <a name="is-the-collection-configured"></a>La raccolta è configurata? 
+#### <a name="is-the-collection-configured"></a>La raccolta è configurata?
 La configurazione di Diagnostica contiene istruzioni per la raccolta di un determinato tipo di dati. [Esaminare la configurazione](#how-to-check-diagnostics-extension-configuration) per assicurarsi di cercare solo i dati per cui è stata configurata la raccolta.
 
 #### <a name="is-the-host-generating-data"></a>L'host genera dati?
@@ -127,16 +127,16 @@ Se non risulta che i log di traccia vengano generati, vedere [Altre informazioni
 
 #### <a name="is-data-getting-captured-locally"></a>I dati vengono acquisiti in locale?
 Verificare quindi che i dati vengano acquisiti in locale.
-I dati vengono archiviati in locale nei file `*.tsf` nell'[archivio locale per i dati di diagnostica](#log-artifacts-path). I diversi tipi di log vengono raccolti in file `.tsf` diversi. I nomi sono simili a quelli delle tabelle in Archiviazione di Azure. 
+I dati vengono archiviati in locale nei file `*.tsf` nell'[archivio locale per i dati di diagnostica](#log-artifacts-path). I diversi tipi di log vengono raccolti in file `.tsf` diversi. I nomi sono simili a quelli delle tabelle in Archiviazione di Azure.
 
 Ad esempio, i log di `Performance Counters` vengono raccolti in `PerformanceCountersTable.tsf`, mentre i log eventi vengono raccolti in `WindowsEventLogsTable.tsf`. Usare le istruzioni riportate nella sezione [Estrazione dei log locali](#local-log-extraction) per aprire i file di raccolta locali e verificare che vengano raccolti su disco.
 
-Se non risulta che i log vengano raccolti in locale e si è già verificato che l'host genera dati, è probabile che sia presente un problema di configurazione. Esaminare attentamente la configurazione. 
+Se non risulta che i log vengano raccolti in locale e si è già verificato che l'host genera dati, è probabile che sia presente un problema di configurazione. Esaminare attentamente la configurazione.
 
 Analizzare anche la configurazione generata per il file [MaConfig.xml](#log-artifacts-path) dell'agente di monitoraggio. Verificare che sia presente una sezione che descrive l'origine di log pertinente e quindi che non sia andata persa nella conversione tra la configurazione di Diagnostica e la configurazione dell'agente di monitoraggio.
 
 #### <a name="is-data-getting-transferred"></a>I dati vengono trasferiti?
-Se è stato verificato che i dati vengono acquisiti in locale ma non vengono comunque visualizzati nell'account di archiviazione, seguire questa procedura: 
+Se è stato verificato che i dati vengono acquisiti in locale ma non vengono comunque visualizzati nell'account di archiviazione, seguire questa procedura:
 
 - Verificare di aver specificato un account di archiviazione corretto e che non sia stato eseguito il rollover di chiavi per l'account di archiviazione indicato. Per Servizi cloud di Azure, si riscontra talvolta che gli utenti non aggiornano `useDevelopmentStorage=true`.
 
@@ -215,7 +215,7 @@ Il modo più semplice per controllare la configurazione dell'estensione consiste
 
 In alternativa, connettersi tramite desktop remoto al computer ed esaminare il file di configurazione di Diagnostica di Azure descritto nella sezione [Percorsi di log ed elementi](#log-artifacts-path).
 
-In entrambi i casi cercare **Microsoft.Azure.Diagnostics** e quindi il campo **xmlCfg** o **WadCfg**. 
+In entrambi i casi cercare **Microsoft.Azure.Diagnostics** e quindi il campo **xmlCfg** o **WadCfg**.
 
 Se si esegue la ricerca su una macchina virtuale ed è presente il campo **WadCfg**, la configurazione è in formato JSON. Se è presente il campo **xmlCfg**, la configurazione è in formato XML con codifica Base64. Per visualizzare il codice XML caricato da Diagnostica è necessario [decodificare](http://www.bing.com/search?q=base64+decoder) il file.
 
@@ -247,22 +247,22 @@ Il plug-in restituisce i seguenti codici di uscita:
 | -112 |Errore generale: |
 
 ### <a name="local-log-extraction"></a>Estrazione dei log locali
-L'agente di monitoraggio raccoglie log ed elementi come file `.tsf`. Il file con estensione `.tsf` non è leggibile ma può essere convertito in `.csv` come illustrato di seguito: 
+L'agente di monitoraggio raccoglie log ed elementi come file `.tsf`. Il file con estensione `.tsf` non è leggibile ma può essere convertito in `.csv` come illustrato di seguito:
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
 Un nuovo file denominato `<relevantLogFile>.csv` verrà creato nello stesso percorso del file con estensione `.tsf` corrispondente.
 
->[!NOTE] 
+>[!NOTE]
 > È necessario eseguire questa utilità solo per il file con estensione tsf principale, ad esempio PerformanceCountersTable.tsf. I file associati, ad esempio PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf e così via, verranno elaborati automaticamente.
 
-### <a name="more-about-missing-trace-logs"></a>Altre informazioni sui log di traccia mancanti 
+### <a name="more-about-missing-trace-logs"></a>Altre informazioni sui log di traccia mancanti
 
 >[!NOTE]
-> Le informazioni seguenti si applicano prevalentemente a Servizi cloud di Azure, a meno che non si sia configurato DiagnosticsMonitorTraceListener in un'applicazione eseguita nella VM IaaS. 
+> Le informazioni seguenti si applicano prevalentemente a Servizi cloud di Azure, a meno che non si sia configurato DiagnosticsMonitorTraceListener in un'applicazione eseguita nella VM IaaS.
 
-- Verificare che in web.config o app.config sia configurato **DiagnosticMonitorTraceListener**.  Nei progetti di servizi cloud è configurato per impostazione predefinita, ma viene impostato come commento da alcuni clienti e in questo caso le istruzioni di traccia non verranno raccolte da Diagnostica. 
+- Verificare che in web.config o app.config sia configurato **DiagnosticMonitorTraceListener**.  Nei progetti di servizi cloud è configurato per impostazione predefinita, ma viene impostato come commento da alcuni clienti e in questo caso le istruzioni di traccia non verranno raccolte da Diagnostica.
 
 - Se i log non vengono scritti dal metodo **OnStart** o **Run**, verificare che in app.config sia presente **DiagnosticMonitorTraceListener**.  Per impostazione predefinita si trova in web.config, ma ciò si applica solo al codice eseguito in w3wp.exe. Per acquisire le tracce in esecuzione in WaIISHost.exe è necessario che sia presente in app.config.
 
@@ -275,11 +275,11 @@ Di seguito è riportato un elenco di problemi noti con le relative misure di pre
 
 **1. Dipendenza da .NET 4.5**
 
-L'estensione Diagnostica di Microsoft Azure presenta una dipendenza di runtime da .NET Framework 4.5 o versione successiva. Al momento della stesura di questo articolo, in tutti i computer sottoposti a provisioning per Servizi cloud di Azure e in tutte le immagini ufficiali basate su macchine virtuali di Azure è installato .NET 4.5 o versione successiva. 
+L'estensione Diagnostica di Microsoft Azure presenta una dipendenza di runtime da .NET Framework 4.5 o versione successiva. Al momento della stesura di questo articolo, in tutti i computer sottoposti a provisioning per Servizi cloud di Azure e in tutte le immagini ufficiali basate su macchine virtuali di Azure è installato .NET 4.5 o versione successiva.
 
 È comunque possibile che si provi a eseguire l'estensione Diagnostica di Microsoft Azure in un computer in cui non è presente .NET 4.5 o versione successiva. Ciò si verifica quando si crea il computer da un'immagine o uno snapshot meno recente o si usa un disco personalizzato.
 
-Questa situazione si manifesta in genere con un codice di uscita **255** durante l'esecuzione di **DiagnosticsPluginLauncher.exe**. L'errore è causato dall'eccezione non gestita seguente: 
+Questa situazione si manifesta in genere con un codice di uscita **255** durante l'esecuzione di **DiagnosticsPluginLauncher.exe**. L'errore è causato dall'eccezione non gestita seguente:
 ```
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
@@ -290,8 +290,6 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 Nell'esperienza del portale per le macchine virtuali vengono visualizzati per impostazione predefinita determinati contatori delle prestazioni. Se i contatori non vengono visualizzati e si è certi che i dati vengano generati perché sono disponibili nella risorsa di archiviazione, controllare quanto segue:
 
-- Se i dati nella risorsa di archiviazione contengono i nomi dei contatori in lingua inglese. Se i nomi dei contatori non sono in inglese, il grafico delle metriche del portale non riesce a riconoscerli.
+- Se i dati nella risorsa di archiviazione contengono i nomi dei contatori in lingua inglese. Se i nomi dei contatori non sono in inglese, il grafico delle metriche del portale non riesce a riconoscerli. **Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. A tale scopo, selezionare **Pannello di controllo** > **Area geografica** > **Opzioni di amministrazione** > **Copia impostazioni**. Deselezionare quindi **Schermata iniziale e account di sistema** affinché la lingua personalizzata non venga applicata all'account di sistema.
 
-- Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto.
-
-**Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. A tale scopo, selezionare **Pannello di controllo** > **Area geografica** > **Opzioni di amministrazione** > **Copia impostazioni**. Deselezionare quindi **Schermata iniziale e account di sistema** affinché la lingua personalizzata non venga applicata all'account di sistema. Assicurarsi anche di non usare caratteri jolly se si vuole usare il portale come esperienza di utilizzo principale.
+- Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto quando i contatori delle prestazioni vengono inviato al sink di archiviazione di Azure. **Mitigazione**: per assicurarsi che è possibile usare i caratteri jolly e fare in modo che il portale espanda (\*), indirizzare i contatori di prestazioni al sink di ["Monitoraggio di Azure"](azure-diagnostics-schema.md#diagnostics-extension-111).

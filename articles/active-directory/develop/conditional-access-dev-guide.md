@@ -5,22 +5,21 @@ services: active-directory
 keywords: ''
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 7b41d3af5fbbbef90676fe37056b69d89c4f6c48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 229f74367262e07128fa9ea6c895d448b854ae0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580560"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958255"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -40,9 +39,9 @@ Si presuppone una conoscenza delle app a [tenant singolo](quickstart-v1-integrat
 
 ### <a name="app-types-impacted"></a>Tipi di app interessati
 
-Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app né richiede modifiche da parte dello sviluppatore. Solo in alcuni casi, quando un'app richiede in modo indiretto o automatico un token per un servizio, sono necessarie modifiche al codice per gestire le richieste di accesso condizionale. L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva. 
+Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app né richiede modifiche da parte dello sviluppatore. Solo in alcuni casi, quando un'app richiede in modo indiretto o automatico un token per un servizio, sono necessarie modifiche al codice per gestire le richieste di accesso condizionale. L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva.
 
-In particolare, gli scenari seguenti richiedono che il codice gestisca le richieste di accesso condizionale: 
+In particolare, gli scenari seguenti richiedono che il codice gestisca le richieste di accesso condizionale:
 
 * App che accedono a Microsoft Graph
 * App che eseguono il flusso on-behalf-of
@@ -78,7 +77,7 @@ Gli sviluppatori possono aggiungere questa richiesta a una nuova richiesta per A
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-L'accesso condizionale di Azure AD è una funzionalità inclusa in [Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis#choose-an-edition). Per altre informazioni sui requisiti relativi alle licenza, vedere [Report Utilizzo senza licenza](../active-directory-conditional-access-unlicensed-usage-report.md). Gli sviluppatori possono entrare a far parte di [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx) e ottenere così una sottoscrizione gratuita a Enterprise Mobility Suite, che include Azure AD Premium.
+L'accesso condizionale di Azure AD è una funzionalità inclusa in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition). Per altre informazioni sui requisiti relativi alle licenza, vedere [Report Utilizzo senza licenza](../active-directory-conditional-access-unlicensed-usage-report.md). Gli sviluppatori possono entrare a far parte di [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx) e ottenere così una sottoscrizione gratuita a Enterprise Mobility Suite, che include Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Considerazioni per scenari specifici
 
@@ -147,7 +146,7 @@ Per esempi di codice che illustrano come gestire la richiesta di autenticazione 
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App che esegue il flusso on-behalf-of
 
-In questo scenario viene illustrato il caso in cui un'app nativa chiama un'API o un servizio Web. A sua volta, il servizio esegue il [flusso "on-behalf-of"](authentication-scenarios.md#application-types-and-scenarios) per chiamare un servizio downstream. In questo caso sono stati applicati criteri di accesso condizionale al servizio downstream (API Web 2) e viene usata un'app nativa invece di un'app demon/server. 
+In questo scenario viene illustrato il caso in cui un'app nativa chiama un'API o un servizio Web. A sua volta, il servizio esegue il flusso "on-behalf-of" per chiamare un servizio downstream. In questo caso sono stati applicati criteri di accesso condizionale al servizio downstream (API Web 2) e viene usata un'app nativa invece di un'app demon/server. 
 
 ![Diagramma per le app che eseguono il flusso on-behalf-of](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 

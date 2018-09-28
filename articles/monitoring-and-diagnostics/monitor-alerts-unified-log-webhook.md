@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426694"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989295"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
-Quando [viene creato un avviso in Avvisi di Azure](monitor-alerts-unified-usage.md), è possibile scegliere di [configurarlo con gruppi di azioni](monitoring-action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
+Quando [viene creato un avviso di log in Azure](alert-log.md), è possibile scegliere di [configurarlo con gruppi di azioni](monitoring-action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
 
 
 ## <a name="webhook-actions"></a>Azioni webhook
 
-Le azioni Webhook consentono di richiamare un processo esterno tramite una singola richiesta HTTP POST.  Il servizio chiamato deve supportare i webhook e determinare come usare gli eventuali payload che riceve.   Esempi di utilizzo di un webhook in risposta a un avviso sono l'invio di un messaggio in [Slack](http://slack.com) o la creazione di un evento imprevisto in [PagerDuty](http://pagerduty.com/).  
+Le azioni Webhook consentono di richiamare un processo esterno tramite una singola richiesta HTTP POST.  Il servizio chiamato deve supportare i webhook e determinare come usare gli eventuali payload che riceve.    
 
 Le azioni webhook includono le proprietà elencate nella tabella seguente:
 
 | Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | URL webhook |URL del webhook. |
-| Payload JSON personalizzato |Payload personalizzato da inviare con il webhook, quando si sceglie questa opzione durante la creazione di avvisi. Per informazioni, vedere [Gestire gli avvisi tramite Avvisi di Azure](monitor-alerts-unified-usage.md) |
+| Payload JSON personalizzato |Payload personalizzato da inviare con il webhook, quando si sceglie questa opzione durante la creazione di avvisi. Per informazioni, vedere [Gestisci gli avvisi del log](alert-log.md) |
 
 > [!NOTE]
-> Il pulsante Test del webhook, insieme all'opzione *Includi payload JSON personalizzato per il webhook* per l'avviso di log, attiva una chiamata fittizia per testare l'URL del webhook. Non contiene dati effettivi e rappresentativi dello schema JSON usato per gli avvisi dei log. 
+> Il pulsante Visualizzazione del webhook, insieme all'opzione *Includi payload JSON personalizzato per il webhook* per l'avviso di log, visualizzerà il payload del webhook di esempio per la personalizzazione fornita. Non contiene dati effettivi e rappresentativi dello schema JSON usato per gli avvisi dei log. 
 
 I webhook includono un URL e un payload in fermato JSON che corrisponde ai dati inviati al servizio esterno.  Per impostazione predefinita, il payload include i valori presenti nella tabella seguente: È possibile scegliere di sostituire il payload con un payload personalizzato.  In questo caso è possibile usare le variabili nella tabella per ognuno dei parametri per includerne il valore nel payload personalizzato.
 
@@ -54,7 +54,7 @@ I webhook includono un URL e un payload in fermato JSON che corrisponde ai dati 
 | ID sottoscrizione |#subscriptionid |ID della sottoscrizione di Azure usata con Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults passa i parametri come SearchQuery, Ora di inizio dell'intervallo di ricerca e Ora di fine dell'intervallo di ricerca nell'URL al portale di Azure per visualizzarli nella sezione relativa all'analisi. Il portale di Azure ha un limite di dimensione dell'URI di circa 2.000 caratteri e verrà aperto se i valori dei parametri superano questo limite. Gli utenti possono immettere manualmente i dettagli per visualizzare i risultati nel portale Analytics o usare l'[API REST di Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) o l'[API REST di Log Analytics](https://dev.loganalytics.io/reference) per recuperare i risultati a livello di codice 
+> LinkToSearchResults passa i parametri come SearchQuery, Ora di inizio dell'intervallo di ricerca e Ora di fine dell'intervallo di ricerca nell'URL al portale di Azure per visualizzarli nella sezione relativa all'analisi. Il portale di Azure ha un limite di dimensione dell'URI di circa 2000 caratteri e *non* aprirà i collegamenti forniti negli avvisi se i valori dei parametri superano questo limite. Gli utenti possono immettere manualmente i dettagli per visualizzare i risultati nel portale Analytics o usare l'[API REST di Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) o l'[API REST di Log Analytics](https://dev.loganalytics.io/reference) per recuperare i risultati a livello di codice 
 
 Ad esempio, è possibile specificare il payload personalizzato seguente che include un singolo parametro denominato *text*.  Il servizio chiamato da questo webhook si aspetta questo parametro.
 
@@ -198,6 +198,7 @@ Di seguito è riportato un esempio di payload per un'azione webhook personalizza
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sugli [avvisi di log in Avvisi di Azure](monitor-alerts-unified-log.md)
+- Acquisire familiarità con la [gestione degli avvisi di log in Azure](alert-log.md)
 - Creare e gestire [gruppi di azioni in Azure](monitoring-action-groups.md)
 - Altre informazioni su [Application Insights](../application-insights/app-insights-analytics.md)
 - Altre informazioni su [Log Analytics](../log-analytics/log-analytics-overview.md). 

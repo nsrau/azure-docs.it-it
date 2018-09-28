@@ -12,27 +12,32 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/27/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 735c5a3645f5e2e0f31bac4d4b2f61d73dfe069e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 93bc3db2b7cf3002efc93f1e8006c5362eddab9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128780"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959972"
 ---
-# <a name="permissions-in-azure-active-directory"></a>Autorizzazioni in Azure Active Directory
+# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
 
-Azure Active Directory (Azure AD) fa ampio uso delle autorizzazioni per i flussi OAuth e OpenID Connect (OIDC). Quando l'app riceve un token di accesso da Azure AD, il token di accesso include le attestazioni che descrivono le autorizzazioni dell'app in relazione a una particolare risorsa. Le autorizzazioni, note anche come ambiti, semplificano l'autorizzazione per la risorsa perché la risorsa deve solo controllare che il token contenga l'autorizzazione appropriata per l'API chiamata dall'app. 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Azure Active Directory (Azure AD) fa ampio uso delle autorizzazioni per i flussi OAuth e OpenID Connect (OIDC). Quando l'app riceve un token di accesso da Azure AD, il token di accesso include le attestazioni che descrivono le autorizzazioni dell'app in relazione a una particolare risorsa.
+
+Le *autorizzazioni*, note anche come *ambiti*, semplificano l'autorizzazione per la risorsa perché la risorsa deve solo controllare che il token contenga l'autorizzazione appropriata per l'API chiamata dall'app.
 
 ## <a name="types-of-permissions"></a>Tipi di autorizzazioni
 
-Azure AD definisce due tipi di autorizzazioni: 
-* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di fornire il consenso direttamente all'API e dovrà invece [chiedere a un amministratore di fornire il "consenso dell'amministratore"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
-* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere concesse solo tramite il [consenso di un amministratore](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati di diversi utenti o a dati a cui altrimenti potrebbero accedere solo gli amministratori. 
+Azure AD definisce due tipi di autorizzazioni:
+
+* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di fornire il consenso direttamente all'API e dovrà invece [chiedere a un amministratore di fornire il "consenso amministratore"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere concesse solo tramite il [consenso di un amministratore](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati di diversi utenti o a dati a cui altrimenti potrebbero accedere solo gli amministratori.
 
 Le autorizzazioni valide sono le autorizzazioni che l'app avrà quando effettuerà le richieste a un'API. 
 

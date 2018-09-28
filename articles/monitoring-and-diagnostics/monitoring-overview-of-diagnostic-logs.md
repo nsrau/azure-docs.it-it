@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248167"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983116"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Raccogliere e usare i dati dei log dalle risorse di Azure
 
@@ -45,7 +45,7 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 È possibile usare un account di archiviazione o uno spazio dei nomi di Hub eventi che non si trovi nella stessa sottoscrizione della risorsa che crea i log. L'utente che configura l'impostazione deve disporre dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 > [!NOTE]
->  Non è al momento possibile archiviare i dati in un account di archiviazione che risiede dietro una rete virtuale protetta.
+>  Non è al momento possibile archiviare i log del flusso di rete in un account di archiviazione che risiede dietro una rete virtuale protetta.
 
 > [!WARNING]
 > Il formato dei dati di log nell'account di archiviazione verrà modificato in JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./monitor-diagnostic-logs-append-blobs.md) 
@@ -145,9 +145,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resour
 
 Al momento non è possibile configurare le impostazioni di diagnostica di tenant usando Azure PowerShell.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Abilitare la raccolta dei log di diagnostica di risorsa con l'interfaccia della riga di comando di Azure 2.0
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>Abilitare la raccolta dei log di diagnostica di risorsa con l'interfaccia della riga di comando di Azure
 
-Per abilitare la raccolta dei log di diagnostica delle risorse tramite l'interfaccia della riga di comando di Azure 2.0, usare il comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Per abilitare la raccolta dei log di diagnostica delle risorse tramite l'interfaccia della riga di comando di Azure, usare il comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 Per abilitare la memorizzazione dei log di diagnostica in un account di archiviazione:
 

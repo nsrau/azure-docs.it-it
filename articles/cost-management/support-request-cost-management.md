@@ -1,23 +1,23 @@
 ---
-title: Creare una richiesta di supporto per Gestione costi di Azure | Microsoft Docs
-description: Questo articolo illustra in dettaglio i passaggi necessari per creare una richiesta di supporto per Gestione costi.
+title: Creare una richiesta di supporto per Cloudyn in Azure | Microsoft Docs
+description: Questo articolo illustra in dettaglio i passaggi necessari per creare una richiesta di supporto per Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 35d3153cb485f11fe17689f1ff1d3d88961878d3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d074b263d11c6b12a4283d2ff479a5b3dc1d6908
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296692"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952444"
 ---
-# <a name="create-a-support-request-for-cost-management"></a>Creare una richiesta di supporto per Gestione costi
+# <a name="create-a-support-request-for-cloudyn"></a>Creare una richiesta di supporto per Cloudyn
 
 È possibile aprire una richiesta di supporto se non è possibile trovare le informazioni che si sta cercando oppure se si sospetta che un problema sia dovuto a un'interruzione del servizio o a un bug. Quando si apre un ticket di supporto, assicurarsi di aprirlo per un singolo problema. Ciò consente di indirizzare velocemente il problema segnalato.
 
@@ -48,4 +48,4 @@ Per verificare lo stato di una richiesta, vedere [Tutte le richieste di supporto
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su Gestione costi di Azure, passare all'esercitazione [Esaminare l'uso e i costi](tutorial-review-usage.md) per Gestione costi.
+- Per altre informazioni su Cloudyn, passare all'esercitazione [Esaminare uso e costi](tutorial-review-usage.md) per Cloudyn.

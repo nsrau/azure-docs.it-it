@@ -14,24 +14,23 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.openlocfilehash: 8d250f1289c3757d5ea862a1c195dde6f8efb0eb
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 64b33fcd25582f6b1d3e7efe12aba85bb17c4cca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938265"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951203"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Creare una copia di una macchina virtuale Linux di Azure usando l'interfaccia della riga di comando di Azure e i dischi gestiti
 
-
-Questo articolo descrive come creare una copia di una macchina virtuale (VM) di Azure che esegue Linux usando l'interfaccia della riga di comando di Azure 2.0 e il modello di distribuzione Azure Resource Manager. 
+Questo articolo descrive come creare una copia di una macchina virtuale di Azure che esegue Linux usando l'interfaccia della riga di comando di Azure e il modello di distribuzione di Azure Resource Manager. 
 
 È anche possibile [caricare e creare una VM da un disco rigido virtuale](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 
--   Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2)
+-   Installare l' [interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2)
 
 -   Accedere a un account di Azure con [az login](/cli/azure/reference-index#az_login).
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9ec049ebbfaa8e6ee5dbf585488d5c2e8ff25802
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715064"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949707"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -49,7 +49,7 @@ Risposte alle domande frequenti sui set di scalabilità di macchine virtuali in 
 
 **D.** Come si crea un set di scalabilità con un'immagine personalizzata?
 
-**R.** Creare e acquisire un'immagine di VM, quindi usarla come origine per il set di scalabilità. Per un'esercitazione su come creare e usare un'immagine di VM, è possibile usare l'[interfaccia della riga di comando di Azure 2.0](tutorial-use-custom-image-cli.md) o [Azure PowerShell](tutorial-use-custom-image-powershell.md).
+**R.** Creare e acquisire un'immagine di VM, quindi usarla come origine per il set di scalabilità. Per un'esercitazione sulla creazione e sull'uso dell'immagine di una macchina virtuale personalizzata, è possibile usare l'[interfaccia della riga di comando di Azure](tutorial-use-custom-image-cli.md) o [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **D.** Se si riduce la capacità del set di scalabilità da 20 a 15, quali VM vengono rimosse?
 
@@ -129,7 +129,7 @@ Il valore TargetResourceId del set di scalabilità di macchine virtuali ha un as
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Come si configura la scalabilità automatica in un set di scalabilità di macchine virtuali tramite PowerShell?
 
-Per configurare la scalabilità automatica in un set di scalabilità di macchine virtuali tramite PowerShell, vedere [configurare automaticamente la scalabilità di un set di scalabilità di macchine virtuali](tutorial-autoscale-powershell.md). È possibile configurare la scalabilità automatica anche con l'[ interfaccia della riga di comando di Azure 2.0](tutorial-autoscale-cli.md) e i [modelli di Azure](tutorial-autoscale-template.md).
+Per configurare la scalabilità automatica in un set di scalabilità di macchine virtuali tramite PowerShell, vedere [configurare automaticamente la scalabilità di un set di scalabilità di macchine virtuali](tutorial-autoscale-powershell.md). È possibile configurare la scalabilità automatica anche con l'[ interfaccia della riga di comando di Azure](tutorial-autoscale-cli.md) e i [modelli di Azure](tutorial-autoscale-template.md)
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Una VM arrestata (deallocata) verrà avviata come parte di un'operazione di scalabilità automatica?

@@ -1,19 +1,19 @@
 ---
 title: Usare Jenkins per distribuire le app Web in Azure
 description: Impostare l'integrazione continua da GitHub in Servizio app di Azure per le app Web Java con Jenkins e Docker.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: Jenkins, azure, devops, servizio app, integrazione continua, ci, distribuzione continua, cd
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 81959159d4860512c184ada25930da814b5ae044
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389943"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946579"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurare l'integrazione e la distribuzione continue in Servizio App di Azure con Jenkins
 
@@ -35,7 +35,7 @@ Per completare questa esercitazione, sono necessari:
 
 * [Jenkins](https://jenkins.io/) con gli strumenti JDK e Maven configurati. Se non si dispone di un sistema Jenkins, crearne uno ora in Azure dal [modello di soluzione Jenkins](/azure/jenkins/install-jenkins-solution-template).
 * Un account [GitHub](https://github.com).
-* [Versione 2.0 dell'interfaccia della riga di comando di Azure](/cli/azure) dalla riga di comando locale o in [Azure Cloud Shell](/azure/cloud-shell/overview)
+* [Interfaccia della riga di comando di Azure](/cli/azure) dalla riga di comando locale o in [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -102,7 +102,7 @@ Impostare Jenkins per la ricezione di [webhook GitHub](https://developer.github.
 ## <a name="configure-the-azure-app-service-jenkins-plug-in"></a>Configurare il plug-in Jenkins per Servizio app di Azure
 
 1. Nella console Web di Jenkins selezionare il processo **MyJavaApp** creato e quindi **Configure** nella parte sinistra della pagina.
-2. Scorrere verso il basso fino a **Post-build Actions**, quindi selezionare **Add post-build action** e scegliere **Publish an Azure Web App**.
+2. Scorrere verso il basso fino a **Post-build Actions**, selezionare **Add post-build action** e scegliere **Publish an Azure Web App**.
 3. In **Azure Profile Configuration** selezionare **Add** accanto ad **Azure Credentials** e scegliere **Jenkins**.
 4. Nella finestra di dialogo **Add Credentials** selezionare **Microsoft Azure Service Principal** dall'elenco a discesa **Kind**.
 5. Creare un'entità servizio Active Directory dall'interfaccia della riga di comando di Azure o da [Cloud Shell](/azure/cloud-shell/overview).

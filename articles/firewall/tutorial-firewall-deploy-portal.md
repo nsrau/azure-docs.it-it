@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 7/11/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358947"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983515"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -31,7 +31,9 @@ Il traffico di rete è sottoposto alle regole del firewall configurate quando si
 
 Le regole di applicazione e di rete vengono archiviate nelle *raccolte di regole*. Una raccolta di regole è un elenco di regole che condividono la stessa azione e priorità.  Una raccolta di regole di rete è un elenco di regole di rete, mentre una raccolta di regole di applicazione è un elenco di regole dell'applicazione.
 
-Le raccolte di regole di rete vengono elaborate sempre prima delle raccolte di regole di applicazione. Tutte le regole sono conclusive, pertanto se viene trovata una corrispondenza in una raccolta di regole di rete, le raccolte di regole di applicazione successive per la sessione non vengono elaborate.
+In Firewall di Azure non esiste il concetto di regole in ingresso e regole in uscita. Sono presenti regole di applicazione e regole di rete che vengono applicate al traffico che entra nel firewall. Le regole di rete vengono applicate per prime, seguite da quelle di applicazione.
+
+Ad esempio, se viene trovata una corrispondenza con una regola di rete, il pacchetto non sarà valutato dalle regole di applicazione. Se non esiste alcuna corrispondenza con una regola di rete e il protocollo dei pacchetti è HTTP/HTTPS, il pacchetto viene quindi valutato dalle regole di applicazione. Se ancora non viene trovata una corrispondenza, il pacchetto viene valutato in base a una raccolta di regole dell'infrastruttura. Se non è ancora presente alcuna corrispondenza, il pacchetto viene rifiutato per impostazione predefinita.
 
 In questa esercitazione si apprenderà come:
 
@@ -47,10 +49,6 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Gli esempi negli articoli di Firewall di Azure presuppongono che sia già stata abilitata l'anteprima pubblica di Firewall di Azure. Per altre informazioni, vedere [Abilitare l'anteprima pubblica di Firewall di Azure](public-preview.md).
-
 Per questa esercitazione viene creata una singola rete virtuale con tre subnet:
 - **FW-SN**: in questa subnet si trova il firewall.
 - **Workload-SN**: in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
@@ -58,7 +56,7 @@ Per questa esercitazione viene creata una singola rete virtuale con tre subnet:
 
 ![Infrastruttura di rete dell'esercitazione](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-Questa esercitazione usa una configurazione di rete semplificata per facilitare la distribuzione. Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale e i server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
+Questa esercitazione usa una configurazione di rete semplificata per facilitare la distribuzione. Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale e i server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
 
 
 
@@ -83,9 +81,7 @@ In primo luogo, creare un gruppo di risorse per contenere le risorse necessarie 
 7. In **Sottoscrizione** selezionare la propria sottoscrizione.
 8. In **Gruppo di risorse** selezionare **Usa esistente** e quindi selezionare **Test-FW-RG**.
 9. In **Località** selezionare la stessa località usata in precedenza.
-10. In **Subnet** immettere **AzureFirewallSubnet** per **Nome**.
-
-    Il firewall si troverà in questa subnet e il nome della subnet **deve** essere AzureFirewallSubnet.
+10. In **Subnet** immettere **AzureFirewallSubnet** per **Nome**. Il firewall si troverà in questa subnet e il nome della subnet **deve** essere AzureFirewallSubnet.
 11. In **Intervallo indirizzi** immettere **10.0.1.0/24**.
 12. Usare le altre impostazioni predefinite e quindi fare clic su **Crea**.
 
@@ -166,7 +162,7 @@ Usare le informazioni nella tabella seguente per configurare le **Impostazioni**
    |Gruppo di risorse     |**Usa esistente**: Test-FW-RG |
    |Località     |Selezionare la stessa località usata in precedenza|
    |Scegliere una rete virtuale     |**Usa esistente**: Test-FW-VN|
-   |Indirizzo IP pubblico     |Creare un nuovo gruppo di risorse|
+   |Indirizzo IP pubblico     |**Creare un nuovo gruppo di risorse**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
 
 2. Fare clic su **Rivedi e crea**.
 3. Controllare il riepilogo e quindi fare clic su **Crea** per creare il firewall.
@@ -175,10 +171,6 @@ Usare le informazioni nella tabella seguente per configurare le **Impostazioni**
 4. Al termine della distribuzione, passare al gruppo di risorse **Test-FW-RG** e fare clic sul firewall **Test FW01**.
 6. Annotare l'indirizzo IP privato. Sarà necessario più avanti per la creazione della route predefinita.
 
-> [!NOTE]
-> L'indirizzo IP pubblico deve essere di tipo SKU Standard.
-
-[//]: # (Ricordarsi di annotare l'indirizzo IP privato per il firewall.)
 
 ## <a name="create-a-default-route"></a>Creare una route predefinita
 
@@ -211,25 +203,21 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 
 
 1. Aprire **Test-FW-RG** e fare clic sul firewall **Test-FW01**.
-1. Nella pagina **Test-FW01** fare clic su **Regole** in **Impostazioni**.
-2. Fare clic su **Aggiungi raccolta regole dell'applicazione**.
-3. In **Nome** immettere **App-Coll01**.
-1. In **Priorità** immettere **200**.
-2. In **Azione** selezionare **Consenti**.
+2. Nella pagina **Test-FW01** fare clic su **Regole** in **Impostazioni**.
+3. Fare clic su **Aggiungi raccolta regole dell'applicazione**.
+4. In **Nome** immettere **App-Coll01**.
+5. In **Priorità** immettere **200**.
+6. In **Azione** selezionare **Consenti**.
+7. In **Regole** immettere **AllowGH** in **Nome**.
+8. In **Indirizzi di origine** immettere **10.0.2.0/24**.
+9. In **Protocollo:Porta** immettere **http, https**. 
+10. In **FQDN di destinazione** immettere **github.com**
+11. Fare clic su **Aggiungi**.
 
-6. In **Regole** immettere **AllowGH** in **Nome**.
-7. In **Indirizzi di origine** immettere **10.0.2.0/24**.
-8. In **Protocollo:Porta** immettere **http, https**. 
-9. In **FQDN di destinazione** immettere **github.com**
-10. Fare clic su **Aggiungi**.
+Firewall di Azure include una raccolta di regole predefinite per i nomi di dominio completi dell'infrastruttura consentiti per impostazione predefinita. Questi nomi di dominio completi sono specifici per la piattaforma e non possono essere usati per altri scopi. Per altre informazioni, vedere [Infrastructure FQDNs](infrastructure-fqdns.md) (FQDN dell'infrastruttura).
 
-> [!NOTE]
-> Firewall di Azure include una raccolta di regole predefinite per i nomi di dominio completi dell'infrastruttura consentiti per impostazione predefinita. Questi nomi di dominio completi sono specifici per la piattaforma e non possono essere usati per altri scopi. I nomi di dominio completi dell'infrastruttura consentiti includono:
->- Accesso di calcolo al repository di immagini della piattaforma di archiviazione.
->- Accesso alle risorse di archiviazione per lo stato dei dischi gestiti.
->- Diagnostica per Windows
->
-> È possibile eseguire l'override di questa raccolta di regole predefinite dell'infrastruttura creando una raccolta di regole di applicazione *deny all* che viene elaborata per ultima. Verrà sempre elaborata prima della raccolta di regole dell'infrastruttura. Qualsiasi elemento non incluso nella raccolta di regole dell'infrastruttura viene negato per impostazione predefinita.
+> [!Note]
+> I tag FQDN possono essere attualmente configurati solo con Azure PowerShell e REST. Fare clic [qui](https://aka.ms/firewallapplicationrule) per altre informazioni. 
 
 ## <a name="configure-network-rules"></a>Configurare le regole di rete
 
@@ -279,12 +267,12 @@ A questo punto si è verificato che le regole del firewall funzionano:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non è più necessario, eliminare il gruppo di risorse **Test-FW-RG** per eliminare tutte le risorse correlate al firewall.
+È possibile conservare le risorse del firewall per l'esercitazione successiva oppure, se non è più necessario, eliminare il gruppo di risorse **Test-FW-RG** per eliminare tutte le risorse correlate al firewall.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Configurare la rete

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b0ded0fb274f6b64935ddaba75abf23a94063120
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c84470936dfc9610f23dacb55d8d8643a2651f71
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452652"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948401"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Guida introduttiva: Distribuire contenitori Linux in Service Fabric
 
@@ -65,7 +65,7 @@ Eseguire l'accesso e aggiungere un [cluster Linux](http://aka.ms/tryservicefabri
 Service Fabric fornisce numerosi strumenti che è possibile usare per gestire un cluster e le applicazioni:
 
 - Service Fabric Explorer, uno strumento basato su browser.
-- Interfaccia della riga di comando di Service Fabric, la cui esecuzione si basa sull'interfaccia della riga di comando di Azure 2.0.
+- Interfaccia della riga di comando di Service Fabric, la cui esecuzione si basa sull'interfaccia della riga di comando di Azure. 
 - Comandi di PowerShell.
 
 In questa guida introduttiva si usano l'interfaccia della riga di comando di Service Fabric in Cloud Shell e Service Fabric Explorer. Le sezioni seguenti illustrano come installare il certificato necessario per connettersi al cluster sicuro con questi strumenti.
