@@ -3,18 +3,18 @@ title: Ridimensionare i cluster - Azure HDInsight
 description: Ridimensionare un cluster HDInsight in base al carico di lavoro.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 2f1de608a8273d7be50e4ad432ab72052fc0e228
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596841"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948128"
 ---
 # <a name="scale-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight
 
@@ -28,11 +28,13 @@ Se, ad esempio, vengono eseguite attività di elaborazione batch una volta al gi
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* Per ridimensionare il cluster tramite l'[interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)
+* Per ridimensionare il cluster tramite l'[interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md):
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
     
 * Per ridimensionare il cluster tramite il [portale di Azure](https://portal.azure.com), aprire il riquadro del cluster HDInsight, scegliere **Ridimensiona cluster** dal menu a sinistra, digitare il numero di nodi di lavoro nel riquadro Ridimensiona cluster e quindi selezionare Salva.
 

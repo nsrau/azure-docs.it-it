@@ -3,8 +3,8 @@ title: Migliorare le prestazioni con la compressione dei file nella rete CDN di 
 description: Informazioni su come migliorare la velocità di trasferimento dei file e aumentare le prestazioni di caricamento delle pagine comprimendo i file nella rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/13/2018
+ms.author: magattus
+ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260397"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997274"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure
 La compressione dei file è un metodo semplice ed efficace per aumentare la velocità di trasferimento dei file e migliorare le prestazioni di caricamento delle pagine mediante la riduzione delle dimensioni del file prima che venga inviato dal server. Riduce i costi della larghezza di banda e offre un'esperienza più reattiva per gli utenti.
@@ -66,6 +66,10 @@ I livelli della rete CDN Standard e Premium forniscono la stessa funzionalità d
    > [!TIP]
    > Anche se è possibile, non è consigliabile applicare la compressione a formati compressi, ad esempio ZIP, MP3, MP4 o JPG.
    > 
+   
+   > [!NOTE]
+   > La modifica dell'elenco predefinito di tipi MIME non è attualmente supportata nella Rete CDN di Azure Standard di Microsoft.
+   > 
  
 5. Dopo aver apportato le modifiche, selezionare **Salva**.
 
@@ -98,13 +102,14 @@ I livelli della rete CDN Standard e Premium forniscono la stessa funzionalità d
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Profili di rete CDN Standard di Azure con tecnologia Microsoft
 
-Per i profili della **rete CDN Standard di Azure con tecnologia Microsoft**, tutti i file sono idonei per la compressione. Il file, tuttavia, deve essere un tipo MIME [configurato per la compressione](#enabling-compression).
+Per i profili della **rete CDN Standard di Azure con tecnologia Microsoft** vengono compressi solo i file idonei. Per essere idoneo per la compressione un file deve: - essere di tipo MIME [configurato per la compressione](#enabling-compression).
+- essere superiore a 1 KB - essere inferiore a 8 MB
 
 Questi profili supportano le codifiche di compressione seguenti:
 - gzip (GNU Zip)
 - brotli 
  
-Se la richiesta supporta più di un tipo di compressione, questi tipi di compressione hanno la precedenza sulla compressione brotli.
+Se la richiesta supporta più di un tipo di compressione, la compressione brotli ha la precedenza.
 
 Quando una richiesta per una risorsa indica la compressione gzip e i risultati della richiesta non sono presenti nella cache, la rete CDN di Azure esegue la compressione gzip della risorsa direttamente nel server POP. In seguito, il file compresso viene gestito nella cache.
 

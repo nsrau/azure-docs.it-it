@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 027204065429a9eebd2e8121cbac8bc18b9d9ce6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 91be34468dae0fb1c24080fbe53c3c8056e8c1a3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091436"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967849"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
 
@@ -133,11 +133,11 @@ Se [Azure PowerShell è stato installato e configurato][powershell-install], è 
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+### <a name="use-azure-classic-cli"></a>Usare l'interfaccia della riga di comando classica di Azure
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Se è stata [installata e configurata l’interfaccia della riga di comando di Azure](../cli-install-nodejs.md), il comando seguente può essere usato per un account di archiviazione e un contenitore.
+Se è stata [installata e configurata l'interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md), il comando seguente può essere usato per un account di archiviazione e un contenitore.
 
     azure storage account create <storageaccountname> --type LRS
 
@@ -264,24 +264,24 @@ $clusterName = "<HDInsightClusterName>"
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+### <a name="use-azure-classic-cli"></a>Usare l'interfaccia della riga di comando classica di Azure
 Usare il comando seguente per ottenere un elenco dei comandi relativi ai BLOB:
 
     azure storage blob
 
-**Esempio di uso dell’interfaccia della riga di comando di Azure per caricare un file**
+**Esempio di uso dell'interfaccia della riga di comando classica di Azure per caricare un file**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Esempio di uso dell’interfaccia della riga di comando di Azure per scaricare un file**
+**Esempio di uso dell'interfaccia della riga di comando classica di Azure per scaricare un file**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Esempio di uso dell’interfaccia della riga di comando di Azure per eliminare un file**
+**Esempio di uso dell'interfaccia della riga di comando classica di Azure per eliminare un file**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Esempio di uso dell’interfaccia della riga di comando di Azure per elencare file**
+**Esempio di uso dell'interfaccia della riga di comando classica di Azure per elencare file**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 

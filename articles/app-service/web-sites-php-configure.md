@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 028a8f35b6ffc4b429725e91045e70112f2bdabd
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 39c40482017ae0c0dedcfb1b65ff3767c4e45169
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142376"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999189"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurazione di PHP nelle app Web di Servizio app di Azure
 
@@ -58,9 +58,9 @@ Sono anche disponibili le versioni PHP 7.0 e PHP 7.2, che però non sono abilita
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-cli-20-linux-mac-windows"></a>Interfaccia della riga di comando di Azure 2.0 (Linux, Mac, Windows)
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
 
-Per usare l'interfaccia della riga di comando di Azure, è necessario [installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) nel computer.
+Per usare l'interfaccia della riga di comando di Azure, è necessario [installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) nel computer.
 
 1. Aprire il terminale e accedere al proprio account.
 

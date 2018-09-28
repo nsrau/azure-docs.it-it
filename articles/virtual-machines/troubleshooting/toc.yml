@@ -1,0 +1,120 @@
+items:
+- name: Risoluzione dei problemi delle VM di Azure
+  href: index.md
+- name: Errori di allocazione
+  items:
+  - name: Errori di allocazione
+    href: allocation-failure.md
+  - name: Errori di allocazione per distribuzioni classiche
+    href: allocation-failure-classic.md
+- name: Diagnostica di avvio
+  href: boot-diagnostics.md
+- name: RDP
+  items:
+  - name: Reimpostare RDP
+    href: reset-rdp.md
+  - name: Risoluzione dei problemi relativi a RDP
+    href: troubleshoot-rdp-connection.md
+  - name: Risoluzione dettagliata dei problemi relativi a RDP
+    href: detailed-troubleshoot-rdp.md
+  - name: Risolvere errori specifici
+    href: troubleshoot-specific-rdp-errors.md
+- name: SSH
+  items:
+  - name: Risoluzione dei problemi relativi a SSH
+    href: troubleshoot-ssh-connection.md
+  - name: Risoluzione dettagliata dei problemi relativi a SSH
+    href: detailed-troubleshoot-ssh-connection.md
+- name: Messaggi di errore comuni
+  href: error-messages.md
+- name: Problemi di prestazioni delle VM Windows
+  href: performance-diagnostics.md
+  items:
+  - name: Come usare PerfInsights
+    href: how-to-use-perfInsights.md
+  - name: Estensione per la diagnostica delle prestazioni
+    href: performance-diagnostics-vm-extension.md
+- name: Installare l'agente di macchine virtuali Windows offline
+  href: install-vm-agent-offline.md
+- name: Ridistribuire una VM
+  items:
+  - name: Linux
+    href: redeploy-to-new-node-linux.md
+  - name: Windows
+    href: redeploy-to-new-node-windows.md
+- name: Reimpostare la password della VM
+  items:
+  - name: Windows
+    href: reset-local-password-without-agent.md
+  - name: Linux
+    href: reset-password.md
+- name: Reimpostare la scheda di interfaccia di rete
+  href: reset-network-interface.md
+- name: Riavvio o ridimensionamento di una VM
+  href: restart-resize-error-troubleshooting.md
+- name: Usare la console seriale
+  items:
+  - name: VM Linux
+    href: serial-console-linux.md
+    items:
+    - name: Modalità utente singolo/GRUB con la console seriale
+      href: serial-console-grub-single-user-mode.md
+    - name: NMI/SysRq con la console seriale
+      href: serial-console-nmi-sysrq.md
+  - name: Macchina virtuale Windows
+    href: serial-console-windows.md
+    items:
+    - name: CMD e comandi di PowerShell
+      href: serial-console-cmd-ps-commands.md
+- name: Errori durante l'eliminazione di risorse di archiviazione
+  href: storage-resource-deletion-errors.md
+- name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
+  href: unexpected-reboots-attached-vhds.md
+- name: Problemi di attivazione di Windows
+  href: troubleshoot-activation-problems.md
+- name: Problemi di accesso alle applicazioni
+  href: troubleshoot-app-connection.md
+- name: Nuove distribuzioni di VM
+  items:
+  - name: Linux
+    href: troubleshoot-deployment-new-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deployment-new-vm-windows.md
+- name: Risolvere i problemi delle distribuzioni
+  items:
+  - name: Linux
+    href: troubleshoot-deploy-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deploy-vm-windows.md
+- name: Modifiche ai nomi dei dispositivi
+  href: troubleshoot-device-names-problems.md
+- name: Accesso di ripristino di macchine virtuali
+  items:
+  - name: Windows
+    items:
+    - name: PowerShell
+      href: troubleshoot-recovery-disks-windows.md
+    - name: Portale di Azure
+      href: troubleshoot-recovery-disks-portal-windows.md
+  - name: Linux
+    items:
+    - name: CLI
+      href: troubleshoot-recovery-disks-linux.md
+    - name: Portale di Azure
+      href: troubleshoot-recovery-disks-portal-linux.md
+- name: Errori di BitLocker
+  href: troubleshoot-bitlocker-boot-error.md
+- name: Controllo degli errori del file system
+  href: troubleshoot-check-disk-boot-error.md
+- name: Errori di limitazione
+  href: troubleshooting-throttling-errors.md
+- name: Usare la virtualizzazione annidata
+  href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: Informazioni sul riavvio del sistema
+  href: understand-vm-reboot.md
+ms.openlocfilehash: b00e785c3ae31171ce3189edd9cffe094bc71024
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410752"

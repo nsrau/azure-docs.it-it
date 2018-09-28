@@ -5,16 +5,16 @@ services: cost-management
 author: bandersmsft
 ms.service: cost-management
 ms.topic: include
-ms.date: 04/26/2018
+ms.date: 09/17/2018
 ms.author: banders
 manager: dougeby
 ms.custom: include file
-ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4acc3f43f04c51e5303c8eba1d934580802312b5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32198856"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47017688"
 ---
 ## <a name="view-cost-data"></a>Visualizzare i dati di costo
 
@@ -26,27 +26,27 @@ In questo esempio il dashboard di gestione mostra i costi consolidati per l'azie
 
 Se non si è certi dello scopo di un report in un dashboard, passare il puntatore sopra il simbolo **i** per visualizzare una spiegazione. Fare clic su un report in un dashboard per visualizzare il report completo.
 
-Per visualizzare i report, è anche possibile usare il menu dei report nella parte superiore del portale. Di seguito sono illustrate le spese per le risorse di Azure di Contoso negli ultimi 30 giorni. Fare clic su **Cost** (Costo)  > **Cost Analysis** (Analisi dei costi)  > **Actual Cost Analysis** (Analisi dei costi effettivi). Cancellare gli eventuali valori se nel report sono presenti impostazioni per tag, gruppi o filtri.
+Per visualizzare i report, è anche possibile usare il menu dei report nella parte superiore del portale. Di seguito sono illustrate le spese per le risorse di Azure di Contoso negli ultimi 30 giorni. Fare clic su **Costs** (Costi)  > **Cost Analysis** (Analisi dei costi)  > **Actual Cost Analysis** (Analisi dei costi effettivi). Cancellare gli eventuali valori se nel report sono presenti impostazioni per tag, gruppi o filtri.
 
 ![Analisi dei costi effettivi](./media/cost-management-create-account-view-data/actual-cost-01.png)
 
-In questo esempio 75.970 dollari è il costo totale e il budget è di 130.000 dollari.
+In questo esempio 122.273 dollari è il costo totale e il budget è di 290.000 dollari.
 
 A questo punto si modifica il formato del report e si impostano i gruppi e i filtri per limitare i risultati relativi ai costi di Azure. Impostare l'**intervallo di date** sugli ultimi 30 giorni. Nell'angolo in alto a destra fare clic sul simbolo delle colonne per la formattazione come grafico a barre e in Groups (Gruppi) selezionare **Provider**. Impostare quindi un filtro per **Provider** su **Azure**.
 
 ![Analisi dei costi effettivi con filtri](./media/cost-management-create-account-view-data/actual-cost-02.png)
 
-In questo esempio il costo totale delle risorse di Azure era di 3.839 dollari negli ultimi 30 giorni.
+In questo esempio il costo totale delle risorse di Azure è stato di 3.309 dollari negli ultimi 30 giorni.
 
 Fare clic con il pulsante destro del mouse sulla barra del provider (Azure) ed eseguire il drill-down fino a **Resource types** (Tipi di risorsa).
 
 ![Drill-down](./media/cost-management-create-account-view-data/actual-cost-03.png)
 
-L'immagine seguente mostra i costi per le risorse di Azure sostenuti da Contoso. Il totale era di 3.839 dollari. In questo esempio circa metà dei costi era dovuta all'archiviazione con ridondanza locale e l'altra metà circa dei costi alle diverse istanze delle VM.
+L'immagine seguente mostra i costi per le risorse di Azure sostenuti da Contoso. Il totale è stato di 3.309 dollari. In questo esempio circa metà dei costi era da attribuire alle VM Standard_A1 e l'altra metà circa a varie istanze di VM e servizi di Azure.
 
 ![Tipi di risorse](./media/cost-management-create-account-view-data/actual-cost-04.png)
 
-Fare clic con il pulsante destro del mouse su un tipo di risorsa e scegliere **Cost Entities** (Entità costi) per visualizzare le entità dei costi e i servizi che hanno utilizzato la risorsa. La VM e i servizi ruoli di lavoro in DevOps hanno utilizzato 486,60 dollari e 435,71 dollari in questo esempio. Il totale di entrambi è pari a 922 dollari.
+Fare clic con il pulsante destro del mouse su un tipo di risorsa e scegliere **Cost Entities** (Entità costi) per visualizzare le entità dei costi e i servizi che hanno utilizzato la risorsa. Nell'immagine di esempio seguente l'archiviazione Locally Redundant (Con ridondanza locale) è impostata come Resource Type (Tipo di risorsa). Contoso|Azure/Storage ha consumato 15,65 dollari. Engineering|Azure/Storage ha consumato 164,25 dollari. Shared Infrastructure|Azure/Storage ha consumato 116,58 dollari. Il costo totale per i servizi è di 296 dollari.
 
 ![Entità dei costi e servizi](./media/cost-management-create-account-view-data/actual-cost-05.png)
 

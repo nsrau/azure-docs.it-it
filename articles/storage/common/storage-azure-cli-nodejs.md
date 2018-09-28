@@ -1,6 +1,6 @@
 ---
-title: Uso dell'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure | Documentazione Microsoft
-description: Informazioni su come usare l'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure. La CLI di Azure è uno strumento multipiattaforma
+title: Uso dell'interfaccia della riga di comando classica di Azure con Archiviazione di Azure | Microsoft Docs
+description: Informazioni su come usare l'interfaccia della riga di comando classica di Azure con Archiviazione di Azure per creare e gestire gli account di archiviazione e usare BLOB e file di Azure.
 services: storage
 author: seguler
 ms.service: storage
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: f406f12b3313670e8e2d89296f7c24478bb58c6c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521507"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979329"
 ---
-# <a name="using-the-azure-cli-10-with-azure-storage"></a>Uso dell'interfaccia della riga di comando 1.0 di Azure con Archiviazione di Azure
+# <a name="using-the-azure-classic-cli-with-azure-storage"></a>Uso dell'interfaccia della riga di comando classica di Azure con Archiviazione di Azure
 
 ## <a name="overview"></a>Panoramica
 
-L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com) , nonché funzionalità di accesso ai dati complessi.
+L'interfaccia della riga di comando classica di Azure fornisce un insieme di comandi open source e multipiattaforma per l'uso della piattaforma di Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com) , nonché funzionalità di accesso ai dati complessi.
 
-In questa guida verrà illustrato come usare l'[interfaccia della riga di comando di Azure (Azure CLI)](../../cli-install-nodejs.md) per eseguire una serie di attività di sviluppo e amministrazione con Archiviazione di Azure. Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
+Questa guida illustra come usare l'[interfaccia della riga di comando classica di Azure](../../cli-install-nodejs.md) per eseguire una serie di attività di sviluppo e amministrazione con Archiviazione di Azure. È consigliabile scaricare e installare oppure aggiornare l'interfaccia della riga di comando classica di Azure alla versione più recente prima di usare questa guida.
 
-Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. La guida fornisce diversi script che mostrano come usare PowerShell con Archiviazione di Azure. Prima di eseguire gli script, è necessario aggiornarne le variabili in base alla configurazione.
+Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. La guida fornisce diversi script che mostrano come usare l'interfaccia della riga di comando classica di Azure con Archiviazione di Azure. Prima di eseguire gli script, è necessario aggiornarne le variabili in base alla configurazione.
 
 > [!NOTE]
-> La guida fornisce esempi di comandi e script dell'interfaccia della riga di comando di Azure per gli account di archiviazione della versione classica. Vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi dell'interfaccia della riga di comando di Azure per gli account di archiviazione di Resource Manager.
+> La guida fornisce esempi di comandi e script dell'interfaccia della riga di comando classica di Azure per gli account di archiviazione della versione classica. Vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi dell'interfaccia della riga di comando classica di Azure per gli account di archiviazione di Resource Manager.
 >
 >
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Iniziare a utilizzare archiviazione di Azure e Azure CLI in 5 minuti
+## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Iniziare a usare Archiviazione di Azure e l'interfaccia della riga di comando classica di Azure in 5 minuti
 In questa guida utilizza Ubuntu per gli esempi, ma altre piattaforme del sistema operativo devono eseguire in modo analogo.
 
 **Novità in Azure:** ottenere una sottoscrizione di Microsoft Azure e un account Microsoft associato alla sottoscrizione. Per informazioni sulle opzioni di acquisto di Azure, vedere la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
@@ -41,12 +41,12 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 
 **Dopo aver creato una sottoscrizione e un account di Microsoft Azure:**
 
-1. Scaricare e installare CLI Azure seguendo le istruzioni riportate nel [installare CLI Azure](../../cli-install-nodejs.md).
-2. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando azure dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai relativi comandi. Digitare il comando _azure_. Verrà visualizzato l'output seguente.
+1. Scaricare e installare l'interfaccia della riga di comando classica di Azure seguendo le istruzioni riportate in [Installare l'interfaccia della riga di comando classica di Azure](../../cli-install-nodejs.md).
+2. Dopo aver installato l'interfaccia della riga di comando classica di Azure, sarà possibile usare il comando azure dalla propria interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai comandi dell'interfaccia della riga di comando classica. Digitare il comando _azure_. Verrà visualizzato l'output seguente.
 
     ![Output del comando di esempio:](./media/storage-azure-cli/azure_command.png)   
-3. Nell'interfaccia della riga di comando, digitare `azure storage` per elencare tutti i comandi di archiviazione di azure e ottenere una panoramica delle funzionalità offerte dall'interfaccia della riga di comando di Azure. È possibile digitare il nome del comando con parametro **-h** (ad esempio, `azure storage share create -h`) per visualizzare i dettagli della sintassi del comando.
-4. A questo punto viene fornito uno script semplice che mostra i comandi di base dell'interfaccia della riga di comando di Azure per accedere ad Archiviazione di Azure. Lo script prima verrà chiesto di impostare due variabili per l'account di archiviazione e la chiave. Lo script crea un nuovo contenitore in questo nuovo account di archiviazione e carica un file di immagine esistente (BLOB) in tale contenitore. Dopo aver elencato tutti i BLOB nel contenitore, lo script crea una nuova directory di destinazione nel computer locale e scarica il file di immagine.
+3. Nell'interfaccia della riga di comando, digitare `azure storage` per elencare tutti i comandi di Archiviazione di Azure e ottenere una panoramica delle funzionalità offerte dall'interfaccia della riga di comando classica di Azure. È possibile digitare il nome del comando con parametro **-h** (ad esempio, `azure storage share create -h`) per visualizzare i dettagli della sintassi del comando.
+4. Verrà ora fornito uno script semplice che mostra i comandi di base dell'interfaccia della riga di comando classica per accedere ad Archiviazione di Azure. Lo script prima verrà chiesto di impostare due variabili per l'account di archiviazione e la chiave. Lo script crea un nuovo contenitore in questo nuovo account di archiviazione e carica un file di immagine esistente (BLOB) in tale contenitore. Dopo aver elencato tutti i BLOB nel contenitore, lo script crea una nuova directory di destinazione nel computer locale e scarica il file di immagine.
 
     ```azurecli
     #!/bin/bash
@@ -88,9 +88,9 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 
 Dopo l'esecuzione dello script è necessario disporre di una cartella di destinazione locale che includa il file di immagine scaricato.
 
-## <a name="manage-storage-accounts-with-the-azure-cli"></a>Gestione degli account di archiviazione con Azure CLI
+## <a name="manage-storage-accounts-with-the-azure-classic-cli"></a>Gestire gli account di archiviazione con l'interfaccia della riga di comando classica di Azure
 ### <a name="connect-to-your-azure-subscription"></a>Connettersi alla sottoscrizione di Azure
-Sebbene la maggior parte dei comandi di archiviazione funzioni senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione dall'interfaccia della riga di comando di Azure. Per configurare l'interfaccia della riga di comando di Azure per l'uso con la sottoscrizione, seguire la procedura nell'argomento [Connessione a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
+Anche se la maggior parte dei comandi di archiviazione funziona senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione dall'interfaccia della riga di comando classica.
 
 ### <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
 Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dopo aver configurato il computer per connettersi alla sottoscrizione, è possibile creare un nuovo account di archiviazione di Azure.
@@ -102,7 +102,7 @@ azure storage account create <account_name>
 Il nome dell'account di archiviazione deve essere di lunghezza compresa tra 3 e 24 caratteri e utilizzare numeri e lettere minuscole solo.
 
 ### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>Impostare un account di archiviazione Azure predefinito nelle variabili di ambiente
-È possibile avere più account di archiviazione nella sottoscrizione. È possibile scegliere uno di essi e impostarlo in variabili di ambiente per tutti i comandi di archiviazione nella stessa sessione. Questo consente di eseguire i comandi di archiviazione di Azure PowerShell senza specificare in modo esplicito il contesto di archiviazione.
+È possibile avere più account di archiviazione nella sottoscrizione. È possibile scegliere uno di essi e impostarlo in variabili di ambiente per tutti i comandi di archiviazione nella stessa sessione. Questo consente di eseguire i comandi di archiviazione dell'interfaccia della riga di comando classica senza specificare in modo esplicito l'account di archiviazione e la chiave.
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -177,7 +177,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Creare e gestire condivisioni di file
-File di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni di file e dati di file tramite la CLI di Azure. Per altre informazioni su File di Azure, vedere [Introduzione a File di Azure](../files/storage-files-introduction.md).
+File di Azure offre un'archiviazione condivisa per le applicazioni che usano il protocollo SMB standard. Macchine virtuali di Microsoft Azure e servizi cloud, nonché applicazioni locali, possono condividere i dati di file tra condivisioni montate. È possibile gestire condivisioni file e dati di file tramite l'interfaccia della riga di comando classica. Per altre informazioni su File di Azure, vedere [Introduzione a File di Azure](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Creare una condivisione file
 Una condivisione file di Azure è una condivisione file SMB in Azure. Tutte le directory e i file devono essere creati in una condivisione padre. Un account può contenere un numero illimitato di condivisioni e una condivisione può archiviare un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione. Nell'esempio seguente viene creata una condivisione file denominata **myshare**.
@@ -214,7 +214,7 @@ azure storage file list myshare myDir
 Si noti che il nome della directory è facoltativo per l'operazione di elenco. Se omesso, il comando Elenca il contenuto della directory radice della condivisione.
 
 ### <a name="copy-files"></a>Copiare i file
-A partire dalla versione 0.9.8.CLI di Azure, è possibile copiare un file in un altro file, un file in un BLOB o un BLOB in un file. Di seguito viene illustrato come eseguire queste operazioni di copia utilizzando i comandi CLI. Copiare un file nella nuova directory:
+A partire dalla versione 0.9.8.dell'interfaccia della riga di comando classica, è possibile copiare un file in un altro file, un file in un BLOB o un BLOB in un file. Di seguito viene illustrato come eseguire queste operazioni di copia utilizzando i comandi CLI. Copiare un file nella nuova directory:
 
 ```azurecli
 azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare
@@ -230,9 +230,9 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile trovare riferimenti ai comandi dell'interfaccia della riga di comando 1.0 di Azure da usare con le risorse di Archiviazione qui:
+I comandi dell'interfaccia della riga di comando classica di Azure da usare con le risorse di archiviazione sono disponibili qui:
 
-* [Comandi dell'interfaccia della riga di comando Azure in modalità Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](../../cli-install-nodejs.md)
+* [Comandi dell'interfaccia della riga di comando classica di Azure in modalità Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Comandi dell'interfaccia della riga di comando classica di Azure in modalità Azure Service Management](../../cli-install-nodejs.md)
 
-È anche possibile provare l'[interfaccia della riga di comando di Azure 2.0](../storage-azure-cli.md), ovvero l'interfaccia della riga di comando di nuova generazione scritta in Python per il modello di distribuzione di Resource Manager.
+È anche possibile provare la versione più recente dell'[interfaccia della riga di comando di Azure](../storage-azure-cli.md), da usare con il modello di distribuzione Resource Manager.

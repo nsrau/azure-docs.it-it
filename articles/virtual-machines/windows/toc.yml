@@ -227,7 +227,7 @@ items:
     items:
     - name: Pagare in anticipo le macchine virtuali - Prenotazioni di Azure
       href: prepay-reserved-vm-instances.md
-    - name: Cosa sono le prenotazioni di Azure?
+    - name: Informazioni sulle prenotazioni di Azure
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: Flessibilità delle dimensioni istanza di VM
       href: reserved-vm-instance-size-flexibility.md
@@ -402,8 +402,80 @@ items:
         href: migration-classic-resource-manager-community-tools.md
       - name: Domande frequenti
         href: migration-classic-resource-manager-faq.md
-- name: Risolvere problemi
-  href: ../troubleshooting/index.md
+  - name: Risolvere problemi
+    items:
+    - name: Connessioni Desktop remoto
+      href: troubleshoot-rdp-connection.md
+      items:
+      - name: Procedura dettagliata
+        href: detailed-troubleshoot-rdp.md
+      - name: messaggi di errore
+        href: troubleshoot-specific-rdp-errors.md
+    - name: Reimpostare la password RDP
+      href: reset-rdp.md
+    - name: Reimpostare la password locale senza l'agente di Azure
+      href: reset-local-password-without-agent.md
+    - name: Informazioni sul riavvio del sistema
+      href: understand-vm-reboot.md
+    - name: Reimpostare la scheda di interfaccia di rete
+      href: reset-network-interface.md
+    - name: Diagnostica di avvio
+      href: boot-diagnostics.md
+    - name: Console seriale
+      href: serial-console.md
+      items:
+      - name: CMD e comandi di PowerShell
+        href: serial-console-cmd-ps-commands.md
+    - name: Creazione di una VM
+      href: troubleshoot-deployment-new-vm.md
+    - name: Problemi di distribuzione
+      href: troubleshoot-deploy-vm.md
+    - name: Riavvio o ridimensionamento di una VM
+      href: restart-resize-error-troubleshooting.md
+    - name: Accesso all'applicazione
+      href: troubleshoot-app-connection.md
+    - name: Problemi di attivazione
+      href: troubleshoot-activation-problems.md
+    - name: Errori di allocazione
+      href: allocation-failure.md
+    - name: Errori di allocazione nelle macchine virtuali classiche
+      href: allocation-failure-classic.md
+    - name: Ridistribuire una VM
+      href: redeploy-to-new-node.md
+    - name: Messaggi di errore comuni
+      href: error-messages.md
+    - name: Accesso di ripristino di macchine virtuali
+      items:
+      - name: Azure PowerShell
+        href: troubleshoot-recovery-disks.md
+      - name: Portale di Azure
+        href: troubleshoot-recovery-disks-portal.md
+    - name: Usare PerfInsights
+      href: how-to-use-perfInsights.md
+    - name: Estensione della VM Diagnostica prestazioni
+      href: performance-diagnostics-vm-extension.md
+    - name: Diagnostica delle prestazioni per le macchine virtuali di Azure
+      href: performance-diagnostics.md
+    - name: Usare la virtualizzazione annidata
+      href: troubleshoot-vm-by-use-nested-virtualization.md
+    - name: Installare l'agente di macchine virtuali in modalità offline
+      href: install-vm-agent-offline.md
+    - name: Risolvere i problemi dei dischi rigidi virtuali collegati
+      items:
+      - name: Errori nell'eliminazione di risorse di archiviazione
+        href: storage-resource-deletion-errors.md
+      - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
+        href: unexpected-reboots-attached-vhds.md
+    - name: Errori di limitazione
+      href: troubleshooting-throttling-errors.md
+    - name: Risolvere i problemi di avvio
+      items:
+      - name: Errori di BitLocker
+        href: troubleshoot-bitlocker-boot-error.md
+      - name: Controllo degli errori del file system
+        href: troubleshoot-check-disk-boot-error.md
+      - name: Errori con schermata blu comuni
+        href: troubleshoot-common-blue-screen-error.md
 - name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
@@ -442,9 +514,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Domande frequenti
     href: faq.md
-ms.openlocfilehash: a991b7edc35256823a45b8ad65f9aa99eb7477c9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5d3aef71cd6658f1f73dd72a0b89dcb3d5eb4a5f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408471"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221215"

@@ -11,14 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a2dff4dd57bdb0b010bbb4568d796f1e197a728
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906327"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971502"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Rendere persistenti le modifiche e usare file di grandi dimensioni
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Con il servizio Sperimentazione di Azure Machine Learning, è possibile configurare svariate destinazioni di esecuzione. Alcune destinazioni sono locali, ad esempio un computer locale o un contenitore Docker in un computer locale. Altre sono remote, ad esempio un contenitore Docker in un computer remoto o un cluster HDInsight. Per altre informazioni, vedere [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md) (Panoramica del servizio di esecuzione degli esperimenti di Azure Machine Learning). 
 
 Prima di poter effettuare l'esecuzione in una destinazione, è necessario copiare la cartella del progetto nella destinazione di calcolo. Questa operazione è necessaria anche con un'esecuzione locale che usa una cartella temporanea locale a questo scopo. 
@@ -48,6 +52,9 @@ I casi d'uso comuni sono:
 * Training a model
 * Creazione di un set di dati
 * Tracciato di un grafo come file di immagine nell'ambito dell'esecuzione del training del modello 
+
+>[!Note]
+> Le dimensioni massime di un file tracciato nella cartella outputs dopo un'esecuzione è 512 MB. Se un file generato dallo script nella cartella outputs è di dimensioni superiori a 512 MB, non viene raccolto in tale posizione. 
 
 Si vuole anche confrontare gli output nelle esecuzioni, selezionare un file di output (ad esempio, un modello) generato da un'esecuzione precedente e quindi usarlo per un'attività successiva (ad esempio, l'assegnazione di punteggi).
 

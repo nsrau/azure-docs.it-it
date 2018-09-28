@@ -5,18 +5,18 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 2e976e933b2f4f16cffd2176f8e0d63158036acc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 18befb5c26879642b371a2ea084fb5c27349addb
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664539"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401546"
 ---
-## <a name="data-lake"></a>Data Lake
+## <a name="data-lake-storage-gen1"></a>Data Lake Storage Gen1
 
 |  |  |
 |---------|---------|
-| [Applicare la crittografia di Data Lake Store](../articles/azure-policy/scripts/enforce-datalakestore-encryption.md) | Nega qualsiasi account Data Lake Store per cui non sia abilitata la crittografia. |
+| [Applicare la crittografia di Data Lake Storage Gen1](../articles/governance/policy/samples/enforce-datalakestore-encryption.md) | Rifiuta qualsiasi account Data Lake Storage Gen1 per cui non è abilitata la crittografia. |

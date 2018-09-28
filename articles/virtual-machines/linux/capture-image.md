@@ -1,6 +1,6 @@
 ---
-title: Acquisire un'immagine di una macchina virtuale Linux in Azure usando l'interfaccia della riga di comando 2.0 | Microsoft Docs
-description: Acquisire un'immagine di una macchina virtuale di Azure da usare per le distribuzioni di massa tramite l'interfaccia della riga di comando di Azure 2.0.
+title: Acquisire un'immagine di una macchina virtuale Linux in Azure usando l'interfaccia della riga di comando di Azure
+description: Acquisire un'immagine di una macchina virtuale di Azure da usare per le distribuzioni di massa tramite l'interfaccia della riga di comando di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: ea202cad06130cfaaa134cad94ac08bede2f41a9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 98d98c1337830ce54c7ff96c19812169be129584
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867702"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946817"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Come creare un'immagine di una macchina virtuale o un disco rigido virtuale
 
@@ -38,7 +38,7 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti:
 
 * È necessario aver creato una macchina virtuale di Azure nel modello di distribuzione Resource Manager tramite l'utilizzo di dischi gestiti. Se non è stata creata una macchina virtuale Linux, è possibile usare il [portale](quick-create-portal.md), l'[interfaccia della riga di comando di Azure](quick-create-cli.md) o i [modelli di Resource Manager](create-ssh-secured-vm-from-template.md). Configurare la macchina virtuale in base alle esigenze. Ad esempio, [aggiungere dischi dati](add-disk.md), applicare aggiornamenti e installare applicazioni. 
 
-* È necessario anche aver installato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index#az_login).
+* È anche necessario aver installato l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) più recente e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Comandi rapidi
 
@@ -62,7 +62,7 @@ Eseguire il deprovisioning della macchina virtuale usando l'agente della macchin
 4. Dopo aver eseguito il comando, digitare **exit**. Questo passaggio chiude il client SSH.
 
 ## <a name="step-2-create-vm-image"></a>Passaggio 2: Creare l'immagine della macchina virtuale
-Usare l'interfaccia della riga di comando di Azure 2.0 per contrassegnare la macchina virtuale come generalizzata e acquisire l'immagine. Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
+Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchina virtuale come generalizzata e acquisire l'immagine. Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
 
 1. Deallocare la macchina virtuale su cui è stato eseguito il deprovisioning con [az vm deallocate](/cli//azure/vm#deallocate). L'esempio seguente dealloca la VM denominata *myVM* nel gruppo di risorse *myResourceGroup*:
    
@@ -146,4 +146,4 @@ az vm show \
 - Seguire nuovamente i passaggi per eseguire il deprovisioning, deallocare, generalizzare e creare un'immagine.
 - Usare la nuova immagine per le distribuzioni future. Se si desidera, eliminare l'immagine originale.
 
-Per altre informazioni sulla gestione delle macchine virtuali con l'interfaccia della riga di comando, vedere [Interfaccia della riga di comando di Azure 2.0](/cli/azure).
+Per altre informazioni sulla gestione delle macchine virtuali con l'interfaccia della riga di comando, vedere [Interfaccia della riga di comando di Azure](/cli/azure).

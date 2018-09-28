@@ -3,18 +3,18 @@ title: Installare e usare Giraph in HDInsight (Hadoop) - Azure
 description: Informazioni su come installare Giraph nei cluster HDInsight basati su Linux utilizzando azioni di Script. Le azioni di script consentono di personalizzare il cluster durante la creazione, modificando la configurazione del cluster o installando servizi e utilità.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: a96bd4e55a82e4896da7ed38d29fa7c04f08696b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f5d7a5587d47f7601f8dc3f65318a6b7d486f58e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600728"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953294"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installare Giraph nei cluster HDInsight Hadoop e usarlo per elaborare grafici su vasta scala
 
@@ -58,7 +58,7 @@ Questa sezione fornisce istruzioni su come usare lo script di esempio quando si 
 > [!NOTE]
 > Un'azione script può essere applicata usando uno dei metodi seguenti:
 > * Azure PowerShell
-> * Interfaccia della riga di comando di Azure
+> * Interfaccia della riga di comando classica di Azure
 > * HDInsight .NET SDK
 > * Modelli di Gestione risorse di Azure
 > 

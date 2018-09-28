@@ -1,200 +1,323 @@
 ---
-title: Entità, termini e concetti dell'Utilità di pianificazione | Documentazione Microsoft
-description: Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure, inclusi processi e raccolte di processi.  Fornisce un esempio completo di un processo pianificato.
+title: Entità, termini e concetti di Utilità di pianificazione di Microsoft Azure | Microsoft Docs
+description: Informazioni sui concetti, terminologia e gerarchia di entità di Utilità di pianificazione di Azure, inclusi processi e raccolte di processi
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.suite: infrastructure-services
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418843"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981162"
 ---
-# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
-## <a name="scheduler-entity-hierarchy"></a>Gerarchia di entità dell'Utilità di pianificazione
-Nella tabella seguente vengono descritte le risorse principali esposte o usate dall'API dell'Utilità di pianificazione:
+# <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
-| Risorsa | DESCRIZIONE |
-| --- | --- |
-| **Raccolta di processi** |Una raccolta di processi contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi all'interno della raccolta. Le raccolte di processi vengono create dal proprietario della sottoscrizione e raggruppano i processi in base ai limiti di utilizzo o dell'applicazione. È vincolata a un'area. Consente inoltre di applicare quote per vincolare l'uso di tutti i processi in tale raccolta. Le quote includono MaxJobs e MaxRecurrence. |
-| **Processo** |Un processo definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio. |
-| **Cronologia processi** |Una cronologia processi rappresenta i dettagli per l'esecuzione di un processo. Contiene esito positivo o negativo, nonché i dettagli della risposta. |
+> [!IMPORTANT]
+> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-## <a name="scheduler-entity-management"></a>Gestione di entità dell'utilità di pianificazione
-A un livello elevato, l'utilità di pianificazione e l'API di gestione servizio espongono le seguenti operazioni sulle risorse:
+## <a name="entity-hierarchy"></a>Gerarchia di entità
 
-| Funzionalità | Descrizione e indirizzo URI |
-| --- | --- |
-| **Gestione delle raccolte di processi** |Supporto di GET, PUT e DELETE per la creazione e la modifica di raccolte di processi e i processi in essi contenuti. Una raccolta di processi è un contenitore per i processi, e mappa quote e impostazioni condivise. Esempi di quote, descritti più avanti, sono il numero massimo di processi e l'intervallo minimo delle ricorrenze. <p>PUT e DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p> |
-| **Gestione dei processi** |Supporto di GET, PUT, POST, PATCH e DELETE per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi che esiste già, e che non viene creata implicitamente. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
-| **Gestione della cronologia dei processi** |Supporto GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Aggiunge il supporto del parametro della stringa di query per filtrare in base a stato e status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p> |
+L'API REST di Utilità di pianificazione di Microsoft Azure espone e utilizza le entità principali o le risorse:
+
+| Entità | DESCRIZIONE |
+|--------|-------------|
+| **Processo** | Definisce una singola azione ricorrente, con strategie semplici o complesse per l'esecuzione. Le azioni possono includere HTTP, coda di archiviazione, coda del bus di servizio o richieste di argomento del bus di servizio. | 
+| **Raccolta di processi** | Contiene un gruppo di processi e gestisce le impostazioni, le quote e le limitazioni condivise dai processi della raccolta. In quanto proprietario della sottoscrizione di Azure, è possibile creare raccolte di processi e raggruppare i processi in base ai limiti di utilizzo o dell'applicazione. Una raccolta processi presenta questi attributi: <p>- È vincolata a un'area. <br>- Consente di applicare quote in modo che sia possibile limitare l'utilizzo per tutti i processi in una raccolta. <br>- Le quote includono MaxJobs e MaxRecurrence. | 
+| **Cronologia processi** | Descrive i dettagli per l'esecuzione del processo, ad esempio, lo stato e i dettagli della risposta. |
+||| 
+
+## <a name="entity-management"></a>Gestione delle entità
+
+A livelli elevati, l'API REST di Utilità di pianificazione di Microsoft Azure espone queste operazioni per la gestione delle entità.
+
+### <a name="job-management"></a>Gestione dei processi
+
+Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](https://docs.microsoft.com/rest/api/scheduler/jobs). Di seguito, l'indirizzo URI per queste operazioni:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+
+### <a name="job-collection-management"></a>Gestione delle raccolte di processi
+
+Supporta le operazioni per la creazione e modifica di processi e raccolte di processi, esecuzione del mapping delle quote e impostazioni condivise. Ad esempio, le quote specificano il numero massimo di processi e l'intervallo minimo delle ricorrenze. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Di seguito, l'indirizzo URI per queste operazioni:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+
+### <a name="job-history-management"></a>Gestione della cronologia dei processi
+
+Supporta l’operazione GET per il recupero di 60 giorni di cronologia di esecuzioni del processo, ad esempio, il tempo di esecuzione del processo e i risultati dell'esecuzione del processo. Include il supporto del parametro della stringa di query per filtrare in base a stato e status. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi - Lista cronologia processi](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Di seguito, l'indirizzo URI per questa operazione:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
 
 ## <a name="job-types"></a>Tipi di processo
-Sono disponibili più tipi di processi: processi HTTP, inclusi quelli che supportano SSL, processi della coda di archiviazione, processi della coda del bus di servizio e processi dell'argomento del bus di servizio. I processi HTTP sono ideali se si dispone di un endpoint di un carico di lavoro o di un servizio esistente. I processi sulle code di archiviazione consentono di inviare messaggi a code di archiviazione, per cui sono processi ideali per i carichi di lavoro che usano le code di archiviazione. Analogamente, i processi del bus di servizio sono ideali per carichi di lavoro che usano argomenti e code del bus di servizio.
 
-## <a name="the-job-entity-in-detail"></a>L'entità "processo" in dettaglio
-A livello di base, un processo pianificato ha diverse parti:
+Utilità di pianificazione di Microsoft Azure supporta più tipi di processo: 
 
-* L'azione da eseguire quando viene si attiva il timer del processo  
-* (Facoltativo) Il tempo necessario per eseguire il processo  
-* (Facoltativo) Quando e quanto spesso ripetere il processo  
-* (Facoltativo) Un'azione da attivare in caso di esito negativo dell'azione primaria  
+* Processi HTTP, inclusi i processi HTTPS che supportano SSL, nel caso di endpoint per un servizio o un carico di lavoro esistente
+* Processi di code di archiviazione per carichi di lavoro che usano le code di archiviazione, ad esempio l'invio di messaggi alle code di archiviazione
+* Processi di coda del bus di servizio per i carichi di lavoro che usano le code del bus di servizio
+* Processi degli argomenti del bus di servizio per i carichi di lavoro che usano gli argomenti del bus di servizio
 
-Internamente, un processo pianificato contiene inoltre dati forniti dal sistema, ad esempio il momento di esecuzione pianificata successivo.
+## <a name="job-definition"></a>Definizione del processo
 
-Il codice seguente fornisce un esempio completo di un processo pianificato. I dettagli vengono forniti nelle sezioni a seguire.
+A un livello elevato, un processo di Utilità di pianificazione di Microsoft Azure include i seguenti elementi di base:
 
-    {
-        "startTime": "2012-08-04T00:00Z",               // optional
-        "action":
-        {
-            "type": "http",
-            "retryPolicy": { "retryType":"none" },
-            "request":
-            {
-                "uri": "http://contoso.com/foo",        // required
-                "method": "PUT",                        // required
-                "body": "Posting from a timer",         // optional
-                "headers":                              // optional
+* L'azione eseguita quando viene si attiva il timer del processo
+* Facoltativo: il tempo necessario per eseguire il processo
+* Facoltativo: quando e quanto spesso ripetere il processo
+* Facoltativo: un'azione di errore da eseguire in caso di esito negativo dell'azione primaria
 
-                {
-                    "Content-Type": "application/json"
-                },
-            },
-           "errorAction":
-           {
-               "type": "http",
-               "request":
-               {
-                   "uri": "http://contoso.com/notifyError",
-                   "method": "POST",
-               },
-           },
-        },
-        "recurrence":                                   // optional
-        {
-            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-            "interval": 1,                              // optional, how often to fire (default to 1)
-            "schedule":                                 // optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]
-            },
-            "count": 10,                                 // optional (default to recur infinitely)
-            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
-        },
-        "state": "disabled",                           // enabled or disabled
-        "status":                                       // controlled by Scheduler service
-        {
-            "lastExecutionTime": "2007-03-01T13:00:00Z",
-            "nextExecutionTime": "2007-03-01T14:00:00Z ",
-            "executionCount": 3,
-                                                "failureCount": 0,
-                                                "faultedCount": 0
-        },
-    }
+Il processo include anche i dati forniti dal sistema, ad esempio l'ora successiva di esecuzione pianificata del processo. La definizione di codice del processo è un oggetto in formato JavaScript Object Notation (JSON), con questi elementi:
 
-Come illustrato nell'utilità di pianificazione di esempio sopra riportato, la definizione di un processo ha diverse parti:
+| Elemento | Obbligatoria | DESCRIZIONE | 
+|---------|----------|-------------| 
+| [**startTime**](#start-time) | No  | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**azione**](#action) | Yes | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
+| [**errorAction**](#error-action) | No  | I dettagli per l’azione secondaria eseguita se l'azione principale ha esito negativo |
+| [**recurrence**](#recurrence) | No  | I dettagli, ad esempio frequenza e intervallo per un processo ricorrente | 
+| [**retryPolicy**](#retry-policy) | No  | I dettagli per la frequenza con cui ripetere un'azione | 
+| [**state**](#state) | Yes | I dettagli per lo stato del processo corrente |
+| [**status**](#status) | Yes | I dettagli per lo stato del processo corrente, che viene controllato dal servizio |
+||||
 
-* Ora di inizio ("startTime")  
-* Azione ("action"), che include l'azione in caso di errore ("errorAction")
-* Ricorrenza ("recurrence")  
-* Stato (“state”)  
-* Status (“status”)  
-* Criterio di ripetizione (“retryPolicy”)  
+Ecco un esempio che illustra una definizione del processo completo per un'azione HTTP. I dettagli più completi degli elementi sono descritti nelle sezioni successive: 
 
-Esaminiamo ciascuna in modo dettagliato:
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z",
+   "action": {
+      "type": "Http",
+      "request": {
+         "uri": "http://contoso.com/some-method", 
+         "method": "PUT",          
+         "body": "Posting from a timer",
+         "headers": {
+            "Content-Type": "application/json"
+         },
+         "retryPolicy": { 
+             "retryType": "None" 
+         },
+      },
+      "errorAction": {
+         "type": "Http",
+         "request": {
+            "uri": "http://contoso.com/notifyError",
+            "method": "POST"
+         }
+      }
+   },
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]
+      },
+      "count": 10,
+      "endTime": "2012-11-04"
+   },
+   "state": "Disabled",
+   "status": {
+      "lastExecutionTime": "2007-03-01T13:00:00Z",
+      "nextExecutionTime": "2007-03-01T14:00:00Z ",
+      "executionCount": 3,
+      "failureCount": 0,
+      "faultedCount": 0
+   }
+}
+```
+
+<a name="start-time"></a>
 
 ## <a name="starttime"></a>startTime
-"startTime" è l'ora di inizio e consente al chiamante di specificare una differenza di fuso orario in transito in [formato ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-## <a name="action-and-erroraction"></a>action ed errorAction
-"action" è l'azione richiamata a ogni occorrenza, e descrive un tipo di chiamata di servizio. L'azione è ciò che verrà eseguito nella pianificazione specificata. L'Utilità di pianificazione supporta azioni della coda del bus di servizio, dell'argomento del bus di servizio, della coda di archiviazione e HTTP.
+Nell’oggetto **startTime**, è possibile specificare l'ora di inizio e una differenza di fuso orario nel [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-L'azione nell'esempio precedente è un'azione HTTP. Di seguito è riportato un esempio di un'azione in coda di archiviazione:
+<a name="action"></a>
 
-    {
-            "type": "storageQueue",
-            "queueMessage":
-            {
-                "storageAccount": "myStorageAccount",  // required
-                "queueName": "myqueue",                // required
-                "sasToken": "TOKEN",                   // required
-                "message":                             // required
-                    "My message body",
-            },
+## <a name="action"></a>action
+
+Il processo di Utilità di pianificazione di Microsoft Azure esegue un'**azione** primaria in base alla pianificazione specificata. Utilità di pianificazione di Microsoft Azure supporta azioni della coda del bus di servizio, dell'argomento del bus di servizio, della coda di archiviazione e HTTP. Se l'**azione** primaria ha esito negativo, Utilità di pianificazione di Microsoft Azure può eseguire una [**errorAction**](#errorAction) secondaria che gestisce l'errore. L’oggetto dell’**azione** descrive questi elementi:
+
+* Tipo di servizio dell'azione
+* Dettagli dell'azione
+* **errorAction** alternativa
+
+L'esempio precedente descrive un'azione HTTP. Qui è riportato un esempio di un'azione in coda di archiviazione:
+
+```json
+"action": {
+   "type": "storageQueue",
+   "queueMessage": {
+      "storageAccount": "myStorageAccount",  
+      "queueName": "myqueue",                
+      "sasToken": "TOKEN",                   
+      "message": "My message body"
     }
+}
+```
 
-Di seguito è riportato un esempio di azione dell'argomento del bus di servizio.
+Qui è riportato un esempio di azione di coda del bus di servizio:
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+```json
+"action": {
+   "type": "serviceBusQueue",
+   "serviceBusQueueMessage": {
+      "queueName": "q1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {  
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",  
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-Di seguito è riportato un esempio di azione di coda del bus di servizio.
+Qui è riportato un esempio di azione di argomento del bus di servizio:
 
-  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": {  
-        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
-      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
+```json
+"action": {
+   "type": "serviceBusTopic",
+   "serviceBusTopicMessage": {
+      "topicPath": "t1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-"errorAction" è il gestore degli errori, l'azione viene richiamata quando l'azione principale ha esito negativo. È possibile usare questa variabile per chiamare un endpoint di gestione degli errori o per inviare una notifica all'utente. Ciò può essere usato per raggiungere un endpoint secondario in caso quello primario non sia disponibile (ad esempio, in caso di emergenza nel sito dell'endpoint) o può essere usato per notificare un endpoint che si occupi di gestire gli errori. Proprio come l'azione principale, l'azione di errore può essere semplice o a logica composita basata su altre azioni. Per informazione su come creare un token SAS, fare riferimento a [Creare e utilizzare una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/jj721951.aspx).
+Per altre informazioni sui token delle firme di accesso condiviso (SAS), vedere [Autorizzazione con firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+<a name="error-action"></a>
+
+## <a name="erroraction"></a>errorAction
+
+Se l'**azione** primaria del processo ha esito negativo, Utilità di pianificazione di Microsoft Azure può eseguire una **errorAction** che gestisce l'errore. Nell'**azione** primaria, è possibile specificare un oggetto della **errorAction** in modo che Utilità di pianificazione di Microsoft Azure possa chiamare un endpoint di gestione degli errori o inviare una notifica all'utente. 
+
+Ad esempio, se si verifica un'emergenza in corrispondenza dell'endpoint primario, è possibile utilizzare **errorAction** per chiamare un endpoint secondario, o per notificare un endpoint di gestione degli errori. 
+
+Proprio come l'**azione** primaria, l'azione di errore può essere semplice o a logica composita, sulla base delle altre azioni. 
+
+<a name="recurrence"></a>
 
 ## <a name="recurrence"></a>ricorrenza
-La ricorrenza ha diverse parti:
 
-* Frequenza: Un valore tra minuto, ora, giorno, settimana, mese, anno  
-* Intervallo: Intervallo alla frequenza specificata per la ricorrenza  
-* Pianificazione prescritta: Specifica minuti, ore, giorni della settimana, mesi e giorni del mese della ricorrenza  
-* Conteggio: Conteggio delle occorrenze  
-* Ora di fine: Nessun processo verrà eseguito dopo l'ora di fine specificata  
+Un processo è ricorrente se la definizione JSON del processo include l’oggetto **ricorrenza**, ad esempio:
 
-Un processo è ricorrente se dispone di un oggetto ricorrente specificato nella sua definizione JSON. Se sono specificati sia conteggio che l'ora di fine, viene applicata la regola di completamento che si verifica per primo.
+```json
+"recurrence": {
+   "frequency": "Week",
+   "interval": 1,
+   "schedule": {
+      "hours": [10, 22],
+      "minutes": [0, 30],
+      "weekDays": ["Monday", "Wednesday", "Friday"]
+   },
+   "count": 10,
+   "endTime": "2012-11-04"
+},
+```
 
-## <a name="state"></a>state
-Lo stato del processo è uno di questi quattro valori: abilitato, disabilitato, completato o in errore. È possibile eseguire azioni PUT o PATCH sui processi per aggiornarli allo stato abilitato o disabilitato. Se un processo è stato completato o in errore, si trova in uno stato finale che non può essere aggiornato (anche se è comunque possibile eliminare il processo). Un esempio della proprietà stato è come segue:
+| Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+|----------|----------|-------|-------------| 
+| **frequency** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
+| **interval** | No  | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
+| **schedule** | No  | Variabile | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
+| **hours** | No  | Da 1 a 24 | Una matrice con l'ora segna quando eseguire il processo | 
+| **minutes** | No  | Da 1 a 24 | Una matrice con i minuti segna quando eseguire il processo | 
+| **months** | No  | Da 1 a 12 | Una matrice con i mesi segna quando eseguire il processo | 
+| **monthDays** | No  | Variabile | Una matrice con i giorni segna quando eseguire il processo | 
+| **weekDays** | No  | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matrice con i giorni della settimana segna quando eseguire il processo | 
+| **count** | No  | <*none*> | Il numero di ricorrenze. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
+| **endTime** | No  | <*none*> | Data e ora di arresto della ricorrenza. Il valore predefinito prevede la ricorrenza all'infinito. Non è possibile usare sia **count** che **endTime**, ma viene applicata la regola che termina per prima. | 
+||||
 
-        "state": "disabled", // enabled, disabled, completed, or faulted
-I processi completati e con errori vengono eliminati dopo 60 giorni.
+Per altre informazioni su questi elementi, vedere [Creare pianificazioni complesse e ricorrenze avanzate](../scheduler/scheduler-advanced-complexity.md).
 
-## <a name="status"></a>status
-Dopo l'avvio dell'Utilità di pianificazione, verranno restituite informazioni sullo stato corrente del processo. Questo oggetto non può essere impostato dall'utente: è impostato dal sistema. Tuttavia, è incluso nell'oggetto processo (anziché in una risorsa collegata separata) in modo da consentire di ottenere semplicemente lo stato di un processo.
-
-Lo stato del processo include l'ora dell'esecuzione precedente (se presente), l'ora della successiva esecuzione pianificata (per i processi in corso) e il conteggio delle esecuzioni del processo.
+<a name="retry-policy"></a>
 
 ## <a name="retrypolicy"></a>retryPolicy
-Se un'utilità di pianificazione non riesce, è possibile specificare un criterio di ripetizione per determinare se e come l'azione verrà ripetuta. Ciò è determinato dall'oggetto **retryType**: è impostato su **nessuno** se non esiste alcun criterio di ripetizione, come illustrato in precedenza. Impostato su **fisso** se esiste un criterio di ripetizione.
 
-Per impostare un criterio di ripetizione, è possibile specificare due impostazioni aggiuntive: un intervallo tra i tentativi (**retryInterval**) e il numero di tentativi (**retryCount**).
+Nel caso in cui un processo di Utilità di pianificazione di Microsoft Azure abbia esito negativo, è possibile impostare un criterio di ripetizione, che determina se e come Utilità di pianificazione di Microsoft Azure ritenta l'azione. Per impostazione predefinita Utilità di pianificazione di Microsoft Azure tenta di eseguire nuovamente il processo quattro volte, a intervalli di 30 secondi. È possibile rendere più o meno aggressivo questo criterio, ad esempio, questo criterio ripete un'azione due volte al giorno:
 
-L'intervallo tra tentativi, specificato con l'oggetto **retryInterval** , è l'intervallo di tempo tra i tentativi. Il valore predefinito è 30 secondi, il valore minimo configurabile è 15 secondi e il valore massimo è 18 mesi. Viene definito nel formato ISO 8601. Analogamente, il valore del numero di tentativi è specificato con l'oggetto **retryCount** e specifica quanti tentativi verranno eseguiti. Il valore predefinito è 4 e il valore massimo è 20\. I valori **retryInterval** e **retryCount** sono facoltativi. A questi oggetti vengono assegnati i valori predefiniti se **retryType** è impostato su **fixed** e non sono specificati valori in modo esplicito.
+```json
+"retryPolicy": { 
+   "retryType": "Fixed",
+   "retryInterval": "PT1D",
+   "retryCount": 2
+},
+```
+
+| Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+|----------|----------|-------|-------------| 
+| **retryType** | Yes | **Fixed**, **None** | Determina se sono stati specificati criteri di ripetizione (**fixed**) o no (**none**). | 
+| **retryInterval** | No  | PT30S | Specifica l'intervallo e la frequenza tra i tentativi di ripetizione dei tentativi nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Il valore minimo è 15 secondi, mentre il valore massimo è 18 mesi. | 
+| **retryCount** | No  | 4 | Specificare il numero di tentativi. Il valore massimo è 20. | 
+||||
+
+Per altre informazioni, vedere [Disponibilità e affidabilità elevate](../scheduler/scheduler-high-availability-reliability.md).
+
+<a name="status"></a>
+
+## <a name="state"></a>state
+
+Lo stato del processo può essere **Attivo**, **Disattivato**, **Completato**, oppure **Con errori**, ad esempio: 
+
+`"state": "Disabled"`
+
+Per modificare i processi allo stato **Attivo** oppure **Disattivato**, è possibile usare l'operazione PUT o PATCH su tali processi.
+Tuttavia, se un processo presenta lo stato **Completato** o **Con errori**, non è possibile aggiornare lo stato, benché sia possibile eseguire l'operazione di ELIMINAZIONE del processo. Utilità di pianificazione di Microsoft Azure elimina i processi completati e con errori dopo 60 giorni. 
+
+<a name="status"></a>
+
+## <a name="status"></a>status
+
+Dopo l'avvio di un processo, Utilità di pianificazione di Microsoft Azure restituisce informazioni sullo stato del processo tramite l'oggetto **status**, che è controllato esclusivamente d Utilità di pianificazione di Microsoft Azure. Tuttavia, è possibile trovare l’oggetto **status** all'interno dell'oggetto **processo**. Ecco le informazioni che include lo stato del processo:
+
+* Tempo per l'esecuzione precedente, se presente
+* Tempo per la successiva esecuzione pianificata per i processi in corso
+* Il numero di esecuzioni di processi
+* Il numero di errori, se presenti
+* Il numero di errori, se presenti
+
+Ad esempio: 
+
+```json
+"status": {
+   "lastExecutionTime": "2007-03-01T13:00:00Z",
+   "nextExecutionTime": "2007-03-01T14:00:00Z ",
+   "executionCount": 3,
+   "failureCount": 0,
+   "faultedCount": 0
+}
+```
 
 ## <a name="see-also"></a>Vedere anche 
- [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
 
- [Introduzione all'uso dell'Utilità di pianificazione nel portale di Azure](scheduler-get-started-portal.md)
-
- [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
-
- [Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure](scheduler-advanced-complexity.md)
-
- [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
-
- [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
-
- [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
-
- [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
-
- [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
-
+* [Informazioni su Utilità di pianificazione di Microsoft Azure](scheduler-intro.md)
+* [Concetti, terminologia e gerarchia di entità](scheduler-concepts-terms.md)
+* [Creare pianificazioni complesse e ricorrenze avanzate](scheduler-advanced-complexity.md)
+* [Limiti, quote, valori predefiniti e codici di errore](scheduler-limits-defaults-errors.md)
+* [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://docs.microsoft.com/rest/api/schedule)
+* [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)

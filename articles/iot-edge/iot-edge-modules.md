@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42141326"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995379"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informazioni sui moduli Azure IoT Edge
 
@@ -67,7 +67,7 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>Funzionalità offline
 
-Azure IoT Edge supporta le operazioni offline sui dispositivi IoT Edge. Queste funzionalità sono limitate al momento con scenari aggiuntivi in fase di sviluppo. 
+Azure IoT Edge supporta le operazioni offline sui dispositivi IoT Edge. Queste funzionalità sono limitate per il momento. 
 
 I moduli IoT Edge possono essere offline per periodi prolungati purché siano soddisfatti i requisiti seguenti: 
 
@@ -75,6 +75,8 @@ I moduli IoT Edge possono essere offline per periodi prolungati purché siano so
 * **I moduli non devono ripetere l'autenticazione con l'hub di IoT Edge se in modalità offline**. I moduli possono eseguire l'autenticazione solo con gli hub di Edge che dispongono di una connessione attiva con un hub IoT. I moduli devono essere autenticati di nuovo se vengono riavviati per qualsiasi motivo. I moduli possono comunque inviare i messaggi all'hub di Edge dopo che il token di firma di accesso condiviso è scaduto. Quando si riattiva la connettività, l'hub di Edge richiede un nuovo token dal modulo e la convalida con l'hub IoT. Se l'operazione ha esito positivo, l'hub di Edge inoltra i messaggi del modulo che ha archiviato, anche i messaggi inviati mentre il token del modulo era scaduto. 
 * **Il modulo che ha inviato i messaggi mentre è offline funziona ancora quando viene riattivata la connettività**. Al momento della riconnessione all'hub IoT, l'hub di Edge deve convalidare un nuovo token di modulo (se il precedente è scaduto) prima di poter inoltrare i messaggi del modulo. Se il modulo non è disponibile per fornire un nuovo token, l'hub di Edge non può eseguire operazioni sui messaggi archiviati del modulo. 
 * **L'hub di Edge dispone di spazio su disco per archiviare i messaggi**. Per impostazione predefinita, i messaggi vengono archiviati nel filesystem del contenitore dell'hub di Edge. È disponibile un'opzione di configurazione per specificare invece un volume montato per l'archiviazione dei messaggi. In entrambi i casi è necessario che sia disponibile spazio per archiviare i messaggi per il recapito posticipato all'hub IoT.  
+
+Altre funzionalità offline sono disponibili in anteprima pubblica. Per altre informazioni, vedere [Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
  - [Informazioni sul runtime di Azure IoT Edge e la relativa architettura][lnk-runtime]
