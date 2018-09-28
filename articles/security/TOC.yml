@@ -11,18 +11,20 @@ items:
     displayName: incident
     href: azure-log-audit.md
   - name: Sicurezza di rete di Azure
-    displayName: firewall, ssl, vpn, ids
+    displayName: firewall, ssl, vpn, ids, gateway, https, application gateway, azure application gateway, ips, waf
     href: abstract-azure-network-security.md
   - name: Sicurezza della piattaforma senza server di Azure
     href: abstract-serverless-platform-security.md
   - name: Sicurezza del contenitore in Azure
     href: abstract-container-security-microsoft-azure.md
   - name: Abilitazione della sicurezza operativa
-    displayName: policy, policies
+    displayName: policy, policies, azure monitor, soc
     href: abstract-azure-operational-security.md
   - name: Isolamento nel cloud di Azure
+    displayName: trust boundary
     href: azure-isolation.md
   - name: Architettura di rete ibrida sicura
+    displayName: trust boundary
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Funzionalità tecniche per la sicurezza
     href: azure-security-technical-capabilities.md
@@ -47,7 +49,7 @@ items:
     - name: Crittografia dischi per macchine virtuali IaaS
       items:
       - name: Informazioni su Crittografia dischi di Azure
-        displayName: bitlocker
+        displayName: bitlocker, bek
         href: azure-security-disk-encryption-overview.md
       - name: Guide introduttive
         items:
@@ -95,7 +97,7 @@ items:
     - name: Componenti e limiti
       href: azure-infrastructure-components.md
     - name: Architettura di rete
-      displayName: ssl
+      displayName: ssl, https
       href: azure-infrastructure-network.md
     - name: Rete di produzione
       href: azure-production-network.md
@@ -124,7 +126,7 @@ items:
     href: security-identity-management-overview.md
     items:
     - name: Scegliere l'autenticazione di Azure AD
-      displayName: identity, active directory
+      displayName: identity, active directory, seamless sso
       href: azure-ad-choose-authn.md
     - name: Elenco di controllo relativo alla sicurezza
       displayName: identity, active directory, password
@@ -136,7 +138,7 @@ items:
       displayName: identity
       href: azure-security-global-admin.md
   - name: Sicurezza di rete
-    displayName: firewall, ssl, vpn, ids
+    displayName: firewall, ssl, vpn, ids, gateway, https, azure application gateway, application gateway, ips, waf
     href: security-network-overview.md
     items:
     - name: Procedure consigliate
@@ -192,7 +194,8 @@ items:
         displayName: active directory
         href: security-azure-log-integration-ad.md
       - name: Integrare gli avvisi del Centro sicurezza
-        href: security-azure-log-integration-security-center.md
+        displayName: splunk
+        href: ../security-center/security-center-export-data-to-siem.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Integrare i log di Key Vault
         displayName: keyvault
         href: security-azure-log-integration-keyvault-eventhub.md
@@ -206,17 +209,17 @@ items:
     - name: Elenco di controllo relativo alla sicurezza
       href: azure-operational-security-checklist.md
 - name: Governance e conformità
-  displayName: blueprint, privacy
+  displayName: blueprint, privacy, certifications
   items:
   - name: AU-PROTECTED
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Applicazione Web IaaS
       href: ./blueprints/au-protected-iaaswa-overview.md
     - name: Applicazione Web PaaS
       href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Analisi dei dati
       href: ./blueprints/fedramp-analytics-overview.md
@@ -227,7 +230,7 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Analisi dei dati
       href: ./blueprints/ffiec-analytics-overview.md
@@ -238,7 +241,7 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/ffiec-paaswa-overview.md
   - name: GDPR
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Analisi dei dati
       href: ./blueprints/gdpr-analytics-overview.md
@@ -249,12 +252,12 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Dati e intelligenza artificiale per il settore sanitario
       href: ./blueprints/azure-health.md
   - name: NIST SP 800-171
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Analisi dei dati
       href: ./blueprints/nist171-analytics-overview.md
@@ -265,7 +268,7 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Analisi dei dati
       href: ./blueprints/pcidss-analytics-overview.md
@@ -276,12 +279,12 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/pcidss-paaswa-overview.md
   - name: TIC
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Trusted Internet Connection con Azure
       href: ./compliance/compliance-tic.md
   - name: Servizio sanitario nazionale (NHS) Regno Unito
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Analisi dei dati
       href: ./blueprints/uknhs-analytics-overview.md
@@ -292,7 +295,7 @@ items:
     - name: Applicazione Web PaaS
       href: ./blueprints/uknhs-paaswa-overview.md
   - name: UFFICIALE DEL REGNO UNITO
-    displayName: blueprint, privacy
+    displayName: blueprint, privacy, certifications
     items:
     - name: Applicazione Web IaaS
       href: ./blueprints/ukofficial-iaaswa-overview.md
@@ -315,6 +318,7 @@ items:
   - name: Registrare un ticket di supporto per eventi di sicurezza
     href: azure-security-event-support-ticket.md
   - name: Test di penetrazione
+    displayName: penetration
     href: azure-security-pen-testing.md
   - name: Microsoft Threat Modeling Tool
     displayName: stride
@@ -349,9 +353,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: Gestione delle sessioni
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: 21b41c50165ab4effa803cc0736b7fc64f252c43
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a5f78762baad4cf7f6173076bbb9a9e8f7e877f0
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222132"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423052"
