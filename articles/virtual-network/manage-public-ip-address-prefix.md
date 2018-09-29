@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 1426bddb6e9e3e110fe5a86ed451ec40c2677e78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957506"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405734"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creare, modificare o eliminare un prefisso dell'indirizzo IP pubblico
 
@@ -78,7 +78,6 @@ Dopo aver creato un prefisso, è necessario creare gli indirizzi IP statici di u
     |NOME|Yes|Il nome dell'indirizzo IP pubblico deve essere univoco all'interno del gruppo delle risorse selezionato.|
    |Timeout di inattività (minuti)|No |Il numero di minuti in cui la connessione TCP o HTTP resta aperta senza affidarsi ai client per l'invio di messaggi Keep-Alive. |
    |Etichetta del nome DNS|No |Deve essere univoca all'interno dell'area di Azure nella quale viene creato il nome (incluse tutte le sottoscrizioni e tutti i clienti). Azure registra automaticamente il nome e l'indirizzo IP nel proprio DNS, consentendo la connessione a una risorsa con tale nome. Azure accoda un subnet predefinito, ad esempio *location.cloudapp.azure.com* (dove location è il percorso selezionato) del nome fornito, per creare il nome del DNS completo.Per altre informazioni, vedere [Usare DNS di Azure con un indirizzo IP pubblico di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
-   |Zona di disponibilità|  No  | Questa impostazione viene visualizzata solo se si seleziona un'area supportata. Per un elenco di posizioni supportate, vedere[Panoramica di zone disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).L'opzione con ridondanza di zona è selezionata automaticamente e rende il percorso dati resiliente alla zona critica. Se si preferisce garantire una zona specifica, non resiliente agli errori a livello di zona, è possibile selezionarne una.
 
 ## <a name="view-or-delete-a-prefix"></a>Visualizza o elimina un prefisso
 

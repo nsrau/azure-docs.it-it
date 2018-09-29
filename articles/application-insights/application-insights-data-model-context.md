@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: sergkanz; mbullwin
-ms.openlocfilehash: f6654dc869b6c1a3f91ee8dee44dcdbf4bdfc5fd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: b6cfae20f09b19a57cf411777e78abb1dbbf0484
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094113"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contesto dei dati di telemetria: modello di dati di Application Insights
 

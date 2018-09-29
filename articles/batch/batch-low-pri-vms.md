@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 954616e8fbf9e3c3be35fc219d15e3fb36260e1f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608917"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093004"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usare le macchine virtuali con priorità bassa in Batch
 
@@ -85,7 +85,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
     virtualMachineSize: "Standard_D2_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4") // WS 2012 R2
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5") // WS 2016
 );
 ```
 

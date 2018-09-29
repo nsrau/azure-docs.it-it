@@ -1,21 +1,23 @@
 ---
 title: Materiale sussidiario per l'esempio di app multi-tenant di database SQL - SaaS Wingtip | Microsoft Docs
 description: Illustra i passaggi e il materiale sussidiario per l'installazione e l'esecuzione dell'applicazione multi-tenant di esempio che usa Database SQL di Azure, nell'esempio Wingtip Tickets SaaS.
-keywords: esercitazione database SQL
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 6c352298c701c827cd01c0ed7f427b7ed6015e29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646678"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054405"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
 

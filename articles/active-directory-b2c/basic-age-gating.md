@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9d24e37642a41e4d60b33f42a60d7e56cb4b35b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9a9a86d445deaea4872615f443ad53f76638a758
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446725"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056523"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Utilizzo del controllo dell’accesso in base all’età in Azure Active Directory B2C
 
 >[!IMPORTANT]
->Questa funzionalità è in anteprima privata.  Consultare il nostro [blog di assistenza](https://blogs.msdn.microsoft.com/azureadb2c/) per informazioni dettagliate sulla disponibilità di tale servizio, in alternativa contattare AADB2CFeedback@microsoft.com.  NON utilizzarlo in directory di produzione, l’utilizzo di queste nuove funzionalità può comportare la perdita di dati e causare modifiche impreviste di comportamento fino al momento in cui il servizio non assumerà un carattere di disponibilità generale.  
+>Questa funzionalità è in anteprima privata.  Consultare il nostro [blog di assistenza](https://blogs.msdn.microsoft.com/azureadb2c/) per informazioni dettagliate sulla disponibilità di tale servizio, in alternativa contattare AADB2CPreview@microsoft.com.  NON utilizzarlo in directory di produzione, l’utilizzo di queste nuove funzionalità può comportare la perdita di dati e causare modifiche impreviste di comportamento fino al momento in cui il servizio non assumerà un carattere di disponibilità generale.  
 >
 
 ##<a name="age-gating"></a>Controllo dell'accesso in base all'età
@@ -56,13 +56,3 @@ Per i flussi utente che consentono la registrazione, l'accesso o entrambi, è po
 Per i flussi utente che consentono la registrazione, l'accesso o entrambi, è possibile scegliere di bloccare l’accesso all’applicazione ai minori senza consenso.  Sono disponibili due opzioni per la gestione degli utenti bloccati in Azure Active Directory B2C:
 * Restituisci un messaggio JSON all'applicazione, questa opzione invierà una risposta all'applicazione rispetto alla quale è stato bloccato un minore.
 * Mostra una pagina di errore, l'utente visualizzerà una pagina che lo informa dell’impossibilità di accedere all'applicazione
-
-##<a name="known-issues"></a>Problemi noti
-###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Formato della risposta quando viene bloccato un minore.
-La risposta attualmente non è espressa correttamente, il bug verrà risolto in un aggiornamento successivo.
-
-###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>L'eliminazione di attributi specifici aggiunti durante l'installazione può impedire alla directory di utilizzare il controllo dell'accesso in base all'età.
-Nella configurazione del controllo dell'accesso in base all'età, la directory viene configurata in `Properties` tramite un'opzione.  Se si elimina `legalCountry` o `dateOfBirth` mediante Graph, la directory non potrà più usare il controllo dell'accesso in base all'età e le proprietà non potranno essere ricreate.
-
-###<a name="list-of-countries-is-incomplete"></a>L’elenco dei Paesi è incompleto
-Attualmente l'elenco di Paesi per legalCountry è incompleto, i Paesi restanti verranno aggiunti in un aggiornamento successivo.

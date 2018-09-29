@@ -3,19 +3,22 @@ title: Correggere un errore di connessione SQL temporaneo | Documentazione Micro
 description: Informazioni su come risolvere, diagnosticare ed evitare un errore di connessione SQL o errore temporaneo nel database SQL di Azure.
 keywords: connessione sql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: dalechen
 ms.author: ninarn
-ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398938"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064238"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL
 Questo articolo illustra come evitare, risolvere, diagnosticare e ridurre gli errori di connessione e gli errori temporanei che si verificano nell'applicazione client durante l'interazione con il database SQL di Azure. Informazioni su come configurare la logica di ripetizione dei tentativi, compilare la stringa di connessione e modificare altre impostazioni di connessione.

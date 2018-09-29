@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ea2a58e61d781e6ebfb72b860a3b7aed6ce0c7d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953480"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394480"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
@@ -1694,11 +1694,10 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Passare a una guida introduttiva che usa un trigger di Cosmos DB](functions-create-cosmos-db-triggered-function.md)
+* [Altre informazioni sull'elaborazione di database senza server con Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [Altre informazioni sull'elaborazione di database senza server con Cosmos DB](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+--->

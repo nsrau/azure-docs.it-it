@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights per Windows Server e ruoli di lavoro | Microsoft Docs
-description: "Aggiungere manualmente Application Insights SDK all'applicazione ASP.NET per analizzare utilizzo, disponibilità e prestazioni."
+description: Aggiungere manualmente Application Insights SDK all'applicazione ASP.NET per analizzare utilizzo, disponibilità e prestazioni.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf7921926c69fff214e94a2d0edc22b28fb8eac0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461b1f4e72f0a47da4ccb560bfb4cfb7d0f3ccd2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096436"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurare manualmente Application Insights per applicazioni .NET
 

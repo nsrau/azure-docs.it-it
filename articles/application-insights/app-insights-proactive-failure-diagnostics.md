@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2017
-ms.author: mbullwin; yossiy
-ms.openlocfilehash: 29ae81551d4bd4be4123c8e7780b8b5ecc259f09
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: yossiy
+ms.author: mbullwin
+ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093986"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
 [Application Insights](app-insights-overview.md) avvisa automaticamente l'utente quasi in tempo reale se si verifica un incremento anomalo della frequenza di richieste non riuscite nell'app Web, rilevando un aumento insolito della percentuale di richieste HTTP o di chiamate alle dipendenze segnalate come non riuscite. Per quanto riguarda le richieste, quelle non riuscite hanno in genere un codice di risposta 400 o superiore. Per poter valutare e diagnosticare il problema, la notifica include un'analisi delle caratteristiche degli errori e i dati di telemetria correlati. Sono disponibili anche collegamenti al portale di Application Insights per un'ulteriore diagnosi. La funzionalità non necessita di alcuna installazione o configurazione, perché usa algoritmi di Machine Learning per stimare la normale frequenza degli errori.
@@ -122,11 +124,11 @@ Il rilevamento intelligente delle anomalie degli errori integra altre funzionali
 
 *Il servizio implica l'accesso manuale ai dati da parte di Microsoft?*
 
-* di serie Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
+* No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
 
 *Va eseguita una sottoscrizione a questo avviso?*
 
-* di serie In ogni applicazione che invia dati di telemetria della richiesta è presente la regola di avviso per il rilevamento intelligente.
+* No. In ogni applicazione che invia dati di telemetria della richiesta è presente la regola di avviso per il rilevamento intelligente.
 
 *È possibile annullare la sottoscrizione oppure ottenere le notifiche inviate ai colleghi?*
 

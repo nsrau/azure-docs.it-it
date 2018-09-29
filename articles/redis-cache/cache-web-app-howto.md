@@ -16,11 +16,11 @@ ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: a92621d852ec60fb4773957d71dc6a55caaf991c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674887"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092199"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Guida introduttiva: Creare un'app Web ASP.NET 
 
@@ -32,7 +32,7 @@ Questa guida introduttiva illustra come creare e distribuire un'applicazione Web
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva, è necessario installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con gli ambienti seguenti:
 * Sviluppo Web e ASP.NET

@@ -1,24 +1,23 @@
 ---
 title: Eseguire query di reporting ad hoc su più database SQL di Azure | Microsoft Docs
 description: Eseguire query di reporting ad hoc su più database SQL in un esempio di app multi-tenant.
-keywords: esercitazione database SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: AyoOlubeko
 ms.author: AyoOlubeko
-ms.openlocfilehash: 95ea5f2a40bd629384e1bc1f7d707eb30d9eaf5f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 5b1ceeac5d3887d5c199e642a0e26aa4ffab4452
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644274"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055439"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Eseguire query di reporting ad hoc su più database SQL di Azure
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: 0a10662e359379356ecc8d82af1b7d6331c41a65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720056"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451772"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multi-tenancy in Azure Stack
 
@@ -101,7 +101,8 @@ Register-AzSWithMyDirectoryTenant `
 > Se l'amministratore di Azure Stack consente di installare nuovi servizi o aggiornamenti in futuro, si potrebbe essere necessario eseguire nuovamente lo script.
 >
 > Eseguire questo script in qualsiasi momento per verificare lo stato delle applicazioni nella directory di Azure Stack.
-
+> 
+> Se si sono notato i problemi con la creazione di macchine virtuali in Managed Disks (introdotto nell'aggiornamento 1808), una nuova **Provider di risorse disco** è stato aggiunto, richiedere questo script per eseguirlo di nuovo.
 
 ### <a name="activate-the-administrator-and-tenant-portals"></a>Attivare i portali tenant e di amministratore
 Dopo le distribuzioni che usano Azure AD, è necessario attivare entrambi i portali a amministratore e del tenant di Azure Stack. Questa attivazione dà il consenso a fornendo il portale di Azure Stack e Azure Resource Manager le autorizzazioni corrette (elencate nella pagina di consenso) per tutti gli utenti della directory.

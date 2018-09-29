@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: bdf56a85c43513f573c02e3b28cd93f28217814b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 39e11f35870fa3a3573e5f1af467cfbd898a1563
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128963"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182145"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -91,7 +91,7 @@ Prima di procedere l'account RunAs deve soddisfare i requisiti seguenti:
 4. Nella pagina **Proprietà generali** selezionare **Windows** nell'elenco **Tipo di account RunAs**.
 5. Digitare un nome visualizzato nella casella di testo **Nome visualizzato** e facoltativamente una descrizione nella casella **Descrizione** e quindi fare clic su **Avanti**.
 6. Nella pagina **Sicurezza della distribuzione** selezionare **Più protetto**.
-7. Fare clic su **Crea**.  
+7. Fare clic su **Create**(Crea).  
 
 Dopo aver creato l'account RunAs, è necessario indicare i server di gestione di destinazione nel gruppo di gestione e associare l'account a un profilo RunAs predefinito in modo che i flussi di lavoro vengano eseguiti usando le credenziali.  
 
@@ -228,8 +228,6 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 ## <a name="ignore-recommendations"></a>Ignorare le raccomandazioni
 
 Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Log Analytics usa per impedire la visualizzazione delle raccomandazioni nei risultati della valutazione.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Per identificare le raccomandazioni da ignorare
 1. Nella pagina dell'area di lavoro di Log Analytics per l'area di lavoro selezionata del portale di Azure fare clic sulla voce di menu **Ricerca log**.

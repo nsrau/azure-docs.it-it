@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364602"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452531"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -94,6 +94,19 @@ Distribuzione di Azure Stack può essere *connessi* oppure *disconnesso*.
  - **Disconnesso**  
  Con disconnesso dall'opzione di distribuzione di Azure, è possibile distribuire e usare Azure Stack senza una connessione a Internet. Tuttavia, con una distribuzione disconnessa, si è limitati a un archivio identità di AD FS e il modello di fatturazione basato sulla capacità.
     - [Registrare un disconnesso Azure Stack usando il **capacità** modello di fatturazione ](#register-disconnected-with-capacity-billing)
+
+### <a name="determine-a-unique-registration-name-to-use"></a>Determinare un nome di registrazione univoci da utilizzare 
+Quando si registra Azure Stack con Azure, è necessario fornire un nome di registrazione univoci. Un modo semplice per associare la sottoscrizione di Azure Stack con una registrazione di Azure consiste nell'utilizzare Azure Stack **ID Cloud**. 
+
+> [!NOTE]
+> Le registrazioni di Azure Stack usando il modello di fatturazione basato sulla capacità saranno necessario modificare il nome univoco quando si registra nuovamente dopo la scadono di tali sottoscrizioni annuale.
+
+Per determinare l'ID del Cloud per la distribuzione di Azure Stack, aprire PowerShell come amministratore in un computer che possa accedere all'Endpoint con privilegi, eseguire i comandi seguenti e registrare il **CloudID** valore: 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Registrare connesse con la fatturazione con pagamento a consumo
 
@@ -257,7 +270,7 @@ Successivamente, è necessario recuperare una chiave di attivazione dalla risors
 Per ottenere la chiave di attivazione, eseguire i cmdlet di PowerShell seguenti:  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -351,7 +364,7 @@ Successivamente, per rimuovere la risorsa di registrazione in Azure, assicurarsi
 Oppure è possibile usare il nome di registrazione:
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 

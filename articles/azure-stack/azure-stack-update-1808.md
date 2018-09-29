@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f1541a0523ce0178ad3616a956d5188ef7df0ded
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7278f784316fdbd7170bb69b9414911b8f5b3823
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395713"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452684"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -204,6 +204,17 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 
 ### <a name="compute"></a>Calcolo
+
+- <!-- 3090289 – IS, ASDK --> Dopo aver applicato la 1808 aggiornamento, si potrebbero verificare i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
+
+   1. Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
+      1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
+      2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
+   2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
+      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      2. Seguire i passaggi descritti in [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
+
+
 - <!-- 2869209 – IS, ASDK --> Quando si usa la [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), è necessario usare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. Se si usa il percorso locale del disco, il cmdlet non riesce con l'errore seguente: *operazione a esecuzione prolungata non è riuscita con stato 'Non riuscita'*. 
 
 - <!--  2966665 – IS, ASDK --> Collegamento di dischi dati unità SSD alle dimensioni premium gestiti a dischi delle macchine virtuali (DS, DSv2, Fs, Fs_V2) ha esito negativo con un errore: *non è stato possibile aggiornare i dischi della macchina virtuale 'vmname' errore: non è possibile eseguire l'operazione perché il tipo di account di archiviazione richiesta ' Premium_LRS' non è supportata per dimensioni della macchina virtuale ' Standard_DS/Ds_V2/ADFS/Fs_v2)*

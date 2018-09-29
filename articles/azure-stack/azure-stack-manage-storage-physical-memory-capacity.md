@@ -1,6 +1,6 @@
 ---
-title: Gestire la capacità di memoria fisica per lo Stack di Azure | Documenti Microsoft
-description: Monitorare e gestire lo spazio di archiviazione disponibile per lo Stack di Azure.
+title: Gestire la capacità di memoria fisica per Azure Stack | Microsoft Docs
+description: Monitorare e gestire lo spazio di archiviazione disponibili per Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,44 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: dc572353c2e27ddfbae2398f1aece56586955e26
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: a914d20f61b5b632e792ca29f6c201964db4a203
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074858"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452140"
 ---
-<!---Loc Comment: Please, check the comment in coversation section---> 
-# <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gestire la capacità di memoria fisica per lo Stack di Azure
+# <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gestire la capacità di memoria fisica per Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi*
+*Si applica a: i sistemi integrati di Azure Stack*
 
-Per aumentare la capacità di memoria totale disponibile per lo Stack di Azure, è possibile aggiungere ulteriore memoria. Nello Stack di Azure del server fisico è detta anche un *nodo unità di scala*. Tutti i nodi di unità di scala che sono membri di una singola unità di scala deve essere la stessa quantità di memoria.
+Per aumentare la capacità di memoria totale disponibile per Azure Stack, è possibile aggiungere ulteriore memoria. In Azure Stack i server fisici è detta anche un *nodo di unità di scala*. Tutti i nodi di unità di scala che sono membri di una singola unità di scala deve essere la stessa quantità di memoria.
 
 > [!note]  
-> Prima di continuare, consultare la documentazione del produttore dell'hardware per verificare se un produttore supporta un aggiornamento di memoria fisica. Il contratto di supporto del fornitore di hardware OEM può richiedere che il fornitore esegua il posizionamento di rack server fisici e l'aggiornamento del firmware del dispositivo.
+> Prima di continuare, consultare la documentazione del produttore dell'hardware per verificare se un produttore supporta un aggiornamento di memoria fisica. Il contratto di supporto fornitore hardware OEM potrebbe richiedere che il fornitore di eseguire l'aggiornamento del firmware del dispositivo e il posizionamento del rack server fisici.
 
-Il diagramma di flusso seguente viene illustrato il processo generale per l'aggiunta di memoria a ogni nodo di unità di scala.
+Il diagramma di flusso seguente illustra il processo generale di aggiungere memoria a ogni nodo di unità di scala.
 
 ![Aggiunta di memoria in ogni nodo di unità di scala](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
 
-## <a name="add-memory-to-an-existing-node"></a>Aggiunta di memoria a un nodo esistente
-I passaggi seguenti offrono una panoramica del processo di memoria di componente. 
+## <a name="add-memory-to-an-existing-node"></a>Aggiungere memoria a un nodo esistente
+I passaggi seguenti offrono una panoramica generale del processo di memoria di aggiunta. 
 
 > [!Warning]  
-Non eseguire la procedura senza fare riferimento alla documentazione fornita dall'OEM.
+Seguire questi passaggi senza fare riferimento alla documentazione fornita dall'OEM.
 
 > [!Warning]  
-Non è supportato un aggiornamento di memoria in sequenza, è necessario arrestare l'unità di scala intero.
+L'intera unità di scala deve essere arrestato perché non è supportato un aggiornamento in sequenza di memoria.
 
-1. Arrestare Stack Azure seguendo la procedura descritta nel [Start e stop Azure Stack](azure-stack-start-and-stop.md) articolo.
-2. Aggiornamento della memoria in ogni computer fisico utilizzando la documentazione del produttore dell'hardware.
-3. Avviare dello Stack di Azure utilizzando la procedura descritta nel [Start e stop Azure Stack](azure-stack-start-and-stop.md) articolo.
+1. Arrestare Azure Stack tramite la procedura documentata nel [Start e stop Azure Stack](azure-stack-start-and-stop.md) articolo.
+2. Aggiornare la memoria in ogni computer fisico con la documentazione del produttore dell'hardware.
+3. Avviare Azure Stack tramite la procedura descritta nel [Start e stop Azure Stack](azure-stack-start-and-stop.md) articolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Per informazioni su come gestire gli account di archiviazione nello Stack di Azure per trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze di business, vedere [gestire gli account di archiviazione in Azure Stack](azure-stack-manage-storage-accounts.md).
- - Per informazioni sull'operatore cloud Stack Azure monitora e gestisce la capacità di archiviazione della loro distribuzione dello Stack di Azure, vedere [gestire la capacità di archiviazione per lo Stack di Azure](azure-stack-manage-storage-shares.md). 
+ - Per informazioni su come gestire gli account di archiviazione in Azure Stack per trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze aziendali, vedere [gestire gli account di archiviazione in Azure Stack](azure-stack-manage-storage-accounts.md).
+ - Per informazioni su monitora e gestisce la capacità di archiviazione della loro distribuzione di Azure Stack di operatore cloud di Azure Stack, vedere [gestire la capacità di archiviazione per Azure Stack](azure-stack-manage-storage-shares.md). 

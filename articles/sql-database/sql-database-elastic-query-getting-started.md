@@ -2,19 +2,22 @@
 title: Creare report in database cloud con scalabilità orizzontale (partizionamento orizzontale) | Documentazione Microsoft
 description: Usare query di database tra database per creare report tra più database.
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: e2393980d966d5a476a2fedf0e70b0614e803e06
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: f6e9c36634435c759004e6102148a072bbdba94a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646440"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166691"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
 È possibile creare report da più database SQL di Azure da un unico punto di connessione usando una [query elastica](sql-database-elastic-query-overview.md). Il database deve essere con partizionamento orizzontale.
@@ -23,7 +26,7 @@ Se si ha un database esistente, vedere [Migrazione dei database esistenti in dat
 
 Per comprendere quali sono gli oggetti SQL necessari per eseguire una query, vedere [Eseguire query in database con partizionamento orizzontale](sql-database-elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Scaricare ed eseguire [Introduzione allo strumento di esempio del Database elastico](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creare un gestore mappe partizione utilizzando l'applicazione di esempio

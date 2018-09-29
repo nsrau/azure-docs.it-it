@@ -2,19 +2,22 @@
 title: Uso dell'archivio query nel database SQL di Azure
 description: Informazioni su come usare l'archivio query nel database SQL di Azure
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 37cb77b6738ba1354034dcf77d22a19b96c4ef23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 8795930c6b676e7e710f112e8d9eedd6ab9084b5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903099"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164566"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Uso dell'archivio query nel database SQL di Azure
 L'archivio query di Azure è una funzionalità di database completamente gestita che raccoglie e presenta informazioni cronologiche dettagliate su tutte le query in modo continuo. L'archivio query può essere concepito come un registratore dei dati di volo di un aeroplano che semplifica notevolmente la risoluzione dei problemi relativi alle prestazioni delle query sia per i clienti del cloud sia per i clienti locali. Questo articolo spiega alcuni aspetti specifici dell'uso dell'archivio query in Azure. Usando questi dati di query pre-raccolti, è possibile diagnosticare e risolvere velocemente i problemi di prestazioni e dedicare così più tempo alla propria attività. 

@@ -3,21 +3,22 @@ title: Uso di PowerShell per la configurazione di Application Insights in Azure 
 description: Configurazione automatizzata del servizio Diagnostica di Azure per l'inoltro tramite pipe ad Application Insights.
 services: application-insights
 documentationcenter: .net
-author: sbtron
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: 46f148cc69a8e36500dc351f74fa87576eb86a6b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0a95da39b73201ea15bd6d3be64de9a12571028d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095186"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Uso di PowerShell per la configurazione di Application Insights per un'app Web di Azure
 [Microsoft Azure](https://azure.com) può essere [configurato per l'invio dei dati del servizio Diagnostica di Azure](app-insights-azure-diagnostics.md) ad [Azure Application Insights](app-insights-overview.md). I dati della diagnostica sono correlati ai Servizi cloud di Azure e alle macchine virtuali di Azure. Completano i dati di telemetria inviati dall'interno dell'app con Application Insights SDK. Nell'ambito dell'automatizzazione del processo di creazione di nuove risorse in Azure, è possibile configurare la diagnostica usando PowerShell.
@@ -43,7 +44,7 @@ Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resou
      } 
 
 * `nameOfAIAppResource` : nome della risorsa di Application Insights.
-* `myWebAppName` : ID dell'app Web.
+* `myWebAppName`: ID dell'app Web
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Abilitare l'estensione delle funzionalità di diagnostica come parte della distribuzione di un servizio Cloud
 Il cmdlet `New-AzureDeployment` ha un parametro `ExtensionConfiguration`, che accetta una matrice di configurazioni di diagnostica. Queste possono essere create con il cmdlet `New-AzureServiceDiagnosticsExtensionConfig` . Ad esempio: 

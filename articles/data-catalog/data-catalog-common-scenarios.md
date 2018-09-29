@@ -1,25 +1,19 @@
 ---
-title: Scenari comuni di Azure Data Catalog | Documentazione Microsoft
-description: "Panoramica degli scenari comuni per Azure Data Catalog, incluse la registrazione e l'individuazione delle origini dati ad alto valore, l'abilitazione della business intelligence in modalità self-service e l'acquisizione di conoscenze esistenti sulle origini dati e i processi."
+title: Scenari comuni del Catalogo dati di Azure
+description: Panoramica degli scenari comuni per Azure Data Catalog, incluse la registrazione e l'individuazione delle origini dati ad alto valore, l'abilitazione della business intelligence in modalità self-service e l'acquisizione di conoscenze esistenti sulle origini dati e i processi.
 services: data-catalog
-documentationcenter: 
-author: steelanddata
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 156710ad50349e8a3632e31c7752387d4449a65d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 531c5890cb2164b51d7b383d0b1fdd1b92d9e8eb
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405030"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Scenari comuni del Catalogo dati di Azure
 In questo articolo vengono presentati scenari comuni in cui Azure Data Catalog può aiutare l'organizzazione a incrementare il valore delle origini dati esistenti.

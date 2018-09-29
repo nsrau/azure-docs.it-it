@@ -1,25 +1,19 @@
 ---
-title: Come documentare le origini dati | Documentazione Microsoft
+title: Come documentare le origini dati in Azure Data Catalog
 description: Articolo sulle procedure che illustra come documentare gli asset di dati in Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
-author: spelluru
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 1901ac534c46e4de0446543de4a40de040b8d51e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: a7379ffea173cdae3b10a751b0d83e06e679e3c5
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406210"
 ---
 # <a name="document-data-sources"></a>Documentare le origini dati
 ## <a name="introduction"></a>Introduzione

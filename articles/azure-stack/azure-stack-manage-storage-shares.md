@@ -6,23 +6,22 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071386"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452327"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per Azure Stack
+# <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per Azure Stack 
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
@@ -86,10 +85,15 @@ Come operatore di cloud, è possibile monitorare la capacità di archiviazione d
 - **Capacità usata** è la quantità di dati in byte che viene usato da tutti gli extent dai file di cui sono archiviati i dati dei tenant e i metadati associati.
 
 ### <a name="use-the-administrator-portal"></a>Usare il portale dell'amministratore
-Come operatore di cloud, è possibile utilizzare il portale di amministrazione per visualizzare la capacità di archiviazione di tutte le condivisioni. **Passare all'archiviazione** > **condivisioni File** per aprire l'elenco di condivisione file in cui è possibile visualizzare le informazioni sull'utilizzo.
-![Esempio: Condivisioni di file di archiviazione](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **TOTALE** è lo spazio totale in byte che sono disponibili per la condivisione. Questo spazio viene usato per i dati e metadati gestiti da servizi di archiviazione.
-- **UTILIZZATO** è la quantità di dati in byte che viene usato da tutti gli extent dai file di cui sono archiviati i dati dei tenant e i metadati associati.
+Come operatore di cloud, è possibile utilizzare il portale di amministrazione per visualizzare la capacità di archiviazione di tutte le condivisioni.
+
+1. Accedi per il [del portale di amministrazione](https://adminportal.local.azurestack.external).
+2. Selezionare **tutti i servizi** > **archiviazione** per aprire l'elenco di condivisione file in cui è possibile visualizzare le informazioni sull'utilizzo. 
+
+  ![Esempio: Condivisioni di file di archiviazione](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+
+  - **TOTALE** è lo spazio totale in byte che sono disponibili per la condivisione. Questo spazio viene usato per i dati e metadati gestiti da servizi di archiviazione.
+  - **UTILIZZATO** è la quantità di dati in byte che viene usato da tutti gli extent dai file di cui sono archiviati i dati dei tenant e i metadati associati.
 
 ### <a name="storage-space-alerts"></a>Avvisi di spazio di archiviazione
 Quando si usa il portale di amministrazione, si ricevere avvisi sulle condivisioni che su spazio sono insufficiente.

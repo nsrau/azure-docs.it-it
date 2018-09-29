@@ -3,25 +3,28 @@ title: 'Visual Studio Code: Connettersi ed eseguire query sui dati nel database 
 description: Informazioni su come connettersi a un database SQL in Azure tramite Visual Studio Code. Eseguire quindi istruzioni Transact-SQL (T-SQL) per eseguire query e modificare i dati.
 keywords: connettersi al database SQL
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: e1294b8f83da2ad6748f051925219cdc7683d032
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 2976a136bd04ac531bc54a0e9a6bed93d40fe06f
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701876"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063949"
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Database SQL di Azure: Usare Visual Studio Code per connettersi ai dati ed eseguire query
 
 [Visual Studio Code](https://code.visualstudio.com/docs) è un editor grafico di codice per Linux, macOS e Windows che supporta le estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace), per le query di Microsoft SQL Server, database SQL di Azure e SQL Data Warehouse. Questa guida introduttiva illustra come usare Visual Studio Code per connettersi a un database SQL di Azure e quindi come usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
@@ -89,7 +92,7 @@ Usare Visual Studio Code per stabilire una connessione al server del database SQ
    | Impostazione       | Valore consigliato | DESCRIZIONE |
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver20170313.database.windows.net**. |
-   | **Database name** (Nome database) | mySampleDatabase | Nome del database a cui connettersi. |
+   | **Nome database** | mySampleDatabase | Nome del database a cui connettersi. |
    | **Autenticazione** | Account di accesso SQL| L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
    | **Nome utente** | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
    | **Password (SQL Login)** (Password - Account di accesso SQL) | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |

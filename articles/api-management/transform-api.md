@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722950"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094429"
 ---
 # <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API 
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 
 ![Criteri](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).

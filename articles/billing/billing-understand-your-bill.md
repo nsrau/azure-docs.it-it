@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
-ms.author: tonguyen
-ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: be2e774bc4220d5d93f555263fa9f342f449f8b2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064626"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423443"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendere la fattura per Microsoft Azure
 Per comprendere la fattura di Azure, confrontare la fattura con il file dei dettagli di utilizzo giornaliero e con i report di gestione dei costi nel portale di Azure.
@@ -33,6 +33,9 @@ Per ottenere la fattura in formato PDF e una copia del download del file dei det
 Per una spiegazione dettagliata dei termini e delle descrizioni nella fattura e nel file dei dettagli di utilizzo giornaliero, vedere [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) (Comprendere i termini nella fattura di Microsoft Azure) e [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md) (Comprendere i termini nel file dei dettagli di utilizzo giornaliero). 
 
 Per informazioni sui report di gestione dei costi, vedere [Gestione dei costi del Portale di Azure](https://docs.microsoft.com/azure/billing/billing-getting-started).
+
+> [!div class="nextstepaction"]
+> [Contribuire al miglioramento della documentazione sulla fatturazione di Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="charges"></a>Come posso assicurarmi che gli addebiti nella fattura siano corretti?
 
@@ -138,7 +141,6 @@ Le spese per Azure di prime parti si riferiscono alle risorse direttamente svilu
 
 ## <a name="tips-for-cost-management"></a>Suggerimenti per la gestione dei costi
 - Stimare i costi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) e il [calcolatore del costo totale di proprietà](https://aka.ms/azure-tco-calculator) e ottenere [informazioni dettagliate sui prezzi per ogni servizio](https://azure.microsoft.com/pricing/).
-- [Impostare avvisi di fatturazione](billing-set-up-alerts.md).
 - [Controllare regolarmente utilizzo e costi nel portale di Azure](billing-getting-started.md#costs).
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.

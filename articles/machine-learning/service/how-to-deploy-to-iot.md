@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 6ce7a5501c4b294fb6f8a655597122e2a04b4547
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 03d692ddfd6f41fd559e9b921f0214a9cd2ada22
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979244"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225226"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Preparare la distribuzione di modelli nei dispositivi IoT Edge
 
@@ -53,7 +53,7 @@ I moduli di Azure IoT Edge sono basati su immagini del contenitore. Per distribu
     ```python
     from azureml.core  import Workspace
 
-    #Load existing workspace from the the config file info.
+    #Load existing workspace from the config file info.
     ws  = Workspace.from_config()
     ```    
 
@@ -81,7 +81,7 @@ I moduli di Azure IoT Edge sono basati su immagini del contenitore. Per distribu
 
 1. Creare uno **script di assegnazione dei punteggi** denominato `score.py`. Questo file viene usato per eseguire il modello nell'immagine. Deve includere le funzioni seguenti:
 
-    * La funzione `init()` che carica il modello in un oggetto globale. Viene eseguita una sola volta all'avvio del contenitore Docker. 
+    * La funzione `init()` che carica il modello in un oggetto globale. Questa funzione viene eseguita una sola volta all'avvio del contenitore Docker. 
 
     * La funzione `run(input_data)` usa il modello per stimare un valore in base ai dati di input. Per la serializzazione e la deserializzazione, gli input e gli output dell'esecuzione usano in genere JSON, ma sono supportati anche altri formati.
 

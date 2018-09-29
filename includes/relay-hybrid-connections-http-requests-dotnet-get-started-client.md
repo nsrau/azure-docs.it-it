@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: e07d82b8a3aea4f0db0f5a071d78ea360cd611ab
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8d73a22473ffff358c7424249c7581f6af740718
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177254"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452823"
 ---
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
 
@@ -24,8 +24,10 @@ In Visual Studio creare un nuovo progetto **App console (.NET Framework)**.
 ### <a name="add-the-relay-nuget-package"></a>Aggiungere il pacchetto NuGet di inoltro
 
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e quindi scegliere **Gestisci pacchetti NuGet**.
-2. Selezionare **Sfoglia** e quindi cercare **Microsoft.Azure.Relay**. Nei risultati della ricerca selezionare **Inoltro di Microsoft Azure**. 
-3. Selezionare **Installa** per completare l'installazione. Chiudere la finestra di dialogo.
+2. Selezionare l'opzione **Includi versione preliminare**. 
+3. Selezionare **Sfoglia** e quindi cercare **Microsoft.Azure.Relay**. Nei risultati della ricerca selezionare **Inoltro di Microsoft Azure**.
+4. Per la versione selezionare **2.0.0-preview1-20180523**. 
+5. Selezionare **Installa** per completare l'installazione. Chiudere la finestra di dialogo.
 
 ### <a name="write-code-to-send-requests"></a>Scrivere codice per inviare richieste
 

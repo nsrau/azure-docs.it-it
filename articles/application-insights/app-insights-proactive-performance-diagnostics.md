@@ -1,23 +1,25 @@
 ---
 title: Rilevamento intelligente - prestazioni anomale | Microsoft Docs
-description: "Application Insights esegue un'analisi intelligente dei dati di telemetria dell'app e segnala potenziali problemi. Questa funzionalità non richiede alcuna configurazione."
+description: Application Insights esegue un'analisi intelligente dei dati di telemetria dell'app e segnala potenziali problemi. Questa funzionalità non richiede alcuna configurazione.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
+ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095464"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -68,7 +70,7 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 ## <a name="faq"></a>Domande frequenti
 
 * *È vero che il personale Microsoft ha accesso ai dati personali?*
-  * di serie Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
+  * No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
 * *Tutti i dati raccolti vengono analizzati da Application Insights?*
   * Attualmente no. Al momento vengono analizzati il tempo di risposta alla richiesta, il tempo di risposta della dipendenza e il tempo di caricamento della pagina. L'analisi delle metriche aggiuntive si trova nel backlog futuro.
 
@@ -84,11 +86,11 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 
   * L'analisi viene eseguita giornalmente sui dati di telemetria dal giorno precedente, giornata completa nel fuso orario UTC.
 * *Ciò sostituisce [gli avvisi delle metriche](app-insights-alerts.md)?*
-  * di serie  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
+  * No.  Non viene eseguito il rilevamento di tutti i comportamenti presumibilmente ritenuti anomali dall'utente.
 
 
 * *Se non eseguo alcuna operazione in risposta a una notifica, viene inviato un promemoria?*
-  * No, il messaggio relativo a un singolo problema viene ricevuto una sola volta. Se il problema persiste verrà aggiornato nel pannello dei feed del il rilevamento intelligente.
+  * No, il messaggio relativo a un singolo problema viene ricevuto una sola volta. Se il problema persiste verrà aggiornato nel pannello dei feed del rilevamento intelligente.
 * *Non trovo più il messaggio di posta elettronica. Dove trovo le notifiche nel portale?*
   * Nel pannello di panoramica dell'app in Application Insights fare clic sul riquadro **Rilevamento intelligente**. Si potranno trovare tutte le notifiche di backup per 90 giorni precedenti.
 
@@ -132,7 +134,7 @@ La notifica di riduzione del tempo di risposta indica:
 * I collegamenti che consentono di diagnosticare il problema.
   * Le tracce del profiler che consentono di visualizzare dove viene impiegato il tempo dell'operazione. Il collegamento è disponibile se, per questa operazione durante il periodo di rilevamento, sono stati raccolti esempi di analisi del Profiler. 
   * I report di prestazioni in Metric Explorer (Esplora metriche), in cui è possibile suddividere e ripartire filtri/intervalli di tempo per questa operazione.
-  * Cercare queste chiamate per visualizzare le proprietà specifiche delle chiamate.
+  * Cercare questa chiamata per visualizzare le proprietà specifiche della chiamata.
   * Report relativo a un errore: se il conteggio è maggiore di 1 significa che questa operazione conteneva errori che potrebbe aver contribuito al calo delle prestazioni.
 
 ## <a name="dependency-duration-degradation"></a>Riduzione della durata delle dipendenze

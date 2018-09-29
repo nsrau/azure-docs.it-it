@@ -1,22 +1,23 @@
 ---
 title: Filtrare i dati di telemetria di Azure Application Insights nell'App Web Java | Microsoft Docs
-description: "Ridurre il traffico di telemetria escludendo gli eventi che non è necessario monitorare."
+description: Ridurre il traffico di telemetria escludendo gli eventi che non è necessario monitorare.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f9e061c010667bc18ac54e6546cc25339e9c0e3e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6e2af5734299e43d379350b031e239f7b4a421d8
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096058"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrare i dati di telemetria nell'App Web Java
 

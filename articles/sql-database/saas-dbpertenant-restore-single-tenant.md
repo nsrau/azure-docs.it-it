@@ -1,22 +1,23 @@
 ---
 title: Ripristinare un database SQL di Azure in un'app SaaS multi-tenant | Microsoft Docs
 description: Informazioni su come ripristinare un database SQL a tenant singolo dopo l'eliminazione accidentale di dati
-keywords: esercitazione database SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 319195ceb98b5b760d4d92055faa6e09c8fb0e3d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644349"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056744"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Ripristinare un singolo tenant con un'applicazione SaaS di database per tenant
 

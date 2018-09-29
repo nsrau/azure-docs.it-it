@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/24/2017
+ms.date: 09/24/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: d79a8937c0190246218153e42ead74ada619b121
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 65f38ca477cf1a861c1285e6195598be705005d7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940864"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163750"
 ---
 # <a name="azure-media-services-overview"></a>Panoramica di Servizi multimediali di Azure 
 
@@ -29,17 +29,9 @@ ms.locfileid: "33940864"
 
 Servizi multimediali di Microsoft Azure è una piattaforma estensibile basata sul cloud che consente agli sviluppatori di creare applicazioni scalabili per la distribuzione e gestione di contenuti multimediali. Servizi multimediali si basa su API REST che consentono di caricare, archiviare e codificare contenuti video o audio in modo sicuro, nonché creare pacchetti di tali contenuti per la distribuzione in streaming live e on demand a vari client (ad esempio, TV, PC e dispositivi mobili).
 
-È possibile creare flussi di lavoro end-to-end usando unicamente Servizi multimediali. È anche possibile usare componenti di terze parti per alcune parti del flusso di lavoro, ad esempio, la codifica con un codificatore di terze parti. Inoltre, sono possibili operazioni di caricamento, protezione, creazione di pacchetti e invio tramite Servizi multimediali.
+È possibile creare flussi di lavoro end-to-end usando unicamente Servizi multimediali. È anche possibile usare componenti di terze parti per alcune parti del flusso di lavoro, ad esempio, la codifica con un codificatore di terze parti. Inoltre, sono possibili operazioni di caricamento, protezione, creazione di pacchetti e invio tramite Servizi multimediali. È possibile optare per lo streaming dei contenuti live o on demand. 
 
-È possibile optare per lo streaming dei contenuti live o on demand. L'argomento contiene inoltre collegamenti ad altri argomenti rilevanti.
-
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
-È possibile visualizzare i percorsi di apprendimento AMS qui:
-
-* [Flusso di lavoro AMS Live Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Flusso di lavoro dello streaming on demand di AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
-
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre di quanto segue:
 
@@ -61,7 +53,7 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Servizi multimediali di Azure per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS.
 * Strumenti esistenti:
-    * [Portale di Azure](https://portal.azure.com/)
+    * [portale di Azure](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
 
 > [!NOTE]

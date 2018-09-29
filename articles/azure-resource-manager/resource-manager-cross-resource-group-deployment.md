@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: fec075a744b5f47a4be7f1b960cceedfea7b9a2c
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735671"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090793"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse
 
@@ -126,8 +126,6 @@ L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di 
 ```
 
 Se si imposta `resourceGroup` sul nome di un gruppo di risorse che non esiste, la distribuzione ha esito negativo.
-
-Per distribuire il modello di esempio, usare Azure PowerShell 4.0.0 o versione successiva o l'interfaccia della riga di comando di Azure 2.0.0 o versione successiva.
 
 ## <a name="use-the-resourcegroup-and-subscription-functions"></a>Usare le funzioni resourceGroup() e subscription()
 

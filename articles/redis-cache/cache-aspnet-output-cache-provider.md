@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
-ms.openlocfilehash: 81c95949971d54833ca7a15ec5148116c94767f7
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a6c3314a981b46aa6f1cbca1f34392d1e1ae6c9a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27909823"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431645"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Provider di cache di output ASP.NET per la Cache Redis di Azure
 Il provider di cache Redis di output è un meccanismo di memorizzazione out-of-process per i dati della cache di output. Tali dati sono specificamente utilizzati per le risposte HTTP complete (memorizzazione nella cache di output delle pagine). Il provider viene inserito nel nuovo punto di estendibilità del provider di cache di output che è stato introdotto in ASP.NET 4.
@@ -46,10 +46,13 @@ Il pacchetto NuGet scarica e aggiunge i riferimenti all'assembly richiesto e agg
 
 ```xml
 <caching>
-  <outputCachedefault Provider="MyRedisOutputCache">
+  <outputCache defaultProvider="MyRedisOutputCache">
     <providers>
+      <!-- For more details check https://github.com/Azure/aspnet-redis-providers/wiki -->
+      <!-- Either use 'connectionString' OR 'settingsClassName' and 'settingsMethodName' OR use 'host','port','accessKey','ssl','connectionTimeoutInMilliseconds' and 'operationTimeoutInMilliseconds'. -->
+      <!-- 'databaseId' and 'applicationName' can be used with both options. -->
       <!--
-      <add name="MyRedisOutputCache"
+      <add name="MyRedisOutputCache" 
         host = "127.0.0.1" [String]
         port = "" [number]
         accessKey = "" [String]
@@ -57,10 +60,19 @@ Il pacchetto NuGet scarica e aggiunge i riferimenti all'assembly richiesto e agg
         databaseId = "0" [number]
         applicationName = "" [String]
         connectionTimeoutInMilliseconds = "5000" [number]
-        operationTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "1000" [number]
+        connectionString = "<Valid StackExchange.Redis connection string>" [String]
+        settingsClassName = "<Assembly qualified class name that contains settings method specified below. Which basically return 'connectionString' value>" [String]
+        settingsMethodName = "<Settings method should be defined in settingsClass. It should be public, static, does not take any parameters and should have a return type of 'String', which is basically 'connectionString' value.>" [String]
+        loggingClassName = "<Assembly qualified class name that contains logging method specified below>" [String]
+        loggingMethodName = "<Logging method should be defined in loggingClass. It should be public, static, does not take any parameters and should have a return type of System.IO.TextWriter.>" [String]
+        redisSerializerType = "<Assembly qualified class name that implements Microsoft.Web.Redis.ISerializer>" [String]
       />
       -->
-      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider"
+           host=""
+           accessKey=""
+           ssl="true" />
     </providers>
   </outputCache>
 </caching>

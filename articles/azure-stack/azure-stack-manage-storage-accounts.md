@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8914391a586bb508192200beaba7f591649a1e99
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139729"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452276"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
 Informazioni su come gestire gli account di archiviazione in Azure Stack per trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze aziendali.
@@ -28,19 +27,19 @@ Informazioni su come gestire gli account di archiviazione in Azure Stack per tro
 ## <a name="find"></a>Trovare un account di archiviazione
 L'elenco degli account di archiviazione nell'area può essere visualizzato in Azure Stack da:
 
-1. In un browser Internet passare al https://adminportal.local.azurestack.external.
-2. Accedere al portale di amministrazione di Azure Stack come un operatore cloud (utilizzando le credenziali specificate durante la distribuzione)
-3. Nel dashboard predefinito, trovare il **gestione delle aree** elenco e selezionare l'area che si desidera esplorare, ad esempio **(locale**).
+1. Accedi per il [del portale di amministrazione](https://adminportal.local.azurestack.external).
+
+2. Selezionare **tutti i servizi** > **gestione delle aree** sotto **amministrazione**.
+
+3. Selezionare **memorizzazione** dalle **provider di risorse** elenco.
    
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Selezionare **memorizzazione** dalle **provider di risorse** elenco.
+   ![Provider delle risorse di archiviazione](media/azure-stack-manage-storage-accounts/image1.png)
+
+5. Selezionare **gli account di archiviazione** nelle **archiviazione**.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. A questo punto, nel riquadro amministratore di Provider di risorse di archiviazione: scorrere verso il basso il **gli account di archiviazione** scheda e selezionarlo.
    
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   La pagina risultante è l'elenco degli account di archiviazione in tale area.
+   Il pannello viene visualizzato l'elenco degli account di archiviazione in tale area.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -76,7 +75,7 @@ Potrebbe essere in una situazione in cui è necessario ripristinare un account e
 
 In Azure Stack è un modo semplice per farlo:
 
-1. Passare all'elenco degli account di archiviazione. Visualizzare [trovare un account di archiviazione](#find) in questo argomento per altre informazioni.
+1. Passare all'elenco degli account di archiviazione. Visualizzare [trovare un account di archiviazione](#find) in questo articolo per altre informazioni.
 2. Individuare quel particolare account nell'elenco. Potrebbe essere necessario filtrare.
 3. Verificare i *stato* dell'account. Dovrebbe risultare **Deleted**.
 4. Selezionare l'account, che consente di aprire il riquadro dei dettagli account.
@@ -97,19 +96,18 @@ In Azure Stack è un modo semplice per farlo:
   All'esterno di conservazione indica che l'account eliminato ha superato il periodo di conservazione e potrebbe non essere ripristinabile.
 * L'account eliminato non viene visualizzato nell'elenco degli account.
   
-  L'account in uso potrebbe non essere visualizzato nell'elenco degli account quando l'account eliminato è già stato sottoposto a garbage collection. In questo caso, non può essere recuperato. Visualizzare [recuperare la capacità](#reclaim) in questo argomento.
+  L'account in uso potrebbe non essere visualizzato nell'elenco degli account quando l'account eliminato è già stato sottoposto a garbage collection. In questo caso, non può essere recuperato. Visualizzare [recuperare la capacità](#reclaim) in questo articolo.
 
 ## <a name="set-the-retention-period"></a>Impostare il periodo di conservazione
 L'impostazione del periodo di conservazione consente a un operatore cloud specificare un periodo di tempo in giorni (tra 0 e 9999 giorni) durante il quale possono essere ripristinati potenzialmente qualsiasi account eliminato. Periodo di memorizzazione predefinito è impostato su 0 giorni. Impostazione del valore su "0" indica che qualsiasi account eliminato immediatamente all'esterno di conservazione sia contrassegnata per periodicamente operazioni di garbage collection.
 
 **Per modificare il periodo di conservazione:**
 
-1. In un browser internet passare al https://adminportal.local.azurestack.external.
-2. Accedere al portale di amministrazione di Azure Stack come un operatore cloud (utilizzando le credenziali specificate durante la distribuzione)
-3. Nel dashboard predefinito, trovare il **gestione delle aree** elenco e selezionare l'area in cui si vuole esplorare – ad esempio **(locale**).
-4. Selezionare **memorizzazione** dalle **provider di risorse** elenco.
-5. Selezionare **impostazioni** in alto per aprire il riquadro di impostazione.
-6. Selezionare **configurazione** quindi modificare il valore del periodo di conservazione.
+1. Accedi per il [del portale di amministrazione](https://adminportal.local.azurestack.external).
+2. Selezionare **tutti i servizi** > **gestione delle aree** sotto **amministrazione**.
+3. Selezionare **memorizzazione** dalle **provider di risorse** elenco.
+4. Selezionare **impostazioni** in alto per aprire il riquadro di impostazione.
+5. Selezionare **configurazione** quindi modificare il valore del periodo di conservazione.
 
    Impostare il numero di giorni e quindi salvare il file.
    
@@ -142,7 +140,7 @@ Uno degli effetti collaterali di avere un periodo di conservazione è che un acc
    Per altre informazioni sui cmdlet di Azure Resource Manager, vedere [usando Azure PowerShell con Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
 2. Eseguire i cmdlet seguenti:
 
-> [!NOTE]
+> [!NOTE]  
 > Se si eseguono questi cmdlet, è eliminare definitivamente l'account e il relativo contenuto. e non è più recuperabile. Utilizzarlo con cautela.
 
 ```PowerShell  

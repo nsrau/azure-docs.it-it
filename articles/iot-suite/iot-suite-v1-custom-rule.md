@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 9bf2a13035de141766fd935966ce18459dccdaab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723353"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092629"
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>Creare una regola personalizzata nella soluzione di monitoraggio remota preconfigurata
 
