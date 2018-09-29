@@ -2,19 +2,22 @@
 title: Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione | Microsoft Docs
 description: Informazioni su come usare criteri di conservazione temporale per tenere sotto controllo i dati cronologici.
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: f65f7ec44ccbeb6f64d43d20b1bd7a77329fa97f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: f339cadc63d5e5cd934d07e7b0fffc6342ca04c7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649024"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159100"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione
 Le tabelle temporali possono aumentare le dimensioni del database più delle tabelle normali, in particolare se si conservano i dati cronologici per un periodo di tempo più lungo. Di conseguenza, i criteri di conservazione per i dati cronologici sono un aspetto importante della pianificazione e della gestione del ciclo di vita di ogni tabella temporale. Le tabelle temporali nel database SQL Azure sono dotate di un meccanismo di conservazione di facile uso che aiuta a eseguire questa operazione.

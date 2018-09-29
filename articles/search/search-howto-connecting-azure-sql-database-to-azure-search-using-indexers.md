@@ -1,5 +1,5 @@
 ---
-title: Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori | Microsoft Docs
+title: Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori | Documentazione Microsoft
 description: Informazioni su come estrarre i dati dal database SQL di Azure a un indice di Ricerca di Azure tramite gli indicizzatori.
 author: chaosrealm
 manager: jlembicz
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 5545b2e40777496ab8c808a8c2692b346d3509c5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5897740a1b5a183738c08b4dfde571be652aff3e
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778342"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092250"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
 
@@ -109,7 +109,7 @@ Per monitorare lo stato dell'indicizzatore e la cronologia di esecuzione (numero
 La risposta sarà simile alla seguente:
 
     {
-        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+        "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
         "lastResult": {
             "status":"success",
@@ -324,7 +324,7 @@ Non direttamente. La connessione diretta non è consigliata né supportata, in q
 
 **D: Posso usare l'indicizzatore di Azure SQL con database diversi da SQL Server in esecuzione in IaaS in Azure?**
 
-di serie Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
+No. Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
 
 **D: Posso creare più indicizzatori in esecuzione in una pianificazione?**
 

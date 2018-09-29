@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: 17d57a809bcbd4c299675c07756b55423a160ed1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165129"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096201"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Condividere i dashboard di Azure tramite il Controllo degli accessi in base al ruolo
 Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Si consente ad altri utenti di visualizzare il proprio dashboard tramite il [Controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) di Azure. Si assegna un utente o gruppo di utenti a un ruolo e questo ruolo definisce se gli utenti possono visualizzare o modificare il dashboard pubblicato. 
@@ -45,7 +45,7 @@ Di seguito è fornito un esempio.  Si supponga di avere una sottoscrizione di Az
 È tuttavia possibile assegnare autorizzazioni anche al gruppo di risorse che contiene diversi dashboard o a un singolo dashboard. Ad esempio, si potrebbe decidere che un gruppo di utenti deve avere autorizzazioni limitate per la sottoscrizione, ma un accesso più ampio per un determinato dashboard. Assegnare gli utenti a un ruolo per il dashboard. 
 
 ## <a name="publish-dashboard"></a>Pubblicare dashboard
-Si supponga di che aver completato la configurazione di un dashboard che si vuole condividere con un gruppo di utenti nella sottoscrizione. I passaggi seguenti illustrano un gruppo personalizzato denominato Storage Managers, o gestori di archiviazione, ma è possibile assegnare al gruppo qualsiasi altro nome. Per informazioni sulla creazione di un gruppo di Active Directory e sull'aggiunta di utenti a tale gruppo, vedere [Gestione dei gruppi in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+Si supponga di che aver completato la configurazione di un dashboard che si vuole condividere con un gruppo di utenti nella sottoscrizione. I passaggi seguenti illustrano un gruppo personalizzato denominato Storage Managers, o gestori di archiviazione, ma è possibile assegnare al gruppo qualsiasi altro nome. Per informazioni sulla creazione di un gruppo di Active Directory e sull'aggiunta di utenti a tale gruppo, vedere [Gestione dei gruppi in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 1. Nel dashboard selezionare **Condividi**.
    

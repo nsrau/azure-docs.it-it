@@ -5,23 +5,19 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/03/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 996a53751d6b8c6dd06084da371badb0c31d367f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 68352db238b92d39119b420ed0d573e88a95bc78
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667520"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394455"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione code di Azure per Funzioni di Azure
 
@@ -539,14 +535,15 @@ Nelle funzioni JavaScript usare `context.bindings.<name>` per accedere al messag
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
+
+<!--
 > [!div class="nextstepaction"]
-> [Passare a una guida introduttiva che usa un trigger per l'archiviazione code](functions-create-storage-queue-triggered-function.md)
+> [Go to a quickstart that uses a Queue storage trigger](functions-create-storage-queue-triggered-function.md)
+-->
 
 > [!div class="nextstepaction"]
 > [Passare a un'esercitazione che usa l'associazione di output dell'archiviazione code.](functions-integrate-storage-queue-output-binding.md)
-
-> [!div class="nextstepaction"]
-> [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
 <!-- LINKS -->
 

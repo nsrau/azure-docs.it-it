@@ -9,14 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 79f4f77f08653c40591137268b87dc2feeb0acf6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d5b580df531e2f0c61ac1d43cfd5ae353f314fce
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091902"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Uso dell'analisi con Application Insights
 

@@ -2,19 +2,22 @@
 title: Codice del file evento XEvent per il database SQL | Documentazione Microsoft
 description: Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Azure SQL Database. Archiviazione di Azure è una parte necessaria di questo scenario.
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: b905c921ae967d7f755f084bd6b9b30de34f76b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 302607df2292fe7a67a8b6860dab19eef7f391a9
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649636"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160367"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL
 
@@ -32,7 +35,7 @@ Questo argomento presenta un esempio di codice in due fasi:
   * per assegnare il contenitore di Archiviazione di Azure a una destinazione del file evento.
   * Per creare e avviare la sessione dell'evento e così via.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.

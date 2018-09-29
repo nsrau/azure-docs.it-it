@@ -1,25 +1,19 @@
 ---
-title: Note sulla versione di Azure Data Catalog | Documentazione Microsoft
+title: Note sulla versione del Catalogo dati di Azure
 description: Note sulla versione del Catalogo dati di Azure.
 services: data-catalog
-documentationcenter: 
-author: steelanddata
-manager: NA
-editor: 
-tags: 
+author: markingmyname
+ms.author: maghan
 ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 249c3a690638bb91d060443d591d8e52791f50ae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 12b8161cc5845bca749c34188835cef1d92b299a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404552"
 ---
 # <a name="azure-data-catalog-release-notes"></a>Note sulla versione del Catalogo dati di Azure
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Note per la versione del 20 novembre 2015 del Catalogo dati di Azure

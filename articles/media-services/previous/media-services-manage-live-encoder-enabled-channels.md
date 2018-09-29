@@ -4,7 +4,7 @@ description: 'Questo argomento descrive come configurare un canale che riceve un
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246788"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222064"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
@@ -166,7 +166,7 @@ Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'ut
 
 È possibile ottenere gli URL di inserimento dopo aver creato un canale. Per ottenere questi URL, non è necessario che il canale sia nello stato **In esecuzione** . Quando si è pronti per avviare l'esecuzione del push dei dati nel canale, questo dovrà essere nello stato **In esecuzione** . Una volta avviato l'inserimento di dati nel canale, è possibile visualizzare in anteprima il flusso tramite l'URL di anteprima.
 
-È possibile inserire un flusso live MP4 frammentato (Smooth Streaming) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Si noti che attualmente AMS non supporta SSL con domini personalizzati.  
+È possibile inserire un flusso live MP4 frammentato (Smooth Streaming) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente AMS non supporta SSL con domini personalizzati.  
 
 ### <a name="allowed-ip-addresses"></a>Indirizzi IP consentiti
 È possibile definire gli indirizzi IP autorizzati a pubblicare video in questo canale. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo di indirizzi IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo di indirizzi IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').

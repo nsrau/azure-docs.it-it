@@ -2,25 +2,28 @@
 title: Caricare dati da un file CSV al database SQL di Azure (bcp) | Microsoft Docs
 description: Per dati di piccole dimensioni, usa bcp per importare dati nel database SQL di Azure.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: de25b3318a91a5dbf99a5a9c26af209224177f0f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: b5039fc7cb6b9751bea9a88400c8a64308d447d6
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649850"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162900"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Caricare dati da CSV in un database SQL di Azure (file flat)
 È possibile usare l'utilità della riga di comando bcp per importare dati da un file CSV in un database SQL di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, sono necessari:
 
 * Un server logico e un database SQL di Azure

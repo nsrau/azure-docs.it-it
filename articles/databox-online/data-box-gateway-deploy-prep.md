@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c21245e05625f65b6b5dcf5f7081f5f5d1abb52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953413"
+ms.locfileid: "47030606"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Esercitazione: Preparare la distribuzione di Azure Data Box Gateway (anteprima)
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 
 > [!IMPORTANT]
-> - Data Box Gateway è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione. 
+> - Data Box Gateway è in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione. 
 
 ### <a name="get-started"></a>Attività iniziali
 
@@ -64,11 +64,11 @@ Di seguito sono elencati i prerequisiti di configurazione per la risorsa Data Bo
 Prima di iniziare, verificare che:
 
 * La sottoscrizione di Microsoft Azure sia abilitata per la risorsa Data Box Gateway.
-* Si disponga dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
+* Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
 
 ### <a name="for-the-data-box-gateway-device"></a>Per il dispositivo Data Box Gateway
 
-Prima di distribuire un dispositivo virtuale, verificare che:
+Prima di distribuire un dispositivo virtuale, è necessario:
 
 * Si abbia accesso a un sistema host che esegue Hyper-V in Windows Server 2012 R2 o versioni successive o VMware (ESXi 6.0 o 6.5) da poter usare per il provisioning di un dispositivo.
 * Il sistema host sia in grado di dedicare le risorse seguenti al provisioning del dispositivo virtuale Data Box:
@@ -85,11 +85,11 @@ Prima di iniziare, verificare che:
 
 * La rete nel data center sia configurata in base ai requisiti di rete per il dispositivo Data Box Gateway. Per altre informazioni, vedere i [requisiti di sistema di Data Box Gateway](data-box-gateway-system-requirements.md).
 
-* Il Data Box Gateway disponga di una larghezza di banda Internet dedicata a 20 Mbps (o superiore) sempre disponibile. La larghezza di banda non deve essere condivisa con altre applicazioni. Se si usa la limitazione della larghezza di banda della rete, per assicurarne il funzionamento è consigliabile usare una larghezza di banda Internet ad almeno 32 Mbps.
+* Data Box Gateway deve disporre di una larghezza di banda Internet dedicata a 20 Mbps (o superiore) sempre disponibile. La larghezza di banda non deve essere condivisa con altre applicazioni. Se si usa la limitazione della larghezza di banda della rete, per assicurarne il funzionamento è consigliabile usare una larghezza di banda Internet ad almeno 32 Mbps.
 
 ## <a name="create-a-new-resource"></a>Creare una nuova risorsa
 
-Una singola istanza della risorsa Data Box Gateway può gestire più dispositivi virtuali Data Box Gateway. Per creare una nuova risorsa Data Box Gateway, eseguire la procedura seguente. 
+Per creare una nuova risorsa Data Box Gateway, eseguire la procedura seguente. 
 
 Se si ha già una risorsa Data Box Gateway per la gestione dei dispositivi virtuali, saltare questo passaggio e procedere con il passaggio [Ottenere la chiave di attivazione](#get-the-activation-key).
 

@@ -2,20 +2,22 @@
 title: Esercitazioni per il ripristino di emergenza del database SQL | Documentazione Microsoft
 description: Istruzioni e procedure consigliate relative all'uso del database SQL di Azure per eseguire esercitazioni per il ripristino di emergenza.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 52973758404faa4158afe81a92079c1acdb4cfd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: c861163670b05b01c9c6d64b81f6e83c979a2af8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645464"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163036"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Esercitazione per il ripristino di emergenza
 È consigliabile verificare periodicamente la conformità delle applicazioni per il flusso di lavoro di ripristino. La verifica del comportamento di un'applicazione e delle implicazioni legate alla perdita di dati e/o all'interruzione del servizio che comporta il failover è una buona norma di progettazione. Inoltre, questa verifica è richiesta dalla maggior parte degli standard del settore come parte della certificazione di continuità aziendale.

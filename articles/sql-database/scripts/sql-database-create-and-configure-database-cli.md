@@ -2,24 +2,22 @@
 title: Esempio dell'interfaccia della riga di comando - Creare un database SQL di Azure | Microsoft Docs
 description: Usare l'esempio di script dell'interfaccia della riga di comando di Azure per creare un database SQL.
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: janeng
-editor: carlrab
 ms.service: sql-database
-ms.custom: DBs & servers, mvc
+ms.subservice: single-database
+ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
+author: CarlRabeler
+manager: craigg
 ms.author: carlrab
-ms.date: 09/07/2018
-ms.openlocfilehash: a7537b59a73c00a5364bfa4a758a6584a9ef6003
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: ''
+ms.date: 09/20/2018
+ms.openlocfilehash: d239236e9e6f7133aa57eb617c3cc9e8626fc178
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964276"
+ms.locfileid: "47055476"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Usare l'interfaccia della riga di comando per creare un singolo database SQL di Azure e configurare una regola del firewall
 
@@ -49,11 +47,11 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Consente di creare un server logico che ospita il database SQL. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Consente di creare una regola del firewall per consentire l'accesso a tutti i database SQL presenti sul server dall'intervallo di indirizzi IP immesso. |
-| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Consente di creare il database SQL nel server logico. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Consente di creare un server logico che ospita il database SQL. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Consente di creare una regola del firewall per consentire l'accesso a tutti i database SQL presenti sul server dall'intervallo di indirizzi IP immesso. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Consente di creare il database SQL nel server logico. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,12 +15,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b5d7b71b76eebc0c14fe1403791c3d4b6cefd7f4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391332"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161052"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualizzare o analizzare i dati raccolti con la ricerca log di Log Analytics
 
@@ -85,7 +85,7 @@ Aggiungere proprietà al riquadro di filtro scegliendo **Aggiungi ai filtri** da
 
 L'opzione **Filtra** è disponibile solo per le proprietà il cui nome appare in blu al passaggio del mouse.  Si tratta di campi *disponibili per la ricerca* che vengono indicizzati per le condizioni di ricerca.  I campi in grigio sono campi *disponibili per la ricerca a testo libero* per i quali è disponibile solo l'opzione **Mostra riferimenti**.  Questa opzione restituisce i record con il valore specificato in qualsiasi proprietà.
 
-È possibile raggruppare i risultati in base a una singola proprietà selezionando l'opzione **Raggruppa per** nel menu del record.  Verrà aggiunto un operatore [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) alla query, che visualizza i risultati in un grafico.  È possibile effettuare il raggruppamento in base a una o più proprietà, ma in questo caso occorre modificare direttamente la query.  Selezionare il menu del record accanto alla proprietà **Computer** e scegliere **Raggruppa per 'Computer'**.  
+È possibile raggruppare i risultati in base a una singola proprietà selezionando l'opzione **Raggruppa per** nel menu del record.  Verrà aggiunto un operatore [summarize](/azure/kusto/query/summarizeoperator) alla query, che visualizza i risultati in un grafico.  È possibile effettuare il raggruppamento in base a una o più proprietà, ma in questo caso occorre modificare direttamente la query.  Selezionare il menu del record accanto alla proprietà **Computer** e scegliere **Raggruppa per 'Computer'**.  
 
 ![Raggruppare in base alla proprietà Computer](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
@@ -130,7 +130,7 @@ Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time
 
 ![Utilizzo del processore](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-I dati vengono così limitati a un particolare contatore, ma sono ancora presentati in una forma non particolarmente utile.  È possibile visualizzare i dati in un grafico a linee, ma è prima necessario raggrupparli in base a Computer e TimeGenerated.  Per effettuare il raggruppamento in base a più campi, è necessario modificare direttamente la query, quindi modificarla come indicato di seguito.  Questa query usa la funzione [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) sulla proprietà **CounterValue** per calcolare il valore medio ogni ora.
+I dati vengono così limitati a un particolare contatore, ma sono ancora presentati in una forma non particolarmente utile.  È possibile visualizzare i dati in un grafico a linee, ma è prima necessario raggrupparli in base a Computer e TimeGenerated.  Per effettuare il raggruppamento in base a più campi, è necessario modificare direttamente la query, quindi modificarla come indicato di seguito.  Questa query usa la funzione [avg](/azure/kusto/query/avg-aggfunction) sulla proprietà **CounterValue** per calcolare il valore medio ogni ora.
 
 ```
 Perf  
@@ -140,7 +140,7 @@ Perf
 
 ![Grafico dei dati sulle prestazioni](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-Ora che i dati sono raggruppati in modo adeguato, è possibile visualizzarli in un grafico aggiungendo l'operatore [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
+Ora che i dati sono raggruppati in modo adeguato, è possibile visualizzarli in un grafico aggiungendo l'operatore [render](/azure/kusto/query/renderoperator).  
 
 ```
 Perf  

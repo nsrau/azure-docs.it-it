@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.openlocfilehash: fb69f1b52e5b17dd6794c896969c29003a929c9b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4c676ab3039a02a4fda27ab00312133e5de8077a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412111"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090967"
 ---
-# <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>Esercitazione: Impostare gli avvisi per i processi di Analisi di flusso di Azure
+# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Impostare gli avvisi per i processi di Analisi di flusso di Azure
 È possibile configurare avvisi per attivare un avviso quando una metrica raggiunge una condizione specificata dall'utente. Ad esempio, si potrebbe configurare un avviso per una condizione simile alla seguente:
 
 `If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c99186d73886041d92bea38b0dd4dc17f55001e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a42c13bc0b441074829b1753c1d3cab8fbfaccf
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977860"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407570"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
 Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o si usa un provider di servizi gestiti, si consiglia di concedere loro l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
@@ -181,14 +181,8 @@ Monitoraggio di Azure deve accedere alle risorse di Azure per fornire i servizi 
 I dati di monitoraggio vengono spesso scritti in un account di archiviazione. È possibile assicurarsi che i dati copiati in un account di archiviazione non siano accessibili da utenti non autorizzati. Per una maggiore sicurezza, è possibile bloccare l'accesso alla rete per consentire solo alle risorse autorizzate e ai servizi Microsoft attendibili di accedere a un account di archiviazione limitando un account di archiviazione all'uso di "reti selezionate".
 ![Finestra di dialogo delle impostazioni di Archiviazione di Azure](./media/monitoring-roles-permissions-security/secured-storage-example.png): Monitoraggio di Azure viene considerato uno di tali "servizi Microsoft attendibili". Se si consente a tali servizi Microsoft attendibili di accedere alla risorsa di archiviazione protetta, Monitoraggio di Azure potrà accedere all'account di archiviazione protetto abilitando la scrittura dei log di diagnostica, log attività e metriche di Monitoraggio di Azure nell'account di archiviazione in queste condizioni protette. Ciò consentirà anche a Log Analytics di leggere i log dalla risorsa di archiviazione protetta.   
 
+
 Per altre informazioni, vedere [Sicurezza di rete di Archiviazione di Azure](../storage/common/storage-network-security.md)
- 
-### <a name="secured-virtual-networks-with-service-endpoints"></a>Reti virtuali protette con gli endpoint servizio 
-
-Le reti virtuali (VNet) consentono di limitare il traffico per consentire solo al traffico specificato di comunicare con le risorse di Azure. È possibile specificare gli endpoint servizio per estendere la rete virtuale in modo da includere Monitoraggio di Azure. In questo modo le risorse possono continuare a inviare in modo sicuro le informazioni di registrazione e metrica a Monitoraggio di Azure dalle reti virtuali.  
-
-Per altre informazioni, vedere [Endpoint di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md). 
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Controllo degli accessi in base al ruolo e autorizzazioni in Resource Manager](../role-based-access-control/overview.md)

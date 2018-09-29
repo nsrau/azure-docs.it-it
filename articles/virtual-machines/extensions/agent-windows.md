@@ -3,7 +3,7 @@ title: Panoramica dell'agente di macchine virtuali di Azure | Documentazione Mic
 description: Panoramica dell'agente di macchine virtuali di Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 9185b786a3eea402b8013eb71a5d7268787900c5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ae2458b6fc650961c63da2f7644dbd54d27fc2a8
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414499"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452106"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Panoramica dell'agente di macchine virtuali di Azure
 L'agente di macchine virtuali di Microsoft Azure è un processo protetto e leggero che gestisce l'interazione delle macchine virtuali con il controller di infrastruttura di Azure. L'agente di macchine virtuali svolge un ruolo primario per l'abilitazione e l'esecuzione delle estensioni macchina virtuale di Azure. Le estensioni macchina virtuale rendono possibile la configurazione post-distribuzione della macchina virtuale, ad esempio l'installazione e la configurazione di software. Le estensioni macchina virtuale abilitano anche funzionalità di ripristino, ad esempio la reimpostazione della password amministrativa di una macchina virtuale. Senza l'agente di macchine virtuali di Azure, le estensioni macchina virtuale non possono essere eseguite.

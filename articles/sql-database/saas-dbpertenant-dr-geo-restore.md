@@ -1,21 +1,23 @@
 ---
 title: Usare backup con ridondanza geografica del database SQL di Azure per il ripristino di emergenza delle app SaaS  | Microsoft Docs
 description: Informazioni su come usare i backup con ridondanza geografica del database SQL di Azure per ripristinare un'app SaaS multi-tenant in caso di interruzione
-keywords: esercitazione database SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/16/2018
+author: AyoOlubeko
 ms.author: ayolubek
-ms.openlocfilehash: fc28622ad6d2569d455f82a30a84c47647baa1e2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/16/2018
+ms.openlocfilehash: adb3778c723f7c56b5f31381c804e39a8b782709
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645335"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056190"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 

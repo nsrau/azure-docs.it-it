@@ -2,19 +2,22 @@
 title: Uso della libreria client di database elastico con Dapper | Microsoft Docs
 description: Utilizzo della libreria client dei database elastici con Dapper.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 6619f2dfe5f58cd23dbd0ffe6e2b545b803f3acc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 1b0200413fe40acac997570fdccc970a78cf6ece
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647929"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162231"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilizzo della libreria client dei database elastici con Dapper
 Questo documento è rivolto agli sviluppatori che si basano su Dapper per creare applicazioni, ma desiderano avvalersi degli [strumenti dei database elastici](sql-database-elastic-scale-introduction.md) per creare applicazioni che implementano il partizionamento per la scalabilità orizzontale del livello dati.  Questo documento illustra le modifiche da apportare nelle applicazioni basate su Dapper per l'integrazione con gli strumenti dei database elastici. L'obiettivo è comporre la gestione delle partizioni dei database elastici e il routing dipendente dai dati con Dapper. 

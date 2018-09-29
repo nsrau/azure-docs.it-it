@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 8fd87897a70b0a7bb629e185473374837cf1026e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b43cdfa0b5f9e5bf6a94f4f59034e07f59ddb163
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701935"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393333"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Supporto per il protocollo AMQP 1.0 nel bus di servizio
 Il protocollo AMQP (Advanced Message Queueing Protocol) 1.0 è supportato sia nel servizio cloud del bus di servizio di Azure sia nel [bus di servizio per Windows Server (Bus di servizio 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) locale. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard. È possibile creare applicazioni usando componenti creati in linguaggi e framework diversi e in esecuzione su sistemi operativi diversi. Tutti questi componenti possono connettersi al bus di servizio e scambiare in modo lineare ed efficiente messaggi di business strutturati con assoluta fedeltà.

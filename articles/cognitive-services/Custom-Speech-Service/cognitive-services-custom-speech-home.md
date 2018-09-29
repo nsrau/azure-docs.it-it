@@ -1,21 +1,22 @@
 ---
-title: Panoramica del Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
+title: Informazioni sul Servizio di riconoscimento vocale personalizzato
+titlesuffix: Azure Cognitive Services
 description: Il Servizio di riconoscimento vocale personalizzato è un servizio basato sul cloud che consente agli utenti di personalizzare i modelli conversione voce/testo per la trascrizione della voce in testo scritto.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 02/07/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: da88989753069f7ba8ca2c2e2806a648f3df4e3c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948367"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222744"
 ---
 # <a name="what-is-custom-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale personalizzato
 

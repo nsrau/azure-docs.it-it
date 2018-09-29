@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8da582750b5e20ddd7018f59292e7342f1628c8c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9ef0b3d9ae0cea5082a5c764012958f02113fe9a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425384"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408488"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -32,7 +32,7 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Seguire le limitazioni relative all'assegnazione dei nomi per gli account di archiviazione. | [Risolvere gli errori relativi ai nomi degli account di archiviazione](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Controllare le proprietà dell'account di archiviazione disponibili. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste. Ripetere la richiesta in un secondo momento oppure richiedere una dimensione di macchina virtuale diversa. | [Problemi di provisioning e allocazione per Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemi di provisioning e allocazione per Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [Risolvere i problemi relativi agli errori di allocazione](../virtual-machines/windows/allocation-failure.md)|
+| AllocationFailed | Il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni della VM richieste. Ripetere la richiesta in un secondo momento oppure richiedere una dimensione di macchina virtuale diversa. | [Problemi di provisioning e allocazione per Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Problemi di provisioning e allocazione per Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [Risolvere i problemi relativi agli errori di allocazione](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Attendere il completamento dell'operazione simultanea. | |
 | AuthorizationFailed | L'account o l'entità servizio non dispone dell'accesso sufficiente per completare la distribuzione. Selezionare il ruolo a cui appartiene l'account e il relativo accesso per l'ambito della distribuzione. | [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) |
 | RichiestaNonValida | I valori della distribuzione inviati non corrispondono ai valori previsti da Gestione risorse. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-manager-templates-resources.md#location) |

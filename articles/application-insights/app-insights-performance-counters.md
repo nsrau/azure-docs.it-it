@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 7ac0a5c00e0badf8882010ae0643f8ead98b56e0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: bb1b1e2934de052479f39d40bfe143345e91bc26
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35636757"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094093"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contatori delle prestazioni di sistema in Application Insights
 Windows offre un'ampia gamma di [contatori delle prestazioni](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters), ad esempio su occupazione della CPU, memoria, disco e utilizzo di rete. È anche possibile definire contatori personalizzati. [Application Insights](app-insights-overview.md) può mostrare questi contatori delle prestazioni se l'applicazione viene eseguita in IIS in un host locale o in una macchina virtuale a cui si ha accesso come amministratore. I grafici indicano le risorse disponibili per l'applicazione live e possono aiutare a identificare un eventuale carico sbilanciato tra istanze del server.

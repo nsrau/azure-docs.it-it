@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7f0e65b1de1df48603cab29148c7f4c6fb909714
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26408180"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094998"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Risolvere eventuali problemi di distribuzione dei servizi cloud
 Quando si distribuisce un pacchetto dell'applicazione di servizi cloud in Azure, è possibile ottenere informazioni sulla distribuzione nel riquadro **Proprietà** del portale di Azure. I dettagli riportati in questo riquadro possono essere usati per risolvere i problemi relativi al servizio cloud e queste informazioni possono essere fornite al supporto tecnico di Azure quando viene aperta una nuova richiesta di supporto.

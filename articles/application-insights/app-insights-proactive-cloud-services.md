@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: harelbr; mbullwin
-ms.openlocfilehash: 18817fd84a86a72d379f96973b71658f2cdf4afd
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.reviewer: harelbr
+ms.author: mbullwin
+ms.openlocfilehash: cdb395a590fb200a24c68e56728a270b968e53b5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851121"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091424"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Avviso su problemi in Servizi cloud di Azure tramite l'integrazione di Diagnostica di Azure con Azure Application Insights
 

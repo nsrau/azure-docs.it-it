@@ -11,18 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: govindk
-ms.openlocfilehash: b21debdd6baa0a6587318ad861a821840ec6879c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ebfba4d54b4d4158a2dc0bc2aed09699012ac157
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666698"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038052"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Supporto del firewall di Azure Cosmos DB
 Per proteggere i dati archiviati in un account del database di Azure Cosmos DB, Azure Cosmos DB ha reso disponibile il supporto per un [modello di autorizzazione](https://msdn.microsoft.com/library/azure/dn783368.aspx) basato su segreto che usa un codice di autenticazione messaggi basato su hash (HMAC, Hash-based Message Authentication Code). Oltre al modello di autenticazione basato su segreto, Azure Cosmos DB supporta ora controlli dell'accesso agli indirizzi IP basati su criteri per il supporto del firewall in ingresso. Questo modello è simile alle regole del firewall di un sistema di database tradizionale e offre un livello aggiuntivo di sicurezza per l'account del database di Azure Cosmos DB. Con questo modello è ora possibile configurare un account del database di Azure Cosmos DB perché sia accessibile solo da un set di computer e/o servizi cloud approvato. Per l'accesso alle risorse di Azure Cosmos DB da questi set di computer e servizi approvati, è comunque necessario che il chiamante presenti un token di autorizzazione valido.
-
-> [!NOTE]
-> Il supporto del firewall è attualmente disponibile per gli account API Mongo e API SQL per Azure Cosmos DB. Sarà presto possibile configurare i firewall per le altre API e i cloud sovrani, come Azure Germania o Azure per enti pubblici. Se intende configurare l'elenco ACL dell'endpoint di servizio per l'account Azure Cosmos DB con un firewall IP configurato, annotare la configurazione del firewall, rimuovere il firewall IP e quindi configurare l'elenco ACL dell'endpoint di servizio. Dopo avere configurato l'endpoint di servizio, è possibile riabilitare il firewall IP, se necessario.
 
 ## <a name="ip-access-control-overview"></a>Panoramica del controllo di accesso IP
 Per impostazione predefinita, un account del database di Azure Cosmos DB è accessibile dalla rete Internet pubblica purché la richiesta sia accompagnata da un token di autorizzazione valido. Per configurare il controllo di accesso IP basato su criteri, l'utente deve fornire il set di indirizzi IP o di intervalli di indirizzi IP in formato CIDR perché venga incluso come elenco di IP client consentiti per un account del database specificato. Una volta applicata questa configurazione, tutte le richieste provenienti dai computer non inclusi in questo elenco di client IP consentiti vengono bloccate dal server.  Il flusso di elaborazione della connessione per il controllo di accesso basato su IP è descritto nel diagramma seguente:

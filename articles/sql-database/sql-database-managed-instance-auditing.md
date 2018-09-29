@@ -2,20 +2,22 @@
 title: Controllo di Istanza gestita di database SQL di Azure | Microsoft Docs
 description: Informazioni su come iniziare a eseguire il controllo di Istanza gestita di database SQL di Azure usando T-SQL
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/19/2018
+author: giladm
 ms.author: giladm
-ms.openlocfilehash: 71929be456de4b798da48bb202969deb71e1c371
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 38dee577ff57e6ba440fb4062315b57e4eb7957b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648854"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162254"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo di Istanza gestita di database SQL di Azure
 
@@ -104,13 +106,13 @@ La sezione seguente descrive la configurazione del controllo per Istanza gestita
     Se non specificato altrimenti, l'impostazione predefinita di `RETENTION_DAYS` è 0 (conservazione illimitata).
 
     Per altre informazioni:
-    - [Controllo delle differenze tra Istanza gestita, database SQL di Azure e SQL Server](#subheading-3)
+    - [Controllo delle differenze tra Istanza gestita, database SQL di Azure e SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 7. Creare una specifica di controllo server o di controllo database come si farebbe per SQL Server:
-    - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
+    - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 8. Abilitare il controllo server creato nel passaggio 6:
 

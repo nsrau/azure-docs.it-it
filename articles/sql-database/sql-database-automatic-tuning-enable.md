@@ -2,20 +2,21 @@
 title: Abilitare l'ottimizzazione automatica per il database SQL di Azure | Microsoft Docs
 description: È possibile abilitare facilmente l'ottimizzazione automatica nel database SQL di Azure.
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 9ebc3a8cb01d93fc6cec5d208c5a10020413cec2
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 4f043cfc9c85513abe16bde38c5cac6e16e34af9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631096"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063320"
 ---
 # <a name="enable-automatic-tuning"></a>Abilitare l'ottimizzazione automatica
 
@@ -86,7 +87,7 @@ Per configurare le singole opzioni di ottimizzazione automatica con Transact-SQL
    
 Impostare l'opzione di ottimizzazione specifica su ON per eseguire l'override di qualsiasi impostazione ereditata dal database e abilitare l'opzione di ottimizzazione specifica. Se viene impostata su OFF, verrà eseguito l'override di qualsiasi impostazione ereditata dal database, ma l'opzione di ottimizzazione specifica verrà disabilitata. L'opzione di ottimizzazione automatica impostata su DEFAULT fa sì che la configurazione verrà ereditata dall'impostazione dell'ottimizzazione automatica a livello di database.  
 
-Per altre informazioni sulle opzioni di T-SQL per configurare l'ottimizzazione automatica, vedere [Opzioni ALTER DATABASE SET (Transact-SQL) per server logico database SQL](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
+Per altre informazioni sulle opzioni di T-SQL per configurare l'ottimizzazione automatica, vedere [Opzioni ALTER DATABASE SET (Transact-SQL) per server logico database SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ## <a name="disabled-by-the-system"></a>Disabilitazione da parte del sistema
 L'ottimizzazione automatica esegue il monitoraggio di tutte le azioni eseguite a livello di database e in alcuni casi potrebbe non funzionare correttamente nel database. In questo caso, l'opzione di ottimizzazione viene disabilitata dal sistema. Nella maggior parte dei casi ciò accade perché Query Store non è abilitato o è in stato di sola lettura in un database specifico.

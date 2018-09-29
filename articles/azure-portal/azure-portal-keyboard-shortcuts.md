@@ -3,7 +3,7 @@ title: Tasti di scelta rapida per il portale di Azure | Documentazione Microsoft
 description: Informazioni sui tasti di scelta rapida disponibili nel portale di Azure.
 services: azure-portal
 documentationcenter: ''
-author: flanakin
+author: adamabmsft
 manager: lwelicki
 editor: ''
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
-ms.author: micflan
+ms.author: cwatson
 ms.custom: accessibility
-ms.openlocfilehash: 17d6c5ecfa3964c03f62e981a4619e02f3d59543
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: de79e1ea91b7d30eb550cb078bbb257e2f924dfb
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165418"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393826"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Tasti di scelta rapida nel portale di Azure
 Questo articolo riporta i tasti di scelta rapida disponibili nel portale di Azure. È possibile che i singoli servizi abbiano tasti di scelta rapida.

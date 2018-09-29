@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b816d94c8d85ad7d28dfc76072627423a30f6704
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a4c389d063bb63f2fa2293d54236f99d7035e0e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293473"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060722"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chiamare l'API di Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -47,6 +47,7 @@ Questa guida usa la libreria seguente:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Authentication Library di Microsoft per l'anteprima di JavaScript|
 
 > [!NOTE]
-> *msal.js* specifica come destinazione l'*endpoint di Azure Active Directory v2*, che consente agli account personali, aziendali e dell'istituto di istruzione di eseguire l'accesso e di acquisire i token. L'*endpoint di Azure Active Directory v2* ha [alcune limitazioni](..\articles\active-directory\develop\active-directory-v2-limitations.md). Se si è interessati solo ad account aziendali e dell'istituto di istruzione, usare *adal.js* e l'*endpoint V1*. Per conoscere le differenze tra gli endpoint v1 e v2, vedere il [confronto tra v1 e v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
+> *msal.js* specifica come destinazione l'*endpoint di Azure Active Directory v2*, che consente agli account personali, aziendali e dell'istituto di istruzione di eseguire l'accesso e di acquisire i token. L'*endpoint di Azure Active Directory v2* ha [alcune limitazioni](..\articles\active-directory\develop\active-directory-v2-limitations.md).
+> Per conoscere le differenze tra gli endpoint v1 e v2, vedere il [confronto tra v1 e v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

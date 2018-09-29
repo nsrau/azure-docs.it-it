@@ -2,25 +2,32 @@
 title: Creare e gestire processi elastici con PowerShell | Documentazione Microsoft
 description: PowerShell viene utilizzato per gestire i pool del database SQL di Azure
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: pwershell
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d1869dd689ef090978c3835e0a16fec82dfb5c05
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: e5e519cad6c3944e5ebf9936970e8ede1509cf95
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648687"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166963"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creare e gestire processi elastici del database SQL con PowerShell (anteprima)
 
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
 Le API di PowerShell per i **processi di database elastici** , in anteprima, consentono di definire il gruppo di database sul quale verranno eseguiti gli script. Questo articolo illustra come creare e gestire **processi di database elastici** con i cmdlet di PowerShell. Vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Un set di database creato con gli strumenti di database elastici. Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
@@ -209,7 +216,7 @@ Le procedure consigliate per i processi di database elastici includono:
 * Le credenziali devono disporre dei privilegi minimi necessari per eseguire l'attività di processo.  Per altre informazioni, vedere l'articolo [Autorizzazioni in SQL Server](https://msdn.microsoft.com/library/bb669084.aspx) di MSDN.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Per creare credenziali crittografate per l'esecuzione di processi nei database
-Per creare nuove credenziali crittografate, il [**cmdlet Get-Credential**](https://technet.microsoft.com/library/hh849815.aspx) richiede un nome utente e una password che possono essere passati al [**cmdlet New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+Per creare nuove credenziali crittografate, il [**cmdlet Get-Credential**](/powershell/module/microsoft.powershell.security/get-credential) richiede un nome utente e una password che possono essere passati al [**cmdlet New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 2eb75fb7159febef4e582006c36bda192a36597f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 9cb415a84a61212b8c8e3840bdc85429b5d5308c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068542"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391875"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Modificare la sottoscrizione con pagamento in base al consumo in un'offerta diversa
 

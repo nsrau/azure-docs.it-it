@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954399"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227147"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT.
@@ -219,7 +219,7 @@ Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), le pr
 [Azure Resource Manager](#azure-resource-manager) usa i gruppi di risorse per raggruppare le risorse correlate. È possibile usare un gruppo di risorse per eseguire operazioni su tutte le risorse del gruppo contemporaneamente.
 
 ## <a name="retry-policy"></a>Criteri di ripetizione
-I criteri di ripetizione si usano per gestire gli [errori temporanei](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) quando ci si connette a un servizio cloud.
+I criteri di ripetizione si usano per gestire gli [errori temporanei](/azure/architecture/best-practices/transient-faults) quando ci si connette a un servizio cloud.
 
 ## <a name="routing-rules"></a>Regole di routing
 Configurare le [regole di routing](iot-hub-devguide-messages-read-custom.md) nell'hub IoT per indirizzare i messaggi da dispositivo a cloud su un [endpoint predefinito](#built-in-endpoints) o su un [endpoint personalizzato](#custom-endpoints) per l'elaborazione da parte della soluzione di back-end in uso.

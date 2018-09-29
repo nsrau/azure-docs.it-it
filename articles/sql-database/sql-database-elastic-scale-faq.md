@@ -2,20 +2,22 @@
 title: Domande frequenti sulla scalabilità elastica in Azure SQL | Documentazione Microsoft
 description: Domande frequenti sulla scalabilità elastica del database SQL di Azure.
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 94ae9549bb5e09c80703a7db316675bff1272372
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: afa442897637e6c7255335798dc45b48aedb2b2a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647477"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158582"
 ---
 # <a name="elastic-database-tools-faq"></a>Domande frequenti sugli strumenti di database elastici
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>In presenza di un tenant singolo per partizione senza chiave di partizionamento orizzontale, in che modo è possibile popolare la chiave di partizionamento orizzontale per le informazioni sullo schema?
@@ -43,7 +45,7 @@ Le API di Scalabilità elastica offrono una connessione al database corretto per
 Sì, una partizione è un database a sé, per cui è possibile che una partizione sia un'edizione Premium mentre un'altra è un'edizione Standard. Inoltre, l'edizione della partizione può essere aumentata o ridotta più volte durante il ciclo di vita della partizione.
 
 #### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Lo strumento di divisione e unione esegue il provisioning di un database o lo elimina durante un'operazione di divisione o unione?
-di serie Per le operazioni di **divisione** è necessario che il database di destinazione sia dotato dello schema appropriato e sia registrato nel Gestore mappe partizioni.  Per le operazioni di **unione** è necessario eliminare la partizione dal Gestore mappe partizioni e quindi eliminare il database.
+No. Per le operazioni di **divisione** è necessario che il database di destinazione sia dotato dello schema appropriato e sia registrato nel Gestore mappe partizioni.  Per le operazioni di **unione** è necessario eliminare la partizione dal Gestore mappe partizioni e quindi eliminare il database.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

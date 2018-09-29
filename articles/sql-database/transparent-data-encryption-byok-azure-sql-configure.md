@@ -2,28 +2,22 @@
 title: 'PowerShell e CLI: abilitare TDE in SQL - Chiavi - Database SQL di Azure | Microsoft Docs'
 description: Informazioni su come configurare un database SQL di Azure e Data Warehouse per iniziare a usare Transparent Data Encryption (TDE) per la crittografia dei dati inattivi tramite PowerShell o CLI.
 services: sql-database
-keywords: ''
-documentationcenter: ''
-author: aliceku
-manager: craigg
-editor: ''
-ms.prod: ''
-ms.reviewer: vanto
-ms.suite: sql
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
-ms.tgt_pltfrm: ''
-ms.devlang: azurecli, powershell
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/28/2018
+author: aliceku
 ms.author: aliceku
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 11e190e1a4d0309bdbdcb7a578fccaf84fabb8e3
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 0fad0cd32e8df38c5a9c06ecf01a14340f1bc9ef
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543778"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165076"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell e CLI: abilitare Transparent Data Encryption usando la propria chiave di Azure Key Vault
 
@@ -35,11 +29,11 @@ Questo articolo illustra come usare una chiave di Azure Key Vault per Transparen
 - [Consigliata ma facoltativa] Disporre di un modulo di protezione hardware (HSM) o una chiave locale già archiviati a scopo di creazione di una copia locale del materiale della chiave di protezione TDE.
 - È necessario che sia installato e sia esecuzione Azure PowerShell 4.2.0 o una versione più recente. 
 - Creare le chiavi e un Azure Key Vault per l'uso con TDE.
-   - [Istruzioni di PowerShell da Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
-   - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [Istruzioni di PowerShell da Key Vault](../key-vault/key-vault-get-started.md)
+   - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - L'insieme di credenziali delle chiavi deve avere la seguente proprietà da usare per TDE:
-   - [Eliminazione temporanea](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [Come usare l'eliminazione temporanea di Key Vault con PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) 
+   - [Eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md)
+   - [Come usare l'eliminazione temporanea di Key Vault con PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - La chiave deve avere i seguenti attributi per essere usata per TDE:
    - Nessuna data di scadenza
    - Non disabilitato
@@ -201,11 +195,11 @@ Se si verifica un problema, controllare quanto segue:
 - [Consigliata ma facoltativa] Disporre di un modulo di protezione hardware (HSM) o una chiave locale già archiviati a scopo di creazione di una copia locale del materiale della chiave di protezione TDE.
 - Interfaccia della riga di comando versione 2.0 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure 2.0). 
 - Creare le chiavi e un Azure Key Vault per l'uso con TDE.
-   - [Gestire Key Vault tramite l'interfaccia della riga di comando 2.0](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2)
-   - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [Gestire Key Vault tramite l'interfaccia della riga di comando 2.0](../key-vault/key-vault-manage-with-cli2.md)
+   - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - L'insieme di credenziali delle chiavi deve avere la seguente proprietà da usare per TDE:
-   - [Eliminazione temporanea](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli) 
+   - [Eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md)
+   - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](../key-vault/key-vault-soft-delete-cli.md) 
 - La chiave deve avere i seguenti attributi per essere usata per TDE:
    - Nessuna data di scadenza
    - Non disabilitato

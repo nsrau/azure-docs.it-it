@@ -3,7 +3,7 @@ title: Usare Archiviazione Premium di Azure con SQL Server | Microsoft Docs
 description: Questo articolo sfrutta le risorse create con il modello di distribuzione classica e fornisce istruzioni su come utilizzare Archiviazione Premium di Azure con SQL Server in esecuzione su Macchine virtuali di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: rothja
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: bb9e30489aa8870fe1c71c8c9a8bd557a2dcf2b1
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 88b901f4e2d96fb3b3b04634e2137a916a61e354
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141534"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452650"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
 ## <a name="overview"></a>Panoramica

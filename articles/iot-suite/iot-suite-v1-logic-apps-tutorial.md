@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Suite e App per la logica | Microsoft Docs
 description: Esercitazione su come associare App per la logica a Azure IoT Suite per un processo aziendale.
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
 ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106563"
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Esercitazione: Connettere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto Azure IoT Suite
 La soluzione preconfigurata per il monitoraggio remoto [Microsoft Azure IoT Suite][lnk-internetofthings] consente di iniziare a usare rapidamente un set di funzionalità end-to-end che esemplifica una soluzione IoT. Questa esercitazione illustra come aggiungere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto Microsoft Azure IoT Suite. Questi passaggi descrivono come usare la soluzione IoT in modo avanzato collegandola a un processo aziendale.
@@ -42,7 +43,7 @@ Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigu
 ## <a name="set-up-the-logic-app"></a>Impostare l'app per la logica
 1. Nel Portale di Azure fare clic su **Aggiungi** nella parte superiore del pannello del gruppo di risorse.
 2. Cercare **App per la logica**, farci clic e quindi scegliere **Crea**.
-3. Compilare il campo **Nome** e immettere le stesse informazioni di **Sottoscrizione**e **Gruppo di risorse** usate al momento del provisioning della soluzione per il monitoraggio remoto. Fare clic su **Crea**.
+3. Compilare il campo **Nome** e immettere le stesse informazioni di **Sottoscrizione**e **Gruppo di risorse** usate al momento del provisioning della soluzione per il monitoraggio remoto. Fare clic su **Create**(Crea).
    
     ![](media/iot-suite-v1-logic-apps-tutorial/createlogicapp.png)
 4. Dopo il completamento della distribuzione, l'app per la logica viene elencata come risorsa nel gruppo di risorse.

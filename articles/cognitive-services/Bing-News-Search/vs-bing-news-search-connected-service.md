@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.openlocfilehash: 5cfa82067d28b05f32bd87e0e83d55a03da8d508
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663859"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095430"
 ---
 # <a name="connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Connettersi all'API Ricerca notizie Bing tramite Servizi connessi in Visual Studio
 
@@ -23,7 +23,7 @@ Usando la Ricerca notizie Bing, è possibile abilitare le app e i servizi per sf
 
 Questo articolo fornisce informazioni dettagliate per usare la funzionalità servizio connesso di Visual Studio per Ricerca notizie Bing. La funzionalità è disponibile in Visual Studio 2017 15.7 o versioni successive, con l'estensione Servizi cognitivi installata.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2017 versione 15.7 con il carico di lavoro Sviluppo Web installato. [Scaricarla qui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

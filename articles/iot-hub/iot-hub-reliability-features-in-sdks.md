@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f6cfb7bb988b080189da444cb77e0c258417b1ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574709"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227447"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Come gestire le funzionalità di connettività e messaggistica affidabile con gli SDK per dispositivi dell'hub IoT di Azure
 
@@ -54,7 +54,7 @@ Gli errori di connessione possono verificarsi a vari livelli:
 - Errori a livello di protocollo per trasporto HTTP, AMQP e MQTT, ad esempio collegamenti rimossi o sessioni scadute
 - Errori a livello di applicazione che derivano da errori locali, ad esempio credenziali non valide o comportamento anomalo del servizio come il superamento delle quote o delle limitazioni del servizio
 
-Gli SDK per dispositivi sono in grado di rilevare errori in tutti e tre i livelli.  Gli errori del sistema operativo e dell'hardware non vengono rilevati e gestiti dagli SDK per dispositivi.  La progettazione si basa sulle [indicazioni relative alla gestione degli errori temporanei](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) del Centro architetture Azure.
+Gli SDK per dispositivi sono in grado di rilevare errori in tutti e tre i livelli.  Gli errori del sistema operativo e dell'hardware non vengono rilevati e gestiti dagli SDK per dispositivi.  La progettazione si basa sulle [indicazioni relative alla gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults#general-guidelines) del Centro architetture Azure.
 
 ### <a name="retry-patterns"></a>Modelli di ripetizione dei tentativi
 

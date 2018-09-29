@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 92b13c27d5f9c110dbcb4aa70aa9b8ddde17531a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794548"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096741"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights per le applicazioni web Java che sono già live
 

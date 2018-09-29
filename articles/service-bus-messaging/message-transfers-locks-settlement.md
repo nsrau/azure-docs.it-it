@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 73143c8c79da609099d562f8cc6c588fe6dc08c3
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702062"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410052"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Trasferimenti, blocchi e finalizzazione dei messaggi
 
@@ -62,7 +62,7 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 È importante notare che tutti i modelli di programmazione asincroni usano una forma di coda di lavoro nascosta basata sulla memoria che contiene le operazioni in sospeso. Quando [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) o **Send** (Java) restituisce un risultato, l'attività di invio viene inserita nella coda di lavoro, ma l'azione del protocollo viene avviata solo quando è il turno dell'attività di essere eseguita. Per il codice che tende a eseguire il push di picchi di messaggi e per i casi in cui l'affidabilità è importante, è necessario fare attenzione che non ci siano troppi messaggi "in corso" contemporaneamente, in quanto tutti i messaggi inviati occupano memoria fino a quando non sono effettivamente in transito.
@@ -79,7 +79,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Le applicazioni non devono **mai** avviare un'operazione di invio asincrona adottando l'approccio "fire-and-forget", ovvero senza recuperare il risultato dell'operazione. Ciò potrebbe caricare la coda di attività interna e invisibile fino a esaurire la memoria, impedendo all'applicazione di rilevare gli errori di invio:

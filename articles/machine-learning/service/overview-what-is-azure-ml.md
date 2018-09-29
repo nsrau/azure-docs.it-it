@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: dddda5a222bf4e9fd81a3e13987ccdf443302083
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e0294f99d1c2291e84bf2ac5d5b1f771222b551
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978905"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433413"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Informazioni sul servizio Azure Machine Learning (anteprima)
 
@@ -26,7 +26,7 @@ Machine Learning è una tecnica di analisi scientifica dei dati che consente ai 
 
 Queste previsioni o stime di Machine Learning possono rendere più intelligenti le app e i dispositivi. Quando si effettuano acquisti online, l'apprendimento automatico consiglia altri prodotti che potrebbero interessare in base a ciò che si è acquistato. Quando si usa la carta di credito, l'apprendimento automatico confronta la transazione con un database di transazioni e consente di rilevare eventuali frodi. Infine, quando il robot aspirapolvere aspira la polvere in una stanza, l'apprendimento automatico gli consente di decidere se il lavoro è stato completato.
 
-## <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
+## <a name="what-is-azure-machine-learning-service"></a>Informazioni sul servizio Azure Machine Learning
 
 Il servizio Azure Machine Learning offre un ambiente basato su cloud utile per sviluppare, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning.
 

@@ -14,16 +14,19 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
-ms.author: mobandyo
-ms.openlocfilehash: e26d8ad1f08eb711dc22b45d48f8dc326d8c17c7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: erikre
+ms.openlocfilehash: 79cc543e2a106fa8cbff31bdd0e6bb35afe68e4b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164976"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392041"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Usare le API di fatturazione di Azure per ottenere informazioni approfondite sull'uso di Azure a livello di codice
 Usare le API di fatturazione di Azure per raccogliere e immettere i dati di uso e delle risorse negli strumenti di analisi dei dati scelti. Le API di utilizzo delle risorse di Azure e RateCard possono aiutare a prevedere e gestire i costi con precisione. Le API vengono implementate come provider di risorse, nell’ambito della famiglia di API esposte da Azure Resource Manager.  
+
+> [!div class="nextstepaction"]
+> [Contribuire al miglioramento della documentazione sulla fatturazione di Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="azure-invoice-download-api-preview"></a>API per il download della fattura in Azure (anteprima)
 Dopo aver [completato il consenso esplicito](billing-manage-access.md#opt-in), scaricare le fatture tramite la versione di anteprima di [API per le fatture](/rest/api/billing). Le funzionalità includono:

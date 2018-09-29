@@ -1,20 +1,23 @@
 ---
 title: Servizio app di Azure - sincronizzazione della configurazione di rete | Microsoft Docs
 description: Questo articolo illustra come sincronizzare la configurazione di rete per il piano di hosting del servizio app di Azure.
+services: sql-database
 ms.service: sql-database
-author: srdan-bozovic-msft
-manager: craigg
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 57c4dd523a5dffc48a2d2d403d2a440a8d6cde95
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+manager: craigg
+ms.date: 03/07/2018
+ms.openlocfilehash: d5de908166e8de1d45a36f97aee8934653e59623
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257895"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163169"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Sincronizzare la configurazione di rete per il piano di hosting del servizio app di Azure
 

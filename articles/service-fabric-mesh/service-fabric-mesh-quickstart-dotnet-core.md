@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
 ms.devlang: dotNet
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d14420a363cfea23c86f63533a4ea89c5f2fd06f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 7e324b80968017e0160f41b88fa1824669050ac9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412917"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407400"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guida introduttiva: Creare e distribuire un'app Web in Azure Service Fabric Mesh
 

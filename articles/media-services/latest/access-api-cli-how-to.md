@@ -13,11 +13,11 @@ ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
 ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723693"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096792"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure
  
@@ -30,7 +30,7 @@ ms.locfileid: "38723693"
 
 Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un'applicazione e un'entità servizio di Azure Active Directory (Azure AD) e ottenere i valori necessari per accedere alle risorse di Servizi multimediali di Azure.
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 Creare un nuovo account di Servizi multimediali in Azure, come descritto in [questa guida introduttiva](create-account-cli-quickstart.md).
 

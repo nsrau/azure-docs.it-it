@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950166"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419305"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -348,9 +348,9 @@ Il circuito esistente continuerà ad annunciare i prefissi per Office 365 e Dyna
 
 * Il peering Microsoft dei circuiti ExpressRoute che vengono configurati dopo il 1° agosto 2017 non avrà alcun prefisso annunciato fino a quando non viene associato un filtro di route per il circuito. Per impostazione predefinita, non verrà visualizzato alcun prefisso.
 
-## <a name="globalreach"></a>ExpressRoute Direct (anteprima)
+## <a name="expressRouteDirect"></a>ExpressRoute Direct (anteprima)
 
-[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+[!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
 ## <a name="globalreach"></a>Copertura globale (anteprima)
 

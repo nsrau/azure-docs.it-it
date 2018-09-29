@@ -15,20 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: victorh
-ms.openlocfilehash: b95ec9b4b5077b236c5f3a7183820552b7ccac49
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e24aa8d0fb72147b0ac30e7c495b598d6e9ea96f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174312"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451393"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gestire record e set di record DNS con il portale di Azure
-
-> [!div class="op_single_selector"]
-> * [Portale di Azure](dns-operations-recordsets-portal.md)
-> * [Interfaccia della riga di comando di Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
-> * [Interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
 
 Questo articolo descrive come gestire i set di record e i record per la zona DNS usando il portale di Azure.
 
@@ -95,7 +89,7 @@ Dopo aver salvato il record, i valori per il set di record nel pannello **Zona D
 
 1. Fare clic su **Elimina** nel pannello **Proprietà del set di record** per il set di record.
 
-    ![Eliminare un set di record](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+    ![Eliminare un set di record](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. Viene visualizzato un messaggio in cui viene chiesto se eliminare il set di record.
 3. Verificare che il nome corrisponda al set di record da eliminare, quindi fare clic su **Sì**.

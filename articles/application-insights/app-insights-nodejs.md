@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 28be3a1734639ac175e4d18d9e9f21b83b9a7e7c
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094003"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
@@ -35,7 +36,7 @@ Node.js SDK può monitorare automaticamente le richieste HTTP in ingresso e in u
 
 Completare le attività seguenti per configurare il monitoraggio per un'app o un servizio.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare di avere una sottoscrizione di Azure oppure [ottenerne una nuova gratuitamente][azure-free-offer]. Se l'organizzazione ha già una sottoscrizione di Azure, un amministratore può aggiungere l'utente alla sottoscrizione seguendo [queste istruzioni][add-aad-user].
 

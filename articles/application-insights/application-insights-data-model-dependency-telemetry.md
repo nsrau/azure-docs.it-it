@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2017
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 019b24839c20e7f8f46eeccf4a7b9622d18b0ad6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 5765be9fc88cbe38841078b5c298d3ee12269e6d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092554"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria delle dipendenze: modello di dati di Application Insights
 

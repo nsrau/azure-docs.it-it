@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 78578197c5f764c8e197d3426506cb1eb13b838f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 110b97cdb4de6e866ac8ce17a1f05d0231ff5071
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956797"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221600"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete
 
@@ -88,7 +88,7 @@ Il portale non offre la possibilità di assegnare l'interfaccia di rete ai grupp
     - **Proprietà**: visualizza le impostazioni chiave relative all'interfaccia di rete, incluso il suo indirizzo MAC (vuoto se l'interfaccia di rete è collegata a una macchina virtuale) e la sottoscrizione in cui si trova.
     - **Regole di sicurezza effettive:** le regole di sicurezza sono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione e un gruppo di sicurezza di rete è associato all'interfaccia, alla subnet cui l'interfaccia è assegnata o a entrambe. Per ulteriori informazioni sul contenuto, vedere [Visualizzare regole di sicurezza valide](#view-effective-security-rules). Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](security-overview.md).
     - **Route valide:** le route vengono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione. Le route sono una combinazione di route predefinite di Azure, route definite dall'utente e route BGP esistenti per la subnet a cui è assegnata l'interfaccia di rete. Per ulteriori informazioni sul contenuto, vedere [Visualizzare route valide](#view-effective-routes). Per altre informazioni sulle route predefinite di Azure e le route definite dall'utente, vedere [Panoramica delle route](virtual-networks-udr-overview.md).
-    - **Impostazioni comuni di Azure Resource Manager:** per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [Log attività](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Controllo di accesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Script di automazione](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Impostazioni comuni di Azure Resource Manager:** per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [Log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Controllo di accesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Script di automazione](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Comandi**
 

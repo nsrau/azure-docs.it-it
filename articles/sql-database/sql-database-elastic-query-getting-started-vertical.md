@@ -2,19 +2,22 @@
 title: Introduzione alle query tra database (partizionamento verticale) | Documentazione Microsoft
 description: Informazioni sull'uso della query del database elastico con database con partizionamento verticale.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 62dda46f2f78b01722016a9bbd1e6db05814a0bf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/03/2018
+ms.openlocfilehash: d78767f9360c8cb3a304af19f619dd9f74d3fb8e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448561"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162985"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introduzione alle query tra database (partizionamento verticale) (anteprima)
 
@@ -24,7 +27,7 @@ Al termine, si apprenderà come configurare e usare un database SQL di Azure per
 
 Per altre informazioni sulla funzionalità di query del database elastico, vedere [Panoramica delle query su database elastico del database SQL di Azure](sql-database-elastic-query-overview.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 L'autorizzazione ALTER ANY EXTERNAL DATA SOURCE è obbligatoria. Questa autorizzazione è inclusa nell'autorizzazione ALTER DATABASE. Per il riferimento all'origine dati sottostante sono necessarie autorizzazioni ALTER ANY EXTERNAL DATA SOURCE.
 

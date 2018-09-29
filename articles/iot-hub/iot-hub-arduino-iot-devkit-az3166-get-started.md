@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 6ecddefd264bf4a6f57dd7fcd09c3a8cc10ec54a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 55901d6f3bcbf5511b6921939fdcba03972efed3
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377311"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182842"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -128,29 +128,34 @@ Seguire questa procedura per preparare l'ambiente di sviluppo per DevKit:
     * **macOS**: trascinare il file **Arduino.app** estratto nella cartella `/Applications`.
     * **Ubuntu**: decomprimere il file nella cartella come `$HOME/Downloads/arduino-1.8.5`
 
-1. Installare [Visual Studio Code](https://code.visualstudio.com/), un editor di codice sorgente multipiattaforma con potenti strumenti per gli sviluppatori, come il completamento e il debug del codice IntelliSense.
+2. Installare [Visual Studio Code](https://code.visualstudio.com/), un editor di codice sorgente multipiattaforma con potenti strumenti per gli sviluppatori, come il completamento e il debug del codice IntelliSense.
 
-1. Cercare **Workbench di Azure IoT** nel marketplace delle estensioni e installarlo.
+3. Cercare **Workbench di Azure IoT** nel marketplace delle estensioni e installarlo.
     ![Installare Workbench di Azure IoT](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png): insieme ad Azure IoT Workbench, verranno installati altre estensioni dipendenti.
 
-1. Aprire **File > Preferenze > Impostazioni** e aggiungere le righe successive per configurare Arduino.
+4. Aprire **File > Preferenze > Impostazioni** e aggiungere le righe successive per configurare Arduino.
     * **Windows**:
-    ```javascript
+
+    ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **macOS**:
-    ```javascript
+
+    ```json
     "arduino.path": "/Applications",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **Ubuntu**:
-    ```javascript
+
+    ```json
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
-1. Fare clic su `F1` per aprire il riquadro comandi, digitare e selezionare **Arduino: Board Manager** (Arduino: Gestione lavagna). Cercare **AZ3166** e installare la versione più recente.
+5. Fare clic su `F1` per aprire il riquadro comandi, digitare e selezionare **Arduino: Board Manager** (Arduino: Gestione lavagna). Cercare **AZ3166** e installare la versione più recente.
     ![Installare l’SDK DevKit](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
 
 ### <a name="install-st-link-drivers"></a>Installare i driver ST-Link

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7d653a17212c727d65820382e22196d62af086e9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324409"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432190"
 ---
 # <a name="about-the-speech-translation-api"></a>Informazioni sull'API Traduzione vocale
 
@@ -32,7 +32,7 @@ L'API Traduzione vocale usa le stesse tecnologie alla base di diversi prodotti e
 
 Il motore di traduzione di Microsoft sottostante prevede due diversi approcci: traduzione automatica statistica e traduzione automatica neurale. Il secondo, un approccio basato sull'intelligenza artificiale che si avvale di reti neurali, è l'approccio più moderno alla traduzione automatica. La traduzione automatica neurale fornisce traduzioni migliori, non solo più accurate, ma anche più scorrevoli e naturali. La ragione principale di questa fluidità consiste nel fatto che la traduzione automatica neurale usa il contesto completo di una frase per tradurre le parole.
 
-Microsoft ha già eseguito la migrazione alla traduzione automatica neurale per le lingue più diffuse, avvalendosi della traduzione automatica statistica solo per le lingue di uso meno frequente. Tutte le [lingue disponibili per la traduzione vocale](supported-languages.md#speech-translation) usano la tecnologia basata sulla traduzione automatica neurale. La traduzione con riconoscimento vocale può usare la traduzione automatica statistica o la traduzione automatica neurale a seconda della coppia di lingue. Se la lingua di destinazione è supportata dalla traduzione automatica neurale, la traduzione completa è basata sulla traduzione automatica neurale. Se la lingua di destinazione non è supportata dalla traduzione automatica neurale, la traduzione è un ibrido di traduzione automatica neurale e traduzione automatica statistica, che usa la lingua inglese come "perno" tra le due lingue.
+Microsoft ha già eseguito la migrazione alla traduzione automatica neurale per le lingue più diffuse, avvalendosi della traduzione automatica statistica solo per le lingue di uso meno frequente. Tutte le [lingue disponibili per la traduzione vocale](language-support.md#speech-translation) usano la tecnologia basata sulla traduzione automatica neurale. La traduzione con riconoscimento vocale può usare la traduzione automatica statistica o la traduzione automatica neurale a seconda della coppia di lingue. Se la lingua di destinazione è supportata dalla traduzione automatica neurale, la traduzione completa è basata sulla traduzione automatica neurale. Se la lingua di destinazione non è supportata dalla traduzione automatica neurale, la traduzione è un ibrido di traduzione automatica neurale e traduzione automatica statistica, che usa la lingua inglese come "perno" tra le due lingue.
 
 Le differenze tra i modelli sono interne al motore di traduzione. Gli utenti finali notano solo la migliore qualità della traduzione, specialmente per cinese, giapponese e arabo.
 
@@ -43,3 +43,5 @@ Le differenze tra i modelli sono interne al motore di traduzione. Gli utenti fin
 
 * [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 * [Informazioni sulla traduzione vocale in C#](how-to-translate-speech-csharp.md)
+* [Informazioni sulla traduzione vocale in C++](how-to-translate-speech-cpp.md)
+* [Informazioni sulla traduzione vocale in Java](how-to-translate-speech-java.md)

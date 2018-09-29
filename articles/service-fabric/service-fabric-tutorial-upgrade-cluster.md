@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d467bc88e1ed3b8dbe42a17095e4f0d14f14fe9a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2191ffabee31d12fb5b581280f924546b0078255
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950234"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405465"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: aggiornare il runtime di un cluster di Service Fabric in Azure
 
@@ -42,7 +42,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure usando un modello
 > * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
 > * Aggiornare il runtime di un cluster
-> * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Eliminare un cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -204,6 +204,3 @@ Questa esercitazione illustra come:
 > * Aggiornare il runtime del cluster
 > * Effettuare il monitoraggio dell'aggiornamento
 
-Procedere con l'esercitazione seguente per scoprire come distribuire Gestione API con un cluster Service Fabric.
-> [!div class="nextstepaction"]
-> [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: dcdc84f100ce534ea517f0201b0c090c3059a318
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131411"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160930"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtri nelle viste di Log Analytics
 Un **filtro** in una [vista di Log Analytics](log-analytics-view-designer.md) consente agli utenti di filtrare i dati della vista in base al valore di una proprietà specifica senza modificare la vista stessa.  È ad esempio possibile consentire agli utenti della vista di filtrare solo i dati di un computer o un set di computer specifico.  È possibile creare più filtri in una singola vista per consentire agli utenti di filtrare in base a più proprietà.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
@@ -49,7 +49,7 @@ La tabella seguente descrive le impostazioni per un filtro.
 | Impostazione | DESCRIZIONE |
 |:---|:---|
 | Nome campo | Nome del campo usato per filtrare.  Deve corrispondere al campo summarize in **Esegui query per valori**. |
-| Esegui query per valori | Query da eseguire per popolare l'elenco a discesa relativo al filtro per l'utente.  Per la query è necessario usare l'opzione [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) o [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) per fornire valori univoci per un campo specifico e il campo deve corrispondere a **Nome campo**.  È possibile usare l'opzione [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) per ordinare i valori visualizzati dall'utente. |
+| Esegui query per valori | Query da eseguire per popolare l'elenco a discesa relativo al filtro per l'utente.  Per la query è necessario usare l'opzione [summarize](/azure/kusto/query/summarizeoperator) o [distinct](/azure/kusto/query/distinctoperator) per fornire valori univoci per un campo specifico e il campo deve corrispondere a **Nome campo**.  È possibile usare l'opzione [sort](/azure/kusto/query/sortoperator) per ordinare i valori visualizzati dall'utente. |
 | Tag | Nome del campo usato nelle query che supportano il filtro e visualizzato dall'utente. |
 
 ### <a name="examples"></a>Esempi

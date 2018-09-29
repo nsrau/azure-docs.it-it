@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702528"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433991"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Creare un processo di Analisi di flusso per analizzare i dati delle telefonate e visualizzare i risultati in un dashboard di Power BI
  
@@ -101,7 +101,7 @@ Prima di avviare l'app TelcoGenerator, configurarla per inviare i dati all'istan
 5. Aprire quindi una finestra di comando, passare alla cartella in cui è stata decompressa l'applicazione TelcoGenerator e immettere il comando seguente:
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    Questo comando accetta i parametri seguenti:
@@ -228,7 +228,7 @@ Per questo esempio vengono considerate fraudolente le chiamate provenienti dallo
 
 3. Impostare **Minuti** su 3 e selezionare **OK**. Vengono campionati tre minuti di dati dal flusso di input e viene inviata una notifica quando i dati di esempio sono pronti. È possibile visualizzare lo stato del campionamento sulla barra di notifica. 
 
-   I dati di esempio vengono archiviati temporaneamente e sono disponibili finché rimane aperta la finestra di query. Se si chiude la finestra di query, i dati di esempio verranno rimossi e sarà necessario creare un nuovo set di dati. In alternativa, è possibile ottenere un file con estensione json che contiene i dati di esempio da [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json) e quindi caricare il file con estensione json da usare come dati di esempio per l'input CallStream.  
+   I dati di esempio vengono archiviati temporaneamente e sono disponibili finché rimane aperta la finestra di query. Se si chiude la finestra di query, i dati di esempio verranno rimossi e sarà necessario creare un nuovo set di dati. In alternativa, è possibile ottenere un file con estensione json che contiene i dati di esempio da [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) e quindi caricare il file con estensione json da usare come dati di esempio per l'input CallStream.  
 
 4. Selezionare **Test** per testare la query. Dovrebbero venire visualizzati i risultati di output come nello screenshot seguente:  
 
@@ -262,7 +262,7 @@ Per questo esempio vengono considerate fraudolente le chiamate provenienti dallo
 
 Per questa parte dell'esercitazione, si userà un'applicazione Web [ASP.NET](http://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-In questa esercitazione verranno seguiti i passaggi per l'utente proprietario dell'applicazione dati. Per configurare l'applicazione, passare al repository GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e seguire le istruzioni nella sezione **User Owns Data** (Utente proprietario dei dati) (usare gli URL di reindirizzamento e della home page nella sottosezione **integrate-dashboard-web-app**). Poiché si sta usando l'esempio relativo al dashboard, usare il codice di esempio integrate-dashboard-web-app disponibile nel [repository GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
+In questa esercitazione verranno seguiti i passaggi per l'utente proprietario dell'applicazione dati. Per configurare l'applicazione, passare al repository GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e seguire le istruzioni nella sezione **User Owns Data** (Utente proprietario dei dati) (usare gli URL di reindirizzamento e della home page nella sottosezione **integrate-dashboard-web-app**). Poiché si sta usando l'esempio relativo al dashboard, usare il codice di esempio integrate-dashboard-web-app disponibile nel [repository GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Una volta che l'applicazione è in esecuzione nel browser, seguire questa procedura per incorporare il dashboard creato in precedenza nella pagina Web:
 
 1. Selezionare **Accedi a Power BI**, per concedere all'applicazione l'accesso ai dashboard nell'account di PowerBI.  

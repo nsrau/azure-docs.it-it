@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 600625f143041eaf983b7ec7e945c5a968b522f5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0e58fb23aded66a44deb0d520151c98903cffe18
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022843"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433328"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e Visual Studio)
 
@@ -39,7 +39,7 @@ In questa guida si apprenderà come:
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurare Azure Dev Spaces
 
-Installare [Visual Studio Tools per Kubernetes](https://aka.ms/get-azds-visualstudio).
+Installare [Visual Studio Tools per Kubernetes](https://aka.ms/get-vsk8stools).
 
 ## <a name="connect-to-a-cluster"></a>Connettersi a un cluster
 

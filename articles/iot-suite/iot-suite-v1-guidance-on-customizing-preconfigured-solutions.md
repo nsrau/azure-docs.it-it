@@ -1,12 +1,12 @@
 ---
 title: Personalizzazione di soluzioni preconfigurate | Documentazione Microsoft
 description: Fornisce una guida alla personalizzazione delle soluzioni preconfigurate di Azure IoT Suite.
-services: 
+services: ''
 suite: iot-suite
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
 ms.service: iot-suite
 ms.devlang: dotnet
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cb5955111cb3954f71f11602042b5153ccee3473
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106553"
 ---
 # <a name="customize-a-preconfigured-solution"></a>Personalizzare una soluzione preconfigurata
 
@@ -31,7 +32,7 @@ Il codice sorgente per le soluzioni preconfigurate è disponibile in GitHub nei 
 
 * Monitoraggio remoto: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 * Manutenzione predittiva: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
-* Factory connesso: [https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
+* Connected Factory: [https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
 
 Il codice sorgente per le soluzioni preconfigurate viene fornito per illustrare i modelli e le procedure usate per implementare la funzionalità end-to-end di una soluzione IoT tramite Azure IoT Suite. È possibile trovare altre informazioni su come compilare e distribuire le soluzioni in repository GitHub.
 
@@ -252,4 +253,4 @@ Per altre informazioni sulle opzioni per personalizzare le soluzioni preconfigur
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-cf-customize]: iot-suite-connected-factory-customize.md
+[lnk-cf-customize]:../iot-accelerators/iot-accelerators-connected-factory-customize.md

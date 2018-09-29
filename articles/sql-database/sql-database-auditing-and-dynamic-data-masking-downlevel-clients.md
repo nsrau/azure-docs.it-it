@@ -2,19 +2,22 @@
 title: Controllo tabelle, reindirizzamento TDS ed endpoint IP per il database SQL di Azure | Microsoft Docs
 description: Informazioni su controllo, reindirizzamento TDS e modifiche apportate all'endpoint IP quando si implementa il controllo delle tabelle in un database SQL di Azure.
 services: sql-database
-author: giladm
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: giladm
 ms.author: giladm
-ms.openlocfilehash: b615e9ff67788c2f02c2fa0c33e0de3331e77885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 525b699efdbfd2e4e2f8ad7a8b24f20f1d7438d0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645630"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063337"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Database SQL: supporto dei client di livello inferiore e modifiche all'endpoint IP per il controllo tabelle
 
@@ -52,7 +55,7 @@ Il nuovo endpoint IP del database dipenderà dall'area del database:
 | Cina settentrionale |139.217.29.176, 139.217.28.254 |
 | Cina orientale |42.159.245.65, 42.159.246.245 |
 | Australia orientale |104.210.91.32, 40.126.244.159, 191.239.64.60, 40.126.255.94 |
-| Australia sudorientale |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
+| Australia sud-orientale |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
 | Brasile meridionale |104.41.44.161, 104.41.62.230, 23.97.99.54, 104.41.59.191 |
 | Stati Uniti centrali |104.43.255.70, 40.83.14.7, 23.99.128.244, 40.83.15.176 |
 | Stati Uniti centrali EUAP |52.180.178.16, 52.180.176.190 |
@@ -68,7 +71,7 @@ Il nuovo endpoint IP del database dipenderà dall'area del database:
 | Stati Uniti centro-settentrionali |191.236.155.178, 23.96.192.130, 23.96.177.169, 23.96.193.231 |
 | Europa settentrionale |104.41.209.221, 40.85.139.245, 137.116.251.66, 40.85.142.176 |
 | Stati Uniti centro-meridionali |191.238.184.128, 40.84.190.84, 23.102.160.153, 40.84.186.66 |
-| Asia sudorientale |104.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
+| Asia sud-orientale |104.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
 | Europa occidentale |104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
 | Stati Uniti occidentali |191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
 | Stati Uniti occidentali 2 |13.66.224.156, 13.66.227.8 |

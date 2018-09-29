@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: aefc9ae15918a1269614fed41d76d75396684e64
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 237599a5dbd39147b02e9a85cbe34502d0d91923
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987289"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227045"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Caricare i dati immagine nel cloud con Archiviazione di Azure
 
@@ -46,75 +46,75 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse 
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
- 
+
 Nell'esempio seguente viene creato il gruppo di risorse denominato `myResourceGroup`.
- 
-```azurecli-interactive 
+
+```azurecli-interactive
 az group create --name myResourceGroup --location westcentralus 
-``` 
+```
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
- 
-L'esempio carica le immagini in un contenitore BLOB in un account di archiviazione di Azure. Un account di archiviazione offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti. Creare un account di archiviazione nel gruppo di risorse creato usando il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
-> [!IMPORTANT] 
-> Nella parte 2 dell'esercitazione vengono usate le sottoscrizioni di eventi per l'archiviazione BLOB. Le sottoscrizioni di eventi sono attualmente supportate solo per gli account di archiviazione BLOB nelle località seguenti: Asia sudorientale, Asia orientale, Australia orientale, Australia sud-orientale, Stati Uniti centrali, Stati Uniti orientali, Stati Uniti orientali 2, Europa occidentale, Europa settentrionale, Giappone orientale, Giappone occidentale, Stati Uniti centro-occidentali, Stati Uniti occidentali e Stati Uniti occidentali 2. A causa di questa limitazione, è necessario creare un account di archiviazione BLOB usato dall'applicazione di esempio per archiviare immagini e anteprime.   
+L'esempio carica le immagini in un contenitore BLOB in un account di archiviazione di Azure. Un account di archiviazione offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti. Creare un account di archiviazione nel gruppo di risorse creato usando il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+
+> [!IMPORTANT]
+> Nella parte 2 dell'esercitazione vengono usate le sottoscrizioni di eventi per l'archiviazione BLOB. Le sottoscrizioni di eventi sono attualmente supportate solo per gli account di archiviazione BLOB nelle località seguenti: Asia sudorientale, Asia orientale, Australia orientale, Australia sud-orientale, Stati Uniti centrali, Stati Uniti orientali, Stati Uniti orientali 2, Europa occidentale, Europa settentrionale, Giappone orientale, Giappone occidentale, Stati Uniti centro-occidentali, Stati Uniti occidentali e Stati Uniti occidentali 2. A causa di questa limitazione, è necessario creare un account di archiviazione BLOB usato dall'applicazione di esempio per archiviare immagini e anteprime.
 
 Nel comando seguente sostituire il segnaposto `<blob_storage_account>` con il nome globalmente univoco dell'account di archiviazione BLOB.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az storage account create --name <blob_storage_account> \
 --location westcentralus --resource-group myResourceGroup \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
-``` 
- 
+```
+
 ## <a name="create-blob-storage-containers"></a>Creare contenitori di archiviazione BLOB
 
-L'app usa due contenitori nell'account di archiviazione BLOB. I contenitori sono simili alle cartelle e vengono usati per archiviare BLOB. Il contenitore _images_ è la posizione in cui l'applicazione carica le immagini ad alta risoluzione. In una parte successiva della serie un'app per le funzioni di Azure carica le anteprime delle immagini ridimensionate nel contenitore _thumbnails_. 
+L'app usa due contenitori nell'account di archiviazione BLOB. I contenitori sono simili alle cartelle e vengono usati per archiviare BLOB. Il contenitore _images_ è la posizione in cui l'applicazione carica le immagini ad alta risoluzione. In una parte successiva della serie un'app per le funzioni di Azure carica le anteprime delle immagini ridimensionate nel contenitore _thumbnails_.
 
 Usare il comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) per ottenere le chiavi dell'account di archiviazione. Usare quindi la chiave per creare due contenitori usando il comando [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
- 
+
 In questo caso, `<blob_storage_account>` è il nome dell'account di archiviazione BLOB creato. L'accesso pubblico ai contenitori _images_ è impostato su `off`, mentre l'accesso pubblico ai contenitori _thumbails_ è impostato su `container`. L'accesso pubblico `container` fa sì che le anteprime siano visibili agli utenti che visitano la pagina Web.
- 
-```azurecli-interactive 
+
+```azurecli-interactive
 blobStorageAccount=<blob_storage_account>
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
--n $blobStorageAccount --query [0].value --output tsv) 
+-n $blobStorageAccount --query [0].value --output tsv)
 
 az storage container create -n images --account-name $blobStorageAccount \
---account-key $blobStorageAccountKey --public-access off 
+--account-key $blobStorageAccountKey --public-access off
 
 az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
-echo "Make a note of your blob storage account key..." 
-echo $blobStorageAccountKey 
-``` 
+echo "Make a note of your blob storage account key..."
+echo $blobStorageAccountKey
+```
 
 Prendere nota del nome e della chiave dell'account di archiviazione BLOB. L'app di esempio usa queste impostazioni per connettersi all'account di archiviazione per caricare le immagini. 
 
-## <a name="create-an-app-service-plan"></a>Creare un piano di servizio app 
+## <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
-Un [piano di servizio app](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) specifica la località, le dimensioni e le funzionalità della server farm Web che ospita l'app. 
+Un [piano di servizio app](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) specifica la località, le dimensioni e le funzionalità della server farm Web che ospita l'app.
 
-Creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create). 
+Creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 
-L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` nel piano tariffario **Gratuito**: 
+L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` nel piano tariffario **Gratuito**:
 
-```azurecli-interactive 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE 
-``` 
+```azurecli-interactive
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+```
 
-## <a name="create-a-web-app"></a>Creare un'app Web 
+## <a name="create-a-web-app"></a>Creare un'app Web
 
 L'applicazione Web offre uno spazio di hosting per il codice dell'app di esempio che viene distribuito dal repository di esempio GitHub. Creare un'[app Web](../../app-service/app-service-web-overview.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp#az_webapp_create).  
- 
+
 Nel comando seguente sostituire `<web_app>` con un nome univoco (i caratteri validi sono `a-z`, `0-9` e `-`). Se `<web_app>` non è univoco, verrà visualizzato il messaggio di errore _Il sito Web con il nome `<web_app>` specificato esiste già._ L'URL predefinito dell'app Web è `https://<web_app>.azurewebsites.net`.  
 
-```azurecli-interactive 
-az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
-``` 
+```azurecli-interactive
+az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan
+```
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Distribuire l'app di esempio dal repository GitHub
 
@@ -122,44 +122,45 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 Il servizio app offre diversi modi per distribuire contenuto in un'applicazione Web. In questa esercitazione si distribuisce l'app Web da un [repository pubblico di esempio GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurare la distribuzione GitHub nell'applicazione Web con il comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Sostituire `<web_app>` con il nome dell'applicazione Web creata nel passaggio precedente.
 
-Il progetto di esempio contiene un'app [MVC ASP.NET](https://www.asp.net/mvc) che accetta un'immagine, la salva in un account di archiviazione e visualizza le immagini da un contenitore di anteprime. L'applicazione Web usa gli spazi dei nomi [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) e [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) dalla libreria client di archiviazione di Azure per interagire con Archiviazione di Azure. 
+Il progetto di esempio contiene un'app [MVC ASP.NET](https://www.asp.net/mvc) che accetta un'immagine, la salva in un account di archiviazione e visualizza le immagini da un contenitore di anteprime. L'applicazione Web usa gli spazi dei nomi [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) e [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) dalla libreria client di archiviazione di Azure per interagire con Archiviazione di Azure.
 
 # <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 Il servizio app offre diversi modi per distribuire contenuto in un'applicazione Web. In questa esercitazione si distribuisce l'app Web da un [repository pubblico di esempio GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configurare la distribuzione GitHub nell'applicazione Web con il comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Sostituire `<web_app>` con il nome dell'applicazione Web creata nel passaggio precedente.
 
 ---
 
-```azurecli-interactive 
+```azurecli-interactive
 az webapp deployment source config --name <web_app> \
 --resource-group myResourceGroup --branch master --manual-integration \
 --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
-``` 
+```
 
-## <a name="configure-web-app-settings"></a>Configurare le impostazioni dell'app Web 
+## <a name="configure-web-app-settings"></a>Configurare le impostazioni dell'app Web
 
-L'applicazione Web di esempio usa la [libreria client di archiviazione di Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) per chiedere i token di accesso, che vengono usati per caricare le immagini. Le credenziali dell'account di archiviazione usate dall'SDK di archiviazione sono definite nelle impostazioni dell'applicazione per l'applicazione Web. Aggiungere le impostazioni dell'applicazione all'app distribuita con il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). 
+L'applicazione Web di esempio usa la [libreria client di archiviazione di Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) per chiedere i token di accesso, che vengono usati per caricare le immagini. Le credenziali dell'account di archiviazione usate dall'SDK di archiviazione sono definite nelle impostazioni dell'applicazione per l'applicazione Web. Aggiungere le impostazioni dell'applicazione all'app distribuita con il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
 
-Nel comando seguente `<blob_storage_account>` è il nome dell'account di archiviazione BLOB e `<blob_storage_key>` è la chiave associata. Sostituire `<web_app>` con il nome dell'applicazione Web creata nel passaggio precedente.     
+Nel comando seguente `<blob_storage_account>` è il nome dell'account di archiviazione BLOB e `<blob_storage_key>` è la chiave associata. Sostituire `<web_app>` con il nome dell'applicazione Web creata nel passaggio precedente.
 
-```azurecli-interactive 
+```azurecli-interactive
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
 AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
-``` 
+```
 
-Dopo che l'applicazione Web è stata distribuita e configurata, è possibile testare la funzionalità di caricamento immagini nell'app.   
+Dopo che l'applicazione Web è stata distribuita e configurata, è possibile testare la funzionalità di caricamento immagini nell'app.
 
-## <a name="upload-an-image"></a>Caricare un'immagine 
+## <a name="upload-an-image"></a>Caricare un'immagine
 
-Per testare l'applicazione Web, passare all'URL dell'app pubblicata. L'URL predefinito dell'app Web è `https://<web_app>.azurewebsites.net`. Selezionare l'area **Upload photos** (Carica foto) per selezionare e caricare un file oppure trascinare e rilasciare un file nell'area. Se è stata caricata correttamente, l'immagine scompare.
+Per testare l'applicazione Web, passare all'URL dell'app pubblicata. L'URL predefinito dell'app Web è `https://<web_app>.azurewebsites.net`.
+Selezionare l'area **Upload photos** (Carica foto) per selezionare e caricare un file oppure trascinare e rilasciare un file nell'area. Se è stata caricata correttamente, l'immagine scompare.
 
 # <a name="nettabnet"></a>[\.NET](#tab/net)
 
 ![App ImageResizer](media/storage-upload-process-images/figure1.png)
 
-Nel codice di esempio, l'attività `UploadFiletoStorage` nel file `Storagehelper.cs` viene usata per caricare le immagini nel contenitore `images` all'interno dell'account di archiviazione usando il metodo [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet). L'esempio di codice seguente contiene l'attività `UploadFiletoStorage`. 
+Nel codice di esempio, l'attività `UploadFiletoStorage` nel file `Storagehelper.cs` viene usata per caricare le immagini nel contenitore `images` all'interno dell'account di archiviazione usando il metodo [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet). L'esempio di codice seguente contiene l'attività `UploadFiletoStorage`.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)

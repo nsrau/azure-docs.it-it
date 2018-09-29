@@ -2,24 +2,25 @@
 title: Impostazioni dei dispositivi firewall o VPN di terze parti consigliate dalla community per il gateway VPN di Azure | Microsoft Docs
 description: Informazioni sulle impostazioni dei dispositivi firewall o VPN di terze parti consigliate dalla community per il gateway VPN di Azure.
 services: vpn-gateway
-documentationcenter: 
+documentationcenter: ''
 author: chadmath
 manager: cshepard
-editor: 
+editor: ''
 tags: azure-vpn-gateway
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: cc45d84ea9a5eb4c2eaefb5a3ac321feb2d896d2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 77b1de3a9def525fbffb2a0ae49bbcbaea835c58
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093877"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Impostazioni dei dispositivi firewall o VPN di terze parti consigliate dalla community per il gateway VPN di Azure
 
@@ -37,7 +38,7 @@ La tabella seguente elenca diversi dispositivi comuni e la guida correlata:
 |Cisco ASA  |[Soluzioni consigliate dalla community per Cisco ASA in una VPN di Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Soluzioni consigliate dalla community per Cisco ISR in una VPN di Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[Soluzioni consigliate dalla community per Cisco ASR in una VPN di Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
-|Sonicwall |Cercare **Azure VPN** nel [sito Sonicwall](https://support.sonicwall.com/search) |
+|Sonicwall |Cercare **Azure VPN** nel [sito Sonicwall](https://www.sonicwall.com/en-us/support) |
 | Checkpoint    |Cercare **Azure VPN** nel [sito Checkpoint](https://supportcenter.checkpoint.com/supportcenter/portal) |
 |Juniper |Cercare **Azure VPN** nel [sito Juniper]( http://www.juniper.net/search/public/)|
 |Barracuda  |[Soluzioni consigliate dalla community per Barracuda in una VPN di Azure](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |

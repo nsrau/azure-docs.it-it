@@ -3,7 +3,7 @@ title: OpenShift in attività di post-distribuzione di Azure | Microsoft Docs
 description: Attività aggiuntive dopo che è stato distribuito un cluster OpenShift.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
+author: haroldwongms
 manager: najoshi
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bdfd075b9438ee12e940f3ec4fddebf467c93ca8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796160"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434892"
 ---
 # <a name="post-deployment-tasks"></a>Attività di post-distribuzione
 
@@ -41,13 +41,13 @@ Si userà l'interfaccia della riga di comando di Azure per creare la registrazio
 - Nome visualizzato: nome di registrazione dell'app, ad esempio OCPAzureAD
 - Home page: URL della console OpenShift (ad esempio, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
 - URI dell'identificatore: URL della console OpenShift (ad esempio, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- URL di risposta: URL pubblico master e nome di registrazione dell'app (ad esempio, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- URL di risposta: URL pubblico master e nome di registrazione dell'app (ad esempio, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Password: password sicura. Usare una password complessa
 
 L'esempio seguente crea una registrazione dell'app usando le informazioni indicate sopra:
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
 ```
 
 Se il comando riesce, viene restituito un output JSON simile al seguente:
@@ -65,7 +65,7 @@ Se il comando riesce, viene restituito un output JSON simile al seguente:
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
   "replyUrls": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD"
   ]
 }
 ```

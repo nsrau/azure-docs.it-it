@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: ac8262da05837dcdb4ebddd5029f9b5ece3dbc6f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 27d84748e932ae438f68ca7b84004c98c26e42d7
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067948"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393894"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Inviare una richiesta per pagare una sottoscrizione di Azure tramite fattura
 
@@ -27,7 +27,7 @@ ms.locfileid: "34067948"
 
 > [!IMPORTANT]
 > * Il pagamento con fattura è disponibile solo per gli account aziendali.
-> * I [servizi di terze parti ed esterni](billing-understand-your-azure-marketplace-charges.md) non possono essere acquistati o pagati mediante il pagamento con fattura. Se la sottoscrizione contiene risorse da servizi esterni, ad esempio ClearDB o SendGrid, questi devono essere eliminati prima si passare al pagamento con fattura. Per poter acquistare servizi esterni dopo il passaggio al pagamento con fattura, è necessaria una sottoscrizione separata con una carta di credito o di debito.
+> * I [servizi di terze parti ed esterni](billing-understand-your-azure-marketplace-charges.md) non possono essere acquistati o pagati mediante il pagamento con fattura. Se la sottoscrizione contiene risorse da servizi esterni, ad esempio SendGrid, questi devono essere eliminati prima si passare al pagamento con fattura. Per poter acquistare servizi esterni dopo il passaggio al pagamento con fattura, è necessaria una sottoscrizione separata con una carta di credito o di debito.
 > * Dopo il passaggio al pagamento con fattura, non è possibile tornare al pagamento con carta di credito o di debito.
 
 ## <a name="request-pay-by-invoice"></a>Richiesta di pagamento con fattura

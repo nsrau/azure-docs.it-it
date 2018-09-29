@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: d21a235602c425cef77b26d8c60f1e3562411095
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 09bddd1c1d9589dbba0acf319ba43ea54c0c737b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961673"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221457"
 ---
 # <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
 Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
@@ -27,7 +27,7 @@ Questa guida illustra come eseguire queste operazioni:
 > * Interrompere la protezione in file di Azure
 > * Eliminare i dati di backup
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire il backup di una condivisione file di Azure, assicurarsi che la condivisione si trovi in uno dei [tipi di account di archiviazione supportati](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Dopo questa verifica è possibile proteggere le condivisioni file.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitazioni per il backup delle condivisioni file di Azure durante l'anteprima
@@ -195,3 +195,5 @@ Nella procedura seguente si presuppone che il processo di backup per la condivis
 Per altre informazioni sulle condivisioni file di Azure, vedere:
 - [Domande frequenti sul backup di condivisioni file di Azure](backup-azure-files-faq.md)
 - [Risolvere i problemi del backup delle condivisioni file di Azure](troubleshoot-azure-files.md)
+ 
+

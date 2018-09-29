@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 3a0e2b78de8cea3929ac457bab3d5e07a2b85401
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3a90fa5fb9eadd56b6b01306b251ff9581256bab
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603380"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161166"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>Uso dei valori di data e ora nelle query di Azure Log Analytics
 
@@ -47,35 +47,35 @@ I valori timespan sono espressi come numero decimale seguito da un'unità di tem
 |microsecondo | microsecondo  |
 |tick        | nanosecondo   |
 
-È possibile creare valori datetime eseguendo il cast di una stringa tramite l'operatore `todatetime`. Ad esempio, per esaminare gli heartbeat di una macchina virtuale inviati in un intervallo di tempo specifico, è possibile usare l'[operatore between](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator), utile per specificare un intervallo di tempo.
+È possibile creare valori datetime eseguendo il cast di una stringa tramite l'operatore `todatetime`. Ad esempio, per esaminare gli heartbeat di una macchina virtuale inviati in un intervallo di tempo specifico, è possibile usare l'[operatore between](/azure/kusto/query/betweenoperator), utile per specificare un intervallo di tempo.
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
 Un altro scenario comune consiste nel confronto di un valore datetime con quello attuale. Ad esempio, per visualizzare tutti gli heartbeat negli ultimi due minuti, è possibile usare l'operatore `now` insieme a un valore timespan che rappresenta due minuti:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now() - 2m
 ```
 
 Per questa funzione è disponibile anche una soluzione più rapida:
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
 La soluzione più veloce e leggibile consiste tuttavia nell'uso dell'operatore `ago`:
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
 Si supponga di conoscere l'ora di inizio e la durata anziché l'ora di inizio e di fine. È possibile riscrivere la query come segue:
 
-```KQL
+```Kusto
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
 let duration = totimespan(25m);
 Heartbeat
@@ -86,7 +86,7 @@ Heartbeat
 ## <a name="converting-time-units"></a>Conversione di unità di tempo
 Può essere utile esprimere un valore datetime o timespan in un'unità di tempo diversa da quella predefinita. Si supponga ad esempio di esaminare gli eventi di errore degli ultimi 30 minuti e di dover aggiungere una colonna calcolata che mostra quanto tempo prima si è verificato l'evento:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -95,7 +95,7 @@ Event
 
 Come si può notare, la colonna _timeAgo_ contiene valori come "00:09:31.5118992", ovvero nel formato hh:mm:ss.fffffff. Se si vogliono formattare questi valori con il valore _numver_ di minuti dall'ora di inizio, è sufficiente dividere tale valore per "1 minuto":
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -109,7 +109,7 @@ Un altro scenario molto comune è rappresentato dalla necessità di ottenere sta
 
 Usare la query seguente per ottenere il numero di eventi che si sono verificati ogni 5 minuti durante l'ultima mezz'ora:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
@@ -127,7 +127,7 @@ Il risultato è illustrato nella tabella seguente:
 
 In alternativa, è possibile creare bucket di risultati tramite funzioni, ad esempio `startofday`:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(4d)
 | summarize events_count=count() by startofday(TimeGenerated) 
@@ -147,7 +147,7 @@ Il risultato è illustrato nella tabella seguente:
 ## <a name="time-zones"></a>Fusi orari
 Poiché tutti i valori datetime sono espressi in UTC, spesso è utile convertirli nel fuso orario locale. Eseguire ad esempio questo calcolo per convertire le ore UTC in PST:
 
-```KQL
+```Kusto
 Event
 | extend localTimestamp = TimeGenerated - 8h
 ```
@@ -156,11 +156,11 @@ Event
 
 | Categoria | Funzione |
 |:---|:---|
-| Convertire tipi di dati | [todatetime](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/todatetime())  [totimespan](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/totimespan())  |
-| Arrotondare il valore alle dimensioni del contenitore | [bin](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/bin()) |
-| Ottenere una data o un'ora specifica | [ago](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/ago()) [now](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/now())   |
-| Ottenere parte di un valore | [datetime_part](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/datetime_part()) [getmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getmonth()) [monthofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/monthofyear()) [getyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getyear()) [dayofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofmonth()) [dayofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofweek()) [dayofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofyear()) [weekofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/weekofyear()) |
-| Ottenere una data relativa a un valore  | [endofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofday()) [endofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofweek()) [endofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofmonth()) [endofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofyear()) [startofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofday()) [startofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofweek()) [startofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofmonth()) [startofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofyear()) |
+| Convertire tipi di dati | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
+| Arrotondare il valore alle dimensioni del contenitore | [bin](/azure/kusto/query/binfunction) |
+| Ottenere una data o un'ora specifica | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
+| Ottenere parte di un valore | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweek) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
+| Ottenere una data relativa a un valore  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre lezioni relative all'uso del linguaggio di query di Log Analytics:

@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: ac1872cf3f5ee8b83da9fa4c489188504aa8ad22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 43cf75d875b2f5fbfea46fb2c8fbae809668057d
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161544"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405173"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Guida introduttiva ad Azure Dev Spaces con .NET Core e Visual Studio
 
@@ -29,9 +29,39 @@ In questa guida si apprenderà come:
 - Sviluppare in modo indipendente due servizi distinti e utilizzare l'individuazione del servizio DNS di Kubernetes per effettuare una chiamata a un altro servizio.
 - Sviluppare e testare il codice in modo produttivo in un ambiente di team.
 
-[!INCLUDE [](includes/see-troubleshooting.md)]
+> [!Note]
+> **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md) o inserire un commento in questa pagina.
 
-[!INCLUDE [](includes/portal-aks-cluster.md)]
+
+## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creare un cluster Kubernetes abilitato per Azure Dev Spaces
+
+1. Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+1. Scegliere **Crea una risorsa** > cercare **Kubernetes** > selezionare **Kubernetes Service** > **Crea**.
+
+   Completare i passaggi seguenti in ogni intestazione del modulo per la creazione di un cluster del servizio contenitore di Azure.
+
+    - **PROJECT DETAILS** (DETTAGLI PROGETTO): selezionare una sottoscrizione di Azure e un gruppo di risorse di Azure nuovo o esistente.
+    - **CLUSTER DETAILS** (DETTAGLI CLUSTER): immettere nome, area (attualmente è possibile scegliere Stati Uniti orientali, Stati Uniti centrali, Europa occidentale, Stati Uniti occidentali 2, Canada centrale o Canada orientale), versione e prefisso del nome DNS per il cluster nel servizio contenitore di Azure.
+    - **SCALE** (SCALABILITÀ): selezionare le dimensioni della macchina virtuale per i nodi agente AKS e il numero di nodi. Se si sta iniziando a usare Azure Dev Spaces, un nodo è sufficiente per esplorare tutte le funzionalità. Il numero di nodi può essere modificato facilmente in qualsiasi momento dopo la distribuzione del cluster. Le dimensioni della macchina virtuale non possono essere modificate dopo la creazione del cluster AKS. Tuttavia, se è necessario aumentare le prestazioni, dopo la distribuzione del cluster AKS è possibile facilmente creare un nuovo cluster AKS con macchine virtuali di dimensioni maggiori e usare Dev Spaces per la ridistribuzione nel cluster più grande.
+
+   Assicurarsi di scegliere Kubernetes versione 1.9.6 o versioni successive.
+
+   ![Impostazioni di configurazione di Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
+
+   Al termine, selezionare **Avanti: autenticazione**.
+
+1. Scegliere l'impostazione desiderata per il controllo degli accessi in base al ruolo. Azure Dev Spaces supporta i cluster con il controllo degli accessi in base al ruolo abilitato o disabilitato.
+
+    ![Impostazione del controllo degli accessi in base al ruolo](media/common/k8s-RBAC.PNG)
+
+1. Assicurarsi che il routing dell'applicazione Http sia abilitato.
+
+   ![Abilitare il routing dell'applicazione HTTP](media/common/Kubernetes-Create-Cluster-3.PNG)
+
+    > [!Note]
+    > Per abilitare il [Routing HTTP dell'applicazione](/azure/aks/http-application-routing) in un cluster esistente, usare il comando: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
+
+1. Al termine dell'operazione, selezionare **Review + create** (Esamina + crea) e quindi **Create** (Crea).
 
 ## <a name="get-the-visual-studio-tools"></a>Ottenere gli strumenti di Visual Studio
 1. Installare l'ultima versione di [Visual Studio 2017](https://www.visualstudio.com/vs/)
@@ -52,7 +82,6 @@ In Visual Studio 2017 creare un nuovo progetto. Attualmente deve trattarsi di un
 Selezionare il modello **Applicazione Web (MVC)** e assicurarsi che nei due elenchi a discesa nella parte superiore della finestra di dialogo siano selezionati **.NET Core** e **ASP.NET Core 2.0**. Fare clic su **OK** per creare il progetto.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
-
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Abilitare Dev Spaces per un cluster AKS
 

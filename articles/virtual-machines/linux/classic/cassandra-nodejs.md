@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d99c9732bb1bf494b87d2073ba002264c7a51634
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098941"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221248"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Eseguire un cluster Cassandra su Linux in Azure con Node.js
 
@@ -330,13 +330,13 @@ Le subnet dati e Web possono essere protette con i gruppi di sicurezza di rete c
 
 <table>
 <tr><th>Nome computer    </th><th>Subnet    </th><th>Indirizzo IP    </th><th>Set di disponibilità</th><th>DC/Rack</th><th>Valore di inizializzazione?</th></tr>
-<tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>Sì</td></tr>
+<tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>Yes</td></tr>
 <tr><td>hk-c2-west-us    </td><td>data    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1    </td><td>No  </td></tr>
-<tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>Sì</td></tr>
+<tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>Yes</td></tr>
 <tr><td>hk-c4-west-us    </td><td>data    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>No  </td></tr>
-<tr><td>hk-c5-west-us    </td><td>data    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>Sì</td></tr>
+<tr><td>hk-c5-west-us    </td><td>data    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>Yes</td></tr>
 <tr><td>hk-c6-west-us    </td><td>data    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>No  </td></tr>
-<tr><td>hk-c7-west-us    </td><td>data    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>Sì</td></tr>
+<tr><td>hk-c7-west-us    </td><td>data    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>Yes</td></tr>
 <tr><td>hk-c8-west-us    </td><td>data    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>No  </td></tr>
 <tr><td>hk-w1-west-us    </td><td>Web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
 <tr><td>hk-w2-west-us    </td><td>Web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
@@ -396,7 +396,7 @@ Il processo precedente può essere eseguito dal portale di Azure. Usare un compu
         #Create internal load balancer
         Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
         Write-Host "Created $ilbName"
-        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        #Add the thrift endpoint to the internal load balancer for all the VMs
         foreach($vmName in $vmNames)
         {
             Get-AzureVM -ServiceName $serviceName -Name $vmName |
@@ -527,12 +527,12 @@ Creare l'immagine Ubuntu descritta nella distribuzione nell'area n. 1 seguendo g
 
 | Nome computer | Subnet | Indirizzo IP | Set di disponibilità | DC/Rack | Valore di inizializzazione? |
 | --- | --- | --- | --- | --- | --- |
-| hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |Sì |
+| hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |Yes |
 | hk-c2-east-us |data |10.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |No  |
-| hk-c3-east-us |data |10.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |Sì |
-| hk-c5-east-us |data |10.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |Sì |
+| hk-c3-east-us |data |10.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |Yes |
+| hk-c5-east-us |data |10.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |Yes |
 | hk-c6-east-us |data |10.2.2.9 |hk-c-aset-2 |dc =EASTUS rack =rack3 |No  |
-| hk-c7-east-us |data |10.2.2.10 |hk-c-aset-2 |dc =EASTUS rack =rack4 |Sì |
+| hk-c7-east-us |data |10.2.2.10 |hk-c-aset-2 |dc =EASTUS rack =rack4 |Yes |
 | hk-c8-east-us |data |10.2.2.11 |hk-c-aset-2 |dc =EASTUS rack =rack4 |No  |
 | hk-w1-east-us |Web |10.2.1.4 |hk-w-aset-1 |N/D |N/D |
 | hk-w2-east-us |Web |10.2.1.5 |hk-w-aset-1 |N/D |N/D |

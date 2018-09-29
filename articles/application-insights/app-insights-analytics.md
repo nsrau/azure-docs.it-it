@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6db98332fc7d896613a3318421e9a96bbb50cd15
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294201"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159143"
 ---
 # <a name="analytics-in-application-insights"></a>Analytics in Application Insights
 Analytics è l'efficace strumento di ricerca e query incluso in [Application Insights](app-insights-overview.md). Analytics è uno strumento Web, pertanto non occorre installarlo. Se Application Insights è già stato configurato per una delle app, è possibile analizzare i dati dell'app aprendo Analytics dal [pannello Panoramica](app-insights-dashboards.md) dell'app.
@@ -48,9 +48,9 @@ Si conteggia quindi il numero di record per ogni paese (questi dati sono disponi
 
 Il linguaggio include diverse funzionalità utili, è possibile:
 
-* [Filtrare](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) i dati di telemetria app non elaborati in base a qualsiasi campo, comprese proprietà personalizzate e metriche.
-* [Unire](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate a dipendenze, eccezioni e tracce di log.
-* [Aggregazioni](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions)statistiche avanzate.
+* [Filtrare](/azure/kusto/query/whereoperator) i dati di telemetria app non elaborati in base a qualsiasi campo, comprese proprietà personalizzate e metriche.
+* [Unire](/azure/kusto/query/joinoperator) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate a dipendenze, eccezioni e tracce di log.
+* [Aggregazioni](/azure/kusto/query/summarizeoperator)statistiche avanzate.
 * Visualizzazioni immediate e avanzate.
 * Usare un'[API REST](https://dev.applicationinsights.io/) per eseguire query in modo programmatico, ad esempio da PowerShell.
 

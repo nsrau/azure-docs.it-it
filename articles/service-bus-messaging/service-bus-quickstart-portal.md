@@ -8,14 +8,14 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 05c19b2b602e8541a21d5be508e0346c63714544
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ffb7af5cd772f663d71f8641ed79839c3ff9ac6a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700430"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407791"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Guida introduttiva: Inviare e ricevere messaggi usando il portale di Azure e .NET
 
@@ -40,7 +40,7 @@ Aprire e accedere prima di tutto al [portale di Azure][Azure portal] con la prop
 
 ## <a name="create-a-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
 
-Uno spazio dei nomi di messaggistica del bus di servizio fornisce un contenitore di ambito univoco, a cui fa riferimento il [FQDN][], in cui si crea una o più code, argomenti e sottoscrizioni. L'esempio seguente crea uno spazio dei nomi di messaggistica del bus di servizio in un [gruppo di risorse](/azure/azure-resource-manager/resource-group-portal) nuovo o esistente:
+Uno spazio dei nomi di messaggistica del bus di servizio fornisce un contenitore di ambito univoco, a cui fa riferimento il [nome di dominio completo][], in cui si crea una o più code, argomenti e sottoscrizioni. L'esempio seguente crea uno spazio dei nomi di messaggistica del bus di servizio in un [gruppo di risorse](/azure/azure-resource-manager/resource-group-portal) nuovo o esistente:
 
 1. Nel riquadro di spostamento sinistro del portale fare clic su **+ Crea una risorsa**, quindi su **Enterprise Integration** e infine su **Bus di servizio**.
 2. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
@@ -255,7 +255,7 @@ In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e a
 
 
 [account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[FQDN]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[nome di dominio completo]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-quickstart-portal/connection-string.png

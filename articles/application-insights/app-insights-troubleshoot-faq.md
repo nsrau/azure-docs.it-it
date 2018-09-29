@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4f063299a0bb454c8eaf3d38a0cb0a5fb20abcc8
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310015"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094084"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: domande frequenti
 

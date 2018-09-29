@@ -14,17 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: genli
-ms.openlocfilehash: 97210c0d9dba9c4130b1da9ad17a257ff1d81b42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: cwatson
+ms.openlocfilehash: 821d263856f21897915ba7954487b4d029cc4ed0
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448972"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395246"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
 Per gestire l'accesso alle risorse di Azure, è necessario il ruolo di amministratore appropriato. Questo articolo descrive come aggiungere o modificare il ruolo di amministratore per un utente a livello di sottoscrizione.
+
+> [!div class="nextstepaction"]
+> [Contribuire al miglioramento della documentazione sulla fatturazione di Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Quale ruolo di amministratore devo usare?
 
@@ -90,8 +93,8 @@ Solo l'amministratore account può modificare l'amministratore del servizio per 
 
   | Metodo di accesso | Aggiungere l'utente con account Microsoft come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione nella stessa organizzazione come amministratore del servizio? | Aggiungere un account aziendale o dell'istituto di istruzione in un'organizzazione diversa come amministratore del servizio? |
   | --- | --- | --- | --- |
-  |  Account Microsoft |Sì |No  |No  |
-  |  Account aziendale o dell'istituto di istruzione |Sì |Sì |No  |
+  |  Account Microsoft |Yes |No  |No  |
+  |  Account aziendale o dell'istituto di istruzione |Yes |Yes |No  |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Modificare l'amministratore account per una sottoscrizione di Azure
 

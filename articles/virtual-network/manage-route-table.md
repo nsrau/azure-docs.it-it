@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 00a15d42084b660ee2ec4db2b012a5e47fc02b41
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 790d327be27dae0c963c37e6e55f1721bf571c80
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988447"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222115"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
@@ -64,7 +64,7 @@ Nella casella di ricerca nella parte superiore del portale immettere *tabelle di
 1. Nella casella di ricerca nella parte superiore del portale immettere *tabelle di route*. Selezionare **Tabelle di route** quando viene visualizzato nei risultati della ricerca.
 2. Selezionare nell'elenco la tabella di route di cui si vuole visualizzare i dettagli. In **IMPOSTAZIONI** è possibile visualizzare le **Route** presenti nella tabella di route e le **Subnet** a cui essa è associata.
 3. Per altre informazioni sulle impostazioni comuni di Azure, vedere le informazioni seguenti:
-    *   [Log attività](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+    *   [Log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     *   [Controllo di accesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

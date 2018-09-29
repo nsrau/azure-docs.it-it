@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 59ee992518b5e529f486415f962c6f26881875f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: cwatson
+ms.openlocfilehash: f0cdfef50c07674a08766933f2f7edfc946462a4
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607413"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395016"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure
 La fattura può essere scaricata dal [Portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o inviata via email. Per scaricare l'uso giornaliero, accedere al [Centro account di Azure](https://account.azure.com/Subscriptions). Solo determinati ruoli dispongono dell'autorizzazione per ottenere informazioni sull'uso e sulla fatturazione, ad esempio l'amministratore account. Per altre informazioni sull'accesso alle informazioni di fatturazione, vedere [Manage access to Azure billing using roles](billing-manage-access.md) (Gestire l'accesso alla fatturazione di Azure usando i ruoli).
@@ -28,6 +28,9 @@ La fattura può essere scaricata dal [Portale di Azure](https://portal.azure.com
 Questo articolo non si applica ai clienti con contratto Enterprise Agreement (EA). Se si è un cliente con contratto Enterprise Agreement (EA), le fatture vengono inviate direttamente agli amministratori delle registrazioni.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
+> [!div class="nextstepaction"]
+> [Contribuire al miglioramento della documentazione sulla fatturazione di Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Ottenere la fattura tramite posta elettronica (formato PDF)
 Per ricevere una fattura di Azure tramite posta elettronica, è possibile fornire il consenso esplicito e configurare altri destinatari. Questa funzionalità potrebbe non essere disponibile per alcune sottoscrizioni, ad esempio offerte di supporto, contratti Enterprise o Azure in Open.

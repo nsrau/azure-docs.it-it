@@ -3,20 +3,21 @@ title: PowerShell per l'alias DNS per Azure SQL | Microsoft Docs
 description: I cmdlet di PowerShell, ad esempio New-AzureRMSqlServerDNSAlias, consentono di reindirizzare le nuove connessioni client a un server di database SQL di Azure diverso senza modificare la configurazione client.
 keywords: DNS per il database SQL
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.reviewer: genemi;amagarwa;maboja
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 0353f503ea099b1355b6879efe0748a377115474
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: genemi,amagarwa,maboja
+manager: craigg
+ms.date: 02/05/2018
+ms.openlocfilehash: 809eea7787e63a0e7a2be457b47d05c0dca0d36e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644315"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054558"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell per l'alias DNS per il database SQL di Azure
 
@@ -42,7 +43,7 @@ Per connettere un determinato server di database SQL di Azure, un client come SQ
 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se si vuole eseguire lo script di PowerShell di esempio di questo articolo, sono necessari i prerequisiti seguenti:
 

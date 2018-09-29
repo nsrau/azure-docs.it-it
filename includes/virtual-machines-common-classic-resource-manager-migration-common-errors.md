@@ -154,7 +154,7 @@ $vm = Get-AzureRmVM -ResourceGroupName "MyRG" -Name "MyVM"
 Remove-AzureRmVMSecret -VM $vm
 Update-AzureRmVM -ResourceGroupName "MyRG" -VM $vm
 ```
-#### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+#### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 ```bash
 az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]

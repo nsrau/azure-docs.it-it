@@ -1,25 +1,19 @@
 ---
-title: Approccio e processo per l'adozione di Azure Data Catalog | Documentazione Microsoft
+title: Approccio e processo per l'adozione di Azure Data Catalog
 description: Questo articolo presenta un approccio e un processo per le organizzazioni intenzionate ad adottare Azure Data Catalog, inclusa la definizione di una visione, l'identificazione dei principali casi d'uso di business e la scelta di un progetto pilota.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+author: markingmyname
+ms.author: maghan
 ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: e7c104fa9b136df8ac4b94ee1e444100e2a2f969
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406499"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approccio e processo per l'adozione di Azure Data Catalog
 Questo articolo illustra come iniziare ad adottare **Azure Data Catalog** nell'organizzazione. Per adottare **Azure Data Catalog**, è opportuno tenere presenti tre elementi chiave: definire il proprio punto di vista, identificare i principali casi d'uso di business nell'organizzazione e scegliere un progetto pilota.

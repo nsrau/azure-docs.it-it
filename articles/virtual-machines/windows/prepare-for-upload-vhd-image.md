@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 293671ac3426a92453e0c1642d421038824ac02c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4787f5b9657afbcedbd3803d6a17af9c8cf9099
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886974"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406992"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 Prima di caricare una macchina virtuale di Windows dall'ambiente locale a Microsoft Azure, è necessario preparare il disco rigido virtuale, VHD o VHDX. Azure supporta **solo macchine virtuali di prima generazione** nel formato di file VHD e con un disco a dimensione fissa. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. È possibile convertire una VM di prima generazione dal file system VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) (Creare una macchina virtuale di prima o seconda generazione in Hyper-V).
@@ -374,7 +374,7 @@ Se si vuole invece creare una sola macchina virtuale da un disco, non è necessa
 Per altre informazioni sulla creazione di una VM da un disco specializzato, vedere:
 
 - [Creare una macchina virtuale da un disco specializzato](create-vm-specialized.md)
-- [Creare una macchina virtuale da un disco rigido virtuale specializzato](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
+- [Creare una macchina virtuale da un disco rigido virtuale specializzato](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Se si vuole creare un'immagine generalizzata, è necessario eseguire sysprep. Per altre informazioni su Sysprep, vedere [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx) (Introduzione all'uso di Sysprep). 
 

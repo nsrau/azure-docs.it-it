@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 424782be2d814df6d598591198b5005fb494d3da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fe4cc3c06af6868396f5db6fd88804022f5f9793
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302865"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432478"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Metriche e avvisi di Gestione traffico
 
@@ -46,7 +46,7 @@ La Figura 2 mostra le stesse informazioni, suddivise tuttavia per endpoint. È q
 *Figura 2: visualizzazione suddivisa con volume di query mostrato per ogni endpoint restituito*
 
 ## <a name="endpoint-status-by-endpoint"></a>Stato endpoint per endpoint
-Usare [questa metrica](../monitoring-and-diagnostics/monitoring-supported-metrics.md) per comprendere lo stato di integrità degli endpoint nel profilo. Sono necessari due valori:
+Usare [questa metrica](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) per comprendere lo stato di integrità degli endpoint nel profilo. Sono necessari due valori:
  - usare **1**  se l'endpoint è attivo.
  - usare **0**  se l'endpoint è inattivo.
 

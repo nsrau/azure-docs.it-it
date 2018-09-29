@@ -3,18 +3,18 @@ title: Informazioni su Language Understanding (LUIS) - Servizi cognitivi di Azur
 description: Language Understanding (LUIS) è un servizio API basato sul cloud che applica l'intelligence dell'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni rilevanti e dettagliate. Un'applicazione client per LUIS può essere una qualsiasi applicazione di linguaggio parlato che comunica con un utente in linguaggio naturale per completare un compito. Esempi di applicazioni client includono app di social media, chatbot e applicazioni per desktop con funzionalità vocali.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
 ms.date: 08/15/2018
 ms.author: diberry
-ms.openlocfilehash: aadf80df388a25e07051f6dd0a83cd4da7c2ef83
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a8e9deb7c677d04634b223045adc2d31fa74ba6e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629798"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033040"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 

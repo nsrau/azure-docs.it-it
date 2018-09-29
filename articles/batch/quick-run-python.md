@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 85be7763535b8b067c5a52729fb2be855ffa4b77
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 69d31caf161e63233cee10e4820ea5150c6f9b61
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608458"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159334"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Guida introduttiva: Eseguire il primo processo Batch con l'API Python
 
@@ -25,7 +25,7 @@ Questa guida introduttiva esegue un processo Azure Batch da un'applicazione comp
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Python versione 2.7, 3.3 o successiva](https://www.python.org/downloads/)
 
@@ -128,9 +128,10 @@ blob_client = azureblob.BlockBlobService(
 L'app usa il riferimento `blob_client` per creare un contenitore nell'account di archiviazione e caricarvi i file di dati. I file nel contenitore di archiviazione sono definiti come oggetti [ResourceFile](/python/api/azure.batch.models.resourcefile) di Batch che successivamente Batch può scaricare nei nodi di calcolo.
 
 ```python
-input_file_paths = [os.path.realpath('./data/taskdata0.txt'),
-                    os.path.realpath('./data/taskdata1.txt'),
-                    os.path.realpath('./data/taskdata2.txt')]
+input_file_paths =  [os.path.join(sys.path[0], 'taskdata0.txt'),
+                     os.path.join(sys.path[0], 'taskdata1.txt'),
+                     os.path.join(sys.path[0], 'taskdata2.txt')]
+
 input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
     for file_path in input_file_paths]
@@ -139,8 +140,8 @@ input_files = [
 L'app crea un oggetto [BatchServiceClient](/python/api/azure.batch.batchserviceclient) per creare e gestire pool, processi e attività nel servizio Batch. Il client Batch nell'esempio usa l'autenticazione con chiave condivisa. Batch supporta anche l'autenticazione di Azure Active Directory.
 
 ```python
-credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    BATCH_ACCOUNT_KEY)
+credentials = batch_auth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
+    _BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
@@ -179,8 +180,8 @@ Un processo Batch è un gruppo logico di una o più attività. Un processo inclu
 
 ```python
 job = batch.models.JobAddParameter(
-    job_id,
-    batch.models.PoolInformation(pool_id=pool_id))
+    id=job_id,
+    pool_info=batch.models.PoolInformation(pool_id=pool_id))
 batch_service_client.job.add(job)
 ```
 

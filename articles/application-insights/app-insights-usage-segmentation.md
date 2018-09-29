@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
-ms.author: mbullwin; daviste
-ms.openlocfilehash: 3ac738d6b3c0f1f3579a9b644a03a01f1509173a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: daviste
+ms.author: mbullwin
+ms.openlocfilehash: 2bc10a292855832b7ddb9b8e3a59fbe0f17d8dc6
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093809"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analisi di utenti, sessioni ed eventi in Application Insights
 

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: cd185d799be5051340c2bfea44a1d1e69a1eb002
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ce8946e5a022eea9281898d1518cc3e8bfb50ee5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32309845"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092506"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Esplorazione dei dati HockeyApp in Application Insights
 

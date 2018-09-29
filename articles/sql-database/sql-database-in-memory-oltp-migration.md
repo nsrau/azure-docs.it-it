@@ -2,20 +2,22 @@
 title: OLTP in memoria migliora le prestazioni delle transazioni SQL | Documentazione Microsoft
 description: Adottare OLTP in memoria per migliorare le prestazioni transazionali in un database SQL esistente.
 services: sql-database
-author: jodebrui
-manager: craigg
-ms.reviewer: MightyPen
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: a2f0d901abfa0013a6f53bacd72a9f8db2e0fd99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 8c683e86cd78f4c4ebe7a537c469c875b8ca07fe
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648048"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159840"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Uso di OLTP in memoria per migliorare le prestazioni delle applicazioni nel database SQL
 [OLTP in memoria](sql-database-in-memory.md) può essere usato per migliorare le prestazioni di elaborazione delle transazioni, l'inserimento dei dati e gli scenari di dati temporanei, nei database di [livello Premium e Business Critical](sql-database-service-tiers-vcore.md), senza aumentare il piano tariffario. 
