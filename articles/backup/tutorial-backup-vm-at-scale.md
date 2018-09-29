@@ -9,12 +9,12 @@ ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: ecbf583a9b64868004b246bb01e7f174a21496b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dfe561e7a7231c8e7f9465819a01cd4b0a35f47c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607465"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434542"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
@@ -42,15 +42,15 @@ L'insieme di credenziali dei Servizi di ripristino contiene i dati di backup e i
 
     ![Menu dell'insieme di credenziali aperto](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
-3. Nel menu dell'insieme di credenziali dei Servizi di ripristino, 
+3. Nel menu dell'insieme di credenziali dei Servizi di ripristino,
 
-    - Digitare *myRecoveryServicesVault* in **Nome**,
+    - digitare *myRecoveryServicesVault* in **Nome**.
     - L'ID di sottoscrizione corrente viene visualizzato in **Sottoscrizione**. Se si dispone di sottoscrizioni aggiuntive, è possibile scegliere un'altra sottoscrizione per il nuovo insieme di credenziali.
     - Per **Gruppo di risorse**, selezionare **Usa esistente** e scegliere *myResourceGroup*. Se *myResourceGroup* non esiste, selezionare **Crea nuovo** e digitare *myResourceGroup*.
     - Dal menu a discesa **Percorso**, scegliere *Europa occidentale*.
     - Fare clic su **Crea** per creare l'insieme di credenziali di Servizi di ripristino.
 
-Un insieme di credenziali di Servizi di ripristino deve trovarsi nello stesso percorso delle macchine virtuali da proteggere. Se si dispone di macchine virtuali in più aree, creare un insieme di credenziali di Servizi di ripristino in ogni area. Questa esercitazione consente di creare un insieme di credenziali di Servizi di ripristino in *Europa occidentale*, dove *myVM* (macchina virtuale creata con la Guida introduttiva) è stata creata.
+Un insieme di credenziali di Servizi di ripristino deve trovarsi nello stesso percorso delle macchine virtuali da proteggere. Se si hanno macchine virtuali in più aree, creare un insieme di credenziali di Servizi di ripristino in ogni area. Questa esercitazione consente di creare un insieme di credenziali di Servizi di ripristino in *Europa occidentale*, dove *myVM* (macchina virtuale creata con la Guida introduttiva) è stata creata.
 
 La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino.
 
@@ -76,7 +76,7 @@ Dopo aver creato l'insieme di credenziali di Servizi di ripristino, il passaggio
 
     ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
-5. Nel menu **Criteri di Backup**, per **Nome criterio** digitare *Finance*. Immettere le seguenti modifiche per il criterio di Backup: 
+5. Nel menu **Criteri di Backup**, per **Nome criterio** digitare *Finance*. Immettere le seguenti modifiche per il criterio di Backup:
     - Per **Frequenza di backup**, impostare il fuso orario su *Fuso cen.* Poiché il complesso sportivo si trova in Texas, il proprietario desidera che il fuso orario sia quello locale. Lasciare la frequenza di backup impostata su Ogni giorno alle 03:30.
     - Per **Conservazione del punto di backup giornaliero**, impostare un periodo di 90 giorni.
     - Per **Conservazione del punto di backup settimanale**, usare il punto di recupero *Lunedì* e mantenerlo per 52 settimane.
@@ -84,21 +84,21 @@ Dopo aver creato l'insieme di credenziali di Servizi di ripristino, il passaggio
     - Deselezionare l'opzione **Conservazione del punto di backup annuale**. Il responsabile del criterio Finance non desidera conservare i dati oltre 36 mesi.
     - Fare clic su **OK** per creare il criterio di backup.
 
-    ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/set-new-policy.png) 
+    ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
     Dopo avere creato il criterio di backup, associarlo alle macchine virtuali.
 
-6. Nella finestra di dialogo **Seleziona macchine virtuali**, selezionare *myVM* e fare clic su **OK** per distribuire il criterio di backup alle macchine virtuali. 
+6. Nella finestra di dialogo **Seleziona macchine virtuali**, selezionare *myVM* e fare clic su **OK** per distribuire il criterio di backup alle macchine virtuali.
 
     Verranno visualizzate tutte le macchine virtuali che si trovano sullo stesso percorso e non sono già associate a un criterio di backup. *myVMH1* e *myVMR1* vengono selezionati per essere associati al criterio *Finance*.
 
-    ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png) 
+    ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png)
 
     Al termine della distribuzione, si riceverà una notifica che la distribuzione è stata completata.
 
 ## <a name="initial-backup"></a>Backup iniziale
 
-È stata abilitata la copia di backup per gli insiemi di credenziali di Servizi di ripristino, ma non è stato creato un backup iniziale. Ai fini di un ripristino d'emergenza è consigliabile attivare il primo backup, in modo da proteggere i dati. 
+È stata abilitata la copia di backup per gli insiemi di credenziali di Servizi di ripristino, ma non è stato creato un backup iniziale. Ai fini di un ripristino d'emergenza è consigliabile attivare il primo backup, in modo da proteggere i dati.
 
 Per eseguire un processo di backup su richiesta:
 
@@ -130,10 +130,10 @@ Per eseguire un processo di backup su richiesta:
 
     Le notifiche sulla distribuzione consentono di sapere che il processo di backup è stato attivato e che è possibile monitorare lo stato di avanzamento del processo nella pagina Processi di backup. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
-    Al termine del processo di backup iniziale è possibile visualizzare lo stato nel menu Processo di backup. Il processo di backup su richiesta ha creato il punto di recupero iniziale per *myVM*. Se si desidera eseguire il backup di altre macchine virtuali, ripetere questi passaggi per ogni macchina virtuale. 
+    Al termine del processo di backup iniziale è possibile visualizzare lo stato nel menu Processo di backup. Il processo di backup su richiesta ha creato il punto di recupero iniziale per *myVM*. Se si desidera eseguire il backup di altre macchine virtuali, ripetere questi passaggi per ogni macchina virtuale.
 
     ![Riquadro dei processi di backup](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
-  
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se si prevede di continuare a usare le esercitazioni successive, non eliminare le risorse create in questa esercitazione. Se non si prevede di continuare, seguire questa procedura per eliminare tutte le risorse create da questa esercitazione nel portale di Azure.
@@ -153,17 +153,17 @@ Se si prevede di continuare a usare le esercitazioni successive, non eliminare l
 
     ![Icona Impostazioni](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. Nel menu di scelta rapida selezionare **Interrompi backup** per aprire il menu Interrompi Backup. 
+4. Nel menu di scelta rapida selezionare **Interrompi backup** per aprire il menu Interrompi Backup.
 
     ![Icona Impostazioni](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
 5. Nel menu **Interrompi Backup** selezionare il menu a discesa superiore e scegliere **Elimina dati di Backup**.
 
 6. Nella finestra di dialogo **Type the name of the Backup item** (Digita nome dell'elemento di backup), digitare *myVM*.
- 
-7. Una volta verificato l'elemento di backup (viene visualizzato un segno di spunta), il pulsante **Interrompi backup** è abilitato. Fare clic su **Interrompi Backup** per arrestare il criterio ed eliminare i punti di ripristino. 
 
-    ![Fare clic su Interrompi backup per eliminare l'insieme di credenziali](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
+7. Una volta verificato l'elemento di backup (viene visualizzato un segno di spunta), il pulsante **Interrompi backup** è abilitato. Fare clic su **Interrompi Backup** per arrestare il criterio ed eliminare i punti di ripristino.
+
+    ![Fare clic su Interrompi backup per eliminare l'insieme di credenziali](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
 8. Nel menu **myRecoveryServicesVault**, fare clic su **Elimina**.
 
@@ -183,7 +183,7 @@ In questa esercitazione è stato usato il portale di Azure per eseguire le opera
 > * Assegnare il criterio di backup per proteggere più macchine virtuali
 > * Attivare un backup su richiesta per una macchina virtuale
 
-Proseguire con l'esercitazione successiva sul ripristino di una macchina virtuale di Azure da disco. 
+Proseguire con l'esercitazione successiva sul ripristino di una macchina virtuale di Azure da disco.
 
 > [!div class="nextstepaction"]
 > [Ripristino di macchine virtuali con l'interfaccia della riga di comando](./tutorial-restore-disk.md)

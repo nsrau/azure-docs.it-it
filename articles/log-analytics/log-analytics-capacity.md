@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: e9163b3c29fd304c80eff46426a30c4fa0ce3b15
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130344"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182621"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Pianificare la capacità delle macchine virtuali Hyper-V con la soluzione Capacity and Performance (anteprima)
 
@@ -50,12 +50,12 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | Origine connessa | Supporto | DESCRIZIONE |
 |---|---|---|
-| [Agenti Windows](log-analytics-windows-agent.md) | Sì | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
+| [Agenti Windows](log-analytics-windows-agent.md) | Yes | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
 | [Agenti Linux](log-analytics-linux-agents.md) | No     | La soluzione non raccoglie informazioni su capacità e prestazioni dagli agenti Linux diretti.|
-| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | Sì |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a Log Analytics.|
+| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | Yes |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a Log Analytics.|
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | Archiviazione di Azure non include dati di capacità e prestazioni.|
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Gli agenti Windows o Operations Manager devono essere installati in host Hyper-V Windows Server 2012 o versione successiva, non in macchine virtuali.
 

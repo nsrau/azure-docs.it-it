@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 97b052833946b373e2333491c4b516b3a088130b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2a04b80e728ecf0af39cb46041a005a86ea1abec
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158467"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406108"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Team di sviluppo con Azure Dev Spaces
 
@@ -163,6 +163,23 @@ Per testare la nuova versione di `mywebapi` in combinazione con `webfrontend`, a
 
 A questo punto, aggiungere "scott.s". all'URL in modo che sia simile a http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io e aggiornare il browser. Si dovrebbe raggiungere il punto di interruzione impostato nel progetto `mywebapi`. Premere F5 per continuare e nel browser dovrebbe essere visualizzato il nuovo messaggio "Salve da webfrontend e mywebapi ora dice qualcosa di nuovo". Ciò è dovuto al fatto che il percorso al codice aggiornato in `mywebapi` è in esecuzione nello spazio `default/scott`.
 
-[!INCLUDE [](includes/well-done.md)]
+### <a name="well-done"></a>Ecco fatto!
+La Guida introduttiva è stata completata. Si è appreso come:
 
-[!INCLUDE [](includes/clean-up.md)]
+> [!div class="checklist"]
+> * Configurare Azure Dev Spaces con un cluster Kubernetes gestito in Azure.
+> * Sviluppare codice in modo iterativo nei contenitori.
+> * Sviluppare in modo indipendente due servizi distinti e utilizzare l'individuazione del servizio DNS di Kubernetes per effettuare una chiamata a un altro servizio.
+> * Sviluppare e testare il codice in modo produttivo in un ambiente di team.
+
+Ora che si è preso visione di Azure Dev Spaces, [condividere lo spazio di sviluppo con un membro del team](how-to/share-dev-spaces.md) per dimostrare come sia facile collaborare.
+
+## <a name="clean-up"></a>Eseguire la pulizia
+Per eliminare completamente un'istanza di Azure Dev Spaces in un cluster, inclusi tutti gli spazi di sviluppo e i servizi in esecuzione al suo interno, usare il comando `az aks remove-dev-spaces`. Tenere presente che questa operazione è irreversibile. È possibile aggiungere di nuovo il supporto per Azure Dev Spaces nel cluster, ma sarà come iniziare da zero. I vecchi spazi e servizi non verranno ripristinati.
+
+L'esempio seguente elenca i controller Azure Dev Spaces nella sottoscrizione attiva e quindi elimina il controller Azure Dev Spaces associato al cluster AKS "myaks" nel gruppo di risorse "myaks-rg".
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```

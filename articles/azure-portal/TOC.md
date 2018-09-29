@@ -1,7 +1,5 @@
 # Panoramica
 ## [Informazioni sul portale di Azure](../azure-portal-overview.md)
-# Esercitazioni
-## [DevOps con il portale di Azure](tutorial-azureportal-devops.md)
 # Concetti
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Tasti di scelta rapida](azure-portal-keyboard-shortcuts.md)

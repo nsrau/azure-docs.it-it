@@ -1,25 +1,19 @@
 ---
-title: Come connettersi alle origini dati | Microsoft Docs
+title: Come connettere le origini dati in Azure Data Catalog
 description: Articolo sulle procedure di connessione alle origini dati individuate con il catalogo dati di Azure.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+author: markingmyname
+ms.author: maghan
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: b4dfc7a900e42b348c416d2d8c05b73fb15847ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 973077b56f1a777d917a94f9c1470e6f8c15a489
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405055"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Come connettersi a origini dati
 ## <a name="introduction"></a>Introduzione

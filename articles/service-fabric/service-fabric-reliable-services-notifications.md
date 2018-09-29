@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: 4455b259ef2159f9e1ec4991fc533f1843899682
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a13e5d74390b82888f51cfd225c54e29550354e9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207011"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433515"
 ---
 # <a name="reliable-services-notifications"></a>Notifiche di Reliable Services
 Le notifiche consentono ai client di tenere traccia delle modifiche apportate a un oggetto a cui sono interessati. Le notifiche sono supportate da due tipi di oggetto: *Reliable State Manager* e *Reliable Dictionary*.
@@ -97,7 +97,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
     {
-        this.ProcessStataManagerRebuildNotification(e);
+        this.ProcessStateManagerRebuildNotification(e);
 
         return;
     }
@@ -202,7 +202,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Consigli
 * *Completare* gli eventi di notifica nel più breve tempo possibile.
 * *Non eseguire* operazioni dispendiose (ad esempio, operazioni di I/O) nell'ambito di eventi sincroni.
 * *Controllare* il tipo di azione prima di elaborare l'evento. In futuro potrebbero essere aggiunti nuovi tipi di azione.

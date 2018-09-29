@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 314b3b5ae331d562b13ba593d5f9b35b87786003
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133536"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225549"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gestire Log Analytics usando i modelli di Azure Resource Manager
 È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
@@ -97,7 +97,7 @@ I parametri seguenti impostano un valore predefinito:
             "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          },
+          }
     },
     "resources": [
         {

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bce9e7de13ff95024685ccf916541357f5362727
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070652"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422627"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Modificare le informazioni sul profilo dell'account di Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto
 
@@ -46,7 +46,7 @@ Sì. L'amministratore account è la persona che ha configurato l'account Azure e
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>L'aggiornamento dell'indirizzo di posta elettronica del profilo provoca anche l'aggiornamento dell'indirizzo di posta elettronica di accesso?
 
-di serie L'aggiornamento dell'indirizzo di posta elettronica del profilo non provoca l'aggiornamento dell'indirizzo di posta elettronica di accesso. Per modificare l'indirizzo di posta elettronica di accesso è necessario trasferire la proprietà dell'account.
+No. L'aggiornamento dell'indirizzo di posta elettronica del profilo non provoca l'aggiornamento dell'indirizzo di posta elettronica di accesso. Per modificare l'indirizzo di posta elettronica di accesso è necessario trasferire la proprietà dell'account.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>L'aggiornamento dell'indirizzo del profilo provoca l'aggiornamento dell'indirizzo di fatturazione della carta di credito?
 
@@ -55,10 +55,6 @@ Per informazioni su come aggiornare le informazioni di fatturazione, vedere [Mod
 ### <a name="why-cant-i-update-the-country"></a>Perché non è possibile aggiornare il paese?
 
 A causa di limiti tecnici non è possibile modificare il paese di un account esistente. È possibile tuttavia creare un account nel paese desiderato e contattare il supporto tecnico di Azure per eseguire la migrazione dei servizi verso l'account.
-
-### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>Quale indirizzo di posta elettronica viene usato dalla funzione di anteprima degli avvisi di fatturazione di Azure?
-
-Le notifiche di avviso vengono ricevute all'indirizzo di posta elettronica aggiunto al momento dell'iscrizione agli avvisi. L'indirizzo di posta elettronica usato per gli avvisi è separato dall'indirizzo di posta elettronica dell'amministratore account. Per altre informazioni, vedere [Configurare avvisi di fatturazione per le sottoscrizioni di Microsoft Azure](billing-set-up-alerts.md).
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

@@ -2,20 +2,22 @@
 title: Progettare soluzioni per il ripristino di emergenza - Database SQL di Azure | Microsoft Docs
 description: Informazioni su come progettare la soluzione cloud per il ripristino di emergenza scegliendo il modello di failover appropriato.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: elastic-pools
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/27/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8f365d123a234f367a1415232a714d2c18663b63
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+manager: craigg
+ms.date: 08/27/2018
+ms.openlocfilehash: 9ed01103a83073d1bbb22f476a9115af816571aa
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124071"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166555"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per applicazioni che usano i pool elastici del database SQL
 Nel corso degli anni è stato riscontrato che i servizi cloud non sono infallibili e che si verificano incidenti catastrofici. Il database SQL offre diverse funzionalità utili per la continuità aziendale dell'applicazione in caso di eventi imprevisti. [Pool elastici](sql-database-elastic-pool.md) e i database singoli supportano lo stesso tipo di funzionalità per il ripristino di emergenza. Questo articolo illustra alcune strategie di ripristino di emergenza per i pool elastici che sfruttano i vantaggi di queste funzionalità per la continuità aziendale del database SQL.
