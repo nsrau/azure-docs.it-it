@@ -1,25 +1,26 @@
 ---
 title: Gestire lo schema del database SQL di Azure in un'app multi-tenant | Microsoft Docs
 description: Gestire lo schema per più tenant in un'applicazione multi-tenant che usa il database SQL di Azure
-keywords: esercitazione database SQL
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.reviewers: billgib
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 816cde31e84eeda8110c042f4e0640f12fb4cc53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: billgib
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645991"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056642"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gestire lo schema in un'applicazione SaaS che usa più database SQL multi-tenant
-
+ 
 Questa esercitazione esamina le problematiche correlate alla gestione di un insieme di database in un'applicazione SaaS (software come un servizio). Vengono illustrate soluzioni per il fan-out delle modifiche allo schema nell'insieme di database.
 
 Come qualsiasi altra applicazione, l'app SaaS Wingtip Tickets evolverà nel tempo e saranno necessarie modifiche al database. Le modifiche possono influire sui dati di schemi o di riferimento o applicare attività di manutenzione database. Con un'applicazione SaaS che usa un modello di un database per ogni tenant, le modifiche devono essere coordinate in un insieme potenzialmente grande di database tenant. Inoltre, è necessario incorporare queste modifiche nel processo di provisioning del database per assicurare che siano incluse nei nuovi database al momento della creazione.
@@ -40,7 +41,7 @@ In questa esercitazione si apprenderà come:
 > * Aggiornare i dati di riferimento in tutti i database tenant.
 > * Creare un indice su una tabella in tutti i database tenant.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - L'app SaaS Wingtip Tickets per database multi-tenant deve essere già stata distribuita:
     - Per istruzioni, vedere la prima esercitazione, in cui viene presentata l'app SaaS per database multi-tenant Wingtip Tickets:<br />[Distribuire ed esplorare un'applicazione di database multi-tenant partizionato che usa il database SQL di Azure](saas-multitenantdb-get-started-deploy.md).
@@ -168,7 +169,6 @@ Nello script *OnlineReindex.sql* osservare gli elementi seguenti:
 In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
-.
 > * Creare un agente processo per eseguire i processi T-SQL in più database
 > * Aggiornare i dati di riferimento in tutti i database tenant
 > * Creare un indice su una tabella in tutti i database tenant

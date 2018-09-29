@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ca3f689ef91c0a1bcb751c78d4fa1d799ed3888b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984634"
+ms.locfileid: "47056438"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definire e assegnare un progetto Azure Blueprint nel portale
 
@@ -119,7 +119,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
 ## <a name="edit-a-blueprint"></a>Modificare un progetto
 
-In [Creare un progetto](#create_a_blueprint) non è stata fornita alcuna descrizione né è stata aggiunta l'assegnazione di ruolo al nuovo gruppo di risorse. Questi due problemi possono essere corretti eseguendo le operazioni seguenti:
+In [Creare un progetto](#create-a-blueprint) non è stata fornita alcuna descrizione né è stata aggiunta l'assegnazione di ruolo al nuovo gruppo di risorse. Questi due problemi possono essere corretti eseguendo le operazioni seguenti:
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 
@@ -224,8 +224,8 @@ I progetti possono essere rimossi da una sottoscrizione se non sono più necessa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Acquisire informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md)
-- Comprendere come usare [parametri statici e dinamici](./concepts/parameters.md)
+- Informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md)
+- Informazioni su come usare [parametri statici e dinamici](./concepts/parameters.md)
 - Imparare a personalizzare l'[ordine in sequenza del progetto](./concepts/sequencing-order.md)
 - Identificare come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md)
 - Acquisire informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md)

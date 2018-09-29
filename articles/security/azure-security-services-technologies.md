@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: e52cee2cb642de6e54270c597e6ed99f7162d0ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641459"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093427"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
 
@@ -30,17 +30,17 @@ Queste informazioni sono utili ai fini della valutazione delle opzioni per la sc
 L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad Azure. Ricordare di controllare regolarmente questa pagina per essere sempre aggiornati sulle tecnologie e i servizi relativi alla sicurezza.
 
 ## <a name="general-azure-security"></a>Sicurezza di Azure generale
-|Servizio|Descrizione|
+|Service|DESCRIZIONE|
 |--------|--------|
 |[Centro&nbsp;sicurezza&nbsp;di Azure](../security-center/security-center-intro.md)| Soluzione di protezione dei carichi di lavoro nel cloud che supporta la gestione della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi.|
-|[Azure Key Vault](../key-vault/key-vault-overview.md)| Archivio di segreti sicuro per password, stringhe di connessione e altre informazioni necessarie per il funzionamento delle app. |
+|[Insieme di credenziali chiave Azure](../key-vault/key-vault-overview.md)| Archivio di segreti sicuro per password, stringhe di connessione e altre informazioni necessarie per il funzionamento delle app. |
 |[Log Analytics](../log-analytics/log-analytics-overview.md)|Servizio di monitoraggio che raccoglie dati di telemetria e altri dati e fornisce un linguaggio di query e un motore di analisi per offrire informazioni dettagliate operative per le app e le risorse. Può essere usato da solo o con altri servizi, come il Centro sicurezza. |
-|[Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md)|Servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo.  |
+|[Lab di sviluppo/test Azure](../devtest-lab/devtest-lab-overview.md)|Servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](azure-security-disk-encryption-overview.md)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
 
 ## <a name="storage-security"></a>Sicurezza di archiviazione
-|Servizio|Descrizione|
+|Service|DESCRIZIONE|
 |------|--------|
 | [Crittografia&nbsp;del servizio&nbsp;archiviazione&nbsp;di Azure](../storage/common/storage-service-encryption.md)|Funzionalità di sicurezza che crittografa automaticamente i dati nell'archivio di Azure.   |
 |[Archiviazione ibrida crittografata con StorSimple](../storsimple/storsimple-ova-overview.md)| Soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archivio cloud di Azure.|
@@ -67,19 +67,19 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 |Service|DESCRIZIONE|
 |------|--------|
 | [Controllo degli accessi&nbsp;in base&nbsp;al ruolo&nbsp;di Azure](../active-directory/role-based-access-control-configure.md)|Funzionalità di controllo di accesso progettata per consentire agli utenti di accedere solo alle risorse necessarie in base ai rispettivi ruoli all'interno dell'organizzazione.  |
-| [Azure Active Directory](../active-directory/active-directory-whatis.md)|Repository di autenticazione basato sul cloud che supporta una directory multi-tenant basata sul cloud e più servizi di gestione delle identità all'interno di Azure.  |
+| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Repository di autenticazione basato sul cloud che supporta una directory multi-tenant basata sul cloud e più servizi di gestione delle identità all'interno di Azure.  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Servizio di gestione delle identità che consente di controllare il modo in cui i clienti si iscrivono, accedono e gestiscono i rispettivi profili durante l'uso delle applicazioni basate su Azure.   |
 | [Servizi di dominio Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md)| Versione basata su cloud e gestita di Active Directory Domain Services. |
 | [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Infrastruttura di sicurezza che si avvale di diverse forme di autenticazione e verifica prima di consentire l'accesso a informazioni protette. |
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e ripristino di emergenza
-|Servizio|Descrizione|
+|Service|DESCRIZIONE|
 |------|--------|
 | [Backup&nbsp;di Azure](../backup/backup-introduction-to-azure-backup.md)| Servizio basato su Azure usato per eseguire il backup e il ripristino dei dati nel cloud di Azure. |
 | [Azure&nbsp;Site&nbsp;Recovery](../site-recovery/site-recovery-overview.md)|Servizio online che replica i carichi di lavoro in esecuzione su computer fisici e macchine virtuali da un sito primario in una località secondaria per rendere possibile il ripristino dei servizi dopo un guasto. |
 
 ## <a name="networking"></a>Rete
-|Servizio|Descrizione|
+|Service|DESCRIZIONE|
 |------|--------|
 | [Gruppi&nbsp;di sicurezza&nbsp;di rete](../virtual-network/virtual-networks-nsg.md)| Funzionalità di controllo di accesso basata sulla rete che usa una tupla a 5 elementi per prendere decisioni in merito alla concessione o alla negazione dell'accesso.  |
 | [Gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Dispositivo di rete usato come endpoint VPN per consentire l'accesso cross-premise alle reti virtuali di Azure.  |

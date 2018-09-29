@@ -2,21 +2,22 @@
 title: PowerShell per gli endpoint del servizio di rete virtuale e le regole in Azure SQL | Microsoft Docs
 description: Vengono forniti script di PowerShell per la creazione e la gestione di endpoint del servizio virtuale per i database SQL di Azure e di SQL Data Warehouse.
 services: sql-database
-author: DhruvMsft
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.reviewer: genemi, carlrab
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 364dd2709c9000aae082976f3ec28396f92850da
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.reviewer: genemi, vanto
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 50e88dd11b8a883a4d2999ad2d0419cbf7176078
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43670014"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161149"
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database-and-sql-data-warehouse"></a>Usare PowerShell per creare un endpoint del servizio virtuale e una regola per i database SQL di Azure e di SQL Data Warehouse
 

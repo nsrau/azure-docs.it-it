@@ -2,18 +2,19 @@
 pageTitle: Synonyms in Azure Search | Microsoft Docs
 description: Usare sinonimi per espandere l'ambito di una query di ricerca
 authors: mhko
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186907"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093215"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinonimi in Ricerca di Azure
 

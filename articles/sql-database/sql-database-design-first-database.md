@@ -2,19 +2,22 @@
 title: 'Esercitazione: Progettare il primo database SQL di Azure con SSMS | Microsoft Docs'
 description: Informazioni su come progettare il primo database SQL di Azure con SQL Server Management Studio.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
-ms.date: 07/16/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: ed2d4654163881b3258c4a98632d48acd0e80fb5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: 2eebc083c4595a9190c60a60b8375b3a46296584
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055370"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162764"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Esercitazione: Progettare il primo database SQL di Azure con SSMS
 

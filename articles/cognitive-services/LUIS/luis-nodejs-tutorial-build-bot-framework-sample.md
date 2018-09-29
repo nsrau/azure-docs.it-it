@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Compilare un bot integrato con un'applicazione LUIS usando Bot Framework.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 4967c6c8eb9f849006beb78cfd2e41eba53b6867
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952971"
+ms.locfileid: "47042330"
 ---
 # <a name="luis-bot-in-nodejs"></a>Bot LUIS in Node.js
 

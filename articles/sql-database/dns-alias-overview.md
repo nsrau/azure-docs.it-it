@@ -2,20 +2,22 @@
 title: Alias DNS per il database SQL di Azure | Microsoft Docs
 description: Le applicazioni possono connettersi a un alias per il nome del server di database SQL di Azure. Nel frattempo, è possibile modificare il database SQL a cui l'alias fa riferimento in qualsiasi momento, per semplificare i test e così via.
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: DNS alias
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.reviewer: genemi;ayolubek
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: da771f71566a912a3f172a1382bcd90ab0c3a0a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: genemi,ayolubek
+manager: craigg
+ms.date: 02/05/2018
+ms.openlocfilehash: 6c174871ff7bc61d11804e32aeac738bf6159c10
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646069"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054116"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS per il database SQL di Azure
 
