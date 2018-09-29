@@ -121,7 +121,7 @@ broadcast
 È possibile avviare più client con nomi diversi.
 
 ## <a name="usage"></a>Integrazione con servizi di terze parti
-Il servizio Azure SignalR consente a servizi di terze parti di integrarsi con il sistema Real-Time grazie all'esposizione delle API Rest appena descritte.
+Il servizio Azure SignalR consente a servizi di terze parti di integrarsi con il sistema.
 ### <a name="usage"></a>Definizione delle specifiche tecniche
 
 La seguente tabella mostra tutte le versioni delle REST API supportate ad oggi. Puoi anche trovare il file di definizione di ogni specifica versione
@@ -129,7 +129,7 @@ La seguente tabella mostra tutte le versioni delle REST API supportate ad oggi. 
 API Version | Stato | Porta | Specifica
 ---|---|---|---
 `1.0-preview` | Disponibile | 5002 | [swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
-`1.0` | *Disponibile* | Standard | [swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
+`1.0` | Disponibile | Standard | [swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
 
 La lista delle API disponibili per ogni specifica versione è disponibile nella seguente lista.
 
@@ -137,9 +137,9 @@ API | `1.0-preview` | `1.0`
 ---|---|---
 [Broadcast a tutti](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
 [Broadcast a un gruppo](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-Broadcast a un gruppo | :heavy_check_mark: (Deprecated) | `N/A`
+Broadcast ad alcuni gruppi | :heavy_check_mark: (Deprecated) | `N/A`
 [Invio a specifici utenti](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-Invio a specifici utenti | :heavy_check_mark: (Deprecated) | `N/A`
+Invio ad alcuni utenti | :heavy_check_mark: (Deprecated) | `N/A`
 [Aggiunta di un utente a un gruppo](#add-user-to-group) | `N/A` | :heavy_check_mark:
 [Rimozione di un utente da un gruppo](#remove-user-from-group) | `N/A` | :heavy_check_mark:
 
