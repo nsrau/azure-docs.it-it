@@ -94,15 +94,15 @@ items:
     href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
   - name: Endpoint di Ricerca immagini Bing
     href: image-search-endpoint.md
-  - name: Paesi e mercati supportati
-    href: supported-countries-markets.md
+  - name: Supporto di lingua e area geografica
+    href: language-support.md
   - name: Requisiti per l'uso e la visualizzazione
     href: UseAndDisplayRequirements.md
   - name: Analisi per l'API Ricerca immagini Bing
     href: bing-image-stats.md
-ms.openlocfilehash: 2b7b4bc8fb79687d032de52e3ac2ecbe4e944a8c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 16d2d81731f23ad1293fe405488dd7f3bbfbc854
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967354"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431499"

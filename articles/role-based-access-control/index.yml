@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 6972ad521ac5622086b5294dc6b49e35f10ba178
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431482"
 documentType: LandingData
 title: Documentazione sul controllo degli accessi in base al ruolo
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/15/2018
   ms.author: rolyon
-  ms.openlocfilehash: 2d49a0ad4393582439511e5454041a2478cea961
-  ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 06/29/2018
-  ms.locfileid: "37115027"
 abstract:
   description: Il controllo degli accessi in base al ruolo è un sistema che offre una gestione con granularità fine dell'accesso alle risorse in Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
   aside:
@@ -46,3 +46,16 @@ sections:
     - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Concedere l'accesso per un gruppo - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Creare un ruolo personalizzato - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Creare un ruolo personalizzato - Interfaccia della riga di comando</a>
+- title: Sviluppare le proprie competenze con Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Proteggere le risorse di Azure con il controllo degli accessi in base al ruolo
+      href: /learn/modules/secure-azure-resources-with-rbac/
+      image:
+        src: /learn/achievements/secure-azure-resources-with-rbac.svg
+        href: /learn/modules/secure-azure-resources-with-rbac/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-active-directory">Altre risorse di apprendimento interattivo</a>
