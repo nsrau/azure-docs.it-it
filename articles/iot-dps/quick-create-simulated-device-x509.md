@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 40d6d149d07f55784e8428eb0faa943814195a47
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 9eb80b085f979208999b6764d6e4014cdbcfd2a0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42024262"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159126"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato X.509 tramite Azure IoT C SDK
 
@@ -39,12 +39,20 @@ Se non si ha familiarità con il processo di provisioning automatico, vedere [Co
 
 In questa sezione si preparerà un ambiente di sviluppo usato per compilare [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c), che include il codice di esempio per la sequenza di avvio X.509.
 
-1. Scaricare la versione più recente del [sistema di compilazione CMake](https://cmake.org/download/). Dallo stesso sito, cercare l'hash di crittografia per la versione della distribuzione binaria scelta. Verificare il file binario scaricato usando il valore hash di crittografia corrispondente. Nell'esempio seguente viene usato Windows PowerShell per verificare l'hash di crittografia per la versione 3.11.4 della distribuzione MSI x64:
+1. Scaricare la versione 3.11.4 del [sistema di compilazione CMake](https://cmake.org/download/). Verificare il file binario scaricato usando il valore hash di crittografia corrispondente. Nell'esempio seguente viene usato Windows PowerShell per verificare l'hash di crittografia per la versione 3.11.4 della distribuzione MSI x64:
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    I seguenti valori hash per la versione 3.11.4 venivano elencati nel sito di CMake al momento della stesura di questo articolo:
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
@@ -98,7 +106,7 @@ In questa sezione si preparerà un ambiente di sviluppo usato per compilare [Azu
 In questa sezione si userà un certificato X.509 autofirmato. È importante tenere presente quanto segue:
 
 * I certificati autofirmati sono destinati solo alle operazioni di testing e non dovrebbero essere usati nell'ambiente di produzione.
-* La data di scadenza predefinita per un certificato autofirmato è 1 anno.
+* La data di scadenza predefinita per un certificato autofirmato è un anno.
 
 Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da usare con la voce di registrazione singola per il dispositivo simulato.
 
@@ -110,7 +118,7 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
 
 4. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella finestra di output immettere **i** per la registrazione singola quando richiesto. 
 
-    Nella finestra di output viene visualizzato un certificato X.509 autofirmato generato in locale per il dispositivo simulato. Copiare l'output negli Appunti, a partire da **-----BEGIN CERTIFICATE-----** fino alla prima occorrenza di **-----END CERTIFICATE-----**, assicurandosi di includere anche queste due righe. Si noti che è necessario solo il primo certificato indicato nella finestra di output.
+    Nella finestra di output viene visualizzato un certificato X.509 autofirmato generato in locale per il dispositivo simulato. Copiare l'output negli Appunti, a partire da **-----BEGIN CERTIFICATE-----** fino alla prima occorrenza di **-----END CERTIFICATE-----**, assicurandosi di includere anche queste due righe. È necessario solo il primo certificato indicato nella finestra di output.
  
 5. Usando un editor di testo, salvare il certificato in un nuovo file denominato **_X509testcert.pem_**. 
 
@@ -127,7 +135,7 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
     - In **Primary certificate .pem or .cer file** (File di certificato primario con estensione pem o cer) fare clic su **Selezionare un file** per selezionare il file di certificato, X509testcert.pem, creato nei passaggi precedenti.
     - **ID dispositivo IoT Hub:** immettere **test-docs-cert-device** per assegnare un ID al dispositivo.
 
-    [![Aggiungere una registrazione singola per l'attestazione X.509 nel portale](./media/quick-create-simulated-device-x509/individual-enrollment.png)](./media/quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
+    [![Aggiungere una registrazione singola per l'attestazione X.509 nel portale](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
     Al termine della registrazione, il dispositivo X.509 verrà visualizzato come **riot-device-cert** nella colonna *ID registrazione* della scheda *Registrazioni singole*. 
 
@@ -180,7 +188,7 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
     test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device    
     ```
 
-7. Nel portale passare all'hub IoT collegato al servizio di provisioning e fare clic sulla scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo X.509 simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Si noti che potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore. 
+7. Nel portale passare all'hub IoT collegato al servizio di provisioning e fare clic sulla scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo X.509 simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device/hub-registration.png) 
 
