@@ -2,22 +2,22 @@
 title: Gestione dopo la migrazione - Database SQL di Azure | Microsoft Docs
 description: Informazioni su come gestire il database dopo la migrazione al database SQL di Azure.
 services: sql-database
-author: joesackmsft
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: joesackmsft
 ms.author: josack
-ms.suite: sql
-ms.prod_service: sql-database
-ms.component: data-movement
-ms.openlocfilehash: 133cba72a93d692851043f1c66d6a4a38e18b324
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379466"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166487"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione del database nel database SQL di Azure
 
@@ -36,9 +36,9 @@ In questo articolo vengono descritte alcune caratteristiche principali del datab
 Le funzionalità della continuità aziendale e del ripristino di emergenza consentono di proseguire normalmente l'attività aziendale in caso di emergenza. Questa situazione di emergenza potrebbe essere un evento a livello di database (ad esempio, un utente che elimina erroneamente una tabella fondamentale) o un evento a livello di data center (calamità regionale, ad esempio uno tsunami). 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Come creare e gestire i backup nel database SQL?
-Non vengono creati backup nel database SQL di Azure, semplicemente perché non servono. Il database SQL esegue automaticamente il backup dei database, pertanto non è più necessario preoccuparsi di pianificare, eseguire e gestire i backup. La piattaforma esegue un backup completo ogni settimana, backup differenziali a intervalli di poche ore e un backup del log ogni 5 minuti per garantire un ripristino di emergenza efficiente e una perdita di dati minima. Il primo backup completo viene eseguito non appena si crea un database. Questi backup sono disponibili per un determinato periodo, chiamato "periodo di conservazione", e varia a seconda del livello di prestazioni scelto.  Il database SQL offre la possibilità di eseguire un ripristino in qualsiasi punto nel tempo all'interno di questo periodo di conservazione con il [recupero temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
+Non vengono creati backup nel database SQL di Azure, semplicemente perché non servono. Il database SQL esegue automaticamente il backup dei database, pertanto non è più necessario preoccuparsi di pianificare, eseguire e gestire i backup. La piattaforma esegue un backup completo ogni settimana, backup differenziali a intervalli di poche ore e un backup del log ogni 5 minuti per garantire un ripristino di emergenza efficiente e una perdita di dati minima. Il primo backup completo viene eseguito non appena si crea un database. Questi backup sono disponibili per un determinato periodo, chiamato "periodo di conservazione", e varia a seconda del livello di servizio scelto. Il database SQL offre la possibilità di eseguire un ripristino in qualsiasi punto nel tempo all'interno di questo periodo di conservazione con il [recupero temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Livello di prestazioni|Periodo di conservazione in giorni|
+|Livello di servizio|Periodo di conservazione in giorni|
 |---|:---:|
 |Basic|7|
 |Standard|35|
@@ -73,12 +73,12 @@ Nel database SQL sono disponibili [due metodi di autenticazione](sql-database-co
 - [Autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
 - Autenticazione SQL. 
 
-L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (AD) è un servizio di gestione centralizzato delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. AAD supporta l'[autenticazione a più fattori (MFA, Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) e, con [un paio di clic](../active-directory/connect/active-directory-aadconnect-get-started-express.md), AAD può essere integrato in Windows Server Active Directory. L'autenticazione SQL Server funziona esattamente come in passato. Fornendo un nome utente/password è possibile autenticare gli utenti in qualsiasi database in un determinato server logico. In questo modo, il database SQL e SQL Data Warehouse possono anche offrire l'autenticazione a più fattori e gli account utente guest all'interno di un dominio di Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
+L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (AD) è un servizio di gestione centralizzato delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. AAD supporta l'[autenticazione a più fattori (MFA, Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) e, con [un paio di clic](../active-directory/hybrid/how-to-connect-install-express.md), AAD può essere integrato in Windows Server Active Directory. L'autenticazione SQL Server funziona esattamente come in passato. Fornendo un nome utente/password è possibile autenticare gli utenti in qualsiasi database in un determinato server logico. In questo modo, il database SQL e SQL Data Warehouse possono anche offrire l'autenticazione a più fattori e gli account utente guest all'interno di un dominio di Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
 
 |**Se…**|**Database SQL/SQL Data Warehouse**|
 |---|---|
 |Si preferisce non usare Azure Active Directory (AD) in Azure|Usare l'[autenticazione in SQL](sql-database-security-overview.md)|
-|È stato usato Active Directory in SQL Server in locale|[Attuare la federazione di Active Directory con Azure AD](../active-directory/connect/active-directory-aadconnect.md) e usare l'autenticazione di Azure AD. In questo caso è possibile usare Single Sign-On.|
+|È stato usato Active Directory in SQL Server in locale|[Attuare la federazione di Active Directory con Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md) e usare l'autenticazione di Azure AD. In questo caso è possibile usare Single Sign-On.|
 |È necessario applicare l'autenticazione a più fattori (MFA)|Richiedere MFA come criterio mediante l'[accesso condizionale di Microsoft](sql-database-conditional-access.md) e usare l'[autenticazione universale di Azure AD con il supporto di MFA](sql-database-ssms-mfa-authentication.md).|
 |Si dispone di account guest Microsoft (live.com, outlook.com) o di altri domini (gmail.com)|Usare l'[autenticazione universale di Azure AD](sql-database-ssms-mfa-authentication.md) nel database SQL o in Data Warehouse, che sfrutta la [collaborazione B2B di Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
 |Si è connessi a Windows con le credenziali di Azure AD da un dominio federato|Usare l'[autenticazione integrata di Azure AD](sql-database-aad-authentication-configure.md).|
@@ -98,7 +98,7 @@ Un firewall impedisce l'accesso al server da un'entità esterna, consentendo sol
 È possibile creare regole firewall a livello di server o database. Le regole firewall a livello di server possono essere create dal portale o con SSMS. Per altre informazioni su come impostare una regola firewall a livello di server e database, vedere: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal) (Creare regole firewall nel database SQL).
 
 #### <a name="service-endpoints"></a>Endpoint di servizio
-Per impostazione predefinita, il database SQL è configurato per consentire tutti i servizi di Azure, ovvero qualsiasi VM in Azure può tentare di connettersi al database. Questi tentativi devono comunque essere autenticati. Se tuttavia non si intende rendere il database accessibile a eventuali indirizzi IP di Azure, è possibile disabilitare l'opzione che consente tutti i servizi di Azure. È anche possibile configurare gli [endpoint di servizio delle reti virtuali](sql-database-vnet-service-endpoint-rule-overview.md).
+Per impostazione predefinita, il database SQL è configurato per consentire a tutti i servizi di Azure di connettersi al server, ovvero qualsiasi VM in Azure può tentare di connettersi al database. Questi tentativi devono comunque essere autenticati. Se tuttavia non si intende rendere il database accessibile a eventuali indirizzi IP di Azure, è possibile disabilitare l'opzione che consente a tutti i servizi di Azure di accedere al server. È anche possibile configurare gli [endpoint di servizio delle reti virtuali](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Gli endpoint di servizio consentono di esporre le risorse cruciali di Azure solo alla rete privata virtuale in Azure. In questo modo si elimina essenzialmente l'accesso pubblico alle risorse. Il traffico tra la rete virtuale e Azure rimane nella rete di backbone di Azure. Senza gli endpoint di servizio si ottiene il routing dei pacchetti con tunneling forzato. La rete virtuale forza il traffico Internet nell'organizzazione e il traffico del servizio Azure in modo che segua lo stesso route. Con gli endpoint di servizio è possibile ottimizzare questo processo, perché i pacchetti seguono il flusso direttamente dalla rete virtuale al servizio nella rete di backbone di Azure.
 
@@ -170,7 +170,7 @@ ExpressRoute consente anche di raddoppiare il limite di larghezza di banda acqui
 - [Flussi di lavoro](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Il database SQL è conforme ai requisiti normativi e in che modo questo facilita la conformità dell'organizzazione?
-Il database SQL rispetta una serie di conformità normative. Per visualizzare il set più recente di conformità soddisfatte, visitare il [Centro protezione di Microsoft](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) ed eseguire il drill-down nelle conformità importanti per l'organizzazione per capire se il database SQL sia incluso nei servizi conformi ad Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
+Il database SQL rispetta una serie di conformità normative. Per visualizzare il set più recente di conformità soddisfatte, visitare il [Centro protezione di Microsoft](https://microsoft.com/trustcenter/compliance/complianceofferings) ed eseguire il drill-down nelle conformità importanti per l'organizzazione per capire se il database SQL sia incluso nei servizi conformi ad Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitoraggio e manutenzione intelligenti del database dopo la migrazione
 
@@ -202,7 +202,7 @@ Nel database SQL è possibile sfruttare le informazioni intelligenti della piatt
 
    ![Grafico di monitoraggio 2](./media/sql-database-manage-after-migration/chart.png)
 
-Da questo grafico è anche possibile configurare avvisi per risorsa. Questi avvisi consentono di rispondere alle condizioni delle risorse con un messaggio e-mail, scrivere in un endpoint HTTPS/HTTP o eseguire un'azione. Per istruzioni dettagliate, vedere [Monitoraggio delle prestazioni del database nel database SQL di Azure](sql-database-single-database-monitor.md).
+Da questo grafico è anche possibile configurare avvisi per risorsa. Questi avvisi consentono di rispondere alle condizioni delle risorse con un messaggio e-mail, scrivere in un endpoint HTTPS/HTTP o eseguire un'azione. Per altre informazioni, vedere [Creare avvisi](sql-database-insights-alerts-portal.md).
 
 - **DMV**: è possibile eseguire una query della vista a gestione dinamica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) per restituire la cronologia delle statistiche sull'uso delle risorse dall'ultima ora e la vista del catalogo di sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per restituire la cronologia degli ultimi 14 giorni.
 - **Informazioni dettagliate prestazioni query**: [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) consente di visualizzare una cronologia delle query principali a livello di uso delle risorse e le query con esecuzione prolungata per un database specifico. È possibile identificare rapidamente le query principali in base all'uso delle risorse, alla durata e alla frequenza di esecuzione. È possibile tenere traccia delle query e rilevare la regressione. Questa funzionalità richiede che [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) sia abilitato e attivo per il database.
@@ -218,12 +218,12 @@ L'approccio alla risoluzione dei problemi delle prestazioni può offrire vantagg
 
 Con la risoluzione dei problemi delle prestazioni è importante stabilire se a incidere sulle prestazioni è solo l'applicazione o il database che la supporta. Spesso il problema delle prestazioni risiede a livello dell'applicazione. Potrebbe trattarsi dell'architettura o dei criteri di accesso ai dati. Si consideri ad esempio di avere un'applicazione "frammentata" sensibile alla latenza di rete. In questo caso, l'applicazione risente del traffico eccessivo di brevi richieste in entrata e in uscita ("frammentazione") tra l'applicazione e il server e, in una rete congestionata, questo traffico si accumula rapidamente. Per migliorare le prestazioni, è possibile usare gli [invii di query in batch](sql-database-performance-guidance.md#batch-queries). L'uso dei batch risulta particolarmente utile, in quanto ora le richieste vengono elaborate in un batch, consentendo di ridurre la latenza di andata e ritorno e migliorare le prestazioni dell'applicazione. 
 
-Se poi si riscontra una riduzione generale delle prestazioni del database, è possibile monitorare le viste a gestione dinamica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per individuare il consumo di memoria, CPU e I/O. Le prestazioni potrebbero risentirne perché il database ha esaurito le risorse. Potrebbe essere necessario modificare il livello di prestazioni e/o del servizio in base all'aumento o alla riduzione delle esigenze di carico di lavoro. 
+Se poi si riscontra una riduzione generale delle prestazioni del database, è possibile monitorare le viste a gestione dinamica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per individuare il consumo di memoria, CPU e I/O. Le prestazioni potrebbero risentirne perché il database ha esaurito le risorse. Potrebbe essere necessario modificare la quantità di calcolo e/o il livello di servizio in base all'aumento o alla riduzione delle esigenze di carico di lavoro. 
 
 Per un set completo di raccomandazioni per la risoluzione dei problemi relativi alle prestazioni, vedere [Ottimizzare il database](sql-database-performance-guidance.md#tune-your-database).
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-performance-level"></a>Come verificare di usare il livello di servizio e il livello di prestazioni appropriati?
-Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per ogni livello di servizio si ottengono prestazioni prevedibili garantite a esso associate. A seconda del carico di lavoro, potrebbero verificarsi picchi di attività in cui l'uso delle risorse potrebbe raggiungere il limite massimo del livello di prestazioni corrente in cui si trova l'utente. In questi casi è utile valutare per prima cosa se eseguire o meno un'ottimizzazione (ad esempio, aggiungendo o modificando un indice e così via). Se i problemi di limite persistono, valutare la possibilità di passare a un livello superiore di prestazioni o di servizio. 
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Come verificare di usare il livello di servizio e la quantità di calcolo appropriati?
+Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per ogni livello di servizio si ottengono prestazioni prevedibili garantite a esso associate. A seconda del carico di lavoro, potrebbero verificarsi picchi di attività in cui l'uso delle risorse potrebbe raggiungere il limite massimo della quantità di calcolo corrente in cui si trova l'utente. In questi casi è utile valutare per prima cosa se eseguire o meno un'ottimizzazione (ad esempio, aggiungendo o modificando un indice e così via). Se i problemi di limite persistono, valutare la possibilità di passare a un livello di servizio o a una quantità di calcolo superiori. 
 
 |**Livello di servizio**|**Scenari di casi di utilizzo comuni**|
 |---|---|
@@ -232,7 +232,7 @@ Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per o
 |**Premium**|Applicazioni con numerosi utenti simultanei ed elevate richieste di CPU/memoria e I/O. Le app sensibili alla latenza con concorrenza e velocità effettiva elevate possono sfruttare il livello Premium. |
 |||
 
-Per accertarsi di essere nel livello di prestazioni ideale, è possibile monitorare il consumo di risorse di database e query con uno dei modi sopra indicati in "Come monitorare le prestazioni e l'uso delle risorse nel database SQL di Azure?" Se ci si accorge che le query e/o i database esauriscono costantemente CPU, memoria e così via, è opportuno valutare la scalabilità verticale a un livello di prestazioni superiore. In modo analogo, qualora si notasse che, anche nelle ore di punta, le risorse non vengono usate in modo eccessivo, prendere in considerazione la scalabilità verso il basso dal livello di prestazioni corrente. 
+Per accertarsi di essere nella quantità di calcolo ideale, è possibile monitorare il consumo di risorse di database e query con uno dei modi sopra indicati in "Come monitorare le prestazioni e l'uso delle risorse nel database SQL di Azure?". Se ci si accorge che le query e/o i database esauriscono costantemente CPU, memoria e così via, è opportuno valutare la scalabilità verticale a una quantità di calcolo superiore. In modo analogo, qualora si notasse che, anche nelle ore di punta, le risorse non vengono usate in modo eccessivo, prendere in considerazione la scalabilità verso il basso dalla quantità di calcolo corrente. 
 
 In presenza di criteri di app SaaS o uno scenario di consolidamento del database, considerare l'uso di un pool elastico per l'ottimizzazione dei costi. Il pool elastico è un ottimo modo per conseguire il consolidamento dei database e l'ottimizzazione dei costi. Per altre informazioni sulla gestione di più database con un pool elastico, vedere: [Manage pools and databases](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases) (Gestire pool e database). 
 
