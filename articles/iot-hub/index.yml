@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2f6ca80985d73c0bfe0fd248b697b57ebb5796a2
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237960"
 documentType: LandingData
 title: Documentazione sull'hub IoT
 metadata:
@@ -11,12 +17,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
   ms.author: dobett
-  ms.openlocfilehash: 9a173ee72f909c8f516f321592efde639e3a3a08
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39068247"
 abstract:
   description: Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti illustrano come distribuire comunicazioni affidabili e bidirezionali tra dispositivi IoT e un backend di soluzione.
 sections:
@@ -34,6 +34,8 @@ sections:
     - image:
         src: https://docs.microsoft.com/media/logos/logo_python.svg
     - image:
+        src: https://docs.microsoft.com/media/logos/logo_c.svg
+    - image:
         src: https://docs.microsoft.com/media/logos/logo_ios.svg
     rows:
     - title: Inviare dati di telemetria
@@ -42,6 +44,7 @@ sections:
       - href: /azure/iot-hub/quickstart-send-telemetry-dotnet
       - href: /azure/iot-hub/quickstart-send-telemetry-java
       - href: /azure/iot-hub/quickstart-send-telemetry-python
+      - href: /azure/iot-hub/quickstart-send-telemetry-c
       - href: /azure/iot-hub/quickstart-send-telemetry-ios
     - title: Controllare un dispositivo
       values:
@@ -58,7 +61,7 @@ sections:
     - html: <a href="/azure/iot-hub/tutorial-device-twins">Configurare i dispositivi da un servizio back-end</a>
     - html: <a href="/azure/iot-hub/tutorial-firmware-update">Implementare un processo di aggiornamento del firmware del dispositivo</a>
     - html: <a href="/azure/iot-hub/tutorial-connectivity">Usare un dispositivo simulato per testare la connettività con l'hub IoT</a>
-- title: Riferimenti
+- title: riferimento
   items:
   - type: list
     style: cards
