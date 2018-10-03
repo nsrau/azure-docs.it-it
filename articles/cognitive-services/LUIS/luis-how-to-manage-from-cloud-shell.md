@@ -1,22 +1,23 @@
 ---
-title: Visualizzare l'utilizzo di LUIS da Azure Cloud Shell | Microsoft Docs
+title: Dati di utilizzo di Azure Cloud Shell per LUIS
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come ottenere dati di utilizzo in Azure Cloud Shell per LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: f9d3a489328263bd300d60935bfde2f0dfc0245c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0a02d2e5e0a1f1765098e1b1e258424b6443878
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224042"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039579"
 ---
-# <a name="manage-luis-service-from-azure-cloud-shell"></a>Gestire il servizio LUIS da Azure Cloud Shell
+# <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Dati di utilizzo per il servizio LUIS tramite Azure Cloud Shell
 Il portale di Azure consente di usare i cmdlet di PowerShell per lavorare con le risorse LUIS. 
 
 Questi cmdlet consentono di [creare](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) una sottoscrizione LUIS, ottenere informazioni sulla sottoscrizione, incluso l'[utilizzo](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), e [rimuovere](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) la sottoscrizione. 

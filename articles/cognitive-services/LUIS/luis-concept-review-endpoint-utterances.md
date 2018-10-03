@@ -1,23 +1,24 @@
 ---
-title: Esaminare espressioni di endpoint per usare l'apprendimento attivo di Language Understanding (LUIS) - Azure | Microsoft Docs
-description: Usare la funzionalità di apprendimento attivo denominata "Esamina espressioni di endpoint" per migliorare più velocemente le previsioni delle prestazioni.
+title: Esaminare espressioni di endpoint per usare l'apprendimento attivo di Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: L'apprendimento attivo è una delle tre strategie per migliorare la precisione delle previsioni e fra esse la più facile da attuare. Con l'apprendimento attivo, è possibile verificare la correttezza della finalità e dell'entità delle espressioni di endpoint. LUIS sceglie espressioni di endpoint di cui è certo.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 78cc2a8a2b9295654d0c6264cbf4a4d634b16544
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222614"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038171"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Abilitare l'apprendimento attivo grazie alla revisione delle espressioni di endpoint
-L'apprendimento attivo è una delle tre strategie per migliorare la precisione delle previsioni e fra esse la più facile da attuare. 
+L'apprendimento attivo è una delle tre strategie per migliorare la precisione delle previsioni e fra esse la più facile da attuare. Con l'apprendimento attivo, è possibile verificare la correttezza della finalità e dell'entità delle espressioni di endpoint. LUIS sceglie espressioni di endpoint di cui è certo.
 
 ## <a name="what-is-active-learning"></a>Che cos'è l'apprendimento attivo
 L'apprendimento attivo è un processo composto da due passaggi. Nel primo passaggio, LUIS seleziona le espressioni da convalidare che riceve nell'endpoint dell'app. Il secondo passaggio viene eseguito dal proprietario o dal collaboratore dell'applicazione per convalidare l'espressione selezionata per la fase di [revisione](luis-how-to-review-endoint-utt.md), incluse la finalità corretta e tutte le entità interne a quest'ultima. Dopo aver esaminato l'espressione, esegui il training e pubblica di nuovo l'app. 

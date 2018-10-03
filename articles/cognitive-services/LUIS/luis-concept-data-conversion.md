@@ -1,23 +1,24 @@
 ---
-title: Informazioni sui concetti di conversione dei dati in LUIS - Azure | Microsoft Docs
+title: Concetti relativi alla conversione di dati in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come modificare le espressioni prima delle stime in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05a02191af171936dd9f5c4bf469b9c84aa144a3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3862a0dbd94b5764cf506b05201d8dc60430fc7d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223702"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038970"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>Concetti di conversione dei dati in LUIS
-LUIS consente di convertire le espressioni da vocali a testuali prima delle stime. 
+LUIS usa Servizi cognitivi e il Servizio di riconoscimento vocale per convertire le espressioni da vocali a testuali prima delle stime. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>Concetti di conversione del riconoscimento finalità voce
 La conversione del riconoscimento vocale in LUIS consente di inviare espressioni vocali a un endpoint e ricevere una risposta di stima da LUIS. Il processo è un'integrazione del servizio [Voce](https://docs.microsoft.com/azure/cognitive-services/Speech) di LUIS. 

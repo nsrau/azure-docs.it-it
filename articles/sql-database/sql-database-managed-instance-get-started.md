@@ -1,25 +1,27 @@
 ---
 title: "Portale di Azure: creare un'istanza gestita di SQL | Microsoft Docs"
 description: Creare un'istanza gestita di SQL, un ambiente di rete e una VM client per l'accesso.
-keywords: esercitazione su database SQL, creare un'istanza gestita di SQL
 services: sql-database
-author: jovanpop-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 08/31/2018
-ms.author: jovanpop-msft
-ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+author: jovanpop-msft
+ms.author: jovanpop
+ms.reviewer: Carlrab
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: c0c249ffe426e86049024122d9cbf786bb677220
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381999"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160639"
 ---
-# <a name="create-an-azure-sql-managed-instance"></a>Creare un'istanza gestita di SQL di Azure
+# <a name="create-an-azure-sql-database-managed-instance"></a>Creare un'istanza gestita di database SQL di Azure
 
-Questa guida introduttiva illustra come creare un'istanza gestita di SQL in Azure. Istanza gestita di database SQL di Azure è un'istanza del motore di database di SQL Server PaaS (piattaforma distribuita come servizio) che consente di eseguire e ridimensionare database di SQL Server a disponibilità elevata nel cloud di Azure. Questa guida introduttiva illustra come iniziare a creare un'istanza gestita di SQL.
+Questa guida introduttiva illustra come creare un'[istanza gestita](sql-database-managed-instance.md) di database SQL di Azure nel portale di Azure. 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -27,104 +29,63 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Accedere al [portale di Azure](https://portal.azure.com/).
 
-## <a name="prepare-network-environment"></a>Preparare l'ambiente di rete
-
-Istanza gestita di SQL è un servizio sicuro inserito nella rete virtuale di Azure. Per creare un'istanza gestita, è necessario preparare l'ambiente di rete di Azure, che include:
- - Rete virtuale di Azure in cui verrà inserita l'istanza gestita.
- - Subnet nella rete virtuale di Azure in cui verranno inserite le istanze gestite.
- - Route definita dall'utente che consentirà a Istanza gestita di comunicare con i servizi di Azure che controllano e gestiscono l'istanza.
-
-La subnet è dedicata alle istanze gestite e non è possibile creare altre risorse (ad esempio, macchine virtuali di Azure) in tale subnet. In questa guida introduttiva verranno create due subnet nella rete virtuale di Azure per poter inserire le istanze gestite nella subnet dedicata alle istanze gestite e le altre risorse nella subnet predefinita.
-
-1. Distribuire l'ambiente di rete di Azure preparato per Istanza gestita di database SQL di Azure facendo clic sul pulsante seguente:
-
-    <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
-
-    Questo pulsante aprirà un modulo nel portale di Azure in cui è possibile configurare l'ambiente di rete prima di distribuirlo.
-
-2. Modificare facoltativamente i nomi della rete virtuale e delle subnet e gli intervalli IP associati alle risorse di rete. Fare quindi clic sul pulsante "Acquista" per creare e configurare l'ambiente:
-
-    ![Creare l'ambiente dell'istanza gestita](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
-
-    > [!Note]
-    > Questa distribuzione di Azure Resource Manager creerà due subnet nella rete virtuale, una per le istanze gestite denominata **ManagedInstances** e l'altra denominata **Default** per le altre risorse, ad esempio la macchina virtuale client che può essere usata per connettersi a Istanza gestita. Se non sono necessarie due subnet, sarà possibile eliminare quella predefinita in un secondo momento, ma in tal caso non sarà possibile completare il passaggio 3 di questa guida introduttiva, [Preparare il computer client](#prepare-client-machine).
-
-    > [!Note]
-    > Se si modificano i nomi della rete virtuale e delle subnet, prendere nota dei nomi nuovi perché saranno necessari nelle sezioni seguenti. Nella parte restante dell'esercitazione si presuppone che siano state create la rete virtuale denominata **MyNewVNet**, la subnet **ManagedInstances** per le istanze gestite di SQL e la subnet **Default** per le macchine virtuali e le altre risorse.
-
 ## <a name="create-a-managed-instance"></a>Creare un'istanza gestita
 
-La procedura seguente illustra come creare un'istanza gestita dopo che l'anteprima è stata approvata.
+I passaggi seguenti mostrano come creare un'istanza gestita.
 
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
-2. Individuare **Istanza gestita** e quindi selezionare **Azure SQL Database Managed Instance (preview)** (Istanza gestita di database SQL di Azure - anteprima).
+2. Individuare **Istanza gestita** e quindi selezionare **Azure SQL Managed Instance**.
 3. Fare clic su **Create**(Crea).
 
    ![Creare un'istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Selezionare la sottoscrizione e verificare che le condizioni per l'anteprima risultino **Accettate**.
+4. Compilare il modulo relativo all'istanza gestita con le informazioni richieste, usando le informazioni riportate nella tabella seguente:
 
-   ![Anteprima di Istanza gestita accettata](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
-
-5. Compilare il modulo relativo all'istanza gestita con le informazioni richieste, usando le informazioni riportate nella tabella seguente:
-
-   | Impostazione| Valore consigliato | Descrizione |
+   | Impostazione| Valore consigliato | DESCRIZIONE |
    | ------ | --------------- | ----------- |
+   | **Sottoscrizione** | Sottoscrizione in uso | Una sottoscrizione in cui si dispone dell'autorizzazione per creare nuove risorse |
    |**Nome istanza gestita**|Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Account di accesso amministratore istanza gestita**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Non usare "serveradmin" perché è un ruolo a livello di server riservato.| 
    |**Password**|Qualsiasi password valida|La password deve contenere almeno 16 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Gruppo di risorse**|Gruppo di risorse creato in precedenza||
-   |**Posizione**|Località selezionata in precedenza|Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
-   |**Rete virtuale**|Rete virtuale creata in precedenza| Scegliere l'elemento **MyNewVNet/ManagedInstances** se nel passaggio precedente non sono stati modificati i nomi. In caso contrario, scegliere il nome della rete virtuale e la subnet delle istanze gestite immessi nella sezione precedente. **Non usare la subnet predefinita perché non è configurata per ospitare le istanze gestite**. |
+   |**Gruppo di risorse**|Gruppo di risorse nuovo o esistente|Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Posizione**|La posizione in cui si desidera creare l'istanza gestita|Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
+   |**Rete virtuale**|Selezionare **Crea nuova rete virtuale** o una rete virtuale creata in precedenza nel gruppo di risorse fornito in precedenza in questo modulo| Per configurare una rete virtuale per un'istanza gestita con impostazioni personalizzate, vedere [Configurare un'istanza gestita di SQL in un modello di ambiente di rete virtuale](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) in Github. Per informazioni sui requisiti per la configurazione dell'ambiente di rete per un'istanza gestita, vedere [Configurare una rete virtuale per Istanza gestita di database SQL di Azure](sql-database-managed-instance-vnet-configuration.md) |
 
-   ![Modulo per la creazione dell'istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
+   ![modulo istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-6. Fare clic su **Piano tariffario** per definire le dimensioni delle risorse di calcolo e di archiviazione ed esaminare le opzioni del piano tariffario. Per impostazione predefinita, all'istanza vengono assegnati gratuitamente 32 GB di spazio di archiviazione, **che potrebbero non essere sufficienti per le proprie applicazioni**.
-7. Usare i dispositivi di scorrimento o le caselle di testo per specificare la quantità di spazio di archiviazione e il numero di core virtuali. 
-   ![piano tariffario istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
+5. Fare clic su **Piano tariffario** per definire le dimensioni delle risorse di calcolo e di archiviazione ed esaminare le opzioni del piano tariffario. Il piano tariffario di utilizzo generico con 32 GB di memoria e 16 vCore è il valore predefinito.
+6. Usare i dispositivi di scorrimento o le caselle di testo per specificare la quantità di spazio di archiviazione e il numero di core virtuali. 
+7. Al termine, fare clic su **Applica** per salvare le impostazioni selezionate.  
+8. Fare clic su **Crea** per distribuire l'istanza gestita.
+9. Fare clic sull'icona **Notifiche** per visualizzare lo stato della distribuzione.
 
-8. Al termine, fare clic su **Applica** per salvare le impostazioni selezionate.  
-9. Fare clic su **Crea** per distribuire l'istanza gestita.
-10. Fare clic sull'icona **Notifiche** per visualizzare lo stato della distribuzione.
-11. Fare clic su **Distribuzione in corso** per aprire la finestra dell'istanza gestita e monitorare ulteriormente lo stato di avanzamento della distribuzione.
+    ![stato di distribuzione dell'istanza gestita](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-Mentre viene eseguita la distribuzione, passare alla procedura successiva.
+10. Fare clic su **Distribuzione in corso** per aprire la finestra dell'istanza gestita e monitorare ulteriormente lo stato di avanzamento della distribuzione. 
 
 > [!IMPORTANT]
-> Per la prima istanza in una subnet, i tempi di distribuzione sono in genere molto più lunghi rispetto alle istanze successive. Non annullare l'operazione di distribuzione perché la durata è superiore al previsto. Creare la seconda istanza gestita nella subnet richiederà qualche minuto.
+> Per la prima istanza in una subnet, i tempi di distribuzione sono in genere molto più lunghi rispetto alle istanze successive. Non annullare l'operazione di distribuzione perché la durata è superiore al previsto. Creare la seconda istanza gestita nella subnet richiederà solo qualche minuto.
 
-## <a name="prepare-client-machine"></a>Preparare il computer client
+## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Esaminare le risorse e recuperare il nome completo del server
 
-Poiché l'istanza gestita di SQL viene inserita nella rete virtuale privata, è necessario creare una VM di Azure con alcuni strumenti client SQL installati, ad esempio SQL Server Management Studio o SQL Operations Studio, per connettersi all'istanza gestita ed eseguire query.
+Dopo aver completato la distribuzione, esaminare le risorse create e recuperare il nome completo del server per l'uso in guide introduttive successive.
 
-> [!Note]
-> Invece della macchina virtuale di Azure client, è possibile configurare una connessione [da punto a sito](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) e connettersi all'istanza gestita dal computer locale.
+1. Aprire il gruppo di risorse per l'istanza gestita e visualizzare le relative risorse che sono state create automaticamente nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 
-Il modo più semplice per creare una macchina virtuale client con tutti gli strumenti necessari è usare i modelli di Azure Resource Manager.
+   ![Risorse Istanza gestita](./media/sql-database-managed-instance-get-started/resources.png)Aprire la risorsa Istanza gestita nel portale di Azure.
 
-1. Fare clic sul pulsante seguente (verificare di essere connessi al portale di Azure in un'altra scheda del browser):
+2. Fare clic sull'Istanza gestita.
+3. Nella scheda **Panoramica** individuare la proprietà **Host** e copiare l'indirizzo completo dell'host per l'istanza gestita.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-2. Nel modulo che verrà aperto immettere il nome della macchina virtuale, il nome utente amministratore e la password che si userà per connettersi alla macchina virtuale.
+   ![Risorse Istanza gestita](./media/sql-database-managed-instance-get-started/host-name.png)
 
-    ![Creare una VM client](./media/sql-database-managed-instance-get-started/create-client-sql-vm.png)
-
-    Se non sono stati modificati il nome della rete virtuale e la subnet predefinita, non è necessario modificare gli ultimi due parametri. In caso contrario, sostituire questi valori con i valori immessi quando si è configurato l'ambiente di rete.
-
-3. Fare clic sul pulsante "Acquista" per distribuire la VM di Azure nella rete preparata.
-
-4. Connettersi alla VM usando la connessione Desktop remoto e trovare SQL Server Management Studio o SQL Operations Studio che vengono automaticamente installati nella macchina virtuale.
-
-5. Aprire SSMS e immettere il **nome host** per l'istanza gestita nella casella **Nome server**, selezionare **Autenticazione di SQL Server**, specificare account di accesso e password nella finestra di dialogo **Connetti al server** e quindi fare clic su **Connetti**.
-
-    ![connessione a ssms](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
-
-Dopo aver stabilito la connessione, è possibile visualizzare i database di sistema e utente nel nodo Database e vari oggetti nei nodi Sicurezza, Oggetti server, Replica, Gestione, SQL Server Agent e Profiler XEvent.
+   Il nome è simile al seguente: **your_machine_name.neu15011648751ff.database.windows.net**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - [Connettere le applicazioni a Istanza gestita](sql-database-managed-instance-connect-app.md).
- - [Eseguire la migrazione dei database da locale a Istanza gestita](sql-database-managed-instance-migrate.md).
-
-
+- Per altre informazioni sulla connessione a un'istanza gestita, vedere:
+  - Per una panoramica delle opzioni di connessione per le applicazioni, vedere [Connettere le applicazioni a un'istanza gestita](sql-database-managed-instance-connect-app.md).
+  - Per una guida introduttiva che illustra come connettersi a un'istanza gestita tramite una macchina virtuale di Azure, vedere [Configurare una connessione tramite macchina virtuale di Azure](sql-database-managed-instance-configure-vm.md).
+  - Per una guida introduttiva che illustra come connettersi a un'istanza gestita tramite un computer client locale usando una connessione da punto a sito, vedere [Configurare una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md).
+- Per ripristinare un database SQL Server esistente da locale a un'istanza gestita, è possibile eseguire il ripristino da un file di backup del database usando il [Servizio Migrazione del database di Azure (DMS)per la migrazione](../dms/tutorial-sql-server-to-managed-instance.md) o usare il [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) per eseguire un'importazione da un file di backup.
