@@ -1,21 +1,21 @@
 ---
-title: Esempi di informazioni dettagliate di Bing | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: Esempi di informazioni dettagliate su Bing - Ricerca visiva Bing
+titleSuffix: Azure Cognitive Services
 description: Questo articolo offre esempi di informazioni dettagliate di immagini visualizzate su Bing.com.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 927a02b400c7a7b250b315ad5668feb198fd590a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ce0c056ace550d3db2f4f51030177436fb194e0f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005690"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219839"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Esempi di utilizzo delle informazioni dettagliate di Bing
 

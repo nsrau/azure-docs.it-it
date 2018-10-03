@@ -1,21 +1,21 @@
 ---
-title: Punteggio di attendibilità - Servizi cognitivi Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Informazioni sul punteggio di attendibilità
+title: Punteggio di attendibilità - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Un punteggio di attendibilità indica il grado di corrispondenza tra la domanda dell'utente e la risposta restituita.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: c97bdb7e57275ebd1893bc28248c4ecc6b35c153
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 33da5cf5724b8314ce813f12eb077d9a15ec1b2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376308"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041524"
 ---
 # <a name="confidence-score"></a>Punteggio di attendibilità
 

@@ -1,20 +1,21 @@
 ---
-title: Content Moderator di Azure - Moderazione immagini | Microsoft Docs
+title: Moderazione immagine - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Usare la moderazione immagini per moderare le immagini inappropriate
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: c7cbc343c6e9113642d0ac79f4a4d60a404e8171
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377665"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219652"
 ---
 # <a name="image-moderation"></a>Moderazione immagini
 
@@ -143,7 +144,7 @@ Esempio di estratto:
 
 Per i casi più complessi, usare lo [strumento di revisione](Review-Tool-User-Guide/human-in-the-loop.md) di Content Moderator e la relativa API per visualizzare i risultati e il contenuto della moderazione nella revisione per i moderatori umani. Revisionano i tag assegnati automaticamente e confermano le loro decisioni finali.
 
-![Revisione dell'immagine per moderatori umani](images/moderation-reviews-quickstart-dotnet.PNG)
+![Revisione di immagini per moderatori umani](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

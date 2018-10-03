@@ -1,22 +1,23 @@
 ---
-title: Moderazione del contenuto di Facebook con Azure Content Moderator | Microsoft Docs
-description: Moderare le pagine di Facebook con Content Moderator basato su Machine Learning
+title: 'Esercitazione: moderazione del contenuto di Facebook - Content Moderator di Azure'
+titlesuffix: Azure Cognitive Services
+description: Moderare le pagine di Facebook con Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41936738"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223939"
 ---
-# <a name="facebook-content-moderation-with-content-moderator"></a>Moderazione del contenuto di Facebook con Content Moderator
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Esercitazione: moderazione del contenuto di Facebook con Content Moderator di Azure
 
 Questa esercitazione illustra come usare Content Moderator basato su Machine Learning per moderare post e commenti di Facebook.
 
@@ -67,7 +68,7 @@ Accedere al [portale di gestione di Azure](https://portal.azure.com/) per creare
 | Impostazione app | DESCRIZIONE   | 
 | -------------------- |-------------|
 | cm:TeamId   | ID del team di Content Moderator  | 
-| cm:SubscriptionKey | Chiave di sottoscrizione di Content Moderator - Vedere [Credenziali](/review-tool-user-guide/credentials.md) | 
+| cm:SubscriptionKey | Chiave di sottoscrizione di Content Moderator - Vedere [Credenziali](review-tool-user-guide/credentials.md) | 
 | cm:Region | Nome dell'area di Content Moderator, senza gli spazi. Vedere la nota precedente. |
 | cm:ImageWorkflow | Nome del flusso di lavoro da eseguire sulle immagini |
 | cm:TextWorkflow | Nome del flusso di lavoro da eseguire sul testo |

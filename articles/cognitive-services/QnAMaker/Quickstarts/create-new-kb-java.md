@@ -1,30 +1,33 @@
 ---
-title: Guida introduttiva alla creazione di una nuova knowledge base in Java per l'API QnA Maker Microsoft (v4) - Servizi cognitivi di Azure | Microsoft Docs
-description: Creare una knowledge base in Java in cui includere le domande frequenti o i manuali del prodotto, in modo da poter iniziare a usare QnA Maker.
+title: 'Guida introduttiva: API di Java - creare knowledge base - QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Questa guida introduttiva illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 3d637a4a046318a95eeeb532cbb7a9938cb1004d
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "43771374"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037610"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Creare una nuova knowledge base in Java
 
 Questa guida introduttiva illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
 Di seguito sono indicati due URL di domande frequenti di esempio (in "kb.urls" di **getKB()**) che forniranno il contenuto. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, in base a quanto illustrato più in dettaglio in questo documento sulle [origini dati](../Concepts/data-sources-supported.md). In questa guida introduttiva è anche possibile usare URL di domande frequenti personalizzati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per compilare ed eseguire il codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). È possibile usare l'ambiente di sviluppo integrato Java preferito, ma è sufficiente anche un editor di testo.
+Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). È possibile usare l'ambiente di sviluppo integrato Java preferito, ma è sufficiente anche un editor di testo.
 
 È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **QnA Maker** selezionato come risorsa. È infine necessaria una chiave di sottoscrizione a pagamento del nuovo account configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices). Una delle due chiavi sarà utilizzabile per questa guida introduttiva.
 

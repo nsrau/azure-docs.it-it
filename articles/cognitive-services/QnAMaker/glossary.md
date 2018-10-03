@@ -1,21 +1,21 @@
 ---
-title: Glossario - Servizi cognitivi Microsoft | Microsoft Docs
-titleSuffix: Azure
+title: Glossario - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: Glossario
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: e28cddec005cb6ba99b9f60d8b03a11f1bc97062
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: b22ec27b2999d322945e37c5a38d2b1d1532e7e3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376372"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166045"
 ---
 # <a name="glossary"></a>Glossario
 

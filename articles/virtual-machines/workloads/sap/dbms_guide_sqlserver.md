@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db0d796a407c8e33501b0a312c78e8508f17297d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075306"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406922"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Distribuzione DBMS per SQL Server di macchine virtuali di Azure per un SAP NetWeaver
 
@@ -381,8 +381,10 @@ In SQL Server 2014 e versioni successive è possibile archiviare file di databas
 
 * L'account di archiviazione usato deve trovarsi nella stessa area di Azure di quello usato per distribuire la VM in cui è in esecuzione SQL Server.
 * Le considerazioni elencate in precedenza in merito alla distribuzione di dischi rigidi virtuali in diversi account di archiviazione di Azure sono valide anche per questo metodo di distribuzione. Questo significa che il numero di operazioni di I/O viene tenuto in considerazione ai fini dei limiti dell'account di archiviazione di Azure.
-* Invece di considerare la quota di operazioni di I/O di archiviazione della VM, il traffico rispetto ai BLOB di archiviazione che rappresenta i file di log e i file di dati SQL Server viene tenuto in considerazione nella larghezza di banda della rete della VM del tipo di VM specifico. Per la larghezza di banda della rete di un tipo di VM specifico, vedere l'articolo [Dimensioni per le macchine virtuali Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Invece di considerare la quota di operazioni di I/O di archiviazione della VM, il traffico rispetto ai BLOB di archiviazione che rappresenta i file di log e i file di dati SQL Server viene tenuto in considerazione nella larghezza di banda della rete della VM del tipo di VM specifico. Per la larghezza di banda della rete e della risorsa di archiviazione di un tipo di VM specifico, vedere l'articolo [Dimensioni per le macchine virtuali Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Come risultato dell'esecuzione del push dei file I/O tramite la quota di rete, si ripercuote principalmente la quota di archiviazione e con questa la larghezza di banda complessiva della macchina virtuale solo parzialmente.
 * Gli obiettivi di prestazione delle operazioni di I/O al secondo e della velocità effettiva delle operazioni di I/O che Archiviazione Premium di Azure specifica per le diverse dimensioni di disco non si applicano più. Ciò vale anche se i BLOB creati si trovano in Archiviazione Premium di Azure. Gli obiettivi sono documentati nell'articolo [Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). In conseguenza della memorizzazione di file di dati e dei file di log SQL Server direttamente in BLOB che sono memorizzati in Archiviazione Premium di Azure, le caratteristiche delle prestazioni possono essere diverse in confronto ai dischi rigidi virtuali in Archiviazione Premium di Azure.
+* La cache basata su host disponibile per i dischi di Archiviazione Premium di Azure non è disponibile quando si inseriscono file di dati di SQL Server direttamente su BLOB di Azure.
 * Nelle macchine virtuali serie M l'acceleratore di scrittura di Azure non può essere usato per supportare operazioni di scrittura inferiori al millisecondo rispetto al file registro transazioni di SQL Server. 
 
 I dettagli di questa funzionalità sono disponibili nell'articolo [File di dati di SQL Server in Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017)
