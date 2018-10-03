@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/18/2018
+ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d031059f9811cedb703fec4920e00fd1b2e3f877
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045350"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017654"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure
 
@@ -30,7 +30,7 @@ Ad esempio, è possibile applicare a un gruppo di gestione criteri che limitano 
 
 ![albero](./media/MG_overview.png)
 
-Creando una gerarchia come quella in questo esempio, è possibile applicare un criterio, ad esempio la limitazione delle località delle VM all'area Stati Uniti occidentali nel gruppo "Infrastructure Team Management Group", per abilitare criteri di conformità e sicurezza interni. Questo criterio erediterà da entrambe le sottoscrizioni EA all'interno del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Poiché l'ereditarietà di questo criterio avviene dal gruppo di gestione alle sottoscrizioni, il criterio di sicurezza non può essere modificato dal proprietario della risorsa o della sottoscrizione per consentire una governance migliore.
+Creando una gerarchia come quella in questo esempio, è possibile applicare un criterio, ad esempio la limitazione delle località delle macchine virtuali all'area Stati Uniti occidentali nel gruppo "Infrastructure Team Management Group", per abilitare criteri di conformità e sicurezza interni. Questo criterio erediterà da entrambe le sottoscrizioni EA all'interno del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Poiché l'ereditarietà di questo criterio avviene dal gruppo di gestione alle sottoscrizioni, il criterio di sicurezza non può essere modificato dal proprietario della risorsa o della sottoscrizione per consentire una governance migliore.
 
 Un altro scenario in cui è utile usare gruppi di gestione è per fornire agli utenti l'accesso a più sottoscrizioni. Spostando più sottoscrizioni all'interno del gruppo di gestione, è possibile creare un'assegnazione di [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel gruppo di gestione, con ereditarietà di tale accesso in tutte le sottoscrizioni.
 Senza dover creare uno script delle assegnazioni di controllo degli accessi in base al ruolo per più sottoscrizioni, una sola assegnazione nel gruppo di gestione può permettere agli utenti di accedere a tutto il necessario.
@@ -62,19 +62,30 @@ Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondu
   - Chiunque abbia accesso a una sottoscrizione può vedere il contesto in cui tale sottoscrizione si trova nella gerarchia.  
   - A nessun utente viene assegnato l'accesso predefinito al gruppo di gestione radice. Gli amministratori globali di directory sono gli unici utenti che possono elevare i propri privilegi per ottenere l'accesso.  Dopo avere ottenuto l'accesso, gli amministratori di directory possono assegnare qualsiasi ruolo Controllo degli accessi in base al ruolo agli altri utenti per la gestione.  
 
-> [!NOTE]
-> Se la directory in uso ha iniziato a usare il servizio dei gruppi di gestione prima del 25/6/2018, la directory potrebbe non essere configurata con tutte le sottoscrizioni nella gerarchia. Il team del gruppo di gestione sta aggiornando retroattivamente ogni directory che ha iniziato a usare i gruppi di gestione nell'anteprima pubblica prima di tale data entro luglio/agosto 2018. Tutte le sottoscrizioni nelle directory saranno elementi figlio sotto il gruppo di gestione radice precedente.
->
-> Per domande su questo processo retroattivo, contattare: managementgroups@microsoft.com  
-  
-## <a name="initial-setup-of-management-groups"></a>Configurazione iniziale dei gruppi di gestione
-
-Quando un utente inizia a usare i gruppi di gestione, si verifica un processo di configurazione iniziale. Il primo passaggio è la creazione del gruppo di gestione radice nella directory. Dopo avere creato questo gruppo, tutte le sottoscrizioni esistenti nella directory diventano elementi figlio del gruppo di gestione radice. Lo scopo di questo processo è assicurarsi che esista un'unica gerarchia di gruppi di gestione all'interno di una directory. Un'unica gerarchia all'interno della directory consente ai clienti amministrativi di applicare i criteri e l'accesso globale per cui gli altri clienti all'interno della directory non possono eseguire il bypass. Un valore assegnato alla radice verrà applicato a tutti i gruppi di gestione, le sottoscrizioni, i gruppi di risorse e le risorse all'interno della directory avendo una gerarchia all'interno della directory.
-
 > [!IMPORTANT]
 > Qualsiasi assegnazione di accesso utente o di criteri nel gruppo di gestione radice **viene applicata a tutte le risorse all'interno della directory**.
 > Per questo motivo, tutti i clienti devono valutare la necessità di disporre di elementi definiti in questo ambito.
 > Le assegnazioni di accesso utente e di criteri devono essere "obbligatori" solo in questo ambito.  
+
+## <a name="initial-setup-of-management-groups"></a>Configurazione iniziale dei gruppi di gestione
+
+Quando un utente inizia a usare i gruppi di gestione, si verifica un processo di configurazione iniziale. Il primo passaggio è la creazione del gruppo di gestione radice nella directory. Dopo avere creato questo gruppo, tutte le sottoscrizioni esistenti nella directory diventano elementi figlio del gruppo di gestione radice. Lo scopo di questo processo è assicurarsi che esista un'unica gerarchia di gruppi di gestione all'interno di una directory. Un'unica gerarchia all'interno della directory consente ai clienti amministrativi di applicare i criteri e l'accesso globale per cui gli altri clienti all'interno della directory non possono eseguire il bypass. Un valore assegnato alla radice verrà applicato a tutti i gruppi di gestione, le sottoscrizioni, i gruppi di risorse e le risorse all'interno della directory avendo una gerarchia all'interno della directory.
+
+## <a name="trouble-seeing-all-subscriptions"></a>Difficoltà a visualizzare tutte le sottoscrizioni
+
+In alcune directory che hanno iniziato a usare i gruppi di gestione nelle prime fasi dell'anteprima precedente (25 giugno 2018) è stato rilevato un problema per il quale non vengono applicate tutte le sottoscrizioni all'interno della gerarchia.  Questo avviene perché i processi per l'applicazione delle sottoscrizioni nella gerarchia sono stati implementati dopo l'assegnazione di un ruolo o di criteri per il gruppo di gestione radice della directory.
+
+### <a name="how-to-resolve-the-issue"></a>Come risolvere il problema
+
+Sono disponibili due opzioni per risolvere autonomamente il problema.
+
+1. Rimuovere tutte le assegnazioni di ruoli e criteri dal gruppo di gestione radice
+    1. Rimuovendo tutte le assegnazioni di ruoli e criteri dal gruppo di gestione radice, questo servizio inserirà tutte le sottoscrizioni nella gerarchia nel successivo ciclo notturno.  Il motivo di questa verifica è garantire che non vengano assegnati accidentalmente accessi o criteri a tutte le sottoscrizioni dei tenant.
+    1. Il modo migliore per eseguire questo processo senza compromettere i servizi è applicare l'assegnazione del ruolo o dei criteri un livello sotto il gruppo di gestione radice. Successivamente è possibile rimuovere tutte le assegnazioni dall'ambito radice.
+1. Chiamare direttamente l'API per avviare il processo di recupero delle sottoscrizioni
+    1. Qualsiasi cliente con autorizzazioni per la cartella può chiamare le API *TenantBackfillStatusRequest* o *StartTenantBackfillRequest*. Quando viene chiamata l'API StartTenantBackfillRequest, si avvia il processo di configurazione iniziale che prevede il trasferimento di tutte le sottoscrizioni nella gerarchia. Questo processo avvia anche l'applicazione di tutte le nuove sottoscrizioni come elementi figlio del gruppo di gestione radice. Questo processo può essere eseguito senza cambiare alcuna assegnazione a livello radice quando  tutte le assegnazioni di criteri o accessi per la radice possono essere applicate a tutte le sottoscrizioni.
+
+In caso di domande su questo processo di recupero, contattare: managementgroups@microsoft.com.  
   
 ## <a name="management-group-access"></a>Accesso ai gruppi di gestione
 

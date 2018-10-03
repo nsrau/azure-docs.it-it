@@ -1,27 +1,34 @@
 ---
 title: Modello di soluzione di Azure Stack Ethereum blockchain
-description: Usare i modelli di soluzione personalizzata per distribuire e configurare una rete di consorzio Ethereum blockchain in Azure Stack
+description: Esercitazione che usa un modello di soluzione personalizzata per distribuire e configurare una rete di consorzio Ethereum blockchain in Azure Stack
 services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/12/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
-ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: acfa94799f36728f4e0041f1a51403edf6ffe37e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721983"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239473"
 ---
-# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelli di soluzioni di Azure Stack Ethereum blockchain
+# <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>Esercitazione: Usare il modello di soluzione blockchain di Azure Stack Ethereum
 
 Il modello di soluzione Ethereum è progettato per renderlo più semplice e rapido distribuire e configurare una rete di consorzio multimembro Ethereum blockchain con una minima conoscenza di Azure ed Ethereum.
 
 Con pochi gli input dell'utente e una distribuzione a singolo clic tramite il portale tenant di Azure Stack, ogni membro possa effettuare il provisioning il footprint di rete. Footprint di rete di ogni membro è costituito da un set di nodi con bilanciamento del carico delle transazioni con cui un'applicazione o un utente può interagire per inviare le transazioni, un set di nodi di data mining per registrare le transazioni e un'Appliance virtuale di rete (NVA). Un passaggio successivo di connessione connette le Appliance virtuali di rete per creare una rete completamente configurata multimembro blockchain.
+
+Per configurare questa impostazione, si apprenderà come:
+
+> [!div class="checklist"]
+> * Scegliere un'architettura di distribuzione
+> * Distribuire un autonomo, leader consortium o rete di consorzio membro
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,7 +39,7 @@ Scaricare gli elementi più recenti [da Marketplace](azure-stack-download-azure-
 * Script personalizzato per Linux 2.0
 * Estensione Script personalizzato per Windows
 
-Per altre informazioni sugli scenari di blockchain, vedere [modello di soluzione proof-of-work consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
+Per altre informazioni sugli scenari di blockchain, vedere [modello di soluzione proof-of-work consortium Ethereum](../blockchain/templates/ethereum-deployment.md).
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 
@@ -198,5 +205,13 @@ Dopo aver completata la distribuzione, sono necessari alcuni minuti per i membri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su Ethereum e Azure, vedere [applicazioni e la tecnologia Blockchain | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
-- Per altre informazioni sugli scenari di blockchain in Azure, vedere [modello di soluzione proof-of-work consortium Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
+Questa esercitazione illustra come:
+
+> [!div class="checklist"]
+> * Scegliere un'architettura di distribuzione
+> * Distribuire un autonomo, leader consortium o rete di consorzio membro
+
+Per altre informazioni su Ethereum e Azure, vedere:
+
+> [!div class="nextstepaction"]
+> [La tecnologia Blockchain e applicazioni](https://azure.microsoft.com/solutions/blockchain/)

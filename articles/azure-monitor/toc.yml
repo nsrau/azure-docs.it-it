@@ -21,12 +21,6 @@ items:
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
     - name: Applicazione per dispositivi mobili
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
-  - name: Avvisi
-    items:
-    - name: Avviso (versione classica) su una condizione metrica
-      href: ../monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md?toc=/azure/azure-monitor/toc.json
-    - name: Avviso su un'attività di sottoscrizione
-      href: ../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md?toc=/azure/azure-monitor/toc.json
   - name: Macchine virtuali
     items:
     - name: Raccolta - Macchine virtuali di Azure
@@ -38,25 +32,25 @@ items:
   expanded: true
 - name: Esercitazioni
   items:
-  - name: 1 - Analizzare i dati
+  - name: Analizzare i dati in Log Analytics
     href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
-  - name: 2 - Visualizzare i dati
+  - name: Visualizzare i dati in Log Analytics
     href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
-  - name: 3 - Archiviare i dati
+  - name: Archiviare dati metrici e di log della piattaforma
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
-  - name: 4 - Creare avvisi per i dati di log
+  - name: Avvisi per i dati di log
     href: ../log-analytics/log-analytics-tutorial-response.md?toc=/azure/azure-monitor/toc.json
-  - name: 5 - Ridimensionare automaticamente in base a prestazioni e pianificazione
+  - name: Scalabilità automatica su prestazioni e pianificazione
     href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
-  - name: 6 - Trovare le eccezioni di runtime
+  - name: Trovare le eccezioni di runtime dell'applicazione
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
-  - name: 7 - Trovare i problemi di prestazioni
+  - name: Trovare problemi di prestazioni dell'applicazione
     href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
-  - name: 8 - Creare avvisi per l'integrità delle applicazioni
+  - name: Avvisi sullo stato di integrità dell'applicazione
     href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
-  - name: 9 - Comprendere gli utenti
+  - name: Informazioni sugli utenti delle applicazioni
     href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
-  - name: 10 - Creare dashboard personalizzati
+  - name: Creare dashboard personalizzati
     href: ../application-insights/app-insights-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
 - name: Esempi
   items:
@@ -189,27 +183,32 @@ items:
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Progettare per i provider di servizi
         href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
+  - name: Raccogliere i dati
+    items:
     - name: Installare e configurare agenti
       items:
       - name: Confronto tra gli agenti
         href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: Agenti di Windows
-        href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
-      - name: Estensione macchina virtuale per Windows
-        href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-      - name: Estensione macchina virtuale per Linux
-        href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-      - name: Monitorare ambienti ibridi
-        href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
-      - name: Operations Manager
-        href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: Gateway OMS
-        href: ../log-analytics/log-analytics-oms-gateway.md?toc=/azure/azure-monitor/toc.json
-      - name: Gestione dell'agente
-        href: ../log-analytics/log-analytics-agent-manage.md?toc=/azure/azure-monitor/toc.json
-      - name: Estensione di Diagnostica di Azure
-        href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+      - name: Agenti dell'archivio di log
         items:
+        - name: Agenti di Windows
+          href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
+        - name: Estensione macchina virtuale per Windows
+          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+        - name: Estensione macchina virtuale per Linux
+          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+        - name: Monitorare ambienti ibridi
+          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
+        - name: Operations Manager
+          href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
+        - name: Gateway OMS
+          href: ../log-analytics/log-analytics-oms-gateway.md?toc=/azure/azure-monitor/toc.json
+        - name: Gestione dell'agente
+          href: ../log-analytics/log-analytics-agent-manage.md?toc=/azure/azure-monitor/toc.json
+      - name: Estensione di Diagnostica di Azure
+        items:
+        - name: Panoramica
+          href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Inviare ad Archiviazione di Azure
           href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=/azure/azure-monitor/toc.json
         - name: Inviare dati ad Application Insights
@@ -222,10 +221,6 @@ items:
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: Preparazione per il formato dei log di diagnostica JSON Lines
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
-        - name: Metriche personalizzate nell'archivio delle metriche - API REST
-          href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
-        - name: Sistema operativo guest e archivio delle metriche - VM Linux (Telegraf)
-          href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json
         - name: Sistema operativo guest e archivio delle metriche - VM
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json
         - name: Sistema operativo guest e archivio delle metriche - Set di scalabilità di macchine virtuali
@@ -240,8 +235,29 @@ items:
           href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
         - name: Risolvere i problemi dell'agente Linux per i log
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
-  - name: Raccogliere i dati
-    items:
+    - name: Origini dati degli agenti
+      href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Eventi Windows
+        href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
+      - name: Dati JSON personalizzati
+        href: ../log-analytics/log-analytics-data-sources-json.md?toc=/azure/azure-monitor/toc.json
+      - name: Dati sulle prestazioni raccolti
+        href: ../log-analytics/log-analytics-data-sources-collectd.md?toc=/azure/azure-monitor/toc.json
+      - name: Avvisi di Nagios e Zabbix
+        href: ../log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md?toc=/azure/azure-monitor/toc.json
+      - name: syslog
+        href: ../log-analytics/log-analytics-data-sources-syslog.md?toc=/azure/azure-monitor/toc.json
+      - name: Contatori delle prestazioni
+        href: ../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json
+      - name: Prestazioni dell'applicazione Linux
+        href: ../log-analytics/log-analytics-data-sources-linux-applications.md?toc=/azure/azure-monitor/toc.json
+      - name: Log di IIS
+        href: ../log-analytics/log-analytics-data-sources-iis-logs.md?toc=/azure/azure-monitor/toc.json
+      - name: Log personalizzati
+        href: ../log-analytics/log-analytics-data-sources-custom-logs.md?toc=/azure/azure-monitor/toc.json
+      - name: Campi personalizzati
+        href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
     - name: Configurare le applicazioni
       items:
       - name: App Azure
@@ -372,29 +388,6 @@ items:
           href: ../application-insights/app-insights-java-troubleshoot.md?toc=/azure/azure-monitor/toc.json
         - name: Analisi dell'utilizzo
           href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-    - name: Origini dati degli agenti
-      href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
-      items:
-      - name: Eventi Windows
-        href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
-      - name: Dati JSON personalizzati
-        href: ../log-analytics/log-analytics-data-sources-json.md?toc=/azure/azure-monitor/toc.json
-      - name: Dati sulle prestazioni raccolti
-        href: ../log-analytics/log-analytics-data-sources-collectd.md?toc=/azure/azure-monitor/toc.json
-      - name: Avvisi di Nagios e Zabbix
-        href: ../log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md?toc=/azure/azure-monitor/toc.json
-      - name: syslog
-        href: ../log-analytics/log-analytics-data-sources-syslog.md?toc=/azure/azure-monitor/toc.json
-      - name: Contatori delle prestazioni
-        href: ../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json
-      - name: Prestazioni dell'applicazione Linux
-        href: ../log-analytics/log-analytics-data-sources-linux-applications.md?toc=/azure/azure-monitor/toc.json
-      - name: Log di IIS
-        href: ../log-analytics/log-analytics-data-sources-iis-logs.md?toc=/azure/azure-monitor/toc.json
-      - name: Log personalizzati
-        href: ../log-analytics/log-analytics-data-sources-custom-logs.md?toc=/azure/azure-monitor/toc.json
-      - name: Campi personalizzati
-        href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
     - name: Risorse di Azure
       items:
       - name: Log attività di Azure
@@ -411,14 +404,18 @@ items:
         href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=/azure/azure-monitor/toc.json
       - name: Correlare origini dati personalizzate
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
-    - name: Raccogliere dati personalizzati in Log Analytics
+    - name: Raccogliere dati personalizzati
       items:
-      - name: API di raccolta dati
+      - name: API di raccolta dati dell'archivio di log
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
-      - name: Esempio di pipeline con l'API di raccolta dati
+      - name: Esempio di pipeline con l'API di raccolta dati dell'archivio di log
         href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Dati dell'applicazione
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
+      - name: API REST dell'archivio di metriche
+        href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+      - name: Sistema operativo guest e archivio delle metriche - VM Linux (Telegraf)
+        href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json
     - name: System Center
       items:
       - name: Gestione configurazione
@@ -506,6 +503,8 @@ items:
       items:
       - name: Monitoraggio di Azure per contenitori
         items:
+        - name: Panoramica
+          href: ../monitoring/monitoring-container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Onboarding
           href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Analizzare
@@ -544,8 +543,10 @@ items:
           href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
     - name: Monitorare le macchine virtuali
       items:
-      - name: Monitoraggio di Azure per VM
+      - name: Monitoraggio di Azure per le macchine virtuali
         items:
+        - name: Panoramica
+          href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
         - name: Problemi noti
           href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
         - name: Domande frequenti
@@ -620,13 +621,13 @@ items:
       - name: APPLICAZIONI
         href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
     - name: Power BI
-      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
       items:
       - name: Esportare i dati di log
         href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
       - name: Esportare i dati dell'applicazione
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
-      - name: Inviare metriche a Grafana
+    - name: Inviare metriche a Grafana
+      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
   - name: Analizzare i dati
     items:
     - name: Creare grafici delle metriche in Esplora metriche
@@ -976,9 +977,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 01539d32b6fb4fc0dd750dd970a4f502684c34fa
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: ecb930a1dc50b1a613533068846be2d7cfaeb748
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419334"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018894"

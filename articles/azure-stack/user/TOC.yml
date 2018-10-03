@@ -22,28 +22,32 @@ items:
   expanded: true
 - name: Esercitazioni
   items:
-  - name: Creare il database SQL a disponibilità elevata
-    href: azure-stack-tutorial-sql.md
-  - name: Creare il database MySQL a disponibilità elevata
-    href: azure-stack-tutorial-mysql.md
-  - name: Distribuire app in Azure Stack e Azure
-    href: azure-stack-solution-pipeline.md
-  - name: Configurare l'identità del cloud ibrido
-    href: azure-stack-solution-hybrid-identity.md
-  - name: Configurare la connettività cloud ibrida
-    href: azure-stack-solution-hybrid-connectivity.md
-  - name: Sottoscrivere un'offerta
-    href: azure-stack-subscribe-services.md
-  - name: Creare una macchina virtuale da un modello
-    href: azure-stack-create-vm-template.md
-  - name: Creare una soluzione di apprendimento edge
-    href: azure-stack-solution-machine-learning.md
-  - name: Creare una soluzione analitica di dati di staging
-    href: azure-stack-solution-staged-data-analytics.md
-  - name: Creare soluzioni di scalabilità tra cloud con Azure
-    href: azure-stack-solution-cloud-burst.md
-  - name: Creare una soluzione di app con distribuzione geografica
-    href: azure-stack-solution-geo-distributed.md
+  - name: Attività comuni
+    items:
+    - name: Sottoscrivere un'offerta
+      href: azure-stack-subscribe-services.md
+    - name: Creare una macchina virtuale da un modello
+      href: azure-stack-create-vm-template.md
+    - name: Creare il database SQL a disponibilità elevata
+      href: azure-stack-tutorial-sql.md
+    - name: Creare il database MySQL a disponibilità elevata
+      href: azure-stack-tutorial-mysql.md
+  - name: Modelli di cloud ibrido
+    items:
+    - name: Distribuire app in Azure Stack e Azure
+      href: azure-stack-solution-pipeline.md
+    - name: Configurare l'identità del cloud ibrido
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Configurare la connettività cloud ibrida
+      href: azure-stack-solution-hybrid-connectivity.md
+    - name: Creare una soluzione di apprendimento edge
+      href: azure-stack-solution-machine-learning.md
+    - name: Creare una soluzione analitica di dati di staging
+      href: azure-stack-solution-staged-data-analytics.md
+    - name: Creare soluzioni di scalabilità tra cloud con Azure
+      href: azure-stack-solution-cloud-burst.md
+    - name: Creare una soluzione di app con distribuzione geografica
+      href: azure-stack-solution-geo-distributed.md
 - name: Guide alle procedure
   items:
   - name: Usare il portale di Azure Stack
@@ -208,9 +212,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formazione e certificazione
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: a67adb5f0b641f5f4eadfeb08c9802214d9f217b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 52dbfaf7b7ea7b6f264dcb9ac3d75aec782c8bff
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405411"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239405"

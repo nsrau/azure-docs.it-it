@@ -11,8 +11,7 @@
 # Attività iniziali
 ## [Uso del portale di Azure](data-lake-store-get-started-portal.md)
 ## [Uso di Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Uso dell'interfaccia della riga di comando di Azure 2.0](data-lake-store-get-started-cli-2.0.md)
-
+## [Uso dell'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)
 
 # Procedure
 ## Caricare e spostare dati
@@ -22,7 +21,7 @@
 ### [Con DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Uso di Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Caricare dati da origini offline](data-lake-store-offline-bulk-data-upload.md)
-### [Eseguire la migrazione di Data Lake Store tra aree](data-lake-store-migration-cross-region.md)
+### [Eseguire la migrazione di Data Lake Storage Gen1 tra aree](data-lake-store-migration-cross-region.md)
 
 ## Proteggere i dati
 ### [Panoramica della sicurezza](data-lake-store-security-overview.md)
@@ -59,7 +58,7 @@
 ### [Uso di Azure PowerShell](data-lake-store-performance-tuning-powershell.md)
 ### [Uso di Spark in HDInsight](data-lake-store-performance-tuning-spark.md)
 ### [Uso di Hive in HDInsight](data-lake-store-performance-tuning-hive.md)
-### [Uso in HDInsight](data-lake-store-performance-tuning-mapreduce.md)
+### [Uso di MapReduce in HDInsight](data-lake-store-performance-tuning-mapreduce.md)
 ### [Uso di Storm in HDInsight](data-lake-store-performance-tuning-storm.md)
 
 ## Eseguire l'integrazione con i servizi di Azure

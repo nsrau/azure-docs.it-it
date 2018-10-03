@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b11ce8bbbf4b270f7a3b9689f95b0cbfca3b14c9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 72824e5afb9f8d77c2f7d3bd01e6ff2035e95a95
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408879"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237265"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse MySQL
 
 È possibile ospitare un'istanza di MySQL in una macchina virtuale (VM) nella [Azure Stack](azure-stack-poc.md), o in una macchina virtuale all'esterno dell'ambiente Azure Stack, a condizione che il provider di risorse MySQL può connettersi all'istanza.
 
 > [!NOTE]
-> Database di MySQL devono essere creati nel server del provider di risorse MySQL. Il provider di risorse MySQL deve essere creato nella sottoscrizione del provider predefinito mentre i server di hosting MySQL devono essere creati in una sottoscrizione fatturabile, di utente. Non usare server del provider di risorse per ospitare i database utente.
+> Database MySQL devono essere creati nel server del provider di risorse MySQL. Il provider di risorse MySQL deve essere creato nella sottoscrizione del provider predefinito mentre i server di hosting MySQL devono essere creati in una sottoscrizione fatturabile, di utente. Non usare server del provider di risorse per ospitare i database utente.
 
 Le versioni di MySQL 5.6 e 5.7 8.0 possono essere utilizzate per i server di hosting. RP MySQL non supporta l'autenticazione caching_sha2_password. che verrà aggiunto nella versione successiva. 8.0 di MySQL Server devono essere configurati per usare mysql_native_password. È supportato anche MariaDB.
 

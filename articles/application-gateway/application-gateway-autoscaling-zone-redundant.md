@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5d051ed049964af708056e2963f04cb478c15906
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951509"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165230"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Gateway applicazione con scalabilità automatica ridondanza della zona (anteprima pubblica)
 
@@ -54,6 +54,7 @@ Durante l'anteprima, non è previsto alcun addebito. Viene fatturato l'uso di ri
 |Scalabilità automatica di Web application firewall|WAF non supporta la modalità di scalabilità automatica. È supportata la modalità con capacità fissa.|
 
 ## <a name="next-steps"></a>Passaggi successivi
+- [Creare un gateway applicazione con scalabilità automatica e ridondanza della zona con un indirizzo IP virtuale riservato tramite Azure PowerShell](tutorial-autoscale-ps.md)
 - Altre informazioni sul [gateway applicazione](overview.md).
 - Altre informazioni su [Firewall di Azure](../firewall/overview.md). 
 

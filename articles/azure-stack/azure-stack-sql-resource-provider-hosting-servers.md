@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 57033de3224b5966b2dfa80dd1cb45fafd83b26b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407910"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238730"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse SQL
 

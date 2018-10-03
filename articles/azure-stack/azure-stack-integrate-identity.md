@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 10/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 93b13a92bd4ac887df982433d3faac94133e1635
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139561"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042360"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -173,9 +173,9 @@ Per la procedura seguente, è necessario usare un computer con connettività di 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire il comando seguente, usando i parametri appropriati per l'ambiente:
 
    ```PowerShell  
-   [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
+    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
+    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
 
-   $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
 2. Copiare il file di metadati in un computer in grado di comunicare con l'endpoint con privilegi.
@@ -187,7 +187,7 @@ Per questa procedura, usare un computer in cui può comunicare con l'endpoint co
 1. Aprire una sessione di Windows PowerShell con privilegi elevata.
 
    ```PowerShell  
-   $federationMetadataFileContent = get-content c:\metadata.cml
+   $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
@@ -240,24 +240,27 @@ Se si decide di eseguire manualmente i comandi, seguire questa procedura:
    => issue(claim = c);
    ```
 
-2. Per abilitare l'autenticazione basata su form di Windows, aprire una sessione di Windows PowerShell come utente con privilegi elevato ed eseguire il comando seguente:
+2. Verificare che l'autenticazione basata su moduli di Windows per la rete extranet e intranet è abilitata. Per prima cosa verificare se il già abilitata eseguendo il cmdlet seguente:
 
    ```PowerShell  
-   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
+
+    > [!Note]  
+    > Il Windows Integrated Authentication (WIA) agente utente supportate stringhe potrebbero obsoleta per la distribuzione di AD FS possono richiedere di essere aggiornato per supportare i client più recenti. È possibile leggere informazioni sull'aggiornamento di WIA stringhe agente utente è supportato nell'articolo [Configuring intranet basata su form l'autenticazione per i dispositivi che non supportano WIA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br>I passaggi per abilitare i criteri di autenticazione basata su Form sono documentati nell'articolo [configurare i criteri di autenticazione](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Per aggiungere il trust della relying party, eseguire il comando Windows PowerShell seguente istanza di AD FS o un membro di farm. Assicurarsi di aggiornare l'endpoint di AD FS e puntare al file creato nel passaggio 1.
 
    **Per AD FS 2016**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **Per AD FS 2012 o 2012 R2**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
    > [!IMPORTANT]
@@ -270,12 +273,6 @@ Se si decide di eseguire manualmente i comandi, seguire questa procedura:
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
-   ```
-
-5. I portali di Azure Stack e gli strumenti (Visual Studio) richiedono i token di aggiornamento. Sarà necessario configurarle basandosi sull'attendibilità di terze parti. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire il comando seguente:
-
-   ```PowerShell  
-   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
 ## <a name="spn-creation"></a>Creazione di SPN

@@ -11,88 +11,61 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-git ms.author: sethm
+ms.date: 10/01/2018
+ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 1adfef9c679ccbe7a56178a041175713f4932aac
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: d322fe378e7f662c233e9572dfc79dcd961137bd
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056540"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237807"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit  
 Questo articolo fornisce informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit. Se non si conosce quale versione in esecuzione, è possibile [usare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Rimanere aggiornati sulle novità di ASDK sottoscrivendo il [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11808097"></a>Compilazione 1.1808.0.97
+## <a name="build-11809xxx"></a>Compilare 1.1809.x.xx
 
 ### <a name="new-features"></a>Nuove funzionalità
 Questa build include i seguenti miglioramenti e correzioni per Azure Stack.  
 
-- <!-- 2682594   | ASDK  -->   **Tutti gli ambienti Azure Stack, ora, usare il formato di fuso orario Coordinated Universal Time (UTC).**  Tutti i dati di log e informazioni correlate a questo punto viene visualizzato in formato UTC. 
+- <!--  2712869   | IS  ASDK -->  **Syslog client di Azure Stack (disponibilità generale)** questa consente l'inoltro di controlli, avvisi e i log di sicurezza relativi all'infrastruttura di Azure Stack a un syslog server o della sicurezza le informazioni ed eventi (SIEM) software di gestione esterni ad Azure Stack. Il client di syslog supporta ora specificando la porta su cui è in ascolto il server syslog.
 
-- <!-- 2437250  | IS  ASDK --> **Sono supportati i dischi gestiti.** È ora possibile usare Managed Disks in macchine virtuali di Azure Stack e set di scalabilità di macchine virtuali. Per altre informazioni, vedere [Managed Disks di Azure Stack: differenze e considerazioni](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
- 
-- <!-- 2563799  | IS  ASDK -->  **Monitoraggio di Azure**. Ad esempio monitoraggio di Azure in Azure, monitoraggio di Azure in Azure Stack offre log e metriche dell'infrastruttura di livello di base per la maggior parte dei servizi. Per altre informazioni, vedere [monitoraggio di Azure in Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
+Con questa versione, il client di syslog è disponibile a livello generale, e può essere utilizzato in ambienti di produzione.
 
-- <!-- ASDK --> **Gli elementi della raccolta per il set di scalabilità di macchine virtuali sono ora incorporati**.  Elementi della raccolta di Set di scalabilità di macchine virtuali sono ora reso disponibili nei portali di utenti e amministratori senza la necessità di eseguirne il download. 
-
-- <!-- IS, ASDK --> **Set di scalabilità di macchine virtuali ridimensionamento**.  È possibile usare il portale per [scalare un Set di scalabilità di macchine virtuali](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
-
-- <!-- 2489570 | IS ASDK--> **Supporto per le configurazioni di criteri IPSec/IKE personalizzati** per [i gateway VPN di Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
-
-- <!-- | IS ASDK--> **Elemento del marketplace Kubernetes**. È ora possibile distribuire cluster Kubernetes usando il [elemento del Marketplace di Kubernetes](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Gli utenti possono selezionare l'elemento di Kubernetes e inserire alcuni parametri per distribuire un cluster Kubernetes in Azure Stack. Lo scopo dei modelli è renderlo semplice per gli utenti alle distribuzioni di Kubernetes installazione sviluppo/test in pochi passaggi.
-
-- <!-- | IS ASDK--> **I modelli di Blockchain**. È ora possibile eseguire [distribuzioni consortium Ethereum](/azure/azure-stack/azure-stack-ethereum) in Azure Stack. È possibile trovare tre nuovi modelli nel [i modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Consentono all'utente di distribuire e configurare una rete Ethereum multimembro consorzio con una minima conoscenza di Azure ed Ethereum. Lo scopo dei modelli è renderlo semplice per gli utenti alle distribuzioni di Blockchain installazione sviluppo/test in pochi passaggi.
-
-- <!-- | IS ASDK--> **L'API versione 2017-03-09-profilo è stato aggiornato a 2018-03-01-hybrid**. I profili delle API specificano il provider di risorse di Azure e la versione dell'API per gli endpoint REST di Azure. Per altre informazioni sui profili, vedere [profili della versione di gestione API in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
-
+Per altre informazioni, vedere [l'inoltro di syslog di Azure Stack](../azure-stack-integrate-security.md).
 
 ### <a name="fixed-issues"></a>Problemi risolti
-- <!-- IS ASDK--> È stato risolto il problema per la creazione di un set di disponibilità nel portale e ciò ha provocato il set che presenta un dominio di errore e dominio di aggiornamento 1.
 
-- <!-- IS ASDK --> Le impostazioni di scalabilità a set di scalabilità di macchine virtuali sono ora disponibili nel portale.  
+- <!-- 2702741 -  IS ASDK --> Risolto un problema in cui gli indirizzi IP pubblici che sono stati distribuiti usando l'allocazione dinamica (metodo) non sono garantiti deve rimanere invariato dopo l'esecuzione di un arresto-deallocazione. Vengono ora mantenuti.
 
-- <!-- 2494144- IS, ASDK --> È stato risolto il problema che impediva che viene visualizzato quando la selezione di una dimensione di VM per la distribuzione di alcune dimensioni delle macchine virtuali serie F. 
-
-- <!-- IS, ASDK --> Miglioramenti delle prestazioni durante la creazione di macchine virtuali e altro ancora ottimizzato l'uso di archiviazione sottostante.
+- <!-- 3078022 - IS ASDK --> Se una macchina virtuale è stato di arresto-deallocazione prima 1808 causa potrebbe non essere riallocata dopo l'aggiornamento 1808.  Questo problema viene risolto in 1809. Le istanze che erano in questo stato e non è stato possibile avviare possono essere avviate in 1809 con questa correzione. La correzione impedisce inoltre il problema ricorrente.
 
 - **Varie correzioni di** per le prestazioni, stabilità, sicurezza e il sistema operativo che viene usato da Azure Stack
 
 
 ### <a name="changes"></a>Modifiche
+
 - <!-- 1697698  | IS, ASDK --> *Esercitazioni introduttive* nel collegamento utente del dashboard del portale ora articoli pertinenti nella documentazione online di Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *Tutti i servizi* sostituisce *altri servizi* nei portali di amministratore e utente di Azure Stack. È ora possibile usare *tutti i servizi* alternativa per esplorare i portali di Azure Stack gli esattamente come nei portali di Azure.
 
-- <!-- TBD | IS, ASDK --> *+ Crea una risorsa* sostituisce *+ nuovo* nei portali di amministratore e utente di Azure Stack.  È ora possibile usare *+ crea una risorsa* alternativa per esplorare i portali di Azure Stack gli esattamente come nei portali di Azure. 
-
-- <!--  TBD – IS, ASDK --> *Una base* dimensioni delle macchine virtuali sono in pensione per [creazione di set di scalabilità di macchine virtuali](.\.\azure-stack-compute-add-scalesets.md) (VMSS) tramite il portale. Per creare un set di scalabilità con queste dimensioni, usare PowerShell o un modello. 
+- <!--  TBD – IS, ASDK --> *Una base* dimensioni delle macchine virtuali sono in pensione per [creazione di set di scalabilità di macchine virtuali](../azure-stack-compute-add-scalesets.md) (VMSS) tramite il portale. Per creare un set di scalabilità con queste dimensioni, usare PowerShell o un modello. 
 
 ### <a name="known-issues"></a>Problemi noti
 
 #### <a name="portal"></a>Portale  
-- <!-- 2967387 – IS, ASDK --> L'account usato per accedere al portale di amministratore o utente di Azure Stack viene visualizzato come **utente non identificato**. Ciò si verifica quando l'account non dispone di uno una *primo* oppure *ultima* nome specificato. Per risolvere questo problema, modificare l'account utente per fornire il primo o ultimo nome. È necessario quindi disconnettersi e quindi accedere al portale. 
 
--  <!--  2873083 - IS ASDK --> Quando si usa il portale per creare un set di scalabilità di macchine virtuali (VMSS), di impostare il *dimensioni istanze* elenco a discesa non viene caricato correttamente quando si usa Internet Explorer. Per risolvere questo problema, usare un altro browser quando si usa il portale per creare un set di scalabilità.  
+- <!-- 1697698  | IS, ASDK --> *Esercitazioni introduttive* nel collegamento utente del dashboard del portale ora articoli pertinenti nella documentazione online di Azure Stack.
 
-- <!-- TBD  ASDK --> Il fuso orario predefinito per tutte le distribuzioni di Azure Stack sono ora impostati per Coordinated Universal Time (UTC). È possibile selezionare un fuso orario durante l'installazione di Azure Stack, tuttavia, la raccomandazione Annulla automaticamente all'ora UTC come impostazione predefinita durante l'installazione.
+- <!-- 2515955   | IS ,ASDK--> *Tutti i servizi* sostituisce *altri servizi* nei portali di amministratore e utente di Azure Stack. È ora possibile usare *tutti i servizi* alternativa per esplorare i portali di Azure Stack gli esattamente come nei portali di Azure.
 
-- <!-- 2931230 – IS  ASDK --> Impossibile eliminare i piani che vengono aggiunti a una sottoscrizione utente come un piano del componente aggiuntivo, anche quando si rimuove il piano dalla sottoscrizione utente. Il piano rimarrà fino a quando non vengono eliminate anche le sottoscrizioni che fanno riferimento il piano aggiuntivo. 
-
-- <!--2760466 – IS  ASDK --> Quando si installa un nuovo ambiente di Azure Stack che esegue questa versione, l'avviso che indica *attivazione obbligatoria* potrebbe non essere visualizzato. [Attivazione](.\.\azure-stack-registration.md) è necessario prima di poter usare diffusione di marketplace. 
-
-- <!-- TBD - IS ASDK --> I due tipi di sottoscrizione amministrativo che erano [introdotta con la versione 1804](.\.\azure-stack-update-1804.md#new-features) non deve essere utilizzato. I tipi di sottoscrizione siano **sottoscrizione di misurazione**, e **sottoscrizione consumo**. Questi tipi di sottoscrizione vengono **sottoscrizione di misurazione**, e **sottoscrizione consumo**. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il **sottoscrizione del Provider predefinito** tipo.
-
-- <!-- TBD -  IS ASDK --> Eliminazione utente diverso, le sottoscrizioni le risorse orfane. In alternativa, eliminare prima le risorse utente o l'intero gruppo di risorse e quindi eliminare le sottoscrizioni dell'utente.
-
-- <!-- TBD -  IS ASDK --> Non è possibile visualizzare le autorizzazioni per la sottoscrizione tramite il portale di Azure Stack. In alternativa, usare PowerShell per verificare le autorizzazioni.
-
-
+- <!--  TBD – IS, ASDK --> *Una base* dimensioni delle macchine virtuali sono in pensione per [creazione di set di scalabilità di macchine virtuali](../azure-stack-compute-add-scalesets.md) (VMSS) tramite il portale. Per creare un set di scalabilità con queste dimensioni, usare PowerShell o un modello.
 
 #### <a name="health-and-monitoring"></a>Monitoraggio dell'integrità e
+
 - <!-- 1264761 - IS ASDK -->  Si potrebbero visualizzare avvisi per i *controller integrità* componente con i dettagli seguenti:  
 
    Avviso #1:
@@ -113,6 +86,16 @@ Questa build include i seguenti miglioramenti e correzioni per Azure Stack.
 
 
 #### <a name="compute"></a>Calcolo  
+
+- <!-- 3090289 – IS, ASDK --> Dopo aver applicato la 1808 aggiornamento, si potrebbero verificare i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
+
+   1. Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
+      1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
+      2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
+   2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
+      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      2. Seguire i passaggi descritti in [questo articolo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
+
 - <!-- 2869209 – IS, ASDK --> Quando si usa la [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), è necessario usare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. Se si usa il percorso locale del disco, il cmdlet non riesce con l'errore seguente: *operazione a esecuzione prolungata non è riuscita con stato 'Non riuscita'*. 
 
 - <!--  2966665 – IS, ASDK --> Collegamento di dischi dati unità SSD alle dimensioni premium gestiti a dischi delle macchine virtuali (DS, DSv2, Fs, Fs_V2) ha esito negativo con un errore: *non è stato possibile aggiornare i dischi della macchina virtuale 'vmname' errore: non è possibile eseguire l'operazione perché il tipo di account di archiviazione richiesta ' Premium_LRS' non è supportata per dimensioni della macchina virtuale ' Standard_DS/Ds_V2/ADFS/Fs_v2)*

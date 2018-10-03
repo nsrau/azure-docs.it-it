@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1e7d3c4d5f91a74adb881840e3c5a5ac7e8f3763
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f7079d54ccae32d06488d12d45d6035c7f372d63
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053553"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236608"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack
 
@@ -74,7 +74,7 @@ Usare questi passaggi per preparare e per convalidare i certificati di infrastru
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal'
     
     $destination = 'c:\certificates'
     
@@ -94,7 +94,7 @@ Usare questi passaggi per preparare e per convalidare i certificati di infrastru
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+    Start-AzsReadinessChecker  -extensionshostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
     ```
 
 4. Controllare l'output e tutti i certificati superano tutti i test. Ad esempio: 

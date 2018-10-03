@@ -99,6 +99,9 @@ items:
       href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
     - name: Regole basate su soglie
       href: stream-analytics-threshold-based-rules.md
+    - name: Elaborare gli eventi Kafka
+      href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+      maintainContext: true
   - name: Monitorare
     items:
     - name: Monitorare i processi - Portale di Azure
@@ -198,9 +201,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: White paper - Elaborazione di eventi in tempo reale
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 28f7acf4db96fd8c839eaff288cee9a19559c201
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5984dcbe6bcd7879f28d55a3c0c6b919ed8a7351
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408944"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585833"
