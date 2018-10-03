@@ -1,22 +1,23 @@
 ---
-title: Trovare l’area LUIS con C# nei limiti di Language Understanding (LUIS) | Microsoft Docs
+title: Trovare l'area di endpoint con C# in LUIS
+titleSuffix: Azure Cognitive Services
 description: Ricerca programmatica dell'area di pubblicazione con chiave endpoint e ID dell'applicazione LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6f2688e492dbba718dc55825de164c189a9b46c9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 53c3d1abb24ae0d5b33a2a100dda07fd20ae92d1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225109"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039633"
 ---
-# <a name="region-can-be-determined-from-api-call"></a>L’area può essere determinata dalla chiamata API 
+# <a name="find-endpoint-region-with-c"></a>Trovare l'area di endpoint con C# 
 Se si dispone dell'ID dell'applicazione LUIS e dell'ID della sottoscrizione LUIS, è possibile trovare la regione da utilizzare per le query sugli endpoint.
 
 > [!NOTE] 

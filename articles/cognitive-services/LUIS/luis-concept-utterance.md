@@ -1,20 +1,21 @@
 ---
-title: Espressioni nelle app LUIS in Azure | Microsoft Docs
-description: Aggiungere espressioni nelle app Language Understanding Intelligent Service (LUIS).
+title: Espressioni in app LUIS
+titleSuffix: Azure Cognitive Services
+description: Le espressioni sono gli input dell'utente che l'app ha bisogno di interpretare. Raccogliere le frasi che si ritiene verranno immesse dagli utenti. Includere espressioni con lo stesso significato ma con una costruzione diversa in termini di lunghezza e posizione delle parole.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 39c99cc35f4c2549efc9c20af0680b77483325c5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224416"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038936"
 ---
 # <a name="utterances-in-luis"></a>Espressioni in LUIS
 
@@ -35,12 +36,14 @@ Quando si scelgono le espressioni, tenere presente che quello che si ritiene un 
 Si noterà che, anche se si fanno sforzi per creare una modelli di frase alternativi, alcuni termini verranno comunque ripetuti.
 
 Considerare queste espressioni di esempio:
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|Espressioni di esempio|
+|--|
+|come ottenere un computer?|
+|Dove ottenere un computer?|
+|Voglio ottenere un computer, come posso fare?|
+|Quando posso ottenere un computer?| 
+
 In questo caso non vengono usate alternative per il termine fondamentale "computer". Si potrebbe dire computer desktop, portatile, workstation o anche solo macchina. LUIS deduce in modo intelligente i sinonimi dal contesto, ma quando vengono create espressioni per il training, è comunque preferibile variare.
 
 ## <a name="example-utterances-in-each-intent"></a>Espressioni di esempio in ogni finalità

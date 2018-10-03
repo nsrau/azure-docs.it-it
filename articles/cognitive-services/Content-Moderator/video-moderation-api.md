@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator - moderazione video | Microsoft Docs
+title: Moderazione video - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Usare la moderazione video per analizzare possibile contenuto audace e per adulti.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: sajagtap
-ms.openlocfilehash: ef58f5990d4a0a19ab2b8c61b42ab2a0754dc6fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b6240ef0883e1a523c50c9b641065deb2669d53
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377692"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226536"
 ---
 # <a name="video-moderation"></a>Moderazione video
 
 Gli utenti di Internet oggigiorno generano miliardi di visualizzazioni video in tutti i siti Web di social media popolari e locali e il numero di visualizzazioni continua a crescere. Grazie ai servizi basati su Machine Learning che sono in grado di prevenire potenziali contenuti audaci e per adulti, è possibile ridurre il costo delle attività di moderazione.
 
-## <a name="sign-up-for-the-content-moderator-media-processor-public-preview"></a>Eseguire l'iscrizione al processore di contenuti multimediali Content Moderator (anteprima pubblica)
+## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>Eseguire l'iscrizione al processore di contenuti multimediali Content Moderator (anteprima)
 
 ### <a name="create-a-free-azure-account"></a>Creare un account di Azure gratuito
 
