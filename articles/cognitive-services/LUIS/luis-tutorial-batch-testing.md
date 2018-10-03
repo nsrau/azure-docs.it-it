@@ -1,51 +1,27 @@
 ---
-title: Usare un test in batch per migliorare le previsioni LUIS | Microsoft Docs
-titleSuffix: Azure
-description: Caricare un test in batch, esaminare i risultati e migliorare le previsioni LUIS tramite modifiche.
+title: 'Esercitazione 2: test in batch con set di 1000 espressioni '
+titleSuffix: Azure Cognitive Services
+description: Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e corregerli.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5abaeaee87d54e82df29e75b89c83522b8746730
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158246"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162542"
 ---
-# <a name="improve-app-with-batch-test"></a>Migliorare l'app con test in batch
+# <a name="tutorial-2-batch-test-data-sets"></a>Esercitazione 2: test in batch con set di dati
 
-Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni.  
-
-In questa esercitazione si apprenderà come:
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-* Creare un file di test in batch 
-* Eseguire un test in batch
-* Esaminare i risultati del test
-* Correggere gli errori 
-* Eseguire nuovamente il test in batch
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Prima di iniziare
-
-Se non si dispone dell'app relativa alle risorse umane dell'esercitazione per [esaminare le espressioni endpoint](luis-tutorial-review-endpoint-utterances.md) tutorial, [importare](luis-how-to-start-new-app.md#import-new-app) il file JSON in una nuova app nel sito Web di [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
-
-Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `batchtest`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
-
-Eseguire il training dell'app.
-
-## <a name="purpose-of-batch-testing"></a>Scopo del test in batch
+Questa esercitazione illustra come usare un test in batch per individuare i problemi di previsione delle espressioni nell'app e corregerli.  
 
 L'esecuzione di test in batch consente di convalidare lo stato del modello attivo e sottoposto a training con un set noto di espressioni ed entità etichettate. Nel file batch in formato JSON aggiungere le espressioni e impostare le etichette di entità che è necessario prevedere all'interno dell'espressione. 
-
-<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Quando si usa un'app diversa rispetto a quella di questa esercitazione, verificare che *non* si usino le espressioni di esempio già aggiunte a una finalità. Per verificare le espressioni di test in batch rispetto alle espressioni di esempio, [esportare](luis-how-to-start-new-app.md#export-app) l'app. Confrontare le espressioni di esempio dell'app alle espressioni di test in batch. 
 
 Requisiti per il test in batch:
 
@@ -53,13 +29,42 @@ Requisiti per il test in batch:
 * Assenza di duplicati. 
 * Tipi di entità consentiti: solo entità apprese in modo automatico semplici, gerarchiche (solo elemento padre) e composite. Il test in batch è utile solo per le finalità e le entità apprese in modo automatico.
 
-## <a name="create-a-batch-file-with-utterances"></a>Creare un file batch con espressioni
+Quando si usa un'app diversa rispetto a quella di questa esercitazione, *non* usare le espressioni di esempio già aggiunte a una finalità. 
 
-1. Creare `HumanResources-jobs-batch.json` in un editor di testo come [VSCode](https://code.visualstudio.com/). 
+**In questa esercitazione si apprenderà come:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Usare le app di esercitazione esistenti
+> * Creare un file di test in batch 
+> * Eseguire un test in batch
+> * Esaminare i risultati del test
+> * Correggere gli errori 
+> * Eseguire nuovamente il test in batch
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Usare l'app esistente
+
+Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+
+Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+
+2. Importare il file JSON in una nuova app.
+
+3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `batchtest`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL. 
+
+4. Eseguire il training dell'app.
+
+## <a name="batch-file"></a>File di batch
+
+1. Creare `HumanResources-jobs-batch.json` in un editor di testo o [scaricarlo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
 
 2. Nel file batch in formato JSON aggiungere espressioni con la **finalità** che si desidera prevedere nel test. 
 
-   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Eseguire il batch
 
@@ -73,13 +78,13 @@ Requisiti per il test in batch:
 
     [ ![Screenshot dell'app LUIS con l'opzione di importazione di set di dati evidenziata](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Scegliere il percorso del file system del file `HumanResources-jobs-batch.json`.
+4. Scegliere il percorso del file `HumanResources-jobs-batch.json`.
 
 5. Assegnare un nome al set di dati `intents only` e selezionare **Done** (Fatto).
 
     ![Selezionare il file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
-6. Selezionare il pulsante **Run** (Esegui). Attendere fino a quando il test non viene completato.
+6. Selezionare il pulsante **Run** (Esegui). 
 
 7. Selezionare **See results** (Visualizza risultati).
 
@@ -109,7 +114,7 @@ Si noti che entrambe le finalità hanno lo stesso numero di errori. Una stima no
 
 Le espressioni corrispondenti nella parte superiore della sezione **False positive** (Falso positivo) sono `Can I apply for any database jobs with this resume?` e `Can I apply for any database jobs with this resume?`. Per la prima espressione, la parola `resume` è stata usata solo in **ApplyForJob**. Per la seconda espressione, la parola `apply` è stata usata solo per la finalità **ApplyForJob**.
 
-## <a name="fix-the-app-based-on-batch-results"></a>Correggere l'app in base ai risultati del batch
+## <a name="fix-the-app"></a>Correggere l'app
 
 L'obiettivo di questa sezione è quello di avere tutte le espressioni stimate in modo corretto per **GetJobInformation** tramite la correzione dell'app. 
 
@@ -119,7 +124,7 @@ Può essere opportuno anche rimuovere le espressioni da **ApplyForJob** fino a q
 
 La prima soluzione consiste nell'aggiungere più espressioni a **GetJobInformation**. La seconda soluzione consiste nel ridurre il peso di parole come `resume` e `apply` rispetto alla finalità **ApplyForJob**. 
 
-### <a name="add-more-utterances-to-getjobinformation"></a>Aggiungere altre espressioni a **GetJobInformation**
+### <a name="add-more-utterances"></a>Aggiungere altre espressioni
 
 1. Chiudere il pannello di test in batch selezionando il pulsante **Test** nel pannello di navigazione superiore. 
 
@@ -149,7 +154,7 @@ La prima soluzione consiste nell'aggiungere più espressioni a **GetJobInformati
 
 4. Eseguire il training dell'app selezionando **Train** (Training) nel riquadro di spostamento in alto a destra.
 
-## <a name="verify-the-fix-worked"></a>Verificare il funzionamento delle correzioni
+## <a name="verify-the-new-model"></a>Verificare il nuovo modello
 
 Per verificare che le espressioni del test in batch siano stimate correttamente per la finalità, eseguire nuovamente il test in batch.
 
@@ -171,12 +176,12 @@ Quando si scrivono i file di batch e se ne esegue il test la prima volta, è con
 
 Il valore di un'entità **Job**, indicato nelle espressioni di test, è composto in genere da una o due parole, con alcuni esempi di più parole. Se la _propria_ app relativa alle risorse umane è composta in genere da nomi di lavoro costituiti da molte parole, le espressioni di esempio etichettate con l'entità **Job** in questa app non funzionano in modo corretto.
 
-1. Creare `HumanResources-entities-batch.json` in un editor di testo come [VSCode](https://code.visualstudio.com/). In alternativa, scaricare [il file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) dal repository Github LUIS-Samples.
+1. Creare `HumanResources-entities-batch.json` in un editor di testo come [VSCode](https://code.visualstudio.com/) o [scaricarlo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
 
 
 2. Nel file batch in formato JSON aggiungere una matrice di oggetti che includono espressioni con la **finalità** che si vuole stimare nel test nonché i percorsi di tutte le entità nell'espressione. Poiché un'entità è basata su token, verificare di iniziare e terminare ogni entità con un carattere. Non iniziare o terminare l'espressione con uno spazio. Ciò può causare un errore durante l'importazione del file batch.  
 
-   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
 
 ## <a name="run-the-batch-with-entities"></a>Eseguire il batch con le entità
@@ -222,15 +227,13 @@ Queste attività vengono lasciate all'utente.
 
 L'aggiunta di un [criterio](luis-concept-patterns.md) prima che l'entità venga stimata correttamente non permette di risolvere il problema. Ciò avviene perché il criterio non corrisponde fino a quando non vengono rilevate tutte le entità nel criterio stesso. 
 
-## <a name="what-has-this-tutorial-accomplished"></a>Risultati dell'esercitazione
-
-L'accuratezza della stima dell'app è aumentata grazie alla ricerca di errori nel batch e alla correzione del modello. 
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+L'esercitazione si è servita di un test di batch per individuare i problemi con il modello attuale. Il modello è stato corretto e testato nuovamente con il file batch per verificare che la modifica sia avvenuta correttamente.
 
 > [!div class="nextstepaction"]
 > [Informazioni sui criteri](luis-tutorial-pattern.md)

@@ -1,22 +1,23 @@
 ---
-title: Informazioni sull'archiviazione dei dati in LUIS - Azure | Microsoft Docs
-description: Informazioni sull'archiviazione dei dati nel servizio LUIS (Language Understanding)
+title: Archiviazione dati in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
+description: Informazioni sull'archiviazione dei dati nel servizio LUIS (Language Understanding). LUIS archivia i dati crittografati in un archivio dati di Azure corrispondente alla regione specificata dalla chiave.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e4e289db0803a127bdbff5122095ae2125cdbb38
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6d42246b3078e0f4684dfe29bca720e8f8d779cd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226193"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034706"
 ---
-# <a name="data-storage-and-removal"></a>Archiviazione e rimozione dei dati
+# <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Archiviazione e rimozione dei dati nei Servizi cognitivi di LUIS (Language Understanding)
 LUIS archivia i dati crittografati in un archivio dati di Azure corrispondente alla regione specificata dalla chiave. Questi dati vengono archiviati per 30 giorni. 
 
 ## <a name="export-and-delete-app"></a>Esportare ed eliminare l'app

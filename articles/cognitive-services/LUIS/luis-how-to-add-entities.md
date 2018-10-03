@@ -1,21 +1,21 @@
 ---
-title: Aggiungere entità in app LUIS | Microsoft Docs
-titleSuffix: Azure
+title: Aggiungere entità in app LUIS
+titleSuffix: Azure Cognitive Services
 description: Aggiungere entità (dati chiave nel dominio dell'applicazione) in app LUIS (Language Understanding).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e82955da24e127e5536c2e40ad2cccf07c5fa173
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224127"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032003"
 ---
 # <a name="manage-entities"></a>Gestire le entità
 Dopo aver identificato le [finalità](luis-concept-intent.md) dell'app, è necessario [etichettare espressioni di esempio](luis-concept-utterance.md) con [entità](luis-concept-entity-types.md). Le entità sono le parti importanti di un comando o di una domanda e possono essere essenziali affinché l'app del cliente esegua l'attività prevista. 
@@ -31,8 +31,6 @@ Le entità predefinite sono stabilite nel progetto [Recognizers-Text](https://gi
  
 2. Nella pagina **Entities** (Entità) fare clic su **Manage prebuilt entities** (Gestisci entità predefinite).
 
-    ![Schermata dell'aggiunta di entità predefiniti nella pagina delle entità](./media/add-entities/manage-prebuilt-entities-button.png)
-
 3. Nella finestra di dialogo **Add or remove prebuilt entities** (Aggiungi o rimuovi entità predefinite) selezionare le entità predefinite **number** e **datetimeV2**. Al termine selezionare **Done** (Fine).
 
     ![Schermata della finestra di dialogo di aggiunta entità predefinite](./media/add-entities/list-of-prebuilt-entities.png)
@@ -43,8 +41,6 @@ Le entità predefinite sono stabilite nel progetto [Recognizers-Text](https://gi
 Un'entità semplice è un'entità generica che descrive un singolo concetto. 
 
 1. Nella sezione **Build** (Compila) dell'app fare clic su **Entities** (Entità) nel pannello a sinistra e quindi selezionare **Create new entity** (Crea nuova entità).
-
-    ![Schermata della pagina Entities (Entità) con il pulsante Create new entity (Crea nuova entità) evidenziato](./media/add-entities/create-new-entity-button.png)
 
 2. Nella finestra di dialogo popup digitare `Airline` nella casella **Entity name** (Nome entità), selezionare **Simple** (Semplice) nell'elenco **Entity type** (Tipo di entità) e quindi selezionare **Done** (Fine).
 
@@ -57,7 +53,7 @@ Un'entità di espressione regolare viene usata per estrarre dati dall'espression
 
 1. Nel pannello di spostamento a sinistra dell'app selezionare **Entities** (Entità) e quindi selezionare **Create new entity** (Crea nuova entità).
 
-2. Nella finestra di dialogo popup digitare `AirFrance Flight` nella casella **Entity name** (Nome entità), selezionare **Regular expression** (Espressione regolare) nell'elenco **Entity type** (Tipo di entità), immettere l'espressione regolare `AFR[0-9]{3,4}` e quindi selezionare **Done** (Fine). 
+2. Nella finestra di dialogo popup immettere `AirFrance Flight` nella casella **Entity name** (Nome entità), selezionare **Regular expression** (Espressione regolare) nell'elenco **Entity type** (Tipo di entità), immettere l'espressione regolare `AFR[0-9]{3,4}` e quindi selezionare **Done** (Fine). 
 
     L'espressione regolare AirFrance Flight si aspetta tre caratteri, ovvero `AFR`, quindi 3 o 4 cifre. Le cifre possono essere un qualsiasi numero compreso tra 0 e 9. L'espressione regolare corrisponde ai numeri di volo AirFrance, ad esempio AFR101", "ARF1302" e "AFR5006". Per altre informazioni sull'estrazione dell'entità dalla risposta alla query JSON sull'endpoint, vedere [Estrazione di dati](luis-concept-data-extraction.md).
 
@@ -80,7 +76,7 @@ Per aggiungere entità gerarchiche, seguire questa procedura:
 
 3. Selezionare **Add Child** (Aggiungi figlio) e quindi digitare "Origine" nella casella **Child #1** (Figlio n. 1). 
 
-4. Selezionare **Add Child** (Aggiungi figlio) e quindi digitare "Destinazione" nella casella **Child #2** (Figlio n. 2). Selezionare **Done** (Fine).
+4. Selezionare **Add Child** (Aggiungi figlio) e quindi digitare "Destinazione" nella casella **Child #2** (Figlio n. 2). Selezionare **Operazione completata**.
 5. 
     >[!NOTE]
     >Per eliminare un figlio, selezionare l'icona del Cestino accanto all'elemento stesso.
@@ -111,7 +107,7 @@ Nell'espressione `Book 2 tickets from Seattle to Cairo` il numero 2 viene associ
 
 8. Nella casella **Child #3** (Figlio n. 3) selezionare l'entità **Location::Destination** nell'elenco. 
 
-9. Selezionare **Done** (Fine).
+9. Selezionare **Operazione completata**.
 
     ![Immagine della finestra di dialogo per creare un'entità composita](./media/add-entities/ticketsorder-composite-entity.png)
 
@@ -171,7 +167,7 @@ Per un'entità di elenco di una serie di bevande, è possibile avere due valori 
 
 1. Nella sezione **Build** (Compila) dell'app fare clic su **Entities** (Entità) nel pannello a sinistra e quindi selezionare **Create new entity** (Crea nuova entità).
 
-2. Nella finestra di dialogo **Add Entity** (Aggiungi entità) digitare `Drinks` nella casella **Entity name** (Nome entità) e selezionare **List** (Elenco) come **Entity type** (Tipo di entità). Selezionare **Done** (Fatto).
+2. Nella finestra di dialogo **Add Entity** (Aggiungi entità) digitare `Drinks` nella casella **Entity name** (Nome entità) e selezionare **List** (Elenco) come **Entity type** (Tipo di entità). Selezionare **Operazione completata**.
  
     ![Immagine della finestra di dialogo per la creazione dell'entità elenco Drinks](./media/add-entities/menu-list-dialog.png)
   
@@ -207,7 +203,7 @@ Per un'entità di elenco di una serie di bevande, è possibile avere due valori 
 
  3. Per altre informazioni sulla sintassi di elenchi in JSON, selezionare **Learn about supported list syntax** (Informazioni sulla sintassi di elenchi supportata) per espandere la finestra di dialogo e visualizzare un esempio di sintassi consentita. Per comprimere la finestra di dialogo e nascondere la sintassi, selezionare nuovamente il titolo del collegamento.
 
- 4. Selezionare **Done** (Fatto).
+ 4. Selezionare **Operazione completata**.
 
     Un esempio di codice JSON valido per un'entità elenco **Colors** viene visualizzato nel codice in formato JSON seguente:
 
