@@ -1,42 +1,54 @@
 ---
-title: Azure Content Moderator - Creare revisioni di video usando .NET | Microsoft Docs
-description: Come creare revisioni di video usando Azure Content Moderator SDK per .NET
+title: Creare revisioni di video usando .NET - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Come creare revisioni di video usando Content Moderator SDK per .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
 ms.author: sajagtap
-ms.openlocfilehash: cb487314b8695f3676fdb22a9d7e3ec5ca3ed9f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373396"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219041"
 ---
 # <a name="create-video-reviews-using-net"></a>Creare revisioni di video usando .NET
 
-Questo articolo contiene informazioni ed esempi di codice per iniziare rapidamente a usare Content Moderator SDK con C# allo scopo di:
+Questo articolo contiene informazioni ed esempi di codice per iniziare rapidamente a usare [Content Moderator SDK con C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) allo scopo di:
 
-- Creare una revisione di un video per moderatori umani
+- Creare la revisione di un video per moderatori umani
 - Aggiungere fotogrammi a una revisione
 - Ottenere i fotogrammi per la revisione 
 - Ottenere lo stato e i dettagli della revisione
 - Pubblicare la revisione
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In questo articolo si presuppone che sia stato [moderato il video (vedere la guida introduttiva)](video-moderation-api.md) e che siano disponibili i dati di risposta, indispensabili per creare revisioni basate su fotogrammi per i moderatori umani.
 
 Questo articolo presuppone anche che si abbia già familiarità con Visual Studio e C#.
 
-### <a name="sign-up-for-content-moderator-services"></a>Eseguire la registrazione per i servizi Content Moderator
+## <a name="sign-up-for-content-moderator"></a>Iscriversi a Content Moderator
 
 Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria una chiave di sottoscrizione.
+Vedere la [guida introduttiva](quick-start.md) per informazioni su come ottenere la chiave.
 
-Nel dashboard di Content Moderator è possibile trovare la chiave di sottoscrizione in **Settings** (Impostazioni) > **Credentials** (Credenziali) > **API** > **Trial Ocp-Apim-Subscription-Key** (Ocp-Apim-Subscription-Key di valutazione). Per altre informazioni, vedere la [panoramica](overview.md).
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Effettuare l'iscrizione per un account dello strumento di revisione se non è stata effettuata nel passaggio precedente
+
+Se è stato ottenuto il Content Moderator dal portale di Azure, [effettuare anche l'iscrizione per l'account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e creare un team di revisione. Sono necessari l'ID del team e lo strumento di revisione per chiamare l'API di revisione in modo che avvi un processo e visualizzi le revisioni nello strumento stesso.
+
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificare che la chiave API possa chiamare l'API di verifica per la creazione della revisione
+
+Dopo aver completato i passaggi precedenti, si potrebbero avere due chiavi di Content Moderator se la procedura è stata avviata dal portale di Azure. 
+
+Se si prevede di usare la chiave API fornita da Azure nell'esempio di SDK, seguire i passaggi indicati nella sezione [Usare la chiave di Azure con l'API di revisione](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) per consentire all'applicazione di chiamare l'API di revisione e creare revisioni.
+
+Se si usa la chiave di prova gratuita generata dallo strumento di revisione, l'account dello strumento di revisione conosce già la chiave e di conseguenza non sono necessari passaggi aggiuntivi.
 
 ### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Preparare il video e i fotogrammi video per la revisione
 
@@ -118,9 +130,9 @@ Dove indicato, sostituire i valori di esempio per queste proprietà.
             /// </summary>
             /// <remarks>This must be the team name you used to create your 
             /// Content Moderator account. You can retrieve your team name from
-            /// the Conent Moderator web site. Your team name is the Id associated 
+            /// the Content Moderator web site. Your team name is the Id associated 
             /// with your subscription.</remarks>
-            public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+            private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
             /// <summary>
             /// The base URL fragment for Content Moderator calls.
@@ -150,26 +162,26 @@ Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews,
     {
         return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-            BaseUrl = AzureBaseURL
+            Endpoint = AzureBaseURL
         };
     }
 
 ## <a name="create-a-video-review"></a>Creare la revisione di un video
 
-Creare la revisione di un video con **ContentModeratorClient.Reviews.CreateVideoReviews**. Per altre informazioni, vedere le [informazioni di riferimento sull'API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Creare la revisione di un video con **ContentModeratorClient.Reviews.CreateVideoReviews**. Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-**CreateVideoReviews** ha i parametri obbligatori seguenti:
+L'oggetto **CreateVideoReviews** ha i parametri obbligatori seguenti:
 1. Stringa contenente un tipo MIME, che deve essere "application/json". 
 1. Nome del team di Content Moderator.
-1. Oggetto **IList<CreateVideoReviewsBodyItem>**. Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. In questa guida introduttiva viene creata una revisione alla volta.
+1. Oggetto **IList<CreateVideoReviewsBodyItem>**. Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
 
-**CreateVideoReviewsBodyItem** ha diverse proprietà. Impostare almeno le proprietà seguenti:
+L'oggetto **CreateVideoReviewsBodyItem** include diverse proprietà. Impostare almeno le proprietà seguenti:
 - **Content**. URL del video da rivedere.
 - **ContentId**. ID da assegnare alla revisione del video.
-- **Status**. Impostare il valore su "Unpublished". Se non si imposta questa proprietà, il valore predefinito è "Pending", vale a dire che la revisione del video è pubblicata e la revisione umana è in sospeso. Dopo la pubblicazione della revisione di un video, non è più possibile aggiungere fotogrammi video, una trascrizione o il risultato della moderazione di una trascrizione.
+- **Status**. Impostare il valore su "Unpublished". Se non si imposta questa proprietà, il valore predefinito è "Pending", vale a dire che la revisione del video è pubblicata e la revisione umana è in sospeso. Dopo la pubblicazione della revisione di un video, non è più possibile aggiungervi fotogrammi video, una trascrizione o il risultato della moderazione di una trascrizione.
 
 > [!NOTE]
-> **CreateVideoReviews** restituisce un oggetto IList<string>. Ognuna di queste stringhe contiene un ID per la revisione di un video. Questi ID sono GUID e non hanno lo stesso valore della proprietà **ContentId**. 
+> L'oggetto **CreateVideoReviews** restituisce un oggetto IList<string>. Ognuna di queste stringhe contiene un ID per la revisione di un video. Questi ID sono GUID e non sono uguali al valore della proprietà **ContentId**. 
 
 Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews, classe Program.
 
@@ -310,7 +322,7 @@ Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews,
     {
         Console.WriteLine("Getting frames for the review with ID {0}.", review_id);
 
-        Frames result = client.Reviews.GetVideoFrames(TeamName, review_id, 0, Int32.MaxValue);
+        Frames result = client.Reviews.GetVideoFrames(TeamName, review_id, 0);
         Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
         Thread.Sleep(throttleRate);
@@ -342,11 +354,11 @@ Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews,
 
 ## <a name="publish-video-review"></a>Pubblicare la revisione di un video
 
-È possibile pubblicare la revisione di un video con **ContentModeratorClient.Reviews.PublishVideoReview**. **PublishVideoReview** ha i parametri obbligatori seguenti:
+È possibile pubblicare la revisione di un video con **ContentModeratorClient.Reviews.PublishVideoReview**. L'oggetto **PublishVideoReview** ha i parametri obbligatori seguenti:
 1. Nome del team di Content Moderator.
 1. ID della revisione del video restituito da **CreateVideoReviews**.
 
-Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews, classe Program.
+Aggiungere la definizione del metodo seguente nello spazio dei nomi VideoReviews, classe Program.
 
     /// <summary>
     /// Publish the indicated video review. For more information, see the reference API:
@@ -391,7 +403,7 @@ Aggiungere la definizione del metodo **Main** allo spazio dei nomi VideoReviews,
 
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
-            Console.Read();
+            Console.ReadKey();
         }
     }
 
@@ -536,8 +548,8 @@ Al termine del processo, è possibile visualizzare la revisione del video con l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+Per questa e altre guide introduttive Content Moderator per .NET, ottenere [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e la [soluzione Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
+
 Altre informazioni su come aggiungere una [moderazione di una trascrizione](video-transcript-moderation-review-tutorial-dotnet.md) alla revisione del video. 
 
 Fare riferimento all'esercitazione dettagliata su come sviluppare una [soluzione completa di moderazione video](video-transcript-moderation-review-tutorial-dotnet.md).
-
-[Scaricare la soluzione Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) per questa e altre guide introduttive di Content Moderator per .NET.

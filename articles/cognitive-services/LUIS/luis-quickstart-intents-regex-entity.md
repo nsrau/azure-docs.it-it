@@ -1,71 +1,69 @@
 ---
-title: "Esercitazione: Creazione di un'app di Language Understanding per ottenere dati di corrispondenza di espressioni regolari - Azure | Microsoft Docs"
-description: Questa esercitazione illustra come creare una semplice app di Language Understanding usando finalità e un'entità di espressione regolare per estrarre dati.
+title: "Esercitazione 3: dati corrispondenti a un'espressione regolare - estrarre dati con formattazione corretta"
+titleSuffix: Azure Cognitive Services
+description: Estrarre dati formattati coerentemente da un'espressione usando l'entità di espressione regolare.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9672215c8cc5f95775e3b7fba74b27379a58ff49
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 06e212ef756fda9224b38b41c69c7c4eccfb9796
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162928"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159857"
 ---
-# <a name="tutorial-3-add-regular-expression-entity"></a>Esercitazione: 3. Aggiungere un'entità di espressione regolare
-Questa esercitazione illustra come creare un'app che dimostra come estrarre dati formattati in modo coerente da un'espressione usando l'entità di **espressione regolare**.
+# <a name="tutorial-3-extract-well-formatted-data"></a>Esercitazione 3: estrarre dati con formattazione corretta
+Questa esercitazione illustra come modificare l'app Human Resources per estrarre dati formattati in modo coerente da un'espressione usando l'entità **Espressione regolare**.
 
+Lo scopo di un'entità è estrarre i dati importanti contenuti all'interno dell'espressione. Questa app usa l'entità di espressione regolare per estrarre numeri di modulo formattati delle Risorse Umane (HR) da un'espressione. Mentre la finalità dell'espressione è sempre stabilita tramite Machine Learning, ciò non vale per questo tipo di entità specifico. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Comprendere le entità di espressione regolare 
-> * Usare un'app di Language Understanding per il settore delle risorse umane (HR) con la finalità FindForm
-> * Aggiungere un'entità di espressione regolare per estrarre il numero di modulo dall'espressione
-> * Eseguire il training e pubblicare l'app
-> * Eseguire query sull'endpoint dell'app per ottenere una risposta JSON di Language Understanding
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Prima di iniziare
-Se non è disponibile l'app relativa alle risorse umane descritta nell'esercitazione sulle [entità predefinite](luis-tutorial-prebuilt-intents-entities.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website) dal repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
-
-Se si vuole mantenere l'app originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `regex`. La clonazione è un ottimo modo per provare le diverse funzionalità di Language Understanding senza modificare la versione originale. 
-
-
-## <a name="purpose-of-the-regular-expression-entity"></a>Scopo dell'entità di espressione regolare
-Lo scopo di un'entità è ottenere i dati importanti contenuti nell'espressione. L'app usa l'entità di espressione regolare per estrarre numeri di modulo formattati delle Risorse Umane (HR) da un'espressione. L'operazione non si basa su Machine Learning. 
-
-Espressioni di esempio semplici includono:
+**Le espressioni di esempio includono:**
 
 ```
 Where is HRF-123456?
 Who authored HRF-123234?
 HRF-456098 is published in French?
-```
-
-Le versioni abbreviate o gergali delle espressioni includono:
-
-```
 HRF-456098
 HRF-456098 date?
 HRF-456098 title?
 ```
  
-L'entità di espressione regolare per individuare il numero di modulo è `hrf-[0-9]{6}`. Questa espressione regolare individua i caratteri letterali `hrf -` ma ignora le varianti di maiuscole/minuscole e di cultura. Individua le cifre 0-9, esattamente per 6 cifre.
+Un'espressione regolare è una scelta appropriata per questo tipo di dati quando:
 
-HRF sta per "modulo risorse umane".
+* i dati sono formattati correttamente.
 
-### <a name="tokenization-with-hyphens"></a>Tokenizzazione con trattini
-Language Understanding suddivide l'espressione in token quando l'espressione viene aggiunta a una finalità. La suddivisione in token per queste espressioni aggiunge spazi prima e dopo il trattino, `Where is HRF - 123456?`. L'espressione regolare viene applicata all'espressione nella forma non elaborata, prima della suddivisione in token. Dato che viene applicata alla forma _non elaborata_, l'espressione regolare non deve gestire i confini di parola. 
+**In questa esercitazione si apprenderà come:**
 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Usare l'app di esercitazione esistente
+> * Aggiungere la finalità FindForm
+> * Aggiungere un'entità di espressione regolare 
+> * Eseguire il training
+> * Pubblica
+> * Ottenere finalità ed entità dall'endpoint
 
-## <a name="add-findform-intent"></a>Aggiungere la finalità FindForm
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-1. Assicurarsi che l'app Risorse umane sia presente nella sezione **Build** di Language Understanding. È possibile passare a questa sezione selezionando **Build** (Compila) nella barra dei menu in alto a destra. 
+## <a name="use-existing-app"></a>Usare l'app esistente
+Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+
+Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+
+1. Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json).
+
+2. Importare il file JSON in una nuova app.
+
+3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `regex`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL. 
+
+## <a name="findform-intent"></a>Finalità FindForm
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Create new intent** (Crea nuova finalità). 
 
@@ -92,38 +90,46 @@ Language Understanding suddivide l'espressione in token quando l'espressione vie
 
     L'applicazione ha un'entità numero predefinita aggiunta con l'esercitazione precedente, quindi ogni numero di modulo è contrassegnato. Ciò può essere sufficiente per l'applicazione client, ma il numero non sarà etichettato con il tipo di numero. La creazione di una nuova entità con un nome appropriato consente all'applicazione client di elaborare correttamente l'entità quando viene restituita da Language Understanding.
 
-## <a name="create-an-hrf-number-regular-expression-entity"></a>Creare un'entità di espressione regolare per i numeri HRF 
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="regular-expression-entity"></a>Entità di espressione regolare 
+L'entità di espressione regolare per individuare il numero di modulo è `hrf-[0-9]{6}`. Questa espressione regolare individua i caratteri letterali `hrf-` ma ignora le varianti di maiuscole/minuscole e di cultura. Individua le cifre 0-9, esattamente per 6 cifre.
+
+HRF è l'acronimo di `human resources form`.
+
+Language Understanding suddivide l'espressione in token quando questa viene aggiunta a una finalità. La suddivisione in token per queste espressioni aggiunge spazi prima e dopo il trattino, `Where is HRF - 123456?`. L'espressione regolare viene applicata all'espressione nella forma non elaborata, prima della suddivisione in token. Dato che viene applicata alla forma _non elaborata_, l'espressione regolare non deve gestire i confini di parola. 
+
 Creare un'entità di espressione regolare per indicare a Language Understanding cos'è un formato di numero HRF seguendo questa procedura:
 
 1. Selezionare **Entities** (Entità) nel pannello di sinistra.
 
 2. Selezionare il pulsante **Create new entity** (Crea nuova entità) nella pagina Entities (Entità). 
 
-3. Nella finestra di dialogo popup, immettere il nome della nuova entità `HRF-number`, selezionare **RegEx**  come tipo di entità, immettere `hrf-[0-9]{6}` come espressione regolare, quindi selezionare **Done**  (Fine).
+3. Nella finestra di dialogo popup, immettere il nome della nuova entità `HRF-number`, selezionare **RegEx** come tipo di entità, immettere `hrf-[0-9]{6}` come valore **Regex**, quindi selezionare  **Done** (Fine).
 
     ![Schermata della finestra di dialogo popup per l'impostazione delle proprietà della nuova entità](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-4. Selezionare **Intents** (Finalità) e quindi la finalità **FindForm** per visualizzare l'espressione regolare etichettata nelle espressioni. 
+4. Selezionare **Intents** (Finalità) dal menu a sinistra, quindi la finalità **FindForm** per visualizzare l'espressione regolare etichettata nelle espressioni. 
 
     [![Schermata di etichettatura delle espressioni con l'entità esistente e il modello di espressione regolare](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
     Poiché l'entità non è un'entità di Machine Learning, l'etichetta viene applicata alle espressioni e visualizzata nel sito Web di Language Understanding non appena viene creata.
 
-## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
+## <a name="train"></a>Eseguire il training
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
+## <a name="publish"></a>Pubblica
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
+## <a name="get-intent-and-entities-from-endpoint"></a>Ottenere finalità ed entità dall'endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `When were HRF-123456 and hrf-234567 published in the last year?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `FindForm` con i due numeri di modulo `HRF-123456` e `hrf-234567`.
 
-    ```
+    ```JSON
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
@@ -221,19 +227,13 @@ Creare un'entità di espressione regolare per indicare a Language Understanding 
 
     I numeri nell'espressione vengono restituiti due volte, una come nuova entità `hrf-number` e una come entità predefinita `number`. Un'espressione può avere più di un'entità e più di un tipo di entità, come illustrato in questo esempio. Usando un'entità di espressione regolare, Language Understanding estrae dati denominati, risultato più utile a livello di codice per l'applicazione client che riceve la risposta JSON.
 
-## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
-Questa app identificato la finalità e restituito i dati estratti. 
-
-Il chatbot ha ora informazioni sufficienti per determinare l'azione principale, `FindForm`, e quali numeri di modulo erano nella ricerca. 
-
-## <a name="where-is-this-luis-data-used"></a>Qual è la destinazione d'uso dei dati di Language Understanding? 
-Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, ad esempio un chatbot, può acquisire il risultato topScoringIntent e i numeri di modulo ed eseguire ricerche in un'API di terze parti. Language Understanding non esegue queste operazioni, ma determina solo l'intenzione dell'utente ed estrae i dati relativi a tale intenzione. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+In questa esercitazione è stata creata una nuova finalità, sono state aggiunte espressioni di esempio, quindi è stata creata un'entità Espressione regolare per estrarre dati formattati correttamente dalle espressioni. Dopo il training e la pubblicazione dell'app, una query per l'endpoint ha identificato la finalità e restituito i dati estratti.
 
 > [!div class="nextstepaction"]
 > [Informazioni sull'entità di elenco](luis-quickstart-intent-and-list-entity.md)

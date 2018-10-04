@@ -2,19 +2,22 @@
 title: Introduzione alle tabelle temporali nel database SQL di Azure | Microsoft Docs
 description: Informazioni introduttive sull'uso delle tabelle temporali nel database SQL di Azure.
 services: sql-database
-author: bonova
-ms.date: 03/21/2018
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 140d2c9f6c334cec7d2761d05d7b20eb7106b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 03/21/2018
+ms.openlocfilehash: d18630f9b4cea28bd19b2ac24e7b8c3d1822e17c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649041"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166419"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introduzione alle tabelle temporali nel database SQL di Azure
 Le tabelle temporali sono una nuova funzionalità di programmabilità del database SQL di Azure che consente di monitorare e analizzare la cronologia completa delle modifiche ai dati, senza dover scrivere codice personalizzato. Le tabelle temporali mantengono i dati strettamente correlati al contesto temporale, in modo che i fatti archiviati possano essere interpretati come validi solo entro il periodo specifico. Questa proprietà delle tabelle temporali consente di eseguire un'analisi efficace basata sul tempo e di ottenere informazioni accurate dall'evoluzione dei dati.
@@ -22,7 +25,7 @@ Le tabelle temporali sono una nuova funzionalità di programmabilità del databa
 ## <a name="temporal-scenario"></a>Scenario temporale
 Questo articolo illustra la procedura per l'utilizzo delle tabelle temporali in uno scenario di applicazione. Si supponga di voler tenere traccia delle attività dell'utente in un nuovo sito Web sviluppato da zero o in un sito Web esistente che si vuole estendere con l'analisi delle attività dell'utente. In questo esempio semplificato si presuppone che il numero di pagine Web visitate in un arco di tempo sia un indicatore da acquisire e monitorare nel database del sito Web, ospitato in un database SQL di Azure. L'obiettivo dell'analisi cronologica delle attività dell'utente è ottenere informazioni per riprogettare il sito Web e offrire un'esperienza migliore ai visitatori.
 
-Il modello di database per questo scenario è molto semplice: la metrica dell'attività utente è rappresentata con un singolo campo integer, **PageVisited**, e viene acquisita insieme alle informazioni di base sul profilo utente. Per l'analisi basata sul tempo si usa anche una serie di righe per ogni utente e ogni riga rappresenta il numero di pagine visitate da un determinato utente all'interno di un arco di tempo specifico.
+Il modello di database per questo scenario è molto semplice: la metrica dell'attività utente è rappresentata con un singolo campo integer, **PageVisited**, e viene acquisita insieme alle informazioni di base sul profilo utente. Inoltre, per l'analisi basata sul tempo si usa anche una serie di righe per ogni utente e ognuna di esse rappresenta il numero di pagine visitate da un determinato utente in un arco di tempo specifico.
 
 ![SCHEMA](./media/sql-database-temporal-tables/AzureTemporal1.png)
 

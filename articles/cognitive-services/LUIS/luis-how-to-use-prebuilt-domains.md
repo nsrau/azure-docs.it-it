@@ -1,20 +1,21 @@
 ---
-title: Uso dei domini predefiniti nelle applicazioni LUIS in Azure | Microsoft Docs
-description: Imparare a usare domini predefiniti nelle applicazioni di in Language Understanding Intelligent Service (LUIS).
+title: Usare domini predefiniti per creare app più velocemente in LUIS
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) fornisce domini predefiniti, ovvero gruppi predefiniti di finalità ed entità che cooperano in funzione di domini o di categorie generiche di applicazioni client. I domini predefiniti sono stati sottoposti a training preventivo e sono pronti da aggiungere all'app LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1aa7e1bf9c1a584803a60a5061b4ae4cc8664ff4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224178"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037372"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>Usare i domini predefiniti nelle app LUIS  
 

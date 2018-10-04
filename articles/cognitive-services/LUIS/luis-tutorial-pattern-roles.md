@@ -1,80 +1,70 @@
 ---
-title: Esercitazione che usa i ruoli di criteri per migliorare le stime LUIS - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: In questa esercitazione usare i ruoli di criteri per le entità correlate in base al contesto per migliorare le stime di LUIS.
+title: 'Esercitazione 4: ruoli dei criteri per dati correlati in base al contesto'
+titleSuffix: Azure Cognitive Services
+description: Usare un criterio per estrarre dati da un'espressione modello formattata in modo corretto. L'espressione modello usa un'entità semplice e i ruoli per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161935"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160248"
 ---
-# <a name="tutorial-improve-app-with-pattern-roles"></a>Esercitazione: Migliorare le app con i ruoli di criteri
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Esercitazione 4: estrarre criteri correlati in base al contesto
 
-In questa esercitazione usare un'entità semplice con i ruoli combinati con i criteri per aumentare la stima di finalità ed entità.  Quando si usano i criteri, per la finalità sono necessarie meno espressioni di esempio.
+Questa esercitazione illustra come usare un criterio per estrarre dati da un'espressione modello formattata in modo corretto. L'espressione modello usa un'entità semplice e i ruoli per estrarre i dati correlati, ad esempio il percorso di origine e destinazione.  Quando si usano i criteri, per la finalità sono necessarie meno espressioni di esempio.
 
-> [!div class="checklist"]
-* Comprendere i ruoli di criteri
-* Usare un'entità semplice con i ruoli 
-* Crea criteri per le espressioni tramite entità semplici con i ruoli
-* Come verificare i miglioramenti di stima del criterio
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Prima di iniziare
-Se non si dispone dell'app relativa alle risorse umane dell'esercitazione relativa ai [criteri](luis-tutorial-pattern.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json).
-
-Se si vuole mantenere l'app originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `roles`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
-
-## <a name="the-purpose-of-roles"></a>Scopo dei ruoli
 Lo scopo dei ruoli è quello di estrarre le entità correlate in base al contesto in un'espressione. Nell'espressione `Move new employee Robert Williams from Sacramento and San Francisco` i valori della città di origine e di destinazione sono correlati tra loro e usano il linguaggio comune per denotare ogni luogo. 
 
-Quando si usano i criteri, tutte le entità nel criterio devono essere rilevate _prima_ che il criterio corrisponda all'espressione. 
 
-Quando si crea un criterio, il primo passo è quello di selezionare una finalità per il criterio. Se si seleziona la finalità e se il criterio corrisponde, la finalità corretta viene sempre restituita con un punteggio elevato (in genere 99-100%). 
-
-### <a name="compare-hierarchical-entity-to-simple-entity-with-roles"></a>Confrontare entità gerarchiche a entità semplici con i ruoli
-
-Nell'[esercitazione relativa alle entità gerarchiche](luis-quickstart-intent-and-hier-entity.md) la finalità **MoveEmployee** rilevava il momento in cui si spostava un dipendente esistente da un edificio o da un ufficio a un altro. Per le espressioni di esempio erano presenti luoghi di origine e di destinazione, ma non venivano usati i ruoli. L'origine e la destinazione erano invece elementi figlio dell'entità gerarchica. 
-
-In questa esercitazione, l'app relativa alle risorse umane rileva espressioni sullo spostamento di nuovi dipendenti da una città a un'altra. Questi due tipi di espressioni sono simili, ma realizzati con funzionalità di LUIS diverse.
-
-|Esercitazione|Espressione di esempio|Luoghi di origine e destinazione|
-|--|--|--|
-|[Entità gerarchiche (senza ruoli)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|Questa esercitazione (con i ruoli)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-Non è possibile usare l'entità gerarchica nel criterio perché solo gli elementi gerarchici padre vengono usati nei criteri. Per restituire i luoghi di origine e destinazione, è necessario usare un criterio.
-
-### <a name="simple-entity-for-new-employee-name"></a>Entità semplice per il nuovo nome del dipendente
 Il nome del nuovo dipendente, Billy Patterson, non fa ancora parte dell'elenco di entità **Employee**. Il nome del nuovo dipendente viene estratto prima in modo da inviarlo a un sistema esterno per creare le credenziali aziendali. Dopo che le credenziali aziendali sono state create, le credenziali del dipendente vengono aggiunte all'entità elenco **Employee**.
 
-L'elenco **Employee** è stato creato nell'[esercitazione relativa agli elenchi](luis-quickstart-intent-and-list-entity.md).
-
-La nuova entità **NewEmployee** è un'entità semplice senza alcun ruolo. 
-
-### <a name="simple-entity-with-roles-for-relocation-cities"></a>Entità semplice con i ruoli per le città di trasferimento
 Il nuovo dipendente e la famiglia devono essere spostati dalla città corrente a una città in cui si trova la società fittizia. Poiché un nuovo dipendente può provenire da qualsiasi città,è necessario individuare i luoghi. Un elenco impostato, ad esempio un'entità elenco, non funzionerebbe perché verrebbero estratte solo le città presenti nell'elenco.
 
-I nomi dei ruoli associati alle città di origine e destinazione devono essere univoci per tutte le entità. Un modo semplice per verificare che i ruoli siano univoci è quello di collegarli all'entità che li contiene tramite una strategia di denominazione. L'entità **NewEmployeeRelocation** è un'entità semplice con due ruoli: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**.
+I nomi dei ruoli associati alle città di origine e destinazione devono essere univoci per tutte le entità. Un modo semplice per verificare che i ruoli siano univoci è quello di collegarli all'entità che li contiene tramite una strategia di denominazione. L'entità **NewEmployeeRelocation** è un'entità semplice con due ruoli: **NewEmployeeReloOrigin** e **NewEmployeeReloDestination**. Relo è l'abbraviazione di "relocation" (trasferimento).
 
-### <a name="simple-entities-need-enough-examples-to-be-detected"></a>Le entità semplici devono disporre di esempi sufficienti per essere rilevate
 Poiché l'espressione di esempio `Move new employee Robert Williams from Sacramento and San Francisco` dispone solo di entità apprese in modo automatico, è importante indicare alla finalità espressioni di esempio sufficienti in modo che le entità vengano rilevate.  
 
 **Mentre i criteri consentono di fornire un numero inferiore espressioni di esempio, se le entità non vengono rilevate, il criterio non corrisponde.**
 
 Se si hanno difficoltà con il rilevamento di entità semplici perché l'entità è un nome, ad esempio una città, prendere in considerazione l'aggiunta di un elenco di frasi con valori simili. In questo modo il rilevamento del nome della città viene semplificato perché si indica a LUIS un'informazione aggiuntiva sul tipo di parola o frase specifica. Gli elenchi di frasi sono utili al criterio solo perché facilitano il rilevamento di entità, operazione necessaria per la corrispondenza del criterio. 
 
+**In questa esercitazione si apprenderà come:**
+
+> [!div class="checklist"]
+> * Usare l'app di esercitazione esistente
+> * Creare nuove entità
+> * Creare una nuova finalità
+> * Eseguire il training
+> * Pubblica
+> * Ottenere finalità ed entità dall'endpoint
+> * Creare criteri con ruoli
+> * Creare un elenco di frasi con città
+> * Ottenere finalità ed entità dall'endpoint
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Usare l'app esistente
+Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+
+Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+
+2. Importare il file JSON in una nuova app.
+
+3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `roles`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL.
+
 ## <a name="create-new-entities"></a>Creare nuove entità
-1. Selezionare **Build** (Compila) nel menu in alto.
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Entities** (Entità) nel riquadro di spostamento a sinistra. 
 
@@ -124,15 +114,15 @@ L'assegnazione di etichette alle entità in questa procedura può risultare più
 
     Se è stata rimossa l'entità keyPhrase, aggiungerla nuovamente all'app.
 
-## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
+## <a name="train"></a>Eseguire il training
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
+## <a name="publish"></a>Pubblica
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-without-pattern"></a>Query sull'endpoint senza criterio
+## <a name="get-intent-and-entities-from-endpoint"></a>Ottenere finalità ed entità dall'endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -224,9 +214,12 @@ L'assegnazione di etichette alle entità in questa procedura può risultare più
 
 Il punteggio di stima della finalità è pari solo al 50%. Se l'applicazione client richiede un valore più alto, tale punteggio deve essere corretto. Nemmeno le entità sono state stimate.
 
+Uno dei percorsi è stato estratto ma non l'altro. 
+
 Anche se i criteri consentono di assegnare in modo più corretto un punteggio di stima, le entità devono essere stimate correttamente prima che il criterio corrisponda all'espressione. 
 
-## <a name="add-a-pattern-that-uses-roles"></a>Aggiungere un criterio che usa i ruoli
+## <a name="pattern-with-roles"></a>Criteri con ruoli
+
 1. Selezionare **Build** (Compila) nel riquadro di spostamento superiore.
 
 2. Selezionare **Patterns** (Criteri) nel riquadro di spostamento a sinistra.
@@ -237,8 +230,8 @@ Anche se i criteri consentono di assegnare in modo più corretto un punteggio di
 
     Se si esegue il training, si pubblica e si esegue una query sull'endpoint, si potrebbe rimanere delusi nel vedere che le entità non vengono trovate e che il criterio non corrisponde e che pertanto la stima non è migliorata. Si tratta di una conseguenza di un numero di espressioni di esempio con entità etichettate non sufficiente. Anziché aggiungere altri esempi, aggiungere un elenco di frasi per risolvere il problema.
 
-## <a name="create-a-phrase-list-for-cities"></a>Creare un elenco di frasi per le città
-In modo analogo ai nomi di persone, i nomi di città sono complessi perché possono essere qualsiasi combinazione di parole e segni di punteggiatura. Le città dell'area e del mondo sono comunque note e di conseguenza LUIS deve disporre di un elenco di frasi per iniziare ad apprendere. 
+## <a name="cities-phrase-list"></a>Elenco di frasi con città
+In modo analogo ai nomi di persone, i nomi di città sono complessi perché possono essere qualsiasi combinazione di parole e segni di punteggiatura. Le città dell'area e del mondo sono note, di conseguenza LUIS deve disporre di un elenco di frasi per iniziare ad apprendere. 
 
 1. Selezionare **Phrase list** (Elenco frasi) nella sezione **Improve app performance** (Migliora prestazioni app) nel menu a sinistra. 
 
@@ -255,18 +248,15 @@ In modo analogo ai nomi di persone, i nomi di città sono complessi perché poss
     |Miami|
     |Dallas|
 
-    Non aggiungere ogni città del mondo né ogni città dell'area. LUIS deve essere in grado di generalizzare la città in base all'elenco. 
-
-    Verificare che l'opzione **These values are interchangeable** (Questi valori sono intercambiabili) sia selezionata. Questa impostazione indica che le parole nell'elenco vengono considerate come sinonimi. Si tratta del modo esatto in cui le parole devono essere considerate nel criterio.
-
-    Ricordare che [l'ultima volta](luis-quickstart-primary-and-secondary-data.md) in cui la serie di esercitazioni ha creato un elenco di frasi è stato per migliorare il rilevamento di un'entità semplice.  
+    Non aggiungere ogni città del mondo né ogni città dell'area. LUIS deve essere in grado di generalizzare la città in base all'elenco. Verificare che l'opzione **These values are interchangeable** (Questi valori sono intercambiabili) sia selezionata. Questa impostazione indica che le parole nell'elenco vengono considerate come sinonimi. 
 
 3. Eseguire il training dell'app e pubblicarla.
 
-## <a name="query-endpoint-for-pattern"></a>Query di endpoint per il criterio
-1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL dell'endpoint nella barra degli indirizzi. 
+## <a name="get-intent-and-entities-from-endpoint"></a>Ottenere finalità ed entità dall'endpoint
 
-2. Passare alla fine dell'URL nell'indirizzo e immettere `Move wayne berry from miami to mount vernon`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+
+2. Andare alla fine dell'URL nell'indirizzo e immettere `Move wayne berry from miami to mount vernon`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
     ```JSON
     {
@@ -380,11 +370,24 @@ In modo analogo ai nomi di persone, i nomi di città sono complessi perché poss
 
 Il punteggio di finalità è ora molto più elevato e i nomi di ruolo fanno parte della risposta dell'entità.
 
+## <a name="hierarchical-entities-versus-roles"></a>Ruoli ed entità gerarchiche
+
+Nell'[esercitazione relativa alle entità gerarchiche](luis-quickstart-intent-and-hier-entity.md) la finalità **MoveEmployee** rilevava il momento in cui si spostava un dipendente esistente da un edificio o da un ufficio a un altro. Per le espressioni di esempio erano presenti luoghi di origine e di destinazione, ma non venivano usati i ruoli. L'origine e la destinazione erano invece elementi figlio dell'entità gerarchica. 
+
+In questa esercitazione, l'app relativa alle risorse umane rileva espressioni sullo spostamento di nuovi dipendenti da una città a un'altra. Questi due tipi di espressioni sono uguali, ma realizzati con funzionalità di LUIS diverse.
+
+|Esercitazione|Espressione di esempio|Luoghi di origine e destinazione|
+|--|--|--|
+|[Entità gerarchiche (senza ruoli)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
+|Questa esercitazione (con i ruoli)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+In questa esercitazione è stata aggiunta un'entità con ruoli e una finalità con espressioni di esempio. La prima stima dell'endpoint ottenuta usando correttamente l'entità ha stimato la finalità, ma assegnandoli un punteggio di attendibilità basso. Solo una delle due entità è stata rilevata. Successivamente, nell'esercitazione è stato aggiunto un criterio che ha utilizzato i ruoli di entità e un elenco di frasi per migliorare il valore dei nomi delle città presenti nelle espressioni. La seconda stima dell'endpoint ha restituito un punteggio di attendibilità elevato e ha rilevato i ruoli di entrambe le entità. 
 
 > [!div class="nextstepaction"]
 > [Informazioni sulle procedure consigliate per le app LUIS](luis-concept-best-practices.md)

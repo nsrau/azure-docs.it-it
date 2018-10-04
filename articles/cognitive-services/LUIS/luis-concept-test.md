@@ -1,22 +1,23 @@
 ---
-title: Eseguire il test dell'app LUIS - Azure | Microsoft Docs
-description: Usare il servizio LUIS (Language Understanding) per lavorare continuamente sull'applicazione allo scopo di perfezionarla e migliorarne l'apprendimento del linguaggio.
+title: Testare l'app LUIS
+titleSuffix: Azure Cognitive Services
+description: Il processo di test consiste nel fornire espressioni di esempio a LUIS e nell'ottenere una risposta di finalità ed entità riconosciute da LUIS. È possibile testare LUIS in modo interattivo, un'espressione alla volta, o fornire un batch di espressioni. Attraverso il test, si confronta il modello attivo corrente al modello pubblicato.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7999f25d9c8bd9a8e44bd858d2860d94be16a62f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224348"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033227"
 ---
-# <a name="testing-in-luis"></a>Test in LUIS
+# <a name="testing-example-utterances-in-luis"></a>Test di espressioni di esempio in LUIS
 
 Il processo di test consiste nel fornire espressioni di esempio a LUIS e nell'ottenere una risposta di finalità ed entità riconosciute da LUIS. 
 
@@ -25,6 +26,7 @@ Il processo di test consiste nel fornire espressioni di esempio a LUIS e nell'ot
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
+
 ## <a name="what-is-a-score-in-testing"></a>Cos'è il punteggio nell'ambito del test?
 Vedere i concetti relativi al [punteggio di stima](luis-concept-prediction-score.md) per ulteriori informazioni sui punteggi di stima.
 

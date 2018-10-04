@@ -1,6 +1,6 @@
 Dopo aver [distribuito un cluster del servizio contenitore di Azure](../articles/container-service/dcos-swarm/container-service-deployment.md), potrebbe essere necessario modificare il numero di nodi agente. Ad esempio, potrebbero essere necessari più agenti in modo da eseguire più applicazioni o istanze contenitore. 
 
-È possibile modificare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes tramite il portale di Azure o l'interfaccia della riga di comando di Azure 2.0. 
+È possibile modificare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes tramite il portale di Azure o l'interfaccia della riga di comando di Azure. 
 
 ## <a name="scale-with-the-azure-portal"></a>Ridimensionare con il portale di Azure
 
@@ -12,9 +12,9 @@ Dopo aver [distribuito un cluster del servizio contenitore di Azure](../articles
 
 4. Per salvare la configurazione, fare clic su **Salva**.
 
-## <a name="scale-with-the-azure-cli-20"></a>Ridimensionare con l'interfaccia della riga di comando di Azure 2.0
+## <a name="scale-with-the-azure-cli"></a>Ridimensionare con l'interfaccia della riga di comando di Azure
 
-Assicurarsi di avere [installato](/cli/azure/install-az-cli2) la versione più recente dell'interfaccia della riga di comando di Azure 2.0 e di avere eseguito l'accesso a un account Azure (`az login`).
+Assicurarsi di avere [installato](/cli/azure/install-az-cli2) la versione più recente dell'interfaccia della riga di comando di Azure e di avere eseguito l'accesso a un account Azure (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Visualizzare il numero di agenti corrente
 Per visualizzare il numero di agenti attualmente presenti nel cluster, eseguire il comando `az acs show`. Così facendo viene mostrata la configurazione del cluster. Ad esempio, il comando seguente mostra la configurazione del servizio contenitore denominato `containerservice-myACSName` nel gruppo di risorse `myResourceGroup`:
@@ -34,7 +34,7 @@ Ad esempio, per modificare il numero di agenti nel cluster precedente a 10, digi
 az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-L'interfaccia della riga di comando di Azure 2.0 restituisce una stringa JSON che rappresenta la nuova configurazione del servizio contenitore, incluso il nuovo numero di agenti.
+L'interfaccia della riga di comando di Azure restituisce una stringa JSON che rappresenta la nuova configurazione del servizio contenitore, incluso il nuovo numero di agenti.
 
 Per ulteriori opzioni di comandi, eseguire `az acs scale --help`.
 
@@ -50,6 +50,6 @@ Per ulteriori opzioni di comandi, eseguire `az acs scale --help`.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere [altri esempi](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) dell'uso di comandi dell'interfaccia della riga di comando di Azure 2.0 con il servizio contenitore di Azure.
+* Vedere [altri esempi](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) dell'uso dei comandi dell'interfaccia della riga di comando di Azure con il servizio contenitore di Azure.
 * Ulteriori informazioni sui [pool di agenti DC/OS](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) del servizio contenitore di Azure.
 

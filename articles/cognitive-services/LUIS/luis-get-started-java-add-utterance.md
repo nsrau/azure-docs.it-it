@@ -1,20 +1,21 @@
 ---
-title: "Guida introduttiva: Modificare il modello ed eseguire il training dell'app LUIS con Java - Servizi cognitivi di Azure | Microsoft Docs"
+title: Guida introduttiva per Java - modificare il modello ed eseguire il training di app LUIS
+titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva per Java si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ddb22bce77dda55ad6e83efa8c0ca2c476f78836
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8500dfdd639b4f1de46a0b79b87a8564d338b6ab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161119"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042025"
 ---
 # <a name="quickstart-change-model-using-java"></a>Guida introduttiva: Modificare il modello con Java 
 

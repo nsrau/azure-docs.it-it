@@ -1,20 +1,21 @@
 ---
-title: "Guida introduttiva: Modificare il modello ed eseguire il training dell'app LUIS con PHP - Servizi cognitivi di Azure | Microsoft Docs"
+title: Guida introduttiva PHP - modificare il modello ed eseguire il training di app LUIS
+titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva per PHP si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 31840f34b99bbb474776ce81a7f87df94a0e338e
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c2f2343b889166a9fe7ea9356ee82620dba27d08
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44156988"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034270"
 ---
 # <a name="quickstart-change-model-using-php"></a>Guida introduttiva: Modificare il modello con PHP 
 

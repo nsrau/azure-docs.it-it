@@ -1,20 +1,21 @@
 ---
-title: "Guida introduttiva: Modificare il modello ed eseguire il training dell'app LUIS con C# - Servizi cognitivi di Azure | Microsoft Docs"
+title: Guida introduttiva per C# - modificare il modello ed eseguire il training di app LUIS
+titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva per C# si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0c631fe281587c86f26643367aead14683b699df
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: aab9651092f7ad5dbc78c31db8df4ef3538fedfc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160916"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039973"
 ---
 # <a name="quickstart-change-model-using-c"></a>Guida introduttiva: Modificare il modello con C#
 

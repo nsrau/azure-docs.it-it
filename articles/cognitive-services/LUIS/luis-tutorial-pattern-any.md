@@ -1,42 +1,29 @@
 ---
-title: Esercitazione usando l'entità pattern.any per migliorare le stime LUIS - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Questa esercitazione usa l'entità pattern.any per migliorare le stime LUIS di finalità ed entità.
+title: 'Esercitazione 5: entità pattern.any per testo in formato libero'
+titleSuffix: Azure Cognitive Services
+description: Usare l'entità pattern.any per estrarre dati da espressioni formattate in modo corretto e in cui la fine dei dati potrebbe essere facilmente confusa con le ultime parole dell'espressione.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157855"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164396"
 ---
-# <a name="tutorial-improve-app-with-patternany-entity"></a>Esercitazione: migliorare le app con l'entità pattern.any
+# <a name="tutorial-5-extract-free-form-data"></a>Esercitazione 5: estrarre dati in formato libero
 
-Questa esercitazione usa l'entità pattern.any per aumentare le stime di finalità ed entità.  
+Questa esercitazione illustra come usare l'entità pattern.any per estrarre dati da espressioni formattate in modo corretto e in cui la fine dei dati potrebbe essere facilmente confusa con le ultime parole dell'espressione. 
 
-> [!div class="checklist"]
-* Informazioni su quando e come usare pattern.any
-* Creare un criterio che usa pattern.any
-* Come verificare i miglioramenti di stima
+L'entità pattern.any consente di trovare i dati in formato libero nel caso in cui la formulazione dell'entità renda difficile determinare la fine dell'entità dal resto dell'espressione. 
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Prima di iniziare
-Se non si ha l'app relativa alle risorse umane dell'esercitazione dei [ruoli del criterio](luis-tutorial-pattern-roles.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json).
-
-Se si vuole mantenere l'app originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `patt-any`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
-
-## <a name="the-purpose-of-patternany"></a>Lo scopo di pattern.any
-L'entità pattern.any consente di trovare i dati in formato libero in cui la formulazione dell'entità rende difficile determinare la fine dell'entità dal resto dell'espressione. 
-
-Questa app delle risorse umane aiuta i dipendenti a trovare i moduli aziendali. All'[esercitazione di espressione regolare](luis-quickstart-intents-regex-entity.md) sono stati aggiunti dei moduli. I nomi di modulo dell'esercitazione hanno usato un'espressione regolare per estrarre un nome di modulo formattato in modo corretto, ad esempio i nomi di modulo in grassetto nella seguente tabella delle espressioni:
+Questa app delle risorse umane aiuta i dipendenti a trovare i moduli aziendali. 
 
 |Espressione|
 |--|
@@ -54,11 +41,38 @@ Le espressioni con il nome descrittivo hanno l'aspetto seguente:
 |Chi ha creato la **"Richiesta di trasferimento del nuovo dipendente dell'azienda 2018 versione 5"**?|
 |La **Richiesta di trasferimento del nuovo dipendente dell'azienda 2018 versione 5** viene pubblicata in francese?|
 
-La lunghezza variabile include frasi che potrebbero confondere LUIS circa la fine dell'entità. Usando un'entità Pattern.any in un criterio è possibile specificare l'inizio e la fine del nome del modulo in modo che LUIS lo estragga correttamente.
+La lunghezza variabile include parole che potrebbero confondere LUIS circa la fine dell'entità. Usando un'entità Pattern.any in un criterio è possibile specificare l'inizio e la fine del nome del modulo in modo che LUIS lo estragga correttamente.
 
-**Mentre i criteri consentono di fornire un numero inferiore espressioni di esempio, se le entità non vengono rilevate, il criterio non corrisponde.**
+|Espressione modello di esempio|
+|--|
+|Dov'è {NomeModulo}[?]|
+|Chi ha creato {NomeModulo}[?]|
+|{NomeModulo} viene pubblicato in francese[?]|
 
-## <a name="add-example-utterances-to-the-existing-intent-findform"></a>Aggiungere espressioni di esempio alla finalità FindForm esistente 
+**In questa esercitazione si apprenderà come:**
+
+> [!div class="checklist"]
+> * Usare l'app di esercitazione esistente
+> * Aggiungere espressioni di esempio alla finalità esistente
+> * Creare l'entità pattern.any
+> * Creare criteri
+> * Eseguire il training
+> * Eseguire il test del nuovo criterio
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Usare l'app esistente
+Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+
+Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+
+2. Importare il file JSON in una nuova app.
+
+3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `patt-any`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL.
+
+## <a name="add-example-utterances"></a>Aggiungere espressioni di esempio 
 Se è difficile creare e assegnare un'etichetta all'entità FormName, rimuovere l'entità keyPhrase predefinita. 
 
 1. Selezionare **Build** (Compila) dalla barra di spostamento in alto, quindi selezionare **Intents** (Finalità) dalla barra di spostamento a sinistra.
@@ -128,6 +142,8 @@ L'entità Pattern.any estrae entità di lunghezza variabile. Funziona solo in un
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+In questa esercitazione sono state aggiunte espressioni di esempio a una finalità esistente, quindi è stata creata una nuova entità pattern.any per il nome del modulo. È quindi stato creato un criterio per la finalità esistente con le nuove espressioni di esempio e la nuova entità. Il test interattivo ha mostrato che il criterio e la sua finalità sono stati stimati perché l'entità è stata trovata. 
 
 > [!div class="nextstepaction"]
 > [Informazioni su come usare i ruoli con un criterio](luis-tutorial-pattern-roles.md)

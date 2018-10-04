@@ -20,7 +20,7 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 | Numero massimo di identità del dispositivo<br/> restituito in una singola chiamata |1000 |
 | Conservazione massima nell'hub IoT per i messaggi dal dispositivo al cloud |7 giorni |
 | Dimensione massima del messaggio del dispositivo al cloud |256 KB |
-| Dimensione massima del batch del dispositivo al cloud |256 KB |
+| Dimensione massima del batch del dispositivo al cloud |AMQP e HTTP: 256 kB per l'intero batch <br/>MQTT: 256 kB per ogni messaggio |
 | Messaggi massimi nel batch del dispositivo al cloud |500 |
 | Dimensione massima del messaggio del cloud al dispositivo |64 KB |
 | TTL massima per i messaggi del cloud al dispositivo |2 giorni |
