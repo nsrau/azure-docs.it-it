@@ -1,26 +1,32 @@
 ---
-title: Distribuire un'app Python in App Web per contenitori di Azure
-description: Come distribuire un'immagine Docker che esegue un'applicazione Python in App Web per contenitori di Azure.
-keywords: servizio app di azure, app web, python, docker, contenitore
-services: app-service
+title: Creare un'app Web Python nel Servizio app di Azure in Linux | Microsoft Docs
+description: Distribuire la prima app Hello World Python nel servizio app di Azure in Linux in pochi minuti.
+services: app-service\web
+documentationcenter: ''
 author: cephalin
 manager: jeconnoc
-ms.service: app-service
-ms.devlang: python
+editor: ''
+ms.assetid: ''
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/13/2018
+ms.date: 09/13/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d328d8a3556f565e7eac8ee079bd191b7dcadef
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c3089ad11dc951d3105b25b6857b7697f8c38d1a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433443"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432070"
 ---
-# <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>Distribuire un'app Web Python in App Web per contenitori
+# <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Creare un'app Web Python nel Servizio app di Azure in Linux (anteprima)
 
-Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva mostra come creare un'app Web e distribuire un'app Flask semplice in tale app Web tramite un'immagine Docker Hub personalizzata. Creare l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app Python nella parte superiore dell'immagine Python predefinita (anteprima) nel Servizio app di Azure in Linux mediante l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+
+È possibile seguire la procedura disponibile in questo articolo con un computer Mac, Windows o Linux.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -28,67 +34,50 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione:
+Per completare questa guida introduttiva:
 
+* <a href="https://www.python.org/downloads/" target="_blank">Installare Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>
-* <a href="https://www.docker.com/community-edition" target="_blank">Installare Docker Community Edition</a>
-* <a href="https://hub.docker.com/" target="_blank">Iscriversi per ottenere un account Docker Hub</a>
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
-In una finestra del terminale eseguire i comandi seguenti per clonare l'applicazione di esempio nel computer locale e passare alla directory che contiene il codice di esempio.
+In una finestra del terminale eseguire i comandi seguenti per clonare l'applicazione di esempio nel computer locale e passare alla directory con il codice di esempio.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
 
-Questo repository contiene una semplice applicazione Flask nella cartella _/app_ e un _Dockerfile_ che specifica tre cose:
-
-- Usare l'immagine di base [tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
-- Il contenitore deve essere in ascolto sulla porta 8000.
-- Copiare la directory `/app` nella directory `/app` del contenitore.
-
-La configurazione segue le [istruzioni per l'immagine di base](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
-
 ## <a name="run-the-app-locally"></a>Eseguire l'app in locale
 
-Eseguire l'app in un contenitore Docker.
+Eseguire l'applicazione in locale, in modo da verificare l'aspetto che assumerà dopo la distribuzione in Azure. Aprire una finestra del terminale e usare i comandi seguenti per installare le dipendenze necessarie e avviare il server di sviluppo predefinito. 
 
 ```bash
-docker build --rm -t flask-quickstart .
-docker run --rm -it -p 8000:8000 flask-quickstart
+# In Bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+FLASK_APP=application.py flask run
+
+# In PowerShell
+py -3 -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+Set-Item Env:FLASK_APP ".\application.py"
+flask run
 ```
 
-Aprire un Web browser e passare all'app di esempio all'indirizzo `http://localhost:8000`.
+Aprire un Web browser e passare all'app di esempio all'indirizzo `http://localhost:5000/`.
 
-Nella pagina verrà visualizzato il messaggio **Hello World** dell'app di esempio.
+Nella pagina verrà visualizzato il messaggio **Hello World!** dell'app di esempio.
 
-![App di esempio in esecuzione in locale](media/quickstart-python/localhost-hello-world-in-browser.png)
+![App di esempio in esecuzione in locale](media/quickstart-python/hello-world-in-browser.png)
 
-Nella finestra del terminale premere **CTRL+C** per arrestare il contenitore.
-
-## <a name="deploy-image-to-docker-hub"></a>Distribuire l'immagine in Docker Hub.
-
-Accedere al proprio account Docker Hub. Rispondere alla richiesta di immettere le credenziali di Docker Hub.
-
-```bash
-docker login
-```
-
-Contrassegnare l'immagine ed effettuarne il push in un nuovo repository _pubblico_ nell'account Docker Hub denominato `flask-quickstart`. Sostituire *\<dockerhub_id>* con l'ID di Docker Hub.
-
-```bash
-docker tag flask-quickstart <dockerhub_id>/flask-quickstart
-docker push <dockerhub_id>/flask-quickstart
-```
-
-> [!NOTE]
-> `docker push` crea un repository pubblico se il repository specificato non viene trovato. In questa guida introduttiva si presuppone l'uso di un repository pubblico in Docker Hub. Se si preferisce eseguire il push in un repository privato, è necessario configurare le credenziali di Docker Hub in Servizio app di Azure in un secondo momento. Vedere [Creare un'app Web](#create-a-web-app).
-
-Una volta completato il push dell'immagine, si è pronti per usarla nell'app Web di Azure.
+Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
@@ -96,99 +85,100 @@ Una volta completato il push dell'immagine, si è pronti per usarla nell'app Web
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-Creare un'[app Web](../app-service-web-overview.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Sostituire *\<app name>* con un nome di app globalmente univoco e sostituire  *\<dockerhub_id>* con l'ID di Docker Hub.
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
+Passare al sito per visualizzare l'app Web con immagine incorporata appena creata. Sostituire _&lt;app name>_ con il nome dell'app Web.
+
+```bash
+http://<app_name>.azurewebsites.net
 ```
 
-Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mostra un output simile all'esempio seguente:
+Ecco l'aspetto che avrà la nuova app Web:
 
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app name>.scm.azurewebsites.net/<app name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
+![Pagina dell'app Web vuota](media/quickstart-php/app-service-web-service-created.png)
 
-Se il caricamento è stato eseguito in un repository privato in precedenza, è necessario anche configurare le credenziali di Docker Hub nel servizio app. Per altre informazioni, vedere [Usare un'immagine privata dal Docker Hub](tutorial-custom-docker-image.md#use-a-private-image-from-docker-hub-optional).
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-### <a name="specify-container-port"></a>Specificare la porta del contenitore
-
-Come specificato nel _Dockerfile_, il contenitore è in ascolto sulla porta 8000. Per fare in modo che Servizio app instradi la richiesta alla porta corretta, è necessario configurare l'impostazione dell'app *WEBSITES_PORT*.
-
-In Cloud Shell eseguire il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
-
-
-```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings WEBSITES_PORT=8000
-```
+```bash
+Counting objects: 42, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (39/39), done.
+Writing objects: 100% (42/42), 9.43 KiB | 0 bytes/s, done.
+Total 42 (delta 15), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'c40efbb40e'.
+remote: Generating deployment script.
+remote: Generating deployment script for python Web Site
+.
+.
+.
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
+To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
+ * [new branch]      master -> master
+ ```
 
 ## <a name="browse-to-the-app"></a>Passare all'app
 
+Passare all'applicazione distribuita con il Web browser.
+
 ```bash
-http://<app_name>.azurewebsites.net/
+http://<app_name>.azurewebsites.net
 ```
+
+Il codice di esempio Python è in esecuzione in un'app Web con l'immagine predefinita.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-python/hello-world-in-browser.png)
 
-> [!NOTE]
-> L'avvio dell'app Web richiede tempo perché l'immagine di Docker Hub deve essere scaricata ed eseguita quando l'app viene richiesta per la prima volta. Se inizialmente viene visualizzato un errore dopo un lungo periodo, è sufficiente aggiornare la pagina.
+**Congratulazioni** La distribuzione della prima app Python nel Servizio app di Azure in Linux è stata completata.
 
-**Congratulazioni** È stata distribuita un'immagine Docker personalizzata che esegue un'app Python in App Web per contenitori.
+## <a name="update-locally-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice in locale
 
-## <a name="update-locally-and-redeploy"></a>Eseguire l'aggiornamento e la ridistribuzione in locale
-
-Usando un editor di testo locale, aprire il file `app/main.py` nell'app Python e apportare una piccola modifica al testo accanto all'istruzione `return`:
+Nel repository locale aprire il file `application.py` e apportare una piccola modifica al testo nell'ultima riga:
 
 ```python
-return 'Hello, Azure!'
+return "Hello Azure!"
 ```
 
-Ricompilare l'immagine ed eseguirne nuovamente il push in Docker Hub.
+Eseguire il commit delle modifiche in Git e quindi effettuare il push delle modifiche al codice in Azure.
 
 ```bash
-docker build --rm -t flask-quickstart .
-docker tag flask-quickstart <dockerhub_id>/flask-quickstart
-docker push <dockerhub_id>/flask-quickstart
+git commit -am "updated output"
+git push azure master
 ```
 
-In Cloud Shell riavviare l'app. Il riavvio dell'app garantisce che tutte le impostazioni vengano applicate e che venga estratto dal registro il contenitore più recente.
-
-```azurecli-interactive
-az webapp restart --resource-group myResourceGroup --name <app_name>
-```
-
-Attendere circa 15 secondi il completamento del pull dell'immagine aggiornata dal servizio app. Tornare alla finestra del browser aperta nel passaggio **Passare all'app** e aggiornare la pagina.
+Al termine della distribuzione, tornare alla finestra del browser aperta nel passaggio **Passare all'app** e aggiornare la pagina.
 
 ![App di esempio aggiornata in esecuzione in Azure](media/quickstart-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-azure-web-app"></a>Gestire l'app Web di Azure
+## <a name="manage-your-new-azure-web-app"></a>Gestire la nuova app Web di Azure
 
-Accedere al [portale di Azure](https://portal.azure.com) per visualizzare l'app Web creata.
+Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app Web creata.
 
 Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
 
 ![Passare all'app Web di Azure nel portale](./media/quickstart-python/app-service-list.png)
 
-Per impostazione predefinita, il portale visualizza la pagina **Panoramica** dell'app Web. che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare. Le schede sul lato sinistro della pagina mostrano le diverse pagine di configurazione che è possibile aprire.
+Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app.
 
-![Pagina del servizio app nel portale di Azure](./media/quickstart-python/app-service-detail.png)
+![Pagina del servizio app nel portale di Azure](media/quickstart-python/app-service-detail.png)
 
-[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
+Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
+
+[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+L'immagine Python predefinita nel Servizio app di Azure in Linux è attualmente in anteprima. È possibile invece creare app Python di produzione usando un contenitore personalizzato.
+
 > [!div class="nextstepaction"]
-> [Python con PostgreSQL](tutorial-docker-python-postgresql-app.md)
+> [Python con PostgreSQL](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Configurare l'immagine Python predefinita](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
 > [Use custom images](tutorial-custom-docker-image.md) (Usare immagini personalizzate)

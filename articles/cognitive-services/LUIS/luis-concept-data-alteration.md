@@ -1,23 +1,24 @@
 ---
-title: Informazioni sui concetti di modifica dei dati in LUIS - Azure | Microsoft Docs
+title: Concetti relativi all'alterazione di dati in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Informazioni su come modificare i dati prima delle previsioni in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8421114bb5a7416ad2523fe9b0353f03f672619
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1aad540086764b1e2315d3b3e195c55ba5931e07
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223984"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036056"
 ---
 # <a name="data-alterations"></a>Modifiche dei dati
-LUIS offre vari modi per manipolare le espressioni prima o durante la previsione. 
+LUIS offre vari modi per manipolare le espressioni prima o durante la previsione. Fra questi figurano la correzione dell'ortografia e la risoluzione dei problemi di fuso orario per la datetimeV2 predefinita. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Correggere gli errori di ortografia nell'espressione
 Per correggere gli errori di ortografia nell'espressione, LUIS usa l'[API Controllo ortografico Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) e ha bisogno della chiava associata a tale servizio. Occorre quindi creare la chiave e aggiungerla come parametro querystring all'[endpoint](https://aka.ms/luis-endpoint-apis). 
@@ -47,6 +48,9 @@ Quando l'[API Controllo ortografico Bing V7](https://azure.microsoft.com/service
 }
 ```
  
+### <a name="whitelist-words"></a>Elenco di parole consentite
+L'API Controllo ortografico Bing usata in LUIS non supporta un elenco di parole consentite da ignorare durante le alterazioni del controllo ortografico. Se si desidera configurare un elenco di parole o acronimi consentiti, elaborare l'espressione nell'applicazione client con un elenco di elementi consentiti prima di inviare l'espressione a LUIS per la stima della finalità.
+
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Cambiare il fuso orario dell'entità datetimeV2 predefinita
 Quando un'app LUIS usa l'entità datetimeV2 predefinita, può essere restituito un valore datetime nella risposta di previsione. Il fuso orario della richiesta viene utilizzato per determinare il valore datatime corretto da restituire. Se la richiesta proviene da un bot o da un'altra applicazione centralizzata prima di passare a LUIS, occorre correggere il fuso orario usato da LUIS. 
 
