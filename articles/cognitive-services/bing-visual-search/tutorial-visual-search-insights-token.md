@@ -1,25 +1,26 @@
 ---
-title: SDK di Ricerca visiva Bing - Esercitazione su ImageInsightsToken | Microsoft Docs
+title: 'Esercitazione: ImageInsightsToken - Ricerca visiva Bing'
+titlesuffix: Azure Cognitive Services
 description: Come usare l'SDK di Ricerca visiva Bing per ottenere gli URL delle immagini specificate da ImageInsightsToken.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 578fa90f504920030b488d2b8fa3a2d0232cccce
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: bda4bdeea019d8cf3ae677d5eaf81e631ca38d16
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753598"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222574"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Esercitazione: SDK di Ricerca visiva Bing - ImageInsightsToken e risultati
 L'SDK di Ricerca visiva Bing include un'opzione per trovare immagini online da una ricerca precedente che restituisce un oggetto `ImageInsightsToken`.  Questo esempio ottiene un oggetto `ImageInsightsToken` e usa il token in una ricerca successiva.  Il codice invia l'oggetto `ImageInsightsToken` a Bing e restituire risultati che includono gli URL di ricerca Bing e gli URL di immagini simili trovate online.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Visual Studio 2017. Se necessario, è possibile scaricare la versione gratuita della community da qui: https://www.visualstudio.com/vs/community/.
 Per autenticare le chiamate SDK, è necessaria una chiave di API di Servizi cognitivi. Iscriversi per ottenere una chiave di prova gratuita. La chiave di prova è valida per sette giorni, con una chiamata al secondo. Per gli scenari di produzione acquistare una chiave di accesso. Vedere anche le informazioni sui prezzi.
 Possibilità di eseguire .NET Core SDK e app .NET Core 1.1. CORE, Framework e Runtime sono disponibili qui: https://www.microsoft.com/net/download/.
@@ -283,4 +284,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-[Risposta di Ricerca visiva](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview?branch=pr-en-us-44614#the-response)
+[Risposta di Ricerca visiva](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
