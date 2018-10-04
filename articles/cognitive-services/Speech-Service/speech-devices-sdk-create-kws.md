@@ -1,7 +1,7 @@
 ---
-title: Creazione di una parola di attivazione personalizzata
-description: Creazione di una parola di attivazione personalizzata per Speech Devices SDK.
-titleSuffix: Microsoft Cognitive Services
+title: Creare una parola di attivazione personalizzata
+description: Imparare a creare una parola di attivazione personalizzata per Speech Devices SDK.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
@@ -9,41 +9,41 @@ ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 615a901c70fff92141442699ea6e4b8fce1c9ace
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7ba62ce0cc2d391c96c31795aabaac9c8796f6d5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282574"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165535"
 ---
-# <a name="create-a-custom-wake-word-using-speech-service"></a>Creare una parola di attivazione personalizzata usando il servizio Voce
+# <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Creare una parola di attivazione personalizzata usando il servizio Voce
 
-Il dispositivo è sempre in ascolto di una parola (o frase) di attivazione. Ad esempio, "Ehi Cortana" è una parola di attivazione per l'assistente Cortana. Quando l'utente pronuncia la parola di attivazione, il dispositivo inizia a inviare tutto l'audio successivo al cloud fino a quando l'utente non smette di parlare. Modificare la parola di attivazione è un modo efficace per differenziare il dispositivo e accrescere la personalizzazione.
+Il dispositivo è sempre in ascolto di una parola (o frase) di attivazione. Ad esempio, "Ehi Cortana" è una parola di attivazione per l'assistente Cortana. Quando l'utente pronuncia la parola di attivazione, il dispositivo invia tutto l'audio successivo al cloud fino a quando l'utente non smette di parlare. Modificare la parola di attivazione è un modo efficace per differenziare il dispositivo e accrescere la personalizzazione.
 
 In questo articolo viene illustrato come creare una parola di attivazione personalizzata per il dispositivo.
 
-## <a name="choosing-an-effective-wake-word"></a>Scelta di una parola di attivazione efficace
+## <a name="choose-an-effective-wake-word"></a>Scegliere una parola di attivazione efficace
 
-Quando si sceglie una parola di attivazione, tenere presente le linee guida seguenti.
+Quando si sceglie una parola di attivazione, tenere presente le linee guida seguenti:
 
 * La parola di attivazione deve essere una parola o una frase in lingua italiana. Per pronunciarla, non devono servire più di due secondi.
 
-* Le parole composte da 4-7 sillabe sono ottimali. "Ehi, computer", ad esempio, è una parola di attivazione appropriata, a differenza del semplice "Ehi".
+* Le parole composte da 4-7 sillabe sono ottimali. "Ehi, computer", ad esempio, è una parola di attivazione appropriata. "Ehi" è una parola inappropriata.
 
 * Le parole di attivazione devono seguire le comuni regole di pronuncia italiana.
 
-* Una parola particolare o addirittura inventata che segue le normali regole di pronuncia italiana consente di ridurre i falsi positivi. Ad esempio, "computerama" può essere una parola di attivazione valida.
+* Una parola particolare o addirittura inventata che segue le normali regole di pronuncia italiana potrebbe ridurre i falsi positivi. Ad esempio, "computerama" potrebbe essere una parola di attivazione valida.
 
 * Non scegliere una parola comune. Ad esempio, "mangiare" e "andare" sono parole che le persone ripetono spesso parlando normalmente e potrebbero essere falsi trigger per il dispositivo.
 
-* Evitare di usare una parola di attivazione che può essere pronunciata in modi diversi. Gli utenti dovranno conoscere la pronuncia "corretta" per fare in modo che il dispositivo risponda. Ad esempio, "509" può essere pronunciato "cinquecentonove", "cinque zero nove" o "cinquecento nove". "U.F.O." può essere pronunciato "U F O" oppure "ufo". "Pesca" può essere pronunciato [pèsca] o [pésca].
+* Evitare di usare una parola di attivazione che potrebbe essere pronunciata in modi diversi. Gli utenti dovranno conoscere la pronuncia "corretta" per fare in modo che il dispositivo risponda. Ad esempio, "509" può essere pronunciato "cinquecentonove", "cinque zero nove" o "cinquecento nove". "U.F.O." può essere pronunciato "U-F-O" oppure "ufo". "Ancora" può essere pronunciata "àncora" o "ancóra".
 
-* Non usare caratteri speciali, simboli o cifre. Ad esempio, "Vai€" e "20 + gatti" non sono parole di attivazione adatte, mentre "vai euro" o "venti più gatti" può andare bene. È comunque possibile usare i simboli nella personalizzazione e usare il marketing e la documentazione per ribadire la pronuncia corretta.
+* Non usare caratteri speciali, simboli o cifre. Ad esempio, "Vai€" e "20 + gatti" non sono parole di attivazione adatte, mentre "vai euro" o "venti più gatti" possono andare bene. È comunque possibile usare i simboli nella personalizzazione e usare il marketing e la documentazione per ribadire la pronuncia corretta.
 
 > [!NOTE]
-> Se si sceglie un marchio come parola di attivazione, assicurarsi di essere il proprietario di tale marchio o di avere l'autorizzazione del proprietario del marchio a usarlo. Microsoft non è responsabile di eventuali problemi legali che potrebbero emergere dalla scelta della parola di attivazione.
+> Se si sceglie un marchio come parola di attivazione, assicurarsi di essere il proprietario di tale marchio o di avere l'autorizzazione del proprietario del marchio per usare tale parola. Microsoft non è responsabile di eventuali problemi legali che potrebbero emergere dalla scelta della parola di attivazione.
 
-## <a name="creating-your-wake-word"></a>Creazione della parola di attivazione
+## <a name="create-your-wake-word"></a>Creare la parola di attivazione
 
 Per usare una parola di attivazione personalizzata con il dispositivo, è necessario prima crearla usando il servizio Microsoft Custom Wake Word Generation. Dopo aver fornito una parola di attivazione, il servizio genera un file da distribuire nel kit di sviluppo per abilitare la parola di attivazione sul dispositivo.
 
@@ -53,25 +53,26 @@ Per usare una parola di attivazione personalizzata con il dispositivo, è necess
 
     ![Creare un nuovo account](media/speech-devices-sdk/wake-word-1.png)
  
-3.  Dopo la connessione, compilare il modulo, quindi fare clic su **Start the journey** (Inizia).
+3.  Dopo l'accesso, compilare il modulo e quindi selezionare **Start my journey** (Inizia percorso).
 
-    ![Connessione completata](media/speech-devices-sdk/wake-word-3.png)
+    ![Accesso eseguito](media/speech-devices-sdk/wake-word-3.png)
  
-4. Poiché la pagina **Custom Wake Word** (Parola di attivazione personalizzata) non è disponibile per il pubblico, non sono presenti collegamenti per accedervi. Fare quindi clic su questo collegamento o incollarlo: https://cris.ai/customkws.
+4. Poiché la pagina **Custom Wake Word** (Parola di attivazione personalizzata) non è disponibile per il pubblico, non sono presenti collegamenti diretti per accedervi. La funzionalità di riconoscimento vocale personalizzato richiede una sottoscrizione ad Azure, al contrario della funzionalità che permette di creare una parola di attivazione personalizzata. Se si visualizza il messaggio di errore **No Subscriptions found** (Non sono state trovate sottoscrizioni), sostituire semplicemente **"Subscriptions?errorMessage=No%20Subscriptions%20found"** con "**customkws**" nell'URL e premere INVIO. L'URL deve corrispondere a uno dei seguenti: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws o https://northeurope.cris.ai/customkws, a seconda della propria regione.   
 
-    ![Pagina nascosta](media/speech-devices-sdk/wake-word-4.png)
+
+    ![La pagina Custom Wake Word è nascosta](media/speech-devices-sdk/wake-word-4.png)
  
-6. Digitare la pagina di attivazione scelta, quindi **inviarla**.
+6. Digitare la parola di attivazione scelta, quindi selezionare **Submit the word** (Invia parola).
 
     ![Immettere la parola di attivazione](media/speech-devices-sdk/wake-word-5.png)
  
-7. La generazione dei file può richiedere alcuni minuti. Verrà visualizzato un cerchio rotante nella scheda del browser. Poco dopo viene visualizzata una barra delle informazioni con la richiesta di scaricare un file `.zip`.
+7. La generazione dei file può richiedere alcuni minuti. Verrà visualizzato un cerchio rotante nella finestra del browser. Poco dopo viene visualizzata una barra delle informazioni con la richiesta di scaricare un file ZIP.
 
     ![Ricezione del file ZIP](media/speech-devices-sdk/wake-word-6.png)
 
-8. Salvare il file `.zip` nel computer. Questo file è necessario per distribuire la parola di attivazione personalizzata nel kit di sviluppo, seguendo le istruzioni riportate in [Introduzione a Speech Devices SDK](speech-devices-sdk-qsg.md).
+8. Salvare il file ZIP nel computer. È necessario questo file per distribuire la parola di attivazione personalizzata nel kit di sviluppo. Per distribuire la parola di attivazione personalizzata, seguire le istruzioni riportate in [Introduzione a Speech Devices SDK](speech-devices-sdk-qsg.md).
 
-9. È ora possibile **disconnettersi**.
+9. Selezionare **Sign out** (Disconnessione).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

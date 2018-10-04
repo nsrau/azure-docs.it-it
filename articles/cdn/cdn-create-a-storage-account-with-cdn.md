@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 05ce8c932e9d3d812e34e23c082d459c3193ea40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608502"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096242"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Guida introduttiva: Integrare un account di archiviazione di Azure con la rete CDN di Azure
 In questa guida introduttiva, la [rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md) viene abilitata per memorizzare nella cache i contenuti dall'archiviazione di Azure. La rete CDN di Azure offre agli sviluppatori una soluzione globale per distribuire contenuti con esigenze di larghezza di banda elevata. Consente di memorizzare nella cache oggetti BLOB e contenuti statici di istanze di calcolo in nodi fisici negli Stati Uniti, in Europa, Asia, Australia e Sud America.
@@ -84,7 +84,7 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Abilitare la rete CDN di Azure per l'account di archiviazione
 
-È possibile abilitare la rete CDN di Azure per l'account di archiviazione direttamente dall'account di archiviazione. Se si vogliono specificare impostazioni di configurazione avanzate per l'endpoint della rete CDN, come ad esempio il tipo di ottimizzazione, è invece possibile usare l'[estensione Rete CDN di Azure](cdn-create-new-endpoint.md) per creare un profilo di rete CDN o un endpoint della rete CDN.
+È possibile abilitare la rete CDN di Azure per l'account di archiviazione direttamente dall'account di archiviazione. Se si vogliono specificare impostazioni di configurazione avanzate per l'endpoint della rete CDN, come ad esempio l'[ottimizzazione del download di un file di grandi dimensioni](cdn-optimization-overview.md#large-file-download), è invece possibile usare l'[estensione Rete CDN di Azure](cdn-create-new-endpoint.md) per creare un profilo e un endpoint di rete CDN.
 
 1. Nel dashboard selezionare un account di archiviazione e quindi selezionare **Rete CDN di Azure** nel riquadro a sinistra. Se il pulsante **Rete CDN di Azure** non viene visualizzato immediatamente, è possibile immettere CDN nella casella di **ricerca** del riquadro sinistro per trovarlo.
     
@@ -109,6 +109,9 @@ Per creare un account di archiviazione, è necessario essere amministratori del 
 Dalla pagina **Rete CDN di Azure** dell'account di archiviazione selezionare l'endpoint della rete CDN nell'elenco per aprire la pagina di configurazione della rete CDN. Da questa pagina è possibile abilitare funzionalità aggiuntive della rete CDN per il recapito, ad esempio la [compressione](cdn-improve-performance.md), la [memorizzazione nella cache della stringa di query](cdn-query-string.md) e il [filtro geografico](cdn-restrict-access-by-country.md). 
     
 ![Configurazione endpoint della rete CDN di archiviazione](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+
+## <a name="enable-sas"></a>Abilitare SAS
+Se si desidera concedere l'accesso limitato ai contenitori di archiviazione privati, è possibile usare la funzionalità di firma di accesso condiviso, ovvero SAS, dell'account di archiviazione di Azure. Una firma di accesso condiviso è un URI che concede diritti di accesso limitati alle risorse di Archiviazione di Azure senza esporre la chiave dell'account. Per altre informazioni, vedere [Uso della rete CDN di Azure con SAS](cdn-sas-storage-support.md).
 
 ## <a name="access-cdn-content"></a>Accedere al contenuto della rete CDN
 Per accedere al contenuto memorizzato nella cache nella rete CDN, usare l'URL della rete CDN specificato nel portale. L'indirizzo per un oggetto BLOB memorizzato nella cache ha il formato seguente:
@@ -139,8 +142,8 @@ Nei passaggi precedenti sono stati creati un profilo e un endpoint della rete CD
 3. Per eliminare l'account di archiviazione, selezionarlo dal dashboard, e quindi scegliere **Elimina** dal menu in alto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sull'aggiunta di un dominio personalizzato all'endpoint della rete CDN, vedere l'esercitazione seguente:
+Per informazioni sull'aggiunta di un dominio personalizzato e su come abilitare HTTPS per l'endpoint della rete CDN, vedere l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure](cdn-map-content-to-custom-domain.md)
+> [Esercitazione: Accedere ai BLOB di archiviazione con un dominio personalizzato della rete CDN di Azure tramite HTTPS](cdn-storage-custom-domain-https.md)
 

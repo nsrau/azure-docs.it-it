@@ -1,24 +1,24 @@
 ---
-title: Informazioni su come i criteri aumentano l'accuratezza della stima | Microsoft Docs
-titleSuffix: Azure
-description: Informazioni su come progettare criteri per migliorare i punteggi della stima della finalità e individuare entità.
+title: Informazioni su come i criteri aumentano l'accuratezza della stima
+titleSuffix: Azure Cognitive Services
+description: I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili. Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5ade15b3f80d725af4ece31a36ea0b670f5f5147
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225218"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031544"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
-I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili. Grazie ai criteri messi a disposizione per le espressioni, LUIS può produrre stime molto affidabili. 
+I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>I criteri risolvono il problema dell'attendibilità ridotta della finalità
 Si consideri un'app di risorse umane che genera report nel grafico aziendale su un dipendente. Dato un nome e una relazione dipendente, LUIS restituisce i dipendenti coinvolti. Si consideri un dipendente, Tom, con un manager di nome Alice, e un team di sottoposti che si chiamano Michael, Rebecca e Carl.
@@ -60,25 +60,25 @@ Le entità nei criteri sono racchiuse tra parentesi graffe, `{}`. I criteri poss
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintassi per aggiungere un'entità a un modello di criteri
 Per aggiungere un'entità a un modello di criteri, racchiudere il nome dell'entità tra parentesi graffe, come ad esempio in `Who does {Employee} manage?`. 
 
-```
-Who does {Employee} manage?
-```
+|Criteri con entità|
+|--|
+|`Who does {Employee} manage?`|
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Sintassi per aggiungere un'entità e un ruolo a un modello di criteri
 Un ruolo di entità viene indicato come `{entity:role}` con il nome dell'entità seguito da due punti e dal nome del ruolo. Per aggiungere un'entità con un ruolo a un modello di criteri, racchiudere il nome dell'entità e il nome del ruolo tra parentesi graffe, come ad esempio in `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|Criteri con ruoli di entità|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Sintassi per aggiungere un'entità pattern.any a un modello di criteri
 L'entità Pattern.any consente di aggiungere al criterio un'entità di lunghezza variabile. L'entità Pattern.any può avere qualsiasi lunghezza, purché il modello di criteri sia rispettato. 
 
 Per aggiungere un'entità **Pattern.any** al modello di criteri, racchiuderla tra parentesi graffe, come ad esempio in `How much does {Booktitle} cost and what format is it available in?`.  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|Criteri con entità pattern.any|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |Titoli di libri nel criterio|
 |--|
@@ -107,9 +107,9 @@ Per risolvere questa eccezione nel criterio, aggiungere `the man from la mancha`
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Sintassi per contrassegnare un testo facoltativo in un'espressione del modello
 Contrassegnare il testo facoltativo nell'espressione usando la sintassi tra parentesi quadre dell'espressione regolare, `[]`. Nel testo facoltativo possono essere nidificate un massimo di due parentesi quadre.
 
-```
-[find] email about {subject} [from {person}]
-```
+|Criteri con testo facoltativo|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 I segni di punteggiatura, come ad esempio `.`, `!` e `?` possono essere ignorati usando le parentesi quadre. Per ignorare questi segni, ognuno di essi deve essere in un criterio distinto. La sintassi facoltativa attualmente non supporta la possibilità di ignorare un elemento contenuto in un elenco di più elementi.
 

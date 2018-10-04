@@ -1,20 +1,20 @@
 ---
-title: "Guida introduttiva: Modificare il modello ed eseguire il training dell'app LUIS con GO - Servizi cognitivi di Azure | Microsoft Docs"
-description: In questa guida introduttiva per Go si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
+title: Guida introduttiva al linguaggio Go - modificare il modello ed eseguire il training di app LUIS
+description: In questa guida introduttiva al linguaggio Go si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
 titleSuffix: Microsoft Cognitive Services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: da57a7e46cccbf0a9b34b3961a831e7982160e6b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157668"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031867"
 ---
 # <a name="quickstart-change-model-using-go"></a>Guida introduttiva: Modificare il modello con Go
 

@@ -1,25 +1,26 @@
 ---
-title: Pianificare le finalità nelle applicazioni LUIS | Microsoft Docs
-description: Usare Language Understanding (LUIS) per aggiungere le finalità che consentono alle app di comprendere le richieste degli utenti e di risolverle in modo opportuno.
+title: Pianificare le finalità nelle applicazioni LUIS
+titleSuffix: Azure Cognitive Services
+description: Aggiungi le finalità all'app LUIS per identificare gruppi di domande o comandi con gli stessi scopi.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225887"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036083"
 ---
 # <a name="manage-intents"></a>Gestire le finalità 
 Aggiungi le [finalità](luis-concept-intent.md) all'app LUIS per identificare gruppi di domande o comandi con gli stessi scopi. 
 
-È possibile aggiungere e gestire le finalità dalla pagina **Finalità**, disponibile in **Finalità** nel riquadro sinistro di LUIS. 
+Le finalità vengono gestite dalla sezione **Build** nella barra degli strumenti in alto. È possibile aggiungere e gestire le finalità dalla pagina **Finalità**, disponibile nel riquadro sinistro. 
 
 La procedura seguente illustra come aggiungere la finalità "Bookflight" all'app TravelAgent.
 
@@ -28,7 +29,6 @@ La procedura seguente illustra come aggiungere la finalità "Bookflight" all'app
 1. Apri l'app (ad esempio, TravelAgent), facendo clic sul relativo nome nella pagina **Le mie app** e selezionando **Finalità** nel riquadro sinistro. 
 2. Nella pagina **Finalità** seleziona **Crea nuova finalità**.
 
-    ![Elenco di finalità](./media/luis-how-to-add-intents/IntentsList.png)
 3. Nella finestra di dialogo **Crea nuova finalità**, inserisci il nome delle finalità "BookFlight", quindi fai clic su **Fine**.
 
     ![Aggiungere le finalità](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -105,7 +105,7 @@ Per eliminare diverse espressioni:
 2. Seleziona **Fine** nella finestra di dialogo dell'elemento popup **Elimina espressioni?**.
 
 ## <a name="search-in-utterances-on-intent-page"></a>Eseguire ricerche all'interno delle espressioni nella pagina delle finalità
-In una finalità, è possibile ricercare espressioni che contengono testo (parole o frasi). Ad esempio, potresti riscontrare un errore che riguarda una particolare parola e desideri trovare tutti gli esempi che includono tale parola specifica. 
+È possibile ricercare espressioni che contengono testo (parole o frasi) all'interno dell'elenco di espressioni della finalità. Ad esempio, potresti riscontrare un errore che riguarda una particolare parola e desideri trovare tutti gli esempi che includono tale parola specifica. 
 
 1. Seleziona l'icona della lente di ingrandimento nella barra degli strumenti.
 

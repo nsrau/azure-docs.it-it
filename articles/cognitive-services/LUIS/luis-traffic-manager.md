@@ -1,20 +1,21 @@
 ---
-title: Usare Gestione traffico di Microsoft Azure per aumentare la quota di endpoint in Language Understanding (LUIS) - Azure | Microsoft Docs
-description: Usare Gestione traffico di Microsoft Azure per distribuire la quota di endpoint tra più sottoscrizioni in Language Understanding (LUIS) per aumentare la quota di endpoint
+title: Usare Gestione traffico di Microsoft Azure per aumentare la quota di endpoint in Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi).
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 909c32452db216f79633b94c31f39350b7a6ee20
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248629"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042177"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi). 
@@ -44,9 +45,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Screenshot del portale di Azure con due chiavi LUIS nel gruppo di risorse luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. Nel sito Web [LUIS] [ LUIS], nella pagina **Publish** (Pubblica) aggiungere le chiavi all'app e ripubblicare l'app. 
-
-    ![Screenshot del portale LUIS con due chiavi LUIS nella pagina Publish (Pubblica)](./media/traffic-manager/luis-keys-in-luis.png)
+2. Nel sito Web di [LUIS][LUIS], sotto la sezione **Gestisci** nella pagina **Keys and endpoints** (Chiavi ed endpoint), assegnare chiavi all'app e ripubblicare l'app selezionando il pulsante **Publish** (Pubblica) nel menu in alto a destra. 
 
     L'URL di esempio nella colonna **endpoint** usa una richiesta GET con la chiave endpoint come parametro di query. Copiare gli URL degli endpoint delle due nuove chiavi. Verranno usati come parte della configurazione di Gestione traffico più avanti in questo articolo.
 
@@ -350,7 +349,7 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 
 La risposta con esito positivo con l'endpoint LUIS è:
 
-```cmd
+```json
 [
     {
         value: 'westus.api.cognitive.microsoft.com', 

@@ -1,21 +1,21 @@
 ---
-title: Limiti del servizio LUIS (Language Understanding) | Microsoft Docs
-titleSuffix: Azure
-description: Questo articolo contiene i limiti noti del servizio LUIS.
+title: Limiti di Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Questo articolo illustra i limiti di LUIS (Language Understanding) dei Servizi cognitivi di Azure. LUIS dispone di diverse aree di limiti. Il limite modello controlla finalità, entità e funzionalità in LUIS. I limiti di quota si basano sul tipo di chiave. La combinazione di tasti controlla il sito Web di LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b7a2d1554d668b4000b87b210a69b290def9b19e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399832"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035437"
 ---
 # <a name="luis-boundaries"></a>Limiti di LUIS
 LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-boundaries), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è rappresentata dalla [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint). 
@@ -30,7 +30,7 @@ LUIS dispone di diverse aree di limiti. La prima è il [limite modello](#model-b
 | **[Composito](./luis-concept-entity-types.md)|100 con un massimo di 10 elementi figlio |
 | Elenco esplicito | 50 per applicazione|
 | **[Gerarchica](./luis-concept-entity-types.md) |100 con un massimo di 10 elementi figlio |
-| [Finalità][intents]|500 per ogni applicazione<br>Applicazione [basata su invio](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) con 500 origini di spedizione corrispondenti|
+| [Finalità][intents]|500 per ogni applicazione<br>Applicazione [basata su invio](https://aka.ms/dispatch-tool) con 500 origini di spedizione corrispondenti|
 | [Elenca entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
 | [Criteri](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applicazione, 3 entità pattern.any per criterio |

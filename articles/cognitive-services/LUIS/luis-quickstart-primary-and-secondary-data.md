@@ -1,54 +1,71 @@
 ---
-title: "Esercitazione: Creazione di un'app di Language Understanding per estrarre dati - Azure | Microsoft Docs"
-description: Questa esercitazione illustra come creare una semplice app di Language Understanding usando finalità e un'entità semplice per estrarre dati di Machine Learning.
+title: 'Esercitazione 7: entità semplice con elenco di frasi in LUIS'
+titleSuffix: Azure Cognitive Services
+description: Estrarre dati di Machine Learning da un'espressione
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a69ea8ea45a02399b7c6ad22f0dc514ad8537e06
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159657"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036059"
 ---
-# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Esercitazione: 7. Aggiungere un'entità semplice e un elenco di frasi
-In questa esercitazione si crea un'app che illustra come estrarre dati di Machine Learning da un'espressione usando l'entità **semplice**.
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Esercitazione 7: estrarre nomi con entità semplice ed elenco di frasi
+
+Questa esercitazione illustra come estrarre dati di Machine Learning relativi a un nome di mansione da un'espressione usando l'entità **semplice**. Per aumentare l'accuratezza di estrazione, aggiungere un elenco di frasi contenente termini specifici all'entità semplice.
+
+In questa esercitazione verrà aggiunta una nuova entità per estrarre il nome di mansione. Lo scopo dell'entità semplice in questa app LUIS è quello di indicare a LUIS cos'è un nome di mansione e dove trovarlo in un'espressione. La parte dell'espressione che rappresenta il nome della mansione può variare da espressione a espressione, a seconda della scelta delle parole e della lunghezza dell'espressione. LUIS necessita di esempi di nomi di mansione tra tutte le finalità che utilizzano nomi di mansione.  
+
+Un'entità semplice è una scelta appropriata per questo tipo di dati quando:
+
+* I dati rappresentano un singolo concetto.
+* I dati non sono formattati in modo corretto, ad esempio un'espressione regolare.
+* I dati non sono comuni, ad esempio un'entità predefinita riguardante un numero di telefono o dati.
+* I dati non corrispondono esattamente a un elenco di parole conosciute, ad esempio un'entità elenco.
+* I dati non contengono altri elementi di dati, ad esempio un'entità composta o gerarchica.
+
+**In questa esercitazione si apprenderà come:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Comprendere le entità semplici 
-> * Creare una nuova app LUIS per il dominio delle risorse umane 
+> * Usare l'app di esercitazione esistente
 > * Aggiungere un'entità semplice per estrarre le mansioni dall'app
-> * Eseguire il training e pubblicare l'app
-> * Eseguire query sull'endpoint dell'app per ottenere una risposta JSON di Language Understanding
 > * Aggiungere un elenco di frasi per aumentare il segnale per le parole relative alle mansioni
-> * Eseguire il training dell'app, pubblicarla ed eseguire di nuovo la query sull'endpoint
+> * Eseguire il training 
+> * Pubblica 
+> * Ottenere finalità ed entità dall'endpoint
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Prima di iniziare
-Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità composta](luis-tutorial-composite-entity.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
+## <a name="use-existing-app"></a>Usare l'app esistente
 
-Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `simple`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale.  
+Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
 
-## <a name="purpose-of-the-app"></a>Scopo dell'app
-Questa app illustra come eseguire il pull dei dati da un'espressione. Considerare le espressioni seguenti di un chatbot:
+Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
+
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json).
+
+2. Importare il file JSON in una nuova app.
+
+3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `simple`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL.
+
+## <a name="simple-entity"></a>Entità semplice
+L'entità semplice rileva un singolo concetto di dati contenuto in parole o frasi.
+
+Considerare le espressioni seguenti di un chatbot:
 
 |Espressione|Nome della mansione estraibile|
 |:--|:--|
 |I want to apply for the new accounting job.|accounting|
-|Please submit my resume for the engineering position.|engineering|
+|Submit my resume for the engineering position.|engineering|
 |Fill out application for job 123456|123456|
-
-Questa esercitazione aggiunge una nuova entità per estrarre il nome della mansione. 
-
-## <a name="purpose-of-the-simple-entity"></a>Scopo dell'entità semplice
-Lo scopo dell'entità semplice in questa app LUIS è quello di indicare a LUIS cos'è un nome di mansione e dove trovarlo in un'espressione. La parte dell'espressione che rappresenta la mansione può variare da espressione a espressione, a seconda della scelta delle parole e della lunghezza dell'espressione. LUIS necessita di esempi di mansioni nelle espressioni per tutte le finalità.  
 
 Il nome della mansione è difficile da determinare perché può essere un sostantivo, un verbo o una frase di diverse parole. Ad esempio:
 
@@ -65,15 +82,13 @@ Il nome della mansione è difficile da determinare perché può essere un sostan
 |extruder|
 |millwright|
 
-Questa app LUIS include nomi di mansioni per diverse finalità. Assegnando etichette a queste parole nelle espressioni per tutte le finalità, LUIS apprende cos'è una mansione e dove si trova all'interno delle espressioni.
+Questa app LUIS include nomi di mansioni per diverse finalità. Assegnando etichette a queste parole nelle espressioni per tutte le finalità, LUIS apprende cos'è un nome di mansione e dove si trova all'interno delle espressioni.
 
-## <a name="create-job-simple-entity"></a>Creare un'entità mansione semplice
+Dopo che le entità sono contrassegnate nelle espressioni di esempio, è importante aggiungere un elenco di frasi per migliorare il segnale dell'entità semplice. Un elenco di frasi **non** viene usato come una corrispondenza esatta e non dovrà corrispondere a ogni possibile valore previsto. 
 
-1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** (Compila) nella barra dei menu in alto a destra. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Nella pagina **Intents** (Finalità) selezionare la finalità **ApplyForJob**. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Screenshot di LUIS con la finalità \"ApplyForJob\" evidenziata")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
 3. Nell'espressione `I want to apply for the new accounting job` selezionare `accounting` immettere `Job` nel campo in alto nel menu a comparsa e quindi scegliere **Create new entity** (Crea nuova entità) dal menu a comparsa. 
 
@@ -110,7 +125,10 @@ Questa app LUIS include nomi di mansioni per diverse finalità. Assegnando etich
     |My curriculum vitae for professor of biology is enclosed.|professor of biology|
     |I would like to apply for the position in photography.|photography|git 
 
-## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>Etichettare le entità nelle espressioni di esempio per la finalità GetJobInformation
+## <a name="label-entity-in-example-utterances"></a>Etichettare entità in espressioni di esempio
+
+Etichettando, o _contrassegnando_, l'entità permette di indicare a LUIS dove si trova l'entità nelle espressioni di esempio.
+
 1. Selezionare **Intents** (Finalità) dal menu a sinistra.
 
 2. Selezionare **GetJobInformation** nell'elenco di finalità. 
@@ -125,80 +143,83 @@ Questa app LUIS include nomi di mansioni per diverse finalità. Assegnando etich
 
     Ci sono altre espressioni di esempio, che tuttavia non contengono parole correlate alle mansioni.
 
-## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
+## <a name="train"></a>Eseguire il training
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
+## <a name="publish"></a>Pubblica
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
+## <a name="get-intent-and-entities-from-endpoint"></a>Ottenere finalità ed entità dall'endpoint 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `Here is my c.v. for the programmer job`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire le espressioni `ApplyForJob`.
 
-```JSON
-{
-  "query": "Here is my c.v. for the programmer job",
-  "topScoringIntent": {
-    "intent": "ApplyForJob",
-    "score": 0.9826467
-  },
-  "intents": [
+    ```JSON
     {
-      "intent": "ApplyForJob",
-      "score": 0.9826467
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.0218927357
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.007849265
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00349470088
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00348804821
-    },
-    {
-      "intent": "None",
-      "score": 0.00319909188
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00222647213
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00211193133
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00172086991
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00138010911
+      "query": "Here is my c.v. for the programmer job",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.9826467
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.9826467
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0218927357
+        },
+        {
+          "intent": "MoveEmployee",
+          "score": 0.007849265
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00349470088
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00348804821
+        },
+        {
+          "intent": "None",
+          "score": 0.00319909188
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.00222647213
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00211193133
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00172086991
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00138010911
+        }
+      ],
+      "entities": [
+        {
+          "entity": "programmer",
+          "type": "Job",
+          "startIndex": 24,
+          "endIndex": 33,
+          "score": 0.5230502
+        }
+      ]
     }
-  ],
-  "entities": [
-    {
-      "entity": "programmer",
-      "type": "Job",
-      "startIndex": 24,
-      "endIndex": 33,
-      "score": 0.5230502
-    }
-  ]
-}
-```
+    ```
+    
+    LUIS ha trovato la finalità corretta, **ApplyForJob**, e ha estratto l'entità corretta, estratti **Job**, con un valore di `programmer`.
+
 
 ## <a name="names-are-tricky"></a>Complessità dei nomi
 L'app LUIS ha trovato la finalità corretta con un elevato livello di attendibilità e ha estratto il nome della mansione, ma i nomi possono presentare alcune difficoltà. Provare l'espressione `This is the lead welder paperwork`.  
@@ -260,18 +281,15 @@ Nel file JSON seguente LUIS risponde con la finalità corretta, `ApplyForJob`, m
 
 Poiché un nome può essere di vario tipo, LUIS prevede le entità più accuratamente se dispone di un elenco di parole per aumentare il segnale.
 
-## <a name="to-boost-signal-add-jobs-phrase-list"></a>Aggiungere un elenco di parole relative alle mansioni per aumentare il segnale
+## <a name="to-boost-signal-add-phrase-list"></a>Aggiungere un elenco di parole per aumentare il segnale
+
 Aprire il file [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) nel repository GitHub LUIS-Samples. L'elenco contiene oltre mille parole e frasi correlate alle mansioni. Esaminare l'elenco per individuare le parole relative alle mansioni significative per l'uso previsto. Se alcune parole o frasi non sono presenti nell'elenco, aggiungerle.
 
 1. Nella sezione **Build** (Compila) dell'app LUIS scegliere **Phrase lists** (Elenchi frasi) dal menu **Improve app performance** (Migliora prestazioni app).
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "Screenshot con l'opzione relativa agli elenchi di frasi evidenziata nel riquadro di spostamento a sinistra")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
-
 2. Selezionare **Create new phrase list** (Crea nuovo elenco di frasi). 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Screenshot con il pulsante per la creazione di un nuovo elenco di frasi evidenziato")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
-
-3. Assegnare al nuovo elenco di frasi il nome `Jobs` e copiare l'elenco dal file jobs-phrase-list.csv nella casella di testo **Values** (Valori). Premere INVIO. 
+3. Assegnare al nuovo elenco di frasi il nome `Job` e copiare l'elenco dal file jobs-phrase-list.csv nella casella di testo **Values** (Valori). Premere INVIO. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -348,22 +366,13 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/
     }
     ```
 
-## <a name="phrase-lists"></a>Elenchi di frasi
-L'aggiunta dell'elenco di frasi ha aumentato il segnale delle parole nell'elenco ma **non** è stata usata una corrispondenza esatta. L'elenco di frasi include diverse mansioni con la prima parola corrispondente a `lead` e include anche la mansione `welder`, ma non `lead welder`. Questo elenco di frasi per le mansioni potrebbe non essere completo. Man mano che si [rivedono le espressioni dell'endpoint](luis-how-to-review-endoint-utt.md) su base regolare e si trovano altre parole relative alle mansioni, aggiungerle all'elenco di frasi. Quindi ripetere il training e la pubblicazione.
-
-## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
-Con un'entità semplice e un elenco di parole, quest'app ha identificato una finalità di query in linguaggio naturale e ha restituito i dati del lavoro. 
-
-Il chatbot ha ora informazioni sufficienti per determinare l'azione principale di candidatura per una mansione e un parametro di tale azione, che fa riferimento alla mansione. 
-
-## <a name="where-is-this-luis-data-used"></a>Qual è la destinazione d'uso dei dati di Language Understanding? 
-Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, ad esempio un chatbot, può prendere il risultato topScoringIntent e i dati dell'entità per usare un'API di terze parti per inviare le informazioni sulla mansione a un rappresentante del reparto risorse umane. Se sono presenti altre opzioni a livello di codice per l'applicazione chiamante o il bot, Language Understanding non esegue tali operazioni, ma determina solo la finalità dell'utente. 
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+In questa esercitazione, l'app Human Resources usa un'entità semplice di Machine Learning per trovare i nomi di mansioni nelle espressioni. Poiché i nomi delle mansioni possono consistere in un'ampia gamma di parole o frasi, l'app necessita di un elenco di frasi per migliorare le parole che corrispondono a nomi di mansioni. 
 
 > [!div class="nextstepaction"]
 > [Aggiungere un'entità KeyPhrase predefinita](luis-quickstart-intent-and-key-phrase.md)

@@ -13,58 +13,48 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 3e3ee232b6342601e44d728148d32e70e6f3f00b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a1f15b805d2f27152d9ba85608ce0dc1d1aac21e
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419977"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392569"
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Esempi nelle macchine virtuali di data science (DSVM)
 
-I DSVMs includono degli esempi completamente lavorati sotto forma di Jupyter Notebook a alcuni che non sono basati su Jupyter. È possibile accedere a Jupyter facendo clic sull'icona `Jupyter` sul desktop o nel menu dell'applicazione.  
+Il DSVM include un set completo di codice di esempio sotto forma di Jupyter Notebook e di script in linguaggi come Python e R.    
 > [!NOTE]
-> Fare riferimento alla sezione [Access Jupyter](#access-jupyter) (Accesso a Jupyter) per abilitare Jupyter Notebook sulle DSVM.
+> Fare riferimento alla sezione [Accesso a Jupyter](#access-jupyter) per abilitare il Jupyter Notebook sulle DSVM.
 
 ## <a name="quick-reference-of-samples"></a>Riferimento rapido agli esempi
 | Categoria di esempi | DESCRIZIONE | Località |
 | ------------- | ------------- | ------------- |
 | Linguaggio di **R**  | Esempi in **R** che descrivono scenari come la connessione con l'archivio dati di cloud di Azure, il confronto Apri origine R e Microsoft R e l'operatività dei modelli in Microsoft R Server o SQL Server. <br/> [Schermata](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Linguaggio di **Python**  | Esempi in **Python** che descrivono scenari come la connessione con gli archivi dati di cloud di Azure e l'uso di **Azure Machine Learning**.  <br/> [Schermata](#python-language) | <br/>`~notebooks` <br/><br/>|
-| Linguaggio di **Julia**  | Esempio in **Julia** che descrive nel dettaglio il tracciamento in Julia, l'apprendimento avanzato in Julia, la chiamata di C e Python da Julia ecc. <br/> [Schermata](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
-| **CNTK** <br/> (Microsoft Cognitive Toolkit)  | Degli esempi di apprendimento avanzato pubblicati dal team di Cognitive Toolkit in Microsoft.  <br/> [Schermata](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| Notebook di **MXnet**  | Esempi di apprendimento avanzato che usano reti neurali basate su **MXnet**. Sono disponibili molti notebook che comprendono scenari che vanno dai principianti agli scenari.  <br/> [Schermata](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
-| AzureML **Azure Machine Learning**  | L'interazione con **Azure Machine Learning** Studio e la creazione di endpoint del servizio web dai modelli su cui è stato localmente eseguito il training, per flussi di lavoro con punteggio basato su cloud. <br/> [Schermata](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
-| **caffe2** | Degli esempi di apprendimento avanzato che usano reti neurali basate su **caffe2**. Sono presenti numerosi notebook progettati per consentire agli utenti di familiarizzare con caffe2 e scoprire come usarlo in modo efficace, con inclusi degli esempi come la pre-elaborazione di immagini, la creazione di set di dati, la regressione e l'uso di modelli che hanno precedentemente eseguito il training. <br/> [Schermata](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
+| Linguaggio di **Julia**  | Esempio in **Julia** che descrive nel dettaglio il tracciamento in Julia, l'apprendimento avanzato in Julia, la chiamata di C e Python da Julia ecc. <br/> [Schermata](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
+| AzureML **Azure Machine Learning**  | Costruire modelli di ML e modelli di apprendimento avanzato con il servizio **Azure Machine Learning** e modelli di distribuzione ovunque. Sfruttare le funzionalità, ad esempio ML automatizzata, sintonizzazione del parametro hyper intelligente, Gestione di modelli, formazione distribuita. <br/> [Schermata](#azureml) | <br/>`~notebooks/AzureML`<br/> <br/>|
+| **PyTorch** Notebook  | Esempi di apprendimento avanzato che usano **PyTorch** basato su reti neurali. Sono disponibili molti notebook che comprendono scenari che vanno dai principianti agli scenari.  <br/> [Schermata](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
+| **TensorFlow**  | Più esempi diversi di rete neurale e tecniche implementate usando il framework **TensorFlow**. <br/> [Schermata](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
+| **CNTK** <br/> (Microsoft Cognitive Toolkit)  | Degli esempi di apprendimento avanzato pubblicati dal team di Cognitive Toolkit in Microsoft.  <br/> [Schermata](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
+| **caffe2** | Degli esempi di apprendimento avanzato che usano reti neurali basate su **caffe2**. Sono presenti numerosi notebook progettati per consentire agli utenti di familiarizzare con caffe2 e scoprire come usarlo in modo efficace, con inclusi degli esempi come la pre-elaborazione di immagini, la creazione di set di dati, la regressione e l'uso di modelli che hanno precedentemente eseguito il training. <br/> [Schermata](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | **H2O**   | Esempi basati su Python che usano **H2O** per numerosi problemi di uno scenario reale. <br/> [Schermata](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
-| Linguaggio di programmazione di **SparkML**  | Esempio che usa le funzionalità e le capacità del toolkit **MLlib** di Spark tramite **pySpark 2.0** su **Apache Spark 2.0**.  <br/> [Schermata](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/><br/> |
-| Linguaggio di programmazione di **MMLSpark**  | Una serie di esempi che usano **MMLSpark - Microsoft Machine Learning per Apache Spark**, ovvero un framework che fornisce una serie di apprendimenti avanzati e di strumenti di data science per **Apache Spark**. <br/> [Schermata](#sparkml) | <br/>`~notebooks/MMLSpark`<br/><br/> |
-| **TensorFlow**  | Più esempi diversi di rete neurale e tecniche implementate usando il framework **TensorFlow**. <br/> [Schermata](#tensorflow) | <br/>`~notebooks/tensorflow`<br/><br/> |
-| **XGBoost** | Esempi di Machine Learning standard in **XGBoost** per scenari come la classificazione, la regressione e così via. <br/> [Schermata](#xgboost) | <br/>`~samples/xgboost/demo`<br/><br/> |
+| Linguaggio di programmazione di **SparkML**  | Esempio che usa le funzionalità e le capacità di Spark **MLlib** toolkit attraverso **pySpark** e **MMLSpark - Microsoft Machine Learning per Apache Spark** su **Apache Spark 2.x**.  <br/> [Schermata](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
+| **XGBoost** | Esempi di Machine Learning standard in **XGBoost** per scenari come la classificazione, la regressione e così via. <br/> [Schermata](#xgboost) | <br/>**Windows**:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
 
 <br/>
 
 ## <a name="access-jupyter"></a>Accesso a Jupyter 
 
-Visitare Jupyter Home passando a **`https://localhost:9999`** su Windows o a **`https://localhost:8000`** su Ubuntu.
+È possibile accedere a Jupyter facendo clic sull'icona `Jupyter` sul desktop o nel menu dell'applicazione. È anche possibile accedere a Jupyter su edizioni di Linux di DSVM in modalità remota da un Web browser visitando **`https://<Full Domain Name or IP Address of the DSVM>:8000`** in Ubuntu.
+
+Vedere la schermata per aggiungere l'eccezione e abilitare l'accesso di Jupyter tramite il browser.
 
 
-### <a name="enabling-jupyter-access-from-browser"></a>Abilitazione dell'accesso a Jupyter dal Browser
+![Abilitare l’eccezione di Jupyter](./media/ubuntu-jupyter-exception.png)
 
-**DSVM di Windows**
 
-Eseguire **`Jupyter SetPassword`** dal collegamento sul desktop e seguire il prompt per impostare/reimpostare la password per Jupyter e avviare il processo di Jupyter. 
-<br/>![Abilitare l'eccezione di Jupyter](./media/jupyter-setpassword.png)<br/>
-Una volta che il processo Jupyter è stato avviato con successo nella VM, è possibile accedere a Jupyter Home visitando **`https://localhost:9999`** nel browser. Vedere la schermata per aggiungere l'eccezione e abilitare l'accesso di Jupyter tramite il browser
-<br/>![Abilitare l'eccezione di Jupyter](./media/windows-jupyter-exception.png)<br/>
-Accedere con la nuova password che è stata appena impostata.
-<br/>
-**DSVM Linux**
-
-È possibile accedere a Jupyter Home nella VM visitando **`https://localhost:8000`** nel browser. Vedere la schermata per aggiungere l'eccezione e abilitare l'accesso di Jupyter tramite il browser.
-<br/>![Abilitare l'eccezione di Jupyter](./media/ubuntu-jupyter-exception.png)<br/>
 Accedere con la stessa password usata per l'accesso a DSVM.
 <br/>
 
@@ -80,15 +70,19 @@ Accedere con la stessa password usata per l'accesso a DSVM.
 ## <a name="julia-language"></a>Linguaggio di Julia 
 <br/>![Esempi di Julia](./media/julia-samples.png)<br/>
 
-## <a name="cntk"></a>CNTK 
-<br/>![Esempi di CNTK](./media/cntk-samples2.png)<br/>
-<br/>![Esempi di CNTK](./media/cntk-samples.png)<br/>
-
-## <a name="mxnet"></a>MXNet
-<br/>![Esempi di MXnet](./media/mxnet-samples.png)<br/>
-
 ## <a name="azureml"></a>AzureML 
 <br/>![Esempi di AzurekML](./media/azureml-samples.png)<br/>
+
+## <a name="pytorch"></a>PyTorch
+<br/>![Esempi di PyTorch](./media/pytorch-samples.png)<br/>
+
+## <a name="tensorflow"></a>TensorFlow 
+<br/>![Esempi di TensorFlow](./media/tensorflow-samples.png)<br/>
+
+
+## <a name="cntk"></a>CNTK 
+<br/>![Esempi di CNTK](./media/cntk-samples.png)<br/>
+
 
 ## <a name="caffe2"></a>caffe2 
 <br/>![Esempi di caffe2](./media/caffe2-samples.png)<br/>
@@ -98,9 +92,6 @@ Accedere con la stessa password usata per l'accesso a DSVM.
 
 ## <a name="sparkml"></a>SparkML 
 <br/>![Esempi di SparkML](./media/sparkml-samples.png)<br/>
-
-## <a name="tensorflow"></a>TensorFlow 
-<br/>![Esempi di TensorFlow](./media/tensorflow-samples.png)<br/>
 
 ## <a name="xgboost"></a>XGBoost 
 <br/>![Esempi di XGBoost](./media/xgboost-samples.png)<br/>

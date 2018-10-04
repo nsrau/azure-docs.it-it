@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717506"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268800"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -27,8 +27,8 @@ ms.locfileid: "44717506"
 
 Usare le indicazioni fornite in questo articolo per distribuire il servizio App in Azure Stack.
 
->[!IMPORTANT]  
->Applicare l'aggiornamento 1807 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima della distribuzione del servizio App di Azure 1.3.
+> [!IMPORTANT]  
+> Applicare l'aggiornamento 1807 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima della distribuzione del servizio App di Azure 1.3.
 
 È possibile concedere agli utenti la possibilità di creare applicazioni web e API. Per consentire agli utenti di creare queste applicazioni, è necessario:
 
@@ -97,7 +97,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 8. Immettere le informazioni per la condivisione file e quindi selezionare **successivo**. L'indirizzo della condivisione file deve usare il nome di dominio completo (FQDN) o l'indirizzo IP del File Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
 
    >[!NOTE]
-   >Il programma di installazione prova a verificare la connettività alla condivisione file prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, questo test di connettività potrebbe non riuscire. Si riceve un avviso e un prompt dei comandi per continuare. Se la condivisione file di informazioni siano corrette, continua la distribuzione.
+   >Il programma di installazione prova a verificare la connettività alla condivisione di file prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, questo test di connettività potrebbe non riuscire. Si riceve un avviso e un prompt dei comandi per continuare. Se le informazioni sulle condivisioni file è corretti, continuare la distribuzione.
 
    ![Programma di installazione del servizio App][7]
 

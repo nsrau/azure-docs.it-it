@@ -1,20 +1,21 @@
 ---
-title: Concetti aziendali per un'app LUIS - Azure | Microsoft Docs
+title: Concetti aziendali per un'app LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Informazioni sui concetti di progettazione per app LUIS di grandi dimensioni.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3782874ac69b299e24cf1555b290a9d2d86b6285
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038341"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Strategie aziendali per un'app LUIS
 Rivedere queste strategie di progettazione per l'app aziendale.
@@ -50,9 +51,7 @@ Usare lo strumento da riga di comando [Dispatch][dispatch-tool], disponibile in 
 
 ![Immagine concettuale dell'architettura di recapito](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-Il dominio padre è indicato in LUIS come app **V Dispatch**. 
-
-![Schermata dell'elenco di app LUIS con l'app LUIS creata dallo strumento recapito](./media/luis-concept-enterprise/dispatch.png)
+Il dominio padre è indicato in LUIS con una versione denominata `Dispatch` nell'elenco delle app. 
 
 Il chatbot riceve l'espressione, quindi la invia all'app LUIS padre per la stima. La finalità stimata principale dall'app padre determina quale app LUIS figlio viene chiamata dopo. Il chatbot invia l'espressione all'app figlio per una stima più specifica.
 
@@ -66,4 +65,4 @@ Al massimo un'applicazione di recapito dispone di 500 origini di recapito, equiv
 * Informazioni su come [testare un batch](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

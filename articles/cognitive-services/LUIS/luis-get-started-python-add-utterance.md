@@ -1,20 +1,21 @@
 ---
-title: "Guida introduttiva: Modificare il modello ed eseguire il training dell'app LUIS con Python - Servizi cognitivi di Azure | Microsoft Docs"
-description: In questa guida introduttiva per Node.js si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
+title: Guida introduttiva Python - modificare il modello ed eseguire il training di app LUIS
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva per Python si aggiungono espressioni di esempio in un'app Home Automation e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9fe3863509404f43f39e3aa197a79d322a0b643b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160694"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040177"
 ---
 # <a name="quickstart-change-model-using-python"></a>Guida introduttiva: Modificare il modello con Python
 

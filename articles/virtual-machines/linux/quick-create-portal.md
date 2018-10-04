@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447959"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227283"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Linux nel portale di Azure
 
@@ -49,26 +49,27 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com
 
 1. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
-2. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace, cercare e selezionare **Ubuntu Server 16.04 LTS** di Canonical e quindi scegliere **Crea**.
+1. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace, cercare e selezionare **Ubuntu Server 16.04 LTS** di Canonical e quindi scegliere **Crea**.
 
-3. Specificare un nome di macchina virtuale, ad esempio *macchinavirtuale*, lasciare il tipo di disco *SSD* e quindi specificare un nome utente, ad esempio *utenteazure*.
+1. Nella scheda **Nozioni di base**, sotto **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta e quindi scegliere **Crea nuovo** sotto **Gruppo di risorse**. Nella finestra popup, digitare *myResourceGroup* come nome del gruppo di risorse, quindi scegliere **OK*. 
 
-4. . Per **Tipo di autenticazione** selezionare **Chiave pubblica SSH** e quindi incollare la chiave pubblica nella casella di testo. Prestare attenzione a rimuovere gli eventuali spazi iniziali o finali nella chiave pubblica.
+    ![Creare un nuovo gruppo di risorse per la propria macchina virtuale](./media/quick-create-portal/project-details.png)
 
-    ![Immettere le informazioni di base sulla VM nel pannello del portale](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. Sotto **Dettagli dell'istanza**, digitare *myVM* come **nome della macchina virtuale** e scegliere *Stati Uniti orientali* come **Regione**. Lasciare invariate le altre impostazioni predefinite.
 
-5. Scegliere **Crea nuovo** per creare un nuovo gruppo di risorse e quindi specificare un nome, ad esempio *GruppoRisorse*. Scegliere la **Località** desiderata e quindi selezionare **OK**.
+    ![Sezione Dettagli dell'istanza](./media/quick-create-portal/instance-details.png)
 
-4. Selezionare una dimensione per la VM. È possibile filtrare in base a *Tipo di calcolo* oppure a *Tipo di disco*, ad esempio. Le dimensioni consigliate per le macchine virtuali sono *D2s_v3*.
+1. Sotto **Account amministratore**, selezionare **Chiave pubblica SSH**, digitare il nome utente, quindi incollare la chiave pubblica nella casella di testo. Rimuovere gli eventuali spazi iniziali o finali nella chiave pubblica.
 
-    ![Screenshot che mostra le dimensioni delle VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![Account amministratore](./media/quick-create-portal/administrator-account.png)
 
-5. Nella pagina **Impostazioni** in **Rete** > **Gruppo di sicurezza di rete** > **Selezionare le porte in ingresso pubbliche**, selezionare **HTTP** e **SSH (22)**. Accettare tutte le impostazioni predefinite e selezionare **OK**.
+1. Sotto **Regole porta in ingresso** > **Porte in ingresso pubbliche**, scegliere **Consentire porte selezionate**, quindi selezionare **SSH (22)** e **HTTP (80)** dall'elenco a discesa. 
 
-6. Nella pagina di riepilogo selezionare **Crea** per avviare la distribuzione della macchina virtuale.
+    ![Aprire le porte per RDP e HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
-7. La macchina virtuale viene aggiunta al dashboard del portale di Azure. Una volta completata la distribuzione verrà automaticamente aperto il riepilogo della macchina virtuale.
+1. Lasciare invariate le impostazioni predefinite rimanenti, quindi selezionare il pulsante **Rivedi + Crea** nella parte inferiore della pagina.
 
+    
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 
 Creare una connessione SSH con la macchina virtuale.
