@@ -1,5 +1,5 @@
 ---
-title: Installazione di driver per serie N di Azure per Linux | Microsoft Docs
+title: Installazione di driver GPU serie N di Azure per Linux | Microsoft Docs
 description: Informazioni su come installare driver GPU NVIDIA per macchine virtuali serie N che eseguono Linux in Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d85bc79ddd08cb051b2e4d978a931f460020c10
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 822261e74f7da941ac89090e5d493c4be18bc307
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364501"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038885"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -55,7 +55,7 @@ Quindi eseguire i comandi di installazione specifici per la distribuzione.
 
 1. Scaricare e installare i driver CUDA.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -99,7 +99,7 @@ sudo reboot
 
 ### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS o Red Hat Enterprise Linux 7.3 o 7.4
 
-1. Aggiornare il kernel.
+1. Aggiornare il kernel (consigliato). Se si sceglie di non aggiornare il kernel, assicurarsi che le versioni di `kernel-devel` e `dkms` siano adeguate per il kernel.
 
   ```
   sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -127,7 +127,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -170,9 +170,9 @@ Distribuire le VM serie N abilitate per RDMA da una delle immagini in Azure Mark
 
 * **CentOS-based 7.4 HPC**: i driver RDMA e Intel MPI 5.1 vengono installati nella VM.
 
-## <a name="install-grid-drivers-on-nv-series-vms"></a>Installare i driver GRID nelle macchine virtuali serie NV
+## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>Installare i driver GRID nelle macchine virtuali serie NV o NVv2
 
-Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV, stabilire una connessione SSH a ogni macchina virtuale e seguire la procedura per la distribuzione di Linux. 
+Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv2, stabilire una connessione SSH a ogni macchina virtuale e seguire la procedura per la distribuzione di Linux. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -189,7 +189,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV, stabilire 
 
   sudo apt-get install build-essential ubuntu-desktop -y
   ```
-3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Nelle macchine virtuali NV usare solo il driver NVIDIA. A tale scopo, creare un file in `/etc/modprobe.d ` denominato `nouveau.conf` con il contenuto seguente:
+3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NVv2. A tale scopo, creare un file in `/etc/modprobe.d ` denominato `nouveau.conf` con il contenuto seguente:
 
   ```
   blacklist nouveau
@@ -232,7 +232,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV, stabilire 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS o Red Hat Enterprise Linux 
 
-1. Aggiornare il kernel e DKMS.
+1. Aggiornare il kernel e il DKMS (consigliato). Se si sceglie di non aggiornare il kernel, assicurarsi che le versioni di `kernel-devel` e `dkms` siano adeguate per il kernel.
  
   ```bash  
   sudo yum update
@@ -244,7 +244,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV, stabilire 
   sudo yum install dkms
   ```
 
-2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Nelle macchine virtuali NV usare solo il driver NVIDIA. A tale scopo, creare un file in `/etc/modprobe.d ` denominato `nouveau.conf` con il contenuto seguente:
+2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NV2. A tale scopo, creare un file in `/etc/modprobe.d ` denominato `nouveau.conf` con il contenuto seguente:
 
   ```
   blacklist nouveau
@@ -304,7 +304,7 @@ Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU
  
 
 ### <a name="x11-server"></a>Server X11
-Se è necessario un server X11 per le connessioni remote a una macchina virtuale NV, è consigliabile usare [x11vnc](http://www.karlrunge.com/x11vnc/) perché consente l'accelerazione hardware della grafica. Il BusID del dispositivo M60 deve essere aggiunto manualmente al file di configurazione X11 file (in genere `etc/X11/xorg.conf`). Aggiungere una sezione `"Device"` simile alla seguente:
+Se è necessario un server X11 per le connessioni da remoto a una macchina virtuale NV o nVv2, è consigliabile usare [x11vnc](http://www.karlrunge.com/x11vnc/) perché consente l'accelerazione hardware della grafica. Il BusID del dispositivo M60 deve essere aggiunto manualmente al file di configurazione X11 file (in genere `etc/X11/xorg.conf`). Aggiungere una sezione `"Device"` simile alla seguente:
  
 ```
 Section "Device"

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 1cac4e4cee408e5208d2d5d84f81b8ad7a89f03b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715370"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033992"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure
 
@@ -89,7 +89,7 @@ Quando si gestisce l'accesso, si ha l'esigenza di sapere chi ha accesso, quali s
 
     ![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/subscription-access-control.png)
 
-    Gli utenti con i ruoli Amministratore sottoscrizione classico e Coamministratore sono considerati proprietari della sottoscrizione nel modello di controllo degli accessi in base al ruolo.
+    I tipici utenti con i ruoli di Amministratore di sottoscrizione e i Coamministratori sono considerati proprietari della sottoscrizione nel modello RBAC.
 
 ### <a name="list-role-assignments-for-a-management-group"></a>Elencare le assegnazioni di ruolo per un gruppo di gestione
 
@@ -109,9 +109,9 @@ Quando si gestisce l'accesso, si ha l'esigenza di sapere chi ha accesso, quali s
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo. Eseguire questa procedura per concedere l'accesso ad ambiti diversi.
+Per concedere l'accesso in RBAC, si crea un'assegnazione di ruolo. Eseguire questa procedura per concedere l'accesso ad ambiti diversi.
 
-### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Creare un'assegnazione di ruolo per l'ambito di un gruppo di risorse
+### <a name="assign-a-role-at-a-resource-group-scope"></a>Assegnare un ruolo nell'ambito di un gruppo di risorse
 
 1. Nell'elenco di spostamento scegliere **Gruppi di risorse**.
 
@@ -131,11 +131,11 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 
 1. Nell'elenco **Selezione** selezionare un utente, un gruppo o un'applicazione. Se l'entità di sicurezza non è visualizzata nell'elenco, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati, gli indirizzi e-mail e gli identificatori di oggetto.
 
-1. Scegliere **Salva** per creare l'assegnazione di ruolo.
+1. Scegliere **Salva** per assegnare un ruolo.
 
    Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'ambito del gruppo di risorse.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Creare un'assegnazione di ruolo per l'ambito di una sottoscrizione
+### <a name="assign-a-role-at-a-subscription-scope"></a>Assegnare un ruolo nell’ambito della sottoscrizione
 
 1. Nel portale di Azure scegliere **Tutti i servizi** e quindi **Sottoscrizioni**.
 
@@ -155,11 +155,37 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 
 1. Nell'elenco **Selezione** selezionare un utente, un gruppo o un'applicazione. Se l'entità di sicurezza non è visualizzata nell'elenco, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati, gli indirizzi e-mail e gli identificatori di oggetto.
 
-1. Scegliere **Salva** per creare l'assegnazione di ruolo.
+1. Scegliere **Salva** per assegnare un ruolo.
 
    Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'ambito della sottoscrizione.
 
-### <a name="create-a-role-assignment-at-a-management-group-scope"></a>Creare un'assegnazione di ruolo per l'ambito di un gruppo di gestione
+### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Assegnare un utente come amministratore di una sottoscrizione
+
+Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargli il ruolo di [Proprietario](built-in-roles.md#owner) nell'ambito della sottoscrizione. Questo ruolo garantisce all'utente l'accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. Questi passaggi sono gli stessi di qualsiasi altra assegnazione di ruoli.
+
+1. Nel portale di Azure scegliere **Tutti i servizi** e quindi **Sottoscrizioni**.
+
+1. Scegliere la propria sottoscrizione.
+
+1. Scegliere **Controllo di accesso (IAM)** per visualizzare l'elenco corrente delle assegnazioni di ruoli per l'ambito della sottoscrizione.
+
+   ![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. Scegliere **Aggiungi** per aprire il riquadro **Aggiungi autorizzazioni**.
+
+   Se non si hanno le autorizzazioni per assegnare i ruoli, l'opzione **Aggiungi** non verrà visualizzata.
+
+   ![Riquadro Aggiungi autorizzazioni](./media/role-assignments-portal/add-permissions.png)
+
+1. Nell’elenco a discesa **Ruolo**, selezionare il ruolo **Proprietario.**
+
+1. Nell'elenco **Selezione**, selezionare un utente. Se nell'elenco l'utente non è visualizzato, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati e gli indirizzi e-mail.
+
+1. Scegliere **Salva** per assegnare un ruolo.
+
+   Dopo qualche istante, all’utente viene assegnato il ruolo di Proprietario per l'ambito della sottoscrizione.
+
+### <a name="assign-a-role-at-a-management-group-scope"></a>Assegnare un ruolo per l'ambito di un gruppo di gestione
 
 1. Nel portale di Azure scegliere **Tutti i servizi** e quindi **Gruppi di gestione**.
 
@@ -181,11 +207,11 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 
 1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore gruppo di gestione**.
 
-    Per informazioni sulle azioni supportate nei gruppi di gestione per i vari ruoli, vedere [Organizzare le risorse con i gruppi di gestione di Azure](../azure-resource-manager/management-groups-overview.md#management-group-access).
+    Per informazioni sulle azioni supportate nei gruppi di gestione per i vari ruoli, vedere [Organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/index.md#management-group-access).
 
 1. Nell'elenco **Selezione** selezionare un utente, un gruppo o un'applicazione. Se l'entità di sicurezza non è visualizzata nell'elenco, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati, gli indirizzi e-mail e gli identificatori di oggetto.
 
-1. Scegliere **Salva** per creare l'assegnazione di ruolo.
+1. Scegliere **Salva** per assegnare un ruolo.
 
    Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'ambito del gruppo di gestione.
 

@@ -1,20 +1,21 @@
 ---
-title: Informazioni sull'accesso alle applicazioni LUIS - Azure | Microsoft Docs
-description: Informazioni sull'accesso in creazione all'app LUIS.
+title: Informazioni sull'accesso alle applicazioni LUIS
+titleSuffix: Azure Cognitive Services
+description: L'accesso in creazione è disponibile ai proprietari e ai collaboratori. Per un'app privata, l'accesso endpoint è disponibile ai proprietari e ai collaboratori. Per un'app pubblica, l'accesso endpoint è disponibile a chiunque disponga di un proprio account LUIS e dell'ID dell'app pubblica.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fddffbcabba753e9ef214f924d5ff2cee38427a5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 8a7ecac3776d767160b07f550251c54793926056
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301694"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033193"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Accesso utente endpoint e in creazione
 L'accesso in creazione è disponibile ai proprietari e ai collaboratori. Per un'app privata, l'accesso endpoint è disponibile ai proprietari e ai collaboratori. Per un'app pubblica, l'accesso endpoint è disponibile a chiunque disponga di un proprio account LUIS e dell'ID dell'app pubblica. 
@@ -37,11 +38,13 @@ Il proprietario e tutti i collaboratori hanno accesso in creazione all'app.
 |Eseguire il training|
 
 ## <a name="access-to-endpoint"></a>Accedere all'endpoint
-L'accesso all'endpoint per eseguire query nell'app LUIS è controllato dall'impostazione **Public** (Pubblica) dell'app nella pagina **Settings** (Impostazioni). Verificare la presenza di una chiave autorizzata con accessi quota rimanenti nella query endpont di un'app privata. La query endpoint di un'app pubblica deve inoltre fornire una chiave endpoint (da chiunque esegua la query) nella quale viene anche verificata la presenza di accessi quota rimanenti. 
-
-La chiave endpoint viene passata nella stringa di query della richiesta GET o nell'intestazione della richiesta POST.
+L'accesso per eseguire una query sull'endpoint è controllato da un'impostazione nella pagina **Informazioni applicazione**, sotto la sezione **Gestisci**. 
 
 ![Impostazione dell'app su pubblica](./media/luis-concept-security/set-application-as-public.png)
+
+|[Endpoint privato](#private-app-endpoint-security)|[Endpoint pubblico](#public-app-endpoint-access)|
+|:--|:--|
+|Disponibile per proprietario e collaboratori|Disponibile per proprietario, collaboratori e chiunque altro che conosca l'ID app|
 
 ### <a name="private-app-endpoint-security"></a>Sicurezza dell'endpoint dell'app privata
 L'endpoint di un'app privata è disponibile a:
@@ -50,14 +53,19 @@ L'endpoint di un'app privata è disponibile a:
 |--|--|--|
 |Chiave di creazione del proprietario| Fino a 1000 accessi endpoint|
 |Chiavi di creazione dei collaboratori| Fino a 1000 accessi endpoint|
-|Chiavi endpoint aggiunte dalla pagina **[Publish](luis-how-to-publish-app.md)** (Pubblica)|Il proprietario e i collaboratori possono aggiungere chiavi endpoint|
+|Qualsiasi chiave assegnata a LUIS da un autore o un collaboratore|Basato sul livello di uso della chiave|
 
-Le altre chiavi di creazione o endpoint **non** dispongono dell'accesso.
+#### <a name="microsoft-user-accounts"></a>Account utente Microsoft
+Autori e collaboratori possono assegnare chiavi a un'app LUIS privata. L'account utente Microsoft che crea la chiave LUIS nel portale di Azure deve essere il proprietario dell'app o un collaboratore. Non è possibile assegnare una chiave a un'app privata tramite un altro account di Azure.
+
+Per altre informazioni sugli account utente Active Directory vedere [Tenant di Active Directory di Azure](luis-how-to-collaborate.md#azure-active-directory-tenant-user). 
 
 ### <a name="public-app-endpoint-access"></a>Accesso endpoint all'app pubblica
-Configurare l'app come **pubblica** nella pagina **Settings** (Impostazioni) dell'app. Dopo che un'app è stata configurata come pubblica, _qualsiasi_ chiave di creazione LUIS o chiave endpoint LUIS valida può eseguire una query nell'app, purché la chiave non abbia usato l'intera quota endpoint.
+Dopo che un'app è stata configurata come pubblica, _qualsiasi_ chiave di creazione LUIS o chiave endpoint LUIS valida può eseguire una query nell'app, purché la chiave non abbia usato l'intera quota endpoint.
 
 Un utente che non è proprietario né collaboratore può accedere solo a un'app pubblica se ne possiede l'ID. LUIS non ha un _mercato_ pubblico o un altro modo per cercare un'app pubblica.  
+
+Un'app pubblica viene pubblicata in tutte le regioni in modo che un utente con una chiave di risorsa LUIS basata su regione possa accedere all'app in qualsiasi regione associata la chiave di risorsa.
 
 ## <a name="microsoft-user-accounts"></a>Account utente Microsoft
 Gli autori e i collaboratori possono aggiungere chiavi a LUIS nella pagina Publish (Pubblica). L'account utente Microsoft che crea la chiave LUIS nel portale di Azure deve essere il proprietario dell'app o un collaboratore. 
@@ -71,11 +79,13 @@ If the Microsoft user account is part of an Azure Active Directory (AAD), and th
 ### Administrator consent
 If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then the administrator can give individual consent via the method discussed in this [blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/). 
 -->
+
 ## <a name="securing-the-endpoint"></a>Protezione dell'endpoint 
 È possibile controllare chi può visualizzare la chiave endpoint LUIS chiamandola in un ambiente server-to-server. Se si utilizza LUIS da un bot, la connessione tra il bot e LUIS è già protetta. Se si chiama direttamente l'endpoint LUIS, è necessario creare un'API lato server, ad esempio una [funzione](https://azure.microsoft.com/services/functions/) di Azure, con accesso controllato, ad esempio [AAD](https://azure.microsoft.com/services/active-directory/). Quando viene chiamata l'API lato server e vengono verificate l'autenticazione e l'autorizzazione, passare la chiamata a LUIS. Se da un lato questa strategia non impedisce gli attacchi man-in-the-middle, dall'altro offusca l'endpoint dagli utenti, consente di seguire l'accesso e di aggiungere la registrazione delle risposte endpoint, ad esempio [Application Insights](https://azure.microsoft.com/services/application-insights/).  
 
 ## <a name="security-compliance"></a>Conformità agli standard di sicurezza
-LUIS ha completato con successo l'auditing per le certificazioni ISO 27001:2013 e ISO 27018:2014 con ZERO non conformità (risultati) nel report di auditing. LUIS ha inoltre ottenuto la certificazione CSA STAR con il massimo riconoscimento (Gold Award) per la valutazione del livello di maturità (Maturity Capability). Azure è l'unico provider di servizi cloud pubblici ad aver acquisito questa certificazione. Per ulteriori dettagli, il servizio LUIS è incluso nella definizione aggiornata dell'ambito nel documento principale sulla [conformità](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) di Azure a cui viene fatto riferimento nelle pagine ISO di [Centro protezione](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001).  
+ 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

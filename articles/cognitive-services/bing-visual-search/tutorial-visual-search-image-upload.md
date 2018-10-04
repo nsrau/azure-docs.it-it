@@ -1,21 +1,21 @@
 ---
-title: Esercitazione sul caricamento di immagini in Ricerca visiva Bing | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: "Esercitazione: Come caricare un'immagine - Ricerca visiva Bing"
+titleSuffix: Azure Cognitive Services
 description: Suddivide il processo di caricamento di un'immagine in Bing per ottenere informazioni dettagliate sull'immagine stessa nonché il processo di analisi e di visualizzazione della risposta.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a5bc5197ecd1f35b4d0026caa076a844c9d57c40
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068669"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221322"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Esercitazione: Suddivisione del processo di caricamento in Ricerca visiva Bing
 

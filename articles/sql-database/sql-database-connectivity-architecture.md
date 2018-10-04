@@ -2,19 +2,22 @@
 title: Architettura della connettività del database SQL di Azure | Microsoft Docs
 description: Questo documento illustra l'architettura della connettività del database SQL di Azure dall'interno o dall'esterno di Azure.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: DhruvMsft
+ms.author: dhruv
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 01/24/2018
-ms.author: carlrab
-ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493673"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064145"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure 
 
@@ -51,13 +54,16 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 ![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Quando si usano gli endpoint servizio con il database SQL di Azure i criteri sono di **Proxy** per impostazione predefinita. Per abilitare la connettività dall'interno della rete virtuale, consentire le connessioni in uscita agli indirizzi IP del gateway del database SQL di Azure specificate nell'elenco riportato di seguito. Quando si usano endpoint di servizio, è consigliabile modificare il criterio di connessione in **Reindirizzamento** per consentire prestazioni migliori. Se si modifica il criterio di connessione in **Reindirizzamento**, non sarà sufficiente consentire l'uscita dal gruppo di sicurezza di rete ai soli indirizzi IP del gateway del database SQL elencati di seguito, ma a tutti gli indirizzi IP del database SQL di Azure. Ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+> Quando si usano gli endpoint servizio con il database SQL di Azure i criteri sono di **Proxy** per impostazione predefinita. Per abilitare la connettività dall'interno della rete virtuale, consentire le connessioni in uscita agli indirizzi IP del gateway del database SQL di Azure specificate nell'elenco riportato di seguito. Quando si usano endpoint di servizio, è consigliabile modificare il criterio di connessione in **Reindirizzamento** per consentire prestazioni migliori. Se si modifica il criterio di connessione in **Reindirizzamento**, non sarà sufficiente consentire l'uscita dal gruppo di sicurezza di rete ai soli indirizzi IP del gateway del database SQL elencati di seguito, ma a tutti gli indirizzi IP del database SQL di Azure. Ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Indirizzi IP del gateway del database SQL di Azure
 
 Per connettersi a un database SQL di Azure da risorse locali, è necessario consentire il traffico di rete in uscita verso il gateway del database SQL di Azure per la propria area di Azure. Le connessioni passano solo attraverso il gateway quando ci si connette in modalità proxy, ovvero l'impostazione predefinita per la connessione da risorse locali.
 
 La tabella seguente elenca gli indirizzi IP primario e secondario del gateway del database SQL di Azure per tutte le aree dati. Per alcune aree sono disponibili due indirizzi IP. In queste aree, l'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover. L'indirizzo di failover è l'indirizzo verso cui potrebbe essere spostato il server per mantenere l'alta disponibilità del servizio. Per queste aree, è consigliabile consentire il traffico in uscita verso entrambi gli indirizzi IP. Il secondo indirizzo IP è di proprietà di Microsoft e non è in ascolto su alcun servizio fino a quando non viene attivato dal database SQL di Azure per accettare connessioni.
+
+> [!IMPORTANT]
+> Se ci si connette dall'interno di Azure i criteri di connessione vengono **reindirizzati** per impostazione predefinita (tranne in caso di uso di endpoint di servizio). Non sarà sufficiente consentire i seguenti indirizzi IP. Occorre consentire tutti gli IP del database SQL di Azure. Se ci si connette dall'interno di una rete virtuale, ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Nome area | Indirizzo IP primario | Indirizzo IP secondario |
 | --- | --- |--- |
@@ -160,10 +166,10 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script per modificare le impostazioni di connessione tramite l'interfaccia della riga di comando di Azure 2.0
+## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script per modificare le impostazioni di connessione tramite l'interfaccia della riga di comando di Azure
 
 > [!IMPORTANT]
-> Per questo script è necessaria l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 Lo script dell'interfaccia della riga di comando seguente mostra come modificare il criterio di connessione.

@@ -1,20 +1,21 @@
 ---
-title: Moderare le immagini con elenchi personalizzati in Azure Content Moderator | Microsoft Docs
+title: Moderare le immagini con elenchi personalizzati con la console dell'API - Content Moderator
+titlesuffix: Azure Content Moderator
 description: Eseguire il test drive di elenchi personalizzati di immagini nella console dell'API di Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 2d714f017be16d978ffbb877a2b7e78e1caf9169
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5e573262879b6a16e3cd530757900b86228ae299
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373329"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219958"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderare le immagini con elenchi personalizzati nella console dell'API
 
@@ -26,7 +27,7 @@ ms.locfileid: "35373329"
 
 L'API di gestione degli elenchi consente di eseguire queste attività:
 
-- Creare un elenco.
+- Crea un elenco
 - Aggiungere immagini a un elenco.
 - Filtrare le immagini rispetto a quelle incluse in un elenco.
 - Eliminare le immagini da un elenco.
@@ -35,7 +36,7 @@ L'API di gestione degli elenchi consente di eseguire queste attività:
 - Aggiornare l'indice in modo da includere le modifiche apportate all'elenco in una nuova analisi.
 
 ## <a name="use-the-api-console"></a>Usare la console dell'API
-Prima di poter eseguire il test drive dell'API nella console online, è necessario disporre della chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+Prima di poter eseguire il test drive dell'API nella console online, è necessario avere la chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
 
 ## <a name="refresh-search-index"></a>Aggiornare l'indice di ricerca
 
@@ -118,7 +119,7 @@ Dopo avere modificato un elenco di immagini, è necessario aggiornarne l'indice 
 
 L'eliminazione di un'immagine o di un elenco è un'operazione semplice. È possibile usare l'API per eseguire queste attività:
 
-- Eliminare un'immagine: **Image - Delete** (Immagine - Elimina)
+- Eliminare un'immagine. **Image - Delete** (Immagine - Elimina)
 - Eliminare tutte le immagini incluse in un elenco senza eliminare l'elenco: **Image - Delete All Images** (Immagine - Elimina tutte le immagini)
 - Eliminare un elenco e tutto il contenuto: **Image Lists - Delete** (Elenchi di immagini - Elimina)
 

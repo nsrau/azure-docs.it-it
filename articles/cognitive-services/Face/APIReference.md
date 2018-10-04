@@ -1,21 +1,9 @@
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
 ---
-title: Informazioni di riferimento sull'API per il servizio API Viso | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Le informazioni di riferimento per le API forniscono informazioni sulle API di gestione Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList e sull'API per l'algoritmo Viso.
-services: cognitive-services
-author: SteveMSFT
-manager: corncar
-ms.service: cognitive-services
-ms.component: face-api
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 94c03d4f07a18c0c63d76965b1b31dce66388843
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378076"
+title: Riferimento API - API Viso titleSuffix: Servizi cognitivi di Azure description: Le informazioni di riferimento per le API forniscono informazioni sulle API di gestione Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList e sull'API per l'algoritmo Viso.
+services: cognitive-services author: SteveMSFT manager: cgronlun
+
+ms.service: cognitive-services ms.component: face-api ms.topic: reference ms.date: 03/01/2018 ms.author: sbowles
 ---
 # <a name="api-reference"></a>Informazioni di riferimento sulle API
 

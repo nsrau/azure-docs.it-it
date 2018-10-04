@@ -1,20 +1,21 @@
 ---
-title: Domande frequenti per Azure Content Moderator | Microsoft Docs
+title: Domande frequenti - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Risposte alle domande frequenti su Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: faq
 ms.date: 11/21/2016
 ms.author: sajagtap
-ms.openlocfilehash: 7bf6c67bd0a83d9455d14253f4f4b2becafd29ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ce61a89069caf90695a2cb6c54f61de8fa8cb112
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373020"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226934"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -36,7 +37,7 @@ No. Tuttavia, organizzazioni qualificate possono usare il [servizio cloud PhotoD
 #### <a name="up-to-how-many-review-teams-can-a-user-join-can-the-user-switch-between-teams"></a>Fino a quanti team di revisione può partecipare un utente? L'utente può cambiare team?
 Un utente può partecipare a un team alla volta.
 
-#### <a name="what-kind-of-team-member-roles-are-supported-by-the-review-tool-how-are-they-different"></a>Quali tipi di ruoli per i membri dei team sono supportati dallo strumento di revisione? In che modo si differenziano?
+#### <a name="what-kind-of-team-member-roles-are-supported-by-the-review-tool-how-are-they-different"></a>Quali tipi di ruoli per i membri dei team sono supportati dallo strumento di revisione? ma presentano alcune differenze.
 Studio attualmente consente l'assegnazione dei ruoli di amministratore e revisore. Gli amministratori possono invitare altri utenti e possono accedere alle impostazioni di configurazione, mentre i revisori possono solo controllare i risultati della moderazione e aggiungere o rimuovere tag per il contenuto.
 
 #### <a name="what-is-a-tag-does-the-review-tool-support-custom-tags"></a>Che cos'è un tag? Lo strumento di revisione supporta tag personalizzati?

@@ -1,24 +1,25 @@
 ---
-title: API Riconoscimento del parlante | Microsoft Docs
-description: Usare gli algoritmi avanzati per la verifica e l'identificazione della voce con l'API Riconoscimento del parlante in Servizi cognitivi.
+title: Che cos’è il Riconoscimento del parlante?
+titlesuffix: Azure Cognitive Services
+description: Usare gli algoritmi avanzati per la verifica e l'identificazione della voce con l'API di Riconoscimento del parlante.
 services: cognitive-services
 author: dwlin
-manager: zhang
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speaker-recognition
-ms.topic: article
+ms.topic: overview
 ms.date: 03/20/2016
 ms.author: dwlin
-ms.openlocfilehash: 6d5e4e4bbe0cb5e57d2556f680ffcf8d16ee1818
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 13a95aff8b2b0d5dad0574e6107958a20576702a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373785"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227334"
 ---
 # <a name="speaker-recognition-api"></a>API Riconoscimento voce
 
-Introduzione alle API Riconoscimento del parlante di Microsoft. Le API di riconoscimento della voce sono API basate sul cloud dotate di algoritmi estremamente avanzati per la verifica e l'identificazione della voce. Le funzionalità di riconoscimento del parlante possono essere suddivise in due categorie: verifica e identificazione della voce.
+Introduzione alle API Riconoscimento del parlante. Le API di riconoscimento della voce sono API basate sul cloud dotate di algoritmi estremamente avanzati per la verifica e l'identificazione della voce. Le funzionalità di riconoscimento del parlante possono essere suddivise in due categorie: verifica e identificazione della voce.
 
 
 ## <a name="speaker-verification"></a>Verifica voce
