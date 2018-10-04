@@ -1,22 +1,23 @@
 ---
-title: Eseguire test in batch dell'app LUIS - Azure | Microsoft Docs
-description: Eseguire il test in batch dell'app LUIS (Language Understanding) per trovare le espressioni con finalità ed entità errate.
+title: Test in batch con 1000 espressioni di esempio
+titleSuffix: Azure Cognitive Services
+description: Eseguire il test in batch dell'app Language Understanding (LUIS) per trovare le espressioni con finalità ed entità errate.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888627"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032122"
 ---
-# <a name="batch-testing"></a>Test in batch
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
  Il test in batch è un test completo sul modello già sottoposto a training per misurarne le prestazioni in LUIS. 
 
 <a name="batch-testing"></a>
@@ -27,8 +28,6 @@ ms.locfileid: "42888627"
     ![Collegamento Batch Testing (Test in batch)](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. Selezionare **Import dataset** (Importa set di dati). Verrà visualizzata la finestra di dialogo **Import new dataset** (Importa nuovo set di dati). Selezionare **Choose File** (Scegli file) e cercare il file JSON con il formato [JSON](luis-concept-batch-test.md#batch-file-format) corretto che *non contiene più di 1.000* espressioni da testare.
-
-    ![Importare il file di set di dati](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     Gli errori di importazione vengono segnalati in una barra di notifica rossa nella parte superiore del browser. Quando un'importazione presenta degli errori, non viene creato alcun set di dati. Per ulteriori informazioni, vedere[Errori comuni](luis-concept-batch-test.md#common-errors-importing-a-batch).
 

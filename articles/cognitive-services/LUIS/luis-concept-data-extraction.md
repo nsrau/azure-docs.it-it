@@ -1,34 +1,35 @@
 ---
-title: Informazioni sui concetti di estrazione dati in LUIS - Azure | Microsoft Docs
+title: Concetti relativi all'estrazione di dati in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Informazioni sui tipi di dati che è possibile estrarre da Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 39d36ee0c46d3e6954c3264f37f3f575130186b9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225683"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434484"
 ---
 # <a name="data-extraction"></a>Estrazione dei dati
-LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot intervento.
+LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
 
-Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON. I dati più difficili da estrarre sono i dati appresi in modo automatico perché non rappresentano una corrispondenza di testo esatta. L'estrazione dati delle [entità](luis-concept-entity-types.md) apprese in modo automatico deve far parte del [ciclo di creazione](luis-concept-app-iteration.md) finché non si è certi di ricevere i dati previsti. 
+I dati più difficili da estrarre sono i dati appresi in modo automatico perché non rappresentano una corrispondenza di testo esatta. L'estrazione dati delle [entità](luis-concept-entity-types.md) apprese in modo automatico deve far parte del [ciclo di creazione](luis-concept-app-iteration.md) finché non si è certi di ricevere i dati previsti.
 
 ## <a name="data-location-and-key-usage"></a>Posizione dei dati e uso di chiavi
-LUIS fornisce i dati dall'[endpoint](luis-glossary.md#endpoint) pubblicato. La **richiesta HTTPS** (POST o GET) contiene l'espressione e alcune configurazioni facoltative, ad esempio ambienti di staging o produzione. 
+LUIS fornisce i dati dall'[endpoint](luis-glossary.md#endpoint) pubblicato. La **richiesta HTTPS** (POST o GET) contiene l'espressione e alcune configurazioni facoltative, ad esempio ambienti di staging o produzione.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
 `appID` è disponibile nella pagina **Settings** (Impostazioni) dell'app LUIS e in parte dell'URL (dopo `/apps/`) quando si modifica quell'app LUIS. `subscription-key` è la chiave endpoint usata per eseguire query nell'app. Sebbene sia possibile usare la chiave di creazione/avvio durante l'apprendimento di LUIS, è importante modificare la chiave endpoint in una chiave che supporti l'[uso previsto di LUIS](luis-boundaries.md#key-limits). L'unità `timezoneOffset` è in minuti.
 
-La **risposta HTTPS** contiene tutte le informazioni su finalità ed entità che LUIS è in grado di determinare in base al modello attualmente pubblicato dell'endpoint di staging o produzione. L'URL dell'endpoint è presente nella pagina [Publish](luis-reference-regions.md) (Pubblica) del sito Web **LUIS**. 
+La **risposta HTTPS** contiene tutte le informazioni su finalità ed entità che LUIS è in grado di determinare in base al modello attualmente pubblicato dell'endpoint di staging o produzione. L'URL dell'endpoint è disponibile nel sito Web [LUIS](luis-reference-regions.md), nella sezione **Manage** (Gestisci) della pagina **Keys and endpoints** (Chiavi ed endpoint).
 
 ## <a name="data-from-intents"></a>Dati da finalità
 I dati principali sono dati dal **nome della finalità** con il punteggio superiore. Usando l'`MyStore`[avvio rapido](luis-quickstart-intents-only.md), la risposta dell'endpoint è:
@@ -103,7 +104,7 @@ Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, 
   "entities": []
 }
 ```
-    
+
 |Domain|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|
 |--|--|--|--|--|
 |Servizi pubblici|Finalità|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
@@ -112,9 +113,9 @@ Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, 
 
 
 ## <a name="data-from-entities"></a>Dati da entità
-La maggior parte dei chatbot e delle applicazioni richiede più del nome della finalità. Questi dati aggiuntivi e facoltativi provengono da entità trovate nell'espressione. Ogni tipo di entità restituisce informazioni diverse sulla corrispondenza. 
+La maggior parte dei chatbot e delle applicazioni richiede più del nome della finalità. Questi dati aggiuntivi e facoltativi provengono da entità trovate nell'espressione. Ogni tipo di entità restituisce informazioni diverse sulla corrispondenza.
 
-Una singola parola o frase dell'espressione può corrispondere a più di un'entità. In questo caso, ogni entità corrispondente viene restituita con il relativo punteggio. 
+Una singola parola o frase dell'espressione può corrispondere a più di un'entità. In questo caso, ogni entità corrispondente viene restituita con il relativo punteggio.
 
 Tutte le entità vengono restituite nella matrice **entità** della risposta dall'endpoint:
 
@@ -140,13 +141,13 @@ Tutte le entità vengono restituite nella matrice **entità** della risposta dal
 ```
 
 ## <a name="tokenized-entity-returned"></a>Entità in formato token restituita
-Diverse [impostazioni cultura](luis-supported-languages.md#tokenization) restituiscono l'oggetto entità con il `entity` valore [in formato token](luis-glossary.md#token). Gli elementi startIndex e endIndex restituiti da LUIS nell'oggetto entità non corrispondono al nuovo valore in formato token, ma alla query originale affinché sia possibile estrarre l'entità non elaborata in modo programmatico. 
+Diverse [impostazioni cultura](luis-language-support.md#tokenization) restituiscono l'oggetto entità con il `entity` valore [in formato token](luis-glossary.md#token). Gli elementi startIndex e endIndex restituiti da LUIS nell'oggetto entità non corrispondono al nuovo valore in formato token, ma alla query originale affinché sia possibile estrarre l'entità non elaborata in modo programmatico. 
 
 Ad esempio, in tedesco, la parola `das Bauernbrot` in formato token è `das bauern brot`. Il valore in formato token, `das bauern brot`, viene restituito e il valore originale può essere determinato in modo programmatico dagli elementi startIndex ed endIndex della query originale, restituendo `das Bauernbrot`.
 
 ## <a name="simple-entity-data"></a>Dati entità semplice
 
-Un'[entità semplice](luis-concept-entity-types.md) è un valore appreso in modo automatico. Può trattarsi di una parola o di una frase. 
+Un'[entità semplice](luis-concept-entity-types.md) è un valore appreso in modo automatico. Può trattarsi di una parola o di una frase.
 
 `Bob Jones wants 3 meatball pho`
 
@@ -172,13 +173,13 @@ I dati restituiti dall'endpoint includono il nome dell'entità, il testo individ
 
 ## <a name="hierarchical-entity-data"></a>Dati entità gerarchica
 
-Le entità [gerarchiche](luis-concept-entity-types.md) sono apprese in modo automatico e possono includere una parola o una frase. Gli elementi figlio vengono identificati in base al contesto. Se si cerca una relazione padre-figlio con corrispondenza di testo esatta, usare un'entità [List](#list-entity-data) (elenco). 
+Le entità [gerarchiche](luis-concept-entity-types.md) sono apprese in modo automatico e possono includere una parola o una frase. Gli elementi figlio vengono identificati in base al contesto. Se si cerca una relazione padre-figlio con corrispondenza di testo esatta, usare un'entità [List](#list-entity-data) (elenco).
 
 `book 2 tickets to paris`
 
-Nell'espressione precedente `paris` viene etichettata come elemento figlio `Location::ToLocation` dell'entità gerarchica `Location`. 
+Nell'espressione precedente `paris` viene etichettata come elemento figlio `Location::ToLocation` dell'entità gerarchica `Location`.
 
-I dati restituiti dall'endpoint includono il nome dell'entità e il nome dell'elemento figlio, il testo individuato nell'espressione, la posizione del testo individuato e il punteggio: 
+I dati restituiti dall'endpoint includono il nome dell'entità e il nome dell'elemento figlio, il testo individuato nell'espressione, la posizione del testo individuato e il punteggio:
 
 ```JSON
 "entities": [
@@ -258,9 +259,9 @@ Le entità composite vengono restituite in una matrice `compositeEntities` e tut
 
 ## <a name="list-entity-data"></a>Dati entità elenco
 
-Un'entità [elenco](luis-concept-entity-types.md) non è appresa in modo automatico. Si tratta di una corrispondenza di testo esatta. Un elenco rappresenta gli elementi dell'elenco insieme ai sinonimi di tali elementi. LUIS contrassegna eventuali corrispondenze a un elemento in qualsiasi elenco come un'entità nella risposta. Un sinonimo può trovarsi in più di un elenco. 
+Un'entità [elenco](luis-concept-entity-types.md) non è appresa in modo automatico. Si tratta di una corrispondenza di testo esatta. Un elenco rappresenta gli elementi dell'elenco insieme ai sinonimi di tali elementi. LUIS contrassegna eventuali corrispondenze a un elemento in qualsiasi elenco come un'entità nella risposta. Un sinonimo può trovarsi in più di un elenco.
 
-Si supponga che l'app disponga di un elenco, di nome `Cities`, consentendo variazioni di nomi di città, tra cui città dell'aeroporto (Sea-tac), codice dell'aeroporto (SEA), codice postale (98101) e prefisso telefonico (206). 
+Si supponga che l'app disponga di un elenco, di nome `Cities`, consentendo variazioni di nomi di città, tra cui città dell'aeroporto (Sea-tac), codice dell'aeroporto (SEA), codice postale (98101) e prefisso telefonico (206).
 
 |Elemento elenco|Sinonimi elenco|
 |---|---|
@@ -269,7 +270,7 @@ Si supponga che l'app disponga di un elenco, di nome `Cities`, consentendo varia
 
 `book 2 tickets to paris`
 
-Nell'espressione precedente la parola `paris` viene mappata all'elemento parigi come parte dell'entità elenco `Cities`. L'entità elenco corrisponde al nome normalizzato dell'elemento e ai sinonimi dell'elemento. 
+Nell'espressione precedente la parola `paris` viene mappata all'elemento parigi come parte dell'entità elenco `Cities`. L'entità elenco corrisponde al nome normalizzato dell'elemento e ai sinonimi dell'elemento.
 
 ```JSON
 "entities": [
@@ -389,7 +390,7 @@ Vengono trovate le entità [predefinite](luis-concept-entity-types.md) in base a
       }
     }
   ]
-``` 
+```
 
 ## <a name="regular-expression-entity-data"></a>Dati entità espressione regolare
 Le entità [espressione regolare](luis-concept-entity-types.md) vengono individuate in base a una corrispondenza con espressione regolare usando un'espressione fornita alla creazione dell'entità. Quando si usa `kb[0-9]{6}` come definizione di entità espressione regolare, la risposta JSON seguente è un'espressione di esempio con le entità espressione regolare restituite per la query `When was kb123456 published?`:
@@ -423,19 +424,19 @@ Le entità [espressione regolare](luis-concept-entity-types.md) vengono individu
 ```
 
 ## <a name="extracting-names"></a>Estrazione di nomi
-Ottenere i nomi da un'espressione è difficile perché un nome può essere qualsiasi combinazione di lettere e parole. Le opzioni disponibili variano a seconda del tipo di nome estratto. Non si tratta di regole, ma di altre linee guida. 
+Ottenere i nomi da un'espressione è difficile perché un nome può essere qualsiasi combinazione di lettere e parole. Le opzioni disponibili variano a seconda del tipo di nome estratto. Non si tratta di regole, ma di altre linee guida.
 
 ### <a name="names-of-people"></a>Nomi di persone
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità gerarchica con nomi e cognomi come elementi figlio o usare un'entità semplice con ruoli nome e cognome. Assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse e in espressioni tra tutte le finalità, inclusa la finalità None (Nessuna). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente. 
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità gerarchica con nomi e cognomi come elementi figlio o usare un'entità semplice con ruoli nome e cognome. Assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse e in espressioni tra tutte le finalità, inclusa la finalità None (Nessuna). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="names-of-places"></a>Nomi di località
-I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Se l'app usa un set noto di località, considerare un'entità elenco. Per trovare tutti i nomi di località, creare un'entità semplice e fornire una varietà di esempi. Aggiungere un elenco di frasi di nomi di località per ribadire come appaiono nell'app i nomi di località. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente. 
+I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Se l'app usa un set noto di località, considerare un'entità elenco. Per trovare tutti i nomi di località, creare un'entità semplice e fornire una varietà di esempi. Aggiungere un elenco di frasi di nomi di località per ribadire come appaiono nell'app i nomi di località. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
-Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Si tratta del tipo più difficile di estrazione dati. Iniziare con un'entità semplice e aggiungere un elenco di frasi. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente. 
+Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Si tratta del tipo più difficile di estrazione dati. Iniziare con un'entità semplice e aggiungere un elenco di frasi. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ## <a name="pattern-roles-data"></a>Dati ruoli criterio
-I ruoli sono differenze contestuali di entità. 
+I ruoli sono differenze contestuali di entità.
 
 ```JSON
 {
@@ -496,7 +497,7 @@ I ruoli sono differenze contestuali di entità.
 ```
 
 ## <a name="patternany-entity-data"></a>Dati entità Pattern.any
-Le entità pattern.Any sono entità a lunghezza variabile usate nelle espressioni modello di un [criterio](luis-concept-patterns.md). 
+Le entità pattern.Any sono entità a lunghezza variabile usate nelle espressioni modello di un [criterio](luis-concept-patterns.md).
 
 ```JSON
 {
@@ -567,13 +568,37 @@ Per tutte le altre impostazioni cultura, la risposta è:
 ### <a name="key-phrase-extraction-entity-data"></a>Dati entità estrazione frasi chiave
 L'entità estrazione frasi chiave restituisce frasi chiave nell'espressione, fornita da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
-<!-- TBD: verify JSON-->
 ```JSON
-"keyPhrases": [
-    "places",
-    "beautiful views",
-    "favorite trail"
-]
+{
+  "query": "Is there a map of places with beautiful views on a favorite trail?",
+  "topScoringIntent": {
+    "intent": "GetJobInformation",
+    "score": 0.764368951
+  },
+  "intents": [
+    ...
+  ],
+  "entities": [
+    {
+      "entity": "beautiful views",
+      "type": "builtin.keyPhrase",
+      "startIndex": 30,
+      "endIndex": 44
+    },
+    {
+      "entity": "map of places",
+      "type": "builtin.keyPhrase",
+      "startIndex": 11,
+      "endIndex": 23
+    },
+    {
+      "entity": "favorite trail",
+      "type": "builtin.keyPhrase",
+      "startIndex": 51,
+      "endIndex": 64
+    }
+  ]
+}
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Dati corrispondenti a più entità
@@ -581,7 +606,7 @@ LUIS restituisce tutte le entità individuate nell'espressione. Di conseguenza, 
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-L'endpoint LUIS può individuare gli stessi dati in entità diverse: 
+L'endpoint LUIS può individuare gli stessi dati in entità diverse:
 
 ```JSON
 {

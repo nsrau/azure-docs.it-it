@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cedc13cb18440eee32e333d395494043e2eca9d1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 702d247bf331a4231b4b71ae6661ff88c9e0be2e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442514"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982767"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Guida introduttiva: distribuire un'applicazione Spring Boot Java in Service Fabric
 
@@ -187,7 +187,7 @@ Eseguire l'accesso e aggiungere un [cluster Linux](http://aka.ms/tryservicefabri
 Service Fabric fornisce numerosi strumenti che è possibile usare per gestire un cluster e le applicazioni:
 
 * Service Fabric Explorer, uno strumento basato su browser.
-* Interfaccia della riga di comando di Service Fabric, la cui esecuzione si basa sull'interfaccia della riga di comando di Azure 2.0.
+* Interfaccia della riga di comando di Service Fabric, la cui esecuzione si basa sull'interfaccia della riga di comando di Azure.
 * Comandi di PowerShell.
 
 In questa guida introduttiva si usano l'interfaccia della riga di comando di Service Fabric e Service Fabric Explorer.
