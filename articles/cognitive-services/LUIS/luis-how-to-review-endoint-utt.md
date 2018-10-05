@@ -1,20 +1,21 @@
 ---
-title: Etichettare espressioni consigliate con LUIS | Microsoft Docs
-description: Usare Language Understanding (LUIS) per assegnare un'etichetta a espressioni consigliate e favorire l'apprendimento automatico attivo.
+title: Esaminare le espressioni di endpoint per Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: La funzionalità all'avanguardia di LUIS è il fulcro concettuale dell'apprendimento attivo. Una volta che LUIS contiene le query di endpoint, l'apprendimento attivo consente di migliorare la qualità dei risultati attraverso la selezione delle espressioni di cui non è sicuro. Se etichetti queste espressioni, vi esegui il training e le pubblichi, LUIS le identificherà in modo più accurato.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224552"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030796"
 ---
 # <a name="review-endpoint-utterances"></a>Esaminare le espressioni endpoint
 
@@ -24,8 +25,6 @@ La funzionalità all'avanguardia di LUIS è il [fulcro concettuale](luis-concept
 1. Apri l'app (ad esempio, TravelAgent) selezionando il relativo nome nella pagina **App personali**, quindi seleziona **Compila** nella barra superiore.
 
 2. Nella sezione **Migliora le prestazioni dell'applicazione**, seleziona **Esamina espressioni di endpoint**.
-
-    ![Esaminare le espressioni](./media/label-suggested-utterances/review.png)
 
 3. Nella pagina **Esamina espressioni di endpoint**, seleziona la casella di testo **Filtra l'elenco per finalità o entità**. Questo elenco a discesa include tutti e le finalità nella sezione **FINALITÁ** e tutte le entità in **ENTITÁ**.
 

@@ -1,40 +1,44 @@
 ---
 title: Connettersi a sistemi SAP con le App per la logica di Azure | Microsoft Docs
 description: Come accedere e gestire le risorse SAP grazie all'automazione dei flussi di lavoro con le App per la logica di Azure
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/31/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, divswa, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: divswa, LADocs
+ms.topic: article
+ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 3837896911b92361e0a6d0a7166a1b17651d6fe3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 13268ec865ec72fce23df550619b199389096360
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056507"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
-Questo articolo illustra come è possibile accedere alle risorse SAP all'interno di un'app per la logica mediante i connettori del server applicazioni SAP e del server di messaggistica SAP. In questo modo, è possibile automatizzare le attività, i processi e i flussi di lavoro che gestiscono i dati e le risorse SAP mediante la creazione di app per la logica.
+Questo articolo illustra come accedere alle risorse SAP locali all'interno di un'app per la logica mediante il connettore SAP ERP Central Component (ECC). Il connettore SAP ECC supporta l'integrazione di messaggi o dati da e verso i sistemi basati su SAP Netweaver tramite Intermediate Document (IDoc) o Business Application Programming Interface (BAPI) o Remote Function Call (RFC).
 
-In questo esempio viene usata un'app per la logica che è possibile attivare con una richiesta HTTP. L'app per la logica invia un documento intermedio (IDoc) a un server SAP e restituisce una risposta al richiedente che ha chiamato l'app per la logica.
-I connettori SAP correnti presentano azioni, ma non trigger, pertanto in questo esempio viene usato il [trigger richiesta HTTP](../connectors/connectors-native-reqres.md) come primo passaggio nel flusso di lavoro dell'app per la logica. Per informazioni tecniche specifiche del connettore SAP, vedere gli articoli di riferimento: 
+Il connettore SAP ECC usa la <a href="https://help.sap.com/saphelp_nwpi71/helpdata/en/e9/23c80d66d08c4c8c044a3ea11ca90f/frameset.htm">libreria SAP .Net Connector (NCo)</a> e fornisce le seguenti operazioni o azioni:
 
-* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">Connettore del server applicazioni SAP</a>
-* <a href="https://docs.microsoft.com/connectors/sapmessageserver/" target="blank">Connettore del server di messaggistica SAP</a>
+- **Inviare a SAP**: inviare IDoc o chiamare funzioni BAPI su tRFC nei sistemi SAP.
+- **Ricevere da SAP**: ricezione di IDoc o di chiamate di funzione BAPI su tRFC provenienti da sistemi SAP.
+- **Generare schemi**: generare schemi per gli artefatti SAP per IDoc o RFC o BAPI.
 
-Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
+Il connettore SAP si integra con i sistemi SAP locali tramite il [gateway dati locale](https://www.microsoft.com/download/details.aspx?id=53127). Negli scenari di invio, ad esempio, quando si invia un messaggio dall'App per la logica a un sistema SAP, il gateway dati agisce come un client di RFC e inoltra le richieste ricevute dall'App per la logica a SAP.
+Analogamente, negli scenari di ricezione, il gateway dati funge da server RFC che riceve le richieste da SAP e inoltra all'App per la logica. 
+
+Questo articolo spiega come creare esempi di app per la logica che si integrano con SAP, illustrando allo stesso tempo gli scenari di integrazione descritti in precedenza.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per proseguire con questo articolo, sono necessari questi elementi:
 
-* l'app per la logica da cui si desidera accedere al sistema SAP e un trigger che avvia il flusso di lavoro dell'app per la logica. I connettori SAP attualmente consentono solo di eseguire azioni. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Una sottoscrizione di Azure. Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
+
+* l'app per la logica da cui si desidera accedere al sistema SAP e un trigger che avvia il flusso di lavoro dell'app per la logica. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Il <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">server applicazioni SAP</a> o il <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">server di messaggistica SAP</a>
 
@@ -55,13 +59,17 @@ Per proseguire con questo articolo, sono necessari questi elementi:
 
 <a name="add-trigger"></a>
 
-## <a name="add-http-request-trigger"></a>Aggiungere un trigger della richiesta HTTP
+## <a name="send-to-sap"></a>Inviare a SAP
+
+In questo esempio viene usata un'app per la logica che è possibile attivare con una richiesta HTTP. L'app per la logica invia un documento intermedio (IDoc) a un server SAP e restituisce una risposta al richiedente che ha chiamato l'app per la logica. 
+
+### <a name="add-http-request-trigger"></a>Aggiungere un trigger della richiesta HTTP
 
 In App per la logica di Azure, ogni app per la logica deve essere avviata con un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), che viene attivato quando si verifica un determinato evento o quando viene soddisfatta una condizione specifica. Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica e avvia l'esecuzione del flusso di lavoro dell'app.
 
 In questo esempio, viene creata un'app per la logica con un endpoint in Azure in modo che sia possibile inviare *richieste HTTP POST* all'app per la logica. Quando l'app per la logica riceve le richieste HTTP, il trigger viene attivato ed esegue il passaggio successivo nel flusso di lavoro.
 
-1. Nel portale di Azure creare un'app per la logica vuota, che apre la Progettazione app per la logica. 
+1. Nel [portale di Azure](https://portal.azure.com) creare un'app per la logica vuota, che apre la Progettazione app per la logica. 
 
 2. Nella casella di ricerca, digitare "richiesta http" come filtro. Nell'elenco di trigger, selezionare il trigger: **Richiesta - Alla ricezione di una richiesta HTTP**
 
@@ -76,7 +84,7 @@ Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
 <a name="add-action"></a>
 
-## <a name="add-sap-action"></a>Aggiungere l'azione SAP
+### <a name="add-sap-action"></a>Aggiungere l'azione SAP
 
 In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un passaggio del flusso di lavoro che segue un trigger o un'altra azione. Se non è ancora stato aggiunto un trigger all'app per la logica e si desidera seguire questo esempio, [aggiungere il trigger descritto in questa sezione](#add-trigger).
 
@@ -84,42 +92,40 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
    ![Aggiungere un'azione](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. Nella casella di ricerca immettere "server sap" come filtro. Nell'elenco delle azioni scegliere l'azione per il server SAP: 
+2. Nella casella di ricerca, immettere "sap" come filtro. Nell'elenco di azioni, selezionare l'azione **Inviare messaggio a SAP**
+  
+   ![Selezionare l'azione di invio a SAP](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
-   * **Server applicazioni SAP - Send to SAP**(Invia a SAP)
-   * **Server di messaggistica SAP - Send to SAP**(Invia a SAP)
+   In alternativa, invece di una ricerca, scegliere la scheda **Enterprise** e selezionare l'azione SAP.
 
-   In questo esempio viene usata questa azione: **Server applicazioni SAP - trasmissione a SAP**
-
-   ![Selezionare il "Server applicazioni SAP" o "Server di messaggistica SAP"](media/logic-apps-using-sap-connector/select-sap-action.png)
+   ![Selezionare l'azione di invio a SAP dalla scheda Enterprise](media/logic-apps-using-sap-connector/select-sap-send-action-ent-tab.png)
 
 3. Se vengono richiesti i dettagli della connessione, creare ora la connessione SAP. In caso contrario, se la connessione esiste già, continuare con il passaggio successivo per impostare l'azione SAP. 
 
    **Creare una connessione SAP locale**
 
-   1. In **Gateway** selezionare **Connetti tramite gateway dati locale**, in modo che vengano visualizzate le proprietà della connessione locale.
+   1. Specificare le informazioni di connessione per il server SAP. 
+   Per la proprietà **Gateway dati**, selezionare il gateway dati creato nel portale di Azure per l'installazione del gateway.
 
-   2. Specificare le informazioni di connessione per il server SAP. 
-   Per la proprietà **gateway**, selezionare il gateway dati creato nel portale di Azure per l'installazione del gateway, ad esempio:
+      Se la proprietà **Tipo di accesso** è impostata su **Server applicazioni**, sono necessarie le seguenti proprietà (in genere facoltative):
 
-      **Server applicazioni SAP**
+      ![Creare una connessione al server applicazioni SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
 
-      ![Creare una connessione al server applicazioni SAP](./media/logic-apps-using-sap-connector/create-SAP-app-server-connection.png)  
-
-      **Server di messaggistica SAP**
+      Se la proprietà **Tipo di accesso** è impostata su **Gruppo**, sono necessarie le seguenti proprietà (in genere facoltative): 
 
       ![Creare una connessione al server di messaggistica SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
 
-   2. Al termine dell'operazione, scegliere **Crea**.
-
+   2. Al termine dell'operazione, scegliere **Crea**. 
+   
       Le App per la logica configurano ed eseguono il test della connessione, assicurandosi che funzioni correttamente.
 
 4. Ora individuare e selezionare un'azione dal server SAP. 
 
    1. Nella casella **Azione SAP**, scegliere l'icona cartella. 
-   Dall'elenco delle cartelle, individuare e selezionare l'azione che si desidera usare. 
+   Dall'elenco file, individuare e selezionare il messaggio SAP che si desidera usare. 
+   Per spostarsi nell'elenco, usare le frecce.
 
-      In q esempio viene selezionata la categoria **IDOC** per l'azione IDoc. 
+      In questo esempio viene selezionato un IDoc di tipo **Ordine**. 
 
       ![Trovare e selezionare l'azione IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
 
@@ -127,10 +133,13 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
       ![Specificare manualmente il percorso all'azione IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
 
-      Per altre informazioni sulle operazioni IDoc, vedere [Schemi di messaggi per operazioni IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
+      > [!TIP]
+      > Specificare il valore per l'azione SAP tramite l'editor espressioni. In questo modo, è possibile usare la stessa azione per diversi tipi di messaggio.
+
+      Per altre informazioni sulle operazioni IDoc, consultare [Schemi di messaggi per operazioni IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
    2. Fare clic all'interno della casella **Messaggio di input** in modo che venga visualizzato l'elenco di contenuti dinamici. 
-   In tale elenco, sotto **When a HTTP request is received** (Alla ricezione di una richiesta HTTP), selezionare il campo **Corpo**. 
+   In tale elenco, sotto **Alla ricezione di una richiesta HTTP** selezionare il campo **Corpo**. 
 
       Questo passaggio include il contenuto del corpo del trigger della richiesta HTTP e invia questo output al server SAP.
 
@@ -140,11 +149,11 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
       ![Completare l'operazione SAP](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
-6. Salvare l'app per la logica. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+5. Salvare l'app per la logica. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
 <a name="add-response"></a>
 
-## <a name="add-http-response-action"></a>Aggiungere l'azione di risposta HTTP
+### <a name="add-http-response-action"></a>Aggiungere l'azione di risposta HTTP
 
 Ora aggiungere un'azione di risposta al flusso di lavoro dell'app logica e includere l'output dall'azione SAP. In questo modo, l'app per la logica restituisce i risultati dal server SAP per il richiedente originale. 
 
@@ -158,7 +167,7 @@ Ora aggiungere un'azione di risposta al flusso di lavoro dell'app logica e inclu
 
 4. Salvare l'app per la logica. 
 
-## <a name="test-your-logic-app"></a>Testare l'app per la logica
+### <a name="test-your-logic-app"></a>Testare l'app per la logica
 
 1. Se l'app per la logica non è ancora abilitata, scegliere **Panoramica** nel menu dell'app per la logica. Nella barra degli strumenti scegliere **Abilita**. 
 
@@ -170,7 +179,7 @@ Ora aggiungere un'azione di risposta al flusso di lavoro dell'app logica e inclu
 
    ``` xml
    <?xml version="1.0" encoding="UTF-8" ?>
-   <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//620/Send">
+   <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/2/ORDERS05//720/Send">
       <idocData>
          <...>
       </idocData>
@@ -179,17 +188,210 @@ Ora aggiungere un'azione di risposta al flusso di lavoro dell'app logica e inclu
 
 4. Dopo aver inviato la richiesta HTTP, attendere la risposta dall'app per la logica.
 
-> [!NOTE]
-> L'app per la logica può andare in timeout se tutti i passaggi necessari per la risposta non terminano entro il [limite di timeout della richiesta](./logic-apps-limits-and-config.md). Se si verifica questa condizione, le richieste potrebbero venire bloccate. Per diagnosticare i problemi, vedere le informazioni su come [controllare e monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+   > [!NOTE]
+   > L'app per la logica può andare in timeout se tutti i passaggi necessari per la risposta non terminano entro il [limite di timeout della richiesta](./logic-apps-limits-and-config.md). Se si verifica questa condizione, le richieste potrebbero venire bloccate. Per diagnosticare i problemi, vedere le informazioni su come [controllare e monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 Complimenti, è stata creata un'app per la logica che può comunicare con il server SAP. Dopo aver impostato una connessione a SAP per l'app per la logica, è possibile esplorare altre azioni SAP disponibili, ad esempio BAPI e RFC.
 
-## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
+## <a name="receive-from-sap"></a>Ricevere da SAP
 
-Per informazioni tecniche dettagliate sul connettore, come descritto dai file Swagger dei connettori, vedere gli articoli di riferimento: 
+Questo esempio usa un'app per la logica che si attiva quando si riceve un messaggio da un sistema SAP. 
 
-* [Server applicazioni SAP](/connectors/sapapplicationserver/)
-* [Server di messaggistica SAP](/connectors/sapmessageserver/)
+### <a name="add-sap-trigger"></a>Aggiungere trigger SAP
+
+1. Nel portale di Azure creare un'app per la logica vuota, che apre la Progettazione app per la logica. 
+
+2. Nella casella di ricerca, immettere "sap" come filtro. Nell'elenco dei trigger selezionare questo trigger: **Alla ricezione di una richiesta HTTP**
+
+   ![Aggiungere trigger SAP](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
+
+   In alternativa, è possibile passare alla scheda Enterprise e selezionare il trigger
+
+   ![Aggiungere trigger SAP dalla scheda ent](./media/logic-apps-using-sap-connector/add-sap-trigger-ent-tab.png)
+
+3. Se vengono richiesti i dettagli della connessione, creare ora la connessione SAP. In caso contrario, se la connessione esiste già, continuare con il passaggio successivo per impostare l'azione SAP. 
+
+   **Creare una connessione SAP locale**
+
+   1. Specificare le informazioni di connessione per il server SAP. 
+   Per la proprietà **Gateway dati**, selezionare il gateway dati creato nel portale di Azure per l'installazione del gateway.
+
+      Se la proprietà **Tipo di accesso** è impostata su **Server applicazioni**, sono necessarie le seguenti proprietà (in genere facoltative):
+
+      ![Creare una connessione al server applicazioni SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
+
+      Se la proprietà **Tipo di accesso** è impostata su **Gruppo**, sono necessarie le seguenti proprietà (in genere facoltative):
+
+      ![Creare una connessione al server di messaggistica SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
+
+4. Specificare i parametri necessari in base alla configurazione del sistema SAP. 
+
+   È possibile anche specificare una o più azioni di SAP. 
+   Questo elenco di azioni consente di specificare i messaggi che riceve il trigger dal server SAP tramite il gateway dati. 
+   Un elenco vuoto specifica che il trigger riceve tutti i messaggi. 
+   Se l'elenco contiene più di un messaggio, il trigger riceve solo i messaggi specificati nell'elenco. Tutti gli altri messaggi inviati dal server SAP vengono rifiutati dal gateway.
+
+   È possibile selezionare un'azione SAP dalla selezione file:
+
+   ![Selezionare l'azione SAP](media/logic-apps-using-sap-connector/select-SAP-action-trigger.png)  
+
+   In alternativa, è possibile specificare manualmente l'azione:
+
+   ![Immettere manualmente l'azione SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png) 
+
+   Di seguito un esempio che illustra come viene visualizzata l'azione quando si configura il trigger per ricevere più messaggi.
+
+   ![Esempio di trigger](media/logic-apps-using-sap-connector/example-trigger.png)  
+
+   Per altre informazioni sull'azione SAP, consultare [Schemi di messaggi per operazioni IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
+
+5. Salvare l'app per la logica in modo da poter iniziare a ricevere messaggi dal sistema SAP.
+Nella barra degli strumenti della finestra di progettazione scegliere **Salva**. 
+
+App per la logica è ora pronta per ricevere messaggi dal sistema SAP. 
+
+> [!NOTE]
+> Il trigger SAP non è un trigger di poll, ma un trigger basato su webhook. Il trigger viene chiamato dal gateway solo quando esiste un messaggio, pertanto non è necessario alcun polling. 
+
+### <a name="test-your-logic-app"></a>Testare l'app per la logica
+
+1. Per attivare l'app per la logica, inviare un messaggio dal sistema SAP.
+
+2. Dal menu dell'app per la logica, scegliere **Panoramica** ed esaminare **Cronologia di esecuzione** per eventuali nuove esecuzioni dell'app per la logica. 
+
+3. Aprire l'esecuzione più recente, che mostra il messaggio inviato dal sistema SAP nella sezione output di trigger.
+
+## <a name="generate-schemas-for-artifacts-in-sap"></a>Generare gli schemi per gli artefatti in SAP
+
+In questo esempio viene usata un'app per la logica che è possibile attivare con una richiesta HTTP. L'azione SAP invia una richiesta a un sistema SAP per generare gli schemi per specifici Intermediate Document (IDoc) e BAPI. Gli schemi che ritornano nella risposta vengono caricati in un Account di integrazione tramite il connettore Azure Resource Manager.
+
+### <a name="add-http-request-trigger"></a>Aggiungere un trigger della richiesta HTTP
+
+1. Nel portale di Azure creare un'app per la logica vuota, che apre la Progettazione app per la logica. 
+
+2. Nella casella di ricerca, digitare "richiesta http" come filtro. Nell'elenco di trigger, selezionare il trigger: **Richiesta - Alla ricezione di una richiesta HTTP**
+
+   ![Aggiungere un trigger della richiesta HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
+
+3. Salvare l'app per la logica per poter generare un URL endpoint per l'app per la logica.
+Nella barra degli strumenti della finestra di progettazione scegliere **Salva**. 
+
+   L'URL endpoint verrà visualizzato nel trigger, ad esempio:
+
+   ![Generare l'URL per l'endpoint](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
+
+### <a name="add-sap-action-to-generate-schemas"></a>Aggiungere l'azione SAP per generare schemi
+
+1. In Progettazione app per la logica, sotto il trigger, scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
+
+   ![Aggiungere un'azione](./media/logic-apps-using-sap-connector/add-action.png) 
+
+2. Nella casella di ricerca, immettere "sap" come filtro. Nell'elenco di azioni, selezionare l'azione: **Generare schemi**
+  
+   ![Selezionare l'azione di invio a SAP](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
+
+   In alternativa, scegliere la scheda **Enterprise** e selezionare l'azione SAP.
+
+   ![Selezionare l'azione di invio a SAP dalla scheda Enterprise](media/logic-apps-using-sap-connector/select-sap-schema-generator-ent-tab.png)
+
+3. Se vengono richiesti i dettagli della connessione, creare ora la connessione SAP. In caso contrario, se la connessione esiste già, continuare con il passaggio successivo per impostare l'azione SAP. 
+
+   **Creare una connessione SAP locale**
+
+   1. Specificare le informazioni di connessione per il server SAP. 
+   Per la proprietà **Gateway dati**, selezionare il gateway dati creato nel portale di Azure per l'installazione del gateway.
+
+      Se la proprietà **Tipo di accesso** è impostata su **Server applicazioni**, sono necessarie le seguenti proprietà (in genere facoltative):
+
+      ![Creare una connessione al server applicazioni SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
+
+      Se la proprietà **Tipo di accesso** è impostata su **Gruppo**, sono necessarie le seguenti proprietà (in genere facoltative):
+   
+      ![Creare una connessione al server di messaggistica SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
+
+   2. Al termine dell'operazione, scegliere **Crea**. Le App per la logica configurano ed eseguono il test della connessione, assicurandosi che funzioni correttamente.
+
+4. Specificare il percorso dell'artefatto per cui si desidera generare lo schema.
+
+   È possibile selezionare l'azione SAP dalla selezione file:
+
+   ![Selezionare l'azione SAP](media/logic-apps-using-sap-connector/select-SAP-action-schema-generator.png)  
+
+   In alternativa, è possibile immettere manualmente l'azione:
+
+   ![Immettere manualmente l'azione SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-schema-generator.png) 
+
+   Per generare gli schemi per più artefatti, specificare i dettagli dell'azione SAP per ogni artefatto, ad esempio:
+
+   ![Selezionare Aggiungi nuovo elemento](media/logic-apps-using-sap-connector/schema-generator-array-pick.png) 
+
+   ![Mostrare due elementi](media/logic-apps-using-sap-connector/schema-generator-example.png) 
+
+   Per altre informazioni sull'azione SAP, vedere [Schemi di messaggi per operazioni IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+
+5. Salvare l'app per la logica. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+
+### <a name="test-your-logic-app"></a>Testare l'app per la logica
+
+1. Nella barra degli strumenti della finestra di progettazione, scegliere **Eseguire** per attivare l'esecuzione per l'app per la logica.
+
+2. Aprire l'esecuzione e controllare gli output per l'azione **Genera schema**. 
+
+   Gli output mostrano gli schemi generati per l'elenco specificato di messaggi.
+
+### <a name="upload-schemas-to-integration-account"></a>Caricare gli schemi nell'account di integrazione
+
+Facoltativamente, è possibile scaricare o archiviare gli schemi generati nei repository, quali blob, risorsa di archiviazione o account di integrazione. Gli account di integrazione offrono un'esperienza all'avanguardia con altre azioni XML, quindi l'esempio illustra come caricare gli schemi in un account di integrazione per la stessa app per la logica usando il connettore Azure Resource Manager.
+
+1. Nella finestra di progettazione App per la logica, in trigger, scegliere **Nuovo passaggio** > **Aggiungi un'azione**. Nella casella di ricerca immettere "resource manager" come filtro. Selezionare l'azione: **Creare o aggiornare una risorsa**
+
+   ![Selezionare l'azione Azure Resource Manager](media/logic-apps-using-sap-connector/select-arm-action.png) 
+
+2. Immettere i dettagli, tra cui la sottoscrizione di Azure, il gruppo di risorse di Azure e l'account di integrazione. Per gli altri campi, seguire l'esempio riportato di seguito.
+
+   ![Immettere i dettagli per l'azione Azure Resource Manager](media/logic-apps-using-sap-connector/arm-action.png)
+
+   L'azione SAP **Generare schemi** genera schemi come una raccolta, in modo che la finestra di progettazione aggiunga automaticamente un ciclo **For each** all'azione. 
+   Di seguito è riportato un esempio che illustra come viene visualizzata questa azione:
+
+   ![Azione di Azure Resource Manager con ciclo "for each"](media/logic-apps-using-sap-connector/arm-action-foreach.png)  
+
+   > [!NOTE]
+   > Gli schemi usano il formato con codifica base64. Per caricare gli schemi in un account di integrazione, devono essere decodificati usando la funzione `base64ToString()`. Di seguito è riportato un esempio che mostra il codice per l'elemento `"properties"`:
+   >
+   > ```json
+   > "properties": {
+   >    "Content": "@base64ToString(items('For_each')?['Content'])",
+   >    "ContentType": "application/xml",
+   >    "SchemaType": "Xml"
+   > }
+   > ```
+
+3. Salvare l'app per la logica. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+
+### <a name="test-your-logic-app"></a>Testare l'app per la logica
+
+1. Sulla barra degli strumenti della finestra di progettazione, scegliere **Esegui** per attivare manualmente l'app per la logica.
+
+2. Dopo una corretta esecuzione, passare all'account di integrazione e verificare che esistano gli schemi generati.
+
+## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
+
+Di seguito sono riportati i problemi attualmente noti e le limitazioni per il connettore SAP:
+
+* Il trigger SAP non supporta la ricezione di batch IDOC da SAP. Questa azione potrebbe causare errori di connessione RFC tra il sistema SAP e il gateway dati.
+
+* Il trigger SAP non supporta i cluster di gateway dati. In alcuni casi di failover, il nodo del gateway dati che comunica con il sistema SAP potrebbe essere diverso dal nodo attivo, causando un comportamento imprevisto. Per gli scenari di invio, sono supportati i cluster di gateway dati.
+
+* Negli scenari di ricezione, non è supportata la restituzione di una risposta non Null. Un'app per la logica con un trigger e un'azione di risposta implica un comportamento imprevisto. 
+
+* Solo una singola chiamata o messaggio Inviare a SAP funziona con tRFC. Il criterio di commit Business Application Programming Interface (BAPI), ad esempio effettuare più chiamate tRFC nella stessa sessione, non è supportato.
+
+* RFC con allegati non sono supportate per le azioni di schemi Inviare a SAP e Generare.
+
+* Il connettore SAP attualmente non supporta le stringhe di route SAP. Il gateway dati locale deve esistere nella stessa rete LAN del sistema SAP a cui si desidera connettersi.
+
+* La conversione di valori assenti (Null), vuoti, minimi e massimi per i campi DATS e TIMS SAP è soggetta a modifiche negli aggiornamenti successivi per il gateway dati locale.
 
 ## <a name="get-support"></a>Supporto
 

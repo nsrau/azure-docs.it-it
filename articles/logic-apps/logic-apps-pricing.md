@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f9147035c07bbe4fb3f38b74025015e70dd87b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974307"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159564"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -54,7 +54,7 @@ Le esecuzioni dei trigger sono disponibili nella sezione Cronologia trigger del 
 
 ## <a name="actions"></a>Azioni
 
-Le azioni predefinite, ad esempio le azioni che chiamano HTTP, Funzioni di Azure o Gestione API, e i passaggi del flusso di controllo, vengono misurati come azioni native, che hanno tipi specifici. Alle azioni che chiamano [connettori](https://docs.microsoft.com/connectors), ad esempio, è associato il tipo "ApiConnection". Questi connettori si distinguono tra connettori standard e aziendali e vengono misurati in base ai rispettivi [prezzi][pricing]. 
+Le azioni predefinite, ad esempio le azioni che chiamano HTTP, Funzioni di Azure o Gestione API, e i passaggi del flusso di controllo, vengono misurati come azioni native, che hanno tipi specifici. Alle azioni che chiamano [connettori](https://docs.microsoft.com/connectors), ad esempio, è associato il tipo "ApiConnection". Questi connettori si distinguono tra connettori standard e aziendali e vengono misurati in base ai rispettivi [prezzi][pricing]. I connettori aziendali nel *Anteprima* vengono addebitati come connettori standard.
 
 Tutte le azioni di esecuzione, indipendentemente dall'esito, vengono conteggiate e misurate come esecuzioni di azioni. Non vengono tuttavia conteggiate come esecuzioni di azioni sia le azioni ignorate a causa di condizioni non soddisfatte, sia le azioni non eseguite perché l'app per la logica è stata terminata prima del completamento. Per le app per la logica disabilitate non possono essere create nuove istanze. Di conseguenza, non viene effettuato alcun addebito mentre sono disabilitate.
 

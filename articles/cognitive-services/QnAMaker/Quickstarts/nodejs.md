@@ -1,20 +1,21 @@
 ---
-title: Guida introduttiva a Node.js per l'API QnA Maker API (V4) Microsoft - Servizi cognitivi di Azure | Microsoft Docs
-description: Informazioni ed esempi di codice per iniziare rapidamente a usare l'API Traduzione testuale nei Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: Node.js per QnA Maker, API (V4)'
+titleSuffix: Azure Cognitive Services
+description: Informazioni ed esempi di codice per iniziare rapidamente a usare l'API Traduzione testuale Microsoft in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 6da1ec00e04ea993923a97c4641880a5f31d18fa
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 05a15ddf8d7668896052c38afc549bc7b3cb056a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868175"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434331"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Guida introduttiva per l'API QnA Maker Microsoft con Node.js 
 <a name="HOLTop"></a>
@@ -26,7 +27,7 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Ottenere lo stato di una richiesta per creare o aggiornare una knowledge base.](#Status)
 - [Pubblicare una knowledge base esistente.](#Publish)
 - [Sostituire i contenuti di una knowledge base esistente.](#Replace)
-- [Scaricare i contenuti di una knowledge base.](#GetQnA)
+- [Scaricare il contenuto di una knowledge base.](#GetQnA)
 - [Ottenere risposte a una domanda usando una knowledge base.](#GetAnswers)
 - [Ottenere informazioni su una knowledge base.](#GetKB)
 - [Ottenere informazioni su tutte le knowledge base appartenenti all'utente specificato.](#GetKBsByUser)
@@ -36,7 +37,9 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Ottenere il set corrente di variazioni delle parole.](#GetAlterations)
 - [Sostituire il set corrente di variazioni delle parole.](#PutAlterations)
 
-## <a name="prerequisites"></a>prerequisiti
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice è necessario [Node.js 6](https://nodejs.org/en/download/).
 
@@ -50,7 +53,7 @@ Il codice seguente crea una nuova knowledge base usando il metodo [Create](https
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -106,7 +109,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -207,7 +210,7 @@ create_kb (path, content, function (result) {
 
 **Risposta alla richiesta di creazione della knowledge base**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -246,7 +249,7 @@ Il codice seguente aggiorna una knowledge base esistente usando il metodo [Updat
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -305,7 +308,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -407,7 +410,7 @@ update_kb (path, content, function (result) {
 
 **Risposta alla richiesta di aggiornamento della knowledge base**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -447,7 +450,7 @@ Il codice seguente pubblica una knowledge base esistente usando il metodo [Publi
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -506,7 +509,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -541,7 +544,7 @@ publish_kb (path, '', function (result) {
 
 **Risposta alla richiesta di pubblicazione della knowledge base**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -559,7 +562,7 @@ Il codice seguente sostituisce i contenuti della knowledge base specificata usan
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -618,7 +621,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -674,7 +677,7 @@ replace_kb (path, content, function (result) {
 
 **Risposta alla richiesta di sostituzione della knowledge base**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -686,13 +689,13 @@ Viene restituita una risposta con esito positivo in JSON, come illustrato nell'e
 
 <a name="GetQnA"></a>
 
-## <a name="download-the-contents-of-a-knowledge-base"></a>Scaricare i contenuti di una knowledge base
+## <a name="download-the-contents-of-a-knowledge-base"></a>Scaricare il contenuto di una knowledge base
 
 Il codice seguente scarica i contenuti della knowledge base specificata usando il metodo [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download).
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -780,7 +783,7 @@ get_qna (path, function (result) {
 
 **Risposta alla richiesta di download della knowledge base**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -823,8 +826,8 @@ Il codice seguente ottiene le risposte a una domanda usando la knowledge base sp
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 1. Aggiungere il codice riportato di seguito.
-1. Sostituire il valore di `host` con il nome del sito Web per la sottoscrizione QnA Maker. Per altre informazioni, vedere [Creare un servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
-1. Sostituire il valore `endpoint_key` con una chiave dell'endpoint valida per la sottoscrizione. Si noti che è diversa dalla chiave di sottoscrizione. È possibile ottenere le chiavi dell'endpoint usando il metodo [Get endpoint keys](#GetKeys).
+1. Sostituire il valore di `host` con il nome del sito Web per la sottoscrizione di QnA Maker. Per altre informazioni, vedere [Creare un servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
+1. Sostituire il valore di `endpoint_key` con una chiave endpoint valida per la sottoscrizione. Si noti che è diversa dalla chiave di sottoscrizione. È possibile ottenere le chiavi dell'endpoint usando il metodo [Get endpoint keys](#GetKeys).
 1. Sostituire il valore di `kb` con l'ID della knowledge base su cui si vogliono eseguire query per ottenere risposte. Tenere presente che questa knowledge base deve essere già stata pubblicata tramite il metodo [Publish](#Publish).
 1. Eseguire il programma.
 
@@ -894,7 +897,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Authorization' : 'EndpointKey ' + endpoint_key,
         }
     };
@@ -924,7 +927,7 @@ get_answers (method, content, function (result) {
 
 **Risposta alla richiesta di ottenere risposte**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -954,7 +957,7 @@ Il codice seguente ottiene informazioni sulla knowledge base specificata usando 
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -1039,7 +1042,7 @@ get_kb (path, function (result) {
 
 **Risposta alla richiesta di dettagli sulla knowledge base**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -1069,7 +1072,7 @@ Il codice seguente ottiene informazioni su tutte le knowledge base per un utente
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -1151,7 +1154,7 @@ get_kbs (path, function (result) {
 
 **Risposta alla richiesta di ottenere le knowledge base per l'utente**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -1197,7 +1200,7 @@ Il codice seguente elimina la knowledge base specificata usando il metodo [Delet
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -1256,7 +1259,7 @@ let http_delete = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1289,9 +1292,9 @@ delete_kb (path, '', function (result) {
 });
 ```
 
-**Risposta alla richiesta di eliminare la knowledge base**
+**Risposta alla richiesta di eliminazione della knowledge base**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -1309,7 +1312,7 @@ Il codice seguente ottiene le chiavi dell'endpoint correnti usando il metodo [Ge
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -1391,7 +1394,7 @@ get_keys (path, function (result) {
 
 **Risposta alla richiesta di ottenere le chiavi dell'endpoint**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -1410,7 +1413,7 @@ Il codice seguente rigenera le chiavi dell'endpoint correnti usando il metodo [R
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -1469,7 +1472,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1517,7 +1520,7 @@ refresh_keys (path, content, function (result) {
 
 **Risposta alla richiesta di aggiornamento delle chiavi dell'endpoint**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -1536,7 +1539,7 @@ Il codice seguente ottiene le variazioni delle parole correnti usando il metodo 
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -1618,7 +1621,7 @@ get_alterations (path, function (result) {
 
 **Risposta alla richiesta di ottenere le variazioni delle parole**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -1643,7 +1646,7 @@ Il codice seguente sostituisce le variazioni delle parole correnti usando il met
 
 1. Creare un nuovo progetto Node.js nell'ambiente IDE preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```nodejs
@@ -1699,7 +1702,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1747,7 +1750,7 @@ put_alterations (path, content, function (result) {
 
 **Risposta alla richiesta di sostituire le variazioni delle parole**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {

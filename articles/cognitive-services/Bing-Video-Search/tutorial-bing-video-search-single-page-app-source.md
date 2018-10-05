@@ -1,22 +1,23 @@
 ---
-title: Ricerca video Bing in un'app Web a pagina singola (codice sorgente)| Microsoft Docs
+title: "Esercitazione: Creare un'app Web a pagina singola - Ricerca video Bing"
+titlesuffix: Azure Cognitive Services
 description: Codice sorgente per un'esercitazione che illustra come usare l'API Ricerca Video Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: rosh
+ms.openlocfilehash: b0856be88382e1bb7a4cc65f5fd05910b814e152
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112461"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223288"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Esercitazione: applicazione Ricerca video a pagina singola
+# <a name="tutorial-single-page-bing-video-search-app"></a>Esercitazione: App a pagina singola Ricerca video Bing
 
 Qui è riportato il codice sorgente completo descritto nell'[esercitazione sull'app a pagina singola](tutorial-bing-video-search-single-page-app.md) per l'API Ricerca Video Bing. Per eseguire l'app, copiare il codice sorgente nel Blocco note o un altro editor di testo e salvarlo come `bing.html`. Quindi aprire il file salvato in Microsoft Edge o un altro browser comune.
 

@@ -1,21 +1,26 @@
 ---
 title: Pacchetto FPGA per l'accelerazione hardware di Azure Machine Learning
 description: Informazioni sui pacchetti Python disponibili per gli utenti di Azure Machine Learning.
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142677"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162186"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Pacchetto di accelerazione hardware di Azure Machine Learning
+
+>[!Note]
+>**Questo articolo è deprecato.** Questo pacchetto FPGA è stato deprecato. È stato aggiunto il supporto per questa funzionalità per il SDK di Azure Machine Learning. Il supporto per questo pacchetto termina in modo incrementale. [Visualizzare la sequenza temporale del supporto](overview-what-happened-to-workbench.md#timeline). Informazioni sul [supporto FPGA](concept-accelerate-with-fpgas.md) aggiornato.
 
 Il pacchetto di accelerazione hardware di Azure Machine Learning è un'estensione Python installabile con pip per Azure Machine Learning che consente ai data scientist e agli sviluppatori di intelligenza artificiale di eseguire rapidamente le operazioni seguenti:
 
@@ -29,7 +34,7 @@ Il pacchetto di accelerazione hardware di Azure Machine Learning è un'estension
 
 1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-1. È necessario creare un account di Gestione modelli di Azure Machine Learning. Per altre informazioni sulla creazione dell'account, vedere [Guida introduttiva: Installare e iniziare a usare i servizi di Azure Machine Learning](../service/quickstart-installation.md). 
+1. Un account di Gestione modelli di Azure Machine Learning. Per altre informazioni sulla creazione dell'account, vedere [Guida introduttiva: Installare e iniziare a usare i servizi di Azure Machine Learning](../desktop-workbench/quickstart-installation.md). 
 
 1. È necessario installare il pacchetto. 
 

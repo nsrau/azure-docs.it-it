@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: dbf3e92704d628abba2079b08b1e845ec60f4558
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6c6143cad04178fcafc825d9dae13c1a0620fb93
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982529"
+ms.locfileid: "47033448"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 
 I budget sono disponibili per tutti i clienti con contratto Enterprise (EA) di Azure. È necessario avere accesso in lettura a una sottoscrizione EA di Azure per creare e gestire I budget. Gli account di fatturazione EA non sono supportati dai budget.
 
-Le autorizzazioni di Azure seguenti sono supportate per ogni sottoscrizione per i budget, in base a utente, gruppo e app:
+I budget vengono creati a livello di sottoscrizione o di gruppo di risorse, singolarmente. Le seguenti autorizzazioni di Azure sono supportate per ogni sottoscrizione per i budget, in base a utente e gruppo:
 
 - Proprietario - Può creare, modificare o eliminare budget per una sottoscrizione.
 - Collaboratore - Può creare, modificare o eliminare i propri budget. Può modificare l'importo di budget per budget creati da altri utenti.
@@ -47,7 +47,7 @@ Le autorizzazioni di Azure seguenti sono supportate per ogni sottoscrizione per 
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Creare un budget nel portale di Azure
 
-È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale. I budget vengono creati a livello di sottoscrizione o di gruppo di risorse, singolarmente. Il contenuto per la navigazione nel portale di Azure determina se si crea un budget per una sottoscrizione o per un gruppo di risorse.
+È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale. Il contenuto per la navigazione nel portale di Azure determina se si crea un budget per una sottoscrizione o per un gruppo di risorse.
 
 Nel portale di Azure passare a **Gestione dei costi e fatturazione** &gt; **Sottoscrizioni** &gt; Selezionare una sottoscrizione &gt; **Budget**. In questo esempio, il budget creato è per la sottoscrizione selezionata.
 

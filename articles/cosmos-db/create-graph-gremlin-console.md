@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 905873a695635ba80de258cbf458c8dd3e18d443
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700339"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422967"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Creare, eseguire query e attraversare un grafo nella console Gremlin
 
@@ -56,7 +56,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Immettere le configurazioni per *host*, *port*, *username*, *password*, *connectionPool* e *serializer* in base alla tabella seguente:
 
-    Impostazione|Valore consigliato|Descrizione
+    Impostazione|Valore consigliato|DESCRIZIONE
     ---|---|---
     hosts|[*account-name*.gremlin.cosmosdb.azure.com] o [*account-name*.graphs.azure.com] per gli account creati prima del 20 dicembre 2017|Vedere lo screenshot seguente. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.
     port|443|Impostare su 443.
@@ -90,21 +90,16 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 5. Eseguire poi `:remote console` per reindirizzare tutti i comandi della console al server remoto.
 
+   > [!NOTE]
+   > Se non si esegue il comando `:remote console` ma si desidera reindirizzare tutti i comandi della console al server remoto, si dovrebbe mettere il prefisso `:>` al comando, ad esempio si dovrebbe eseguire il comando come `:> g.V().count()`. Questo prefisso è parte integrante del comando ed è importante quando si usa la console Gremlin con Azure Cosmos DB. Se il prefisso viene omesso, la console esegue il comando in locale, spesso su un grafo in memoria. L'uso del prefisso `:>` indica alla console di eseguire un comando remoto, in questo caso su Azure Cosmos DB (l'emulatore localhost o un'istanza di Azure).
+
 L'installazione è riuscita. Al termine della configurazione, è possibile iniziare a eseguire alcuni comandi della console.
 
 Provare un comando count () semplice. Digitare quanto segue al prompt nella console:
-```
-:> g.V().count()
-```
 
-> [!TIP]
-> Si noti `:>` prima del testo `g.V().count()`. 
->
-> Si tratta di una parte del comando che è necessario digitare. È importante quando si usa la console Gremlin con Azure Cosmos DB.  
->
-> Se il prefisso `:>` viene omesso, la console esegue il comando in locale, spesso su un grafo in memoria.
-> L'uso di `:>` indica alla console di eseguire un comando remoto, in questo caso su Cosmos DB (l'emulatore localhost o un'istanza di Azure).
-
+```
+g.V().count()
+```
 
 ## <a name="create-vertices-and-edges"></a>Creare vertici e archi
 
@@ -113,7 +108,7 @@ Per iniziare, aggiungere cinque vertici per le persone per *Thomas*, *Mary Kay*,
 Input (Thomas):
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Output:
@@ -124,7 +119,7 @@ Output:
 Input (Mary Kay):
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
 
 ```
 
@@ -138,7 +133,7 @@ Output:
 Input (Robin):
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Output:
@@ -150,7 +145,7 @@ Output:
 Input (Ben):
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
 
 ```
 
@@ -163,7 +158,7 @@ Output:
 Input (Jack):
 
 ```
-:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
 ```
 
 Output:
@@ -178,7 +173,7 @@ Aggiungere quindi gli archi per le relazioni tra le persone.
 Input (Thomas -> Mary Kay):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
 Output:
@@ -190,7 +185,7 @@ Output:
 Input (Thomas -> Robin):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
 Output:
@@ -202,7 +197,7 @@ Output:
 Input (Robin -> Ben):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
+g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
 Output:
@@ -217,7 +212,7 @@ Aggiornare il vertice *Thomas* con la nuova età *45*.
 
 Input:
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
+g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Output:
 
@@ -234,7 +229,7 @@ Prima di tutto, provare una query con un filtro per restituire solo le persone c
 Input (query con filtro):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40))
+g.V().hasLabel('person').has('age', gt(40))
 ```
 
 Output:
@@ -248,7 +243,7 @@ Proiettare quindi il nome delle persone con età maggiore di 40 anni.
 Input (query con filtro + query di proiezione):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40)).values('firstName')
+g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
 Output:
@@ -264,7 +259,7 @@ Output:
 Input (amici di Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
 Output: 
@@ -279,7 +274,7 @@ Ottenere quindi il livello successivo dei vertici. Attraversare il grafo per res
 Input (amici degli amici di Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Output:
 
@@ -294,7 +289,7 @@ Verrà ora eliminato un vertice dal database del grafo.
 Input (eliminazione del vertice Jack):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
+g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## <a name="clear-your-graph"></a>Cancellare il grafo
@@ -304,8 +299,8 @@ Infine, è possibile cancellare il database di tutti i vertici e gli archi.
 Input:
 
 ```
-:> g.E().drop()
-:> g.V().drop()
+g.E().drop()
+g.V().drop()
 ```
 
 Congratulazioni! Questa esercitazione sull'API Gremlin in Azure Cosmos DB è stata completata.

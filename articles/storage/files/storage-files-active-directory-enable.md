@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: 31bfcd99e23cc7fe0575a293e3dc22507dbd9e13
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8ad5a509b4fd4b6fd59212ac0df17f98f417fd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973270"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222438"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Abilitare l'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima)
 
@@ -103,8 +103,6 @@ Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 ```
 
 **Interfaccia della riga di comando**
-
-È prima di tutto necessario aggiungere l'estensione storage-preview, quindi seguire l'esempio di seguito. Ricordarsi di sostituire i valori segnaposto con i valori personalizzati. Fare riferimento a questo articolo per altre informazioni sull'aggiunta di estensioni dell'interfaccia della riga di comando di Azure.
 
 Per abilitare l'autenticazione di Azure AD tramite SMB dall'interfaccia della riga di comando di Azure 2.0, installare prima di tutto l'estensione *storage-preview*:
 
@@ -274,7 +272,7 @@ Usare poi il comando seguente per montare la condivisione file di Azure. Ricorda
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 ```
 
-A questo punto è stata abilitata l'autenticazione di AD Azure tramite SMB ed è stato assegnato un ruolo personalizzato che fornisce l'accesso a una condivisione file a un'identità di Azure AD. Per concedere l'accesso alla condivisione file ad altri utenti, seguire le istruzioni indicate nel passaggio 2.
+A questo punto è stata abilitata l'autenticazione di AD Azure tramite SMB ed è stato assegnato un ruolo personalizzato che fornisce l'accesso a una condivisione file a un'identità di Azure AD. Per concedere l'accesso alla condivisione file ad altri utenti, seguire le istruzioni indicate nel passaggio 2 e 3.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,20 +1,21 @@
 ---
-title: Eseguire test in batch dell'app LUIS - Azure | Microsoft Docs
+title: Eseguire un test in batch sull'app LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Usare test in batch per lavorare continuamente all'applicazione allo scopo di perfezionarla e di migliorarne la comprensione del linguaggio.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 414862d7ba1956f9449fde3ba063906fae6ef01b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222654"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041609"
 ---
 # <a name="batch-testing-in-luis"></a>Test in batch in LUIS
 

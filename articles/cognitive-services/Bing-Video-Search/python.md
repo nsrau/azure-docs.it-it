@@ -1,21 +1,23 @@
 ---
-title: Guida introduttiva a Python per Servizi cognitivi di Azure, API Ricerca video Bing | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca video Bing in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: Ricerca video Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare Ricerca video Bing.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ce4356f05e69540bc3bc3241e2ec1751ff7a7276
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 797eb476aa3386949b08efb957edf48a97e40d6b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374017"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220015"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-python"></a>Guida introduttiva per l'API Ricerca video Bing con Python
+# <a name="quickstart-bing-video-search-api-with-python"></a>Guida introduttiva: API Ricerca video Bing con Python
 
 Questa procedura dettagliata spiega come usare l'API Ricerca video Bing inclusa in Servizi cognitivi Microsoft in Azure. Per i dettagli tecnici sulle API, vedere le [informazioni di riferimento sulle API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
 
@@ -51,7 +53,7 @@ Impostare `search_term` per la ricerca di video con gattini
 search_term = "kittens"
 ```
 
-Il blocco seguente usa la libreria `requests` di Python per chiamare le API di ricerca Bing e restituire i risultati come oggetto JSON. Osservare che la chiave API viene passata tramite il dizionario `headers` e il termine di ricerca tramite il dizionario `params`. Per visualizzare l'intero elenco di opzioni che è possibile usare per filtrare i risultati della ricerca, vedere la documentazione dell'[API REST](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
+Il blocco seguente usa la libreria `requests` di Python per chiamare le API di ricerca Bing e restituire i risultati come oggetto JSON. Osservare che la chiave API viene passata attraverso il dizionario `headers` e il termine di ricerca attraverso il dizionario `params`. Per visualizzare l'intero elenco di opzioni che è possibile usare per filtrare i risultati della ricerca, vedere la documentazione dell'[API REST](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
 
 
 ```python

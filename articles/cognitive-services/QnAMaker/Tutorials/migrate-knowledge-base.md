@@ -1,28 +1,28 @@
 ---
-title: Come importare una Knowledge Base - Servizi cognitivi Microsoft | Microsoft Docs
-titleSuffix: Azure
+title: Eseguire la migrazione di anteprima delle knowledge base - Qna Maker
+titleSuffix: Azure Cognitive Services
 description: Come importare una knowledge base
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce8f98f9bdb37d5f326e942fe5b5e815e5272c56
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35378701"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031629"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
 QnA Maker ha annunciato General Availability il 7 maggio 2018 in occasione della conferenza \\\build\. QnA Maker GA ha una nuova architettura basata su Azure. Le knowledge base create con QnA Maker Free Preview dovranno essere migrate a QnA Maker GA. QnA Maker Preview sarà deprecato a novembre 2018. Per ulteriori informazioni sulle modifiche apportate a QnA Maker GA, vedere il [post di blog](https://aka.ms/qnamakerga-blog) con l'annuncio di QnA Maker GA.
 
 QnA Maker include ora un [modello di determinazione prezzi](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
 
-prerequisiti
+Prerequisiti
 > [!div class="checklist"]
 > * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 > * Configurare un nuovo [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md)

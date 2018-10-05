@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 09/21/2018s
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0e94392b882d111d925c864feb9aaeb54bae4e2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980407"
+ms.locfileid: "47041541"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva - Esplorare e analizzare i costi di Azure con l'analisi dei costi
 
@@ -23,7 +23,7 @@ Per poter controllare al meglio e ottimizzare i costi di Azure, è necessario co
 
 In questa guida introduttiva si usa l'analisi dei costi per esplorare e analizzare i costi aziendali. È possibile visualizzare i costi aggregati per l'organizzazione per capire dove si accumulano i costi nel tempo e identificare le tendenze di spesa. È possibile visualizzare i costi accumulati nel corso del tempo per stimare le tendenze dei costi mensili, trimestrali o addirittura annuali rispetto a un budget. Un budget è utile per rispettare eventuali vincoli finanziari oppure per visualizzare i costi giornalieri o mensili per isolare le irregolarità di spesa. È anche possibile scaricare i dati del report corrente per un'ulteriore analisi o per usarli in un sistema esterno.
 
-In questa guida introduttiva si apprende come
+In questa guida introduttiva si apprende come:
 
 - Esaminare i costi nell'analisi dei costi
 - Personalizzare le visualizzazioni dei costi
@@ -32,11 +32,15 @@ In questa guida introduttiva si apprende come
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'analisi dei costi è disponibile per tutti i clienti con contratto Enterprise. È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi.
+L'analisi dei costi è disponibile per tutti i clienti con [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi.
 
-- Account di fatturazione con contratto Enterprise di Azure (registrazione)
-- Sottoscrizione con contratto Enterprise di Azure
-- Gruppo di risorse della sottoscrizione con contratto Enterprise di Azure
+- Account di fatturazione
+- department
+- Account di registrazione
+- Gruppo di gestione
+- Sottoscrizione
+- Gruppo di risorse
+
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -44,7 +48,11 @@ L'analisi dei costi è disponibile per tutti i clienti con contratto Enterprise.
 
 ## <a name="review-costs-in-cost-analysis"></a>Esaminare i costi nell'analisi dei costi
 
-Per esaminare i costi con l'analisi dei costi, aprire il portale di Azure, quindi passare a **Gestione dei costi e fatturazione** &gt; **Account di fatturazione** &gt; selezionare l'account di fatturazione con contratto Enterprise &gt; in Gestione costi selezionare **Analisi dei costi**.
+Per esaminare i costi con analisi dei costi, nel portale di Azure, passare a **Gestione costi + Fatturazione** &gt; **Gestione costi** &gt; **Cambia ambito**, scegliere un ambito e quindi fare clic su **Selezionare**.
+
+L'ambito selezionato viene usato attraverso Gestione costi per fornire il consolidamento dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti non vengono multi-selezionati. Invece, si seleziona un ambito più ampio a cui altri utenti si avvicinano e quindi si filtra in basso ciò che si desidera. È importante comprendere questo perché alcuni utenti non devono avere accesso a un ambito padre a cui si avvicinano gli ambiti figlio.
+
+Aprire **Apri Analisi dei costi**.
 
 La visualizzazione dell'analisi dei costi iniziale include le aree seguenti:
 

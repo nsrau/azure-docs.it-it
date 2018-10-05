@@ -1,22 +1,23 @@
 ---
-title: Avvio rapido di PHP per Servizi cognitivi di Azure, API Ricerca video Bing | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca video Bing in Servizi cognitivi Microsoft in Azure.
+title: Guida introduttiva di API Ricerca video Bing, PHP
+titlesuffix: Azure Cognitive Services
+description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca video Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 2e7dc1fc82f143b51461595f9c92294a359bdc62
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4e64771802564da1e1cb9efccef1ef63b38c2b80
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376932"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224716"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-php"></a>Avvio rapido per l'API Ricerca video Bing con PHP
+# <a name="quickstart-bing-video-search-api-with-php"></a>Guida introduttiva: API Ricerca video Bing con PHP
 
 Questo articolo spiega come usare l'API Ricerca video Bing, inclusa in Servizi cognitivi Microsoft in Azure. Questo articolo riguarda PHP, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare una stringa JSON. 
 
@@ -24,9 +25,9 @@ Il codice di esempio è stato scritto per funzionare con PHP 5.6.
 
 Per i dettagli tecnici sulle API, vedere le [informazioni di riferimento sulle API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 
 ## <a name="bing-video-search"></a>Ricerca video Bing
 
@@ -35,7 +36,7 @@ L'[API Ricerca video Bing](https://docs.microsoft.com/rest/api/cognitiveservices
 1. Assicurarsi che il supporto HTTP protetto sia abilitato in `php.ini` come descritto nel commento del codice.
 2. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato o nell'editor preferito.
 3. Aggiungere il codice riportato di seguito.
-4. Sostituire il valore `accessKey` con una chiave di accesso valida per la sottoscrizione.
+4. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
 5. Eseguire il programma.
 
 ```php
@@ -100,7 +101,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
 **Risposta**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {

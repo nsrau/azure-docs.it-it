@@ -32,13 +32,13 @@ Per dettagli aggiuntivi, vedere i [Criteri di supporto per i contenitori](https:
 
 È possibile usare gli strumenti standard del sistema operativo per creare una coppia di chiavi pubblica e privata RSA SSH per l'autenticazione nelle macchine virtuali Linux per il cluster. Per i passaggi, vedere il materiale sussidiario per [OS X e Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) o per [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). 
 
-Se si usano i [comandi dell'interfaccia della riga di comando di Azure 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) per distribuire un cluster del servizio contenitore, le chiavi SSH possono essere generate automaticamente per il cluster.
+Se si usano i [comandi dell'interfaccia della riga di comando di Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) per distribuire un cluster del servizio contenitore, le chiavi SSH possono essere generate automaticamente per il cluster.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Come si crea un'entità servizio per il cluster Kubernetes?
 
 Per creare un cluster Kubernetes nel servizio contenitore di Azure, sono necessari anche l'ID e la password di un'entità servizio di Azure Active Directory. Per altre informazioni, vedere [About the service principal for a Kubernetes cluster](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md) (Informazioni sull'entità servizio per un cluster Kubernetes).
 
-Se si usano i [comandi dell'interfaccia della riga di comando di Azure 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) per distribuire un cluster Kubernetes, le credenziali dell'entità servizio possono essere generate automaticamente per il cluster.
+Se si usano i [comandi dell'interfaccia della riga di comando di Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) per distribuire un cluster Kubernetes, le credenziali dell'entità servizio possono essere generate automaticamente per il cluster.
 
 ### <a name="how-large-a-cluster-can-i-create"></a>Quali possono essere le dimensioni dei cluster creati?
 È possibile creare un cluster con 1, 3 o 5 nodi master e scegliere fino a 100 nodi agente.
@@ -105,4 +105,4 @@ In Windows sono presenti problemi noti relativi al DNS, le cui correzioni sono t
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Altre informazioni](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) sul servizio contenitore di Azure.
-* Distribuire un cluster del servizio contenitore usando il [portale](../articles/container-service/dcos-swarm/container-service-deployment.md) o l'[interfaccia della riga di comando di Azure 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).
+* Distribuire un cluster del servizio contenitore usando il [portale](../articles/container-service/dcos-swarm/container-service-deployment.md) o l'[interfaccia della riga di comando di Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

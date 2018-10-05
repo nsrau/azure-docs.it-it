@@ -1,24 +1,25 @@
 ---
-title: Esportare o eliminare i dati in Content Moderator - Servizi cognitivi di Azure | Microsoft Docs
+title: Esportare o eliminare i dati - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Informazioni su come esportare o eliminare i dati in Content Moderator.
 services: cognitive-services
 author: v-jaswel
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1dbb645a033c6db5ffa9003a53f30fd927131298
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9e671fa9735406ec425b105bb121d3a029ef19dc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378060"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227232"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Esportare o eliminare i dati utente in Content Moderator
 
-Content Moderator raccoglie i dati dell'utente per il funzionamento del servizio, ma i clienti hanno il controllo completo sulla visualizzazione, l'esportazione e l'eliminazione dei propri dati mediante l'[interfaccia utente di revisione](http://contentmoderator.cognitive.microsoft.com/) e le [API](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/api-reference).
+Content Moderator raccoglie i dati dell'utente per il funzionamento del servizio, ma i clienti hanno il controllo completo sulla visualizzazione, l'esportazione e l'eliminazione dei propri dati mediante l'[interfaccia utente di revisione](http://contentmoderator.cognitive.microsoft.com/) e le [API](https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

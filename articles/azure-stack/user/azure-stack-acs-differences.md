@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027170"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802322"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Archiviazione di Azure Stack: differenze e considerazioni
 
@@ -41,7 +41,6 @@ Questo articolo riepiloga le differenze note di archiviazione di Azure Stack dai
 |Dischi gestiti|Premium e standard supportati|È supportato quando si usa 1808 o versione successiva.
 |Nome del BLOB|1024 caratteri (2.048 byte)|880 caratteri (1,760 byte)
 |Dimensioni massime blob di blocco|4,75 TB (100 MB X 50.000 blocchi)|4,75 TB (100 MB x 50.000 blocchi) per l'aggiornamento 1802 o una versione più recente. 50.000 x 4 MB (circa 195 GB) per le versioni precedenti.
-|Copia di snapshot blob di pagine|Backup non gestito della macchina virtuale nei dischi Azure collegati a una macchina virtuale in esecuzione supportata|Non è ancora supportata.
 |Copia di snapshot incrementale blob di pagine|Premium e standard BLOB di Azure supportate|Non è ancora supportata.
 |Livelli di archiviazione per l'archiviazione blob|Accesso frequente, sporadico e archivio i livelli di archiviazione.|Non è ancora supportata.
 Eliminazione temporanea per l'archiviazione blob|Preview|Non è ancora supportata.

@@ -1,20 +1,21 @@
 ---
-title: Gestire la sottoscrizione a un endpoint di Azure | Microsoft Docs
+title: Gestione della sottoscrizione endpoint nell'app LUIS
+titleSuffix: Azure Cognitive Services
 description: In questo articolo viene illustrato come creare una chiave di endpoint a consumo per consentire all'account LUIS di fornire traffico illimitato all'endpoint sulla base di un piano di pagamento.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223280"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040381"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gestire la chiave di sottoscrizione a un endpoint di Azure
 
@@ -26,7 +27,7 @@ Solo in caso di test o come prototipo, usa il livello (F0) gratuito. Per i siste
 <a name="create-luis-service"></a>
 ## <a name="create-luis-endpoint-key"></a>Creare la chiave di endpoint LUIS
 
-1. Accedi a **[Microsoft Azure](https://ms.portal.azure.com/)** 
+1. Accedi a **[Microsoft Azure](https://ms.portal.azure.com/)**. 
 2. Fai clic sul **+** verde, accedi al riquadro superiore sinistro e cerca "LUIS" nel marketplace, quindi fai clic su **Language Understanding** e segui la **Creazione dell'esperienza**  per generare un account di sottoscrizione a LUIS. 
 
     ![Ricerca di Azure](./media/luis-azure-subscription/azure-search.png) 
@@ -40,8 +41,7 @@ Solo in caso di test o come prototipo, usa il livello (F0) gratuito. Per i siste
     ![Chiavi di Azure](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Accedi al sito Web della tua area geografica di [LUIS](luis-reference-regions.md) e [aggiungi la nuova chiave di endpoint LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * È necessario ricordare il nome del servizio Azure creato per poterla selezionare nella pagina di pubblicazione della tua area geografica di [LUIS](luis-reference-regions.md).  
+    > Accedi al sito Web [LUIS](luis-reference-regions.md) della tua area geografica e [aggiungi la nuova chiave endpoint LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). Dovrai utilizzare il nome della sottoscrizione LUIS, ottenuto nel passaggio 3.
 
 ## <a name="change-luis-pricing-tier"></a>Modificare il piano tariffario LUIS
 

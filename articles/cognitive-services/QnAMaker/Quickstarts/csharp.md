@@ -1,20 +1,21 @@
 ---
-title: Guida introduttiva a C# per l'API QnA Maker Microsoft (V4) - Servizi cognitivi di Azure | Microsoft Docs
+title: 'Guida introduttiva: C# per QnA Maker, API (V4)'
+titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare rapidamente a usare l'API Traduzione testuale Microsoft in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 7c79a5c1b65391be1a100efa9e0dcf4e4a0d12ae
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866084"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040280"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Guida introduttiva per l'API QnA Maker Microsoft con C# 
 <a name="HOLTop"></a>
@@ -36,7 +37,9 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Ottenere il set corrente di variazioni delle parole.](#GetAlterations)
 - [Sostituire il set corrente di variazioni delle parole.](#PutAlterations)
 
-## <a name="prerequisites"></a>prerequisiti
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition.
 

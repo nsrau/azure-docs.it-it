@@ -1,21 +1,21 @@
 ---
-title: Guida alla migrazione di API da v1 a v2 | Microsoft Docs
-titleSuffix: Azure
+title: Guida alla migrazione dalla versione 1 alla versione 2 dell'interfaccia API
+titleSuffix: Azure Cognitive Services
 description: Informazioni sulla migrazione al set di API più recente.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e7460a0eaf51e839accf08b6f8b07a112033af17
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b936b42671c15a77a901f321ed3c51f1ba3639cd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43130493"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036593"
 ---
 # <a name="api-v2-migration-guide"></a>Guida alla migrazione di API a v2
 Le API [endpoint](https://aka.ms/v1-endpoint-api-docs) e [creazione ](https://aka.ms/v1-authoring-api-docs) versione 1 verranno deprecate. Usare questa guida per imparare a migrare le API [endpoint](https://aka.ms/luis-endpoint-apis) e [creazione](https://aka.ms/luis-authoring-apis) alla versione 2. 

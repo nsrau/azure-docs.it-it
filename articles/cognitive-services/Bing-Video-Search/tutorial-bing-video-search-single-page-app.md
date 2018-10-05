@@ -1,20 +1,21 @@
 ---
-title: Applicazione di Ricerca video Bing a pagina singola | Microsoft Docs
+title: "Esercitazione: creare un'app a singola pagina di ricerca video Bing"
+titlesuffix: Azure Cognitive Services
 description: Illustra come usare l'API Ricerca video Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: 55f662721e007e03c8f43f19d8b905e755cfe1d8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377052"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226603"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Esercitazione: applicazione Ricerca video a pagina singola
 L'API Ricerca video Bing consente di eseguire ricerche sul Web e di ottenere come risultati video pertinenti a una query di ricerca. In questa esercitazione viene compilata un'applicazione Web a pagina singola che usa l'API Ricerca video Bing per visualizzare i risultati della ricerca nella pagina. L'applicazione include componenti HTML, CSS e JavaScript.
@@ -97,11 +98,11 @@ La figura seguente mostra la casella di testo della query e le opzioni che defin
 
 ![Opzioni di Ricerca notizie Bing](media/video-search-options.png)
 
-Il modulo HTML include elementi con i seguenti nomi:
+Il modulo HTML include elementi con i nomi seguenti:
 
 |Elemento|DESCRIZIONE|
 |-|-|
-| `where` | Un menu a discesa per la selezione del mercato, ovvero località e lingua, utilizzato per la ricerca. |
+| `where` | Un menu a discesa per la selezione del mercato (località e lingua) usato per la ricerca. |
 | `query` | Il campo di testo in cui inserire i termini di ricerca. |
 | `modules` | Caselle di controllo per alzare di livello determinati moduli di risultati, tutti i risultati o i video correlati. |
 | `when` | Menu a discesa per limitare facoltativamente la ricerca all'ultimo giorno, settimana o mese. |
@@ -264,7 +265,7 @@ La maggior parte del codice in entrambe le precedenti funzioni è dedicata alla 
 |-|-|-|
 |Compilazione dell'oggetto richiesta JavaScript|URL non valido|Blocco `try`/`catch`|
 |Invio della richiesta|Errori di rete, connessioni interrotte|Gestori degli eventi `error` e `abort`|
-|Esecuzione della ricerca|Richiesta non valida, JSON non valido, limiti di frequenza|Test nel gestore eventi `load`|
+|Esecuzione della ricerca|Richiesta non valida, JSON non valido, limiti di frequenza|Test nel gestore dell'evento `load`|
 
 Gli errori vengono gestiti chiamando `renderErrorMessage()` con tutti i dettagli noti dell'errore. Se la risposta supera la serie completa dei test di errore, viene chiamato `renderSearchResults()` per visualizzare i risultati della ricerca nella pagina.
 
@@ -334,8 +335,8 @@ Una funzione renderer può accettare i parametri seguenti:
 |Parametro|DESCRIZIONE|
 |-|-|
 |`item`| L'oggetto JavaScript che contiene le proprietà dell'elemento, ad esempio l'URL e la relativa descrizione.|
-|`index`| L'indice dell'elemento dei risultati all'interno della raccolta.|
-|`count`| Il numero di elementi nella raccolta degli elementi dei risultati della ricerca.|
+|`index`| L'indice dell'elemento di risultato all'interno della raccolta.|
+|`count`| Il numero di elementi nella raccolta degli elementi di risultati della ricerca.|
 
 I parametri `index` e `count` possono essere usati per numerare i risultati, per generare codice HTML speciale per l'inizio o la fine di una raccolta, per inserire le interruzioni di riga dopo un certo numero di elementi e così via. Se un renderer non necessita di questa funzionalità, non è necessario che accetti questi due parametri.
 
@@ -386,11 +387,11 @@ In secondo luogo, Bing potrebbe selezionare utenti in modo casuale per provare n
 I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione `X-MSEdge-ClientID` sia disponibile per JavaScript. Questa limitazione si verifica quando la risposta della ricerca ha un'origine diversa dalla pagina che l'ha richiesta. In un ambiente di produzione è necessario soddisfare questo criterio tramite l'hosting di uno script sul lato server che esegue la chiamata API nello stesso dominio della pagina Web. Poiché lo script ha la stessa origine della pagina Web, l'intestazione `X-MSEdge-ClientID` diventa disponibile per JavaScript.
 
 > [!NOTE]
-> In un'applicazione Web di produzione è necessario effettuare la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove sarà disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati i costi per tutto l'utilizzo della chiave di sottoscrizione dell'API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
+> In un'applicazione Web di produzione è necessario effettuare la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove sarà disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
 
 A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
 
-È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID del client. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Digitare quindi il comando seguente in una finestra di comando:
+È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Digitare quindi il comando seguente in una finestra di comando:
 
     npm install -g cors-proxy-server
 
@@ -402,7 +403,7 @@ Infine avviare il proxy CORS con il comando seguente:
 
     cors-proxy-server
 
-Lasciare aperta la finestra di comando durante l'uso dell'applicazione di esercitazione. Se si chiude la finestra, il proxy si arresta. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

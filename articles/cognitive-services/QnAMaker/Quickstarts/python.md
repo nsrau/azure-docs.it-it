@@ -1,20 +1,21 @@
 ---
-title: Guida introduttiva a Python per l'API QnA Maker Microsoft (V4) - Servizi cognitivi di Azure | Microsoft Docs
+title: 'Guida introduttiva: Python per API QnA Maker API (V4)'
+titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare rapidamente a usare l'API Traduzione testuale Microsoft in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: c0d02a0f586857f6dd303fc98407da71b2addb9b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5e95bf768cc00935067edd3365cc3d101be6a00a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869120"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034742"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Guida introduttiva per l'API QnA Maker Microsoft con Python 
 <a name="HOLTop"></a>
@@ -36,7 +37,9 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Ottenere il set corrente di variazioni delle parole.](#GetAlterations)
 - [Sostituire il set corrente di variazioni delle parole.](#PutAlterations)
 
-## <a name="prerequisites"></a>prerequisiti
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice è necessario [Python 3.x](https://www.python.org/downloads/).
 

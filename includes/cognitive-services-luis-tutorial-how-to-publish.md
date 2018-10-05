@@ -3,26 +3,34 @@ title: File di inclusione
 description: File di inclusione
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 07/26/2018
+ms.date: 08/17/2018
 ms.author: diberry
-ms.openlocfilehash: 0d72cde105ad7043f1c063151a667298d50962df
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 29332f7f43932c115a4e80b9c66f747555c9c298
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163767"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47105820"
 ---
-Per ottenere una previsione di Language Understanding in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
-
-Non è necessario creare una chiave di endpoint Language Understanding nel portale di Azure prima di pubblicare o testare l'URL dell'endpoint. Ogni app Language Understanding dispone di una chiave di avvio gratuita. Tale chiave offre creazione illimitata e [alcuni riscontri di endpoint](../articles/cognitive-services/luis/luis-boundaries.md#key-limits). 
+Per ottenere una previsione di Language Understanding Intelligent Service (LUIS) in un chatbot o in un'altra applicazione client, è necessario pubblicare l'app nell'endpoint. 
 
 1. Selezionare **Pubblica** nella barra di spostamento in alto a destra.
 
-2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
+    ![LUIS pubblica nel pulsante endpoint nel menu in alto a destra](./media/cognitive-services-luis/publish-button.png)
+
+2. Selezionare lo slot di **produzione**, quindi fare clic sul pulsante **Publish** (Pubblica).
+
+    ![LUIS pubblica su endpoint](./media/cognitive-services-luis/publish-this-app-popup.png)
 
 3. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
+
+    ![LUIS pubblica su endpoint](./media/cognitive-services-luis/publish-to-endpoint-success.png)
+
+4. Selezionare il collegamento dell'**endpoint** nella barra di stato verde per passare alla pagina **Chiavi ed endpoint**. Gli URL dell'endpoint sono elencati nella parte inferiore.
+
+    <!-- TBD: add image -->

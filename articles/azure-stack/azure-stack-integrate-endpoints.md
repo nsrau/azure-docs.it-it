@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: bc07d0e7aff2bf9263d89dffccc47ba806ff0fd1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024959"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804209"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter integration - pubblicano endpoint
 
@@ -32,9 +32,8 @@ Un set di infrastruttura di indirizzi VIP è necessario per la pubblicazione di 
 
 Infrastruttura interna che non sono elencati gli indirizzi VIP perché non sono necessarie per la pubblicazione di Azure Stack.
 
-> [!NOTE]
+> [!Note]  
 > Utente VIP sono dinamici, definiti dagli utenti stessi senza il controllo dall'operatore di Azure Stack.
-
 
 |Endpoint (indirizzo VIP)|Un record host DNS|Protocollo|Porte|
 |---------|---------|---------|---------|
@@ -66,6 +65,8 @@ Infrastruttura interna che non sono elencati gli indirizzi VIP perché non sono 
 
 Azure Stack supporta solo i server proxy trasparente. In una distribuzione in cui un uplink proxy trasparente per un server proxy tradizionali, è necessario consentire gli URL e le porte seguenti per le comunicazioni in uscita:
 
+> [!Note]  
+> Azure Stack non supporta l'uso di Expressroute per raggiungere i servizi di Azure elencati nella tabella seguente.
 
 |Scopo|URL|Protocollo|Porte|
 |---------|---------|---------|---------|
@@ -77,6 +78,7 @@ Azure Stack supporta solo i server proxy trasparente. In una distribuzione in cu
 |Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|     |UDP|123|
 |DNS|     |TCP<br>UDP|53|
+|CRL|     |HTTPS|443|
 |     |     |     |     |
 
 > [!Note]  

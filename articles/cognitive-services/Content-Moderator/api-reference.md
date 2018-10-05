@@ -1,20 +1,21 @@
 ---
-title: Informazioni di riferimento per l'API Content Moderator di Azure | Microsoft Docs
+title: Riferimento API - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sulle API di moderazione del contenuto e revisione per Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 94de9b91cc242e8b7e5479cacab8380adac551f6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f065310e3afeaf95af602e513421da6770c9583f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372980"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222405"
 ---
 # <a name="content-moderator-api-reference"></a>Informazioni di riferimento per le API Content Moderator
 
@@ -27,7 +28,7 @@ ms.locfileid: "35372980"
 
 È possibile usare le API Content Moderator seguenti per configurare i flussi di lavoro post-moderazione.
 
-| Descrizione | Riferimenti |
+| DESCRIZIONE | riferimento |
 | -------------------- |-------------|
 | **API Moderazione immagini**<br /><br />Consente di analizzare le immagini e rilevare potenziali contenuti spinti e per adulti usando tag, punteggi di attendibilità e altre informazioni estratte. <br /><br />Usare queste informazioni per pubblicare, rifiutare o rivedere il contenuto nel flusso di lavoro post-moderazione. <br /><br />| [Informazioni di riferimento per l'API Moderazione immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Informazioni di riferimento per l'API Moderazione immagini")   |
 | **API Moderazione testo**<br /><br />Consente di analizzare il contenuto di testo. Vengono restituiti i termini volgari o osceni e le informazioni personali. <br /><br />Usare queste informazioni per pubblicare, rifiutare o rivedere il contenuto nel flusso di lavoro post-moderazione.<br /><br /> | [Informazioni di riferimento per l'API Moderazione testo](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Informazioni di riferimento per l'API Moderazione testo")   |
@@ -38,7 +39,7 @@ ms.locfileid: "35372980"
 
 L'API Revisione è costituita dai componenti seguenti:
 
-| Descrizione | Riferimenti |
+| DESCRIZIONE | riferimento |
 | -------------------- |-------------|
 | **Processi**<br /><br /> È possibile avviare flussi di lavoro di moderazione di analisi e revisione per il contenuto di immagini e testo. Il processo di moderazione analizza il contenuto usando l'API Moderazione immagini e l'API Moderazione testo. Usa i flussi di lavoro definiti e predefiniti per generare revisioni. <br /><br />Dopo che un moderatore umano ha esaminato i tag assegnati automaticamente e i dati di stima e ha inviato una decisione relativa alla moderazione del contenuto, l'API di revisione invia tutte le informazioni all'endpoint API.<br /><br /> | [Informazioni di riferimento per i processi](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Informazioni di riferimento per i processi")   |
 | **Revisioni**<br /><br />Usare lo strumento di revisione per creare direttamente revisioni di immagini o testo per i moderatori umani.<br /><br /> Dopo che un moderatore umano ha esaminato i tag assegnati automaticamente e i dati di stima e ha inviato una decisione relativa alla moderazione del contenuto, l'API di revisione invia tutte le informazioni all'endpoint API.<br /><br /> | [Informazioni di riferimento per le revisioni](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "Informazioni di riferimento per le revisioni")   |

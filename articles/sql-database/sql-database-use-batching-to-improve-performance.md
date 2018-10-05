@@ -2,19 +2,22 @@
 title: Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL di Azure
 description: Questo argomento dimostra che le operazioni di database in batch migliorano significativamente la velocità e la scalabilità delle applicazioni di database SQL di Azure. Anche se le tecniche di invio in batch funzionano con qualsiasi database SQL, questo articolo è incentrato su Azure.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: c0e1ff3cf018e185ae2dfb329e2aa56766cc247c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 21dc28658f7f6f31bc7536df739a70238a3bcb8f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649782"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160809"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 Le operazioni di invio in batch al database SQL di Azure migliorano in modo significativo le prestazioni e la scalabilità delle applicazioni. Per comprendere i vantaggi, la prima parte di questo articolo descrive alcuni risultati dei test di esempio che confrontano le richieste sequenziali e in batch inviate a un database SQL. Il resto dell'articolo illustra le tecniche, gli scenari e le considerazioni che facilitano l'uso corretto dell'invio in batch nelle applicazioni Azure.
@@ -104,9 +107,7 @@ La tabella seguente illustra alcuni risultati di test ad hoc. I test eseguono le
 | 1000 |21479 |2756 |
 
 > [!NOTE]
-> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
-> 
-> 
+> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo articolo](#note-about-timing-results-in-this-article).
 
 In base ai risultati di test precedenti, il wrapping di una singola operazione in una transazione riduce in effetti le prestazioni. Tuttavia, maggiore è il numero di operazioni in una singola transazione, più evidente risulta il miglioramento delle prestazioni. La differenza nelle prestazioni è anche più significativa se tutte le operazioni vengono eseguite nello stesso data center di Microsoft Azure. La maggiore latenza dovuta all'uso del database SQL dall'esterno del data center di Microsoft Azure vanifica il vantaggio in termini di prestazioni derivante dall'uso delle transazioni.
 
@@ -186,7 +187,7 @@ La tabella seguente illustra i risultati, in millisecondi, dei test ad hoc per l
 | 10000 |23830 |3586 |
 
 > [!NOTE]
-> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo articolo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -223,7 +224,7 @@ I risultati dei test ad hoc seguenti mostrano le prestazioni, in millisecondi, d
 | 10000 |21605 |2737 |
 
 > [!NOTE]
-> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo articolo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -264,7 +265,7 @@ I risultati dei test ad hoc seguenti mostrano le prestazioni di questo tipo di i
 | 100 |33 |51 |
 
 > [!NOTE]
-> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo articolo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -306,7 +307,7 @@ I test non hanno in genere evidenziato vantaggi correlati alla suddivisione di b
 | 50 |20 |630 |
 
 > [!NOTE]
-> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo articolo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -327,7 +328,7 @@ Che cosa accadrebbe se si adottasse l'approccio di ridurre le dimensioni del bat
 | 100 [10] |488 |439 |391 |
 
 > [!NOTE]
-> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo argomento](#note-about-timing-results-in-this-topic).
+> I risultati non sono benchmark. Vedere la [nota sui risultati della tempistica in questo articolo](#note-about-timing-results-in-this-article).
 > 
 > 
 

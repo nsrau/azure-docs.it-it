@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: ba00d859dcfa968dcff7b321d571d61aea98463f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 54eef98d85337f14ff9e10837f97ccd28a58afdf
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246833"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223458"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installare gli strumenti di Analisi di flusso di Azure per Visual Studio
 Gli strumenti di Analisi di flusso di Azure supportano Visual Studio 2017, 2015 e 2013. Questo articolo descrive come installare e disinstallare gli strumenti.
@@ -34,6 +34,9 @@ Abilitare il carico di lavoro **Sviluppo di Azure**, come illustrato:
 
 ![Il carico di lavoro Sviluppo di Azure è selezionato](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-02.png)
 
+* Scegliere **Estensioni e aggiornamenti** dal menu Strumenti. Trovare gli strumenti di Azure Data Lake e Analisi di flusso nelle estensioni installate e fare clic su **Aggiorna** per installare l'estensione più recente. 
+
+![Estensioni e aggiornamenti di Visual Studio](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-extensions-updates.png)
 
 ### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
 * Installare Visual Studio 2015 o Visual Studio 2013 Update 4. Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata. 
@@ -43,7 +46,9 @@ Abilitare il carico di lavoro **Sviluppo di Azure**, come illustrato:
 ## <a name="update"></a>Aggiornamento
 
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
-Il promemoria della nuova versione viene visualizzato nella notifica di Visual Studio. 
+Il promemoria della nuova versione viene visualizzato nella notifica di Visual Studio.
+
+![Promemoria della nuova versione di Visual Studio](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-new-version-reminder-vs-tools.png)
 
 ### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 e Visual Studio 2015
 Gli strumenti di Analisi di flusso di Azure installati per Visual Studio verificano automaticamente la disponibilità di nuove versioni. Seguire le istruzioni nella finestra popup per installare la versione più recente. 

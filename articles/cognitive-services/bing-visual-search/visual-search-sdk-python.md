@@ -1,23 +1,23 @@
 ---
-title: Guida introduttiva all'SDK di Ricerca visiva per Python | Microsoft Docs
-description: Configurare l'applicazione console SDK di Ricerca visiva per Python.
+title: 'Guida introduttiva: Ricerca visiva Bing SDK, Python'
 titleSuffix: Azure Cognitive Services
+description: Configurare l'applicazione console SDK di Ricerca visiva per Python.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: f7a1f275f9059abdceaef577fb5ca722c9951366
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 269eaccbf834646b540123dfeeeec7c569b8ced4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939414"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222642"
 ---
-# <a name="visual-search-sdk-python-quickstart"></a>Guida introduttiva all'SDK di Ricerca visiva per Python
+# <a name="quickstart-bing-visual-search-sdk-python"></a>Guida introduttiva: Ricerca visiva Bing SDK Python
 
 L'SDK di Ricerca visiva Bing usa la funzionalità dell'API REST per richieste Web e analisi dei risultati.
 Gli [esempi di codice origine per l'SDK di Ricerca visiva Bing per Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) sono disponibili su Git Hub.
@@ -173,7 +173,7 @@ with open(image_path, "rb") as image_fd:
 
 ```
 
-Gli esempi di ricerca Bing illustrano varie funzionalità dell'SDK.  Aggiungere le seguenti funzioni alla classe `VisualSrchSDK` definita in precedenza.
+Gli esempi di ricerca Bing illustrano varie funzionalità dell'SDK.  Aggiungere le funzioni seguenti alla classe `VisualSrchSDK` definita in precedenza.
 
 <a name="binary-crop"></a>
 ## <a name="image-binary-post-with-croparea"></a>Post di file binario di immagini con cropArea
@@ -227,7 +227,7 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 <a name="knowledge-req"></a>
 ## <a name="knowledgerequest-parameter"></a>Parametro KnowledgeRequest
 
-Il codice seguente invia un URL dell'immagine nel parametro `knowledgeRequest`, insieme a un filtro \"site: www.bing.com\". Quindi stampa `imageInsightsToken`, il numero di tag, il numero di azioni e il primo actionType.
+Il codice seguente invia un URL dell'immagine nel parametro `knowledgeRequest`, insieme a un filtro \"site:www.bing.com\". Quindi stampa `imageInsightsToken`, il numero di tag, il numero di azioni e il primo actionType.
 ```
 def search_url_with_filters(client_in, sub_key):
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/08/2018
 ms.author: wolfma
-ms.openlocfilehash: dcb65e365fdd51a56afc65814a153593e2f7d0f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6a77303bc1810d72001f119223b7490299ed497a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "47019742"
+ms.locfileid: "47060825"
 ---
 Region| Endpoint Sintesi vocale
 -|-
@@ -23,4 +23,4 @@ Europa settentrionale|   `https://northeurope.tts.speech.microsoft.com/cognitive
 Europa occidentale|    `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
-> Se è stato creato un carattere voce personalizzato, usare l'endpoint creato appositamente anziché quelli precedenti.
+> Se è stato creato un carattere voce personalizzato, usare l'endpoint creato appositamente anziché quelli qui presenti.

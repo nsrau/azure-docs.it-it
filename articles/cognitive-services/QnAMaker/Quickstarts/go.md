@@ -1,20 +1,21 @@
 ---
-title: Guida introduttiva a Go per l'API QnA Maker Microsoft (V4) - Servizi cognitivi di Azure | Microsoft Docs
+title: 'Guida introduttiva: Go per QnA Maker, API (V4)'
+titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare rapidamente a usare l'API Traduzione testuale Microsoft in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: d68ff91d74a6c43c6d492aa07e916a842b50e96f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 320eb7b643d785899482a00bfc0bda1d89e61b3b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867590"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042381"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Guida introduttiva per l'API QnA Maker Microsoft con Go 
 <a name="HOLTop"></a>
@@ -36,7 +37,7 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Ottenere il set corrente di variazioni delle parole.](#GetAlterations)
 - [Sostituire il set corrente di variazioni delle parole.](#PutAlterations)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice è necessario [Go 1.10.1](https://golang.org/dl/).
 

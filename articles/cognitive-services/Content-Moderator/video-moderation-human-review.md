@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator - Moderazione video | Microsoft Docs
+title: Moderazione video con revisione umana - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Usare la moderazione video con supporto di computer e strumenti di revisione umana per moderare contenuti non appropriati
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: fb26c9af55381c80a3f520b1a0068d8f72c91061
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 33956e1986265b36f6df9a2d19909cb974bd3197
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35372937"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222081"
 ---
-# <a name="video-moderation"></a>Moderazione video
+# <a name="video-moderation-with-human-review"></a>Moderazione video con revisione umana
 
 Usare la [moderazione video](video-moderation-api.md) con supporto di computer e lo [strumento di revisione umana](Review-Tool-User-Guide/human-in-the-loop.md) di Content Moderator per moderare video e trascrizioni di contenuti spinti (con riferimenti sessuali) e per adulti (espliciti) in modo da ottenere risultati ottimali per l'azienda.
 
-## <a name="video-trained-classifier"></a>Classificatore con riconoscimento di video
+## <a name="video-trained-classifier-preview"></a>Classificatore con riconoscimento di video (anteprima)
 
 La classificazione video con supporto di computer può essere eseguita con modelli per il riconoscimento di immagini o di video. A differenza dei classificatori video con riconoscimento di immagini, il classificatore di video con contenuti spinti e per adulti di Microsoft è sottoposto a un processo di riconoscimento video. Questo metodo comporta una migliore qualità della corrispondenza.
 

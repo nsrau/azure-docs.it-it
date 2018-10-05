@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/12/2018
+ms.date: 09/21/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 10fef55ef09e4be427fbd36c730528a993dd64e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 470802c1119c1c367dcd72f782dfc1036f75f6db
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960862"
+ms.locfileid: "47035947"
 ---
 # <a name="what-is-azure-cost-management"></a>Che cos'è la gestione dei costi di Azure?
 
@@ -23,7 +23,7 @@ Gestione costi è il processo con consente di pianificare e controllare i costi 
 
 Anche se correlate, le operazioni di fatturazione e di gestione dei costi sono differenti. La fatturazione è il processo di invio di fatture ai clienti per di merci o servizi e di gestione delle relazioni commerciali.  I team di approvvigionamento e quello finanziario svolgono solitamente le attività di fatturazione.
 
-Gestione costi mostra i costi aziendali e i criteri di utilizzo tramite analisi avanzate. I report in Gestione costi mostrano i costi di Azure, l'utilizzo, le istanze riservate e l'uso di Vantaggio Azure Hybrid. Collettivamente, i report mostrano i costi interni ed esterni. I report consentono di comprendere l'uso di risorse e spese e possono suggerire come trovare le anomalie di spesa. È inoltre disponibile analisi predittiva. Gestione costi usa i gruppi di gestione di Azure, i budget e gli elementi consigliati per mostrare chiaramente come sono organizzate le spese e come si potrebbero ridurre i costi.
+Gestione costi mostra i costi aziendali e i criteri di utilizzo tramite analisi avanzate. I report in Gestione costi mostrano i costi di Azure, l'utilizzo, le istanze riservate e l'uso di Vantaggio Azure Hybrid. Collettivamente, i report mostrano i costi interni ed esterni sull'utilizzo e gli addebiti per Azure Marketplace. Altri addebiti, come gli acquisti di prenotazioni, il supporto e le imposte non vengono ancora visualizzati nel report. I report consentono di comprendere l'uso di risorse e spese e possono suggerire come trovare le anomalie di spesa. È inoltre disponibile analisi predittiva. Gestione costi usa i gruppi di gestione di Azure, i budget e gli elementi consigliati per mostrare chiaramente come sono organizzate le spese e come si potrebbero ridurre i costi.
 
 È possibile usare il portale di Azure o varie API per l'esportazione di automazione per integrare i dati sui costi con i processi e sistemi esterni. Sono inoltre disponibili l'esportazione automatizzata dei dati di fatturazione e report pianificati.
 

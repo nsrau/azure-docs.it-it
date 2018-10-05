@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a7e5dc2f27fb7554ddc9a612aeed33e1c18a41b8
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: fd16defdcd3c3cb0c78994e9259b55f3d687163b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090592"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032649"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi C# per il servizio Device Provisioning in hub IoT
 
@@ -24,7 +24,7 @@ Questi passaggi illustrano come compilare l'esempio di dispositivo TPM simulato 
 
 Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparare l'ambiente di sviluppo 
@@ -66,9 +66,9 @@ Se non si ha familiarità con il processo di provisioning automatico, è necessa
     ![Output della finestra di comando](./media/quick-create-simulated-device-tpm-csharp/output1.png) 
 
 
-4. Nel portale di Azure, nel pannello di riepilogo del servizio Device Provisioning selezionare **Gestisci registrazioni**. Selezionare la scheda **Registrazioni singole** e fare clic sul pulsante **Aggiungi** in alto. 
+4. Nel portale di Azure, nel pannello di riepilogo del servizio Device Provisioning selezionare **Gestisci registrazioni**. Selezionare la scheda **Individual Enrollments** (Registrazione singola) e fare clic sul pulsante **Add individual enrollment** (Aggiungi registrazione singola) in alto. 
 
-5. In **Aggiungi voce elenco registrazione** immettere le informazioni seguenti:
+5. Nella sezione **Add Enrollment**(Aggiungi registrazione) immettere le informazioni seguenti:
     - Selezionare **TPM** come *meccanismo* di attestazione dell'identità.
     - Immettere l'*ID registrazione* e la *chiave di verifica dell'autenticità* per il dispositivo TPM. 
     - Facoltativamente, selezionare un hub IoT collegato al servizio di provisioning.
@@ -76,7 +76,7 @@ Se non si ha familiarità con il processo di provisioning automatico, è necessa
     - Aggiornare lo **stato iniziale del dispositivo gemello** con la configurazione iniziale desiderata per il dispositivo.
     - Al termine, fare clic sul pulsante **Save** (Salva). 
 
-    ![Immettere le informazioni di registrazione del dispositivo nel pannello del portale](./media/quick-create-simulated-device-tpm-csharp/enter-device-enrollment.png)  
+    ![Immettere le informazioni di registrazione del dispositivo nel pannello del portale](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    Dopo la corretta registrazione, l'*ID registrazione* del dispositivo verrà visualizzato nell'elenco della scheda *Individual Enrollments* (Registrazioni singole). 
 
@@ -84,7 +84,7 @@ Se non si ha familiarità con il processo di provisioning automatico, è necessa
 
 1. Verificare che il provisioning del dispositivo sia stato effettuato. Dopo il corretto provisioning del dispositivo simulato nell'hub IoT collegato al servizio di provisioning, l'ID del dispositivo viene visualizzato nel pannello **IoT Devices** (Dispositivi IoT) dell'hub. 
 
-    ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device-tpm-csharp/hub-registration.png) 
+    ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 
     Se si è modificato lo *stato iniziale del dispositivo gemello* rispetto al valore predefinito della voce di registrazione del dispositivo, è possibile eseguire il pull dello stato del dispositivo desiderato dall'hub e agire di conseguenza. Per altre informazioni, vedere [Comprendere e usare dispositivi gemelli nell'hub IoT](../iot-hub/iot-hub-devguide-device-twins.md)
 

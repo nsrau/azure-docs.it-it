@@ -2,19 +2,22 @@
 title: Introduzione al controllo del database SQL di Azure | Microsoft Docs
 description: Usare il controllo del database SQL di Azure per tenere traccia degli eventi del database in un log di controllo.
 services: sql-database
-author: giladmit
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/24/2018
+author: giladmit
 ms.author: giladm
-ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: 8ba07b22d247cb9263890a747bd166d63af27e3b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081456"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395748"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e li registra in un log di controllo nell'account di archiviazione di Azure dell'utente. Inoltre, il servizio di controllo:
@@ -65,50 +68,72 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 2. Passare a **Controllo** nell'intestazione Sicurezza nel riquadro del database SQL o del server.
 
     <a id="auditing-screenshot"></a>![Riquadro di spostamento][1]
-3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nel pannello relativo al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e ai nuovi database creati in questo server.
+
+3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nella pagina relativa al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e ai nuovi database creati in questo server.
 
     ![Riquadro di spostamento][2]
+
 4. Se si preferisce abilitare il controllo a livello di database, impostare **Controllo** su **ATTIVA**.
 
     Se il controllo del server è abilitato, il controllo configurato del database coesisterà con il controllo del server.
 
     ![Riquadro di spostamento][3]
-5. Per aprire il pannello **Archiviazione dei log di controllo** selezionare **Dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. I log meno recenti verranno eliminati. Fare quindi clic su **OK**.
 
-    <a id="storage-screenshot"></a>![Riquadro di spostamento][4]
-6. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
-7. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
-8. Fare clic su **Save**.
+5. **Nuovo** -sono ora disponibili più opzioni per la configurazione in cui verranno scritti i log di controllo. È possibile scrivere i log in un account di archiviazione di Azure, a un'area di lavoro OMS affinché vengano usati da Log Analytics o in hub eventi per l'utilizzo con hub eventi. È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
 
+    ![opzioni di archiviazione](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
+6. Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. I log meno recenti verranno eliminati. Fare quindi clic su **OK**.
 
+    ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
+7. Per configurare la scrittura dei log di controllo in un'area di lavoro OMS, selezionare **Log Analytics (anteprima)** e aprire **dettagli Log Analytics**. Selezionare o creare l'area di lavoro OMS in cui verranno scritti i log e quindi scegliere **OK**.
+
+    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+
+8. Per configurare la scrittura dei log a un hub eventi, selezionare **Hub eventi (anteprima)** e aprire **i dettagli dell'Hub eventi**. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
+
+    ![Hub eventi](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+
+9. Fare clic su **Save**.
+10. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
+11. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md). 
 
 ## <a id="subheading-3"></a>Analizzare i log di controllo e i report
-I log di controllo vengono aggregati nell'account di archiviazione di Azure selezionato durante la configurazione. È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](http://storageexplorer.com/).
+Se si sceglie di scrivere i log di controllo su Log Analytics:
+- Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore della pagina **Controllo** del database fare clic su **Visualizza log di controllo**.
 
-I log del controllo BLOB vengono salvati come raccolta di file BLOB in un contenitore denominato **sqldbauditlogs**.
+    ![visualizzare i log di controllo](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
 
-Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
+- Quindi, facendo clic su **aprire in OMS** nella parte superiore della pagina **record di controllo** verrà aperta la visualizzazione dei log in Log Analytics, in cui è possibile personalizzare l'intervallo di tempo e la query di ricerca.
 
-Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
+    ![Apri in OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
-* Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore del pannello **Controllo e rilevamento minacce** del database fare clic su **Visualizza log di controllo**.
+- In alternativa, è possibile accedere anche i log di controllo dal pannello Log Analytics. Aprire l'area di lavoro di Log Analytics e nella sezione **generale** fare clic su **log**. È possibile iniziare con una query semplice, ad esempio: *cercare "SQLSecurityAuditEvents"* per visualizzare i log di controllo.
+    A questo punto, è anche possibile usare [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) per eseguire ricerche avanzate sui dati di log di controllo. Log Analytics consente di ottenere informazioni operative in tempo reale tramite funzionalità di ricerca integrate e dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca di Log Analytics e comandi OMS, vedere [riferimenti di ricerca di Log Analytics](../log-analytics/log-analytics-log-search.md).
+
+Se si sceglie di scrivere i log di controllo su Hub eventi:
+- Per utilizzare i dati dei log di controllo da Hub eventi, è necessario configurare un flusso per utilizzare gli eventi e scriverli in una destinazione. Per altre informazioni, vedere la [documentazione di Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/).
+
+Se si sceglie di scrivere i log di controllo in un account di archiviazione di Azure, esistono diversi metodi che è possibile usare per visualizzare i log:
+- I log di controllo vengono aggregati nell'account selezionato durante la configurazione. È possibile esplorare i log di controllo con uno strumento come [Azure Storage Explorer](http://storageexplorer.com/). Nell'archiviazione di Azure, i log del controllo vengono salvati come raccolta di file BLOB in un contenitore denominato **sqldbauditlogs**. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
+
+- Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore della pagina **Controllo** del database fare clic su **Visualizza log di controllo**.
 
     ![Riquadro di spostamento][7]
 
-    Verrà aperto il pannello **Record di controllo**, da cui sarà possibile visualizzare i log.
+    Verrà aperto **Record di controllo**, da cui sarà possibile visualizzare i log.
 
-    - È possibile visualizzare date specifiche facendo clic su **Filtro** nella parte superiore del pannello **Record di controllo**.
+    - È possibile visualizzare date specifiche facendo clic su **Filtro** nella parte superiore della pagina **Record di controllo**.
     - È possibile passare da un record di controllo all'altro creato dai *criteri di controllo del server*  e dai *criteri di controllo del database* attivando o disattivando **Origine controllo**.
     - È possibile visualizzare solo i record di controllo correlati a SQL injection selezionando la casella di controllo **Visualizza solo i record di controllo per SQL injection**.
 
        ![Riquadro di spostamento][8]
 
-* Usare la funzione di sistema **sys.fn_get_audit_file** (T-SQL) per tornare ai dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere la [documentazione su sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Usare la funzione di sistema **sys.fn_get_audit_file** (T-SQL) per tornare ai dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 
-* Usare **Unisci file di controllo** in SQL Server Management Studio (a partire da SSMS 17):
+- Usare **Unisci file di controllo** in SQL Server Management Studio (a partire da SSMS 17):
     1. Dalla barra dei menu di SSMS selezionare **File** > **Apri** > **Unisci file di controllo**.
 
         ![Riquadro di spostamento][9]
@@ -118,24 +143,17 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 
     4. Il file unito verrà aperto in SSMS, dove potrà essere visualizzato, analizzato ed esportato in un file XEL o CSV o in una tabella.
 
-* Usare l'[applicazione di sincronizzazione](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) che è stata creata. L'applicazione, eseguita in Azure, utilizza le API pubbliche di Log Analytics per effettuare il push dei log di controllo SQL in Log Analytics, per l'utilizzo tramite il dashboard di Log Analytics.
-
-* Usare Power BI. È possibile visualizzare e analizzare i dati dei log di controllo in Power BI. Per altre informazioni, vedere il post di blog su [Power BI e l'accesso a un modello scaricabile](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
-
-* Scaricare i file di log dal contenitore BLOB del servizio di archiviazione di Azure tramite il portale o con uno strumento come [Azure Storage Explorer](http://storageexplorer.com/).
-    * Dopo aver scaricato un file di log in locale, è possibile fare doppio clic sul file per aprire, visualizzare e analizzare i log in SSMS.
-    * È anche possibile scaricare più file contemporaneamente tramite Azure Storage Explorer. Fare clic con il pulsante destro del mouse su una sottocartella specifica e scegliere **Salva con nome** per salvarla in una cartella locale.
+- Usare Power BI. È possibile visualizzare e analizzare i dati dei log di controllo in Power BI. Per altre informazioni e per accedere a un modello scaricabile, vedere [analizzare i dati di log di controllo in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Scaricare i file di log dal contenitore BLOB del servizio di archiviazione di Azure tramite il portale o con uno strumento come [Azure Storage Explorer](http://storageexplorer.com/).
+    * Dopo aver scaricato un file di log in locale, fare doppio clic sul file per aprire, visualizzare e analizzare i log in SSMS.
+    * È anche possibile scaricare più file contemporaneamente tramite Azure Storage Explorer. Per farlo, fare clic con il pulsante destro del mouse su una sottocartella specifica e scegliere **Salva con nome** per salvarla in una cartella locale.
 
 * Altri metodi:
    * Dopo avere scaricato diversi file o una sottocartella contenente i file di log, è possibile unirli in locale come descritto nelle istruzioni relative all'unione di file di controllo in SSMS riportate in precedenza.
-
    * Visualizzare i log del controllo BLOB a livello di codice:
 
      * Usare la libreria C# del [lettore di eventi estesi](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/).
      * [Eseguire query sui file di eventi estesi](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) con PowerShell.
-
-
-
 
 ## <a id="subheading-5"></a>Procedure nell'ambiente di produzione
 <!--The description in this section refers to preceding screen captures.-->
@@ -154,16 +172,16 @@ Con i database con replica geografica, quando si abilita il controllo nel databa
 <br>
 
 ### <a id="subheading-6">Rigenerazione delle chiavi di archiviazione</a>
-Durante la produzione è probabile che periodicamente vengano aggiornate le chiavi di archiviazione. Quando si aggiornano le chiavi, è necessario salvare nuovamente i criteri di controllo. Il processo è il seguente:
+Durante la produzione è probabile che periodicamente vengano aggiornate le chiavi di archiviazione. Quando si scrivono i log di controllo nell'archiviazione di Azure, è necessario salvare nuovamente i criteri di controllo quando si aggiornano le chiavi. Il processo è il seguente:
 
-1. Aprire il pannello **Dettagli archiviazione**. Nella casella **Chiave di accesso alle risorse di archiviazione** selezionare **Secondaria** e fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore del pannello di configurazione del controllo.
+1. Aprire **Dettagli archiviazione**. Nella casella **Chiave di accesso alle risorse di archiviazione** selezionare **Secondaria** e fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore della pagina di configurazione del controllo.
 
     ![Riquadro di spostamento][5]
-2. Passare al pannello di configurazione dell'archiviazione e rigenerare la chiave di accesso primaria.
+2. Passare alla pagina di configurazione dell'archiviazione e rigenerare la chiave di accesso primaria.
 
     ![Riquadro di spostamento][6]
-3. Tornare al pannello di configurazione del controllo, modificare la chiave di accesso alle risorse di archiviazione da secondaria a primaria e quindi fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore del pannello di configurazione del controllo.
-4. Tornare al pannello di configurazione dell'archiviazione e rigenerare la chiave di accesso secondaria, in preparazione al successivo ciclo di aggiornamento della chiave.
+3. Tornare alla pagina di configurazione del controllo, modificare la chiave di accesso alle risorse di archiviazione da secondaria a primaria e quindi fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore della pagina di configurazione del controllo.
+4. Tornare alla pagina di configurazione dell'archiviazione e rigenerare la chiave di accesso secondaria (in preparazione al successivo ciclo di aggiornamento della chiave).
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
@@ -199,16 +217,16 @@ Per un esempio di script, vedere [Configurare il controllo del database SQL e il
 
 **API REST per il controllo BLOB**:
 
-* [Creare o aggiornare i criteri controllo BLOB del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
-* [Creare o aggiornare i criteri controllo BLOB del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
-* [Ottenere i criteri controllo BLOB del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
-* [Ottenere i criteri controllo BLOB del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
+* [Creare o aggiornare i criteri controllo BLOB del database](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Creare o aggiornare i criteri controllo BLOB del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Ottenere i criteri controllo BLOB del database](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+* [Ottenere i criteri controllo BLOB del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Criteri estesi con il supporto della clausola WHERE per altri filtri:
-* [Creare o aggiornare*i criteri controllo BLOB estesi*del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-* [Creare o aggiornare*i criteri controllo BLOB estesi*del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
-* [Ottenere*i criteri controllo BLOB estesi*del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
-* [Ottenere*i criteri controllo BLOB estesi*del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
+* [Creare o aggiornare*i criteri controllo BLOB estesi*del database](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Creare o aggiornare*i criteri controllo BLOB estesi*del server](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Ottenere*i criteri controllo BLOB estesi*del database](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Ottenere*i criteri controllo BLOB estesi*del server](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

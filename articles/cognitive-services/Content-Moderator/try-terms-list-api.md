@@ -1,20 +1,21 @@
 ---
-title: Moderare il testo con elenchi personalizzati di termini in Azure Content Moderator | Microsoft Docs
+title: Eseguire la moderazione del testo con elenchi personalizzati di termini - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Eseguire il test drive di elenchi personalizzati di termini nella console dell'API di Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 2542e4590781879408aafe8d072eceef157e02c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 99df9fda2cc56f169a61ec215a976de28fc13d27
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373316"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220279"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderare il testo con elenchi personalizzati nella console dell'API
 
@@ -27,7 +28,7 @@ Usare l'[API di gestione degli elenchi](https://westus.dev.cognitive.microsoft.c
 >
 
 L'API di gestione degli elenchi consente di eseguire queste attività:
-- Creare un elenco.
+- Crea un elenco
 - Aggiungere termini a un elenco.
 - Filtrare i termini rispetto a quelli inclusi in un elenco.
 - Eliminare i termini da un elenco.

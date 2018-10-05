@@ -1,22 +1,23 @@
 ---
-title: Analizzare testo in linguaggio naturale in Language Understanding (LUIS) con Node.js - Servizi cognitivi di Azure | Microsoft Docs
+title: Guida introduttiva per Node.js - stima finalità - LUIS
+titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo. Con Node.js inviare l'intenzione dell'utente come testo all'endpoint di previsione HTTP dell'app pubblica. Nell'endpoint, LUIS applica il modello dell'app pubblica per analizzare il testo in linguaggio naturale allo scopo di identificare il significato, stabilire la finalità generale ed estrarre i dati pertinenti per il dominio dell'app.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b85b8ef19d4cc46d80d600d1cb4404edd71e2374
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158008"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038919"
 ---
-# <a name="quickstart-analyze-text-using-nodejs"></a>Guida introduttiva: Analizzare il testo con Node.js
+# <a name="quickstart-get-intent-using-nodejs"></a>Guida introduttiva: ottenere la finalità usando Node.js
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -36,11 +37,11 @@ ms.locfileid: "44158008"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analizzare il testo con il browser
+## <a name="get-intent-with-browser"></a>Ottenere la finalità tramite browser
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-nodejs"></a>Analizzare il testo con Node.js
+## <a name="get-intent-programmatically"></a>Ottenere la finalità a livello di codice
 
 È possibile usare Node.js per accedere agli stessi risultati illustrati nella finestra del browser nel passaggio precedente.
 

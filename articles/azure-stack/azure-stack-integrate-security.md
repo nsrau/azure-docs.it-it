@@ -10,18 +10,21 @@ ms.date: 08/14/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 3712ea278a983d107f754af4bfa8e5bd608a0576
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: d46fd8f5ea00ee1fc1ee5f7bf09a15dd6af5ba50
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239388"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785580"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integrazione di Data Center di Azure Stack - l'inoltro di syslog
 
 Questo articolo illustra come usare syslog per l'integrazione dell'infrastruttura di Azure Stack con soluzioni di protezione esterne già distribuite nel Data Center. Ad esempio, un sistema di gestione di eventi informazioni di sicurezza (SIEM). Il canale di syslog espone a controlli, avvisi e registri di protezione da tutti i componenti dell'infrastruttura di Azure Stack. Usare l'inoltro syslog per l'integrazione con soluzioni di monitoraggio di sicurezza e/o per recuperare tutti i controlli, avvisi e la sicurezza i log per l'archiviazione per il mantenimento dati. 
 
 Inizia con l'aggiornamento 1805, Azure Stack è un client integrato syslog che, una volta configurata, vengono generati messaggi di syslog con il payload in formato CEF (Common Event Format). 
+
+> [!IMPORTANT] 
+> L'inoltro di Syslog è disponibile in anteprima. È necessario evitare di basarsi negli ambienti di produzione.  
 
 Il diagramma seguente illustra i componenti principali che fanno parte nell'integrazione con syslog.
 
@@ -49,7 +52,7 @@ La configurazione dell'inoltro di syslog richiede l'accesso all'endpoint con pri
 ```powershell
 ### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
+Set-SyslogServer [-ServerName <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
 ### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
@@ -62,7 +65,6 @@ I parametri per *Set-SyslogServer* cmdlet:
 | Parametro | DESCRIZIONE | type | Obbligatorio |
 |---------|---------|---------|---------|
 |*ServerName* | FQDN o indirizzo IP del server syslog | string | Sì|
-|*ServerPort* | Numero di porta al server syslog è in ascolto sulla | string | Sì|
 |*Crittografia*| Forza il client invia i messaggi syslog in testo non crittografato | Flag | no|
 |*SkipCertificateCheck*| Ignorare la convalida del certificato fornito dal server syslog durante l'handshake TLS iniziale | Flag | no|
 |*SkipCNCheck*| Ignorare la convalida del valore nome comune del certificato fornito dal server syslog durante l'handshake TLS iniziale | Flag | no|
@@ -87,7 +89,7 @@ Per configurare l'inoltro di syslog con TCP, l'autenticazione reciproca e la cri
 
 ```powershell
 # Configure the server
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 
 # Provide certificate to the client to authenticate against the server
 Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
@@ -132,30 +134,28 @@ In questa configurazione, il client di syslog in Azure Stack inoltra i messaggi 
 TCP usando l'autenticazione e crittografia è la configurazione predefinita e rappresenta il livello minimo di sicurezza consigliati da Microsoft per un ambiente di produzione. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 ```
 
 Nel caso in cui si desidera testare l'integrazione del server syslog con il client di Azure Stack usando un certificato autofirmato e/o non attendibile, è possibile utilizzare questi flag per ignorare la convalida del server eseguita dal client durante l'handshake iniziale.
 
 ```powershell
- #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
- ```-SkipCNCheck
+#Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck 
  
- #Skip entirely the server certificate validation
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
-```-SkipCertificateCheck
+#Skip entirely the server certificate validation
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
 ```
+
 > [!IMPORTANT]
 > Microsoft ne sconsiglia l'uso del flag - SkipCertificateCheck per gli ambienti di produzione. 
-
 
 ### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>Configurare l'inoltro di syslog con TCP e Nessuna crittografia
 
 In questa configurazione, il client di syslog in Azure Stack inoltra i messaggi al server syslog tramite TCP, senza crittografia. Il client non verifica l'identità del server né fornisce la propria identità al server per la verifica. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -NoEncryption
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
 ```
 
 > [!IMPORTANT]
@@ -167,8 +167,9 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 In questa configurazione, il client di syslog in Azure Stack inoltra i messaggi al server syslog tramite UDP, senza crittografia. Il client non verifica l'identità del server né fornisce la propria identità al server per la verifica. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -UseUDP
 ```
+
 Sebbene sia più semplice da configurare UDP senza crittografia, non fornisce alcuna protezione contro gli attacchi man-in-the-middle e intercettazione dei messaggi. 
 
 > [!IMPORTANT]
@@ -226,72 +227,6 @@ CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|
 * Device Product: Microsoft Azure Stack
 * Device Version: 1.0
 ```
-
-### <a name="cef-mapping-for-privileged-endpoint-events"></a>Mapping di CEF per gli eventi degli endpoint con privilegi
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
-* Name: <PEP Task Name>
-* Severity: mapped from PEP Level (details see the PEP Severity table below)
-```
-
-Tabella degli eventi per l'endpoint con privilegi:
-
-| Event | ID evento PEP | Nome dell'attività PEP | Gravità |
-|-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
-|SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
-|SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
-|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
-|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
-|PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |da 1006|NewCloudAdminUserEvent|10|
-|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
-|SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
-|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
-|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
-
-Tabella livelli di gravità PEP:
-
-| Gravità | Level | Valore numerico |
-|----------|-------| ----------------|
-|0|Undefined|Valore: 0. Indica i log a tutti i livelli|
-|10|Critico|Valore: 1. Indica i log per un avviso critico|
-|8|Tipi di errore| Valore: 2. Indica i log per un errore|
-|5|Avviso|Valore: 3. Indica i log per un messaggio di avviso|
-|2|Informazioni|Valore: 4. Indica i log per un messaggio informativo|
-|0|Dettagliato|Valore: 5. Indica i log a tutti i livelli|
-
-### <a name="cef-mapping-for-recovery-endpoint-events"></a>Mapping di CEF per gli eventi degli endpoint di ripristino
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
-* Name: <REP Task Name>
-* Severity: mapped from REP Level (details see the REP Severity table below)
-```
-
-Tabella degli eventi per l'endpoint di ripristino:
-
-| Event | ID evento REP | Nome dell'attività REP | Gravità |
-|-------|--------------| --------------|----------|
-|RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
-|RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
-|RecoverySessionDevelopmentTokenRequested |1013|RecoverySessionDevelopmentTokenRequestedEvent|5|
-|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10|
-|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10|
-|RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
-
-Tabella REP Severity:
-| Gravità | Level | Valore numerico |
-|----------|-------| ----------------|
-|0|Undefined|Valore: 0. Indica i log a tutti i livelli|
-|10|Critico|Valore: 1. Indica i log per un avviso critico|
-|8|Tipi di errore| Valore: 2. Indica i log per un errore|
-|5|Avviso|Valore: 3. Indica i log per un messaggio di avviso|
-|2|Informazioni|Valore: 4. Indica i log per un messaggio informativo|
-|0|Dettagliato|Valore: 5. Indica i log a tutti i livelli|
 
 ### <a name="cef-mapping-for-windows-events"></a>Mapping di CEF per gli eventi di Windows
 

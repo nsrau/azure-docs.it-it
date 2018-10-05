@@ -1,20 +1,21 @@
 ---
-title: Informazioni sull'utilizzo dei ruoli in entità basate su un criterio - Azure | Microsoft Docs
-description: Informazioni sull'utilizzo di un ruolo in un'entità basata su un criterio al fine di assegnare un nome a un sottotipo di entità contestuale.
+title: Informazioni sull'utilizzo dei ruoli in entità basate sui criteri
+titleSuffix: Azure Cognitive Services
+description: I ruoli sono sottotipi contestuali denominati di un'entità utilizzati solo nei criteri. Ad esempio, nell'espressione "comprare un biglietto da New York a Londra", New York e Londra corrispondono entrambe a città, ma hanno un significato diverso nell'economia della frase. New York è la città di origine e Londra è la città di destinazione.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d2692cdce9da7428bd7b30c4feaf7347792618f5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222704"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035199"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Nei criteri, i ruoli di entità sono sottotipi contestuali
 I ruoli sono sottotipi contestuali denominati di un'entità utilizzati solo nei [criteri](luis-concept-patterns.md).
@@ -31,9 +32,10 @@ I ruoli assegnano un nome a tali differenze:
 ## <a name="how-are-roles-used-in-patterns"></a>In che modo vengono utilizzati i ruoli nei criteri?
 Nell'espressione del modello del criterio, i ruoli vengono utilizzati all'interno dell'espressione: 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|Criteri con ruoli di entità|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## <a name="role-syntax-in-patterns"></a>Sintassi del ruolo nei criteri
 L'entità e il ruolo sono racchiusi tra parentesi, `{}`. L'entità e il ruolo sono separati da due punti. 
