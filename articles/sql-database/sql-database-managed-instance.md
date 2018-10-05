@@ -2,25 +2,26 @@
 title: Panoramica di Istanza gestita di database SQL di Azure | Microsoft Docs
 description: Questo argomento descrive un'istanza gestita di Azure SQL Database e spiega come funziona e in cosa differisce da un database singolo nel database SQL di Azure.
 services: sql-database
-author: bonova
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/30/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/26/2018
+ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287664"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392823"
 ---
-# <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
+# <a name="what-is-a-managed-instance"></a>Informazioni su Istanza gestita
 
-L’Istanza gestita di database SQL di Azure (anteprima) è un nuovo modello di distribuzione del database SQL di Azure che offre quasi il 100% di compatibilità con il più recente motore di database SQL Server in locale (Enterprise Edition), fornendo un'implementazione della [rete virtuale (VNet)](../virtual-network/virtual-networks-overview.md) nativa che risolve problemi di sicurezza comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti di SQL Server in locale. Istanza gestita consente ai clienti di SQL Server esistenti di spostare nel cloud le proprie applicazioni locali con modifiche minime nelle applicazioni e nel database. Allo stesso tempo, consente di mantenere tutte le funzionalità PaaS (applicazione automatica di patch e aggiornamenti di versione, [backup automatici](sql-database-automated-backups.md), [disponibilità elevata](sql-database-high-availability.md)), che riducono drasticamente il carico di gestione e il costo totale di proprietà.
+L’Istanza gestita di database SQL di Azure è un nuovo modello di distribuzione del database SQL di Azure che offre quasi il 100% di compatibilità con il più recente motore di database SQL Server in locale (Enterprise Edition), fornendo un'implementazione della [rete virtuale (VNet)](../virtual-network/virtual-networks-overview.md) nativa che risolve problemi di sicurezza comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti di SQL Server in locale. Istanza gestita consente ai clienti di SQL Server esistenti di spostare nel cloud le proprie applicazioni locali con modifiche minime nelle applicazioni e nel database. Allo stesso tempo, consente di mantenere tutte le funzionalità PaaS (applicazione automatica di patch e aggiornamenti di versione, [backup automatici](sql-database-automated-backups.md), [disponibilità elevata](sql-database-high-availability.md)), che riducono drasticamente il carico di gestione e il costo totale di proprietà.
 
 > [!IMPORTANT]
 > Per un elenco delle aree geografiche in cui è attualmente disponibile Istanza gestita, vedere [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Eseguire la migrazione dei database a un servizio completamente gestito con Istanza gestita di database SQL di Azure).
@@ -61,7 +62,7 @@ La tabella seguente aiuta a capire come selezionare la configurazione ottimale d
 ||Generazione 4|Generazione 5|
 |----|------|-----|
 |Hardware|Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico)|Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD eNVM veloce, vCore = 1 LP (hyperthread)|
-|Livelli di prestazioni|8, 16, 24 vCore|8, 16, 24, 32, 40, 64, 80 vCore|
+|Le dimensioni di calcolo|8, 16, 24 vCore|8, 16, 24, 32, 40, 64, 80 vCore|
 |Memoria|7 GB per vCore|5,5 GB per vCore|
 ||||
 
@@ -69,7 +70,7 @@ La tabella seguente aiuta a capire come selezionare la configurazione ottimale d
 
 Istanza gestita è disponibile in due livelli di servizio:
 - **Utilizzo generico**: progettato per applicazioni con prestazioni tipiche e requisiti di latenza di I/O comuni.
-- **Opzione Business Critical**: progettata per applicazioni con requisiti di latenza dei I/O bassi e un impatto minimo di operazioni di manutenzione sottostanti sul carico di lavoro.
+- **Opzione business critical (anteprima)**: progettata per applicazioni con requisiti di latenza dei I/O bassi e un impatto minimo di operazioni di manutenzione sottostanti sul carico di lavoro.
 
 Entrambi i livelli di servizio garantiscono una disponibilità del 99,99% e consentono di selezionare le dimensioni di archiviazione e capacità di calcolo in modo indipendente. Per altre informazioni sull'architettura di disponibilità elevata del database SQL di Azure, vedere [High Availability and Azure SQL Database](sql-database-high-availability.md) (Disponibilità elevata e database SQL di Azure).
 
@@ -109,7 +110,7 @@ L'elenco seguente descrive le caratteristiche principali del livello di servizio
 
 Per ulteriori informazioni, vedere [disponibilità Standard/utilizzo generico e architettura](sql-database-high-availability.md#standardgeneral-purpose-availability) nel Database SQL di Azure.
 
-### <a name="business-critical-service-tier"></a>Livello di servizio business critical
+### <a name="business-critical-service-tier-preview"></a>Livello di servizio business critical (anteprima)
 
 Il livello di servizio business critical è progettato per applicazioni con requisiti I/O elevati. Offre la massima resilienza agli errori tramite diverse repliche Always On isolate. 
 
@@ -141,6 +142,9 @@ L'elenco seguente descrive le caratteristiche principali del livello di servizio
 
 Per ulteriori informazioni, vedere [disponibilità Premium/Business Critical e architettura](sql-database-high-availability.md#premiumbusiness-critical-availability) nel Database SQL di Azure.
 
+> [!IMPORTANT]
+> Il livello di servizio **business critical** è in anteprima.
+
 ## <a name="advanced-security-and-compliance"></a>Sicurezza e conformità avanzate 
 
 L’istanza gestita del Database SQL Azure combina le funzionalità avanzate di sicurezza fornite dal cloud di Azure e il motore di Database di SQL Server. 
@@ -171,7 +175,7 @@ Database SQL di Azure fornisce un set di funzionalità di sicurezza avanzato che
 - Il [rilevamento delle minacce](sql-database-managed-instance-threat-detection.md) è complementare al [controllo di Istanza gestita](sql-database-managed-instance-auditing.md) perché offre un livello aggiuntivo di informazioni sulla sicurezza integrata nel servizio che rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit del database. L'utente viene avvisato di attività sospette, vulnerabilità potenziali e attacchi SQL injection, nonché di modelli anomali di accesso al database. Gli avvisi di Rilevamento minacce sono disponibili nel [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), forniscono i dettagli delle attività sospette e raccomandano azioni per individuare e ridurre la minaccia.  
 - La funzione [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking) limita l'esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi. La maschera dati dinamica impedisce l'accesso non autorizzato ai dati sensibili consentendo di definire la quantità di dati sensibili da rivelare, con un impatto minimo sul livello dell'applicazione. Si tratta di una funzionalità di sicurezza basata su criteri che consente di nascondere i dati sensibili nel set di risultati di una query in campi del database designati, senza alcuna modifica dei dati contenuti nel database. 
 - La [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security) consente di controllare l'accesso alle righe in una tabella di database in base alle caratteristiche dell'utente che esegue una query, ad esempio l'appartenenza a un gruppo o il contesto di esecuzione. La sicurezza a livello di riga semplifica la progettazione e la codifica della sicurezza nell'applicazione. Consente di implementare limitazioni per l'accesso alle righe di dati, assicurando ad esempio che i collaboratori possano accedere solo alle righe di dati pertinenti per il proprio reparto o limitando l'accesso ai dati ai soli dati di pertinenti. 
-- La funzione [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) esegue la crittografia dei file di dati delle istanze gestite SQL di Azure, note anche come dati inattivi crittografati. TDE esegue la crittografia e la decrittografia delle operazioni di I/O di file di dati e log in tempo reale. La crittografia usa una chiave di crittografia del database (DEK) che viene archiviata nel record di avvio del database per la disponibilità durante il ripristino. È possibile proteggere tutti i database nell'istanza gestita con la crittografia dei dati trasparente. TDE è la tecnologia di crittografia dei dati inattivi collaudata di SQL, richiesta da molti standard di conformità per la protezione in caso di furto di supporti di archiviazione. Durante l'anteprima pubblica, il modello di gestione automatica delle chiavi è supportato (eseguito dalla piattaforma PaaS). 
+- La funzione [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) esegue la crittografia dei file di dati dell'istanza gestita di database SQL di Azure, note anche come dati inattivi crittografati. TDE esegue la crittografia e la decrittografia delle operazioni di I/O di file di dati e log in tempo reale. La crittografia usa una chiave di crittografia del database (DEK) che viene archiviata nel record di avvio del database per la disponibilità durante il ripristino. È possibile proteggere tutti i database nell'istanza gestita con la crittografia dei dati trasparente. TDE è la tecnologia di crittografia dei dati inattivi collaudata di SQL, richiesta da molti standard di conformità per la protezione in caso di furto di supporti di archiviazione. Durante l'anteprima pubblica, il modello di gestione automatica delle chiavi è supportato (eseguito dalla piattaforma PaaS). 
 
 La migrazione di un database crittografato in Istanza gestita SQL è supportata tramite il servizio Migrazione del database di Azure(DMS) o il ripristino nativo. Se si decide di eseguire la migrazione del database crittografato tramite ripristino nativo, la migrazione del certificato TDE esistente dal server SQL locale o dalla macchina virtuale del server SQL a Istanza gestita è un passaggio necessario. Per altre informazioni sui vari metodi di migrazione, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](sql-database-managed-instance-migrate.md).
 
@@ -200,9 +204,12 @@ Il servizio Istanza gestita è destinato a scenari utente con migrazione di mass
 ### <a name="backup-and-restore"></a>Backup e ripristino  
 
 L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione di BLOB di Azure. I backup archiviati in BLOB di archiviazione di Azure possono essere ripristinati direttamente in Istanza gestita usando il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
-  - Per un'esercitazione su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md) (Ripristinare un file di backup in un'istanza gestita). Questa esercitazione illustra come caricare un file di backup in una risorsa di archiviazione BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso.
+  - Per una guida introduttiva su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a Managed Instance](sql-database-managed-instance-get-started-restore.md) (Ripristinare un file di backup in un'istanza gestita). Questa guida introduttiva illustra come caricare un file di backup in una risorsa di archiviazione BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso.
   - Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-  
+
+> [!IMPORTANT]
+> I backup da un'istanza gestita possono essere ripristinati solo in un'altra istanza gestita. Non possono essere ripristinati in un Server SQL in locale o in un database singolo o in pool di server logico del database SQL di Azure.
+
 ### <a name="data-migration-service"></a>Servizio di migrazione dei dati
 
 Il Servizio Migrazione del database di Azure è un servizio completamente gestito progettato per abilitare le migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti in Azure. Le opzioni di distribuzione includono il database SQL di Azure, Istanza gestita e SQL Server in una macchina virtuale di Azure nell'anteprima pubblica. Vedere [come eseguire la migrazione del database locale in Istanza gestita tramite DMS](https://aka.ms/migratetoMIusingDMS).
@@ -226,11 +233,11 @@ Istanza gestita offre vantaggi derivanti dall'essere sempre aggiornati nel cloud
 - Istanza gestita non consente l'uso di percorsi fisici completi, pertanto tutti gli scenari corrispondenti devono essere supportati in modo diverso: RESTORE DB non supporta WITH MOVE, CREATE DB non consente i percorsi fisici, BULK INSERT funziona solo con i BLOB di Azure e così via. 
 - Istanza gestita supporta l'[autenticazione di Azure AD](sql-database-aad-authentication.md) come alternativa cloud all'autenticazione di Windows. 
 - Istanza gestita gestisce automaticamente filegroup XTP e i file per i database contenenti oggetti di OLTP in memoria
-- Istanza gestita supporta SQL Server Integration Services e può ospitare il catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un runtime di integrazione SSIS di Azure gestito in Azure Data Factory, vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Per confrontare le funzionalità SSIS nel database SQL e in Istanza gestita, vedere [Confrontare Database SQL e Istanza gestita (anteprima)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+- Istanza gestita supporta SQL Server Integration Services e può ospitare il catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un runtime di integrazione SSIS di Azure gestito in Azure Data Factory, vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Per confrontare le funzionalità SSIS nel database SQL e in Istanza gestita, vedere [Confrontare il server logico del Database SQL e Istanza gestita](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Funzionalità di amministrazione di Istanza gestita  
 
-Istanza gestita consente all'amministratore di sistema di concentrarsi sugli aspetti più importanti per l'azienda. Molte attività dell'amministratore di sistema o di database non sono necessarie o sono semplici. Ad esempio, l'installazione del sistema operativo o di RDBMS e l'applicazione di patch, il ridimensionamento dinamico e la configurazione delle istanze, i backup, la replica di database (inclusi i database di sistema), la configurazione a elevata disponibilità e la configurazione di flussi di dati di monitoraggio dell'integrità e delle prestazioni. 
+Istanza gestita consente all'amministratore di sistema di concentrarsi sugli aspetti più importanti per l'azienda. Molte attività dell'amministratore di sistema o di database non sono necessarie o sono semplici. Ad esempio, l'installazione del sistema operativo o di RDBMS e l'applicazione di patch, il ridimensionamento dinamico e la configurazione delle istanze, i backup, la [replica di database](replication-with-sql-database-managed-instance.md) (inclusi i database di sistema), la configurazione a elevata disponibilità e la configurazione di flussi di dati di monitoraggio dell'integrità e delle prestazioni. 
 
 > [!IMPORTANT]
 > Per un elenco delle funzionalità supportate, parzialmente supportate e non supportate, vedere [Funzionalità del Database SQL](sql-database-features.md). Per un elenco delle differenze di T-SQL nelle istanze gestite rispetto a SQL Server, vedere [Differenze di T-SQL in Istanza gestita rispetto a SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -251,6 +258,6 @@ La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL,
 - Per informazioni su come creare la prima istanza gestita, vedere [Guida introduttiva](sql-database-managed-instance-get-started.md).
 - Per un elenco di confronto delle funzionalità, vedere [Confronto tra le funzionalità: database SQL di Azure e SQL Server](sql-database-features.md).
 - Per altre informazioni sulla configurazione della rete virtuale, vedere l'articolo relativo alla [configurazione di una rete virtuale per Istanza gestita](sql-database-managed-instance-vnet-configuration.md).
-- Per un'esercitazione sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md).
+- Per una guida introduttiva sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 - Per un'esercitazione sull'uso di Servizio Migrazione del database di Azure per la migrazione, vedere l'articolo relativo alla [migrazione a Istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md).
 - Per informazioni sui prezzi, vedere [Prezzi di Istanza gestita di database SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

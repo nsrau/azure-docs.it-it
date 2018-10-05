@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/26/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6c47deebfe9617cdb21f473b282dd6ea2b912dc0
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 016c221a2f864ecfd4bb96b076a32ed1ae639c6b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918084"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422797"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Esercitazione: Sviluppare e distribuire un modulo Node.js per IoT Edge in un dispositivo simulato
 
@@ -39,7 +39,7 @@ Un dispositivo Azure IoT Edge:
 
 Risorse cloud:
 
-* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) del livello gratuito in Azure. 
 
 Risorse per lo sviluppo:
 
@@ -89,7 +89,7 @@ Usare **npm** per creare un modello di soluzione Node.js a partire dalla quale e
 
    ![Specificare il repository di immagini Docker](./media/tutorial-node-module/repository.png)
 
-La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. L'area di lavoro della soluzione contiene cinque componenti di livello superiore. In questa esercitazione non verranno modificati né la cartella **\.vscode** né il file **\.gitignore**. La cartella **modules** contiene il codice Node.js per il modulo e i file Dockerfile per creare il modulo come un'immagine del contenitore. Il file **env** archivia le credenziali del registro contenitori. Il file **deployment.template.json** contiene le informazioni che il runtime IoT Edge usa per distribuire i moduli in un dispositivo. 
+La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. L'area di lavoro della soluzione contiene cinque componenti di livello superiore. In questa esercitazione non verranno modificati né la cartella **\.vscode** né il file **\.gitignore**. La cartella **modules** contiene il codice Node.js per il modulo e i file Dockerfile per creare il modulo come un'immagine del contenitore. Il file **\.env** archivia le credenziali del registro contenitori. Il file **deployment.template.json** contiene le informazioni che il runtime IoT Edge usa per distribuire i moduli in un dispositivo. 
 
 Se non è stato specificato un registro contenitori durante la creazione della soluzione, ma è stato accettato il valore predefinito localhost:5000, non sarà presente il file con estensione \. env. 
 
