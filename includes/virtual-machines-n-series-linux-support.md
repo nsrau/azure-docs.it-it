@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 05/29/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1813367a2d143f75fb51a3160dd00219c709c57b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: dc03f49a684bfeb43ffd8bac9f551a67f034a04f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935765"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042878"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Driver e distribuzioni supportati
 
@@ -26,11 +26,11 @@ I driver NVIDIA CUDA per le macchine virtuali serie NC, NCv2, NCv3 e ND (facolta
 
 | Distribuzione | Driver |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 o 7.4<br/><br/> Basata su CentOS 7.3 o 7.4, basata su CentOS 7.4 HPC | NVIDIA CUDA 9.1, driver branch R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 o 7.4<br/><br/> Basata su CentOS 7.3 o 7.4, basata su CentOS 7.4 HPC | NVIDIA CUDA 10.0, driver branch R410 |
 
 ### <a name="nvidia-grid-drivers"></a>Driver NVIDIA GRID
 
-Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA-GRID per le macchine virtuali serie NV usate come workstation virtuali o per applicazioni virtuali. Installare solo questi driver GRID in macchine virtuali NV di Azure, solo nelle distribuzioni elencate nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure.
+Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA-GRID per le macchine virtuali serie NV e NVV2 usate come workstation virtuali o per applicazioni virtuali. Installare solo questi driver GRID in macchine virtuali NV di Azure, solo nelle distribuzioni elencate nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure.
 
 | Distribuzione | Driver |
 | --- | -- |

@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702596"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722210"
 ---
 # <a name="azure-cosmos-db-faq"></a>Domande frequenti su Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Nozioni fondamentali su Azure Cosmos DB
@@ -118,6 +118,10 @@ Il provisioning della velocità effettiva a livello di contenitore e di database
 
 Attualmente è possibile creare una raccolta con una velocità effettiva della chiave di partizione usando il metodo di .Net SDK [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) o tramite l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). La creazione di una raccolta fissa usando il portale di Azure non è attualmente supportata.  
 
+### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB supporta l'analisi delle serie temporali? 
+Sì, Azure CosmosDB supporta l'analisi delle serie temporali. Ecco un esempio per il [modello di serie temporali](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). Questo esempio mostra come usare il feed di modifiche per creare visualizzazioni aggregate sui dati delle serie temporali. È possibile estendere questo approccio usando Spark Streaming o un altro strumento di elaborazione di dati di flusso.
+
+
 ## <a name="sql-api"></a>API SQL
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Come si inizia a eseguire lo sviluppo con l'API SQL?
@@ -208,6 +212,10 @@ Oltre ai codici errore comuni di MongoDB, l'API per MongoDB include codici error
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Il numero totale di unità richiesta utilizzate ha superato il livello di unità richiesta di cui è stato effettuato il provisioning per la raccolta ed è stata applicata la limitazione. | Valutare la possibilità di ridimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dal portale di Azure oppure riprovare. |
 | ExceededMemoryLimit | 16501 | In quanto servizio multi-tenant, l'operazione ha superato il limite di allocazione di memoria del client. | Ridurre l'ambito dell'operazione tramite criteri di query più restrittivi oppure contattare il supporto tecnico dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Esempio: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Il driver Simba per MongoDB è supportato per l'uso con l'API MongoDB di Azure CosmosDB?
+Sì, è possibile usare il driver ODBC per Mongo di Simba con l'API MongoDB di Azure CosmosDB
+
 
 ## <a id="table"></a>API di tabella
 
@@ -441,15 +449,132 @@ L'archiviazione tabelle di Azure e l'API Tabelle di Azure Cosmos DB usano gli st
 Azure Cosmos DB è un sistema basato su contratti di servizio che offre garanzie di latenza, velocità effettiva, disponibilità e coerenza. Dato che è un sistema con provisioning, riserva risorse per garantire tali requisiti. La rapida frequenza di creazione delle tabelle viene rilevata e limitata. È consigliabile esaminare la frequenza di creazione di tabelle e ridurla a meno di 5 al minuto. Tenere presente che l'API Tabelle è un sistema con provisioning. Il relativo pagamento ha inizio nel momento in cui ne viene effettuato il provisioning. 
 
 ## <a name="gremlin-api"></a>API Gremlin
-### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>Come si possono applicare le funzionalità dell'API Gremlin ad Azure Cosmos DB?
-Per applicare le funzionalità dell'API Gremlin è possibile usare una libreria di estensioni. denominata Microsoft Azure Graphs e disponibile in [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
-### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>È supportato il linguaggio per l'attraversamento di grafi Gremlin. È prevista l'aggiunta di altre forme di query?
-Sì. È prevista in futuro l'aggiunta di altri meccanismi di query. 
+### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>Per lo sviluppo C#/.NET è necessario usare il pacchetto Microsoft.Azure.Graphs o Gremlin.NET? 
 
-### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>Come si può usare la nuova offerta dell'API Gremlin? 
-Per iniziare, vedere la guida introduttiva all'[API Gremlin](../cosmos-db/create-graph-dotnet.md).
+L'API Gremlin di Azure Cosmos DB sfrutta i vantaggi dei driver open source come connettori principali per il servizio. L'opzione consigliata consiste quindi nell'usare [driver supportati da Apache Tinkerpop](http://tinkerpop.apache.org/).
 
+### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>In che modo vengono addebitate le unità richiesta al secondo quando si eseguono query in un database a grafi? 
+
+Tutti gli oggetti, i vertici e gli archi dei grafi vengono rappresentati come documenti JSON nel back-end. Poiché una query Gremlin può modificare uno o più oggetti del grafo alla volta, il costo associato a tale operazione è direttamente correlato agli oggetti e agli archi elaborati dalla query. Si tratta dello stesso processo usato da Azure Cosmos DB per tutte le altre API. Per altre informazioni, vedere [Unità richiesta in Azure Cosmos DB](request-units.md).
+
+L'addebito per unità richiesta viene basato sul set di dati in uso dell'attraversamento e non sul set di risultati. Se ad esempio una query ha come obiettivo il recupero di un singolo vertice come risultato ma deve attraversare altri oggetti per ottenere tale risultato, il costo sarà basato su tutti gli oggetti del grafo necessari per il calcolo del vertice specifico.
+
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Qual è la scala massima che un database a grafi può avere nell'API Gremlin di Azure Cosmos DB? 
+
+Azure Cosmos DB usa il [partizionamento orizzontale](partition-data.md) per gestire automaticamente gli incrementi nei requisiti relativi a risorse di archiviazione e velocità effettiva. La velocità effettiva e la capacità di archiviazione massime di un carico di lavoro vengono determinate dalla quantità di partizioni associate a una raccolta specifica. Una raccolta dell'API Gremlin ha tuttavia un set specifico di indicazioni per assicurare un'esperienza appropriata a livello di prestazioni su larga scala. Per altre informazioni e per le procedure consigliate, vedere il documento relativo alle [procedure consigliate per il partizionamento](partition-data.md#best-practices-when-choosing-a-partition-key). 
+
+### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Come ci si può proteggere da attacchi di tipo injection con driver Gremlin? 
+
+La maggior parte dei driver Tinkerpop Gremlin nativi consente di specificare un dizionario di parametri per l'esecuzione delle query. Ecco un esempio di come ottenere questo risultato in [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) e in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Perché viene visualizzato un errore analogo a "Errore di compilazione query Gremlin: non è possibile trovare un metodo"?
+
+L'API Gremlin di Azure Cosmos DB implementa un sottoinsieme di funzionalità definite nella superficie di attacco di Gremlin. Per le procedure supportate e altre informazioni, vedere l'articolo [Supporto Gremlin](gremlin-support.md).
+
+La soluzione alternativa migliore consiste nel riscrivere la procedura Gremlin necessaria con le funzionalità supportate, poiché tutti i passaggi Gremlin essenziali sono supportati da Azure Cosmos DB.
+
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Perché viene visualizzato un errore analogo a "WebSocketException: Il server ha restituito il codice di stato '200' ma è previsto il codice di stato '101'"?
+
+Questo errore viene probabilmente generato quando viene usato un endpoint non corretto. L'endpoint che genera questo errore ha il criterio seguente:
+
+`https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/` 
+
+Endpoint dei documenti per il database a grafi.  L'endpoint corretto da usare è l'endpoint Gremlin, che ha il formato seguente: 
+
+`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
+
+### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>Perché viene visualizzato l'errore "RequestRateIsTooLarge"?
+
+Questo errore indica che le unità richiesta allocate al secondo non sono sufficienti per la query. L'errore viene in genere visualizzato quando si esegue una query che ottiene tutti i vertici:
+
+```
+// Query example:
+g.V()
+```
+
+La query proverà a recuperare tutti i vertici dal grafo. Il costo di questa query in termini di unità richiesta sarà uguale almeno al numero di vertici. È necessario modificare l'impostazione UR/s in modo specifico per questa query.
+
+### <a name="why-do-my-gremlin-driver-connections-get-dropped-eventually"></a>Perché le connessioni del driver Gremlin vengono interrotte?
+
+Una connessione Gremlin viene effettuata tramite una connessione WebSocket. Benché le connessioni WebSocket non abbiano una durata specifica, l'API Gremlin di Azure Cosmos DB interromperà le connessioni inattive dopo 30 minuti di inattività. 
+
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Perché non è possibile usare le chiamate API Fluent nei driver Gremlin nativi?
+
+Le chiamate API Fluent non sono ancora supportate dall'API Gremlin di Azure Cosmos DB. Le chiamate API Fluent richiedono una funzionalità di formattazione interna denominata supporto per bytecode che non è attualmente supportata dall'API Gremlin di Azure Cosmos DB. A causa dello stesso motivo, non è attualmente supportato il driver Gremlin-JavaScript più recente. 
+
+### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>In che modo è possibile valutare l'efficienza delle query di Gremlin?
+
+Il passaggio di anteprima **executionProfile()** può essere usato per fornire un'analisi del piano di esecuzione della query. Questo passaggio deve essere aggiunto alla fine di qualsiasi query di Gremlin, come illustrato dall'esempio seguente:
+
+**Esempio di query**
+
+```
+g.V('mary').out('knows').executionProfile()
+```
+
+**Output di esempio**
+
+```json
+[
+  {
+    "gremlin": "g.V('mary').out('knows').executionProfile()",
+    "totalTime": 8,
+    "metrics": [
+      {
+        "name": "GetVertices",
+        "time": 3,
+        "annotations": {
+          "percentTime": 37.5
+        },
+        "counts": {
+          "resultCount": 1
+        }
+      },
+      {
+        "name": "GetEdges",
+        "time": 5,
+        "annotations": {
+          "percentTime": 62.5
+        },
+        "counts": {
+          "resultCount": 0
+        },
+        "storeOps": [
+          {
+            "partitionsAccessed": 1,
+            "count": 0,
+            "size": 0,
+            "time": 0.6
+          }
+        ]
+      },
+      {
+        "name": "GetNeighborVertices",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      },
+      {
+        "name": "ProjectOperator",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      }
+    ]
+  }
+]
+```
+
+L'output del profilo precedente mostra il tempo necessario per ottenere gli oggetti vertice e arco, oltre alle dimensioni del set di dati in uso. Queste informazioni sono correlate alle misure dei costi standard per le query di Azure Cosmos DB.
 
 ## <a id="cassandra"></a> API Cassandra
 

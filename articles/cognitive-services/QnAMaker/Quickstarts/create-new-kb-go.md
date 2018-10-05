@@ -1,26 +1,27 @@
 ---
-title: Guida introduttiva alla creazione di una nuova knowledge base in Go per l'API QnA Maker Microsoft (v4) - Servizi cognitivi di Azure | Microsoft Docs
-description: Creare una knowledge base in Go in cui includere le domande frequenti o i manuali del prodotto, in modo da poter iniziare a usare QnA Maker.
+title: 'Guida introduttiva: API Go - creare knowledge base - QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Questa guida introduttiva illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: fe763dada6d40822148423443be12df7c1626687
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 17d4a03966b1d6e3f278d5a507e46f9f6fcafa05
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "43770785"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034060"
 ---
 # <a name="create-a-new-knowledge-base-in-go"></a>Creare una nuova knowledge base in Go
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire il codice è necessario [Go 1.10.1](https://golang.org/dl/).
+Per eseguire questo codice è necessario [Go 1.10.1](https://golang.org/dl/).
 
 È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API QnA Maker Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

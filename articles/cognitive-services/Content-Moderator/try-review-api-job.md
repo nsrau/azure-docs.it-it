@@ -1,20 +1,21 @@
 ---
-title: Eseguire processi di moderazione del contenuto in Azure Content Moderator | Microsoft Docs
+title: Eseguire processi di moderazione del contenuto con la console per le API - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Informazioni su come eseguire processi di regolazione del contenuto nella console per le API.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6f741be1001ae70d5fdbf6f374204aaad1601abe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373017"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227110"
 ---
 # <a name="start-a-moderation-job-from-the-api-console"></a>Avviare un processo di moderazione dalla console per le API
 
@@ -24,7 +25,7 @@ Il processo di moderazione analizza il contenuto usando l'API Moderazione immagi
 
 Dopo che un moderatore umano ha esaminato i tag assegnati automaticamente e i dati di stima e ha inviato una decisione finale relativa alla moderazione, l'API di revisione invia tutte le informazioni all'endpoint API.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Passare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). Se non è già stato fatto, iscriversi. Nello strumento di revisione [definire un flusso di lavoro personalizzato](Review-Tool-User-Guide/Workflows.md) da usare in questa operazione `Job`.
 

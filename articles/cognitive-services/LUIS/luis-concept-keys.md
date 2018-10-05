@@ -1,20 +1,21 @@
 ---
-title: Informazioni sulle chiavi LUIS - Azure | Microsoft Docs
-description: Usare le chiavi LUIS (Language Understanding) per creare l'app ed eseguire query nell'endpoint.
+title: Comprendere le chiavi di LUIS
+titleSuffix: Azure Cognitive Services
+description: "LUIS usa due chiavi: creazione ed endpoint. La chiave di creazione viene creata automaticamente quando si crea l'account LUIS. Quando si è pronti a pubblicare l'app LUIS, è necessario creare la chiave endpoint, assegnarla all'app LUIS e usarla con la query endpoint."
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225177"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034927"
 ---
 # <a name="keys-in-luis"></a>Chiavi in LUIS
 LUIS usa due chiavi: [creazione](#programmatic-key) ed [endpoint](#endpoint-key). La chiave di creazione viene creata automaticamente quando si crea l'account LUIS. Quando si è pronti a pubblicare l'app LUIS, è necessario [creare la chiave endpoint](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [assegnarla](luis-how-to-manage-keys.md#assign-endpoint-key) all'app LUIS e [usarla con la query endpoint](#use-endpoint-key-in-query). 
@@ -35,7 +36,7 @@ Per trovare la chiave di creazione, accedere a [LUIS](luis-reference-regions.md#
 
 ![chiave di creazione](./media/luis-concept-keys/programatic-key.png)
 
-Per eseguire **query endpoint di produzione**, creare una [sottoscrizione LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
+Per eseguire **query endpoint di produzione**, creare la [sottoscrizione LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
 
 > [!CAUTION]
 > Per praticità, molti degli esempi usano la chiave di creazione poiché fornisce alcune chiamate endpoint nella relativa [quota](luis-boundaries.md#key-limits).  
@@ -43,7 +44,7 @@ Per eseguire **query endpoint di produzione**, creare una [sottoscrizione LUIS](
 ## <a name="endpoint-key"></a>Chiave endpoint
  Quando si necessita di **query endpoint di produzione**, creare una [chiave LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nel portale di Azure. Memorizzare il nome usato per creare la chiave perché sarà necessario per aggiungere la chiave all'app.
 
-Al termine del processo di sottoscrizione LUIS, [aggiungere la chiave](luis-how-to-manage-keys.md#assign-endpoint-key) all'app nella pagina **Publish** (Pubblica). 
+Al termine del processo di sottoscrizione LUIS, [assegnare la chiave](luis-how-to-manage-keys.md#assign-endpoint-key) all'app. 
 
 La chiave endpoint consente una quota di accessi endpoint in base al piano di utilizzo specificato durante la creazione della chiave. Per informazioni sui prezzi, vedere [Prezzi dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h).
 
@@ -73,6 +74,10 @@ Le regioni di pubblicazione sono diverse dalle regioni di creazione. Assicurarsi
 
 ## <a name="key-limit-errors"></a>Errori relativi ai limiti delle chiavi
 Se si supera la quota al secondo, viene visualizzato un errore HTTP 429. Se si supera la quota al mese, viene visualizzato un errore HTTP 403. Correggere questi errori ottenendo una chiave [endpoint](#endpoint-key) LUIS, [assegnando](luis-how-to-manage-keys.md#assign-endpoint-key) la chiave all'app nella pagina **Publish** (Pubblica) del sito Web [LUIS](luis-reference-regions.md#luis-website).
+
+## <a name="automating-assignment-of-the-endpoint-key"></a>Assegnazione di automazione della chiave endpoint
+
+Per assegnare la chiave endpoint a un'app LUIS, è necessario usare il sito Web LUIS per le corrette [aree](luis-reference-regions.md) di creazione e pubblicazione. Non esiste **alcun** metodo automatizzato per eseguire questa operazione, indipendentemente dal meccanismo, ad esempio mediante lo script della gestione di risorse di Azure, interfaccia della riga di comando di Azure, di SDK a livello di codice o tramite API.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

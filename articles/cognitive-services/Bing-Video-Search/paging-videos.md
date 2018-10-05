@@ -1,21 +1,21 @@
 ---
-title: Come sfogliare i video disponibili | Microsoft Docs
+title: Come sfogliare i video disponibili - Ricerca video Bing
+titlesuffix: Azure Cognitive Services
 description: Illustra come sfogliare tutti i video che possono essere restituiti da Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 910A485F-BCF3-42B9-958D-DD48BDEDA965
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 00476825eb3fc1008c3f2172b591d8b7a2f35884
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372804"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225566"
 ---
 # <a name="paging-videos"></a>Sfogliare i video
 
