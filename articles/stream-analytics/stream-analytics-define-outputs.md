@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e9c09d31af1b6ea214ae2d0fc6fd7399c07fd8c0
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701015"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434546"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i diversi tipi di output disponibili per un processo di Analisi di flusso di Azure. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire altre analisi di business e il data warehousing dei dati. 
@@ -63,7 +63,7 @@ Per rinnovare l'autorizzazione, **arrestare** il processo, passare all'output di
 ![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>Database SQL
-[database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso di Azure eseguono la scrittura in una tabella esistente di un database SQL di Azure.  Lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. Un [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) può anche essere specificato come output tramite l'opzione di output del database SQL. La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
+[database SQL di Azure](https://azure.microsoft.com/services/sql-database/) può essere usato come output per i dati di natura relazionale o per applicazioni che dipendono dal contesto ospitato in un database relazionale. I processi di Analisi di flusso di Azure eseguono la scrittura in una tabella esistente di un database SQL di Azure.  Lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi generati dal processo. Un [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) può anche essere specificato come output tramite l'opzione di output del database SQL. Per informazioni sui modi che consentono di migliorare la velocità effettiva di scrittura, vedere l'articolo [Analisi di flusso con database SQL di Azure come output](stream-analytics-sql-output-perf.md). La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un database SQL di output.
 
 | Nome proprietà | DESCRIZIONE |
 | --- | --- |
@@ -71,7 +71,7 @@ Per rinnovare l'autorizzazione, **arrestare** il processo, passare all'output di
 | Database | Nome del database a cui si sta inviando l'output. |
 | Nome server | Nome server del database SQL di Azure. |
 | Username | Nome utente che ha accesso in scrittura al database. |
-| Password | Password per connettersi al database. |
+| Password | Password per connettersi al database |
 | Tabella | Nome della tabella in cui viene scritto l'output. Il nome della tabella fa distinzione tra maiuscole e minuscole e lo schema della tabella deve corrispondere esattamente al numero di campi e ai relativi tipi generati dall'output del processo. |
 
 > [!NOTE]
@@ -297,9 +297,9 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 | Tipo di output | Supporto del partizionamento | Chiave di partizione  | Numero di writer di output | 
 | --- | --- | --- | --- |
 | Archivio Azure Data Lake | Yes | Use i token {date} e {time} nello schema prefisso percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
-| database SQL di Azure | No  | Nessuna | Non applicabile | 
+| database SQL di Azure | Yes | Basato sulla clausola PARTITION BY nella query | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
 | Archivio BLOB di Azure | Yes | Usare i token {date} e {time} dai campi dell'evento nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. Nell'ambito dell'[anteprima](https://aka.ms/ASAPreview), l'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname} o {datetime:\<specifier>}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
-| Hub eventi di Azure | Yes | Yes | Varia a seconda dell'allineamento della partizione.</br> Quando la chiave di partizione di output di Hub eventi è ugualmente allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni di Hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) di EventHub per inviare eventi alla partizione specifica. </br> Quando la chiave di partizione di output di Hub eventi non è allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passo precedente. Ogni writer usa la [classe SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) di EventHubClient per inviare eventi a tutte le partizioni di output. |
+| Hub eventi di Azure | Yes | Yes | Varia a seconda dell'allineamento della partizione.</br> Quando la chiave di partizione di output di Hub eventi è ugualmente allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni di Hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) di EventHub per inviare eventi alla partizione specifica. </br> Quando la chiave di partizione di output di Hub eventi non è allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passo precedente. Ogni writer usa la [classe SendBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) di EventHubClient per inviare eventi a tutte le partizioni di output. |
 | Power BI | No  | Nessuna | Non applicabile | 
 | Archiviazione tabelle di Azure | Yes | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
 | Argomento del bus di servizio di Azure | Yes | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |

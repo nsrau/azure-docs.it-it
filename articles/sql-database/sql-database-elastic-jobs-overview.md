@@ -1,23 +1,30 @@
 ---
 title: Gestione dei database cloud con scalabilità orizzontale | Documentazione Microsoft
 description: Usare il servizio processo di database elastico per eseguire uno script in un gruppo di database.
-metakeywords: azure sql database elastic databases
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 649a76fad8f54339a6b1e429b3966945410573f7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646086"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166793"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gestione dei database cloud con scalabilità orizzontale
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+**Processi di database elastico** è un servizio cloud di Azure ospitato dal cliente che consente l'esecuzione di attività amministrative ad hoc e pianificate, dette **processi**. Con i processi è possibile gestire facilmente e in modo affidabile gruppi estesi di database SQL di Azure tramite l'esecuzione di script Transact-SQL per eseguire operazioni amministrative. 
+
 Per la gestione dei database cloud con scalabilità orizzontale, la funzionalità **Processi di database elastico** (in anteprima) consente di eseguire uno script Transact-SQL (T-SQL) in modo affidabile, ad esempio:
 
 * una raccolta personalizzata di database (illustrata di seguito)
@@ -30,7 +37,7 @@ Per la gestione dei database cloud con scalabilità orizzontale, la funzionalit�
 * [Creare e gestire processi tramite PowerShell](sql-database-elastic-jobs-powershell.md).
 * [Creare e gestire database SQL di Azure con scalabilità orizzontale](sql-database-elastic-jobs-getting-started.md)
 
-**Processi database elastici** è attualmente un servizio cloud di Azure ospitato dal cliente che consente l'esecuzione di attività amministrative ad hoc e pianificate, dette **processi**. Con i processi è possibile gestire facilmente e in modo affidabile gruppi estesi di database SQL di Azure tramite l'esecuzione di script Transact-SQL per eseguire operazioni amministrative. 
+
 
 ![Servizio processo di database elastico][1]
 
@@ -45,7 +52,7 @@ Aggregare i dati di una raccolta di database SQL di Azure in una singola tabella
 
 **Ridurre il sovraccarico**
 
-In genere, è necessario connettersi a ciascun database in modo indipendente per eseguire istruzioni T-SQL o effettuare altre attività amministrative. Un processo gestisce le attività di accesso a ogni database nel gruppo di destinazione. È anche necessario definire, gestire e mantenere gli script T-SQL da eseguire su un gruppo di database SQL di Azure.
+In genere, è necessario connettersi a ciascun database in modo indipendente per eseguire istruzioni T-SQL o effettuare altre attività amministrative. Un processo gestisce le attività di accesso a ogni database nel gruppo di destinazione. È anche necessario definire, gestire e mantenere gli script Transact-SQL da eseguire su un gruppo di database SQL di Azure.
 
 **Accounting**
 

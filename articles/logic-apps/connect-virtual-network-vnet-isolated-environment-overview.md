@@ -1,5 +1,5 @@
 ---
-title: Accesso alla rete virtuale di Azure da App per la logica di Azure
+title: Accedere alle reti virtuali di Azure da App per la logica di Azure
 description: Questa panoramica illustra come app per la logica isolate possano connettersi a reti virtuali di Azure da ambienti del servizio di integrazione che usano risorse private e dedicate
 services: logic-apps
 ms.service: logic-apps
@@ -9,23 +9,23 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b012f1ac9c5f08a7e74871ca215299904f6b1deb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9546b8ca33ef7da2d570b547446858e2a4099234
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958646"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393146"
 ---
-# <a name="access-to-azure-virtual-network-vnet-resources-from-isolated-azure-logic-apps"></a>Accesso alle risorse della rete virtuale di Azure da app per la logica di Azure isolate
+# <a name="access-to-azure-virtual-network-resources-from-isolated-azure-logic-apps"></a>Accedere alle risorse della rete virtuale di Azure da app per la logica di Azure isolate
 
 > [!NOTE]
 > Questa funzionalità è in *anteprima privata*. Per richiedere l'accesso, [creare la richiesta di iscrizione qui](https://aka.ms/iseprivatepreview).
 
-A volte le app per la logica e gli account di integrazione devono accedere a risorse protette, ad esempio macchine virtuali e altri sistemi o servizi in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Per fornire l'accesso, è possibile [creare un *ambiente del servizio di integrazione*](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) (ISE, Integration Service Environment) in cui creare le app per la logica e gli account di integrazione. 
+A volte, le app per la logica e gli account di integrazione devono accedere a risorse protette, ad esempio macchine virtuali e altri sistemi o servizi in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Per fornire l'accesso, è possibile [creare un *ambiente del servizio di integrazione*](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) (ISE, Integration Service Environment) in cui creare le app per la logica e gli account di integrazione. 
 
 ![Selezionare l'ambiente del servizio di integrazione](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Con la creazione di un ambiente del servizio di integrazione, un'istanza di App per la logica privata e isolata viene distribuita nella rete virtuale. L'istanza privata usa risorse dedicate, ad esempio lo spazio di archiviazione, e viene eseguita separatamente dal servizio App per la logica pubblico "globale". Questa separazione consente anche di ridurre il potenziale impatto degli altri tenant di Azure, che [possono influire negativamente](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors) sulle prestazioni delle app. 
+Con la creazione di un ambiente del servizio di integrazione, un'istanza di App per la logica privata e isolata viene distribuita nella rete virtuale di Azure. L'istanza privata usa risorse dedicate, ad esempio lo spazio di archiviazione, e viene eseguita separatamente dal servizio App per la logica pubblico "globale". Questa separazione consente anche di ridurre il potenziale impatto degli altri tenant di Azure, che [possono influire negativamente](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors) sulle prestazioni delle app. 
 
 Questa panoramica descrive come la creazione di un ambiente del servizio di integrazione consenta alle app per la logica e agli account di integrazione di accedere direttamente alle risorse nella rete virtuale di Azure e confronta le differenze tra un ambiente del servizio di integrazione e il servizio App per la logica globale.
 
@@ -62,7 +62,7 @@ La differenza tra connettori dell'ambiente del servizio di integrazione e quelli
 
 <a name="vnet-access"></a>
 
-## <a name="permissions-for-vnet-access"></a>Autorizzazioni per l'accesso alla rete virtuale
+## <a name="permissions-for-virtual-network-access"></a>Autorizzazioni per l'accesso alla rete virtuale
 
 Quando si crea un ambiente del servizio di integrazione in Azure, è possibile selezionare una rete virtuale di Azure come *peer* per l'ambiente. È tuttavia possibile creare *solo* questa relazione, o *peering*, quando si crea l'ambiente del servizio di integrazione. Questa relazione consente all'ambiente del servizio di integrazione di accedere alle risorse nella rete virtuale. In questo modo le app per la logica in tale ambiente del servizio di integrazione possono connettersi direttamente alle risorse nella rete virtuale. Le app per la logica possono accedere direttamente ai sistemi locali in una rete virtuale collegata a un ambiente del servizio di integrazione usando uno di questi elementi: 
 
@@ -74,7 +74,7 @@ Quando si crea un ambiente del servizio di integrazione in Azure, è possibile s
 
 È possibile connettersi ai sistemi locali non inclusi in una rete virtuale o senza connettori ISE dopo aver [configurato e usato il gateway dati locale](../logic-apps/logic-apps-gateway-install.md).
 
-Prima di poter selezionare una rete virtuale di Azure come peer per l'ambiente, è necessario configurare le autorizzazioni del controllo degli accessi in base al ruolo nella rete virtuale di Azure per il servizio App per la logica di Azure. Per eseguire questa attività, è necessario assegnare i ruoli **Collaboratore Rete** e **Collaboratore Rete classica** al servizio App per la logica di Azure. Per altre informazioni sulle autorizzazioni dei ruoli necessarie per il peering, vedere la [sezione Autorizzazioni in Creare, modificare o eliminare un peering reti virtuali](../virtual-network/virtual-network-manage-peering.md#permissions).
+Prima di poter selezionare una rete virtuale di Azure come peer per l'ambiente, è necessario configurare le autorizzazioni del controllo degli accessi in base al ruolo nella rete virtuale per il servizio App per la logica di Azure. Per eseguire questa attività, è necessario assegnare i ruoli **Collaboratore Rete** e **Collaboratore Rete classica** al servizio App per la logica di Azure. Per altre informazioni sulle autorizzazioni dei ruoli necessarie per il peering, vedere la [sezione Autorizzazioni in Creare, modificare o eliminare un peering reti virtuali](../virtual-network/virtual-network-manage-peering.md#permissions).
 
 <a name="create-integration-account-environment"></a>
 
@@ -89,6 +89,6 @@ Prima di poter selezionare una rete virtuale di Azure come peer per l'ambiente, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [connettersi alle reti virtuali dalle app per la logica isolate](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* Informazioni su come [connettersi alle reti virtuali di Azure da app per la logica isolate](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 * Altre informazioni su [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md)
 * Informazioni sull'[integrazione della rete virtuale per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md)

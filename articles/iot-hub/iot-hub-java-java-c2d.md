@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 853754947b8d89af15a8c773a765f33523721e12
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: e4d0df28449a2e50e72b192f0118a8eae3325d15
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187883"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220204"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -161,7 +161,7 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
     ```
 
     > [!NOTE]
-    > Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling](Gestione degli errori temporanei).
+    > Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione, ad esempio un backoff esponenziale, come indicato nell'articolo [Transient Fault Handling](/azure/architecture/best-practices/transient-faults) (Gestione degli errori temporanei).
 
 
 9. Per compilare l'app **simulated-device** con Maven, eseguire questo comando al prompt dei comandi nella cartella simulated-device:
@@ -209,7 +209,6 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 [Centro per sviluppatori di IoT di Azure]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portale di Azure]: https://portal.azure.com
 [Acceleratore di soluzioni di monitoraggio remoto di Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

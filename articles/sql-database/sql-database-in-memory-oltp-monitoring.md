@@ -2,24 +2,27 @@
 title: Monitorare l'archiviazione in memoria XTP | Microsoft Docs
 description: Stimare e monitorare l'uso e la capacità dell'archiviazione in memoria XTP e risolvere l'errore di capacità 41823
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 2a9c01eb2c237a7c79464b930c9258f791d8f3ce
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308680"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161625"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitorare l'archiviazione OLTP in memoria
 Quando si usa [OLTP in memoria](sql-database-in-memory.md), i dati nelle tabelle ottimizzate per la memoria e le variabili di tabella si trovano nell'archiviazione OLTP in memoria. Ogni livello di servizio Premium e Business Critical ha dimensioni massime di archiviazione OLTP in memoria. Vedere [Limiti delle risorse basate su DTU - database singolo](sql-database-dtu-resource-limits-single-databases.md), [Limiti delle risorse basate su DTU - pool elastici](sql-database-dtu-resource-limits-elastic-pools.md),[Limiti delle risorse basate su vCore - database singoli](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse basate su vCore - pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con errore 41823 per i database autonomi ed errore 41840 per i pool elastici. A questo punto è necessario eliminare dati per recuperare memoria oppure aggiornare il livello di prestazioni del database.
+Dopo il superamento di questo limite, è possibile che le operazioni di inserimento e aggiornamento abbiano esito negativo con un errore 41823 per i database singoli e con un errore 41840 per i pool elastici. A questo punto è necessario eliminare dati per recuperare memoria oppure aggiornare il livello di servizio o la dimensione di calcolo del database.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinare se i dati rientrano nel limite di archiviazione OLTP in memoria
 Determinare i limiti di archiviazione dei diversi livelli di servizio. Vedere [Limiti delle risorse basate su DTU - database singolo](sql-database-dtu-resource-limits-single-databases.md), [Limiti delle risorse basate su DTU - pool elastici](sql-database-dtu-resource-limits-elastic-pools.md),[Limiti delle risorse basate su vCore - database singoli](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse basate su vCore - pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).
@@ -29,7 +32,7 @@ La stima dei requisiti di memoria per una tabella ottimizzata per la memoria in 
 Le righe di tabella, le righe di variabile di tabella e gli indici vengono inclusi nel calcolo delle dimensioni massime dei dati utente. ALTER TABLE, inoltre, necessita di spazio sufficiente per creare una nuova versione dell'intera tabella e dei relativi indici.
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
-È possibile monitorare l'uso dell'archiviazione in memoria come percentuale del limite di archiviazione per il livello di prestazioni nel [portale di Azure](https://portal.azure.com/): 
+È possibile monitorare l'uso dell'archiviazione in memoria sotto forma di percentuale del limite di archiviazione per la dimensione di calcolo nel [portale di Azure](https://portal.azure.com/): 
 
 1. Nel pannello Database individuare la casella Utilizzo risorse e fare clic su Modifica.
 2. Selezionare la metrica `In-Memory OLTP Storage percentage`.
@@ -41,7 +44,7 @@ In alternativa, usare la query seguente per visualizzare l'utilizzo dell'archivi
 
 
 ## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Correggere situazioni di archiviazione OLTP non in memoria - Errori 41823 e 41840
-Se si raggiunge il limite di archiviazione OLTP in memoria nel database, le operazioni INSERT, UPDATE, ALTER e CREATE hanno esito negativo con messaggi di errore 41823 (per i database autonomi) o 41840 (per i pool elastici). Entrambi gli errori comportano l'interruzione della transazione attiva.
+Se si raggiunge il limite di archiviazione OLTP in memoria nel database, le operazioni INSERT, UPDATE, ALTER e CREATE hanno esito negativo con un messaggio di errore 41823 (per i database singoli) o con un errore 41840 (per i pool elastici). Entrambi gli errori comportano l'interruzione della transazione attiva.
 
 I messaggi di errore 41823 e 41840 indicano che le tabelle e le variabili di tabella del database o del pool ottimizzate per la memoria hanno raggiunto la dimensione massima di archiviazione OLTP in memoria.
 
